@@ -5,11 +5,12 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{js,jsx,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,md}\"",
+    "prettier": "prettier -c ."
   },
   "devDependencies": {
     "prettier": "^3.1.0",
-    "turbo": "^1.10.16"
+    "turbo": "^1.10.16" 
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
