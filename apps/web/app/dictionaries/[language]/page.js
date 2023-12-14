@@ -10,7 +10,17 @@ export default function Page({ params }) {
   return (
     <main>
       {params.language}
-      {JSON.stringify(dictionary)}
+      <br />
+      {dictionary.words.map((word) => {
+        return (
+          <>
+            <Link href={`/dictionaries/kuku_yalanji/words/${word.word}`}>
+              {word.word}
+            </Link>
+            <br />
+          </>
+        );
+      })}
     </main>
   );
 }
