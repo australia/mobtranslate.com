@@ -53,7 +53,7 @@ const Usage = styled.li`
 
 const UsageLabel = styled.span`
   font-weight: bold;
-  color: #555;
+  color: #333;
 `;
 
 export default function Page({ params }) {
