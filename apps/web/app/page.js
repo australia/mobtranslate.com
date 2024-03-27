@@ -1,8 +1,3 @@
-
 export default function Page() {
-  return (
-    <main>
-    asdasd
-    </main>
-  );
+  return <main>mob translate</main>;
 }
