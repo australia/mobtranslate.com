@@ -1,5 +1,4 @@
 import yaml from 'js-yaml';
-import fs from 'fs';
 import kuku_yalanji from './kuku_yalanji/dictionary';
 
 const dictionaries = {
