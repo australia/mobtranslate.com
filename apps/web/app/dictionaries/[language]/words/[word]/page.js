@@ -49,11 +49,19 @@ const Usages = styled.ol`
 
 const Usage = styled.li`
   font-size: 18px;
+  line-height: 26px;
 `;
 
 const UsageLabel = styled.span`
-  font-weight: bold;
-  color: #333;
+  font-weight: 400;
+  color: #000;
+  width: 120px;
+  display: inline-block;
+`;
+
+const Divider = styled.div`
+  border-bottom: 2px solid #333;
+  width: 500px;
 `;
 
 export default function Page({ params }) {
@@ -70,7 +78,7 @@ export default function Page({ params }) {
           <Definition>{definition}</Definition>
         ))}
       </Definitions>
-      <hr />
+      <Divider />
       <Usages>
         {word.usages?.map((usage) => {
           return (
