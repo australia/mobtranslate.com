@@ -7,6 +7,14 @@ import styled from 'styled-components';
 
 // @todo - pre-compile dictionaries to yaml
 
+const Dictionary = styled.div`
+  font-family: 'Raleway', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 18px;
+  padding: 40px;
+`;
+
 const WordContainer = styled.div`
   padding: 40px;
 `;
@@ -69,84 +77,89 @@ export default function Page({ params }) {
 
   const word = dictionary.words.find((word) => word.word === params.word);
 
+  // need to maake an array that starts with the first letter of the word and then adds the rest of the word
   return (
-    <WordContainer>
-      <Word>{word.word}</Word>
-      <WordType>{word.type}</WordType>
-      <Definitions>
-        {word.definitions.map((definition) => (
-          <Definition>{definition}</Definition>
-        ))}
-      </Definitions>
-      <Divider />
-      <Usages>
-        {word.usages?.map((usage) => {
-          return (
-            <Usage>
-              <div>
-                <UsageLabel>english:</UsageLabel> {usage.english}
-              </div>
-              <div>
-                <UsageLabel>translation:</UsageLabel> {usage.translation}
-              </div>
-            </Usage>
-          );
-        })}
-      </Usages>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      definition
-      <ul>
-        <li>word: {word.word}</li>
-        <li>type: {word.type}</li>
-        <li>
-          definitions:{' '}
+    <Dictionary>
+      <WordContainer>
+        <Word>{word.word}</Word>
+        <WordType>{word.type}</WordType>
+        <Definitions>
+          {word.definitions.map((definition) => (
+            <Definition>{definition}</Definition>
+          ))}
+        </Definitions>
+        {word.usages?.length === 0 ?? <Divider />}
+        <Usages>
+          {word.usages?.map((usage) => {
+            return (
+              <Usage>
+                <div>
+                  <UsageLabel>english:</UsageLabel> {usage.english}
+                </div>
+                <div>
+                  <UsageLabel>translation:</UsageLabel> {usage.translation}
+                </div>
+              </Usage>
+            );
+          })}
+        </Usages>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <pre>
+          definition
           <ul>
+            <li>word: {word.word}</li>
+            <li>type: {word.type}</li>
             <li>
-              {word.definitions.map((definition) => {
-                return <span>{definition}</span>;
-              })}
+              definitions:{' '}
+              <ul>
+                <li>
+                  {word.definitions.map((definition) => {
+                    return <span>{definition}</span>;
+                  })}
+                </li>
+              </ul>
+            </li>
+            <li>
+              translations:{' '}
+              <ul>
+                <li>
+                  {word.translations.map((translation) => {
+                    return <span>{translation}</span>;
+                  })}
+                </li>
+              </ul>
+            </li>
+            <li>
+              usages:{' '}
+              <ul>
+                <li>
+                  {word.usages?.map((usage) => {
+                    return (
+                      <>
+                        <div>english: {usage.english}</div>
+                        <div>translation: {usage.translation}</div>
+                      </>
+                    );
+                  })}
+                </li>
+              </ul>
             </li>
           </ul>
-        </li>
-        <li>
-          translations:{' '}
-          <ul>
-            <li>
-              {word.translations.map((translation) => {
-                return <span>{translation}</span>;
-              })}
-            </li>
-          </ul>
-        </li>
-        <li>
-          usages:{' '}
-          <ul>
-            <li>
-              {word.usages?.map((usage) => {
-                return (
-                  <>
-                    <div>english: {usage.english}</div>
-                    <div>translation: {usage.translation}</div>
-                  </>
-                );
-              })}
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </WordContainer>
+        </pre>
+      </WordContainer>
+    </Dictionary>
   );
 }
