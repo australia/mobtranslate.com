@@ -13,6 +13,7 @@ const Dictionary = styled.div`
   font-style: normal;
   font-size: 18px;
   padding: 40px;
+  margin: 40px;
 `;
 
 const WordContainer = styled.div`
