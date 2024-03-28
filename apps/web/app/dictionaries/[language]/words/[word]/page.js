@@ -89,7 +89,8 @@ export default function Page({ params }) {
             <Definition>{definition}</Definition>
           ))}
         </Definitions>
-        {word.usages?.length === 0 ?? <Divider />}
+        {word.usages?.length !== 0 ?? <Divider />}
+        <hr />
         <Usages>
           {word.usages?.map((usage) => {
             return (
