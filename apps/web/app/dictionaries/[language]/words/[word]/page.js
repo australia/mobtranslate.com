@@ -78,7 +78,7 @@ export default function Page({ params }) {
 
   const word = dictionary.words.find((word) => word.word === params.word);
 
-  // need to maake an array that starts with the first letter of the word and then adds the rest of the word
+  // need to make an array that starts with the first letter of the word and then adds the rest of the word
   return (
     <Dictionary>
       <WordContainer>
