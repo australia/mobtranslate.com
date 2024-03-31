@@ -9,6 +9,10 @@ const WordContainer = styled.div`
   padding: 40px;
 `;
 
+const Dictionary = styled.div`
+  padding: 40px;
+`;
+
 const Word = styled.div`
   font-size: 44px;
   font-weight: 400;
@@ -80,9 +84,7 @@ export default function Page({ params }) {
   const dictionary = getDictionary(params.language);
   console.log(params);
   return (
-    <main>
-      {params.language}
-      <br />
+    <Dictionary>
       {dictionary.words.map((word) => {
         return (
           <>
@@ -118,6 +120,6 @@ export default function Page({ params }) {
           </>
         );
       })}
-    </main>
+    </Dictionary>
   );
 }
