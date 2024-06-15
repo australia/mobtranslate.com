@@ -74,6 +74,7 @@ const Divider = styled.div`
 `;
 
 export default function Page({ params }) {
+  console.log({ params });
   const dictionary = getDictionary(params.language);
 
   const word = dictionary.words.find((word) => word.word === params.word);

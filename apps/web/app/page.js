@@ -43,6 +43,8 @@ export default function Page() {
       <SubTitle>Dictionaries</SubTitle>
       <Dictionary>
         <Link href="/dictionaries/kuku_yalanji">Kuku Yalanji</Link>
+        <br />
+        <Link href="/dictionaries/migmaq">Mi'gmaq</Link>
       </Dictionary>
     </div>
   );

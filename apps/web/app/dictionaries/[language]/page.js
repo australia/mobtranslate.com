@@ -89,7 +89,9 @@ export default function Page({ params }) {
         return (
           <>
             <Word>
-              <Link href={`/dictionaries/kuku_yalanji/words/${word.word}`}>
+              <Link
+                href={`/dictionaries/${params.language}/words/${word.word}`}
+              >
                 {word.word}
               </Link>
             </Word>
