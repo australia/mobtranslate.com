@@ -126,6 +126,8 @@ export default function Page() {
           content="A community-driven project to create translation tools for Australian Aboriginal languages, making language preservation and learning accessible to all."
           key="desc"
         />
+        <script src="https://drainpipe.io/agent/client/673dc10b1adbeb2249ef0536" />
+
       </Head>
       
       <NavBar>
