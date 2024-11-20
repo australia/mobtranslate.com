@@ -4,48 +4,166 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import Head from 'next/head';
 
-const Title = styled.div`
-  font-size: 24px;
+const NavBar = styled.nav`
+  background: #2c3e50;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+`;
+
+const NavContent = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Logo = styled(Link)`
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
   font-weight: bold;
 `;
 
-const SubTitle = styled.div`
-  font-size: 18px;
+const NavLinks = styled.div`
+  display: flex;
+  gap: 2rem;
+  
+  a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: #3498db;
+    }
+  }
+`;
+
+const MainContainer = styled.main`
+  padding-top: 70px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+`;
+
+const HeroSection = styled.div`
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+`;
+
+const Title = styled.h1`
+  font-size: 3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
   font-weight: bold;
 `;
 
-const Byline = styled.div`
-  font-size: 16px;
-  font-weight: normal;
+const Byline = styled.p`
+  font-size: 1.25rem;
+  color: #34495e;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
 `;
 
-const Dictionary = styled.div`
-  font-size: 16px;
-  font-weight: normal;
+const DictionariesSection = styled.section`
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+`;
+
+const SubTitle = styled.h2`
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+`;
+
+const DictionaryGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+`;
+
+const DictionaryCard = styled(Link)`
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #2c3e50;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export default function Page() {
   return (
-    <div>
+    <>
       <Head>
-        <title>Mob Translate - Aboriginal Google Translate</title>
+        <title>Mob Translate - Aboriginal Language Translation</title>
         <meta
           name="description"
-          content="Check out iPhone 12 XR Pro and iPhone 12 Pro Max. Visit your local store and for expert advice."
+          content="A community-driven project to create translation tools for Australian Aboriginal languages, making language preservation and learning accessible to all."
           key="desc"
         />
       </Head>
-      <Title>Mob Translate</Title>
-      <Byline>
-        An opensource ecosystem to make Google Translate for indiginous
-        languages
-      </Byline>
-      <SubTitle>Dictionaries</SubTitle>
-      <Dictionary>
-        <Link href="/dictionaries/kuku_yalanji">Kuku Yalanji</Link>
-        <br />
-        <Link href="/dictionaries/migmaq">Mi'gmaq</Link>
-      </Dictionary>
-    </div>
+      
+      <NavBar>
+        <NavContent>
+          <Logo href="/">Mob Translate</Logo>
+          <NavLinks>
+            <Link href="/about">About</Link>
+            <Link href="/contribute">Contribute</Link>
+            <Link href="/dictionaries">Dictionaries</Link>
+            <Link href="/contact">Contact</Link>
+          </NavLinks>
+        </NavContent>
+      </NavBar>
+
+      <MainContainer>
+        <HeroSection>
+          <Title>Mob Translate</Title>
+          <Byline>
+            A fully open source community orientated endeavour to make "Google Translate" 
+            for as many Australian Aboriginal languages as possible. Join us in preserving 
+            and promoting Indigenous languages through technology.
+          </Byline>
+        </HeroSection>
+
+        <DictionariesSection>
+          <SubTitle>Available Dictionaries</SubTitle>
+          <DictionaryGrid>
+            <DictionaryCard href="/dictionaries/kuku_yalanji">
+              <h3>Kuku Yalanji</h3>
+              <p>Explore the language of the Kuku Yalanji people</p>
+            </DictionaryCard>
+            <DictionaryCard href="/dictionaries/migmaq">
+              <h3>Mi'gmaq</h3>
+              <p>Discover the Mi'gmaq language and culture</p>
+            </DictionaryCard>
+          </DictionaryGrid>
+        </DictionariesSection>
+      </MainContainer>
+    </>
   );
 }
