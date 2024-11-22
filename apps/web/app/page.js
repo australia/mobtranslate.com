@@ -3,53 +3,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import Head from 'next/head';
-
-const NavBar = styled.nav`
-  background: #2c3e50;
-  padding: 1rem 2rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-`;
-
-const NavContent = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Logo = styled(Link)`
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-`;
-
-const NavLinks = styled.div`
-  display: flex;
-  gap: 2rem;
-  
-  a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    
-    &:hover {
-      color: #3498db;
-    }
-  }
-`;
-
-const MainContainer = styled.main`
-  padding-top: 70px;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-`;
+import SharedLayout from './components/SharedLayout';
 
 const HeroSection = styled.div`
   text-align: center;
@@ -118,7 +72,7 @@ const DictionaryCard = styled(Link)`
 
 export default function Page() {
   return (
-    <>
+    <SharedLayout>
       <Head>
         <title>Mob Translate - Aboriginal Language Translation</title>
         <meta
@@ -127,45 +81,29 @@ export default function Page() {
           key="desc"
         />
         <script src="https://drainpipe.io/agent/client/673dc10b1adbeb2249ef0536" />
-
       </Head>
-      
-      <NavBar>
-        <NavContent>
-          <Logo href="/">Mob Translate</Logo>
-          <NavLinks>
-            <Link href="/about">About</Link>
-            <Link href="/contribute">Contribute</Link>
-            <Link href="/dictionaries">Dictionaries</Link>
-            <Link href="/contact">Contact</Link>
-          </NavLinks>
-        </NavContent>
-      </NavBar>
+      <HeroSection>
+        <Title>Mob Translate</Title>
+        <Byline>
+          A fully open source community orientated endeavour to make "Google Translate" 
+          for as many Australian Aboriginal languages as possible. Join us in preserving 
+          and promoting Indigenous languages through technology.
+        </Byline>
+      </HeroSection>
 
-      <MainContainer>
-        <HeroSection>
-          <Title>Mob Translate</Title>
-          <Byline>
-            A fully open source community orientated endeavour to make "Google Translate" 
-            for as many Australian Aboriginal languages as possible. Join us in preserving 
-            and promoting Indigenous languages through technology.
-          </Byline>
-        </HeroSection>
-
-        <DictionariesSection>
-          <SubTitle>Available Dictionaries</SubTitle>
-          <DictionaryGrid>
-            <DictionaryCard href="/dictionaries/kuku_yalanji">
-              <h3>Kuku Yalanji</h3>
-              <p>Explore the language of the Kuku Yalanji people</p>
-            </DictionaryCard>
-            <DictionaryCard href="/dictionaries/migmaq">
-              <h3>Mi'gmaq</h3>
-              <p>Discover the Mi'gmaq language and culture</p>
-            </DictionaryCard>
-          </DictionaryGrid>
-        </DictionariesSection>
-      </MainContainer>
-    </>
+      <DictionariesSection>
+        <SubTitle>Available Dictionaries</SubTitle>
+        <DictionaryGrid>
+          <DictionaryCard href="/dictionaries/kuku_yalanji">
+            <h3>Kuku Yalanji</h3>
+            <p>Explore the language of the Kuku Yalanji people</p>
+          </DictionaryCard>
+          <DictionaryCard href="/dictionaries/migmaq">
+            <h3>Mi'gmaq</h3>
+            <p>Discover the Mi'gmaq language and culture</p>
+          </DictionaryCard>
+        </DictionaryGrid>
+      </DictionariesSection>
+    </SharedLayout>
   );
 }

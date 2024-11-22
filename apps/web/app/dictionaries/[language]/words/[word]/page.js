@@ -1,168 +1,138 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import getDictionary from '../../../../../../../packages/dictionaries';
 import styled from 'styled-components';
-
-// @todo - pre-compile dictionaries to yaml
-
-const Dictionary = styled.div`
-  font-family: 'Raleway', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-size: 18px;
-  padding: 40px;
-  margin: 40px;
-`;
+import SharedLayout from '../../../../components/SharedLayout';
 
 const WordContainer = styled.div`
-  padding: 40px;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 `;
 
-const Word = styled.div`
-  font-size: 44px;
+const BackLink = styled(Link)`
+  display: inline-block;
+  color: #3498db;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-family: 'Raleway', sans-serif;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const Word = styled.h1`
+  font-size: 3rem;
   font-weight: 400;
   font-family: 'Libre Bodoni', serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+  color: #2c3e50;
+  margin-bottom: 1rem;
 `;
 
 const WordType = styled.div`
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 400;
   font-family: 'Raleway', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+  color: #666;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+`;
+
+const Section = styled.div`
+  margin: 2rem 0;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-family: 'Libre Bodoni', serif;
 `;
 
 const Definitions = styled.ol`
-  font-size: 18px;
+  font-size: 1.1rem;
   font-family: 'Raleway', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  margin: 20 0;
+  margin: 1rem 0;
+  padding-left: 1.5rem;
 `;
 
 const Definition = styled.li`
-  font-size: 18px;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
 `;
 
-const Usages = styled.ol`
-  font-size: 18px;
+const UsageExample = styled.div`
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+`;
+
+const UsageLabel = styled.div`
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+`;
+
+const UsageText = styled.div`
+  color: #34495e;
+  line-height: 1.6;
   font-family: 'Raleway', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  margin: 20 0;
-`;
-
-const Usage = styled.li`
-  font-size: 18px;
-  line-height: 26px;
-`;
-
-const UsageLabel = styled.span`
-  font-weight: 400;
-  color: #000;
-  width: 120px;
-  display: inline-block;
-`;
-
-const Divider = styled.div`
-  border-bottom: 2px solid #333;
-  width: 500px;
 `;
 
 export default function Page({ params }) {
-  console.log({ params });
   const dictionary = getDictionary(params.language);
+  const word = dictionary?.words.find((w) => w.word === params.word);
 
-  const word = dictionary.words.find((word) => word.word === params.word);
+  if (!dictionary || !word) {
+    return (
+      <SharedLayout>
+        <WordContainer>
+          <BackLink href={`/dictionaries/${params.language}`}>← Back to Dictionary</BackLink>
+          <Word>Word not found</Word>
+          <WordType>Sorry, we couldn't find that word in the dictionary.</WordType>
+        </WordContainer>
+      </SharedLayout>
+    );
+  }
 
-  // need to make an array that starts with the first letter of the word and then adds the rest of the word
   return (
-    <Dictionary>
+    <SharedLayout>
       <WordContainer>
+        <BackLink href={`/dictionaries/${params.language}`}>← Back to Dictionary</BackLink>
         <Word>{word.word}</Word>
         <WordType>{word.type}</WordType>
-        <Definitions>
-          {word.definitions.map((definition) => (
-            <Definition>{definition}</Definition>
-          ))}
-        </Definitions>
-        {word.usages?.length !== 0 ?? <Divider />}
-        <hr />
-        <Usages>
-          {word.usages?.map((usage) => {
-            return (
-              <Usage>
-                <div>
-                  <UsageLabel>english:</UsageLabel> {usage.english}
-                </div>
-                <div>
-                  <UsageLabel>translation:</UsageLabel> {usage.translation}
-                </div>
-              </Usage>
-            );
-          })}
-        </Usages>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <pre>
-          definition
-          <ul>
-            <li>word: {word.word}</li>
-            <li>type: {word.type}</li>
-            <li>
-              definitions:{' '}
-              <ul>
-                <li>
-                  {word.definitions.map((definition) => {
-                    return <span>{definition}</span>;
-                  })}
-                </li>
-              </ul>
-            </li>
-            <li>
-              translations:{' '}
-              <ul>
-                <li>
-                  {word.translations.map((translation) => {
-                    return <span>{translation}</span>;
-                  })}
-                </li>
-              </ul>
-            </li>
-            <li>
-              usages:{' '}
-              <ul>
-                <li>
-                  {word.usages?.map((usage) => {
-                    return (
-                      <>
-                        <div>english: {usage.english}</div>
-                        <div>translation: {usage.translation}</div>
-                      </>
-                    );
-                  })}
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </pre>
+
+        <Section>
+          <SectionTitle>Definitions</SectionTitle>
+          <Definitions>
+            {word.definitions.map((definition, index) => (
+              <Definition key={index}>{definition}</Definition>
+            ))}
+          </Definitions>
+        </Section>
+
+        {word.usages && word.usages.length > 0 && (
+          <Section>
+            <SectionTitle>Usage Examples</SectionTitle>
+            {word.usages.map((usage, index) => (
+              <UsageExample key={index}>
+                <UsageLabel>English</UsageLabel>
+                <UsageText>{usage.english}</UsageText>
+                <UsageLabel style={{ marginTop: '1rem' }}>Translation</UsageLabel>
+                <UsageText>{usage.translation}</UsageText>
+              </UsageExample>
+            ))}
+          </Section>
+        )}
       </WordContainer>
-    </Dictionary>
+    </SharedLayout>
   );
 }

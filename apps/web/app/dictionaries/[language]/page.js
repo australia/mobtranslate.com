@@ -4,124 +4,113 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import getDictionary from '../../../../../packages/dictionaries';
 import styled from 'styled-components';
+import SharedLayout from '../../components/SharedLayout';
 
-const WordContainer = styled.div`
-  padding: 40px;
+const DictionaryContainer = styled.div`
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 `;
 
-const Dictionary = styled.div`
-  padding: 40px;
+const WordList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+`;
+
+const WordCard = styled.div`
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 `;
 
 const Word = styled.div`
-  font-size: 44px;
+  font-size: 2rem;
   font-weight: 400;
   font-family: 'Libre Bodoni', serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  text-decoration: none;
-  & a {
+  margin-bottom: 1rem;
+  
+  a {
     text-decoration: none;
-  }
-  & a:hover {
-    text-decoration: underline;
-  }
-
-  & a:visited {
-    color: #000;
-  }
-  & a:link {
-    color: #000;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: #3498db;
+      text-decoration: underline;
+    }
   }
 `;
 
 const WordType = styled.div`
-  font-size: 24px;
+  font-size: 1.2rem;
   font-weight: 400;
   font-family: 'Raleway', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+  color: #666;
+  margin-bottom: 1rem;
 `;
 
 const Definitions = styled.ol`
-  font-size: 18px;
+  font-size: 1rem;
   font-family: 'Raleway', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  margin: 20 0;
+  margin: 1rem 0;
+  padding-left: 1.5rem;
 `;
 
 const Definition = styled.li`
-  font-size: 18px;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
 `;
 
-const Usages = styled.ol`
-  font-size: 18px;
-  font-family: 'Raleway', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  margin: 20 0;
-`;
-
-const Usage = styled.li`
-  font-size: 18px;
-  line-height: 26px;
-`;
-
-const UsageLabel = styled.span`
-  font-weight: 400;
-  color: #000;
-  width: 120px;
-  display: inline-block;
-`;
-
-const Divider = styled.div`
-  border-bottom: 2px solid #333;
-  width: 500px;
+const Title = styled.h1`
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-family: 'Libre Bodoni', serif;
+  text-align: center;
 `;
 
 export default function Page({ params }) {
   const dictionary = getDictionary(params.language);
-  console.log(params);
+  
+  if (!dictionary) {
+    return (
+      <SharedLayout>
+        <DictionaryContainer>
+          <Title>Dictionary not found</Title>
+          <p>Sorry, we couldn't find that dictionary.</p>
+          <Link href="/dictionaries">Back to Dictionaries</Link>
+        </DictionaryContainer>
+      </SharedLayout>
+    );
+  }
+
   return (
-    <Dictionary>
-      {dictionary.words.map((word) => {
-        return (
-          <>
-            <Word>
-              <Link
-                href={`/dictionaries/${params.language}/words/${word.word}`}
-              >
-                {word.word}
-              </Link>
-            </Word>
-            <WordType>{word.type}</WordType>
-            {word.defintions ?? (
+    <SharedLayout>
+      <DictionaryContainer>
+        <Title>{dictionary.name} Dictionary</Title>
+        <WordList>
+          {dictionary.words.map((word) => (
+            <WordCard key={word.word}>
+              <Word>
+                <Link href={`/dictionaries/${params.language}/words/${word.word}`}>
+                  {word.word}
+                </Link>
+              </Word>
+              <WordType>{word.type}</WordType>
               <Definitions>
-                {word?.definitions?.map((definition) => (
-                  <Definition>{definition}</Definition>
+                {word.definitions?.map((definition, index) => (
+                  <Definition key={index}>{definition}</Definition>
                 ))}
               </Definitions>
-            )}
-            {word.usages?.length === 0 ?? <Divider />}
-            <Usages>
-              {word.usages?.map((usage) => {
-                return (
-                  <Usage>
-                    <div>
-                      <UsageLabel>english:</UsageLabel> {usage.english}
-                    </div>
-                    <div>
-                      <UsageLabel>translation:</UsageLabel> {usage.translation}
-                    </div>
-                  </Usage>
-                );
-              })}
-            </Usages>
-            <br />
-          </>
-        );
-      })}
-    </Dictionary>
+            </WordCard>
+          ))}
+        </WordList>
+      </DictionaryContainer>
+    </SharedLayout>
   );
 }
