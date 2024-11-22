@@ -59,7 +59,6 @@ export default function SharedLayout({ children }) {
           <NavLinks>
             <Link href="/about">About</Link>
             <Link href="https://github.com/australia/mobtranslate.com" target="_blank" rel="noopener noreferrer">Contribute</Link>
-            <Link href="/dictionaries">Dictionaries</Link>
           </NavLinks>
         </NavContent>
       </NavBar>
