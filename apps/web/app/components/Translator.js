@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import yaml from 'js-yaml';
 import OpenAI from 'openai';
+import ReactMarkdown from 'react-markdown';
 
 const TranslatorContainer = styled.div`
-  max-width: 1200px;
+  max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
   background: white;
@@ -14,25 +15,44 @@ const TranslatorContainer = styled.div`
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 `;
 
-const TranslatorGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 1rem;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
 const TextArea = styled.textarea`
   width: 100%;
-  height: 200px;
+  height: 150px;
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
   resize: vertical;
+  margin-bottom: 1rem;
+`;
+
+const TranslationOutput = styled.div`
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+
+  h3 {
+    margin-top: 0;
+    color: #495057;
+    margin-bottom: 1rem;
+  }
+
+  .translation-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #212529;
+  }
+`;
+
+const ApiKeyInput = styled.input`
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
 `;
 
 const Select = styled.select`
@@ -74,15 +94,6 @@ const LoadingSpinner = styled.div`
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-`;
-
-const ApiKeyInput = styled.input`
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
 `;
 
 const Translator = () => {
@@ -203,28 +214,25 @@ const Translator = () => {
         value={apiKey}
         onChange={handleApiKeyChange}
       />
-      <Select 
-        value={selectedLanguage}
-        onChange={(e) => setSelectedLanguage(e.target.value)}
-      >
+      <Select value={selectedLanguage} onChange={(e) => setSelectedLanguage(e.target.value)}>
         <option value="kuku_yalanji">Kuku Yalanji</option>
-        <option value="migmaq">Mi'gmaq</option>
       </Select>
-      <TranslatorGrid>
-        <TextArea
-          value={inputText}
-          onChange={handleInputChange}
-          placeholder="Enter text to translate..."
-        />
-        <TextArea
-          value={outputText}
-          readOnly
-          placeholder="Translation will appear here..."
-        />
-      </TranslatorGrid>
+      <TextArea
+        value={inputText}
+        onChange={handleInputChange}
+        placeholder="Enter text to translate..."
+      />
       <Button onClick={handleTranslate} disabled={!inputText || isLoading}>
         Translate {isLoading && <LoadingSpinner />}
       </Button>
+      {outputText && (
+        <TranslationOutput>
+          <h3>Translation</h3>
+          <div className="translation-text">
+            <ReactMarkdown>{outputText}</ReactMarkdown>
+          </div>
+        </TranslationOutput>
+      )}
     </TranslatorContainer>
   );
 };
