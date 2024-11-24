@@ -135,7 +135,7 @@ const Translator = () => {
       .filter(Boolean)
       .join('\n');
       console.log({dictionary, dictionaryContext})
-    return `Translate the following English text to ${selectedLanguage}. Here is some context from the ${selectedLanguage} dictionary:\n\n${dictionaryContext}\n\nText to translate: "${text}"\n\nPlease provide the translation, using the dictionary entries where applicable and maintaining the cultural context. If certain words don't have direct translations, use the most contextually appropriate words from the dictionary.`;
+    return `Translate the following English text to ${selectedLanguage}. Here is some context from the ${selectedLanguage} dictionary:\n\n${JSON.stringify(dictionary)}\n\nText to translate: "${text}"\n\nPlease provide the translation, using the dictionary entries where applicable and maintaining the cultural context. If certain words don't have direct translations, use the most contextually appropriate words from the dictionary.`;
   };
 
   const translateText = async (text) => {
@@ -159,7 +159,7 @@ const Translator = () => {
       const prompt = createTranslationPrompt(text, dictionary);
       
       const completion = await openai.chat.completions.create({
-        model: "gpt-4",
+        model: "gpt-4o",
         messages: [
           {
             role: "system",
