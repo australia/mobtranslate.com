@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import Head from 'next/head';
 import SharedLayout from './components/SharedLayout';
+import Translator from './components/Translator';
 
 const HeroSection = styled.div`
   text-align: center;
@@ -91,6 +92,8 @@ export default function Page() {
         </Byline>
       </HeroSection>
 
+      <Translator />
+
       <DictionariesSection>
         <SubTitle>Available Dictionaries</SubTitle>
         <DictionaryGrid>
@@ -107,4 +110,3 @@ export default function Page() {
     </SharedLayout>
   );
 }
-0
