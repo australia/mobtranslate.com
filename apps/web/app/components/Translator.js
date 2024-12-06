@@ -97,7 +97,7 @@ const LoadingSpinner = styled.div`
 `;
 
 const Translator = () => {
-  const [inputText, setInputText] = useState('i was capable of doing telepathy, then the dead sister said so');
+  const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('kuku_yalanji');
   const [dictionary, setDictionary] = useState({});
