@@ -101,7 +101,7 @@ const Translator = () => {
   const [outputText, setOutputText] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('kuku_yalanji');
   const [dictionary, setDictionary] = useState({});
-  const [apiKey, setApiKey] = useState('sk-proj-arEtxlEGdc_pbUTuG0laggJEsaevQVcTUSreq9aoMfDnYYCau0OHvF0YHsZIi5g6_cgkikaJnzT3BlbkFJW6MX522Nv4pMltg6sfZv9gxa9z2TeStVb4gCFZ9ga5gdVLbJfDGP54xbISAyoinXyTtvbCEhEA');
+  const [apiKey, setApiKey] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [openai, setOpenai] = useState(null);
 
@@ -147,8 +147,27 @@ const Translator = () => {
       .join('\n');
       console.log({dictionary, dictionaryContext});
 
-    const neoPrompt = `Translate the following English text to ${selectedLanguage}. Here is some context from the ${selectedLanguage} dictionary:\n\n${JSON.stringify(dictionary)}\n\nText to translate: "${text}"\n\nPlease provide the translation, using the dictionary entries where applicable and maintaining the cultural context. If certain words don't have direct translations, use the most contextually appropriate words from 
-    the dictionary.`;
+      const neoPrompt = `
+      You are a skilled translator specializing in ${selectedLanguage}, with a deep understanding of its cultural and linguistic nuances. Your goal is to accurately translate the provided text while preserving its meaning, tone, and cultural context.
+      
+      Context:
+      - **Language**: ${selectedLanguage}
+      - **Dictionary Reference**: ${JSON.stringify(dictionary)}
+      
+      Task:
+      Translate the following text:
+      "${text}"
+      
+      Guidelines:
+      1. Use entries from the provided dictionary wherever applicable to ensure accuracy and consistency.  
+      2. If a word or phrase lacks a direct translation, choose the most culturally and contextually appropriate alternative based on the dictionary and your expertise.  
+      3. Strive to maintain the tone, meaning, and intent of the original text.  
+      4. Where ambiguity exists, prioritize conveying the intended message rather than a literal translation.
+      
+      Output:
+      Provide the translation as a standalone text. If relevant, include brief annotations explaining significant translation choices, especially for culturally nuanced terms.
+      `;
+      
 
     const avanisShit = `
     An aboriginal woman from Darwin wrote this;
@@ -156,20 +175,20 @@ const Translator = () => {
     ancestory feeling, instinctual impulse, nothing comprehensive, just feeling and messsaging from something beyond spirituality and words. A connection that coonot be taught, only felt and leant into. Grief and growth, joy and genes. Less english and more heart. Following gods that can be touched and felt. It's a physically tangible connection to the earth, to the stories not told but still instilled and fulfilled in how me move and make choices and interact with the world. It's the past and the future. It's the way family is more than mom and dad and --brother and sister, it's human heart and the grounds heart and the heart in the air and the skin in the clay. More than god and more than human. Ingrained and inescapable. ancestory feeling, instinctual impulse, nothing comprehensive, just feeling and messsaging from something beyond spirituality and words. A connection that coonot be taught, only felt and leant into. Grief and growth, joy and genes. Less english and more heart. Following gods that can be touched and felt. It's a physically tangible connection to the earth, to the stories not told but still instilled and fulfilled in how me move and make choices and interact with the world. It's the past and the future. It's the way family is more than mom and dad and --brother and sister, it's human heart and the grounds heart and the heart in the air and the skin in the clay. More than god and more than human. Ingrained and inescapable.`;
 
     const studiousPrompt = `
-      Explain in informal steps;
-
-      1: The literal translation
-      2: Then word by word break down, be scientific but a bit woo woo
-      3: Finish with what others would want to hear
-      4: Then actually finish with what the aboriginal wants to say
-      
-      
-
-    `
-
-    const thePrompt = [neoPrompt, avanisShit, studiousPrompt].join('\n\n'); 
-  
-
+    Break down the translation process into clear, informal steps:
+    
+    1. **Literal Translation**: Start with a direct, word-for-word translation of the text.  
+    2. **Word Analysis**: For each word:
+       - Provide a detailed breakdown, including etymology and related meanings.  
+       - Explore alternative words or interpretations from other contexts or languages.  
+       - Be thorough and descriptive.  
+    3. **Cross-Language Connections**: Compare and relate the words or phrases to other languages you know, identifying similarities or differences in meaning and usage.  
+    
+    Conclude by synthesizing these steps into a cohesive and thoughtful translation.
+    `;
+    const thePrompt = [neoPrompt, avanisShit, studiousPrompt ].join('\n\n'); 
+      console.log(thePrompt);
+      return thePrompt;
   };
 
   const translateText = async (text) => {
