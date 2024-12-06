@@ -97,11 +97,11 @@ const LoadingSpinner = styled.div`
 `;
 
 const Translator = () => {
-  const [inputText, setInputText] = useState('');
+  const [inputText, setInputText] = useState('i was capable of doing telepathy, then the dead sister said so');
   const [outputText, setOutputText] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('kuku_yalanji');
   const [dictionary, setDictionary] = useState({});
-  const [apiKey, setApiKey] = useState('');
+  const [apiKey, setApiKey] = useState('sk-proj-arEtxlEGdc_pbUTuG0laggJEsaevQVcTUSreq9aoMfDnYYCau0OHvF0YHsZIi5g6_cgkikaJnzT3BlbkFJW6MX522Nv4pMltg6sfZv9gxa9z2TeStVb4gCFZ9ga5gdVLbJfDGP54xbISAyoinXyTtvbCEhEA');
   const [isLoading, setIsLoading] = useState(false);
   const [openai, setOpenai] = useState(null);
 
@@ -145,8 +145,31 @@ const Translator = () => {
       })
       .filter(Boolean)
       .join('\n');
-      console.log({dictionary, dictionaryContext})
-    return `Translate the following English text to ${selectedLanguage}. Here is some context from the ${selectedLanguage} dictionary:\n\n${JSON.stringify(dictionary)}\n\nText to translate: "${text}"\n\nPlease provide the translation, using the dictionary entries where applicable and maintaining the cultural context. If certain words don't have direct translations, use the most contextually appropriate words from the dictionary.`;
+      console.log({dictionary, dictionaryContext});
+
+    const neoPrompt = `Translate the following English text to ${selectedLanguage}. Here is some context from the ${selectedLanguage} dictionary:\n\n${JSON.stringify(dictionary)}\n\nText to translate: "${text}"\n\nPlease provide the translation, using the dictionary entries where applicable and maintaining the cultural context. If certain words don't have direct translations, use the most contextually appropriate words from 
+    the dictionary.`;
+
+    const avanisShit = `
+    An aboriginal woman from Darwin wrote this;
+
+    ancestory feeling, instinctual impulse, nothing comprehensive, just feeling and messsaging from something beyond spirituality and words. A connection that coonot be taught, only felt and leant into. Grief and growth, joy and genes. Less english and more heart. Following gods that can be touched and felt. It's a physically tangible connection to the earth, to the stories not told but still instilled and fulfilled in how me move and make choices and interact with the world. It's the past and the future. It's the way family is more than mom and dad and --brother and sister, it's human heart and the grounds heart and the heart in the air and the skin in the clay. More than god and more than human. Ingrained and inescapable. ancestory feeling, instinctual impulse, nothing comprehensive, just feeling and messsaging from something beyond spirituality and words. A connection that coonot be taught, only felt and leant into. Grief and growth, joy and genes. Less english and more heart. Following gods that can be touched and felt. It's a physically tangible connection to the earth, to the stories not told but still instilled and fulfilled in how me move and make choices and interact with the world. It's the past and the future. It's the way family is more than mom and dad and --brother and sister, it's human heart and the grounds heart and the heart in the air and the skin in the clay. More than god and more than human. Ingrained and inescapable.`;
+
+    const studiousPrompt = `
+      Explain in informal steps;
+
+      1: The literal translation
+      2: Then word by word break down, be scientific but a bit woo woo
+      3: Finish with what others would want to hear
+      4: Then actually finish with what the aboriginal wants to say
+      
+      
+
+    `
+
+    const thePrompt = [neoPrompt, avanisShit, studiousPrompt].join('\n\n'); 
+  
+
   };
 
   const translateText = async (text) => {
