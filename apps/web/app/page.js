@@ -75,7 +75,7 @@ export default function Page() {
   return (
     <SharedLayout>
       <Head>
-        <title>Mob Translate - Aboriginal Language Translation</title>
+        <title>Abo Translate - Aboriginal Language Translation</title>
         <meta
           name="description"
           content="A community-driven project to create translation tools for Australian Aboriginal languages, making language preservation and learning accessible to all."
