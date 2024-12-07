@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
+    "json-to-pretty-yaml": "^1.2.2",
     "next": "^14.0.3",
     "openai": "^4.73.0",
     "react": "^18.2.0",

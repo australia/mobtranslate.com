@@ -105,6 +105,10 @@ export default function Page() {
             <h3>Mi'gmaq</h3>
             <p>Discover the Mi'gmaq language and culture</p>
           </DictionaryCard>
+          <DictionaryCard href="/dictionaries/anindilyakwa">
+            <h3>Anindilyakwa</h3>
+            <p>Explore the language of the Anindilyakwa people</p>
+          </DictionaryCard>
         </DictionaryGrid>
       </DictionariesSection>
     </SharedLayout>
