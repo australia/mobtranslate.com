@@ -22,4 +22,4 @@ You now be able to access http://localhost:3000
     - kuku_yalanji
 ```
 
-Dictionaries get compiled and can be imported into different apps
+Dictionaries get compiled and can be imported into different apps.
