@@ -1,36 +1,23 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "globalEnv": [
-    "NODE_ENV",
-    "TOT",
-    "DATABASE_URL",
-    "DATABASE_URL_RAW",
-    "GITHUB_TOKEN",
-    "OPENAI_API_KEY",
-    "PINECONE_API_KEY",
-    "PINECONE_ENVIRONMENT",
-    "CI",
-    "SUPABASE_KEY",
-    "AUTH_SECRET",
-    "AUTH_GITHUB_ID",
-    "AUTH_GITHUB_SECRET",
-    "VERCEL_ENV",
-    "NEXT_PUBLIC_SUPABASE_URL",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY",
-    "NEXT_PUBLIC_APP_URL",
-    "PERPLEXITY_API_KEY"
+  "globalDependencies": [
+    "**/.env.*local"
   ],
   "tasks": {
-    "db:generate": {
-      "cache": false
-    },
     "build": {
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "dependsOn": ["^build"]
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": [
+        "^lint"
+      ]
     },
     "dev": {
       "cache": false,
