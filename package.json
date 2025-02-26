@@ -2,9 +2,9 @@
   "name": "mobtranslate.com",
   "private": true,
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{js,jsx,md}\"",
     "prettier": "prettier -c ."
   },
