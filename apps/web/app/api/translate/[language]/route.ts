@@ -77,7 +77,7 @@ export async function POST(
 ) {
   try {
     const { language } = params;
-    const { text, stream = true } = await request.json();
+    const { text, stream = false } = await request.json();
 
     if (!text) {
       return NextResponse.json({ 
