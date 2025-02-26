@@ -4,28 +4,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import SharedLayout from '../components/SharedLayout';
 import { getSupportedLanguages } from '@dictionaries';
 
-async function getDictionaries() {
-  // For server components, we need to ensure we have a valid absolute URL
-  // Using URL constructor to guarantee a valid URL
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
-    (typeof window === 'undefined' ? 'http://localhost:3000' : window.location.origin);
-  
-  const url = new URL('/api/dictionaries', baseUrl);
-  
-  const response = await fetch(url.toString(), {
-    cache: 'no-store'
-  });
-  
-  if (!response.ok) {
-    throw new Error('Failed to fetch dictionaries');
-  }
-  
-  const data = await response.json();
-  return data.data;
-}
-
 export default async function DictionariesPage() {
-  const languages = await getDictionaries();
+  // Use getSupportedLanguages directly instead of fetching from API
+  const languages = getSupportedLanguages();
 
   return (
     <SharedLayout>

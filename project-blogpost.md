@@ -31,6 +31,29 @@ The latest update introduces Server-Side Rendering (SSR) across all dictionary p
 - **Faster Page Loads**: Pages render more quickly, especially on mobile devices or slower connections
 - **Improved Accessibility**: Content appears even before JavaScript loads
 
+### AI-Powered Translation with Dictionary Context
+
+We've implemented a powerful translation feature that:
+
+- Uses OpenAI's GPT-4o-mini model to provide culturally-aware translations
+- Incorporates dictionary context to ensure accuracy
+- Delivers real-time streaming translations for immediate user feedback
+- Processes all translations server-side, removing the need for users to provide API keys
+- Includes comprehensive token usage logging for monitoring and optimization
+
+The translation system intelligently combines machine learning with our curated dictionaries, ensuring translations respect linguistic nuances while providing accessible translations for users. This hybrid approach allows us to offer translation capabilities even for low-resource languages with limited training data.
+
+Our streaming translation implementation provides immediate feedback to users, showing translations as they're generated rather than making users wait for the complete response. This creates a more engaging and responsive experience, particularly valuable for longer text translations.
+
+### Efficient Resource Management
+
+To ensure responsible use of AI resources, we've implemented:
+
+- Token usage logging for all translation requests
+- Estimates of prompt and response token counts
+- Server-side processing to secure API keys and optimize requests
+- Dictionary-aware prompts that focus the AI on relevant language context
+
 ### Comprehensive RESTful API
 
 We've built a powerful API system that:
@@ -40,6 +63,7 @@ We've built a powerful API system that:
 - Supports pagination for better performance
 - Includes detailed metadata about each language
 - Follows REST principles for consistent interaction
+- Offers translation capabilities via API endpoints
 
 ### Modern User Experience
 

@@ -10,15 +10,7 @@ etc
 
 - don't ever run the servers, i will run it on my own
 
-- When you think you are done, run the builds to see if they pass
-
-- Always update the changelog.md when commiting.
-- Always update the README to be a standard modern open source readme with all the bells and whisles when comitting
-- Always update the blog post when comitting
-- Don't commit until i ask
 - it should use the turbo mono repo setup
 - everything should be imported through @ui/something, @dictionaries/something
 - all ui components should be in /ui
 - all dictionaries should be in /dictionaries
-- don't mention in the readme and blog the seo stuff
-- when updating the readme, add api documentation

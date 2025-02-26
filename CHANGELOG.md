@@ -21,6 +21,15 @@ All notable changes to the MobTranslate project will be documented in this file.
 - Added Server-Side Rendering (SSR) support for all dictionary pages
 - Added environment variables for API configuration
 - Added API response standardization with consistent structure and error handling
+- Added translation API endpoint at `/api/translate/[language]` with the following features:
+  - Support for translating text using the OpenAI API and dictionary context
+  - Server-side processing of API requests to secure API keys
+  - Streaming mode for real-time translation responses
+  - Non-streaming mode for complete translations
+- Added token usage logging to translation API for monitoring purposes
+  - Estimates token counts for prompts and responses
+  - Uses OpenAI's reported token counts when available
+  - Logs dictionary size and request details
 
 ### Changed
 - Migrated dictionary data handling from separate packages to a central module
@@ -39,6 +48,10 @@ All notable changes to the MobTranslate project will be documented in this file.
 - Enhanced filtering and search capabilities across all dictionary pages
 - Converted dictionary word listing from card view to table view for better readability
 - Updated API to return all words when dictionary contains fewer than 3000 entries
+- Redesigned the Translator component to use server-side API instead of client-side processing
+- Removed the streaming toggle from the Translator component and made streaming always enabled
+- Simplified the Translator UI by removing unnecessary controls
+- Removed the need for users to provide their own OpenAI API key
 
 ### Fixed
 - Import issues with dictionary data across components
