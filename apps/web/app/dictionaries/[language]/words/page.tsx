@@ -1,142 +1,228 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
+import React from 'react';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import SharedLayout from '../../../components/SharedLayout';
-import getDictionary, { type Dictionary, type DictionaryWord } from '@dictionaries';
+import { type DictionaryWord } from '@dictionaries';
 
-export default function WordsPage() {
-  const params = useParams();
-  const language = params?.language as string || '';
-  const [dictionary, setDictionary] = useState<Dictionary | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function loadDictionary() {
-      try {
-        // Fetch dictionary data using the provided function
-        const dictionaryData = await getDictionary(language);
-        setDictionary(dictionaryData);
-      } catch (err) {
-        console.error('Error loading dictionary:', err);
-        setError('Failed to load dictionary data.');
-      } finally {
-        setLoading(false);
-      }
-    }
-    
-    loadDictionary();
-  }, [language]);
-
-  // Group words by first letter for an alphabetical listing
-  const wordsByLetter: Record<string, DictionaryWord[]> = {};
+async function getDictionaryWords(language: string, letter: string = '', page: number = 1, limit: number = 100) {
+  const searchParams = new URLSearchParams();
+  if (letter) searchParams.set('letter', letter);
+  searchParams.set('page', page.toString());
+  searchParams.set('limit', limit.toString());
   
-  if (dictionary?.words) {
-    dictionary.words.forEach(word => {
-      const firstLetter = word.word.charAt(0).toUpperCase();
-      if (!wordsByLetter[firstLetter]) {
-        wordsByLetter[firstLetter] = [];
-      }
-      wordsByLetter[firstLetter].push(word);
-    });
+  const queryString = searchParams.toString();
+  
+  // For server components, we need to ensure we have a valid absolute URL
+  // Using URL constructor to guarantee a valid URL
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
+    (typeof window === 'undefined' ? 'http://localhost:3000' : window.location.origin);
+  
+  const url = new URL(`/api/dictionaries/${language}/words${queryString ? `?${queryString}` : ''}`, baseUrl);
+  
+  const response = await fetch(
+    url.toString(),
+    { cache: 'no-store' }
+  );
+  
+  if (!response.ok) {
+    if (response.status === 404) {
+      return null;
+    }
+    throw new Error('Failed to fetch dictionary words');
   }
+  
+  return response.json();
+}
 
-  if (loading) {
-    return (
-      <SharedLayout>
-        <div className="max-w-4xl mx-auto py-12 text-center">
-          <p className="text-lg">Loading words...</p>
-        </div>
-      </SharedLayout>
-    );
+export default async function WordsPage({
+  params,
+  searchParams,
+}: {
+  params: { language: string };
+  searchParams: { letter?: string; page?: string; limit?: string; search?: string };
+}) {
+  const { language } = params;
+  const { 
+    letter = '', 
+    page = '1',
+    limit = '100',
+    search = ''
+  } = searchParams;
+  
+  const pageNumber = parseInt(page, 10);
+  const limitNumber = parseInt(limit, 10);
+  
+  const response = await getDictionaryWords(language, letter, pageNumber, limitNumber);
+  
+  if (!response) {
+    notFound();
   }
-
-  if (error || !dictionary) {
-    return (
-      <SharedLayout>
-        <div className="max-w-4xl mx-auto py-12 text-center">
-          <p className="text-lg text-red-500">{error || 'Dictionary not found'}</p>
-          <Link href="/dictionaries" className="text-primary hover:underline mt-4 inline-block">
-            Return to Dictionary List
-          </Link>
-        </div>
-      </SharedLayout>
-    );
-  }
-
-  // Sort the letter groups
-  const sortedLetters = Object.keys(wordsByLetter).sort();
-
+  
+  const { 
+    meta, 
+    data: words, 
+    availableLetters, 
+    pagination 
+  } = response;
+  
   return (
     <SharedLayout>
-      <div className="max-w-5xl mx-auto">
-        <div className="mb-8">
-          <Link 
-            href={`/dictionaries/${language}`} 
-            className="text-primary hover:underline flex items-center mb-4"
-          >
-            <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to {dictionary.meta.name} Dictionary
-          </Link>
-          <h1 className="text-3xl font-bold mb-2">All {dictionary.meta.name} Words</h1>
-          <p className="text-muted-foreground">
-            Browse all words in our {dictionary.meta.name} dictionary. Each word has its own dedicated page
-            with detailed information.
-          </p>
-        </div>
-
-        {/* Alphabet quick navigation */}
-        <div className="mb-8 overflow-x-auto">
-          <div className="flex space-x-1 min-w-max">
-            {sortedLetters.map(letter => (
-              <a 
-                key={letter} 
-                href={`#section-${letter}`}
-                className="w-8 h-8 flex items-center justify-center rounded-md hover:bg-muted transition-colors"
+      <div className="container mx-auto px-4 py-8">
+        <div className="space-y-6">
+          {/* Header section */}
+          <div>
+            <div className="flex items-center justify-between">
+              <div>
+                <Link 
+                  href={`/dictionaries/${language}`}
+                  className="text-sm text-muted-foreground hover:text-foreground mb-2 inline-flex items-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="mr-1 h-4 w-4"
+                  >
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
+                  Back to {meta.name} Dictionary
+                </Link>
+                <h1 className="text-3xl font-bold tracking-tight">All Words</h1>
+                <p className="text-muted-foreground mt-1">
+                  Browse all {meta.wordCount} words in the {meta.name} dictionary
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Alphabet Filter */}
+          <div className="flex flex-wrap items-center gap-1">
+            <span className="text-sm text-muted-foreground mr-2">Filter by:</span>
+            <Link 
+              href={`/dictionaries/${language}/words`}
+              className={`px-2.5 py-1.5 text-sm font-medium rounded-md ${
+                !letter ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+              }`}
+            >
+              All
+            </Link>
+            {availableLetters.map((currentLetter: string) => (
+              <Link
+                key={currentLetter}
+                href={`/dictionaries/${language}/words?letter=${currentLetter}`}
+                className={`px-2.5 py-1.5 text-sm font-medium rounded-md ${
+                  letter === currentLetter ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
               >
-                {letter}
-              </a>
+                {currentLetter}
+              </Link>
             ))}
           </div>
-        </div>
-
-        {/* Word listings by letter */}
-        <div className="space-y-8">
-          {sortedLetters.map(letter => (
-            <section key={letter} id={`section-${letter}`}>
-              <h2 className="text-2xl font-bold mb-4 pb-2 border-b">{letter}</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {wordsByLetter[letter].map(word => (
-                  <Link 
-                    key={word.word}
-                    href={`/dictionaries/${language}/words/${encodeURIComponent(word.word)}`}
-                    className="p-4 bg-card hover:bg-muted/50 rounded-lg border transition-colors"
-                  >
-                    <div className="font-semibold mb-1">{word.word}</div>
-                    <div className="text-sm text-muted-foreground">
-                      {word.type} • {word.definition}
-                    </div>
-                  </Link>
-                ))}
+          
+          {/* Dictionary content */}
+          {words.length === 0 ? (
+            <div className="text-center py-12">
+              <h3 className="text-lg font-semibold">No words found</h3>
+              <p className="text-muted-foreground mt-1">Try a different letter</p>
+            </div>
+          ) : (
+            <>
+              {/* Word count */}
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-muted-foreground">
+                  Showing {words.length} of {pagination.total} words
+                  {letter && <span> starting with "{letter}"</span>}
+                </p>
               </div>
-            </section>
-          ))}
-        </div>
+              
+              {/* Words table */}
+              <div className="rounded-md border">
+                <div className="relative w-full overflow-auto">
+                  <table className="w-full caption-bottom text-sm">
+                    <thead className="[&_tr]:border-b">
+                      <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Word</th>
+                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Type</th>
+                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Definition</th>
+                      </tr>
+                    </thead>
+                    <tbody className="[&_tr:last-child]:border-0">
+                      {words.map((word: DictionaryWord, index: number) => (
+                        <tr 
+                          key={`${word.word}-${index}`} 
+                          className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                        >
+                          <td className="p-4 align-middle">
+                            <Link
+                              href={`/dictionaries/${language}/words/${encodeURIComponent(word.word)}`}
+                              className="font-medium text-primary hover:underline"
+                            >
+                              {word.word}
+                            </Link>
+                          </td>
+                          <td className="p-4 align-middle text-muted-foreground">
+                            {word.type || '-'}
+                          </td>
+                          <td className="p-4 align-middle">
+                            {word.definition && (
+                              <p>{word.definition}</p>
+                            )}
+                            {word.definitions && (
+                              <ul className="list-disc pl-5 space-y-1">
+                                {word.definitions.map((def, idx) => (
+                                  <li key={idx}>{def}</li>
+                                ))}
+                              </ul>
+                            )}
+                            {word.example && (
+                              <p className="mt-2 text-sm italic text-muted-foreground">
+                                "{word.example}"
+                              </p>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
 
-        <div className="mt-10 bg-muted p-6 rounded-lg border">
-          <h2 className="text-xl font-semibold mb-4">About This Dictionary</h2>
-          <p className="mb-3">
-            This page lists all words in our {dictionary.meta.name} dictionary to make them more discoverable
-            through search engines and to provide a comprehensive view of the language.
-          </p>
-          <p>
-            Click on any word to view its dedicated page with detailed information including pronunciation,
-            cultural context, and example usage.
-          </p>
+              {/* Pagination */}
+              {pagination.totalPages > 1 && (
+                <div className="flex items-center justify-center space-x-2 py-4">
+                  <Link
+                    href={`/dictionaries/${language}/words?letter=${letter || ''}&page=${Math.max(1, pagination.page - 1)}`}
+                    className={`px-3 py-2 rounded-md border ${
+                      pagination.page <= 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-muted'
+                    }`}
+                    aria-disabled={pagination.page <= 1}
+                    tabIndex={pagination.page <= 1 ? -1 : undefined}
+                  >
+                    Previous
+                  </Link>
+                  <span className="text-sm text-muted-foreground">
+                    Page {pagination.page} of {pagination.totalPages}
+                  </span>
+                  <Link
+                    href={`/dictionaries/${language}/words?letter=${letter || ''}&page=${Math.min(pagination.totalPages, pagination.page + 1)}`}
+                    className={`px-3 py-2 rounded-md border ${
+                      pagination.page >= pagination.totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-muted'
+                    }`}
+                    aria-disabled={pagination.page >= pagination.totalPages}
+                    tabIndex={pagination.page >= pagination.totalPages ? -1 : undefined}
+                  >
+                    Next
+                  </Link>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
     </SharedLayout>

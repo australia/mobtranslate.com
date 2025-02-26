@@ -1,38 +1,31 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@ui/components/card';
 import SharedLayout from '../components/SharedLayout';
-import { getSupportedLanguages, type LanguageCode, type DictionaryMeta } from '@dictionaries';
+import { getSupportedLanguages } from '@dictionaries';
 
-interface DictionaryDisplay {
-  code: LanguageCode;
-  meta: DictionaryMeta;
-  wordCount?: number;
+async function getDictionaries() {
+  // For server components, we need to ensure we have a valid absolute URL
+  // Using URL constructor to guarantee a valid URL
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
+    (typeof window === 'undefined' ? 'http://localhost:3000' : window.location.origin);
+  
+  const url = new URL('/api/dictionaries', baseUrl);
+  
+  const response = await fetch(url.toString(), {
+    cache: 'no-store'
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch dictionaries');
+  }
+  
+  const data = await response.json();
+  return data.data;
 }
 
-export default function DictionariesPage() {
-  const [dictionaries, setDictionaries] = useState<Record<string, DictionaryDisplay>>({});
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Get our supported languages from the dictionary service
-    const languages = getSupportedLanguages();
-    const dictionaryData: Record<string, DictionaryDisplay> = {};
-    
-    languages.forEach(lang => {
-      dictionaryData[lang.code] = {
-        code: lang.code,
-        meta: lang.meta,
-        // In a real app, we'd get the actual word count
-        wordCount: Math.floor(Math.random() * 500) + 100 // Just a placeholder
-      };
-    });
-    
-    setDictionaries(dictionaryData);
-    setLoading(false);
-  }, []);
+export default async function DictionariesPage() {
+  const languages = await getDictionaries();
 
   return (
     <SharedLayout>
@@ -45,33 +38,33 @@ export default function DictionariesPage() {
             </p>
           </div>
 
-          {loading ? (
-            <p>Loading dictionaries...</p>
-          ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {Object.entries(dictionaries).map(([code, dictionary]) => (
-                <Card key={code} className="overflow-hidden">
-                  <CardHeader>
-                    <CardTitle>{dictionary.meta.name}</CardTitle>
-                    <CardDescription>
-                      {dictionary.wordCount} words
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="line-clamp-3">{dictionary.meta.description}</p>
-                  </CardContent>
-                  <CardFooter className="bg-muted/50 border-t pt-6">
-                    <Link
-                      href={`/dictionaries/${code}`}
-                      className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
-                    >
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {languages.map((lang: any) => (
+              <Card key={lang.code} className="overflow-hidden">
+                <CardHeader>
+                  <CardTitle>
+                    <Link href={`/dictionaries/${lang.code}`} className="hover:underline">
+                      {lang.meta.name}
+                    </Link>
+                  </CardTitle>
+                  <CardDescription>{lang.meta.region}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm">{lang.meta.description}</p>
+                </CardContent>
+                <CardFooter className="bg-muted/50 border-t">
+                  <div className="flex justify-between w-full text-sm">
+                    <Link href={`/dictionaries/${lang.code}`} className="text-primary hover:underline">
                       Browse Dictionary
                     </Link>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
-          )}
+                    <Link href={`/dictionaries/${lang.code}/words`} className="text-primary hover:underline">
+                      View All Words
+                    </Link>
+                  </div>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </SharedLayout>

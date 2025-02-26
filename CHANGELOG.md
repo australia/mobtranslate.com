@@ -11,6 +11,16 @@ All notable changes to the MobTranslate project will be documented in this file.
 - Improved error handling and loading states
 - Type safety improvements with proper TypeScript typing for language codes
 - Added module declaration to support importing JS files with YAML content
+- Added RESTful API for dictionaries with the following endpoints:
+  - `/api/dictionaries` - List all dictionaries
+  - `/api/dictionaries/[language]` - Get a specific dictionary with search & pagination
+  - `/api/dictionaries/[language]/words` - Get all words from a dictionary with filtering by letter & pagination
+  - `/api/dictionaries/[language]/words/[word]` - Get details for a specific word with related words
+- Added pagination support for API endpoints with customizable page size
+- Added search and filtering capabilities to API endpoints
+- Added Server-Side Rendering (SSR) support for all dictionary pages
+- Added environment variables for API configuration
+- Added API response standardization with consistent structure and error handling
 
 ### Changed
 - Migrated dictionary data handling from separate packages to a central module
@@ -22,6 +32,13 @@ All notable changes to the MobTranslate project will be documented in this file.
 - Added 'use client' directive to all UI components for Next.js App Router compatibility
 - Refactored dictionary loading to properly handle async/await patterns
 - Updated tsconfig.json to include JavaScript files in the build
+- Converted client-side dictionary pages to Server-Side Rendered pages
+- Updated dictionary pages to fetch data from the new API endpoints
+- Reorganized components to leverage the API for improved performance
+- Improved loading states and error handling for better UX
+- Enhanced filtering and search capabilities across all dictionary pages
+- Converted dictionary word listing from card view to table view for better readability
+- Updated API to return all words when dictionary contains fewer than 3000 entries
 
 ### Fixed
 - Import issues with dictionary data across components
@@ -34,6 +51,13 @@ All notable changes to the MobTranslate project will be documented in this file.
 - Fixed async/await issues in dictionary loading functions
 - Corrected TypeScript type errors in React components
 - Resolved dictionary metadata access patterns across components
+- Fixed client-side navigation issues across dictionary pages
+- Fixed search functionality to work properly with the server-side API
+- Fixed pagination to maintain filters and search parameters across page changes
+- Fixed data loading race conditions in dictionary components
+- Fixed inconsistent UI behavior between client-side and server-side rendering
+- Fixed URL construction in API requests to properly handle empty query parameters
+- Enhanced URL handling in server components to ensure valid absolute URLs for fetch requests
 
 ## [0.2.0] - 2025-02-26
 
