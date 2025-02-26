@@ -1,129 +1,69 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import SharedLayout from '../../../components/SharedLayout';
-
-// Types for dictionary data (same as in the language page)
-interface DictionaryWord {
-  word: string;
-  type: string;
-  definitions: string[];
-  example?: string;
-  notes?: string;
-}
-
-interface Dictionary {
-  name: string;
-  description: string;
-  words: DictionaryWord[];
-}
-
-// This would come from a proper API/data source in production
-const dictionaries: Record<string, Dictionary> = {
-  kuku_yalanji: {
-    name: 'Kuku Yalanji',
-    description: 'Language traditionally spoken by the Kuku Yalanji people of the rainforest regions of Far North Queensland, Australia.',
-    words: [
-      {
-        word: 'bama',
-        type: 'noun',
-        definitions: ['people', 'Aboriginal person'],
-        example: 'Bama wawu-wawu dungay.',
-        notes: 'Refers to Aboriginal people specifically'
-      },
-      {
-        word: 'jalbu',
-        type: 'noun',
-        definitions: ['woman'],
-        example: 'Jalbu yirrka-n-yirrka-n.'
-      },
-      {
-        word: 'dingkar',
-        type: 'noun',
-        definitions: ['man']
-      },
-      {
-        word: 'ngayu',
-        type: 'pronoun',
-        definitions: ['I', 'me'],
-        example: 'Ngayu dungay.'
-      },
-      {
-        word: 'yundu',
-        type: 'pronoun',
-        definitions: ['you']
-      },
-      {
-        word: 'nyulu',
-        type: 'pronoun',
-        definitions: ['he/she/it']
-      },
-      {
-        word: 'bayan',
-        type: 'noun',
-        definitions: ['house', 'home', 'camp'],
-        example: 'Ngayu bayanba dungay.',
-        notes: 'Can refer to any dwelling place'
-      },
-      {
-        word: 'wulbuman',
-        type: 'noun',
-        definitions: ['old woman']
-      },
-      {
-        word: 'wulman',
-        type: 'noun',
-        definitions: ['old man']
-      },
-      {
-        word: 'mayi',
-        type: 'noun',
-        definitions: ['food'],
-        example: 'Mayi ngulkurr.',
-        notes: 'General term for food'
-      }
-    ]
-  }
-  // Additional dictionaries would be added here
-};
+import { getDictionary, type Dictionary, type DictionaryWord } from '../../../lib/dictionary';
 
 export default function AllWordsPage() {
   const params = useParams();
   const language = params?.language as string || '';
-  const dictionary = dictionaries[language];
+  const [dictionary, setDictionary] = useState<Dictionary | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      // Fetch dictionary data using the provided function
+      const dictionaryData = getDictionary(language);
+      setDictionary(dictionaryData);
+    } catch (err) {
+      console.error('Error loading dictionary:', err);
+      setError('Failed to load dictionary data.');
+    } finally {
+      setLoading(false);
+    }
+  }, [language]);
 
   // Group words by first letter for an alphabetical listing
-  const groupedWords: Record<string, DictionaryWord[]> = {};
+  const wordsByLetter: Record<string, DictionaryWord[]> = {};
   
-  if (dictionary) {
+  if (dictionary?.words) {
     dictionary.words.forEach(word => {
       const firstLetter = word.word.charAt(0).toUpperCase();
-      if (!groupedWords[firstLetter]) {
-        groupedWords[firstLetter] = [];
+      if (!wordsByLetter[firstLetter]) {
+        wordsByLetter[firstLetter] = [];
       }
-      groupedWords[firstLetter].push(word);
+      wordsByLetter[firstLetter].push(word);
     });
   }
 
-  // Sort the letter groups
-  const sortedLetters = Object.keys(groupedWords).sort();
-
-  // Handle case where dictionary doesn't exist
-  if (!dictionary) {
+  if (loading) {
     return (
       <SharedLayout>
         <div className="max-w-4xl mx-auto py-12 text-center">
-          <h1 className="text-3xl font-bold mb-4">Dictionary not found</h1>
-          <p className="mb-8">Sorry, we couldn't find that dictionary.</p>
-          <Link href="/dictionaries" className="text-primary hover:underline">
-            Back to Dictionaries
+          <p className="text-lg">Loading words...</p>
+        </div>
+      </SharedLayout>
+    );
+  }
+
+  if (error || !dictionary) {
+    return (
+      <SharedLayout>
+        <div className="max-w-4xl mx-auto py-12 text-center">
+          <p className="text-lg text-red-500">{error || 'Dictionary not found'}</p>
+          <Link href="/dictionaries" className="text-primary hover:underline mt-4 inline-block">
+            Return to Dictionary List
           </Link>
         </div>
       </SharedLayout>
     );
   }
+
+  // Sort the letter groups
+  const sortedLetters = Object.keys(wordsByLetter).sort();
 
   return (
     <SharedLayout>
@@ -166,16 +106,15 @@ export default function AllWordsPage() {
             <section key={letter} id={`section-${letter}`}>
               <h2 className="text-2xl font-bold mb-4 pb-2 border-b">{letter}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {groupedWords[letter].map(word => (
+                {wordsByLetter[letter].map(word => (
                   <Link 
                     key={word.word}
-                    href={`/dictionaries/${language}/words/${word.word}`}
+                    href={`/dictionaries/${language}/words/${encodeURIComponent(word.word)}`}
                     className="p-4 bg-card hover:bg-muted/50 rounded-lg border transition-colors"
                   >
                     <div className="font-semibold mb-1">{word.word}</div>
                     <div className="text-sm text-muted-foreground">
-                      {word.type} • {word.definitions[0]}
-                      {word.definitions.length > 1 && '...'}
+                      {word.type} • {word.definition}
                     </div>
                   </Link>
                 ))}

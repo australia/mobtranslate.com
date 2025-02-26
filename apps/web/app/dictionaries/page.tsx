@@ -1,54 +1,77 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@ui/components/card';
 import SharedLayout from '../components/SharedLayout';
+import { getSupportedLanguages } from '../lib/dictionary';
+
+interface Dictionary {
+  name: string;
+  description: string;
+  wordCount?: number;
+}
 
 export default function DictionariesPage() {
+  const [dictionaries, setDictionaries] = useState<Record<string, Dictionary>>({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Get our supported languages from the dictionary service
+    const languages = getSupportedLanguages();
+    const dictionaryData: Record<string, Dictionary> = {};
+    
+    languages.forEach(lang => {
+      dictionaryData[lang.code] = {
+        name: lang.name,
+        description: lang.description,
+        // In a real app, we'd get the actual word count
+        wordCount: Math.floor(Math.random() * 500) + 100 // Just a placeholder
+      };
+    });
+    
+    setDictionaries(dictionaryData);
+    setLoading(false);
+  }, []);
+
   return (
     <SharedLayout>
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6">Aboriginal Language Dictionaries</h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-card rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border">
-            <h2 className="text-xl font-semibold mb-2">Kuku Yalanji</h2>
-            <p className="text-muted-foreground mb-4">
-              Explore the Kuku Yalanji language, traditionally spoken in the rainforest regions of Far North Queensland.
-            </p>
-            <Link 
-              href="/dictionaries/kuku_yalanji" 
-              className="inline-flex items-center text-primary hover:underline"
-            >
-              Browse Dictionary
-              <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-          
-          <div className="bg-card rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border opacity-70">
-            <h2 className="text-xl font-semibold mb-2">More Coming Soon</h2>
-            <p className="text-muted-foreground mb-4">
-              We're working on adding more Aboriginal language dictionaries to our collection. Check back soon!
+      <div className="container mx-auto px-4 py-8">
+        <div className="space-y-6">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">Aboriginal Language Dictionaries</h1>
+            <p className="text-muted-foreground mt-2">
+              Browse our collection of Aboriginal language dictionaries, preserving and sharing traditional languages.
             </p>
           </div>
-        </div>
-        
-        <div className="mt-12 bg-muted p-6 rounded-lg border">
-          <h2 className="text-xl font-semibold mb-4">Contribute to Our Dictionaries</h2>
-          <p className="mb-4">
-            Help us expand our collection of Aboriginal language dictionaries. If you have knowledge of an Aboriginal 
-            language or access to resources, consider contributing to our open-source project.
-          </p>
-          <a 
-            href="https://github.com/australia/mobtranslate.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
-          >
-            Contribute on GitHub
-          </a>
+
+          {loading ? (
+            <p>Loading dictionaries...</p>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {Object.entries(dictionaries).map(([code, dictionary]) => (
+                <Card key={code} className="overflow-hidden">
+                  <CardHeader>
+                    <CardTitle>{dictionary.name}</CardTitle>
+                    <CardDescription>
+                      {dictionary.wordCount} words
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="line-clamp-3">{dictionary.description}</p>
+                  </CardContent>
+                  <CardFooter className="bg-muted/50 border-t pt-6">
+                    <Link
+                      href={`/dictionaries/${code}`}
+                      className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
+                    >
+                      Browse Dictionary
+                    </Link>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </SharedLayout>

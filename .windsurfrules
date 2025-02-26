@@ -1,4 +1,4 @@
-As we update this project I want to make a code guide and just general instructions for you the model in a file called codebase.md
+As we update this project I want to make a code guide and just general instructions for you the model in a file called codebase.md, look at all the files in the codebase before writing
 
 I also want to make a blog post after we make all these changes, explaining what this project and how we have updated it. Put your notes in blogpost.md
 
@@ -12,6 +12,14 @@ cd apps/web && pnpm add shadui
 
 etc
 
-don't ever run the servers, i will run it on my own
+- don't ever run the servers, i will run it on my own
 
-When you think you are done, run the builds to see if they pass
+- When you think you are done, run the builds to see if they pass
+
+- Always update the changelog.md when commiting.
+- Always update the README to be a standard modern open source readme with all the bells and whisles
+- Don't commit until i ask
+- it should use the turbo mono repo setup
+- everything should be imported through @ui/something, @dictionaries/something
+- all ui components should be in /ui
+- all dictionaries should be in /dictionaries

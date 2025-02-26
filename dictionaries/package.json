@@ -1,0 +1,28 @@
+{
+  "name": "dictionaries",
+  "version": "1.0.0",
+  "description": "Aboriginal language dictionaries",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "languages",
+    "translation",
+    "aboriginal"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^20.8.3",
+    "typescript": "^5.7.3"
+  }
+}

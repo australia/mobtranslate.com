@@ -77,12 +77,34 @@ A major enhancement to the platform is the addition of comprehensive dictionary 
 - **Responsive design** ensuring dictionaries are accessible on all devices
 - **Scalable architecture** allowing for easy addition of new languages
 
-Currently, we've implemented a dictionary for Kuku Yalanji, a language traditionally spoken in the rainforest regions of Far North Queensland. The dictionary includes:
+Currently, we support multiple Aboriginal languages including:
 
+- **Kuku Yalanji**: A language traditionally spoken in the rainforest regions of Far North Queensland
+- **Mi'gmaq**: A language of the Mi'gmaq First Nations people, indigenous to the northeastern region of North America
+- **Anindilyakwa**: A language spoken by the Anindilyakwa people of Groote Eylandt in the Northern Territory of Australia
+
+Each dictionary includes:
 - Word entries with English translations
 - Grammatical information (parts of speech)
 - Example sentences showing usage
 - Cultural notes where relevant
+
+### 7. Centralized Dictionary Data Management
+
+One of our most significant technical improvements is the implementation of a centralized dictionary data management system:
+
+- **Unified Data Interface**: All components access dictionary data through a single, consistent API
+- **Type-Safe Implementation**: Strong TypeScript typing prevents errors and inconsistencies
+- **Flexible Architecture**: Designed to easily transition from mock data to real API endpoints
+- **Maintainable Structure**: Single source of truth for dictionary data across the application
+
+This architecture enables:
+- Easy addition of new languages without code modifications
+- Consistent data structures and behaviors across all dictionary components
+- Simplified testing with mock data
+- Future integration with external data sources or content management systems
+
+The dictionary system is now completely dynamic, allowing us to scale to any number of languages while maintaining consistent user experience and performance.
 
 This dictionary feature represents a significant step toward making Aboriginal language resources more accessible and interactive. As the platform grows, we plan to add more languages and expand the existing dictionaries with additional words, audio pronunciations, and deeper cultural context.
 

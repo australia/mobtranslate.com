@@ -1,115 +1,64 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import SharedLayout from '../../components/SharedLayout';
+import { getDictionary, type Dictionary } from '../../lib/dictionary';
 
-// Types for dictionary data
-interface DictionaryWord {
-  word: string;
-  type: string;
-  definitions: string[];
-  example?: string;
-  notes?: string;
-}
-
-interface Dictionary {
-  name: string;
-  description: string;
-  words: DictionaryWord[];
-}
-
-// This would come from a proper API/data source in production
-const dictionaries: Record<string, Dictionary> = {
-  kuku_yalanji: {
-    name: 'Kuku Yalanji',
-    description: 'Language traditionally spoken by the Kuku Yalanji people of the rainforest regions of Far North Queensland, Australia.',
-    words: [
-      {
-        word: 'bama',
-        type: 'noun',
-        definitions: ['people', 'Aboriginal person'],
-        example: 'Bama wawu-wawu dungay.',
-        notes: 'Refers to Aboriginal people specifically'
-      },
-      {
-        word: 'jalbu',
-        type: 'noun',
-        definitions: ['woman'],
-        example: 'Jalbu yirrka-n-yirrka-n.'
-      },
-      {
-        word: 'dingkar',
-        type: 'noun',
-        definitions: ['man']
-      },
-      {
-        word: 'ngayu',
-        type: 'pronoun',
-        definitions: ['I', 'me'],
-        example: 'Ngayu dungay.'
-      },
-      {
-        word: 'yundu',
-        type: 'pronoun',
-        definitions: ['you']
-      },
-      {
-        word: 'nyulu',
-        type: 'pronoun',
-        definitions: ['he/she/it']
-      },
-      {
-        word: 'bayan',
-        type: 'noun',
-        definitions: ['house', 'home', 'camp'],
-        example: 'Ngayu bayanba dungay.',
-        notes: 'Can refer to any dwelling place'
-      },
-      {
-        word: 'wulbuman',
-        type: 'noun',
-        definitions: ['old woman']
-      },
-      {
-        word: 'wulman',
-        type: 'noun',
-        definitions: ['old man']
-      },
-      {
-        word: 'mayi',
-        type: 'noun',
-        definitions: ['food'],
-        example: 'Mayi ngulkurr.',
-        notes: 'General term for food'
-      }
-    ]
-  }
-  // Additional dictionaries would be added here
-};
+// Language codes we support
+const supportedLanguages = ['kuku_yalanji', 'migmaq', 'anindilyakwa'];
 
 export default function LanguageDictionaryPage() {
   const params = useParams();
   const language = params?.language as string || '';
-  const dictionary = dictionaries[language];
-  
+  const [dictionary, setDictionary] = useState<Dictionary | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   
-  const filteredWords = dictionary?.words.filter(word => 
-    word.word.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    word.definitions.some(def => def.toLowerCase().includes(searchTerm.toLowerCase()))
+  useEffect(() => {
+    if (!supportedLanguages.includes(language)) {
+      setError(`Language '${language}' is not supported.`);
+      setLoading(false);
+      return;
+    }
+    
+    try {
+      // Fetch dictionary data using the provided function
+      const dictionaryData = getDictionary(language);
+      setDictionary(dictionaryData);
+    } catch (err) {
+      console.error('Error loading dictionary:', err);
+      setError('Failed to load dictionary data.');
+    } finally {
+      setLoading(false);
+    }
+  }, [language]);
+
+  // Filter words based on search term
+  const filteredWords = dictionary?.words?.filter(word => 
+    word.word.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    word.definition.toLowerCase().includes(searchTerm.toLowerCase())
   ) || [];
 
-  // Handle case where dictionary doesn't exist
-  if (!dictionary) {
+  if (loading) {
     return (
       <SharedLayout>
         <div className="max-w-4xl mx-auto py-12 text-center">
-          <h1 className="text-3xl font-bold mb-4">Dictionary not found</h1>
-          <p className="mb-8">Sorry, we couldn't find that dictionary.</p>
-          <Link href="/dictionaries" className="text-primary hover:underline">
-            Back to Dictionaries
+          <p className="text-lg">Loading dictionary...</p>
+        </div>
+      </SharedLayout>
+    );
+  }
+
+  if (error || !dictionary) {
+    return (
+      <SharedLayout>
+        <div className="max-w-4xl mx-auto py-12 text-center">
+          <p className="text-lg text-red-500">{error || 'Dictionary not found'}</p>
+          <Link href="/dictionaries" className="text-blue-500 hover:underline mt-4 inline-block">
+            Return to Dictionary List
           </Link>
         </div>
       </SharedLayout>
@@ -184,12 +133,9 @@ export default function LanguageDictionaryPage() {
                     </td>
                     <td className="px-4 py-3 text-muted-foreground">{word.type}</td>
                     <td className="px-4 py-3">
-                      {word.definitions.map((def, index) => (
-                        <span key={index}>
-                          {index > 0 && ', '}
-                          {def}
-                        </span>
-                      ))}
+                      {word.definition.length > 100 
+                        ? `${word.definition.substring(0, 100).replace(/\n.*$/, '')}...` 
+                        : word.definition.split('\n')[0]}
                     </td>
                     <td className="px-4 py-3 italic text-sm hidden md:table-cell">
                       {word.example || '—'}

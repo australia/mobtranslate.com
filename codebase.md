@@ -12,17 +12,24 @@ mobtranslate.com/
 │   └── web/                # Main web application (Next.js)
 │       ├── app/            # Next.js App Router structure
 │       │   ├── components/ # React components
-│       │   │   ├── ui/     # Reusable UI components
 │       │   │   └── ...     # Other component categories
 │       │   ├── lib/        # Utility functions and helpers
 │       │   └── ...         # App routes
 │       ├── public/         # Static assets
 │       └── ...
-├── packages/               # Shared packages
-│   └── tsconfig/           # Shared TypeScript configurations
-│       ├── base.json       # Base TS config
-│       ├── nextjs.json     # Next.js specific config
-│       └── react-library.json # React library config
+├── ui/                     # Shared UI components
+│   ├── components/         # React components library
+│   │   ├── Button.tsx      # Button component
+│   │   ├── Card.tsx        # Card component
+│   │   ├── card/           # Shadcn-style Card components
+│   │   ├── input/          # Input components
+│   │   └── ...
+│   └── lib/                # UI utilities
+├── dictionaries/           # Dictionary data & utilities
+│   ├── kuku_yalanji/       # Kuku Yalanji language data
+│   ├── migmaq/             # Mi'gmaq language data
+│   ├── anindilyakwa/       # Anindilyakwa language data
+│   └── ...
 └── ...
 ```
 
@@ -46,7 +53,7 @@ mobtranslate.com/
 
 ### Component Structure
 
-- UI components should be placed in the `app/components/ui` directory
+- UI components should be placed in the `ui/components` directory
 - Domain-specific components should be organized by feature
 - Use React.forwardRef for components that need to expose a ref
 - Add displayName to all components
@@ -86,8 +93,46 @@ cd apps/web && pnpm add -D package-name
    - Keep code that changes together in the same directory
 
 4. **Import paths**
-   - Use absolute imports with the `@/` prefix for app-level imports
-   - Use relative imports for closely related files
+   - Use the following import conventions:
+
+     1. **UI Components**: Import from @ui namespace:
+       ```tsx
+       import { Button } from '@ui/components/Button';
+       import { Card, CardHeader, CardContent } from '@ui/components/card';
+       import { Input } from '@ui/components/input';
+       ```
+
+     2. **Dictionary Functionality**: Import from @dictionaries namespace:
+       ```tsx
+       import getDictionary from '@dictionaries/index';
+       // or for specific types
+       import { Dictionary, DictionaryWord } from '@dictionaries/index';
+       ```
+
+     3. **Local Components and Utils**: Use relative imports:
+       ```tsx
+       import { SharedLayout } from '../components/SharedLayout';
+       ```
+
+### Dictionary Data Handling
+
+The dictionary functionality is centralized in the following files:
+
+1. **Root Dictionary Module** (`/dictionaries/index.ts`):
+   - Exports the main `getDictionary` function
+   - Provides TypeScript interfaces for dictionary data
+   - Exports language code type definition
+
+2. **App Dictionary Module** (`/apps/web/app/lib/dictionary.ts`):
+   - Provides application-specific dictionary utilities
+   - Imports the core dictionary functionality from @dictionaries
+   - Adds application-specific interfaces and helper functions
+
+When working with dictionaries:
+
+1. Always use typed interfaces for dictionary data
+2. Use the `getDictionary` function to retrieve dictionary data
+3. For frontend components, use the app-level dictionary utilities
 
 ## Dictionary Pages Structure
 
