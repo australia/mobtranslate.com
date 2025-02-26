@@ -1,7 +1,6 @@
 {
   "name": "mobtranslate.com",
   "private": true,
-  "packageManager": "pnpm@9.2.0",
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
