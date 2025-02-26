@@ -1,0 +1,17 @@
+As we update this project I want to make a code guide and just general instructions for you the model in a file called codebase.md
+
+I also want to make a blog post after we make all these changes, explaining what this project and how we have updated it. Put your notes in blogpost.md
+
+when installing packages you have to keep in mind this is a turbo repo so if you are editing a file in
+
+apps/web/app/page.js
+
+you would have to run
+
+cd apps/web && pnpm add shadui
+
+etc
+
+don't ever run the servers, i will run it on my own
+
+When you think you are done, run the builds to see if they pass

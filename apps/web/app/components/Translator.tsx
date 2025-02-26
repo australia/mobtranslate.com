@@ -1,116 +1,35 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
 import yaml from 'js-yaml';
 import OpenAI from 'openai';
 import ReactMarkdown from 'react-markdown';
 
-const TranslatorContainer = styled.div`
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-`;
+interface DictionaryWord {
+  word: string;
+  definitions: string[];
+}
 
-const TextArea = styled.textarea`
-  width: 100%;
-  height: 150px;
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  resize: vertical;
-  margin-bottom: 1rem;
-`;
-
-const TranslationOutput = styled.div`
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border: 1px solid #e9ecef;
-
-  h3 {
-    margin-top: 0;
-    color: #495057;
-    margin-bottom: 1rem;
-  }
-
-  .translation-text {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #212529;
-  }
-`;
-
-const ApiKeyInput = styled.input`
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-`;
-
-const Select = styled.select`
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-`;
-
-const Button = styled.button`
-  padding: 0.5rem 1rem;
-  background: #4a90e2;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 1rem;
-
-  &:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-  }
-`;
-
-const LoadingSpinner = styled.div`
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #f3f3f3;
-  border-top: 2px solid #3498db;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-left: 10px;
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
+interface Dictionary {
+  words?: DictionaryWord[];
+  [key: string]: any;
+}
 
 const Translator = () => {
-  const [inputText, setInputText] = useState('');
-  const [outputText, setOutputText] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState('kuku_yalanji');
-  const [dictionary, setDictionary] = useState({});
-  const [apiKey, setApiKey] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [openai, setOpenai] = useState(null);
+  const [inputText, setInputText] = useState<string>('');
+  const [outputText, setOutputText] = useState<string>('');
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('kuku_yalanji');
+  const [dictionary, setDictionary] = useState<Dictionary>({});
+  const [apiKey, setApiKey] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [openai, setOpenai] = useState<OpenAI | null>(null);
 
   useEffect(() => {
     const loadDictionary = async () => {
       try {
         const response = await fetch(`/dictionaries/${selectedLanguage}/dictionary.yaml`);
         const yamlText = await response.text();
-        const dict = yaml.load(yamlText);
+        const dict = yaml.load(yamlText) as Dictionary;
         setDictionary(dict);
       } catch (error) {
         console.error('Error loading dictionary:', error);
@@ -130,7 +49,7 @@ const Translator = () => {
     }
   }, [apiKey]);
 
-  const createTranslationPrompt = (text, dictionary) => {
+  const createTranslationPrompt = (text: string, dictionary: Dictionary) => {
     const words = text.toLowerCase().split(/\s+/);
     const dictionaryContext = words
       .map(word => {
@@ -191,7 +110,7 @@ const Translator = () => {
       return thePrompt;
   };
 
-  const translateText = async (text) => {
+  const translateText = async (text: string): Promise<string> => {
     if (!dictionary || !text) return '';
     if (!openai) {
       // Fallback to basic dictionary translation if no API key
@@ -225,7 +144,7 @@ const Translator = () => {
         ]
       });
 
-      return completion.choices[0].message.content;
+      return completion.choices[0].message.content || 'No translation content returned.';
     } catch (error) {
       console.error('Translation error:', error);
       return 'Translation error occurred. Please try again.';
@@ -234,7 +153,7 @@ const Translator = () => {
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
     setInputText(newText);
   };
@@ -244,38 +163,50 @@ const Translator = () => {
     setOutputText(translation);
   };
 
-  const handleApiKeyChange = (e) => {
+  const handleApiKeyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setApiKey(e.target.value);
   };
 
   return (
-    <TranslatorContainer>
-      <ApiKeyInput
+    <div className="max-w-3xl mx-auto my-8 p-8 bg-white rounded-lg shadow-md">
+      <input
         type="password"
         placeholder="Enter your OpenAI API key"
         value={apiKey}
         onChange={handleApiKeyChange}
+        className="w-full p-2 mb-4 border border-gray-300 rounded-md text-base"
       />
-      <Select value={selectedLanguage} onChange={(e) => setSelectedLanguage(e.target.value)}>
+      <select 
+        value={selectedLanguage} 
+        onChange={(e) => setSelectedLanguage(e.target.value)}
+        className="w-full p-2 mb-4 border border-gray-300 rounded-md text-base"
+      >
         <option value="kuku_yalanji">Kuku Yalanji</option>
-      </Select>
-      <TextArea
+      </select>
+      <textarea
         value={inputText}
         onChange={handleInputChange}
         placeholder="Enter text to translate..."
+        className="w-full h-36 p-4 border border-gray-300 rounded-md text-base resize-y mb-4"
       />
-      <Button onClick={handleTranslate} disabled={!inputText || isLoading}>
-        Translate {isLoading && <LoadingSpinner />}
-      </Button>
+      <button 
+        onClick={handleTranslate} 
+        disabled={!inputText || isLoading}
+        className="px-4 py-2 bg-blue-500 text-white border-none rounded-md text-base cursor-pointer mt-4 disabled:bg-gray-400 disabled:cursor-not-allowed"
+      >
+        Translate {isLoading && (
+          <span className="inline-block w-5 h-5 ml-2 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+        )}
+      </button>
       {outputText && (
-        <TranslationOutput>
-          <h3>Translation</h3>
-          <div className="translation-text">
+        <div className="mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h3 className="mt-0 text-gray-700 mb-4">Translation</h3>
+          <div className="text-lg leading-relaxed text-gray-800">
             <ReactMarkdown>{outputText}</ReactMarkdown>
           </div>
-        </TranslationOutput>
+        </div>
       )}
-    </TranslatorContainer>
+    </div>
   );
 };
 
