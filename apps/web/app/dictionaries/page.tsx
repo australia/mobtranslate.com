@@ -4,27 +4,27 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@ui/components/card';
 import SharedLayout from '../components/SharedLayout';
-import { getSupportedLanguages } from '../lib/dictionary';
+import { getSupportedLanguages, type LanguageCode, type DictionaryMeta } from '@dictionaries';
 
-interface Dictionary {
-  name: string;
-  description: string;
+interface DictionaryDisplay {
+  code: LanguageCode;
+  meta: DictionaryMeta;
   wordCount?: number;
 }
 
 export default function DictionariesPage() {
-  const [dictionaries, setDictionaries] = useState<Record<string, Dictionary>>({});
+  const [dictionaries, setDictionaries] = useState<Record<string, DictionaryDisplay>>({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Get our supported languages from the dictionary service
     const languages = getSupportedLanguages();
-    const dictionaryData: Record<string, Dictionary> = {};
+    const dictionaryData: Record<string, DictionaryDisplay> = {};
     
     languages.forEach(lang => {
       dictionaryData[lang.code] = {
-        name: lang.name,
-        description: lang.description,
+        code: lang.code,
+        meta: lang.meta,
         // In a real app, we'd get the actual word count
         wordCount: Math.floor(Math.random() * 500) + 100 // Just a placeholder
       };
@@ -52,13 +52,13 @@ export default function DictionariesPage() {
               {Object.entries(dictionaries).map(([code, dictionary]) => (
                 <Card key={code} className="overflow-hidden">
                   <CardHeader>
-                    <CardTitle>{dictionary.name}</CardTitle>
+                    <CardTitle>{dictionary.meta.name}</CardTitle>
                     <CardDescription>
                       {dictionary.wordCount} words
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="line-clamp-3">{dictionary.description}</p>
+                    <p className="line-clamp-3">{dictionary.meta.description}</p>
                   </CardContent>
                   <CardFooter className="bg-muted/50 border-t pt-6">
                     <Link

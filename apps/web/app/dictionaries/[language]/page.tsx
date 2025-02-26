@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import SharedLayout from '../../components/SharedLayout';
-import { getDictionary, type Dictionary } from '../../lib/dictionary';
+import getDictionary, { type Dictionary } from '@dictionaries';
 
 // Language codes we support
 const supportedLanguages = ['kuku_yalanji', 'migmaq', 'anindilyakwa'];
@@ -24,23 +24,39 @@ export default function LanguageDictionaryPage() {
       return;
     }
     
-    try {
-      // Fetch dictionary data using the provided function
-      const dictionaryData = getDictionary(language);
-      setDictionary(dictionaryData);
-    } catch (err) {
-      console.error('Error loading dictionary:', err);
-      setError('Failed to load dictionary data.');
-    } finally {
-      setLoading(false);
+    async function loadDictionary() {
+      try {
+        // Fetch dictionary data using the provided function
+        const dictionaryData = await getDictionary(language);
+        setDictionary(dictionaryData);
+      } catch (err) {
+        console.error('Error loading dictionary:', err);
+        setError('Failed to load dictionary data.');
+      } finally {
+        setLoading(false);
+      }
     }
+    
+    loadDictionary();
   }, [language]);
 
   // Filter words based on search term
-  const filteredWords = dictionary?.words?.filter(word => 
-    word.word.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    word.definition.toLowerCase().includes(searchTerm.toLowerCase())
-  ) || [];
+  const filteredWords = dictionary?.words?.filter(word => {
+    const searchValue = searchTerm.toLowerCase();
+    const wordMatch = word.word.toLowerCase().includes(searchValue);
+    
+    // Check in definitions array or definition string
+    let definitionMatch = false;
+    if (word.definition) {
+      definitionMatch = word.definition.toLowerCase().includes(searchValue);
+    } else if (Array.isArray(word.definitions)) {
+      definitionMatch = word.definitions.some(def => 
+        typeof def === 'string' && def.toLowerCase().includes(searchValue)
+      );
+    }
+    
+    return wordMatch || definitionMatch;
+  }) || [];
 
   if (loading) {
     return (
@@ -79,8 +95,8 @@ export default function LanguageDictionaryPage() {
               </svg>
               Back to Dictionaries
             </Link>
-            <h1 className="text-3xl font-bold">{dictionary.name} Dictionary</h1>
-            <p className="text-muted-foreground mt-2">{dictionary.description}</p>
+            <h1 className="text-3xl font-bold">{dictionary.meta.name} Dictionary</h1>
+            <p className="text-muted-foreground mt-2">{dictionary.meta.description}</p>
           </div>
           
           <div className="w-full md:w-auto">
@@ -133,9 +149,15 @@ export default function LanguageDictionaryPage() {
                     </td>
                     <td className="px-4 py-3 text-muted-foreground">{word.type}</td>
                     <td className="px-4 py-3">
-                      {word.definition.length > 100 
-                        ? `${word.definition.substring(0, 100).replace(/\n.*$/, '')}...` 
-                        : word.definition.split('\n')[0]}
+                      {word.definition ? (
+                        word.definition.length > 100 
+                          ? `${word.definition.substring(0, 100).replace(/\n.*$/, '')}...` 
+                          : word.definition.split('\n')[0]
+                      ) : (
+                        Array.isArray(word.definitions) 
+                          ? word.definitions[0] 
+                          : word.definitions || '—'
+                      )}
                     </td>
                     <td className="px-4 py-3 italic text-sm hidden md:table-cell">
                       {word.example || '—'}
@@ -160,10 +182,10 @@ export default function LanguageDictionaryPage() {
           
           <div className="text-sm">
             <Link 
-              href={`/dictionaries/${language}/all-words`}
+              href={`/dictionaries/${language}/words`}
               className="text-primary hover:underline"
             >
-              View all words as individual pages
+              View all words alphabetically
             </Link>
           </div>
         </div>

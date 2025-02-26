@@ -19,8 +19,10 @@
     "baseUrl": ".",
     "paths": {
       "@ui/*": ["ui/*"],
+      "@ui": ["ui"],
       "@ui/components/*": ["ui/components/*"],
-      "@dictionaries/*": ["dictionaries/*"]
+      "@dictionaries/*": ["dictionaries/*"],
+      "@dictionaries": ["dictionaries"]
     }
   },
   "exclude": ["node_modules"]

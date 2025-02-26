@@ -4,9 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import SharedLayout from '../../../components/SharedLayout';
-import { getDictionary, type Dictionary, type DictionaryWord } from '../../../lib/dictionary';
+import getDictionary, { type Dictionary, type DictionaryWord } from '@dictionaries';
 
-export default function AllWordsPage() {
+export default function WordsPage() {
   const params = useParams();
   const language = params?.language as string || '';
   const [dictionary, setDictionary] = useState<Dictionary | null>(null);
@@ -14,16 +14,20 @@ export default function AllWordsPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    try {
-      // Fetch dictionary data using the provided function
-      const dictionaryData = getDictionary(language);
-      setDictionary(dictionaryData);
-    } catch (err) {
-      console.error('Error loading dictionary:', err);
-      setError('Failed to load dictionary data.');
-    } finally {
-      setLoading(false);
+    async function loadDictionary() {
+      try {
+        // Fetch dictionary data using the provided function
+        const dictionaryData = await getDictionary(language);
+        setDictionary(dictionaryData);
+      } catch (err) {
+        console.error('Error loading dictionary:', err);
+        setError('Failed to load dictionary data.');
+      } finally {
+        setLoading(false);
+      }
     }
+    
+    loadDictionary();
   }, [language]);
 
   // Group words by first letter for an alphabetical listing
@@ -76,11 +80,11 @@ export default function AllWordsPage() {
             <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Back to {dictionary.name} Dictionary
+            Back to {dictionary.meta.name} Dictionary
           </Link>
-          <h1 className="text-3xl font-bold mb-2">All {dictionary.name} Words</h1>
+          <h1 className="text-3xl font-bold mb-2">All {dictionary.meta.name} Words</h1>
           <p className="text-muted-foreground">
-            Browse all words in our {dictionary.name} dictionary. Each word has its own dedicated page
+            Browse all words in our {dictionary.meta.name} dictionary. Each word has its own dedicated page
             with detailed information.
           </p>
         </div>
@@ -126,7 +130,7 @@ export default function AllWordsPage() {
         <div className="mt-10 bg-muted p-6 rounded-lg border">
           <h2 className="text-xl font-semibold mb-4">About This Dictionary</h2>
           <p className="mb-3">
-            This page lists all words in our {dictionary.name} dictionary to make them more discoverable
+            This page lists all words in our {dictionary.meta.name} dictionary to make them more discoverable
             through search engines and to provide a comprehensive view of the language.
           </p>
           <p>

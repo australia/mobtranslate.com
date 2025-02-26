@@ -1,96 +1,123 @@
 import yaml from 'js-yaml';
 import fs from 'fs';
 import path from 'path';
+import kuku_yalanji from './kuku_yalanji/dictionary.js';
+import migmaq from './migmaq/dictionary.js';
+import anindilyakwa from './anindilyakwa/dictionary.js';
+
+const dictionaries: Record<string, any> = {
+  kuku_yalanji,
+  migmaq,
+  anindilyakwa
+}
 
 // Define supported language codes
 export type LanguageCode = 'kuku_yalanji' | 'migmaq' | 'anindilyakwa';
 
-// Word interface for dictionary entries
+// Define dictionary word type
 export interface DictionaryWord {
   word: string;
-  type: string;
+  type?: string;
   definition?: string;
-  definitions?: string[] | string;
+  definitions?: string[];
+  translations?: string[];
+  synonyms?: string[];
   example?: string;
   cultural_context?: string;
 }
 
-// Dictionary interface
+// Define dictionary metadata interface
+export interface DictionaryMeta {
+  name: string;
+  description?: string;
+  source?: string;
+  region?: string;
+  contributors?: string[];
+  lastUpdated?: string;
+}
+
+// Define complete dictionary interface
 export interface Dictionary {
-  meta?: {
-    name: string;
-    description?: string;
-  };
+  meta: DictionaryMeta;
   words: DictionaryWord[];
 }
 
-// Mock dictionaries for development and build 
-const mockDictionaries: Record<LanguageCode, Dictionary> = {
+// Dictionary metadata
+export const dictionaryMeta: Record<LanguageCode, DictionaryMeta> = {
   kuku_yalanji: {
-    meta: { name: 'Kuku Yalanji' },
-    words: [
-      {
-        word: 'bada',
-        type: 'adverb',
-        definitions: ['downward', 'down'],
-      },
-      {
-        word: 'baja',
-        type: 'adverb',
-        definitions: ['again', 'more'],
-      }
-    ]
+    name: 'Kuku Yalanji',
+    description: 'The Kuku Yalanji language is spoken by the Kuku Yalanji people of Far North Queensland, Australia.',
+    region: 'Far North Queensland',
   },
   migmaq: {
-    meta: { name: 'Mi\'gmaq' },
-    words: [
-      {
-        word: 'agase\'wa\'latl',
-        type: 'verb animate transitive',
-        definitions: ['hire'],
-      }
-    ]
+    name: 'Mi\'gmaq',
+    description: 'Mi\'gmaq is an Eastern Algonquian language spoken primarily in Eastern Canada and parts of the United States.',
+    region: 'Eastern Canada, Northeastern United States',
   },
   anindilyakwa: {
-    meta: { name: 'Anindilyakwa' },
-    words: [
-      {
-        word: 'akina',
-        type: 'pronoun',
-        definitions: ['that', 'those'],
-      }
-    ]
+    name: 'Anindilyakwa',
+    description: 'Anindilyakwa is an Australian Aboriginal language spoken on Groote Eylandt in the Northern Territory.',
+    region: 'Groote Eylandt, Northern Territory',
   }
 };
 
 /**
- * Get dictionary data for a specific language
- * @param language The language code to get dictionary for
- * @returns Dictionary data
+ * Process and return dictionary data for a given language code
+ * @param language The language code
+ * @returns Array of dictionary words
  */
-const getDictionary = (language: string): Dictionary => {
+const getDictionaryData = (language: LanguageCode): DictionaryWord[] => {
   try {
-    // Check if language is supported
-    if (!(language in mockDictionaries)) {
-      throw new Error(`Dictionary not found for language: ${language}`);
+    const dictionaryString = dictionaries[language];
+    if (!dictionaryString) {
+      throw new Error(`Dictionary string not found for language: ${language}`);
     }
     
-    // For now, use mock data until we migrate the actual dictionary files to TypeScript
-    const dictionaryData = mockDictionaries[language as LanguageCode];
-    
-    // Ensure the dictionary structure matches what the app expects
-    if (!dictionaryData || !dictionaryData.words) {
-      throw new Error(`Invalid dictionary format for language: ${language}`);
-    }
-    
-    return dictionaryData;
+    // Parse the YAML string
+    const parsedDictionary = yaml.load(dictionaryString) as { meta: DictionaryMeta, words: DictionaryWord[] };
+    return parsedDictionary.words;
   } catch (error) {
-    console.error(`Error loading dictionary for "${language}":`, error);
-    return {
-      meta: { name: language },
-      words: []
-    };
+    console.error(`Error parsing dictionary for ${language}:`, error);
+    return [];
   }
 };
 
-export default getDictionary;
+/**
+ * Returns a list of all supported languages with their metadata
+ */
+export function getSupportedLanguages(): { code: LanguageCode; meta: DictionaryMeta }[] {
+  return Object.keys(dictionaryMeta).map((code) => ({
+    code: code as LanguageCode,
+    meta: dictionaryMeta[code as LanguageCode],
+  }));
+}
+
+/**
+ * Get the dictionary for a specific language
+ * @param language The language code
+ * @returns The dictionary object or null if not found
+ */
+export default async function getDictionary(language: string): Promise<Dictionary | null> {
+  try {
+    if (!Object.keys(dictionaryMeta).includes(language)) {
+      console.error(`Language not supported: ${language}`);
+      return null;
+    }
+    
+    // Get the dictionary words
+    const words = getDictionaryData(language as LanguageCode);
+    
+    if (!words) {
+      throw new Error(`Words not found for language: ${language}`);
+    }
+    
+    // Combine metadata and words
+    return {
+      meta: dictionaryMeta[language as LanguageCode],
+      words
+    };
+  } catch (error) {
+    console.error(`Error loading dictionary for ${language}:`, error);
+    return null;
+  }
+}

@@ -12,8 +12,14 @@
       "@ui/components/*": [
         "../../ui/components/*"
       ],
+      "@ui": [
+        "../../ui"
+      ],
       "@dictionaries/*": [
         "../../dictionaries/*"
+      ],
+      "@dictionaries": [
+        "../../dictionaries"
       ]
     },
     "plugins": [

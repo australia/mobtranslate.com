@@ -119,20 +119,84 @@ cd apps/web && pnpm add -D package-name
 The dictionary functionality is centralized in the following files:
 
 1. **Root Dictionary Module** (`/dictionaries/index.ts`):
-   - Exports the main `getDictionary` function
-   - Provides TypeScript interfaces for dictionary data
-   - Exports language code type definition
+   - Exports the main `getDictionary` function as an async function
+   - Defines TypeScript interfaces for dictionary data: `Dictionary`, `DictionaryWord`, and `DictionaryMeta`
+   - Exports the `LanguageCode` type for supported languages
+   - Handles YAML parsing using js-yaml
+   - Provides helper functions like `getSupportedLanguages()`
+   - Contains metadata for all languages in a centralized `dictionaryMeta` object
 
-2. **App Dictionary Module** (`/apps/web/app/lib/dictionary.ts`):
-   - Provides application-specific dictionary utilities
-   - Imports the core dictionary functionality from @dictionaries
-   - Adds application-specific interfaces and helper functions
+2. **Dictionary Data Files** (`/dictionaries/{language}/dictionary.js`):
+   - Contains YAML strings with dictionary data
+   - Includes words and their associated metadata
+   - Follows a consistent structure across all languages
 
 When working with dictionaries:
 
 1. Always use typed interfaces for dictionary data
-2. Use the `getDictionary` function to retrieve dictionary data
-3. For frontend components, use the app-level dictionary utilities
+2. Remember that `getDictionary` returns a Promise and must be properly awaited
+3. Use proper async/await patterns within useEffect hooks when fetching dictionary data
+4. Access dictionary metadata through the `dictionary.meta` property, not directly on the dictionary object
+
+### TypeScript and Dictionary Data
+
+The dictionary system uses several key TypeScript features:
+
+1. **Type Definitions**:
+   ```typescript
+   export type LanguageCode = 'kuku_yalanji' | 'migmaq' | 'anindilyakwa';
+   
+   export interface DictionaryWord {
+     word: string;
+     type?: string;
+     definition?: string;
+     definitions?: string[];
+     translations?: string[];
+     synonyms?: string[];
+     example?: string;
+     cultural_context?: string;
+   }
+   
+   export interface DictionaryMeta {
+     name: string;
+     description?: string;
+     source?: string;
+     region?: string;
+     contributors?: string[];
+     lastUpdated?: string;
+   }
+   
+   export interface Dictionary {
+     meta: DictionaryMeta;
+     words: DictionaryWord[];
+   }
+   ```
+
+2. **Module Declaration**:
+   A module declaration is added in `dictionary.d.ts` to support importing JavaScript files containing YAML strings:
+   ```typescript
+   declare module '*/dictionary.js' {
+     const content: string;
+     export default content;
+   }
+   ```
+
+3. **TypeScript Configuration**:
+   The `tsconfig.json` is configured to allow JavaScript imports with:
+   ```json
+   {
+     "compilerOptions": {
+       "allowJs": true,
+       "checkJs": false
+     },
+     "include": [
+       "**/*.ts",
+       "**/*.tsx",
+       "**/*.js",
+       "**/*.jsx"
+     ]
+   }
+   ```
 
 ## Dictionary Pages Structure
 

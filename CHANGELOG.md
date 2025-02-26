@@ -10,6 +10,7 @@ All notable changes to the MobTranslate project will be documented in this file.
 - Functions for retrieving language data and supported languages
 - Improved error handling and loading states
 - Type safety improvements with proper TypeScript typing for language codes
+- Added module declaration to support importing JS files with YAML content
 
 ### Changed
 - Migrated dictionary data handling from separate packages to a central module
@@ -19,6 +20,8 @@ All notable changes to the MobTranslate project will be documented in this file.
 - Refactored dictionary.ts with proper TypeScript type checking
 - Refactored UI components to use standard functional components instead of forwardRef
 - Added 'use client' directive to all UI components for Next.js App Router compatibility
+- Refactored dictionary loading to properly handle async/await patterns
+- Updated tsconfig.json to include JavaScript files in the build
 
 ### Fixed
 - Import issues with dictionary data across components
@@ -28,6 +31,9 @@ All notable changes to the MobTranslate project will be documented in this file.
 - Build process failures due to TypeScript errors
 - Fixed monorepo path aliasing for @ui/components imports
 - Resolved component compatibility issues with Next.js App Router
+- Fixed async/await issues in dictionary loading functions
+- Corrected TypeScript type errors in React components
+- Resolved dictionary metadata access patterns across components
 
 ## [0.2.0] - 2025-02-26
 
