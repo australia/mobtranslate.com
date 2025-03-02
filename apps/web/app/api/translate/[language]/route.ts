@@ -78,7 +78,15 @@ const createTranslationPrompt = (text: string, dictionary: Dictionary) => {
   For creative requests: Provide the created content in ${dictionary.meta.name} followed by an English translation, both in markdown format.
   For questions: Provide a helpful response with relevant information from the dictionary.
   
-  If relevant, include brief annotations explaining significant translation choices or cultural context, especially for culturally nuanced terms.
+  ALWAYS include detailed notes after your translation or creative content that:
+  1. Explain the specific word choices and their cultural significance
+  2. Provide a word-by-word or phrase-by-phrase breakdown of key elements in the translation
+  3. Highlight any linguistic features unique to ${dictionary.meta.name} that were used
+  4. Explain any cultural context necessary to fully understand the translation
+  5. Discuss any challenges in the translation process and how they were resolved
+  6. If substitutions were made for words not in the dictionary, explain your reasoning
+  
+  Format these notes under a "### Translation Notes:" heading and make them detailed and educational.
   `;
 
   return neoPrompt;
