@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { ArrowRight, Globe, Loader2, RefreshCw, AlertTriangle } from 'lucide-react';
+import { ArrowRight, Globe, Loader2, RefreshCw, AlertTriangle, Check, Copy } from 'lucide-react';
 
 const Translator = () => {
   const [inputText, setInputText] = useState<string>('');
@@ -145,114 +145,111 @@ const Translator = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-8 p-6 bg-card rounded-xl shadow-md border border-border/30 transition-all hover:shadow-lg">
-      <div className="flex items-center mb-6">
-        <Globe className="w-6 h-6 text-primary mr-2" />
-        <h2 className="text-2xl font-semibold">Aboriginal Language Translator</h2>
-      </div>
-      
-      <div className="flex flex-col md:flex-row gap-4 mb-6">
-        <div className="w-full md:w-1/3">
-          <label htmlFor="language-select" className="block text-sm font-medium mb-2 text-muted-foreground">
-            Translate to
-          </label>
-          <select 
-            id="language-select"
-            value={selectedLanguage} 
-            onChange={(e) => setSelectedLanguage(e.target.value)}
-            className="w-full p-3 border border-input bg-background rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-          >
-            {languages.length > 0 ? (
-              languages.map((lang) => (
-                <option key={lang.code} value={lang.code}>
-                  {lang.meta.name}
-                </option>
-              ))
-            ) : (
-              <option value="kuku_yalanji">Kuku Yalanji</option>
-            )}
-          </select>
-        </div>
-        
-        <div className="w-full md:w-2/3">
-          <div className="flex justify-between items-center mb-2">
-            <label htmlFor="input-text" className="block text-sm font-medium text-muted-foreground">
-              English text
-            </label>
-            <span className="text-xs text-muted-foreground">Press Ctrl+Enter to translate</span>
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="bg-card shadow-md rounded-md border border-border overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {/* Input Section */}
+          <div className="p-4 md:p-6 border-b md:border-b-0 md:border-r border-border">
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-lg font-medium text-foreground">English</h2>
+              <button
+                onClick={resetForm}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                disabled={!inputText}
+              >
+                Clear
+              </button>
+            </div>
+            <textarea
+              value={inputText}
+              onChange={handleInputChange}
+              placeholder="Enter English text to translate..."
+              className="w-full h-32 p-3 bg-background border border-input rounded-md focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none"
+            />
+            <div className="mt-4 flex items-center justify-between">
+              <div className="text-sm text-muted-foreground">
+                {inputText.length} characters
+              </div>
+              <div className="flex items-center gap-2">
+                <select
+                  value={selectedLanguage}
+                  onChange={(e) => setSelectedLanguage(e.target.value)}
+                  className="px-3 py-1.5 text-sm bg-background border border-input rounded-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                >
+                  {languages.map((lang) => (
+                    <option key={lang.code} value={lang.code}>
+                      {lang.meta?.name || lang.code}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  onClick={handleTranslate}
+                  disabled={!canTranslate}
+                  className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
+                    canTranslate
+                      ? "bg-primary text-white hover:bg-primary/90"
+                      : "bg-muted text-muted-foreground cursor-not-allowed"
+                  }`}
+                >
+                  {isLoading ? (
+                    <div className="flex items-center gap-2">
+                      <Loader2 size={16} className="animate-spin" />
+                      <span>Translating...</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <ArrowRight size={16} />
+                      <span>Translate</span>
+                    </div>
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
-          <textarea
-            id="input-text"
-            value={inputText}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            placeholder="Enter text to translate..."
-            className="w-full h-24 p-4 border border-input bg-background rounded-lg resize-y mb-4 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-          />
-        </div>
-      </div>
-      
-      <div className="flex justify-end mb-6">
-        <div className="flex gap-2">
-          <button
-            onClick={resetForm}
-            className="px-4 py-2.5 bg-muted text-muted-foreground border border-input rounded-lg cursor-pointer hover:bg-muted/80 transition-colors flex items-center gap-2"
-            type="button"
-          >
-            <RefreshCw size={16} />
-            Reset
-          </button>
-          <button 
-            onClick={handleTranslate} 
-            disabled={!canTranslate || isLoading}
-            className="px-5 py-2.5 bg-primary text-primary-foreground border-none rounded-lg cursor-pointer hover:bg-primary/90 transition-colors flex items-center gap-2 disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
-          >
-            {isLoading ? (
-              <>
-                <Loader2 className="w-4 h-4 animate-spin" />
-                Translating...
-              </>
-            ) : (
-              <>
-                Translate
-                <ArrowRight className="w-4 h-4" />
-              </>
-            )}
-          </button>
-        </div>
-      </div>
 
-      {error && (
-        <div className="mt-4 p-4 bg-destructive/10 border border-destructive/30 rounded-lg text-destructive flex items-center gap-2">
-          <AlertTriangle className="w-5 h-5" />
-          <p>{error}</p>
-        </div>
-      )}
-
-      {outputText && !error && (
-        <div className="mt-6 rounded-lg border border-border overflow-hidden">
-          <div className="bg-muted p-3 flex justify-between items-center">
-            <h3 className="text-lg font-medium">Translation</h3>
-            <button 
-              onClick={copyToClipboard}
-              className="text-xs px-3 py-1.5 bg-background hover:bg-primary/10 text-foreground rounded-md transition-colors"
-            >
-              {copied ? 'Copied!' : 'Copy text'}
-            </button>
-          </div>
-          <div 
-            ref={outputRef}
-            className="p-5 bg-background max-h-[300px] overflow-y-auto"
-          >
-            <div className="prose prose-sm max-w-none text-foreground">
-              <ReactMarkdown>{outputText}</ReactMarkdown>
+          {/* Output Section */}
+          <div className="p-4 md:p-6 bg-background/50">
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-lg font-medium text-foreground">
+                {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.meta?.name || 'Translation'}
+              </h2>
+              <button
+                onClick={copyToClipboard}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                disabled={!outputText}
+              >
+                {copied ? (
+                  <>
+                    <Check size={14} />
+                    <span>Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy size={14} />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
+            </div>
+            <div className="w-full h-32 p-3 bg-background border border-input rounded-md overflow-auto" ref={outputRef}>
+              {error ? (
+                <p className="text-destructive">{error}</p>
+              ) : outputText ? (
+                <p className="whitespace-pre-wrap">{outputText}</p>
+              ) : (
+                <p className="text-muted-foreground">
+                  Translation will appear here...
+                </p>
+              )}
+            </div>
+            <div className="mt-4 text-xs text-muted-foreground">
+              <p>
+                Note: Translations are generated using AI and may not be 100% accurate.
+                Please consult with language experts for critical translations.
+              </p>
             </div>
           </div>
         </div>
-      )}
-      
-      <div className="mt-6 text-xs text-muted-foreground text-center">
-        Powered by community-maintained dictionaries. Translations may not be perfect.
       </div>
     </div>
   );

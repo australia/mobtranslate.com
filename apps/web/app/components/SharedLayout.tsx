@@ -84,12 +84,12 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             {/* Logo */}
             <Link 
               href="/" 
-              className="flex items-center space-x-2 font-serif font-bold text-2xl sm:text-3xl text-primary hover:opacity-90 transition-all"
+              className="flex items-center space-x-2 text-xl sm:text-2xl text-primary hover:text-primary/90 transition-all font-roboto font-medium"
             >
-              <div className="w-10 h-10 rounded-full aboriginal-gradient flex items-center justify-center text-white mr-2">
-                <span className="text-lg font-bold">MT</span>
+              <div className="w-10 h-10 rounded bg-primary flex items-center justify-center text-white">
+                <span className="font-medium">MT</span>
               </div>
-              <span className="hidden sm:inline tracking-tight">Mob Translate</span>
+              <span className="hidden sm:inline">Mob Translate</span>
             </Link>
             
             {/* Desktop Navigation */}
@@ -100,17 +100,16 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
+                  className="relative text-foreground hover:text-primary transition-colors group"
                 >
-                  {link.title}
+                  <span className="relative z-10">{link.title}</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                 </Link>
               ))}
-              
-              {/* Dark Mode Toggle */}
-              <button 
+              <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full bg-muted hover:bg-muted/80 text-foreground transition-colors"
-                aria-label="Toggle dark mode"
+                className="p-2 rounded-full bg-muted hover:bg-primary/20 text-foreground transition-colors transform hover:rotate-12 duration-300"
+                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
@@ -118,16 +117,16 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             
             {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center gap-2">
-              <button 
+              <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full bg-muted hover:bg-muted/80 text-foreground transition-colors"
-                aria-label="Toggle dark mode"
+                className="p-2 rounded-md text-foreground hover:bg-muted transition-colors"
+                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
-              <button
+              <button 
                 onClick={toggleMenu}
-                className="p-2 rounded-full bg-muted hover:bg-muted/80 text-foreground transition-colors"
+                className="p-2 rounded-md text-foreground hover:bg-muted transition-colors"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -163,21 +162,34 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
       </main>
       
       {/* Footer */}
-      <footer className="w-full border-t py-12 bg-muted/30">
+      <footer className="mt-auto py-8 border-t border-border bg-secondary/20">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* About */}
             <div>
-              <h3 className="text-xl font-semibold mb-4">About Mob Translate</h3>
+              <h3 className="text-lg font-medium mb-4">About Mob Translate</h3>
               <p className="text-muted-foreground leading-relaxed">
                 A community-driven project dedicated to preserving and promoting 
                 Australian Aboriginal languages through accessible translation tools.
               </p>
+              <p className="mt-4 text-muted-foreground">
+                Built by Thomas Davis. You can reach him at:
+              </p>
+              <div className="mt-2 flex items-center gap-2">
+                <a href="mailto:thomasalwyndavis@gmail.com" className="text-primary hover:text-primary/80 transition-all duration-200 underline">
+                  thomasalwyndavis@gmail.com
+                </a>
+              </div>
+              <div className="mt-2">
+                <a href="https://twitter.com/ajaxdavis" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-all duration-200 underline">
+                  @ajaxdavis on Twitter
+                </a>
+              </div>
             </div>
             
             {/* Quick Links */}
             <div>
-              <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+              <h3 className="text-lg font-medium mb-4">Quick Links</h3>
               <ul className="space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.title}>
@@ -185,9 +197,9 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                       href={link.href}
                       target={link.external ? '_blank' : undefined}
                       rel={link.external ? 'noopener noreferrer' : undefined}
-                      className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center"
+                      className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center group"
                     >
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-2"></span>
+                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-2 group-hover:opacity-80 transition-opacity"></span>
                       {link.title}
                     </Link>
                   </li>
@@ -197,25 +209,25 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             
             {/* Connect */}
             <div>
-              <h3 className="text-xl font-semibold mb-4">Connect</h3>
+              <h3 className="text-lg font-medium mb-4">Connect</h3>
               <div className="flex items-center gap-4">
                 <a 
                   href="https://github.com/australia/mobtranslate.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-foreground/5 hover:bg-foreground/10 text-primary rounded-full transition-colors"
+                  className="p-2 bg-foreground/5 hover:bg-primary/10 text-primary rounded transition-colors"
                   aria-label="GitHub Repository"
                 >
-                  <Github size={22} />
+                  <Github size={20} />
                 </a>
                 <a 
                   href="https://github.com/australia/mobtranslate.com/stargazers"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-foreground/5 hover:bg-foreground/10 text-primary rounded-full transition-colors"
+                  className="p-2 bg-foreground/5 hover:bg-primary/10 text-primary rounded transition-colors"
                   aria-label="Star on GitHub"
                 >
-                  <Heart size={22} />
+                  <Heart size={20} />
                 </a>
               </div>
               <p className="mt-4 text-muted-foreground leading-relaxed">
@@ -225,13 +237,9 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             </div>
           </div>
           
-          <div className="mt-10 pt-8 border-t text-center text-muted-foreground">
-            <p>
-              &copy; {new Date().getFullYear()} Mob Translate. All rights reserved.
-            </p>
-            <p className="mt-3 text-sm max-w-2xl mx-auto">
-              This project acknowledges the Traditional Owners of the lands on which we work and live.
-              We pay our respects to Elders past, present and emerging.
+          <div className="mt-8 pt-6 border-t border-border/30 text-center text-muted-foreground">
+            <p className="font-inter">
+              {new Date().getFullYear()} Mob Translate
             </p>
           </div>
         </div>
