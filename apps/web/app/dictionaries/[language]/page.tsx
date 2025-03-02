@@ -5,31 +5,43 @@ import SharedLayout from '../../components/SharedLayout';
 import { type Dictionary, type DictionaryWord } from '@dictionaries';
 
 async function getDictionaryData(language: string, searchTerm: string = '') {
-  const searchParams = new URLSearchParams();
-  if (searchTerm) searchParams.set('search', searchTerm);
-  
-  const queryString = searchParams.toString();
-  
-  // For server components, we need to ensure we have a valid absolute URL
-  // Using URL constructor to guarantee a valid URL
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
-    (typeof window === 'undefined' ? 'http://localhost:3000' : window.location.origin);
-  
-  const url = new URL(`/api/dictionaries/${language}${queryString ? `?${queryString}` : ''}`, baseUrl);
-  
-  const response = await fetch(
-    url.toString(),
-    { cache: 'no-store' }
-  );
-  
-  if (!response.ok) {
-    if (response.status === 404) {
-      return null;
+  try {
+    const searchParams = new URLSearchParams();
+    if (searchTerm) searchParams.set('search', searchTerm);
+    
+    const queryString = searchParams.toString();
+    
+    // For server components, we need to ensure we have a valid absolute URL
+    // Using URL constructor to guarantee a valid URL
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
+      (typeof window === 'undefined' ? 'http://localhost:3000' : window.location.origin);
+    
+    const url = new URL(`/api/dictionaries/${language}${queryString ? `?${queryString}` : ''}`, baseUrl);
+    
+    console.log(`Fetching dictionary data from: ${url.toString()}`);
+    
+    const response = await fetch(
+      url.toString(),
+      { cache: 'no-store' }
+    );
+    
+    if (!response.ok) {
+      if (response.status === 404) {
+        console.error(`Dictionary not found: ${language}`);
+        return null;
+      }
+      
+      const errorText = await response.text();
+      console.error(`API error (${response.status}): ${errorText}`);
+      throw new Error(`Failed to fetch dictionary data: ${response.status} ${errorText.substring(0, 100)}`);
     }
-    throw new Error('Failed to fetch dictionary data');
+    
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Error fetching dictionary:`, error);
+    throw error;
   }
-  
-  return response.json();
 }
 
 export default async function LanguageDictionaryPage({

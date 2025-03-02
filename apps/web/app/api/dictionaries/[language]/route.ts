@@ -19,6 +19,7 @@ export async function GET(
     const dictionary = await getDictionary(language);
     
     if (!dictionary) {
+      console.error(`Dictionary for language '${language}' not found`);
       return NextResponse.json({ 
         success: false, 
         error: `Dictionary for language '${language}' not found` 
@@ -32,17 +33,17 @@ export async function GET(
       const searchLower = search.toLowerCase();
       filteredWords = filteredWords.filter(word => {
         // Search in word
-        if (word.word.toLowerCase().includes(searchLower)) return true;
+        if (word.word && word.word.toLowerCase().includes(searchLower)) return true;
         
         // Search in definition (string or array)
-        if (word.definition && word.definition.toLowerCase().includes(searchLower)) return true;
-        if (word.definitions && word.definitions.some(def => def.toLowerCase().includes(searchLower))) return true;
+        if (typeof word.definition === 'string' && word.definition.toLowerCase().includes(searchLower)) return true;
+        if (Array.isArray(word.definitions) && word.definitions.some(def => typeof def === 'string' && def.toLowerCase().includes(searchLower))) return true;
         
         // Search in translations
-        if (word.translations && word.translations.some(trans => trans.toLowerCase().includes(searchLower))) return true;
+        if (Array.isArray(word.translations) && word.translations.some(trans => typeof trans === 'string' && trans.toLowerCase().includes(searchLower))) return true;
         
         // Search in examples
-        if (word.example && word.example.toLowerCase().includes(searchLower)) return true;
+        if (typeof word.example === 'string' && word.example.toLowerCase().includes(searchLower)) return true;
         
         return false;
       });
@@ -98,9 +99,17 @@ export async function GET(
     
   } catch (error) {
     console.error(`Error fetching dictionary for ${language}:`, error);
+    
+    // Return a more detailed error message for debugging
+    const errorMessage = error instanceof Error 
+      ? error.message 
+      : 'Unknown error fetching dictionary data';
+      
     return NextResponse.json({
       success: false,
       error: 'Failed to fetch dictionary data',
+      details: errorMessage,
+      language
     }, { status: 500 });
   }
 }

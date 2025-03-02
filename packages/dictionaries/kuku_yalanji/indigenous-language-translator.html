@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indigenous Language Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .translate-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .translate-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .translate-header {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        #translate-input, #translate-output {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        #translate-output {
+            background-color: #f9f9f9;
+        }
+        #word-info {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9f7fe;
+            border-radius: 4px;
+            display: none;
+        }
+        .translated {
+            cursor: pointer;
+            text-decoration: underline;
+            color: #0066cc;
+        }
+        #loading {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Indigenous Language Translator</h1>
+        
+        <div id="loading">Loading dictionary...</div>
+        
+        <div class="translate-container" style="display: none;">
+            <div class="translate-box">
+                <div class="translate-header">English</div>
+                <textarea id="translate-input" placeholder="Enter text to translate..."></textarea>
+            </div>
+            <div class="translate-box">
+                <div class="translate-header">Indigenous Language</div>
+                <div id="translate-output"></div>
+            </div>
+        </div>
+
+        <div id="word-info"></div>
+    </div>
+
+    <script>
+        let dictionary = [];
+
+        function levenshteinDistance(a, b) {
+            if (a.length === 0) return b.length;
+            if (b.length === 0) return a.length;
+
+            const matrix = [];
+
+            for (let i = 0; i <= b.length; i++) {
+                matrix[i] = [i];
+            }
+
+            for (let j = 0; j <= a.length; j++) {
+                matrix[0][j] = j;
+            }
+
+            for (let i = 1; i <= b.length; i++) {
+                for (let j = 1; j <= a.length; j++) {
+                    if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(
+                            matrix[i - 1][j - 1] + 1,
+                            matrix[i][j - 1] + 1,
+                            matrix[i - 1][j] + 1
+                        );
+                    }
+                }
+            }
+
+            return matrix[b.length][a.length];
+        }
+
+        function findBestMatch(word) {
+            let bestMatch = null;
+            let bestScore = -Infinity;
+
+            dictionary.forEach(entry => {
+                entry.translations.forEach(translation => {
+                    const distance = levenshteinDistance(word.toLowerCase(), translation.toLowerCase());
+                    const maxLength = Math.max(word.length, translation.length);
+                    const similarity = 1 - distance / maxLength;
+
+                    let score = similarity;
+
+                    // Check for semantic relevance
+                    if (entry.related.some(relatedWord => word.toLowerCase().includes(relatedWord.toLowerCase()))) {
+                        score += 0.5; // Boost score for semantic relevance
+                    }
+
+                    if (score > bestScore) {
+                        bestScore = score;
+                        bestMatch = entry;
+                    }
+                });
+            });
+
+            return bestMatch;
+        }
+
+        function translateText(text) {
+            const words = text.split(/\s+/);
+            return words.map(word => {
+                const bestMatch = findBestMatch(word);
+                return bestMatch
+                    ? `<span class="translated" data-word="${bestMatch.word}">${bestMatch.word}</span>`
+                    : word;
+            }).join(' ');
+        }
+
+        function showWordInfo(word) {
+            const entry = dictionary.find(e => e.word === word);
+            if (entry) {
+                const infoHtml = `
+                    <h3>${entry.word}</h3>
+                    <p><strong>Type:</strong> ${entry.type}</p>
+                    <p><strong>Definitions:</strong></p>
+                    <ul>${entry.definitions.map(def => `<li>${def}</li>`).join('')}</ul>
+                    <p><strong>Translations:</strong> ${entry.translations.join(', ')}</p>
+                    <p><strong>Related concepts:</strong> ${entry.related.join(', ')}</p>
+                `;
+                document.getElementById('word-info').innerHTML = infoHtml;
+                document.getElementById('word-info').style.display = 'block';
+            }
+        }
+
+        function initializeTranslator() {
+            document.getElementById('loading').style.display = 'none';
+            document.querySelector('.translate-container').style.display = 'flex';
+
+            document.getElementById('translate-input').addEventListener('input', (e) => {
+                const inputText = e.target.value;
+                const translatedHtml = translateText(inputText);
+                document.getElementById('translate-output').innerHTML = translatedHtml;
+            });
+
+            document.getElementById('translate-output').addEventListener('click', (e) => {
+                if (e.target.classList.contains('translated')) {
+                    showWordInfo(e.target.dataset.word);
+                }
+            });
+        }
+
+        // Load dictionary from network
+        fetch('https://mobtranslate.com/api/dictionary/kuku_yalanji')
+            .then(response => response.json())
+            .then(data => {
+                dictionary = data;
+                initializeTranslator();
+            })
+            .catch(error => {
+                console.error('Error loading dictionary:', error);
+                document.getElementById('loading').textContent = 'Error loading dictionary. Please try again later.';
+            });
+    </script>
+</body>
+</html>

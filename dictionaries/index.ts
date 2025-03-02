@@ -70,14 +70,41 @@ const getDictionaryData = (language: LanguageCode): DictionaryWord[] => {
   try {
     const dictionaryString = dictionaries[language];
     if (!dictionaryString) {
-      throw new Error(`Dictionary string not found for language: ${language}`);
+      console.error(`Dictionary string not found for language: ${language}`);
+      return [];
     }
     
     // Parse the YAML string
-    const parsedDictionary = yaml.load(dictionaryString) as { meta: DictionaryMeta, words: DictionaryWord[] };
-    return parsedDictionary.words;
+    let parsedDictionary;
+    try {
+      parsedDictionary = yaml.load(dictionaryString) as { meta: DictionaryMeta, words: DictionaryWord[] };
+      
+      if (!parsedDictionary || !Array.isArray(parsedDictionary.words)) {
+        console.error(`Invalid dictionary format for ${language}, words array not found`);
+        return [];
+      }
+      
+      // Ensure all words have the required structure
+      const words = parsedDictionary.words.map(word => {
+        return {
+          word: word.word || '',
+          type: word.type || '',
+          definition: word.definition || '',
+          definitions: Array.isArray(word.definitions) ? word.definitions : [],
+          translations: Array.isArray(word.translations) ? word.translations : [],
+          synonyms: Array.isArray(word.synonyms) ? word.synonyms : [],
+          example: word.example || '',
+          cultural_context: word.cultural_context || ''
+        };
+      });
+      
+      return words;
+    } catch (yamlError) {
+      console.error(`Error parsing YAML for ${language}:`, yamlError);
+      return [];
+    }
   } catch (error) {
-    console.error(`Error parsing dictionary for ${language}:`, error);
+    console.error(`Error processing dictionary for ${language}:`, error);
     return [];
   }
 };

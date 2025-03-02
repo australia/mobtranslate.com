@@ -4,77 +4,81 @@
 
 @layer base {
   :root {
-    --background: 40 35% 95%;
-    --foreground: 222.2 84% 4.9%;
+    /* Lighter, warmer background for improved readability in light mode */
+    --background: 36 30% 96%;
+    --foreground: 20 14.3% 4.1%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 20 14.3% 4.1%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 9 69% 55%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 36 81% 56%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 133 18% 48%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    --popover-foreground: 20 14.3% 4.1%;
+    
+    /* More vibrant primary color based on Aboriginal red */
+    --primary: 0 72% 51%;
+    --primary-foreground: 60 9.1% 97.8%;
+    
+    /* Warmer secondary color for better contrast and appeal */
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 24 9.8% 10%;
+    
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    
+    /* More vibrant accent color for highlights */
+    --accent: 142 70.6% 45.3%;
+    --accent-foreground: 24 9.8% 10%;
+    
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --destructive-foreground: 60 9.1% 97.8%;
+    
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 35 91% 65%;
+    
+    --radius: 0.75rem;
 
     /* Aboriginal Australian inspired color palette */
-    --color-ochre: #C94C4C;         /* Traditional red ochre */
+    --color-ochre: #E84142;         /* Enhanced red ochre */
     --color-earth: #8B4513;         /* Rich earth brown */
-    --color-desert: #DAA520;        /* Desert gold */
+    --color-desert: #F5B935;        /* Bright desert gold */
     --color-sunset: #FF8C42;        /* Warm orange sunset */
     --color-spinifex: #9B7653;      /* Spinifex grass brown */
     --color-stone: #696969;         /* Stone gray */
     --color-night: #1C1C1C;         /* Deep night black */
     --color-sand: #F4D03F;          /* Desert sand */
-    --color-eucalyptus: #829460;    /* Eucalyptus green */
+    --color-eucalyptus: #4CAF50;    /* Enhanced eucalyptus green */
     --color-white: #FFFFFF;         /* Pure white */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 9 69% 50%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 36 81% 46%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 133 18% 38%;
-    --accent-foreground: 210 40% 98%;
-
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+    
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+    
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    
+    --primary: 0 72% 51%;
+    --primary-foreground: 60 9.1% 97.8%;
+    
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    
+    --accent: 142 70.6% 45.3%;
+    --accent-foreground: 60 9.1% 97.8%;
+    
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 35 91% 65%;
   }
 }
 
@@ -82,29 +86,53 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-primary font-bold;
+    @apply font-serif text-primary font-bold leading-tight tracking-tight;
   }
+  
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl sm:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl sm:text-3xl;
+  }
+  
   p, span, div {
     @apply font-sans;
+  }
+  
+  a {
+    @apply text-primary hover:text-primary/80 transition-colors duration-200;
   }
 }
 
 @layer components {
   .hero-pattern {
     background-color: #ffffff;
-    background-image: radial-gradient(#C94C4C 0.5px, transparent 0.5px), radial-gradient(#DAA520 0.5px, #ffffff 0.5px);
+    background-image: radial-gradient(#E84142 0.5px, transparent 0.5px), radial-gradient(#F5B935 0.5px, #ffffff 0.5px);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
     opacity: 0.1;
   }
 
   .aboriginal-gradient {
-    background: linear-gradient(135deg, #E32726 0%, #FFCD00 100%);
+    background: linear-gradient(135deg, var(--color-ochre) 0%, var(--color-desert) 100%);
   }
 
   .card-hover {
@@ -112,15 +140,23 @@
   }
 
   .btn-primary {
-    @apply px-4 py-2 bg-primary text-primary-foreground rounded-md transition-all hover:bg-primary/90 active:translate-y-0.5;
+    @apply px-4 py-2 bg-primary text-primary-foreground rounded-md transition-all hover:bg-primary/90 active:translate-y-0.5 shadow-sm;
   }
 
   .btn-secondary {
-    @apply px-4 py-2 bg-secondary text-secondary-foreground rounded-md transition-all hover:bg-secondary/90 active:translate-y-0.5;
+    @apply px-4 py-2 bg-secondary text-secondary-foreground rounded-md transition-all hover:bg-secondary/90 active:translate-y-0.5 shadow-sm;
   }
 
   .input-primary {
-    @apply px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all;
+    @apply px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm;
+  }
+  
+  .card {
+    @apply bg-card text-card-foreground rounded-xl border border-border/50 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
 
@@ -148,4 +184,22 @@
   0% { transform: rotate(0deg) scale(1); }
   50% { transform: rotate(3deg) scale(1.02); }
   100% { transform: rotate(0deg) scale(1); }
+}
+
+/* Modern focus styles for improved accessibility */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary/50 ring-offset-2;
+}
+
+/* Custom scrollbar for modern browsers */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
 }
