@@ -147,101 +147,107 @@ const Translator = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <div className="bg-card shadow-md rounded-md border border-border overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Input Section */}
-          <div className="p-4 md:p-6 border-b md:border-b-0 md:border-r border-border">
-            <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-lg font-medium text-foreground">English</h2>
-              <button
-                onClick={resetForm}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                disabled={!inputText}
+        {/* Input Section */}
+        <div className="p-4 md:p-6 border-b border-border">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-lg font-medium text-foreground">English</h2>
+            <button
+              onClick={resetForm}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              disabled={!inputText}
+            >
+              Clear
+            </button>
+          </div>
+          <textarea
+            value={inputText}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            placeholder="Enter English text to translate..."
+            className="w-full h-32 p-3 bg-background border border-input rounded-md focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none"
+          />
+          <div className="mt-4 flex items-center justify-between">
+            <div className="text-sm text-muted-foreground">
+              {inputText.length} characters
+            </div>
+            <div className="flex items-center gap-2">
+              <select
+                value={selectedLanguage}
+                onChange={(e) => setSelectedLanguage(e.target.value)}
+                className="px-3 py-1.5 text-sm bg-background border border-input rounded-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
               >
-                Clear
+                {languages.map((lang) => (
+                  <option key={lang.code} value={lang.code}>
+                    {lang.meta?.name || lang.code}
+                  </option>
+                ))}
+              </select>
+              <button
+                onClick={handleTranslate}
+                disabled={!canTranslate}
+                className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
+                  canTranslate
+                    ? "bg-primary text-white hover:bg-primary/90"
+                    : "bg-muted text-muted-foreground cursor-not-allowed"
+                }`}
+              >
+                {isLoading ? (
+                  <div className="flex items-center gap-2">
+                    <Loader2 size={16} className="animate-spin" />
+                    <span>Translating...</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <ArrowRight size={16} />
+                    <span>Translate</span>
+                  </div>
+                )}
               </button>
             </div>
-            <textarea
-              value={inputText}
-              onChange={handleInputChange}
-              placeholder="Enter English text to translate..."
-              className="w-full h-32 p-3 bg-background border border-input rounded-md focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none"
-            />
-            <div className="mt-4 flex items-center justify-between">
-              <div className="text-sm text-muted-foreground">
-                {inputText.length} characters
-              </div>
-              <div className="flex items-center gap-2">
-                <select
-                  value={selectedLanguage}
-                  onChange={(e) => setSelectedLanguage(e.target.value)}
-                  className="px-3 py-1.5 text-sm bg-background border border-input rounded-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
-                >
-                  {languages.map((lang) => (
-                    <option key={lang.code} value={lang.code}>
-                      {lang.meta?.name || lang.code}
-                    </option>
-                  ))}
-                </select>
-                <button
-                  onClick={handleTranslate}
-                  disabled={!canTranslate}
-                  className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
-                    canTranslate
-                      ? "bg-primary text-white hover:bg-primary/90"
-                      : "bg-muted text-muted-foreground cursor-not-allowed"
-                  }`}
-                >
-                  {isLoading ? (
-                    <div className="flex items-center gap-2">
-                      <Loader2 size={16} className="animate-spin" />
-                      <span>Translating...</span>
-                    </div>
-                  ) : (
-                    <div className="flex items-center gap-2">
-                      <ArrowRight size={16} />
-                      <span>Translate</span>
-                    </div>
-                  )}
-                </button>
-              </div>
-            </div>
           </div>
+        </div>
 
-          {/* Output Section */}
-          <div className="p-4 md:p-6 bg-background/50">
+        {/* Output Section */}
+        {(outputText || error) && (
+          <div className="p-4 md:p-6 bg-background/50 border-t border-border">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-lg font-medium text-foreground">
                 {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.meta?.name || 'Translation'}
               </h2>
-              <button
-                onClick={copyToClipboard}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
-                disabled={!outputText}
-              >
-                {copied ? (
-                  <>
-                    <Check size={14} />
-                    <span>Copied</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy size={14} />
-                    <span>Copy</span>
-                  </>
-                )}
-              </button>
-            </div>
-            <div className="w-full h-32 p-3 bg-background border border-input rounded-md overflow-auto" ref={outputRef}>
-              {error ? (
-                <p className="text-destructive">{error}</p>
-              ) : outputText ? (
-                <p className="whitespace-pre-wrap">{outputText}</p>
-              ) : (
-                <p className="text-muted-foreground">
-                  Translation will appear here...
-                </p>
+              {outputText && (
+                <button
+                  onClick={copyToClipboard}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                >
+                  {copied ? (
+                    <>
+                      <Check size={14} />
+                      <span>Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={14} />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
               )}
             </div>
+            
+            {error ? (
+              <div className="p-3 bg-destructive/10 border border-destructive/30 rounded-md text-destructive flex items-start gap-2">
+                <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
+                <p>{error}</p>
+              </div>
+            ) : (
+              <div 
+                ref={outputRef}
+                className="p-4 bg-background border border-input rounded-md prose prose-sm max-w-none"
+              >
+                <ReactMarkdown>{outputText}</ReactMarkdown>
+              </div>
+            )}
+            
             <div className="mt-4 text-xs text-muted-foreground">
               <p>
                 Note: Translations are generated using AI and may not be 100% accurate.
@@ -249,7 +255,7 @@ const Translator = () => {
               </p>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
