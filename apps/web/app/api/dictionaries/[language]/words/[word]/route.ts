@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import getDictionary from '@dictionaries';
 
 export async function GET(
@@ -11,10 +11,16 @@ export async function GET(
     const dictionary = await getDictionary(language);
     
     if (!dictionary) {
-      return NextResponse.json({ 
-        success: false, 
-        error: `Dictionary for language '${language}' not found` 
-      }, { status: 404 });
+      return new Response(
+        JSON.stringify({ 
+          success: false, 
+          error: `Dictionary for language '${language}' not found` 
+        }), 
+        { 
+          status: 404,
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
     }
     
     // Find the specific word
@@ -23,10 +29,16 @@ export async function GET(
     );
     
     if (!wordData) {
-      return NextResponse.json({ 
-        success: false, 
-        error: `Word '${word}' not found in dictionary for language '${language}'` 
-      }, { status: 404 });
+      return new Response(
+        JSON.stringify({ 
+          success: false, 
+          error: `Word '${word}' not found in dictionary for language '${language}'` 
+        }), 
+        { 
+          status: 404,
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
     }
     
     // Find related words (words with same type or synonyms)
@@ -45,18 +57,31 @@ export async function GET(
       })
       .slice(0, 5); // Limit to 5 related words
     
-    return NextResponse.json({
-      success: true,
-      meta: dictionary.meta,
-      data: wordData,
-      relatedWords,
-    }, { status: 200 });
+    return new Response(
+      JSON.stringify({
+        success: true,
+        meta: dictionary.meta,
+        data: wordData,
+        relatedWords,
+      }), 
+      { 
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
     
   } catch (error) {
     console.error(`Error fetching word '${word}' for ${language}:`, error);
-    return NextResponse.json({
-      success: false,
-      error: 'Failed to fetch word data',
-    }, { status: 500 });
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: 'Failed to fetch word data',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      }), 
+      { 
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
   }
 }
