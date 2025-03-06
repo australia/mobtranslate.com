@@ -25,6 +25,12 @@ async function getDictionaryData(language: string, searchTerm: string = '') {
       { cache: 'no-store' }
     );
     
+    console.log('Response type:', typeof response);
+    console.log('Response constructor:', response.constructor.name);
+    console.log('Response methods:', Object.getOwnPropertyNames(Object.getPrototypeOf(response)));
+    console.log('Response status:', response.status);
+    console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+
     if (!response.ok) {
       if (response.status === 404) {
         console.error(`Dictionary not found: ${language}`);
@@ -37,9 +43,16 @@ async function getDictionaryData(language: string, searchTerm: string = '') {
     }
     
     const data = await response.json();
+    console.log('Response data:', JSON.stringify(data).substring(0, 200));
+    
+    if (!data.success) {
+      throw new Error(data.error || 'Failed to fetch dictionary data');
+    }
+
     return data;
   } catch (error) {
-    console.error(`Error fetching dictionary:`, error);
+    console.error('Error in getDictionaryData:', error);
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
     throw error;
   }
 }

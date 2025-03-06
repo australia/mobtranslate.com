@@ -20,10 +20,16 @@ export async function GET(
     
     if (!dictionary) {
       console.error(`Dictionary for language '${language}' not found`);
-      return NextResponse.json({ 
-        success: false, 
-        error: `Dictionary for language '${language}' not found` 
-      }, { status: 404 });
+      return new Response(
+        JSON.stringify({ 
+          success: false, 
+          error: `Dictionary for language '${language}' not found` 
+        }), 
+        { 
+          status: 404,
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
     }
     
     // Filter words based on search query
@@ -78,24 +84,30 @@ export async function GET(
     // Prepare pagination metadata
     const totalPages = totalWords > 3000 ? Math.ceil(totalWords / limit) : 1;
     
-    return NextResponse.json({
-      success: true,
-      meta: dictionary.meta,
-      data: paginatedWords,
-      pagination: {
-        total: totalWords,
-        page,
-        limit,
-        totalPages,
-        hasNext: page < totalPages,
-        hasPrev: page > 1,
-      },
-      filters: {
-        search,
-        sortBy,
-        sortOrder,
-      },
-    }, { status: 200 });
+    return new Response(
+      JSON.stringify({
+        success: true,
+        meta: dictionary.meta,
+        data: paginatedWords,
+        pagination: {
+          total: totalWords,
+          page,
+          limit,
+          totalPages,
+          hasNext: page < totalPages,
+          hasPrev: page > 1,
+        },
+        filters: {
+          search,
+          sortBy,
+          sortOrder,
+        },
+      }), 
+      { 
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
     
   } catch (error) {
     console.error(`Error fetching dictionary for ${language}:`, error);
@@ -105,11 +117,17 @@ export async function GET(
       ? error.message 
       : 'Unknown error fetching dictionary data';
       
-    return NextResponse.json({
-      success: false,
-      error: 'Failed to fetch dictionary data',
-      details: errorMessage,
-      language
-    }, { status: 500 });
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: 'Failed to fetch dictionary data',
+        details: errorMessage,
+        language
+      }), 
+      { 
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
   }
 }
