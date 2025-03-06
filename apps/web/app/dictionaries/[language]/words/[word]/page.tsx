@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { headers } from 'next/headers';
 import SharedLayout from '../../../../components/SharedLayout';
 import { type DictionaryWord } from '@dictionaries';
 import { 
@@ -12,16 +13,18 @@ import {
 
 async function getWordData(language: string, word: string) {
   try {
-    // For server components, we need to ensure we have a valid absolute URL
-    // Using URL constructor to guarantee a valid URL
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
-      (typeof window === 'undefined' ? 'http://localhost:3000' : window.location.origin);
-    
-    const url = new URL(`/api/dictionaries/${language}/words/${encodeURIComponent(word)}`, baseUrl);
+    const headersList = headers();
+    const host = headersList.get('host') || 'localhost:3000';
+    const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
     
     const response = await fetch(
-      url.toString(),
-      { cache: 'no-store' }
+      `${protocol}://${host}/api/dictionaries/${language}/words/${encodeURIComponent(word)}`,
+      { 
+        cache: 'no-store',
+        headers: {
+          'Accept': 'application/json'
+        }
+      }
     );
     
     if (!response.ok) {
@@ -154,7 +157,7 @@ export default async function WordDetailPage({
             <div className="space-y-4 pt-4 border-t">
               <h2 className="text-xl font-semibold tracking-tight">Related Words</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {relatedWords.map((related: DictionaryWord, index: number) => (
+                {relatedWords.map((related: DictionaryWord) => (
                   <Card key={related.word} className="overflow-hidden">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-lg">

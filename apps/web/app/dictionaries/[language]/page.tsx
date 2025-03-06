@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { headers } from 'next/headers';
 import SharedLayout from '../../components/SharedLayout';
 import { type Dictionary } from '@dictionaries';
 import DictionarySearch from './components/DictionarySearch';
@@ -22,12 +23,18 @@ interface DictionaryResponse {
 
 async function getDictionaryData(language: string): Promise<DictionaryResponse | null> {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
-      (typeof window === 'undefined' ? 'http://localhost:3000' : window.location.origin);
+    const headersList = headers();
+    const host = headersList.get('host') || 'localhost:3000';
+    const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
     
     const response = await fetch(
-      `${baseUrl}/api/dictionaries/${language}`,
-      { cache: 'no-store' }
+      `${protocol}://${host}/api/dictionaries/${language}`,
+      { 
+        cache: 'no-store',
+        headers: {
+          'Accept': 'application/json'
+        }
+      }
     );
     
     if (!response.ok) {
@@ -38,7 +45,7 @@ async function getDictionaryData(language: string): Promise<DictionaryResponse |
     }
     
     const data = await response.json();
-    console.log('Dictionary data:', data); // Debug log
+    console.log('Dictionary data:', data);
     return data.success ? data : null;
   } catch (error) {
     console.error('Error fetching dictionary data:', error);
