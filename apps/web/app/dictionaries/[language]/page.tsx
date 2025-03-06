@@ -2,62 +2,36 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
-import { type Dictionary, type DictionaryWord } from '@dictionaries';
+import { type Dictionary } from '@dictionaries';
+import DictionarySearch from './components/DictionarySearch';
 
-async function getDictionaryData(language: string, searchTerm: string = '') {
+async function getDictionaryData(language: string): Promise<Dictionary | null> {
   try {
-    const searchParams = new URLSearchParams();
-    if (searchTerm) searchParams.set('search', searchTerm);
-    
-    const queryString = searchParams.toString();
-    
-    // For server components, we need to ensure we have a valid absolute URL
-    // Using URL constructor to guarantee a valid URL
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
       (typeof window === 'undefined' ? 'http://localhost:3000' : window.location.origin);
     
-    const url = new URL(`/api/dictionaries/${language}${queryString ? `?${queryString}` : ''}`, baseUrl);
-    
-    console.log(`Fetching dictionary data from: ${url.toString()}`);
-    
     const response = await fetch(
-      url.toString(),
+      `${baseUrl}/api/dictionaries/${language}`,
       { cache: 'no-store' }
     );
     
-    console.log('Response type:', typeof response);
-    console.log('Response constructor:', response.constructor.name);
-    console.log('Response methods:', Object.getOwnPropertyNames(Object.getPrototypeOf(response)));
-    console.log('Response status:', response.status);
-    console.log('Response headers:', Object.fromEntries(response.headers.entries()));
-
     if (!response.ok) {
       if (response.status === 404) {
-        console.error(`Dictionary not found: ${language}`);
         return null;
       }
-      
-      const errorText = await response.text();
-      console.error(`API error (${response.status}): ${errorText}`);
-      throw new Error(`Failed to fetch dictionary data: ${response.status} ${errorText.substring(0, 100)}`);
+      throw new Error('Failed to fetch dictionary data');
     }
     
     const data = await response.json();
-    console.log('Response data:', JSON.stringify(data).substring(0, 200));
-    
-    if (!data.success) {
-      throw new Error(data.error || 'Failed to fetch dictionary data');
-    }
-
-    return data;
+    console.log('Dictionary data:', data); // Debug log
+    return data.success ? data : null;
   } catch (error) {
-    console.error('Error in getDictionaryData:', error);
-    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
-    throw error;
+    console.error('Error fetching dictionary data:', error);
+    return null;
   }
 }
 
-export default async function LanguageDictionaryPage({
+export default async function DictionaryPage({
   params,
   searchParams,
 }: {
@@ -67,148 +41,48 @@ export default async function LanguageDictionaryPage({
   const { language } = params;
   const { search = '' } = searchParams;
   
-  const dictionaryResponse = await getDictionaryData(language, search);
+  const dictionaryData = await getDictionaryData(language);
   
-  if (!dictionaryResponse) {
+  if (!dictionaryData) {
     notFound();
   }
-  
-  const { meta, data: words, pagination } = dictionaryResponse;
+
+  const { meta, data: words } = dictionaryData;
+  const dictionary = {
+    meta: {
+      ...meta,
+      code: language
+    },
+    words
+  };
   
   return (
     <SharedLayout>
       <div className="container mx-auto px-4 py-8">
-        <div className="space-y-6">
-          {/* Header section */}
-          <div>
+        <div className="max-w-5xl mx-auto space-y-8">
+          {/* Header */}
+          <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-3xl font-bold tracking-tight">{meta.name} Dictionary</h1>
                 <p className="text-muted-foreground mt-1">{meta.description}</p>
               </div>
-              <Link 
-                href={`/dictionaries/${language}/words`}
-                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-              >
-                View All Words
-              </Link>
             </div>
             <div className="mt-4 flex items-center text-sm text-muted-foreground">
               <span className="mr-2">Region:</span>
               <span className="font-medium">{meta.region}</span>
-              {meta.source && (
-                <>
-                  <span className="mx-2">•</span>
-                  <span className="mr-2">Source:</span>
-                  <span className="font-medium">{meta.source}</span>
-                </>
-              )}
-              {meta.lastUpdated && (
-                <>
-                  <span className="mx-2">•</span>
-                  <span className="mr-2">Updated:</span>
-                  <span className="font-medium">{meta.lastUpdated}</span>
-                </>
-              )}
+            </div>
+            <div className="flex items-center space-x-2 text-sm">
+              <Link href="/dictionaries" className="text-muted-foreground hover:text-foreground">
+                Dictionaries
+              </Link>
+              <span className="text-muted-foreground">/</span>
+              <span className="text-foreground font-medium">{meta.name}</span>
             </div>
           </div>
           
-          {/* Search form */}
-          <div className="rounded-lg border bg-card p-4">
-            <form action="" className="flex items-center gap-2">
-              <input
-                type="text"
-                name="search"
-                placeholder="Search for words, definitions..."
-                defaultValue={search}
-                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1"
-              />
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-              >
-                Search
-              </button>
-            </form>
-          </div>
-          
-          {/* Dictionary content */}
-          {words.length === 0 ? (
-            <div className="text-center py-12">
-              <h3 className="text-lg font-semibold">No words found</h3>
-              <p className="text-muted-foreground mt-1">Try a different search term</p>
-            </div>
-          ) : (
-            <>
-              {/* Word count and pagination info */}
-              <div className="flex items-center justify-between">
-                <p className="text-sm text-muted-foreground">
-                  Showing {words.length} of {pagination.total} words
-                  {search && <span> matching "{search}"</span>}
-                </p>
-                {pagination.total > words.length && (
-                  <Link 
-                    href={`/dictionaries/${language}/words?search=${search}`}
-                    className="text-sm text-primary hover:underline"
-                  >
-                    View all results
-                  </Link>
-                )}
-              </div>
-              
-              {/* Words table */}
-              <div className="rounded-md border">
-                <div className="relative w-full overflow-auto">
-                  <table className="w-full caption-bottom text-sm">
-                    <thead className="[&_tr]:border-b">
-                      <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Word</th>
-                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Type</th>
-                        <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Definition</th>
-                      </tr>
-                    </thead>
-                    <tbody className="[&_tr:last-child]:border-0">
-                      {words.map((word: DictionaryWord, index: number) => (
-                        <tr 
-                          key={`${word.word}-${index}`} 
-                          className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
-                        >
-                          <td className="p-4 align-middle">
-                            <Link
-                              href={`/dictionaries/${language}/words/${encodeURIComponent(word.word)}`}
-                              className="font-medium text-primary hover:underline"
-                            >
-                              {word.word}
-                            </Link>
-                          </td>
-                          <td className="p-4 align-middle text-muted-foreground">
-                            {word.type || '-'}
-                          </td>
-                          <td className="p-4 align-middle">
-                            {word.definition && (
-                              <p>{word.definition}</p>
-                            )}
-                            {word.definitions && (
-                              <ul className="list-disc pl-5 space-y-1">
-                                {word.definitions.map((def, idx) => (
-                                  <li key={idx}>{def}</li>
-                                ))}
-                              </ul>
-                            )}
-                            {word.example && (
-                              <p className="mt-2 text-sm italic text-muted-foreground">
-                                "{word.example}"
-                              </p>
-                            )}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </>
-          )}
+          {/* Dictionary search and content */}
+          <DictionarySearch dictionary={dictionary} initialSearch={search} />
         </div>
       </div>
     </SharedLayout>

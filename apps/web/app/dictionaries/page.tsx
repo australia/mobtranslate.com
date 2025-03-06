@@ -36,10 +36,7 @@ export default async function DictionariesPage() {
                 <CardFooter className="bg-muted/50 border-t">
                   <div className="flex justify-between w-full text-sm">
                     <Link href={`/dictionaries/${lang.code}`} className="text-primary hover:underline">
-                      Browse Dictionary
-                    </Link>
-                    <Link href={`/dictionaries/${lang.code}/words`} className="text-primary hover:underline">
-                      View All Words
+                      View Dictionary
                     </Link>
                   </div>
                 </CardFooter>

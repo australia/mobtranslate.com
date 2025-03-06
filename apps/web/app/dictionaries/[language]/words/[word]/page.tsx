@@ -67,10 +67,6 @@ export default async function WordDetailPage({
               {meta.name}
             </Link>
             <span className="text-muted-foreground">/</span>
-            <Link href={`/dictionaries/${language}/words`} className="text-muted-foreground hover:text-foreground">
-              Words
-            </Link>
-            <span className="text-muted-foreground">/</span>
             <span className="text-foreground font-medium truncate">{wordData.word}</span>
           </div>
           
