@@ -5,7 +5,22 @@ import SharedLayout from '../../components/SharedLayout';
 import { type Dictionary } from '@dictionaries';
 import DictionarySearch from './components/DictionarySearch';
 
-async function getDictionaryData(language: string): Promise<Dictionary | null> {
+interface DictionaryResponse {
+  success: boolean;
+  meta: {
+    name: string;
+    description: string;
+    region: string;
+  };
+  data: Array<{
+    word: string;
+    definition?: string;
+    definitions?: string[];
+    type?: string;
+  }>;
+}
+
+async function getDictionaryData(language: string): Promise<DictionaryResponse | null> {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
       (typeof window === 'undefined' ? 'http://localhost:3000' : window.location.origin);

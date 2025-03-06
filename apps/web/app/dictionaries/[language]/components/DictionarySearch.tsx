@@ -2,22 +2,25 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { type Dictionary } from '@dictionaries';
+
+interface DictionaryWord {
+  word: string;
+  definition?: string;
+  definitions?: string[];
+  type?: string;
+}
+
+interface DictionaryMeta {
+  name: string;
+  description: string;
+  region: string;
+  code: string;
+}
 
 interface DictionarySearchProps {
   dictionary: {
-    meta: {
-      name: string;
-      description: string;
-      region: string;
-      code: string;
-    };
-    words: Array<{
-      word: string;
-      definition?: string;
-      definitions?: string[];
-      type?: string;
-    }>;
+    meta: DictionaryMeta;
+    words: DictionaryWord[];
   };
   initialSearch?: string;
 }
