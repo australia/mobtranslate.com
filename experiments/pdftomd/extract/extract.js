@@ -602,37 +602,52 @@ If no lexical entries are found, return {"@graph": []}.
   }
 }
 
-// Reset output files to empty state
-async function resetOutputFiles() {
+// Ensure output files exist with proper structure
+async function ensureOutputFilesExist() {
   try {
     // File paths
     const cldfPath = path.join(OUTPUT_DIR, 'grammar_features.csv');
     const igtPath = path.join(OUTPUT_DIR, 'examples.xigt.json');
     const ontolexPath = path.join(OUTPUT_DIR, 'lexicon.jsonld');
 
-    // Reset CLDF CSV file
-    await fs.writeFile(cldfPath, 'ID,Parameter_ID,Language_ID,Value,Source\n');
-    console.log(`Reset grammar_features.csv to empty state`);
+    // Check if CLDF CSV file exists, create with header if not
+    try {
+      await fs.access(cldfPath);
+      console.log(`Grammar features file exists: ${cldfPath}`);
+    } catch (error) {
+      await fs.writeFile(cldfPath, 'ID,Parameter_ID,Language_ID,Value,Source\n');
+      console.log(`Created grammar_features.csv with header`);
+    }
 
-    // Reset IGT JSON file
-    await fs.writeFile(igtPath, JSON.stringify({ items: [] }, null, 2));
-    console.log(`Reset examples.xigt.json to empty state`);
+    // Check if IGT JSON file exists, create empty structure if not
+    try {
+      await fs.access(igtPath);
+      console.log(`IGT examples file exists: ${igtPath}`);
+    } catch (error) {
+      await fs.writeFile(igtPath, JSON.stringify({ items: [] }, null, 2));
+      console.log(`Created examples.xigt.json with empty structure`);
+    }
 
-    // Reset OntoLex JSON-LD file
-    await fs.writeFile(
-      ontolexPath,
-      JSON.stringify(
-        {
-          '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
-          '@graph': [],
-        },
-        null,
-        2,
-      ),
-    );
-    console.log(`Reset lexicon.jsonld to empty state`);
+    // Check if OntoLex JSON-LD file exists, create empty structure if not
+    try {
+      await fs.access(ontolexPath);
+      console.log(`Lexicon file exists: ${ontolexPath}`);
+    } catch (error) {
+      await fs.writeFile(
+        ontolexPath,
+        JSON.stringify(
+          {
+            '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
+            '@graph': [],
+          },
+          null,
+          2,
+        ),
+      );
+      console.log(`Created lexicon.jsonld with empty structure`);
+    }
   } catch (error) {
-    console.error('Error resetting output files:', error.message);
+    console.error('Error ensuring output files exist:', error.message);
     throw error;
   }
 }
@@ -989,8 +1004,8 @@ async function main() {
   try {
     console.log('Starting extraction process...');
 
-    // Reset output files at the beginning of execution
-    await resetOutputFiles();
+    // Ensure output files exist with proper structure
+    await ensureOutputFilesExist();
 
     // Ensure schemas directory exists
     try {
@@ -1048,33 +1063,52 @@ async function main() {
         testChunkCount = parseInt(countArg.split('=')[1]) || 10;
       }
 
-      // Reset test output files
+      // Ensure test output files exist
       const testCldfPath = path.join(OUTPUT_DIR, 'test_grammar_features.csv');
       const testIgtPath = path.join(OUTPUT_DIR, 'test_examples.xigt.json');
       const testOntolexPath = path.join(OUTPUT_DIR, 'test_lexicon.jsonld');
-
-      await fs.writeFile(
-        testCldfPath,
-        'ID,Parameter_ID,Language_ID,Value,Source\n',
-      );
-      await fs.writeFile(testIgtPath, JSON.stringify({ items: [] }, null, 2));
-      await fs.writeFile(
-        testOntolexPath,
-        JSON.stringify(
-          {
-            '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
-            '@graph': [],
-          },
-          null,
-          2,
-        ),
-      );
-      console.log('Reset test output files to empty state');
-
-      await processTestChunks(chunks, testChunkCount); // Process chunks as a test
-      console.log(
-        'Test mode completed. Run without --test flag for full processing.',
-      );
+      
+      // Check if test files exist, create them if not
+      try {
+        await fs.access(testCldfPath);
+        console.log(`Test grammar features file exists: ${testCldfPath}`);
+      } catch (error) {
+        await fs.writeFile(
+          testCldfPath,
+          'ID,Parameter_ID,Language_ID,Value,Source\n',
+        );
+        console.log(`Created test_grammar_features.csv with header`);
+      }
+      
+      try {
+        await fs.access(testIgtPath);
+        console.log(`Test IGT examples file exists: ${testIgtPath}`);
+      } catch (error) {
+        await fs.writeFile(testIgtPath, JSON.stringify({ items: [] }, null, 2));
+        console.log(`Created test_examples.xigt.json with empty structure`);
+      }
+      
+      try {
+        await fs.access(testOntolexPath);
+        console.log(`Test lexicon file exists: ${testOntolexPath}`);
+      } catch (error) {
+        await fs.writeFile(
+          testOntolexPath,
+          JSON.stringify(
+            {
+              '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
+              '@graph': [],
+            },
+            null,
+            2,
+          ),
+        );
+        console.log(`Created test_lexicon.jsonld with empty structure`);
+      }
+      
+      console.log(`Running in test mode with ${testChunkCount} chunks...`);
+      await processTestChunks(chunks, testChunkCount);
+      console.log('Test mode completed. Run without --test flag for full processing.');
       return;
     }
 

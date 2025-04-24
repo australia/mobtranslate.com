@@ -384,6 +384,1050 @@
           "@value": "rock (locative)"
         }
       }
+    },
+    {
+      "@id": "kuku_yalanji:(A)",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "(A)"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "transitive subject, Agent (function)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 4.1.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:ABESS",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ABESS"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "abessive (case)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.1"
+    },
+    {
+      "@id": "kuku_yalanji:ABL",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ABL"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "ablative (case)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.1"
+    },
+    {
+      "@id": "kuku_yalanji:ABS",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ABS"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "absolutive (case)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.1"
+    },
+    {
+      "@id": "kuku_yalanji:ACC",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ACC"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "accusative (case)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.5.1"
+    },
+    {
+      "@id": "kuku_yalanji:ADV",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ADV"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "adverbalising suffix -ku"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.6.2"
+    },
+    {
+      "@id": "kuku_yalanji:CAUS",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "CAUS"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "causative (forming transitive compound verb from a nominal or an intransitive verb)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.5.1"
+    },
+    {
+      "@id": "kuku_yalanji:COMIT",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "COMIT"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "comitative (nominal derivation)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.3.3"
+    },
+    {
+      "@id": "kuku_yalanji:COMP",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "COMP"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "comparison particle yala"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.9.2"
+    },
+    {
+      "@id": "kuku_yalanji:DAT",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "DAT"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "dative (case)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.1"
+    },
+    {
+      "@id": "kuku_yalanji:DEG1",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "DEG1"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "adjectival degree prefix jarra-"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.3.8"
+    },
+    {
+      "@id": "kuku_yalanji:DEG2",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "DEG2"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "adjectival degree suffix -baja"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.3.8"
+    },
+    {
+      "@id": "kuku_yalanji:EMPH1",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "EMPH1"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "emphatic clitic -ku"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.10.2"
+    },
+    {
+      "@id": "kuku_yalanji:EMPH2",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "EMPH2"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "emphatic clitic -lu, -la"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.10.2"
+    },
+    {
+      "@id": "kuku_yalanji:EMPH3",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "EMPH3"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "emphatic clitic -bi"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.10.2"
+    },
+    {
+      "@id": "kuku_yalanji:EMPH4",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "EMPH4"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "emphatic clitic -(V)rrku"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.10.2"
+    },
+    {
+      "@id": "kuku_yalanji:ERG",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ERG"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "ergative (case)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.1"
+    },
+    {
+      "@id": "kuku_yalanji:IMP",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "IMP"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "imperative (verb inflection)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:INCHO",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "INCHO"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "inchoative (forming intransitive verb stems or compounds from nominals)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.5.3"
+    },
+    {
+      "@id": "kuku_yalanji:INST",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "INST"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "instrumental (case)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.1"
+    },
+    {
+      "@id": "kuku_yalanji:INTER",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "INTER"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "interjection"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.11"
+    },
+    {
+      "@id": "kuku_yalanji:IRR",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "IRR"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "irrealis (verb inflection)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:itr",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "itr"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "intransitive (syntactic verb derivation)"
+        }
+      },
+      "ex:grammaticalProperty": "alternative form: ITR; introduced in section 3.8.5.4"
+    },
+    {
+      "@id": "kuku_yalanji:KPL",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "KPL"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "kinship plural (nominal stem forming suffix)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.3.5"
+    },
+    {
+      "@id": "kuku_yalanji:LOC",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "LOC"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "locative (case)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.1"
+    },
+    {
+      "@id": "kuku_yalanji:mun",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "mun"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "catalytic nominal suffix -mun-"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.3.1"
+    },
+    {
+      "@id": "kuku_yalanji:NEG",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "NEG"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "negation particle kari"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.9.2"
+    },
+    {
+      "@id": "kuku_yalanji:NEG2",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "NEG2"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "negation particle balu"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.9.2"
+    },
+    {
+      "@id": "kuku_yalanji:NOM",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "NOM"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "nominative (case)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.5.1"
+    },
+    {
+      "@id": "kuku_yalanji:NONPAST",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "NONPAST"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "nonpast tense (verb inflection)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:(0)",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "(0)"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "transitive object (function)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 4.1.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:PAST",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "PAST"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "past tense (verb inflection)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:PERL",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "PERL"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "perlative (case)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.1"
+    },
+    {
+      "@id": "kuku_yalanji:PLS",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "PLS"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "plural subject agreement (verb suffix)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.5.5"
+    },
+    {
+      "@id": "kuku_yalanji:POSS",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "POSS"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "possessive (nominal derivation)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.3.2"
+    },
+    {
+      "@id": "kuku_yalanji:PRECAUT",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "PRECAUT"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "precautionary (verb inflection)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:PRIV",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "PRIV"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "privative (nominal derivation)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.2.3.4"
+    },
+    {
+      "@id": "kuku_yalanji::pt",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": ":pt"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'potent' case inflection"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 4.1.4.2"
+    },
+    {
+      "@id": "kuku_yalanji:PURP",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "PURP"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "purposive (verb inflection)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:RECIP",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "RECIP"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "reciprocal (syntactic verb derivation)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.5.4"
+    },
+    {
+      "@id": "kuku_yalanji:REDUP",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "REDUP"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "reduplication of nominals and verbs"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in sections 3.2.3.5 and 3.8.5.5"
+    },
+    {
+      "@id": "kuku_yalanji:REF",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "REF"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "reflexive (syntactic verb derivation)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.5.4"
+    },
+    {
+      "@id": "kuku_yalanji:(S)",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "(S)"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "intransitive subject (function)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 4.1.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:SUB",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "SUB"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "subordinate/nominalising verb suffix"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in sections 3.2.3.6 and 3.8.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:SUCC",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "SUCC"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "successive (verb inflection)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:TEMP1",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "TEMP1"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "temporal clitic -da"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.10.1"
+    },
+    {
+      "@id": "kuku_yalanji:TEMP2",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "TEMP2"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "temporal clitic -kuda"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.10.1"
+    },
+    {
+      "@id": "kuku_yalanji:TEMP3",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "TEMP3"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "temporal clitic -(ng)Vrr"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.10.1"
+    },
+    {
+      "@id": "kuku_yalanji:TEMP4",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "TEMP4"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "temporal clitic wawu-"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.10.1"
+    },
+    {
+      "@id": "kuku_yalanji:UM",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "UM"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "unmarked (verb inflection)"
+        }
+      },
+      "ex:grammaticalProperty": "introduced in section 3.8.4.1"
+    },
+    {
+      "@id": "kuku_yalanji:1",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "1"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "first person"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:2",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "2"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "second person"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:3",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "3"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "third person"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:sg",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "sg"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "singular"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:du",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "du"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "dual"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:pI",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "pI"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "plural"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:inc",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "inc"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "inclusive"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:exc",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "exc"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "exclusive"
+        }
+      }
+    },
+    {
+      "@id": "kinship:eB",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "eB"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "elder brother"
+        }
+      }
+    },
+    {
+      "@id": "kinship:eZ",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "eZ"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "elder sister"
+        }
+      }
+    },
+    {
+      "@id": "kinship:FF",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "FF"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "father's father"
+        }
+      }
+    },
+    {
+      "@id": "kinship:FM",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "FM"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "father's mother"
+        }
+      }
+    },
+    {
+      "@id": "kinship:FZ",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "FZ"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "father's sister"
+        }
+      }
+    },
+    {
+      "@id": "kinship:MB",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MB"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother's brother"
+        }
+      }
+    },
+    {
+      "@id": "kinship:MF",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MF"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother's father"
+        }
+      }
+    },
+    {
+      "@id": "kinship:MiL",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MiL"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother-in-law"
+        }
+      }
+    },
+    {
+      "@id": "kinship:MM",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MM"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother's mother"
+        }
+      }
+    },
+    {
+      "@id": "kinship:yB",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yB"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "younger brother"
+        }
+      }
+    },
+    {
+      "@id": "kinship:yz",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yz"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "younger sister"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kuku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kuku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "word, language"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:yala-nji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yala-nji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Determiner",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "this-COMIT"
+        }
+      }
     }
   ]
 }
