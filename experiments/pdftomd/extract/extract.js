@@ -246,20 +246,27 @@ async function extractCLDF(chunk) {
   ];
 
   const systemPrompt = `
-You are an expert computational linguist. Extract grammatical features from the text into CLDF StructureTable format.
+You are an expert descriptive linguist with extensive fieldwork experience and specialized knowledge in Australian Aboriginal languages, particularly Pama-Nyungan languages like Kuku Yalanji. Extract precise grammatical features from the text into CLDF StructureTable format.
 
 Output ONLY a CSV with this header:
 ID,Parameter_ID,Language_ID,Value,Source
 
 Where:
-- ID: unique identifier (use kebab-case)
-- Parameter_ID: linguistic feature in kebab-case (e.g., "ergative-case", "noun-classes")
-- Language_ID: use "gvn" for Kuku Yalanji language
-- Value: the value of the feature (e.g., "optional", "yes", "no", or a more specific value)
-- Source: reference to the section (e.g., "§3.2.1")
+- ID: unique identifier (use specific kebab-case indicating feature category)
+- Parameter_ID: linguistic feature in descriptive kebab-case using standard linguistic terminology (e.g., "ergative-absolutive-alignment", "nominal-classifier-system")
+- Language_ID: use "gvn" for Kuku Yalanji (ISO 639-3)
+- Value: the value of the feature using precise linguistic descriptors (e.g., "optional", "obligatory", "split-ergative", numerical values where appropriate)
+- Source: reference to the exact section number (e.g., "§3.2.1")
 
-Be precise and focused. Extract ONLY grammatical features that are explicitly stated in the text.
-If none are present, return ONLY the header row.
+Pay special attention to:
+1. Phonological features including IPA symbols (transcribe these accurately)
+2. Morphosyntactic properties and alignment patterns
+3. Quantitative statements about feature distribution
+4. Typologically significant characteristics
+5. Dialectal variations when mentioned
+
+Be rigorous and focused. Extract ONLY grammatical features that are explicitly stated in the text, using standard typological terminology.
+If no grammatical features are present in the section, return ONLY the header row.
 `;
 
   try {
@@ -309,29 +316,36 @@ async function extractIGT(chunk) {
   // Process all chunks regardless of content
 
   const systemPrompt = `
-You are an expert computational linguist specializing in Interlinear Glossed Text (IGT).
+You are an expert field linguist specializing in interlinear glossed text (IGT) analysis with extensive experience in Australian Aboriginal languages, particularly Pama-Nyungan languages like Kuku Yalanji.
 
-Extract all linguistic examples from the provided content and format them as XIGT (eXtensible Interlinear Glossed Text).
+Extract ALL linguistic examples from the provided content with meticulous attention to detail, preserving the exact morphological analysis. Format them as XIGT (eXtensible Interlinear Glossed Text).
 
-For each example, identify:
-1. The original transcript in the source language
-2. Word-by-word or morpheme-by-morpheme glosses
-3. The free translation in English
-4. The source reference (section number, page, etc.)
+For each example, precisely identify:
+1. The original transcript in the source language, preserving ALL diacritics, IPA symbols, and orthographic conventions exactly as presented
+2. Word-by-word or morpheme-by-morpheme glosses following the Leipzig Glossing Rules, maintaining all technical linguistic abbreviations
+3. The free translation in English, preserving any nuances or explanatory notes
+4. The exact source reference (section number, example number, page number) for proper citation
 
-Return a JSON object with this structure:
+Pay special attention to:
+- Proper segmentation of morphemes and their glosses
+- Accurate transcription of phonological features marked in IPA [ɲ, ŋ, ɾ, etc.]
+- Retention of all diacritics and special characters
+- Maintaining tone markings, stress patterns, or other suprasegmental features
+- Preserving reduplication patterns and other morphophonological phenomena
+
+Return a JSON object with this precise structure:
 {
   "items": [
     {
-      "transcript": "Original text in source language",
-      "gloss": ["Word1", "Word2", "Word3"],
-      "translation": "English translation",
-      "source": "Section reference"
+      "transcript": "Original text with all diacritics and special characters intact",
+      "gloss": ["Morpheme1-GLOSS", "Morpheme2-GLOSS", "Morpheme3-GLOSS"],
+      "translation": "Precise English translation with any contextual notes",
+      "source": "Exact section reference (e.g., Example 12 in §4.3.2)"
     }
   ]
 }
 
-If no examples are found, return {"items": []}.
+If no linguistic examples are found in the provided content, return {"items": []}.
 `;
 
   const examples = [
@@ -429,15 +443,28 @@ async function extractOntoLex(chunk) {
   // Process all chunks regardless of content
 
   const systemPrompt = `
-You are an expert computational linguist specializing in lexical resources.
+You are an expert lexicographer and documentary linguist specializing in Australian Aboriginal languages, particularly Pama-Nyungan languages like Kuku Yalanji, with extensive knowledge of OntoLex-Lemon lexical modeling.
 
-Extract all lexical entries (words, morphemes, etc.) from the provided content into OntoLex-Lemon format.
+Extract ALL lexical items (roots, stems, affixes, clitics, compounds, idioms, etc.) from the provided content with meticulous attention to linguistic detail and encode them in OntoLex-Lemon format.
 
-For each lexical entry, identify:
-1. The lemma (canonical form)
-2. Part of speech
-3. Definition or gloss in English
-4. Any grammatical properties mentioned
+For each lexical entry, precisely identify:
+1. The lemma (canonical form) preserving ALL diacritics, IPA symbols [ɲ, ŋ, ɾ, etc.], and orthographic conventions exactly as presented
+2. Part of speech with fine-grained distinction (Noun, ProperNoun, Verb, TransitiveVerb, IntransitiveVerb, Adjective, Adverb, etc.)
+3. Detailed semantic definition capturing all meaning nuances, polysemy, and cultural context
+4. All grammatical properties including:
+   - Morphological class information
+   - Subcategorization frames
+   - Syntactic behavior
+   - Dialectal variations
+   - Register/usage notes
+   - Etymology where available
+
+Pay special attention to:
+- Accurate transcription of all phonological features including suprasegmentals
+- Morphophonological alternations
+- Precise semantic distinctions
+- Cultural connotations and usage contexts
+- Lexical relations (synonymy, antonymy, hyponymy)
 
 Return a JSON-LD object with this structure:
 {
