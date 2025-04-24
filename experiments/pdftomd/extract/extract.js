@@ -231,10 +231,7 @@ If none are present, return ONLY the header row.
 
 // Extract interlinear glossed text examples (IGT)
 async function extractIGT(chunk) {
-  // Only process chunks that might contain examples
-  if (!chunk.content.match(/\b(example|KY:|Kuku Yalanji:|\(\d+\))\b/i)) {
-    return [];
-  }
+  // Process all chunks regardless of content
   
   // Few-shot examples to improve extraction quality
   const examples = [
@@ -317,10 +314,7 @@ Be precise in separating morphemes and their glosses. If no examples are found, 
 
 // Extract OntoLex-Lemon lexical entries
 async function extractOntoLex(chunk) {
-  // Only process chunks that might contain lexical information
-  if (!chunk.content.match(/\b(lexicon|vocabulary|lexical|lemma|word)\b/i)) {
-    return [];
-  }
+  // Process all chunks regardless of content
   
   const systemPrompt = `
 You are an expert computational linguist specializing in lexical resources.
@@ -409,49 +403,70 @@ async function saveResults(cldfRows, igtItems, ontolexEntries) {
 }
 
 // Process a limited set of chunks for testing
-async function processTestChunks(chunks, count = 3) {
-  console.log(`Processing ${count} test chunks...`);
-  
-  // Initialize arrays for results
-  const cldfRows = ['ID,Parameter_ID,Language_ID,Value,Source'];
-  const igtItems = [];
-  const ontolexEntries = [];
-  
-  // Process a limited set of chunks
-  const testChunks = chunks.slice(0, count);
-  
-  for (let i = 0; i < testChunks.length; i++) {
-    const chunk = testChunks[i];
-    console.log(`Processing test chunk ${i+1}/${testChunks.length}: ${chunk.heading}`);
+async function processTestChunks(chunks, count = 5, startAt = 0) {
+  try {
+    // Determine if we should skip initial sections (look for command line args)
+    const skipInitial = process.argv.includes('--skip-initial');
+    let startIndex = startAt;
     
-    // Extract CLDF features
-    const cldfResult = await extractCLDF(chunk);
-    const cldfLines = cldfResult.split('\n').filter((line, index) => 
-      index > 0 && line.trim() && !line.startsWith('ID,')
-    );
-    cldfRows.push(...cldfLines);
-    
-    // Extract IGT examples
-    const igtResult = await extractIGT(chunk);
-    if (igtResult.length > 0) {
-      igtItems.push(...igtResult);
+    if (skipInitial) {
+      // Skip title, preface, TOC, etc. - look for first section that seems like actual grammar content
+      for (let i = 0; i < chunks.length; i++) {
+        // Look for sections that are likely to contain grammar information
+        // This assumes sections with numbers like "1." are actual content
+        if (chunks[i].heading.match(/^\d+\.|^Chapter \d+|^\d+\s+[A-Z]/) || i > 20) {
+          startIndex = i;
+          console.log(`Skipping initial sections. Starting from chunk ${startIndex}: "${chunks[startIndex].heading}"`); 
+          break;
+        }
+      }
     }
     
-    // Extract OntoLex entries
-    const ontolexResult = await extractOntoLex(chunk);
-    if (ontolexResult.length > 0) {
-      ontolexEntries.push(...ontolexResult);
+    console.log(`Processing ${count} test chunks starting from index ${startIndex}...`);
+    
+    // Initialize arrays for results
+    const cldfRows = ['ID,Parameter_ID,Language_ID,Value,Source'];
+    const igtItems = [];
+    const ontolexEntries = [];
+    
+    // Process only a specified number of chunks as a test
+    const endIndex = Math.min(chunks.length, startIndex + count);
+    for (let i = startIndex; i < endIndex; i++) {
+      const chunk = chunks[i];
+      console.log(`Processing test chunk ${i-startIndex+1}/${Math.min(count, endIndex-startIndex)}: ${chunk.heading}`);
+      
+      // Extract CLDF features
+      const cldfResult = await extractCLDF(chunk);
+      const cldfLines = cldfResult.split('\n').filter((line, index) => 
+        index > 0 && line.trim() && !line.startsWith('ID,')
+      );
+      cldfRows.push(...cldfLines);
+      
+      // Extract IGT examples
+      const igtResult = await extractIGT(chunk);
+      if (igtResult.length > 0) {
+        igtItems.push(...igtResult);
+      }
+      
+      // Extract OntoLex entries
+      const ontolexResult = await extractOntoLex(chunk);
+      if (ontolexResult.length > 0) {
+        ontolexEntries.push(...ontolexResult);
+      }
     }
+    
+    // Save results with 'test_' prefix
+    await fs.writeFile(path.join(OUTPUT_DIR, 'test_grammar_features.csv'), cldfRows.join('\n'));
+    await fs.writeFile(path.join(OUTPUT_DIR, 'test_examples.xigt.json'), 
+                      JSON.stringify({ items: igtItems }, null, 2));
+    await fs.writeFile(path.join(OUTPUT_DIR, 'test_lexicon.jsonld'), 
+                      JSON.stringify({ "@context": "https://www.w3.org/ns/lemon/ontolex.json", "@graph": ontolexEntries }, null, 2));
+    
+    console.log(`Test extraction complete! Extracted ${cldfRows.length - 1} CLDF features, ${igtItems.length} IGT examples, and ${ontolexEntries.length} OntoLex entries.`);
+  } catch (error) {
+    console.error('Error in test processing:', error.message);
+    throw error;
   }
-  
-  // Save results with 'test_' prefix
-  await fs.writeFile(path.join(OUTPUT_DIR, 'test_grammar_features.csv'), cldfRows.join('\n'));
-  await fs.writeFile(path.join(OUTPUT_DIR, 'test_examples.xigt.json'), 
-                    JSON.stringify({ items: igtItems }, null, 2));
-  await fs.writeFile(path.join(OUTPUT_DIR, 'test_lexicon.jsonld'), 
-                    JSON.stringify({ "@context": "https://www.w3.org/ns/lemon/ontolex.json", "@graph": ontolexEntries }, null, 2));
-  
-  console.log(`Test extraction complete! Extracted ${cldfRows.length - 1} CLDF features, ${igtItems.length} IGT examples, and ${ontolexEntries.length} OntoLex entries.`);
 }
 
 // Main function
@@ -505,7 +520,14 @@ async function main() {
     // Process test chunks first if in development mode
     const isTestMode = process.argv.includes('--test');
     if (isTestMode) {
-      await processTestChunks(chunks, 5); // Process 5 chunks as a test
+      // Parse number of chunks to process if specified
+      let testChunkCount = 10; // Default to 10 chunks
+      const countArg = process.argv.find(arg => arg.startsWith('--chunks='));
+      if (countArg) {
+        testChunkCount = parseInt(countArg.split('=')[1]) || 10;
+      }
+      
+      await processTestChunks(chunks, testChunkCount); // Process chunks as a test
       console.log('Test mode completed. Run without --test flag for full processing.');
       return;
     }
