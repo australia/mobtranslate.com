@@ -16,6 +16,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const GRAMMAR_PATH =
   process.argv[2] || path.join(__dirname, '..', 'grammar_complete.md');
 const OUTPUT_DIR = path.join(__dirname, 'output');
+const PROCESSED_CHUNKS_FILE = path.join(OUTPUT_DIR, 'processed_chunks.json');
 
 // Initialize OpenAI
 const openai = new OpenAI({
@@ -646,6 +647,15 @@ async function ensureOutputFilesExist() {
       );
       console.log(`Created lexicon.jsonld with empty structure`);
     }
+    
+    // Check if processed chunks tracking file exists, create if not
+    try {
+      await fs.access(PROCESSED_CHUNKS_FILE);
+      console.log(`Processed chunks file exists: ${PROCESSED_CHUNKS_FILE}`);
+    } catch (error) {
+      await fs.writeFile(PROCESSED_CHUNKS_FILE, JSON.stringify([], null, 2));
+      console.log(`Created processed_chunks.json tracking file`);
+    }
   } catch (error) {
     console.error('Error ensuring output files exist:', error.message);
     throw error;
@@ -895,6 +905,36 @@ async function saveResults(cldfRows, igtItems, ontolexEntries) {
   }
 }
 
+// Load processed chunks from tracking file
+async function loadProcessedChunks() {
+  try {
+    await fs.access(PROCESSED_CHUNKS_FILE);
+    const content = await fs.readFile(PROCESSED_CHUNKS_FILE, 'utf8');
+    return JSON.parse(content);
+  } catch (error) {
+    // If file doesn't exist or can't be parsed, return empty array
+    console.log('No processed chunks file found or error parsing it, starting fresh');
+    return [];
+  }
+}
+
+// Save chunk index to processed chunks file
+async function markChunkAsProcessed(chunkIndex) {
+  try {
+    const processedChunks = await loadProcessedChunks();
+    if (!processedChunks.includes(chunkIndex)) {
+      processedChunks.push(chunkIndex);
+      await fs.writeFile(
+        PROCESSED_CHUNKS_FILE, 
+        JSON.stringify(processedChunks, null, 2)
+      );
+      console.log(`Marked chunk ${chunkIndex} as processed`);
+    }
+  } catch (error) {
+    console.error(`Error marking chunk ${chunkIndex} as processed:`, error.message);
+  }
+}
+
 // Process a limited set of chunks for testing
 async function processTestChunks(chunks, count = 5, startAt = 0) {
   try {
@@ -907,6 +947,10 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
       `Processing up to ${maxChunksToProcess - startIndex} chunks starting from index ${startIndex}, looking for IGT examples...`,
     );
 
+    // Load already processed chunks
+    const processedChunks = await loadProcessedChunks();
+    console.log(`Found ${processedChunks.length} previously processed chunks`);
+
     // Initialize arrays for results
     const cldfRows = ['ID,Parameter_ID,Language_ID,Value,Source'];
     const igtItems = [];
@@ -918,6 +962,12 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
 
     // Process chunks until we find IGT examples or reach the maximum
     for (let i = startIndex; i < maxChunksToProcess; i++) {
+      // Skip already processed chunks
+      if (processedChunks.includes(i)) {
+        console.log(`Skipping already processed chunk ${i}: ${chunks[i].heading}`);
+        continue;
+      }
+      
       processedCount++;
       const chunk = chunks[i];
       console.log(
@@ -967,6 +1017,9 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
 
       // Save intermediate results after each chunk to ensure we're capturing data
       await saveResults([...cldfRows], [...igtItems], [...ontolexEntries]);
+      
+      // Mark this chunk as processed
+      await markChunkAsProcessed(i);
     }
 
     // Save results with 'test_' prefix
@@ -1053,8 +1106,9 @@ async function main() {
     // Load and chunk the markdown
     const chunks = await loadAndChunkMarkdown(GRAMMAR_PATH);
 
-    // Process test chunks first if in development mode
+    // Check for command-line flags
     const isTestMode = process.argv.includes('--test');
+    const forceReprocessAll = process.argv.includes('--force');
     if (isTestMode) {
       // Parse number of chunks to process if specified
       let testChunkCount = 10; // Default to 10 chunks
@@ -1117,8 +1171,18 @@ async function main() {
     const igtItems = [];
     const ontolexEntries = [];
 
+    // Load already processed chunks
+    const processedChunks = await loadProcessedChunks();
+    console.log(`Found ${processedChunks.length} previously processed chunks`);
+    
     // Process each chunk
     for (let i = 0; i < chunks.length; i++) {
+      // Skip already processed chunks
+      if (processedChunks.includes(i)) {
+        console.log(`Skipping already processed chunk ${i}: ${chunks[i].heading}`);
+        continue;
+      }
+      
       const chunk = chunks[i];
       console.log(
         `Processing chunk ${i + 1}/${chunks.length}: ${chunk.heading}`,
@@ -1152,6 +1216,9 @@ async function main() {
         [...ontolexEntries],
       );
 
+      // Mark this chunk as processed
+      await markChunkAsProcessed(i);
+      
       // Also log progress more frequently
       console.log(
         `Saved results after chunk ${i + 1}. Current totals: ${cldfRows.length - 1} CLDF features, ${igtItems.length} IGT examples, and ${ontolexEntries.length} OntoLex entries.`,

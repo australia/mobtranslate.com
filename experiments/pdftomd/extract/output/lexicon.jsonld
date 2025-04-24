@@ -1428,6 +1428,40 @@
           "@value": "this-COMIT"
         }
       }
+    },
+    {
+      "@id": "kuku_yalanji:A",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "A"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "transitive subject, Agent (function)"
+        }
+      },
+      "ex:grammaticalProperties": [
+        "function"
+      ]
+    },
+    {
+      "@id": "kuku_yalanji:ITR",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ITR"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Abbreviation",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "intransitive (syntactic verb derivation)"
+        }
+      },
+      "ex:grammaticalProperties": [
+        "syntactic verb derivation"
+      ]
     }
   ]
 }
