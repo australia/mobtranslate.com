@@ -148,12 +148,11 @@ function getSectionId(headingText, level) {
 async function callLLM(
   systemPrompt,
   userContent,
-  maxTokens = 2048,
+  dummyMaxTokens,
   examples = [],
 ) {
   const MAX_RETRIES = 2;
   let retries = 0;
-
   // Build messages array with optional few-shot examples
   const messages = [{ role: 'system', content: systemPrompt }];
 
@@ -167,15 +166,27 @@ async function callLLM(
   // Add the actual user content
   messages.push({ role: 'user', content: userContent });
 
+  // const maxTokens = 40048;
+  const maxTokens = 12048;
   while (true) {
     try {
       console.log(`Calling LLM with ${messages.length} messages...`);
 
+      // // Log the system prompt and a sample of the user content
+      // console.log('\n===== SYSTEM PROMPT =====');
+      // console.log(systemPrompt + '...');
+      // console.log('\n===== USER CONTENT SAMPLE =====');
+      // console.log(userContent + '...');
+      // console.log('\n===== END PROMPTS =====');
+
       const response = await openai.chat.completions.create({
-        model: process.env.MODEL || DEFAULT_MODEL,
-        temperature: 0.1,
+        model: 'gpt-4o-mini',
+        // model: process.env.MODEL || DEFAULT_MODEL,
+        temperature: 0.2,
         messages: messages,
+        // max_available_tokens: maxTokens,
         max_tokens: maxTokens,
+        // max_completion_tokens: maxTokens,
       });
 
       const content = response.choices[0].message.content;
@@ -246,32 +257,25 @@ async function extractCLDF(chunk) {
   ];
 
   const systemPrompt = `
-You are an expert descriptive linguist with extensive fieldwork experience and specialized knowledge in Australian Aboriginal languages, particularly Pama-Nyungan languages like Kuku Yalanji. Extract precise grammatical features from the text into CLDF StructureTable format.
+You are an expert computational linguist. Extract grammatical features from the text into CLDF StructureTable format.
 
 Output ONLY a CSV with this header:
 ID,Parameter_ID,Language_ID,Value,Source
 
 Where:
-- ID: unique identifier (use specific kebab-case indicating feature category)
-- Parameter_ID: linguistic feature in descriptive kebab-case using standard linguistic terminology (e.g., "ergative-absolutive-alignment", "nominal-classifier-system")
-- Language_ID: use "gvn" for Kuku Yalanji (ISO 639-3)
-- Value: the value of the feature using precise linguistic descriptors (e.g., "optional", "obligatory", "split-ergative", numerical values where appropriate)
-- Source: reference to the exact section number (e.g., "§3.2.1")
+- ID: unique identifier (use kebab-case)
+- Parameter_ID: linguistic feature in kebab-case (e.g., "ergative-case", "noun-classes")
+- Language_ID: use "gvn" for Kuku Yalanji language
+- Value: the value of the feature (e.g., "optional", "yes", "no", or a more specific value)
+- Source: reference to the section (e.g., "§3.2.1")
 
-Pay special attention to:
-1. Phonological features including IPA symbols (transcribe these accurately)
-2. Morphosyntactic properties and alignment patterns
-3. Quantitative statements about feature distribution
-4. Typologically significant characteristics
-5. Dialectal variations when mentioned
-
-Be rigorous and focused. Extract ONLY grammatical features that are explicitly stated in the text, using standard typological terminology.
-If no grammatical features are present in the section, return ONLY the header row.
+Be precise and focused. Extract ONLY grammatical features that are explicitly stated in the text.
+If none are present, return ONLY the header row.
 `;
 
   try {
     console.log(`Extracting CLDF features from: ${chunk.heading}`);
-    const result = await callLLM(systemPrompt, chunk.content, 1024, examples);
+    const result = await callLLM(systemPrompt, chunk.content, 20000, examples);
 
     // Validate result is CSV
     if (!result.includes('ID,Parameter_ID,Language_ID,Value,Source')) {
@@ -280,12 +284,12 @@ If no grammatical features are present in the section, return ONLY the header ro
       );
       return 'ID,Parameter_ID,Language_ID,Value,Source\n';
     }
-    
+
     // Clean up the result - strip any leading spaces from each line
     // This handles cases where the LLM adds indentation to the CSV output
     const cleanedResult = result
       .split('\n')
-      .map(line => line.trim())
+      .map((line) => line.trim())
       .join('\n');
 
     // Basic CSV validation
@@ -315,83 +319,95 @@ If no grammatical features are present in the section, return ONLY the header ro
 async function extractIGT(chunk) {
   // Process all chunks regardless of content
 
+  // Few-shot examples to improve extraction quality
+  const examples = [
+    {
+      user: "Example (12):\nNyulu jalbu-ngku karrkay kawa-ny\n3SG.NOM woman-ERG child.ABS look.after-PAST\n'The woman looked after the child.'\n\nThis shows ergative case marking on the agent.",
+      assistant:
+        '{"items":[{"transcript":"Nyulu jalbu-ngku karrkay kawa-ny","gloss":[{"morpheme":"nyulu","gloss":"3SG.NOM"},{"morpheme":"jalbu-ngku","gloss":"woman-ERG"},{"morpheme":"karrkay","gloss":"child.ABS"},{"morpheme":"kawa-ny","gloss":"look.after-PAST"}],"translation":"The woman looked after the child.","source":"Example (12)"}]}',
+    },
+    {
+      user: 'No examples of interlinear glossed text in this section.',
+      assistant: '{"items":[]}',
+    },
+  ];
+
   const systemPrompt = `
-You are an expert field linguist specializing in interlinear glossed text (IGT) analysis with extensive experience in Australian Aboriginal languages, particularly Pama-Nyungan languages like Kuku Yalanji.
+You are an expert computational linguist specializing in interlinear glossed text (IGT).
 
-Extract ALL linguistic examples from the provided content with meticulous attention to detail, preserving the exact morphological analysis. Format them as XIGT (eXtensible Interlinear Glossed Text).
+Identify all examples of interlinear glossed text in the provided content. These might appear as:
+1. Numbered examples (e.g., "Example (12):" or just "(12)") with language text, morpheme-by-morpheme glosses, and translations
+2. Text marked with "KY:" or "Kuku Yalanji:" followed by glosses and translations
 
-For each example, precisely identify:
-1. The original transcript in the source language, preserving ALL diacritics, IPA symbols, and orthographic conventions exactly as presented
-2. Word-by-word or morpheme-by-morpheme glosses following the Leipzig Glossing Rules, maintaining all technical linguistic abbreviations
-3. The free translation in English, preserving any nuances or explanatory notes
-4. The exact source reference (section number, example number, page number) for proper citation
+For each example, extract:
+1. transcript: The original Kuku Yalanji text
+2. gloss: An array of objects with "morpheme" and "gloss" for each morpheme
+3. translation: The English translation
+4. source: Reference to the section (e.g., "§3.2.1" or the example number)
 
-Pay special attention to:
-- Proper segmentation of morphemes and their glosses
-- Accurate transcription of phonological features marked in IPA [ɲ, ŋ, ɾ, etc.]
-- Retention of all diacritics and special characters
-- Maintaining tone markings, stress patterns, or other suprasegmental features
-- Preserving reduplication patterns and other morphophonological phenomena
-
-Return a JSON object with this precise structure:
+IMPORTANT: Your entire response must be ONLY a valid JSON object with no additional text, comments, or characters before or after. The JSON must follow this exact structure:
 {
   "items": [
     {
-      "transcript": "Original text with all diacritics and special characters intact",
-      "gloss": ["Morpheme1-GLOSS", "Morpheme2-GLOSS", "Morpheme3-GLOSS"],
-      "translation": "Precise English translation with any contextual notes",
-      "source": "Exact section reference (e.g., Example 12 in §4.3.2)"
+      "transcript": "Original text in Kuku Yalanji",
+      "gloss": [
+        {"morpheme": "word1", "gloss": "GLOSS1"},
+        {"morpheme": "word2", "gloss": "GLOSS2"}
+      ],
+      "translation": "English translation",
+      "source": "§X.Y.Z"
     }
   ]
 }
 
-If no linguistic examples are found in the provided content, return {"items": []}.
-`;
+Be precise in separating morphemes and their glosses. If no examples are found, return exactly {"items":[]} with no additional characters or text.
 
-  const examples = [
-    {
-      role: 'user',
-      content: 'Extract IGT examples from: "In example (1), we see the ergative case marker -ngku: Bama-ngku bubu nyajil. (person-ERG ground see) \'The person sees the ground.\'"',
-    },
-    {
-      role: 'assistant',
-      content: '```json\n{\n  "items": [\n    {\n      "transcript": "Bama-ngku bubu nyajil.",\n      "gloss": ["person-ERG", "ground", "see"],\n      "translation": "The person sees the ground.",\n      "source": "example (1)"\n    }\n  ]\n}\n```',
-    },
-  ];
+Do not include any explanation, markdown formatting, or extra characters in your response - ONLY the JSON object.
+`;
 
   try {
     console.log(`Extracting IGT examples from: ${chunk.heading}`);
-    const result = await callLLM(systemPrompt, chunk.content, 2048, examples);
 
-    // Extract and parse JSON
-    let jsonStr = result;
-    
-    // Check for markdown code blocks with json
-    if (result.includes('```json')) {
-      const parts = result.split('```json');
-      if (parts.length > 1) {
-        jsonStr = parts[1].split('```')[0].trim();
-      }
-    } else if (result.includes('```')) {
-      const parts = result.split('```');
-      if (parts.length > 1) {
-        const codePart = parts[1].trim();
-        if (codePart.includes('"items"')) {
+    // Log a sample of the chunk content to see if it contains IGT examples
+    console.log('\n===== CHUNK CONTENT SAMPLE =====');
+    console.log(chunk.content.substring(0, 300) + '...');
+    console.log(`Content length: ${chunk.content.length} characters`);
+
+    const result = await callLLM(systemPrompt, chunk.content, 20048, examples);
+
+    // Try to parse the JSON
+    try {
+      // First, try to extract JSON from markdown code blocks if present
+      let jsonStr = result;
+
+      // Check for markdown code blocks with json
+      if (result.includes('```json')) {
+        const parts = result.split('```json');
+        if (parts.length > 1) {
+          const codePart = parts[1].split('```')[0].trim();
           jsonStr = codePart;
         }
       }
-    }
-    
-    // If we couldn't extract from code blocks, try to find JSON pattern
-    if (!jsonStr.includes('"items"')) {
-      const jsonMatch = result.match(/\{\s*"items"\s*:\s*\[.*?\]\s*\}/s);
-      if (jsonMatch) {
-        jsonStr = jsonMatch[0];
+      // Check for regular markdown code blocks
+      else if (result.includes('```')) {
+        const parts = result.split('```');
+        if (parts.length > 1) {
+          const codePart = parts[1].trim();
+          if (codePart.includes('"items"')) {
+            jsonStr = codePart;
+          }
+        }
       }
-    }
-    
-    // Parse the JSON
-    try {
+
+      // If we couldn't extract from code blocks, try to find JSON pattern
+      if (!jsonStr.includes('"items"')) {
+        const jsonMatch = result.match(/\{\s*"items"\s*:\s*\[.*?\]\s*\}/s);
+        if (jsonMatch) {
+          jsonStr = jsonMatch[0];
+        }
+      }
+
+      // Try to parse the JSON
       const parsed = JSON.parse(jsonStr);
       if (Array.isArray(parsed.items)) {
         // Validate with schema
@@ -403,34 +419,64 @@ If no linguistic examples are found in the provided content, return {"items": []
               'utf8',
             ),
           );
-          const validateIGT = ajv.compile(xigtSchema);
-
-          if (!validateIGT({ items: parsed.items })) {
+          const validate = ajv.compile(xigtSchema);
+          const valid = validate(parsed);
+          if (!valid) {
             console.warn(
               `IGT validation failed for ${chunk.heading}:`,
-              validateIGT.errors,
+              validate.errors,
             );
           }
         } catch (schemaError) {
           console.warn(
-            `Schema validation error for ${chunk.heading}:`,
+            `Error validating IGT schema for ${chunk.heading}:`,
             schemaError.message,
           );
         }
+
         return parsed.items;
       }
     } catch (parseError) {
-      console.warn(`JSON parse failed: ${parseError.message}. Trying direct parsing...`);
+      console.warn(
+        `JSON parse failed: ${parseError.message}. Trying direct parsing...`,
+      );
       try {
+        // Try to clean the entire result and find a valid JSON object
+        const jsonMatches = result.match(
+          /\{[\s\S]*?"items"[\s\S]*?\}\s*(?:[^\s{}[\]]*)?$/g,
+        );
+        if (jsonMatches && jsonMatches.length > 0) {
+          // Clean up any trailing characters after the JSON
+          let cleanJson = jsonMatches[0].replace(/}\s*[^\s{}[\]]*$/g, '}');
+          const parsed = JSON.parse(cleanJson);
+          if (Array.isArray(parsed.items)) {
+            console.log('Successfully parsed JSON after cleanup');
+            return parsed.items;
+          }
+        }
+
+        // If we still can't find a valid JSON, try parsing the original result
         const parsed = JSON.parse(result);
         if (Array.isArray(parsed.items)) {
           return parsed.items;
         }
       } catch (directError) {
         console.warn(`Direct JSON parse also failed: ${directError.message}`);
+
+        // Last resort: try to manually fix common issues
+        try {
+          // Check if there's a trailing character like '}}}' that needs to be fixed
+          if (result.includes('"items":[]')) {
+            // If it's an empty items array, just return an empty array
+            console.log('Found empty items array, returning empty result');
+            return [];
+          }
+        } catch (e) {
+          console.error('All JSON parsing attempts failed');
+        }
       }
     }
-    
+
     return [];
   } catch (error) {
     console.error(`Error extracting IGT from ${chunk.heading}:`, error.message);
@@ -443,28 +489,15 @@ async function extractOntoLex(chunk) {
   // Process all chunks regardless of content
 
   const systemPrompt = `
-You are an expert lexicographer and documentary linguist specializing in Australian Aboriginal languages, particularly Pama-Nyungan languages like Kuku Yalanji, with extensive knowledge of OntoLex-Lemon lexical modeling.
+You are an expert computational linguist specializing in lexical resources.
 
-Extract ALL lexical items (roots, stems, affixes, clitics, compounds, idioms, etc.) from the provided content with meticulous attention to linguistic detail and encode them in OntoLex-Lemon format.
+Extract all lexical entries (words, morphemes, etc.) from the provided content into OntoLex-Lemon format.
 
-For each lexical entry, precisely identify:
-1. The lemma (canonical form) preserving ALL diacritics, IPA symbols [ɲ, ŋ, ɾ, etc.], and orthographic conventions exactly as presented
-2. Part of speech with fine-grained distinction (Noun, ProperNoun, Verb, TransitiveVerb, IntransitiveVerb, Adjective, Adverb, etc.)
-3. Detailed semantic definition capturing all meaning nuances, polysemy, and cultural context
-4. All grammatical properties including:
-   - Morphological class information
-   - Subcategorization frames
-   - Syntactic behavior
-   - Dialectal variations
-   - Register/usage notes
-   - Etymology where available
-
-Pay special attention to:
-- Accurate transcription of all phonological features including suprasegmentals
-- Morphophonological alternations
-- Precise semantic distinctions
-- Cultural connotations and usage contexts
-- Lexical relations (synonymy, antonymy, hyponymy)
+For each lexical entry, identify:
+1. The lemma (canonical form)
+2. Part of speech
+3. Definition or gloss in English
+4. Any grammatical properties mentioned
 
 Return a JSON-LD object with this structure:
 {
@@ -492,13 +525,13 @@ If no lexical entries are found, return {"@graph": []}.
 
   try {
     console.log(`Extracting OntoLex entries from: ${chunk.heading}`);
-    const result = await callLLM(systemPrompt, chunk.content, 2048);
+    const result = await callLLM(systemPrompt, chunk.content, 20000);
 
     // Try to parse the JSON
     try {
       // First, try to extract JSON from markdown code blocks if present
       let jsonStr = result;
-      
+
       // Check for markdown code blocks with json
       if (result.includes('```json')) {
         const parts = result.split('```json');
@@ -506,7 +539,7 @@ If no lexical entries are found, return {"@graph": []}.
           const codePart = parts[1].split('```')[0].trim();
           jsonStr = codePart;
         }
-      } 
+      }
       // Check for regular markdown code blocks
       else if (result.includes('```')) {
         const parts = result.split('```');
@@ -517,17 +550,17 @@ If no lexical entries are found, return {"@graph": []}.
           }
         }
       }
-      
+
       // If we couldn't extract from code blocks, try to find JSON pattern
       if (!jsonStr.includes('@context') || !jsonStr.includes('@graph')) {
         const jsonMatch = result.match(
-          /\{\s*"@context".*?"@graph"\s*:\s*\[.*?\]\s*\}/s
+          /\{\s*"@context".*?"@graph"\s*:\s*\[.*?\]\s*\}/s,
         );
         if (jsonMatch) {
           jsonStr = jsonMatch[0];
         }
       }
-      
+
       // Try to parse the JSON
       try {
         const parsed = JSON.parse(jsonStr);
@@ -537,8 +570,10 @@ If no lexical entries are found, return {"@graph": []}.
       } catch (innerError) {
         // If parsing fails, try to clean up the JSON string
         // Sometimes there might be extra characters or incomplete JSON
-        console.warn(`Initial JSON parse failed: ${innerError.message}. Trying to clean up the JSON...`);
-        
+        console.warn(
+          `Initial JSON parse failed: ${innerError.message}. Trying to clean up the JSON...`,
+        );
+
         // Try to extract just the @graph array
         const graphMatch = jsonStr.match(/"@graph"\s*:\s*\[(.*?)\]\s*\}/s);
         if (graphMatch) {
@@ -567,35 +602,278 @@ If no lexical entries are found, return {"@graph": []}.
   }
 }
 
-// Save results to files
+// Reset output files to empty state
+async function resetOutputFiles() {
+  try {
+    // File paths
+    const cldfPath = path.join(OUTPUT_DIR, 'grammar_features.csv');
+    const igtPath = path.join(OUTPUT_DIR, 'examples.xigt.json');
+    const ontolexPath = path.join(OUTPUT_DIR, 'lexicon.jsonld');
+
+    // Reset CLDF CSV file
+    await fs.writeFile(cldfPath, 'ID,Parameter_ID,Language_ID,Value,Source\n');
+    console.log(`Reset grammar_features.csv to empty state`);
+
+    // Reset IGT JSON file
+    await fs.writeFile(igtPath, JSON.stringify({ items: [] }, null, 2));
+    console.log(`Reset examples.xigt.json to empty state`);
+
+    // Reset OntoLex JSON-LD file
+    await fs.writeFile(
+      ontolexPath,
+      JSON.stringify(
+        {
+          '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
+          '@graph': [],
+        },
+        null,
+        2,
+      ),
+    );
+    console.log(`Reset lexicon.jsonld to empty state`);
+  } catch (error) {
+    console.error('Error resetting output files:', error.message);
+    throw error;
+  }
+}
+
+// Save results to files, appending new data
 async function saveResults(cldfRows, igtItems, ontolexEntries) {
   try {
-    // Save CLDF CSV
-    const cldfContent = cldfRows.join('\n');
-    await fs.writeFile(
-      path.join(OUTPUT_DIR, 'grammar_features.csv'),
-      cldfContent,
-    );
-    console.log(`Saved CLDF features to grammar_features.csv`);
+    // File paths
+    const cldfPath = path.join(OUTPUT_DIR, 'grammar_features.csv');
+    const igtPath = path.join(OUTPUT_DIR, 'examples.xigt.json');
+    const ontolexPath = path.join(OUTPUT_DIR, 'lexicon.jsonld');
 
-    // Save IGT JSON
-    const igtContent = JSON.stringify({ items: igtItems }, null, 2);
-    await fs.writeFile(path.join(OUTPUT_DIR, 'examples.xigt.json'), igtContent);
-    console.log(`Saved ${igtItems.length} IGT examples to examples.xigt.json`);
+    // 1. Handle CLDF CSV (grammar_features.csv)
+    try {
+      // Check if file exists
+      await fs.access(cldfPath);
 
-    // Save OntoLex JSON-LD
-    const ontolexContent = JSON.stringify(
-      {
-        '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
-        '@graph': ontolexEntries,
-      },
-      null,
-      2,
-    );
-    await fs.writeFile(path.join(OUTPUT_DIR, 'lexicon.jsonld'), ontolexContent);
-    console.log(
-      `Saved ${ontolexEntries.length} OntoLex entries to lexicon.jsonld`,
-    );
+      // Read existing content
+      const existingCldfContent = await fs.readFile(cldfPath, 'utf8');
+      const existingRows = existingCldfContent
+        .split('\n')
+        .filter((row) => row.trim());
+
+      if (existingRows.length > 0) {
+        // Extract header (first row) from existing content
+        const header = existingRows[0];
+
+        // Create a set of existing IDs to avoid duplicates
+        const existingIds = new Set();
+        for (let i = 1; i < existingRows.length; i++) {
+          const id = existingRows[i].split(',')[0];
+          existingIds.add(id);
+        }
+
+        // Filter out new rows that have duplicate IDs
+        const newUniqueRows = cldfRows.slice(1).filter((row) => {
+          const id = row.split(',')[0];
+          return !existingIds.has(id);
+        });
+
+        // Append new unique rows to existing content
+        if (newUniqueRows.length > 0) {
+          const newContent =
+            existingCldfContent.trim() + '\n' + newUniqueRows.join('\n');
+          await fs.writeFile(cldfPath, newContent);
+          console.log(
+            `Appended ${newUniqueRows.length} new CLDF features to grammar_features.csv`,
+          );
+        } else {
+          console.log('No new unique CLDF features to append');
+        }
+      } else {
+        // File exists but is empty or invalid, write new content
+        await fs.writeFile(cldfPath, cldfRows.join('\n'));
+        console.log(
+          `Wrote ${cldfRows.length - 1} CLDF features to grammar_features.csv`,
+        );
+      }
+    } catch (error) {
+      // File doesn't exist, write new content
+      await fs.writeFile(cldfPath, cldfRows.join('\n'));
+      console.log(
+        `Created grammar_features.csv with ${cldfRows.length - 1} entries`,
+      );
+    }
+
+    // 2. Handle IGT JSON (examples.xigt.json)
+    try {
+      // Check if file exists
+      await fs.access(igtPath);
+
+      // Read existing content
+      const existingIgtContent = await fs.readFile(igtPath, 'utf8');
+      let existingIgtData;
+
+      try {
+        existingIgtData = JSON.parse(existingIgtContent);
+
+        if (
+          existingIgtData &&
+          existingIgtData.items &&
+          Array.isArray(existingIgtData.items)
+        ) {
+          // Create a set of existing example identifiers (using transcript+translation as a composite key)
+          const existingExamples = new Set();
+          existingIgtData.items.forEach((item) => {
+            const key = `${item.transcript}|${item.translation}`;
+            existingExamples.add(key);
+          });
+
+          // Filter out duplicates from new items
+          const newUniqueItems = igtItems.filter((item) => {
+            const key = `${item.transcript}|${item.translation}`;
+            return !existingExamples.has(key);
+          });
+
+          // Append new unique items to existing items
+          if (newUniqueItems.length > 0) {
+            const updatedItems = [...existingIgtData.items, ...newUniqueItems];
+            await fs.writeFile(
+              igtPath,
+              JSON.stringify({ items: updatedItems }, null, 2),
+            );
+            console.log(
+              `Appended ${newUniqueItems.length} new IGT examples to examples.xigt.json`,
+            );
+          } else {
+            console.log('No new unique IGT examples to append');
+          }
+        } else {
+          // Invalid format, write new content
+          await fs.writeFile(
+            igtPath,
+            JSON.stringify({ items: igtItems }, null, 2),
+          );
+          console.log(
+            `Replaced invalid examples.xigt.json with ${igtItems.length} IGT examples`,
+          );
+        }
+      } catch (parseError) {
+        // Invalid JSON, write new content
+        await fs.writeFile(
+          igtPath,
+          JSON.stringify({ items: igtItems }, null, 2),
+        );
+        console.log(
+          `Replaced invalid examples.xigt.json with ${igtItems.length} IGT examples`,
+        );
+      }
+    } catch (error) {
+      // File doesn't exist, write new content
+      await fs.writeFile(igtPath, JSON.stringify({ items: igtItems }, null, 2));
+      console.log(
+        `Created examples.xigt.json with ${igtItems.length} IGT examples`,
+      );
+    }
+
+    // 3. Handle OntoLex JSON-LD (lexicon.jsonld)
+    try {
+      // Check if file exists
+      await fs.access(ontolexPath);
+
+      // Read existing content
+      const existingOntolexContent = await fs.readFile(ontolexPath, 'utf8');
+      let existingOntolexData;
+
+      try {
+        existingOntolexData = JSON.parse(existingOntolexContent);
+
+        if (
+          existingOntolexData &&
+          existingOntolexData['@graph'] &&
+          Array.isArray(existingOntolexData['@graph'])
+        ) {
+          // Create a set of existing entry IDs
+          const existingEntryIds = new Set();
+          existingOntolexData['@graph'].forEach((entry) => {
+            if (entry['@id']) {
+              existingEntryIds.add(entry['@id']);
+            }
+          });
+
+          // Filter out duplicates from new entries
+          const newUniqueEntries = ontolexEntries.filter((entry) => {
+            return entry['@id'] && !existingEntryIds.has(entry['@id']);
+          });
+
+          // Append new unique entries to existing entries
+          if (newUniqueEntries.length > 0) {
+            const updatedEntries = [
+              ...existingOntolexData['@graph'],
+              ...newUniqueEntries,
+            ];
+            await fs.writeFile(
+              ontolexPath,
+              JSON.stringify(
+                {
+                  '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
+                  '@graph': updatedEntries,
+                },
+                null,
+                2,
+              ),
+            );
+            console.log(
+              `Appended ${newUniqueEntries.length} new OntoLex entries to lexicon.jsonld`,
+            );
+          } else {
+            console.log('No new unique OntoLex entries to append');
+          }
+        } else {
+          // Invalid format, write new content
+          await fs.writeFile(
+            ontolexPath,
+            JSON.stringify(
+              {
+                '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
+                '@graph': ontolexEntries,
+              },
+              null,
+              2,
+            ),
+          );
+          console.log(
+            `Replaced invalid lexicon.jsonld with ${ontolexEntries.length} OntoLex entries`,
+          );
+        }
+      } catch (parseError) {
+        // Invalid JSON, write new content
+        await fs.writeFile(
+          ontolexPath,
+          JSON.stringify(
+            {
+              '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
+              '@graph': ontolexEntries,
+            },
+            null,
+            2,
+          ),
+        );
+        console.log(
+          `Replaced invalid lexicon.jsonld with ${ontolexEntries.length} OntoLex entries`,
+        );
+      }
+    } catch (error) {
+      // File doesn't exist, write new content
+      await fs.writeFile(
+        ontolexPath,
+        JSON.stringify(
+          {
+            '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
+            '@graph': ontolexEntries,
+          },
+          null,
+          2,
+        ),
+      );
+      console.log(
+        `Created lexicon.jsonld with ${ontolexEntries.length} OntoLex entries`,
+      );
+    }
   } catch (error) {
     console.error('Error saving results:', error.message);
     throw error;
@@ -607,9 +885,11 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
   try {
     // Always start from the beginning or specified startAt index
     let startIndex = startAt;
+    // Maximum number of chunks to process if we can't find IGT examples
+    const maxChunksToProcess = Math.min(chunks.length, startIndex + 50); // Increased from count to 50
 
     console.log(
-      `Processing ${count} test chunks starting from index ${startIndex}...`,
+      `Processing up to ${maxChunksToProcess - startIndex} chunks starting from index ${startIndex}, looking for IGT examples...`,
     );
 
     // Initialize arrays for results
@@ -617,12 +897,16 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
     const igtItems = [];
     const ontolexEntries = [];
 
-    // Process only a specified number of chunks as a test
-    const endIndex = Math.min(chunks.length, startIndex + count);
-    for (let i = startIndex; i < endIndex; i++) {
+    // Keep track of how many chunks we've processed
+    let processedCount = 0;
+    let foundIGT = false;
+
+    // Process chunks until we find IGT examples or reach the maximum
+    for (let i = startIndex; i < maxChunksToProcess; i++) {
+      processedCount++;
       const chunk = chunks[i];
       console.log(
-        `Processing test chunk ${i - startIndex + 1}/${Math.min(count, endIndex - startIndex)}: ${chunk.heading}`,
+        `Processing test chunk ${processedCount}/${maxChunksToProcess - startIndex} (${i}/${chunks.length - 1}): ${chunk.heading}`,
       );
 
       // Extract CLDF features
@@ -638,6 +922,18 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
       const igtResult = await extractIGT(chunk);
       if (igtResult.length > 0) {
         igtItems.push(...igtResult);
+        foundIGT = true;
+        console.log(
+          `Found ${igtResult.length} IGT examples in chunk: ${chunk.heading}`,
+        );
+
+        // If we've found IGT examples and processed at least the requested number of chunks, we can stop
+        if (processedCount >= count) {
+          console.log(
+            `Found IGT examples and processed ${processedCount} chunks, stopping...`,
+          );
+          break;
+        }
       }
 
       // Extract OntoLex entries
@@ -645,6 +941,21 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
       if (ontolexResult.length > 0) {
         ontolexEntries.push(...ontolexResult);
       }
+
+      // If we've processed the requested number of chunks and haven't found IGT examples yet,
+      // continue processing more chunks
+      if (processedCount >= count && !foundIGT) {
+        console.log(
+          `Processed ${processedCount} chunks but no IGT examples found yet, continuing...`,
+        );
+      }
+      
+      // Save intermediate results after each chunk to ensure we're capturing data
+      await saveResults(
+        [...cldfRows],
+        [...igtItems],
+        [...ontolexEntries]
+      );
     }
 
     // Save results with 'test_' prefix
@@ -667,9 +978,6 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
         2,
       ),
     );
-    
-    // Also save to standard output files
-    await saveResults(cldfRows, igtItems, ontolexEntries);
 
     console.log(
       `Test extraction complete! Extracted ${cldfRows.length - 1} CLDF features, ${igtItems.length} IGT examples, and ${ontolexEntries.length} OntoLex entries.`,
@@ -684,6 +992,9 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
 async function main() {
   try {
     console.log('Starting extraction process...');
+
+    // Reset output files at the beginning of execution
+    await resetOutputFiles();
 
     // Ensure schemas directory exists
     try {
@@ -741,6 +1052,29 @@ async function main() {
         testChunkCount = parseInt(countArg.split('=')[1]) || 10;
       }
 
+      // Reset test output files
+      const testCldfPath = path.join(OUTPUT_DIR, 'test_grammar_features.csv');
+      const testIgtPath = path.join(OUTPUT_DIR, 'test_examples.xigt.json');
+      const testOntolexPath = path.join(OUTPUT_DIR, 'test_lexicon.jsonld');
+
+      await fs.writeFile(
+        testCldfPath,
+        'ID,Parameter_ID,Language_ID,Value,Source\n',
+      );
+      await fs.writeFile(testIgtPath, JSON.stringify({ items: [] }, null, 2));
+      await fs.writeFile(
+        testOntolexPath,
+        JSON.stringify(
+          {
+            '@context': 'https://www.w3.org/ns/lemon/ontolex.json',
+            '@graph': [],
+          },
+          null,
+          2,
+        ),
+      );
+      console.log('Reset test output files to empty state');
+
       await processTestChunks(chunks, testChunkCount); // Process chunks as a test
       console.log(
         'Test mode completed. Run without --test flag for full processing.',
@@ -781,15 +1115,15 @@ async function main() {
         ontolexEntries.push(...ontolexResult);
       }
 
-      // Save intermediate results every 10 chunks to avoid losing progress
-      if (i > 0 && i % 10 === 0) {
-        console.log(`Saving intermediate results at chunk ${i}...`);
-        await saveResults(
-          [...cldfRows], // Make copies to avoid reference issues
-          [...igtItems],
-          [...ontolexEntries],
-        );
-      }
+      // Save results after each chunk to ensure we're capturing data
+      await saveResults(
+        [...cldfRows], // Make copies to avoid reference issues
+        [...igtItems],
+        [...ontolexEntries],
+      );
+      
+      // Also log progress more frequently
+      console.log(`Saved results after chunk ${i+1}. Current totals: ${cldfRows.length - 1} CLDF features, ${igtItems.length} IGT examples, and ${ontolexEntries.length} OntoLex entries.`);
     }
 
     // Save results

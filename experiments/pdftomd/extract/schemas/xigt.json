@@ -14,7 +14,12 @@
           "gloss": { 
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "object",
+              "required": ["morpheme", "gloss"],
+              "properties": {
+                "morpheme": { "type": "string" },
+                "gloss": { "type": "string" }
+              }
             }
           },
           "translation": { "type": "string" },

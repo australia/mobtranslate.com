@@ -1,0 +1,2273 @@
+{
+  "@context": "https://www.w3.org/ns/lemon/ontolex.json",
+  "@graph": [
+    {
+      "@id": "kuku_yalanji:karray",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "karray"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "come"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:barriy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "barriy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "cry"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bubu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bubu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "land, place"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dudu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dudu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "blunt"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:juju",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "juju"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "bum"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kuku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kuku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "word, language"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bama",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bama"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Aborigine"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bana",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bana"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "water"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jalban",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jalban"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "tree top"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:nandal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nandal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "close, cover"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jalbany",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jalbany"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "taboo food"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:nyandal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nyandal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "chop"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ngandal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ngandal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mouth"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:a",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "a"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Vowel",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A vowel in the Kuku Yalanji language, pronounced with a central and slightly higher articulation than cardinal vowel /a/."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:u",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "u"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Vowel",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A vowel in the Kuku Yalanji language."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:i",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "i"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Vowel",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A vowel in the Kuku Yalanji language, pronounced with less height and less front than cardinal vowel /i/."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:lateral",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "lateral"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A type of consonant sound produced with the airflow around the sides of the tongue."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:retroflex_rhotic",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "retroflex rhotic"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A type of consonant sound produced with the tongue curled back in the mouth."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:vowel_u",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "vowel /u/"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A vowel sound that is typically pronounced with lip rounding."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:monosyllabic_interjections",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "monosyllabic interjections"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Words that consist of a single syllable used to express a spontaneous feeling or reaction."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:disyllabic_roots",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "disyllabic roots"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Roots that consist of two syllables."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:trisyllabic_roots",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "trisyllabic roots"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Roots that consist of three syllables."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:four_syllable_roots",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "four syllable roots"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Roots that consist of four syllables."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:five_syllable_roots",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "five syllable roots"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Roots that consist of five syllables."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:murnil",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "murnil"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "stir, twist"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:warndiy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "warndiy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "get up from sitting or lying position"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kurndal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kurndal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "sink in mud or water"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:walbulwalbul",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "walbulwalbul"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "butterfly"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dakaldakal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dakaldakal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "trochus shell"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:nurilnuril",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nurilnuril"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "keep looking inside"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:miyil-dandi",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "miyil-dandi"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "sleepless (lit. eye-hard)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:julbarr-warriy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "julbarr-warriy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "slip (lit. slippery-run)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dambalda",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dambalda"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "boot-INST"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:manyarrda",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "manyarrda"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "wife-ERG"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bama-ngka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bama-ngka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Aborigine-ERG"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:maral-angka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "maral-angka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "girl-ERG"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bama-nda",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bama-nda"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Aborigine-LOC"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:maral-anda",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "maral-anda"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "girl-LOC"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:nuka-nuka-ji-y",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nuka-nuka-ji-y"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:BoundMorpheme",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A bound morpheme that may consist of a single consonant or vowel."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:potent_ergative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "potent ergative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:BoundMorpheme",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A bound morpheme used to indicate the ergative case."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:potent_locative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "potent locative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:BoundMorpheme",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A bound morpheme used to indicate the locative case."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:clitic",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "clitic -/u/-/a"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:BoundMorpheme",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A clitic that may begin with a lateral."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:a",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "a"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Vowel",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A vowel in the Kuku Yalanji language."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:u",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "u"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Vowel",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A vowel in the Kuku Yalanji language."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:i",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "i"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Vowel",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A vowel in the Kuku Yalanji language."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Morpheme",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A morpheme indicating a comitative form in Kuku Yalanji."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:rri",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "rri"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Morpheme",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A morpheme indicating a reinterpretation of roots in Kuku Yalanji."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bulawu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bulawu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "flour"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:banabul",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "banabul"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "pineapple"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:mudaka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "mudaka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "motorcar"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:juka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "juka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "sugar"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:naybu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "naybu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "knife"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:buji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "buji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "pussy (cat)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:marrkin",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "marrkin"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "musket (rifle)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jarruja",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jarruja"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "trousers"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:wulman",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wulman"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "old man"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:yalibala",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yalibala"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "early"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:nukainy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nukainy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'ate'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jalbainy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jalbainy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'taboo food'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:wunkuiny",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wunkuiny"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'next day'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jukumuiny",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jukumuiny"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'from the tree'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:waijul",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "waijul"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'burn, cook'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:nguijan",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nguijan"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'jealous'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:Yalanjji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Yalanjji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'(language name)'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:baykanjji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "baykanjji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'lest (it) bite'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:binainyji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "binainyji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'fig-like fruit'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:binanj-ji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "binanj-ji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'with a rudder'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jalbanj-ji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jalbanj-ji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'with a tree top'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jalbainy-ji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jalbainy-ji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'with taboo food'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dakwuy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dakwuy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'hungry'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:nyikwu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nyikwu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "'now, today'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:vowel_harmony",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "vowel harmony"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A phonological phenomenon where vowels within a word harmonize to be more similar."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ergative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ergative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A grammatical case indicating the subject of a transitive verb."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A grammatical case indicating the indirect object of a verb."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:locative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "locative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A grammatical case indicating a location."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:perlative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "perlative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A grammatical case indicating movement through or along."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:subordination_suffix",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "-nyV"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Suffix",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A suffix used for verbal subordination."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:clitic",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "-ngVrr"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Clitic",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A clitic meaning 'first of all'."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:neutral_ergative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "-bu/V"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Suffix",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A neutral ergative suffix that is not affected by vowel harmony."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:perlative_suffix",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "-burr/V"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Suffix",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A perlative suffix that is not affected by vowel harmony."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kulji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kulji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "stone"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dili",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dili"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "corkwood pine"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:duli",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "duli"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "burnt grass"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kulji-nga",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kulji-nga"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "on/to the stone"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dili-mba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dili-mba"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "on/to the corkwood pine"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:duli-mba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "duli-mba"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "on/to the burnt grass"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:badiy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "badiy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "cry, weep"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:karangajiy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "karangajiy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "sneak up"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:manijiy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "manijiy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "get (itr)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bana",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bana"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "into the water"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kima_bungal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kima-bungal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "make something soft"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kima_bal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kima-bal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "make something soft (reduced form)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:banbadiy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "banbadiy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "keep crying"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:janjanay",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "janjanay"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "keep standing"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kankaday",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kankaday"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "keep coming"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:wanarriy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wanarriy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "keep running"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bundanday",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bundanday"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "keep sitting, stay"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:wunanay",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wunanay"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "keep lying, sleep"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:nukalkal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nukalkal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "keep eating (reduced form)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:clause_stress",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "clause stress"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "The emphasis placed on a particular clause in a sentence, typically indicated by higher pitch and loudness."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:predicate",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "predicate"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "The part of a sentence or clause containing a verb and stating something about the subject."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:subject",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "subject"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "The noun or noun phrase that performs the action of the verb in a sentence."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:interrogative_pronoun",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "interrogative pronoun"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A pronoun used to ask questions, such as who, what, where, etc."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:negative_particle",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "negative particle"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A word that negates the meaning of the verb in a sentence."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:nominals",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nominals"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A class of words that includes nouns, adjectives, and quantifiers."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:nouns",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nouns"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Words that represent people, places, things, or ideas."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:adjectives",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "adjectives"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Adjective",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Words that describe or modify nouns."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:quantifiers",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "quantifiers"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Words that express quantity."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:location_time_words",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "location and time words"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Words that indicate location or time."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:personal_pronouns",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "personal pronouns"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Pronouns that refer to specific people or things."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:interrogative_pronouns",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "interrogative pronouns"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Pronouns used to ask questions."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:demonstratives",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "demonstratives"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Pronouns that point to specific things."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:verbs",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "verbs"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Words that describe actions or states."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:particles",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "particles"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Particle",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Words that have a grammatical function but do not fit into other categories."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:interjections",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "interjections"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Interjection",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Words that express emotions or exclamations."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:baya",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "baya"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "a loan word from English meaning 'fire'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jarra",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jarra"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Adverb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "meaning 'rather, more'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:baja",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "baja"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Adverb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "meaning 'very'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ABSolutive",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ABSolutive"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "marks the intransitive subject and transitive object of a clause"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ERGative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ERGative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "marks the transitive subject"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:instrumental",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "instrumental"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "marks the implement that is used by an agent in performing an action."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "indicates the goal of a purposeful action, the cause for an action or emotion, or a complement of comparison."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:locative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "locative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "marks location 'in', 'on', 'at', etc."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:allative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "allative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "the goal of a movement"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ablative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ablative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "indicates a general source 'from'"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:abessive",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "abessive"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "indicates a locational source not left behind by the actor"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:perlative",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "perlative"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "marks a defined space through which someone or something passes"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:neutral_inflection",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "neutral"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "unmarked set of case inflections"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:potent_inflection",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "potent"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "marked set of case inflections"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kaya",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kaya"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "dog"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dingkar",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dingkar"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "man"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jarramali",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jarramali"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "thunderstorm"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jna-bu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jna-bu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "foot"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kulji-bu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kulji-bu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "stone"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:juku-bu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "juku-bu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "tree"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:wungar-abu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wungar-abu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "sun"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:badur-ubu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "badur-ubu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "fishing line"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:balbay-nja",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "balbay-nja"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "light, lightning"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:diliy-nja",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "diliy-nja"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "corkwood pine"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:junjuy-nju",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "junjuy-nju"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "something"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jalun-du",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jalun-du"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "sea"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jalbany-da",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jalbany-da"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "taboo food"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bayil-da",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bayil-da"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "freshwater perch"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:balarr-da",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "balarr-da"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "scabies"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kaya-ngka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kaya-ngka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "dog"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kami-ngka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kami-ngka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "father's father, mother's mother"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ngurrku-ngku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ngurrku-ngku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mopoke"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ngangkin-angka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ngangkin-angka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "porcupine"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:walkarr-angka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "walkarr-angka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "black goanna"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dingkar-angka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dingkar-angka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "man"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dubuy-ungku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dubuy-ungku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "small brown kingfisher (messenger bird)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:wabul-ungku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wabul-ungku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Torres Strait Pigeon"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ngujay-ngka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ngujay-ngka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "freshwater turtle"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:yibuy-ngku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yibuy-ngku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "loya cane"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kadar-aka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kadar-aka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "plains wallaby"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kukur-uku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kukur-uku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "rat"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ngalkun-ku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ngalkun-ku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mullet"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:dukul-ku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dukul-ku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "head"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:balji-ka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "balji-ka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "dillybag"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jalbu-nku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jalbu-nku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "woman"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ngaji-nka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ngaji-nka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother's father"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bama-nka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bama-nka"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Aborigine"
+        }
+      }
+    }
+  ]
+}
