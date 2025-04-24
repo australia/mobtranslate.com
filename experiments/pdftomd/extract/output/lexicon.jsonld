@@ -1462,6 +1462,160 @@
       "ex:grammaticalProperties": [
         "syntactic verb derivation"
       ]
+    },
+    {
+      "@id": "kuku_yalanji:eB",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "eB"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "elder brother"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:eZ",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "eZ"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "elder sister"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:FF",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "FF"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "father's father"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:FM",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "FM"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "father's mother"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:FZ",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "FZ"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "father's sister"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:MB",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MB"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother's brother"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:MF",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MF"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother's father"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:MiL",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MiL"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother-in-law"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:MM",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MM"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother's mother"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:yB",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yB"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "younger brother"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:yz",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yz"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "younger sister"
+        }
+      }
     }
   ]
 }
