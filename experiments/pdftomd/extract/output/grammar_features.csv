@@ -1,19 +1,19 @@
 ID,Parameter_ID,Language_ID,Value,Source
-demonstrative-pronoun-count,demo-pronoun-count,gvn,2,§3.7
-demonstrative-location-word-count,demo-location-count,gvn,2,§3.7
-demonstrative-number-distinction,demo-number-distinction,gvn,contextual,§3.7
-demonstrative-animacy-reference,demo-animacy,gvn,animate-inanimate,§3.7
-demonstrative-case-marking,demo-case-marking,gvn,same-as-nominals,§3.7
-demonstrative-location-case,demo-location-case,gvn,local,§3.7
-demonstrative-suppletion,demo-suppletion,gvn,yes,§3.7
-demonstrative-pronouns,demonstrative-pronouns,gvn,present,§3.2.3
-local-demonstratives,local-demonstratives,gvn,present,§3.2.3
-demonstrative-pronouns-plural,demonstrative-pronouns-plural,gvn,yes,§3.2.3
-demonstrative-pronouns-human-reference,demonstrative-pronouns-human-reference,gvn,yes,§3.2.3
-demonstrative-pronouns-absolutive,demonstrative-pronouns-absolutive,gvn,yes,§3.2.3
-demonstrative-pronouns-suffix,demonstrative-pronouns-suffix,gvn,-rriny,§3.2.3
-demonstrative-pronouns-suffix-human,demonstrative-pronouns-suffix-human,gvn,-rriny,§3.2.3
-demonstrative-pronouns-suffix-what,demonstrative-pronouns-suffix-what,gvn,wanyurri(y)-,§3.2.3
-demonstrative-pronouns-suffix-inhabitants,demonstrative-pronouns-suffix-inhabitants,gvn,-arra,§3.2.3
-demonstrative-pronouns-replace-noun,demonstrative-pronouns-replace-noun,gvn,yes,§3.2.3
-local-demonstratives-distinction,local-demonstratives-distinction,gvn,no,§3.2.3
+demonstrative-pronoun-count,demonstrative-pronoun-count,gvn,2,§3.7
+demonstrative-location-word-count,demonstrative-location-word-count,gvn,2,§3.7
+demonstrative-case-marking,demonstrative-case-marking,gvn,same-as-nomina,§3.7
+demonstrative-location-case-marking,demonstrative-location-case-marking,gvn,local-only,§3.7
+demonstrative-suppletion,demonstrative-suppletion,gvn,present,§3.7
+demonstrative-number-ambiguity,demonstrative-number-ambiguity,gvn,context-dependent,§3.7
+demonstrative-plural-suffix,demonstrative-plural-suffix,gvn,-rriny,Table 3.13
+demonstrative-case-restriction,demonstrative-case-restriction,gvn,absolutive-only,Table 3.13
+demonstrative-human-restriction,demonstrative-human-restriction,gvn,yes,Table 3.13
+local-demonstrative-syncretism,local-demonstrative-syncretism,gvn,yes,Table 3.14
+demonstrative-compounding-with-inhabitant-suffix,demonstrative-compounding-with-inhabitant-suffix,gvn,-arra,Table 3.14
+nominative-case,nominative-case,gvn,present,§3
+absolutive-case,absolutive-case,gvn,present,§3
+locative-case,locative-case,gvn,present,§3
+causative-morphology,causative-morphology,gvn,present,§3
+past-tense-morphology,past-tense-morphology,gvn,present,§3
+clause-external-adjunct,clause-external-adjunct,gvn,present,§3
+reduplication-morphology,reduplication-morphology,gvn,present,§3

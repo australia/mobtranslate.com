@@ -180,13 +180,13 @@ async function callLLM(
       // console.log('\n===== END PROMPTS =====');
 
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model: 'o3-mini',
         // model: process.env.MODEL || DEFAULT_MODEL,
-        temperature: 0.2,
+        // temperature: 0.2,
         messages: messages,
         // max_available_tokens: maxTokens,
-        max_tokens: maxTokens,
-        // max_completion_tokens: maxTokens,
+        // max_tokens: maxTokens,
+        max_completion_tokens: maxTokens,
       });
 
       const content = response.choices[0].message.content;
@@ -949,13 +949,9 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
           `Processed ${processedCount} chunks but no IGT examples found yet, continuing...`,
         );
       }
-      
+
       // Save intermediate results after each chunk to ensure we're capturing data
-      await saveResults(
-        [...cldfRows],
-        [...igtItems],
-        [...ontolexEntries]
-      );
+      await saveResults([...cldfRows], [...igtItems], [...ontolexEntries]);
     }
 
     // Save results with 'test_' prefix
@@ -1121,9 +1117,11 @@ async function main() {
         [...igtItems],
         [...ontolexEntries],
       );
-      
+
       // Also log progress more frequently
-      console.log(`Saved results after chunk ${i+1}. Current totals: ${cldfRows.length - 1} CLDF features, ${igtItems.length} IGT examples, and ${ontolexEntries.length} OntoLex entries.`);
+      console.log(
+        `Saved results after chunk ${i + 1}. Current totals: ${cldfRows.length - 1} CLDF features, ${igtItems.length} IGT examples, and ${ontolexEntries.length} OntoLex entries.`,
+      );
     }
 
     // Save results

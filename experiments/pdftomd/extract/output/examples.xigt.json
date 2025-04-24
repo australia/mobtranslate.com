@@ -4,8 +4,12 @@
       "transcript": "Yalu-ngkujalbu-ngku nganya binal-bunga-ny marra-ka. Zamia.nut-DAT",
       "gloss": [
         {
-          "morpheme": "yalu-ngkujalbu-ngku",
-          "gloss": "this-ERG:pt(A) woman-ERG:pt(A)"
+          "morpheme": "Yalu-ngku",
+          "gloss": "this-ERG:pt(A)"
+        },
+        {
+          "morpheme": "jalbu-ngku",
+          "gloss": "woman-ERG:pt(A)"
         },
         {
           "morpheme": "nganya",
@@ -16,7 +20,7 @@
           "gloss": "know-CAUS-PAST"
         },
         {
-          "morpheme": "marra-ka",
+          "morpheme": "marra-ka.",
           "gloss": ""
         },
         {
@@ -31,7 +35,7 @@
       "transcript": "Jana nubi-I-nubi-ny yinyay-anka karrkay-anka.",
       "gloss": [
         {
-          "morpheme": "jana",
+          "morpheme": "Jana",
           "gloss": "3pl.NOM(S)"
         },
         {
@@ -54,7 +58,7 @@
       "transcript": "Yinyay-anda kaban daya.",
       "gloss": [
         {
-          "morpheme": "yinyay-anda",
+          "morpheme": "Yinyay-anda",
           "gloss": "that-Loc:pt"
         },
         {
@@ -62,7 +66,7 @@
           "gloss": "letter.ABS(O)"
         },
         {
-          "morpheme": "daya",
+          "morpheme": "daya.",
           "gloss": "give.lMP"
         }
       ],
@@ -73,7 +77,7 @@
       "transcript": "Nyulu yaluy-muny wanarri-y.",
       "gloss": [
         {
-          "morpheme": "nyulu",
+          "morpheme": "Nyulu",
           "gloss": "3sg.NOM(S)"
         },
         {
@@ -87,6 +91,56 @@
       ],
       "translation": "He is running from here.",
       "source": "(141)"
+    },
+    {
+      "transcript": "Ngayu jarruka wubul warrmba-bunga-ny yinyay-mba",
+      "gloss": [
+        {
+          "morpheme": "Ngayu",
+          "gloss": "I sg.NOM(A)"
+        },
+        {
+          "morpheme": "jarruka",
+          "gloss": "scrubhen.ABS(O)"
+        },
+        {
+          "morpheme": "wubul",
+          "gloss": "many.ABS(O)"
+        },
+        {
+          "morpheme": "warrmba-bunga-ny",
+          "gloss": "uncovered-CAUS-PAST"
+        },
+        {
+          "morpheme": "yinyay-mba",
+          "gloss": "there-LOC"
+        }
+      ],
+      "translation": "I found a lot of scrubhen [eggs] there.",
+      "source": "(1 42)"
+    },
+    {
+      "transcript": "Nyulu yinyay-mba bundanda-ny kulji-nga",
+      "gloss": [
+        {
+          "morpheme": "Nyulu",
+          "gloss": "3sg.NOM(S)"
+        },
+        {
+          "morpheme": "yinyay-mba",
+          "gloss": "there-LOC"
+        },
+        {
+          "morpheme": "bundanda-ny",
+          "gloss": "sit.REDUP-PAST"
+        },
+        {
+          "morpheme": "kulji-nga",
+          "gloss": "rock-LOC"
+        }
+      ],
+      "translation": "He sat there, on the rock.",
+      "source": "(143)"
     }
   ]
 }

@@ -2,6 +2,62 @@
   "@context": "https://www.w3.org/ns/lemon/ontolex.json",
   "@graph": [
     {
+      "@id": "kuku_yalanji:this_these",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yanyu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Demonstrative pronoun meaning 'this/these'. In Kuku Yalanji, this form appears as 'yanyu' in the Yalanji dialect and as 'yanya' in the Nyungkul dialect. It can indicate singular or plural, refer to animate or inanimate entities, and follows the same case-marking patterns as nominals."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:that_those",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yinya"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Demonstrative pronoun meaning 'that/those'. This form is used in both dialects and, like the 'this/these' forms, it can be singular or plural and mark referents regardless of animacy, using the same case-marking as nominals."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:here",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yaluy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Adverb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Demonstrative location word meaning 'here'. It appears as 'yaluy' in the Yalanji dialect and as 'yalay' in the Nyungkul dialect, and is restricted to local (locative) case forms."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:there",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yinyay"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Adverb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Demonstrative location word meaning 'there'. The form 'yinyay' is used in both dialects and occurs only in local (locative) cases."
+        }
+      }
+    },
+    {
       "@id": "kuku_yalanji:yanyu",
       "@type": "ontolex:LexicalEntry",
       "ontolex:canonicalForm": {
@@ -11,51 +67,10 @@
       "ontolex:sense": {
         "ontolex:definition": {
           "@language": "en",
-          "@value": "'this/these' in Yalanji dialect"
+          "@value": "Demonstrative pronoun meaning 'this' in Yalanji; basic, absolutive form."
         }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yinya",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yinya"
       },
-      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "'that/those' in both Yalanji and Nyungkul dialects"
-        }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yaluy",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yaluy"
-      },
-      "lexinfo:partOfSpeech": "lexinfo:Location",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "'here' in Yalanji dialect"
-        }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yinyay",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yinyay"
-      },
-      "lexinfo:partOfSpeech": "lexinfo:Location",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "'there' in both Yalanji and Nyungkul dialects"
-        }
-      }
+      "lexinfo:case": "ABS"
     },
     {
       "@id": "kuku_yalanji:yanya",
@@ -67,149 +82,25 @@
       "ontolex:sense": {
         "ontolex:definition": {
           "@language": "en",
-          "@value": "'this/these' in Nyungkul dialect"
+          "@value": "Demonstrative pronoun meaning 'this' in Nyungkul; basic, absolutive form."
         }
-      }
+      },
+      "lexinfo:case": "ABS"
     },
     {
-      "@id": "kuku_yalanji:yalay",
+      "@id": "kuku_yalanji:yinya",
       "@type": "ontolex:LexicalEntry",
       "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yalay"
+        "ontolex:writtenRep": "yinya"
       },
-      "lexinfo:partOfSpeech": "lexinfo:Location",
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
       "ontolex:sense": {
         "ontolex:definition": {
           "@language": "en",
-          "@value": "'here' in Nyungkul dialect"
+          "@value": "Demonstrative pronoun meaning 'that' (with the absolutive form shown)."
         }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yalubu",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yalubu"
       },
-      "lexinfo:partOfSpeech": "lexinfo:Noun",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "ERG/INST form of 'this'"
-        }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yalungku",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yalungku"
-      },
-      "lexinfo:partOfSpeech": "lexinfo:Noun",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "ERG:pt form of 'this'"
-        }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yaluyngku",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yaluyngku"
-      },
-      "lexinfo:partOfSpeech": "lexinfo:Noun",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "DAT form of 'this'"
-        }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yaluyunku",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yaluyunku"
-      },
-      "lexinfo:partOfSpeech": "lexinfo:Noun",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "DAT:pt form of 'this'"
-        }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yaluyundu",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yaluyundu"
-      },
-      "lexinfo:partOfSpeech": "lexinfo:Noun",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "LOC:pt form of 'this'"
-        }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yalamuny",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yalamuny"
-      },
-      "lexinfo:partOfSpeech": "lexinfo:Noun",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "ABL form of 'this'"
-        }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yalamundu",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yalamundu"
-      },
-      "lexinfo:partOfSpeech": "lexinfo:Noun",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "ABESS form of 'this'"
-        }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yalumbu",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yalumbu"
-      },
-      "lexinfo:partOfSpeech": "lexinfo:Noun",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "POSS + zero inflection form of 'this'"
-        }
-      }
-    },
-    {
-      "@id": "kuku_yalanji:yaluyundumun-",
-      "@type": "ontolex:LexicalEntry",
-      "ontolex:canonicalForm": {
-        "ontolex:writtenRep": "yaluyundumun-"
-      },
-      "lexinfo:partOfSpeech": "lexinfo:Noun",
-      "ontolex:sense": {
-        "ontolex:definition": {
-          "@language": "en",
-          "@value": "POSS + non-zero inflection form of 'this'"
-        }
-      }
+      "lexinfo:case": "ABS"
     },
     {
       "@id": "kuku_yalanji:yalurriny",
@@ -217,11 +108,25 @@
       "ontolex:canonicalForm": {
         "ontolex:writtenRep": "yalurriny"
       },
-      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
       "ontolex:sense": {
         "ontolex:definition": {
           "@language": "en",
-          "@value": "'these people' form of 'this'"
+          "@value": "Plural demonstrative pronoun meaning 'these people' in Yalanji; formed by adding the suffix -rriny."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:yalarriny",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yalarriny"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Plural demonstrative pronoun meaning 'these people' in Nyungkul; formed by adding the suffix -rriny."
         }
       }
     },
@@ -231,11 +136,252 @@
       "ontolex:canonicalForm": {
         "ontolex:writtenRep": "yinyarriny"
       },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Plural demonstrative pronoun meaning 'those people' (attested in both Yalanji and Nyungkul)."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:yaluy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yaluy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Local demonstrative pronoun meaning 'here' in Yalanji; appears as the uninflected root with general locative meaning."
+        }
+      },
+      "lexinfo:case": "LOC"
+    },
+    {
+      "@id": "kuku_yalanji:yalaymba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yalaymba"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Local demonstrative pronoun meaning 'here' in Nyungkul; an inflected locative form preferred in that dialect."
+        }
+      },
+      "lexinfo:case": "LOC"
+    },
+    {
+      "@id": "kuku_yalanji:yinyay",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yinyay"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Local demonstrative pronoun meaning 'there'; represents the uninflected locative form."
+        }
+      },
+      "lexinfo:case": "LOC"
+    },
+    {
+      "@id": "kuku_yalanji:yaluyarra",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yaluyarra"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Nominal",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Compound form combining a local demonstrative with the suffix -arra, meaning 'the people of this place' in Yalanji."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:yalayarrayinyayarra",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yalayarrayinyayarra"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Nominal",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Compound form combining a demonstrative with the suffix -arra, meaning 'the people of that place' in Nyungkul."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:thislhere",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "thislhere"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Djabugay demonstrative pronoun 'thislhere', showing a singular/plural distinction and functioning as a third person pronoun."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:thatthere",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "that/there"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Djabugay demonstrative pronoun 'that/there', showing singular/plural distinction and functioning as a third person pronoun."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:rriny",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "-rriny"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Affix",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Suffix used to form plural demonstrative pronouns referring to human beings in the absolutive case."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:ngkarr",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "-ngkarr"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Affix",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Idiosyncratic perlative suffix found in Nyungkul demonstrative forms."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:Ngayu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Ngayu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "I (first person singular nominative)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:jarruka",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jarruka"
+      },
       "lexinfo:partOfSpeech": "lexinfo:Noun",
       "ontolex:sense": {
         "ontolex:definition": {
           "@language": "en",
-          "@value": "'those people' form of 'that'"
+          "@value": "scrubhen (egg)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:wubul",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wubul"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Determiner",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "many"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:warrmba-bunga-ny",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "warrmba-bunga-ny"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "uncovered (causative, past)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:yinyay-mba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yinyay-mba"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Adverb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "there (locative)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:Nyulu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Nyulu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "he (third person singular nominative)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:bundanda-ny",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bundanda-ny"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "sat (reduplicated, past)"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kulji-nga",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kulji-nga"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "rock (locative)"
         }
       }
     }
