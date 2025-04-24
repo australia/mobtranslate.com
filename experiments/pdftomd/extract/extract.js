@@ -640,6 +640,9 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
         2,
       ),
     );
+    
+    // Also save to standard output files
+    await saveResults(cldfRows, igtItems, ontolexEntries);
 
     console.log(
       `Test extraction complete! Extracted ${cldfRows.length - 1} CLDF features, ${igtItems.length} IGT examples, and ${ontolexEntries.length} OntoLex entries.`,

@@ -1,3 +1,1508 @@
 {
-  "items": []
+  "items": [
+    {
+      "transcript": "karray (kaday)",
+      "gloss": [
+        "come"
+      ],
+      "translation": "come",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "barriy (badiy)",
+      "gloss": [
+        "cry"
+      ],
+      "translation": "cry",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "bubu",
+      "gloss": [
+        "land",
+        "place"
+      ],
+      "translation": "land, place",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "dudu",
+      "gloss": [
+        "blunt"
+      ],
+      "translation": "blunt",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "juju",
+      "gloss": [
+        "bum"
+      ],
+      "translation": "bum",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "kuku",
+      "gloss": [
+        "word",
+        "language"
+      ],
+      "translation": "word, language",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "bama",
+      "gloss": [
+        "Aborigine"
+      ],
+      "translation": "Aborigine",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "bana",
+      "gloss": [
+        "water"
+      ],
+      "translation": "water",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "jalban",
+      "gloss": [
+        "tree",
+        "top"
+      ],
+      "translation": "tree top",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "nandal",
+      "gloss": [
+        "close",
+        "cover"
+      ],
+      "translation": "close, cover",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "jalbany",
+      "gloss": [
+        "taboo",
+        "food"
+      ],
+      "translation": "taboo food",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "nyandal",
+      "gloss": [
+        "chop"
+      ],
+      "translation": "chop",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "ngandal",
+      "gloss": [
+        "mouth"
+      ],
+      "translation": "mouth",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "kalal",
+      "gloss": [
+        "vine"
+      ],
+      "translation": "vine",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "milbi",
+      "gloss": [
+        "show"
+      ],
+      "translation": "show",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "marra",
+      "gloss": [
+        "zamia",
+        "nut"
+      ],
+      "translation": "zamia nut",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "jirray",
+      "gloss": [
+        "much",
+        "plenty"
+      ],
+      "translation": "much, plenty",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "ngurrku",
+      "gloss": [
+        "owl"
+      ],
+      "translation": "owl",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "ngulkurr",
+      "gloss": [
+        "good"
+      ],
+      "translation": "good",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "malal",
+      "gloss": [
+        "spider"
+      ],
+      "translation": "spider",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "malar",
+      "gloss": [
+        "gooseflesh"
+      ],
+      "translation": "gooseflesh",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "maral",
+      "gloss": [
+        "girl"
+      ],
+      "translation": "girl",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "mararr",
+      "gloss": [
+        "sail"
+      ],
+      "translation": "sail",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "marral",
+      "gloss": [
+        "dry"
+      ],
+      "translation": "dry",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "karrarr",
+      "gloss": [
+        "seaweed"
+      ],
+      "translation": "seaweed",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "karrar",
+      "gloss": [
+        "species",
+        "of",
+        "bird"
+      ],
+      "translation": "species of bird",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "kararr",
+      "gloss": [
+        "grass",
+        "blanket",
+        "to",
+        "lie",
+        "on"
+      ],
+      "translation": "grass, blanket to lie on",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "yinya",
+      "gloss": [
+        "that"
+      ],
+      "translation": "that",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "yanyu",
+      "gloss": [
+        "this"
+      ],
+      "translation": "this",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "wunba",
+      "gloss": [
+        "English",
+        "bee"
+      ],
+      "translation": "English bee",
+      "source": "Section 2.1.1"
+    },
+    {
+      "transcript": "rrunyuji",
+      "gloss": [
+        "wise",
+        "man",
+        "with",
+        "magic",
+        "powers"
+      ],
+      "translation": "wise man with magic powers",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "murnil",
+      "gloss": [
+        "stir",
+        "twist"
+      ],
+      "translation": "stir, twist",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "warndiy",
+      "gloss": [
+        "get",
+        "up",
+        "from",
+        "sitting",
+        "or",
+        "lying",
+        "position"
+      ],
+      "translation": "get up from sitting or lying position",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "kurndal",
+      "gloss": [
+        "sink",
+        "in",
+        "mud",
+        "or",
+        "water"
+      ],
+      "translation": "sink in mud or water",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "walbulwalbul",
+      "gloss": [
+        "butterfly"
+      ],
+      "translation": "butterfly",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "dakaldakal",
+      "gloss": [
+        "trochus",
+        "shell"
+      ],
+      "translation": "trochus shell",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "nurilnuril",
+      "gloss": [
+        "keep",
+        "looking",
+        "inside"
+      ],
+      "translation": "keep looking inside",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "miyil-dandi",
+      "gloss": [
+        "sleepless",
+        "(lit.",
+        "eye-hard)"
+      ],
+      "translation": "sleepless (lit. eye-hard)",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "julbarr-warriy",
+      "gloss": [
+        "slip",
+        "(lit.",
+        "slippery-run)"
+      ],
+      "translation": "slip (lit. slippery-run)",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "dambalda",
+      "gloss": [
+        "boot",
+        "-INST"
+      ],
+      "translation": "boot-INST",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "manyarrda",
+      "gloss": [
+        "wife",
+        "-ERG"
+      ],
+      "translation": "wife-ERG",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "bama-ngka",
+      "gloss": [
+        "Aborigine",
+        "-ERG"
+      ],
+      "translation": "Aborigine-ERG",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "maral-angka",
+      "gloss": [
+        "girl",
+        "-ERG"
+      ],
+      "translation": "girl-ERG",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "bama-nda",
+      "gloss": [
+        "Aborigine",
+        "-LOC"
+      ],
+      "translation": "Aborigine-LOC",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "maral-anda",
+      "gloss": [
+        "girl",
+        "-LOC"
+      ],
+      "translation": "girl-LOC",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "nuka-n-nuka-ji-y",
+      "gloss": [
+        "keep",
+        "eating",
+        "(itr)"
+      ],
+      "translation": "keep eating (itr)",
+      "source": "Section 2.2.1"
+    },
+    {
+      "transcript": "naybu",
+      "gloss": [
+        "naybu"
+      ],
+      "translation": "knife",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "aybi",
+      "gloss": [
+        "aybi"
+      ],
+      "translation": "Ivy (name)",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "buji",
+      "gloss": [
+        "buji"
+      ],
+      "translation": "pussy (cat)",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "juka",
+      "gloss": [
+        "juka"
+      ],
+      "translation": "sugar",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "maji",
+      "gloss": [
+        "maji"
+      ],
+      "translation": "matches",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "dubayku",
+      "gloss": [
+        "dubayku"
+      ],
+      "translation": "tobacco",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "muduka",
+      "gloss": [
+        "muduka"
+      ],
+      "translation": "motorcar",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "marrkin",
+      "gloss": [
+        "marrkin"
+      ],
+      "translation": "musket (rifle)",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "warrkin",
+      "gloss": [
+        "warrkin"
+      ],
+      "translation": "(a place name) from 'Watkins' (name of an English settler)",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "jarruja",
+      "gloss": [
+        "jarruja"
+      ],
+      "translation": "trousers",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "gilaja",
+      "gloss": [
+        "gilaja"
+      ],
+      "translation": "glass (mirror)",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "bulawu",
+      "gloss": [
+        "bulawu"
+      ],
+      "translation": "flour",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "banabul",
+      "gloss": [
+        "banabul"
+      ],
+      "translation": "pineapple",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "wulman",
+      "gloss": [
+        "wulman"
+      ],
+      "translation": "old man",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "yalibala",
+      "gloss": [
+        "yalibala"
+      ],
+      "translation": "early",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "buwun",
+      "gloss": [
+        "buwun"
+      ],
+      "translation": "spoon",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "biyin",
+      "gloss": [
+        "biyin"
+      ],
+      "translation": "(safety) pin",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "biki",
+      "gloss": [
+        "biki"
+      ],
+      "translation": "pig",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "juki",
+      "gloss": [
+        "juki"
+      ],
+      "translation": "chook, (hen)",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "baybu",
+      "gloss": [
+        "baybu"
+      ],
+      "translation": "pipe",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "injarruja",
+      "gloss": [
+        "injarruja"
+      ],
+      "translation": "trousers",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "bujika",
+      "gloss": [
+        "bujika"
+      ],
+      "translation": "pussycat",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "landin",
+      "gloss": [
+        "landin"
+      ],
+      "translation": "Landing",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "marrkin",
+      "gloss": [
+        "marrkin"
+      ],
+      "translation": "musket",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "mayngku",
+      "gloss": [
+        "mayngku"
+      ],
+      "translation": "mango",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "dubayka",
+      "gloss": [
+        "dubayka"
+      ],
+      "translation": "tobacco",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "baybu",
+      "gloss": [
+        "baybu"
+      ],
+      "translation": "pipe",
+      "source": "Section 2.3"
+    },
+    {
+      "transcript": "nukainy",
+      "gloss": [
+        "nuka",
+        "iny"
+      ],
+      "translation": "'ate'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "jalbainy",
+      "gloss": [
+        "jalba",
+        "iny"
+      ],
+      "translation": "'taboo food'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "wunkuiny",
+      "gloss": [
+        "wunkui",
+        "ny"
+      ],
+      "translation": "'next day'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "jukumuiny",
+      "gloss": [
+        "jukumu",
+        "iny"
+      ],
+      "translation": "'from the tree'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "waijul",
+      "gloss": [
+        "wai",
+        "jul"
+      ],
+      "translation": "'burn, cook'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "nguijan",
+      "gloss": [
+        "ngu",
+        "ijan"
+      ],
+      "translation": "'jealous'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "Yalanjji",
+      "gloss": [
+        "Yalanj",
+        "ji"
+      ],
+      "translation": "'(language name)'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "baykanjji",
+      "gloss": [
+        "baykan",
+        "jji"
+      ],
+      "translation": "'lest (it) bite'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "binainyji",
+      "gloss": [
+        "bina",
+        "iny",
+        "ji"
+      ],
+      "translation": "'fig-like fruit'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "binanj-ji",
+      "gloss": [
+        "bina",
+        "nj",
+        "-ji"
+      ],
+      "translation": "'with a rudder'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "jalbanj-ji",
+      "gloss": [
+        "jalba",
+        "nj",
+        "-ji"
+      ],
+      "translation": "'with a tree top'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "jalbainy-ji",
+      "gloss": [
+        "jalba",
+        "iny",
+        "-ji"
+      ],
+      "translation": "'with taboo food'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "dakwuy",
+      "gloss": [
+        "dak",
+        "wuy"
+      ],
+      "translation": "'hungry'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "nyikwu",
+      "gloss": [
+        "nyik",
+        "wu"
+      ],
+      "translation": "'now, today'",
+      "source": "Section 2.4"
+    },
+    {
+      "transcript": "kulji",
+      "gloss": [
+        "kulji"
+      ],
+      "translation": "stone",
+      "source": "Section 2.5.2"
+    },
+    {
+      "transcript": "dili",
+      "gloss": [
+        "dili"
+      ],
+      "translation": "corkwood pine",
+      "source": "Section 2.5.2"
+    },
+    {
+      "transcript": "duli",
+      "gloss": [
+        "duli"
+      ],
+      "translation": "burnt grass",
+      "source": "Section 2.5.2"
+    },
+    {
+      "transcript": "kulji-nga",
+      "gloss": [
+        "kulji",
+        "-nga"
+      ],
+      "translation": "on/to the stone",
+      "source": "Section 2.5.2"
+    },
+    {
+      "transcript": "dili-mba",
+      "gloss": [
+        "dili",
+        "-mba"
+      ],
+      "translation": "on/to the corkwood pine",
+      "source": "Section 2.5.2"
+    },
+    {
+      "transcript": "duli-mba",
+      "gloss": [
+        "duli",
+        "-mba"
+      ],
+      "translation": "on/to the burnt grass",
+      "source": "Section 2.5.2"
+    },
+    {
+      "transcript": "badiy",
+      "gloss": [
+        "badi",
+        "-y"
+      ],
+      "translation": "cry, weep",
+      "source": "Section 2.5.2"
+    },
+    {
+      "transcript": "karangajiy",
+      "gloss": [
+        "karangaji",
+        "-y"
+      ],
+      "translation": "sneak up",
+      "source": "Section 2.5.2"
+    },
+    {
+      "transcript": "manijiy",
+      "gloss": [
+        "maniji",
+        "-y"
+      ],
+      "translation": "get (itr)",
+      "source": "Section 2.5.2"
+    },
+    {
+      "transcript": "bana: 'into the water'",
+      "gloss": [
+        "bana:",
+        "'into",
+        "the",
+        "water'"
+      ],
+      "translation": "into the water",
+      "source": "2.5.3"
+    },
+    {
+      "transcript": "kima-bungal or kima-bal 'make something soft'",
+      "gloss": [
+        "kima-bungal",
+        "or",
+        "kima-bal",
+        "'make",
+        "something",
+        "soft'"
+      ],
+      "translation": "make something soft",
+      "source": "2.5.3"
+    },
+    {
+      "transcript": "dandi-bungal-bungal or dandi-bal-bal 'keep making something hard'",
+      "gloss": [
+        "dandi-bungal-bungal",
+        "or",
+        "dandi-bal-bal",
+        "'keep",
+        "making",
+        "something",
+        "hard'"
+      ],
+      "translation": "keep making something hard",
+      "source": "2.5.3"
+    },
+    {
+      "transcript": "banbadiy 'keep crying'",
+      "gloss": [
+        "banbadiy",
+        "'keep",
+        "crying'"
+      ],
+      "translation": "keep crying",
+      "source": "2.5.3"
+    },
+    {
+      "transcript": "janjanay 'keep standing'",
+      "gloss": [
+        "janjanay",
+        "'keep",
+        "standing'"
+      ],
+      "translation": "keep standing",
+      "source": "2.5.3"
+    },
+    {
+      "transcript": "kankaday 'keep coming'",
+      "gloss": [
+        "kankaday",
+        "'keep",
+        "coming'"
+      ],
+      "translation": "keep coming",
+      "source": "2.5.3"
+    },
+    {
+      "transcript": "wanarriy 'keep running'",
+      "gloss": [
+        "wanarriy",
+        "'keep",
+        "running'"
+      ],
+      "translation": "keep running",
+      "source": "2.5.3"
+    },
+    {
+      "transcript": "bundanday 'keep sitting, stay'",
+      "gloss": [
+        "bundanday",
+        "'keep",
+        "sitting,",
+        "stay'"
+      ],
+      "translation": "keep sitting, stay",
+      "source": "2.5.3"
+    },
+    {
+      "transcript": "wunanay 'keep lying, sleep'",
+      "gloss": [
+        "wunanay",
+        "'keep",
+        "lying,",
+        "sleep'"
+      ],
+      "translation": "keep lying, sleep",
+      "source": "2.5.3"
+    },
+    {
+      "transcript": "nukalkal instead of nuka-I-nuka-l 'keep eating'",
+      "gloss": [
+        "nukalkal",
+        "instead",
+        "of",
+        "nuka-I-nuka-l",
+        "'keep",
+        "eating'"
+      ],
+      "translation": "keep eating",
+      "source": "2.5.3"
+    },
+    {
+      "transcript": "jálbu",
+      "gloss": [
+        "woman"
+      ],
+      "translation": "woman",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "bájibay",
+      "gloss": [
+        "bone"
+      ],
+      "translation": "bone",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "wáwubàja",
+      "gloss": [
+        "river"
+      ],
+      "translation": "river",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "yálmburràjaka",
+      "gloss": [
+        "whale"
+      ],
+      "translation": "whale",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "kángkal-kàngkal",
+      "gloss": [
+        "own",
+        "children"
+      ],
+      "translation": "own children",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "mílka-wùlay",
+      "gloss": [
+        "forget",
+        "(lit. ear-die)"
+      ],
+      "translation": "forget (lit. ear-die)",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "míyil-dùdu",
+      "gloss": [
+        "illiterate",
+        "(lit. eye-blunt)"
+      ],
+      "translation": "illiterate (lit. eye-blunt)",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "búlkiji-bùlkiji",
+      "gloss": [
+        "pipis"
+      ],
+      "translation": "pipis",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "máral-àngka",
+      "gloss": [
+        "girl",
+        "-ERG:pt"
+      ],
+      "translation": "girl -ERG:pt",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "ngánjan-ànda",
+      "gloss": [
+        "father",
+        "-LOC:pt"
+      ],
+      "translation": "father -LOC:pt",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "bímakay-kàrra",
+      "gloss": [
+        "FZ",
+        "-KPL"
+      ],
+      "translation": "FZ-KPL",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "báma-ngka",
+      "gloss": [
+        "Aborigine",
+        "-ERG:pt"
+      ],
+      "translation": "Aborigine-ERG:pt",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "báma-ngka-ku",
+      "gloss": [
+        "Aborigine",
+        "-ERG:pt",
+        "-EMPH₁"
+      ],
+      "translation": "Aborigine-ERG:pt-EMPH₁",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "báma-ngka-kù-lu",
+      "gloss": [
+        "Aborigine",
+        "-ERG:pt",
+        "-EMPH₁",
+        "-EMPH₂"
+      ],
+      "translation": "Aborigine-ERG:pt-EMPH₁-EMPH₂",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "búlkiji-ku",
+      "gloss": [
+        "pipi",
+        "-EMPH₁"
+      ],
+      "translation": "pipi-EMPH₁",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "búlkiji-mùn-bu",
+      "gloss": [
+        "pipi",
+        "-mun",
+        "-LOC"
+      ],
+      "translation": "pipi-mun-LOC",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "búlkiji-mun-bù-ku",
+      "gloss": [
+        "pipi",
+        "-mun",
+        "-LOC",
+        "-EMPH₁"
+      ],
+      "translation": "pipi-mun-LOC-EMPH₁",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "yárraman-ànda-kù-lu",
+      "gloss": [
+        "horse",
+        "-LOC:pt",
+        "-EMPH₁",
+        "-EMPH₂"
+      ],
+      "translation": "horse-LOC:pt-EMPH₁-EMPH₂",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "bímakay-karra-ngka-kù-lu",
+      "gloss": [
+        "FZ",
+        "-KPL",
+        "-ERG:pt",
+        "-EMPH₁",
+        "-EMPH₂"
+      ],
+      "translation": "FZ-KPL-ERG:pt-EMPH₁-EMPH₂",
+      "source": "Section 2.6"
+    },
+    {
+      "transcript": "warngku 'sleep'",
+      "gloss": [
+        "warngku",
+        "'sleep'"
+      ],
+      "translation": "sleep",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "kaka 'pain'",
+      "gloss": [
+        "kaka",
+        "'pain'"
+      ],
+      "translation": "pain",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "kuli 'anger'",
+      "gloss": [
+        "kuli",
+        "'anger'"
+      ],
+      "translation": "anger",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "kuru '(female) love or lust'",
+      "gloss": [
+        "kuru",
+        "'(female) love or lust'"
+      ],
+      "translation": "(female) love or lust",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "ngumbu 'dark'",
+      "gloss": [
+        "ngumbu",
+        "'dark'"
+      ],
+      "translation": "dark",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "bingaji 'light'",
+      "gloss": [
+        "bingaji",
+        "'light'"
+      ],
+      "translation": "light",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "ngalangala 'red, reddish'",
+      "gloss": [
+        "ngalangala",
+        "'red, reddish'"
+      ],
+      "translation": "red, reddish",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "jiba-badiy 'feel sorry, sad (lit. liver-cry)'",
+      "gloss": [
+        "jiba-badiy",
+        "'feel sorry, sad (lit. liver-cry)'"
+      ],
+      "translation": "feel sorry, sad (lit. liver-cry)",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "wawulay 'feel exhausted' (wawu-wulay 'breath-die')",
+      "gloss": [
+        "wawulay",
+        "'feel exhausted'",
+        "(wawu-wulay",
+        "'breath-die')"
+      ],
+      "translation": "feel exhausted (lit. breath-die)",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "nyubun 'one'",
+      "gloss": [
+        "nyubun",
+        "'one'"
+      ],
+      "translation": "one",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "djambul 'two'",
+      "gloss": [
+        "djambul",
+        "'two'"
+      ],
+      "translation": "two",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "kulurr 'three'",
+      "gloss": [
+        "kulurr",
+        "'three'"
+      ],
+      "translation": "three",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "yuwu 'yes'",
+      "gloss": [
+        "yuwu",
+        "'yes'"
+      ],
+      "translation": "yes",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "kari 'no'",
+      "gloss": [
+        "kari",
+        "'no'"
+      ],
+      "translation": "no",
+      "source": "Section reference"
+    },
+    {
+      "transcript": "kaya-ø",
+      "gloss": [
+        "dog"
+      ],
+      "translation": "dog",
+      "source": "Chapter 3"
+    },
+    {
+      "transcript": "dingkar-ø",
+      "gloss": [
+        "man"
+      ],
+      "translation": "man",
+      "source": "Chapter 3"
+    },
+    {
+      "transcript": "jarramali-ø",
+      "gloss": [
+        "thunderstorm"
+      ],
+      "translation": "thunderstorm",
+      "source": "Chapter 3"
+    },
+    {
+      "transcript": "jna-bu",
+      "gloss": [
+        "foot"
+      ],
+      "translation": "foot",
+      "source": "Not specified"
+    },
+    {
+      "transcript": "kulji-bu",
+      "gloss": [
+        "stone"
+      ],
+      "translation": "stone",
+      "source": "Not specified"
+    },
+    {
+      "transcript": "juku-bu",
+      "gloss": [
+        "tree"
+      ],
+      "translation": "tree",
+      "source": "Not specified"
+    },
+    {
+      "transcript": "wungar-abu",
+      "gloss": [
+        "sun"
+      ],
+      "translation": "sun",
+      "source": "Not specified"
+    },
+    {
+      "transcript": "badur-ubu",
+      "gloss": [
+        "fishing line"
+      ],
+      "translation": "fishing line",
+      "source": "Not specified"
+    },
+    {
+      "transcript": "balbay-nja",
+      "gloss": [
+        "balbay",
+        "-nja"
+      ],
+      "translation": "light, lightning",
+      "source": "Not specified"
+    },
+    {
+      "transcript": "diliy-nja",
+      "gloss": [
+        "dili",
+        "-nja"
+      ],
+      "translation": "corkwood pine",
+      "source": "Not specified"
+    },
+    {
+      "transcript": "junjuy-nju",
+      "gloss": [
+        "junjuy",
+        "-nju"
+      ],
+      "translation": "something",
+      "source": "Not specified"
+    },
+    {
+      "transcript": "kaya-ngka",
+      "gloss": [
+        "dog"
+      ],
+      "translation": "dog",
+      "source": "N/A"
+    },
+    {
+      "transcript": "kami-ngka",
+      "gloss": [
+        "father's",
+        "father",
+        ",",
+        "mother's",
+        "mother"
+      ],
+      "translation": "father's father, mother's mother",
+      "source": "N/A"
+    },
+    {
+      "transcript": "ngurrku-ngku",
+      "gloss": [
+        "mopoke"
+      ],
+      "translation": "mopoke",
+      "source": "N/A"
+    },
+    {
+      "transcript": "ngangkin-angka",
+      "gloss": [
+        "porcupine"
+      ],
+      "translation": "porcupine",
+      "source": "Table 3.1"
+    },
+    {
+      "transcript": "walkarr-angka",
+      "gloss": [
+        "black",
+        "goanna"
+      ],
+      "translation": "black goanna",
+      "source": "Table 3.1"
+    },
+    {
+      "transcript": "dingkar-angka",
+      "gloss": [
+        "man"
+      ],
+      "translation": "man",
+      "source": "Table 3.1"
+    },
+    {
+      "transcript": "dubuy-ungku",
+      "gloss": [
+        "small",
+        "brown",
+        "kingfisher",
+        "(messenger",
+        "bird)"
+      ],
+      "translation": "small brown kingfisher (messenger bird)",
+      "source": "Table 3.1"
+    },
+    {
+      "transcript": "wabul-ungku",
+      "gloss": [
+        "Torres",
+        "Strait",
+        "Pigeon"
+      ],
+      "translation": "Torres Strait Pigeon",
+      "source": "Table 3.1"
+    },
+    {
+      "transcript": "ngujay-ngka",
+      "gloss": [
+        "freshwater",
+        "turtle"
+      ],
+      "translation": "freshwater turtle",
+      "source": "Neutral dative allomorphs"
+    },
+    {
+      "transcript": "yibuy-ngku",
+      "gloss": [
+        "loya",
+        "cane"
+      ],
+      "translation": "loya cane",
+      "source": "Neutral dative allomorphs"
+    },
+    {
+      "transcript": "kadar-aka",
+      "gloss": [
+        "plains",
+        "wallaby"
+      ],
+      "translation": "plains wallaby",
+      "source": "Neutral dative allomorphs"
+    },
+    {
+      "transcript": "kukur-uku",
+      "gloss": [
+        "rat"
+      ],
+      "translation": "rat",
+      "source": "Neutral dative allomorphs"
+    },
+    {
+      "transcript": "ngalkun-ku",
+      "gloss": [
+        "mullet"
+      ],
+      "translation": "mullet",
+      "source": "-kVlelsewhere"
+    },
+    {
+      "transcript": "dukul-ku",
+      "gloss": [
+        "head"
+      ],
+      "translation": "head",
+      "source": "-kVlelsewhere"
+    },
+    {
+      "transcript": "balji-ka",
+      "gloss": [
+        "dillybag"
+      ],
+      "translation": "dillybag",
+      "source": "-kVlelsewhere"
+    },
+    {
+      "transcript": "jalbu-nku",
+      "gloss": [
+        "woman"
+      ],
+      "translation": "woman",
+      "source": "Not specified"
+    },
+    {
+      "transcript": "ngaji-nka",
+      "gloss": [
+        "mother's",
+        "father"
+      ],
+      "translation": "mother's father",
+      "source": "Not specified"
+    },
+    {
+      "transcript": "bama-nka",
+      "gloss": [
+        "Aborigine"
+      ],
+      "translation": "Aborigine",
+      "source": "Not specified"
+    }
+  ]
 }
