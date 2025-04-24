@@ -1,0 +1,453 @@
+{
+  "@context": "https://www.w3.org/ns/lemon/ontolex.json",
+  "@graph": [
+    {
+      "@id": "pacific_linguistics:Pacific_Linguistics",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Pacific Linguistics"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A publisher specialising in grammars and linguistic descriptions, dictionaries and other materials on languages of the Pacific, the Philippines, Indonesia, Southeast and South Asia, and Australia."
+        }
+      }
+    },
+    {
+      "@id": "pacific_linguistics:founding_editor",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Stephen A. Wurm"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:ProperNoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "The founding editor of Pacific Linguistics."
+        }
+      }
+    },
+    {
+      "@id": "pacific_linguistics:editorial_board",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Editorial Board"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A group made up of the academic staff of the School's Department of Linguistics."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:Kuku_Yalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A language spoken by the Kuku Yalanji people in Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:Yalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of the Kuku Yalanji language."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:Nyungkul",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Nyungkul"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect related to Kuku Yalanji."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:consonants",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "consonants"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Speech sounds that are produced by obstructing airflow."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:vowels",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "vowels"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Speech sounds produced without any significant constriction of airflow."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:inflections",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "inflections"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Modifications of a word to express different grammatical categories."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:pronouns",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "pronouns"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Words that replace nouns in a sentence."
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:eB",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "eB"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "elder brother"
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:eZ",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "eZ"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "elder sister"
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:FF",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "FF"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "father's father"
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:FM",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "FM"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "father's mother"
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:FZ",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "FZ"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "father's sister"
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:MB",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MB"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother's brother"
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:MF",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MF"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother's father"
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:MiL",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MiL"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother-in-law"
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:MM",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "MM"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "mother's mother"
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:yB",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yB"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "younger brother"
+        }
+      }
+    },
+    {
+      "@id": "kinship_terms:yz",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yz"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "younger sister"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:kuku",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kuku"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "word, language"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:yala-nji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yala-nji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "this-COMIT"
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:KukuYalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A language spoken in north Queensland, Australia, with several dialects."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:KukuBuyunji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Buyunji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of the Kuku Yalanji language, referred to by western speakers."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:KukuYalaja",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Yalaja"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of the Kuku Yalanji language, referred to by eastern speakers."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:KukuTyunkay",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Tyunkay"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of the Kuku Yalanji language, possibly identical to Muluridyi."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:Jungkurara",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Jungkurara"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A name that may represent a territory associated with the Kuku Tyunkay dialect."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:KukuYalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A group of dialects spoken by the Kuku Yalanji people in Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:Jalunji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Jalunji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of Kuku Yalanji referred to as the 'Bloomfield dialect'."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:Nyungkul",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Nyungkul"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of Kuku Yalanji that shares similarities with Yalanji."
+        }
+      }
+    },
+    {
+      "@id": "kuku_yalanji:Yalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of Kuku Yalanji that is the subject of investigation in the study."
+        }
+      }
+    }
+  ]
+}

@@ -1,4 +1,849 @@
 {
   "@context": "https://www.w3.org/ns/lemon/ontolex.json",
-  "@graph": []
+  "@graph": [
+    {
+      "@id": "kuku:KukuYalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A language spoken in north Queensland, Australia, with several dialects."
+        }
+      }
+    },
+    {
+      "@id": "kuku:KukuBuyunji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Buyunji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of the Kuku Yalanji language, referred to by western speakers."
+        }
+      }
+    },
+    {
+      "@id": "kuku:KukuYalaja",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Yalaja"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of the Kuku Yalanji language, referred to by eastern speakers."
+        }
+      }
+    },
+    {
+      "@id": "kuku:KukuTyunkay",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Tyunkay"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of the Kuku Yalanji language, corresponding geographically to Jungkurara."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Jungkurara",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Jungkurara"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of the Kuku Yalanji language, corresponding to Kuku Tyunkay."
+        }
+      }
+    },
+    {
+      "@id": "kuku:KukuYalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A group of dialects spoken by the Kuku Yalanji people in Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku:KukuNyungkul",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Nyungkul"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of the Kuku Yalanji language."
+        }
+      }
+    },
+    {
+      "@id": "kuku:KukuBuyunji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Buyunji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of the Kuku Yalanji language, referred to as eastern Kuku Yalanji."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Jalunji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Jalunji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect of Kuku Yalanji known as the 'Bloomfield dialect'."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Wakaman",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Wakaman"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect mentioned in the context of Kuku Yalanji, possibly used by different informants for different languages."
+        }
+      }
+    },
+    {
+      "@id": "kuku:territory",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "territory"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "An area of land under the jurisdiction of a particular group or government."
+        }
+      }
+    },
+    {
+      "@id": "kuku:rainforest",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "rainforest"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dense forest found in tropical areas with high rainfall."
+        }
+      }
+    },
+    {
+      "@id": "kuku:coastal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "coastal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Adjective",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Relating to or situated on the coast."
+        }
+      }
+    },
+    {
+      "@id": "kuku:vegetation",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "vegetation"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Plants considered collectively, especially those found in a particular area."
+        }
+      }
+    },
+    {
+      "@id": "kuku:resources",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "resources"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A source of supply or support."
+        }
+      }
+    },
+    {
+      "@id": "kuku:KukuYalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:ProperNoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "An Aboriginal language spoken by the Kuku Yalanji people in Queensland, Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku:KukuNyungkul",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Nyungkul"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:ProperNoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "An Aboriginal language spoken by the Nyungkul people in Queensland, Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Bidiji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Bidiji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:ProperNoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "An Aboriginal language or dialect spoken in Queensland, Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Yalaji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Yalaji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:ProperNoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "An Aboriginal language or dialect spoken in Queensland, Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku:GuuguYimidhirr",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Guugu Yimidhirr"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:ProperNoun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "An Aboriginal language spoken by the Guugu Yimidhirr people in Queensland, Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku:creole",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "creole"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A stable, fully developed language that arises from the mixing of two or more languages."
+        }
+      }
+    },
+    {
+      "@id": "kuku:blonga",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "blonga"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "To indicate possession."
+        }
+      }
+    },
+    {
+      "@id": "kuku:bala",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bala"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Adjective",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A suffix used on adjectives, often with a slightly derogatory connotation."
+        }
+      }
+    },
+    {
+      "@id": "kuku:tooMuch",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "too much"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Adverb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A lot."
+        }
+      }
+    },
+    {
+      "@id": "kuku:bigMob",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "big mob"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A lot."
+        }
+      }
+    },
+    {
+      "@id": "kuku:savvy",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "savvy"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Verb",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "To know."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Yalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A language spoken by the Yalanji people in Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Nyungkul",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Nyungkul"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A language or dialect related to Yalanji, spoken by the Nyungkul people."
+        }
+      }
+    },
+    {
+      "@id": "kuku:KukuYalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A language of the Kuku Yalanji people, an Aboriginal group in Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Bulponarra",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Bulponarra"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A name used historically for a dialect or language associated with the Weary Bay tribes."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Gugu-Bujun",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Gugu-Bujun"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A term referring to a group of related languages or dialects."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Kantyu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kantyu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A language or dialect mentioned in relation to Kuku Yalanji."
+        }
+      }
+    },
+    {
+      "@id": "kuku:Koko-Yalandji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Koko-Yalandji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A dialect or variant of the Kuku Yalanji language."
+        }
+      }
+    },
+    {
+      "@id": "kuku:WujalWujal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Wujal Wujal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A community where Kuku Yalanji speakers reside."
+        }
+      }
+    },
+    {
+      "@id": "kuku:VowelHarmony",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "vowel harmony"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A phonological rule that affects the vowels in a word."
+        }
+      }
+    },
+    {
+      "@id": "kuku:SuffixJi",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "-ji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Suffix",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A suffix used in Kuku Yalanji that serves as a stative marker."
+        },
+        "lexinfo:grammaticalProperties": {
+          "@language": "en",
+          "@value": "Can function as both nominal and verbal suffix."
+        }
+      }
+    },
+    {
+      "@id": "kuku:kuku_yalanji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "Kuku Yalanji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A language spoken by the Kuku Yalanji people in Australia."
+        }
+      }
+    },
+    {
+      "@id": "kuku:mobs",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "mobs"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Groups of Aboriginal people associated with specific territories."
+        }
+      }
+    },
+    {
+      "@id": "kuku:bubu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bubu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Patrilineally inherited boundary specific countries."
+        }
+      }
+    },
+    {
+      "@id": "kuku:yirmbal",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yirmbal"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Story place; a site of spiritual or mythological significance."
+        }
+      }
+    },
+    {
+      "@id": "kuku:majaji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "majaji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "With rainforest; refers to rainforest dwellers."
+        }
+      }
+    },
+    {
+      "@id": "kuku:ngalkalji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ngalkalji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "With open woodland; refers to woodland dwellers."
+        }
+      }
+    },
+    {
+      "@id": "kuku:andalunji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "andalunji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "With sea; refers to seashore dwellers."
+        }
+      }
+    },
+    {
+      "@id": "kuku:bana_yiralji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bana yiralji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "With fresh water; refers to river dwellers."
+        }
+      }
+    },
+    {
+      "@id": "kuku:jina-baji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jina-baji"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "sore foot"
+        }
+      }
+    },
+    {
+      "@id": "kuku:birrmba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "birrmba"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "white cockatoo"
+        }
+      }
+    },
+    {
+      "@id": "kuku:kumurrbina",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "kumurrbina"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "black cockatoo"
+        }
+      }
+    },
+    {
+      "@id": "kuku:walarr",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "walarr"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "one of the two moieties"
+        }
+      }
+    },
+    {
+      "@id": "kuku:dabu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "dabu"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "one of the two moieties"
+        }
+      }
+    },
+    {
+      "@id": "kuku:buLiman",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "buLiman"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "policemen"
+        }
+      }
+    },
+    {
+      "@id": "kuku:food",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "food"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Any nutritious substance that people or animals eat or drink, or that plants absorb, in order to maintain life and growth."
+        }
+      }
+    },
+    {
+      "@id": "kuku:fruit",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "fruit"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "The sweet and fleshy product of a tree or other plant that contains seed and can be eaten as food."
+        }
+      }
+    },
+    {
+      "@id": "kuku:nuts",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nuts"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A fruit consisting of a hard or tough shell enclosing a seed."
+        }
+      }
+    },
+    {
+      "@id": "kuku:roots",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "roots"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "The part of a plant that attaches it to the ground or to a support, typically underground."
+        }
+      }
+    },
+    {
+      "@id": "kuku:meat",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "meat"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "The flesh of animals, especially when used as food."
+        }
+      }
+    },
+    {
+      "@id": "kuku:fish",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "fish"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "A limbless cold-blooded vertebrate animal with gills and fins and living wholly in water."
+        }
+      }
+    },
+    {
+      "@id": "kuku:shellfish",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "shellfish"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Aquatic invertebrates with a shell, such as mollusks and crustaceans."
+        }
+      }
+    },
+    {
+      "@id": "kuku:insects",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "insects"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "Small arthropods that have six legs and generally one or two pairs of wings."
+        }
+      }
+    },
+    {
+      "@id": "kuku:eggs",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "eggs"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "The oval or round object laid by female birds, reptiles, fish, and some mammals, containing a developing embryo."
+        }
+      }
+    },
+    {
+      "@id": "kuku:preparation",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "preparation"
+      },
+      "lexinfo:partOfSpeech": "lexinfo:Noun",
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "The action or process of making something ready for use or consideration."
+        }
+      }
+    }
+  ]
 }
