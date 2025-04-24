@@ -34,14 +34,14 @@ Figure 2.1: Range of phonetic realisations of Kuku Yalanji vowels
 
 The majority of Kuku Yalanji roots are disyllabic. Except for three monosyllabic interjections there are no monosyllabic roots. In a word list of 1 340 roots3 there are 1 055 disyllabic and 200 trisyllabic roots, 81 roots with four syllables, and 4 roots with five syllables. All roots begin with a consonant and end in a consonant or a vowel. Thus the structure of Kuku Yalanji roots can be formalised as follows:
 
- $C\_1 (V C\_2)^n V (C\_3)$  where  $n \ge 1$ 
+C1 (V C2)<sup>n</sup> V (C3) where  $n \ge 1$ 
 
 ### 2.2. 1 Possibility of occurrence
 
 The following vowels and consonants can occur in the different phonotactic positions in Kuku Yalanji root structure:
 
 - V can be any vowel.
-- $C\_1$  must be a single consonant and can be any stop, nasal or semivowel, i.e. /b, d, j, k, m, n, ny, ng, w, yl (see Figure 2.2). One word with initial rhotic IITI has been recorded, rrunyuji 'wise man with magic powers'. This word could perhaps have been part of a ceremonial speech style for which there is no more evidence today. Phonological patterns that are different from the everyday language are not unheard
+- C1 must be a single consonant and can be any stop, nasal or semivowel, i.e. /b, d, j, k, m, n, ny, ng, w, yl (see Figure 2.2). One word with initial rhotic IITI has been recorded, rrunyuji 'wise man with magic powers'. This word could perhaps have been part of a ceremonial speech style for which there is no more evidence today. Phonological patterns that are different from the everyday language are not unheard
 
 <sup>3</sup> This word list is based on two sources: the large majority of entries were elicited by myself and a smaller number of lexical items is taken from the word list by W. Oates and L. Oates ( 1964b) and an unpublished preliminary word list by H. Hershberger and R. Hershberger (early 1 960s). Items from these lists were only included in my data after thorough checking with informants. The dictionary published by the Hershbergers in 1 982 has not been taken into account for this study.
 
@@ -117,17 +117,17 @@ On the other hand, most inflected forms avoid any kind of consonant cluster acro
 
 One restriction on intermorphernic consonant clusters is that Kuku Yalanji does not allow geminate consonants, so that a cluster of two identical consonants is reduced to one consonant. For instance, in the reduplication of y-conjugation verbs consonant /n/ is inserted between the roots (see §3.8.5.5 (ii) (a)). If the root begins with /n/, the resulting cluster /nn/ is reduced to single /n/, for example:
 
-*nuka-n-nuka-ji-y* ‘keep eating (itr)’
+*nuka-n-nuka-ji-y* 'keep eating (itr)'
 
 ## → *nuka-nuka-ji-y*.
 
-Bound morphemes, that is inflections, derivations and clitics, differ in their structure from roots in that they are frequently monosyllabic and may even consist of a single consonant or vowel. Disyllabic bound morphemes conform to the phonotactic occurrence possibilities of roots, whereas monosyllabic bound morphemes show some variation: they may begin with a consonant cluster, e.g. potent ergative -*ngkV*, potent locative -*ndV*, and there is one occurrence of morpheme-initial lateral in clitic -*lu*/-*la*. (The presence of initial vowel in a bound morpheme, something which is not possible for a root, is conditioned by root-final consonant, e.g. potent ergative -*VngkV/C*-, and should therefore not be regarded as a special feature of bound morphemes that goes against the general phonotactic conventions.)
+Bound morphemes, that is inflections, derivations and clitics, differ in their structure from roots in that they are frequently monosyllabic and may even consist of a single consonant or vowel. Disyllabic bound morphemes conform to the phonotactic occurrence possibilities of roots, whereas monosyllabic bound morphemes show some variation: they may begin with a consonant cluster, e.g. potent ergative -*ngkV*, potent locative -*ndV*, and there is one occurrence of morpheme-initial lateral in clitic -/u/-/a. (The presence of initial vowel in a bound morpheme, something which is not possible for a root, is conditioned by root-final consonant, e.g. potent ergative - $VngkV/C$ -, and should therefore not be regarded as a special feature of bound morphemes that goes against the general phonotactic conventions.)
 
 ### 2.2.2 Probability of occurrence
 
 The various phonemes of Kuku Yalanji have different relative probability of occurrence, partly depending on the presence of other phonemes within the same word. Occurrence rates for Kuku Yalanji phonemes are based on a lexicon of 1 340 roots (excluding the phonetically unusual form rrunyuji 'wise man with magic powers').
 
-The relative frequency of the three vowels in Kuku Yalanji is listed in Table 2.3. The percentages in this table show that overall /*a*/ is more frequent than /*u*/, which in turn is more frequent than /*i*/. The relatively higher occurrence of /*i*/ over /*u*/ in third and fourth vowel positions can be wholly accounted for by the fact that a number of nominal roots with more than two syllables appear to be fossilised comitative forms ending in -*ji*, and several verb roots of more than two syllables are reinterpreted roots ending in -*rri* (see [§3.8.3.2](#page-3-8) (ii)).
+The relative frequency of the three vowels in Kuku Yalanji is listed in Table 2.3. The percentages in this table show that overall / $a$ / is more frequent than / $u$ /, which in turn is more frequent than / $i$ /. The relatively higher occurrence of / $i$ / over / $u$ / in third and fourth vowel positions can be wholly accounted for by the fact that a number of nominal roots with more than two syllables appear to be fossilised comitative forms ending in - $ji$ , and several verb roots of more than two syllables are reinterpreted roots ending in - $rri$  (see §3.8.3.2 (ii)).
 
 |               | a     | u     | i     |
 |---------------|-------|-------|-------|
@@ -138,7 +138,7 @@ The relative frequency of the three vowels in Kuku Yalanji is listed in Table 2.
 
 Table 2.3: Relative frequency of Kuku Yalanji vowels
 
-Looking at the distribution of vowels in first and second vowel position of a root, we find that vowels follow each other with either higher or lower frequency than could be expected. For instance, 35.2% of roots have vowel /*u*/ in first position and 27.1% have /*u*/ in second position. If there was no association between vowels in first and second position, we would expect  $0.352 \times 0.271 = 0.095$ , i.e. 9.5% or 128 roots to have /*u*/ in both first and second vowel position. In fact, there are 200 roots, or 14.9%, with /*u*/ as first and second vowel. Thus the actual-to-expected ratio of /*u*/ following /*u*/ is  $0.149 \pm 0.095 = 1.57$ . In other words, /u/ follows /u/ more often than expected, and we can say that vowel /u/ has positive association with following vowel lui. The actual-to-expected ratio for each vowel cooccurrence is listed in Table 2.4. These figures show that each vowel in Kuku Yalanji has highest association with the same vowel and relatively lesser association with any other vowel, as set out in Table 2.5. Note that the markedly highest association is between /u/ and /u/, whereas /i/ has some positive association with /a/, although less than with /i/, but overall the least association with /u/.
+Looking at the distribution of vowels in first and second vowel position of a root, we find that vowels follow each other with either higher or lower frequency than could be expected. For instance, 35.2% of roots have vowel / $u$ / in first position and 27.1% have / $u$ / in second position. If there was no association between vowels in first and second position, we would expect  $0.352 \times 0.271 = 0.095$ , i.e. 9.5% or 128 roots to have / $u$ / in both first and second vowel position. In fact, there are 200 roots, or 14.9%, with / $u$ / as first and second vowel. Thus the actual-to-expected ratio of / $u$ / following / $u$ / is  $0.149 \pm 0.095 = 1.57$ . In other words, /u/ follows /u/ more often than expected, and we can say that vowel /u/ has positive association with following vowel lui. The actual-to-expected ratio for each vowel cooccurrence is listed in Table 2.4. These figures show that each vowel in Kuku Yalanji has highest association with the same vowel and relatively lesser association with any other vowel, as set out in Table 2.5. Note that the markedly highest association is between /u/ and /u/, whereas /i/ has some positive association with /a/, although less than with /i/, but overall the least association with /u/.
 
 Table 2.4: Actual-to-expected ratio of vowel co-occurrence in first and second vowel position
 
@@ -163,23 +163,23 @@ Occurrence rates for initial and final consonants are given in Table 2.6. Final 
 
 It can be seen that more than half of all roots begin with a stop. The most frequent initial segment is *k* and the least frequent *n*. Of the 582 roots that end in a consonant more than half show a liquid in final position. Lateral /*l*/ is overall the most favoured consonant in final position. According to place of articulation, the most frequent consonants root-initially are labials, followed by palatals and velars with equal occurrence rates, the least frequent consonants are alveolars. The latter, however, have the highest occurrence rate root-finally (owing to the high frequency of liquids). Overall the least common initial consonants are non-peripheral nasals, with palatal nasal Inyl also being quite rare root-finally.
 
-|    | root initial |      |      |      |       | root final      |      |       |
-|----|--------------|------|------|------|-------|-----------------|------|-------|
-|    | lab.         | alv. | pal. | vel. |       | (post-)<br>alv. | pal. |       |
-| b  | 16%          |      |      |      | } 58% |                 |      |       |
-| d  |              | 9%   |      |      |       |                 |      |       |
-| j  |              |      | 15%  |      |       |                 |      |       |
-| k  |              |      |      | 18%  |       |                 |      |       |
-| m  | 11%          |      |      |      | } 22% |                 |      |       |
-| n  |              | 1%   |      |      |       | 19%             |      |       |
-| ny |              |      | 2%   |      |       |                 | 3%   | } 22% |
-| ng |              |      |      | 8%   |       |                 |      |       |
-| l  |              |      |      |      | } 62% | 33%             |      |       |
-| rr |              |      |      |      |       | 18%             |      |       |
-| r  |              |      |      |      |       | 11%             |      |       |
-| w  | 11%          |      |      |      | } 20% |                 |      |       |
-| y  |              |      | 9%   |      |       |                 | 16%  |       |
-|    | 38%          | 10%  | 26%  | 26%  |       | 81%             | 19%  |       |
+| root initial |      |      |      | root final |     |                 |      |     |     |
+|--------------|------|------|------|------------|-----|-----------------|------|-----|-----|
+|              | lab. | alv. | pal. | vel.       |     | (post-)<br>alv. | pal. |     |     |
+| b            | 16%  |      |      |            |     |                 |      | 58% |     |
+| d            |      | 9%   |      |            |     |                 |      |     |     |
+| j            |      |      | 15%  |            |     |                 |      |     |     |
+| k            |      |      |      | 18%        |     |                 |      |     |     |
+| m            | 11%  |      |      |            | 22% |                 | 19%  |     | 22% |
+| n            |      | 1%   |      |            |     |                 |      |     |     |
+| ny           |      |      | 2%   |            |     |                 | 3%   |     |     |
+| ng           |      |      |      | 8%         |     |                 |      |     |     |
+| l            |      |      |      |            |     | 33%             |      | 62% |     |
+| rr           |      |      |      |            |     | 18%             |      |     |     |
+| r            |      |      |      |            |     | 11%             |      |     |     |
+| w            | 11%  |      |      |            | 20% |                 |      |     |     |
+| y            |      |      | 9%   |            |     |                 | 16%  |     |     |
+|              | 38%  | 10%  | 26%  | 26%        |     | 81%             | 19%  |     |     |
 
 Table 2.6: Frequency rates of initial and final consonants by place and manner of articulation
 

@@ -2,7 +2,7 @@ Clauses expressing continuous action by several repetitions of the verb have the
 
 r---------------------------------------------------
 
-(39) lana dungany dungany dungany dunga::ny. 'They went on and on and on.' 
+(39) Jana dungany dungany dungany dunga::ny. 'They went on and on and on.' 
 
 (40) Nyulu mayi nukany nukany nukany nuka::ny. 'He ate and ate and ate and ate.' 
 
@@ -29,11 +29,13 @@ One can distinguish the following word classes with mutually exclusive membershi
 
 > Nominals - nouns - adjectives - quantifiers Location and time words Personal pronouns Interrogative pronouns Demonstratives Verbs
 
-Particles Interjections.
+Particles
+
+Interjections.
 
 The criteria for this classification are partly grammatical, partly formal, and partly semantic. Grammatical criteria are based on syntactic function, and inflectional and derivational possibilities. A purely formal aspect is open versus closed word class.
 
-# 3. 1. 1 Formal and grammatical criteria
+## 3. 1. 1 Formal and grammatical criteria
 
 All parts of speech except for verbs, particles and interjections could be considered to be nomina Is in the broadest sense because they all inflect for case. However, the feature of open versus closed word class and differences in inflectional systems and forms invite further subcategorisation.
 
@@ -125,7 +127,7 @@ INSTrumental marks the implement that is used by an agent in performing an actio
 
 DATive indicates the goal of a purposeful action, the cause for an action or emotion, or a complement of comparison.
 
-#### Local cases
+### Local cases
 
 General Locative marks location 'in', 'on', 'at', etc., the goal of a movement (allative), and goal of three-argument verbs 'show', 'give', etc.
 
@@ -156,7 +158,7 @@ Absolutive case inflection is always zero; that is, the citation form of a nomin
 
 Neutral ergative and instrumental have the allomorphs:
 
-# -bu/V-
+## -bu/V-
 
 | jna-bu   | 'foot'  |
 |----------|---------|
@@ -169,7 +171,7 @@ Neutral ergative and instrumental have the allomorphs:
 |------------|----------------|
 | badur-ubu  | 'fishing line' |
 
-### -njV/y-
+## -njV/y-
 
 | balbay-nja | 'light, lightning' |
 |------------|--------------------|
@@ -184,7 +186,7 @@ Neutral ergative and instrumental have the allomorphs:
 | bayil-da   | 'freshwater perch' |
 | balarr-da  | 'scabies'          |
 
-# Potent ergative has the allomorphs:
+Potent ergative has the allomorphs:
 
 # -ngkV/V-
 
@@ -202,24 +204,35 @@ Neutral ergative and instrumental have the allomorphs:
 | dubuy-ungku    | 'small brown kingfisher (messenger bird)' |
 | wabul-ungku    | 'Torres Strait Pigeon'                    |
 
-|                                 | Neutral                                              | Potent                |
-|---------------------------------|------------------------------------------------------|-----------------------|
-| Absolutive                      | - $\phi$                                             |                       |
-| Ergative                        | -bu/V-<br>-Vbu/r-<br>-njV/y-<br>-dV/elsewhere        | -ngkV/V-<br>-VngkV/C- |
-| Instrumental                    | = neutral ergative                                   |                       |
-| Dative                          | -ngkV/y-<br>-VkV/r-<br>-kV/elsewhere                 | -nkV/V-<br>-VnkV/C-   |
-| General Locative                | -ngV/V-<br>-V/r-<br>-mbV/y-<br>-bV/elsewhere         | -ndV/V-<br>-VndV/C-   |
-| Ablative                        | -muny                                                | -general LOC + muny   |
-| Abessive                        | -mundu                                               |                       |
-| Perlative<br>(Nyungkul dialect) | -burr/V-<br>-Vburr/r-<br>-jVrr/y-<br>-dVrr/elsewhere |                       |
+|                                 | Neutral            | Potent              |
+|---------------------------------|--------------------|---------------------|
+| Absolutive                      | - $\phi$           |                     |
+| Ergative                        | -bu/V-             | -ngkV/V-            |
+|                                 | -Vbu/r-            | -VngkV/C-           |
+|                                 | -njV/y-            |                     |
+|                                 | -dV/elsewhere      |                     |
+| Instrumental                    | = neutral ergative |                     |
+| Dative                          | -ngkV/y-           | -nkV/V-             |
+|                                 | -VkV/r-            | -VnkV/C-            |
+|                                 | -kV/elsewhere      |                     |
+| General Locative                | -ngV/V-            | -ndV/V-             |
+|                                 | -V/r-              | -VndV/C-            |
+|                                 | -mbV/y-            |                     |
+|                                 | -bV/elsewhere      |                     |
+| Ablative                        | -muny              | -general LOC + muny |
+| Abessive                        | -mundu             |                     |
+| Perlative<br>(Nyungkul dialect) | -burr/V-           |                     |
+|                                 | -Vburr/r-          |                     |
+|                                 | -jVrr/y-           |                     |
+|                                 | -dVrr/elsewhere    |                     |
 
 Table 3.1: Kuku Yalanji case inflections
 
-Vowel V in the inflection is determined by vowel-harmony rules (see §2.5.1) and is: a after a or i, and u after u.
+Vowel V in the inflection is determined by vowel-harmony rules (see §2.5.1) and is: *a* after *a* or *i*, and *u* after *u*.
 
 Neutral dative has the allomorphs:
 
--ngkVly-
+-ngkV/y-
 
 | ngujay-ngka | 'freshwater turtle' |
 |-------------|---------------------|
@@ -238,9 +251,9 @@ Neutral dative has the allomorphs:
 | dukul-ku   | 'head'     |
 | balji-ka   | 'dillybag' |
 
-#### 48 Chapter 3
+### 48 Chapter 3
 
-# Potent dative has the allomorphs:
+## Potent dative has the allomorphs:
 
 # -nkV/V-
 
@@ -251,11 +264,12 @@ Neutral dative has the allomorphs:
 
 ## -VnkV/C-
 
-| nganjan-anka  | father         |
+| nganjan-anka  | 'father'       |
 |---------------|----------------|
-| ngaingai-anka | sand crab      |
-| vuru y-mou    | spring (water) |
-| wahurr-unku   | 'shark'        |
+| ngalngal-anka | 'sand crab'    |
+| karrkay-anka  | 'child'        |
+| junbirr-anka  | 'small lizard' |
+| yaburr-unku   | 'shark'        |
 
 #### Neutral general locative has the allomorphs:
 
@@ -275,19 +289,19 @@ Neutral dative has the allomorphs:
 
 # -mbV/y-
 
-| buray-mba   | 'spring (water)' |  |
-|-------------|------------------|--|
-| dajaliy-mba | 'deep water'     |  |
-| wakuy-mbu   | 'upper arm'      |  |
+| buray-mba   | 'spring (water)' |
+|-------------|------------------|
+| dajaliy-mba | 'deep water'     |
+| wakuy-mbu   | 'upper arm'      |
 
-#### -b V / elsewhere
+### -b V / elsewhere
 
 | nyabil-ba | 'tongue'         |
 |-----------|------------------|
 | dalkan-ba | 'casuarina pine' |
 | diburr-bu | 'egg'            |
 
-# Potent general locative has the allomorphs:
+## Potent general locative has the allomorphs:
 
 # -ndV/V-
 
@@ -295,7 +309,7 @@ Neutral dative has the allomorphs:
 |---------------|-------------------------------------------------|
 | bulki-nda     | 'cattle'                                        |
 | dunyu-ndu     | 'husband'                                       |
-| -VndV/C       |                                                 |
+| -VndV/C-      |                                                 |
 | mukay-anda    | 'mother's older sister, younger sister's child' |
 | mukirr-anda   | 'freshwater oyster'                             |
 | wuyngkul-undu | 'spirit of dying person'                        |
@@ -314,36 +328,36 @@ Neutral dative has the allomorphs:
 
 # Potent ablative has the form
 
-general Locative + muny, for example: ngawa-ndamuny 'baby'
+general Locative + *muny*, for example: ngawa-ndamuny 'baby'
 
-| ngamu-ndumuny  | 'mother'       |
+| ngawa-naamuny  | 'baby'         |
 |----------------|----------------|
+| ngamu-ndumuny  | 'mother'       |
 | maral-andamuny | 'girl'         |
 | diwan-andamuny | 'scrub turkey' |
 
 ## Abessive has the form
 
-| -mundu in all environments, for example: |
-|------------------------------------------|
-| 'hip'                                    |
-| 'grass'                                  |
-| 'north'                                  |
-| 'sand'                                   |
-|                                          |
+| -mundu in all environments, for example: |         |
+|------------------------------------------|---------|
+| nyidu-mundu                              | 'hip'   |
+| jikan-mundu                              | 'grass' |
+| kungkarr-mundu                           | 'north' |
+| jukarr-mundu                             | 'sand'  |
 
-### Perlative has the allomorphs:
+## Perlative has the allomorphs:
 
-## -burrIV-
+## -burr/V-
 
-| walngka-burr | 'swamp'                 |  |
-|--------------|-------------------------|--|
-| dimbi-burr   | 'side (of house, etc.)' |  |
+| walngka-burr | 'swamp'                 |
+|--------------|-------------------------|
+| dimbi-burr   | 'side (of house, etc.)' |
 
 ## -Vburrlr-
 
-| burrir-aburr |  |
-|--------------|--|
-| muyar-aburr  |  |
+| burrir-aburr |
+|--------------|
+| muyar-aburr  |
 
 'island' 'wind, air'
 
@@ -368,7 +382,7 @@ We can recognise a number of reflexes of pA case inflections in Kuku Yalanji. Pr
 | locative:  | *-da ~ *-ŋga ~ *-la |
 | purposive: | *-gu                |
 
-Reflexes of all but pA \*-lu and \*-la in Kuku Yalanji are:
+Reflexes of all but pA \*-*lu* and \*-*la* in Kuku Yalanji are:
 
 | neutral ergative | -dV   | < | *-du  |
 |------------------|-------|---|-------|
@@ -378,10 +392,10 @@ Reflexes of all but pA \*-lu and \*-la in Kuku Yalanji are:
 | potent locative  | -ndV  | < | *-da  |
 | potent dative    | -nkV  | < | *-gu  |
 
-As can be seen in the above list, Kuku Yalanji 'potent' locative and 'potent' dative have nasal n before the pA form. It is interesting to note that in some other languages stems of pronouns and human nouns have an incremental n before some non-core case inflections. Warrgamay and Yidiny, for instance, show incremental n with pronouns (Dixon 1980:329 and 1 977:1 68-170 respectively). In Dyirbal proper nouns and some common nouns with human reference may take a stem-forming suffix -J1a- after which the dative inflection is -ngu, whereas it is -gu in other environments (Dixon 1 972:43-44). The fact that non-core inflections in these languages have a special form that is used with human referents, that is referents which definitely possess the 'ability to act', may throw some light on the development of 'potent' inflections for locative and dative in Kuku Yalanji. Specifically 'human' inflections in other languages have been generalised in Kuku Yalanji to apply to all 'potent' referents. But the development of the distinction between a 'potent' and a 'neutral' ergative inflection remains unclear.
+As can be seen in the above list, Kuku Yalanji 'potent' locative and 'potent' dative have nasal *n* before the pA form. It is interesting to note that in some other languages stems of pronouns and human nouns have an incremental *n* before some non-core case inflections. Warrgamay and Yidiny, for instance, show incremental *n* with pronouns (Dixon 1980:329 and 1 977:1 68-170 respectively). In Dyirbal proper nouns and some common nouns with human reference may take a stem-forming suffix -J1a- after which the dative inflection is -*ngu*, whereas it is -*gu* in other environments (Dixon 1972:43-44). The fact that non-core inflections in these languages have a special form that is used with human referents, that is referents which definitely possess the 'ability to act', may throw some light on the development of 'potent' inflections for locative and dative in Kuku Yalanji. Specifically 'human' inflections in other languages have been generalised in Kuku Yalanji to apply to all 'potent' referents. But the development of the distinction between a 'potent' and a 'neutral' ergative inflection remains unclear.
 
 ## 3.2.3 Nominal stem formation
 
 Nominal stems in Kuku Yalanji may be formed from nominal roots by affixation, reduplication or compounding.
 
-Stem-forming affixes include the purely formal catalytic suffix -mun-, a nominalising suffix which derives nouns from verbs, and seven suffixes and two prefixes that add a semantic aspect to the meaning of the root. Derivational affixes may be monosyllabic or disyllabic. Criteria for defining these morphemes as derivational affixes are: (a) they cannot occur independently but have to be attached to a nominal root; (b) root and affix are inseparable, that is no other morpheme such as a clitic may occur between them (but two or three derivational affixes may co-occur); ( c) the derived stem may be inflected for case; and (d) the stress pattern defines the derived stem as one word, that is word stress is on the first syllable.
+Stem-forming affixes include the purely formal catalytic suffix -mun-, a nominalising suffix which derives nouns from verbs, and seven suffixes and two prefixes that add a semantic aspect to the meaning of the root. Derivational affixes may be monosyllabic or disyllabic. Criteria for defining these morphemes as derivational affixes are: (a) they cannot occur independently but have to be attached to a nominal root; (b) root and affix are inseparable, that is no other morpheme such as a clitic may occur between them (but two or three derivational affixes may co-occur); (c) the derived stem may be inflected for case; and (d) the stress pattern defines the derived stem as one word, that is word stress is on the first syllable.

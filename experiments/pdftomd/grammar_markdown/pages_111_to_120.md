@@ -152,10 +152,10 @@ For these reasons, and because of the way in which they reduplicate, causative s
 
 An irrealis verb form indicates that an action that should or could have taken place does or did not occur for some reason. 1rrealis verb forms are used in independent clauses, which may or may not be co-ordinated with another clause stating why the action is/was prevented. The irrealis inflection itself does not contain temporal reference; this must be inferred from context.
 
-| (158) | <i>Ngayu</i> | <i>badur-iji</i>   | <i>dunga-nyaku.</i>                                                  |
-|-------|--------------|--------------------|----------------------------------------------------------------------|
-|       | 1sg.NOM(S)   | fishing.line-COMIT | go-IRR                                                               |
-|       |              |                    | 'I would go/would have gone fishing [but I cannot for some reason].' |
+| (158) | Ngayu      | badur-iji          | dunga-nyaku.                                                         |
+|-------|------------|--------------------|----------------------------------------------------------------------|
+|       | 1sg.NOM(S) | fishing.line-COMIT | go-IRR                                                               |
+|       |            |                    | 'I would go/would have gone fishing [but I cannot for some reason].' |
 
 (1 59) N gayu nuka-nyaku minya, kari yinya minya kabu. 1 sg.NOM(A) eat-IRR meat.ABS(O) but that.ABs(s) meat.ABS(S) rotten 'I would have eaten that meat, but it was rotten.'
 
@@ -240,9 +240,9 @@ Simple root + -bunga-l:
 
 Reduplicated root + -bunga-l:
 
-| kaka-kaka   | 'painful'   | kaka-kaka-bunga-l   | 'make painful'    |
-|-------------|-------------|---------------------|-------------------|
-| bajay-bajay | 'exhausted' | bajay-bajay-bunga-l | 'exhaust someone' |
+| kaka-kaka               | 'painful' | kaka-kaka-bunga-l   | 'make painful'    |
+|-------------------------|-----------|---------------------|-------------------|
+| bajay-bajay 'exhausted' |           | bajay-bajay-bunga-l | 'exhaust someone' |
 
 Reduplication of the actual compound, which involves only the second component, is a different matter. While the above reduplicated nominal roots refer to the state that is caused, reduplication of the second element of the compound implies prolonged or repeated causation of a state, for example:
 
@@ -309,9 +309,9 @@ BUT
 
 (171) Waybala-ngka *maral school-bu* white.man-ERG:pt(A) girl.ABS(O) school-LOC 'The white man made the girl go to school.' wala-y-mani-ny. enter-y-CAUS-PAST Examples of compound verb + mani-l are:
 
-| j ulbarrwarri-y | 'slip'       | julbarr-warri-mani-l | 'cause to slip'       |
-|-----------------|--------------|----------------------|-----------------------|
-| walu-dunga-y    | 'be annoyed' | walu-dunga-y-mani-l  | 'cause to be annoyed' |
+| julbarrwarri-y | 'slip'       | julbarr-warri-mani-l | 'cause to slip'       |
+|----------------|--------------|----------------------|-----------------------|
+| walu-dunga-y   | 'be annoyed' | walu-dunga-y-mani-l  | 'cause to be annoyed' |
 
 I presume that the action-causative verbaliser -mani-l is related to the verb root mani-l 'get' because the imperative form of action causative compounds uses the suppletive form of mani-l 'get', as injana-y-mana 'make (it) stand up!'
 

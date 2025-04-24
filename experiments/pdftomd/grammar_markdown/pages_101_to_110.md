@@ -5,12 +5,11 @@
 
 Sentence ( 1 30), or simply yundu wanjabu is the common form of greeting people. So it seems that wanja is being wholly replaced by wanjabu. The etymology of wanjabu is obscure. It may possibly have developed from a phrase wanja bubu 'where place'. The paradigm of wanja forms is set out in Table 3.1 1.
 
-| general  |  |                   |
-|----------|--|-------------------|
-| Locative |  | <i>wanjabu</i>    |
-|          |  | ( <i>wanja</i> )  |
-| Ablative |  | <i>wanjamuny</i>  |
-| Abessive |  | <i>wanjamundu</i> |
+|  | general Locative |  | wanjabu    |
+|--|------------------|--|------------|
+|  |                  |  | (wanja)    |
+|  | Ablative         |  | wanjamuny  |
+|  | Abessive         |  | wanjamundu |
 
 Table 3.1 1: The forms of wanja 'where'
 
@@ -42,18 +41,18 @@ Wanjinya and wanjaku 'which one' seem to be freely interchangeable, for example:
 
 A stem-forming suffix -nguy can be used with either wanyu 'what' or wanja 'where, general interrogative' to imply 'what kind', for example:
 
-| (135) | Kuyu                                                                | wanyunguy              | jana          | mani-ny?           |  |
-|-------|---------------------------------------------------------------------|------------------------|---------------|--------------------|--|
-|       | fish.ABS(O)                                                         | what.kind.ABS(O)       | 3pl.NOM(A)    | get-PAST           |  |
-|       | 'What kind of fish did they get?'                                   |                        |               |                    |  |
-| (136) | Jana                                                                | walu                   | wanyunguy?    |                    |  |
-|       | 3pl.NOM(S)                                                          | face.ABS               | what.kind-ABS |                    |  |
-|       | 'What kind of people are they?'                                     |                        |               |                    |  |
-| (137) | Yundu                                                               | wanjanguy-ngku         | kambi-ka      | wawu, yinya-ka     |  |
-|       | 2sg.NOM(S)                                                          | what.kind-DAT          | dress-DAT     | want/like that-DAT |  |
-|       |                                                                     | nganka-nganka-jirr-ka? |               |                    |  |
-|       |                                                                     | flower-REDUP-COMIT-DAT |               |                    |  |
-|       | 'Which kind of dress do you like, the one with the flower pattern?' |                        |               |                    |  |
+| (135) | Kuyu                                                                | wanyunguy        | jana          | mani-ny?           |  |
+|-------|---------------------------------------------------------------------|------------------|---------------|--------------------|--|
+|       | fish.ABS(O)                                                         | what.kind.ABS(O) | 3pl.NOM(A)    | get-PAST           |  |
+|       | 'What kind of fish did they get?'                                   |                  |               |                    |  |
+| (136) | Jana                                                                | walu             | wanyunguy?    |                    |  |
+|       | 3pl.NOM(S)                                                          | face.ABS         | what.kind-ABS |                    |  |
+|       | 'What kind of people are they?'                                     |                  |               |                    |  |
+| (137) | Yundu                                                               | wanjanguy-ngku   | kambi-ka      | wawu, yinya-ka     |  |
+|       | 2sg.NOM(S)                                                          | what.kind-DAT    | dress-DAT     | want/like that-DAT |  |
+|       | nganka-nganka-jirr-ka?                                              |                  |               |                    |  |
+|       | flower-REDUP-COMIT-DAT                                              |                  |               |                    |  |
+|       | 'Which kind of dress do you like, the one with the flower pattern?' |                  |               |                    |  |
 
 ### 3. 6.2 Historical notes
 
@@ -131,10 +130,9 @@ Both Guugu Yimidhirr and Djabugay have demonstrative systems that do not disting
 
 'Here' and 'there' in Kuku Yalanji may combine with the stem-forming suffix -arra 'inhabitants' :
 
-| Yalanji  | yaluyarra  | 'the people of this place' |
-|----------|------------|----------------------------|
-| Nyungkul | yalayarra  |                            |
-|          | yinyayarra | 'the people of that place' |
+| Yalanji  | yaluyarra               | 'the people of this place' |
+|----------|-------------------------|----------------------------|
+| Nyungkul | yalayarra<br>yinyayarra | 'the people of that place' |
 
 Although demonstrative pronouns and local demonstratives are not always different in form, they are distinct in function. Demonstrative pronouns, similar to personal pronouns, can replace or co-occur with a noun, for example:
 

@@ -1,4 +1,4 @@
-According to rule (i), vowels /a/ and /u/ have a palatal offglide if they precede a palatal nasal or stop, for example:
+According to rule (i), vowels  $/a/$  and  $/u/$  have a palatal offglide if they precede a palatal nasal or stop, for example:
 
 | nukainy   | 'ate'           |
 |-----------|-----------------|
@@ -6,17 +6,17 @@ According to rule (i), vowels /a/ and /u/ have a palatal offglide if they preced
 | wunkuiny  | 'next day'      |
 | jukumuiny | 'from the tree' |
 | waijul    | 'burn, cook'    |
-| nguijan   | 'jealous'       |
+| nguijan   | 'jealous'.      |
 
-Generally, palatalisation is stronger with vowel /a/ than with vowel /u/.
+Generally, palatalisation is stronger with vowel  $/a/$  than with vowel  $/u/$ .
 
-Rule (ii) determines that apical nasal /n/ is palatalised before palatal stop /j/, for example:
+Rule (ii) determines that apical nasal  $/n/$  is palatalised before palatal stop  $/j/$ , for example:
 
 | Yalanjji  | '(language name)' |
 |-----------|-------------------|
 | baykanjji | 'lest (it) bite'. |
 
-This rule would seem to negate the phonemic distinction between clusters /nj/ and /nyj/ in Kuku Yalanji. However, assimilation rule (i) helps to show the difference between the two clusters. A palatalised nasal before /j/ does not in turn influence its preceding vowel, whereas a phonemic palatal nasal does; that is, assimilation rule (i) precedes assimilation rule (ii). Consider the following minimal pairs:
+This rule would seem to negate the phonemic distinction between clusters  $/nj/$  and  $/nyj/$  in Kuku Yalanji. However, assimilation rule (i) helps to show the difference between the two clusters. A palatalised nasal before  $/j/$  does not in turn influence its preceding vowel, whereas a phonemic palatal nasal does; that is, assimilation rule (i) precedes assimilation rule (ii). Consider the following minimal pairs:
 
 | binainyji   | 'fig-like fruit'  |
 |-------------|-------------------|
@@ -24,15 +24,15 @@ This rule would seem to negate the phonemic distinction between clusters /nj/ an
 | jalbanj-ji  | 'with a tree top' |
 | jalbainy-ji | 'with taboo food' |
 
-According to assimilation rule (iii), velar stop /k/ is labialised before round vowel /u/, as for instance in:
+According to assimilation rule (iii), velar stop  $/k/$  is labialised before round vowel  $/u/$ , as for instance in:
 
-| <i>dakwuy</i> | 'hungry'      |
-|---------------|---------------|
-| <i>nyikwu</i> | 'now, today'. |
+| dakwuy | 'hungry'      |
+|--------|---------------|
+| nyikwu | 'now, today'. |
 
 This rule shows greatest variation between speakers, some of them clearly labialising the velar stop and others not at all.
 
-#### 2.5 Morphophonological processes
+### 2.5 Morphophonological processes
 
 # 2.5. 1 Vowel harmony
 
@@ -40,9 +40,7 @@ For a number of suffixes in Kuku Yalanji the suffix vowel is selected according 
 
 $$\begin{array}{rcl} \text{suffix vowel} = & u & / & u(\mathbf{C}) \text{-} \\ & a & / & \left\{ \begin{array}{c} a(\mathbf{C}) \\ i(\mathbf{C}) \end{array} \right\} \end{array}$$
 
-#### 32 Chapter 2
-
-In the case of u/u- and a/a- there is clearly total assimilation to the preceding vowel; however, this does not apply where the last stem vowel is /i/.
+In the case of u/u- and a/a- there is clearly total assimilation to the preceding vowel; however, this does not apply where the last stem vowel is  $/i/$ .
 
 Data from Wagaman (Dixon, fieldnotes; see also Dixon 1 980:178- 1 79), an inland dialect of the same language as Kuku Yalanji, may give some indication on how this partial vowel harmony developed. Table 2.7 shows the vowel distribution in ergative, dative and locative inflections in Wagaman.
 
@@ -84,11 +82,11 @@ Because of this deletion rule, roots ending in -iy cannot be distinguished from 
 |             | dili-mba  | 'on/to the corkwood pine' |
 |             | duli-mba  | 'on/to the burnt grass'   |
 
-From the inflections we can infer that *dili* and *duli* have underlying forms with final  $/y/$ , *diliy, duliy*, whereas *kulji* is a genuinely *i*- final root. These examples also illustrate the loss of  $/y/$  after  $/i/$  before a following consonant. Within a root,  $/y/$  cannot be recovered in this environment, but the surprisingly low occurrence rate of  $/iy/$  in medial position (see §2.2.2) may indicate that some instances of underlying Iyl have been lost.
+From the inflections we can infer that *dili* and *duli* have underlying forms with final  $/y/$ , *diliy*, *duliy*, whereas *kulji* is a genuinely *i*- final root. These examples also illustrate the loss of  $/y/$  after  $/i/$  before a following consonant. Within a root,  $/y/$  cannot be recovered in this environment, but the surprisingly low occurrence rate of  $/iy/$  in medial position (see §2.2.2) may indicate that some instances of underlying Iyl have been lost.
 
-In order to indicate which inflectional allomorph is used with a particular nominal root, I represent such roots in citation form with final -i or -iy respectively. (Here I differ from the Hershberger spelling system which does not represent final y after *i*-.)
+In order to indicate which inflectional allomorph is used with a particular nominal root, I represent such roots in citation form with final -*i* or -*iy* respectively. (Here I differ from the Hershberger spelling system which does not represent final y after i-.)
 
-Similarly, verbal nonpast inflection -*y* is not pronounced after roots or stems ending in -*i*. However, rather than introducing an additional nonpast inflectional allomorph of - $\phi$  / *i*-, I represent all *y*-conjugation verbs with final -*y* in nonpast tense and in citation form (-*y* is also the conjugation marker), for example:
+Similarly, verbal nonpast inflection -y is not pronounced after roots or stems ending in -i. However, rather than introducing an additional nonpast inflectional allomorph of - $\emptyset$  / i-, I represent all y-conjugation verbs with final -y in nonpast tense and in citation form (-y is also the conjugation marker), for example:
 
 citation forrnlnonpast:
 
@@ -103,11 +101,11 @@ analogous to: bunday 'sit' janay 'stand'
 
 The following three syllable reductions have been observed in normal speech:
 
-(i) Locative inflection -*nga* after root-final /*a*/ is reduced to root-final long vowel *a*:, that IS:
+(i) Locative inflection -nga after root-final /a/ is reduced to root-final long vowel a:, that IS:
 
 Locative -anga � a:
 
-as for instance bana: 'inlto the water' instead of bananga. The reduction of locative inflection to long vowel *a*: has not been heard more than perhaps half a dozen times in narratives and has always been corrected to -*nga* by the informant when playing back the tape. But even if it is used only occasionally and is not accepted as an alternative to the full inflection, this reduced form is very interesting when considering Djabugay. In Djabugay the locative inflection for roots ending in a vowel is lengthening of the final vowel (Patz 1 99 1 :264) and the same applies for Yidiny on even-syllabled stems (Dixon 1 977: 1 28). This supports the previous suggestion (see §2.1.1) that Kuku Yalanji is the more conservative and Dyabugay the more innovative of the two languages.
+as for instance bana: 'inlto the water' instead of bananga. The reduction of locative inflection to long vowel a: has not been heard more than perhaps half a dozen times in narratives and has always been corrected to -nga by the informant when playing back the tape. But even if it is used only occasionally and is not accepted as an alternative to the full inflection, this reduced form is very interesting when considering Djabugay. In Djabugay the locative inflection for roots ending in a vowel is lengthening of the final vowel (Patz 1 99 1 :264) and the same applies for Yidiny on even-syllabled stems (Dixon 1 977: 1 28). This supports the previous suggestion (see §2.1.1) that Kuku Yalanji is the more conservative and Dyabugay the more innovative of the two languages.
 
 - (ii) The causative verb-forming derivation -bungal is frequently reduced to -bal, particularly in reduplicated forms, e.g. kima-bungal or kima-bal 'make something soft', dandi-bungal-bungal or dandi-bal-bal 'keep making something hard'. Here, not all speakers correct themselves when they have used the reduced form, maintaining that either form is fine. It appears that the reduced form -bal may be in the process of becoming the accepted norm.
 - (iii) In some reduplicated verbs a reduced form is already firmly established as the norm. Usually, verb roots reduplicate as a whole, but six very commonly used verbs show only partial reduplication of either the first or the second syllable and these forms are always used instead of the wholly reduplicated forms which by now are even unacceptable. These verbs are:
@@ -125,9 +123,9 @@ Reduplication of first syllable:
 
 (For a full discussion of form and function of verb reduplication see §3.8.S.S (ii).)
 
-Another partially reduplicated verb form that is used occasionally is *nukalkal* instead of nuka-I-nuka-l 'keep eating'. Again, only the second syllable is reduplicated in the reduced
+Another partially reduplicated verb form that is used occasionally is nukalkal instead of nuka-I-nuka-l 'keep eating'. Again, only the second syllable is reduplicated in the reduced
 
-form. So there are four examples of first-syllable reduplication and three examples of second-syllable reduplication, and the question arises why it should sometimes be only the first and sometimes only the second syllable that is reduplicated. Second-syllable reduplicated forms share the common aspect that the syllable containing the most frequent vowel /*a*/ is reduplicated and the syllable containing a less frequent vowel is dropped. The same pattern is evident in the reduction of -*bungal* to -*bal*, and also in the forms *banbadiy* and wanarriy with first-syllable reduplication. One could therefore make the tentative suggestion that in a reduction process the syllable with the less frequent vowels /u/ and /i/ is deleted and the syllable containing the most frequent vowel /a/ is maintained.
+form. So there are four examples of first-syllable reduplication and three examples of second-syllable reduplication, and the question arises why it should sometimes be only the first and sometimes only the second syllable that is reduplicated. Second-syllable reduplicated forms share the common aspect that the syllable containing the most frequent vowel */a/* is reduplicated and the syllable containing a less frequent vowel is dropped. The same pattern is evident in the reduction of -bungal to -bal, and also in the forms banbadiy and wanarriy with first-syllable reduplication. One could therefore make the tentative suggestion that in a reduction process the syllable with the less frequent vowels /u/ and /ɪ/ is deleted and the syllable containing the most frequent vowel /a/ is maintained.
 
 # 2.6 Stress and intonation
 
@@ -139,7 +137,7 @@ Every word in Kuku Yalanji has primary stress on the first syllable, after which
 
  $V \rightarrow + \text{stress} / # \text{root} [C (VC\_1VC\_1)] -$ 
 
-where C1 may be a single consonant or a cluster. For example: (`primary stress, `secondary stress)
+where C₁ may be a single consonant or a cluster. For example: (`primary stress, `secondary stress)
 
 | jálbu           | 'woman'                       |
 |-----------------|-------------------------------|
@@ -150,8 +148,6 @@ where C1 may be a single consonant or a cluster. For example: (`primary stress, 
 | mílka-wùlay     | 'forget' (lit. ear-die)       |
 | míyil-dùdu      | 'illiterate' (lit. eye-blunt) |
 | búlkiji-bùlkiji | 'pipis'                       |
-
-### 36 Chapter 2
 
 However, secondary stress is not obligatory and is usually omitted in other than careful citation forms, leaving the word with stress only on the first syllable.
 
@@ -168,13 +164,13 @@ Derived stems (other than compounds or reduplicated forms) and inflected forms w
 
 | báma-ngka                | 'Aborigine-ERG:pt'             |
 |--------------------------|--------------------------------|
-| báma-ngkà-ku             | 'Aborigine-ERG:pt-EMPH1'       |
-| báma-ngka-kù-lu          | 'Aborigine-ERG:pt-EMPH1-EMPH2' |
-| búlkiji-ku               | 'pipi-EMPH1'                   |
+| báma-ngka-ku             | 'Aborigine-ERG:pt-EMPH₁'       |
+| báma-ngka-kù-lu          | 'Aborigine-ERG:pt-EMPH₁-EMPH₂' |
+| búlkiji-ku               | 'pipi-EMPH₁'                   |
 | búlkiji-mùn-bu           | 'pipi-mun-LOC'6                |
-| búlkiji-mun-bù-ku        | 'pipi-mun-LOC-EMPH1'           |
-| yárraman-ànda-kù-lu      | 'horse-LOC:pt-EMPH1-EMPH2'     |
-| bímakay-kàrra-ngka-kù-lu | 'FZ-KPL-ERG:pt-EMPH1-EMPH2'    |
+| búlkiji-mun-bù-ku        | 'pipi-mun-LOC-EMPH₁'           |
+| yárraman-ànda-kù-lu      | 'horse-LOC:pt-EMPH₁-EMPH₂'     |
+| bímakay-karra-ngka-kù-lu | 'FZ-KPL-ERG:pt-EMPH₁-EMPH₂'    |
 
 However, this secondary stress rule does not apply to the combination of suffix + clitic -baja + ku 'very' attached to an adjective (see §3.2.3 .8). None of the syllables in this sequence are stressed, e.g. yalbay-baja-ku. (See Hershberger and Pike 1 970:802, who regard bajaku as a 'word'; however, the consistent absence of stress contradicts this interpretation. )
 
@@ -196,19 +192,20 @@ changed, if the speaker wants to assign special emphasis to a particular clause 
 - (ii) In a simple statement with more than two constituents, clause stress falls on the constituent immediately preceding the predicator (see Hershberger & Pike 1970:793, 3.1), for example:
 	- (3) Kayangka b'ajibay nukany. `The dog ate a bone.'
 	- (4) Kaya m'inyaka wawu. 'The dog wants meat.'
-	- (5) Kayangka ngayku m'inya nukany. ‘The dog ate my meat.’
+	- (5) Kayangka ngayku m'inya nukany. 'The dog ate my meat.'
 	- (6) Kayangka yunu minya ng'awuya nukany. 'The dog ate your turtle meat.'
-	- (7) Kaya j'inbal wanarriy. ‘The dog is running fast.’
-	- (8) Nyulu y'ilayku kadany. ‘He came yesterday.’
-	- (9) Maral b'ayanba bundanday. ‘The girl is staying in the house.’
+	- (7) Kaya j'inbal wanarriy. 'The dog is running fast.'
+	- (8) Nyulu y'ilayku kadany. 'He came yesterday.'
+	- (9) Maral b'ayanba bundanday. 'The girl is staying in the house.'
 
 Hershberger and Pike (1970:801) state that if the stressed clause component is a noun phrase with two or more constituents, each of these constituents is stressed equally strongly. However, according to my observations, it is only the last word in the phrase which receives most prominent clause stress, as in (5) and (6). 
 
 The same unmarked pattern of pre-predicator clause stress applies for negative statements; that is, stress is on the negative particle *kari*, which precedes the predicator: 
 
 - (10) *Nyulu jarba k'ari nyajiny.*  'He did not see the snake.'
-- (11) *Ngayu mayi diburr k'ari nukany.* ‘I did not eat the egg(s).’
+- (11) *Ngayu mayi diburr k'ari nukany.* 'I did not eat the egg(s).'
 - (iii) (a) In a content interrogative clause the interrogative pronoun is stressed (see Hershberger & Pike 1970:195):
+
 - (12) W'anyangka mayi nukany? 'Who ate the food?'
 - ( 1 3) Yundu w'anyu nyajiny? 'What did you see?'
 - (14) Yundu w'anjabu dungay? 'Where are you going?'
@@ -262,8 +259,6 @@ In reprise constructions, on the other hand, which prepose a noun phrase that is
 - (32) Yinya j'albu, ngayu nyungun ny" ajiny. 'That woman, I saw her. '
 
 If the object-NP is preposed, it is usually the verb, and not the pre-predicator constituent, which receives secondary stress.
-
-#### 40 Chapter 2
 
 #### 2.6.3 Intonation contours
 

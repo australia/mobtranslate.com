@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["items"],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["transcript", "gloss", "translation"],
+        "properties": {
+          "id": { "type": "string" },
+          "transcript": { "type": "string" },
+          "gloss": { 
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["morpheme", "gloss"],
+              "properties": {
+                "morpheme": { "type": "string" },
+                "gloss": { "type": "string" }
+              }
+            }
+          },
+          "translation": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    }
+  }
+}

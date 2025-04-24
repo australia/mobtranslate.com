@@ -72,7 +72,7 @@ Such a split case-marking system is a common phenomenon in Australian languages 
 
 (see Dixon 1 972:xxii; Silverstein 1 976: 1 1 2). Since the case forms of nouns and pronouns do not correspond with these functions in a one-to-one relationship, one cannot simply adopt the functional labels as case labels, even though the functions, and not the cases, are of primary syntactic importance. I therefore gloss core syntactic nouns and pronouns with both the case and functional label; e.g. NOM(S) denotes a nominative pronoun in intransitive subject function, ABS(O) a noun in absolutive case and in transitive object function, etc. This may appear cumbersome, but I regard it as necessary for the following reasons: (a) all constituents of a noun phrase must have the same case function; and (b) only noun phrases with the same case function may be conjoined. If nominal and pronominal constituents of the same noun phrase or of conjoined noun phrases are glossed only with their respective case labels the identical function cannot be obvious, but the functional terms A, s and 0 will disambiguate the syntactic structure.
 
-# 4. 1.4.2 Semantic functions of case inflections
+## 4. 1.4.2 Semantic functions of case inflections
 
 Some Australian languages have noun classes which are indicated either by nominal prefixes, as in the languages of Arnhem Land and the Kimberleys, or by free-form determiners as in Dyirbal. Noun classes may relate to gender, animacy and edibility of plants or animals, among other semantic criteria. Kuku Yalanji employs a double set of inflections for ergative, dative, general locative and ablative, which are used, roughly, in accordance with animacy or inanimacy of the referent. H. Hershberger (1 964b:74) assumed that there are in fact two noun classes, "animate" and "inanimate" which determine the choice of the appropriate case inflection. However, further research has shown that the two sets of case inflections do not correspond with two fixed classes of 'animate' and 'inanimate' nouns. It rather appears that it is not an inherent and unchangeable feature of the noun that determines the inflection, but that it is the inflection which adds a semantic aspect (other than a case role) to the noun.
 
@@ -100,16 +100,16 @@ Pronouns, which take regular nominal case inflections for all but the core synta
 
 <sup>5</sup>  A full list of these kinship terms can be found in §3.2.4.
 
-| NP constituent                  | Case marking   |
-|---------------------------------|----------------|
-| pronoun                         | set X          |
-| adjective                       | set X or set Y |
-| demonstrative                   | set X or set Y |
-| interrogative:<br>'who'         | set X          |
-| 'what', 'where'                 | set Y          |
-| possessive noun or pronoun form | set Y          |
-| numeral                         | set Y          |
-| location and time words         | set Y          |
+|  | NP constituent                  | Case marking   |
+|--|---------------------------------|----------------|
+|  | pronoun                         | set X          |
+|  | adjective                       | set X or set Y |
+|  | demonstrative                   | set X or set Y |
+|  | interrogative: 'who'            | set X          |
+|  | 'what', 'where'                 | set Y          |
+|  | possessive noun or pronoun form | set Y          |
+|  | numeral                         | set Y          |
+|  | location and time words         | set Y          |
 
 Table 4.2: Case marking on noun phrase constituents other than head nouns
 
@@ -187,7 +187,7 @@ An NP in S function denotes the performer of an action that does not affect an o
 
 <sup>6</sup>  In my description of core syntactic functions I employ as far as possible terms used by Grimes ( 1975); I do not, however, use his term 'Agent' which combines some transitive and intransitive subject functions; 'Agent' in Australian case grammar refers exclusively to transitive subject function.
 
-# 1 28 Chapter 4
+## 1 28 Chapter 4
 
 - (227) Bula wulbuman 2du.NOM(S) old.woman.ABS(S) 'The two old women sang out. ' yirrka-ny. sing. out-PAST
 - (228) Nganjan wunana-y. father.ABS(S) lie.REDUP-NONPAST 'Father is resting.'
@@ -212,10 +212,10 @@ Examples of category 1 nouns and pronouns in A function:
 
 Examples of category 2 nouns in A function:
 
-| (237) | Yinya-ngka                   | kubarr-angka  | yalbay-ngka   | maral       | bayka-ny. |  |
-|-------|------------------------------|---------------|---------------|-------------|-----------|--|
-|       | that-ERG:pt(A)               | eel-ERG:pt(A) | big-ERG:pt(A) | girl.ABS(O) | bite-PAST |  |
-|       | 'That big eel bit the girl.' |               |               |             |           |  |
+| (237) | Yinya-ngka                   | kubarr-angka  | yalbay-ngka   | maral       | bayka-ny. |
+|-------|------------------------------|---------------|---------------|-------------|-----------|
+|       | that-ERG:pt(A)               | eel-ERG:pt(A) | big-ERG:pt(A) | girl.ABS(O) | bite-PAST |
+|       | 'That big eel bit the girl.' |               |               |             |           |
 
 - (238) Nganya bambay-bunga-ny kubarr-da. I sg.ACC(O) sick-CAUS-PAST eel-ERG(A) 'The eel [meat] made me sick. '
 - (239) M alal-angka kumu spider-ERG:pt(A) mosquito.ABS(O) 'The spider grabbed the mosquito. ' karrba-ny. grab-PAsT

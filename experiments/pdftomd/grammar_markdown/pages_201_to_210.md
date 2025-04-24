@@ -1,6 +1,6 @@
 (503) N gayu marrkin wundi-l, nguba 1sg.NOM(A) gun.ABS(O) take-NONPAST perhaps 1sg-LOC bikibiki nyaJl-Jl-Y. pig(s).ABS(S) see-I1R-NONPAST '1 take a gun, perhaps (1) happen to see some pigs.' (ngayku-ndu)
 
-# 4.4.5 Relative clauses
+### 4.4.5 Relative clauses
 
 The definition of a relative clause depends on a formal or grammatical and a functional or semantic aspect. The formal aspect is that a relative clause is a constituent of a NP which may be indicated by case agreement,<sup>38</sup> and possible contiguity to the head noun. The functional aspect is that the relative clause supplies information about the head of this NP, thus helping to identify it. Both formal and functional criteria are important but, to my mind, the functional aspect is the more significant one. Thus a subordinate clause which is formally part of a NP, but is not relevant for the identification of this NP, cannot be termed a relative clause. Consider Comrie's (1981: 1 36) statement on the definition of a relative clause following a comparison between English and Turkish:
 
@@ -57,33 +57,33 @@ Complex sentences with more than one subordinate clause are not commonly used in
 
 # 184 Chapter 4
 
-| Function                | Verb form                                                                                   | Main NP              | Common NPs42                                                                  |
-|-------------------------|---------------------------------------------------------------------------------------------|----------------------|-------------------------------------------------------------------------------|
-| Purposive               | stem + -nkV                                                                                 | S, A<br>O<br>oblique | Sø, Aø, (O), (oblique)<br>Oø, (S), (A), (oblique)<br>(S), (A), (O), (oblique) |
-| Precautionary           | stem + -nyji                                                                                | S, A<br>O<br>oblique | Sø, Aø, (O)<br>Oø, (S), (A)<br>(S), (A)<br>or no common NP                    |
-| Successive              | stem + -nyjiku                                                                              | S, A<br>O            | Sø, Aø, (O)<br>Oø, (S), (A)<br>or no common NP                                |
-| Simultaneous<br>action  | (reduplicated)<br>stem + -nyV + ABS/ERG<br>(reduplicated)<br>stem + -nyV                    | S, A<br>O            | Sø, Aø<br>Sø, Aø                                                              |
-| with<br>perception verb | (reduplicated)<br>stem + -nyV (+ ABS?)<br>(reduplicated)<br>stem + -nyV<br>(+ oblique case) | Oø<br>oblique        | S, A<br>Sø, Aø                                                                |
-| Causal                  | stem + -nyV                                                                                 | S<br>A<br>O          | Sø, Aø<br>(S), (A)<br>(S), (A), (O)                                           |
-| Prior event             | wawu + stem + -nyV + ABL                                                                    | S<br>O               | Sø<br>Sø, Aø                                                                  |
-|                         | verb not subordinate<br>(wawu + O NP + ABL)                                                 | S                    | Aø                                                                            |
-| Hypothetical<br>reason  | stem + -nyV + DAT                                                                           | A<br>S               | S<br>O<br>(others?)<br>or no common NP                                        |
+| Function                | Verb form                                                                                                   | Main NP              | Common NPs | Subordinate NP42                                                              |
+|-------------------------|-------------------------------------------------------------------------------------------------------------|----------------------|------------|-------------------------------------------------------------------------------|
+| Purposive               | stem + - <i>nkV</i>                                                                                         | S, A<br>O<br>oblique |            | Sø, Aø, (O), (oblique)<br>Oø, (S), (A), (oblique)<br>(S), (A), (O), (oblique) |
+| Precautionary           | stem + - <i>nyji</i>                                                                                        | S, A<br>O<br>oblique |            | Sø, Aø, (O)<br>Oø, (S), (A)<br>(S), (A)<br>or no common NP                    |
+| Successive              | stem + - <i>nyjiku</i>                                                                                      | S, A<br>O            |            | Sø, Aø, (O)<br>Oø, (S), (A)<br>or no common NP                                |
+| Simultaneous<br>action  | (reduplicated)<br>stem + - <i>nyV</i> + ABS/ERG<br>(reduplicated)<br>stem + - <i>nyV</i>                    | S, A<br>O            |            | Sø, Aø<br>Sø, Aø                                                              |
+| with<br>perception verb | (reduplicated)<br>stem + - <i>nyV</i> (+ ABS?)<br>(reduplicated)<br>stem + - <i>nyV</i><br>(+ oblique case) | Oø<br>oblique        |            | S, A<br>Sø, Aø                                                                |
+| Causal                  | stem + - <i>nyV</i>                                                                                         | S<br>A<br>O          |            | Sø, Aø<br>(S), (A)<br>(S), (A), (O)                                           |
+| Prior event             | <i>wawu</i> + stem + - <i>nyV</i> + ABL                                                                     | S<br>O               |            | Sø<br>Sø, Aø                                                                  |
+|                         | verb not subordinate<br>( <i>wawu</i> + O NP + ABL)                                                         | S                    |            | Aø                                                                            |
+| Hypothetical<br>reason  | stem + - <i>nyV</i> + DAT                                                                                   | A<br>S               |            | S<br>O<br>(others?)<br>or no common NP                                        |
 
 Table 4.3: Functions and forms of subordinate clauses in Kuku Yalanji
 
-<sup>42</sup> NP $\emptyset$  = obligatory deletion.
+<sup>42</sup> NPØ = obligatory deletion.
 
 (NP) = optional deletion or pronoun reduction.
 
-| (511)                                  | Ngayu<br>1sg.NOM(S) | wawubaja-nga<br>river-LOC | dunga-y<br>go-NONPAST | kuyu<br>fish.ABS(O) | mani-nka ...<br>get-PURP |
-|----------------------------------------|---------------------|---------------------------|-----------------------|---------------------|--------------------------|
-| 'I go to the river to catch a fish...' |                     |                           |                       |                     |                          |
+| (511)                                  | <i>Ngayu</i><br>1sg.NOM(S) | <i>wawubaja-nga</i><br>river-LOC | <i>dunga-y</i><br>go-NONPAST | <i>kuyu</i><br>fish.ABS(O) | <i>mani-nka</i> ...<br>get-PURP |
+|----------------------------------------|----------------------------|----------------------------------|------------------------------|----------------------------|---------------------------------|
+| 'I go to the river to catch a fish...' |                            |                                  |                              |                            |                                 |
 
-| a. | ... dakuy-ma-nyji.         | '... lest I get hungry.'        |
-|----|----------------------------|---------------------------------|
-| b. | ... dakuy-ma-nya-mun-ku.   | '... in case I get hungry.'     |
-| c. | ... bayan kida-nyjiku.     | '... before I clean the house.' |
-| d. | ... wawu-bayan-muny kiday. | '... after I clean the house.'  |
+| a. | ... <i>dakuy-ma-nyji</i> .         | '... lest I get hungry.'        |
+|----|------------------------------------|---------------------------------|
+| b. | ... <i>dakuy-ma-nya-mun-ku</i> .   | '... in case I get hungry.'     |
+| c. | ... <i>bayan kida-nyjiku</i> .     | '... before I clean the house.' |
+| d. | ... <i>wawu-bayan-muny kiday</i> . | '... after I clean the house.'  |
 
 #### 4.5 Possession
 
@@ -93,7 +93,7 @@ Like most Australian languages Kuku Yalanji has the means to distinguish syntact
 
 General (alienable) possession is marked by the stem-forming suffixes:
 
--(V)mu (Yalanji), -(V)ngV (Nyungkul) / -zero inflection
+-(*V*)*mu* (Yalanji), -(*V*)*ngV* (Nyungkul) / -zero inflection
 
 -(V)ndVmun- / -non-zero inflection (see §3.2.3.2)
 
@@ -127,7 +127,7 @@ Very seldom does a possessive NP contain a 'possessor of a possessor'. Such cons
 
 However, there seems to be a strong tendency to use the POSS + LOC form for 'possessor of' possessor', no matter what case the head noun is in. In (5 1 8) yunu-wun-bu (LOC) is just as acceptable, and indeed preferred over the dative form.
 
-# 4.5.2 Inalienable possession
+### 4.5.2 Inalienable possession
 
 Inalienable possession may be expressed by a general possession NP as in (5 1 3), and:
 
@@ -153,7 +153,7 @@ As shown previously in (5 1 5) kinship relations are expressed by general aliena
 
 The speaker in both instances was a female, so by a little stretch of imagination one could interpret these constructions as whole-part relationship. (I do not know whether a male could say the same thing.)
 
-# 4.5.3 Inanimate possessor
+## 4.5.3 Inanimate possessor
 
 Again, an inanimate possessor may have the general possessive form as in (5 1 4), but this is somewhat unusual. More common is the use of locative or ablative, indicating the location or origin of something. For instance:
 
@@ -168,13 +168,14 @@ The locative refers to the leaves that are actually on the tree, whereas the abl
 
 On the other hand, ablative was not accepted in the following sentence:
 
-| (526) | Dumbul       | marra-nga/-mu/*-muny                                                               | dandi. |
-|-------|--------------|------------------------------------------------------------------------------------|--------|
-|       | shell.ABS(S) | zamia.nut-LOC/-POSS.ABS(S)/*-ABL<br>'The shell on/of/*from the zamia nut is hard.' | hard   |
+| (526) | Dumbul       | <i>marra-nga/-mu/*-muny</i>                    | <i>dandi.</i> |
+|-------|--------------|------------------------------------------------|---------------|
+|       | shell.ABS(S) | <i>zamia.nut-LOC/-POSS.ABS(S)/*-ABL</i>        | hard          |
+|       |              | 'The shell on/of/*from the zamia nut is hard.' |               |
 
 (Maybe once the shells are peeled off, they are all crumbled up and softened.) Note that the above examples are in Yalanji dialect, which clearly distinguishes in form between locative and possessive. Therefore juku-ngu and marra-nga are definitely in locative case.
 
-# 4.5.4 Former possession
+### 4.5.4 Former possession
 
 To indicate a former possession, the particle (or suffix?) mali is employed following a noun or pronoun in locative or ablative case. The choice of case differs between speakers, some preferring locative, others ablative, for example:
 
@@ -186,7 +187,7 @@ To indicate a former possession, the particle (or suffix?) mali is employed foll
 
 At this stage it is not clear whether mali is a particle or a suffix or a clitic.43
 
-# 4.5.5 Relationship between possessive and locative
+## 4.5.5 Relationship between possessive and locative
 
 In some Australian languages, for instance Guugu Yimidhirr (Haviland 1 979a) and Gumbaynggir (Eades 1 979), there is a close relationship between possessive (or genitive) and dative which marks the recipient of an act of giving. A similar close relationship pertains in Kuku Yalanji between possessive and locative.
 
@@ -215,11 +216,11 @@ More circumstantial evidence for some relationship between locative and possessi
 
 For the time being, the conspicuous resemblance between possessive and locative in Kuku Yalanji provides food for thought, rather than giving any conclusive evidence as to the exact nature of the relationship between the two.44
 
-#### 4.6 Comitative and privative
+### 4.6 Comitative and privative
 
 Comitative and privative forms of nouns are opposite in meaning, which is basically 'with Noun' and 'without Noun' respectively, but they both serve as modifiers and as such may be incorporated into a wider NP which has the structure:
 
-$$\begin{array}{rcl} \text{[[NP1] + case]} & \text{[NP2 + COMIT] + case} \text{[NP]}\\ & \text{[}\_{\text{ass}}\text{]} \text{[}\_{\text{ann}}\text{]} & \text{[}\_{\text{PRIV}}\text{]} \end{array}$$
+> [[NP1] + case [NP2 + COMIT] + case]NP PRIV
 
 NP1 may be a personal or demonstrative pronoun or a single noun or both for either construction. NP2 may have the same constituents as NP1 or a noun plus an adjective, both with comitative suffix, in a comitative noun phrase. A privative construction, on the other hand, can have only a single noun or adjective in NP2. Like an adjective, a comitative or privative form on its own may function as predicator in an equational sentence.
 
@@ -233,7 +234,7 @@ In this function the comitative noun resembles an adjective and may be used as p
 
 <sup>44</sup> Note that in some languages, e.g. Russian, the way to say 'I have X' is 'X is at me' using locative case or an equivalent preposition. See Clark (1 978) and Lyons (1977:722-723) for a general discussion on the relation between location and possession.
 
-# 190 Chapter 4
+## 190 Chapter 4
 
 - (a) mental or corporeal state of person or animal:
 	- (531) Yinya kaya kuli-ji. that.ABs(s) dog.ABS(S) rage-COMIT 'That dog is vicious. '
@@ -243,7 +244,7 @@ In this function the comitative noun resembles an adjective and may be used as p
 	- (534) Diburr YlJzrr-ji kima-ji. egg.ABS(S) shell-COMIT soft-COMIT 'The egg has a soft shell.'
 	- (535) Yinya dingkar walarr-iji. that.ABS(S) man.ABS(S) beard-COMIT 'That man has a beard.'
 
-# (c) locational characteristic of people:
+## (c) locational characteristic of people:
 
 (536) *Jana bama ngalkal-ji*. 3pl.NOM(S) Aborigine.ABS(S?) lightJorest-COMIT 'They are people of light forest country.' or 'The people are of the light forest country.' 
 

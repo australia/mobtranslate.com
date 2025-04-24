@@ -30,7 +30,7 @@ The posseSSIve suffix that is used preceding non-zero inflection could possibly 
 
 potent locative + catalytic suffix -mun-.2
 
-<sup>2</sup>For catalytic suffix -*mun*- see §3.2.3.1. The stem-forming possessive suffix with non-zero inflection in Guugu Yimidhirr is - :ga + -mu-. -mu- is a catalytic suffix like Kuku Yalanji -mun-, and - :ga is interpreted by Haviland ( 1979a:56) as being related to either abessive or goal. (In Djabugay a catalytic suffix, usually -mu-, is added to the regular possessive stem before a non-zero inflection (patz 1991 :269).
+<sup>2</sup> For catalytic suffix -*mun*- see §3.2.3.1. The stem-forming possessive suffix with non-zero inflection in Guugu Yimidhirr is - :ga + -mu-. -mu- is a catalytic suffix like Kuku Yalanji -mun-, and - :ga is interpreted by Haviland ( 1979a:56) as being related to either abessive or goal. (In Djabugay a catalytic suffix, usually -mu-, is added to the regular possessive stem before a non-zero inflection (patz 1991 :269).
 
 Apart from the formal similarity between locative and possessive (see also §3 .2.4), the two constructions also overlap to some extent in function (see §4.5.5.) . .
 
@@ -272,11 +272,11 @@ An 'excessive' nominal stem may also be used with no reference to anyone in part
 
 A nominal stem formed with mala- attached to a noun root has the semantic content ‘good at noun’ or ‘noun expert’, for example:
 
-| <i>mala-kalka</i> | 'spear expert'                                                     |
-|-------------------|--------------------------------------------------------------------|
-| <i>mala-minya</i> | 'good hunter, game expert'                                         |
-| <i>mala-mayi</i>  | 'good cook, food expert'                                           |
-| <i>mala-burri</i> | 'good singer, song expert' ( <i>burri</i> ‘name, corroboree song’) |
+| mala-kalka | 'spear expert'                                             |
+|------------|------------------------------------------------------------|
+| mala-minya | 'good hunter, game expert'                                 |
+| mala-mayi  | 'good cook, food expert'                                   |
+| mala-burri | 'good singer, song expert' (burri ‘name, corroboree song’) |
 
 - (75) Charlie mala-bulki. Charlie.ABS(S) expert-cattle 'Charlie is an expert stockman.'
 - (76) Nyulu mala-mayi-ngka 3sg.NOM(A) expert-food-ERG:ptCA) 'The good cook cut up the fish.' kuyu yaka-ny. fish.ABS(O) cut-PAST

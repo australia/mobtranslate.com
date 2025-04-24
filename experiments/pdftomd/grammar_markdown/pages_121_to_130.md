@@ -82,12 +82,12 @@ A reciprocal verb stem is used where two or more participants are involved in th
 
 (1 81) Jarba bula kaja-wa-y. snake.ABS(S) 3du.NOM(S) tie-RECIP-NONPASf 'The two snakes wrap around each other. ' (i.e. mate)
 
-| (182) | Jana                                                            | bama                               | jalbu-jalbu        | kuni-wa-y         |
-|-------|-----------------------------------------------------------------|------------------------------------|--------------------|-------------------|
-|       | 3pl.NOM(S)                                                      | person.ABS(S)                      | woman-REDUP.ABS(S) | hit-RECIP-NONPAST |
-|       | jana                                                            | kuli-kanga-wa-y                    | jurbu-bu.          |                   |
-|       | 3pl.NOM(S)                                                      | wild-CAUS-RECIP-NONPAST dance-INST |                    |                   |
-|       | 'The women are fighting; they stir each other up with a dance.' |                                    |                    |                   |
+| (182) | Jana                                                            | bama                    | jalbu-jalbu        | kuni-wa-y         |  |
+|-------|-----------------------------------------------------------------|-------------------------|--------------------|-------------------|--|
+|       | 3pl.NOM(S)                                                      | person.ABS(S)           | woman-REDUP.ABS(S) | hit-RECIP-NONPAST |  |
+|       | jana                                                            | kuli-kanga-wa-y         | jurbu-bu.          |                   |  |
+|       | 3pl.NOM(S)                                                      | wild-CAUS-RECIP-NONPAST | dance-INST         |                   |  |
+|       | 'The women are fighting; they stir each other up with a dance.' |                         |                    |                   |  |
 
 Reciprocal stems may of course be reduplicated to indicate continuous action, e.g. kuji-nkuji-wa-y 'keep waiting for each other/looking after each other'. But since reciprocal stems inherently imply a repeated action, reduplication is only used where an abnormally long continuation needs to be indicated. (For reduplication of reciprocal stems see §3.8.S.S (ii).)
 
@@ -127,7 +127,7 @@ since *jika-l* refers exclusively to the action of straightening a spear by heat
 |----------|----------------------|----------------------|-----------------------------|
 | balka-l  | 'make'               | balkaji-y            | 'get born'                  |
 | jika-l   | 'straighten a spear' | jikaji-y             | 'stretch oneself'           |
-| jurrki-l | 'move something'     | jurrkiji-y           | 'move house/camp (oneself)  |
+| jurrki-l | 'move something'     | jurrkiji-y           | 'move house/camp (oneself)' |
 | murni-l  | 'stir'               | murniji-y            | 'spin around/take a detour' |
 | nubi-l   | 'search for'         | nubiji-y             | 'be lost'                   |
 
@@ -233,18 +233,18 @@ Syllable reduction in partial reduplication has been discussed in §2.5.3.
 
 In reduplication of reciprocal, reflexive/general intransitive and plural subject verb stems it is only the root that is reduplicated. The derivational suffixes -*wa*-, -*ji*- and -*ri*- are then appended to the reduplicated stem. However, in reciprocal and reflexive/general intransitive stems, which are formed from transitive *l*-conjugation roots, the link component is not -*l*-, but - $n$ - according to the conjugation class of the derived stem, i.e. y-conjugation. The same applies for intransitive *l*-conjugation roots (see [§3.8.3.1](#page-1-1)):
 
-| Root           |               | Reduplicated reciprocal stem |                           |
-|----------------|---------------|------------------------------|---------------------------|
-| <i>kuni-l</i>  | 'hit'         | <i>kuni-n-kuni-wa-y</i>      | 'keep hitting each other' |
-| <i>bayka-l</i> | 'bite'        | <i>bayka-n-bayka-wa-y</i>    | 'keep biting each other'  |
-| <i>daka-l</i>  | 'climb (itr)' | <i>daka-n-daka-wa-y</i>      | 'keep climbing together'  |
+| Root    |               | Reduplicated reciprocal stem |                           |
+|---------|---------------|------------------------------|---------------------------|
+| kuni-l  | 'hit'         | kuni-n-kuni-wa-y             | 'keep hitting each other' |
+| bayka-l | 'bite'        | bayka-n-bayka-wa-y           | 'keep biting each other'  |
+| daka-l  | 'climb (itr)' | daka-n-daka-wa-y             | 'keep climbing together'  |
 
 | Root    |         | Reduplicated reflexive/intransitive stem |                        |
 |---------|---------|------------------------------------------|------------------------|
 | baka-l  | 'poke'  | baka-n-baka-ji-y                         | 'keep poking oneself'  |
 | yaka-l  | 'cut'   | yaka-n-yaka-ji-y                         | 'keep cutting oneself' |
 | nuka-l  | 'eat'   | nuka-nuka-ji-y19                         | 'keep eating (itr)'    |
-| Root    |         | Reduplicated plural subject stem         |                        |
+| Root    |         | Reduplicated plural subject stemd        |                        |
 | dunga-y | 'go'    | dunga-n-dunga-ri-y                       | 'keep going'           |
 | wuri-y  | 'dance' | wuri-n-wuri-ri-y                         | 'keep dancing'         |
 
@@ -252,12 +252,12 @@ In reduplication of reciprocal, reflexive/general intransitive and plural subjec
 
 In compound verbs it is only the second component which is reduplicated, for example:
 
-| Compound        | Reduplicated form       |
-|-----------------|-------------------------|
-| wumbul-bunga-l  | wumbul-bunga-l-bunga-l  |
-| dara-y-mani-l   | dara-y-mani-l-mani-l    |
-| ngirray-kanga-l | ngirray-kanga-l-kanga-l |
-| buyun-dama-l    | buyun-dama-l-dama-l     |
+| Compound        |            | Reduplicated form       |
+|-----------------|------------|-------------------------|
+| wumbul-bunga-l  | 'make hot' | wumbul-bunga-l-bunga-l  |
+| dara-y-mani-l   | 'drop'     | dara-y-mani-l-mani-l    |
+| ngirray-kanga-l | 'make cry' | ngirray-kanga-l-kanga-l |
+| buyun-dama-l    | 'spoil'    | buyun-dama-l-dama-l     |
 
 # 3.B.6 Adverbial forms
 
@@ -314,25 +314,20 @@ Adverbs may be derived from adjectives or comitative or privative stems by the f
 
 Process (a) is the most productive, (b) is less often and (c) very rarely used. With comitative and privative stems reduplication is not favoured. Some examples are:
 
-| jinbal    | 'quick'       | jinbal-ku          | 'quickly, fast'  |
-|-----------|---------------|--------------------|------------------|
-|           |               | jinbal-jinbal(-ku) |                  |
-| buyun     | 'bad'         | buyun-ku (etc.)    | 'badly'          |
-| mumbar    | 'neat, firm'  | mumbar-ku          | 'neatly, firmly' |
-| kuli-ji   | 'angry, wild' | kuli-ji-ku         | 'angrily'        |
-| kiru-kari | 'stupid'      | kiru-kari-ku       | 'stupidly'       |
+| jinbal    | 'quick'       | jinbal-ku<br>jinbal-jinbal(-ku) | 'quickly, fast'  |
+|-----------|---------------|---------------------------------|------------------|
+| buyun     | 'bad'         | buyun-ku (etc.)                 | 'badly'          |
+| mumbar    | 'neat, firm'  | mumbar-ku                       | 'neatly, firmly' |
+| kuli-ji   | 'angry, wild' | kuli-ji-ku                      | 'angrily'        |
+| kiru-kari | 'stupid'      | kiru-kari-ku                    | 'stupidly'       |
 
 - (1 97) Yinya karra mumbar-ku wunana-y. that.ABS(S) rope.ABS(S) neat-ADV lie.REDUP-NONPAST 'The rope is lying coiled up. ' (lit. neatly)
-- (198) *Yarraman mukul waymbul-ku dunga-y.* horse.ABS(S) old.ABS(S) slow-ADV go-NONPAST 'The old horse is walking slowly.'
+- (198) Yarraman mukul waymbul-ku dunga-y. horse.ABS(S) old.ABS(S) slow-ADV go-NONPAST 'The old horse is walking slowly.'
 
 In transitive clauses, the derived adverb is based on an adjective + 'neutral' ergative/ instrumental form, for example:
 
-| (199) | Nyulu                               | ngarrbal        | jinbal-da-ku       | wukurri-ny. |
-|-------|-------------------------------------|-----------------|--------------------|-------------|
-|       | 3sg.NOM(A)                          | stranger.ABS(O) | quick-ERG/INST-ADV | follow-PAST |
-|       | 'He quickly followed the stranger.' |                 |                    |             |
-
-(200) *Diburr mumbar-abu-ku bulin-ba yijarri-ka!* egg/s.ABS(O) careful-ERG/INST-ADV plate-LOC put-IMP 'Put the eggs carefully on the plate!'
+- (1 99) Nyulu ngarrbal jinbal-da-ku 3sg.NOM(A) stranger.ABS(O) quick-ERG/INST-ADV follow-PAST 'He quickly followed the stranger.' wukurri-ny.
+- (200) Diburr mumbar-abu-ku bulin-ba yijarri-ka! egg/s.ABS(O) careful-ERG/INST-ADV plate-LOC put-IMP 'Put the eggs carefully on the plate!'
 
 It is not clear whether the inflection represents ergative case agreement with the agent, or instrumental. The former is commonly found in Western Desert languages, such as Yankunytjatjara (Goddard, pers. comm.). The interpretation of ergative case agreement is supported by the fact that such inflected forms occur only in transitive sentences. (Note also that some other modifiers such as possessive forms, for instance, take always 'neutral' inflection, regardless of the type of inflection on the head noun.)
 

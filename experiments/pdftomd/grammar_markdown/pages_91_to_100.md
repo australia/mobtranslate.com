@@ -1,4 +1,4 @@
-The root ngadi(y)- <sup>7</sup>occurs only in inflected form, ngadi(y)-ngka(DAT) 'for a long time' and *ngadi(y)-muny* (ABL)’ from way back’, or with clitic -*ku*, i.e. *ngadi(y)-ku* ‘a long time ago'. (Clitic -ku might have perfective implication with time words, e.g. yilayku 'yesterday'.) The form yilay which occurs in three time words is another possible, but not analysable, root that cannot occur in isolation.
+The root ngadi(y)- <sup>7</sup>occurs only in inflected form, ngadi(y)-ngka(DAT) 'for a long time' and ngadi(y)-muny (ABL)’ from way back’, or with clitic -ku, i.e. ngadi(y)-ku ‘a long time ago'. (Clitic -ku might have perfective implication with time words, e.g. yilayku 'yesterday'.) The form yilay which occurs in three time words is another possible, but not analysable, root that cannot occur in isolation.
 
 Time words in simple root form without inflection refer to 'in, at, during a given time', which is similar to the locative implication of uninflected location words, for example:
 
@@ -28,9 +28,9 @@ Other time stretches are referred to by common nouns or stems that take regular 
 | bulur-iji       | 'cold season' ('dew/chill -COMIT') |
 | wungar-iji      | 'hot season' ('sun-COMIT')         |
 
-[1](#page-7-0) We can assume that this root has final -*y*, which is deleted after vowel *i*- (see §2.5.2), since it takes the dative allomorph for *y*-final roots. However, because this root never occurs in uninflected form, I do not represent root-final *y* in further examples.
+<sup>1</sup> We can assume that this root has final -y, which is deleted after vowel *i*- (see §2.5.2), since it takes the dative allomorph for y-final roots. However, because this root never occurs in uninflected form, I do not represent root-final y in further examples.
 
-[8](#page-7-0) The beginning of the Christmas carol Silent Night has been translated as *wujurrbu ngadiku* ‘during the night a long time ago'.
+<sup>8</sup> The beginning of the Christmas carol Silent Night has been translated as wujurrbu ngadiku ‘during the night a long time ago'.
 
 ### 72 Chapter 3
 
@@ -103,20 +103,22 @@ Where a possessive pronoun modifies a noun as part of a wider noun phrase, the p
 
 \* The two alternative forms for third person singular are used in free variation, but nyulu is more common than yulu
 
-|           | Base forms   |              | Inflections              |                    |          |          |            |                            |
-|-----------|--------------|--------------|--------------------------|--------------------|----------|----------|------------|----------------------------|
-|           | (Nominative) | (Possessive) | Accusative               | Dative             | Locative | Ablative | Comitative |                            |
-| Sg.1.     | ngayu        | ngayku-      | Yalanji<br>nganya<br>-ny | Nyungkul<br>nganya |          |          |            |                            |
-| 2.        | yundu        | yunu-        |                          |                    |          |          |            |                            |
-| 3.        | nyulu        | nyungu-      |                          |                    |          |          |            |                            |
-| Du.1.exc. | ngali-       | -(a)nga      | -(ng)an                  | -(n)iny            |          |          |            | -( <i>V</i> ) <i>n</i> kV* |
-| inc.      | ngaliny-     |              |                          |                    |          |          |            |                            |
-| 2.        | yubal-       |              |                          |                    |          |          |            |                            |
-| 3.        | bula-        |              |                          |                    |          |          |            |                            |
-| Pl.1.exc. | nganjin-     |              |                          |                    |          |          |            |                            |
-| inc.      | ngana-       |              |                          |                    |          |          |            |                            |
-| 2.        | yurra-       |              |                          |                    |          |          |            |                            |
-| 3.        | jana-        |              |                          |                    |          |          |            |                            |
+|           | Base forms   |              | Inflections |          |          |          |             |         |
+|-----------|--------------|--------------|-------------|----------|----------|----------|-------------|---------|
+|           | (Nominative) | (Possessive) | Accusative  | Dative   | Locative | Ablative | Comitative  |         |
+|           |              |              |             |          |          |          |             |         |
+|           |              |              | Yalanji     | Nyungkul |          |          |             |         |
+| Sg.1.     | ngayu        | ngayku-      | nganya      | nganya   |          |          |             |         |
+| 2.        | yundu        | yunu-        | -ny         |          |          |          |             |         |
+| 3.        | nyulu        | nyungu-      |             |          |          |          |             |         |
+| Du.1.exc. | ngali-       | -(a)nga      | -(ng)an     | -(n)iny  | -(V)nkV* | -(V)ndV  | -(V)ndVmuny | -(V)nji |
+| inc.      | ngaliny-     |              |             |          |          |          |             |         |
+| 2.        | yubal-       |              |             |          |          |          |             |         |
+| 3.        | bula-        |              |             |          |          |          |             |         |
+| Pl.1.exc. | nganjin-     |              |             |          |          |          |             |         |
+| inc.      | ngana-       |              |             |          |          |          |             |         |
+| 2.        | yurra-       |              |             |          |          |          |             |         |
+| 3.        | jana-        |              |             |          |          |          |             |         |
 
 # Table 3.7: Personal pronoun base forms and inflections
 
@@ -195,11 +197,11 @@ r
 | 2pl | NHurra     |
 | 3pl | DHaNa      |
 
-The distinction between inclusive/exclusive first person forms appears to be an innovation. Distribution in modern languages shows that where this distinction is made ngali and ngana usually indicate 'inclusive', while 'exclusive' forms are either based on ngali and ngana or are quite unrelated to these. In Kuku Yalanji the reverse applies for first person dual forms: ngali implies 'exclusive', while the 'inclusive' pronoun involves an increment to this form: ngalim!.. First person plural pronouns, on the other hand, concur with the general Australian pattern in that ngana is the 'inclusive' form. Nganjin 'lpl exc.' could be based on ngana (cf. Guugu Yirnidhirr inland dialect nganhdhaan ' lpl'), but there is no real evidence to show that it is.
+The distinction between inclusive/exclusive first person forms appears to be an innovation. Distribution in modern languages shows that where this distinction is made ngali and ngana usually indicate 'inclusive', while 'exclusive' forms are either based on *ngali* and *ngana* or are quite unrelated to these. In Kuku Yalanji the reverse applies for first person dual forms: ngali implies 'exclusive', while the 'inclusive' pronoun involves an increment to this form: ngalim!.. First person plural pronouns, on the other hand, concur with the general Australian pattern in that ngana is the 'inclusive' form. Nganjin 'lpl exc.' could be based on ngana (cf. Guugu Yirnidhirr inland dialect nganhdhaan ' lpl'), but there is no real evidence to show that it is.
 
 The second person non-singular forms yubal and yurra have developed by lenition of the initial consonant: NH > ny > y. (Similar lenition of the first consonant has also applied to second and third person singular.) The final vowel of 2du \*NHu(m)baIV has been dropped in Kuku Yalanji. The fact that inflections to yubal involve an initial vowel, e.g. Dative yubal-anka in contrast to ngana-nka, is probably of no consequence since all 'potent' inflections in Kuku Yalanji have allomorphs with initial vowel following root-final consonants.
 
-Third person plural jana shows a regular reflex of pA DH (DHaNa > jana), while third person dual bula involves no change at all.
+Third person plural *jana* shows a regular reflex of pA *DH* (*DHaNa* > *jana*), while third person dual bula involves no change at all.
 
 ### 3.6 Interrogative pronouns
 
@@ -213,13 +215,19 @@ Interrogative pronoun roots in Kuku Yalanji show the common Australian distincti
 | 'what'  | wanyu   | wanyu    |
 | 'where' | wanja   | wanja    |
 
-|  | Table 3.9: Interrogative pronouns in Yalanji and Nyungkul |  |
-|--|-----------------------------------------------------------|--|
-|--|-----------------------------------------------------------|--|
+| <b>Table 3.9: Interrogative pronouns in Yalanji and Nyungkul</b> |                |                 |
+|------------------------------------------------------------------|----------------|-----------------|
+|                                                                  | <b>Yalanji</b> | <b>Nyungkul</b> |
+| <i>who</i>                                                       | ngayu          | ngayu           |
+| <i>what</i>                                                      | nhangu         | nhangu          |
+| <i>where</i>                                                     | nganha         | nganha          |
+| <i>when</i>                                                      | ngandaki       | ngandaki        |
+| <i>why</i>                                                       | nganiku        | nganiku         |
+| <i>how</i>                                                       | nganiku        | nganiku         |
 
 The form for 'who' differs in the Yalanji and Nyungkul dialects but 'what' and 'where' are the same (see Table 3 .9). 'Who' and 'what' inflect according to the nominal system of case marking; that is, core syntactic inflections distinguish between transitive subject and intransitive subject/transitive object. (This is different from the most frequent pattern in Australian languages where 'who' inflects in a nominative/accusative pattern like pronouns, and 'what' like nominals in an ergative/absolutive pattern.) 'Who' takes suffixes from the 'potent' set of case inflections, and 'what' takes inflections from the 'neutral' set. 'Where' is used only in local cases; it is also the base for further interrogatives like 'when' and 'how'.
 
-A paradigm of inflected 'who' and 'what' forms and their possessive and comitative stems is given in Table 3 . 1 0. The Yalanji form wanya 'who' shows regular nominal suffixes for all but the possessive stem with zero inflection. This stem, in both Yalanji and Nyungkul, takes a suffix identical to the 'neutral' locative inflection which is also used for possessive with a subset of kinship terms (see §3.2.4). The Nyungkul form wanju 'who' also takes regular nominal suffixes; however, on the evidence from all inflected forms except ergative we have to recognise an underlying root with final y, namely wanjuy. This root takes the regular suffixes with initial vowel that follow a root-final consonant.
+A paradigm of inflected 'who' and 'what' forms and their possessive and comitative stems is given in Table 3 . 1 0. The Yalanji form wanya 'who' shows regular nominal suffixes for all but the possessive stem with zero inflection. This stem, in both Yalanji and Nyungkul, takes a suffix identical to the 'neutral' locative inflection which is also used for possessive with a subset of kinship terms (see §3.2.4). The Nyungkul form wanju 'who' also takes regular nominal suffixes; however, on the evidence from all inflected forms except ergative we have to recognise an underlying root with final *y*, namely *wanjuy*. This root takes the regular suffixes with initial vowel that follow a root-final consonant.
 
 |                            | 'who'        |                | 'what'                            |
 |----------------------------|--------------|----------------|-----------------------------------|
@@ -236,17 +244,17 @@ A paradigm of inflected 'who' and 'what' forms and their possessive and comitati
 
 Table 3.10: Paradigm of interrogative pronouns 'who' and 'what'
 
-Wanyu 'what' shows an underlying stem wa nyu rri(y )- for all but absolutive case, followed by regular case inflections from the 'neutral' set. For ergative/instrumental an alternative form wanyurri-mun-du may be used. Speakers who use this latter form seem to have reinterpreted the stem as ending in i and add the catalytic suffix -mun- onto the trisyllabic
+Wanyu 'what' shows an underlying stem wa nyu rri(y )- for all but absolutive case, followed by regular case inflections from the 'neutral' set. For ergative/instrumental an alternative form *wanyurri-mun-du* may be used. Speakers who use this latter form seem to have reinterpreted the stem as ending in i and add the catalytic suffix -mun- onto the trisyllabic
 
-<sup>11</sup> Comitative stems with non-zero inflections beginning with nasal m or a stop take the comitative allomorph -jirr (see Table 3.3).
+<sup>11</sup> Comitative stems with non-zero inflections beginning with nasal *m* or a stop take the comitative allomorph -jirr (see Table 3.3).
 
-<sup>10</sup> These forms are not favoured for the local sense of ablative. Preference is given to wanjamuny 'where from'.
+<sup>10</sup> These forms are not favoured for the local sense of ablative. Preference is given to *wanjamuny* 'where from'.
 
 #### 80 Chapter 3
 
-root. Speakers' intuitions about the inflected forms of wanyu appear to be uncertain in another respect as well. Note that vowel harmony does not match the suffix vowel with the final stem vowel, e.g. \*wanyurri.(y)njQ, but with the final vowel of the uninflected root, e.g. *wanyurri(y)nju*. This might suggest that the whole of -*rri(y)* + inflection is in fact interpreted as the suffix.
+root. Speakers' intuitions about the inflected forms of wanyu appear to be uncertain in another respect as well. Note that vowel harmony does not match the suffix vowel with the final stem vowel, e.g. \*wanyurri.(y)njQ, but with the final vowel of the uninflected root, e.g. wanyurri(y)nju. This might suggest that the whole of -*rri*(*y*) + inflection is in fact interpreted as the suffix.
 
-The morpheme -*rri(y)*- may have been a stem-forming suffix at some stage. It also seems to be present in wanjarrinya 'how many' (see below), in the plural demonstrative forms in Kuku Yalanji and Guugu Yimidhirr, e.g. yinyarriny 'those people' (see §3.7), and in Yidiny yinga-rriny 'this kind' and wanyja-rriny 'what kind', where this morpheme cannot be analysed either (see Dixon 1 977:1 97-1 98).
+The morpheme -*rri*(*y*)- may have been a stem-forming suffix at some stage. It also seems to be present in wanjarrinya 'how many' (see below), in the plural demonstrative forms in Kuku Yalanji and Guugu Yimidhirr, e.g. yinyarriny 'those people' (see §3.7), and in Yidiny yinga-rriny 'this kind' and wanyja-rriny 'what kind', where this morpheme cannot be analysed either (see Dixon 1 977:1 97-1 98).
 
 Wanyu has no possessive forms, since inanimate things are considered incapable of owning anything. The local term wanjamuny 'where from' is used to express 'what does that belong to'.
 
@@ -269,4 +277,4 @@ A commonly used prompt for further information in a conversation involves wanyu 
 
 Wanja 'where, somewhere' can be classed among the location words and as such implies general locative by its uninflected root and takes only local cases (cf. location words §3.3 .2). But it seems that the uninflected form is being replaced by another form: wanjabu. H. Hershberger and R. Hershberger (pers. comm.) reported that several years ago forms wanja and wanjabu were used in free variation. But it appeared that wanja was the more general term implying 'where at/where to' while wanjabu asked more specifically for location
 
-<sup>12</sup> Stem-final *y*, which conditions the inflectional form but is lost after *i*- (see §2.5.2), will not be represented in further examples.
+<sup>12</sup> Stem-final *y*, which conditions the inflectional form but is lost after *i*- (see §2.5.2), will not be. represented in further examples.

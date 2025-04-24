@@ -141,7 +141,7 @@ Stops and nasals in Kuku Yalanji include two peripheral (or non-coronal) series,
 |           | bilabial       | apico-<br>alveolar | apico-post<br>alveolar      | lamino-<br>palatal | dorso-<br>velar |
 |-----------|----------------|--------------------|-----------------------------|--------------------|-----------------|
 | Stop      | <i>b</i> [b/p] | <i>d</i> [d/t]     |                             | <i>j</i> [/c]      | <i>k</i> [g/k]  |
-| Nasal     | <i>m</i> [m]   | <i>n</i> [n]       |                             | <i>ny</i> [ɲ]      | <i>ng</i> [ŋ]   |
+| Nasal     | <i>m</i> [m]   | <i>n</i> [n]       |                             | <i>ny</i> [ŋ]      | <i>ng</i> [ŋ]   |
 | Lateral   |                | <i>l</i> [l]       |                             |                    |                 |
 | Rhotic    |                | <i>rr</i> [r]      | <i>r</i> []1<br>(retroflex) |                    |                 |
 | Semivowel |                | <i>w</i> [w]       |                             |                    | <i>y</i> [j]    |
@@ -168,14 +168,14 @@ See Ladefoged (1 975) Consonant Chart.
 
 Nasals
 
-| bilabial       | bama    | 'Aborigine'    |
-|----------------|---------|----------------|
-| apico-alveolar | bana    | 'water'        |
-|                | jalban  | 'tree top'     |
-|                | nandal  | 'close, cover' |
-| lamino-palatal | jalbany | 'taboo food'   |
-|                | nyandal | 'chop'         |
-| dorso-velar    | ngandal | 'mouth'        |
+| bilabial       | <i>bama</i>    | 'Aborigine'    |
+|----------------|----------------|----------------|
+| apico-alveolar | <i>bana</i>    | 'water'        |
+|                | <i>jalban</i>  | 'tree top'     |
+|                | <i>nandal</i>  | 'close, cover' |
+| lamino-palatal | <i>jalbany</i> | 'taboo food'   |
+|                | <i>nyandal</i> | 'chop'         |
+| dorso-velar    | <i>ngandal</i> | 'mouth'        |
 
 Stops are always unaspirated and there is no phonemic distinction between voiced and
 voiceless. There is a general tendency for stops to be voiced intervocalically and in

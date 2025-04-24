@@ -1,10 +1,10 @@
-Adverbial suffix -ku may be attached to inflected nouns to form adverbials of time, for example:
+Adverbial suffix -*ku* may be attached to inflected nouns to form adverbials of time, for example:
 
 (202) N gayu warru-ku Palm Island bundanda-ny. I sg.NOM(S) yg.man.ABS-ADV Palm.lsland sit.REDUP-PAST 'As a young man I stayed at Palm Island.'
 
 (203) N gayu karrkay-nyja-ku minya kadar I sg.NOM(A) child-ERG-ADV meat.ABS(O) wallaby.ABS(O) ngangkin nuka-l-nuka-ny. porcupine.ABS(O) eat-l-REDUP-PAST 'As a child I used to eat wallaby and porcupine.'
 
-However, it is possible, that -ku in this context is not the adverb-forming suffix but the homophonous emphatic clitic -ku. The latter could be interpreted as highlighting the temporal contrast implied in these sentences, e.g. 'As a young man (which I am no longer) I stayed at Palm Island'. Compare R. Hershberger's ( 1 979:55) attested 'adverbial' suffix -ku with an inflected nominal form:
+However, it is possible, that -*ku* in this context is not the adverb-forming suffix but the homophonous emphatic clitic -ku. The latter could be interpreted as highlighting the temporal contrast implied in these sentences, e.g. 'As a young man (which I am no longer) I stayed at Palm Island'. Compare R. Hershberger's ( 1 979:55) attested 'adverbial' suffix -ku with an inflected nominal form:
 
 (204) Dingkar-angka nyunguniny yarkin-ka-ku kuni-ny. man-ERG:pt(A) 3sg.ACC(O) corpse-DAT-ADV(?) hitJkill-PAST "The man murdered him (intended to kill)." (translation from R. Hershberger)
 
@@ -61,13 +61,13 @@ Yala may also take the emphatic clitic -rrku (see §3. 1 0.2): yalarrku 'just th
 
 (206) Kanbal bubu yala-rrku. some.ABS(S) place.ABS(S) COMP-EMPH4 'Some places are just the same [as this place]. '
 
-<sup>20</sup> Yinil 'be afraid' is used in free variation with a comitative form yinil-ji or yini-ji which, however, may not be verbalised.
+<sup>20</sup> Yinil 'be afraid' is used in free variation with a comitative form *yinil-ji* or *yini-ji* which, however, may not be verbalised.
 
 # (207) Wulman yala-rrku manyarr-anka badi-ny. old.man.ABs(S) COMP-EMPH4 wife-DAT:pt cry-PAST 'The old man also cried for his wife [just like the others].'
 
 ### (ii) Negation particles
 
-These particles include kari 'not' (NEG) and balu 'desist, give up' (NEG2)' Particle kari may take clitics -ku 'general emphasis' and -rrku 'totality' (see §3.10.2). Kariku has emphatic or temporal meaning according to context, that is 'not all' or 'not yet'. Karirrku implies 'not really, not altogether', for example:
+These particles include kari 'not' (NEG) and balu 'desist, give up' (NEG2)' Particle kari may take clitics -*ku* 'general emphasis' and -*rrku* 'totality' (see §3.10.2). *Kariku* has emphatic or temporal meaning according to context, that is 'not all' or 'not yet'. Karirrku implies 'not really, not altogether', for example:
 
 (208) N gayu kari-rrku warngku-wuna-ny. 1 sg.NOM(S) NEG-EMPH4 sleep-lie-PAST 'I did not really sleep (I just dozed).'
 
@@ -79,14 +79,14 @@ These particles include kari 'not' (NEG) and balu 'desist, give up' (NEG2)' Part
 
 Kari and balu may be used not only in reference to part of a clause, for instance the predicate, but also to modify a whole clause and as such have additional function as discourse particles. In discourse function these particles are placed in clause-initial position; in direct negation function they occur adjacent to the clause constituent that they negate. The full inventory of discourse particles is:
 
-| kari                      |  | 'a contrasting event' (gloss 'but') (see §5.5.3)         |
-|---------------------------|--|----------------------------------------------------------|
-| yamba/yambada/yambala     |  | 'a contrasting state' (gloss 'but')                      |
-| kaki                      |  | 'when, if'                                               |
-| kunka                     |  | 'in case' (specified hypothetical event)                 |
-| nganganjirrka/nganganjida |  | 'in case' (not necessarily specified hypothetical event) |
-| balu                      |  | 'wrong assumption' (gloss 'wrong')21                     |
-| nguba                     |  | 'maybe, perhaps'                                         |
+| kari                      | 'a contrasting event' (gloss 'but') (see §5.5.3)         |  |
+|---------------------------|----------------------------------------------------------|--|
+| yamba/yambada/yambala     | 'a contrasting state' (gloss 'but')                      |  |
+| kaki                      | 'when, if'                                               |  |
+| kunka                     | 'in case' (specified hypothetical event)                 |  |
+| nganganjirrka/nganganjida | 'in case' (not necessarily specified hypothetical event) |  |
+| balu                      | 'wrong assumption' (gloss 'wrong')21                     |  |
+| nguba                     | 'maybe, perhaps'                                         |  |
 
 (Like glosses of other discourse particles, e.g. *kunka* 'in case', glosses for *kari* and *balu* in discourse function are represented by appropriate English lexical items, rather than by abstract terms, to distinguish their discourse function from their negation function.)
 
@@ -113,11 +113,11 @@ Clitic -*da* is most frequently used with verbs, but has also been attested with
 
 (209) *Jana kada-ny, kuyu mani-ny, waju-ny, nuka-ny-da*. 3pl.NOM(S) come-PAST fish.ABS(O) get-PAST cook-PAST eat-PAST-TEMP1 'They came, caught a fish, cooked [it], and then ate [it].'
 
-(For discourse function of clitic -*da* in temporal cohesion see §5.2.2; for use with imperatives see §4.7.)
+(For discourse function of clitic -da in temporal cohesion see [§5.2.2](#page-5-2); for use with imperatives see §4.7.)
 
-The semantic content of clitic -*ku* is sometimes ambiguous and a distinction between temporal and emphatic -*ku* (see §3.10.2 below) is often impossible. (Note that -*ku* also functions as adverb marker and is homophonous with one allomorph of dative inflection (see §3.2.2).) Only in two time words does -*ku* clearly have a reference to times past, i.e. *ngadiku* 'a long time ago' and yilayku 'yesterday'. But while only some occurrences in discourse may be interpreted as having temporal reference, an interpretation as emphatic clitic is always possible. For this reason, and also because the cognate post-inflectional suffix -:*gu* in Guugu Yirnidhirr has clearly emphatic function (Haviland 1 979a:60), I favour this interpretation of -*ku* as emphatic marker.
+The semantic content of clitic -ku is sometimes ambiguous and a distinction between temporal and emphatic -ku (see [§3.10.2](#page-3-10) below) is often impossible. (Note that -ku also functions as adverb marker and is homophonous with one allomorph of dative inflection (see [§3.2.2](#page-3-2)).) Only in two time words does -ku clearly have a reference to times past, i.e. *ngadiku* 'a long time ago' and yilayku 'yesterday'. But while only some occurrences in discourse may be interpreted as having temporal reference, an interpretation as emphatic clitic is always possible. For this reason, and also because the cognate post-inflectional suffix -:gu in Guugu Yirnidhirr has clearly emphatic function (Haviland 1 979a:60), I favour this interpretation of -ku as emphatic marker.
 
-Clitic -*kuda*, which is used mostly with verbs but also with nominals and pronouns, is not easily definable. Its most plausible interpretation as 'meanwhile' is explained in §5.2.2.24 If -*ku* is, or was, a temporal clitic meaning 'before', a combination of -*ku* + -*da* 'before then'
+Clitic -kuda, which is used mostly with verbs but also with nominals and pronouns, is not easily definable. Its most plausible interpretation as 'meanwhile' is explained in §5.2.2.24 If -ku is, or was, a temporal clitic meaning 'before', a combination of -ku + -da 'before then'
 
 <sup>22</sup> J.L. Klavans (1980) uses the term "host" for the word to which a clitic is attached.
 
@@ -139,8 +139,8 @@ Proclitic *wawu-* occurs only with ablative forms, the whole word meaning 'since
 
 | -ku                          | general emphasis: 'really' (?) (EMPH 1) |
 |------------------------------|-----------------------------------------|
-| -lu (Yalanji)/-la (Nyungkul) | 'pay attention' (EMPH2)                 |
-| -bi                          | surprise: 'lo and behold' (EMPH3)       |
+| -lu (Yalanji)/-la (Nyungkul) | 'pay attention' (EMPH 2)                |
+| -bi                          | surprise: 'lo and behold' (EMPH 3)      |
 
 Clitic -*ku* is used copiously in discourse with all parts of speech and is used as a 'general emphasis' marker. English translations may resort to 'really' for -*ku*, e.g. *yalbay-ku* 'really big', *jalbu-ku* '(it was) really the woman' and *wubul-ku* 'really a lot', but in most cases this would be too strong, particularly since 'really' also implies 'high degree'. 
 
@@ -247,15 +247,15 @@ A noun phrase may include the following constituents:
 
 | Mandu, Jinabaji, Mabel | (personal names) |
 |------------------------|------------------|
-| Wangkabaja, Bibikarrbi | (place names )   |
+| Wangkabaja, Bibikarrbi | (placenames)     |
 
 (b) A common specific noun, for example:
 
-| maral   | 'girl'             |
-|---------|--------------------|
-| kalnga  | 'mother's brother' |
-| kundurr | 'death adder'      |
-| wada    | 'wild apple'       |
+| maral   | 'girl'             |  |
+|---------|--------------------|--|
+| kalnga  | 'mother's brother' |  |
+| kundurr | 'death adder'      |  |
+| wada    | 'wild apple'       |  |
 
 (c) A generic term (see §3 .1.2 (i)) on its own or preceding (b), for example:
 

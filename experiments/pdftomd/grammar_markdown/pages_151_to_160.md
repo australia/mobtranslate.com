@@ -13,7 +13,7 @@ If there were a human or some other controlling agent responsible for the events
 
 Now consider the passivisation of sentences (240) and (241) into (250) and (25 1) respectively:
 
-- (250) N gayu murraja-mun-du / murraja-nga baka-ji-ny. 1sg.NOM(S) stonefish-mun-INST / stonefish-LOC poke-ITR-PAST 'I was poked by a stonefish.'
+- (250) N gayu murraja-mun-du / murraja-nga baka-ji-ny. 1sg.NOM(S) stonefish-*mun*-INST / stonefish-LOC poke-ITR-PAST 'I was poked by a stonefish.'
 - (25 1) Nyulu mili-bu / mili-nga waju-ji-ny. 3sg.NOM(S) jellyfish-INST / jellyfish-LOC burn-ITR-PAST 'He was burnt by a jellyfish. '9
 
 and:
@@ -34,7 +34,7 @@ In sentences (250}-(252) it is possible to change the NP referring to stonefish,
 
 A NP in dative case (for forms of inflections see §3.2.2) has basically two distinct functions. The most common one is to comment on the reason why the action mentioned in the sentence core is performed. In the second function a dative NP sets a parameter with respect to which a certain action or state can be seen. Category 2 nouns take 'potent' or 'neutral' case inflection according to whether the referent is regarded as an active animate being as in (256b) and (26 1 ), or as an inanimate substance such as potential food as in (256a).
 
-The broadly termed function of 'reason' is twofold again. One aspect of it is goal of a purposeful action (but not of a purposeful movement, which is expressed by locative). This includes an indirect beneficiary, i.e. someone for whom an action is performed so that he/she does not have to do it him/herself.<sup>10</sup> Complements of verbs like 'learn, teach' and the adjectival particle 'want/like'<sup>11</sup> may also be included under goal.<sup>12</sup> Examples:
+The broadly termed function of 'reason' is twofold again. One aspect of it is goal of a purposeful action (but not of a purposeful movement, which is expressed by locative). This includes an indirect beneficiary, i.e. someone for whom an action is performed so that he/she does not have to do it him/herself.<sup>10</sup> Complements of verbs like 'learn, teach' and the adjectival particle ‘want/like’<sup>11</sup> may also be included under goal.<sup>12</sup> Examples:
 
 - (253) N gayu bubu kida-I-kida-l bayan-ka. 1 sg.NOM(A) ground.ABs(o) sweep-l-REDUP-NONPAST camp-DAT 'I am sweeping the ground for a camp. '
 - (254) Nyulu Cooktown dunga-y yaba-nka. 3sg.NOM(S) Cooktown go-NONPAST eB-DAT:pt 'He goes to Cooktown for his elder brother. '
@@ -139,10 +139,11 @@ A category 2 noun takes neutral inflection where it is interpreted as an inanima
 
 A NP in abessive case refers to a place from which an action is performed without the actor leaving this location. Location words are used more frequently in abessive case then nominals. (For location words see §3 .3 .2.) There is no 'potent' inflection for abessive, possibly because a noun in this case can only be interpreted as a location and not as a potentially active animate being. Examples:
 
-| (288)                                              | <i>Mabel</i><br>Mabel.ABS(S) | <i>yirrka-y</i><br>sing.out-NONPAST | <i>bayan-mundu.</i><br>house-ABESS |
-|----------------------------------------------------|------------------------------|-------------------------------------|------------------------------------|
-| 'Mabel is singing out from the house.' (cf. (281)) |                              |                                     |                                    |
-| (289)                                              | <i>Jana</i>                  | <i>juku-mundu mayi</i>              | <i>yilba-l.</i>                    |
+| (288) | Mabel                                              | yirrka-y        | bayan-mundu.                 |
+|-------|----------------------------------------------------|-----------------|------------------------------|
+|       |                                                    | Mabel.ABS(S)    | sing.out-NONPAST house-ABESS |
+|       | 'Mabel is singing out from the house.' (cf. (281)) |                 |                              |
+| (289) | Jana                                               | juku-mundu mayi | yilba-l.                     |
 
 3pl.NOM(A) tree-ABESS fruit.ABS(O) throw-NONPAST 'They are throwing the fruit from the tree.'
 
@@ -200,7 +201,7 @@ Note that while the ablative form in a nominal sentence may have attributive fun
 
 This type of nominal sentence may include an optional dative NP to indicate comparison as for instance (265) or:
 
-(302) *Ngayku kangkal* -- *yalbay nyungu-wun-ku kangkal-ka.* 1sg.POSS.ABS(S) own.child.ABS(S) big 3sg-POSS-DAT own.child-DAT 'My child is bigger than her child. '
+(302) *Ngayku kangkal* -- *yalbay nyungu-wun-ku kangkal-ka*. 1sg.POSS.ABS(S) *own.child.ABS(S) big 3sg-POSS-DAT own.child-DAT* 'My child is bigger than her child. '
 
 (e) A comitative construction which may convey ownership, accompaniment or a characteristic (see §4.6.1 ), for example:
 

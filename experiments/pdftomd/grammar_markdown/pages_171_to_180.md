@@ -4,7 +4,7 @@ An agentless passive may of course also imply a chance action as in (362) below 
 
 (362) Mayngku nyaji-ji-y, mana! mango.ABS(S) see-ITR -NONP ASf take-IMP ''[If] [you or someone] happen to see any mangoes, take [bring] them!'
 
-R. Hershberger ( 1 1964b:47, 1979:59) reports that the verbs nuka-l ‘eat', baka-l 'dig, poke', yajarri-l 'laugh about' and muja-l 'gather' do not occur in passive, but only in antipassive constructions (see below). I have found that this is not so. Examples of nuka-l and baka-l in passive are given in (36 1) and (346) above. There are, however, semantic restrictions on the use of these verbs in a chance passive because they refer to inherently volitional actions and are therefore unlikely to happen by chance (except baka-l in the sense of 'poke'). If the wrong object were accidentally affected, a transitive sentence with kanban would be used rather than the passive (see above). But these verbs may occur in a topic passive, such as nuka-l 'eat' in (36 1) or munja-l 'gather' in the next sentence. 
+R. Hershberger ( 1 (1964b:47, 1979:59) reports that the verbs nuka-l ‘eat', baka-l 'dig, poke', yajarri-l 'laugh about' and muja-l 'gather' do not occur in passive, but only in antipassive constructions (see below). I have found that this is not so. Examples of nuka-l and baka-l in passive are given in (36 1) and (346) above. There are, however, semantic restrictions on the use of these verbs in a chance passive because they refer to inherently volitional actions and are therefore unlikely to happen by chance (except baka-l in the sense of 'poke'). If the wrong object were accidentally affected, a transitive sentence with kanban would be used rather than the passive (see above). But these verbs may occur in a topic passive, such as nuka-l 'eat' in (36 1) or munja-l 'gather' in the next sentence. 
 
 (363) Marra munja-ji-ny zamia.nut.ABS(S) gather-ITR-PAST 'Zamia nuts were gathered [by someone].' 
 
@@ -45,10 +45,9 @@ In an antipassive construction, as in passive, the transitive verb is intransiti
 
 The semantic content of an antipassive construction cannot be captured in one formula, but ample exemplification will be given below. An example of the structural difference between underlying and surface form is:
 
-| (365) a. Nyulu      | dingkar-angka | minya       | nuka-ny. |
-|---------------------|---------------|-------------|----------|
-| 3sg.NOM(A)          | man-ERG:pt(A) | meat.ABS(O) | eat-PAST |
-| 'The man ate meat.' |               |             |          |
+| (365) a.            | <i>Nyulu</i><br>3sg.NOM(A) | <i>dingkar-angka</i><br>man-ERG:pt(A) | <i>minya</i><br>meat.ABS(O) | <i>nuka-ny.</i><br>eat-PAST |
+|---------------------|----------------------------|---------------------------------------|-----------------------------|-----------------------------|
+| 'The man ate meat.' |                            |                                       |                             |                             |
 
 b. Nyulu dingkar minya-nga nuka-ji-ny. 3sg.NOM(S) man.ABS(S) meat-LOC eat-ITR-PAST "The man had a good feed of meat (he wasted nothing)."
 
@@ -56,11 +55,11 @@ In syntactically ergative languages like Dyirbal and Yidiny the antipassive is o
 
 The antipassive in Kuku Yalanji is used productively for what may be called a 'generalised action', a term coined by Haviland (1 979a:1 32) for the similar use of antipassive in Guugu Yimidhirr. This means that the described action is not discrete and is performed on some general or 'non-individuated'25 object which may or may not be stated in surface structure, that is where transitive sentence condition (4) is not met.26 To indicate
 
-26 Djabugay uses the cognate intransitive suffix -yi- under a similar condition, among other conditions, without however applying antipassive (see Patz 1 99 1 :299).
-
 <sup>24</sup>  The functions of passive and antipassive in Guugu Yimidhirr are similar to those in Kuku Yalanji (see Haviland 1 979a: 1 28- 1 34).
 
 <sup>25</sup>  See Hopper and Thompson ( 1 980:253ff.); this term is discussed further later on in this subsection.
+
+<sup>26</sup>  Djabugay uses the cognate intransitive suffix -yi- under a similar condition, among other conditions, without however applying antipassive (see Patz 1 99 1 :299).
 
 'generalised action' on a 'non-individuated' object the antipassive construction contains a reduplicated verb form as for instance in text 3, lines 39 and 48 and:
 
@@ -217,7 +216,7 @@ Speakers are quite happy to exchange yamba for kari and vice versa in the above 
 
 The co-ordination particle kaki introduces a conditional clause and will be glossed as 'if'. Usually, the kaki clause is the first of two co-ordinated clauses, but it may also occur in second position. Co-ordinate structures with kaki apparently cannot occur in the past tense.31
 
-| (393) | Kaki<br>yundu                                                   | yinya        | kaya       | juku-bu          | kuni-l,     |
+| (393) | Kaki yundu                                                      | yinya        | kaya       | juku-bu          | kuni-l,     |
 |-------|-----------------------------------------------------------------|--------------|------------|------------------|-------------|
 |       | if<br>2sg.NOM(A)                                                | that.ABS(O)  | dog.ABS(O) | stick-INST       | hit-NONPAST |
 |       | yununy<br>bayka-l.                                              |              |            |                  |             |
@@ -253,10 +252,12 @@ Temporal clitics -da 'then', -(ng) Vrr 'first of all', and kuda 'meanwhile' (see
 
 Clitic -ji ~ -yijin 'in turn' (see §3. 1 0.3), although it may also occur in independent clauses, is more relevant for sentence co-ordination. In this function it indicates an (appropriate) action that may have been prompted by the action of a different actor as stated in the coordinated clause, for example:
 
-| (399) | Nyulu<br>3sg.NOM(A)                                      | ngayku<br>1sg.POSS.ABS(O) | kambi<br>clothes.ABS(O) | julurri-l,<br>wash-NONPAST |
-|-------|----------------------------------------------------------|---------------------------|-------------------------|----------------------------|
-|       | ngayu-ji<br>1sg.NOM(A)-in.turn                           | nyungu-nku<br>3sg-DAT:pt  | mayi<br>food.ABS(O)     | waju-l.<br>cook-NONPAST    |
-|       | 'She washes my clothes and I in turn cook food for her.' |                           |                         |                            |
-| (400) | Jalhu-naku                                               | naanya                    | kuni-ny                 | naayu-ji                   |
+| (399) | Nyulu                                                    | ngayku          | kambi          | julurri-l,   |
+|-------|----------------------------------------------------------|-----------------|----------------|--------------|
+|       | 3sg.NOM(A)                                               | 1sg.POSS.ABS(O) | clothes.ABS(O) | wash-NONPAST |
+|       | ngayu-ji                                                 | nyungu-nku      | mayi           | waju-l.      |
+|       | 1sg.NOM(A)-in.turn                                       | 3sg-DAT:pt      | food.ABS(O)    | cook-NONPAST |
+|       | 'She washes my clothes and I in turn cook food for her.' |                 |                |              |
+| (400) | lalbu-ngku                                               | nganya          | kuni-ny        | ngayu-ji     |
 
-(400) Jalbu-ngku nganya kuni-ny, ngayu-ji woman-ERG:pt(A) I sg.ACC(O) hit-PAST Isg.NOM(A)-in.turn
+(400) Jalbu-ngku nganya kuni-ny, ngayu-ji woman-ERG:pt(A) I sg.ACC(O) hit-PAST Isg.NOM(A)-in.tum

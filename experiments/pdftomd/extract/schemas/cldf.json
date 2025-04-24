@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ID", "Parameter_ID", "Language_ID", "Value"],
+        "properties": {
+          "ID": { "type": "string" },
+          "Parameter_ID": { "type": "string" },
+          "Language_ID": { "type": "string" },
+          "Value": { "type": "string" },
+          "Source": { "type": "string" }
+        }
+      }
+    }
+  }
+}

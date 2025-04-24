@@ -74,7 +74,7 @@ Any clause constituent may be placed in prominent leftmost position for special 
 
 (This example also displays the emphatic clitic -ku, to be discussed in the next sub-section.)
 
-Line 40 has unmarked word order. Line 41, with zero anaphora for the topic, leaves kulji yalbayku in leftmost position, which helps to alert the audience to the significance of the rock. Line 42 begins with baralbaku 'right on the road' to emphasise the implications of this trap that is so ingeniously constructed by the Aborigine.
+Line 40 has unmarked word order. Line 41, with zero anaphora for the topic, leaves *kulji* yalbayku in leftmost position, which helps to alert the audience to the significance of the rock. Line 42 begins with baralbaku 'right on the road' to emphasise the implications of this trap that is so ingeniously constructed by the Aborigine.
 
 Verbs, adverbs and adjectives may also be fronted for emphasis. An example of a verb in clause initial position is in text 1 2, line 25:
 
@@ -98,7 +98,7 @@ Reprise of S NP:
 
 Reprise of A NP:
 
-(644) Waybala-ngka, jana bama white.man-ERG:pt(A) 3pl.NOM(A) Aborigine.ABS(O) kuni-l-kuni-ny. kill-l-REDUP-PAST 'White men, they killed many Aborigines. ' wubul many.ABS(O)
+(644) Waybala-ngka, jana bama *white.man-ERG:pt(A) 3pl.NOM(A) Aborigine.ABS(O) many.ABS(O)* kuni-l-kuni-ny. kill-l-REDUP-PAST 'White men, they killed many Aborigines. ' wubul
 
 Reprise of 0 NP:
 
@@ -114,17 +114,17 @@ Another example of reprise applying to an 0 NP was given in sentence (639).
 
 The semantic distinctions of emphatic clitics -ku (EM PH 1), -lu (Yalanji), -la (Nyungkul) (both EMPH2) and -bi (EMPH3) are not entirely clear. They appear to have different emphatic strength and play different roles in the interaction between speaker and listener.
 
-The form -ku is the most frequently occurring emphatic clitic and therefore appears to be a rather commonplace emphatic marker (similar to 'really' in English). The assumption that it is relatively weak is supported by the fact that it may be followed by other emphatic clitics lu and -bi (see for instance -ku-lu in examples (629) and (630).
+The form -ku is the most frequently occurring emphatic clitic and therefore appears to be a rather commonplace emphatic marker (similar to 'really' in English). The assumption that it is relatively weak is supported by the fact that it may be followed by other emphatic clitics *lu* and -*bi* (see for instance -*ku-lu* in examples (629) and (630).
 
-Clitics -La in the Nyungkul dialect and -lu in the Yalanji dialect are similar in form and have partly similar functions. Yalanji -lu is used predominantly to mark whole parts of text as particularly important events, which will be discussed in §5.5.1.1 . Nyungkul -La does not have this function, but both dialects may use -la or -lu to emphasise individual nouns. These clitics seem to request the audience to pay special attention and could be translated as 'hark!' or 'pay attention!'
+Clitics -*la* in the Nyungkul dialect and -*lu* in the Yalanji dialect are similar in form and have partly similar functions. Yalanji -*lu* is used predominantly to mark whole parts of text as particularly important events, which will be discussed in §5.5.1.1. Nyungkul -*la* does not have this function, but both dialects may use -*la* or -*lu* to emphasise individual nouns. These clitics seem to request the audience to pay special attention and could be translated as 'hark!' or 'pay attention!'
 
-A typical use of -lu in this function occurred in conversation and is worth while recounting here: Mrs Mabel Webb had begun to tell me about a trip that she had undertaken together with some other women, when she sneezed. I asked whether she had a cold: "Yundu ngikiji?" Mrs Webb misunderstood me as saying: "mijiji? ", i.e. enquiring whether the people involved in her tale were white women, and she replied somewhat impatiently: "Kari,
+A typical use of -*lu* in this function occurred in conversation and is worth while recounting here: Mrs Mabel Webb had begun to tell me about a trip that she had undertaken together with some other women, when she sneezed. I asked whether she had a cold: “Yundu ngikiji?” Mrs Webb misunderstood me as saying: “mijiji?”, i.e. enquiring whether the people involved in her tale were white women, and she replied somewhat impatiently: “Kari,
 
-bamalu!" "No, they were Aborigines (do pay attention to what I say)!" Nyungkul -La is exemplified in text 51, line 97, repeated below:
+*bamalu!*” “No, they were Aborigines (do pay attention to what I say)!” Nyungkul -*la* is exemplified in text 51, line 97, repeated below:
 
 (646) Nyulu warndiny kayala. 'It got up, the dog [did].' (fhe dead dog well and truly got up again - note this, listener!)
 
-While -ku and -lui -La could be seen to assert the significance of something relative to the context of the plot, clitic -bi may have its function more as an affective marker in the interactive context in which a story is told. H. Hershberger and R. Hershberger (1 982:294) suggest -bi to indicate "surprise about something in the narrative". The listener is invited to share a sense of amazement about some event. Consider some of its uses in the appended texts:
+While -*ku* and -*lu*/-*la* could be seen to assert the significance of something relative to the context of the plot, clitic -*bi* may have its function more as an affective marker in the interactive context in which a story is told. H. Hershberger and R. Hershberger (1 982:294) suggest -bi to indicate "surprise about something in the narrative". The listener is invited to share a sense of amazement about some event. Consider some of its uses in the appended texts:
 
 (647) text 36, line 37 yinyabi bijarrmuny
 
@@ -156,25 +156,25 @@ Nyungkul speakers and Yalanji speakers have different ways of distinguishing bet
 
 ### 5.5. 1. 1 Important events in Yalanji dialect
 
-In the Yalanji dialect a narrator may make copious use of the emphatic clitic -lu to mark events deemed to be particularly important. This clitic has been defined above (§5.4.2) as an attention-getting device. It may attach to all kinds of clause components and often follows the general emphatic clitic -ku.
+In the Yalanji dialect a narrator may make copious use of the emphatic clitic -*lu* to mark events deemed to be particularly important. This clitic has been defined above (§5.4.2) as an attention-getting device. It may attach to all kinds of clause components and often follows the general emphatic clitic -ku.
 
-Let us look at the excerpts from text 3 which contain the first two -lu-marked events in a very long and meandering narrative. Previous to line 1 of the excerpt Mrs Walker had related how her party had prepared for the trip. Lines 1-14 tell us how the group is driving along in the rain. In lines 1 5-1 7 there is the first significant event: they encounter difficulties on the slippery road, the driver tries to control the car, but the car keeps slipping about in a most alarming fashion. Clitic -lu occurs three times, always with verbs and in conjunction with -ku. Once this problem is overcome, the journey proceeds 'uneventfully' and no -lu is used until the event involving the strange visitor on the campsite. But it is not really the appearance of the stranger that is marked as significant, rather the unsatisfactory behaviour of the young male members of Mrs Walker's party. In lines 43-49 -lu is used six times, always in connection with nouns. In the quotations in lines 45 and 49 -lu is used probably more in the function of localised highlight, nevertheless it occurs within the boundaries of this particular event. (The most frequent occurrence of -lu that I have encountered is 12 times in 10 text lines, preceded by 28 text lines in which -lu appeared only 5 times and widely apart as local emphatic marker.)
+Let us look at the excerpts from text 3 which contain the first two -*lu*-marked events in a very long and meandering narrative. Previous to line 1 of the excerpt Mrs Walker had related how her party had prepared for the trip. Lines 1-14 tell us how the group is driving along in the rain. In lines 1 5-1 7 there is the first significant event: they encounter difficulties on the slippery road, the driver tries to control the car, but the car keeps slipping about in a most alarming fashion. Clitic -lu occurs three times, always with verbs and in conjunction with -ku. Once this problem is overcome, the journey proceeds 'uneventfully' and no -lu is used until the event involving the strange visitor on the campsite. But it is not really the appearance of the stranger that is marked as significant, rather the unsatisfactory behaviour of the young male members of Mrs Walker's party. In lines 43-49 -lu is used six times, always in connection with nouns. In the quotations in lines 45 and 49 -lu is used probably more in the function of localised highlight, nevertheless it occurs within the boundaries of this particular event. (The most frequent occurrence of -lu that I have encountered is 12 times in 10 text lines, preceded by 28 text lines in which -lu appeared only 5 times and widely apart as local emphatic marker.)
 
-To sum up, we can say that emphatic clitic -lu in Yalanji, when used repeatedly throughout a section of text, marks this section as a significant event in contrast to others. Sequences marked with clitic -lu may be regarded as the 'high points' or 'peaks' in a Yalanji narrative (see Longacre & Levinsohn 1 977: 1 09).
+To sum up, we can say that emphatic clitic -lu in Yalanji, when used repeatedly throughout a section of text, marks this section as a significant event in contrast to others. Sequences marked with clitic -lu may be regarded as the 'high points' or 'peaks' in a Yalanji narrative (see Longacre & Levinsohn 1977:109).
 
 #### 5.5. 1.2 Non-events versus events in Nyungkul dialect
 
-While Yalanji uses a special device for marking peaks, Nyungkul applies a certain morphological feature, the unmarked verb inflection -nyV, for non-events. At sentence level, suffix -nyV functions as subordination marker (see §4.4.4). However, it also occurs frequently in texts, in strings of verbs or several consecutive sentences, where there is no evidence at all for subordination; i.e. its function cannot be explained in syntactic terms. In such an environment -nyV appears to indicate 'non-event', a discourse function.6
+While Yalanji uses a special device for marking peaks, Nyungkul applies a certain morphological feature, the unmarked verb inflection -nyV, for non-events. At sentence level, suffix -*nyV* functions as subordination marker (see §4.4.4). However, it also occurs frequently in texts, in strings of verbs or several consecutive sentences, where there is no evidence at all for subordination; i.e. its function cannot be explained in syntactic terms. In such an environment -*nyV* appears to indicate 'non-event', a discourse function.<sup>6</sup>
 
-Consider text 51 which contains in lines 61-67 an explanatory remark on how people prepared ground ovens in the old days. This part of text was clearly set off as a parenthetic remark by the speaker's intonation and voice quality. In other words, he interrupted the story
+Consider text 51 which contains in lines 61–67 an explanatory remark on how people prepared ground ovens in the old days. This part of text was clearly set off as a parenthetic remark by the speaker's intonation and voice quality. In other words, he interrupted the story
 
 <sup>6</sup>See Grimes' ( 1975:93) observation that the aspectual system of some languages can be fully understood only within the framework of discourse.
 
-in order to explain to me the technicalities of the ground oven that had just been set up by the participants of the story. And throughout this parenthetic remark he used only unmarked inflection -nyV which occurs nowhere else in this text.
+in order to explain to me the technicalities of the ground oven that had just been set up by the participants of the story. And throughout this parenthetic remark he used only unmarked inflection -*nyV* which occurs nowhere else in this text.
 
-On the evidence that unmarked inflection -nyV is used in a clearly non-event situation in this context, we can infer from this how a Nyungkul speaker structures his or her narrative into events and non-events by means of this unmarked verbal inflection. In text 12 for instance, lines 5-21 contain predominantly unmarked verb inflection. Here the narrator conveys information about the hero's habits and one of his past exploits, before launching into the story proper (with normal past-tense inflection), which deals with the particular incident of how the hero set a trap for the police. Within the non-event span the narrator briefly changes to past tense inflection in lines 15 and 1 7. These lines deal with the previous encounter between hero and police and thus represent something like an event within a nonevent.
+On the evidence that unmarked inflection -*nyV* is used in a clearly non-event situation in this context, we can infer from this how a Nyungkul speaker structures his or her narrative into events and non-events by means of this unmarked verbal inflection. In text 12 for instance, lines 5-21 contain predominantly unmarked verb inflection. Here the narrator conveys information about the hero's habits and one of his past exploits, before launching into the story proper (with normal past-tense inflection), which deals with the particular incident of how the hero set a trap for the police. Within the non-event span the narrator briefly changes to past tense inflection in lines 15 and 1 7. These lines deal with the previous encounter between hero and police and thus represent something like an event within a nonevent.
 
-In text 36 variation between past tense and unmarked inflection is somewhat more complicated. The main problem here is that we, as non-Nyungkul outsiders, would probably interpret the utterances containing unmarked inflection as rather belonging to an event sequence. But if we are guided by the presence or absence of unmarked inflection -nyV, we see the plot developing in the following way: lines 1 -4 state that everyone was asleep and that the child had a dream about a crocodile. This information tells us in effect what the story is about and the speaker treats this as event (past tense inflection). Lines 5 and 6, relating that the child did not sleep and cried out, are treated as non-event (unmarked inflection). We already know that the child is having a bad dream and so we may infer that the speaker is now setting the scene for the following event, the interaction between the distressed child and the concerned adults. This, as well as the subsequent narrative up to line 42, is recounted in event form with past tense inflections. In line 43, again perhaps surprisingly because it is in the middle of an action-packed sequence, the speaker switches back to unmarked inflection for non-event. But what is actually happening? The crocodile has got the child and the onlookers are distressed - what more is there to be said? The terrible accident has happened and the following is no more than a fading repetition of the previous happening. (Switching to non-event may perhaps also serve to signal to the audience that this is indeed the end of the child and that there is no hope for a happy turn in the affair.) The narrator then concludes the story with some final event-related remarks (past tense in line 52) to assert the unhappy ending.
+In text 36 variation between past tense and unmarked inflection is somewhat more complicated. The main problem here is that we, as non-Nyungkul outsiders, would probably interpret the utterances containing unmarked inflection as rather belonging to an event sequence. But if we are guided by the presence or absence of unmarked inflection -*nyV*, we see the plot developing in the following way: lines 1–4 state that everyone was asleep and that the child had a dream about a crocodile. This information tells us in effect what the story is about and the speaker treats this as event (past tense inflection). Lines 5 and 6, relating that the child did not sleep and cried out, are treated as non-event (unmarked inflection). We already know that the child is having a bad dream and so we may infer that the speaker is now setting the scene for the following event, the interaction between the distressed child and the concerned adults. This, as well as the subsequent narrative up to line 42, is recounted in event form with past tense inflections. In line 43, again perhaps surprisingly because it is in the middle of an action-packed sequence, the speaker switches back to unmarked inflection for non-event. But what is actually happening? The crocodile has got the child and the onlookers are distressed - what more is there to be said? The terrible accident has happened and the following is no more than a fading repetition of the previous happening. (Switching to non-event may perhaps also serve to signal to the audience that this is indeed the end of the child and that there is no hope for a happy turn in the affair.) The narrator then concludes the story with some final event-related remarks (past tense in line 52) to assert the unhappy ending.
 
 H. Hershberger and R. Hershberger's (1 982) interpretation of -nyV as "habitual" would be appropriate for many of its occurrences in the appended texts (e.g. text 1 2, lines 5-14 and text 51, lines 6 1-67), but not for all of them (e.g. text 36, lines 5, 6, 30, 31, 43-47). The term 'unmarked verbal inflection' is preferable as the more general term.
 
@@ -188,7 +188,7 @@ different places. Direction of movement and locations are always clearly defined
 
 Spatial setting in Nyungkul can be accomplished by general non-event marking, but another way to set the spatial scene that is common to both Nyungkul and Yalanji is to describe a place in non-past tense as opposed to the past tense narrative. An example of this is found at the very beginning of text 1 2, where the speaker also addresses me personally since he knew that I was familiar with the particular area.
 
-Motion verbs kada-y 'come' and dunga-y 'go' play a significant part in the spatial setting of a narrative. Kada-y is always used with reference to a goal towards which the participant moves, as for instance in text 51, lines 3-4:
+Motion verbs *kada-y* 'come' and *dunga-y* 'go' play a significant part in the spatial setting of a narrative. *Kada-y* is always used with reference to a goal towards which the participant moves, as for instance in text 51, lines 3-4:
 
 - (65 1) 3 Bakarrmuku-muny kada-ny, kada-ny kada-ny kada-ny, Wakooka.Stn-ABL come-PAST come-PAST ... '[They] came from Wakooka Station, came on and on and on,
 	- 4 bula yuwulbuwun kada-ny. 3du.NOM(S) Jeannie.River come-PAST they came to the Jeannie River. '
@@ -197,14 +197,14 @@ Thus kada-y 'come' serves to indicate both 'transit' (the goal is not yet reache
 
 Dunga-y 'go', on the other hand, may indicate 'departure' as for instance in text 51, line 37:
 
-| (652) | Dunga-ny-da                                                                                  | wulbuman         | wangkar | dunga-ny | kaya-nda   |
-|-------|----------------------------------------------------------------------------------------------|------------------|---------|----------|------------|
-|       | go-PAST-TEMP₁                                                                                | old.woman.ABS(S) | upwards | go-PAST  | dog-LOC:pt |
-|       | mani-nka.                                                                                    |                  |         |          |            |
-|       | get-PURP                                                                                     |                  |         |          |            |
-|       | 'Off went the old woman (leaving the two young fellows), went up to the<br>dog to get [it].' |                  |         |          |            |
+| (652) | Dunga-ny-da                                                             | wulbuman         | wangkar | dunga-ny | kaya-nda   |
+|-------|-------------------------------------------------------------------------|------------------|---------|----------|------------|
+|       | go-PAST-TEMP 1                                                          | old.woman.ABS(S) | upwards | go-PAST  | dog-LOC:pt |
+|       | mani-nka.<br>get-PURP                                                   |                  |         |          |            |
+|       | 'Off went the old woman (leaving the two young fellows), went up to the |                  |         |          |            |
+|       | dog to get [it].'                                                       |                  |         |          |            |
 
-As the second occurrence of dunga-ny in the above example implies, dunga-y 'go' may also serve as a term that is unmarked for 'departure', but represents motion from the perspective of the participant, rather than from the perspective of the goal like kada-y 'come'. Consider also text 51, line 5:
+As the second occurrence of *dunga-ny* in the above example implies, *dunga-y* 'go' may also serve as a term that is unmarked for 'departure', but represents motion from the perspective of the participant, rather than from the perspective of the goal like kada-y 'come'. Consider also text 51, line 5:
 
 (653) Bula kada-ny, bula wawubaja-nga dunga-ny. 3du.NOM(S) come-PAST 3du.NOM(S) river-LOC go-PAST 'They came and they went to the river. '
 
@@ -222,17 +222,20 @@ Narratives usually take place in the past and temporal setting is often establis
 
 Particles kari, yamba and balu have the narrative discourse function of indicating what did not happen out of a range of possibilities, sometimes against expectations. According to Grimes (1 975:65) such "collateral devices" serve to set up alternatives to the actual events in a narrative and the fact that alternatives are mentioned "makes what actually does happen stand out in sharper relief than if it were told without collateral".
 
-The main collateral function of particle kari lies in negating an alternative that is not necessarily stated but is implicit. In §4.3.2 I have shown that particle kari, at the beginning of the second of two conjoined clauses, negates in retrospect the content of the first clause. Kari may also be used initially in an independent clause and we can infer from this that something which could have been expected, but remained unsaid, did not take place; only one of several alternatives happened. Thus the semantic content of particle kari in this context could be paraphrased as 'several alternatives are possible but only the following applies'. Consider an example of two consecutive sentences:
+The main collateral function of particle *kari* lies in negating an alternative that is not necessarily stated but is implicit. In §4.3.2 I have shown that particle *kari*, at the beginning of the second of two conjoined clauses, negates in retrospect the content of the first clause. *Kari* may also be used initially in an independent clause and we can infer from this that something which could have been expected, but remained unsaid, did not take place; only one of several alternatives happened. Thus the semantic content of particle *kari* in this context could be paraphrased as 'several alternatives are possible but only the following applies'. Consider an example of two consecutive sentences:
 
-| (654) i. | Nganjin-ku-lu<br>1pl.exc.NOM(A)-EMPH₁-EMPH₂                 | murruji unable                       | wukurri-l-wukurri-ny<br>follow-l-REDUP-PAST |  |
-|----------|-------------------------------------------------------------|--------------------------------------|---------------------------------------------|--|
-|          | kuyu-lu<br>fish.ABS(S)-EMPH₂                                | bana-nga<br>water-LOC                | janji-ny.<br>swim-PAST                      |  |
-|          | 'We could not follow, the fish was swimming in the water.'  |                                      |                                             |  |
-| ii.      | Kari<br>but                                                 | ngamu-ngku-lu<br>mother-ERG:pt-EMPH₂ | yalama-ny: "Yubal<br>say-PAST 2du.NOM(A)    |  |
-|          | juwal-da<br>digging.stick-INST                              | dama!"<br>spear-IMP                  |                                             |  |
-|          | 'But mother said: "You two spear it with a digging stick!"' |                                      |                                             |  |
+| (654) i. | Nganjin-ku-lu                                                          | murruji wukurri-l-wukurri-ny |
+|----------|------------------------------------------------------------------------|------------------------------|
+|          | 1pl.exc.NOM(A)-EMPH1-EMPH2 unable follow-l-REDUP-PAST                  |                              |
+|          | kuyu-lu<br>bana-nga janji-ny.<br>fish.ABS(S)-EMPH2 water-LOC swim-PAST |                              |
+|          | 'We could not follow, the fish was swimming in the water.'             |                              |
+| ii.      | Kari ngamu-ngku-lu                                                     | yalama-ny: "Yubal            |
+|          | but mother-ERG:pt-EMPH2 say-PAST                                       | 2du.NOM(A)                   |
+|          | juwal-da dama!"                                                        |                              |
+|          | digging.stick-INST spear-IMP                                           |                              |
+|          | 'But mother said: "You two spear it with a digging stick!"'            |                              |
 
-Seeing that they could not follow the fish (which was injured and expected to exhaust itself), these people had two options: leave it alone or try to get it by some other means. Kari implies that one of these options was discarded and the subsequent clause indicates which one was chosen. Another example is in text 51, lines 29-30:
+Seeing that they could not follow the fish (which was injured and expected to exhaust itself), these people had two options: leave it alone or try to get it by some other means. *Kari* implies that one of these options was discarded and the subsequent clause indicates which one was chosen. Another example is in text 51, lines 29-30:
 
 | (655) 29 | "Ngali                        | kuwa-muny | kada-ri-ny."  |
 |----------|-------------------------------|-----------|---------------|
@@ -241,18 +244,18 @@ Seeing that they could not follow the fish (which was injured and expected to ex
 
 30 UN gay, kari wangkar-muny ngayu kankada-ny. " INTER but up-ABL I sg.NOM(S) come.REDUP-PAST '''I see, but I came from up there.'"
 
-The second speaker, the old woman with the dog, could have come from several directions, including the one that the first speaker came from. Kari is used to deny this latter possibility
+The second speaker, the old woman with the dog, could have come from several directions, including the one that the first speaker came from. *Kari* is used to deny this latter possibility
 
 before the woman says where she did come from. In this particular context it is significant that the woman disassociates her own point of departure from that of the two fellows, since she wants to conceal the true nature of her dog which was left behind on the way.
 
-The co-ordination particle yamba (see §4.3.2) qualifies a previous statement, usually describing a state, by adding a contrastive aspect. Hence the use of yamba is akin to the 'adversative' function of kari, for example:
+The co-ordination particle yamba (see §4.3.2) qualifies a previous statement, usually describing a state, by adding a contrastive aspect. Hence the use of yamba is akin to the 'adversative' function of *kari*, for example:
 
 - (656) Walkarr kul-ji kari, black.goanna.ABS(S) rage-COMIT NEG yamba dirra but teeth.ABS(S) germs-mun-ji minya kabu nuka-nya. germs-mun-COMIT meat.ABS(O) rotten.ABS(O) eat-sUB 'The black goanna is not vicious, but [its] teeth are full of germs from eating rotten meat. '
-- (657) J ana mala-minya 3pl.NOM(S) expert-meat bubu walu-yindu. land.ABS(S) face-other yala bama, yamba jana-nga like Aborigine but 3pl-poSS.ABS(S) 'They (the Eskimos) are good hunters and fishermen like Aborigines, but their country is different.'
+- (657) J ana mala-minya 3pl.NOM(S) expert-meat like Aborigine but 3pl-POSS.ABS(S) bubu walu-yindu. land.ABS(S) face-other yala bama, yamba jana-nga 'They (the Eskimos) are good hunters and fishermen like Aborigines, but their country is different.'
 
 The 'adversative' function of discourse particle balu lies in implying a wrong assumption on the part of the speaker (see §4.9.2 (ii)). Because it is directly speaker related it is used typically in conversation or first person narratives. In third person narratives it may occur in quotations of participants' utterances.
 
-(658) Balu yundu minya dinda-nka, wrong 2sg.NOM(A) meat.ABS(O) roast-PURP bana-nga waju-l. water-LOC cook-NONPAST kari yundu but 2sg.NOM(A) 'I thought you intended to roast the meat, but you are boiling it in water.' (659) Balu nyulu kada-ny-baja.
+(658) Balu yundu minya dinda-nka, wrong 2sg.NOM(A) meat.ABS(O) roast-PURP but 2sg.NOM(A) bana-nga waju-l. water-LOC cook-NONPAST kari yundu 'I thought you intended to roast the meat, but you are boiling it in water.' (659) Balu nyulu kada-ny-baja.
 
 wrong 3sg.NOM(S) come-PAsT-again 'I thought he was coming back (but apparently he did not).'
 

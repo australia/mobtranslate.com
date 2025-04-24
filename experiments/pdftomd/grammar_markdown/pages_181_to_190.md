@@ -1,6 +1,6 @@
 nyunguny kuni-ny. 3sg.ACC(O) hit-PAST 'The woman hit me and I in tum hit her [back].'
 
-# 4.4 Subordinate clauses
+## 4.4 Subordinate clauses
 
 A clause is understood to be subordinate to another clause if it cannot be uttered independently; in other words, a subordinate clause must be directly adjoined to a main or superordinate clause. (Sometimes a subordinate clause by itself may constitute the answer to a question where the question can be regarded as the main clause, e.g. 'Why do you go to the river? - To catch fish' (purposive clause) or 'Why do you take a stick? - Lest the dog attack me' (precautionary clause).) Functionally, we can distinguish seven different types of subordinate clauses in Kuku Yalanji expressing the following concepts: 1. purposive, 2. precautionary, 3. successive, 4. simultaneous action, 5. causal, 6. prior event, 7. hypothetical reason. Clause types 4-7 are all based on verb + -nya constructions (see §3.2.3.6 and §3.8.4.2 (viii» which display nominal characteristics in some clauses.
 
@@ -19,7 +19,7 @@ Subordinate clauses may or may not share common NPs with the main clause. Deleti
 
 Some subordinate clauses may be interpreted as relative clauses, which will be discussed separately in §4.4.5.
 
-## 4. 4.1 Purposive
+### 4. 4.1 Purposive
 
 A verb with purposive inflection -nkV (see §3.8.4.2 (v» may occur as the only verbal constituent of a main clause as well as in a subordinate clause. In a main clause a purposive verb implies the need or obligation to do something, arising out of a certain necessity, for example:
 
@@ -37,10 +37,10 @@ A dative noun in this environment indicates that its referent will be subjected 
 
 A purposive clause may also imply a normal but unplanned consequence, which arises out of the main clause action, as for instance:
 
-| (404) | <i>Karrkay</i>                                                             | <i>jurrki-ji-y,</i> | <i>balka-ji-nka.</i> |
-|-------|----------------------------------------------------------------------------|---------------------|----------------------|
-|       | child.ABS(S)                                                               | move-REF-NONPAST    | make-REF-PURP        |
-|       | 'The child moves and as a result gets born.' (i.e. moves down in the womb) |                     |                      |
+| (404) | Karrkay                                                                    | jurrki-ji-y,     | balka-ji-nka. |
+|-------|----------------------------------------------------------------------------|------------------|---------------|
+|       | child.ABS(S)                                                               | move-REF-NONPAST | make-REF-PURP |
+|       | 'The child moves and as a result gets born.' (i.e. moves down in the womb) |                  |               |
 
 A purposive clause follows the main clause and virtually any co-referential NP may be deleted in the subordinate clause. Obligatory deletion applies to common S or A NPs, i.e. the grammatical subject, and a common 0 NP. Deletion of other co-referential NPs is preferred but will not apply where this renders the sentence ambiguous. Where this is the case, an anaphoric pronoun may be used.
 
@@ -155,7 +155,7 @@ These sentences were considered somewhat ambiguous by informants in that it appe
 
 'Granny took the girl so that she (the girl) will get her clothes. '
 
-*Nyulu* in the purposive clause can only be co-referential with *maral*, the O NP of the main clause, because co-referential A = A' would require obligatory deletion of A'.
+Nyulu in the purposive clause can only be co-referential with maral, the O NP of the main clause, because co-referential A = A' would require obligatory deletion of A'.
 
 A purposive clause need not share a common NP with the main clause as for example:
 
@@ -172,7 +172,7 @@ Like nouns in dative case, the purposive fonn of the verb is also required in co
 	- c. Nyulu wawu minya nuka-nka. 3sg.NOM(S) want meat.ABS(O) eat-PURP He wants to eat meat.
 - (427) N gayu wawu jana 1sg.NOM(S) want 3pl.NOM(A) turtle.ABS(O) get-PURP 'I want them to get some turtle. ' ngawuya mani-nka.
 - (428) a. Ngayu yinil wujurr-ku. ysg.NOM(S) afraid darkness-DAT 'I am afraid of the dark.'
-	- b. Ngayu yinil wujurr-bu 1sg.NOM(S) afraid darkness-LOC go-PURP 'I am afraid to go out in the dark.' dunga-nka.
+	- b. Ngayu yinil wujurr-bu ysg.NOM(S) afraid darkness-LOC go-PURP 'I am afraid to go out in the dark.' dunga-nka.
 
 Here the purposive clause is subordinate to a nominal sentence with which it may or may not share a common NP. 
 
@@ -195,27 +195,27 @@ A precautionary verb form, stem + -nyji (see §3.8.4.2 (vi)), is used only in su
 
 A precautionary clause follows the main clause. Co-referential NP deletion possibilities are as extensive as those for purposive constructions; however, there is apparently no semantic environment in which an oblique object in the precautionary clause can be coreferential with an NP in the main clause. Again, obligatory deletion in the subordinate clause applies to co-referential S/A NPs, unless the main clause is an imperative as in (433), and to a common 0 NP. Other deletions are optional but preferred. Examples:
 
-S = S'
+ $S = S'$ 
 
 (432) Nyulu kari janji-l wawubaja-nga, bujil-janji-nyji. 3sg.NOM(S) NEG bathe-NONPAST river-LOC nose-bathe-PRECAUT 'He does not bathe in the river lest [he] drown.'
 
-S = A'
+ $S = A'$ 
 
 (433) Kari kalka-ji nguju-wuri-y, yundu ngawa kuni-nyji. NEG spear-COMIT funny-dance-IMP 2sg.NOM(A) baby.ABS(O) hit-PRECAUT 'Don't play/fool around with the spear lest you hit the baby!'
 
 If a precautionary construction contains an imperative, which is often the case, the AlS NP is usually stated in the subordinate and not in the main clause, but it may be omitted altogether as in (436) and (44 1 ).
 
-S = O'
+ $S = O'$ 
 
-| (434) | Bama<br>Aborigine.ABS(S) | kari                     | jikan-ba<br>grass-LOC       | kalbay-mba<br>long-LOC                                               | dunga-n-dunga-y,<br>go-n-REDUP-NONPAST |
-|-------|--------------------------|--------------------------|-----------------------------|----------------------------------------------------------------------|----------------------------------------|
-|       |                          | jarba-bu<br>snake-ERG(A) | bayka-nyji.<br>bite-PRECAUT | 'Aborigines don't walk through long grass lest a snake bite [them].' |                                        |
+| (434) <i>Bama</i><br>Aborigine.ABS(S) | <i>kari jikan-ba</i><br>NEG grass-LOC | <i>kalbay-mba dunga-n-dunga-y,</i><br>long-LOC go-n-REDUP-NONPAST    |
+|---------------------------------------|---------------------------------------|----------------------------------------------------------------------|
+| <i>jarba-bu</i><br>snake-ERG(A)       | <i>bayka-nyji.</i><br>bite-PRECAUT    | 'Aborigines don't walk through long grass lest a snake bite [them].' |
 
-$$\mathbf{A} = \mathbf{S}'$$
+### A=S'
 
 (435) Warru-warru-ngku karnukarnu kari nuka-l-nuka-l, yg.man-REDUP-ERG:pt(A) a1cohol.ABS(O) NEG drink-l-REDUP-NONPAST kuni-wa-nyji. hit -RECIP-PRECA UT 'Young men don't drink alcohol lest [they] fight. '
 
-A = A'
+ $A = A'$ 
 
 (436) Mayi kari waju, buyun-dama-nyji. food.ABS(O) NEG cook.IMP bad-CAUS-PRECAUT 'Don't cook the food lest you spoil [it] !'
 
@@ -230,11 +230,11 @@ In the last example it is perfectly clear who will do the biting and who will su
 
 Here, deletion of both co-referential NPs would result in some doubt as to who hit whom.
 
-O = S'
+ $O = S'$ 
 
 (439) Ngayu ngawa jarrakulba-l, banbadi-nyji. I sg.NOM(A) baby.ABS(O) carry-NONPAST cry.REDUP-PRECAUT 'I carry the baby lest [it] cry.'
 
-O = A'
+ $O = A'$ 
 
 (440) Bula jalbu-ngku dubu waJu-ny, kangkal 3du.NOM(A) woman-ERG:pt(A) ghOSt.ABS(O) burn-PAST own.childABS(O) ngaki-nyji-baja. steal-PRECA UT -again
 
@@ -242,7 +242,7 @@ O = A'
 
 Another example of  $O = A'$  is in (437).
 
- $O = O'$ 
+ $O=O'$ 
 
 (441) Kari diburr kulba, dara-y-mani-nyji. NEG egg.ABS(O) lift.IMP fall-y-CAUS-PRECAUT 'Don't pick up the egg lest you drop [it] !'
 
@@ -268,7 +268,7 @@ the addressee would infer that something ought to be done in order to preserve t
 
 As was mentioned in the previous section, the function of a purposive clause resembles that of a noun in dative case, i.e. 'goal of a purposeful action'. Similarly, in some contexts, the function of a precautionary clause may be compared to that of a dative noun expressing 'general threat for fear of which something is done or not done' (see §4.1 .4.4 (ii), examples (262) and (263)). Again, while the dative noun merely implies a threatening action by its referent, the precautionary clause spells out exactly what the danger is.
 
-### 4.4.3 Successive
+#### 4.4.3 Successive
 
 The verb form root + -nyjiku (see §3.8.4.2 (vii)) in a subordinate clause indicates that this event follows closely after the event referred to in the main clause: 'X does Y shortly before Z happens'.35 The two events are seen in a temporal, and to some extent logical, but not a causal, relationship. It appears that the event in the subordinate clause can be regarded as a temporal reference point with respect to which the timing of the main clause is established. This interpretation is supported by the fact that the subordinate clause action may be unrealised, as in:
 
@@ -278,29 +278,29 @@ Such a sentence would serve as an answer to the question 'when did you kill the 
 
 <sup>35</sup> R. Hershberger (1 979:76-77) uses the term "Prior Time Clause" for this type of subordinate clause. This is a misnomer since the subordinate clause actually refers to the following event and the main clause to the preceding one.
 
-# 1 70 Chapter 4
+## 1 70 Chapter 4
 
 breakfast.) On the other hand, a precautionary clause would be used, in my informant's words, "when a fellow ask you: 'What did you want to kill that snake for?'"
 
 Co-referentiality in successive constructions appears to be restricted to core syntactic NPs. Of these, common NPs with the same grammatical function, i.e.  $A/S = A'/S'$  and  $O = O'$ , are obligatorily deleted in the subordinate clause. Examples:
 
- $S = S'$ 
+ $S=S'$ 
 
 (446) N gayu wunana-ny, jilba-dunga-nyjiku. I sg.NOM(S) lie.REDUP-PAST walk-go-succ 'I had a rest before going for a walk.'
 
- $S = A'$ 
+ $S=A'$ 
 
 (447) lalbu mara julurri-ji-y, mayi woman.ABS(S) hand.ABS(S) wash-REF-NONPAST food.ABS(O) damba dingka-nyjiku. damper.ABS(O) knead-SUCC 'The woman washes [her] hands before kneading damper.'
 
-## $A = S'$
+#### $A=S'$
 
 (448) *Maral-angka kambi bangka-l, dunyu-ndu* girl-ERG:pt(A) clothes.ABS(O) stock.up-NONPAST husband-LOC:pt lie-SUCC 'The girl stocks up clothes before getting married.' wuna-nyjiku.
 
- $A = A'$ 
+ $A=A'$ 
 
 (449) Nyulu bubu kida-l-kida-l, bayan 3sg.NOM(A) ground.ABS(O) scrape-l-REDUP-NONPAST camp.ABS(O) ngara-nyjiku. set.up-SUcc 'She sweeps the ground before setting up camp.'
 
- $O = O'$  (and  $A = A'$ )
+ $O= O'$  (and  $A = A'$ )
 
 (450) lalbu-jalbu-ngku marra dinda-l, duda-nyjiku. woman-REDUP-ERG:pt(A) zamia.nut.ABS(O) roast-NONPAST pound-SUCC 'The women roast the zamia nuts before pounding them.'
 

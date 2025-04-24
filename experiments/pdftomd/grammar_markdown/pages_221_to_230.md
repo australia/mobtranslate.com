@@ -1,6 +1,6 @@
 # 5 Narrative discourse
 
-## 5.1 Preliminary remarks
+#### 5.1 Preliminary remarks
 
 Above the sentence level any language displays regularities in the way in which topics are introduced, reference is maintained, information is ordered, turn-taking is achieved, feedback is prompted and given and many other aspects of discourse are handled. Brown and Yule (1983:22) define a "regularity" in discourse as "a linguistic feature which occurs in a definable environment with a significant frequency".
 
@@ -125,7 +125,7 @@ Maintenance of participant reference most commonly involves pronouns or zero ana
 
 Of these, convention (ii) overrides convention (i).
 
-#### 5.2.2 Temporal cohesion
+### 5.2.2 Temporal cohesion
 
 Narratives are typically recounted in the past tense in Kuku Yalanji and normally the order in which events are told represents the chronological order in which they take place. However, the sequence of events in a narrative cannot always be strictly linear, since, as in real life, actions by different participants may overlap.
 
@@ -167,7 +167,7 @@ Time spans during which nothing in particular happens are always bridged by spec
 
 #### 208 Chapter 5
 
-## 5.2.3 Anaphoric linkage
+### 5.2.3 Anaphoric linkage
 
 Anaphoric linkage, as defined by Grimes (1975:3 16), is the repetition or paraphrasing of a clause "in dependent form as a means of leading into an independent clause that contains new information". Kuku Yalanji narratives frequently show repetition of clauses or parts of clauses, although not in dependent but rather co-ordinated structures. Clauses may even be repeated in non-co-ordinated form in which case they often show a change in word order. Consider text 51, lines 4-7:
 
@@ -195,7 +195,7 @@ the theatrical term 'staging' to refer to the process of presenting a narrative,
 
 In the following subsections I will look at how topics are represented, and at which is the most common choice of topic in Kuku Yalanji. An investigation of these two questions could easily become circular: can one define a topic by the way in which it is marked or does one find out about topic marking by assuming that certain constituents are topic? The topic as part of a discourse theme is the most prominent or salient feature in a sentence. "Clearly the marking of thematization is related to a semantic factor of PROMINENCE" (Grimes 1 975:327). But how do we know which feature is the most prominent unless the speaker conveys this in some way? The best starting point for an investigation of this problem appears to be the universally applicable feature of prominence in word order.
 
-## 5.3.2. 1 Word order and syntactic function
+### 5.3.2. 1 Word order and syntactic function
 
 "Many of the phenomena written off in grammars as free word order are in contrast with each other thematically" (Grimes 1 975:331). Kuku Yalanji, like most Australian languages, has 'free word order', even to the extent that noun phrases may be split up and their constituents distributed throughout the clause. Nevertheless there is a preferred or unmarked word order, which is S/A 0 V. But variations of this unmarked word order are not uncommon and we must assume that this has thematic implications.
 

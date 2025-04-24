@@ -11,10 +11,13 @@ The bound morpheme -baja has various functions. With verbs it is used as a posti
 
 If, however, an adjectival stem with -baja takes non-zero inflection, the inflectional suffix is inserted between -baja- and clitic -ku, for example:
 
-| (84) | <i>Dingkar-angka junkurr-ji-baja-ngka-ku</i><br>man-ERG:pt(A) strength-COMIT-DEG2-ERG:pt(A)-EMPH1 |  |
-|------|---------------------------------------------------------------------------------------------------|--|
-|      | <i>bikibiki kulba-ny.</i><br>pig.ABS(O) lift-PAST<br>'The very strong man lifted the pig up.'     |  |
-| (85) | <i>Naavu iha-hadi-v karrkay-anka hambay-ho</i>                                                    |  |
+| (84) | Dingkar-angka junkurr-ji-baja-ngka-ku             |             |                        |
+|------|---------------------------------------------------|-------------|------------------------|
+|      | man-ERG:pt(A) strength-COMIT-DEG2-ERG:pt(A)-EMPH1 |             |                        |
+|      | bikibiki                                          | kulba-ny.   |                        |
+|      | pig.ABS(O)                                        | lift-PAST   |                        |
+|      | 'The very strong man lifted the pig up.'          |             |                        |
+| (85) | Naayu                                             | iiba-hadi-v | karrkay-anka hambay-ho |
 
 (85) Ngayu jiba-badi-y karrkay-anka I sg.NOM(S) liver-cry-NONPAST child-DAT:pt 'I am sorry for the very sick child.' bambay-baja-nka-ku. sick-DEG2-DAT:pt-EMPH2
 
@@ -71,23 +74,17 @@ Co-occurrence possibilities of nominal derivational suffixes are listed in Table
 | Possessive                  | -mu ~ -ngV    | 'Accompaniment' comitative -ji ~ -nji                                                         |
 |                             |               | * For further allomorphs of possessive and comitative see §3.2.3.2 and §3.2.3.3 respectively. |
 
-|           | -bana | -danyu | -diji | -dina | -gambay | -jarranga | -ji | -jima | -jin | -kala | -ngun | -rr | -rrba | -tharra | -waji |
-|-----------|-------|--------|-------|-------|---------|-----------|-----|-------|------|-------|-------|-----|-------|---------|-------|
-| -bana     |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -danyu    |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -diji     |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -dina     |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -gambay   |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -jarranga |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -ji       |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -jima     |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -jin      |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -kala     |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -ngun     |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -rr       |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -rrba     |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -tharra   |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
-| -waji     |       |        |       |       |         |           |     |       |      |       |       |     |       |         |       |
+|           | -bana | -dada | -danyu | -jima | -jirrima | -kala | -karranga | -ngun | -waji |
+|-----------|-------|-------|--------|-------|----------|-------|-----------|-------|-------|
+| -bana     |       |       |        |       |          |       |           |       |       |
+| -dada     |       |       |        |       |          |       |           |       |       |
+| -danyu    |       |       |        |       |          |       |           |       |       |
+| -jima     |       |       |        |       |          |       |           |       |       |
+| -jirrima  |       |       |        |       |          |       |           |       |       |
+| -kala     |       |       |        |       |          |       |           |       |       |
+| -karranga |       |       |        |       |          |       |           |       |       |
+| -ngun     |       |       |        |       |          |       |           |       |       |
+| -waji     |       |       |        |       |          |       |           |       |       |
 
 # 3.2.3. 10 Nominal compounds
 
@@ -95,15 +92,16 @@ Nouns and adjectives can be formed by compounding roots or stems, which often re
 
 Some compounds cannot be analysed synchronically, for example:
 
-| marrka-bina | 'oyster found in mangrove swamp' ( <i>marrka</i> 'salt pan' in Kuku Yalanji, <i>bina</i> 'ear' in Djabugay, which may be a reference to the shape of the shell) |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| kalka-muku  | 'green tree snake' (lit. spear-back; this compound probably refers to the long and slender shape of the reptile)                                                |
+| marrka-bina | 'oyster found in mangrove swamp'                                                                                               |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------|
+|             | ( <i>marrka</i> 'salt pan' in Kuku Yalanji, <i>bina</i> 'ear' in Djabugay, which may be a reference to the shape of the shell) |
+| kalka-muku  | 'green tree snake' (lit. spear-back; this compound probably refers to the long and slender shape of the reptile)               |
 
 More productive compounding processes include body-part terms, particularly miyil 'eye' and milka 'ear', for example:
 
-| miyil-burra | 'blind' (eye-stale/bitter) |
+| miyil-burra | "blind" (eye-stale/bitter) |
 |-------------|----------------------------|
-| miyil-dudu  | 'illiterate' (eye-blunt)   |
+| miyil-dudu  | "illiterate" (eye-blunt)   |
 
 | miyil-kaban-ji      | 'literate' (eye-letter/paper-COMIT)                      |
 |---------------------|----------------------------------------------------------|
@@ -156,7 +154,7 @@ In the Nyungkul dialect, where the possessive suffix already coincides with allo
 
 | kaya manyarr-anga | 'the wife's dog'      |
 |-------------------|-----------------------|
-| kaya biwul-ungu   | 'mother-in-law's dog' |
+| kaya biwul-ungu   | 'mother-in-Iaw's dog' |
 | kaya maral-anga   | 'the girl's dog'      |
 
 # 3.2.5 Morphology of quantifiers
@@ -187,9 +185,11 @@ Kulur 'a few' now generally refers to cardinal number 'three' (see H. Hershberge
 
 There are also two quantifiers which refer both to size and, by extension, to uncountable amounts. These are:
 
-| buban  | '(a) little, insufficient' |
-|--------|----------------------------|
-| jirray | 'big, plenty, sufficient'  |
+| (11/1) a      | K ambi noaulu |
+|---------------|---------------|
+| I have severl |               |
+| I.            | K ambi noaulu |
+| II.           | A noaulu ive  |
 
 The following sentences illustrate the use of these two tenus in contrast to their counterparts kanbal and wubul:
 
@@ -311,10 +311,10 @@ Wangkar 'up', and bada 'down' distinguish between 'location' and 'direction' in 
 
 The inflectional system and forms for location words are:
 
-| locative | ∅      |                                 |
-|----------|--------|---------------------------------|
-| ablative | -muny  | (=‘neutral’ nominal inflection) |
-| abessive | -mundu | (= nominal inflection)          |
+| locative | $   $\phi$ $ |                                 |
+|----------|--------------|---------------------------------|
+| ablative | -muny        | (='neutral' nominal inflection) |
+| abessive | -mundu       | (= nominal inflection)          |
 
 70 Chapter 3
 
@@ -344,6 +344,6 @@ Words with temporal reference belong to a separate word class in Kuku Yalanji th
 | yilayku     | 'yesterday'                   |
 | ngadiy-     | 'a long time'                 |
 
-Locative, which has zero inflection, is glossed in this section only, but not in any further examples or texts.
+6 Locative, which has zero inflection, is glossed in this section only, but not in any further examples or texts.
 
 70 Chapter

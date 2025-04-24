@@ -1,4 +1,4 @@
-- (452) Ngayu kaya karrba-ny, nyulu ngayku I sg.NOM(A) dog.ABS(O) grab-PAsT 3sg.NOM(A) I sg.POSS.ABS(O) minya bangkarr nuka-nyjiku. meat.ABS(O) steak.ABS(O) eat-SUCC 'I grabbed the dog before it ate my steak.'
+- (452) *Ngayu kaya karrba-ny, nyulu ngayku* I sg.NOM(A) dog.ABS(O) grab-PAsT 3sg.NOM(A) I sg.POSS.ABS(O) minya bangkarr nuka-nyjiku. meat.ABS(O) steak.ABS(O) eat-SUCC 'I grabbed the dog before it ate my steak.'
 - (453) Jana kadar nyaji-ny, nyulu warri-nyjiku. 3pLNOM(A) wallaby.ABS(O) see-PAST 3sg.NOM(S) run-SUCC 'They saw the wallaby before it ran away. '
 
 However, successive constructions may also have no common NP as the following examples show:
@@ -83,7 +83,7 @@ The form of the subordinate verb in these sentences depends largely on whether t
 
 we obtain either
 
-[A NP O NP [(O NP) verb2-*nyV* (-ERG)] Σ' verb1] Σ [(0 NP) verb2-nyV-ERG] L'
+[A NP O NP [(O NP) verb2-nyV (-ERG)] Σ' verb1] Σ [(0 NP) verb2-nyV-ERG] L'
 
 For example:
 
@@ -91,11 +91,11 @@ A = S'
 
 or
 
-| (468) | <i>Jalbu-ngku</i><br>woman-ERG:pt(A)           | <i>bundanda-nya-mun-du</i><br>sit.REDUP-SUB-mun-ERG                                                                                                                               | <i>ngayku</i><br>1sg.POSS.ABS(O)                                     |
-|-------|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
-|       | <i>kuku</i><br>language.ABS(O)                 | <i>daji-l-daji-ny.</i><br>give-l-REDUP-PAST<br>'The woman used to give (teach) me language while sitting down.'<br>(the woman used to sit while teaching, she is not sitting now) |                                                                      |
-| (469) | <i>Jana</i><br>3pl.NOM(A)                      | <i>warru-ngku</i><br>yg.man-ERG:pt(A)                                                                                                                                             | <i>kinka-n-kinka-nya kamukamu</i><br>play-n-REDUP-SUB alcohol.ABS(O) |
-|       | <i>nuka-l-nuka-l.</i><br>drink-l-REDUP-NONPAST |                                                                                                                                                                                   |                                                                      |
+| (468) | Jalbu-ngku<br>woman-ERG:pt(A)           | bundanda-nya-mun-du<br>sit.REDUP-SUB-mun-ERG | ngayku<br>1sg.POSS.ABS(O)                                                                                                          |
+|-------|-----------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+|       | kuku<br>language.ABS(O)                 | daji-l-daji-ny.<br>give-l-REDUP-PAST         | 'The woman used to give (teach) me language while sitting down.'<br>(the woman used to sit while teaching, she is not sitting now) |
+| (469) | Jana<br>3pl.NOM(A)                      | warru-ngku<br>yg.man-ERG:pt(A)               | kinka-n-kinka-nya kamukamu<br>play-n-REDUP-SUB alcohol.ABS(O)                                                                      |
+|       | nuka-l-nuka-l.<br>drink-l-REDUP-NONPAST |                                              |                                                                                                                                    |
 
 'The young men drink alcohol while playing (cards).'
 
@@ -115,7 +115,7 @@ sharpen-NONPAST
 
 'The man sharpens the blunt spear scraping it with a stone.'
 
-In the above sentences the subordinate clauses are embedded in the main clause and ergative inflection on the verb + -*nya* form is optional. Now consider:
+In the above sentences the subordinate clauses are embedded in the main clause and ergative inflection on the verb + -nya form is optional. Now consider:
 
 A = S'
 
@@ -139,7 +139,7 @@ nuka-I-nuka-nya-mun-du. eat-l-REDUP-SUB-mun-ERG 'Mother looks after the baby whi
 
 Here the subordinate clauses follow the main clause and ergative inflection is obligatory.
 
-Because of the ergative inflection on the verb + -*nyV* forms, the subordinate clause may be regarded as an attribute to the main clause NP. In some cases the subordinate clause could also be interpreted as referring to the manner in which something is done, as for instance in (470), and (47 1 ), which would justify the term "participle clause" used by R. Hershberger (1 979:79). Where A NP and attributive subordinate clause are contiguous, the need for ergative inflection is not so great, since the sentence cannot be interpreted in any other way than A = A'/S'. If, however, the subordinate clause stands sentence-finally, it must be clearly identified as 'belonging to' the main A NP, because in this position it could just as well be coreferential with the main 0 NP. For instance, compare (472) with (464); without the ergative inflection in (472) it would be ambiguous who is doing what in either sentence. Or take (460), which implies that the victim was running. To indicate that the policeman was running, the subordinate verb must take ergative inflection:
+Because of the ergative inflection on the verb + -nyV forms, the subordinate clause may be regarded as an attribute to the main clause NP. In some cases the subordinate clause could also be interpreted as referring to the manner in which something is done, as for instance in (470), and (47 1 ), which would justify the term "participle clause" used by R. Hershberger (1 979:79). Where A NP and attributive subordinate clause are contiguous, the need for ergative inflection is not so great, since the sentence cannot be interpreted in any other way than A = A'/S'. If, however, the subordinate clause stands sentence-finally, it must be clearly identified as 'belonging to' the main A NP, because in this position it could just as well be coreferential with the main 0 NP. For instance, compare (472) with (464); without the ergative inflection in (472) it would be ambiguous who is doing what in either sentence. Or take (460), which implies that the victim was running. To indicate that the policeman was running, the subordinate verb must take ergative inflection:
 
 (474) Bulimanangka nyunguny kuniny, wanarri-nya-mun-du policeman-ERG:pt(A) 3sg.ACC(O) hit.PAST run-REDUP-SUB-mun-ERG 'The policeman shot him while he (the policeman) was running.'
 
@@ -161,20 +161,16 @@ Examples of adjoined subordinate clause where  $S = S'$  and  $S = A'$  are:
 
  $S = S'$ 
 
-| (479)  | Karrkay<br>child.ABS(S)                                | wanarri-y,<br>run.REDUP-NONPAST                                  | banbadi-nya.<br>cry.REDUP-SUB.ABS(S)                                                |
-|--------|--------------------------------------------------------|------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-|        | 'The child runs crying.'                               |                                                                  |                                                                                     |
-| (480)  | Dingkar<br>man.ABS(S)                                  | bambay<br>sick.ABS(S)                                            | warngku-wuna-y, burrki-n-burrki-nya.<br>sleep-lie-NONPAST fidget-n-REDUP-SUB.ABS(S) |
-|        | 'The sick man sleeps tossing and turning.'             |                                                                  |                                                                                     |
-| S = A' |                                                        |                                                                  |                                                                                     |
-| (481)  | Bula<br>3du.NOM(S)                                     | maral baral-ba<br>girl.ABS(S) road-LOC                           | kankada-y,<br>come.REDUP-NONPAST                                                    |
-|        | mayngku<br>mango.ABS(O)                                | nuka-l-nuka-nya.<br>eat-l-REDUP-SUB.ABS(S)                       |                                                                                     |
-|        | 'The two girls are coming on the road eating mangoes.' |                                                                  |                                                                                     |
-| (482)  | Nyulu<br>3sg.NOM(S)                                    | jalbu balkawa-ny, dunyu<br>woman.ABS(S) chat-PAST husband.ABS(O) | bayja-nya.<br>ignore-SUB.ABS(S)                                                     |
+| (479)  | Karrkay wanarri-y, banbadi-nya.<br>child.ABS(S) run.REDUP-NONPAST cry.REDUP-SUB.ABS(S)<br>'The child runs crying.'                                                                                                |  |
+|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--|
+| (480)  | Dingkar bambay warngku-wuna-y, burrki-n-burrki-nya.<br>man.ABS(S) sick.ABS(S) sleep-lie-NONPAST fidget-n-REDUP-SUB.ABS(S)<br>'The sick man sleeps tossing and turning.'                                           |  |
+| S = A' |                                                                                                                                                                                                                   |  |
+| (481)  | Bula maral baral-ba kankada-y,<br>3du.NOM(S) girl.ABS(S) road-LOC come.REDUP-NONPAST<br>mayngku nuka-l-nuka-nya.<br>mango.ABS(O) eat-l-REDUP-SUB.ABS(S)<br>'The two girls are coming on the road eating mangoes.' |  |
+| (482)  | Nyulu jalbu balkawa-ny, dunyu bayja-nya.<br>3sg.NOM(S) woman.ABS(S) chat-PAST husband.ABS(O) ignore-SUB.ABS(S)                                                                                                    |  |
 
 # 4.4. 4.2 Causal
 
-In causal subordinate clauses[37](#page-1-1) the verb + -nyV form does not allow case inflections and can therefore not be regarded as a nominal as in the other subordinate clauses containing this
+In causal subordinate clauses[37](#page-37-1) the verb + -nyV form does not allow case inflections and can therefore not be regarded as a nominal as in the other subordinate clauses containing this
 
 <sup>37</sup> See R. Hershberger (1970:8 1 9-820) 'Causative Sentence'.
 
@@ -208,15 +204,18 @@ Where a causal clause NP is co-referential with the A or 0 NP of the main clause
 
 A = S'
 
-(487) *Buliman-angka nganya kari nyaji-ny, (nyulu) warngku-wuna-nya. police-ERG:pt(A)* 1sg.ACC(O) NEG *see-PAST* 3sg.NOM(S) *sleep-lie-SUB* 'The policeman did not see me because [he] was asleep.'
+(487) *Buliman-angka nganya kari nyaji-ny*, (*nyulu*) *warngku-wuna-nya*. police-ERG:pt(A) 1sg.ACC(O) NEG see-PAST 3sg.NOM(S) sleep-lie-SUB 'The policeman did not see me because [he] was asleep.'
 
 Without the anaphoric pronoun this sentence would be ambiguous as to who was asleep.
 
-$$\mathbf{A} = \mathbf{A}"\text{ and }\mathbf{O} = \mathbf{O}"$$
+$$\mathbf{A} = \mathbf{A}\text{ " and } \mathbf{O} = \mathbf{O}\text{" }$$
 
-| (488) | Babarr-angka<br>eZ-ERG:pt(A) | karrkay<br>child.ABS(O)    | nubi-l-nubi-l,<br>search.for-l-REDUP-NONPAST                       | (nyulu)<br>3sg.NOM(A) |
-|-------|------------------------------|----------------------------|--------------------------------------------------------------------|-----------------------|
-|       | (nyunguny)<br>3sg.ACC(O)     | nubiymani-nya.<br>lose-SUB | 'Elder sister is searching for the child because [she] lost [it].' |                       |
+| (488) | Babarr-angka                                                       | karrkay      | nubi-l-nubi-l,             | (nyulu)    |
+|-------|--------------------------------------------------------------------|--------------|----------------------------|------------|
+|       | eZ-ERG:pt(A)                                                       | child.ABS(O) | search.for-l-REDUP-NONPAST | 3sg.NOM(A) |
+|       | (nyunguny) nubiymani-nya.                                          |              |                            |            |
+|       | 3sg.ACC(O) lose-SUB                                                |              |                            |            |
+|       | 'Elder sister is searching for the child because [she] lost [it].' |              |                            |            |
 
 O = S'
 
@@ -259,10 +258,10 @@ Note that the oblique object in the subordinate clause in (495) does not receive
 
 It could be argued that wawu- -muny in the subordinate clause attaches to the first word and that the subordinate verb is nominalised (by -nyV) only if it must bear case inflection. As a rule, ablative marking is attracted by nouns away from a verb + -nyV form. Therefore, if an event can possibly be expressed by a nominal, this must be used to indicate the prior event; a verb + -nyV form is unacceptable if an alternative noun is available. For instance:
 
-| (496)                                                                                                                            | Warru-ngku<br>yg.man-ERG:pt(A) | kaya<br>dog.ABS(O)   | karrba-ny<br>grab-PAST | wawu-ngangkurr-muny /<br>TEMP4-barking.noise-ABL |
-|----------------------------------------------------------------------------------------------------------------------------------|--------------------------------|----------------------|------------------------|--------------------------------------------------|
-| *wawu-ngangkurri-nya-muny<br>TEMP4-bark-SUB-ABL<br>'The young man grabbed the dog after it had barked (lit. after the barking)'. |                                |                      |                        |                                                  |
-| (497)                                                                                                                            | Nyulu<br>3sg.NOM(A)            | bana<br>water.ABS(O) | nuka-ny<br>drink-PAST  | wawu-jilba-muny /<br>TEMP4-walk-ABL              |
+| (496)                                                                                                                                    | <i>Warru-ngku</i><br>yg.man-ERG:pt(A) | <i>kaya</i><br>dog.ABS(O)   | <i>karrba-ny</i><br>grab-PAST | <i>wawu-ngangkurr-muny</i> /<br>TEMP4-barking.noise-ABL |
+|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|-----------------------------|-------------------------------|---------------------------------------------------------|
+| * <i>wawu-ngangkurri-nya-muny</i><br>TEMP4-bark-SUB-ABL<br>'The young man grabbed the dog after it had barked (lit. after the barking)'. |                                       |                             |                               |                                                         |
+| (497)                                                                                                                                    | <i>Nyulu</i><br>3sg.NOM(A)            | <i>bana</i><br>water.ABS(O) | <i>nuka-ny</i><br>drink-PAST  | <i>wawu-jilba-muny</i> /<br>TEMP4-walk-ABL              |
 
 \*wawu-dunga-nya-muny. lliMP4-go-SUB-ABL 'She drank some water after the walk.'
 
@@ -276,12 +275,12 @@ Purposive and precautionary (see §4.4.1 and §4.4.2) constructions express real
 
 expressing a hypothetical reason because of which something else is done. This may be generalised as 'X does Y just in case Z happens'. The hypothetical reason 'Z' is expressed by verb + -nyV + -Dative (cf. function of Dative as indicator of general reason §4.1.4.4 (ii)). For example:
 
-| (498) | <i>Jana</i><br>3pl.NOM(S)                                            | <i>kari</i><br>NEG               | <i>dunga-y,</i><br>go-NONPAST   | <i>kaba</i><br>rain.ABS(S)                   | <i>kada-nya-mun-ku.</i><br>come-SUB-mun-DAT |
-|-------|----------------------------------------------------------------------|----------------------------------|---------------------------------|----------------------------------------------|---------------------------------------------|
-|       | 'They won't go in case it starts raining.'                           |                                  |                                 |                                              |                                             |
-| (499) | <i>Ngayu</i><br>1sg.NOM(A)                                           | <i>bayan</i><br>house.ABS(O)     | <i>kida-l,</i><br>sweep-NONPAST | <i>dayirr-bunga-l,</i><br>clean-CAUS-NONPAST |                                             |
-|       | <i>kunka</i><br>in case                                              | <i>ngayku</i><br>1sg.POSS.ABS(S) | <i>jawun</i><br>friend.ABS(S)   | <i>kada-nya-mun-ku.</i><br>come-SUB-mun-DAT  |                                             |
-|       | 'I sweep the house and clean it in case my friend comes [to visit].' |                                  |                                 |                                              |                                             |
+| (498)                                                                | <i>Jana</i><br>3pl.NOM(S)  | <i>kari</i><br>NEG               | <i>dunga-y,</i><br>go-NONPAST   | <i>kaba</i><br>rain.ABS(S)                   | <i>kada-nya-mun-ku.</i><br>come-SUB-mun-DAT |
+|----------------------------------------------------------------------|----------------------------|----------------------------------|---------------------------------|----------------------------------------------|---------------------------------------------|
+| 'They won't go in case it starts raining.'                           |                            |                                  |                                 |                                              |                                             |
+| (499)                                                                | <i>Ngayu</i><br>1sg.NOM(A) | <i>bayan</i><br>house.ABS(O)     | <i>kida-l,</i><br>sweep-NONPAST | <i>dayirr-bunga-l,</i><br>clean-CAUS-NONPAST |                                             |
+|                                                                      | <i>kunka</i><br>in case    | <i>ngayku</i><br>1sg.POSS.ABS(S) | <i>jawun</i><br>friend.ABS(S)   | <i>kada-nya-mun-ku.</i><br>come-SUB-mun-DAT  |                                             |
+| 'I sweep the house and clean it in case my friend comes [to visit].' |                            |                                  |                                 |                                              |                                             |
 
 Very often the subordinate clause is introduced by particle kunka 'in case', as in (499), or less commonly by nganganjirrka 'just in case'.
 

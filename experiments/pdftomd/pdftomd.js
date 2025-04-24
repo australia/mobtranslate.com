@@ -1,4 +1,5 @@
 // PDF to Markdown conversion using Datalab API
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
@@ -6,7 +7,7 @@ const FormData = require('form-data');
 const { PDFDocument } = require('pdf-lib');
 
 // Configuration
-const API_KEY = ''; // Replace with your actual API key
+const API_KEY = process.env.OPENAI_API_KEY; // Replace with your actual API key
 
 // Get PDF path from command line or use default
 const PDF_PATH = process.argv[2] || path.join(__dirname, 'grammar.pdf'); // Path to your PDF file

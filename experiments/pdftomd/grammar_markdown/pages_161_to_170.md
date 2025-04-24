@@ -77,16 +77,16 @@ The concept of reciprocity involves at least two agents which act on each other,
 
 [NP1]A tr V [NP2]O [NP2]A tr V [NP1]O
 
-Here we have two sets of co-referential NPs, NP1 and NP2. In order to give this construction an acceptable surface form NP1 and NP2 are conjoined into NP3 'dog and cat'. NP3 appears in S function and the verb is intransitivised by the reciprocal marker -wa-y (see [§3.8.5.4](#ref-§3.8.5.4) (i)), giving:
+Here we have two sets of co-referential NPs, NP1 and NP2. In order to give this construction an acceptable surface form NP1 and NP2 are conjoined into NP3 'dog and cat'. NP3 appears in S function and the verb is intransitivised by the reciprocal marker -wa-y (see [§3.8.5.4 \(i\)](#ref-3)), giving:
 
 tr V-wa-y
 
 The above sentence in the reciprocal Kuku Yalanji form is:
 
-| (330) | Bula                                 | kaya       | buji       | bayka-wa-y.        |
-|-------|--------------------------------------|------------|------------|--------------------|
-|       | 3du.NOM(S)                           | dog.ABS(S) | cat.ABS(S) | bite-RECIP-NONPAST |
-|       | 'Cat and dog are biting each other.' |            |            |                    |
+| (330) | Bula                                 | kaya       | buji       | bayka-wa-y.        |  |
+|-------|--------------------------------------|------------|------------|--------------------|--|
+|       | 3du.NOM(S)                           | dog.ABS(S) | cat.ABS(S) | bite-RECIP-NONPAST |  |
+|       | 'Cat and dog are biting each other.' |            |            |                    |  |
 
 <sup>18</sup> In Dyirbal the transitive verbaliser -ma-l ~ -mba-l may also attach to transitive verbs adding an 'instrumentive' aspect. But unlike the Yalanji examples, this suffix does have a syntactic effect in Dyirbal (see Dixon 1 972:95).
 
@@ -134,7 +134,7 @@ There are four basic conditions for surface transitive sentences in Kuku Yalanji
 
 If any of these conditions is not met the underlying transitive sentence is intransitivised in surface structure and A and 0 NP assigned to different cases than in a transitive sentence. If transitive sentence condition (1) is not met a reciprocal or reflexive construction is required. If transitive sentence conditions (2) and (3) are not complied with the sentence is passivised. If transitive sentence condition (4) is not met an antipassive20 construction is used.
 
-There are two processes in Kuku Yalanji by which intransitive verb stems can be derived from transitive bases. One is reciprocal derivation with -wa-y (discussed in the previous subsection) and the other is intransitive verb stem formation with -ji-<sup>21</sup> which is used in the three functions of reflexive, passive and antipassive. Reflexes of a reconstructed pA form \*-*DHirri-y* (Dixon 1980:447-449) are commonly used in reflexive, reciprocal and antipassive constructions in Australian languages, i.e. in a basic intransitivising function. (But note that Kuku Yalanji has a separate form for reciprocal which is not found in any of its related languages.) Passive constructions, on the other hand, are unusual in ergative Australian languages. Intransitive sentences with verb + -ji- forms in Kuku Yalanji, the conditions under which they are used and their syntactic and semantic implications, are discussed in tum in the following sections.
+There are two processes in Kuku Yalanji by which intransitive verb stems can be derived from transitive bases. One is reciprocal derivation with -wa-y (discussed in the previous subsection) and the other is intransitive verb stem formation with -ji-<sup>21</sup> which is used in the three functions of reflexive, passive and antipassive. Reflexes of a reconstructed pA form \*-DHirri-y (Dixon 1980:447-449) are commonly used in reflexive, reciprocal and antipassive constructions in Australian languages, i.e. in a basic intransitivising function. (But note that Kuku Yalanji has a separate form for reciprocal which is not found in any of its related languages.) Passive constructions, on the other hand, are unusual in ergative Australian languages. Intransitive sentences with verb + -ji- forms in Kuku Yalanji, the conditions under which they are used and their syntactic and semantic implications, are discussed in tum in the following sections.
 
 #### 4.2.4.2 Reflexive
 
@@ -169,15 +169,12 @@ On the other hand, the use of adverb kanban 'by mistake' unambiguously expresses
 
 Usually, contextual information helps to distinguish between an intentional action and a misfortune, as has been suggested in the translations of (338) and (3 39).
 
-| (340) | Bunjil                                                            | yaka-ji-ny        | dunyu-nku.     |
-|-------|-------------------------------------------------------------------|-------------------|----------------|
-|       | widow.ABS(S)                                                      | cut-REF-PAST      | husband-DAT:pt |
-|       | 'The widow cut herself because of her husband.' (i.e. his death)  |                   |                |
-| (341) | Nyulu                                                             | wulbuman          | jina           |
-|       | 3sg.NOM(S)                                                        | old.woman.ABS(S)  | foot.ABS(S)    |
-|       | mayi                                                              | baka-l-baka-nya.  | baka-ji-ny     |
-|       | plant.food.ABS(O)                                                 | dig-l-REDUP-SUB22 | poke-REF-PAST  |
-|       | 'The old woman poked her foot while digging for food.' (e.g. yam) |                   |                |
+| (340) | Bunjil<br>widow.ABS(S)                                            | yaka-ji-ny<br>cut-REF-PAST                     | dunyu-nku.<br>husband-DAT:pt |                             |  |
+|-------|-------------------------------------------------------------------|------------------------------------------------|------------------------------|-----------------------------|--|
+|       | 'The widow cut herself because of her husband.' (i.e. his death)  |                                                |                              |                             |  |
+| (341) | Nyulu<br>3sg.NOM(S)                                               | wulbuman<br>old.woman.ABS(S)                   | jina<br>foot.ABS(S)          | baka-ji-ny<br>poke-REF-PAST |  |
+|       | mayi<br>plant.food.ABS(O)                                         | baka-l-baka-nya.<br>dig- <i>l</i> -REDUP-SUB22 |                              |                             |  |
+|       | 'The old woman poked her foot while digging for food.' (e.g. yam) |                                                |                              |                             |  |
 
 Sentence (341) also illustrates the use of reflexive where a specified body part is affected. Another example is:
 
@@ -233,10 +230,10 @@ One can say that the passive in Kuku Yalanji is semantically motivated or discou
 
 The chance passive is employed where transitive sentence condition (2) (see §4.2.4.1) is not met, that is where a potentially controlling agent performs an action unintentionally. Here the underlying agent is always retained in surface structure, albeit in locative case. In the unmarked word order the agent in locative case appears in leftmost position which means that it does not lose its discourse prominence. Note also that translations of chance passive sentences given by informants did not show passive in English. The involuntary aspect was always rendered as 'happened to'.
 
-| (346) | Jalbu-ndu                             | jarba        | baka-ji-ny.   |  |
-|-------|---------------------------------------|--------------|---------------|--|
-|       | woman-LOC:pt                          | snake.ABS(S) | poke-ITR-PAST |  |
-|       | 'The woman happened to poke a snake.' |              |               |  |
+| (346) | Jalbu-ndu                             | jarba        | baka-ji-ny.   |
+|-------|---------------------------------------|--------------|---------------|
+|       | woman-LOC:pt                          | snake.ABS(S) | poke-ITR-PAST |
+|       | 'The woman happened to poke a snake.' |              |               |
 
 (347) Bulki-nda ngunJa-Jl-ny mayi ngayku cattle-LOc:pt forage-ITR-PAST plant.food.ABS(S) l sg.POSS.ABS(S) mayngku. mango.ABS(S)
 
