@@ -114,7 +114,10 @@ async function loadAndChunkMarkdown(filePath) {
       chunks.push({ ...currentChunk });
     }
 
-    logger.info({ chunkCount: chunks.length }, 'Extracted chunks from markdown');
+    logger.info(
+      { chunkCount: chunks.length },
+      'Extracted chunks from markdown',
+    );
     return chunks;
   } catch (error) {
     logger.error({ err: error }, 'Error loading and chunking markdown');
@@ -183,10 +186,13 @@ async function callLLM(
   messages.push({ role: 'user', content: userContent });
 
   // const maxTokens = 40048;
-  const maxTokens = 12048;
+  const maxTokens = 52048;
   while (true) {
     try {
-      logger.info({ messageCount: messages.length, model: 'o3-mini' }, 'Calling LLM API');
+      logger.info(
+        { messageCount: messages.length, model: 'o3-mini' },
+        'Calling LLM API',
+      );
 
       // // Log the system prompt and a sample of the user content
       // console.log('\n===== SYSTEM PROMPT =====');
@@ -226,14 +232,23 @@ async function callLLM(
           logger.debug({ response: parsed }, 'JSON response from LLM');
         } catch (e) {
           // If JSON parsing fails, just log the raw content
-          logger.debug({ response: content }, 'Raw content from LLM (JSON parse failed)');
+          logger.debug(
+            { response: content },
+            'Raw content from LLM (JSON parse failed)',
+          );
         }
       } else if (content.includes('ID,Parameter_ID')) {
         // Log CSV content
-        logger.debug({ responseType: 'CSV', lines: content.split('\n').length }, 'CSV response from LLM');
+        logger.debug(
+          { responseType: 'CSV', lines: content.split('\n').length },
+          'CSV response from LLM',
+        );
       } else {
         // Log regular text content
-        logger.debug({ responseType: 'text', contentLength: content.length }, 'Text response from LLM');
+        logger.debug(
+          { responseType: 'text', contentLength: content.length },
+          'Text response from LLM',
+        );
       }
 
       // End of LLM response logging
@@ -244,11 +259,14 @@ async function callLLM(
         retries++;
         logger.warn(
           { attempt: retries, maxRetries: MAX_RETRIES, error: error.message },
-          'API error, retrying'
+          'API error, retrying',
         );
         await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait 2 seconds before retry
       } else {
-        logger.error({ err: error }, 'Error calling OpenAI API after maximum retries');
+        logger.error(
+          { err: error },
+          'Error calling OpenAI API after maximum retries',
+        );
         throw error;
       }
     }
@@ -625,7 +643,10 @@ async function ensureOutputFilesExist() {
       await fs.access(cldfPath);
       console.log(`Grammar features file exists: ${cldfPath}`);
     } catch (error) {
-      await fs.writeFile(cldfPath, 'ID,Parameter_ID,Language_ID,Value,Source\n');
+      await fs.writeFile(
+        cldfPath,
+        'ID,Parameter_ID,Language_ID,Value,Source\n',
+      );
       console.log(`Created grammar_features.csv with header`);
     }
 
@@ -656,7 +677,7 @@ async function ensureOutputFilesExist() {
       );
       console.log(`Created lexicon.jsonld with empty structure`);
     }
-    
+
     // Check if processed chunks tracking file exists, create if not
     try {
       await fs.access(PROCESSED_CHUNKS_FILE);
@@ -714,7 +735,7 @@ async function saveResults(cldfRows, igtItems, ontolexEntries) {
           await fs.writeFile(cldfPath, newContent);
           logger.info(
             { count: newUniqueRows.length, file: 'grammar_features.csv' },
-            'Appended new CLDF features'
+            'Appended new CLDF features',
           );
         } else {
           console.log('No new unique CLDF features to append');
@@ -923,7 +944,9 @@ async function loadProcessedChunks() {
     return JSON.parse(content);
   } catch (error) {
     // If file doesn't exist or can't be parsed, return empty array
-    logger.info('No processed chunks file found or error parsing it, starting fresh');
+    logger.info(
+      'No processed chunks file found or error parsing it, starting fresh',
+    );
     return [];
   }
 }
@@ -935,13 +958,65 @@ async function markChunkAsProcessed(chunkIndex) {
     if (!processedChunks.includes(chunkIndex)) {
       processedChunks.push(chunkIndex);
       await fs.writeFile(
-        PROCESSED_CHUNKS_FILE, 
-        JSON.stringify(processedChunks, null, 2)
+        PROCESSED_CHUNKS_FILE,
+        JSON.stringify(processedChunks, null, 2),
       );
       logger.info({ chunkIndex }, 'Marked chunk as processed');
     }
   } catch (error) {
-    logger.error({ err: error, chunkIndex }, 'Error marking chunk as processed');
+    logger.error(
+      { err: error, chunkIndex },
+      'Error marking chunk as processed',
+    );
+  }
+}
+
+// Process a single chunk and return the extracted data
+async function processChunk(chunk, chunkIndex) {
+  try {
+    logger.info(
+      {
+        chunkIndex,
+        heading: chunk.heading,
+      },
+      'Processing chunk',
+    );
+
+    // Extract CLDF features
+    const cldfResult = await extractCLDF(chunk);
+    const cldfLines = cldfResult
+      .split('\n')
+      .filter(
+        (line, index) => index > 0 && line.trim() && !line.startsWith('ID,'),
+      );
+
+    // Extract IGT examples
+    const igtResult = await extractIGT(chunk);
+
+    // Extract OntoLex entries
+    const ontolexResult = await extractOntoLex(chunk);
+
+    // Mark this chunk as processed
+    await markChunkAsProcessed(chunkIndex);
+
+    logger.info(
+      {
+        chunkIndex,
+        cldfCount: cldfLines.length,
+        igtCount: igtResult.length,
+        ontolexCount: ontolexResult.length,
+      },
+      'Chunk processing complete',
+    );
+
+    return {
+      cldfLines,
+      igtItems: igtResult,
+      ontolexEntries: ontolexResult,
+    };
+  } catch (error) {
+    logger.error({ err: error, chunkIndex }, 'Error processing chunk');
+    throw error;
   }
 }
 
@@ -974,10 +1049,12 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
     for (let i = startIndex; i < maxChunksToProcess; i++) {
       // Skip already processed chunks
       if (processedChunks.includes(i)) {
-        console.log(`Skipping already processed chunk ${i}: ${chunks[i].heading}`);
+        console.log(
+          `Skipping already processed chunk ${i}: ${chunks[i].heading}`,
+        );
         continue;
       }
-      
+
       processedCount++;
       const chunk = chunks[i];
       console.log(
@@ -1027,7 +1104,7 @@ async function processTestChunks(chunks, count = 5, startAt = 0) {
 
       // Save intermediate results after each chunk to ensure we're capturing data
       await saveResults([...cldfRows], [...igtItems], [...ontolexEntries]);
-      
+
       // Mark this chunk as processed
       await markChunkAsProcessed(i);
     }
@@ -1131,11 +1208,14 @@ async function main() {
       const testCldfPath = path.join(OUTPUT_DIR, 'test_grammar_features.csv');
       const testIgtPath = path.join(OUTPUT_DIR, 'test_examples.xigt.json');
       const testOntolexPath = path.join(OUTPUT_DIR, 'test_lexicon.jsonld');
-      
+
       // Check if test files exist, create them if not
       try {
         await fs.access(testCldfPath);
-        logger.info({ path: testCldfPath }, 'Test grammar features file exists');
+        logger.info(
+          { path: testCldfPath },
+          'Test grammar features file exists',
+        );
       } catch (error) {
         await fs.writeFile(
           testCldfPath,
@@ -1143,7 +1223,7 @@ async function main() {
         );
         logger.info('Created test_grammar_features.csv with header');
       }
-      
+
       try {
         await fs.access(testIgtPath);
         logger.info({ path: testIgtPath }, 'Test IGT examples file exists');
@@ -1151,7 +1231,7 @@ async function main() {
         await fs.writeFile(testIgtPath, JSON.stringify({ items: [] }, null, 2));
         logger.info('Created test_examples.xigt.json with empty structure');
       }
-      
+
       try {
         await fs.access(testOntolexPath);
         logger.info({ path: testOntolexPath }, 'Test lexicon file exists');
@@ -1169,10 +1249,12 @@ async function main() {
         );
         logger.info('Created test_lexicon.jsonld with empty structure');
       }
-      
+
       logger.info({ chunkCount: testChunkCount }, 'Running in test mode');
       await processTestChunks(chunks, testChunkCount);
-      logger.info('Test mode completed. Run without --test flag for full processing.');
+      logger.info(
+        'Test mode completed. Run without --test flag for full processing.',
+      );
       return;
     }
 
@@ -1184,72 +1266,84 @@ async function main() {
     // Load already processed chunks
     const processedChunks = await loadProcessedChunks();
     console.log(`Found ${processedChunks.length} previously processed chunks`);
-    
-    // Process each chunk
+
+    // Process chunks in parallel with a concurrency limit of 5
+    const MAX_CONCURRENT = 5;
+    const chunksToProcess = [];
+
+    // Identify chunks that need processing
     for (let i = 0; i < chunks.length; i++) {
-      // Skip already processed chunks
-      if (processedChunks.includes(i)) {
-        console.log(`Skipping already processed chunk ${i}: ${chunks[i].heading}`);
-        continue;
-      }
-      
-      const chunk = chunks[i];
-      logger.info({ 
-        chunkIndex: i,
-        current: i + 1,
-        total: chunks.length,
-        heading: chunk.heading 
-      }, 'Processing chunk');
-
-      // Extract CLDF features
-      const cldfResult = await extractCLDF(chunk);
-      const cldfLines = cldfResult
-        .split('\n')
-        .filter(
-          (line, index) => index > 0 && line.trim() && !line.startsWith('ID,'),
+      if (!processedChunks.includes(i)) {
+        chunksToProcess.push({ index: i, chunk: chunks[i] });
+      } else {
+        logger.info(
+          { chunkIndex: i, heading: chunks[i].heading },
+          'Skipping already processed chunk',
         );
-      cldfRows.push(...cldfLines);
+      }
+    }
 
-      // Extract IGT examples
-      const igtResult = await extractIGT(chunk);
-      if (igtResult.length > 0) {
-        igtItems.push(...igtResult);
+    logger.info({ total: chunksToProcess.length }, 'Chunks to process');
+
+    // Process chunks in batches with concurrency limit
+    for (let i = 0; i < chunksToProcess.length; i += MAX_CONCURRENT) {
+      const batch = chunksToProcess.slice(i, i + MAX_CONCURRENT);
+      logger.info(
+        {
+          batchSize: batch.length,
+          batchNumber: Math.floor(i / MAX_CONCURRENT) + 1,
+        },
+        'Processing batch of chunks',
+      );
+
+      // Process batch concurrently
+      const batchResults = await Promise.all(
+        batch.map(({ index, chunk }) => processChunk(chunk, index)),
+      );
+
+      // Collect results from this batch
+      for (const result of batchResults) {
+        cldfRows.push(...result.cldfLines);
+        if (result.igtItems.length > 0) {
+          igtItems.push(...result.igtItems);
+        }
+        if (result.ontolexEntries.length > 0) {
+          ontolexEntries.push(...result.ontolexEntries);
+        }
       }
 
-      // Extract OntoLex entries
-      const ontolexResult = await extractOntoLex(chunk);
-      if (ontolexResult.length > 0) {
-        ontolexEntries.push(...ontolexResult);
-      }
-
-      // Save results after each chunk to ensure we're capturing data
+      // Save intermediate results after each batch
       await saveResults(
         [...cldfRows], // Make copies to avoid reference issues
         [...igtItems],
         [...ontolexEntries],
       );
 
-      // Mark this chunk as processed
-      await markChunkAsProcessed(i);
-      
-      // Also log progress more frequently
-      logger.info({
-        chunkNumber: i + 1,
-        cldfFeatures: cldfRows.length - 1,
-        igtExamples: igtItems.length,
-        ontolexEntries: ontolexEntries.length
-      }, 'Saved results after chunk processing');
+      logger.info(
+        {
+          batchNumber: Math.floor(i / MAX_CONCURRENT) + 1,
+          processedChunks: i + batch.length,
+          totalChunks: chunksToProcess.length,
+          cldfFeatures: cldfRows.length - 1,
+          igtExamples: igtItems.length,
+          ontolexEntries: ontolexEntries.length,
+        },
+        'Batch processing complete',
+      );
     }
 
     // Save results
     await saveResults(cldfRows, igtItems, ontolexEntries);
 
     logger.info('Extraction complete!');
-    logger.info({
-      cldfFeatures: cldfRows.length - 1,
-      igtExamples: igtItems.length,
-      ontolexEntries: ontolexEntries.length
-    }, 'Extraction statistics');
+    logger.info(
+      {
+        cldfFeatures: cldfRows.length - 1,
+        igtExamples: igtItems.length,
+        ontolexEntries: ontolexEntries.length,
+      },
+      'Extraction statistics',
+    );
   } catch (error) {
     logger.fatal({ err: error }, 'Error in main process');
     process.exit(1);

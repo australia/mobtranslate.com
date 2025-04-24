@@ -25,3 +25,703 @@ narrative-topic-anaphora-treatment,narrative-topic-anaphora-treatment,gvn,presen
 passive-constructions,passive-constructions,gvn,present,Foreword
 anti-passive-constructions,anti-passive-constructions,gvn,present,Foreword
 topic-anaphora-treatment,topic-and-anaphora-treatment,gvn,present,Foreword
+creole-form,creole,gvn,present,§1.1.4
+english-transitive-verb-suffix-im,creole-verb-suffix,gvn,-im,§1.1.4
+adjective-suffix-bala,creole-adjective-suffix,gvn,-bala,§1.1.4
+possession-marker-blonga-bla,creole-possession-marker,gvn,blonga/bla,§1.1.4
+quantifier-lexicon,creole-quantifier-lexicon,gvn,"too much, big mob",§1.1.4
+lexical-item-savvy,creole-lexical-item,gvn,savvy ('know'),§1.1.4
+suffix-ji-stative-marker,stative-marker-suffix,gvn,present,§3.8.5.4 (ii);§4.2.4
+vowel-inventory,vowel-inventory,gvn,3,§1.2
+vowel-articulation,vowel-articulation,gvn,pure,§1.2
+vowel-diphthongization,vowel-diphthongization,gvn,no,§1.2
+vowel-length-distinction,vowel-length-distinction,gvn,no,§1.2
+vowel-occurrence,vowel-possibility,gvn,any,§2.2.1
+c1-single-consonant,c1-single-consonant,gvn,yes,§2.2.1
+c1-allowed-types,c1-allowed-types,gvn,"stop, nasal, semivowel",§2.2.1
+c3-single-consonant,c3-single-consonant,gvn,yes,§2.2.1
+c3-allowed-types,c3-allowed-types,gvn,"non-peripheral nasal, lateral, rhotic, lamino-palatal semivowel",§2.2.1
+c2-consonant-cluster,c2-cluster,gvn,"single, or cluster of two or three",§2.2.1
+geminate-consonants,geminate-consonants,gvn,no,§2.2.1
+rhotic-palatal-sequence,rhotic-palatal-sequence,gvn,no,§2.2.1
+y-conjugation-reduplication,y-conjugation-reduplication,gvn,"inserts /n/ between reduplicated roots",§2.2.1
+bound-morpheme-types,bound-morpheme-types,gvn,"inflection, derivation, clitic","n/a"
+bound-morpheme-syllable-count,bound-morpheme-syllable-count,gvn,"typically monosyllabic (with occasional disyllabic forms)","n/a"
+monosyllabic-bound-morpheme-initial-clusters,monosyllabic-bound-morpheme-initial-clusters,gvn,allowed,"n/a"
+clitic-initial-lateral,clitic-initial-lateral,gvn,present,"n/a"
+vowel-harmony-rule,vowel-harmony-rule,gvn,"suffixes require /a/ and /i/ to be followed by /a/ and /u/ to be followed by /u/",§2.S.I
+loanword-phonological-adaptation,phonological-adaptation,gvn,ceased in younger speakers,§2.3
+loanword-morphological-adaptation,morphological-adaptation,gvn,present,§2.3
+vowel-harmony,vowel-harmony,gvn,"applies to suffix vowels on nominal inflections (ergative, dative, locative, perlative), verbal subordination suffix -nyV, and clitic -ngVrr",§2.5.1
+vowel-harmony-total-assimilation,vowel-harmony-total-assimilation,gvn,"u/u- and a/a- suffix vowels fully assimilate to the preceding vowel",§2.5.1
+vowel-harmony-no-assimilation-after-i,vowel-harmony-no-assimilation-after-i,gvn,"after a final stem vowel /i/ the suffix vowel remains unchanged",§2.5.1
+vowel-harmony-exceptions,vowel-harmony-exceptions,gvn,"ergative (-bu/V) and perlative (-burr/V) allomorphs are not affected by vowel harmony",§2.5.1
+syllable-reduction-locative-inflection,locative-inflection-reduction,gvn,"-nga after root-final /a/ is reduced to long vowel a:",§2.5.3
+syllable-reduction-causative,causative-verb-forming-affix-reduction,gvn,"-bungal is frequently reduced to -bal",§2.5.3
+syllable-reduction-partial-first,partial-reduplication-first-syllable,gvn,"observed in four verbs",§2.5.3
+syllable-reduction-partial-second,partial-reduplication-second-syllable,gvn,"observed in three verbs",§2.5.3
+stress-word-boundary,stress-marks-word-boundaries,gvn,yes,§2.6
+intonation-clause-difference,intonation-distinguishes-clause-types,gvn,yes,§2.6
+primary-stress-first-syllable,primary-stress,gvn,first-syllable,§2.6.1
+secondary-stress-optional,secondary-stress,gvn,optional,§2.6.1
+clause-stress-location,clause-stress-location,gvn,first-syllable-of-word,§2.6.2
+two-constituent-clause-stress,clause-stress-assignment-two-constituent,gvn,predicate,§2.6.2(i)
+multi-constituent-clause-stress,clause-stress-assignment-multi-constituent,gvn,pre-predicator,§2.6.2(ii)
+content-interrogative-stress,clause-stress-content-interrogative,gvn,interrogative-pronoun,§2.6.2(iii)a
+polar-question-stress,clause-stress-polar,gvn,predicator,§2.6.2(iii)b
+negative-statement-stress,clause-stress-negative,gvn,negative-particle-kari,§2.6.2
+continuous-action-stress,clause-stress-continuous-action,gvn,first-syllable-of-first-verb,§2.6.2
+tag-construction-stress,clause-stress-tag,gvn,added-noun-secondary-stress,§2.6.2
+reprise-construction-stress,clause-stress-reprise,gvn,preposed-constituent-primary-and-clause-constituent-secondary,§2.6.2
+word-classes-mutually-exclusive,mutually-exclusive-word-classes,gvn,yes,§3.1
+word-classes-list,parts-of-speech,gvn,"Nominals; nouns; adjectives; quantifiers; location and time words; personal pronouns; interrogative pronouns; demonstratives; verbs; particles; interjections",§3.1
+case-inflection,case-inflection,gvn,"present in all parts of speech except verbs, particles, and interjections",§3.1.1
+personal-pronoun-case,personal-pronoun-case-distinction,gvn,"identical form for transitive and intransitive subject; distinct form for transitive object",§3.1.1
+nonpronoun-case,nonpronoun-case-distinction,gvn,"transitive subject form distinct from intransitive subject/transitive object form",§3.1.1
+location-time-case,location-time-case-marking,gvn,"only local cases occur",§3.1.1
+verb-tam,verb-tense-aspect-mood,gvn,"inflected",§3.1.1
+particle-inflection,particle-inflection,gvn,none,§3.1.1
+interjection-syntax,interjection-syntactic-status,gvn,"outside the syntactic framework of a clause",§3.1.1
+word-class-nominal,word-class-type,gvn,open,§3.1.1
+word-class-location-time,word-class-type,gvn,open,§3.1.1
+word-class-verb,word-class-type,gvn,open,§3.1.1
+word-class-demonstrative,word-class-type,gvn,closed,§3.1.1
+word-class-pronoun,word-class-type,gvn,closed,§3.1.1
+word-class-particle,word-class-type,gvn,closed,§3.1.1
+word-class-interjection,word-class-type,gvn,closed,§3.1.1
+comparative-intensity-marker-attachment,comparative-intensity-marker-attachment,gvn,"adjectives, quantifiers",§3.2
+derivational-affix-attachment,derivational-affix-attachment,gvn,nouns,§3.2
+quantifiers-case-inflection,quantifiers-case-inflection,gvn,"neutral set",§3.2
+morphological-case-count,case-count,gvn,8,§3.2.1
+absolutive-case-function,case-role,gvn,"marks intransitive subject and transitive object",§3.2.1
+ergative-case-function,case-role,gvn,"marks transitive subject",§3.2.1
+instrumental-case,instrumental-case,gvn,present,Peripheral syntactiC cases
+dative-case,dative-case,gvn,present,Peripheral syntactiC cases
+general-locative-case,general-locative-case,gvn,"marks location (in, on, at), allative (movement goal) and goal of three-argument verbs",Local cases
+ablative-case,ablative-case,gvn,"indicates a general source (from), prior in time or location",Local cases
+abessive-case,abessive-case,gvn,"indicates a locational source where the place is not left behind",Local cases
+perlative-case,perlative-case,gvn,"used only in the Nyungkul dialect to mark a defined space through which something passes",Local cases
+inflectional-allomorph-sets,case-allomorph-sets,gvn,"two distinct sets ('neutral' and 'potent') for all cases except absolutive, instrumental, abessive, and perlative",Local cases
+absolutive-case-zero-inflection,absolutive-case-zero,gvn,yes,Chapter 3
+potent-ergative-allomorphs,potent-ergative-allomorph,gvn,"-du, -da",N/A
+affix-allomorphy-ngka-ngku,affix-allomorphy,gvn,ngka/ngku,Table -ngkV/V-
+absolutive-case-allomorphs,absolutive-case,gvn,"neutral: -φ",Table 3.1
+ergative-case-allomorphs,ergative-case,gvn,"neutral: -bu/V-, -Vbu/r-, -njV/y-, -dV/elsewhere; potent: -ngkV/V-, -VngkV/C-",Table 3.1
+instrumental-case-allomorphs,instrumental-case,gvn,"neutral: = neutral ergative",Table 3.1
+dative-case-allomorphs,dative-case,gvn,"neutral: -ngkV/y-, -VkV/r-, -kV/elsewhere; potent: -nkV/V-, -VnkV/C-",Table 3.1
+general-locative-case-allomorphs,general-locative-case,gvn,"neutral: -ngV/V-, -V/r-, -mbV/y-, -bV/elsewhere; potent: -ndV/V-, -VndV/C-",Table 3.1
+ablative-case-allomorphs,ablative-case,gvn,"neutral: -muny; potent: -general LOC + muny",Table 3.1
+abessive-case-allomorphs,abessive-case,gvn,"neutral: -mundu",Table 3.1
+perlative-case-allomorphs,perlative-case,gvn,"neutral: -burr/V-, -Vburr/r-, -jVrr/y-, -dVrr/elsewhere",Table 3.1
+neutral-ablative-marker,neutral-ablative-marker,gvn,-muny,§NA
+potent-ablative-formation,potent-ablative-formation,gvn,"general locative + muny","example"
+abessive-case-marker,abessive-case-marker,gvn,-mundu,n/a
+neutral-ergative-marker,neutral-ergative-marker,gvn,-dV,§3.2.2.1
+potent-ergative-marker,potent-ergative-marker,gvn,-ngkV,§3.2.2.1
+neutral-locative-marker,neutral-locative-marker,gvn,-ngV,§3.2.2.1
+potent-locative-marker,potent-locative-marker,gvn,-ndV,§3.2.2.1
+neutral-dative-marker,neutral-dative-marker,gvn,-kV,§3.2.2.1
+potent-dative-marker,potent-dative-marker,gvn,-nkV,§3.2.2.1
+nominal-stem-formation-methods,nominal-stem-formation,gvn,"affixation, reduplication, compounding",§3.2.3
+catalytic-suffix-mun,catalytic-suffix,gvn,-mun-,§3.2.3
+nominalising-suffix-from-verbs,nominalisation-suffix,gvn,present,§3.2.3
+semantic-affixes-count,semantic-affix-numbers,gvn,"seven suffixes, two prefixes",§3.2.3
+derivational-affix-syllable-count,derivational-affix-syllable-count,gvn,"monosyllabic or disyllabic",§3.2.3
+derivational-affix-criteria,derivational-affix-criteria,gvn,"non-independent; inseparable from root; derived stem inflectable for case; word stress on first syllable",§3.2.3
+catalytic-suffix-stress,catalytic-suffix-no-stress-change,gvn,unchanged,§3.2.3.1
+alienable-possession-affixation,alienable-possession-affixation,gvn,present,§3.2.3.1
+alienable-possession-zero-inflection-forms,alienable-possession-zero-inflection-suffixes,gvn,"-mu/V-, -Vmu/C-",§3.2.3.1
+alienable-possession-nonzero-inflection-forms,alienable-possession-nonzero-inflection-suffixes,gvn,"-ndVmun-/V-, -VndVmun-/C-",§3.2.3.1
+inalienable-possession,inalienable-possession,gvn,juxtaposed,§3.2.3.1
+possessor-of-possessor-affix,possessor-of-possessor-affix,gvn,absent,§3.2
+derivational-comitative-suffix,derivational-comitative-suffix,gvn,present,§4.6.1
+comitative-suffix-variant,comitative-suffix-variant,gvn,"neutral and potent",§4.6.1
+catalytic-suffix,catalytic-suffix,gvn,present,§3.2.3.1
+possessive-suffix-neutral,possessive-suffix-neutral,gvn,always neutral,§3.2
+privative-affix-kari,privative-affix,gvn,kari (suffix),§3.2.3.4
+privative-stem-formation-productivity,privative-stem-formation-productivity,gvn,low,§3.2.3.4
+privative-stem-usage,privative-stem-usage,gvn,predominantly equational,§3.2.3.4
+privative-stem-inflection,privative-stem-inflection,gvn,typically zero,§3.2.3.4
+privative-stem-neutral-inflection,privative-stem-neutral-inflection,gvn,preferred by some speakers,§3.2.3.4
+default-number-implied,default-number,gvn,"singular (except for mass nouns)",§3.2.3.5
+quantifier-use-for-number,quantifier-plural,gvn,yes,§3.2.3.5
+derivational-number-marking,derivational-number,gvn,3,§3.2.3.5
+noun-plural-reduplication,noun-reduplication-general-plural,gvn,yes,Reduplication
+adjective-reduplication-adverbial,adjective-reduplication-adverbial,gvn,yes,§3.8.6.2
+kinship-plural-reduplication,kinship-plural-reduplication,gvn,no,(li)
+kinship-plural-suffix,kinship-plural-suffix,gvn,-karra-,(li)
+derivational-suffix-bulal,derivational-suffix,gvn,"-bulal 'pair'",§3.5.1
+suffix-human-reference,suffix-human-reference,gvn,yes,§3.5.1
+dual-pronoun,dual-pronoun,gvn,bula,§3.5.1
+dual-quantifier,dual-quantifier,gvn,"jambul 'two'",§3.5.1
+numeral-two-derivational-suffix,numeral-two-derivational-suffix,gvn,-dpran,§3
+numeral-two-adjective,numeral-two-adjective,gvn,bulay,§3
+pair-formation-morphology,pair-formation-morphology,gvn,"suffix -bulal",§66,§67
+nominalising-suffix-nyv,nominalising-suffix,gvn,"present; affixed as -nya after final vowels a/i and -nyu after final vowel u",§3.2.3.6
+personal-characteristic-affixes,noun-derivations,gvn,"-(w)arra, -baka, mala-",§3.2.3.7
+baja-verb-postinflectional-clitic,postinflectional-clitic,gvn,functions as "again" clitic when attached to verbs,§3.10.3
+baja-adjective-stem-suffix,adjective-stem-forming-suffix,gvn,attaches to adjectives and must be followed by emphatic clitic "-ku" to indicate "very",§3.10.2
+baja-adjective-inflection-placement,adjective-inflection-placement,gvn,if non-zero inflection occurs, the inflectional suffix is inserted between -baja and clitic "-ku",§3.10.2
+jarra-verb-productivity,bound-morpheme-productivity,gvn,attested with one verb but not used productively,
+catalytic-suffix-domain,catalytic-suffix-domain,gvn,"trisyllabic roots and loan words preceding the case inflection",§3.2.3.9
+mala-prefix-domain,mala-prefix-domain,gvn,"noun roots",§3.2.3.9
+jarra-prefix-domain,jarra-prefix-domain,gvn,"adjectival stems",§3.2.3.9
+kinship-plural-domain,kinship-plural-domain,gvn,"kinship terms",§3.2.3.9
+inhabitants-suffix-domain,inhabitants-suffix-domain,gvn,"proper and common place names",§3.2.3.9
+possessive-privative-cooccurrence,possessive-privative-cooccurrence,gvn,"cannot co-occur",§3.2.3.9
+attributive-comitative-suffix-cooccurrence,attributive-comitative-suffix-cooccurrence,gvn,"may be followed by possessive",§3.2.3.9
+accompaniment-comitative-suffix-cooccurrence,accompaniment-comitative-suffix-cooccurrence,gvn,"cannot take further derivational suffixes",§3.2.3.9
+degree2-suffix-chainability,degree2-suffix-chainability,gvn,"chainable but unusual",§3.2.3.9
+noun-stem-suffixes-first-order,noun-stem-suffixes-first-order,gvn,"privative, kinship plural, pair, inhabitants, excessive, general plural",§3.2.3.9
+location-words-closed-class,closed-word-class,gvn,yes,§3.3
+location-words-inflectional-difference,inflectional-difference-from-nominals,gvn,yes,§3.3
+locative-temporal-extension,locative-temporal-extension,gvn,yes,Chapter 3
+symmetrical-locational-systems,symmetrical-locational-systems,gvn,3,Chapter 3
+limited-use-left-right,left-right-domain,gvn,body-parts,§(ii)
+reduplicated-comitative,reduplication,gvn,yes,§(ii)
+compass-point-shift,compass-point-adjustment,gvn,westward-shifted,§(ii)
+compass-point-domain,compass-point-domain,gvn,land-only,§(ii)
+general-direction-yarra-directional-specificity,directional-specificity,gvn,non-specific,§iv
+general-direction-yarra-gesture,co-speech-gesture,gvn,required,§iv
+location-words-local-only,location-case,gvn,local-only,§3.3.2
+location-words-no-locative-inflection,locative-inflection,gvn,none,§3.3.2
+location-words-perlative,perlative-usage,gvn,disallowed,§3.3.2
+location-word-direction-location-differentiation,direction-location-differentiation,gvn,stem-reduplication,§3.3.2
+location-words-ablative-suffix,ablative-suffix,gvn,-muny,§3.3.2
+location-words-abessive-suffix,abessive-suffix,gvn,-mundu,§3.3.2
+time-words-distinct-class,word-class-difference,gvn,morphologically-distinct,§3.3.2
+juma-dative-suppletion,dative-form-suppletion,gvn,juma-ka/jumay-ngka,§3.3.2
+free-pronoun-forms,free-pronoun-forms,gvn,yes,Chapter 3
+personal-pronoun-numbers,personal-pronouns-numbers,gvn,"singular, dual, plural",Chapter 3
+pronoun-inclusive-exclusive,pronoun-inclusive-exclusive,gvn,optional,Chapter 3
+second-person-plural-honorific,second-person-plural-honorific,gvn,yes,Chapter 3
+core-syntactic-case-marking-pronouns,core-syntactic-case-marking-pronouns,gvn,"nominative/accusative",Chapter 3
+pronoun-potent-allomorphs,pronoun-potent-allomorphs,gvn,"dative, general locative, ablative",Chapter 3
+pronoun-case-restrictions,pronoun-case-restrictions,gvn,"no instrumental, perlative, or abessive",Chapter 3
+pronominal-base-forms,pronominal-base-forms,gvn,"non‑singular: nominative base; singular: distinct nominative and possessive",Chapter 3
+first-person-singular-suppletion,first-person-singular-suppletion,gvn,accusative-suppletion,Chapter 3
+non-singular-pronoun-accusative-suffix,non-singular-pronoun-accusative-suffix,gvn,"-ngan (Yalanji)",Chapter 3
+second-third-person-singular-accusative-suffix,second-third-person-singular-accusative-suffix,gvn,"-ny (Yalanji)",Chapter 3
+first-person-singular-forms,first-person-singular-forms,gvn,"ngayu/nganya/ngayku",Chapter 3
+possessive-pronoun-case-agreement,possessive-case-agreement,gvn,yes,§3.5.2
+possessive-pronoun-optional-inflection,possessive-optional-inflection,gvn,yes,§3.5.2
+possessive-uninflected-in-absolutive,possessive-uninflected-in-absolutive,gvn,yes,§3.5.2
+personal-pronoun-allomorphs,inflection-allomorphy,gvn,"initial vowel following root-final consonants",Table 3.7
+personal-pronoun-vowel-harmony,vowel-harmony,gvn,applies,§2.5.1
+possessive-agreement,possessive-agreement,gvn,yes,76 Chapter 3
+possessive-pronoun-stem-formation,possessive-pronoun-stem-formation,gvn,different for singular and non-singular,76 Chapter 3
+possessive-suffix-set,possessive-suffix-set,gvn,neutral,76 Chapter 3
+possessive-pronoun-suffix-ngun,possessive-pronoun-suffix,gvn,"-ngun (free variation)",Table 3.8
+possessor-of-a-possessor,possessor-of-a-possessor,gvn,no,Table 3.8
+possessive-locative-preference,possessive-locative-preference,gvn,yes,Table 3.8
+pronoun-number-distinction,pronoun-number-distinction,gvn,"singular/dual/plural",§3.5.3
+first-person-inclusive-exclusive,first-person-inclusive-exclusive,gvn,innovative,§3.5.3
+first-person-accusative-suppletion,first-person-accusative-suppletion,gvn,yes,§3.5.3
+agentive-form-reanalysis,agentive-form-reanalysis,gvn,"A and S merger",§3.5.3
+second-person-non-singular-lenition,second-person-non-singular-lenition,gvn,yes,§3.5.3
+who-interrogative-meaning,interrogative-meaning,gvn,interrogative-only,§3.6.1
+what-interrogative-meaning,interrogative-meaning,gvn,interrogative-only,§3.6.1
+where-interrogative-meaning,interrogative-meaning,gvn,interrogative and indefinite,§3.6.1
+who-case-inflection,interrogative-case-marking,gvn,potent-set suffixes,§3.6.1
+what-case-inflection,interrogative-case-marking,gvn,neutral-set suffixes,§3.6.1
+what-possessive-forms,interrogative-possessive,gvn,absent,§3.6.1
+what-dative-sense,interrogative-dative-usage,gvn,why,§3.6.1
+what-comitative-usage,interrogative-comitative,gvn,illness inquiry,§3.6.1
+where-case-marking,interrogative-case-marking,gvn,local-cases-only,§3.6.1
+where-form-variation,interrogative-form-variation,gvn,wanja replaced by wanjabu,§3.6.1
+derived-interrogative-forms,derived-interrogatives,gvn,"when; how; how many; which one",§3.6.1
+which-one-free-interchangeability,which-one-free-interchangeability,gvn,yes,§82 Chapter 3
+stem-forming-suffix-what-kind,stem-forming-suffix-what-kind,gvn,-nguy,§82 Chapter 3
+interrogative-pronoun-root-pwanh,interrogative-pronoun-root,gvn,*waNH-,§6.2
+demonstrative-pronouns-count,demonstrative-pronouns-count,gvn,2,§3.7
+demonstrative-location-words-count,demonstrative-location-words-count,gvn,2,§3.7
+demonstrative-contrast,demonstrative-contrast,gvn,"this/here vs that/there",§3.7
+demonstrative-number,demonstrative-number,gvn,"context-dependent",§3.7
+demonstrative-animacy,demonstrative-animacy,gvn,"refers to both animate and inanimate",§3.7
+demonstrative-pronoun-case-marking,demonstrative-pronoun-case-marking,gvn,"same as nomina Is (all cases)",§3.7
+demonstrative-vowel-variation,demonstrative-vowel-variation,gvn,"ablative, abessive, and comitative forms vary in second vowel (a vs u)",§3.7
+demonstrative-neutral-locative-usage,demonstrative-neutral-locative-usage,gvn,"neutral locative form often rejected in favor of local demonstrative",§3.7
+demonstrative-plural-case,demonstrative-plural-case,gvn,absolutive-only,§3.13
+demonstrative-plural-reference,demonstrative-plural-reference,gvn,human-only,§3.13
+demonstrative-local-distinction,demonstrative-local-distinction,gvn,non-distinct,§3.14
+local-demonstrative-here,local-demonstrative-here,gvn,behaves-like-location-words,§3.14
+demonstrative-noun-formation-suffix,demonstrative-noun-formation-suffix,gvn,-arra,§3.14
+external-locative-adjunct,clause-boundary-marking,gvn,"locative NP (e.g., 'rock-LOC') is typically produced as an external adjunct—prosodically offset by a pause and falling intonation, with an integrated construction also possible but less preferred",§86
+causative-derivation,causative-derivational-process,gvn,productive,§3.8
+inchoative-derivation,inchoative-derivational-process,gvn,productive,§3.8
+verbal-compound,verbal-compounds,gvn,present,§3.8
+typical-verb-root-syllable-structure,verb-root-syllable-structure,gvn,disyllabic,§3.8.2
+trisyllabic-verb-root-occurrence,verb-root-trisyllabicity,gvn,minor,§3.8.2
+quadrisyllabic-verb-root-count,verb-root-quadrisyllable-count,gvn,4,§3.8.2
+verb-root-final-vowel-conjugation,final-vowel-conjugation,gvn,non-past,§3.8.2
+verb-inflectional-suffix,inflectional-suffix,gvn,obligatory,§3.8.2
+max-derivational-suffixes,derivational-suffix-limit,gvn,2,§3.8.2
+max-enclitics,enclitic-limit,gvn,3,§3.8.2
+verb-reduplication-pattern,reduplication-pattern,gvn,typically total (rare partial),§3.8.2
+reduplication-linking-filler,reduplication-linker,gvn,present,§3.8.2
+compound-stem-reduplication,compound-stem-reduplication,gvn,second-member only,§3.8.2
+trisyllabic-root-count,trisyllabic-root-count,gvn,28,§3.8.2.2
+trisyllabic-root-grouping,trisyllabic-root-grouping,gvn,"-rri, -ma, -ba, others",§3.8.2.2
+trisyllabic-root-conjugation,trisyllabic-root-conjugation,gvn,"lconjugation (all but one)",§3.8.2.2
+trisyllabic-root-transitivity,trisyllabic-root-transitivity,gvn,"predominantly transitive",§3.8.2.2
+final-syllable-rri-suffix,final-syllable-suffix,gvn,-rri,(i)
+final-syllable-rri-root-count,final-syllable-root-count,gvn,18,(i)
+nominal-root-based-derivation,nominal-root-based,gvn,yes,§3.8.3.2
+inchoative-suffix,inchoative-suffix,gvn,-ma-l,§ii
+final-syllable-ba,verb-final-syllable,gvn,-ba,§(iii)
+causative-reduction-final-ba,causative-reduction,gvn,possible,§(iii)
+verb-transitivity-division,transitivity-division,gvn,strict division,§3.B.3
+subject-case-criterion,subject-case-marking,gvn,transitive: ergative; intransitive: absolutive,§3.B.3
+verb-conjugation-classes,verb-conjugation-classes,gvn,i-conjugation and y-conjugation,§3.B.3
+i-conjugation-transitivity,i-conjugation-transitivity,gvn,92% transitive,§3.B.3
+y-conjugation-transitivity,y-conjugation-transitivity,gvn,100% intransitive,§3.B.3
+verb-root-transitivity-proportion,verb-root-transitivity-proportion,gvn,77.6% transitive; 22.4% intransitive,§3.B.3
+two-open-conjugation-classes,open-conjugation-class-count,gvn,2,§3.8.3.2
+least-complex-conjugation-system,conjugation-system-complexity,gvn,least complex,§3.8.3.2
+suppletive-roots,suppletive-roots,gvn,present in three l-conjugation verbs,§(i)
+imperative-suffix-variation,imperative-suffix,gvn,"-ga for monosyllabic roots; -ka for polysyllabic roots",§(i)
+transitive-root-reassignment,conjugation-reassignment-transitive,gvn,I-conjugation,§(i)
+intransitive-root-reassignment,conjugation-reassignment-intransitive,gvn,y-conjugation,§(i)
+trisyllabic-root-final-rri,root-structure,gvn,"trisyllabic with final -rri (6 of 18 attested)",§ii
+verb-conjugation-change,verb-conjugation,gvn,"l-conjugation",§ii
+past-tense-marker,past-tense-marker,gvn,"-ny",§ii
+verbal-inflections-tense-system,tense-system,gvn,two-term (nonpast, past),§3.8.4
+verbal-inflections-imperative,imperative,gvn,present,§3.8.4
+verbal-inflections-purposive,purposive-inflection,gvn,present,§3.8.4
+verbal-inflections-precautionary,precautionary-inflection,gvn,present,§3.8.4
+verbal-inflections-successive,successive-inflection,gvn,present,§3.8.4
+verbal-inflections-irrealis,irrealis-inflection,gvn,present,§3.8.4
+verbal-inflections-unmarked,unmarked-subordinate-suffix,gvn,present,§3.8.4
+nonpast-inflection,nonpast-inflection,gvn,"present/future (identical to conjugation marker)",§3.8.4.2
+past-tense-marker-ny,past-tense-marker,gvn,"-ny (may imply either perfective or imperfective aspect)",§ii
+imperative-mood-usage,imperative-mood,gvn,"used for second-person orders and first-person invitations",§iii
+imperative-zero-inflection,imperative-inflection,gvn,"zero inflection for I‑conjugation disyllabic roots",§iii
+imperative-inflection-y,imperative-inflection,gvn,"-y for y‑conjugation disyllabic roots",§iii
+imperative-inflection-ka,imperative-inflection,gvn,"-ka for verbs with roots or stems of more than two syllables",§iii
+imperative-suppletion,imperative-inflection-suppletion,gvn,"present for three I‑conjugation verbs (daji‑l, nyaji‑l, mani‑l)",§iii
+imperative-nonpast-homophony,imperative-nonpast-homophony,gvn,"y‑conjugation verbs use the same suffix for nonpast and imperative",§iii
+irrealis-mood,irrealis-mood,gvn,present,iv
+irrealis-clause-of-use,irrealis-use,gvn,independent,iv
+irrealis-temporal-reference,irrealis-temporal-reference,gvn,absent,iv
+purposive-inflection,purposive-inflection,gvn,"allomorphs -nka (after final vowels a and i) and -nku (after final vowel u)",§4.4.1
+precautionary-inflection,precautionary-inflection,gvn,"suffix -nyji indicating undesirable or preventable events",§4.4.2
+successive-inflection,successive-inflection,gvn,"allomorphs -nya (after final vowels a and i) and -nyu (after final vowel u)",§4.4.3
+nominaliser-subordination,nominaliser-subordination,gvn,"verb suffix -nyV used as a nominaliser in subordinate clauses",§4.4.4
+causative-verb-stem-formation,causative-verb-stem-formation,gvn,"compounding with a causative root from nominals, intransitive verbs, or adjectival particles",§3.8.5.1
+inchoative-verb-stem-formation,inchoative-verb-stem-formation,gvn,"derived with suffix -ma-l",§3.8.5.3
+syntactic-reciprocal-derivation,syntactic-reciprocal,gvn,present,§3.8.5.4-3.8.5.5
+syntactic-reflexive-derivation,syntactic-reflexive,gvn,present,§3.8.5.4-3.8.5.5
+nonsyntactic-reduplication-derivation,nonsyntactic-reduplication,gvn,present,§3.8.5.4-3.8.5.5
+nonsyntactic-plural-subject-agreement-derivation,nonsyntactic-plural-subject-agreement,gvn,present,§3.8.5.4-3.8.5.5
+causative-compounds-classification,causative-compounds-classification,gvn,"two categories: state and action",§3.8.5.1
+state-causative-components,state-causative-components,gvn,"-bunga-l, -kanga-l",§3.8.5.1
+action-causative-component,action-causative-component,gvn,"-mani-l",§3.8.5.1
+transitive-causative-compound,transitive-causative-compound,gvn,"absent",§3.8.5.1
+state-causative-bunga-l,state-causative-marker,gvn,"bunga-l: unmarked state‐causative verbaliser; full form used in reduplication and has a reduced allomorph in rapid speech",§(i)
+state-causative-kanga-l,state-causative-marker,gvn,"kanga-l: used with simple nominal roots to indicate causation involving physical or emotional commotion",§(i)
+action-causative-mani-l,action-causative-marker,gvn,"mani-l: action‐causative verbaliser formed by appending -mani-l with an inserted link morpheme -y- after final vowels of intransitive roots",§(ii)
+action-causative-suppletive,action-causative-suppletion,gvn,"present: imperative forms use a suppletive form of mani-l 'get'",§(ii)
+compound-body-part-verb,compound-body-part-verb,gvn,present,"body part + verb"
+compound-wawu-verb,compound-wawu-verb,gvn,present,"wawu 'breath, spirit' + verb"
+compound-other-noun-verb,compound-other-noun-verb,gvn,present,"other nouns + verb"
+compound-adjective-verb,compound-adjective-verb,gvn,present,"adjective + verb"
+compound-verb-verb,verb-verb-compound,gvn,attested,"walngka-n-dama-l"
+inchoative-stem-from-nominal,formation-nominal-derivational-suffix,gvn,-ma-l,§3.8.5.3
+inchoative-stem-from-intransitive,formation-intransitive-suffix,gvn,-maniji-y,§3.8.5.3
+inchoative-suffix-ma-l-productivity,inchoative-suffix-ma-l-productivity,gvn,highly productive,§(i)
+inchoative-suffix-ma-l-morphology,inchoative-suffix-ma-l-morphology,gvn,derivational (not a compound); takes imperative inflection -ka on multisyllabic stems and undergoes whole-stem reduplication,§(i)
+inchoative-suffix-maniji-y-compound,inchoative-suffix-maniji-y-compound,gvn,compound,§(ii)
+inchoative-suffix-maniji-y-usage,inchoative-suffix-maniji-y-usage,gvn,limited use; attaches to inflected nouns, comitative stems, and roots,§(ii)
+syntactic-derivation-reciprocal,derivational-process,gvn,reciprocal,§3.8.5.4
+syntactic-derivation-reflexive,derivational-process,gvn,reflexive,§3.8.5.4
+transitivity-conjugation-change,conjugation-change,gvn,l-to-y,§3.8.5.4
+reciprocal-suffix,stemforming-suffix,gvn,-wa-,§3.8.5.4
+reciprocal-suffix-free-variation,free-variation-with-plural-subject-marker,gvn,-ri-,§3.8.5.5(i)
+reflexive-suffix-ji,reflexive-suffix,gvn,present,§4.2.4.2
+reflexive-object-omission,reflexive-object-omission,gvn,mandatory,§4.2.4.2
+intransitivising-suffix-ji,intransitivising-suffix,gvn,present,"§4.2.4.3; §4.2.4.4"
+non-syntactic-reduplication,reduplication-derivation,gvn,yes,§3.8.5.5
+non-syntactic-plural-subject-agreement,plural-subject-agreement,gvn,optional,§3.8.5.5
+verb-plurality-devices,plural-verb-devices,gvn,absent,§3.8.5.5
+adverbial-modification-types,adverbial-forms,gvn,particle; adjective-derived,§3.B.6
+adverbial-forms-inflection,inflectional-possibilities,gvn,none,§3.B.6
+adverbial-particles-present,adverbial-particles,gvn,yes,§3.8.6.1
+adverbial-particles-simple-root,simple-root-form,gvn,yes,§3.8.6.1
+adverbial-particles-optional-manner-suffix,manner-suffix-optional,gvn,yes,§3.8.6.1
+adverbial-particles-noun-phrase-exclusion,cannot-be-part-of-noun-phrase,gvn,yes,§3.8.6.1
+adverbial-particles-reduplication,reduplication,gvn,yes,§3.8.6.2
+adverbial-particles-position,position,gvn,"free (can occur anywhere, but verb-adjacent is preferred)",§3.8.6.1
+derived-adverb-suffix-ku,adverb-formation-suffix-ku,gvn,most productive,§3.8
+derived-adverb-reduplication,adverb-formation-reduplication,gvn,less frequent,§3.8
+derived-adverb-reduplication-plus-ku,adverb-formation-reduplication-plus-ku,gvn,very rarely used,§3.8
+comitative-privative-adverb-reduplication,adverb-formation-reduplication-comitative-privative,gvn,disfavoured,§3.8
+free-form-particles,free-form-particles,gvn,present,§3.9
+free-form-particle-groups,free-form-particle-groups,gvn,adjectival; comparison; negation; discourse,§3.9
+adjectival-particles-count,adjectival-particles-count,gvn,4,§3.9.1
+adjectival-particles-predicator,adjectival-particles-predicator-function,gvn,"dative noun or purposive verb complement",§3.9.1
+adjectival-particles-verb-stem-formation,adjectival-particles-verb-stem-formation,gvn,"forms causative with -bunga-l and inchoative with -ma-l",§3.9.1
+adjectival-particles-privative,adjectival-particles-privative-stem,gvn,"all except juburr",§3.9.1
+adjectival-particles-degree-suffix,adjectival-particles-degree-suffix,gvn,"all except wawu (takes -bajaku)",§3.9.1
+particles-no-derivation,derivational-possibilities,gvn,none,§3.9.2
+comparison-particle-emphatic-clitic,emphatic-clitic-attachment,gvn,optional,§3.9.2
+comparison-particle-word-order,syntactic-flexibility,gvn,free-order,§3.9.2
+yinil-comitative-form,comitative-form,gvn,free-variation,§3.9.2
+ex207-ergative-case,ergative-case,gvn,yes,ex(207)
+ex207-dative-case,dative-case,gvn,yes,ex(207)
+ex207-past-tense,past-tense,gvn,yes,ex(207)
+negation-particle-kari,negation-particle,gvn,kari,§4.9.3
+negation-particle-balu,negation-particle,gvn,balu,§4.9.2
+kari-attached-clitics,negation-particle-clitics,gvn,"-ku (general emphasis), -rrku (totality)",§3.10.2
+balu-attached-clitic,negation-particle-clitics,gvn,"-da (temporal)",§3.10.1
+kari-discourse,discourse-particle,gvn,yes,§5.5.3
+balu-discourse,discourse-particle,gvn,yes,§4.9.2
+clitics-bound,bound-morphemes,gvn,yes,§3.10
+clitics-position-word-final,enclitic-position,gvn,word-finally,§3.10
+clitics-stress,enclitic-stressability,gvn,cannot-be-stressed,§3.10
+clitics-attachment,enclitic-attachment,gvn,no-part-of-speech-restriction,§3.10
+temporal-clitic-da,temporal-clitic-da,gvn,"then marker; typically appears on the final verb in a sequence and is attested with verbs and other parts of speech",§10.1
+temporal-clitic-ku,temporal-clitic-ku,gvn,"ambiguous marker interpreted as either 'before' or emphatic; temporal meaning clear only in specific time words",§10.1
+temporal-clitic-kuda,temporal-clitic-kuda,gvn,"marker with a plausible interpretation as 'meanwhile'; used mostly with verbs, but also with nominals and pronouns",§10.1
+temporal-clitic-ngvrr,temporal-clitic-ngvrr,gvn,"marker meaning 'first of all', indicating either the first action or referent; attested with verbs, nouns and pronouns, with a reduced form (-rr) in imperatives",§10.1
+proclitic-wawu,proclitic-wawu,gvn,"proclitic occurring with ablative forms, meaning 'since, after' in temporal constructions",§10.1
+ku-emphatic-clitic,emphatic-clitic-general,gvn,yes,§3.10.2
+lu-emphatic-clitic,emphatic-clitic-attention-getting,gvn,yes,§3.10.2
+bi-emphatic-clitic,emphatic-clitic-surprise,gvn,yes,§3.10.2
+rrku-emphatic-clitic,emphatic-clitic-totality-exclusive,gvn,restricted,§3.10.2
+clitic-baja-dual-function,clitic-function,gvn,stem-forming suffix with adjectives and post-inflectional clitic with verbs,§10.3
+clitic-baja-adj-ku,clitic-cooccurrence,gvn,with adjectives -baja always occurs with emphatic clitic -ku,§10.3
+clitic-baja-verb-ku,clitic-restriction,gvn,with verbs -baja cannot be followed by -ku,§10.3
+clitic-baja-semantics,clitic-meaning,gvn,expresses high intensity with adjectives and state verbs and means "again" with action/motion verbs,§10.3
+clitic-ji,clitic-attachment,gvn,attaches only to pronouns to express "X’s turn" or reciprocal action,§10.3
+clitic-ordering,clitic-ordering,gvn,"temporal clitic precedes emphatic clitics",§10.4
+temporal-clitic-cooccurrence,temporal-clitic-cooccurrence,gvn,mutually-exclusive,§10.4
+emphatic-clitic-cooccurrence,emphatic-clitic-cooccurrence,gvn,ordered-numerically,§10.4
+verbal-clitic-cooccurrence,verbal-clitic-cooccurrence,gvn,non-cooccurring,§10.4
+monosyllabic-interjections,monosyllabic-interjection-count,gvn,4,§3.11
+polysyllabic-interjections,polysyllabic-interjection-count,gvn,7,§3.11
+interjections-affixation,affixation-on-interjections,gvn,no,§3.11
+interjections-intonation,distinct-intonation-group,gvn,yes,§3.11
+loan-noun-catalytic-suffix,loan-noun-catalytic-suffix,gvn,-mun-,§3.12
+loan-noun-catalytic-suffix-optionality,loan-noun-catalytic-suffix-optional,gvn,optional,§3.12
+loan-adjective-suffix,loan-adjective-suffix,gvn,-bala,§3.12
+loan-inchoative-verbaliser,loan-verb-inchoative-verbaliser,gvn,-ma-l,§3.12
+reduplication,reduplication,gvn,yes,Chapter 3
+causative-suffix,causative-suffix,gvn,-mani-l,§3.8.5.1
+passive-suffix,passive-suffix,gvn,-ji-,§3.8.5.1
+transitive-suffix,transitive-suffix,gvn,-im,Chapter 3
+transitive-verbaliser,transitive-verbaliser,gvn,"-bunga-l ~ -ba-l",Chapter 3
+simple-sentence-constituents,simple-sentence-constituents,gvn,verb-complex + noun-phrases,§4.1
+absence-of-copula,copula,gvn,absent,§4.1
+sentence-type-contrast,sentence-type-contrast,gvn,verbal vs nominal,§4.1
+np-contiguity,noun-phrase-contiguity,gvn,"continuous or discontinuous arrangement",§4.1.1
+np-case-agreement,np-case-agreement,gvn,"all NP constituents must agree in case marking; possessive constructions exempt",§4.1.1
+np-generic-classifier,generic-term-classifier,gvn,"restricted to 'minya' (flesh food) and 'mayi' (plant food) in classifier function",§4.1.1
+np-demonstrative-position,demonstrative-placement,gvn,"flexible (may precede or follow the noun in single noun NPs; preferred initial position in two-noun NPs)",§4.1.1
+np-modifier-order,modifier-order,gvn,"generally post-head; when combined adjective follows and quantifier precedes the head",§4.1.1
+np-possessive-position,possessive-position,gvn,"variable (may precede or follow the noun)",§4.1.1
+np-inalienable-possession,inalienable-possession,gvn,"appositional structure where the possessed part follows the possessor",§4.1.1
+transitive-intransitive-distinction,verb-transitivity,gvn,strict,§4.1.3
+intransitive-subject-case,intransitive-subject-case,gvn,nominative-or-absolutive,§4.1.3
+intransitive-subject-animacy,intransitive-subject-animacy,gvn,animate-or-inanimate,§4.1.3
+transitive-core-noun-phrases,core-noun-phrase-count,gvn,2,§4
+agent-noun-phrase-case,agent-case-marking,gvn,"pronoun: nominative; nominal: ergative",§4
+object-noun-phrase-case,object-case-marking,gvn,"pronoun: accusative; nominal: absolutive",§4
+optional-noun-phrase-drop,core-noun-phrase-optional,gvn,context-dependent,§4
+inanimate-agent-case,instrumental-case,gvn,applied,§4
+ergative-instrumental-homophony,ergative-instrumental-homophony,gvn,yes,§4
+animacy-transitivity-impact,transitivity-animacy,gvn,no effect,§4
+functional-case-splitting,differentiates-ergative-instrumental,gvn,yes,§1.4.1
+core-syntactic-noun-cases,noun-cases,gvn,ergative/absolutive,§1.4.1
+core-syntactic-pronoun-cases,pronoun-cases,gvn,nominative/accusative,§1.4.1
+double-case-inflections,double-case-inflections,gvn,"ergative, dative, general-locative, ablative",§1.4.2
+animacy-influence-on-case-inflection,animacy-influence,gvn,"choice of case inflection influenced by animacy/inanimacy (not determined by fixed noun classes)",§1.4.2
+non-zero-case-inflection-types,case-inflection-types,gvn,"potent, neutral",Chapter 4
+case-marking-category-1,head-noun-case-marking,gvn,set-x,Table 4.1
+case-marking-category-2,head-noun-case-marking,gvn,"set-x or set-y",Table 4.1
+case-marking-category-3,head-noun-case-marking,gvn,set-y,Table 4.1
+case-marking-pronouns,np-case-marking,gvn,set-x,Table 4.2
+case-marking-adjectives,np-case-marking,gvn,"set-x or set-y",Table 4.2
+case-marking-demonstratives,np-case-marking,gvn,"set-x or set-y",Table 4.2
+case-marking-interrogative-who,np-case-marking,gvn,set-x,Table 4.2
+case-marking-interrogative-what-where,np-case-marking,gvn,set-y,Table 4.2
+case-marking-possessive,np-case-marking,gvn,set-y,Table 4.2
+case-marking-numerals,np-case-marking,gvn,set-y,Table 4.2
+case-marking-location-time,np-case-marking,gvn,set-y,Table 4.2
+core-syntactic-cases-absolutive-nominal,absolutive-case,gvn,zero,§4.1.4.3
+core-syntactic-cases-nominative-pronoun,nominative-case,gvn,present,§4.1.4.3
+np-a-function-nominal-case,a-function-nominal-case,gvn,ergative,§3.2.2
+np-a-function-pronoun-case,a-function-pronoun-case,gvn,nominative,§3.5.1
+cat2-ergative-inflection,ergative-inflection-category-2,gvn,"potent/neutral",§4
+np-0-function-nominal-case,np-0-nominal-case,gvn,absolutive,§4
+np-0-function-pronoun-case,np-0-pronoun-case,gvn,accusative,§4
+instrumental-potent-case-inflection,potent-case-inflection,gvn,no,§(i)
+instrumental-ergative-coinciding,instrumental-case-morphology,gvn,identical-to-ergative,§4
+instrumental-case-intransitive,instrumental-case-distribution,gvn,allowed-in-intransitives,§4(a)
+ergative-case-intransitive,ergative-case-distribution,gvn,disallowed-in-intransitives,§4(a)
+instrumental-case-reflexive,instrumental-case-behavior,gvn,remains-unchanged-in-reflexives,§4(b)
+ergative-case-reflexive,ergative-case-behavior,gvn,changes-to-absolutive-in-reflexives,§4(b)
+instrumental-case-passive,instrumental-case-behavior,gvn,remains-unchanged-in-passive,§4(c)
+ergative-case-passive,ergative-case-behavior,gvn,changes-to-locative-in-passive-with-agent,§4(c)
+comitative-case,comitative-case,gvn,distinct,§4.6.1
+dative-case-function-reason,dative-case-function-reason,gvn,present,Chapter 4
+dative-case-function-parameter-setting,dative-case-function-parameter-setting,gvn,present,Chapter 4
+category-2-noun-case-inflection,category-2-noun-case-inflection,gvn,potent/neutral,Chapter 4
+locative-inflection-animacy,locative-inflection,gvn,"potent (if animate), neutra1 (if inanimate)",§3.2.4
+locative-case-optional,locative-case-optional,gvn,yes,§3.2.4
+ablative-inflection-animacy,ablative-inflection,gvn,"potent (if animate), neutral (if inanimate)",§3.2.4
+abessive-potent-inflection,abessive-potent-inflection,gvn,no,§3.3.2
+perlative-potent-inflection,perlative-potent-inflection,gvn,no,§4.2.4.3
+nominal-sentences-copula,copula,gvn,absent,§4.1.5
+nominal-sentences-verbless,verbless-sentences,gvn,present,§4.1.5
+nominal-sentences-subject-case,subject-case,gvn,absolutive/nominative,§4.1.5
+privative-case,privative-case,gvn,present,§4.6.2
+yala-comparative-construction,comparative-like-construction,gvn,present,§3.9.2(i)
+adjectival-particle-dative-case,adjectival-particle-dative-case,gvn,optional,§3.9.1
+word-order-free,word-order,gvn,free,§4.1.6
+preferred-order-intransitive,preferred-order-intransitive,gvn,"S V",§4.1.6
+preferred-order-transitive,preferred-order-transitive,gvn,"A-O-V",§4.1.6
+unmarked-word-order,unmarked-word-order,gvn,"S-V; A-0-V",§4.1.6
+pronoun-before-noun,pronoun-before-noun,gvn,yes,§4.1.6
+temporal-word-initial,temporal-adverb-position,gvn,initial,§4.1.6
+location-word-precedes-locative-np,location-word-precedes-locative-np,gvn,precedes,§4.1.6
+interrogative-why-initial,interrogative-why-position,gvn,initial,§4.1.6
+word-level-derivations,word-level-derivations,gvn,present,§4.1.6
+clause-level-derivations,clause-level-derivations,gvn,present,§4.1.6
+inchoative-construction,inchoative-construction,gvn,optional,§4.1.6
+state-causative-construction,state-causative-construction,gvn,optional; forms transitive compound verbs from a nominal base or adjectival particle; changes underlying S to O,§4.2.2
+action-causative-construction,action-causative-construction,gvn,optional; changes underlying S to O,§4.2.2
+transitivisation-restriction,transitivisation-restriction,gvn,disallowed for inflected (locative) and derived (comitative) nominals,Examples
+action-causative-transitiviser,action-causative-transitiviser,gvn,y-mani-l,§3.8.5.1(ii)
+transitiviser-syntactic-effect,transitiviser-syntactic-effect,gvn,no structural change (adds only semantic causation),Examples
+reciprocal-marker,reciprocal-marker,gvn,-wa-y,§4.2.3
+reciprocal-verb-intransitivisation,reciprocal-intransitivisation,gvn,yes,§4.2.3
+reciprocal-argument-conjoining,reciprocal-argument-conjoining,gvn,required,§4.2.3
+reciprocal-construction-present,reciprocal-construction,gvn,yes,Chapter 4
+reciprocal-unspecified-np,reciprocal-construction-np-count,gvn,unspecified,Chapter 4
+reciprocal-dual-pronoun,dual-reciprocal-pronoun,gvn,yes,Chapter 4
+reciprocal-plural-np,plural-np-reciprocal-marking,gvn,yes,Chapter 4
+verb-transitivity-marking,verb-transitivity-marking,gvn,not morphologically marked,§4.2.4
+intransitive-formation-ji,intransitive-formation-ji,gvn,used for reflexive, passive, and antipassive constructions,§4.2.4
+transitivity-determination,transitivity-determination,gvn,determined by NP case marking (A, Ø, or S),§4.2.4
+antipassive-construction,antipassive-construction,gvn,present,§4.2.4
+reciprocal-construction,reciprocal-construction,gvn,present,§4.2.4
+passive-agent,passive-agent-expression,gvn,optional,§4.2.4.3
+passive-patient,passive-patient-subject-alignment,gvn,yes,§4.2.4.3
+passive-derived-intransitive,passive-derived,gvn,yes,§4
+passive-agent-case,passive-agent-case,gvn,locative,§4
+passive-object-case-noun,passive-object-case-noun,gvn,absolutive,§4
+passive-object-case-pronoun,passive-object-case-pronoun,gvn,nominative,§4
+chance-passive,passive-type-chance,gvn,present,§4.2.4.1
+topic-passive,passive-type-topic,gvn,present,§4.2.4.1
+chance-passive-tense,chance-passive-tense,gvn,past,§4
+antipassive,antipassive,gvn,present,§4.2.4.4
+passive-unique-ergative,passive-unique-ergative,gvn,present,§4
+antipassive-verb-formation,antipassive-suffix,gvn,-ji-,§4
+antipassive-agent-case,antipassive-agent-case,gvn,absolutive/nominative,§4
+antipassive-object-case,antipassive-object-case,gvn,locative/perlative,§4
+antipassive-total-effect,antipassive-total-effect,gvn,simple-form indicates total effect on patient,§4.2.5
+antipassive-reduplication,antipassive-reduplication,gvn,present,§4
+antipassive-construction-productive,antipassive-construction,gvn,productive,Chapter 4
+intransitivisation-antipassive-communication,intransitivisation,gvn,"antipassive-syntax (agent in S, goal in dative)",Chapter 4
+antipassive-agent-locative-zero-marking,agent-locative-zero-marking,gvn,yes,Chapter 4
+antipassive-goal-dative-marking,dative-case-goal,gvn,yes,Chapter 4
+antipassive-patient-demotion,patient-demotion,gvn,ancillary,Chapter 4
+derivational-process-count,derivational-process-count,gvn,6,§4.2.5
+derivational-process-optional,derivational-process-optional,gvn,"inchoative, causative, antipassive",§4.2.5
+derivational-process-obligatory,derivational-process-obligatory,gvn,"reciprocal, reflexive",§4.2.5
+passive-chance-passive,passive-chance,gvn,optional,§4.2.5
+passive-topic-passive,passive-topic,gvn,"optional or obligatory",§4.2.5
+antipassive-transitivity,antipassive-transitivity,gvn,"dichotomous: higher (total effect) or lower (generalised action)",§4.2.5
+mixed-syntax,mixed-syntax,gvn,"ergative and nominative/accusative",§4.2.5
+pivot-np,pivot-np,gvn,none,§4.2.5
+coordinate-intonation,coordinate-intonation,gvn,"non-final rising intonation; final falling intonation",§4.2.5
+topic-chain,topic-chain,gvn,"zero-anaphora and deletion of S/A NP allowed",§4.2.5
+zero-anaphora-event,zero-anaphora,gvn,"not allowed in event clauses",§4
+pronoun-reduction,pronoun-reduction,gvn,preferred,§4
+coordination-particles,coordination-particles,gvn,"4 main particles (kari, yamba, kaki, kunka) with optional nganganjirrka",§4
+conditional-clause-marker,conditional-clause-marker,gvn,kaki,§4
+hypothetical-reason-marker,hypothetical-reason-marker,gvn,"kunka/nganganjirrka",§4.4.4.4
+in-turn-clitic,in-turn-clitic,gvn,present,§3.10.3
+temporal-clitics,temporal-clitics,gvn,present,§3.10.1
+negation-particle,negation-particle,gvn,kari,§4.9.2
+contrast-marker,contrast-marker,gvn,"kari/yamba",§4
+subordinate-clause-adjunction,subordinate-clause-adjunction,gvn,mandatory,§4.4
+subordinate-clause-types,subordinate-clause-types,gvn,"purposive, precautionary, successive, simultaneous action, causal, prior event, hypothetical reason",§4.4
+np-deletion-subordinate,np-deletion-subordinate,gvn,free,§4.4
+present-future-tense-distinction,present-future-tense-distinction,gvn,absent,§4.4
+verb-nya-construction,verb-nya-construction,gvn,"used in subordinate types 4–7",§4.4
+purposive-inflection-present,purposive-verbal-inflection,gvn,present,§4.1
+purposive-suffix-nkv,purposive-suffix,gvn,-nkV,§4.1
+precautionary-verb-form,precautionary-verb-form,gvn,stem + -nyji used only in subordinate clauses,§4.2
+precautionary-clause-position,precautionary-clause-position,gvn,follows main clause,§4.2
+co-referential-sa-np-deletion,precautionary-sa-np-deletion,gvn,obligatory deletion for co-referential S/A NPs unless main clause is imperative,§4.2
+precautionary-oblique-coreference,precautionary-oblique-coreference,gvn,not allowed,§4.2
+precautionary-other-deletion,precautionary-other-deletion,gvn,other deletions are optional but preferred,§4.2
+precautionary-construction,precautionary-construction,gvn,present,ex.435–444
+subordinate-temporal-marker,subordinate-clause-temporal-marker,gvn,-nyjiku,§3.8.4.2(vii)
+purposive-clause-dative,dative-noun-function,gvn,general-threat,§4.1.4.4(ii)
+coreferential-np-deletion,coreferential-np-deletion,gvn,optional,ex.441
+successive-coreferentiality-restriction,coreferentiality-restricted-to-core-nps,gvn,yes,Chapter 4
+subordinate-common-np-deletion,common-np-deletion,gvn,obligatory,Chapter 4
+different-agents-np-deletion,np-deletion-different-agents,gvn,optional,Chapter 4
+different-functions-deletion,deletion-of-coreferential-nps-different-functions,gvn,dispreferred,Chapter 4
+verb-nyv-functions,verb-nyv-functions,gvn,"simultaneous action; causal; prior event; hypothetical reason",§4.4
+verb-nyv-nominal,verb-nyv-nominal-characteristics,gvn,"nominal (in non-causal clauses)",§4.4
+simultaneous-action-subordinate-nyv,simultaneous-clause-marking,gvn,verb+-nyV,§4.4.4.1
+simultaneous-action-sentence-coordination,simultaneous-clause-strategy,gvn,sentence coordination,§4.4.4.1
+simultaneous-clause-reduplication,subordinate-clause-reduplication,gvn,often,§4
+main-clause-word-order,main-clause-word-order,gvn,AOV (preferred),§4
+subordinate-ergative-inflection-embedded,subordinate-ergative-inflection,gvn,optional (embedded),§4
+subordinate-ergative-inflection-following,subordinate-ergative-inflection,gvn,obligatory (following),§4
+co-referential-np-deletion,common-np-deletion,gvn,optional,§4
+subordinate-verb-marker,subordinate-verb-marker,gvn,-nyV,§4
+verb-nyv-no-case,verb-nyv-case-inflections,gvn,no,§4.2 Causal
+causal-noun-ablative,causal-noun-case,gvn,ablative,§4.1.4.4(iv)
+causal-action-temporality,causal-action-temporality,gvn,anterior,§4.2 Causal
+causal-clause-order,causal-clause-position,gvn,flexible,§4.2 Causal
+causal-clause-pronoun-preference,causal-clause-pronoun-preference,gvn,preferred,ex-487
+causal-clause-pronoun-deletion,causal-clause-pronoun-deletion,gvn,possible,ex-487
+prior-event-clause-formation,prior-event-clause-formation,gvn,"wawu + verb + -nyV + ablative",§4.4.4.3
+prior-event-clause-order,prior-event-clause-order,gvn,"flexible (may precede or follow the main clause)",§4.4.4.3
+prior-event-coreference,prior-event-coreference,gvn,"requires co-referential NP (S or A) across main and subordinate clauses",§4.4.4.3
+prior-event-nominalisation,prior-event-nominalisation,gvn,"verb form (-nyV) is nominalised only when it must bear case inflection",§4.4.4.3
+ablative-marking-attraction,ablative-marking-attraction,gvn,"ablative case marking is attracted by nouns, diverting it from a verb + -nyV form",§4.4.4.3
+purposive-construction,purposive-constructions,gvn,real,§4.4
+hypothetical-reason-marking,hypothetical-reason-marking,gvn,"verb+ -nyV + -Dative",§4.1.4.4(ii)
+in-case-clause-marker,in-case-clause-marker,gvn,"kunka (common), nganganjirrka (less common)",§4
+relative-clause-marker-none,relative-clause-marker,gvn,absent,§4.4.5
+relative-clause-identifying-function,relative-clause-identifying-function,gvn,marginal,§4.4.5
+relative-clause-temporal-interpretation,relative-clause-temporal-interpretation,gvn,overriding,§4.4.5
+subordinate-np-deletion,np-deletion,gvn,"obligatory co-referential S/A and 0 deletion",§4.6
+subordinate-sa-pivot,sa-pivot,gvn,"present",§4.6
+subordinate-nominative-accusative,nominative-accusative-characteristics,gvn,"present in subordinate constructions",§4.6
+complex-subordinate-sentences,multiple-subordinate-clauses,gvn,"rare",§4.6
+purposive-clause-linkage,subordinate-clause-linkage,gvn,"purposive clause tends to be followed by a logically connected clause",§4.6
+subordinate-clause-purposive-marker,subordinate-clause-purposive-marker,gvn,"stem + -nkV",Table 4.3
+subordinate-clause-precautionary-marker,subordinate-clause-precautionary-marker,gvn,"stem + -nyji",Table 4.3
+subordinate-clause-successive-marker,subordinate-clause-successive-marker,gvn,"stem + -nyjiku",Table 4.3
+subordinate-clause-simultaneous-marker,subordinate-clause-simultaneous-marker,gvn,"(reduplicated)stem + -nyV + ABS/ERG (reduplicated)stem + -nyV",Table 4.3
+subordinate-clause-withperception-marker,subordinate-clause-withperception-marker,gvn,"(reduplicated)stem + -nyV (+ ABS?)(reduplicated)stem + -nyV(+ oblique case)",Table 4.3
+subordinate-clause-causal-marker,subordinate-clause-causal-marker,gvn,"stem + -nyV",Table 4.3
+subordinate-clause-prior-event-marker,subordinate-clause-prior-event-marker,gvn,"wawu + stem + -nyV + ABL",Table 4.3
+subordinate-clause-hypothetical-marker,subordinate-clause-hypothetical-marker,gvn,"stem + -nyV + DAT",Table 4.3
+possession-alienable-inalienable,possession-alienable-inalienable,gvn,"distinct constructions",Chapter 4
+general-alienable-possession-marker,general-alienable-possession-marker,gvn,"-(V)mu; -(V)ndVmun-",§3.2.3.2
+possessive-np-word-order,possessive-np-word-order,gvn,"free",§3.2.3.2
+possessor-inanimacy,possessor-inanimacy,gvn,inanimate,§4
+possessive-suffix-ambiguity,possessive-suffix-ambiguity,gvn,indistinguishable-from-neutral-locative-if-noun-ends-in-vowel (Nyungkul dialect),§4
+double-possessor-construction,double-possessor-construction,gvn,rare,§4
+possessor-of-possessor-strategy,possessor-of-possessor,gvn,POSS+LOC-preferred,§4
+inalienable-possession-general-np,inalienable-possession-general-np,gvn,present,§4.5.2
+inalienable-possession-appositional,inalienable-possession-appositional,gvn,present,§4.5.2
+inalienable-possession-case-agreement,inalienable-possession-case-agreement,gvn,yes,§4.5.2
+inanimate-possessor-general-possessive, inanimate-possessor-possessive-form, gvn, uncommon, §4.5.3
+inanimate-possessor-locative-case, inanimate-possessor-case, gvn, locative, §4.5.3
+inanimate-possessor-ablative-case, ablative-case-for-inanimate-possessor, gvn, context-dependent, §4.5.3
+locative-possessive-distinction, locative-possessive-distinction, gvn, yes, §4.5.3
+former-possession-marker,former-possession-marker,gvn,mali,§4.5.4
+former-possession-case,former-possession-case,gvn,locative or ablative,§4.5.4
+mali-morphology,ambiguous-morphological-category,gvn,unclear_particle_suffix_or_clitic,Chapter 4
+poss-loc-relationship,possessive-locative-relationship,gvn,close,§4.5.5
+recipient-marking,recipient-case-marking,gvn,possessive-or-locative,§4.5.5
+possessive-np-zero-function,possessive-zero-function,gvn,yes,§4.5.5
+kinship-term-case-marking,kinship-term-case-marking,gvn,dual,§4.5.5
+comitative-case-marking,comitative-case,gvn,present,§4.6
+privative-case-marking,privative-case,gvn,present,§4.6
+comitative-suffix-inventory,comitative-suffix,gvn,"-(i)ji, -(V)nji, -(i)jirr-",§4.6
+comitative-marker,comitative-marker,gvn,present,§4
+comitative-case-locational-usage,comitative-case-locational,gvn,yes,§3.2.3(c)
+comitative-case-alienable-possession,comitative-case-alienable-possession,gvn,yes,§3.2.3(d)
+comitative-case-attributive,comitative-case-attributive,gvn,yes,§3.2.3(e)
+comitative-case-accompaniment-animate,comitative-case-accompaniment-animate,gvn,yes,§3.2.3(ii)(a)
+comitative-case-accompaniment-inanimate,comitative-case-accompaniment-inanimate,gvn,yes,§3.2.3(ii)(b)
+instrumental-case-body-part,instrumental-case,gvn,mandatory-with-body-part,§4.1.4.4(i)
+comitative-intransitive,comitative-case,gvn,intransitive-only,§4.1.4.4(i)
+comitative-derivational,comitative-type,gvn,derivational,§4.1.4.4(i)
+absolutive-case-realisation,absolutive-case,gvn,zero-realisation,§4.1.4.4(i)
+privative-form-frequency,privative-form-frequency,gvn,less frequent than comitative,§6.2
+privative-form-predicator,privative-form-predicator,gvn,preferred in equational sentences,§6.2
+privative-form-non-accompaniment,privative-non-accompaniment,gvn,rare,§6.2
+imperative-from-any-verbal-stem,imperative-from-any-verbal-stem,gvn,yes,§4.7
+imperative-subject-pronoun,imperative-subject-pronoun,gvn,explicit-or-implicit-second-person,§4.7
+imperative-subject-position,imperative-subject-position,gvn,initial-preferred,§4.7
+imperative-reduplication,imperative-reduplication,gvn,encourages-continuation-of-activity,§4.7
+imperative-first-person-inclusive,imperative-first-person-inclusive,gvn,attested,§4.7
+imperative-desist-particle,imperative-desist-particle,gvn,attested-with-intransitives (optional with transitives),§4.7
+imperative-temporal-clitic,imperative-temporal-clitic,gvn,clitic-da-used-to-indicate-immediate-action,§4.7
+imperative-immediate-clitic,imperative-immediate-clitic,gvn,clitic-ng-vrr-for-strong-immediacy,§4.7
+imperative-polite-distinction,imperative-polite-distinction,gvn,no,§3.10.1
+imperative-allomorphs,imperative-allomorphs,gvn,"-ngarr and -rr",§3.10.1
+imperative-urgency,imperative-urgency,gvn,"expresses immediacy",§3.10.1
+polar-questions-marking,polar-question-marking,gvn,"intonation and paralinguistic","§4.8"
+interrogative-pronouns,interrogative-pronouns,gvn,yes,"§4.8"
+non-inflecting-adjectival-particles,adjectival-particles-inflection,gvn,non-inflecting,§4.9.1
+adjectival-particles-complement,adjectival-particles-complement-type,gvn,"noun in dative case or purposive clause",§4.9.1
+adjectival-particles-inchoative-derivation,adjectival-particles-derivation,gvn,complement type maintained,§4.9.1
+derived-causative-zero-noun,derived-causative-complementation,gvn,obligatory,(59 1)
+derived-causative-optional-goal,derived-causative-goal,gvn,"optional (dative noun or purposive clause)",(59 1)
+negation-particles-number,multiple-negation-particles,gvn,2,§3.9.2(ii)
+kari-adj-negation,adjective-negation-marker,gvn,"variable placement (pre-adjective when stressed; post-adjective interpreted as privative suffix with predicator function)",§3.9.1
+balu-negation-semantic,negation-marker-semantic,gvn,"negation meaning 'desist/give up/refrain' with an implication of inability or disapproval",§4.7
+balu-morphology,negation-marker-morphology,gvn,"lacks verbal stem‐formation, privative function, and combination with -bajaku",§3.9.1
+balu-governance,governing-case,gvn,"governs a noun in dative case or a purposive clause",§4.9.1
+balu-subject,subject-case,gvn,"subject NP appears in S function (nominative)",§4.9.1
+comparison-particle-yala-case,comparison-particle-argument-case,gvn,"NP in absolutive (nominative if pronoun)",§4.9.3(i)
+modal-particle-nguba,modal-particle,gvn,"assumption and alternative modality",§4.9.3(ii)
+nguba-precedes-assumption,marker-precedes-assumption,gvn,always,§4
+interjections-position,interjections-position,gvn,"complete utterance or sentence-initial",§4.10
+interjections-boundary-marking,interjections-boundary-marking,gvn,"set off from following material by a slight pause when preceding a sentence",§4.10
+interjections-phonological-pattern,interjections-phonological-pattern,gvn,"monosyllabic and/or ending with a glottal stop or breathy voice",§4.10
+pronoun-noun-sequence,pronoun-noun-sequence,gvn,anaphoric-or-definite,§5
+noun-pronoun-sequence,noun-pronoun-sequence,gvn,new-reference,§5
+first-person-plural-exclusive,first-person-plural-exclusive,gvn,present,§first-person-plural-exclusive
+second-person-plural,second-person-plural,gvn,present,§second-person-plural
+third-person-plural,third-person-plural,gvn,present,§third-person-plural
+cataphoric-demonstrative,cataphoric-demonstrative,gvn,present (yanya),§(625)
+demonstrative-dual-function,demonstrative-dual-function,gvn,yes,§5.2.1.2
+demonstrative-cataphoric,demonstrative-cataphoric,gvn,yanya,§5.2.1.2
+demonstrative-anaphoric,demonstrative-anaphoric,gvn,yinya,§5.2.1.2
+zero-anaphora,zero-anaphora,gvn,"dual-convention (interpreted as same referent in one context and contextually appropriate participant in another, with the latter overriding)",§5.2.1.2
+past-tense-narrative,narrative-tense,gvn,past,§5.2.2
+simultaneous-subordinate-clauses,simultaneous-subordinate-clauses,gvn,limited-brief-span,§5.2.2
+narrative-reference-switching,narrative-reference-switching,gvn,leapfrog,§5.2.2
+clitic-kuda-meanwhile,temporal-clitic-meanwhile,gvn,present,§5.2.2
+clitic-da-then,temporal-clitic-then,gvn,present,§5.2.2
+clitic-ngvrr-first,temporal-clitic-first,gvn,present,§5.2.2
+clitic-wawu-after,temporal-clitic-after,gvn,present,§5.2.2
+anaphoric-linkage,anaphoric-linkage,gvn,"present; realized through coordinated clause repetition rather than dependent structures",§5.2.3
+clause-repetition-word-order,anaphoric-linkage-word-order-change,gvn,"non-coordinated repetition sometimes exhibits word order change",§5.2.3
+free-word-order,free-word-order,gvn,yes,§5.3.2
+default-word-order,default-word-order,gvn,"S/A 0 V",§5.3.2
+leftmost-topic-position,leftmost-topic-position,gvn,yes,§5.3.2
+zero-np-topic-animacy,zero-np-topic-animacy,gvn,"conditional: used when the referent of the zero NP is higher in animacy than the referent of the A NP",§5
+zero-np-topic-precedent,zero-np-topic-precedent,gvn,"conditional: used when the referent of the zero NP was previously established as topic",§5
+zero-anaphora-agent,zero-anaphora-agent,gvn,"occurs where the agent has zero reference",§5
+zero-np-reprise,zero-np-reprise,gvn,"used to front the zero NP (reprise)",§5.4.1
+overt-zero-np-topic,overt-zero-np-topic,gvn,uncommon,§5.3.2.2
+topic-introduction-transitive-object,topic-introduction-transitive-object,gvn,absent,§5.3.2.2
+topic-introduction-function,topic-introduction-function,gvn,S+A,§5.3.2.2
+default-topic-syntactic-function,default-topic-syntactic-function,gvn,S,Table 5.1
+secondary-topic-syntactic-function,secondary-topic-syntactic-function,gvn,A,Table 5.1
+switch-function-marking,switch-function-marking,gvn,absent,Table 5.1
+pronoun-syntactic-differentiation,pronoun-syntactic-differentiation,gvn,undifferentiated,Table 5.1
+zero-anaphora-constraint,zero-anaphora-constraint,gvn,restricted-when-topic-A,Table 5.1
+topic-referent-hierarchy,topic-referent-hierarchy,gvn,"first/second-person > animate > inanimate",Table 5.1
+topic-prominent-language,topic-prominence,gvn,yes,§5.3.2.4
+subject-prominent-language,subject-prominence,gvn,yes,§5.3.2.4
+subject-topic-preference,subject-topic-preference,gvn,intransitive preferred over transitive,§5.3.2.4
+clause-fronting-emphasis,emphatic-fronting,gvn,present,§5.4
+emphatic-clitic-usage,emphatic-clitics,gvn,"ku; lu/la; bi",§5.4
+reprise-constructions,reprise-constructions,gvn,frequent,§5.4
+nyk-non-events-verb-inflection,non-events-verb-inflection,nyk,verb inflection,§5.5
+gvn-events-emphatic-clitic,events-emphatic-clitic,gvn,emphatic clitic,§5.5
+emphatic-clitic-lu,event-marking-clitic,gvn,event-marking,§5.5.1.1
+motion-verb-kada-y,motion-verb-goal-perspective,gvn,transit_and_arrival,§5.5.2
+motion-verb-dunga-y,motion-verb-participant-perspective,gvn,departure_or_movement,§5.5.2
+spatial-setting-tense,non-past-tense-for-spatial-setting,gvn,common,§5.5.2
+narrative-tense,past-tense-narrative,gvn,default,§5.5.2
+particle-kari,narrative-collateral-particle-kari,gvn,negates implicit alternatives,§5.5.3
+particle-yamba,narrative-collateral-particle-yamba,gvn,adds contrastive/adversative aspect,§5.5.3
+particle-balu,narrative-collateral-particle-balu,gvn,implies speaker’s wrong assumption,§5.5.3
+past-tense,past-tense,gvn,present,Charlie Tayley
+dual-number,dual-number,gvn,present,Charlie Tayley
