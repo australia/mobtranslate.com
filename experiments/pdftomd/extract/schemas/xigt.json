@@ -14,12 +14,7 @@
           "gloss": { 
             "type": "array",
             "items": {
-              "type": "object",
-              "required": ["morpheme", "gloss"],
-              "properties": {
-                "morpheme": { "type": "string" },
-                "gloss": { "type": "string" }
-              }
+              "type": "string"
             }
           },
           "translation": { "type": "string" },

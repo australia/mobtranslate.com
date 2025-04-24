@@ -273,10 +273,17 @@ If none are present, return ONLY the header row.
       );
       return 'ID,Parameter_ID,Language_ID,Value,Source\n';
     }
+    
+    // Clean up the result - strip any leading spaces from each line
+    // This handles cases where the LLM adds indentation to the CSV output
+    const cleanedResult = result
+      .split('\n')
+      .map(line => line.trim())
+      .join('\n');
 
     // Basic CSV validation
     try {
-      const parsed = Papa.parse(result, { header: true });
+      const parsed = Papa.parse(cleanedResult, { header: true });
       if (parsed.errors.length > 0) {
         console.warn(`CSV parsing issues for ${chunk.heading}:`, parsed.errors);
       }
@@ -287,7 +294,7 @@ If none are present, return ONLY the header row.
       );
     }
 
-    return result;
+    return cleanedResult;
   } catch (error) {
     console.error(
       `Error extracting CLDF from ${chunk.heading}:`,
@@ -301,56 +308,76 @@ If none are present, return ONLY the header row.
 async function extractIGT(chunk) {
   // Process all chunks regardless of content
 
-  // Few-shot examples to improve extraction quality
-  const examples = [
-    {
-      user: "Example (12):\nNyulu jalbu-ngku karrkay kawa-ny\n3SG.NOM woman-ERG child.ABS look.after-PAST\n'The woman looked after the child.'\n\nThis shows ergative case marking on the agent.",
-      assistant:
-        '{"items":[{"transcript":"Nyulu jalbu-ngku karrkay kawa-ny","gloss":[{"morpheme":"nyulu","gloss":"3SG.NOM"},{"morpheme":"jalbu-ngku","gloss":"woman-ERG"},{"morpheme":"karrkay","gloss":"child.ABS"},{"morpheme":"kawa-ny","gloss":"look.after-PAST"}],"translation":"The woman looked after the child.","source":"Example (12)"}]}',
-    },
-  ];
-
   const systemPrompt = `
-You are an expert computational linguist specializing in interlinear glossed text (IGT).
+You are an expert computational linguist specializing in Interlinear Glossed Text (IGT).
 
-Identify all examples of interlinear glossed text in the provided content. These might appear as:
-1. Numbered examples (e.g., "Example (12):" or just "(12)") with language text, morpheme-by-morpheme glosses, and translations
-2. Text marked with "KY:" or "Kuku Yalanji:" followed by glosses and translations
+Extract all linguistic examples from the provided content and format them as XIGT (eXtensible Interlinear Glossed Text).
 
-For each example, extract:
-1. transcript: The original Kuku Yalanji text
-2. gloss: An array of objects with "morpheme" and "gloss" for each morpheme
-3. translation: The English translation
-4. source: Reference to the section (e.g., "§3.2.1" or the example number)
+For each example, identify:
+1. The original transcript in the source language
+2. Word-by-word or morpheme-by-morpheme glosses
+3. The free translation in English
+4. The source reference (section number, page, etc.)
 
 Return a JSON object with this structure:
 {
   "items": [
     {
-      "transcript": "Original text in Kuku Yalanji",
-      "gloss": [
-        {"morpheme": "word1", "gloss": "GLOSS1"},
-        {"morpheme": "word2", "gloss": "GLOSS2"}
-      ],
+      "transcript": "Original text in source language",
+      "gloss": ["Word1", "Word2", "Word3"],
       "translation": "English translation",
-      "source": "§X.Y.Z"
+      "source": "Section reference"
     }
   ]
 }
 
-Be precise in separating morphemes and their glosses. If no examples are found, return {"items": []}.
+If no examples are found, return {"items": []}.
 `;
+
+  const examples = [
+    {
+      role: 'user',
+      content: 'Extract IGT examples from: "In example (1), we see the ergative case marker -ngku: Bama-ngku bubu nyajil. (person-ERG ground see) \'The person sees the ground.\'"',
+    },
+    {
+      role: 'assistant',
+      content: '```json\n{\n  "items": [\n    {\n      "transcript": "Bama-ngku bubu nyajil.",\n      "gloss": ["person-ERG", "ground", "see"],\n      "translation": "The person sees the ground.",\n      "source": "example (1)"\n    }\n  ]\n}\n```',
+    },
+  ];
 
   try {
     console.log(`Extracting IGT examples from: ${chunk.heading}`);
     const result = await callLLM(systemPrompt, chunk.content, 2048, examples);
 
-    // Try to parse the JSON
-    try {
-      // Extract JSON from the response if it's not pure JSON
+    // Extract and parse JSON
+    let jsonStr = result;
+    
+    // Check for markdown code blocks with json
+    if (result.includes('```json')) {
+      const parts = result.split('```json');
+      if (parts.length > 1) {
+        jsonStr = parts[1].split('```')[0].trim();
+      }
+    } else if (result.includes('```')) {
+      const parts = result.split('```');
+      if (parts.length > 1) {
+        const codePart = parts[1].trim();
+        if (codePart.includes('"items"')) {
+          jsonStr = codePart;
+        }
+      }
+    }
+    
+    // If we couldn't extract from code blocks, try to find JSON pattern
+    if (!jsonStr.includes('"items"')) {
       const jsonMatch = result.match(/\{\s*"items"\s*:\s*\[.*?\]\s*\}/s);
-      const jsonStr = jsonMatch ? jsonMatch[0] : result;
-
+      if (jsonMatch) {
+        jsonStr = jsonMatch[0];
+      }
+    }
+    
+    // Parse the JSON
+    try {
       const parsed = JSON.parse(jsonStr);
       if (Array.isArray(parsed.items)) {
         // Validate with schema
@@ -376,16 +403,20 @@ Be precise in separating morphemes and their glosses. If no examples are found, 
             schemaError.message,
           );
         }
-
         return parsed.items;
       }
     } catch (parseError) {
-      console.warn(
-        `Failed to parse IGT JSON from ${chunk.heading}:`,
-        parseError.message,
-      );
+      console.warn(`JSON parse failed: ${parseError.message}. Trying direct parsing...`);
+      try {
+        const parsed = JSON.parse(result);
+        if (Array.isArray(parsed.items)) {
+          return parsed.items;
+        }
+      } catch (directError) {
+        console.warn(`Direct JSON parse also failed: ${directError.message}`);
+      }
     }
-
+    
     return [];
   } catch (error) {
     console.error(`Error extracting IGT from ${chunk.heading}:`, error.message);
