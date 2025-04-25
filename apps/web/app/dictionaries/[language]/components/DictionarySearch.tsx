@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 
 interface DictionaryWord {
@@ -29,13 +29,22 @@ export default function DictionarySearch({ dictionary, initialSearch = '' }: Dic
   const [search, setSearch] = useState(initialSearch);
   const { meta, words } = dictionary;
 
-  const filteredWords = search
-    ? words.filter(word => 
-        word.word.toLowerCase().includes(search.toLowerCase()) ||
-        (word.definition && word.definition.toLowerCase().includes(search.toLowerCase())) ||
-        (word.definitions && word.definitions.some(def => def.toLowerCase().includes(search.toLowerCase())))
-      )
-    : words;
+  const filteredWords = useMemo(() => {
+    const lowerQuery = search.toLowerCase();
+    return words
+      .filter((word) => {
+        const wordLower = word.word.toLowerCase();
+        const definitionLower = (word.definition || '').toLowerCase();
+        const definitionsStringLower = (word.definitions || []).join(' ').toLowerCase();
+        
+        return (
+          wordLower.includes(lowerQuery) || 
+          definitionLower.includes(lowerQuery) || 
+          definitionsStringLower.includes(lowerQuery)
+        );
+      })
+      .filter(word => word.definition || (word.definitions && word.definitions.length > 0));
+  }, [search, words]);
 
   return (
     <>
@@ -77,7 +86,7 @@ export default function DictionarySearch({ dictionary, initialSearch = '' }: Dic
               <div className="relative w-full overflow-auto">
                 <table className="w-full caption-bottom text-sm">
                   <thead className="[&_tr]:border-b">
-                    <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                    <tr className="border-b transition-colors">
                       <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Word</th>
                       <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Type</th>
                       <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Definition</th>
@@ -87,7 +96,7 @@ export default function DictionarySearch({ dictionary, initialSearch = '' }: Dic
                     {filteredWords.map((word) => (
                       <tr 
                         key={word.word}
-                        className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                        className="border-b transition-colors"
                       >
                         <td className="p-4 align-middle">
                           <Link

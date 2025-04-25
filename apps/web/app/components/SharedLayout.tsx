@@ -76,7 +76,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
           "sticky top-0 z-50 w-full border-b transition-colors duration-300 bg-background"
         )}
       >
-        <div className="container-custom">
+        <div className="container-custom max-w-[800px] mx-auto">
           <div className="flex h-16 sm:h-20 items-center justify-between">
             {/* Logo - Update font */}
             <Link 
@@ -104,7 +104,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               ))}
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full bg-muted hover:bg-primary/20 text-foreground transition-colors transform hover:rotate-12 duration-300"
+                className="p-2 rounded-full transform hover:rotate-12 duration-300"
                 aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -115,7 +115,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             <div className="flex md:hidden items-center gap-2">
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-md text-foreground hover:bg-muted transition-colors"
+                className="p-2 rounded-md "
                 aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -159,7 +159,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
       
       {/* Footer - Remove background, simplify elements */}
       <footer className="mt-auto py-8 border-t border-border">
-        <div className="container-custom">
+        <div className="container-custom max-w-[800px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* About */}
             <div>

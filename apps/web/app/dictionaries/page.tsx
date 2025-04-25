@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@ui/components/card';
 import SharedLayout from '../components/SharedLayout';
 import { getSupportedLanguages } from '@dictionaries';
 
@@ -21,26 +20,19 @@ export default async function DictionariesPage() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {languages.map((lang: any) => (
-              <Card key={lang.code} className="overflow-hidden">
-                <CardHeader>
-                  <CardTitle>
-                    <Link href={`/dictionaries/${lang.code}`} className="hover:underline">
-                      {lang.meta.name}
-                    </Link>
-                  </CardTitle>
-                  <CardDescription>{lang.meta.region}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm">{lang.meta.description}</p>
-                </CardContent>
-                <CardFooter className="bg-muted/50 border-t">
-                  <div className="flex justify-between w-full text-sm">
-                    <Link href={`/dictionaries/${lang.code}`} className="text-primary hover:underline">
-                      View Dictionary
-                    </Link>
-                  </div>
-                </CardFooter>
-              </Card>
+              <Link 
+                key={lang.code}
+                href={`/dictionaries/${lang.code}`} 
+                className="block p-6 border border-border hover:border-primary transition-colors duration-200"
+              >
+                <h2 className="text-xl font-medium text-foreground mb-1 hover:underline">
+                  {lang.meta.name}
+                </h2>
+                <p className="text-sm text-muted-foreground mb-3">{lang.meta.region}</p>
+                <p className="text-sm text-foreground/80">
+                  {lang.meta.description}
+                </p>
+              </Link>
             ))}
           </div>
         </div>

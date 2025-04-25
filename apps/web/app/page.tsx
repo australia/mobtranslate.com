@@ -9,10 +9,10 @@ export default function Page() {
   return (
     <SharedLayout>
       <Head>
-        <title>Mob Translate - Aboriginal Language Translation</title>
+        <title>Mob Translate - Indigenous Language Translation</title>
         <meta
           name="description"
-          content="A community-driven project to create translation tools for Australian Aboriginal languages, making language preservation and learning accessible to all."
+          content="A community-driven project to create translation tools for Indigenous languages, making language preservation and learning accessible to all."
           key="desc"
         />
         <script src="https://drainpipe.io/agent/client/673dc10b1adbeb2249ef0536" />
@@ -22,7 +22,7 @@ export default function Page() {
         <h1 className="text-4xl mb-4 font-bold">Mob Translate</h1>
         <p className="text-xl text-foreground/80 max-w-3xl mx-auto mb-4 leading-relaxed">
           A fully open source community-driven project to make "Google Translate" 
-          for as many Australian Aboriginal languages as possible. Join us in preserving 
+          for as many Indigenous languages as possible. Join us in preserving 
           and promoting Indigenous languages through technology.
         </p>
       </div>
