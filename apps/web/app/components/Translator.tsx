@@ -96,28 +96,45 @@ const Translator = () => {
         throw new Error(errorData || 'Translation service unavailable');
       }
 
-      const reader = response.body?.getReader();
-      const decoder = new TextDecoder();
+      // Reset output text before starting to stream
+      setOutputText('');
       
-      if (reader) {
-        let partialText = '';
-        let reading = true;
-        while (reading) {
-          const { done, value } = await reader.read();
-          
-          if (done) {
-            reading = false;
-            console.log("Stream reading complete");
-          } else {
-            const chunk = decoder.decode(value, { stream: true });
-            partialText += chunk;
-            setOutputText(partialText);
-            
-            // Auto-scroll the output container as new content arrives
-            if (outputRef.current) {
-              outputRef.current.scrollTop = outputRef.current.scrollHeight;
-            }
-          }
+      // Get a reader from the response body
+      const reader = response.body?.getReader();
+      if (!reader) {
+        throw new Error('Response body reader could not be created');
+      }
+      
+      const decoder = new TextDecoder('utf-8');
+      let result = '';
+      
+      // Process the stream chunk by chunk
+      while (true) {
+        const { done, value } = await reader.read();
+        
+        if (done) {
+          console.log('Stream complete');
+          break;
+        }
+        
+        // Decode the chunk
+        const text = decoder.decode(value, { stream: !done });
+        console.log('Received chunk:', text);
+        
+        // Update the accumulated result
+        result += text;
+        
+        // Update the UI - force React to flush updates
+        setOutputText(result);
+        console.log('Updated output text to:', result);
+        
+        // Force a small delay to allow React to render
+        // This is crucial for the streaming effect to be visible
+        await new Promise(resolve => setTimeout(resolve, 1));
+        
+        // Scroll to bottom
+        if (outputRef.current) {
+          outputRef.current.scrollTop = outputRef.current.scrollHeight;
         }
       }
     } catch (error) {
@@ -212,39 +229,39 @@ const Translator = () => {
       {/* Output Section */}
       {(outputText || error || isLoading) && ( // Ensure container shows for loading state too
         <div className="mt-6"> {/* Outer container, no padding/border */}
-          {/* <div className="flex justify-between items-center mb-3">
-            <h3 className="text-lg font-medium text-foreground">
-              {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.meta?.name || 'Translation'}
-            </h3>
-            {outputText && !isLoading && ( // Only show copy if there's output and not loading
-              <button
-                onClick={copyToClipboard}
-                className="flex items-center gap-1.5 px-3 py-1 border border-input text-sm text-muted-foreground hover:bg-muted hover:text-foreground dark:border-input dark:hover:bg-input dark:hover:text-foreground transition-colors duration-200"
-              >
-                {copied ? <Check size={14} /> : <Copy size={14} />}
-                <span>{copied ? 'Copied' : 'Copy'}</span>
-              </button>
-            )}
-          </div> */}
-
           {/* Content Container - No Border, Better Padding */}
           <div className="text-foreground dark:text-foreground text-base leading-relaxed bg-background/50 dark:bg-background/20 rounded-sm"> {/* Removed border, increased font size */}
             {/* Inner Container with Improved Padding */}
-            <div className="py-5 px-6" ref={outputRef}> {/* Increased padding */}
-              {isLoading ? (
-                  <div className="flex items-center justify-center h-full min-h-[50px]">
-                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
-                  </div>
-              ) : error ? (
-                  <div className="text-destructive flex items-start gap-2"> {/* Removed extra p-3/border */}
-                    <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
-                    <p>{error}</p>
-                  </div>
+            <div className="py-5 px-6 relative" ref={outputRef}> {/* Added relative positioning */}
+              {error ? (
+                <div className="text-destructive flex items-start gap-2"> 
+                  <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
+                  <p>{error}</p>
+                </div>
               ) : (
-                 /* Larger output text with better spacing */
-                 <ReactMarkdown className="text-base [&_p]:mb-3 [&_p:last-child]:mb-0">
-                   {outputText}
-                 </ReactMarkdown>
+                <>
+                  {/* Always show content when available */}
+                  {outputText && (
+                    <ReactMarkdown className="text-base [&_p]:mb-3 [&_p:last-child]:mb-0">
+                      {outputText}
+                    </ReactMarkdown>
+                  )}
+                  
+                  {/* Show loading indicator as an overlay when loading */}
+                  {isLoading && !outputText && (
+                    <div className="flex items-center justify-center h-full min-h-[50px]">
+                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                    </div>
+                  )}
+                  
+                  {/* Show small loading indicator when both loading and showing text */}
+                  {isLoading && outputText && (
+                    <div className="absolute bottom-2 right-2 flex items-center gap-2 text-xs text-muted-foreground bg-background/80 px-2 py-1 rounded-sm">
+                      <Loader2 size={12} className="animate-spin" />
+                      <span>Translating...</span>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>
