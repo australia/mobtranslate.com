@@ -1,131 +1,112 @@
 #!/usr/bin/env python3
 """
-xigt_to_wav.py  –  QUICK & DIRTY Kuku-Yalanji IPA → WAV demo
-------------------------------------------------------------
-Usage:
-    python xigt_to_wav.py examples.xigt.json out_audio/
+xigt_to_wav.py – IPA → eSpeak phonemes (with overrides) → WAV
 
-Dependencies:
-    * pip install pyttsx3 epitran
+Run:
+    uv run python xigt_to_wav.py examples.xigt.json out_audio/
 """
 
 import json, sys, uuid, pathlib, time
-import pyttsx3
-import epitran
+import pyttsx3, epitran
 
-# --------------- CONFIG ----------------------------------------------------
-LANG_CODE = "eng-Latn"          # epitran code close enough for a start
-SPEECH_RATE = 120               # Speech rate (words per minute)
 # ---------------------------------------------------------------------------
+#  CONFIG
+# ---------------------------------------------------------------------------
+LANG_CODE       = "eng-Latn"      # epitran language model – close enough for IPA → XS
+SPEECH_RATE     = 120             # eSpeak/pyttsx3 speed
+DESIRED_VOICE   = "en-au+m3"      # any voice id pyttsx3 lists; try "kukuyalanji" if you made it
+# ---------------------------------------------------------------------------
+#  IPA → X-SAMPA patches for Kuku-Yalanji (extend as you discover issues)
+# ---------------------------------------------------------------------------
+PHONEME_OVERRIDES = {
+    "ɲ":  "n^",
+    "ŋ":  "N",
+    "ɟ":  "dZ",
+    "ɖ":  "d`",
+    "ɳ":  "n`",
+    "ʈ":  "t`",
+    "ɭ":  "l`",
+    "ɾ":  "4",
+    "ɹ":  "r\\",
+    # stress example – keep the apostrophe, epitran drops it
+    "ˈ":  "'",
+}
 
-# Initialize the TTS engine
+# ---------------------------------------------------------------------------
+#  INIT TTS + EPITRAN
+# ---------------------------------------------------------------------------
 engine = pyttsx3.init()
-engine.setProperty('rate', SPEECH_RATE)  # Slower speed for better clarity
+engine.setProperty('rate', SPEECH_RATE)
 
-# Initialize Epitran for phonetic conversion
+# choose voice if available
+for v in engine.getProperty("voices"):
+    if DESIRED_VOICE in (v.id, v.name):
+        engine.setProperty("voice", v.id)
+        break
+else:
+    print(f"[warn] Voice '{DESIRED_VOICE}' not found; using default")
+
 epi = epitran.Epitran(LANG_CODE)
 
-def process_text(text: str) -> str:
+# ---------------------------------------------------------------------------
+def ipa_to_espeak_phonemes(text: str) -> str:
     """
-    Process text for better pronunciation.
+    Convert text to eSpeak phonemes with custom overrides for Kuku Yalanji.
     
-    This function can be expanded to handle special Kuku Yalanji phonetics.
+    Since Epitran doesn't have direct IPA → X-SAMPA conversion,
+    we'll use a simpler approach by applying our phoneme overrides directly.
     """
-    # For now, just return the text as is
-    # In a more advanced version, you could add pronunciation rules here
-    return text
+    # Apply phoneme overrides directly to the text
+    phonetic_text = text
+    for ipa_char, xsampa_char in PHONEME_OVERRIDES.items():
+        phonetic_text = phonetic_text.replace(ipa_char, xsampa_char)
+    
+    # For non-IPA text, just return it directly
+    # This handles the case where the transcript is in orthographic form
+    return phonetic_text
 
 def generate_audio(text: str, wav_path: pathlib.Path):
-    """
-    Generate audio file using pyttsx3.
-    """
-    # Make sure the output directory exists
     wav_path.parent.mkdir(parents=True, exist_ok=True)
-    
-    # Process the text for better pronunciation
-    processed_text = process_text(text)
-    print(f"  Text to speak: {processed_text}")
-    
+    processed_text = ipa_to_espeak_phonemes(text)
+    print(f"  → Processed text: {processed_text}")
+
     try:
-        # Save to file
         engine.save_to_file(processed_text, str(wav_path))
         engine.runAndWait()
-        
-        # Give the engine a moment to finish writing the file
-        time.sleep(0.5)
-        
-        # Verify the file was created
-        if not wav_path.exists():
-            print(f"  Error: WAV file was not created at {wav_path}")
-            raise Exception(f"WAV file was not created at {wav_path}")
-            
-        # Check file size to ensure it's not empty
-        file_size = wav_path.stat().st_size
-        if file_size == 0:
-            print(f"  Error: WAV file is empty (0 bytes)")
-            raise Exception("WAV file is empty (0 bytes)")
-            
-        print(f"  Success: WAV file created ({file_size} bytes)")
+        time.sleep(0.2)
+
+        if not wav_path.exists() or wav_path.stat().st_size == 0:
+            raise RuntimeError("WAV not created or empty")
+
+        print(f"  ✓ wrote {wav_path.name}  ({wav_path.stat().st_size} bytes)")
         return True
-        
     except Exception as e:
-        print(f"  Failed to generate audio: {str(e)}")
+        print(f"  ✗ TTS failed: {e}")
         return False
 
+# ---------------------------------------------------------------------------
 def main(json_path: str, out_dir: str):
-    # Convert to absolute path if not already
     json_path = pathlib.Path(json_path).resolve()
-    out_dir = pathlib.Path(out_dir).resolve()
-    
-    # Create output directory if it doesn't exist
+    out_dir   = pathlib.Path(out_dir).resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
-    
-    print(f"Reading examples from: {json_path}")
-    if not json_path.exists():
-        print(f"Error: File not found: {json_path}")
-        print("Make sure to provide the full path to the examples.xigt.json file")
-        print("For example: /home/ajax/repos/mobtranslate.com/experiments/pdftomd/extract/output/examples.xigt.json")
-        sys.exit(1)
-        
-    data = json.loads(json_path.read_text(encoding="utf-8"))
+
+    data  = json.loads(json_path.read_text(encoding="utf-8"))
     items = data.get("items", [])
-    out = pathlib.Path(out_dir)
-    out.mkdir(parents=True, exist_ok=True)
 
-    print(f"Found {len(items)} IGT examples to process")
-    
+    print(f"Found {len(items)} examples in {json_path}")
     for i, item in enumerate(items, 1):
-        transcript = item["transcript"].strip()
-        # skip empty strings or placeholders
-        if not transcript:
+        ipa = item["transcript"].strip()
+        if not ipa:
             continue
-            
-        # Generate a unique filename based on the example index and content
-        filename = f"{i:03d}_{uuid.uuid4().hex[:8]}.wav"
-        wav_path = out / filename
-        
-        # Get translation for display
-        translation = item.get("translation", "")
-        source = item.get("source", "")
-        
-        print(f"\nProcessing example {i}/{len(items)}:")
-        print(f"  Transcript: {transcript}")
-        print(f"  Translation: {translation}")
-        print(f"  Source: {source}")
-        print(f"  Output: {wav_path}")
-        
-        try:
-            # Generate audio using pyttsx3
-            if generate_audio(transcript, wav_path):
-                print(f"  ✓ Audio generated successfully")
-        except Exception as e:
-            print(f"  ✗ Error generating audio: {e}")
-            continue
-    
-    print(f"\nProcessing complete. Audio files saved to: {out_dir}")
 
+        wav = out_dir / f"{i:03}_{uuid.uuid4().hex[:6]}.wav"
+        print(f"\n[{i}/{len(items)}]  {ipa}")
+        generate_audio(ipa, wav)
+
+    print(f"\nAll done → {out_dir}")
+
+# ---------------------------------------------------------------------------
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Usage: python xigt_to_wav.py examples.xigt.json out_audio/")
-        sys.exit(1)
+        sys.exit("Usage: python xigt_to_wav.py examples.xigt.json out_audio/")
     main(sys.argv[1], sys.argv[2])

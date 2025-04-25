@@ -37,3 +37,7 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+experiments/pdftomd/extract/tts/out_audio/
+
+.venv
