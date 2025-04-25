@@ -18,7 +18,7 @@ export default function Page() {
         <script src="https://drainpipe.io/agent/client/673dc10b1adbeb2249ef0536" />
       </Head>
       
-      <div className="text-center p-8 bg-card rounded-lg max-w-7xl mx-auto mt-4 mb-8 shadow-sm">
+      <div className="text-center p-8 max-w-7xl mx-auto mt-4 mb-8">
         <h1 className="text-4xl mb-4 font-bold">Mob Translate</h1>
         <p className="text-xl text-foreground/80 max-w-3xl mx-auto mb-4 leading-relaxed">
           A fully open source community-driven project to make "Google Translate" 
@@ -31,12 +31,12 @@ export default function Page() {
       <Translator />
 
       {/* Dictionaries Section */}
-      <section className="max-w-7xl mx-auto my-8 p-8 bg-card rounded-lg shadow-sm">
+      <section className="max-w-7xl mx-auto my-8 p-8">
         <h2 className="text-3xl mb-6">Available Dictionaries</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <Link 
             href="/dictionaries/kuku_yalanji"
-            className="bg-background p-6 rounded-lg no-underline text-foreground transition-all duration-300 hover:shadow-md hover:translate-y-[-5px]"
+            className="p-6 no-underline text-foreground transition-colors duration-200 hover:text-primary"
           >
             <h3 className="text-xl mb-2">Kuku Yalanji</h3>
             <p className="text-muted-foreground">Explore the language of the Kuku Yalanji people</p>
@@ -44,7 +44,7 @@ export default function Page() {
           
           <Link 
             href="/dictionaries/migmaq"
-            className="bg-background p-6 rounded-lg no-underline text-foreground transition-all duration-300 hover:shadow-md hover:translate-y-[-5px]"
+            className="p-6 no-underline text-foreground transition-colors duration-200 hover:text-primary"
           >
             <h3 className="text-xl mb-2">Mi'gmaq</h3>
             <p className="text-muted-foreground">Discover the Mi'gmaq language and culture</p>
@@ -52,7 +52,7 @@ export default function Page() {
           
           <Link 
             href="/dictionaries/anindilyakwa"
-            className="bg-background p-6 rounded-lg no-underline text-foreground transition-all duration-300 hover:shadow-md hover:translate-y-[-5px]"
+            className="p-6 no-underline text-foreground transition-colors duration-200 hover:text-primary"
           >
             <h3 className="text-xl mb-2">Anindilyakwa</h3>
             <p className="text-muted-foreground">Explore the language of the Anindilyakwa people</p>

@@ -145,118 +145,116 @@ const Translator = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
-      <div className="bg-card shadow-md rounded-md border border-border overflow-hidden">
-        {/* Input Section */}
-        <div className="p-4 md:p-6 border-b border-border">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-medium text-foreground">English</h2>
-            <button
-              onClick={resetForm}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
-              disabled={!inputText}
+    // Remove shadow, card background, and rounded corners
+    <div className="max-w-7xl mx-auto my-8 border border-border">
+      {/* Input Section - Remove card background */}
+      <div className="p-4 md:p-6">
+        <div className="flex items-center gap-2 mb-4 text-muted-foreground">
+          <Globe size={16} />
+          <span>Translate from English</span>
+        </div>
+        <textarea
+          value={inputText}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          placeholder="Enter English text to translate..."
+          // Remove background, rounded corners, adjust focus
+          className="w-full h-32 p-3 border border-input focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none"
+        />
+        <div className="mt-4 flex items-center justify-between">
+          <div className="text-sm text-muted-foreground">
+            {inputText.length} characters
+          </div>
+          <div className="flex items-center gap-2">
+            <select
+              value={selectedLanguage}
+              onChange={(e) => setSelectedLanguage(e.target.value)}
+              // Remove background, rounded corners, adjust focus
+              className="px-3 py-1.5 text-sm border border-input focus:ring-1 focus:ring-primary focus:border-primary transition-all"
             >
-              Clear
+              {languages.map((lang) => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.meta?.name || lang.code}
+                </option>
+              ))}
+            </select>
+            <button
+              onClick={handleTranslate}
+              disabled={!canTranslate}
+              // Remove rounded corners, use border and opacity for disabled state
+              className={`px-4 py-1.5 text-sm font-medium transition-all ${ 
+                canTranslate
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90" // Use primary-foreground for text on primary bg
+                  : "border border-input text-muted-foreground cursor-not-allowed opacity-50" // Removed bg-muted, added border
+              }`}
+            >
+              {isLoading ? (
+                <div className="flex items-center gap-2">
+                  <Loader2 size={16} className="animate-spin" />
+                  <span>Translating...</span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <ArrowRight size={16} />
+                  <span>Translate</span>
+                </div>
+              )}
             </button>
           </div>
-          <textarea
-            value={inputText}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            placeholder="Enter English text to translate..."
-            className="w-full h-32 p-3 bg-background border border-input rounded-md focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none"
-          />
-          <div className="mt-4 flex items-center justify-between">
-            <div className="text-sm text-muted-foreground">
-              {inputText.length} characters
-            </div>
-            <div className="flex items-center gap-2">
-              <select
-                value={selectedLanguage}
-                onChange={(e) => setSelectedLanguage(e.target.value)}
-                className="px-3 py-1.5 text-sm bg-background border border-input rounded-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
-              >
-                {languages.map((lang) => (
-                  <option key={lang.code} value={lang.code}>
-                    {lang.meta?.name || lang.code}
-                  </option>
-                ))}
-              </select>
+        </div>
+      </div>
+
+      {/* Output Section - Remove wrapper background */}
+      {(outputText || error) && (
+        <div className="p-4 md:p-6 border-t border-border">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-lg font-medium text-foreground">
+              {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.meta?.name || 'Translation'}
+            </h2>
+            {outputText && (
               <button
-                onClick={handleTranslate}
-                disabled={!canTranslate}
-                className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
-                  canTranslate
-                    ? "bg-primary text-white hover:bg-primary/90"
-                    : "bg-muted text-muted-foreground cursor-not-allowed"
-                }`}
+                onClick={copyToClipboard}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
               >
-                {isLoading ? (
-                  <div className="flex items-center gap-2">
-                    <Loader2 size={16} className="animate-spin" />
-                    <span>Translating...</span>
-                  </div>
+                {copied ? (
+                  <>
+                    <Check size={14} />
+                    <span>Copied</span>
+                  </>
                 ) : (
-                  <div className="flex items-center gap-2">
-                    <ArrowRight size={16} />
-                    <span>Translate</span>
-                  </div>
+                  <>
+                    <Copy size={14} />
+                    <span>Copy</span>
+                  </>
                 )}
               </button>
+            )}
+          </div>
+            
+          {error ? (
+            // Remove background, rounded corners
+            <div className="p-3 border border-destructive/30 text-destructive flex items-start gap-2">
+              <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
+              <p>{error}</p>
             </div>
+          ) : (
+            // Remove background, rounded corners 
+            <div 
+              ref={outputRef}
+              className="p-4 border border-input prose prose-sm max-w-none"
+            >
+              <ReactMarkdown>{outputText}</ReactMarkdown>
+            </div>
+          )}
+            
+          <div className="mt-4 text-xs text-muted-foreground">
+            <p>
+              Note: Translations are generated using AI and may not be 100% accurate.
+              Please consult with language experts for critical translations.
+            </p>
           </div>
         </div>
-
-        {/* Output Section */}
-        {(outputText || error) && (
-          <div className="p-4 md:p-6 bg-background/50 border-t border-border">
-            <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-lg font-medium text-foreground">
-                {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.meta?.name || 'Translation'}
-              </h2>
-              {outputText && (
-                <button
-                  onClick={copyToClipboard}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
-                >
-                  {copied ? (
-                    <>
-                      <Check size={14} />
-                      <span>Copied</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy size={14} />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </button>
-              )}
-            </div>
-            
-            {error ? (
-              <div className="p-3 bg-destructive/10 border border-destructive/30 rounded-md text-destructive flex items-start gap-2">
-                <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
-                <p>{error}</p>
-              </div>
-            ) : (
-              <div 
-                ref={outputRef}
-                className="p-4 bg-background border border-input rounded-md prose prose-sm max-w-none"
-              >
-                <ReactMarkdown>{outputText}</ReactMarkdown>
-              </div>
-            )}
-            
-            <div className="mt-4 text-xs text-muted-foreground">
-              <p>
-                Note: Translations are generated using AI and may not be 100% accurate.
-                Please consult with language experts for critical translations.
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 };
