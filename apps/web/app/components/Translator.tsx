@@ -242,7 +242,31 @@ const Translator = () => {
                 <>
                   {/* Always show content when available */}
                   {outputText && (
-                    <ReactMarkdown className="text-base [&_p]:mb-3 [&_p:last-child]:mb-0">
+                    <ReactMarkdown 
+                      className="text-base prose prose-sm dark:prose-invert max-w-none"
+                      components={{
+                        h1: ({node, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-foreground border-b pb-1 border-border" />,
+                        h2: ({node, ...props}) => <h2 {...props} className="text-xl font-bold mb-3 mt-5 text-foreground" />,
+                        h3: ({node, ...props}) => <h3 {...props} className="text-lg font-semibold mb-3 mt-4 text-foreground" />,
+                        p: ({node, ...props}) => <p {...props} className="mb-4 leading-relaxed text-foreground" />,
+                        ul: ({node, ...props}) => <ul {...props} className="list-disc pl-6 mb-4 space-y-2" />,
+                        ol: ({node, ...props}) => <ol {...props} className="list-decimal pl-6 mb-4 space-y-2" />,
+                        li: ({node, ...props}) => <li {...props} className="text-foreground" />,
+                        blockquote: ({node, ...props}) => <blockquote {...props} className="border-l-4 border-border pl-4 italic my-4 text-muted-foreground" />,
+                        a: ({node, ...props}) => <a {...props} className="text-primary underline hover:text-primary/80 transition-colors" />,
+                        em: ({node, ...props}) => <em {...props} className="italic text-foreground" />,
+                        strong: ({node, ...props}) => <strong {...props} className="font-bold text-foreground" />,
+                        code: ({node, ...props}) => <code {...props} className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground" />,
+                        pre: ({node, ...props}) => <pre {...props} className="bg-muted p-4 rounded-md overflow-x-auto mb-4 text-sm font-mono" />,
+                        hr: ({node, ...props}) => <hr {...props} className="my-6 border-border" />,
+                        table: ({node, ...props}) => <div className="overflow-x-auto mb-4"><table {...props} className="min-w-full border-collapse text-sm" /></div>,
+                        thead: ({node, ...props}) => <thead {...props} className="bg-muted/50" />,
+                        tbody: ({node, ...props}) => <tbody {...props} className="divide-y divide-border" />,
+                        tr: ({node, ...props}) => <tr {...props} className="" />,
+                        th: ({node, ...props}) => <th {...props} className="px-4 py-2 text-left font-medium text-foreground" />,
+                        td: ({node, ...props}) => <td {...props} className="px-4 py-2 text-foreground" />
+                      }}
+                    >
                       {outputText}
                     </ReactMarkdown>
                   )}
