@@ -12,7 +12,7 @@ import pyttsx3, epitran
 # ---------------------------------------------------------------------------
 #  CONFIG
 # ---------------------------------------------------------------------------
-LANG_CODE       = "eng-Latn"      # epitran language model – close enough for IPA → XS
+LANG_CODE       = "mri-Latn"      # Malay - handles 'ng' sounds (ŋ) well
 SPEECH_RATE     = 120             # eSpeak/pyttsx3 speed
 DESIRED_VOICE   = "en-au+m3"      # any voice id pyttsx3 lists; try "kukuyalanji" if you made it
 # ---------------------------------------------------------------------------
