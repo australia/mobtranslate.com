@@ -120,11 +120,16 @@ export function getSupportedLanguages(): { code: LanguageCode; meta: DictionaryM
 }
 
 /**
+ * Get the dictionary for a specific language
+ * @param language The language code
+ * @returns The dictionary object or null if not found
+ */
+/**
  * Get the lexicon file for a specific language
  * @param language The language code or slug
  * @returns The lexicon content as a string or null if not found
  */
-export function getLexicon(language: string): string | null {
+function getLexicon(language: string): string | null {
   try {
     // Normalize the language code/slug
     const slug = language.toLowerCase().replace(' ', '_');
@@ -135,34 +140,8 @@ export function getLexicon(language: string): string | null {
       return null;
     }
     
-    // Get the lexicon file path using multiple possible locations
-    // Try different paths to handle various environments (local dev, production, etc.)
-    const possiblePaths = [
-      // Direct path from current directory
-      path.join(process.cwd(), 'dictionaries', slug, 'lexicon.jsonld'),
-      // Path from monorepo root
-      path.join(process.cwd(), '..', '..', 'dictionaries', slug, 'lexicon.jsonld'),
-      // Path relative to this module
-      path.join(__dirname, slug, 'lexicon.jsonld'),
-      // If we're in the dist directory
-      path.join(__dirname, '..', slug, 'lexicon.jsonld'),
-      // Absolute path as a last resort
-      path.resolve('/home/ajax/repos/mobtranslate.com/dictionaries', slug, 'lexicon.jsonld')
-    ];
-    
-    // Find the first path that exists
-    let lexiconPath = '';
-    for (const p of possiblePaths) {
-      if (fs.existsSync(p)) {
-        lexiconPath = p;
-        break;
-      }
-    }
-    
-    // If no path was found, use the first one for error reporting
-    if (!lexiconPath) {
-      lexiconPath = possiblePaths[0];
-    }
+    // Get the lexicon file path
+    const lexiconPath = path.join(process.cwd(), 'dictionaries', slug, 'lexicon.jsonld');
     
     // Check if the file exists
     if (!fs.existsSync(lexiconPath)) {
@@ -178,11 +157,6 @@ export function getLexicon(language: string): string | null {
   }
 }
 
-/**
- * Get the dictionary for a specific language
- * @param language The language code
- * @returns The dictionary object or null if not found
- */
 async function getDictionary(language: string): Promise<Dictionary | null> {
   try {
     if (!Object.keys(dictionaryMeta).includes(language)) {
@@ -207,6 +181,13 @@ async function getDictionary(language: string): Promise<Dictionary | null> {
     return null;
   }
 }
+
+// Export named functions
+export {
+  getLexicon,
+  getSupportedLanguages,
+  dictionaryMeta
+};
 
 // Default export
 export default getDictionary;

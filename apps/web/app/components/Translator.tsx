@@ -243,7 +243,7 @@ const Translator = () => {
                   {/* Always show content when available */}
                   {outputText && (
                     <ReactMarkdown 
-                      className="text-base prose prose-sm dark:prose-invert max-w-none"
+                      className=""
                       components={{
                         h1: ({node, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-foreground border-b pb-1 border-border" />,
                         h2: ({node, ...props}) => <h2 {...props} className="text-xl font-bold mb-3 mt-5 text-foreground" />,
@@ -256,11 +256,11 @@ const Translator = () => {
                         a: ({node, ...props}) => <a {...props} className="text-primary underline hover:text-primary/80 transition-colors" />,
                         em: ({node, ...props}) => <em {...props} className="italic text-foreground" />,
                         strong: ({node, ...props}) => <strong {...props} className="font-bold text-foreground" />,
-                        code: ({node, ...props}) => <code {...props} className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-foreground" />,
-                        pre: ({node, ...props}) => <pre {...props} className="bg-muted p-4 rounded-md overflow-x-auto mb-4 text-sm font-mono" />,
+                        code: ({node, ...props}) => <code {...props} className=" px-1.5 py-0.5 rounded text-sm font-mono text-foreground" />,
+                        pre: ({node, ...props}) => <pre {...props} className=" p-4 rounded-md overflow-x-auto mb-4 text-sm font-mono" />,
                         hr: ({node, ...props}) => <hr {...props} className="my-6 border-border" />,
                         table: ({node, ...props}) => <div className="overflow-x-auto mb-4"><table {...props} className="min-w-full border-collapse text-sm" /></div>,
-                        thead: ({node, ...props}) => <thead {...props} className="bg-muted/50" />,
+                        thead: ({node, ...props}) => <thead {...props} className="" />,
                         tbody: ({node, ...props}) => <tbody {...props} className="divide-y divide-border" />,
                         tr: ({node, ...props}) => <tr {...props} className="" />,
                         th: ({node, ...props}) => <th {...props} className="px-4 py-2 text-left font-medium text-foreground" />,

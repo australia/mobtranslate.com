@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { OpenAI } from 'openai';
 import getDictionary from '@dictionaries';
-import { Dictionary } from '@dictionaries';
+import { Dictionary, getLexicon } from '@dictionaries';
+import fs from 'fs';
 
 // Initialize OpenAI client
 const openai = new OpenAI({
@@ -39,6 +40,12 @@ function logTokenUsage(promptText: string, responseText: string = '') {
  * Creates a translation prompt using the dictionary data
  */
 const createTranslationPrompt = (text: string, dictionary: Dictionary) => {
+
+  const slug = dictionary.meta.name.toLowerCase().replace(' ', '_');
+  // Get lexicon from the dictionaries package
+  const lexicon = getLexicon(slug);
+
+
   const neoPrompt = `
   You are a skilled translator and cultural expert specializing in ${dictionary.meta.name}, with a deep understanding of its cultural and linguistic nuances. Your goal is to respond appropriately to the user's input, whether it's a request for translation or a creative request.
   
@@ -49,6 +56,9 @@ const createTranslationPrompt = (text: string, dictionary: Dictionary) => {
   ${dictionary.words.map(word => 
     `"${word.word}": ${word.definitions ? word.definitions.join(', ') : word.definition || ''}`
   ).join('\n')}
+  
+  - **Lexicon Reference**: 
+  ${lexicon}
   
   User Input:
   "${text}"
@@ -136,7 +146,7 @@ export async function POST(
     if (stream) {
       // Create a streaming response
       const stream = await openai.chat.completions.create({
-        model: "gpt-4.1-mini",
+        model: "gpt-4.1",
         messages: [
           {
             role: "system",
@@ -184,7 +194,7 @@ export async function POST(
     } else {
       // Non-streaming response
       const completion = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
+        model: "gpt-4.1",
         messages: [
           {
             role: "system",
@@ -196,6 +206,10 @@ export async function POST(
           }
         ]
       });
+
+      // Log the full completion object for debugging
+      console.log(`[Translation API] Full completion object:`);
+      console.log(JSON.stringify(completion, null, 2));
 
       const translation = completion.choices[0].message.content || '';
       
