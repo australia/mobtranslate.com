@@ -136,7 +136,7 @@ export async function POST(
     if (stream) {
       // Create a streaming response
       const stream = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
+        model: "gpt-4.1-mini",
         messages: [
           {
             role: "system",
