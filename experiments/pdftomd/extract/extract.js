@@ -361,23 +361,33 @@ async function extractIGT(chunk) {
   ];
 
   const systemPrompt = `
-You are an expert computational linguist specializing in interlinear glossed text (IGT).
+You are an expert computational linguist specializing in interlinear glossed text (IGT) with a focus on Kuku Yalanji language.
 
 Identify all examples of interlinear glossed text in the provided content. These might appear as:
 1. Numbered examples (e.g., "Example (12):" or just "(12)") with language text, morpheme-by-morpheme glosses, and translations
 2. Text marked with "KY:" or "Kuku Yalanji:" followed by glosses and translations
 
 For each example, extract:
-1. transcript: The original Kuku Yalanji text
-2. gloss: An array of objects with "morpheme" and "gloss" for each morpheme
-3. translation: The English translation
-4. source: Reference to the section (e.g., "§3.2.1" or the example number)
+1. transcript: The original Kuku Yalanji text (orthographic representation/spelling)
+2. phonetic: The IPA (International Phonetic Alphabet) transcription of the example
+   - This should be derived from the orthographic form using Kuku Yalanji phonology rules
+   - If no explicit IPA is provided, generate it based on the standard phonological rules below
+3. gloss: An array of objects with "morpheme" and "gloss" for each morpheme
+4. translation: The English translation
+5. source: Reference to the section (e.g., "§3.2.1" or the example number)
+
+Kuku Yalanji Phonology Rules for Orthography → IPA Conversion:
+- Consonants: b → b, d → d, j → dʒ, k → k, m → m, n → n, ny → ɲ, ng → ŋ, l → l, r → r, rr → r, w → w, y → j
+- Vowels: a → a, i → i, u → u, aa → aː, ii → iː, uu → uː
+- Word-final 'y' → j
+- Word-initial 'ng' → ŋ
 
 IMPORTANT: Your entire response must be ONLY a valid JSON object with no additional text, comments, or characters before or after. The JSON must follow this exact structure:
 {
   "items": [
     {
-      "transcript": "Original text in Kuku Yalanji",
+      "transcript": "Original text in Kuku Yalanji (orthographic)",
+      "phonetic": "IPA transcription of the example",
       "gloss": [
         {"morpheme": "word1", "gloss": "GLOSS1"},
         {"morpheme": "word2", "gloss": "GLOSS2"}
@@ -387,6 +397,10 @@ IMPORTANT: Your entire response must be ONLY a valid JSON object with no additio
     }
   ]
 }
+
+Examples of orthography to IPA mapping:
+- "Nyulu jalbu-ngku karrkay kawa-ny" → "ɲulu dʒalbu-ŋku karːkaj kawa-ɲ"
+- "Bama wawu-jirray" → "bama wawu-dʒirːaj"
 
 Be precise in separating morphemes and their glosses. If no examples are found, return exactly {"items":[]} with no additional characters or text.
 

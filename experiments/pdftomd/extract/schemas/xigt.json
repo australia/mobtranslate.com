@@ -7,10 +7,39 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["transcript", "gloss", "translation"],
+        "required": ["transcript", "translation"],
         "properties": {
           "id": { "type": "string" },
-          "transcript": { "type": "string" },
+          "transcript": { 
+            "type": "string",
+            "description": "Orthographic representation (regular spelling) of the example"
+          },
+          "phonetic": { 
+            "type": "string",
+            "description": "IPA phonetic representation of the example"
+          },
+          "words": {
+            "type": "array",
+            "description": "Words in the example with aligned morphemes, glosses, and phonetic representations",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string" },
+                "phonetic": { "type": "string" },
+                "morphemes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": { "type": "string" },
+                      "phonetic": { "type": "string" },
+                      "gloss": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "gloss": { 
             "type": "array",
             "items": {
