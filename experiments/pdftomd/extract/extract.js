@@ -190,7 +190,7 @@ async function callLLM(
   while (true) {
     try {
       logger.info(
-        { messageCount: messages.length, model: 'o3-mini' },
+        { messageCount: messages.length, model: 'o3' },
         'Calling LLM API',
       );
 
@@ -285,17 +285,24 @@ async function extractCLDF(chunk) {
   ];
 
   const systemPrompt = `
-You are an expert computational linguist. Extract grammatical features from the text into CLDF StructureTable format.
+You are an expert computational linguist. Extract grammatical features from the text into CLDF StructureTable format, with special attention to phonological and phonetic features.
 
 Output ONLY a CSV with this header:
 ID,Parameter_ID,Language_ID,Value,Source
 
 Where:
 - ID: unique identifier (use kebab-case)
-- Parameter_ID: linguistic feature in kebab-case (e.g., "ergative-case", "noun-classes")
+- Parameter_ID: linguistic feature in kebab-case (e.g., "ergative-case", "noun-classes", "phoneme-inventory")
 - Language_ID: use "gvn" for Kuku Yalanji language
 - Value: the value of the feature (e.g., "optional", "yes", "no", or a more specific value)
 - Source: reference to the section (e.g., "§3.2.1")
+
+For phonological and phonetic features, use IPA notation in the Value field when appropriate:
+- Example: ID,Parameter_ID,Language_ID,Value,Source
+  palatal-nasal-phoneme,consonant-phoneme,gvn,ɲ,§2.1.1
+  velar-nasal-phoneme,consonant-phoneme,gvn,ŋ,§2.1.1
+
+IMPORTANT: These examples are illustrative only. You must analyze the actual linguistic text chunk provided to determine the real phonetic values and features present in the text. Extract actual grammatical features from the input, not from these examples.
 
 Be precise and focused. Extract ONLY grammatical features that are explicitly stated in the text.
 If none are present, return ONLY the header row.
@@ -398,9 +405,43 @@ IMPORTANT: Your entire response must be ONLY a valid JSON object with no additio
   ]
 }
 
-Examples of orthography to IPA mapping:
-- "Nyulu jalbu-ngku karrkay kawa-ny" → "ɲulu dʒalbu-ŋku karːkaj kawa-ɲ"
-- "Bama wawu-jirray" → "bama wawu-dʒirːaj"
+IMPORTANT: Below are examples of proper phonetic representation (these are only examples - you must analyze the actual linguistic text provided):
+
+Example 1 - Simple example:
+{
+  "items": [
+    {
+      "transcript": "Nyulu wawu jirray.",
+      "phonetic": "ɲulu wawu dʒirːaj.",
+      "gloss": [
+        {"morpheme": "nyulu", "gloss": "3SG.NOM"},
+        {"morpheme": "wawu", "gloss": "want"},
+        {"morpheme": "jirray", "gloss": "much"}
+      ],
+      "translation": "He/she wants it very much.",
+      "source": "Example (12)"
+    }
+  ]
+}
+
+Example 2 - With more complex phonetic features:
+{
+  "items": [
+    {
+      "transcript": "Jana ngawuya nyajil.",
+      "phonetic": "dʒana ŋawuja ɲadʒil.",
+      "gloss": [
+        {"morpheme": "jana", "gloss": "3PL.NOM"},
+        {"morpheme": "ngawuya", "gloss": "turtle.ABS"},
+        {"morpheme": "nyaji-l", "gloss": "see-NONPAST"}
+      ],
+      "translation": "They see the turtle.",
+      "source": "§4.2.1"
+    }
+  ]
+}
+
+You must extract real examples from the text I provide, not use these examples. Generate accurate phonetic transcriptions by applying the phonology rules to the actual sentences found in the input text.
 
 Be precise in separating morphemes and their glosses. If no examples are found, return exactly {"items":[]} with no additional characters or text.
 
@@ -531,15 +572,20 @@ async function extractOntoLex(chunk) {
   // Process all chunks regardless of content
 
   const systemPrompt = `
-You are an expert computational linguist specializing in lexical resources.
+You are an expert computational linguist specializing in lexical resources with expertise in IPA phonetics.
 
 Extract all lexical entries (words, morphemes, etc.) from the provided content into OntoLex-Lemon format.
 
 For each lexical entry, identify:
 1. The lemma (canonical form)
-2. Part of speech
-3. Definition or gloss in English
-4. Any grammatical properties mentioned
+2. The IPA phonetic representation (if it can be inferred from the orthography using Kuku Yalanji phonetic rules)
+3. Part of speech
+4. Definition or gloss in English
+5. Any grammatical properties mentioned
+
+IMPORTANT: You must analyze the actual linguistic text chunk provided to determine the real and accurate phonetic values. The following rules and examples are illustrative only. You must extract actual lexical entries from the input text.
+
+
 
 Return a JSON-LD object with this structure:
 {
@@ -551,6 +597,7 @@ Return a JSON-LD object with this structure:
       "ontolex:canonicalForm": {
         "ontolex:writtenRep": "word1"
       },
+      "ontolex:phoneticRep": "IPA phonetic representation",
       "lexinfo:partOfSpeech": "lexinfo:Noun",
       "ontolex:sense": {
         "ontolex:definition": {
@@ -560,6 +607,60 @@ Return a JSON-LD object with this structure:
       }
     }
   ]
+}
+
+Examples:
+
+1. Basic phonetic representation:
+{
+  "@id": "kuku_yalanji:bama",
+  "@type": "ontolex:LexicalEntry",
+  "ontolex:canonicalForm": {
+    "ontolex:writtenRep": "bama"
+  },
+  "ontolex:phoneticRep": "bama",
+  "lexinfo:partOfSpeech": "lexinfo:Noun",
+  "ontolex:sense": {
+    "ontolex:definition": {
+      "@language": "en",
+      "@value": "person, Aboriginal person"
+    }
+  }
+}
+
+2. Entry with special phonetic characters:
+{
+  "@id": "kuku_yalanji:nyulu",
+  "@type": "ontolex:LexicalEntry",
+  "ontolex:canonicalForm": {
+    "ontolex:writtenRep": "nyulu"
+  },
+  "ontolex:phoneticRep": "ɲulu",
+  "lexinfo:partOfSpeech": "lexinfo:Pronoun",
+  "ontolex:sense": {
+    "ontolex:definition": {
+      "@language": "en",
+      "@value": "he, she, it (third person singular pronoun)"
+    }
+  }
+}
+
+3. Entry with complex phonology:
+{
+  "@id": "kuku_yalanji:jalbu-ngku",
+  "@type": "ontolex:LexicalEntry",
+  "ontolex:canonicalForm": {
+    "ontolex:writtenRep": "jalbu-ngku"
+  },
+  "ontolex:phoneticRep": "dʒalbu-ŋku",
+  "lexinfo:partOfSpeech": "lexinfo:Noun",
+  "lexinfo:case": "lexinfo:ergativeCase",
+  "ontolex:sense": {
+    "ontolex:definition": {
+      "@language": "en",
+      "@value": "woman (ergative case)"
+    }
+  }
 }
 
 If no lexical entries are found, return {"@graph": []}.
