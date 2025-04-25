@@ -83,9 +83,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               href="/" 
               className="flex items-center space-x-2 text-xl sm:text-2xl text-primary hover:text-primary/90 transition-all font-medium"
             >
-              <div className="w-10 h-10 rounded bg-primary flex items-center justify-center text-white">
-                <span className="font-medium">MT</span>
-              </div>
+            
               <span className="hidden sm:inline">Mob Translate</span>
             </Link>
             

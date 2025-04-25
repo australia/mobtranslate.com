@@ -60,7 +60,7 @@
     --popover-foreground: 0 0% 3.9%; /* HSL Near Black */
 
     --radius: 0.3rem; /* Keep or adjust rounding? Minimalist might mean less rounding. Set to 0? */
-    --font-sans: 'Space Grotesk', sans-serif;
+    --font-space-grotesk: 'Space Grotesk', sans-serif;
   }
 
   .dark {
@@ -121,6 +121,12 @@
   }
 }
 
+html {
+  /* Increase base font size */
+  font-size: 17px;
+  scroll-behavior: smooth;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -129,10 +135,7 @@
     @apply text-foreground;
     color: rgb(var(--foreground-rgb));
     background-color: rgb(var(--background-end-rgb)); /* Use end-rgb for solid color */
-    font-family: var(--font-sans);
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-sans);
+    font-family: var(--font-space-grotesk), sans-serif;
   }
 }
 

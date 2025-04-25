@@ -209,12 +209,14 @@ const Translator = () => {
         </div>
       </div>
 
-      {/* Output Section - Remove wrapper background */}
-      {(outputText || error) && (
-        <div className="mt-6">
-          <div className="flex justify-between items-center mb-3">
-            <h3 className="text-lg font-medium text-foreground">{selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.meta?.name || 'Translation'}</h3>
-            {outputText && (
+      {/* Output Section */}
+      {(outputText || error || isLoading) && ( // Ensure container shows for loading state too
+        <div className="mt-6"> {/* Outer container, no padding/border */}
+          {/* <div className="flex justify-between items-center mb-3">
+            <h3 className="text-lg font-medium text-foreground">
+              {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.meta?.name || 'Translation'}
+            </h3>
+            {outputText && !isLoading && ( // Only show copy if there's output and not loading
               <button
                 onClick={copyToClipboard}
                 className="flex items-center gap-1.5 px-3 py-1 border border-input text-sm text-muted-foreground hover:bg-muted hover:text-foreground dark:border-input dark:hover:bg-input dark:hover:text-foreground transition-colors duration-200"
@@ -223,23 +225,36 @@ const Translator = () => {
                 <span>{copied ? 'Copied' : 'Copy'}</span>
               </button>
             )}
+          </div> */}
+
+          {/* Content Container - No Border, Better Padding */}
+          <div className="text-foreground dark:text-foreground text-base leading-relaxed bg-background/50 dark:bg-background/20 rounded-sm"> {/* Removed border, increased font size */}
+            {/* Inner Container with Improved Padding */}
+            <div className="py-5 px-6" ref={outputRef}> {/* Increased padding */}
+              {isLoading ? (
+                  <div className="flex items-center justify-center h-full min-h-[50px]">
+                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                  </div>
+              ) : error ? (
+                  <div className="text-destructive flex items-start gap-2"> {/* Removed extra p-3/border */}
+                    <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
+                    <p>{error}</p>
+                  </div>
+              ) : (
+                 /* Larger output text with better spacing */
+                 <ReactMarkdown className="text-base [&_p]:mb-3 [&_p:last-child]:mb-0">
+                   {outputText}
+                 </ReactMarkdown>
+              )}
+            </div>
           </div>
-          <div className="min-h-[150px] p-4 border border-input bg-background text-foreground dark:text-foreground whitespace-pre-wrap text-sm leading-relaxed">
-            {error ? (
-              <div className="p-3 border border-destructive/30 text-destructive flex items-start gap-2">
-                <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
-                <p>{error}</p>
-              </div>
-            ) : (
-              <ReactMarkdown>{outputText}</ReactMarkdown>
-            )}
-          </div>
-          <div className="mt-4 text-xs text-muted-foreground">
-            <p>
-              Note: Translations are generated using AI and may not be 100% accurate.
-              Please consult with language experts for critical translations.
-            </p>
-          </div>
+
+           <div className="p-6 mt-3 text-xs text-muted-foreground">
+                <p>
+                  Note: Translations are generated using AI and may not be 100% accurate.
+                  Please consult with language experts for critical translations.
+                </p>
+            </div>
         </div>
       )}
     </div>
