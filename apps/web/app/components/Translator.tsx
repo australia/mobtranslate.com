@@ -3,6 +3,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { ArrowRight, Globe, Loader2, RefreshCw, AlertTriangle, Check, Copy } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@ui/components';
+import { Button } from '@ui/components';
+import { Textarea } from '@ui/components';
+import { Select } from '@ui/components';
+import { Alert } from '@ui/components';
+import { Badge } from '@ui/components';
 
 const Translator = () => {
   const [inputText, setInputText] = useState<string>('');
@@ -146,50 +152,56 @@ const Translator = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <div className="bg-card shadow-md rounded-md border border-border overflow-hidden">
-        {/* Input Section */}
-        <div className="p-4 md:p-6 border-b border-border">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-medium text-foreground">English</h2>
-            <button
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle className="font-crimson">AI-Powered Translation</CardTitle>
+            <Button 
+              variant="outline" 
+              size="sm"
               onClick={resetForm}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
               disabled={!inputText}
             >
               Clear
-            </button>
+            </Button>
           </div>
-          <textarea
-            value={inputText}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            placeholder="Enter English text to translate..."
-            className="w-full h-32 p-3 bg-background border border-input rounded-md focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none"
-          />
-          <div className="mt-4 flex items-center justify-between">
-            <div className="text-sm text-muted-foreground">
-              {inputText.length} characters
+        </CardHeader>
+        
+        <CardContent className="space-y-6">
+          {/* Input Section */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-medium font-crimson">English</h3>
+              <Badge variant="outline">{inputText.length} characters</Badge>
             </div>
-            <div className="flex items-center gap-2">
-              <select
-                value={selectedLanguage}
-                onChange={(e) => setSelectedLanguage(e.target.value)}
-                className="px-3 py-1.5 text-sm bg-background border border-input rounded-md focus:ring-1 focus:ring-primary focus:border-primary transition-all"
-              >
-                {languages.map((lang) => (
-                  <option key={lang.code} value={lang.code}>
-                    {lang.meta?.name || lang.code}
-                  </option>
-                ))}
-              </select>
-              <button
+            
+            <Textarea
+              value={inputText}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              placeholder="Enter English text to translate..."
+              className="h-32 font-source-sans"
+            />
+            
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium font-source-sans">Translate to:</span>
+                <Select
+                  value={selectedLanguage}
+                  onChange={(e) => setSelectedLanguage(e.target.value)}
+                >
+                  {languages.map((lang) => (
+                    <option key={lang.code} value={lang.code}>
+                      {lang.meta?.name || lang.code}
+                    </option>
+                  ))}
+                </Select>
+              </div>
+              
+              <Button
                 onClick={handleTranslate}
-                disabled={!canTranslate}
-                className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
-                  canTranslate
-                    ? "bg-primary text-white hover:bg-primary/90"
-                    : "bg-muted text-muted-foreground cursor-not-allowed"
-                }`}
+                disabled={!canTranslate || isLoading}
+                className="min-w-[120px]"
               >
                 {isLoading ? (
                   <div className="flex items-center gap-2">
@@ -202,61 +214,62 @@ const Translator = () => {
                     <span>Translate</span>
                   </div>
                 )}
-              </button>
+              </Button>
             </div>
           </div>
-        </div>
 
-        {/* Output Section */}
-        {(outputText || error) && (
-          <div className="p-4 md:p-6 bg-background/50 border-t border-border">
-            <div className="mb-4 flex items-center justify-between">
-              <h2 className="text-lg font-medium text-foreground">
-                {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.meta?.name || 'Translation'}
-              </h2>
-              {outputText && (
-                <button
-                  onClick={copyToClipboard}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+          {/* Output Section */}
+          {(outputText || error) && (
+            <div className="space-y-4 pt-6 border-t">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-medium font-crimson">
+                  {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.meta?.name || 'Translation'}
+                </h3>
+                {outputText && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={copyToClipboard}
+                  >
+                    {copied ? (
+                      <div className="flex items-center gap-1">
+                        <Check size={14} />
+                        <span>Copied</span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1">
+                        <Copy size={14} />
+                        <span>Copy</span>
+                      </div>
+                    )}
+                  </Button>
+                )}
+              </div>
+              
+              {error ? (
+                <Alert variant="error">
+                  <AlertTriangle size={16} />
+                  {error}
+                </Alert>
+              ) : (
+                <div 
+                  ref={outputRef}
+                  className="p-4 bg-muted rounded-md border prose prose-sm max-w-none font-source-sans"
                 >
-                  {copied ? (
-                    <>
-                      <Check size={14} />
-                      <span>Copied</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy size={14} />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </button>
+                  <ReactMarkdown>{outputText}</ReactMarkdown>
+                </div>
               )}
-            </div>
-            
-            {error ? (
-              <div className="p-3 bg-destructive/10 border border-destructive/30 rounded-md text-destructive flex items-start gap-2">
-                <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
-                <p>{error}</p>
+              
+              <div className="text-xs text-muted-foreground font-source-sans">
+                <p>
+                  <strong>Note:</strong> Translations are generated using AI and may not be 100% accurate.
+                  Please consult with language experts for critical translations.
+                </p>
               </div>
-            ) : (
-              <div 
-                ref={outputRef}
-                className="p-4 bg-background border border-input rounded-md prose prose-sm max-w-none"
-              >
-                <ReactMarkdown>{outputText}</ReactMarkdown>
-              </div>
-            )}
-            
-            <div className="mt-4 text-xs text-muted-foreground">
-              <p>
-                Note: Translations are generated using AI and may not be 100% accurate.
-                Please consult with language experts for critical translations.
-              </p>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </CardContent>
+      </Card>
     </div>
   );
 };

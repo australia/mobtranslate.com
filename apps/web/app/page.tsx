@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import SharedLayout from './components/SharedLayout';
 import Translator from './components/Translator';
+import { PageHeader, Section, Card, CardContent, Container } from '@ui/components';
 
 export default function Page() {
   return (
@@ -18,47 +19,56 @@ export default function Page() {
         <script src="https://drainpipe.io/agent/client/673dc10b1adbeb2249ef0536" />
       </Head>
       
-      <div className="text-center p-8 bg-card rounded-lg max-w-7xl mx-auto mt-4 mb-8 shadow-sm">
-        <h1 className="text-4xl mb-4 font-bold">Mob Translate</h1>
-        <p className="text-xl text-foreground/80 max-w-3xl mx-auto mb-4 leading-relaxed">
-          A fully open source community-driven project to make "Google Translate" 
-          for as many Australian Aboriginal languages as possible. Join us in preserving 
-          and promoting Indigenous languages through technology.
-        </p>
-      </div>
+      <PageHeader 
+        title="Mob Translate"
+        description="A fully open source community-driven project to make 'Google Translate' for as many Australian Aboriginal languages as possible. Join us in preserving and promoting Indigenous languages through technology."
+      />
 
-      {/* Translator Section - Now at the top */}
-      <Translator />
+      <Section contained={false}>
+        <Container>
+          <Translator />
+        </Container>
+      </Section>
 
-      {/* Dictionaries Section */}
-      <section className="max-w-7xl mx-auto my-8 p-8 bg-card rounded-lg shadow-sm">
-        <h2 className="text-3xl mb-6">Available Dictionaries</h2>
+      <Section 
+        title="Available Dictionaries"
+        description="Explore our growing collection of Aboriginal language dictionaries"
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Link 
-            href="/dictionaries/kuku_yalanji"
-            className="bg-background p-6 rounded-lg no-underline text-foreground transition-all duration-300 hover:shadow-md hover:translate-y-[-5px]"
-          >
-            <h3 className="text-xl mb-2">Kuku Yalanji</h3>
-            <p className="text-muted-foreground">Explore the language of the Kuku Yalanji people</p>
+          <Link href="/dictionaries/kuku_yalanji" className="block no-underline">
+            <Card hover className="h-full">
+              <CardContent className="p-6">
+                <h3 className="text-xl mb-2 font-crimson">Kuku Yalanji</h3>
+                <p className="text-muted-foreground font-source-sans">
+                  Explore the language of the Kuku Yalanji people
+                </p>
+              </CardContent>
+            </Card>
           </Link>
           
-          <Link 
-            href="/dictionaries/migmaq"
-            className="bg-background p-6 rounded-lg no-underline text-foreground transition-all duration-300 hover:shadow-md hover:translate-y-[-5px]"
-          >
-            <h3 className="text-xl mb-2">Mi'gmaq</h3>
-            <p className="text-muted-foreground">Discover the Mi'gmaq language and culture</p>
+          <Link href="/dictionaries/migmaq" className="block no-underline">
+            <Card hover className="h-full">
+              <CardContent className="p-6">
+                <h3 className="text-xl mb-2 font-crimson">Mi'gmaq</h3>
+                <p className="text-muted-foreground font-source-sans">
+                  Discover the Mi'gmaq language and culture
+                </p>
+              </CardContent>
+            </Card>
           </Link>
           
-          <Link 
-            href="/dictionaries/anindilyakwa"
-            className="bg-background p-6 rounded-lg no-underline text-foreground transition-all duration-300 hover:shadow-md hover:translate-y-[-5px]"
-          >
-            <h3 className="text-xl mb-2">Anindilyakwa</h3>
-            <p className="text-muted-foreground">Explore the language of the Anindilyakwa people</p>
+          <Link href="/dictionaries/anindilyakwa" className="block no-underline">
+            <Card hover className="h-full">
+              <CardContent className="p-6">
+                <h3 className="text-xl mb-2 font-crimson">Anindilyakwa</h3>
+                <p className="text-muted-foreground font-source-sans">
+                  Explore the language of the Anindilyakwa people
+                </p>
+              </CardContent>
+            </Card>
           </Link>
         </div>
-      </section>
+      </Section>
     </SharedLayout>
   );
 }

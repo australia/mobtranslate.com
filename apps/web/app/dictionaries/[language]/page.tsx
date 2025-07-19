@@ -5,6 +5,7 @@ import { headers } from 'next/headers';
 import SharedLayout from '../../components/SharedLayout';
 import { type Dictionary } from '@dictionaries';
 import DictionarySearch from './components/DictionarySearch';
+import { PageHeader, Section, Breadcrumbs, Badge } from '@ui/components';
 
 interface DictionaryResponse {
   success: boolean;
@@ -78,35 +79,31 @@ export default async function DictionaryPage({
     words
   };
   
+  const breadcrumbItems = [
+    { href: '/', label: 'Home' },
+    { href: '/dictionaries', label: 'Dictionaries' },
+    { href: `/dictionaries/${language}`, label: meta.name }
+  ];
+
   return (
     <SharedLayout>
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-5xl mx-auto space-y-8">
-          {/* Header */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-3xl font-bold tracking-tight">{meta.name} Dictionary</h1>
-                <p className="text-muted-foreground mt-1">{meta.description}</p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center text-sm text-muted-foreground">
-              <span className="mr-2">Region:</span>
-              <span className="font-medium">{meta.region}</span>
-            </div>
-            <div className="flex items-center space-x-2 text-sm">
-              <Link href="/dictionaries" className="text-muted-foreground hover:text-foreground">
-                Dictionaries
-              </Link>
-              <span className="text-muted-foreground">/</span>
-              <span className="text-foreground font-medium">{meta.name}</span>
-            </div>
-          </div>
+      <PageHeader 
+        title={`${meta.name} Dictionary`}
+        description={meta.description}
+      >
+        <div className="flex items-center justify-center gap-2 mt-4">
+          <Badge variant="secondary">{meta.region}</Badge>
+          <Badge variant="outline">{words.length} words</Badge>
+        </div>
+      </PageHeader>
+
+      <Section contained={false}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={breadcrumbItems} className="mb-6" />
           
-          {/* Dictionary search and content */}
           <DictionarySearch dictionary={dictionary} initialSearch={search} />
         </div>
-      </div>
+      </Section>
     </SharedLayout>
   );
 }
