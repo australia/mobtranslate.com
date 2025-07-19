@@ -57,16 +57,61 @@ We use a Turborepo monorepo structure with the following organization:
 - Use TypeScript interfaces for component props
 - Prefer functional components with hooks over class components
 - Extract complex logic into custom hooks
+- Use 'use client' directive only when necessary (client-side interactivity)
 
-### File Structure for Components:
+### Component Library Structure:
 
-```
-ComponentName/
-├── index.ts           # Export file
-├── ComponentName.tsx  # Main component
-├── ComponentName.test.tsx  # Tests
-└── useComponentLogic.ts    # Custom hooks (if needed)
-```
+Our UI component library (`/ui/components/`) follows these patterns:
+
+1. **Component Definition**:
+   ```tsx
+   export interface ComponentProps extends React.HTMLAttributes<HTMLElement> {
+     variant?: 'primary' | 'secondary';
+     size?: 'sm' | 'md' | 'lg';
+     children: React.ReactNode;
+   }
+
+   export function Component({ variant = 'primary', ...props }: ComponentProps) {
+     // Implementation
+   }
+   ```
+
+2. **Utility Functions**: Use `cn()` from `ui/lib/utils` for className merging
+3. **Forward Refs**: Avoid unless necessary for Next.js App Router compatibility
+4. **Exports**: Export both component and types from individual files, then re-export from `index.ts`
+
+### Component Categories:
+
+1. **Core UI Components**:
+   - Button, Badge, Alert, Input, Textarea, Select
+   - Card (with subcomponents: CardHeader, CardTitle, etc.)
+   - Table (with subcomponents: TableHeader, TableRow, etc.)
+
+2. **Layout Components**:
+   - Container, Section, PageHeader
+   - Navigation, Breadcrumbs
+
+3. **Feedback Components**:
+   - LoadingSpinner, LoadingState, LoadingSkeleton
+   - EmptyState, ErrorBoundary
+
+4. **Domain-Specific Components**:
+   - DictionaryEntry, DictionaryTable
+   - TranslationInterface
+   - AlphabetFilter, FilterTags
+
+### Styling Components:
+
+- Use Tailwind CSS classes exclusively
+- Define variant styles as objects for consistency:
+  ```tsx
+  const variants = {
+    primary: 'bg-primary text-primary-foreground',
+    secondary: 'bg-secondary text-secondary-foreground'
+  };
+  ```
+- Support className prop for customization
+- Use consistent spacing and sizing scales
 
 ## Styling with Tailwind CSS
 
@@ -89,6 +134,32 @@ ComponentName/
 - Use Tailwind's theme extension for custom values
 - Leverage Tailwind's responsive modifiers consistently (sm:, md:, lg:)
 - For complex, repeated styles, use Tailwind's @apply in component libraries
+
+### Design System Tokens:
+
+Our application uses consistent design tokens defined in `tailwind.config.js`:
+
+1. **Typography**:
+   - Headers: font-crimson (serif)
+   - Body: font-source-sans (sans-serif)
+   - Sizes: Use Tailwind's default scale (text-xs through text-6xl)
+
+2. **Colors**:
+   - Primary: Brand colors
+   - Secondary: Supporting colors
+   - Muted: For subtle text and backgrounds
+   - Border: For dividers and outlines
+   - Card: Background colors for card components
+
+3. **Spacing**:
+   - Use Tailwind's default spacing scale
+   - Common patterns: p-4, p-6 for component padding
+   - Consistent gaps: gap-2, gap-4, gap-6
+
+4. **Shadows & Borders**:
+   - Cards: shadow-sm with hover:shadow-md
+   - Borders: border-border/50 for subtle borders
+   - Rounded corners: rounded-lg, rounded-xl for cards
 
 ## State Management and Data Fetching
 
@@ -209,6 +280,21 @@ function validateUserData(data: unknown): User {
 - Require code reviews before merging
 - Keep PRs small and focused on a single change
 
+## Style Guide Page
+
+We maintain a live style guide at `/styleguide` that showcases all UI components and design patterns. This serves as:
+
+- A visual reference for all available components
+- A testing ground for component variations
+- Documentation of our design system
+- A quick way to verify component consistency
+
+When adding new components:
+1. Add them to the UI component library
+2. Update the style guide page to showcase the component
+3. Include all variants and states
+4. Document any special usage considerations
+
 ## Additional Resources
 
 - [Next.js Documentation](https://nextjs.org/docs)
@@ -216,3 +302,4 @@ function validateUserData(data: unknown): User {
 - [SWR Documentation](https://swr.vercel.app/)
 - [Zod Documentation](https://zod.dev/)
 - [Vercel AI SDK Documentation](https://sdk.vercel.ai/docs)
+- [Live Style Guide](/styleguide) - View all components in action
