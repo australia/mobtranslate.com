@@ -19,18 +19,12 @@ export function WordLikeButton({
   showLabel = false,
   className 
 }: WordLikeButtonProps) {
-  const { isLiked, isLove, isLoading, toggleLike } = useWordLike(wordId);
+  const { isLiked, isLoading, toggleLike } = useWordLike(wordId);
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    toggleLike(false);
-  };
-
-  const handleDoubleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toggleLike(true);
+    toggleLike();
   };
 
   return (
@@ -38,26 +32,24 @@ export function WordLikeButton({
       variant="ghost"
       size={size}
       onClick={handleClick}
-      onDoubleClick={handleDoubleClick}
       disabled={isLoading}
       className={cn(
         "group relative",
         isLiked && "text-red-500 hover:text-red-600",
         className
       )}
-      title={isLove ? "Double-click to unlike" : isLiked ? "Click to unlike, double-click to love" : "Click to like, double-click to love"}
+      title={isLiked ? "Click to unlike" : "Click to like"}
     >
       <Heart
         className={cn(
           "h-4 w-4 transition-all",
           size === 'lg' && "h-6 w-6",
-          isLiked && "fill-current",
-          isLove && "animate-pulse"
+          isLiked && "fill-current"
         )}
       />
       {showLabel && (
         <span className="ml-2">
-          {isLove ? 'Loved' : isLiked ? 'Liked' : 'Like'}
+          {isLiked ? 'Liked' : 'Like'}
         </span>
       )}
     </Button>

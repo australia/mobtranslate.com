@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 
 export function useWordLike(wordId: string) {
   const [isLiked, setIsLiked] = useState(false);
-  const [isLove, setIsLove] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuth();
   const router = useRouter();
@@ -19,14 +18,13 @@ export function useWordLike(wordId: string) {
         .then(data => {
           if (data && !data.error) {
             setIsLiked(data.isLiked);
-            setIsLove(data.isLove);
           }
         })
         .catch(err => console.error('Error fetching like status:', err));
     }
   }, [user, wordId]);
 
-  const toggleLike = async (asLove: boolean = false) => {
+  const toggleLike = async () => {
     if (!user) {
       // Redirect to sign in if not authenticated
       router.push('/auth/signin?redirect=' + window.location.pathname);
@@ -36,7 +34,7 @@ export function useWordLike(wordId: string) {
     setIsLoading(true);
     
     try {
-      if (isLiked && !asLove) {
+      if (isLiked) {
         // Unlike
         const res = await fetch(`/api/v2/words/${wordId}/like`, {
           method: 'DELETE',
@@ -44,21 +42,19 @@ export function useWordLike(wordId: string) {
         
         if (res.ok) {
           setIsLiked(false);
-          setIsLove(false);
         }
       } else {
-        // Like or upgrade to love
+        // Like
         const res = await fetch(`/api/v2/words/${wordId}/like`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ isLove: asLove }),
+          body: JSON.stringify({ isLove: false }),
         });
         
         if (res.ok) {
           setIsLiked(true);
-          setIsLove(asLove);
         }
       }
     } catch (error) {
@@ -70,7 +66,6 @@ export function useWordLike(wordId: string) {
 
   return {
     isLiked,
-    isLove,
     isLoading,
     toggleLike,
     isAuthenticated: !!user

@@ -22,7 +22,6 @@ export default function MyLikesPage() {
   const router = useRouter();
   const [likes, setLikes] = useState<LikedWord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [showLovesOnly, setShowLovesOnly] = useState(false);
   const [pagination, setPagination] = useState({
     page: 1,
     limit: 50,
@@ -39,15 +38,14 @@ export default function MyLikesPage() {
     }
 
     fetchLikes();
-  }, [user, showLovesOnly, pagination.page]);
+  }, [user, pagination.page]);
 
   const fetchLikes = async () => {
     setIsLoading(true);
     try {
       const params = new URLSearchParams({
         page: pagination.page.toString(),
-        limit: pagination.limit.toString(),
-        loveOnly: showLovesOnly ? 'true' : 'false'
+        limit: pagination.limit.toString()
       });
 
       const response = await fetch(`/api/v2/user/likes?${params}`);
@@ -80,11 +78,8 @@ export default function MyLikesPage() {
 
   const transformedWords = likes.map(like => ({
     ...transformWordForUI(like.word),
-    likedAt: like.liked_at,
-    isLove: like.is_love
+    likedAt: like.liked_at
   }));
-
-  const loveCount = likes.filter(l => l.is_love).length;
 
   if (!user) {
     return null; // Will redirect in useEffect
@@ -94,59 +89,25 @@ export default function MyLikesPage() {
     <SharedLayout>
       <PageHeader 
         title="My Liked Words"
-        description="Words you've liked and loved across all languages"
+        description="Words you've liked across all languages"
       >
         <div className="flex items-center justify-center gap-2 mt-4">
           <Badge variant="secondary">
             <Heart className="h-3 w-3 mr-1" />
             {pagination.total} liked
           </Badge>
-          {!showLovesOnly && (
-            <Badge variant="outline">
-              <Heart className="h-3 w-3 mr-1 fill-current" />
-              {loveCount} loved
-            </Badge>
-          )}
         </div>
       </PageHeader>
 
       <Section>
-        {/* Filter buttons */}
-        <div className="flex gap-2 mb-6">
-          <Button
-            variant={!showLovesOnly ? "default" : "outline"}
-            size="sm"
-            onClick={() => {
-              setShowLovesOnly(false);
-              setPagination(prev => ({ ...prev, page: 1 }));
-            }}
-          >
-            All Likes
-          </Button>
-          <Button
-            variant={showLovesOnly ? "default" : "outline"}
-            size="sm"
-            onClick={() => {
-              setShowLovesOnly(true);
-              setPagination(prev => ({ ...prev, page: 1 }));
-            }}
-          >
-            <Heart className="h-4 w-4 mr-1 fill-current" />
-            Loves Only
-          </Button>
-        </div>
 
         {isLoading ? (
           <LoadingState />
         ) : transformedWords.length === 0 ? (
           <EmptyState
             icon={Heart}
-            title={showLovesOnly ? "No loved words yet" : "No liked words yet"}
-            description={
-              showLovesOnly 
-                ? "Double-click the heart icon on any word to love it!"
-                : "Click the heart icon on any word to like it!"
-            }
+            title="No liked words yet"
+            description="Click the heart icon on any word to like it!"
             action={
               <Button onClick={() => router.push('/dictionaries')}>
                 <BookOpen className="mr-2 h-4 w-4" />
