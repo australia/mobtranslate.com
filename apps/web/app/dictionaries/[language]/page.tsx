@@ -5,6 +5,7 @@ import DictionarySearch from './components/DictionarySearch';
 import { PageHeader, Section, Breadcrumbs, Badge } from '@ui/components';
 import { getWordsForLanguage } from '@/lib/supabase/queries';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
+import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -53,19 +54,7 @@ export default async function DictionaryPage({
         region: languageData.region || '',
         code: languageData.code
       },
-      words: words.map(word => ({
-        word: word.word,
-        type: word.word_type || word.word_class?.code,
-        definitions: word.definitions?.map(d => d.definition) || [],
-        translations: word.definitions?.flatMap(d => 
-          d.translations?.map(t => t.translation) || []
-        ) || [],
-        definition: word.definitions?.[0]?.definition,
-        example: word.usage_examples?.[0]?.example_text,
-        phonetic: word.phonetic_transcription,
-        notes: word.notes,
-        culturalContext: word.cultural_contexts?.[0]?.context_description
-      }))
+      words: transformWordsForUI(words)
     };
 
     return (

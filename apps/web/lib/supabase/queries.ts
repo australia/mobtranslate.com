@@ -11,7 +11,15 @@ export async function getLanguageByCode(code: string) {
     .eq('is_active', true)
     .single();
 
-  if (error) throw error;
+  if (error) {
+    console.error('Error fetching language by code:', code, error);
+    throw new Error(`Language '${code}' not found`);
+  }
+  
+  if (!data) {
+    throw new Error(`Language '${code}' not found`);
+  }
+  
   return data as Language;
 }
 
@@ -25,24 +33,21 @@ export async function getWordsForLanguage({
   wordClass,
   letter
 }: DictionaryQueryParams) {
+  console.log('[getWordsForLanguage] Starting with params:', { language, page, limit });
+  
   const supabase = createClient();
   
   // First get the language
   const languageData = await getLanguageByCode(language!);
+  console.log('[getWordsForLanguage] Language data:', languageData);
   
-  // Build the query
+  // Build the query with relations
   let query = supabase
     .from('words')
     .select(`
       *,
-      word_class:word_classes(*),
-      definitions!inner(
-        *,
-        translations:translations(*)
-      ),
-      usage_examples(*),
-      cultural_contexts(*)
-    `)
+      word_class:word_classes(*)
+    `, { count: 'exact' })
     .eq('language_id', languageData.id);
 
   // Apply search filter
@@ -81,15 +86,62 @@ export async function getWordsForLanguage({
   query = query.range(from, to);
 
   const { data: words, error, count } = await query;
+  
+  console.log('[getWordsForLanguage] Query result:', { 
+    wordCount: words?.length, 
+    totalCount: count,
+    error: error?.message 
+  });
 
-  if (error) throw error;
+  if (error) {
+    console.error('[getWordsForLanguage] Query error:', error);
+    throw error;
+  }
 
-  // Get total count for pagination
-  const { count: totalCount } = await supabase
-    .from('words')
-    .select('*', { count: 'exact', head: true })
-    .eq('language_id', languageData.id)
-    .then(res => ({ count: res.count || 0 }));
+  // Use the count from the main query if available, otherwise do a separate count
+  const totalCount = count || 0;
+
+  // If we have words, fetch their definitions and examples
+  if (words && words.length > 0) {
+    const wordIds = words.map(w => w.id);
+    
+    // Fetch definitions with translations
+    const { data: definitions } = await supabase
+      .from('definitions')
+      .select(`
+        *,
+        translations(*)
+      `)
+      .in('word_id', wordIds);
+
+    // Fetch usage examples
+    const { data: usageExamples } = await supabase
+      .from('usage_examples')
+      .select('*')
+      .in('word_id', wordIds);
+
+    // Map definitions and examples back to words
+    const wordsWithRelations = words.map(word => ({
+      ...word,
+      definitions: definitions?.filter(d => d.word_id === word.id) || [],
+      usage_examples: usageExamples?.filter(e => e.word_id === word.id) || []
+    }));
+
+    console.log('[getWordsForLanguage] Sample word with relations:', wordsWithRelations[0]);
+
+    return {
+      words: wordsWithRelations as Word[],
+      pagination: {
+        total: totalCount,
+        page,
+        limit,
+        totalPages: Math.ceil(totalCount / limit),
+        hasNext: page * limit < totalCount,
+        hasPrev: page > 1
+      },
+      language: languageData
+    };
+  }
 
   return {
     words: words as Word[],
@@ -136,9 +188,9 @@ export async function searchWords(searchTerm: string, languageCode?: string) {
     .select(`
       *,
       word_class:word_classes(*),
-      definitions!inner(
+      definitions(
         *,
-        translations:translations(*)
+        translations(*)
       ),
       language:languages(*)
     `)

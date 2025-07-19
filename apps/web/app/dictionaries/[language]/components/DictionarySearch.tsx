@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useCallback, useTransition } from 'react';
+import React, { useState, useCallback, useTransition, useMemo } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle, SearchInput, Badge, EmptyState, Button, DictionaryTable, LoadingState } from '@ui/components';
 import { useDictionary } from '@/lib/hooks/useDictionary';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
+import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
 interface DictionaryWord {
   word: string;
@@ -70,8 +71,13 @@ export default function DictionarySearch({
 
   const { words: swrWords, pagination: swrPagination, isLoading } = useDictionary(queryParams);
 
+  // Transform SWR words if available
+  const transformedSwrWords = useMemo(() => {
+    return swrWords ? transformWordsForUI(swrWords) : null;
+  }, [swrWords]);
+
   // Use SWR data if available, otherwise use SSR data
-  const words = swrWords || initialWords;
+  const words = transformedSwrWords || initialWords;
   const currentPagination = swrPagination || pagination;
 
   const handleSearch = useCallback((value: string) => {
@@ -100,7 +106,7 @@ export default function DictionarySearch({
   }, [pathname, router, searchParams]);
 
   const handleWordClick = (word: string) => {
-    return `/dictionaries/${meta.code}/words/${encodeURIComponent(word)}`;
+    router.push(`/dictionaries/${meta.code}/words/${encodeURIComponent(word)}`);
   };
 
   const isLoadingOrPending = isLoading || isPending;
@@ -146,11 +152,8 @@ export default function DictionarySearch({
       ) : (
         <>
           <DictionaryTable 
-            words={words.map(word => ({
-              ...word,
-              href: handleWordClick(word.word)
-            }))}
-            language={meta.code}
+            words={words}
+            onWordClick={handleWordClick}
           />
           
           {currentPagination && currentPagination.totalPages > 1 && (
