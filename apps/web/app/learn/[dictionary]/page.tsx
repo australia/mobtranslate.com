@@ -5,7 +5,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, useParams } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
 import { Card, CardContent, Button, Badge, LoadingState } from '@ui/components';
-import { X, Check, AlertCircle, Zap, ArrowLeft } from 'lucide-react';
+import { X, Check, AlertCircle, Zap, ArrowLeft, BarChart3, Sparkles, Target } from 'lucide-react';
 import { cn } from '@/app/lib/utils';
 import Link from 'next/link';
 
@@ -35,6 +35,7 @@ export default function LearnDictionaryPage() {
   const [streak, setStreak] = useState(0);
   const [wordsCompleted, setWordsCompleted] = useState(0);
   const [languageName, setLanguageName] = useState<string>('');
+  const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
     if (loading) return;
@@ -47,6 +48,13 @@ export default function LearnDictionaryPage() {
     fetchLanguageName();
     fetchNextWord();
   }, [user, loading, languageCode]);
+
+  useEffect(() => {
+    if (showConfetti) {
+      const timer = setTimeout(() => setShowConfetti(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showConfetti]);
 
   const fetchLanguageName = async () => {
     try {
@@ -100,7 +108,12 @@ export default function LearnDictionaryPage() {
 
     // Update streak
     if (isCorrect) {
-      setStreak(prev => prev + 1);
+      const newStreak = streak + 1;
+      setStreak(newStreak);
+      // Show confetti on streak milestones
+      if (newStreak % 5 === 0) {
+        setShowConfetti(true);
+      }
     } else {
       setStreak(0);
     }
@@ -129,28 +142,26 @@ export default function LearnDictionaryPage() {
     fetchNextWord();
   };
 
-  const getBucketColor = (bucket: number) => {
-    const colors = [
-      'bg-gray-500',    // New
-      'bg-red-500',     // Learning-1
-      'bg-orange-500',  // Learning-2
-      'bg-yellow-500',  // Review-1
-      'bg-blue-500',    // Review-2
-      'bg-green-500'    // Mastered
+  const getBucketInfo = (bucket: number) => {
+    const buckets = [
+      { name: 'New', color: 'bg-gradient-to-r from-gray-400 to-gray-500', icon: Sparkles },
+      { name: 'Learning', color: 'bg-gradient-to-r from-red-400 to-red-500', icon: Target },
+      { name: 'Learning', color: 'bg-gradient-to-r from-orange-400 to-orange-500', icon: Target },
+      { name: 'Review', color: 'bg-gradient-to-r from-yellow-400 to-yellow-500', icon: Target },
+      { name: 'Review', color: 'bg-gradient-to-r from-blue-400 to-blue-500', icon: Target },
+      { name: 'Mastered', color: 'bg-gradient-to-r from-green-400 to-green-500', icon: Sparkles }
     ];
-    return colors[bucket] || 'bg-gray-500';
-  };
-
-  const getBucketName = (bucket: number) => {
-    const names = ['New', 'Learning', 'Learning', 'Review', 'Review', 'Mastered'];
-    return names[bucket] || 'Unknown';
+    return buckets[bucket] || buckets[0];
   };
 
   if (loading) {
     return (
       <SharedLayout>
-        <div className="min-h-screen flex items-center justify-center">
-          <LoadingState />
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+          <div className="relative">
+            <div className="w-20 h-20 rounded-full border-4 border-indigo-200 dark:border-indigo-800"></div>
+            <div className="absolute top-0 left-0 w-20 h-20 rounded-full border-4 border-transparent border-t-indigo-500 dark:border-t-indigo-400 animate-spin"></div>
+          </div>
         </div>
       </SharedLayout>
     );
@@ -158,38 +169,76 @@ export default function LearnDictionaryPage() {
 
   return (
     <SharedLayout>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        {/* Confetti Effect */}
+        {showConfetti && (
+          <div className="fixed inset-0 pointer-events-none z-50">
+            {[...Array(50)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute animate-confetti"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 0.5}s`,
+                  animationDuration: `${2 + Math.random() * 1}s`
+                }}
+              >
+                <div className={cn(
+                  "w-2 h-2 rounded-full",
+                  i % 4 === 0 ? "bg-purple-500" : 
+                  i % 4 === 1 ? "bg-blue-500" : 
+                  i % 4 === 2 ? "bg-green-500" : "bg-yellow-500"
+                )} />
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Header */}
-        <div className="sticky top-0 z-10 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b">
-          <div className="max-w-4xl mx-auto px-4 py-3">
+        <div className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700">
+          <div className="max-w-4xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <Link href="/learn">
-                  <Button variant="ghost" size="sm">
+              <div className="flex items-center gap-3">
+                <Link href="/learn" className="touch-target">
+                  <Button variant="ghost" size="sm" className="hover:scale-105 transition-transform">
                     <ArrowLeft className="h-4 w-4" />
                   </Button>
                 </Link>
-                <div className="text-sm font-medium">
-                  {languageName || languageCode} • {wordsCompleted} words practiced
+                <div>
+                  <h1 className="text-lg font-semibold">{languageName || languageCode}</h1>
+                  <p className="text-sm text-muted-foreground">{wordsCompleted} words practiced</p>
                 </div>
-                <Badge variant="outline" className="gap-1">
-                  <Zap className="h-3 w-3" />
-                  {streak}
-                </Badge>
               </div>
-              <Link href="/stats">
-                <Button variant="ghost" size="sm">
-                  View Stats
-                </Button>
-              </Link>
+              
+              <div className="flex items-center gap-3">
+                {streak > 0 && (
+                  <Badge 
+                    variant="outline" 
+                    className={cn(
+                      "gap-1 transition-all",
+                      streak >= 10 ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0" :
+                      streak >= 5 ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0" :
+                      ""
+                    )}
+                  >
+                    <Zap className="h-3 w-3" />
+                    {streak}
+                  </Badge>
+                )}
+                <Link href="/stats" className="touch-target">
+                  <Button variant="ghost" size="sm" className="hover:scale-105 transition-transform">
+                    <BarChart3 className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Main Content */}
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
           {phase === 'no-words' ? (
-            <Card className="max-w-2xl mx-auto">
+            <Card className="max-w-2xl mx-auto shadow-xl">
               <CardContent className="p-8 text-center">
                 <AlertCircle className="h-16 w-16 mx-auto text-yellow-500 mb-4" />
                 <h2 className="text-xl font-semibold mb-2">No Words Available</h2>
@@ -204,101 +253,201 @@ export default function LearnDictionaryPage() {
               </CardContent>
             </Card>
           ) : phase === 'loading' ? (
-            <Card className="max-w-2xl mx-auto">
-              <CardContent className="p-8 text-center">
-                <LoadingState />
-                <p className="text-muted-foreground mt-4">Loading next word...</p>
-              </CardContent>
-            </Card>
+            <div className="flex flex-col items-center justify-center min-h-[60vh]">
+              <div className="relative">
+                <div className="w-20 h-20 rounded-full border-4 border-indigo-200 dark:border-indigo-800"></div>
+                <div className="absolute top-0 left-0 w-20 h-20 rounded-full border-4 border-transparent border-t-indigo-500 dark:border-t-indigo-400 animate-spin"></div>
+              </div>
+              <p className="text-lg text-muted-foreground mt-6 animate-pulse">Loading next word...</p>
+            </div>
           ) : currentWord ? (
-            <Card className="max-w-2xl mx-auto">
-              <CardContent className="p-8">
-                {phase === 'word' && (
-                  <div className="space-y-6">
-                    <div className="text-center">
-                      <div className="flex items-center justify-center gap-2 mb-4">
-                        <Badge 
-                          variant="secondary" 
-                          className={cn("text-white", getBucketColor(currentWord.bucket))}
-                        >
-                          {getBucketName(currentWord.bucket)}
-                        </Badge>
-                        {currentWord.wordClass && (
-                          <Badge variant="outline">{currentWord.wordClass}</Badge>
+            <div className="space-y-6">
+              {/* Progress indicator */}
+              {phase === 'word' && (
+                <div className="max-w-2xl mx-auto">
+                  <div className="h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500 animate-progress" />
+                  </div>
+                </div>
+              )}
+
+              <Card className="max-w-2xl mx-auto shadow-xl overflow-hidden">
+                {/* Bucket indicator */}
+                {currentWord && (
+                  <div className={cn(
+                    "h-2",
+                    getBucketInfo(currentWord.bucket).color
+                  )} />
+                )}
+                
+                <CardContent className="p-6 md:p-8">
+                  {phase === 'word' && (
+                    <div className="space-y-8">
+                      <div className="text-center space-y-4">
+                        <div className="flex items-center justify-center gap-2">
+                          {currentWord.wordClass && (
+                            <Badge variant="secondary" className="text-xs">
+                              {currentWord.wordClass}
+                            </Badge>
+                          )}
+                          <Badge 
+                            variant="secondary" 
+                            className={cn(
+                              "text-xs text-white",
+                              getBucketInfo(currentWord.bucket).color
+                            )}
+                          >
+                            {getBucketInfo(currentWord.bucket).name}
+                          </Badge>
+                        </div>
+                        
+                        <h1 className="text-5xl md:text-6xl font-bold font-crimson text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+                          {currentWord.word}
+                        </h1>
+                        
+                        <p className="text-lg text-muted-foreground">
+                          What does this word mean?
+                        </p>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 gap-3">
+                        {currentWord.choices.map((choice, index) => (
+                          <button
+                            key={index}
+                            onClick={() => handleAnswer(index)}
+                            className={cn(
+                              "w-full text-left p-5 rounded-xl",
+                              "bg-white dark:bg-gray-800",
+                              "border-2 border-gray-200 dark:border-gray-700",
+                              "hover:border-indigo-400 dark:hover:border-indigo-500",
+                              "hover:bg-indigo-50 dark:hover:bg-indigo-950/20",
+                              "hover:shadow-lg hover:shadow-indigo-200/50 dark:hover:shadow-indigo-900/50",
+                              "transform hover:scale-[1.02] active:scale-[0.98]",
+                              "transition-all duration-200 ease-out",
+                              "focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+                              "group cursor-pointer"
+                            )}
+                          >
+                            <div className="flex items-start gap-4">
+                              <div className={cn(
+                                "w-10 h-10 rounded-full flex items-center justify-center font-semibold flex-shrink-0",
+                                "bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800",
+                                "group-hover:from-indigo-100 group-hover:to-indigo-200 dark:group-hover:from-indigo-900/50 dark:group-hover:to-indigo-800/50",
+                                "transition-all duration-200"
+                              )}>
+                                {String.fromCharCode(65 + index)}
+                              </div>
+                              <div className="text-base md:text-lg text-gray-700 dark:text-gray-200 leading-relaxed pt-0.5">
+                                {choice}
+                              </div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {phase === 'feedback' && (
+                    <div className="text-center space-y-8 animate-fadeIn">
+                      <div className={cn(
+                        "inline-flex p-6 rounded-full",
+                        selectedChoice === currentWord.correctIndex 
+                          ? "bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20" 
+                          : "bg-gradient-to-br from-red-100 to-pink-100 dark:from-red-900/20 dark:to-pink-900/20"
+                      )}>
+                        {selectedChoice === currentWord.correctIndex ? (
+                          <Check className="h-16 w-16 text-green-600 dark:text-green-400" />
+                        ) : (
+                          <X className="h-16 w-16 text-red-600 dark:text-red-400" />
                         )}
                       </div>
                       
-                      <h1 className="text-4xl font-bold mb-2 font-crimson">
-                        {currentWord.word}
-                      </h1>
-                      <div className="text-muted-foreground">Select the correct meaning</div>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 gap-3">
-                      {currentWord.choices.map((choice, index) => (
-                        <Button
-                          key={index}
-                          variant="outline"
-                          size="lg"
-                          onClick={() => handleAnswer(index)}
-                          className={cn(
-                            "h-auto p-4 text-left justify-start whitespace-normal",
-                            "hover:bg-blue-50 hover:border-blue-300 transition-all duration-200"
-                          )}
-                        >
-                          <div className="flex items-start gap-3 w-full">
-                            <div className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-sm font-medium flex-shrink-0 mt-1">
-                              {String.fromCharCode(65 + index)}
-                            </div>
-                            <div className="text-base">{choice}</div>
-                          </div>
-                        </Button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {phase === 'feedback' && (
-                  <div className="text-center space-y-6">
-                    <div className={cn(
-                      "text-6xl",
-                      selectedChoice === currentWord.correctIndex ? "text-green-500" : "text-red-500"
-                    )}>
-                      {selectedChoice === currentWord.correctIndex ? (
-                        <Check className="h-16 w-16 mx-auto" />
-                      ) : (
-                        <AlertCircle className="h-16 w-16 mx-auto" />
-                      )}
-                    </div>
-                    
-                    <div>
-                      <h2 className="text-2xl font-bold mb-2 font-crimson">
-                        {currentWord.word}
-                      </h2>
-                      <div className="text-lg text-green-600 font-medium">
-                        {currentWord.choices[currentWord.correctIndex]}
-                      </div>
-                      {selectedChoice !== currentWord.correctIndex && (
-                        <div className="text-red-500 mt-2">
-                          You selected: {currentWord.choices[selectedChoice!]}
+                      <div className="space-y-4">
+                        <h2 className="text-3xl md:text-4xl font-bold font-crimson">
+                          {currentWord.word}
+                        </h2>
+                        <div className="text-xl text-green-600 dark:text-green-400 font-medium">
+                          {currentWord.choices[currentWord.correctIndex]}
                         </div>
-                      )}
+                        {selectedChoice !== currentWord.correctIndex && (
+                          <div className="text-red-500 dark:text-red-400">
+                            You selected: {currentWord.choices[selectedChoice!]}
+                          </div>
+                        )}
+                      </div>
+                      
+                      <button
+                        onClick={handleContinue}
+                        className={cn(
+                          "px-8 py-4 rounded-xl font-semibold text-white",
+                          "bg-gradient-to-r from-indigo-500 to-purple-500",
+                          "hover:from-indigo-600 hover:to-purple-600",
+                          "shadow-lg hover:shadow-xl shadow-indigo-500/25 hover:shadow-indigo-600/30",
+                          "transform hover:scale-105 active:scale-[0.98]",
+                          "transition-all duration-200 ease-out",
+                          "focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                        )}
+                      >
+                        Continue Learning
+                      </button>
                     </div>
-                    
-                    <Button
-                      onClick={handleContinue}
-                      size="lg"
-                      className="mt-4"
-                    >
-                      Continue
-                    </Button>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
           ) : null}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes confetti {
+          0% {
+            transform: translateY(-100vh) rotate(0deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh) rotate(720deg);
+            opacity: 0;
+          }
+        }
+        
+        @keyframes progress {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+        
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-confetti {
+          animation: confetti linear;
+        }
+        
+        .animate-progress {
+          animation: progress 20s linear;
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+        
+        .touch-target {
+          -webkit-tap-highlight-color: transparent;
+          touch-action: manipulation;
+        }
+      `}</style>
     </SharedLayout>
   );
 }
