@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Badge, EmptyState, Button, LoadingState, Tabs, TabsList, TabsTrigger, TabsContent } from '@ui/components';
+import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Badge, EmptyState, Button, LoadingState } from '@ui/components';
 import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
 import { Heart, BookOpen } from 'lucide-react';
 import { transformWordForUI } from '@/lib/utils/dictionary-transform';
@@ -22,7 +22,7 @@ export default function MyLikesPage() {
   const router = useRouter();
   const [likes, setLikes] = useState<LikedWord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('all');
+  const [showLovesOnly, setShowLovesOnly] = useState(false);
   const [pagination, setPagination] = useState({
     page: 1,
     limit: 50,
@@ -39,7 +39,7 @@ export default function MyLikesPage() {
     }
 
     fetchLikes();
-  }, [user, activeTab, pagination.page]);
+  }, [user, showLovesOnly, pagination.page]);
 
   const fetchLikes = async () => {
     setIsLoading(true);
@@ -47,7 +47,7 @@ export default function MyLikesPage() {
       const params = new URLSearchParams({
         page: pagination.page.toString(),
         limit: pagination.limit.toString(),
-        loveOnly: activeTab === 'loves' ? 'true' : 'false'
+        loveOnly: showLovesOnly ? 'true' : 'false'
       });
 
       const response = await fetch(`/api/v2/user/likes?${params}`);
@@ -84,7 +84,6 @@ export default function MyLikesPage() {
     isLove: like.is_love
   }));
 
-  const allCount = activeTab === 'all' ? pagination.total : likes.length;
   const loveCount = likes.filter(l => l.is_love).length;
 
   if (!user) {
@@ -100,9 +99,9 @@ export default function MyLikesPage() {
         <div className="flex items-center justify-center gap-2 mt-4">
           <Badge variant="secondary">
             <Heart className="h-3 w-3 mr-1" />
-            {allCount} liked
+            {pagination.total} liked
           </Badge>
-          {activeTab === 'all' && (
+          {!showLovesOnly && (
             <Badge variant="outline">
               <Heart className="h-3 w-3 mr-1 fill-current" />
               {loveCount} loved
@@ -112,85 +111,100 @@ export default function MyLikesPage() {
       </PageHeader>
 
       <Section>
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="all">All Likes</TabsTrigger>
-            <TabsTrigger value="loves">Loves Only</TabsTrigger>
-            <TabsTrigger value="recent">Recent</TabsTrigger>
-          </TabsList>
+        {/* Filter buttons */}
+        <div className="flex gap-2 mb-6">
+          <Button
+            variant={!showLovesOnly ? "default" : "outline"}
+            size="sm"
+            onClick={() => {
+              setShowLovesOnly(false);
+              setPagination(prev => ({ ...prev, page: 1 }));
+            }}
+          >
+            All Likes
+          </Button>
+          <Button
+            variant={showLovesOnly ? "default" : "outline"}
+            size="sm"
+            onClick={() => {
+              setShowLovesOnly(true);
+              setPagination(prev => ({ ...prev, page: 1 }));
+            }}
+          >
+            <Heart className="h-4 w-4 mr-1 fill-current" />
+            Loves Only
+          </Button>
+        </div>
 
-          <TabsContent value={activeTab} className="mt-6">
-            {isLoading ? (
-              <LoadingState />
-            ) : transformedWords.length === 0 ? (
-              <EmptyState
-                icon={Heart}
-                title={activeTab === 'loves' ? "No loved words yet" : "No liked words yet"}
-                description={
-                  activeTab === 'loves' 
-                    ? "Double-click the heart icon on any word to love it!"
-                    : "Click the heart icon on any word to like it!"
-                }
-                action={
-                  <Button onClick={() => router.push('/dictionaries')}>
-                    <BookOpen className="mr-2 h-4 w-4" />
-                    Browse Dictionaries
-                  </Button>
-                }
-              />
-            ) : (
-              <>
-                {/* Group words by language */}
-                {Object.entries(
-                  transformedWords.reduce((acc, word) => {
-                    const lang = likes.find(l => l.word.id === word.id)?.word.language.name || 'Unknown';
-                    if (!acc[lang]) acc[lang] = [];
-                    acc[lang].push(word);
-                    return acc;
-                  }, {} as Record<string, typeof transformedWords>)
-                ).map(([language, words]) => (
-                  <Card key={language} className="mb-6">
-                    <CardHeader>
-                      <CardTitle className="text-lg">{language}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <DictionaryTableWithLikes
-                        words={words}
-                        onWordClick={handleWordClick}
-                        showLikeButtons={true}
-                      />
-                    </CardContent>
-                  </Card>
-                ))}
+        {isLoading ? (
+          <LoadingState />
+        ) : transformedWords.length === 0 ? (
+          <EmptyState
+            icon={Heart}
+            title={showLovesOnly ? "No loved words yet" : "No liked words yet"}
+            description={
+              showLovesOnly 
+                ? "Double-click the heart icon on any word to love it!"
+                : "Click the heart icon on any word to like it!"
+            }
+            action={
+              <Button onClick={() => router.push('/dictionaries')}>
+                <BookOpen className="mr-2 h-4 w-4" />
+                Browse Dictionaries
+              </Button>
+            }
+          />
+        ) : (
+          <>
+            {/* Group words by language */}
+            {Object.entries(
+              transformedWords.reduce((acc, word) => {
+                const lang = likes.find(l => l.word.id === word.id)?.word.language.name || 'Unknown';
+                if (!acc[lang]) acc[lang] = [];
+                acc[lang].push(word);
+                return acc;
+              }, {} as Record<string, typeof transformedWords>)
+            ).map(([language, words]) => (
+              <Card key={language} className="mb-6">
+                <CardHeader>
+                  <CardTitle className="text-lg">{language}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <DictionaryTableWithLikes
+                    words={words}
+                    onWordClick={handleWordClick}
+                    showLikeButtons={true}
+                  />
+                </CardContent>
+              </Card>
+            ))}
 
-                {/* Pagination */}
-                {pagination.totalPages > 1 && (
-                  <div className="flex justify-center gap-2 mt-6">
-                    <Button
-                      variant="outline"
-                      onClick={() => handlePageChange(pagination.page - 1)}
-                      disabled={!pagination.hasPrev}
-                    >
-                      Previous
-                    </Button>
-                    <div className="flex items-center gap-2 px-4">
-                      <span className="text-sm text-muted-foreground">
-                        Page {pagination.page} of {pagination.totalPages}
-                      </span>
-                    </div>
-                    <Button
-                      variant="outline"
-                      onClick={() => handlePageChange(pagination.page + 1)}
-                      disabled={!pagination.hasNext}
-                    >
-                      Next
-                    </Button>
-                  </div>
-                )}
-              </>
+            {/* Pagination */}
+            {pagination.totalPages > 1 && (
+              <div className="flex justify-center gap-2 mt-6">
+                <Button
+                  variant="outline"
+                  onClick={() => handlePageChange(pagination.page - 1)}
+                  disabled={!pagination.hasPrev}
+                >
+                  Previous
+                </Button>
+                <div className="flex items-center gap-2 px-4">
+                  <span className="text-sm text-muted-foreground">
+                    Page {pagination.page} of {pagination.totalPages}
+                  </span>
+                </div>
+                <Button
+                  variant="outline"
+                  onClick={() => handlePageChange(pagination.page + 1)}
+                  disabled={!pagination.hasNext}
+                >
+                  Next
+                </Button>
+              </div>
             )}
-          </TabsContent>
-        </Tabs>
+          </>
+        )}
       </Section>
     </SharedLayout>
   );
