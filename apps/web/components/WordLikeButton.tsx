@@ -3,7 +3,7 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
-import { cn } from '../lib/utils';
+import { cn } from '../app/lib/utils';
 import { useWordLike } from '@/lib/hooks/useWordLike';
 
 interface WordLikeButtonProps {

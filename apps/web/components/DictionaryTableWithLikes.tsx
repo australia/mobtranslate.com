@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { cn } from '../lib/utils';
+import { cn } from '../app/lib/utils';
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@ui/components/Table';
 import { Badge } from '@ui/components/Badge';
 import { Card } from '@ui/components/card';
