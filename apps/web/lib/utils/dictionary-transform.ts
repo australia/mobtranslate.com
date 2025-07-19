@@ -1,6 +1,7 @@
 import type { Word } from '@/lib/supabase/types';
 
 export interface TransformedDictionaryWord {
+  id: string;
   word: string;
   type?: string;
   definitions?: string[];
@@ -36,6 +37,7 @@ export function transformWordForUI(word: Word): TransformedDictionaryWord {
     : exampleText?.example_text;
     
   return {
+    id: word.id,
     word: word.word,
     type: word.word_type || word.word_class?.name,
     definitions: definitionsArray,

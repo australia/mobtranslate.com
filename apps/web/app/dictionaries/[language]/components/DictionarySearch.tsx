@@ -2,12 +2,14 @@
 
 import React, { useState, useCallback, useTransition, useMemo } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
-import { Card, CardContent, CardHeader, CardTitle, SearchInput, Badge, EmptyState, Button, DictionaryTable, LoadingState } from '@ui/components';
+import { Card, CardContent, CardHeader, CardTitle, SearchInput, Badge, EmptyState, Button, LoadingState } from '@ui/components';
+import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
 import { useDictionary } from '@/lib/hooks/useDictionary';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
 interface DictionaryWord {
+  id: string;
   word: string;
   definition?: string;
   definitions?: string[];
@@ -151,7 +153,7 @@ export default function DictionarySearch({
         />
       ) : (
         <>
-          <DictionaryTable 
+          <DictionaryTableWithLikes 
             words={words}
             onWordClick={handleWordClick}
           />

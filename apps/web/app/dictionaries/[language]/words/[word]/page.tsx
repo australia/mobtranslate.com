@@ -2,9 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../../../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, Badge, Breadcrumbs, Button, DictionaryEntry } from '@ui/components';
+import { PageHeader, Section, Card, CardContent, Badge, Breadcrumbs, Button } from '@ui/components';
 import { getWordsForLanguage, searchWords } from '@/lib/supabase/queries';
 import type { Word } from '@/lib/supabase/types';
+import { WordDetailContent } from './components/WordDetailContent';
 
 export const revalidate = 300; // Revalidate every 5 minutes
 
@@ -60,36 +61,6 @@ export default async function WordDetailPage({
       { href: `/dictionaries/${languageCode}/words/${encodeURIComponent(word.word)}`, label: word.word }
     ];
 
-    // Transform word data for DictionaryEntry component
-    const wordData = {
-      word: word.word,
-      type: word.word_type || word.word_class?.name,
-      phonetic: word.phonetic_transcription,
-      definitions: word.definitions?.map(d => d.definition) || [],
-      translations: word.definitions?.flatMap(d => 
-        d.translations?.map(t => t.translation) || []
-      ) || [],
-      examples: word.usage_examples?.map(e => ({
-        text: e.example_text,
-        translation: e.translation
-      })) || [],
-      culturalContext: word.cultural_contexts?.map(c => ({
-        description: c.context_description,
-        significance: c.cultural_significance,
-        restrictions: c.usage_restrictions
-      })) || [],
-      notes: word.notes,
-      metadata: {
-        gender: word.gender,
-        number: word.number,
-        register: word.register,
-        domain: word.domain,
-        isLoanWord: word.is_loan_word,
-        loanSource: word.loan_source_language,
-        obsolete: word.obsolete,
-        sensitive: word.sensitive_content
-      }
-    };
 
     return (
       <SharedLayout>
@@ -116,7 +87,7 @@ export default async function WordDetailPage({
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <Breadcrumbs items={breadcrumbItems} />
             
-            <DictionaryEntry word={wordData} detailed />
+            <WordDetailContent word={word} />
             
             {/* Related words */}
             {relatedWords && relatedWords.length > 0 && (

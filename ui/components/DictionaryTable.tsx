@@ -7,6 +7,7 @@ import { Badge } from './Badge';
 import { Card } from './card';
 
 export interface DictionaryWord {
+  id?: string;
   word: string;
   type?: string;
   definition?: string;
@@ -19,9 +20,10 @@ export interface DictionaryTableProps {
   words: DictionaryWord[];
   onWordClick?: (word: string) => void;
   className?: string;
+  showLikeButtons?: boolean;
 }
 
-const DictionaryTable: React.FC<DictionaryTableProps> = ({ words, onWordClick, className }) => {
+const DictionaryTable: React.FC<DictionaryTableProps> = ({ words, onWordClick, className, showLikeButtons = true }) => {
     const getDefinitionText = (word: DictionaryWord) => {
       if (word.definitions && word.definitions.length > 0) {
         return word.definitions[0];
