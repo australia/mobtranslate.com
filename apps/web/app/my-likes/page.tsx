@@ -18,7 +18,7 @@ interface LikedWord {
 }
 
 export default function MyLikesPage() {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const router = useRouter();
   const [likes, setLikes] = useState<LikedWord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,13 +32,16 @@ export default function MyLikesPage() {
   });
 
   useEffect(() => {
+    // Don't redirect if still loading
+    if (loading) return;
+    
     if (!user) {
       router.push('/auth/signin?redirect=/my-likes');
       return;
     }
 
     fetchLikes();
-  }, [user, pagination.page]);
+  }, [user, loading, pagination.page]);
 
   const fetchLikes = async () => {
     setIsLoading(true);
@@ -80,6 +83,17 @@ export default function MyLikesPage() {
     ...transformWordForUI(like.word),
     likedAt: like.liked_at
   }));
+
+  // Show loading while checking auth
+  if (loading) {
+    return (
+      <SharedLayout>
+        <Section>
+          <LoadingState />
+        </Section>
+      </SharedLayout>
+    );
+  }
 
   if (!user) {
     return null; // Will redirect in useEffect
