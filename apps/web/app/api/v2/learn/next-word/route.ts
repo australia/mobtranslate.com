@@ -25,65 +25,45 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Language not found' }, { status: 404 });
     }
 
-    // Get words due for review
-    const { data: dueWords, error: dueError } = await supabase
-      .from('spaced_repetition_states')
+    // Get all words for this language
+    const { data: allWords, error: wordsError } = await supabase
+      .from('words')
       .select(`
-        *,
-        word:words!inner(
-          id,
-          word,
-          language_id,
-          definitions(id, definition),
-          word_class:word_classes(name)
-        )
+        id,
+        word,
+        definitions(id, definition),
+        word_class:word_classes(name)
       `)
+      .eq('language_id', language.id);
+
+    if (wordsError || !allWords || allWords.length === 0) {
+      return NextResponse.json({ error: 'No words available' }, { status: 404 });
+    }
+
+    // Filter words with definitions
+    const wordsWithDefinitions = allWords.filter(w => w.definitions && w.definitions.length > 0);
+    
+    if (wordsWithDefinitions.length === 0) {
+      return NextResponse.json({ error: 'No words with definitions available' }, { status: 404 });
+    }
+
+    // Select a random word
+    const randomIndex = Math.floor(Math.random() * wordsWithDefinitions.length);
+    const selectedWord = wordsWithDefinitions[randomIndex];
+
+    // Check if we have a state for this word
+    const { data: existingState } = await supabase
+      .from('spaced_repetition_states')
+      .select('*')
       .eq('user_id', user.id)
-      .eq('word.language_id', language.id)
-      .lte('due_date', new Date().toISOString())
-      .order('due_date')
-      .limit(1);
+      .eq('word_id', selectedWord.id)
+      .single();
 
-    let selectedWord = null;
-    let wordState = null;
+    let wordState = existingState;
 
-    if (dueWords && dueWords.length > 0) {
-      // Use the most overdue word
-      wordState = dueWords[0];
-      selectedWord = wordState.word;
-    } else {
-      // Get a new word
-      const { data: existingWordIds } = await supabase
-        .from('spaced_repetition_states')
-        .select('word_id')
-        .eq('user_id', user.id);
-
-      const seenWordIds = existingWordIds?.map(s => s.word_id) || [];
-
-      let newWordQuery = supabase
-        .from('words')
-        .select(`
-          id,
-          word,
-          definitions(id, definition),
-          word_class:word_classes(name)
-        `)
-        .eq('language_id', language.id);
-
-      if (seenWordIds.length > 0) {
-        newWordQuery = newWordQuery.not('id', 'in', `(${seenWordIds.join(',')})`);
-      }
-
-      const { data: newWords, error: newWordsError } = await newWordQuery.limit(1);
-
-      if (newWordsError || !newWords || newWords.length === 0) {
-        return NextResponse.json({ error: 'No words available' }, { status: 404 });
-      }
-
-      selectedWord = newWords[0];
-
+    if (!wordState) {
       // Create initial state
-      const { error: insertError } = await supabase
+      const { data: newState, error: insertError } = await supabase
         .from('spaced_repetition_states')
         .insert({
           user_id: user.id,
@@ -92,13 +72,15 @@ export async function POST(request: NextRequest) {
           ef: 2.5,
           interval_days: 0,
           due_date: new Date().toISOString()
-        });
+        })
+        .select()
+        .single();
 
       if (insertError) {
         console.error('Error creating spaced repetition state:', insertError);
       }
 
-      wordState = { bucket: 0 };
+      wordState = newState || { bucket: 0 };
     }
 
     if (!selectedWord || !selectedWord.definitions || selectedWord.definitions.length === 0) {
