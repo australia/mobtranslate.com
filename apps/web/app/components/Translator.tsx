@@ -9,26 +9,36 @@ import { Textarea } from '@ui/components';
 import { Select } from '@ui/components';
 import { Alert } from '@ui/components';
 import { Badge } from '@ui/components';
+import { Language } from '@/lib/supabase/types';
 
-const Translator = () => {
+interface TranslatorProps {
+  availableLanguages?: Language[];
+}
+
+const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
   const [inputText, setInputText] = useState<string>('');
   const [outputText, setOutputText] = useState<string>('');
   const [selectedLanguage, setSelectedLanguage] = useState<string>('kuku_yalanji');
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [languages, setLanguages] = useState<{code: string, meta: any}[]>([]);
+  const [languages, setLanguages] = useState<Language[]>(availableLanguages || []);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
   const [canTranslate, setCanTranslate] = useState<boolean>(false);
   const outputRef = useRef<HTMLDivElement>(null);
 
-  // Fetch available languages on component mount
+  // Fetch available languages on component mount if not provided
   useEffect(() => {
+    if (availableLanguages) {
+      setLanguages(availableLanguages);
+      return;
+    }
+
     const fetchLanguages = async () => {
       try {
-        const response = await fetch('/api/dictionaries');
+        const response = await fetch('/api/v2/languages');
         const data = await response.json();
-        if (data.success) {
-          setLanguages(data.data);
+        if (Array.isArray(data)) {
+          setLanguages(data);
         }
       } catch (error) {
         console.error('Error loading languages:', error);
@@ -37,7 +47,7 @@ const Translator = () => {
     };
 
     fetchLanguages();
-  }, []);
+  }, [availableLanguages]);
 
   // Log state changes for debugging
   useEffect(() => {
@@ -192,7 +202,7 @@ const Translator = () => {
                 >
                   {languages.map((lang) => (
                     <option key={lang.code} value={lang.code}>
-                      {lang.meta?.name || lang.code}
+                      {lang.name}
                     </option>
                   ))}
                 </Select>
@@ -223,7 +233,7 @@ const Translator = () => {
             <div className="space-y-4 pt-6 border-t">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-medium font-crimson">
-                  {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.meta?.name || 'Translation'}
+                  {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.name || 'Translation'}
                 </h3>
                 {outputText && (
                   <Button

@@ -1,14 +1,21 @@
 'use client';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle, SearchInput, Badge, EmptyState, Button, DictionaryTable } from '@ui/components';
+import React, { useState, useCallback, useTransition } from 'react';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { Card, CardContent, CardHeader, CardTitle, SearchInput, Badge, EmptyState, Button, DictionaryTable, LoadingState } from '@ui/components';
+import { useDictionary } from '@/lib/hooks/useDictionary';
+import type { DictionaryQueryParams } from '@/lib/supabase/types';
 
 interface DictionaryWord {
   word: string;
   definition?: string;
   definitions?: string[];
   type?: string;
+  translations?: string[];
+  example?: string;
+  phonetic?: string;
+  notes?: string;
+  culturalContext?: string;
 }
 
 interface DictionaryMeta {
@@ -24,76 +31,153 @@ interface DictionarySearchProps {
     words: DictionaryWord[];
   };
   initialSearch?: string;
+  pagination?: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+    hasNext: boolean;
+    hasPrev: boolean;
+  };
+  currentPage?: number;
 }
 
-export default function DictionarySearch({ dictionary, initialSearch = '' }: DictionarySearchProps) {
+export default function DictionarySearch({ 
+  dictionary, 
+  initialSearch = '', 
+  pagination,
+  currentPage = 1 
+}: DictionarySearchProps) {
   const [search, setSearch] = useState(initialSearch);
-  const { meta, words } = dictionary;
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
+  
+  const { meta, words: initialWords } = dictionary;
 
-  const filteredWords = search
-    ? words.filter(word => 
-        word.word.toLowerCase().includes(search.toLowerCase()) ||
-        (word.definition && word.definition.toLowerCase().includes(search.toLowerCase())) ||
-        (word.definitions && word.definitions.some(def => def.toLowerCase().includes(search.toLowerCase())))
-      )
-    : words;
+  // Use SWR for client-side updates when filters change
+  const queryParams: DictionaryQueryParams = {
+    language: meta.code,
+    search: searchParams.get('search') || undefined,
+    page: parseInt(searchParams.get('page') || '1', 10),
+    limit: parseInt(searchParams.get('limit') || '50', 10),
+    sortBy: (searchParams.get('sortBy') as DictionaryQueryParams['sortBy']) || 'word',
+    sortOrder: (searchParams.get('sortOrder') as DictionaryQueryParams['sortOrder']) || 'asc',
+    wordClass: searchParams.get('wordClass') || undefined,
+    letter: searchParams.get('letter') || undefined,
+  };
+
+  const { words: swrWords, pagination: swrPagination, isLoading } = useDictionary(queryParams);
+
+  // Use SWR data if available, otherwise use SSR data
+  const words = swrWords || initialWords;
+  const currentPagination = swrPagination || pagination;
+
+  const handleSearch = useCallback((value: string) => {
+    setSearch(value);
+    const params = new URLSearchParams(searchParams);
+    
+    if (value) {
+      params.set('search', value);
+      params.set('page', '1'); // Reset to first page on new search
+    } else {
+      params.delete('search');
+    }
+    
+    startTransition(() => {
+      router.push(`${pathname}?${params.toString()}`);
+    });
+  }, [pathname, router, searchParams]);
+
+  const handlePageChange = useCallback((page: number) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('page', page.toString());
+    
+    startTransition(() => {
+      router.push(`${pathname}?${params.toString()}`);
+    });
+  }, [pathname, router, searchParams]);
 
   const handleWordClick = (word: string) => {
-    // This will be handled by the Link in DictionaryTable component
     return `/dictionaries/${meta.code}/words/${encodeURIComponent(word)}`;
   };
+
+  const isLoadingOrPending = isLoading || isPending;
 
   return (
     <div className="space-y-6">
       <Card>
         <CardHeader>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <CardTitle className="font-crimson">Dictionary Words</CardTitle>
-            <div className="flex items-center gap-4">
-              <SearchInput
-                placeholder="Search words and definitions..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full sm:w-80"
-              />
+            <CardTitle>Search Dictionary</CardTitle>
+            <div className="flex items-center gap-2">
+              <Badge variant="secondary">{words.length} displayed</Badge>
+              {currentPagination && (
+                <Badge variant="outline">{currentPagination.total} total</Badge>
+              )}
             </div>
           </div>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-2">
-              <Badge variant="outline">
-                {filteredWords.length} of {words.length} words
-              </Badge>
-              {search && (
-                <Badge variant="secondary">
-                  Searching: "{search}"
-                </Badge>
-              )}
-            </div>
-          </div>
-
-          {filteredWords.length === 0 ? (
-            <EmptyState
-              icon="🔍"
-              title={search ? "No words found" : "No words available"}
-              description={search ? `No words match "${search}". Try a different search term.` : "This dictionary doesn't have any words yet."}
-              action={
-                search ? (
-                  <Button variant="outline" onClick={() => setSearch('')}>
-                    Clear Search
-                  </Button>
-                ) : null
-              }
-            />
-          ) : (
-            <DictionaryTable 
-              words={filteredWords}
-              onWordClick={(word) => window.location.href = handleWordClick(word)}
-            />
-          )}
+          <SearchInput
+            placeholder={`Search ${meta.name} words...`}
+            value={search}
+            onChange={(e) => handleSearch(e.target.value)}
+            className="w-full"
+          />
         </CardContent>
       </Card>
+
+      {isLoadingOrPending ? (
+        <LoadingState />
+      ) : words.length === 0 ? (
+        <EmptyState
+          title="No words found"
+          description={search ? `No words matching "${search}" in the ${meta.name} dictionary.` : `No words available in the ${meta.name} dictionary yet.`}
+          action={
+            search ? (
+              <Button onClick={() => handleSearch('')} variant="outline">
+                Clear search
+              </Button>
+            ) : undefined
+          }
+        />
+      ) : (
+        <>
+          <DictionaryTable 
+            words={words.map(word => ({
+              ...word,
+              href: handleWordClick(word.word)
+            }))}
+            language={meta.code}
+          />
+          
+          {currentPagination && currentPagination.totalPages > 1 && (
+            <div className="flex justify-center gap-2 mt-6">
+              <Button
+                variant="outline"
+                onClick={() => handlePageChange(currentPagination.page - 1)}
+                disabled={!currentPagination.hasPrev || isLoadingOrPending}
+              >
+                Previous
+              </Button>
+              <div className="flex items-center gap-2 px-4">
+                <span className="text-sm text-muted-foreground">
+                  Page {currentPagination.page} of {currentPagination.totalPages}
+                </span>
+              </div>
+              <Button
+                variant="outline"
+                onClick={() => handlePageChange(currentPagination.page + 1)}
+                disabled={!currentPagination.hasNext || isLoadingOrPending}
+              >
+                Next
+              </Button>
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 }
