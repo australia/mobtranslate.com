@@ -4,6 +4,7 @@ import { useState, useEffect, ReactNode } from 'react';
 import Link from 'next/link';
 import { Menu, X, Sun, Moon, Github, Heart } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { AuthNav } from '@/components/navigation/AuthNav';
 
 interface NavLink {
   title: string;
@@ -113,6 +114,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
+              <AuthNav />
             </nav>
             
             {/* Mobile Menu Button */}
@@ -151,6 +153,9 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                   {link.title}
                 </Link>
               ))}
+              <div className="pt-4 border-t">
+                <AuthNav />
+              </div>
             </nav>
           </div>
         )}

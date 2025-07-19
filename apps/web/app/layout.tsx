@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { Inter, Poppins } from 'next/font/google';
 import { Analytics } from "@vercel/analytics/react";
+import { AuthProvider } from '@/contexts/AuthContext';
 
 // Load fonts
 const inter = Inter({ 
@@ -53,9 +54,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
       </head>
       <body className="min-h-screen bg-[url('/images/pattern-bg-light.svg')] bg-fixed bg-cover font-sans antialiased">
-        <div className="relative flex min-h-screen flex-col">
-          <div className="flex-1">{children}</div>
-        </div>
+        <AuthProvider>
+          <div className="relative flex min-h-screen flex-col">
+            <div className="flex-1">{children}</div>
+          </div>
+        </AuthProvider>
         <Analytics />
       </body>
     </html>
