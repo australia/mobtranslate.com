@@ -210,6 +210,38 @@ export async function GET(request: NextRequest) {
       }
     }
 
+    // Calculate recent performance stats
+    const now = new Date();
+    const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+    const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+    // Get attempts for last 7 and 30 days
+    const { data: last7DaysAttempts } = await supabase
+      .from('quiz_attempts')
+      .select('is_correct')
+      .eq('user_id', user.id)
+      .gte('created_at', sevenDaysAgo.toISOString());
+
+    const { data: last30DaysAttempts } = await supabase
+      .from('quiz_attempts')
+      .select('is_correct')
+      .eq('user_id', user.id)
+      .gte('created_at', thirtyDaysAgo.toISOString());
+
+    const last7DaysStats = {
+      attempts: last7DaysAttempts?.length || 0,
+      correct: last7DaysAttempts?.filter(a => a.is_correct).length || 0,
+      accuracy: last7DaysAttempts?.length ? 
+        ((last7DaysAttempts.filter(a => a.is_correct).length / last7DaysAttempts.length) * 100) : 0
+    };
+
+    const last30DaysStats = {
+      attempts: last30DaysAttempts?.length || 0,
+      correct: last30DaysAttempts?.filter(a => a.is_correct).length || 0,
+      accuracy: last30DaysAttempts?.length ? 
+        ((last30DaysAttempts.filter(a => a.is_correct).length / last30DaysAttempts.length) * 100) : 0
+    };
+
     return NextResponse.json({
       summary: overallSummary,
       streak_days: streakDays,
@@ -229,6 +261,10 @@ export async function GET(request: NextRequest) {
         total: lang.total_words,
         due: lang.due_for_review
       })) || [],
+      recent_performance: {
+        last_7_days: last7DaysStats,
+        last_30_days: last30DaysStats
+      },
       period
     });
 
