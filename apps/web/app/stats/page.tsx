@@ -240,28 +240,33 @@ export default function StatsPage() {
               <CardContent>
                 <div className="space-y-4">
                   {stats.languages.map((language) => (
-                    <div key={language.code} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <h4 className="font-medium">{language.name}</h4>
-                          <p className="text-sm text-muted-foreground">
-                            {language.totalWords} words • {language.attempts} attempts • {language.accuracy.toFixed(1)}% accuracy
-                          </p>
-                        </div>
-                        <div className="flex gap-2">
-                          {language.mastered > 0 && (
-                            <Badge variant="secondary" className="bg-green-100 text-green-700">
-                              {language.mastered} mastered
-                            </Badge>
-                          )}
-                          {language.due > 0 && (
-                            <Badge variant="outline">
-                              {language.due} due
-                            </Badge>
-                          )}
+                    <Link key={language.code} href={`/stats/${language.code}`}>
+                      <div className="p-4 rounded-lg border hover:border-indigo-300 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 transition-all cursor-pointer">
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <h4 className="font-medium">{language.name}</h4>
+                            <p className="text-sm text-muted-foreground">
+                              {language.totalWords} words • {language.attempts} attempts • {language.accuracy.toFixed(1)}% accuracy
+                            </p>
+                          </div>
+                          <div className="flex gap-2 items-center">
+                            {language.mastered > 0 && (
+                              <Badge variant="secondary" className="bg-green-100 text-green-700">
+                                {language.mastered} mastered
+                              </Badge>
+                            )}
+                            {language.due > 0 && (
+                              <Badge variant="outline">
+                                {language.due} due
+                              </Badge>
+                            )}
+                            <div className="ml-2 text-muted-foreground">
+                              →
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </CardContent>

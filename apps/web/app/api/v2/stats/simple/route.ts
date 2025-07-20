@@ -9,10 +9,14 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
   }
 
+  const { searchParams } = new URL(request.url);
+  const languageCode = searchParams.get('language');
+
   try {
     // Execute a database function to get stats
     const { data, error } = await supabase.rpc('get_user_stats', {
-      p_user_id: user.id
+      p_user_id: user.id,
+      p_language_code: languageCode
     });
 
     if (error) {

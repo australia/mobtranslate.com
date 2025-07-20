@@ -225,7 +225,7 @@ export default function LearnDictionaryPage() {
                     {streak}
                   </Badge>
                 )}
-                <Link href="/stats" className="touch-target">
+                <Link href={`/stats/${languageCode}`} className="touch-target">
                   <Button variant="ghost" size="sm" className="hover:scale-105 transition-transform">
                     <BarChart3 className="h-4 w-4" />
                   </Button>
