@@ -238,7 +238,7 @@ export async function POST(req: Request) {
 
 USER CONTEXT:
 - Name: ${userContext.username}
-- Learning Languages: ${userContext.languages.map(l => `${l.name} (${l.accuracy}% accuracy, ${l.sessions} sessions)`).join(', ') || 'None yet'}
+- Learning Languages: ${userContext.languages.map(l => `${l.name} (${l.code}, ${l.accuracy}% accuracy, ${l.sessions} sessions)`).join(', ') || 'None yet'}
 - Liked Words: ${userContext.likedWords.slice(0, 5).map(w => `"${w.word}" (${w.language})`).join(', ')}${userContext.likedWords.length > 5 ? ` and ${userContext.likedWords.length - 5} more` : ''}
 - Mastered Words: ${userContext.masteredWords.slice(0, 5).map(w => `"${w.word}" (${w.language})`).join(', ')}${userContext.masteredWords.length > 5 ? ` and ${userContext.masteredWords.length - 5} more` : ''}
 - Recent Practice: ${userContext.recentWords.slice(0, 5).map(w => `"${w.word}" (${w.language}, ${w.correct ? '✓' : '✗'})`).join(', ')}
@@ -251,10 +251,13 @@ Be encouraging and supportive, acknowledging their specific achievements and pro
 IMPORTANT: When a message contains an image attachment:
 1. First, carefully identify ALL specific objects visible in the image (e.g., "chicken", "salad", "vegetables", "plate", "orange", etc.)
 2. Then immediately use the analyzeImage tool with a detailed description that lists each specific object
-3. The analyzeImage tool needs specific object names to find translations in the database
-4. If the user mentions a language (like "in Yalanji" or "analyze in Yalanji"), pass it in the userRequestedLanguage parameter
-5. Focus on translating the actual objects you can see, not general descriptions
-6. Example tool call: analyzeImage({ description: "I see chicken, vegetables, salad, plate, orange", userRequestedLanguage: "Yalanji" })`,
+3. By default, translate to the user's learning languages (${userContext.languages.map(l => l.name).join(', ') || 'all available languages'})
+4. If the user mentions a specific language (like "in Yalanji"), pass it in the userRequestedLanguage parameter to override the default
+5. The analyzeImage tool will automatically use the user's learning languages if no language is specified
+6. Focus on translating the actual objects you can see, not general descriptions
+7. Example tool calls:
+   - Default (uses user's languages): analyzeImage({ description: "I see chicken, vegetables, salad, plate, orange" })
+   - Specific language: analyzeImage({ description: "I see chicken, vegetables, salad, plate, orange", userRequestedLanguage: "Yalanji" })`,
     tools: {
       translateWord: tool({
         description: 'Translate a word across multiple languages',
@@ -517,12 +520,12 @@ IMPORTANT: When a message contains an image attachment:
       }),
 
       analyzeImage: tool({
-        description: 'Analyze an image to detect objects and translate them to Aboriginal languages. This tool is automatically triggered when a user sends an image.',
+        description: 'Analyze an image to detect objects and translate them to Aboriginal languages. Automatically uses the user\'s learning languages unless a specific language is requested. This tool is automatically triggered when a user sends an image.',
         parameters: z.object({
-          description: z.string().describe('The description of what should be analyzed in the image'),
-          languages: z.array(z.string()).optional().describe('Specific language codes to translate to'),
+          description: z.string().describe('The description listing ALL specific objects visible in the image'),
+          languages: z.array(z.string()).optional().describe('Specific language codes to translate to (defaults to user\'s learning languages)'),
           includeContext: z.boolean().default(true).describe('Include cultural context'),
-          userRequestedLanguage: z.string().optional().describe('Language name mentioned by the user (e.g., "Yalanji")')
+          userRequestedLanguage: z.string().optional().describe('Language name mentioned by the user (e.g., "Yalanji") - overrides default languages')
         }),
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ description, languages, includeContext = true, userRequestedLanguage }) => {
@@ -576,14 +579,13 @@ IMPORTANT: When a message contains an image attachment:
             // Determine which languages to use
             let targetLanguages = languages || [];
             
-            // If no languages specified, use user's most learned languages
+            // DEFAULT: Always use user's learning languages if no specific languages provided
             if (targetLanguages.length === 0 && userContext.languages.length > 0) {
-              // Sort by accuracy and take top 3
+              // Use ALL of user's learning languages, prioritized by accuracy
               targetLanguages = userContext.languages
                 .sort((a, b) => b.accuracy - a.accuracy)
-                .slice(0, 3)
                 .map(l => l.code);
-              console.log('[DEBUG] Using user\'s top languages:', targetLanguages);
+              console.log('[DEBUG] Using ALL user\'s learning languages:', targetLanguages);
             }
             
             // If still no languages, check if user requested a specific language
@@ -620,6 +622,12 @@ IMPORTANT: When a message contains an image attachment:
                   }
                 }
               }
+            }
+            
+            // If STILL no languages (user has no learning history), show translations from multiple languages
+            if (targetLanguages.length === 0) {
+              console.log('[DEBUG] No target languages specified, will show all available translations');
+              // Don't filter by language - show all available translations
             }
 
             // Fetch translations for detected objects
@@ -688,8 +696,20 @@ IMPORTANT: When a message contains an image attachment:
             }
 
             // Build comprehensive response
+            let languageNote = '';
+            if (userRequestedLanguage) {
+              languageNote = `Showing translations in ${userRequestedLanguage}`;
+            } else if (targetLanguages.length > 0) {
+              const langNames = userContext.languages
+                .filter(l => targetLanguages.includes(l.code))
+                .map(l => l.name);
+              languageNote = `Showing translations in your learning languages: ${langNames.join(', ')}`;
+            } else {
+              languageNote = 'Showing translations from all available Aboriginal languages';
+            }
+            
             const result = {
-              imageDescription: description || 'Image analyzed successfully',
+              imageDescription: `${description || 'Image analyzed successfully'}. ${languageNote}`,
               detectedObjects: detectedObjects.filter(obj => obj.translations.length > 0),
               culturalInsights: includeContext ? 
                 'Aboriginal languages often have deep connections to the land and nature. Many words for natural objects carry cultural significance and traditional knowledge.' : 
