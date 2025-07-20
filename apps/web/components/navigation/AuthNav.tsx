@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { Button } from '@/app/components/ui/button'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Heart, BarChart3, Brain } from 'lucide-react'
+import { Heart, BarChart3, Brain, MessageCircle } from 'lucide-react'
 
 export function AuthNav() {
   const { user, signOut, loading } = useAuth()
@@ -30,6 +30,12 @@ export function AuthNav() {
           <Button variant="ghost" size="sm" className="gap-2">
             <Brain className="h-4 w-4" />
             <span className="hidden sm:inline">Learn</span>
+          </Button>
+        </Link>
+        <Link href="/chat">
+          <Button variant="ghost" size="sm" className="gap-2">
+            <MessageCircle className="h-4 w-4" />
+            <span className="hidden sm:inline">AI Chat</span>
           </Button>
         </Link>
         <Link href="/dashboard">
