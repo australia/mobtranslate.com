@@ -36,16 +36,145 @@ export async function POST(req: Request) {
       );
     }
 
+    // Fetch comprehensive user context
+    console.log('Fetching user context...');
+    
+    // Get user profile
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('username, display_name')
+      .eq('id', user.id)
+      .single();
+    
+    // Get user's learning languages
+    const { data: sessions } = await supabase
+      .from('quiz_sessions')
+      .select(`
+        language_id,
+        total_questions,
+        correct_answers,
+        languages(id, name, code)
+      `)
+      .eq('user_id', user.id)
+      .not('completed_at', 'is', null);
+    
+    // Get unique languages and calculate stats
+    const languageStats = new Map();
+    sessions?.forEach(session => {
+      if (session.languages) {
+        const langId = session.language_id;
+        const existing = languageStats.get(langId) || {
+          name: session.languages.name,
+          code: session.languages.code,
+          totalQuestions: 0,
+          correctAnswers: 0,
+          sessions: 0
+        };
+        
+        languageStats.set(langId, {
+          ...existing,
+          totalQuestions: existing.totalQuestions + (session.total_questions || 0),
+          correctAnswers: existing.correctAnswers + (session.correct_answers || 0),
+          sessions: existing.sessions + 1
+        });
+      }
+    });
+    
+    // Get liked words
+    const { data: likedWords } = await supabase
+      .from('likes')
+      .select(`
+        words(
+          id,
+          word,
+          languages(name, code)
+        )
+      `)
+      .eq('user_id', user.id)
+      .limit(20);
+    
+    // Get recently learned words
+    const { data: recentWords } = await supabase
+      .from('word_attempts')
+      .select(`
+        words(
+          id,
+          word,
+          languages(name, code)
+        ),
+        is_correct,
+        created_at
+      `)
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false })
+      .limit(50);
+    
+    // Get spaced repetition states
+    const { data: wordStates } = await supabase
+      .from('spaced_repetition_states')
+      .select(`
+        bucket,
+        words(
+          word,
+          languages(name, code)
+        )
+      `)
+      .eq('user_id', user.id)
+      .gte('bucket', 4); // Words that are well-learned
+    
+    // Build context string
+    const userContext = {
+      username: profile?.display_name || profile?.username || 'User',
+      languages: Array.from(languageStats.values()).map(lang => ({
+        name: lang.name,
+        code: lang.code,
+        accuracy: lang.totalQuestions > 0 ? Math.round((lang.correctAnswers / lang.totalQuestions) * 100) : 0,
+        sessions: lang.sessions
+      })),
+      likedWords: likedWords?.map(l => ({
+        word: l.words?.word,
+        language: l.words?.languages?.name
+      })).filter(w => w.word) || [],
+      masteredWords: wordStates?.filter(w => w.bucket >= 5).map(w => ({
+        word: w.words?.word,
+        language: w.words?.languages?.name
+      })).filter(w => w.word) || [],
+      recentWords: [...new Map(recentWords?.map(r => [
+        `${r.words?.word}-${r.words?.languages?.code}`,
+        {
+          word: r.words?.word,
+          language: r.words?.languages?.name,
+          correct: r.is_correct
+        }
+      ]) || []).values()].slice(0, 10)
+    };
+
+    console.log('User context loaded:', {
+      username: userContext.username,
+      languageCount: userContext.languages.length,
+      likedWordsCount: userContext.likedWords.length,
+      masteredWordsCount: userContext.masteredWords.length
+    });
+
     console.log('OpenAI API key exists:', !!process.env.OPENAI_API_KEY);
     console.log('Creating stream with model: gpt-4o-mini');
 
     const result = await streamText({
       model: openai('gpt-4o-mini'),
       messages,
-      system: `You are a helpful language learning assistant for a dictionary app. 
-    You can help users learn vocabulary, translate words, check their progress, and provide language learning tips.
-    The app currently supports multiple languages including Yupik and others.
-    Be encouraging and helpful in the user's language learning journey.`,
+      system: `You are a helpful language learning assistant for Mob Translate, a dictionary app for Aboriginal languages. 
+
+USER CONTEXT:
+- Name: ${userContext.username}
+- Learning Languages: ${userContext.languages.map(l => `${l.name} (${l.accuracy}% accuracy, ${l.sessions} sessions)`).join(', ') || 'None yet'}
+- Liked Words: ${userContext.likedWords.slice(0, 5).map(w => `"${w.word}" (${w.language})`).join(', ')}${userContext.likedWords.length > 5 ? ` and ${userContext.likedWords.length - 5} more` : ''}
+- Mastered Words: ${userContext.masteredWords.slice(0, 5).map(w => `"${w.word}" (${w.language})`).join(', ')}${userContext.masteredWords.length > 5 ? ` and ${userContext.masteredWords.length - 5} more` : ''}
+- Recent Practice: ${userContext.recentWords.slice(0, 5).map(w => `"${w.word}" (${w.language}, ${w.correct ? '✓' : '✗'})`).join(', ')}
+
+Use this context to personalize your responses. Reference their specific progress, congratulate them on mastered words, suggest practicing words they struggled with, and recommend new words based on their liked words and learning languages.
+
+You can help users learn vocabulary, translate words, check their progress, and provide language learning tips.
+Be encouraging and supportive, acknowledging their specific achievements and progress.`,
     tools: {
       translateWord: tool({
         description: 'Translate a word across multiple languages',
@@ -242,6 +371,66 @@ export async function POST(req: Request) {
               masteredWords: 0,
               accuracy: 0,
               languages: []
+            };
+          }
+        },
+      }),
+
+      getUserLikedWords: tool({
+        description: 'Get the words that the user has liked/favorited',
+        parameters: z.object({
+          languageCode: z.string().describe('Filter by specific language code').optional(),
+          limit: z.number().describe('Maximum number of words to return').default(20),
+        }),
+        // @ts-ignore - execute function is valid in Vercel AI SDK
+        execute: async ({ languageCode, limit = 20 }) => {
+          try {
+            console.log('Executing getUserLikedWords tool:', { languageCode, limit });
+            
+            let query = supabase
+              .from('likes')
+              .select(`
+                created_at,
+                words(
+                  id,
+                  word,
+                  languages(name, code),
+                  definitions(definition)
+                )
+              `)
+              .eq('user_id', user.id)
+              .order('created_at', { ascending: false })
+              .limit(limit);
+
+            const { data: likedWords, error } = await query;
+
+            if (error) {
+              console.error('Database error in getUserLikedWords:', error);
+              return {
+                likedWords: [],
+                totalCount: 0
+              };
+            }
+
+            const filteredWords = languageCode 
+              ? likedWords?.filter(l => l.words?.languages?.code === languageCode) || []
+              : likedWords || [];
+
+            return {
+              likedWords: filteredWords.map(l => ({
+                word: l.words?.word || 'Unknown',
+                language: l.words?.languages?.name || 'Unknown',
+                languageCode: l.words?.languages?.code || 'unknown',
+                definition: l.words?.definitions?.[0]?.definition || 'No definition available',
+                likedAt: l.created_at
+              })),
+              totalCount: filteredWords.length
+            };
+          } catch (error) {
+            console.error('Error in getUserLikedWords tool:', error);
+            return {
+              likedWords: [],
+              totalCount: 0
             };
           }
         },
