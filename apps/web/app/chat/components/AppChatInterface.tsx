@@ -19,21 +19,27 @@ import {
   ChevronLeft,
   Mic,
   Paperclip,
-  MoreVertical
+  MoreVertical,
+  Image as ImageIcon
 } from 'lucide-react';
 import { cn } from '@/app/lib/utils';
 import { TranslationResult } from './TranslationResult';
 import { WordSuggestions } from './WordSuggestions';
 import { LanguageStats } from './LanguageStats';
+import { ImageAnalysisCard } from './ImageAnalysisCard';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
+import type { ImageAnalysis } from '@/lib/tools/image-analysis';
 
 export function AppChatInterface() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
+  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
   const { user, signOut } = useAuth();
   const router = useRouter();
   
@@ -78,6 +84,47 @@ export function AppChatInterface() {
       router.push('/');
     } catch (error) {
       console.error('Failed to sign out:', error);
+    }
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      alert('Please upload an image file');
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Image size must be less than 5MB');
+      return;
+    }
+
+    setIsUploadingImage(true);
+    try {
+      // Convert to base64
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64 = reader.result as string;
+        setUploadedImage(base64);
+        
+        // Automatically send message to analyze the image
+        setInput(`Please analyze this image and tell me the Aboriginal words for the objects you see.`);
+        handleSubmit(new Event('submit') as any, {
+          data: {
+            imageUrl: base64
+          }
+        });
+      };
+      reader.readAsDataURL(file);
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      alert('Failed to upload image');
+    } finally {
+      setIsUploadingImage(false);
     }
   };
 
@@ -268,6 +315,19 @@ export function AppChatInterface() {
                           return <WordSuggestions key={toolInvocation.toolCallId} words={toolInvocation.result} />;
                         } else if (toolName === 'getUserStats') {
                           return <LanguageStats key={toolInvocation.toolCallId} stats={toolInvocation.result} />;
+                        } else if (toolName === 'analyzeImage') {
+                          const result = toolInvocation.result;
+                          if (result.success && result.analysis) {
+                            return <ImageAnalysisCard key={toolInvocation.toolCallId} analysis={result.analysis} />;
+                          } else {
+                            return (
+                              <div key={toolInvocation.toolCallId} className="p-3 bg-red-50 rounded-lg">
+                                <p className="text-sm text-red-700">
+                                  {result.error || 'Failed to analyze image'}
+                                </p>
+                              </div>
+                            );
+                          }
                         }
                       }
                       
@@ -309,13 +369,49 @@ export function AppChatInterface() {
         {/* Input Area */}
         <div className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
           <form onSubmit={handleSubmit} className="max-w-3xl mx-auto">
+            {/* Show uploaded image preview */}
+            {uploadedImage && (
+              <div className="mb-3 p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <ImageIcon className="h-4 w-4 text-gray-500" />
+                    <span className="text-sm text-gray-600">Image ready to analyze</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setUploadedImage(null)}
+                    className="text-sm text-red-600 hover:text-red-700"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            )}
+            
             <div className="relative flex items-end gap-2">
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                className="hidden"
+              />
+              
               <button
                 type="button"
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                title="Attach file"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={isUploadingImage}
+                className={cn(
+                  "p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors",
+                  isUploadingImage && "opacity-50 cursor-not-allowed"
+                )}
+                title="Upload image"
               >
-                <Paperclip className="h-5 w-5" />
+                {isUploadingImage ? (
+                  <div className="h-5 w-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+                ) : (
+                  <ImageIcon className="h-5 w-5" />
+                )}
               </button>
               
               <div className="flex-1 relative">

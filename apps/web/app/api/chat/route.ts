@@ -3,6 +3,7 @@ import { streamText, tool } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
+import { AnalyzeImageToolSchema, ImageAnalysisSchema } from '@/lib/tools/image-analysis';
 
 export async function POST(req: Request) {
   console.log('Chat API called');
@@ -431,6 +432,141 @@ Be encouraging and supportive, acknowledging their specific achievements and pro
             return {
               likedWords: [],
               totalCount: 0
+            };
+          }
+        },
+      }),
+
+      analyzeImage: tool({
+        description: 'Analyze an image to detect objects and translate them to Aboriginal languages',
+        parameters: AnalyzeImageToolSchema,
+        // @ts-ignore - execute function is valid in Vercel AI SDK
+        execute: async ({ imageUrl, languages, includeContext = true }) => {
+          try {
+            console.log('Executing analyzeImage tool');
+            
+            // First, use GPT-4 Vision to analyze the image
+            const visionResponse = await openai('gpt-4o').generateText({
+              messages: [
+                {
+                  role: 'user',
+                  content: [
+                    {
+                      type: 'text',
+                      text: 'Analyze this image and identify all objects, animals, nature elements, and other items. For each item, provide the English name and a confidence score (0-1). Also provide an overall description of the image.'
+                    },
+                    {
+                      type: 'image',
+                      image: imageUrl
+                    }
+                  ]
+                }
+              ],
+              maxTokens: 1000
+            });
+
+            // Parse the vision response
+            const visionAnalysis = visionResponse.text;
+            console.log('Vision analysis:', visionAnalysis);
+
+            // Extract objects from the analysis (this is a simplified version)
+            // In a real implementation, you'd parse the structured response
+            const objectMatches = visionAnalysis.match(/(?:object|item|animal|element):\s*([^,\n]+)/gi) || [];
+            const detectedItems = objectMatches.map(match => {
+              const item = match.replace(/(?:object|item|animal|element):\s*/i, '').trim();
+              return item.toLowerCase();
+            });
+
+            // If no specific objects found, try common words from the description
+            if (detectedItems.length === 0) {
+              const commonObjects = ['dog', 'tree', 'water', 'sky', 'person', 'house', 'bird', 'fish', 'sun', 'mountain'];
+              detectedItems.push(...commonObjects.filter(obj => 
+                visionAnalysis.toLowerCase().includes(obj)
+              ));
+            }
+
+            console.log('Detected items:', detectedItems);
+
+            // Fetch translations for detected objects
+            const translationPromises = detectedItems.map(async (item) => {
+              const { data: translations } = await supabase
+                .from('words')
+                .select(`
+                  word,
+                  languages(code, name),
+                  definitions(definition)
+                `)
+                .ilike('word', item)
+                .limit(10);
+
+              return {
+                object: item,
+                confidence: 0.8, // Simplified confidence
+                translations: translations?.map(t => ({
+                  language: t.languages?.name || 'Unknown',
+                  languageCode: t.languages?.code || 'unknown',
+                  word: t.word,
+                  definition: t.definitions?.[0]?.definition,
+                  culturalContext: includeContext ? `The word "${t.word}" in ${t.languages?.name} reflects the cultural importance of ${item} in Aboriginal communities.` : undefined
+                })) || []
+              };
+            });
+
+            const detectedObjects = await Promise.all(translationPromises);
+
+            // Get related words based on the user's liked words
+            const relatedWords = [];
+            if (userContext.likedWords.length > 0) {
+              const likedCategories = new Set(userContext.likedWords.map(w => w.word.toLowerCase()));
+              const natureWords = ['tree', 'water', 'sky', 'earth', 'wind'];
+              const animalWords = ['dog', 'bird', 'fish', 'kangaroo', 'snake'];
+              
+              if (detectedItems.some(item => natureWords.includes(item))) {
+                relatedWords.push({
+                  word: 'nature',
+                  language: 'Concept',
+                  reason: 'Related to natural elements in the image'
+                });
+              }
+              
+              if (detectedItems.some(item => animalWords.includes(item))) {
+                relatedWords.push({
+                  word: 'animals',
+                  language: 'Concept',
+                  reason: 'Related to animals detected in the image'
+                });
+              }
+            }
+
+            // Build comprehensive response
+            const result = {
+              imageDescription: visionAnalysis.split('\n')[0] || 'Image analyzed successfully',
+              detectedObjects: detectedObjects.filter(obj => obj.translations.length > 0),
+              culturalInsights: includeContext ? 
+                'Aboriginal languages often have deep connections to the land and nature. Many words for natural objects carry cultural significance and traditional knowledge.' : 
+                undefined,
+              learningTips: [
+                'Practice these words by finding similar objects in your environment',
+                'Create visual associations between the objects and their Aboriginal names',
+                'Learn the cultural stories associated with these words'
+              ],
+              relatedWords: relatedWords.length > 0 ? relatedWords : undefined
+            };
+
+            // Validate against schema
+            const validated = ImageAnalysisSchema.parse(result);
+            
+            return {
+              success: true,
+              analysis: validated
+            };
+            
+          } catch (error) {
+            console.error('Error in analyzeImage tool:', error);
+            return {
+              success: false,
+              error: 'Failed to analyze image',
+              details: error instanceof Error ? error.message : 'Unknown error'
             };
           }
         },
