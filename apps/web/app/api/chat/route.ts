@@ -175,7 +175,12 @@ USER CONTEXT:
 Use this context to personalize your responses. Reference their specific progress, congratulate them on mastered words, suggest practicing words they struggled with, and recommend new words based on their liked words and learning languages.
 
 You can help users learn vocabulary, translate words, check their progress, and provide language learning tips.
-Be encouraging and supportive, acknowledging their specific achievements and progress.`,
+Be encouraging and supportive, acknowledging their specific achievements and progress.
+
+IMPORTANT: When a message contains an image attachment:
+1. First, describe what you see in the image
+2. Then use the analyzeImage tool with that description to find Aboriginal translations for objects in the image
+3. The analyzeImage tool will return translations from the dictionary for the objects detected`,
     tools: {
       translateWord: tool({
         description: 'Translate a word across multiple languages',
@@ -438,52 +443,31 @@ Be encouraging and supportive, acknowledging their specific achievements and pro
       }),
 
       analyzeImage: tool({
-        description: 'Analyze an image to detect objects and translate them to Aboriginal languages',
-        parameters: AnalyzeImageToolSchema,
+        description: 'Analyze an image to detect objects and translate them to Aboriginal languages. This tool is automatically triggered when a user sends an image.',
+        parameters: z.object({
+          description: z.string().describe('The description of what should be analyzed in the image'),
+          languages: z.array(z.string()).optional().describe('Specific language codes to translate to'),
+          includeContext: z.boolean().default(true).describe('Include cultural context'),
+        }),
         // @ts-ignore - execute function is valid in Vercel AI SDK
-        execute: async ({ imageUrl, languages, includeContext = true }) => {
+        execute: async ({ description, languages, includeContext = true }) => {
           try {
-            console.log('Executing analyzeImage tool');
+            console.log('Executing analyzeImage tool with description:', description);
             
-            // First, use GPT-4 Vision to analyze the image
-            const visionResponse = await openai('gpt-4o').generateText({
-              messages: [
-                {
-                  role: 'user',
-                  content: [
-                    {
-                      type: 'text',
-                      text: 'Analyze this image and identify all objects, animals, nature elements, and other items. For each item, provide the English name and a confidence score (0-1). Also provide an overall description of the image.'
-                    },
-                    {
-                      type: 'image',
-                      image: imageUrl
-                    }
-                  ]
-                }
-              ],
-              maxTokens: 1000
-            });
-
-            // Parse the vision response
-            const visionAnalysis = visionResponse.text;
-            console.log('Vision analysis:', visionAnalysis);
-
-            // Extract objects from the analysis (this is a simplified version)
-            // In a real implementation, you'd parse the structured response
-            const objectMatches = visionAnalysis.match(/(?:object|item|animal|element):\s*([^,\n]+)/gi) || [];
-            const detectedItems = objectMatches.map(match => {
-              const item = match.replace(/(?:object|item|animal|element):\s*/i, '').trim();
-              return item.toLowerCase();
-            });
-
-            // If no specific objects found, try common words from the description
+            // Parse the description to extract key objects mentioned
+            const commonObjects = ['dog', 'tree', 'water', 'sky', 'person', 'house', 'bird', 'fish', 'sun', 'mountain', 'car', 'food', 'animal', 'plant', 'building', 'landscape'];
+            const detectedItems = commonObjects.filter(obj => 
+              description.toLowerCase().includes(obj)
+            );
+            
+            // If no specific objects found, extract from description
             if (detectedItems.length === 0) {
-              const commonObjects = ['dog', 'tree', 'water', 'sky', 'person', 'house', 'bird', 'fish', 'sun', 'mountain'];
-              detectedItems.push(...commonObjects.filter(obj => 
-                visionAnalysis.toLowerCase().includes(obj)
+              const nouns = description.match(/\b(?:a|an|the)\s+(\w+)/gi) || [];
+              detectedItems.push(...nouns.map(match => 
+                match.replace(/^(?:a|an|the)\s+/i, '').toLowerCase()
               ));
             }
+
 
             console.log('Detected items:', detectedItems);
 
@@ -540,7 +524,7 @@ Be encouraging and supportive, acknowledging their specific achievements and pro
 
             // Build comprehensive response
             const result = {
-              imageDescription: visionAnalysis.split('\n')[0] || 'Image analyzed successfully',
+              imageDescription: description || 'Image analyzed successfully',
               detectedObjects: detectedObjects.filter(obj => obj.translations.length > 0),
               culturalInsights: includeContext ? 
                 'Aboriginal languages often have deep connections to the land and nature. Many words for natural objects carry cultural significance and traditional knowledge.' : 

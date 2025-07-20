@@ -38,7 +38,7 @@ export function AppChatInterface() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
-  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [isUploadingImage, setIsUploadingImage] = useState(false);
   const { user, signOut } = useAuth();
   const router = useRouter();
@@ -74,7 +74,11 @@ export function AppChatInterface() {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      handleSubmit(e as any);
+      const formEvent = e as any;
+      handleSubmit(formEvent, {
+        attachments: uploadedFiles,
+      });
+      setUploadedFiles([]);
     }
   };
 
@@ -105,26 +109,20 @@ export function AppChatInterface() {
 
     setIsUploadingImage(true);
     try {
-      // Convert to base64
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64 = reader.result as string;
-        setUploadedImage(base64);
-        
-        // Automatically send message to analyze the image
-        setInput(`Please analyze this image and tell me the Aboriginal words for the objects you see.`);
-        handleSubmit(new Event('submit') as any, {
-          data: {
-            imageUrl: base64
-          }
-        });
-      };
-      reader.readAsDataURL(file);
+      setUploadedFiles([file]);
+      setIsUploadingImage(false);
+      
+      // Focus on the input field for user to type their message
+      inputRef.current?.focus();
     } catch (error) {
       console.error('Error uploading image:', error);
       alert('Failed to upload image');
-    } finally {
       setIsUploadingImage(false);
+    }
+    
+    // Reset file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
     }
   };
 
@@ -266,7 +264,11 @@ export function AppChatInterface() {
                       key={index}
                       onClick={() => {
                         setInput(prompt.action);
-                        handleSubmit(new Event('submit') as any);
+                        const formEvent = new Event('submit') as any;
+                        handleSubmit(formEvent, {
+                          attachments: uploadedFiles,
+                        });
+                        setUploadedFiles([]);
                       }}
                       className="flex items-center gap-3 p-4 rounded-xl text-left bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 transition-all group animate-slide-in"
                       style={{ animationDelay: `${index * 100}ms` }}
@@ -334,6 +336,19 @@ export function AppChatInterface() {
                       return null;
                     })}
                     <p className="whitespace-pre-wrap">{message.content}</p>
+                    
+                    {/* Display attached images */}
+                    {message.attachments?.filter(attachment => 
+                      attachment?.contentType?.startsWith('image/')
+                    ).map((attachment, index) => (
+                      <img
+                        key={`${message.id}-${index}`}
+                        src={attachment.url}
+                        alt={attachment.name || `attachment-${index}`}
+                        className="mt-2 rounded-lg max-w-full h-auto"
+                        style={{ maxHeight: '300px' }}
+                      />
+                    ))}
                   </div>
                 </div>
                 
@@ -368,18 +383,27 @@ export function AppChatInterface() {
 
         {/* Input Area */}
         <div className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
-          <form onSubmit={handleSubmit} className="max-w-3xl mx-auto">
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit(e, {
+                attachments: uploadedFiles,
+              });
+              setUploadedFiles([]);
+            }}
+            className="max-w-3xl mx-auto"
+          >
             {/* Show uploaded image preview */}
-            {uploadedImage && (
+            {uploadedFiles.length > 0 && (
               <div className="mb-3 p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <ImageIcon className="h-4 w-4 text-gray-500" />
-                    <span className="text-sm text-gray-600">Image ready to analyze</span>
+                    <span className="text-sm text-gray-600">{uploadedFiles[0].name}</span>
                   </div>
                   <button
                     type="button"
-                    onClick={() => setUploadedImage(null)}
+                    onClick={() => setUploadedFiles([])}
                     className="text-sm text-red-600 hover:text-red-700"
                   >
                     Remove
