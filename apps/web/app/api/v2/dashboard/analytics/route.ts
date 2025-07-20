@@ -16,7 +16,8 @@ export async function GET(request: NextRequest) {
 
   const { searchParams } = new URL(request.url);
   const period = searchParams.get('period') || '30d';
-  console.log('[Analytics API] Period:', period);
+  const languageCode = searchParams.get('language');
+  console.log('[Analytics API] Period:', period, 'Language:', languageCode);
 
   try {
     // Calculate date range
@@ -26,6 +27,28 @@ export async function GET(request: NextRequest) {
       const cutoff = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
       dateFilter = cutoff.toISOString();
       console.log('[Analytics API] Date filter:', dateFilter);
+    }
+
+    // Get language info if filtering by language
+    let languageInfo = null;
+    let languageId = null;
+    
+    if (languageCode) {
+      console.log('[Analytics API] Fetching language info for:', languageCode);
+      const { data: langData, error: langError } = await supabase
+        .from('languages')
+        .select('id, name, code')
+        .eq('code', languageCode)
+        .single();
+      
+      if (langError || !langData) {
+        console.error('[Analytics API] Language not found:', languageCode);
+        return NextResponse.json({ error: 'Language not found' }, { status: 404 });
+      }
+      
+      languageInfo = langData;
+      languageId = langData.id;
+      console.log('[Analytics API] Language found:', languageInfo);
     }
 
     // Get all quiz sessions for the user in the period
@@ -50,6 +73,10 @@ export async function GET(request: NextRequest) {
 
     if (dateFilter) {
       sessionQuery = sessionQuery.gte('created_at', dateFilter);
+    }
+    
+    if (languageId) {
+      sessionQuery = sessionQuery.eq('language_id', languageId);
     }
 
     const { data: sessions, error: sessionsError } = await sessionQuery;
@@ -85,6 +112,14 @@ export async function GET(request: NextRequest) {
     if (dateFilter) {
       attemptsQuery = attemptsQuery.gte('created_at', dateFilter);
     }
+    
+    // If filtering by language, only get attempts from sessions of that language
+    if (languageId && sessions) {
+      const sessionIds = sessions.map(s => s.id);
+      if (sessionIds.length > 0) {
+        attemptsQuery = attemptsQuery.in('session_id', sessionIds);
+      }
+    }
 
     const { data: attempts, error: attemptsError } = await attemptsQuery;
 
@@ -102,10 +137,16 @@ export async function GET(request: NextRequest) {
 
     // Get current spaced repetition states for word counts
     console.log('[Analytics API] Fetching spaced repetition states...');
-    const { data: states, error: statesError } = await supabase
+    let statesQuery = supabase
       .from('spaced_repetition_states')
-      .select('bucket, word_id')
+      .select('bucket, word_id, words!inner(language_id)')
       .eq('user_id', user.id);
+    
+    if (languageId) {
+      statesQuery = statesQuery.eq('words.language_id', languageId);
+    }
+    
+    const { data: states, error: statesError } = await statesQuery;
 
     if (statesError) {
       console.error('[Analytics API] Error fetching states:', statesError);
@@ -179,7 +220,8 @@ export async function GET(request: NextRequest) {
       performanceByBucket,
       timeOfDayStats,
       streakHistory,
-      weeklyProgress
+      weeklyProgress,
+      languageInfo
     };
 
     console.log('[Analytics API] Success! Returning response');
