@@ -4,6 +4,7 @@ import { openai } from '@ai-sdk/openai';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { AnalyzeImageToolSchema, ImageAnalysisSchema } from '@/lib/tools/image-analysis';
+import { generateEmbedding, createWordContext } from '../../../scripts/generate-embeddings';
 
 export async function POST(req: Request) {
   console.log('[DEBUG] Chat API POST called');
@@ -632,6 +633,7 @@ IMPORTANT: When a message contains an image attachment:
 
             // Fetch translations for detected objects
             const translationPromises = detectedItems.map(async (item) => {
+              // First try exact match
               let query = supabase
                 .from('words')
                 .select(`
@@ -654,17 +656,53 @@ IMPORTANT: When a message contains an image attachment:
                 }
               }
 
-              const { data: translations } = await query.limit(10);
+              const { data: exactTranslations } = await query.limit(10);
+
+              // If no exact matches, use vector similarity search
+              let translations = exactTranslations || [];
+              let searchMethod = 'exact';
+              
+              if ((!translations || translations.length === 0) && process.env.OPENAI_API_KEY) {
+                try {
+                  console.log(`[DEBUG] No exact match for "${item}", trying vector similarity search`);
+                  
+                  // Generate embedding for the search term
+                  const searchContext = `Word: ${item}\nLanguage: English\nDefinitions: A ${item} (object or concept)`;
+                  const embedding = await generateEmbedding(searchContext);
+                  
+                  // Search for similar words using the database function
+                  const { data: similarWords, error } = await supabase
+                    .rpc('search_similar_words', {
+                      query_embedding: JSON.stringify(embedding),
+                      match_count: 5,
+                      threshold: 0.6
+                    });
+                  
+                  if (!error && similarWords) {
+                    searchMethod = 'similarity';
+                    translations = similarWords.map((w: any) => ({
+                      word: w.word,
+                      languages: { name: w.language_name, code: w.language_code },
+                      definitions: [{ definition: w.definition }]
+                    }));
+                    
+                    console.log(`[DEBUG] Found ${translations.length} similar words for "${item}"`);
+                  }
+                } catch (error) {
+                  console.error(`[DEBUG] Error in vector search for "${item}":`, error);
+                }
+              }
 
               return {
                 object: item,
-                confidence: 0.8, // Simplified confidence
+                confidence: searchMethod === 'exact' ? 0.9 : 0.7,
+                searchMethod,
                 translations: translations?.map(t => ({
                   language: t.languages?.name || 'Unknown',
                   languageCode: t.languages?.code || 'unknown',
                   word: t.word,
                   definition: t.definitions?.[0]?.definition,
-                  culturalContext: includeContext ? `The word "${t.word}" in ${t.languages?.name} reflects the cultural importance of ${item} in Aboriginal communities.` : undefined
+                  culturalContext: includeContext ? `The word "${t.word}" in ${t.languages?.name} ${searchMethod === 'similarity' ? 'is semantically related to' : 'reflects the cultural importance of'} ${item} in Aboriginal communities.` : undefined
                 })) || []
               };
             });
@@ -708,8 +746,11 @@ IMPORTANT: When a message contains an image attachment:
               languageNote = 'Showing translations from all available Aboriginal languages';
             }
             
+            // Check if any objects used similarity search
+            const usedSimilaritySearch = detectedObjects.some(obj => obj.searchMethod === 'similarity');
+            
             const result = {
-              imageDescription: `${description || 'Image analyzed successfully'}. ${languageNote}`,
+              imageDescription: `${description || 'Image analyzed successfully'}. ${languageNote}${usedSimilaritySearch ? ' (Some translations found using semantic similarity)' : ''}`,
               detectedObjects: detectedObjects.filter(obj => obj.translations.length > 0),
               culturalInsights: includeContext ? 
                 'Aboriginal languages often have deep connections to the land and nature. Many words for natural objects carry cultural significance and traditional knowledge.' : 
@@ -717,7 +758,8 @@ IMPORTANT: When a message contains an image attachment:
               learningTips: [
                 'Practice these words by finding similar objects in your environment',
                 'Create visual associations between the objects and their Aboriginal names',
-                'Learn the cultural stories associated with these words'
+                'Learn the cultural stories associated with these words',
+                ...(usedSimilaritySearch ? ['Some words shown are semantically related concepts when exact translations were not found'] : [])
               ],
               relatedWords: relatedWords.length > 0 ? relatedWords : undefined
             };
