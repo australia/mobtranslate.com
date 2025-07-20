@@ -1,10 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, useParams } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Badge, Button, LoadingState } from '@ui/components';
+import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Badge, Button } from '@ui/components';
+import { StatsCard } from '@/components/stats/StatsCard';
+import { DashboardSkeleton } from '@/components/loading/Skeleton';
+import { useLeaderboardData } from '@/hooks/useApi';
 import { 
   Trophy, 
   Medal, 
@@ -94,40 +97,14 @@ export default function LeaderboardPage() {
   const params = useParams();
   const language = params.language as string;
   
-  const [loading, setLoading] = useState(true);
-  const [leaderboardData, setLeaderboardData] = useState<LeaderboardData | null>(null);
   const [period, setPeriod] = useState('week');
+  const { data: leaderboardData, error, isLoading } = useLeaderboardData(language, period);
 
-  useEffect(() => {
-    if (authLoading) {
-      console.log('[Leaderboard] Auth still loading...');
-      return; // Wait for auth to load
-    }
-    
-    if (!user) {
-      console.log('[Leaderboard] No user found, redirecting to login');
+  React.useEffect(() => {
+    if (!authLoading && !user) {
       router.push('/login');
-      return;
     }
-    
-    console.log('[Leaderboard] User authenticated, fetching data');
-    fetchLeaderboardData();
-  }, [user, authLoading, router, language, period]);
-
-  const fetchLeaderboardData = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(`/api/v2/leaderboard/${language}?period=${period}`);
-      if (!response.ok) throw new Error('Failed to fetch leaderboard data');
-      
-      const data = await response.json();
-      setLeaderboardData(data);
-    } catch (error) {
-      console.error('Error fetching leaderboard data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [user, authLoading, router]);
 
   const formatStudyTime = (minutes: number) => {
     if (minutes < 60) return `${minutes}m`;
@@ -146,14 +123,14 @@ export default function LeaderboardPage() {
 
   return (
     <SharedLayout>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      <div className="min-h-screen bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="mb-6 flex items-center justify-between">
-            <Link href="/leaderboard" className="inline-flex items-center text-gray-600 hover:text-gray-900">
+          <div className="mb-6 flex items-center justify-between animate-slide-in">
+            <Link href="/leaderboard" className="inline-flex items-center text-gray-600 hover:text-gray-900 hover-grow">
               <ChevronLeft className="h-4 w-4 mr-1" />
               All Leaderboards
             </Link>
-            <Link href={`/dashboard/${language}`} className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700">
+            <Link href={`/dashboard/${language}`} className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700 hover-grow">
               Dashboard
               <ChevronRight className="h-3 w-3 ml-1" />
             </Link>
@@ -163,22 +140,25 @@ export default function LeaderboardPage() {
             title={`${leaderboardData?.languageInfo.name || language} Leaderboard`}
             description="Compete with other learners and track your progress"
             badge={
-              <Badge variant="default" className="ml-2">
-                <Users className="h-3 w-3 mr-1" />
-                {leaderboardData?.totalParticipants || 0} learners
-              </Badge>
+              leaderboardData?.totalParticipants ? (
+                <Badge variant="default" className="ml-2 animate-scale-in">
+                  <Users className="h-3 w-3 mr-1" />
+                  {leaderboardData.totalParticipants} learners
+                </Badge>
+              ) : null
             }
           />
 
           {/* Period Selector */}
-          <div className="mt-6 flex flex-wrap gap-2">
-            {PERIOD_OPTIONS.map((option) => (
+          <div className="mt-6 flex flex-wrap gap-2 animate-slide-in">
+            {PERIOD_OPTIONS.map((option, index) => (
               <Button
                 key={option.value}
                 variant={period === option.value ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setPeriod(option.value)}
-                className="flex items-center"
+                className="flex items-center hover-grow animate-slide-in"
+                style={{ animationDelay: `${index * 50}ms` }}
               >
                 <option.icon className="h-4 w-4 mr-1" />
                 {option.label}
@@ -186,58 +166,62 @@ export default function LeaderboardPage() {
             ))}
           </div>
 
-          {loading ? (
-            <LoadingState />
+          {isLoading ? (
+            <DashboardSkeleton />
+          ) : error ? (
+            <div className="mt-8 text-center">
+              <p className="text-red-600">Failed to load leaderboard data</p>
+              <Button onClick={() => window.location.reload()} className="mt-4">
+                Retry
+              </Button>
+            </div>
           ) : leaderboardData ? (
             <>
               {/* Period Statistics */}
               <Section className="mt-8">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <Card className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-blue-100 text-sm">Total Questions</p>
-                          <p className="text-2xl font-bold">{leaderboardData.periodStats.totalQuestions.toLocaleString()}</p>
-                        </div>
-                        <Brain className="h-8 w-8 text-blue-200" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="bg-gradient-to-r from-green-500 to-teal-600 text-white">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-green-100 text-sm">Total Sessions</p>
-                          <p className="text-2xl font-bold">{leaderboardData.periodStats.totalSessions.toLocaleString()}</p>
-                        </div>
-                        <Zap className="h-8 w-8 text-green-200" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="bg-gradient-to-r from-yellow-500 to-orange-600 text-white">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-yellow-100 text-sm">Avg Accuracy</p>
-                          <p className="text-2xl font-bold">{leaderboardData.periodStats.averageAccuracy.toFixed(1)}%</p>
-                        </div>
-                        <Target className="h-8 w-8 text-yellow-200" />
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <StatsCard
+                    title="Total Questions"
+                    value={leaderboardData.periodStats.totalQuestions.toLocaleString()}
+                    icon={Brain}
+                    iconColor="text-blue-500"
+                    className="animate-slide-in"
+                    style={{ animationDelay: '0ms' }}
+                  />
+                  
+                  <StatsCard
+                    title="Total Sessions"
+                    value={leaderboardData.periodStats.totalSessions.toLocaleString()}
+                    icon={Zap}
+                    iconColor="text-green-500"
+                    className="animate-slide-in"
+                    style={{ animationDelay: '50ms' }}
+                  />
+                  
+                  <StatsCard
+                    title="Average Accuracy"
+                    value={`${leaderboardData.periodStats.averageAccuracy.toFixed(1)}%`}
+                    icon={Target}
+                    iconColor="text-orange-500"
+                    progress={{
+                      value: leaderboardData.periodStats.averageAccuracy,
+                      max: 100,
+                      color: leaderboardData.periodStats.averageAccuracy >= 80 ? 'bg-green-500' : 
+                             leaderboardData.periodStats.averageAccuracy >= 60 ? 'bg-yellow-500' : 'bg-red-500'
+                    }}
+                    className="animate-slide-in"
+                    style={{ animationDelay: '100ms' }}
+                  />
                 </div>
               </Section>
 
               {/* Top 3 Podium */}
               {leaderboardData.leaderboard.length >= 3 && (
                 <Section className="mt-8">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto animate-slide-in" style={{ animationDelay: '150ms' }}>
                     {/* 2nd Place */}
-                    <div className="md:order-1 flex flex-col items-center">
-                      <div className="bg-gradient-to-t from-gray-300 to-gray-400 rounded-lg p-6 w-full text-center text-white relative">
+                    <div className="md:order-1 flex flex-col items-center animate-scale-in" style={{ animationDelay: '250ms' }}>
+                      <div className="bg-gradient-to-t from-gray-300 to-gray-400 rounded-lg p-6 w-full text-center text-white relative hover-lift">
                         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                           <Trophy className="h-8 w-8 text-gray-400" />
                         </div>
@@ -250,10 +234,10 @@ export default function LeaderboardPage() {
                     </div>
 
                     {/* 1st Place */}
-                    <div className="md:order-2 flex flex-col items-center">
-                      <div className="bg-gradient-to-t from-yellow-400 to-yellow-500 rounded-lg p-8 w-full text-center text-white relative transform scale-105">
+                    <div className="md:order-2 flex flex-col items-center animate-scale-in" style={{ animationDelay: '200ms' }}>
+                      <div className="bg-gradient-to-t from-yellow-400 to-yellow-500 rounded-lg p-8 w-full text-center text-white relative transform scale-105 hover-lift">
                         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                          <Crown className="h-10 w-10 text-yellow-300" />
+                          <Crown className="h-10 w-10 text-yellow-300 animate-wave" />
                         </div>
                         <div className="mt-6">
                           <h2 className="font-bold text-xl">{leaderboardData.leaderboard[0].username}</h2>
@@ -265,8 +249,8 @@ export default function LeaderboardPage() {
                     </div>
 
                     {/* 3rd Place */}
-                    <div className="md:order-3 flex flex-col items-center">
-                      <div className="bg-gradient-to-t from-amber-500 to-amber-600 rounded-lg p-6 w-full text-center text-white relative">
+                    <div className="md:order-3 flex flex-col items-center animate-scale-in" style={{ animationDelay: '300ms' }}>
+                      <div className="bg-gradient-to-t from-amber-500 to-amber-600 rounded-lg p-6 w-full text-center text-white relative hover-lift">
                         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                           <Medal className="h-8 w-8 text-amber-400" />
                         </div>
@@ -283,7 +267,7 @@ export default function LeaderboardPage() {
 
               {/* Full Leaderboard */}
               <Section className="mt-8">
-                <Card>
+                <Card className="animate-slide-in" style={{ animationDelay: '350ms' }}>
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <Award className="h-5 w-5 mr-2 text-purple-500" />
@@ -309,9 +293,10 @@ export default function LeaderboardPage() {
                           {leaderboardData.leaderboard.map((entry, index) => (
                             <tr 
                               key={entry.userId} 
-                              className={`hover:bg-gray-50 transition-colors ${
+                              className={`hover:bg-gray-50 transition-all animate-slide-in ${
                                 entry.isCurrentUser ? 'bg-blue-50 ring-2 ring-blue-200' : ''
                               }`}
+                              style={{ animationDelay: `${(index + 4) * 30}ms` }}
                             >
                               <td className="py-4 px-4">
                                 <div className="flex items-center space-x-3">
@@ -378,18 +363,21 @@ export default function LeaderboardPage() {
 
               {/* Current User Summary */}
               {leaderboardData.currentUserRank && (
-                <Section className="mt-8">
-                  <Card className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                <Section className="mt-8 mb-8">
+                  <Card className="bg-gradient-to-r from-blue-500 to-purple-600 text-white animate-slide-in hover-lift" style={{ animationDelay: '400ms' }}>
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h3 className="text-lg font-semibold">Your Performance</h3>
+                          <h3 className="text-lg font-semibold flex items-center">
+                            <Trophy className="h-5 w-5 mr-2" />
+                            Your Performance
+                          </h3>
                           <p className="text-blue-100">
                             You're ranked #{leaderboardData.currentUserRank} out of {leaderboardData.totalParticipants} learners
                           </p>
                         </div>
                         <div className="text-right">
-                          <p className="text-2xl font-bold">{getRankBadge(leaderboardData.currentUserRank)}</p>
+                          {getRankBadge(leaderboardData.currentUserRank)}
                         </div>
                       </div>
                     </CardContent>
@@ -398,13 +386,18 @@ export default function LeaderboardPage() {
               )}
             </>
           ) : (
-            <div className="mt-8 text-center">
-              <Trophy className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-600">No leaderboard data available for this language</p>
-              <Link href={`/learn/${language}`}>
-                <Button className="mt-4">Start Learning</Button>
-              </Link>
-            </div>
+            <Section className="mt-8">
+              <div className="text-center bg-white rounded-xl border p-12">
+                <Trophy className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+                <p className="text-gray-600 mb-4">No leaderboard data available for this language</p>
+                <Link href={`/learn/${language}`}>
+                  <Button className="hover-grow">
+                    <BookOpen className="h-4 w-4 mr-2" />
+                    Start Learning
+                  </Button>
+                </Link>
+              </div>
+            </Section>
           )}
         </div>
       </div>

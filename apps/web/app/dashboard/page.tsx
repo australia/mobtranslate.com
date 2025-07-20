@@ -1,10 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Badge, Button, LoadingState } from '@ui/components';
+import { PageHeader, Section, Badge, Button } from '@ui/components';
+import { StatsCard } from '@/components/stats/StatsCard';
+import { DashboardSkeleton } from '@/components/loading/Skeleton';
+import { useDashboardData } from '@/hooks/useApi';
 import { 
   Globe, 
   BookOpen, 
@@ -13,8 +16,8 @@ import {
   Trophy,
   Activity,
   ChevronRight,
-  Calendar,
-  TrendingUp
+  TrendingUp,
+  Zap
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -29,58 +32,16 @@ interface LanguageStats {
   studyTime: number;
 }
 
-interface OverviewStats {
-  totalLanguages: number;
-  totalSessions: number;
-  totalWords: number;
-  overallAccuracy: number;
-  currentStreak: number;
-  totalStudyTime: number;
-}
-
 export default function DashboardPage() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
-  const [languageStats, setLanguageStats] = useState<LanguageStats[]>([]);
-  const [overviewStats, setOverviewStats] = useState<OverviewStats>({
-    totalLanguages: 0,
-    totalSessions: 0,
-    totalWords: 0,
-    overallAccuracy: 0,
-    currentStreak: 0,
-    totalStudyTime: 0
-  });
+  const { data, error, isLoading } = useDashboardData();
 
-  useEffect(() => {
-    if (!user) {
+  React.useEffect(() => {
+    if (!authLoading && !user) {
       router.push('/login');
-      return;
     }
-    fetchDashboardData();
-  }, [user, router]);
-
-  const fetchDashboardData = async () => {
-    try {
-      const response = await fetch('/api/v2/dashboard/overview');
-      if (!response.ok) throw new Error('Failed to fetch dashboard data');
-      
-      const data = await response.json();
-      setLanguageStats(data.languages || []);
-      setOverviewStats(data.overview || {
-        totalLanguages: 0,
-        totalSessions: 0,
-        totalWords: 0,
-        overallAccuracy: 0,
-        currentStreak: 0,
-        totalStudyTime: 0
-      });
-    } catch (error) {
-      console.error('Error fetching dashboard data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [user, authLoading, router]);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -101,7 +62,17 @@ export default function DashboardPage() {
     return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
   };
 
-  if (!user) return null;
+  if (!user || authLoading) return null;
+
+  const languageStats = data?.languages || [];
+  const overviewStats = data?.overview || {
+    totalLanguages: 0,
+    totalSessions: 0,
+    totalWords: 0,
+    overallAccuracy: 0,
+    currentStreak: 0,
+    totalStudyTime: 0
+  };
 
   return (
     <SharedLayout>
@@ -112,7 +83,7 @@ export default function DashboardPage() {
             description="Track your progress across all languages"
             badge={
               overviewStats.currentStreak > 0 ? (
-                <Badge variant="default" className="ml-2">
+                <Badge variant="default" className="ml-2 animate-scale-in">
                   <Trophy className="h-3 w-3 mr-1" />
                   {overviewStats.currentStreak} day streak
                 </Badge>
@@ -120,154 +91,159 @@ export default function DashboardPage() {
             }
           />
 
-          {loading ? (
-            <LoadingState />
+          {isLoading ? (
+            <DashboardSkeleton />
+          ) : error ? (
+            <div className="mt-8 text-center">
+              <p className="text-red-600">Failed to load dashboard data</p>
+              <Button onClick={() => window.location.reload()} className="mt-4">
+                Retry
+              </Button>
+            </div>
           ) : (
             <>
               {/* Overview Stats */}
               <Section className="mt-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-                  <Card className="h-full">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm text-gray-600 truncate">Languages</p>
-                          <p className="text-2xl font-bold">{overviewStats.totalLanguages}</p>
-                        </div>
-                        <Globe className="h-8 w-8 text-blue-500 flex-shrink-0 ml-4" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="h-full">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm text-gray-600 truncate">Total Sessions</p>
-                          <p className="text-2xl font-bold">{overviewStats.totalSessions}</p>
-                        </div>
-                        <BookOpen className="h-8 w-8 text-green-500 flex-shrink-0 ml-4" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="h-full">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm text-gray-600 truncate">Words Learned</p>
-                          <p className="text-2xl font-bold">{overviewStats.totalWords}</p>
-                        </div>
-                        <Target className="h-8 w-8 text-purple-500 flex-shrink-0 ml-4" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="h-full">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm text-gray-600 truncate">Accuracy</p>
-                          <p className="text-2xl font-bold">{overviewStats.overallAccuracy.toFixed(0)}%</p>
-                        </div>
-                        <Activity className="h-8 w-8 text-orange-500 flex-shrink-0 ml-4" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="h-full">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm text-gray-600 truncate">Current Streak</p>
-                          <p className="text-2xl font-bold">{overviewStats.currentStreak} days</p>
-                        </div>
-                        <Trophy className="h-8 w-8 text-yellow-500 flex-shrink-0 ml-4" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="h-full">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm text-gray-600 truncate">Study Time</p>
-                          <p className="text-2xl font-bold">{formatStudyTime(overviewStats.totalStudyTime)}</p>
-                        </div>
-                        <Clock className="h-8 w-8 text-indigo-500 flex-shrink-0 ml-4" />
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <StatsCard
+                    title="Languages"
+                    value={overviewStats.totalLanguages}
+                    icon={Globe}
+                    iconColor="text-blue-500"
+                    className="animate-slide-in"
+                    style={{ animationDelay: '0ms' }}
+                  />
+                  <StatsCard
+                    title="Total Sessions"
+                    value={overviewStats.totalSessions}
+                    icon={BookOpen}
+                    iconColor="text-green-500"
+                    className="animate-slide-in"
+                    style={{ animationDelay: '50ms' }}
+                  />
+                  <StatsCard
+                    title="Words Learned"
+                    value={overviewStats.totalWords}
+                    icon={Target}
+                    iconColor="text-purple-500"
+                    className="animate-slide-in"
+                    style={{ animationDelay: '100ms' }}
+                  />
+                  <StatsCard
+                    title="Accuracy"
+                    value={`${overviewStats.overallAccuracy.toFixed(0)}%`}
+                    icon={Activity}
+                    iconColor="text-orange-500"
+                    progress={{
+                      value: overviewStats.overallAccuracy,
+                      max: 100,
+                      color: overviewStats.overallAccuracy >= 80 ? 'bg-green-500' : 
+                             overviewStats.overallAccuracy >= 60 ? 'bg-yellow-500' : 'bg-red-500'
+                    }}
+                    className="animate-slide-in"
+                    style={{ animationDelay: '150ms' }}
+                  />
+                  <StatsCard
+                    title="Current Streak"
+                    value={overviewStats.currentStreak}
+                    subtitle="days"
+                    icon={Trophy}
+                    iconColor="text-yellow-500"
+                    className="animate-slide-in"
+                    style={{ animationDelay: '200ms' }}
+                  />
+                  <StatsCard
+                    title="Study Time"
+                    value={formatStudyTime(overviewStats.totalStudyTime)}
+                    icon={Clock}
+                    iconColor="text-indigo-500"
+                    className="animate-slide-in"
+                    style={{ animationDelay: '250ms' }}
+                  />
                 </div>
               </Section>
 
               {/* Language Cards */}
               <Section className="mt-8">
-                <h2 className="text-xl font-semibold mb-6">Your Languages</h2>
+                <h2 className="text-xl font-semibold mb-6 flex items-center">
+                  <Zap className="h-5 w-5 mr-2 text-yellow-500" />
+                  Your Languages
+                </h2>
                 {languageStats.length === 0 ? (
-                  <Card>
-                    <CardContent className="p-12 text-center">
-                      <Globe className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                      <h3 className="text-lg font-medium mb-2">No languages yet</h3>
-                      <p className="text-gray-600 mb-6">Start learning your first language to see your progress here</p>
-                      <Link href="/learn">
-                        <Button>
-                          Start Learning
-                          <ChevronRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
-                    </CardContent>
-                  </Card>
+                  <div className="bg-white rounded-xl border p-12 text-center animate-scale-in">
+                    <Globe className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                    <h3 className="text-lg font-medium mb-2">No languages yet</h3>
+                    <p className="text-gray-600 mb-6">Start learning your first language to see your progress here</p>
+                    <Link href="/learn">
+                      <Button className="hover-grow">
+                        Start Learning
+                        <ChevronRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                  </div>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                    {languageStats.map((lang) => (
-                      <Link key={lang.code} href={`/dashboard/${lang.code}`} className="block">
-                        <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
-                          <CardHeader>
-                            <div className="flex items-center justify-between">
-                              <CardTitle className="text-lg truncate">{lang.language}</CardTitle>
-                              <Badge variant="outline" className="flex-shrink-0 ml-2">{lang.code.toUpperCase()}</Badge>
+                    {languageStats.map((lang: LanguageStats, index: number) => (
+                      <Link 
+                        key={lang.code} 
+                        href={`/dashboard/${lang.code}`} 
+                        className="block animate-slide-in hover-lift"
+                        style={{ animationDelay: `${index * 50}ms` }}
+                      >
+                        <div className="bg-white rounded-xl border hover:border-blue-300 p-6 h-full transition-all duration-200">
+                          <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-lg font-semibold truncate">{lang.language}</h3>
+                            <Badge variant="outline" className="flex-shrink-0 ml-2">
+                              {lang.code.toUpperCase()}
+                            </Badge>
+                          </div>
+                          
+                          <div className="grid grid-cols-2 gap-3 mb-4">
+                            <div>
+                              <p className="text-sm text-gray-600">Sessions</p>
+                              <p className="text-xl font-semibold">{lang.totalSessions}</p>
                             </div>
-                          </CardHeader>
-                          <CardContent className="space-y-4">
-                            <div className="grid grid-cols-2 gap-3">
-                              <div>
-                                <p className="text-sm text-gray-600">Sessions</p>
-                                <p className="text-xl font-semibold">{lang.totalSessions}</p>
-                              </div>
-                              <div>
-                                <p className="text-sm text-gray-600">Words</p>
-                                <p className="text-xl font-semibold">{lang.totalWords}</p>
-                              </div>
-                              <div>
-                                <p className="text-sm text-gray-600">Accuracy</p>
-                                <p className="text-xl font-semibold">{lang.accuracy.toFixed(0)}%</p>
-                              </div>
-                              <div>
-                                <p className="text-sm text-gray-600">Streak</p>
-                                <p className="text-xl font-semibold">{lang.streak} days</p>
-                              </div>
+                            <div>
+                              <p className="text-sm text-gray-600">Words</p>
+                              <p className="text-xl font-semibold">{lang.totalWords}</p>
                             </div>
-                            
-                            <div className="pt-3 border-t">
-                              <div className="flex items-center justify-between text-sm">
-                                <span className="text-gray-600">Last practiced</span>
-                                <span className="font-medium text-right">{formatDate(lang.lastPracticed)}</span>
-                              </div>
-                              <div className="flex items-center justify-between text-sm mt-1">
-                                <span className="text-gray-600">Study time</span>
-                                <span className="font-medium">{formatStudyTime(lang.studyTime)}</span>
-                              </div>
+                            <div>
+                              <p className="text-sm text-gray-600">Accuracy</p>
+                              <p className={`text-xl font-semibold ${
+                                lang.accuracy >= 80 ? 'text-green-600' :
+                                lang.accuracy >= 60 ? 'text-yellow-600' :
+                                'text-red-600'
+                              }`}>
+                                {lang.accuracy.toFixed(0)}%
+                              </p>
                             </div>
+                            <div>
+                              <p className="text-sm text-gray-600">Streak</p>
+                              <p className="text-xl font-semibold flex items-center">
+                                {lang.streak}
+                                {lang.streak > 0 && <Zap className="h-4 w-4 ml-1 text-orange-500" />}
+                              </p>
+                            </div>
+                          </div>
+                          
+                          <div className="pt-3 border-t">
+                            <div className="flex items-center justify-between text-sm">
+                              <span className="text-gray-600">Last practiced</span>
+                              <span className="font-medium text-right">{formatDate(lang.lastPracticed)}</span>
+                            </div>
+                            <div className="flex items-center justify-between text-sm mt-1">
+                              <span className="text-gray-600">Study time</span>
+                              <span className="font-medium">{formatStudyTime(lang.studyTime)}</span>
+                            </div>
+                          </div>
 
-                            <div className="pt-3">
-                              <div className="flex items-center justify-between">
-                                <span className="text-sm text-blue-600">View details</span>
-                                <ChevronRight className="h-4 w-4 text-blue-600" />
-                              </div>
+                          <div className="pt-3 mt-3 border-t">
+                            <div className="flex items-center justify-between">
+                              <span className="text-sm text-blue-600">View details</span>
+                              <ChevronRight className="h-4 w-4 text-blue-600" />
                             </div>
-                          </CardContent>
-                        </Card>
+                          </div>
+                        </div>
                       </Link>
                     ))}
                   </div>
@@ -279,46 +255,40 @@ export default function DashboardPage() {
                 <Section className="mt-8">
                   <h2 className="text-xl font-semibold mb-6">Quick Actions</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <Link href="/learn" className="block">
-                      <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
-                        <CardContent className="p-6">
-                          <div className="flex items-center justify-between">
-                            <div className="min-w-0 flex-1">
-                              <h3 className="font-medium">Continue Learning</h3>
-                              <p className="text-sm text-gray-600 mt-1">Pick up where you left off</p>
-                            </div>
-                            <BookOpen className="h-8 w-8 text-green-500 flex-shrink-0 ml-4" />
+                    <Link href="/learn" className="block animate-slide-in hover-lift">
+                      <div className="bg-white rounded-xl border hover:border-green-300 p-6 h-full transition-all duration-200">
+                        <div className="flex items-center justify-between">
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-medium">Continue Learning</h3>
+                            <p className="text-sm text-gray-600 mt-1">Pick up where you left off</p>
                           </div>
-                        </CardContent>
-                      </Card>
+                          <BookOpen className="h-8 w-8 text-green-500 flex-shrink-0 ml-4" />
+                        </div>
+                      </div>
                     </Link>
 
-                    <Link href="/stats" className="block">
-                      <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
-                        <CardContent className="p-6">
-                          <div className="flex items-center justify-between">
-                            <div className="min-w-0 flex-1">
-                              <h3 className="font-medium">View Stats</h3>
-                              <p className="text-sm text-gray-600 mt-1">See detailed statistics</p>
-                            </div>
-                            <TrendingUp className="h-8 w-8 text-purple-500 flex-shrink-0 ml-4" />
+                    <Link href="/stats" className="block animate-slide-in hover-lift" style={{ animationDelay: '50ms' }}>
+                      <div className="bg-white rounded-xl border hover:border-purple-300 p-6 h-full transition-all duration-200">
+                        <div className="flex items-center justify-between">
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-medium">View Stats</h3>
+                            <p className="text-sm text-gray-600 mt-1">See detailed statistics</p>
                           </div>
-                        </CardContent>
-                      </Card>
+                          <TrendingUp className="h-8 w-8 text-purple-500 flex-shrink-0 ml-4" />
+                        </div>
+                      </div>
                     </Link>
 
-                    <Link href="/leaderboard" className="block">
-                      <Card className="hover:shadow-md transition-shadow cursor-pointer h-full bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-200">
-                        <CardContent className="p-6">
-                          <div className="flex items-center justify-between">
-                            <div className="min-w-0 flex-1">
-                              <h3 className="font-medium">Global Leaderboards</h3>
-                              <p className="text-sm text-gray-600 mt-1">Compete with other learners</p>
-                            </div>
-                            <Trophy className="h-8 w-8 text-yellow-500 flex-shrink-0 ml-4" />
+                    <Link href="/leaderboard" className="block animate-slide-in hover-lift" style={{ animationDelay: '100ms' }}>
+                      <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl border border-yellow-200 hover:border-yellow-300 p-6 h-full transition-all duration-200">
+                        <div className="flex items-center justify-between">
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-medium">Global Leaderboards</h3>
+                            <p className="text-sm text-gray-600 mt-1">Compete with other learners</p>
                           </div>
-                        </CardContent>
-                      </Card>
+                          <Trophy className="h-8 w-8 text-yellow-500 flex-shrink-0 ml-4" />
+                        </div>
+                      </div>
                     </Link>
                   </div>
                 </Section>
