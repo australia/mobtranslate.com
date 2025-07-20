@@ -47,7 +47,10 @@ export function AppChatInterface() {
     api: '/api/chat',
     maxSteps: 5,
     onError: (error) => {
-      console.error('Chat error:', error);
+      console.error('[DEBUG] Chat error:', error);
+    },
+    onFinish: (message) => {
+      console.log('[DEBUG] Message finished:', message);
     },
   });
 
@@ -58,6 +61,11 @@ export function AppChatInterface() {
   useEffect(() => {
     fetchUsername();
   }, [user]);
+
+  // Debug effect to monitor uploadedFiles state
+  useEffect(() => {
+    console.log('[DEBUG] uploadedFiles state changed:', uploadedFiles);
+  }, [uploadedFiles]);
 
   const fetchUsername = async () => {
     try {
@@ -74,6 +82,7 @@ export function AppChatInterface() {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
+      console.log('[DEBUG] Enter key pressed, uploadedFiles:', uploadedFiles);
       const formEvent = e as any;
       handleSubmit(formEvent, {
         attachments: uploadedFiles,
@@ -92,30 +101,40 @@ export function AppChatInterface() {
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('[DEBUG] handleImageUpload called');
     const file = e.target.files?.[0];
-    if (!file) return;
+    console.log('[DEBUG] Selected file:', file ? { name: file.name, type: file.type, size: file.size } : 'No file');
+    
+    if (!file) {
+      console.log('[DEBUG] No file selected, returning');
+      return;
+    }
 
     // Validate file type
     if (!file.type.startsWith('image/')) {
+      console.error('[DEBUG] Invalid file type:', file.type);
       alert('Please upload an image file');
       return;
     }
 
     // Validate file size (max 5MB)
     if (file.size > 5 * 1024 * 1024) {
+      console.error('[DEBUG] File too large:', file.size);
       alert('Image size must be less than 5MB');
       return;
     }
 
     setIsUploadingImage(true);
     try {
+      console.log('[DEBUG] Setting uploadedFiles with:', file);
       setUploadedFiles([file]);
+      console.log('[DEBUG] uploadedFiles will be set to:', [file]);
       setIsUploadingImage(false);
       
       // Focus on the input field for user to type their message
       inputRef.current?.focus();
     } catch (error) {
-      console.error('Error uploading image:', error);
+      console.error('[DEBUG] Error in handleImageUpload:', error);
       alert('Failed to upload image');
       setIsUploadingImage(false);
     }
@@ -281,7 +300,15 @@ export function AppChatInterface() {
               </div>
             )}
 
-            {messages.map((message, index) => (
+            {messages.map((message, index) => {
+              console.log('[DEBUG] Rendering message:', {
+                id: message.id,
+                role: message.role,
+                contentPreview: message.content?.substring(0, 50) + '...',
+                hasAttachments: !!message.attachments,
+                attachmentCount: message.attachments?.length || 0
+              });
+              return (
               <div
                 key={message.id}
                 className={cn(
@@ -360,7 +387,7 @@ export function AppChatInterface() {
                   </div>
                 )}
               </div>
-            ))}
+            )})}
             
             {isLoading && (
               <div className="flex gap-3 animate-slide-in">
@@ -386,6 +413,8 @@ export function AppChatInterface() {
           <form 
             onSubmit={(e) => {
               e.preventDefault();
+              console.log('[DEBUG] Form submitted with uploadedFiles:', uploadedFiles);
+              console.log('[DEBUG] Input value:', input);
               handleSubmit(e, {
                 attachments: uploadedFiles,
               });

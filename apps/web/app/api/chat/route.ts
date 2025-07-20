@@ -6,22 +6,42 @@ import { createClient } from '@/lib/supabase/server';
 import { AnalyzeImageToolSchema, ImageAnalysisSchema } from '@/lib/tools/image-analysis';
 
 export async function POST(req: Request) {
-  console.log('Chat API called');
+  console.log('[DEBUG] Chat API POST called');
   
   try {
     const supabase = createClient();
     
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    console.log('Auth check:', { user: user?.id, authError });
+    console.log('[DEBUG] Auth check:', { user: user?.id, authError });
     
     if (authError || !user) {
-      console.error('Auth failed:', authError);
+      console.error('[DEBUG] Auth failed:', authError);
       return new Response('Unauthorized', { status: 401 });
     }
 
     const body = await req.json();
-    console.log('Request body:', { messageCount: body.messages?.length });
+    console.log('[DEBUG] Request body:', { 
+      messageCount: body.messages?.length,
+      hasMessages: !!body.messages,
+      lastMessage: body.messages?.[body.messages.length - 1]
+    });
+    
+    // Log if last message has attachments
+    const lastMessage = body.messages?.[body.messages.length - 1];
+    if (lastMessage) {
+      console.log('[DEBUG] Last message details:', {
+        role: lastMessage.role,
+        content: lastMessage.content?.substring(0, 100) + '...',
+        hasAttachments: !!lastMessage.attachments,
+        attachmentCount: lastMessage.attachments?.length || 0,
+        attachments: lastMessage.attachments?.map((a: any) => ({
+          name: a.name,
+          contentType: a.contentType,
+          url: a.url?.substring(0, 50) + '...'
+        }))
+      });
+    }
     
     const { messages } = body;
 
@@ -157,8 +177,14 @@ export async function POST(req: Request) {
       masteredWordsCount: userContext.masteredWords.length
     });
 
-    console.log('OpenAI API key exists:', !!process.env.OPENAI_API_KEY);
-    console.log('Creating stream with model: gpt-4o-mini');
+    console.log('[DEBUG] OpenAI API key exists:', !!process.env.OPENAI_API_KEY);
+    console.log('[DEBUG] Creating stream with model: gpt-4o-mini');
+    console.log('[DEBUG] Messages being sent to OpenAI:', messages.map((m: any) => ({
+      role: m.role,
+      contentPreview: typeof m.content === 'string' ? m.content.substring(0, 100) + '...' : 'Complex content',
+      hasAttachments: !!m.attachments,
+      attachmentTypes: m.attachments?.map((a: any) => a.contentType)
+    })));
 
     const result = await streamText({
       model: openai('gpt-4o-mini'),
@@ -452,7 +478,7 @@ IMPORTANT: When a message contains an image attachment:
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ description, languages, includeContext = true }) => {
           try {
-            console.log('Executing analyzeImage tool with description:', description);
+            console.log('[DEBUG] analyzeImage tool called with:', { description, languages, includeContext });
             
             // Parse the description to extract key objects mentioned
             const commonObjects = ['dog', 'tree', 'water', 'sky', 'person', 'house', 'bird', 'fish', 'sun', 'mountain', 'car', 'food', 'animal', 'plant', 'building', 'landscape'];
@@ -469,7 +495,7 @@ IMPORTANT: When a message contains an image attachment:
             }
 
 
-            console.log('Detected items:', detectedItems);
+            console.log('[DEBUG] Detected items from description:', detectedItems);
 
             // Fetch translations for detected objects
             const translationPromises = detectedItems.map(async (item) => {
@@ -561,10 +587,12 @@ IMPORTANT: When a message contains an image attachment:
     toolCallStreaming: true,
   });
 
-  console.log('Stream created successfully');
-  return result.toDataStreamResponse({
+  console.log('[DEBUG] Stream created successfully');
+  const response = result.toDataStreamResponse({
     getErrorMessage: (error) => error?.message || 'Something went wrong',
   });
+  console.log('[DEBUG] Returning response');
+  return response;
   
   } catch (error) {
     console.error('Chat API error:', error);
