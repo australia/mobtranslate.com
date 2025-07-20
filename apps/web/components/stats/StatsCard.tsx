@@ -3,7 +3,7 @@
 import React from 'react';
 import { Card, CardContent } from '@ui/components';
 import { LucideIcon } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/app/lib/utils';
 
 interface StatsCardProps {
   title: string;

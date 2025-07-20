@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Heart, Volume2, Clock, TrendingUp, Zap } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/app/lib/utils';
 import Link from 'next/link';
 
 interface WordCardProps {
