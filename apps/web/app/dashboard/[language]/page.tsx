@@ -51,6 +51,18 @@ ChartJS.register(
   Filler
 );
 
+interface WordStat {
+  id: string;
+  word: string;
+  totalAttempts: number;
+  correctAttempts: number;
+  failedAttempts: number;
+  accuracy: number;
+  avgResponseTime: number;
+  bucket: number;
+  lastSeen: string;
+}
+
 interface DashboardData {
   overview: {
     totalSessions: number;
@@ -82,6 +94,7 @@ interface DashboardData {
     accuracy: number;
     questionsAnswered: number;
   }>;
+  wordStats?: WordStat[];
   languageInfo: {
     name: string;
     code: string;
@@ -292,85 +305,87 @@ export default function LanguageDashboardPage() {
               </Section>
 
               {/* Charts Section */}
-              <Section className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Daily Activity Chart */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center">
-                      <Activity className="h-5 w-5 mr-2 text-blue-500" />
-                      Daily Activity
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="h-64">
-                      <Line
-                        data={{
-                          labels: dashboardData.recentActivity.slice(0, 7).reverse().map(d => 
-                            new Date(d.date).toLocaleDateString('en', { weekday: 'short', month: 'short', day: 'numeric' })
-                          ),
-                          datasets: [
-                            {
-                              label: 'Accuracy %',
-                              data: dashboardData.recentActivity.slice(0, 7).reverse().map(d => d.accuracy),
-                              borderColor: 'rgb(59, 130, 246)',
-                              backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                              fill: true,
-                              tension: 0.4
-                            }
-                          ]
-                        }}
-                        options={chartOptions}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
+              <Section className="mt-8">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                  {/* Daily Activity Chart */}
+                  <Card className="h-full">
+                    <CardHeader>
+                      <CardTitle className="flex items-center text-base sm:text-lg">
+                        <Activity className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-blue-500" />
+                        Daily Activity
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="h-64 sm:h-72">
+                        <Line
+                          data={{
+                            labels: dashboardData.recentActivity.slice(0, 7).reverse().map(d => 
+                              new Date(d.date).toLocaleDateString('en', { month: 'short', day: 'numeric' })
+                            ),
+                            datasets: [
+                              {
+                                label: 'Accuracy %',
+                                data: dashboardData.recentActivity.slice(0, 7).reverse().map(d => d.accuracy),
+                                borderColor: 'rgb(59, 130, 246)',
+                                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                                fill: true,
+                                tension: 0.4
+                              }
+                            ]
+                          }}
+                          options={chartOptions}
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
 
-                {/* Performance by Difficulty */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center">
-                      <BarChart3 className="h-5 w-5 mr-2 text-purple-500" />
-                      Performance by Difficulty
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="h-64">
-                      <Bar
-                        data={{
-                          labels: dashboardData.performanceByBucket.map(b => b.bucketName),
-                          datasets: [
-                            {
-                              label: 'Accuracy %',
-                              data: dashboardData.performanceByBucket.map(b => b.accuracy),
-                              backgroundColor: [
-                                'rgba(239, 68, 68, 0.8)',
-                                'rgba(245, 158, 11, 0.8)',
-                                'rgba(251, 191, 36, 0.8)',
-                                'rgba(59, 130, 246, 0.8)',
-                                'rgba(34, 197, 94, 0.8)',
-                                'rgba(168, 85, 247, 0.8)'
-                              ]
-                            }
-                          ]
-                        }}
-                        options={chartOptions}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
+                  {/* Performance by Difficulty */}
+                  <Card className="h-full">
+                    <CardHeader>
+                      <CardTitle className="flex items-center text-base sm:text-lg">
+                        <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-purple-500" />
+                        Performance by Difficulty
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="h-64 sm:h-72">
+                        <Bar
+                          data={{
+                            labels: dashboardData.performanceByBucket.map(b => b.bucketName),
+                            datasets: [
+                              {
+                                label: 'Accuracy %',
+                                data: dashboardData.performanceByBucket.map(b => b.accuracy),
+                                backgroundColor: [
+                                  'rgba(239, 68, 68, 0.8)',
+                                  'rgba(245, 158, 11, 0.8)',
+                                  'rgba(251, 191, 36, 0.8)',
+                                  'rgba(59, 130, 246, 0.8)',
+                                  'rgba(34, 197, 94, 0.8)',
+                                  'rgba(168, 85, 247, 0.8)'
+                                ]
+                              }
+                            ]
+                          }}
+                          options={chartOptions}
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
               </Section>
 
               {/* Weekly Progress */}
               <Section className="mt-8">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center">
-                      <TrendingUp className="h-5 w-5 mr-2 text-green-500" />
+                    <CardTitle className="flex items-center text-base sm:text-lg">
+                      <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-green-500" />
                       Weekly Progress
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="h-64">
+                    <div className="h-64 sm:h-72">
                       <Line
                         data={{
                           labels: dashboardData.weeklyProgress.map(w => 
@@ -394,47 +409,125 @@ export default function LanguageDashboardPage() {
                 </Card>
               </Section>
 
-              {/* Quick Actions */}
+              {/* Word Statistics Table */}
               <Section className="mt-8">
-                <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <Link href={`/learn/${language}`}>
-                    <Card className="hover:shadow-md transition-shadow cursor-pointer">
-                      <CardContent className="p-6">
+                <Card className="overflow-hidden">
+                  <CardHeader>
+                    <CardTitle className="flex items-center text-base sm:text-lg">
+                      <Brain className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-indigo-500" />
+                      Word Performance
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0 sm:p-6">
+                    {dashboardData.wordStats && dashboardData.wordStats.length > 0 ? (
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-xs sm:text-sm">
+                          <thead className="bg-gray-50">
+                            <tr className="border-b">
+                              <th className="text-left py-2 sm:py-3 px-3 sm:px-4 font-medium text-gray-700 sticky left-0 bg-gray-50 z-10">Word</th>
+                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700 hidden sm:table-cell">Attempts</th>
+                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700">Correct</th>
+                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700">Failed</th>
+                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700">Accuracy</th>
+                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700 hidden md:table-cell">Avg Time</th>
+                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700">Level</th>
+                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700 hidden lg:table-cell">Last Seen</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-gray-200">
+                            {dashboardData.wordStats.map((word, index) => (
+                              <tr key={word.id} className={`hover:bg-gray-50 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
+                                <td className="py-2 sm:py-3 px-3 sm:px-4 sticky left-0 bg-inherit">
+                                  <Link 
+                                    href={`/word/${word.id}`}
+                                    className="text-blue-600 hover:text-blue-800 hover:underline font-medium block truncate max-w-[150px] sm:max-w-none"
+                                  >
+                                    {word.word}
+                                  </Link>
+                                </td>
+                                <td className="text-center py-2 sm:py-3 px-2 sm:px-3 hidden sm:table-cell">{word.totalAttempts}</td>
+                                <td className="text-center py-2 sm:py-3 px-2 sm:px-3 text-green-600 font-medium">{word.correctAttempts}</td>
+                                <td className="text-center py-2 sm:py-3 px-2 sm:px-3 text-red-600 font-medium">{word.failedAttempts}</td>
+                                <td className="text-center py-2 sm:py-3 px-2 sm:px-3">
+                                  <span className={`font-bold ${
+                                    word.accuracy >= 80 ? 'text-green-600' : 
+                                    word.accuracy >= 60 ? 'text-yellow-600' : 
+                                    'text-red-600'
+                                  }`}>
+                                    {word.accuracy.toFixed(0)}%
+                                  </span>
+                                </td>
+                                <td className="text-center py-2 sm:py-3 px-2 sm:px-3 hidden md:table-cell text-gray-600">
+                                  {word.avgResponseTime}ms
+                                </td>
+                                <td className="text-center py-2 sm:py-3 px-2 sm:px-3">
+                                  <Badge 
+                                    variant={word.bucket >= 4 ? 'default' : word.bucket >= 2 ? 'secondary' : 'outline'}
+                                    className="text-xs px-2 py-0.5"
+                                  >
+                                    {['New', 'Learning', 'Learning+', 'Review', 'Review+', 'Mastered'][word.bucket] || 'New'}
+                                  </Badge>
+                                </td>
+                                <td className="text-center py-2 sm:py-3 px-2 sm:px-3 text-gray-500 text-xs hidden lg:table-cell">
+                                  {new Date(word.lastSeen).toLocaleDateString('en', { month: 'short', day: 'numeric' })}
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    ) : (
+                      <div className="text-center py-12 text-gray-500">
+                        <Brain className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+                        <p>No word statistics available yet.</p>
+                        <p className="text-sm mt-1">Start learning to see your progress!</p>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </Section>
+
+              {/* Quick Actions */}
+              <Section className="mt-8 mb-8">
+                <h2 className="text-lg sm:text-xl font-semibold mb-4">Quick Actions</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <Link href={`/learn/${language}`} className="block">
+                    <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
+                      <CardContent className="p-4 sm:p-6">
                         <div className="flex items-center justify-between">
-                          <div>
-                            <h3 className="font-medium">Continue Learning</h3>
-                            <p className="text-sm text-gray-600 mt-1">Practice more {dashboardData.languageInfo.name} words</p>
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-medium text-sm sm:text-base">Continue Learning</h3>
+                            <p className="text-xs sm:text-sm text-gray-600 mt-1">Practice more {dashboardData.languageInfo.name} words</p>
                           </div>
-                          <BookOpen className="h-8 w-8 text-green-500" />
+                          <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-green-500 flex-shrink-0 ml-3" />
                         </div>
                       </CardContent>
                     </Card>
                   </Link>
 
-                  <Link href={`/stats/${language}`}>
-                    <Card className="hover:shadow-md transition-shadow cursor-pointer">
-                      <CardContent className="p-6">
+                  <Link href={`/stats/${language}`} className="block">
+                    <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
+                      <CardContent className="p-4 sm:p-6">
                         <div className="flex items-center justify-between">
-                          <div>
-                            <h3 className="font-medium">Detailed Stats</h3>
-                            <p className="text-sm text-gray-600 mt-1">View word-level statistics</p>
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-medium text-sm sm:text-base">Detailed Stats</h3>
+                            <p className="text-xs sm:text-sm text-gray-600 mt-1">View word-level statistics</p>
                           </div>
-                          <BarChart3 className="h-8 w-8 text-purple-500" />
+                          <BarChart3 className="h-6 w-6 sm:h-8 sm:w-8 text-purple-500 flex-shrink-0 ml-3" />
                         </div>
                       </CardContent>
                     </Card>
                   </Link>
 
-                  <Link href="/dashboard">
-                    <Card className="hover:shadow-md transition-shadow cursor-pointer">
-                      <CardContent className="p-6">
+                  <Link href="/dashboard" className="block sm:col-span-2 lg:col-span-1">
+                    <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
+                      <CardContent className="p-4 sm:p-6">
                         <div className="flex items-center justify-between">
-                          <div>
-                            <h3 className="font-medium">All Languages</h3>
-                            <p className="text-sm text-gray-600 mt-1">View dashboard overview</p>
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-medium text-sm sm:text-base">All Languages</h3>
+                            <p className="text-xs sm:text-sm text-gray-600 mt-1">View dashboard overview</p>
                           </div>
-                          <Activity className="h-8 w-8 text-blue-500" />
+                          <Activity className="h-6 w-6 sm:h-8 sm:w-8 text-blue-500 flex-shrink-0 ml-3" />
                         </div>
                       </CardContent>
                     </Card>

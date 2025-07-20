@@ -213,6 +213,85 @@ export async function GET(request: NextRequest) {
     // Calculate weekly progress
     const weeklyProgress = calculateWeeklyProgress(sessions || []);
 
+    // Get word statistics if filtering by language
+    let wordStats = null;
+    if (languageId) {
+      console.log('[Analytics API] Fetching word statistics...');
+      
+      // Get all attempts grouped by word
+      const { data: wordAttempts, error: wordError } = await supabase
+        .from('quiz_attempts')
+        .select(`
+          word_id,
+          is_correct,
+          response_time_ms,
+          created_at,
+          words!inner(
+            id,
+            word,
+            language_id
+          )
+        `)
+        .eq('user_id', user.id)
+        .eq('words.language_id', languageId)
+        .order('created_at', { ascending: false });
+      
+      if (!wordError && wordAttempts) {
+        // Get current bucket states
+        const { data: bucketStates } = await supabase
+          .from('spaced_repetition_states')
+          .select('word_id, bucket')
+          .eq('user_id', user.id);
+        
+        const bucketMap = new Map(bucketStates?.map(s => [s.word_id, s.bucket]) || []);
+        
+        // Process word statistics
+        const wordStatsMap = new Map<string, any>();
+        
+        wordAttempts.forEach(attempt => {
+          const wordId = attempt.word_id;
+          const word = attempt.words;
+          
+          if (!wordStatsMap.has(wordId)) {
+            wordStatsMap.set(wordId, {
+              id: wordId,
+              word: word.word,
+              totalAttempts: 0,
+              correctAttempts: 0,
+              failedAttempts: 0,
+              totalResponseTime: 0,
+              lastSeen: attempt.created_at,
+              bucket: bucketMap.get(wordId) || 0
+            });
+          }
+          
+          const stats = wordStatsMap.get(wordId);
+          stats.totalAttempts++;
+          if (attempt.is_correct) {
+            stats.correctAttempts++;
+          } else {
+            stats.failedAttempts++;
+          }
+          stats.totalResponseTime += attempt.response_time_ms || 0;
+          if (attempt.created_at > stats.lastSeen) {
+            stats.lastSeen = attempt.created_at;
+          }
+        });
+        
+        // Convert to array and calculate derived stats
+        wordStats = Array.from(wordStatsMap.values())
+          .map(stats => ({
+            ...stats,
+            accuracy: stats.totalAttempts > 0 ? (stats.correctAttempts / stats.totalAttempts) * 100 : 0,
+            avgResponseTime: stats.totalAttempts > 0 ? Math.round(stats.totalResponseTime / stats.totalAttempts) : 0
+          }))
+          .sort((a, b) => b.totalAttempts - a.totalAttempts)
+          .slice(0, 50); // Top 50 most attempted words
+      }
+      
+      console.log('[Analytics API] Word stats fetched:', wordStats?.length || 0);
+    }
+
     const response = {
       overview,
       recentActivity,
@@ -221,6 +300,7 @@ export async function GET(request: NextRequest) {
       timeOfDayStats,
       streakHistory,
       weeklyProgress,
+      wordStats,
       languageInfo
     };
 
