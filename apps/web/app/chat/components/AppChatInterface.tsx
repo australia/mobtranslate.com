@@ -38,12 +38,12 @@ export function AppChatInterface() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
-  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const [uploadedFiles, setUploadedFiles] = useState<any[]>([]);
   const [isUploadingImage, setIsUploadingImage] = useState(false);
   const { user, signOut } = useAuth();
   const router = useRouter();
   
-  const { messages, input, handleInputChange, handleSubmit, isLoading, setInput, error } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, isLoading, setInput, error, append } = useChat({
     api: '/api/chat',
     maxSteps: 5,
     onError: (error) => {
@@ -79,14 +79,25 @@ export function AppChatInterface() {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = async (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       console.log('[DEBUG] Enter key pressed, uploadedFiles:', uploadedFiles);
-      const formEvent = e as any;
-      handleSubmit(formEvent, {
-        attachments: uploadedFiles,
-      });
+      
+      if (uploadedFiles.length > 0) {
+        // Use append to send message with attachments
+        await append({
+          role: 'user',
+          content: input,
+          experimental_attachments: uploadedFiles,
+        });
+        setInput('');
+      } else {
+        // Use regular handleSubmit for messages without attachments
+        const formEvent = e as any;
+        handleSubmit(formEvent);
+      }
+      
       setUploadedFiles([]);
     }
   };
@@ -126,13 +137,34 @@ export function AppChatInterface() {
 
     setIsUploadingImage(true);
     try {
-      console.log('[DEBUG] Setting uploadedFiles with:', file);
-      setUploadedFiles([file]);
-      console.log('[DEBUG] uploadedFiles will be set to:', [file]);
-      setIsUploadingImage(false);
+      // Convert file to base64 for proper attachment format
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64 = reader.result as string;
+        console.log('[DEBUG] File converted to base64, length:', base64.length);
+        
+        // Create attachment in the format expected by Vercel AI SDK
+        const attachment = {
+          name: file.name,
+          contentType: file.type,
+          url: base64,
+        };
+        
+        console.log('[DEBUG] Setting uploadedFiles with attachment:', attachment);
+        setUploadedFiles([attachment as any]);
+        setIsUploadingImage(false);
+        
+        // Focus on the input field for user to type their message
+        inputRef.current?.focus();
+      };
       
-      // Focus on the input field for user to type their message
-      inputRef.current?.focus();
+      reader.onerror = () => {
+        console.error('[DEBUG] FileReader error');
+        alert('Failed to read image file');
+        setIsUploadingImage(false);
+      };
+      
+      reader.readAsDataURL(file);
     } catch (error) {
       console.error('[DEBUG] Error in handleImageUpload:', error);
       alert('Failed to upload image');
@@ -281,12 +313,21 @@ export function AppChatInterface() {
                   {suggestedPrompts.map((prompt, index) => (
                     <button
                       key={index}
-                      onClick={() => {
+                      onClick={async () => {
                         setInput(prompt.action);
-                        const formEvent = new Event('submit') as any;
-                        handleSubmit(formEvent, {
-                          attachments: uploadedFiles,
-                        });
+                        
+                        if (uploadedFiles.length > 0) {
+                          await append({
+                            role: 'user',
+                            content: prompt.action,
+                            experimental_attachments: uploadedFiles,
+                          });
+                          setInput('');
+                        } else {
+                          const formEvent = new Event('submit') as any;
+                          handleSubmit(formEvent);
+                        }
+                        
                         setUploadedFiles([]);
                       }}
                       className="flex items-center gap-3 p-4 rounded-xl text-left bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 transition-all group animate-slide-in"
@@ -305,8 +346,9 @@ export function AppChatInterface() {
                 id: message.id,
                 role: message.role,
                 contentPreview: message.content?.substring(0, 50) + '...',
-                hasAttachments: !!message.attachments,
-                attachmentCount: message.attachments?.length || 0
+                hasAttachments: !!(message.attachments || message.experimental_attachments),
+                attachmentCount: (message.attachments || message.experimental_attachments)?.length || 0,
+                attachmentTypes: (message.attachments || message.experimental_attachments)?.map(a => a?.contentType)
               });
               return (
               <div
@@ -365,7 +407,7 @@ export function AppChatInterface() {
                     <p className="whitespace-pre-wrap">{message.content}</p>
                     
                     {/* Display attached images */}
-                    {message.attachments?.filter(attachment => 
+                    {(message.attachments || message.experimental_attachments)?.filter(attachment => 
                       attachment?.contentType?.startsWith('image/')
                     ).map((attachment, index) => (
                       <img
@@ -411,13 +453,24 @@ export function AppChatInterface() {
         {/* Input Area */}
         <div className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
           <form 
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
               console.log('[DEBUG] Form submitted with uploadedFiles:', uploadedFiles);
               console.log('[DEBUG] Input value:', input);
-              handleSubmit(e, {
-                attachments: uploadedFiles,
-              });
+              
+              if (uploadedFiles.length > 0) {
+                // Use append to send message with attachments
+                await append({
+                  role: 'user',
+                  content: input,
+                  experimental_attachments: uploadedFiles,
+                });
+                setInput('');
+              } else {
+                // Use regular handleSubmit for messages without attachments
+                handleSubmit(e);
+              }
+              
               setUploadedFiles([]);
             }}
             className="max-w-3xl mx-auto"
@@ -438,6 +491,11 @@ export function AppChatInterface() {
                     Remove
                   </button>
                 </div>
+                <img 
+                  src={uploadedFiles[0].url} 
+                  alt={uploadedFiles[0].name}
+                  className="mt-2 rounded max-h-32 object-contain"
+                />
               </div>
             )}
             

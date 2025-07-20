@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, Badge } from '@ui/components';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/components';
 import { type ImageAnalysis } from '@/lib/tools/image-analysis';
 import { 
   Image as ImageIcon, 
@@ -22,6 +21,7 @@ interface ImageAnalysisCardProps {
 
 export function ImageAnalysisCard({ analysis }: ImageAnalysisCardProps) {
   const [selectedObject, setSelectedObject] = React.useState<number | null>(null);
+  const [activeTab, setActiveTab] = React.useState<'objects' | 'insights' | 'tips'>('objects');
 
   return (
     <Card className="w-full max-w-4xl mx-auto animate-slide-in">
@@ -42,14 +42,47 @@ export function ImageAnalysisCard({ analysis }: ImageAnalysisCardProps) {
       </CardHeader>
 
       <CardContent>
-        <Tabs defaultValue="objects" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="objects">Detected Objects</TabsTrigger>
-            <TabsTrigger value="insights">Cultural Insights</TabsTrigger>
-            <TabsTrigger value="tips">Learning Tips</TabsTrigger>
-          </TabsList>
+        <div className="w-full">
+          {/* Tab Navigation */}
+          <div className="grid w-full grid-cols-3 bg-gray-100 dark:bg-gray-800 rounded-lg p-1 mb-6">
+            <button
+              onClick={() => setActiveTab('objects')}
+              className={cn(
+                "py-2 px-4 rounded-md text-sm font-medium transition-all",
+                activeTab === 'objects' 
+                  ? "bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-sm" 
+                  : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+              )}
+            >
+              Detected Objects
+            </button>
+            <button
+              onClick={() => setActiveTab('insights')}
+              className={cn(
+                "py-2 px-4 rounded-md text-sm font-medium transition-all",
+                activeTab === 'insights' 
+                  ? "bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-sm" 
+                  : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+              )}
+            >
+              Cultural Insights
+            </button>
+            <button
+              onClick={() => setActiveTab('tips')}
+              className={cn(
+                "py-2 px-4 rounded-md text-sm font-medium transition-all",
+                activeTab === 'tips' 
+                  ? "bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-sm" 
+                  : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+              )}
+            >
+              Learning Tips
+            </button>
+          </div>
 
-          <TabsContent value="objects" className="space-y-4 mt-6">
+          {/* Tab Content */}
+          {activeTab === 'objects' && (
+            <div className="space-y-4">
             <div className="grid gap-4">
               {analysis.detectedObjects.map((obj, index) => (
                 <div
@@ -127,9 +160,11 @@ export function ImageAnalysisCard({ analysis }: ImageAnalysisCardProps) {
                 </div>
               </div>
             )}
-          </TabsContent>
+            </div>
+          )}
 
-          <TabsContent value="insights" className="space-y-4 mt-6">
+          {activeTab === 'insights' && (
+            <div className="space-y-4">
             {analysis.culturalInsights ? (
               <div className="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg">
                 <div className="flex items-start gap-3">
@@ -144,9 +179,11 @@ export function ImageAnalysisCard({ analysis }: ImageAnalysisCardProps) {
                 No cultural insights available
               </p>
             )}
-          </TabsContent>
+            </div>
+          )}
 
-          <TabsContent value="tips" className="space-y-4 mt-6">
+          {activeTab === 'tips' && (
+            <div className="space-y-4">
             {analysis.learningTips && analysis.learningTips.length > 0 ? (
               <div className="space-y-3">
                 {analysis.learningTips.map((tip, index) => (
@@ -164,8 +201,9 @@ export function ImageAnalysisCard({ analysis }: ImageAnalysisCardProps) {
                 No learning tips available
               </p>
             )}
-          </TabsContent>
-        </Tabs>
+            </div>
+          )}
+        </div>
       </CardContent>
     </Card>
   );

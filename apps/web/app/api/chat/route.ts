@@ -30,17 +30,26 @@ export async function POST(req: Request) {
     // Log if last message has attachments
     const lastMessage = body.messages?.[body.messages.length - 1];
     if (lastMessage) {
+      const attachments = lastMessage.attachments || lastMessage.experimental_attachments;
       console.log('[DEBUG] Last message details:', {
         role: lastMessage.role,
         content: lastMessage.content?.substring(0, 100) + '...',
-        hasAttachments: !!lastMessage.attachments,
-        attachmentCount: lastMessage.attachments?.length || 0,
-        attachments: lastMessage.attachments?.map((a: any) => ({
+        hasAttachments: !!attachments,
+        attachmentCount: attachments?.length || 0,
+        attachments: attachments?.map((a: any) => ({
           name: a.name,
           contentType: a.contentType,
           url: a.url?.substring(0, 50) + '...'
         }))
       });
+      
+      // If there are image attachments, add them to the message content for the AI
+      if (attachments?.length > 0) {
+        const imageAttachments = attachments.filter((a: any) => a.contentType?.startsWith('image/'));
+        if (imageAttachments.length > 0) {
+          console.log('[DEBUG] Found image attachments, will process them');
+        }
+      }
     }
     
     const { messages } = body;
@@ -177,18 +186,54 @@ export async function POST(req: Request) {
       masteredWordsCount: userContext.masteredWords.length
     });
 
+    // Process messages to handle image attachments
+    const processedMessages = messages.map((message: any) => {
+      const attachments = message.attachments || message.experimental_attachments;
+      
+      if (message.role === 'user' && attachments?.length > 0) {
+        const imageAttachments = attachments.filter((a: any) => a.contentType?.startsWith('image/'));
+        
+        if (imageAttachments.length > 0) {
+          // Convert to OpenAI's expected format with image content
+          const content = [
+            { type: 'text', text: message.content },
+            ...imageAttachments.map((img: any) => ({
+              type: 'image_url',
+              image_url: {
+                url: img.url,
+                detail: 'auto'
+              }
+            }))
+          ];
+          
+          console.log('[DEBUG] Converted message with images:', {
+            role: message.role,
+            contentTypes: content.map(c => c.type),
+            imageCount: imageAttachments.length
+          });
+          
+          return {
+            ...message,
+            content
+          };
+        }
+      }
+      
+      return message;
+    });
+
     console.log('[DEBUG] OpenAI API key exists:', !!process.env.OPENAI_API_KEY);
     console.log('[DEBUG] Creating stream with model: gpt-4o-mini');
-    console.log('[DEBUG] Messages being sent to OpenAI:', messages.map((m: any) => ({
+    console.log('[DEBUG] Messages being sent to OpenAI:', processedMessages.map((m: any) => ({
       role: m.role,
-      contentPreview: typeof m.content === 'string' ? m.content.substring(0, 100) + '...' : 'Complex content',
-      hasAttachments: !!m.attachments,
-      attachmentTypes: m.attachments?.map((a: any) => a.contentType)
+      contentPreview: typeof m.content === 'string' ? m.content.substring(0, 100) + '...' : 'Complex content with images',
+      hasAttachments: !!(m.attachments || m.experimental_attachments),
+      contentType: typeof m.content
     })));
 
     const result = await streamText({
       model: openai('gpt-4o-mini'),
-      messages,
+      messages: processedMessages,
       system: `You are a helpful language learning assistant for Mob Translate, a dictionary app for Aboriginal languages. 
 
 USER CONTEXT:
