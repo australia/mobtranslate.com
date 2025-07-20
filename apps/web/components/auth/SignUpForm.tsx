@@ -34,8 +34,13 @@ export function SignUpForm() {
       return
     }
 
-    if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-      setError('Username can only contain letters, numbers, and underscores')
+    if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
+      setError('Username can only contain letters, numbers, underscores, and hyphens')
+      return
+    }
+
+    if (username.length > 50) {
+      setError('Username must be no more than 50 characters')
       return
     }
 

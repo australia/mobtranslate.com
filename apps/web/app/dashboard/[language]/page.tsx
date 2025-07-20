@@ -490,7 +490,7 @@ export default function LanguageDashboardPage() {
               {/* Quick Actions */}
               <Section className="mt-8 mb-8">
                 <h2 className="text-lg sm:text-xl font-semibold mb-4">Quick Actions</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <Link href={`/learn/${language}`} className="block">
                     <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
                       <CardContent className="p-4 sm:p-6">
@@ -519,7 +519,21 @@ export default function LanguageDashboardPage() {
                     </Card>
                   </Link>
 
-                  <Link href="/dashboard" className="block sm:col-span-2 lg:col-span-1">
+                  <Link href={`/leaderboard/${language}`} className="block">
+                    <Card className="hover:shadow-md transition-shadow cursor-pointer h-full bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-200">
+                      <CardContent className="p-4 sm:p-6">
+                        <div className="flex items-center justify-between">
+                          <div className="min-w-0 flex-1">
+                            <h3 className="font-medium text-sm sm:text-base">Leaderboard</h3>
+                            <p className="text-xs sm:text-sm text-gray-600 mt-1">Compete with other learners</p>
+                          </div>
+                          <Trophy className="h-6 w-6 sm:h-8 sm:w-8 text-yellow-500 flex-shrink-0 ml-3" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+
+                  <Link href="/dashboard" className="block">
                     <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
                       <CardContent className="p-4 sm:p-6">
                         <div className="flex items-center justify-between">

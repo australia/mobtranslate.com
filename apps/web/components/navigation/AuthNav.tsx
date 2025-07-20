@@ -4,15 +4,36 @@ import { useAuth } from '@/contexts/AuthContext'
 import { Button } from '@/app/components/ui/button'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Heart, BarChart3, Brain, MessageCircle } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Heart, BarChart3, Brain, MessageCircle, Settings } from 'lucide-react'
 
 export function AuthNav() {
   const { user, signOut, loading } = useAuth()
   const router = useRouter()
+  const [username, setUsername] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (user) {
+      fetchUsername()
+    }
+  }, [user])
+
+  const fetchUsername = async () => {
+    try {
+      const response = await fetch('/api/user/profile')
+      if (response.ok) {
+        const data = await response.json()
+        setUsername(data.profile?.display_name || data.profile?.username)
+      }
+    } catch (error) {
+      console.error('Failed to fetch username:', error)
+    }
+  }
 
   const handleSignOut = async () => {
     try {
       await signOut()
+      setUsername(null)
       router.push('/')
     } catch (error) {
       console.error('Failed to sign out:', error)
@@ -50,7 +71,13 @@ export function AuthNav() {
             <span className="hidden sm:inline">My Likes</span>
           </Button>
         </Link>
-        <span className="text-sm hidden md:inline">Welcome, {user.email}</span>
+        <Link href="/settings">
+          <Button variant="ghost" size="sm" className="gap-2">
+            <Settings className="h-4 w-4" />
+            <span className="hidden sm:inline">Settings</span>
+          </Button>
+        </Link>
+        <span className="text-sm hidden md:inline">Welcome, {username || user.email}</span>
         <Button onClick={handleSignOut} variant="outline" size="sm">
           Sign out
         </Button>

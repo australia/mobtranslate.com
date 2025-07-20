@@ -307,15 +307,15 @@ export default function DashboardPage() {
                       </Card>
                     </Link>
 
-                    <Link href="/explore" className="block">
-                      <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
+                    <Link href="/leaderboard" className="block">
+                      <Card className="hover:shadow-md transition-shadow cursor-pointer h-full bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-200">
                         <CardContent className="p-6">
                           <div className="flex items-center justify-between">
                             <div className="min-w-0 flex-1">
-                              <h3 className="font-medium">Explore Languages</h3>
-                              <p className="text-sm text-gray-600 mt-1">Discover new languages</p>
+                              <h3 className="font-medium">Global Leaderboards</h3>
+                              <p className="text-sm text-gray-600 mt-1">Compete with other learners</p>
                             </div>
-                            <Globe className="h-8 w-8 text-blue-500 flex-shrink-0 ml-4" />
+                            <Trophy className="h-8 w-8 text-yellow-500 flex-shrink-0 ml-4" />
                           </div>
                         </CardContent>
                       </Card>
