@@ -249,9 +249,12 @@ You can help users learn vocabulary, translate words, check their progress, and 
 Be encouraging and supportive, acknowledging their specific achievements and progress.
 
 IMPORTANT: When a message contains an image attachment:
-1. First, describe what you see in the image
-2. Then use the analyzeImage tool with that description to find Aboriginal translations for objects in the image
-3. The analyzeImage tool will return translations from the dictionary for the objects detected`,
+1. First, carefully identify ALL specific objects visible in the image (e.g., "chicken", "salad", "vegetables", "plate", "orange", etc.)
+2. Then immediately use the analyzeImage tool with a detailed description that lists each specific object
+3. The analyzeImage tool needs specific object names to find translations in the database
+4. If the user mentions a language (like "in Yalanji" or "analyze in Yalanji"), pass it in the userRequestedLanguage parameter
+5. Focus on translating the actual objects you can see, not general descriptions
+6. Example tool call: analyzeImage({ description: "I see chicken, vegetables, salad, plate, orange", userRequestedLanguage: "Yalanji" })`,
     tools: {
       translateWord: tool({
         description: 'Translate a word across multiple languages',
@@ -519,40 +522,131 @@ IMPORTANT: When a message contains an image attachment:
           description: z.string().describe('The description of what should be analyzed in the image'),
           languages: z.array(z.string()).optional().describe('Specific language codes to translate to'),
           includeContext: z.boolean().default(true).describe('Include cultural context'),
+          userRequestedLanguage: z.string().optional().describe('Language name mentioned by the user (e.g., "Yalanji")')
         }),
         // @ts-ignore - execute function is valid in Vercel AI SDK
-        execute: async ({ description, languages, includeContext = true }) => {
+        execute: async ({ description, languages, includeContext = true, userRequestedLanguage }) => {
           try {
-            console.log('[DEBUG] analyzeImage tool called with:', { description, languages, includeContext });
+            console.log('[DEBUG] analyzeImage tool called with:', { description, languages, includeContext, userRequestedLanguage });
             
             // Parse the description to extract key objects mentioned
-            const commonObjects = ['dog', 'tree', 'water', 'sky', 'person', 'house', 'bird', 'fish', 'sun', 'mountain', 'car', 'food', 'animal', 'plant', 'building', 'landscape'];
-            const detectedItems = commonObjects.filter(obj => 
-              description.toLowerCase().includes(obj)
-            );
+            const detectedItems: string[] = [];
             
-            // If no specific objects found, extract from description
-            if (detectedItems.length === 0) {
-              const nouns = description.match(/\b(?:a|an|the)\s+(\w+)/gi) || [];
-              detectedItems.push(...nouns.map(match => 
-                match.replace(/^(?:a|an|the)\s+/i, '').toLowerCase()
-              ));
+            // Common food items
+            const foodItems = ['chicken', 'beef', 'fish', 'rice', 'bread', 'salad', 'vegetables', 'fruit', 'meat', 'egg', 'cheese', 'soup', 'sandwich'];
+            // Common objects
+            const commonObjects = ['plate', 'bowl', 'cup', 'fork', 'knife', 'spoon', 'table', 'chair', 'glass'];
+            // Nature items
+            const natureItems = ['tree', 'water', 'sky', 'sun', 'mountain', 'river', 'rock', 'grass', 'flower', 'cloud'];
+            // Specific vegetables/fruits
+            const produceItems = ['lettuce', 'tomato', 'onion', 'carrot', 'potato', 'orange', 'apple', 'banana', 'lemon'];
+            
+            // Combine all possible objects
+            const allObjects = [...foodItems, ...commonObjects, ...natureItems, ...produceItems];
+            
+            // Find objects mentioned in the description
+            allObjects.forEach(obj => {
+              if (description.toLowerCase().includes(obj)) {
+                detectedItems.push(obj);
+              }
+            });
+            
+            // Also extract any quoted items or items after "see" or "contains"
+            const quotedItems = description.match(/"([^"]+)"/g) || [];
+            quotedItems.forEach(item => {
+              detectedItems.push(item.replace(/"/g, '').toLowerCase());
+            });
+            
+            // Extract items from patterns like "I see X, Y, and Z"
+            const seePattern = /(?:see|contains?|includes?|shows?|displays?|features?)\s+(?:a |an |the )?([^,.]+(?:,\s*[^,.]+)*)/gi;
+            const matches = description.matchAll(seePattern);
+            for (const match of matches) {
+              const items = match[1].split(/,\s*|\s+and\s+/);
+              items.forEach(item => {
+                const cleaned = item.trim().toLowerCase().replace(/^(a|an|the)\s+/, '');
+                if (cleaned && !detectedItems.includes(cleaned)) {
+                  detectedItems.push(cleaned);
+                }
+              });
             }
 
 
             console.log('[DEBUG] Detected items from description:', detectedItems);
 
+            // Determine which languages to use
+            let targetLanguages = languages || [];
+            
+            // If no languages specified, use user's most learned languages
+            if (targetLanguages.length === 0 && userContext.languages.length > 0) {
+              // Sort by accuracy and take top 3
+              targetLanguages = userContext.languages
+                .sort((a, b) => b.accuracy - a.accuracy)
+                .slice(0, 3)
+                .map(l => l.code);
+              console.log('[DEBUG] Using user\'s top languages:', targetLanguages);
+            }
+            
+            // If still no languages, check if user requested a specific language
+            if (targetLanguages.length === 0 && userRequestedLanguage) {
+              // Get the language code for this language
+              const { data: langData } = await supabase
+                .from('languages')
+                .select('code')
+                .ilike('name', `%${userRequestedLanguage}%`)
+                .single();
+              
+              if (langData) {
+                targetLanguages = [langData.code];
+                console.log('[DEBUG] Using user requested language:', userRequestedLanguage, 'code:', langData.code);
+              }
+            }
+            
+            // If still no languages, check if description mentions a specific language
+            if (targetLanguages.length === 0) {
+              const languageNames = ['yalanji', 'yupik', 'inuktitut', 'ojibwe', 'cree', 'navajo'];
+              for (const lang of languageNames) {
+                if (description.toLowerCase().includes(lang)) {
+                  // Get the language code for this language
+                  const { data: langData } = await supabase
+                    .from('languages')
+                    .select('code')
+                    .ilike('name', `%${lang}%`)
+                    .single();
+                  
+                  if (langData) {
+                    targetLanguages = [langData.code];
+                    console.log('[DEBUG] Found language in description:', lang, 'code:', langData.code);
+                    break;
+                  }
+                }
+              }
+            }
+
             // Fetch translations for detected objects
             const translationPromises = detectedItems.map(async (item) => {
-              const { data: translations } = await supabase
+              let query = supabase
                 .from('words')
                 .select(`
                   word,
+                  language_id,
                   languages(code, name),
                   definitions(definition)
                 `)
-                .ilike('word', item)
-                .limit(10);
+                .ilike('word', item);
+
+              // Filter by target languages if specified
+              if (targetLanguages.length > 0) {
+                const { data: langIds } = await supabase
+                  .from('languages')
+                  .select('id')
+                  .in('code', targetLanguages);
+                
+                if (langIds && langIds.length > 0) {
+                  query = query.in('language_id', langIds.map(l => l.id));
+                }
+              }
+
+              const { data: translations } = await query.limit(10);
 
               return {
                 object: item,
