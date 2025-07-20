@@ -48,8 +48,7 @@ export async function POST(request: NextRequest) {
         accuracy_percentage: accuracy,
         streak: streak,
         avg_response_time_ms: avgResponseTime,
-        completed_at: new Date().toISOString(),
-        is_completed: true
+        completed_at: new Date().toISOString()
       })
       .eq('id', sessionId);
 

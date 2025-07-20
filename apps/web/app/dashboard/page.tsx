@@ -17,8 +17,40 @@ import {
   Activity,
   Users,
   BookOpen,
-  Timer
+  Timer,
+  Heart,
+  ChevronRight,
+  Globe
 } from 'lucide-react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+} from 'chart.js';
+import { Line, Bar, Doughnut } from 'react-chartjs-2';
+import Link from 'next/link';
+
+// Register ChartJS components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+);
 
 interface DashboardStats {
   overview: {
@@ -71,10 +103,21 @@ interface DashboardStats {
   }>;
 }
 
+interface UserLikesStats {
+  totalLikes: number;
+  recentLikes: Array<{
+    id: string;
+    word: string;
+    language: string;
+    likedAt: string;
+  }>;
+}
+
 export default function DashboardPage() {
   const { user, loading } = useAuth();
   const router = useRouter();
   const [stats, setStats] = useState<DashboardStats | null>(null);
+  const [likesStats, setLikesStats] = useState<UserLikesStats | null>(null);
   const [isLoadingStats, setIsLoadingStats] = useState(true);
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'all'>('30d');
 
@@ -87,6 +130,7 @@ export default function DashboardPage() {
     }
 
     fetchDashboardStats();
+    fetchLikesStats();
   }, [user, loading, timeRange]);
 
   const fetchDashboardStats = async () => {
@@ -105,6 +149,27 @@ export default function DashboardPage() {
       console.error('Error fetching dashboard stats:', error);
     } finally {
       setIsLoadingStats(false);
+    }
+  };
+
+  const fetchLikesStats = async () => {
+    try {
+      const response = await fetch('/api/v2/user/likes?limit=5');
+      const data = await response.json();
+      
+      if (!data.error) {
+        setLikesStats({
+          totalLikes: data.pagination.total,
+          recentLikes: data.likes.map((like: any) => ({
+            id: like.id,
+            word: like.word.word,
+            language: like.word.language.name,
+            likedAt: like.liked_at
+          }))
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching likes stats:', error);
     }
   };
 
@@ -127,6 +192,22 @@ export default function DashboardPage() {
   const getBucketName = (bucket: number) => {
     const names = ['New', 'Learning', 'Learning+', 'Review', 'Review+', 'Mastered'];
     return names[bucket] || 'Unknown';
+  };
+
+  // Chart configurations
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
   };
 
   // Show loading while checking auth
@@ -182,6 +263,77 @@ export default function DashboardPage() {
           </Card>
         ) : (
           <div className="space-y-6">
+            {/* Quick Stats with Links */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Liked Words Card */}
+              <Link href="/my-likes" className="block">
+                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-3 bg-red-50 rounded-lg">
+                        <Heart className="h-6 w-6 text-red-600" />
+                      </div>
+                      <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-2xl font-bold">{likesStats?.totalLikes || 0}</p>
+                      <p className="text-sm text-muted-foreground">Liked Words</p>
+                    </div>
+                    {likesStats && likesStats.recentLikes.length > 0 && (
+                      <div className="mt-4 text-xs text-muted-foreground">
+                        Latest: {likesStats.recentLikes[0].word}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </Link>
+
+              {/* Languages Card */}
+              <Link href="/stats" className="block">
+                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-3 bg-blue-50 rounded-lg">
+                        <Globe className="h-6 w-6 text-blue-600" />
+                      </div>
+                      <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-2xl font-bold">{stats.languageProgress.length}</p>
+                      <p className="text-sm text-muted-foreground">Languages</p>
+                    </div>
+                    <div className="mt-4 text-xs text-muted-foreground">
+                      View detailed stats
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+
+              {/* Overall Progress Card */}
+              <Card className="h-full">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 bg-green-50 rounded-lg">
+                      <Trophy className="h-6 w-6 text-green-600" />
+                    </div>
+                    <Badge variant="secondary">{stats.overview.overallAccuracy.toFixed(0)}%</Badge>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-2xl font-bold">{stats.overview.wordsMastered}</p>
+                    <p className="text-sm text-muted-foreground">Words Mastered</p>
+                  </div>
+                  <div className="mt-4">
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div 
+                        className="h-2 rounded-full bg-gradient-to-r from-green-400 to-green-600"
+                        style={{ width: `${(stats.overview.wordsMastered / (stats.overview.wordsLearned || 1)) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
             {/* Overview Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
               <Card>
@@ -233,44 +385,137 @@ export default function DashboardPage() {
               </Card>
             </div>
 
-            {/* Secondary Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* Charts Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Accuracy Trend Chart */}
               <Card>
-                <CardContent className="p-4 text-center">
-                  <div className="text-xl font-semibold text-green-600 mb-1">
-                    {stats.overview.wordsMastered}
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <TrendingUp className="h-5 w-5" />
+                    Accuracy Trend
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="h-64">
+                    <Line 
+                      data={{
+                        labels: stats.recentActivity.slice(-7).map(d => 
+                          new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+                        ),
+                        datasets: [{
+                          label: 'Accuracy',
+                          data: stats.recentActivity.slice(-7).map(d => d.accuracy),
+                          borderColor: 'rgb(59, 130, 246)',
+                          backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                          tension: 0.3,
+                          fill: true
+                        }]
+                      }}
+                      options={{
+                        ...chartOptions,
+                        scales: {
+                          y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                              callback: function(value) {
+                                return value + '%';
+                              }
+                            }
+                          }
+                        }
+                      }}
+                    />
                   </div>
-                  <div className="text-sm text-muted-foreground">Words Mastered</div>
                 </CardContent>
               </Card>
 
+              {/* Language Distribution Chart */}
               <Card>
-                <CardContent className="p-4 text-center">
-                  <div className="text-xl font-semibold text-blue-600 mb-1">
-                    {stats.overview.wordsLearned}
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Globe className="h-5 w-5" />
+                    Language Distribution
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="h-64">
+                    <Doughnut 
+                      data={{
+                        labels: stats.languageProgress.map(l => l.language),
+                        datasets: [{
+                          data: stats.languageProgress.map(l => l.sessions),
+                          backgroundColor: [
+                            'rgba(59, 130, 246, 0.8)',
+                            'rgba(16, 185, 129, 0.8)',
+                            'rgba(251, 146, 60, 0.8)',
+                            'rgba(147, 51, 234, 0.8)',
+                            'rgba(244, 63, 94, 0.8)',
+                            'rgba(20, 184, 166, 0.8)'
+                          ],
+                          borderWidth: 1
+                        }]
+                      }}
+                      options={{
+                        ...chartOptions,
+                        plugins: {
+                          legend: {
+                            display: true,
+                            position: 'right'
+                          }
+                        }
+                      }}
+                    />
                   </div>
-                  <div className="text-sm text-muted-foreground">Words Learning</div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-4 text-center">
-                  <div className="text-xl font-semibold text-yellow-600 mb-1">
-                    {stats.overview.longestStreak}
-                  </div>
-                  <div className="text-sm text-muted-foreground">Best Streak</div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-4 text-center">
-                  <div className="text-xl font-semibold text-indigo-600 mb-1">
-                    {stats.overview.totalQuestions}
-                  </div>
-                  <div className="text-sm text-muted-foreground">Questions Answered</div>
                 </CardContent>
               </Card>
             </div>
+
+            {/* Study Pattern Chart */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Clock className="h-5 w-5" />
+                  Study Pattern by Hour
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="h-64">
+                  <Bar 
+                    data={{
+                      labels: Array.from({ length: 24 }, (_, i) => `${i}:00`),
+                      datasets: [{
+                        label: 'Sessions',
+                        data: Array.from({ length: 24 }, (_, hour) => {
+                          const hourData = stats.timeOfDayStats.find(h => h.hour === hour);
+                          return hourData?.sessions || 0;
+                        }),
+                        backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                        borderColor: 'rgb(59, 130, 246)',
+                        borderWidth: 1
+                      }]
+                    }}
+                    options={{
+                      ...chartOptions,
+                      scales: {
+                        y: {
+                          beginAtZero: true,
+                          ticks: {
+                            stepSize: 1
+                          }
+                        },
+                        x: {
+                          ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 12
+                          }
+                        }
+                      }
+                    }}
+                  />
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Performance by Difficulty Level */}
             <Card>
@@ -316,7 +561,7 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
 
-            {/* Language Progress */}
+            {/* Language Progress with Links */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -327,151 +572,81 @@ export default function DashboardPage() {
               <CardContent>
                 <div className="grid md:grid-cols-2 gap-4">
                   {stats.languageProgress.map((lang) => (
-                    <div key={lang.code} className="border rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-semibold">{lang.language}</h4>
-                        <Badge variant="secondary">{lang.sessions} sessions</Badge>
+                    <Link 
+                      key={lang.code} 
+                      href={`/stats/${lang.code}`}
+                      className="block"
+                    >
+                      <div className="border rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer">
+                        <div className="flex items-center justify-between mb-3">
+                          <h4 className="font-semibold">{lang.language}</h4>
+                          <div className="flex items-center gap-2">
+                            <Badge variant="secondary">{lang.sessions} sessions</Badge>
+                            <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex justify-between text-sm">
+                            <span>Accuracy</span>
+                            <span className={getPerformanceColor(lang.accuracy)}>
+                              {lang.accuracy.toFixed(0)}%
+                            </span>
+                          </div>
+                          <div className="flex justify-between text-sm">
+                            <span>Words Learning</span>
+                            <span>{lang.wordsLearned}</span>
+                          </div>
+                          <div className="flex justify-between text-sm text-muted-foreground">
+                            <span>Last Session</span>
+                            <span>{new Date(lang.lastSession).toLocaleDateString()}</span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
-                          <span>Accuracy</span>
-                          <span className={getPerformanceColor(lang.accuracy)}>
-                            {lang.accuracy.toFixed(0)}%
-                          </span>
-                        </div>
-                        <div className="flex justify-between text-sm">
-                          <span>Words Learning</span>
-                          <span>{lang.wordsLearned}</span>
-                        </div>
-                        <div className="flex justify-between text-sm text-muted-foreground">
-                          <span>Last Session</span>
-                          <span>{new Date(lang.lastSession).toLocaleDateString()}</span>
-                        </div>
-                      </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </CardContent>
             </Card>
 
-            {/* Recent Activity Timeline */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Activity className="h-5 w-5" />
-                  Recent Activity
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {stats.recentActivity.slice(0, 7).map((day, index) => (
-                    <div key={day.date} className="flex items-center justify-between p-3 border rounded-lg">
-                      <div className="flex items-center gap-3">
-                        <div className="text-sm font-medium">
-                          {new Date(day.date).toLocaleDateString('en-US', { 
-                            weekday: 'short', 
-                            month: 'short', 
-                            day: 'numeric' 
-                          })}
-                        </div>
-                        <Badge variant="outline" className="text-xs">
-                          {day.sessions} session{day.sessions !== 1 ? 's' : ''}
-                        </Badge>
-                      </div>
-                      <div className="flex items-center gap-4 text-sm">
-                        <span className={getPerformanceColor(day.accuracy)}>
-                          {day.accuracy.toFixed(0)}%
-                        </span>
-                        <span className="text-muted-foreground">
-                          {formatStudyTime(day.studyTime)}
-                        </span>
-                        {day.streak > 0 && (
-                          <Badge variant="secondary" className="text-xs">
-                            <Zap className="h-3 w-3 mr-1" />
-                            {day.streak}
-                          </Badge>
-                        )}
-                      </div>
+            {/* Recent Likes */}
+            {likesStats && likesStats.recentLikes.length > 0 && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Heart className="h-5 w-5" />
+                      Recent Likes
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Study Time by Hour */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Clock className="h-5 w-5" />
-                  Your Learning Schedule
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-12 gap-1">
-                  {Array.from({ length: 24 }, (_, hour) => {
-                    const hourData = stats.timeOfDayStats.find(h => h.hour === hour);
-                    const sessions = hourData?.sessions || 0;
-                    const maxSessions = Math.max(...stats.timeOfDayStats.map(h => h.sessions));
-                    const intensity = maxSessions > 0 ? sessions / maxSessions : 0;
-                    
-                    return (
-                      <div key={hour} className="text-center">
-                        <div 
-                          className={`h-8 rounded mb-1 ${
-                            intensity > 0.7 ? 'bg-blue-500' :
-                            intensity > 0.4 ? 'bg-blue-300' :
-                            intensity > 0.1 ? 'bg-blue-100' : 'bg-gray-100'
-                          }`}
-                          title={`${hour}:00 - ${sessions} sessions`}
-                        />
-                        <div className="text-xs text-muted-foreground">
-                          {hour}
+                    <Link href="/my-likes">
+                      <Button variant="ghost" size="sm">
+                        View All
+                        <ChevronRight className="h-4 w-4 ml-1" />
+                      </Button>
+                    </Link>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {likesStats.recentLikes.map((like) => (
+                      <div key={like.id} className="flex items-center justify-between p-3 border rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <Heart className="h-4 w-4 text-red-500 fill-red-500" />
+                          <div>
+                            <span className="font-medium">{like.word}</span>
+                            <span className="text-sm text-muted-foreground ml-2">
+                              ({like.language})
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="mt-4 text-sm text-muted-foreground">
-                  Your most active learning time: {
-                    stats.timeOfDayStats.length > 0 
-                      ? `${stats.timeOfDayStats.reduce((max, curr) => curr.sessions > max.sessions ? curr : max).hour}:00`
-                      : 'No data yet'
-                  }
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Weekly Progress Trend */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <TrendingUp className="h-5 w-5" />
-                  Weekly Progress Trend
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {stats.weeklyProgress.map((week, index) => (
-                    <div key={week.week} className="flex items-center justify-between p-3 border rounded-lg">
-                      <div className="flex items-center gap-3">
-                        <div className="text-sm font-medium">
-                          Week of {new Date(week.week).toLocaleDateString()}
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4 text-sm">
-                        <span>{week.sessions} sessions</span>
-                        <span className={getPerformanceColor(week.accuracy)}>
-                          {week.accuracy.toFixed(0)}%
-                        </span>
-                        <span className="text-muted-foreground">
-                          {week.questionsAnswered} questions
+                        <span className="text-sm text-muted-foreground">
+                          {new Date(like.likedAt).toLocaleDateString()}
                         </span>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
           </div>
         )}
       </Section>
