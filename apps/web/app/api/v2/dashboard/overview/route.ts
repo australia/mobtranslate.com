@@ -161,13 +161,15 @@ export async function GET(request: NextRequest) {
     }));
 
     // Calculate overall stats
+    const totalQuestions = sessions?.reduce((sum, s) => sum + (s.total_questions || 0), 0) || 0;
+    const totalCorrect = sessions?.reduce((sum, s) => sum + (s.correct_answers || 0), 0) || 0;
+    const overallAccuracy = totalQuestions > 0 ? (totalCorrect / totalQuestions) * 100 : 0;
+    
     const overviewStats = {
       totalLanguages: languageStats.length,
       totalSessions: sessions?.length || 0,
       totalWords: wordCounts?.length || 0,
-      overallAccuracy: sessions && sessions.length > 0
-        ? sessions.reduce((acc, s) => acc + (s.accuracy_percentage || 0), 0) / sessions.length
-        : 0,
+      overallAccuracy,
       currentStreak: calculateOverallStreak(sessions || []),
       totalStudyTime: languageStats.reduce((sum, lang) => sum + lang.studyTime, 0)
     };
