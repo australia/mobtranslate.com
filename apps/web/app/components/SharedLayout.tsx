@@ -65,6 +65,7 @@ export default function SharedLayout({ children, fullWidth = false }: SharedLayo
   // Navigation links data
   const navLinks: NavLink[] = [
     { title: 'About', href: '/about' },
+    { title: 'History', href: '/history' },
     { title: 'Dictionaries', href: '/dictionaries' },
     { title: 'Contribute', href: 'https://github.com/australia/mobtranslate.com', external: true }
   ];
