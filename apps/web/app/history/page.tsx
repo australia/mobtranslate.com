@@ -49,7 +49,7 @@ export default function HistoryPage() {
                     <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm font-medium">Foundation</span>
                   </div>
                   <p className="text-gray-700">
-                    <strong>Thomas Davis</strong> created MobTranslate.com with a vision to build an open-source 
+                    <strong>Ajax</strong> created MobTranslate.com with a vision to build an open-source 
                     ecosystem for Indigenous language translation. The initial commit laid the foundation for 
                     what would become a comprehensive language preservation platform.
                   </p>
@@ -197,10 +197,10 @@ export default function HistoryPage() {
               
               <div className="bg-blue-50 border-l-4 border-blue-400 p-6 my-8">
                 <p className="text-blue-800 font-medium">
-                  "Technology should serve communities, not the other way around. MobTranslate.com exists 
-                  to empower Indigenous communities with the digital tools they need to keep their languages alive."
+                  MobTranslate.com exists to empower Indigenous communities with the digital tools they need 
+                  to keep their languages alive. For questions or collaboration opportunities, you can contact 
+                  Ajax on Twitter <a href="https://twitter.com/ajaxdavis" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">@ajaxdavis</a>.
                 </p>
-                <p className="text-blue-600 text-sm mt-2">— Thomas Davis, Founder</p>
               </div>
             </div>
           </Section>
