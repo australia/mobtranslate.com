@@ -4,6 +4,7 @@ import { useState, useEffect, ReactNode } from 'react';
 import Link from 'next/link';
 import { Menu, X, Sun, Moon, Github, Heart } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { ModernNav } from '@/components/navigation/ModernNav';
 
 interface NavLink {
   title: string;
@@ -62,7 +63,6 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
 
   // Navigation links data
   const navLinks: NavLink[] = [
-    { title: 'Home', href: '/' },
     { title: 'About', href: '/about' },
     { title: 'Dictionaries', href: '/dictionaries' },
     { title: 'Contribute', href: 'https://github.com/australia/mobtranslate.com', external: true }
@@ -107,10 +107,12 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
+              <ModernNav />
             </nav>
             
             {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center gap-2">
+              <ModernNav />
               <button
                 onClick={toggleDarkMode}
                 className="p-2 rounded-md "
@@ -131,15 +133,15 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
         
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-border">
-            <nav className="container-custom py-4 flex flex-col gap-4 animate-fade-in">
+          <div className="md:hidden">
+            <nav className="container-custom py-4 flex flex-col gap-2 border-t animate-fade-in">
               {navLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
-                  className="text-foreground hover:text-primary transition-colors font-medium py-3 px-2 rounded-md hover:bg-muted/50"
+                  className="text-foreground hover:text-primary transition-colors font-medium py-2 px-3 rounded-md hover:bg-muted/50"
                   onClick={toggleMenu}
                 >
                   {link.title}

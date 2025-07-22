@@ -1,64 +1,109 @@
-'use client';
-
 import Link from 'next/link';
-import Head from 'next/head';
 import SharedLayout from './components/SharedLayout';
-import Translator from './components/Translator';
+import TranslatorWrapper from './components/TranslatorWrapper';
+import { PageHeader, Section, Card, CardContent, Container, Badge } from '@ui/components';
+import { getActiveLanguages } from '@/lib/supabase/queries';
 
-export default function Page() {
+export const revalidate = 3600; // Revalidate every hour
+
+export default async function Page() {
+  const languages = await getActiveLanguages();
+
   return (
     <SharedLayout>
-      <Head>
-        <title>Mob Translate - Indigenous Language Translation</title>
-        <meta
-          name="description"
-          content="A community-driven project to create translation tools for Indigenous languages, making language preservation and learning accessible to all."
-          key="desc"
-        />
-        <script src="https://drainpipe.io/agent/client/673dc10b1adbeb2249ef0536" />
-      </Head>
-      
-      <div className="text-center p-8 max-w-7xl mx-auto mt-4 mb-8">
-        <h1 className="text-4xl mb-4 font-bold">Mob Translate</h1>
-        <p className="text-xl text-foreground/80 max-w-3xl mx-auto mb-4 leading-relaxed">
-          A fully open source community-driven project to make "Google Translate" 
-          for as many Indigenous languages as possible. Join us in preserving 
-          and promoting Indigenous languages through technology.
-        </p>
-      </div>
+      <PageHeader 
+        title="Mob Translate"
+        description="A fully open source community-driven project to make 'Google Translate' for as many Australian Aboriginal languages as possible. Join us in preserving and promoting Indigenous languages through technology."
+      />
 
-      {/* Translator Section - Now at the top */}
-      <Translator />
+      <Section contained={false}>
+        <Container>
+          <TranslatorWrapper languages={languages} />
+        </Container>
+      </Section>
 
-      {/* Dictionaries Section */}
-      <section className="max-w-7xl mx-auto my-8 p-8">
-        <h2 className="text-3xl mb-6">Available Dictionaries</h2>
+      <Section 
+        title="Available Dictionaries"
+        description="Explore our growing collection of Aboriginal language dictionaries"
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Link 
-            href="/dictionaries/kuku_yalanji"
-            className="p-6 no-underline text-foreground transition-colors duration-200 hover:text-primary"
-          >
-            <h3 className="text-xl mb-2">Kuku Yalanji</h3>
-            <p className="text-muted-foreground">Explore the language of the Kuku Yalanji people</p>
-          </Link>
-          
-          <Link 
-            href="/dictionaries/migmaq"
-            className="p-6 no-underline text-foreground transition-colors duration-200 hover:text-primary"
-          >
-            <h3 className="text-xl mb-2">Mi'gmaq</h3>
-            <p className="text-muted-foreground">Discover the Mi'gmaq language and culture</p>
-          </Link>
-          
-          <Link 
-            href="/dictionaries/anindilyakwa"
-            className="p-6 no-underline text-foreground transition-colors duration-200 hover:text-primary"
-          >
-            <h3 className="text-xl mb-2">Anindilyakwa</h3>
-            <p className="text-muted-foreground">Explore the language of the Anindilyakwa people</p>
-          </Link>
+          {languages.map((language) => (
+            <Link 
+              key={language.id} 
+              href={`/dictionaries/${language.code}`} 
+              className="block no-underline"
+            >
+              <Card hover className="h-full">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-2">
+                    <h3 className="text-xl font-crimson">{language.name}</h3>
+                    {language.status && (
+                      <Badge 
+                        variant={
+                          language.status === 'severely endangered' ? 'destructive' : 
+                          language.status === 'endangered' ? 'destructive' :
+                          language.status === 'vulnerable' ? 'secondary' : 
+                          'default'
+                        }
+                        className="text-xs"
+                      >
+                        {language.status}
+                      </Badge>
+                    )}
+                  </div>
+                  <p className="text-muted-foreground font-source-sans mb-3">
+                    {language.description || `Explore the language of the ${language.name} people`}
+                  </p>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    {language.region && (
+                      <Badge variant="outline">{language.region}</Badge>
+                    )}
+                    {language.family && (
+                      <Badge variant="outline">{language.family}</Badge>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
         </div>
-      </section>
+      </Section>
+
+      <Section variant="muted">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl mb-4 font-crimson">Join the Movement</h2>
+          <p className="text-muted-foreground mb-6 font-source-sans">
+            Mob Translate is an open-source initiative dedicated to preserving and promoting 
+            Indigenous Australian languages. We believe that language is culture, and by making 
+            these languages accessible to everyone, we're helping to keep them alive for future 
+            generations.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/about">
+              <Badge variant="secondary" className="cursor-pointer px-4 py-2">
+                Learn More
+              </Badge>
+            </Link>
+            <Link href="https://github.com/jameswsullivan/mobtranslate">
+              <Badge variant="outline" className="cursor-pointer px-4 py-2">
+                Contribute on GitHub
+              </Badge>
+            </Link>
+          </div>
+        </div>
+      </Section>
     </SharedLayout>
   );
+}
+
+export async function generateMetadata() {
+  return {
+    title: 'Mob Translate - Aboriginal Language Translation',
+    description: 'A community-driven project to create translation tools for Australian Aboriginal languages, making language preservation and learning accessible to all.',
+    openGraph: {
+      title: 'Mob Translate - Aboriginal Language Translation',
+      description: 'A community-driven project to create translation tools for Australian Aboriginal languages.',
+      type: 'website',
+    },
+  };
 }

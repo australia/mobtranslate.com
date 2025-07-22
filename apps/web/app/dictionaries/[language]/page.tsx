@@ -1,112 +1,130 @@
 import React from 'react';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { headers } from 'next/headers';
 import SharedLayout from '../../components/SharedLayout';
-import { type Dictionary } from '@dictionaries';
 import DictionarySearch from './components/DictionarySearch';
+import { PageHeader, Section, Breadcrumbs, Badge } from '@ui/components';
+import { getWordsForLanguage } from '@/lib/supabase/queries';
+import type { DictionaryQueryParams } from '@/lib/supabase/types';
+import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
-interface DictionaryResponse {
-  success: boolean;
-  meta: {
-    name: string;
-    description: string;
-    region: string;
-  };
-  data: Array<{
-    word: string;
-    definition?: string;
-    definitions?: string[];
-    type?: string;
-  }>;
-}
-
-async function getDictionaryData(language: string): Promise<DictionaryResponse | null> {
-  try {
-    const headersList = headers();
-    const host = headersList.get('host') || 'localhost:3000';
-    const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
-    
-    const response = await fetch(
-      `${protocol}://${host}/api/dictionaries/${language}`,
-      { 
-        cache: 'no-store',
-        headers: {
-          'Accept': 'application/json'
-        }
-      }
-    );
-    
-    if (!response.ok) {
-      if (response.status === 404) {
-        return null;
-      }
-      throw new Error('Failed to fetch dictionary data');
-    }
-    
-    const data = await response.json();
-    console.log('Dictionary data:', data);
-    return data.success ? data : null;
-  } catch (error) {
-    console.error('Error fetching dictionary data:', error);
-    return null;
-  }
-}
+export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function DictionaryPage({
   params,
   searchParams,
 }: {
   params: { language: string };
-  searchParams: { search?: string };
+  searchParams: { 
+    search?: string;
+    page?: string;
+    limit?: string;
+    sortBy?: string;
+    sortOrder?: string;
+    wordClass?: string;
+    letter?: string;
+  };
 }) {
   const { language } = params;
-  const { search = '' } = searchParams;
   
-  const dictionaryData = await getDictionaryData(language);
-  
-  if (!dictionaryData) {
-    notFound();
-  }
-
-  const { meta, data: words } = dictionaryData;
-  const dictionary = {
-    meta: {
-      ...meta,
-      code: language
-    },
-    words
+  const queryParams: DictionaryQueryParams = {
+    language,
+    search: searchParams.search || undefined,
+    page: parseInt(searchParams.page || '1', 10),
+    limit: parseInt(searchParams.limit || '50', 10),
+    sortBy: (searchParams.sortBy as DictionaryQueryParams['sortBy']) || 'word',
+    sortOrder: (searchParams.sortOrder as DictionaryQueryParams['sortOrder']) || 'asc',
+    wordClass: searchParams.wordClass || undefined,
+    letter: searchParams.letter || undefined,
   };
   
-  return (
-    <SharedLayout>
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-5xl mx-auto space-y-8">
-          {/* Header */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-3xl font-bold tracking-tight">{meta.name} Dictionary</h1>
-                <p className="text-muted-foreground mt-1">{meta.description}</p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center text-sm text-muted-foreground">
-              <span className="mr-2">Region:</span>
-              <span className="font-medium">{meta.region}</span>
-            </div>
-            <div className="flex items-center space-x-2 text-sm">
-              <Link href="/dictionaries" className="text-muted-foreground hover:text-foreground">
-                Dictionaries
-              </Link>
-              <span className="text-muted-foreground">/</span>
-              <span className="text-foreground font-medium">{meta.name}</span>
-            </div>
+  try {
+    const { words, language: languageData, pagination } = await getWordsForLanguage(queryParams);
+    
+    const breadcrumbItems = [
+      { href: '/', label: 'Home' },
+      { href: '/dictionaries', label: 'Dictionaries' },
+      { href: `/dictionaries/${language}`, label: languageData.name }
+    ];
+
+    // Transform data for DictionarySearch component compatibility
+    const dictionary = {
+      meta: {
+        name: languageData.name,
+        description: languageData.description || '',
+        region: languageData.region || '',
+        code: languageData.code
+      },
+      words: transformWordsForUI(words)
+    };
+
+    return (
+      <SharedLayout>
+        <PageHeader 
+          title={`${languageData.name} Dictionary`}
+          description={languageData.description || `Explore the ${languageData.name} language dictionary`}
+        >
+          <div className="flex items-center justify-center gap-2 mt-4">
+            {languageData.region && (
+              <Badge variant="secondary">{languageData.region}</Badge>
+            )}
+            <Badge variant="outline">{pagination.total} words</Badge>
+            {languageData.status && (
+              <Badge variant={languageData.status === 'endangered' ? 'destructive' : 'default'}>
+                {languageData.status}
+              </Badge>
+            )}
           </div>
-          
-          {/* Dictionary search and content */}
-          <DictionarySearch dictionary={dictionary} initialSearch={search} />
-        </div>
-      </div>
-    </SharedLayout>
-  );
+        </PageHeader>
+
+        <Section contained={false}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Breadcrumbs items={breadcrumbItems} className="mb-6" />
+            
+            <DictionarySearch 
+              dictionary={dictionary} 
+              initialSearch={searchParams.search || ''} 
+              pagination={pagination}
+              currentPage={queryParams.page}
+            />
+          </div>
+        </Section>
+      </SharedLayout>
+    );
+  } catch (error) {
+    console.error('Error loading dictionary:', error);
+    
+    if (error instanceof Error && error.message.includes('not found')) {
+      notFound();
+    }
+    
+    throw error; // Let Next.js error boundary handle other errors
+  }
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { language: string };
+}) {
+  try {
+    const { language: languageData } = await getWordsForLanguage({ 
+      language: params.language,
+      limit: 1 
+    });
+    
+    return {
+      title: `${languageData.name} Dictionary - MobTranslate`,
+      description: languageData.description || `Explore the ${languageData.name} language dictionary with translations and cultural context.`,
+      openGraph: {
+        title: `${languageData.name} Dictionary`,
+        description: languageData.description,
+        type: 'website',
+      },
+    };
+  } catch {
+    return {
+      title: 'Dictionary - MobTranslate',
+      description: 'Explore indigenous language dictionaries with translations and cultural context.',
+    };
+  }
 }

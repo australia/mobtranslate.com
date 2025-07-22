@@ -1,13 +1,24 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import Link from 'next/link';
+import React, { useState, useCallback, useTransition, useMemo } from 'react';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { Card, CardContent, CardHeader, CardTitle, SearchInput, Badge, EmptyState, Button, LoadingState } from '@ui/components';
+import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
+import { useDictionary } from '@/lib/hooks/useDictionary';
+import type { DictionaryQueryParams } from '@/lib/supabase/types';
+import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
 interface DictionaryWord {
+  id: string;
   word: string;
   definition?: string;
   definitions?: string[];
   type?: string;
+  translations?: string[];
+  example?: string;
+  phonetic?: string;
+  notes?: string;
+  culturalContext?: string;
 }
 
 interface DictionaryMeta {
@@ -23,114 +34,155 @@ interface DictionarySearchProps {
     words: DictionaryWord[];
   };
   initialSearch?: string;
+  pagination?: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+    hasNext: boolean;
+    hasPrev: boolean;
+  };
+  currentPage?: number;
 }
 
-export default function DictionarySearch({ dictionary, initialSearch = '' }: DictionarySearchProps) {
+export default function DictionarySearch({ 
+  dictionary, 
+  initialSearch = '', 
+  pagination,
+  currentPage = 1 
+}: DictionarySearchProps) {
   const [search, setSearch] = useState(initialSearch);
-  const { meta, words } = dictionary;
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
+  
+  const { meta, words: initialWords } = dictionary;
 
-  const filteredWords = useMemo(() => {
-    const lowerQuery = search.toLowerCase();
-    return words
-      .filter((word) => {
-        const wordLower = word.word.toLowerCase();
-        const definitionLower = (word.definition || '').toLowerCase();
-        const definitionsStringLower = (word.definitions || []).join(' ').toLowerCase();
-        
-        return (
-          wordLower.includes(lowerQuery) || 
-          definitionLower.includes(lowerQuery) || 
-          definitionsStringLower.includes(lowerQuery)
-        );
-      })
-      .filter(word => word.definition || (word.definitions && word.definitions.length > 0));
-  }, [search, words]);
+  // Use SWR for client-side updates when filters change
+  const queryParams: DictionaryQueryParams = {
+    language: meta.code,
+    search: searchParams.get('search') || undefined,
+    page: parseInt(searchParams.get('page') || '1', 10),
+    limit: parseInt(searchParams.get('limit') || '50', 10),
+    sortBy: (searchParams.get('sortBy') as DictionaryQueryParams['sortBy']) || 'word',
+    sortOrder: (searchParams.get('sortOrder') as DictionaryQueryParams['sortOrder']) || 'asc',
+    wordClass: searchParams.get('wordClass') || undefined,
+    letter: searchParams.get('letter') || undefined,
+  };
+
+  const { words: swrWords, pagination: swrPagination, isLoading } = useDictionary(queryParams);
+
+  // Transform SWR words if available
+  const transformedSwrWords = useMemo(() => {
+    return swrWords ? transformWordsForUI(swrWords) : null;
+  }, [swrWords]);
+
+  // Use SWR data if available, otherwise use SSR data
+  const words = transformedSwrWords || initialWords;
+  const currentPagination = swrPagination || pagination;
+
+  const handleSearch = useCallback((value: string) => {
+    setSearch(value);
+    const params = new URLSearchParams(searchParams);
+    
+    if (value) {
+      params.set('search', value);
+      params.set('page', '1'); // Reset to first page on new search
+    } else {
+      params.delete('search');
+    }
+    
+    startTransition(() => {
+      router.push(`${pathname}?${params.toString()}`);
+    });
+  }, [pathname, router, searchParams]);
+
+  const handlePageChange = useCallback((page: number) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('page', page.toString());
+    
+    startTransition(() => {
+      router.push(`${pathname}?${params.toString()}`);
+    });
+  }, [pathname, router, searchParams]);
+
+  const handleWordClick = (word: string) => {
+    router.push(`/dictionaries/${meta.code}/words/${encodeURIComponent(word)}`);
+  };
+
+  const isLoadingOrPending = isLoading || isPending;
 
   return (
-    <>
-      <div className="space-y-4">
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-semibold tracking-tight">Dictionary Words</h2>
-          <div className="flex items-center space-x-4">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search words..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full px-4 py-2 rounded-md border bg-background"
-              />
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <CardTitle>Search Dictionary</CardTitle>
+            <div className="flex items-center gap-2">
+              <Badge variant="secondary">{words.length} displayed</Badge>
+              {currentPagination && (
+                <Badge variant="outline">{currentPagination.total} total</Badge>
+              )}
             </div>
           </div>
-        </div>
-      </div>
+        </CardHeader>
+        <CardContent>
+          <SearchInput
+            placeholder={`Search ${meta.name} words...`}
+            value={search}
+            onChange={(e) => handleSearch(e.target.value)}
+            className="w-full"
+          />
+        </CardContent>
+      </Card>
 
-      {/* Dictionary content */}
-      <div className="mt-6">
-        <div className="space-y-8">
-          {/* Results summary */}
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-muted-foreground">
-              Showing {filteredWords.length} of {words.length} words
-              {search && <span> matching "{search}"</span>}
-            </p>
-          </div>
-
-          {filteredWords.length === 0 ? (
-            <div className="text-center py-12">
-              <h3 className="text-lg font-semibold">No words found</h3>
-              <p className="text-muted-foreground mt-1">Try a different search term</p>
-            </div>
-          ) : (
-            <div className="rounded-md border">
-              <div className="relative w-full overflow-auto">
-                <table className="w-full caption-bottom text-sm">
-                  <thead className="[&_tr]:border-b">
-                    <tr className="border-b transition-colors">
-                      <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Word</th>
-                      <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Type</th>
-                      <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Definition</th>
-                    </tr>
-                  </thead>
-                  <tbody className="[&_tr:last-child]:border-0">
-                    {filteredWords.map((word) => (
-                      <tr 
-                        key={word.word}
-                        className="border-b transition-colors"
-                      >
-                        <td className="p-4 align-middle">
-                          <Link
-                            href={`/dictionaries/${meta.code}/words/${encodeURIComponent(word.word)}`}
-                            className="font-medium text-primary hover:underline"
-                          >
-                            {word.word}
-                          </Link>
-                        </td>
-                        <td className="p-4 align-middle text-muted-foreground">
-                          {word.type || '-'}
-                        </td>
-                        <td className="p-4 align-middle">
-                          {word.definition ? (
-                            <p>{word.definition}</p>
-                          ) : word.definitions && word.definitions.length > 0 ? (
-                            <ul className="list-disc pl-5 space-y-1">
-                              {word.definitions.map((def, idx) => (
-                                <li key={idx}>{def}</li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <p className="text-muted-foreground italic">No definition available</p>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+      {isLoadingOrPending ? (
+        <LoadingState />
+      ) : words.length === 0 ? (
+        <EmptyState
+          title="No words found"
+          description={search ? `No words matching "${search}" in the ${meta.name} dictionary.` : `No words available in the ${meta.name} dictionary yet.`}
+          action={
+            search ? (
+              <Button onClick={() => handleSearch('')} variant="outline">
+                Clear search
+              </Button>
+            ) : undefined
+          }
+        />
+      ) : (
+        <>
+          <DictionaryTableWithLikes 
+            words={words}
+            onWordClick={handleWordClick}
+          />
+          
+          {currentPagination && currentPagination.totalPages > 1 && (
+            <div className="flex justify-center gap-2 mt-6">
+              <Button
+                variant="outline"
+                onClick={() => handlePageChange(currentPagination.page - 1)}
+                disabled={!currentPagination.hasPrev || isLoadingOrPending}
+              >
+                Previous
+              </Button>
+              <div className="flex items-center gap-2 px-4">
+                <span className="text-sm text-muted-foreground">
+                  Page {currentPagination.page} of {currentPagination.totalPages}
+                </span>
               </div>
+              <Button
+                variant="outline"
+                onClick={() => handlePageChange(currentPagination.page + 1)}
+                disabled={!currentPagination.hasNext || isLoadingOrPending}
+              >
+                Next
+              </Button>
             </div>
           )}
-        </div>
-      </div>
-    </>
+        </>
+      )}
+    </div>
   );
 }
