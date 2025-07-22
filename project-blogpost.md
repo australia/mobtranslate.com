@@ -7,6 +7,7 @@ In today's digital world, language preservation has become increasingly importan
 Aboriginal languages carry thousands of years of knowledge, cultural practices, and connection to country. Each language represents a unique way of seeing and understanding the world. When a language is lost, we lose not just words, but entire knowledge systems and cultural perspectives.
 
 Digital preservation offers several advantages:
+
 - Makes language resources accessible to communities anywhere
 - Enables younger generations to connect with their linguistic heritage
 - Creates permanent records of languages that might otherwise be lost
@@ -82,7 +83,6 @@ We've prioritized user experience in several key ways:
 ### Performance Optimizations
 
 - **Smart Loading Strategy**: For smaller dictionaries (less than 3000 words), we load all words at once to provide a seamless browsing experience without pagination. For larger dictionaries, we implement efficient pagination.
-  
 - **Server-Side Rendering**: We use Next.js server-side rendering for optimal performance and SEO benefits.
 
 - **Efficient Data Access**: Our centralized dictionary module provides optimized data access patterns.
@@ -104,6 +104,7 @@ MobTranslate currently includes dictionaries for:
 3. **Anindilyakwa**: A language spoken on Groote Eylandt in the Northern Territory, Australia
 
 Each dictionary includes:
+
 - Word entries with definitions
 - Grammatical information
 - Example sentences
@@ -134,7 +135,3 @@ The most successful language preservation efforts involve the communities who sp
 MobTranslate is an open-source project that welcomes contributors who are passionate about language preservation. Whether you're a developer, linguist, designer, or community member, there are many ways to get involved.
 
 By combining modern technology with cultural respect and linguistic expertise, MobTranslate aims to ensure that Aboriginal languages not only survive but thrive in the digital age.
-
----
-
-*MobTranslate acknowledges the Traditional Owners of the languages featured in our dictionaries and recognizes their continuing connection to land, waters and culture. We pay our respects to their Elders past, present and emerging.*

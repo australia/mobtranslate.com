@@ -70,29 +70,24 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      {/* Header */}
+      {/* Header - Remove scroll effects, simplify background */}
       <header 
         className={cn(
-          "sticky top-0 z-50 w-full border-b transition-all duration-300",
-          isScrolled 
-            ? "bg-background/95 backdrop-blur-md shadow-sm" 
-            : "bg-background"
+          "sticky top-0 z-50 w-full border-b transition-colors duration-300 bg-background"
         )}
       >
-        <div className="container-custom">
+        <div className="container-custom max-w-[800px] mx-auto">
           <div className="flex h-16 sm:h-20 items-center justify-between">
-            {/* Logo */}
+            {/* Logo - Update font */}
             <Link 
               href="/" 
-              className="flex items-center space-x-2 text-xl sm:text-2xl text-primary hover:text-primary/90 transition-all font-roboto font-medium"
+              className="flex items-center space-x-2 text-xl sm:text-2xl text-primary hover:text-primary/90 transition-all font-medium"
             >
-              <div className="w-10 h-10 rounded bg-primary flex items-center justify-center text-white">
-                <span className="font-medium">MT</span>
-              </div>
+            
               <span className="hidden sm:inline">Mob Translate</span>
             </Link>
             
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - Simplify hover effect */}
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <Link
@@ -100,15 +95,14 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
-                  className="relative text-foreground hover:text-primary transition-colors group"
+                  className="text-foreground hover:text-primary transition-colors"
                 >
-                  <span className="relative z-10">{link.title}</span>
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                  {link.title}
                 </Link>
               ))}
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-full bg-muted hover:bg-primary/20 text-foreground transition-colors transform hover:rotate-12 duration-300"
+                className="p-2 rounded-full transform hover:rotate-12 duration-300"
                 aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -121,7 +115,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               <ModernNav />
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-md text-foreground hover:bg-muted transition-colors"
+                className="p-2 rounded-md "
                 aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -135,7 +129,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               </button>
             </div>
           </div>
-        </div>
+        </div> {/* <-- Added this closing tag */}
         
         {/* Mobile Menu */}
         {isMenuOpen && (
@@ -158,14 +152,14 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
         )}
       </header>
       
-      {/* Main Content */}
-      <main className="flex-1 container-custom py-8 sm:py-12">
+      {/* Main Content - Apply max-width and center */}
+      <main className="flex-1 container-custom py-8 sm:py-12 max-w-[800px] mx-auto">
         {children}
       </main>
       
-      {/* Footer */}
-      <footer className="mt-auto py-8 border-t border-border bg-secondary/20">
-        <div className="container-custom">
+      {/* Footer - Remove background, simplify elements */}
+      <footer className="mt-auto py-8 border-t border-border">
+        <div className="container-custom max-w-[800px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* About */}
             <div>
@@ -174,22 +168,14 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                 A community-driven project dedicated to preserving and promoting 
                 Australian Aboriginal languages through accessible translation tools.
               </p>
-              <p className="mt-4 text-muted-foreground">
-                Built by Thomas Davis. You can reach him at:
-              </p>
-              <div className="mt-2 flex items-center gap-2">
-                <a href="mailto:thomasalwyndavis@gmail.com" className="text-primary hover:text-primary/80 transition-all duration-200 underline">
-                  thomasalwyndavis@gmail.com
-                </a>
-              </div>
-              <div className="mt-2">
-                <a href="https://twitter.com/ajaxdavis" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-all duration-200 underline">
-                  @ajaxdavis on Twitter
+              <div className="mt-4">
+                <a href="https://twitter.com/ajaxdavis" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-all duration-200 underline inline-flex items-center gap-1">
+                  Contact via @ajaxdavis on Twitter
                 </a>
               </div>
             </div>
             
-            {/* Quick Links */}
+            {/* Quick Links - Simplify link style */}
             <div>
               <h3 className="text-lg font-medium mb-4">Quick Links</h3>
               <ul className="space-y-3">
@@ -199,9 +185,8 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                       href={link.href}
                       target={link.external ? '_blank' : undefined}
                       rel={link.external ? 'noopener noreferrer' : undefined}
-                      className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center group"
+                      className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary mr-2 group-hover:opacity-80 transition-opacity"></span>
                       {link.title}
                     </Link>
                   </li>
@@ -209,7 +194,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               </ul>
             </div>
             
-            {/* Connect */}
+            {/* Connect - Simplify button style */}
             <div>
               <h3 className="text-lg font-medium mb-4">Connect</h3>
               <div className="flex items-center gap-4">
@@ -217,7 +202,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                   href="https://github.com/australia/mobtranslate.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-foreground/5 hover:bg-primary/10 text-primary rounded transition-colors"
+                  className="p-2 text-primary hover:text-primary/80 transition-colors"
                   aria-label="GitHub Repository"
                 >
                   <Github size={20} />
@@ -226,7 +211,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                   href="https://github.com/australia/mobtranslate.com/stargazers"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-foreground/5 hover:bg-primary/10 text-primary rounded transition-colors"
+                  className="p-2 text-primary hover:text-primary/80 transition-colors"
                   aria-label="Star on GitHub"
                 >
                   <Heart size={20} />
@@ -239,8 +224,9 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             </div>
           </div>
           
+          {/* Update font */}
           <div className="mt-8 pt-6 border-t border-border/30 text-center text-muted-foreground">
-            <p className="font-inter">
+            <p className="font-space-grotesk">
               {new Date().getFullYear()} Mob Translate
             </p>
           </div>

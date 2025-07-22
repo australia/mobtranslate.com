@@ -1,0 +1,103 @@
+ID,Parameter_ID,Language_ID,Value,Source
+phoneme-inventory-size,phoneme-inventory,gvn,16,§2.1
+consonant-count,consonant-count,gvn,13,§2.1
+vowel-count,vowel-count,gvn,3,§2.1
+lateral-consonant-count,lateral-count,gvn,1,§2.1.1
+rhotic-consonant-count,rhotic-count,gvn,2,§2.1.1
+semivowel-count,semivowel-count,gvn,2,§2.1.1
+stop-aspiration,stop-aspiration,gvn,no,§2.1.1
+voiced-voiceless-distinction,voiced-voiceless,gvn,no,§2.1.1
+vowel-inventory-count,vowel-count,gvn,3,§2.1.2
+vowel-articulation-type,pure-articulation,gvn,yes,§2.1.2
+vowel-length-distinction,vowel-length,gvn,no,§2.1.2
+vowel-classification,vowel-classification,gvn,short,§2.1.2
+vowel-variation,vowel-variation,gvn,little,§2.1.2
+root-syllable-structure,syllable-structure,gvn,"C1 (V C2)n V (C3) where n ≥ 1",§2
+root-syllable-count,disyllabic-roots,gvn,"majority disyllabic",§2
+monosyllabic-roots,monosyllabic-roots,gvn,no,§2
+trisyllabic-roots,trisyllabic-roots,gvn,200,§2
+four-syllable-roots,four-syllable-roots,gvn,81,§2
+five-syllable-roots,five-syllable-roots,gvn,4,§2
+phonotactic-structure,vowel-allowed,gvn,any,§2.2.1
+phonotactic-structure,c1-consonant-type,gvn,stop-nasal-semivowel,§2.2.1
+phonotactic-structure,c2-consonant-type,gvn,any-single-or-cluster,§2.2.1
+phonotactic-structure,c3-consonant-type,gvn,non-peripheral-nasal-lateral-rhotic-lamino-palatal,§2.2.1
+intermorphemic-cluster-restriction,geminate-consonants,gvn,no,§2.2.1
+phonological-adaptation,loan-words-adapted,gvn,yes,§2.3
+phonological-adaptation-ceased,loan-words-adaptation-ceased,gvn,true,§2.3
+bilingualism,english-bilingualism,gvn,present,§2.3
+phonotactics,initial-consonant-permitted,gvn,no,§2.3
+loan-words-integral,integral-loan-words,gvn,score,§2.3
+phonetic-assimilation-count,assimilation-count,gvn,3,§2.4
+assimilation-rule-1,regressive-assimilation-1,gvn,present,§2.4
+assimilation-rule-2,regressive-assimilation-2,gvn,present,§2.4
+assimilation-rule-3,regressive-assimilation-3,gvn,present,§2.4
+palatalisation-strength,vowel-palatalisation-strength,gvn,stronger-with-a,§2.4
+phonemic-distinction-negation,phonemic-distinction-negation,gvn,true,§2.4
+variation-in-labialisation,labialisation-variation,gvn,true,§2.4
+vowel-harmony,present,gvn,yes,§2.5.1
+semivowel-deletion-rule,semivowel-deletion,gvn,present,§2.5.2
+final-semivowel-absence,final-semivowel-absence,gvn,true,§2.5.2
+inflectional-allomorphs,inflectional-allomorphs,gvn,present,§2.5.2
+nonpast-inflection-absence,nonpast-inflection-absence,gvn,true,§2.5.2
+syllable-reduction,locative-reduction,gvn,yes,§2.5.3
+syllable-reduction,causative-reduction,gvn,yes,§2.5.3
+syllable-reduction,reduplication-norm,gvn,yes,§2.5.3
+reduplication-pattern,first-syllable-reduplication,gvn,4,§2.5.3
+reduplication-pattern,second-syllable-reduplication,gvn,3,§2.5.3
+word-stress-position,primary-stress-first-syllable,gvn,yes,§2.6.1
+secondary-stress-optional,secondary-stress-optional,gvn,true,§2.6.1
+secondary-stress-on-reduplicated,secondary-stress-reduplicated,gvn,true,§2.6.1
+secondary-stress-on-disyllabic,secondary-stress-disyllabic,gvn,true,§2.6.1
+monosyllabic-inflections-unstressed,monosyllabic-inflections-unstressed,gvn,true,§2.6.1
+clause-stress-pattern,word-stress,gvn,first-syllable,§2.6.2
+clause-stress-obligation,obligatory-stress,gvn,true,§2.6.2
+clause-stress-optionality,optional-stress,gvn,true,§2.6.2
+interrogative-stress-pattern,interrogative-pronoun-stress,gvn,true,§2.6.2
+polar-question-stress,predicator-stress,gvn,true,§2.6.2
+word-classes-count,word-classes,gvn,10,§3.1
+word-class-type,open-closed,gvn,partly,§3.1
+word-class-closed,closed-word-classes,gvn,true,§3.1.1
+word-class-open,open-word-classes,gvn,true,§3.1.1
+inflection-nominals,inflection-nominals,gvn,true,§3.1.1
+inflection-verbs,inflection-verbs,gvn,true,§3.1.1
+case-system-nominals,case-system-nominals,gvn,true,§3.1.1
+transitive-intransitive-distinction,transitive-intransitive,gvn,true,§3.1.1
+adjective-properties,adjective-properties,gvn,true,§3.1.1
+quantifiers,quantifiers,gvn,true,§3.1.1
+noun-classes,noun-adjective-quantifier,gvn,3,§3.2
+adjective-comparative-marker,comparative-marker,gvn,jarra,§3.2
+adjective-intensity-marker,intensity-marker,gvn,-baja(ku),§3.2
+noun-derivational-affixes,derivational-affixes,gvn,except-possessive-comitative-privative,§3.2
+quantifier-case-inflections,quantifier-case-inflections,gvn,neutral-set,§3.2
+case-system-type,case-inflection-system,gvn,present,§3.2.1
+morphological-case-count,case-count,gvn,8,§3.2.1
+case-function-absolutive,absolutive-function,gvn,intransitive-subject-transitive-object,§3.2.1
+case-function-ergative,ergative-function,gvn,transitive-subject,§3.2.1
+case-system-type,instrumental,gvn,present,§3.2.3
+case-system-type,dative,gvn,present,§3.2.3
+case-system-type,locative-allative-ablative-abessive-perlative,gvn,present,Local cases
+inflectional-allomorphs,inflectional-allomorphs,gvn,two sets,Local cases
+neutral-inflection,neutral-inflection,gvn,present,Local cases
+potent-inflection,potent-inflection,gvn,present,Local cases
+absolutive-case-inflection,absolutive-zero,gvn,true,§3.2.3
+ergative-case-allomorphs,ergative-allomorphs,gvn,present,§3.2.3
+instrumental-case-allomorphs,instrumental-allomorphs,gvn,present,§3.2.3
+noun-classes,body-part-nouns,gvn,1,§-bu/V-
+noun-classes,material-nouns,gvn,1,§-bu/V-
+noun-classes,plant-nouns,gvn,1,§-bu/V-
+noun-classes,celestial-nouns,gvn,1,§Vbu/r-
+noun-classes,object-nouns,gvn,1,§Vbu/r-
+noun-derivation-suffix,noun-derivation,gvn,-njV/y-,§3.2.3
+ergative-allomorphs,potent-ergative-allomorphs,gvn,present,§3.2.3
+noun-derivation,derivational-affix,gvn,-ngkV/V-,§3.2.3
+case-system-type,ergative-absolutive,gvn,present,Table 3.1
+morphological-case-count,case-count,gvn,12,Table 3.1
+ergative-case-marking,ergative-case,gvn,marked,Table 3.1
+absolutive-case-marking,absolutive-case,gvn,unmarked,Table 3.1
+instrumental-case-marking,instrumental-case,gvn,marked,Table 3.1
+dative-case-marking,dative-case,gvn,marked,Table 3.1
+ablative-case-marking,ablative-case,gvn,marked,Table 3.1
+abessive-case-marking,abessive-case,gvn,marked,Table 3.1
+perlative-case-marking,perlative-case,gvn,marked,Table 3.1
+noun-derivation-suffix,noun-derivation,gvn,-nkV/V-,§3.2.3

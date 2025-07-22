@@ -1,0 +1,84 @@
+ID,Parameter_ID,Language_ID,Value,Source
+vowel-occurence,vowel-any,gvn,true,§2.2.1
+c1-constraints,c1-single-consonant,gvn,true,§2.2.1
+c1-allowed-classes,c1-allowed-classes,gvn,"stop, nasal, semivowel",§2.2.1
+c2-constraints,c2-single-or-cluster,gvn,true,§2.2.1
+c3-constraints,c3-single-consonant,gvn,true,§2.2.1
+geminate-consonants,geminate-allowed,gvn,false,§2.2.1
+phonological-adaptation,loan-words-adaptation,gvn,yes,§2.3
+phonotactics,initial-consonant-permitted,gvn,no,§2.3
+phonotactics,final-consonant-adaptation,gvn,yes,§2.3
+loan-words-integration,integral-loans,gvn,score,§2.3
+assimilation-rules-count,assimilation-rules,gvn,3,§2.4
+regressive-assimilation,regressive-assimilation,gvn,yes,§2.4
+palatalisation-strength,palatalisation-strength,gvn,stronger-with-a,§2.4
+labialisation-variation,labialisation-variation,gvn,high,§2.4
+vowel-harmony,present,gvn,yes,§2.5.1
+semivowel-deletion-rule,semivowel-deletion,gvn,present,§2.5.2
+final-semivowel-absence,final-semivowel-absence,gvn,true,§2.5.2
+inflectional-allomorphs,inflectional-allomorphs,gvn,present,§2.5.2
+nonpast-inflection-absence,nonpast-inflection-absence,gvn,true,§2.5.2
+reduplication-pattern,first-syllable-reduplication,gvn,present,§2.5.3
+reduplication-pattern,second-syllable-reduplication,gvn,present,§2.5.3
+reduction-acceptance,causative-reduction-accepted,gvn,true,§2.5.3
+reduction-acceptance,locative-reduction-accepted,gvn,false,§2.5.3
+word-stress-primary,primary-stress,gvn,first-syllable,§2.6.1
+secondary-stress-optional,secondary-stress,gvn,no,§2.6.1
+secondary-stress-position,secondary-stress-position,gvn,third-or-fourth-syllable,§2.6.1
+monosyllabic-inflections-stress,monosyllabic-inflections-stress,gvn,unstressed,§2.6.1
+long-words-stress,long-words-stress,gvn,first-syllable,§2.6.1
+clause-stress-pattern,word-stress,gvn,first-syllable,§2.6.2
+clause-stress-optionality,stress-optional,gvn,true,§2.6.2
+interrogative-pronoun-stress,interrogative-stress,gvn,true,§2.6.2
+polar-question-stress,predicator-stress,gvn,true,§2.6.2
+word-classes-count,word-classes,gvn,10,§3.1
+closed-word-classes,closed-word-classes,gvn,present,§3.1
+open-word-classes,open-word-classes,gvn,present,§3.1
+word-class-closed,closed-word-classes,gvn,true,§3.1.1
+word-class-open,open-word-classes,gvn,true,§3.1.1
+case-system,syntactic-local-cases,gvn,present,§3.1.1
+verb-inflection-tense,tense-inflection,gvn,true,§3.1.1
+verb-inflection-aspect,aspect-inflection,gvn,true,§3.1.1
+verb-inflection-mood,mood-inflection,gvn,true,§3.1.1
+particle-inflection,particle-inflection,gvn,no,§3.1.1
+noun-referent,nominal-referents,gvn,present,§3.1.1
+adjective-function,adjective-properties,gvn,present,§3.1.1
+quantifier-existence,quantifiers,gvn,present,§3.1.1
+noun-adjective-quantifier-distinction,nominal-distinction,gvn,yes,§3.2
+comparative-intensity-markers,comparative-intensity,gvn,yes,§3.2
+derivational-affixes-exclusivity,derivational-affixes,gvn,limited-to-nouns,§3.2
+quantifier-case-inflection,quantifier-case-inflection,gvn,neutral-set-only,§3.2
+case-system-count,case-count,gvn,8,§3.2.1
+case-function-absolutive,absolutive-function,gvn,intransitive-subject-transitive-object,§3.2.1
+case-function-ergative,ergative-function,gvn,transitive-subject,§3.2.1
+case-system-type,instrumental,gvn,present,§Peripheral syntactiC cases
+case-system-type,dative,gvn,present,§Peripheral syntactiC cases
+case-system-type,locative-allative-ablative-abessive-perlative,gvn,present,Local cases
+inflectional-allomorphs,inflectional-allomorphs,gvn,two sets,Local cases
+case-inflection-neutrality,neutral-inflection,gvn,yes,Local cases
+case-inflection-potency,potent-inflection,gvn,yes,Local cases
+absolutive-case-inflection,absolutive-zero,gvn,true,§3.2.3
+noun-classes,body-parts,gvn,present,§3.2.3
+noun-classes,natural-objects,gvn,present,§3.2.3
+noun-classes,artifacts,gvn,present,§3.2.3
+noun-derivation,derivation,gvn,present,§-njV/y-
+ergative-allomorphs,potent-ergative-allomorphs,gvn,present,§3.2.3
+noun-derivation,derivational-morpheme,gvn,-ngkV/V-,§3.2.3
+case-system-type,ergative-absolutive,gvn,present,§3.2.3
+morphological-case-count,case-count,gvn,13,§3.2.3
+ergative-case-marking,ergative-case-marking,gvn,"-bu/V-, -ngkV/V-",§3.2.3
+dative-case-marking,dative-case-marking,gvn,"-ngkV/y-, -nkV/V-, -VkV/r-, -VnkV/C-, -kV/elsewhere",§3.2.3
+ablative-case-marking,ablative-case-marking,gvn,"-muny",§3.2.3
+abessive-case-marking,abessive-case-marking,gvn,"-mundu",§3.2.3
+perlative-case-marking,perlative-case-marking,gvn,"-burr/V-, -Vburr/r-, -jVrr/y-, -dVrr/elsewhere",§3.2.3
+noun-derivation-suffix,noun-derivation,gvn,-nkV/V-,§3.2.3
+noun-derivation,mbV/y,gvn,present,§-mbV/y-
+noun-class,body-part,gvn,present,§-b V / elsewhere
+noun-class,plant,gvn,present,§-b V / elsewhere
+noun-class,food,gvn,present,§-b V / elsewhere
+noun-formation,ndv-structure,gvn,present,§-ndV/V-
+neutral-ablative-form,neutral-ablative,gvn,-muny,§3.2.3
+potent-ablative-form,potent-ablative,gvn,Locative + muny,§3.2.3
+abessive-form,abessive-form,gvn,-mundu,§3.2.3
+noun-derivation,derivation-type,gvn,burr,§-burr/V-
+noun-classes,island-wind,gvn,present,§-Vburrlr-

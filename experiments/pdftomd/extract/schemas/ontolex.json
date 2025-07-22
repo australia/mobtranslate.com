@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["@context", "@graph"],
+  "properties": {
+    "@context": {
+      "type": ["string", "object"],
+      "description": "JSON-LD context, typically 'https://www.w3.org/ns/lemon/ontolex.json' or an object with prefixes"
+    },
+    "@graph": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["@id", "@type", "lemma"],
+        "properties": {
+          "@id": { "type": "string" },
+          "@type": { "type": "string", "enum": ["LexicalEntry"] },
+          "lemma": { 
+            "type": "object",
+            "required": ["@value"],
+            "properties": {
+              "@value": { "type": "string" },
+              "@language": { "type": "string" }
+            }
+          },
+          "lexicalForm": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["@value"],
+              "properties": {
+                "@value": { "type": "string" },
+                "@language": { "type": "string" }
+              }
+            }
+          },
+          "partOfSpeech": { "type": "string" },
+          "definition": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["@value"],
+              "properties": {
+                "@value": { "type": "string" },
+                "@language": { "type": "string" }
+              }
+            }
+          },
+          "grammaticalProperty": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "source": { "type": "string" }
+        }
+      }
+    }
+  }
+}

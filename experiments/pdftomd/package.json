@@ -1,0 +1,16 @@
+{
+  "name": "pdftomd",
+  "version": "1.0.0",
+  "main": "pdftomd.js",
+  "scripts": {
+    "start": "node pdftomd.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "PDF to Markdown conversion using Datalab API",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "form-data": "^4.0.0",
+    "pdf-lib": "^1.17.1"
+  }
+}

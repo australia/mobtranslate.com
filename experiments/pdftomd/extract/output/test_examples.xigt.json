@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "transcript": "burrir-aburr",
+      "gloss": [
+        {
+          "morpheme": "burrir",
+          "gloss": "island"
+        },
+        {
+          "morpheme": "-aburr",
+          "gloss": ""
+        }
+      ],
+      "translation": "island",
+      "source": "-Vburrlr-"
+    },
+    {
+      "transcript": "muyar-aburr",
+      "gloss": [
+        {
+          "morpheme": "muyar",
+          "gloss": "wind, air"
+        },
+        {
+          "morpheme": "-aburr",
+          "gloss": ""
+        }
+      ],
+      "translation": "wind, air",
+      "source": "-Vburrlr-"
+    }
+  ]
+}

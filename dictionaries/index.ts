@@ -120,11 +120,70 @@ export function getSupportedLanguages(): { code: LanguageCode; meta: DictionaryM
 }
 
 /**
+ * Get the lexicon file for a specific language
+ * @param language The language code or slug
+ * @returns The lexicon content as a string or null if not found
+ */
+export function getLexicon(language: string): string | null {
+  try {
+    // Normalize the language code/slug
+    const slug = language.toLowerCase().replace(' ', '_');
+    
+    // Check if this is a supported language
+    if (!Object.keys(dictionaryMeta).includes(slug)) {
+      console.error(`Language not supported for lexicon: ${language}`);
+      return null;
+    }
+    
+    // Get the lexicon file path using multiple possible locations
+    // Try different paths to handle various environments (local dev, production, etc.)
+    const possiblePaths = [
+      // Direct path from current directory
+      path.join(process.cwd(), 'dictionaries', slug, 'lexicon.jsonld'),
+      // Path from monorepo root
+      path.join(process.cwd(), '..', '..', 'dictionaries', slug, 'lexicon.jsonld'),
+      // Path relative to this module
+      path.join(__dirname, slug, 'lexicon.jsonld'),
+      // If we're in the dist directory
+      path.join(__dirname, '..', slug, 'lexicon.jsonld'),
+      // Absolute path as a last resort
+      path.resolve('/home/ajax/repos/mobtranslate.com/dictionaries', slug, 'lexicon.jsonld')
+    ];
+    
+    // Find the first path that exists
+    let lexiconPath = '';
+    for (const p of possiblePaths) {
+      if (fs.existsSync(p)) {
+        lexiconPath = p;
+        break;
+      }
+    }
+    
+    // If no path was found, use the first one for error reporting
+    if (!lexiconPath) {
+      lexiconPath = possiblePaths[0];
+    }
+    
+    // Check if the file exists
+    if (!fs.existsSync(lexiconPath)) {
+      console.error(`Lexicon file not found at: ${lexiconPath}`);
+      return null;
+    }
+    
+    // Read and return the lexicon file
+    return fs.readFileSync(lexiconPath, 'utf-8');
+  } catch (error) {
+    console.error(`Error loading lexicon for ${language}:`, error);
+    return null;
+  }
+}
+
+/**
  * Get the dictionary for a specific language
  * @param language The language code
  * @returns The dictionary object or null if not found
  */
-export default async function getDictionary(language: string): Promise<Dictionary | null> {
+async function getDictionary(language: string): Promise<Dictionary | null> {
   try {
     if (!Object.keys(dictionaryMeta).includes(language)) {
       console.error(`Language not supported: ${language}`);
@@ -148,3 +207,6 @@ export default async function getDictionary(language: string): Promise<Dictionar
     return null;
   }
 }
+
+// Default export
+export default getDictionary;
