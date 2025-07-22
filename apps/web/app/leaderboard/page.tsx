@@ -88,9 +88,9 @@ export default function LeaderboardOverviewPage() {
     : 0;
 
   return (
-    <SharedLayout>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <SharedLayout fullWidth>
+      <div className="min-h-screen">
+        <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <PageHeader
             title="Global Leaderboards"
             description="Compete across languages and track your progress worldwide"
@@ -122,8 +122,8 @@ export default function LeaderboardOverviewPage() {
           ) : overviewData ? (
             <>
               {/* Global Statistics */}
-              <Section className="mt-8">
-                <h2 className="text-xl font-semibold mb-4 flex items-center">
+              <Section className="mt-12">
+                <h2 className="text-2xl font-semibold mb-8 flex items-center">
                   <Zap className="h-5 w-5 mr-2 text-yellow-500" />
                   Global Statistics
                 </h2>
@@ -137,12 +137,12 @@ export default function LeaderboardOverviewPage() {
 
               {/* Active Languages */}
               {overviewData.leaderboards.length > 0 ? (
-                <Section className="mt-8">
-                  <h2 className="text-xl font-semibold mb-6 flex items-center">
+                <Section className="mt-12">
+                  <h2 className="text-2xl font-semibold mb-8 flex items-center">
                     <Trophy className="h-5 w-5 mr-2 text-purple-500" />
                     Language Leaderboards
                   </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
                     {overviewData.leaderboards.map((leaderboard) => (
                       <LeaderboardCard
                         key={leaderboard.languageId}
@@ -159,7 +159,7 @@ export default function LeaderboardOverviewPage() {
                   </div>
                 </Section>
               ) : (
-                <Section className="mt-8">
+                <Section className="mt-12">
                   <div className="text-center py-12">
                     <Trophy className="h-16 w-16 text-gray-300 mx-auto mb-4" />
                     <h3 className="text-lg font-medium text-gray-900 mb-2">No Active Leaderboards</h3>
@@ -186,15 +186,15 @@ export default function LeaderboardOverviewPage() {
 
               {/* All Languages (including inactive) */}
               {overviewData.allLanguages.filter(l => l.totalParticipants === 0).length > 0 && (
-                <Section className="mt-8">
-                  <h2 className="text-xl font-semibold mb-6 flex items-center">
+                <Section className="mt-12">
+                  <h2 className="text-2xl font-semibold mb-8 flex items-center">
                     <Globe className="h-5 w-5 mr-2 text-gray-500" />
                     Available Languages
                     <span className="ml-2 text-sm font-normal text-gray-600">
                       (No activity yet)
                     </span>
                   </h2>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
                     {overviewData.allLanguages
                       .filter(l => l.totalParticipants === 0)
                       .map((language) => (

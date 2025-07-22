@@ -99,7 +99,7 @@ export default function StatsPage() {
 
   if (loading || isLoadingStats) {
     return (
-      <SharedLayout>
+      <SharedLayout fullWidth>
         <Section>
           <LoadingState />
         </Section>
@@ -112,7 +112,7 @@ export default function StatsPage() {
   }
 
   return (
-    <SharedLayout>
+    <SharedLayout fullWidth>
       <PageHeader 
         title="Your Learning Stats"
         description="Track your progress across all languages"

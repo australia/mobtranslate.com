@@ -14,9 +14,10 @@ interface NavLink {
 
 interface SharedLayoutProps {
   children: ReactNode;
+  fullWidth?: boolean;
 }
 
-export default function SharedLayout({ children }: SharedLayoutProps) {
+export default function SharedLayout({ children, fullWidth = false }: SharedLayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -73,41 +74,45 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
       {/* Header - Remove scroll effects, simplify background */}
       <header 
         className={cn(
-          "sticky top-0 z-50 w-full border-b transition-colors duration-300 bg-background"
+          "sticky top-0 z-50 w-full border-b shadow-sm transition-all duration-300 bg-background/95 backdrop-blur-sm"
         )}
       >
-        <div className="container-custom max-w-[800px] mx-auto">
-          <div className="flex h-16 sm:h-20 items-center justify-between">
+        <div className={cn(
+          "mx-auto",
+          fullWidth ? "max-w-[1920px] 2xl:max-w-[2200px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16" : "container-custom max-w-[800px]"
+        )}>
+          <div className="flex h-20 sm:h-24 items-center justify-between">
             {/* Logo - Update font */}
             <Link 
               href="/" 
-              className="flex items-center space-x-2 text-xl sm:text-2xl text-primary hover:text-primary/90 transition-all font-medium"
+              className="flex items-center space-x-3 text-2xl sm:text-3xl font-bold text-foreground hover:text-primary transition-all"
             >
-            
-              <span className="hidden sm:inline">Mob Translate</span>
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Mob Translate</span>
             </Link>
             
             {/* Desktop Navigation - Simplify hover effect */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-6 lg:gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
-                  className="text-foreground hover:text-primary transition-colors"
+                  className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.title}
                 </Link>
               ))}
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 rounded-full transform hover:rotate-12 duration-300"
-                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-              <ModernNav />
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={toggleDarkMode}
+                  className="p-2.5 rounded-lg hover:bg-muted transition-colors"
+                  aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                >
+                  {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
+                <ModernNav />
+              </div>
             </nav>
             
             {/* Mobile Menu Button */}
@@ -153,7 +158,10 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
       </header>
       
       {/* Main Content - Apply max-width and center */}
-      <main className="flex-1 container-custom py-8 sm:py-12 max-w-[800px] mx-auto">
+      <main className={cn(
+        "flex-1 mx-auto",
+        fullWidth ? "max-w-full py-6 sm:py-8 lg:py-12" : "container-custom py-8 sm:py-12 max-w-[800px]"
+      )}>
         {children}
       </main>
       

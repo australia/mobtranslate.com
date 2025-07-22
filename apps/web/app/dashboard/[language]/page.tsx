@@ -145,9 +145,9 @@ export default function LanguageDashboardPage() {
   };
 
   return (
-    <SharedLayout>
-      <div className="min-h-screen bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <SharedLayout fullWidth>
+      <div className="min-h-screen">
+        <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="mb-6 animate-slide-in">
             <Link href="/dashboard" className="inline-flex items-center text-gray-600 hover:text-gray-900">
               <ChevronLeft className="h-4 w-4 mr-1" />
@@ -196,7 +196,7 @@ export default function LanguageDashboardPage() {
             <>
               {/* Overview Stats */}
               <Section className="mt-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                   <StatsCard
                     title="Total Sessions"
                     value={dashboardData.overview.totalSessions}
@@ -392,7 +392,7 @@ export default function LanguageDashboardPage() {
               {/* Quick Actions */}
               <Section className="mt-8 mb-8">
                 <h2 className="text-lg sm:text-xl font-semibold mb-4">Quick Actions</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                   <Link href={`/learn/${language}`} className="block animate-slide-in hover-lift">
                     <div className="bg-white rounded-xl border hover:border-green-300 p-4 sm:p-6 h-full transition-all">
                       <div className="flex items-center justify-between">

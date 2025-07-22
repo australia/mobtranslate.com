@@ -75,9 +75,9 @@ export default function DashboardPage() {
   };
 
   return (
-    <SharedLayout>
-      <div className="min-h-screen bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <SharedLayout fullWidth>
+      <div className="min-h-screen">
+        <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <PageHeader
             title="Learning Dashboard"
             description="Track your progress across all languages"
@@ -103,8 +103,8 @@ export default function DashboardPage() {
           ) : (
             <>
               {/* Overview Stats */}
-              <Section className="mt-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+              <Section className="mt-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
                   <StatsCard
                     title="Languages"
                     value={overviewStats.totalLanguages}
@@ -164,13 +164,13 @@ export default function DashboardPage() {
               </Section>
 
               {/* Language Cards */}
-              <Section className="mt-8">
-                <h2 className="text-xl font-semibold mb-6 flex items-center">
+              <Section className="mt-12">
+                <h2 className="text-2xl font-semibold mb-8 flex items-center">
                   <Zap className="h-5 w-5 mr-2 text-yellow-500" />
                   Your Languages
                 </h2>
                 {languageStats.length === 0 ? (
-                  <div className="bg-white rounded-xl border p-12 text-center animate-scale-in">
+                  <div className="bg-white rounded-xl border p-16 text-center animate-scale-in">
                     <Globe className="h-12 w-12 text-gray-400 mx-auto mb-4" />
                     <h3 className="text-lg font-medium mb-2">No languages yet</h3>
                     <p className="text-gray-600 mb-6">Start learning your first language to see your progress here</p>
@@ -182,7 +182,7 @@ export default function DashboardPage() {
                     </Link>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {languageStats.map((lang: LanguageStats, index: number) => (
                       <Link 
                         key={lang.code} 
@@ -190,15 +190,15 @@ export default function DashboardPage() {
                         className="block animate-slide-in hover-lift"
                         style={{ animationDelay: `${index * 50}ms` }}
                       >
-                        <div className="bg-white rounded-xl border hover:border-blue-300 p-6 h-full transition-all duration-200">
+                        <div className="bg-white rounded-xl border hover:border-blue-300 p-8 h-full transition-all duration-200">
                           <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-lg font-semibold truncate">{lang.language}</h3>
+                            <h3 className="text-xl font-semibold truncate">{lang.language}</h3>
                             <Badge variant="outline" className="flex-shrink-0 ml-2">
                               {lang.code.toUpperCase()}
                             </Badge>
                           </div>
                           
-                          <div className="grid grid-cols-2 gap-3 mb-4">
+                          <div className="grid grid-cols-2 gap-4 mb-6">
                             <div>
                               <p className="text-sm text-gray-600">Sessions</p>
                               <p className="text-xl font-semibold">{lang.totalSessions}</p>
@@ -252,11 +252,11 @@ export default function DashboardPage() {
 
               {/* Quick Actions */}
               {languageStats.length > 0 && (
-                <Section className="mt-8">
-                  <h2 className="text-xl font-semibold mb-6">Quick Actions</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <Section className="mt-12">
+                  <h2 className="text-2xl font-semibold mb-8">Quick Actions</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                     <Link href="/learn" className="block animate-slide-in hover-lift">
-                      <div className="bg-white rounded-xl border hover:border-green-300 p-6 h-full transition-all duration-200">
+                      <div className="bg-white rounded-xl border hover:border-green-300 p-8 h-full transition-all duration-200">
                         <div className="flex items-center justify-between">
                           <div className="min-w-0 flex-1">
                             <h3 className="font-medium">Continue Learning</h3>
@@ -268,7 +268,7 @@ export default function DashboardPage() {
                     </Link>
 
                     <Link href="/stats" className="block animate-slide-in hover-lift" style={{ animationDelay: '50ms' }}>
-                      <div className="bg-white rounded-xl border hover:border-purple-300 p-6 h-full transition-all duration-200">
+                      <div className="bg-white rounded-xl border hover:border-purple-300 p-8 h-full transition-all duration-200">
                         <div className="flex items-center justify-between">
                           <div className="min-w-0 flex-1">
                             <h3 className="font-medium">View Stats</h3>
@@ -280,7 +280,7 @@ export default function DashboardPage() {
                     </Link>
 
                     <Link href="/leaderboard" className="block animate-slide-in hover-lift" style={{ animationDelay: '100ms' }}>
-                      <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl border border-yellow-200 hover:border-yellow-300 p-6 h-full transition-all duration-200">
+                      <div className="bg-white rounded-xl border hover:border-yellow-300 p-8 h-full transition-all duration-200">
                         <div className="flex items-center justify-between">
                           <div className="min-w-0 flex-1">
                             <h3 className="font-medium">Global Leaderboards</h3>

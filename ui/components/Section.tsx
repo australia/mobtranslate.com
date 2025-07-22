@@ -34,7 +34,7 @@ export function Section({ className, title, description, contained = true, child
 
     return (
       <section
-        className={cn('py-8', className)}
+        className={cn('py-12', className)}
         {...props}
       >
         {contained ? (

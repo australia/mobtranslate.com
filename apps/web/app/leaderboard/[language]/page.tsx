@@ -123,9 +123,9 @@ export default function LeaderboardPage() {
   if (authLoading || !user) return null;
 
   return (
-    <SharedLayout>
-      <div className="min-h-screen bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <SharedLayout fullWidth>
+      <div className="min-h-screen">
+        <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="mb-6 flex items-center justify-between animate-slide-in">
             <Link href="/leaderboard" className="inline-flex items-center text-gray-600 hover:text-gray-900 hover-grow">
               <ChevronLeft className="h-4 w-4 mr-1" />

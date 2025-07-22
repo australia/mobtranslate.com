@@ -105,11 +105,11 @@ export function ModernNav() {
             <Link key={item.href} href={item.href}>
               <Button 
                 variant="ghost" 
-                size="sm" 
-                className="gap-2 hover:bg-primary/10 transition-all"
+                size="default" 
+                className="gap-2 hover:bg-primary/10 transition-all px-4 py-2.5"
               >
                 <item.icon className="h-4 w-4" />
-                <span>{item.label}</span>
+                <span className="font-medium">{item.label}</span>
               </Button>
             </Link>
           ))}
