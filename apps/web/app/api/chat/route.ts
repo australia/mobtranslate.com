@@ -1,5 +1,4 @@
 import { streamText, tool } from 'ai';
-// @ts-expect-error - Known working implementation despite type errors
 import { openai } from '@ai-sdk/openai';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';

@@ -179,127 +179,6 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="w-full max-w-4xl mx-auto">
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <CardTitle className="font-crimson">AI-Powered Translation</CardTitle>
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={resetForm}
-              disabled={!inputText}
-            >
-              Clear
-            </Button>
-          </div>
-        </CardHeader>
-        
-        <CardContent className="space-y-6">
-          {/* Input Section */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-medium font-crimson">English</h3>
-              <Badge variant="outline">{inputText.length} characters</Badge>
-            </div>
-            
-            <Textarea
-              value={inputText}
-              onChange={handleInputChange}
-              onKeyDown={handleKeyDown}
-              placeholder="Enter English text to translate..."
-              className="h-32 font-source-sans"
-            />
-            
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-medium font-source-sans">Translate to:</span>
-                <Select
-                  value={selectedLanguage}
-                  onChange={(e) => setSelectedLanguage(e.target.value)}
-                >
-                  {languages.map((lang) => (
-                    <option key={lang.code} value={lang.code}>
-                      {lang.name}
-                    </option>
-                  ))}
-                </Select>
-              </div>
-              
-              <Button
-                onClick={handleTranslate}
-                disabled={!canTranslate || isLoading}
-                className="min-w-[120px]"
-              >
-                {isLoading ? (
-                  <div className="flex items-center gap-2">
-                    <Loader2 size={16} className="animate-spin" />
-                    <span>Translating...</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2">
-                    <ArrowRight size={16} />
-                    <span>Translate</span>
-                  </div>
-                )}
-              </Button>
-            </div>
-          </div>
-
-          {/* Output Section */}
-          {(outputText || error) && (
-            <div className="space-y-4 pt-6 border-t">
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-medium font-crimson">
-                  {selectedLanguage && languages.find(lang => lang.code === selectedLanguage)?.name || 'Translation'}
-                </h3>
-                {outputText && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={copyToClipboard}
-                  >
-                    {copied ? (
-                      <div className="flex items-center gap-1">
-                        <Check size={14} />
-                        <span>Copied</span>
-                      </div>
-                    ) : (
-                      <div className="flex items-center gap-1">
-                        <Copy size={14} />
-                        <span>Copy</span>
-                      </div>
-                    )}
-                  </Button>
-                )}
-              </div>
-              
-              {error ? (
-                <Alert variant="error">
-                  <AlertTriangle size={16} />
-                  {error}
-                </Alert>
-              ) : (
-                <div 
-                  ref={outputRef}
-                  className="p-4 bg-muted rounded-md border prose prose-sm max-w-none font-source-sans"
-                >
-                  <ReactMarkdown>{outputText}</ReactMarkdown>
-                </div>
-              )}
-              
-              <div className="text-xs text-muted-foreground font-source-sans">
-                <p>
-                  <strong>Note:</strong> Translations are generated using AI and may not be 100% accurate.
-                  Please consult with language experts for critical translations.
-                </p>
-              </div>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-=======
     // Remove shadow, card background, and rounded corners
     <div className="max-w-7xl mx-auto my-8 border border-border">
       {/* Input Section - Remove card background */}
@@ -334,7 +213,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             >
               {languages.map((lang) => (
                 <option key={lang.code} value={lang.code}>
-                  {lang.meta?.name || lang.code}
+                  {lang.name || lang.code}
                 </option>
               ))}
             </select>
@@ -435,7 +314,6 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             </div>
         </div>
       )}
->>>>>>> master
     </div>
   );
 };

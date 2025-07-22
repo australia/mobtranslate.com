@@ -24,7 +24,7 @@ import { cn } from '@/app/lib/utils';
 interface NavItem {
   href: string;
   label: string;
-  icon: React.ElementType;
+  icon: any;
   description?: string;
 }
 

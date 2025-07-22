@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Heart, Volume2, Clock, TrendingUp, Zap } from 'lucide-react';
+import { Heart, Volume2, Clock, TrendingUp, Zap, Target } from 'lucide-react';
 import { cn } from '@/app/lib/utils';
 import Link from 'next/link';
 

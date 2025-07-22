@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { OpenAI } from 'openai';
-import getDictionary from '@dictionaries';
-import { Dictionary, getLexicon } from '@dictionaries';
-import fs from 'fs';
+import getDictionary, { Dictionary, getLexicon } from '@dictionaries';
 
 // Initialize OpenAI client
 const openai = new OpenAI({

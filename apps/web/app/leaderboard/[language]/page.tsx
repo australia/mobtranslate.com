@@ -23,7 +23,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Timer,
-  Brain
+  Brain,
+  BookOpen
 } from 'lucide-react';
 import Link from 'next/link';
 

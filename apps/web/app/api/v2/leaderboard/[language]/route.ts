@@ -61,24 +61,28 @@ export async function GET(request: NextRequest, { params }: { params: { language
     const now = new Date();
     
     switch (period) {
-      case 'day':
+      case 'day': {
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         dateFilter = today.toISOString();
         break;
-      case 'week':
+      }
+      case 'week': {
         const startOfWeek = new Date(now);
         startOfWeek.setDate(now.getDate() - now.getDay());
         startOfWeek.setHours(0, 0, 0, 0);
         dateFilter = startOfWeek.toISOString();
         break;
-      case 'month':
+      }
+      case 'month': {
         const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
         dateFilter = startOfMonth.toISOString();
         break;
-      case 'year':
+      }
+      case 'year': {
         const startOfYear = new Date(now.getFullYear(), 0, 1);
         dateFilter = startOfYear.toISOString();
         break;
+      }
       default:
         dateFilter = '';
     }
