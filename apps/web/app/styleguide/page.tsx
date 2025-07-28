@@ -392,40 +392,111 @@ export default function StyleGuidePage() {
         {/* Alerts Section */}
         <Section title="Alerts & Notifications">
           <div className="space-y-6">
+            {/* Basic Alert Variants */}
             <Card>
               <CardHeader>
                 <CardTitle>Alert Variants</CardTitle>
                 <CardDescription>Different alert styles for various types of messages</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Alert variant="success">
-                  <CheckCircle className="w-4 h-4" />
-                  <div className="ml-2">
-                    <p className="font-semibold">Success!</p>
-                    <p className="text-sm">Your changes have been saved successfully.</p>
-                  </div>
-                </Alert>
+                <Alert 
+                  variant="default"
+                  title="Default Alert"
+                  description="This is a default alert with neutral styling for general messages."
+                  icon={<Info className="h-5 w-5" />}
+                />
+                <Alert 
+                  variant="success"
+                  title="Success!"
+                  description="Your changes have been saved successfully."
+                  icon={<CheckCircle className="h-5 w-5" />}
+                />
+                <Alert 
+                  variant="info"
+                  title="Information"
+                  description="This dictionary contains over 5,000 entries from various Indigenous languages."
+                  icon={<Info className="h-5 w-5" />}
+                />
+                <Alert 
+                  variant="warning"
+                  title="Warning"
+                  description="Some translations may be incomplete. Please verify with native speakers."
+                  icon={<AlertCircle className="h-5 w-5" />}
+                />
+                <Alert 
+                  variant="error"
+                  title="Error"
+                  description="Failed to load dictionary data. Please try again later."
+                  icon={<XCircle className="h-5 w-5" />}
+                />
+                <Alert 
+                  variant="destructive"
+                  title="Destructive Action"
+                  description="This action cannot be undone. Please proceed with caution."
+                  icon={<AlertCircle className="h-5 w-5" />}
+                />
+              </CardContent>
+            </Card>
+
+            {/* Alert Features */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Alert Features</CardTitle>
+                <CardDescription>Additional alert functionality and layouts</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {/* Dismissible Alert */}
+                <Alert 
+                  variant="info"
+                  title="Dismissible Alert"
+                  description="This alert can be dismissed by clicking the X button."
+                  icon={<Info className="h-5 w-5" />}
+                  dismissible
+                  onDismiss={() => console.log('Alert dismissed')}
+                />
+                
+                {/* Alert with Action */}
+                <Alert 
+                  variant="warning"
+                  title="Action Required"
+                  description="Your session will expire in 5 minutes."
+                  icon={<Clock className="h-5 w-5" />}
+                  action={
+                    <Button size="sm" variant="outline">
+                      Extend Session
+                    </Button>
+                  }
+                />
+                
+                {/* Alert without Icon */}
+                <Alert 
+                  variant="success"
+                  title="No Icon Alert"
+                  description="This alert doesn't have an icon for a cleaner look."
+                />
+                
+                {/* Simple Alert (Legacy) */}
                 <Alert variant="info">
-                  <Info className="w-4 h-4" />
-                  <div className="ml-2">
-                    <p className="font-semibold">Information</p>
-                    <p className="text-sm">This dictionary contains over 5,000 entries from various Indigenous languages.</p>
+                  <div className="flex items-center gap-2">
+                    <BookOpen className="h-4 w-4" />
+                    <span>Legacy alert style with custom content layout</span>
                   </div>
                 </Alert>
-                <Alert variant="warning">
-                  <AlertCircle className="w-4 h-4" />
-                  <div className="ml-2">
-                    <p className="font-semibold">Warning</p>
-                    <p className="text-sm">Some translations may be incomplete. Please verify with native speakers.</p>
-                  </div>
-                </Alert>
-                <Alert variant="error">
-                  <XCircle className="w-4 h-4" />
-                  <div className="ml-2">
-                    <p className="font-semibold">Error</p>
-                    <p className="text-sm">Failed to load dictionary data. Please try again later.</p>
-                  </div>
-                </Alert>
+                
+                {/* Complex Alert with Multiple Actions */}
+                <Alert 
+                  variant="error"
+                  title="Connection Lost"
+                  description="Unable to connect to the server. Please check your internet connection."
+                  icon={<AlertCircle className="h-5 w-5" />}
+                  dismissible
+                  action={
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline">Retry</Button>
+                      <Button size="sm" variant="ghost">Learn More</Button>
+                    </div>
+                  }
+                />
               </CardContent>
             </Card>
           </div>
