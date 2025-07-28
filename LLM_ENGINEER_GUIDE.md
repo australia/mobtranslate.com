@@ -41,6 +41,28 @@ mobtranslate.com/
 
 ## Development Guidelines
 
+### CRITICAL: Always Use the Component Library
+
+**When making ANY UI changes on the site, you MUST use our existing components from the `@ui/components` package or the custom app components. Never create inline styles or new component variations without first checking if a suitable component already exists.**
+
+#### Component Usage Priority:
+1. **First**: Check `@ui/components` for existing components
+2. **Second**: Check `/components` for app-specific components
+3. **Third**: Check the Style Guide at `/styleguide` for component examples
+4. **Last Resort**: If no suitable component exists, extend or create a new component in the appropriate location
+
+#### Example:
+```typescript
+// ❌ BAD: Don't create inline styles
+<div className="bg-gray-50 p-4 rounded-lg">Content</div>
+
+// ✅ GOOD: Use existing components
+import { Card, CardContent } from '@ui/components';
+<Card>
+  <CardContent>Content</CardContent>
+</Card>
+```
+
 ### 1. Component Architecture
 
 #### Use Server Components by Default
@@ -328,7 +350,27 @@ export function SearchForm() {
 }
 ```
 
-### 10. Environment Variables
+### 10. Component Library Maintenance
+
+#### When Modifying Components
+1. **Always modify in the source location**:
+   - UI package components: Edit in `/ui/components/`
+   - App components: Edit in `/apps/web/components/`
+2. **Rebuild after changes**:
+   - UI package: Run `npm run build --prefix=ui`
+   - The app will automatically pick up changes via hot reload
+3. **Update the Style Guide** if you add new variants or components
+4. **Test in both light and dark modes**
+
+#### Component Consistency Checklist
+- [ ] Uses design tokens (colors, spacing, typography)
+- [ ] Supports dark mode with proper contrast
+- [ ] Follows existing naming conventions
+- [ ] Includes TypeScript types
+- [ ] Has proper accessibility attributes
+- [ ] Documented in Style Guide if new
+
+### 11. Environment Variables
 
 #### Required Environment Variables
 ```env
@@ -436,6 +478,7 @@ export function SearchInput() {
 - [Vercel AI SDK](https://sdk.vercel.ai/docs)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- **[Component Style Guide](/styleguide)** - Visual reference for all components
 
 ## Contributing
 

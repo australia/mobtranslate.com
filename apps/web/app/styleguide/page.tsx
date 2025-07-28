@@ -632,37 +632,72 @@ export default function StyleGuidePage() {
 
         {/* Statistics Components */}
         <Section title="Statistics Components">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <StatsCard
-              title="Total Questions"
-              value="1,234"
-              icon={Brain}
-              iconColor="text-blue-500"
-              description="Questions answered this month"
-            />
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <StatsCard
+                title="Total Questions"
+                value="1,234"
+                icon={Brain}
+                iconColor="text-blue-500"
+                description="Questions answered this month"
+              />
+              
+              <StatsCard
+                title="Accuracy Rate"
+                value="87.5%"
+                icon={Target}
+                iconColor="text-green-500"
+                progress={{
+                  value: 87.5,
+                  max: 100
+                }}
+              />
+              
+              <StatsCard
+                title="Study Streak"
+                value="14 days"
+                icon={Zap}
+                iconColor="text-orange-500"
+                trend={{
+                  value: 23,
+                  isPositive: true
+                }}
+              />
+            </div>
             
-            <StatsCard
-              title="Accuracy Rate"
-              value="87.5%"
-              icon={Target}
-              iconColor="text-green-500"
-              progress={{
-                value: 87.5,
-                max: 100,
-                color: 'bg-green-500'
-              }}
-            />
-            
-            <StatsCard
-              title="Study Streak"
-              value="14 days"
-              icon={Zap}
-              iconColor="text-orange-500"
-              trend={{
-                value: 23,
-                isPositive: true
-              }}
-            />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <StatsCard
+                title="Words Learned"
+                value="256"
+                icon={BookOpen}
+                iconColor="text-purple-500"
+                trend={{
+                  value: -5,
+                  isPositive: false
+                }}
+                description="12 new words this week"
+              />
+              
+              <StatsCard
+                title="Time Spent"
+                value="3h 24m"
+                icon={Clock}
+                iconColor="text-indigo-500"
+                description="Average per session: 12m"
+              />
+              
+              <StatsCard
+                title="Achievement Progress"
+                value="Level 5"
+                icon={Trophy}
+                iconColor="text-yellow-500"
+                progress={{
+                  value: 320,
+                  max: 500
+                }}
+                description="180 XP to next level"
+              />
+            </div>
           </div>
         </Section>
 
