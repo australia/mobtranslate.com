@@ -13,7 +13,7 @@ export default async function Page() {
     <SharedLayout>
       <PageHeader 
         title="Mob Translate"
-        description="A fully open source community-driven project to make 'Google Translate' for as many Australian Aboriginal languages as possible. Join us in preserving and promoting Indigenous languages through technology."
+        description="A fully open source community-driven project to make 'Google Translate' for as many Indigenous languages as possible. Join us in preserving and promoting Indigenous languages through technology."
       />
 
       <Section contained={false}>
@@ -24,8 +24,10 @@ export default async function Page() {
 
       <Section 
         title="Available Dictionaries"
-        description="Explore our growing collection of Aboriginal language dictionaries"
+        description="Explore our growing collection of Indigenous language dictionaries"
+        contained={false}
       >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {languages.map((language) => (
             <Link 
@@ -67,14 +69,16 @@ export default async function Page() {
             </Link>
           ))}
         </div>
+        </div>
       </Section>
 
-      <Section variant="muted">
-        <div className="text-center max-w-3xl mx-auto">
+      <Section variant="muted" contained={false}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl mb-4 font-crimson">Join the Movement</h2>
           <p className="text-muted-foreground mb-6 font-source-sans">
             Mob Translate is an open-source initiative dedicated to preserving and promoting 
-            Indigenous Australian languages. We believe that language is culture, and by making 
+            Indigenous languages worldwide. We believe that language is culture, and by making 
             these languages accessible to everyone, we're helping to keep them alive for future 
             generations.
           </p>
@@ -90,6 +94,7 @@ export default async function Page() {
               </Badge>
             </Link>
           </div>
+          </div>
         </div>
       </Section>
     </SharedLayout>
@@ -98,11 +103,11 @@ export default async function Page() {
 
 export async function generateMetadata() {
   return {
-    title: 'Mob Translate - Aboriginal Language Translation',
-    description: 'A community-driven project to create translation tools for Australian Aboriginal languages, making language preservation and learning accessible to all.',
+    title: 'Mob Translate - Indigenous Language Translation',
+    description: 'A community-driven project to create translation tools for Indigenous languages worldwide, making language preservation and learning accessible to all.',
     openGraph: {
-      title: 'Mob Translate - Aboriginal Language Translation',
-      description: 'A community-driven project to create translation tools for Australian Aboriginal languages.',
+      title: 'Mob Translate - Indigenous Language Translation',
+      description: 'A community-driven project to create translation tools for Indigenous languages worldwide.',
       type: 'website',
     },
   };

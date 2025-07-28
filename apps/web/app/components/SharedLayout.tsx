@@ -14,10 +14,9 @@ interface NavLink {
 
 interface SharedLayoutProps {
   children: ReactNode;
-  fullWidth?: boolean;
 }
 
-export default function SharedLayout({ children, fullWidth = false }: SharedLayoutProps) {
+export default function SharedLayout({ children }: SharedLayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -78,10 +77,7 @@ export default function SharedLayout({ children, fullWidth = false }: SharedLayo
           "sticky top-0 z-50 w-full border-b shadow-sm transition-all duration-300 bg-background/95 backdrop-blur-sm"
         )}
       >
-        <div className={cn(
-          "mx-auto",
-          fullWidth ? "max-w-[1920px] 2xl:max-w-[2200px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16" : "container-custom max-w-[800px]"
-        )}>
+        <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="flex h-20 sm:h-24 items-center justify-between">
             {/* Logo - Update font */}
             <Link 
@@ -159,16 +155,13 @@ export default function SharedLayout({ children, fullWidth = false }: SharedLayo
       </header>
       
       {/* Main Content - Apply max-width and center */}
-      <main className={cn(
-        "flex-1 mx-auto",
-        fullWidth ? "max-w-full py-6 sm:py-8 lg:py-12" : "container-custom py-8 sm:py-12 max-w-[800px]"
-      )}>
+      <main className="flex-1 mx-auto max-w-[1920px] 2xl:max-w-[2200px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-6 sm:py-8 lg:py-12">
         {children}
       </main>
       
       {/* Footer - Remove background, simplify elements */}
       <footer className="mt-auto py-8 border-t border-border">
-        <div className="container-custom max-w-[800px] mx-auto">
+        <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* About */}
             <div>

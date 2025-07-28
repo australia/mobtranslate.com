@@ -136,7 +136,7 @@ export default function DictionaryStatsPage() {
   if (!user || authLoading) return null;
 
   return (
-    <SharedLayout fullWidth>
+    <SharedLayout>
       <div className="min-h-screen">
         <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="mb-6 animate-slide-in">

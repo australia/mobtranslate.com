@@ -29,7 +29,7 @@ export default async function DictionariesPage() {
   }));
 
   return (
-    <SharedLayout fullWidth>
+    <SharedLayout>
       <PageHeader 
         title="Indigenous Language Dictionaries"
         description="Browse our collection of Indigenous language dictionaries from around the world, preserving and sharing traditional languages through digital preservation."
@@ -39,39 +39,43 @@ export default async function DictionariesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {languagesWithCounts.map((lang) => (
-            <Card key={lang.code} hover className="overflow-hidden">
-              <CardHeader>
-                <CardTitle className="font-crimson">
-                  <Link href={`/dictionaries/${lang.code}`} className="hover:text-primary transition-colors">
-                    {lang.name}
-                  </Link>
-                </CardTitle>
-                <div className="flex items-center gap-2">
-                  {lang.region && (
-                    <Badge variant="secondary">{lang.region}</Badge>
-                  )}
-                  <Badge variant="outline">{lang.wordCount} words</Badge>
+            <Card key={lang.code} hover className="overflow-hidden flex flex-col h-full">
+              <CardHeader className="space-y-3">
+                <div>
+                  <CardTitle className="font-crimson text-2xl mb-2">
+                    <Link href={`/dictionaries/${lang.code}`} className="hover:text-primary transition-colors">
+                      {lang.name}
+                    </Link>
+                  </CardTitle>
+                  <div className="flex flex-wrap items-center gap-2">
+                    {lang.region && (
+                      <Badge variant="secondary" className="text-xs">{lang.region}</Badge>
+                    )}
+                    <Badge variant="outline" className="text-xs">{lang.wordCount.toLocaleString()} words</Badge>
+                  </div>
                 </div>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground font-source-sans leading-relaxed">
+              <CardContent className="flex-1 flex flex-col">
+                <p className="text-muted-foreground font-source-sans leading-relaxed flex-1">
                   {lang.description || `Explore the ${lang.name} language dictionary`}
                 </p>
                 {lang.status && (
-                  <Badge 
-                    variant={
-                      lang.status === 'severely endangered' ? 'destructive' : 
-                      lang.status === 'endangered' ? 'destructive' :
-                      lang.status === 'vulnerable' ? 'secondary' : 
-                      'default'
-                    }
-                    className="mt-3"
-                  >
-                    {lang.status}
-                  </Badge>
+                  <div className="mt-4">
+                    <Badge 
+                      variant={
+                        lang.status === 'severely endangered' ? 'destructive' : 
+                        lang.status === 'endangered' ? 'destructive' :
+                        lang.status === 'vulnerable' ? 'secondary' : 
+                        'default'
+                      }
+                      className="text-xs"
+                    >
+                      {lang.status}
+                    </Badge>
+                  </div>
                 )}
               </CardContent>
-              <CardFooter className="bg-muted/30 border-t">
+              <CardFooter className="bg-muted/50 border-t pt-4">
                 <Button asChild variant="outline" className="w-full">
                   <Link href={`/dictionaries/${lang.code}`}>
                     View Dictionary
