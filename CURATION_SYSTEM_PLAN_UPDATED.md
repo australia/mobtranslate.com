@@ -340,6 +340,63 @@ graph TD
     R --> S[Send Notifications]
 ```
 
+### Existing AI Analysis Pipeline (From Experiments Folder)
+
+Based on analysis of the experiments folder, MobTranslate already has a sophisticated linguistic data extraction pipeline that can be integrated with the curation system:
+
+#### 1. **PDF to Markdown Conversion**
+- Uses OpenAI API to convert PDFs to well-structured markdown
+- Processes in batches of 10 pages for efficiency
+- Preserves document structure, headings, tables, and formatting
+- Successfully converted a 270-page Kuku Yalanji grammar guide
+
+#### 2. **Linguistic Data Extraction**
+The extraction pipeline (`experiments/pdftomd/extract/extract.js`) produces three standardized formats:
+
+**a) CLDF (Cross-Linguistic Data Formats)**
+- Grammar features extracted as CSV
+- Example features: vowel harmony, case endings, voice constructions
+- Each feature has unique ID, parameter, value, and source reference
+- Successfully extracted 50+ grammatical properties
+
+**b) XIGT JSON (Interlinear Glossed Text)**
+- Morpheme-by-morpheme glossing with translations
+- Includes phonetic transcriptions
+- Links examples to source sections
+- Format example:
+```json
+{
+  "transcript": "kuku yala-nji",
+  "phonetic": "kuku jala-ndʒi",
+  "gloss": [
+    {"morpheme": "kuku", "gloss": "word, language"},
+    {"morpheme": "yala-nji", "gloss": "this-COMIT"}
+  ],
+  "translation": "the language with \"this\"",
+  "source": "§3.2.3.3"
+}
+```
+
+**c) OntoLex-Lemon JSON-LD**
+- W3C standard for lexical resources as linked data
+- Structured lexical entries with parts of speech
+- English definitions and grammatical properties
+- Ready for semantic web integration
+
+#### 3. **Text-to-Speech Generation**
+- Converts IPA (International Phonetic Alphabet) to audio files
+- Maps language-specific phonemes to X-SAMPA notation
+- Generates WAV files for pronunciation guides
+- Handles special phonemes like retroflex consonants
+
+#### 4. **Integration Points with Curation System**
+The existing pipeline can be connected to the document processing flow:
+- Upload triggers PDF → Markdown conversion
+- Extraction service produces structured data
+- Extracted words/features map to database tables
+- Confidence scores guide curator review priority
+- Source tracking maintains provenance
+
 ### Processing Configuration
 ```typescript
 interface ProcessingConfig {
