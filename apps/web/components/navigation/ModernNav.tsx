@@ -17,9 +17,12 @@ import {
   Trophy,
   BookOpen,
   Home,
-  Grid3X3
+  Grid3X3,
+  Shield,
+  FileCheck
 } from 'lucide-react';
 import { cn } from '@/app/lib/utils';
+import { createClient } from '@/lib/supabase/client';
 
 interface NavItem {
   href: string;
@@ -32,6 +35,7 @@ export function ModernNav() {
   const { user, signOut, loading } = useAuth();
   const router = useRouter();
   const [username, setUsername] = useState<string | null>(null);
+  const [userRole, setUserRole] = useState<string | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -58,6 +62,20 @@ export function ModernNav() {
       if (response.ok) {
         const data = await response.json();
         setUsername(data.profile?.display_name || data.profile?.username);
+      }
+      
+      // Check user role using Supabase directly
+      if (user) {
+        const supabase = createClient();
+        const { data: roleData } = await supabase
+          .rpc('get_user_language_role', {
+            user_uuid: user.id,
+            lang_id: null
+          });
+        
+        if (roleData) {
+          setUserRole(roleData);
+        }
       }
     } catch (error) {
       console.error('Failed to fetch username:', error);
@@ -86,6 +104,18 @@ export function ModernNav() {
     { href: '/chat', label: 'AI Chat', icon: MessageCircle, description: 'Chat with AI' },
     { href: '/settings', label: 'Settings', icon: Settings, description: 'Account settings' },
   ];
+  
+  // Add admin/curator items based on role
+  const isAdmin = userRole === 'super_admin' || userRole === 'dictionary_admin';
+  const isCurator = userRole === 'curator' || isAdmin;
+  
+  if (isCurator) {
+    dropdownItems.push({ href: '/curator', label: 'Curator Dashboard', icon: FileCheck, description: 'Review submissions' });
+  }
+  
+  if (isAdmin) {
+    dropdownItems.push({ href: '/admin', label: 'Admin Panel', icon: Shield, description: 'System administration' });
+  }
 
   if (loading) {
     return (
