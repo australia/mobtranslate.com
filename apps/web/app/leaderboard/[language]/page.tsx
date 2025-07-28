@@ -178,44 +178,6 @@ export default function LeaderboardPage() {
             </div>
           ) : leaderboardData ? (
             <>
-              {/* Period Statistics */}
-              <Section className="mt-8">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <StatsCard
-                    title="Total Questions"
-                    value={leaderboardData.periodStats.totalQuestions.toLocaleString()}
-                    icon={Brain}
-                    iconColor="text-blue-500"
-                    className="animate-slide-in"
-                    style={{ animationDelay: '0ms' }}
-                  />
-                  
-                  <StatsCard
-                    title="Total Sessions"
-                    value={leaderboardData.periodStats.totalSessions.toLocaleString()}
-                    icon={Zap}
-                    iconColor="text-green-500"
-                    className="animate-slide-in"
-                    style={{ animationDelay: '50ms' }}
-                  />
-                  
-                  <StatsCard
-                    title="Average Accuracy"
-                    value={`${leaderboardData.periodStats.averageAccuracy.toFixed(1)}%`}
-                    icon={Target}
-                    iconColor="text-orange-500"
-                    progress={{
-                      value: leaderboardData.periodStats.averageAccuracy,
-                      max: 100,
-                      color: leaderboardData.periodStats.averageAccuracy >= 80 ? 'bg-green-500' : 
-                             leaderboardData.periodStats.averageAccuracy >= 60 ? 'bg-yellow-500' : 'bg-red-500'
-                    }}
-                    className="animate-slide-in"
-                    style={{ animationDelay: '100ms' }}
-                  />
-                </div>
-              </Section>
-
               {/* Top 3 Podium */}
               {leaderboardData.leaderboard.length >= 3 && (
                 <Section className="mt-8">
@@ -357,6 +319,51 @@ export default function LeaderboardPage() {
                           ))}
                         </tbody>
                       </table>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Section>
+
+              {/* Community Statistics */}
+              <Section className="mt-8">
+                <Card className="animate-slide-in" style={{ animationDelay: '400ms' }}>
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <TrendingUp className="h-5 w-5 mr-2 text-green-500" />
+                      Community Statistics for {PERIOD_OPTIONS.find(o => o.value === period)?.label || 'This Period'}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="text-center p-4 rounded-lg bg-blue-50">
+                        <Brain className="h-8 w-8 text-blue-500 mx-auto mb-2" />
+                        <div className="text-2xl font-bold text-blue-900">{leaderboardData.periodStats.totalQuestions.toLocaleString()}</div>
+                        <div className="text-sm text-blue-700 font-medium">Total Questions Answered</div>
+                        <div className="text-xs text-blue-600 mt-1">All participants combined</div>
+                      </div>
+                      
+                      <div className="text-center p-4 rounded-lg bg-green-50">
+                        <Zap className="h-8 w-8 text-green-500 mx-auto mb-2" />
+                        <div className="text-2xl font-bold text-green-900">{leaderboardData.periodStats.totalSessions.toLocaleString()}</div>
+                        <div className="text-sm text-green-700 font-medium">Total Study Sessions</div>
+                        <div className="text-xs text-green-600 mt-1">Completed by all learners</div>
+                      </div>
+                      
+                      <div className="text-center p-4 rounded-lg bg-orange-50">
+                        <Target className="h-8 w-8 text-orange-500 mx-auto mb-2" />
+                        <div className="text-2xl font-bold text-orange-900">{leaderboardData.periodStats.averageAccuracy.toFixed(1)}%</div>
+                        <div className="text-sm text-orange-700 font-medium">Community Average Accuracy</div>
+                        <div className="text-xs text-orange-600 mt-1">Overall performance level</div>
+                        <div className="mt-2 h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div 
+                            className={`h-full transition-all duration-500 ${
+                              leaderboardData.periodStats.averageAccuracy >= 80 ? 'bg-green-500' : 
+                              leaderboardData.periodStats.averageAccuracy >= 60 ? 'bg-yellow-500' : 'bg-red-500'
+                            }`}
+                            style={{ width: `${leaderboardData.periodStats.averageAccuracy}%` }}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>

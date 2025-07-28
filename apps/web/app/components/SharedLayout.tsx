@@ -193,6 +193,14 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link
+                    href="/styleguide"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    Style Guide
+                  </Link>
+                </li>
               </ul>
             </div>
             

@@ -24,6 +24,7 @@ import {
   TableCell, 
   LoadingSpinner, 
   LoadingState, 
+  LoadingSkeleton,
   EmptyState, 
   DictionaryEntry,
   SearchInput,
@@ -33,13 +34,33 @@ import {
   FormField,
   FilterTags,
   AlphabetFilter,
-  Pagination
+  Pagination,
+  Breadcrumbs,
+  TableFooter,
+  TableCaption
 } from '@ui/components';
 import { 
   Search, Globe, BookOpen, Users, ChevronRight, AlertCircle, CheckCircle, Info, XCircle,
   Home, Settings, Menu, X, ArrowLeft, ArrowRight, Download, Upload, Edit, Trash2,
-  Copy, Save, FileText, Filter, Calendar, Clock, MapPin, Phone, Mail, User
+  Copy, Save, FileText, Filter, Calendar, Clock, MapPin, Phone, Mail, User,
+  Heart, ThumbsUp, Star, Trophy, Medal, Crown, Target, Zap, TrendingUp, Brain,
+  ChevronLeft, Timer, Award, Image, Send, MessageSquare, BarChart
 } from 'lucide-react';
+
+// Import custom components
+import { SignInForm } from '@/components/auth/SignInForm';
+import { SignUpForm } from '@/components/auth/SignUpForm';
+import { ModernNav } from '@/components/navigation/ModernNav';
+import { WordCard } from '@/components/words/WordCard';
+import { WordLikeButton } from '@/components/WordLikeButton';
+import { StatsCard } from '@/components/stats/StatsCard';
+import { 
+  Skeleton, 
+  CardSkeleton, 
+  WordCardSkeleton, 
+  TableSkeleton, 
+  DashboardSkeleton 
+} from '@/components/loading/Skeleton';
 
 export default function StyleGuidePage() {
   const [inputValue, setInputValue] = useState('');
@@ -49,6 +70,7 @@ export default function StyleGuidePage() {
   const [selectedLetter, setSelectedLetter] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [activeTags, setActiveTags] = useState<string[]>(['noun']);
+  const [showAuthForm, setShowAuthForm] = useState<'signin' | 'signup'>('signin');
 
   const sampleWord = {
     word: 'babaji',
@@ -70,14 +92,33 @@ export default function StyleGuidePage() {
     { value: 'pronoun', label: 'Pronoun' }
   ];
 
+  const breadcrumbItems = [
+    { href: '/', label: 'Home' },
+    { href: '/dictionaries', label: 'Dictionaries' },
+    { href: '/styleguide', label: 'Style Guide' }
+  ];
+
   return (
     <SharedLayout>
       <PageHeader 
-        title="MobTranslate Style Guide"
-        description="Comprehensive design system for the Aboriginal language dictionary platform"
+        title="MobTranslate Component Style Guide"
+        description="Comprehensive design system showcasing all components used in the Indigenous language dictionary platform"
       />
       
       <Container className="space-y-12 py-8">
+
+        {/* Navigation */}
+        <Section title="Navigation Components">
+          <Card>
+            <CardHeader>
+              <CardTitle>Breadcrumbs</CardTitle>
+              <CardDescription>Navigation path indicator</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Breadcrumbs items={breadcrumbItems} />
+            </CardContent>
+          </Card>
+        </Section>
 
         {/* Color Palette Section */}
         <Section title="Color Palette">
@@ -236,6 +277,10 @@ export default function StyleGuidePage() {
                   <Button variant="destructive">Destructive</Button>
                   <span className="text-sm text-muted-foreground">Dangerous actions</span>
                 </div>
+                <div className="flex items-center gap-4">
+                  <Button variant="aboriginal">Aboriginal</Button>
+                  <span className="text-sm text-muted-foreground">Special variant</span>
+                </div>
               </CardContent>
             </Card>
 
@@ -298,7 +343,7 @@ export default function StyleGuidePage() {
                   <Info className="w-4 h-4" />
                   <div className="ml-2">
                     <p className="font-semibold">Information</p>
-                    <p className="text-sm">This dictionary contains over 5,000 entries from various indigenous languages.</p>
+                    <p className="text-sm">This dictionary contains over 5,000 entries from various Indigenous languages.</p>
                   </div>
                 </Alert>
                 <Alert variant="warning">
@@ -317,24 +362,6 @@ export default function StyleGuidePage() {
                 </Alert>
               </CardContent>
             </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Alert Sizes</CardTitle>
-                <CardDescription>Compact alerts for different contexts</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Alert variant="info" className="py-2">Compact alert with minimal padding</Alert>
-                <Alert variant="success">Regular alert with standard padding</Alert>
-                <Alert variant="warning" className="py-4">
-                  <AlertCircle className="w-5 h-5" />
-                  <div className="ml-3">
-                    <p className="text-lg font-semibold">Large Alert</p>
-                    <p>More prominent alert for important messages</p>
-                  </div>
-                </Alert>
-              </CardContent>
-            </Card>
           </div>
         </Section>
 
@@ -348,13 +375,15 @@ export default function StyleGuidePage() {
             <CardContent>
               <div className="space-y-4">
                 <div>
-                  <p className="text-sm font-medium mb-2">Colors</p>
+                  <p className="text-sm font-medium mb-2">Variants</p>
                   <div className="flex gap-2 flex-wrap">
+                    <Badge>Default</Badge>
                     <Badge variant="primary">Primary</Badge>
                     <Badge variant="secondary">Secondary</Badge>
                     <Badge variant="success">Success</Badge>
                     <Badge variant="error">Error</Badge>
                     <Badge variant="outline">Outline</Badge>
+                    <Badge variant="destructive">Destructive</Badge>
                   </div>
                 </div>
                 <div>
@@ -373,6 +402,8 @@ export default function StyleGuidePage() {
                     <Badge variant="outline">adjective</Badge>
                     <Badge variant="success">verified</Badge>
                     <Badge variant="error">deprecated</Badge>
+                    <Badge>1117 words</Badge>
+                    <Badge variant="destructive">severely endangered</Badge>
                   </div>
                 </div>
               </div>
@@ -542,11 +573,109 @@ export default function StyleGuidePage() {
           </div>
         </Section>
 
-        {/* Tables Section - Uncommented and fixed */}
+        {/* Word Components */}
+        <Section title="Word Components">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Word Card</CardTitle>
+                <CardDescription>Display component for dictionary words</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <WordCard 
+                  wordId="1"
+                  word="nginda"
+                  translation="you (singular)"
+                  languageCode="kuku_yalanji"
+                  languageName="Kuku Yalanji"
+                  stats={{
+                    attempts: 10,
+                    accuracy: 85,
+                    avgResponseTime: 2.5,
+                    lastSeen: new Date().toISOString(),
+                    bucket: 3
+                  }}
+                  isLiked={false}
+                  likesCount={42}
+                  onLikeToggle={() => console.log('Like toggled')}
+                  hideStats={false}
+                />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Word Like Button</CardTitle>
+                <CardDescription>Interactive like button for words</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <WordLikeButton
+                    wordId="1"
+                    initialLiked={false}
+                    initialCount={42}
+                  />
+                  <span className="text-sm text-muted-foreground">Not liked</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <WordLikeButton
+                    wordId="2"
+                    initialLiked={true}
+                    initialCount={23}
+                  />
+                  <span className="text-sm text-muted-foreground">Liked</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </Section>
+
+        {/* Statistics Components */}
+        <Section title="Statistics Components">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <StatsCard
+              title="Total Questions"
+              value="1,234"
+              icon={Brain}
+              iconColor="text-blue-500"
+              description="Questions answered this month"
+            />
+            
+            <StatsCard
+              title="Accuracy Rate"
+              value="87.5%"
+              icon={Target}
+              iconColor="text-green-500"
+              progress={{
+                value: 87.5,
+                max: 100,
+                color: 'bg-green-500'
+              }}
+            />
+            
+            <StatsCard
+              title="Study Streak"
+              value="14 days"
+              icon={Zap}
+              iconColor="text-orange-500"
+              trend={{
+                value: 23,
+                isPositive: true
+              }}
+            />
+          </div>
+        </Section>
+
+        {/* Tables Section */}
         <Section title="Tables">
           <Card>
+            <CardHeader>
+              <CardTitle>Data Table</CardTitle>
+              <CardDescription>Table with caption and footer</CardDescription>
+            </CardHeader>
             <CardContent className="p-0">
               <Table>
+                <TableCaption>A list of Indigenous language words</TableCaption>
                 <TableHeader>
                   <TableRow>
                     <TableHead>Word</TableHead>
@@ -569,6 +698,12 @@ export default function StyleGuidePage() {
                     </TableRow>
                   ))}
                 </TableBody>
+                <TableFooter>
+                  <TableRow>
+                    <TableCell colSpan={3}>Total</TableCell>
+                    <TableCell className="text-right">3 words</TableCell>
+                  </TableRow>
+                </TableFooter>
               </Table>
             </CardContent>
           </Card>
@@ -599,10 +734,8 @@ export default function StyleGuidePage() {
                   </div>
                   
                   <div>
-                    <p className="text-sm font-medium mb-3">Custom Loading Message</p>
-                    <LoadingState>
-                      <span className="text-primary">Translating your text...</span>
-                    </LoadingState>
+                    <p className="text-sm font-medium mb-3">Loading Skeleton</p>
+                    <LoadingSkeleton className="h-20 w-full" />
                   </div>
                 </div>
               </CardContent>
@@ -626,6 +759,49 @@ export default function StyleGuidePage() {
                   title="Dictionary is empty"
                   description="Start adding words to build your dictionary."
                 />
+              </CardContent>
+            </Card>
+          </div>
+        </Section>
+
+        {/* Skeleton Loaders */}
+        <Section title="Skeleton Loaders">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Basic Skeletons</CardTitle>
+                <CardDescription>Loading placeholders for different content types</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <p className="text-sm font-medium mb-2">Base Skeleton</p>
+                  <Skeleton className="h-12 w-full" />
+                </div>
+                
+                <div>
+                  <p className="text-sm font-medium mb-2">Card Skeleton</p>
+                  <CardSkeleton />
+                </div>
+                
+                <div>
+                  <p className="text-sm font-medium mb-2">Word Card Skeleton</p>
+                  <WordCardSkeleton />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Complex Skeletons</CardTitle>
+                <CardDescription>Full layout loading states</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <p className="text-sm font-medium mb-2">Table Skeleton</p>
+                  <div className="h-48 overflow-hidden">
+                    <TableSkeleton />
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -678,12 +854,50 @@ export default function StyleGuidePage() {
           </div>
         </Section>
 
+        {/* Authentication Forms */}
+        <Section title="Authentication Components">
+          <Card>
+            <CardHeader>
+              <CardTitle>Auth Forms</CardTitle>
+              <CardDescription>Sign in and sign up forms</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="mb-4">
+                <div className="flex gap-2">
+                  <Button 
+                    variant={showAuthForm === 'signin' ? 'primary' : 'outline'}
+                    size="sm"
+                    onClick={() => setShowAuthForm('signin')}
+                  >
+                    Sign In Form
+                  </Button>
+                  <Button 
+                    variant={showAuthForm === 'signup' ? 'primary' : 'outline'}
+                    size="sm"
+                    onClick={() => setShowAuthForm('signup')}
+                  >
+                    Sign Up Form
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="max-w-md mx-auto">
+                {showAuthForm === 'signin' ? (
+                  <SignInForm />
+                ) : (
+                  <SignUpForm />
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        </Section>
+
         {/* Icons Section */}
         <Section title="Icons">
           <Card>
             <CardHeader>
               <CardTitle>Lucide Icons</CardTitle>
-              <CardDescription>Consistent icon library used throughout the application</CardDescription>
+              <CardDescription>Comprehensive icon library used throughout the application</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -697,6 +911,7 @@ export default function StyleGuidePage() {
                   { icon: Menu, name: 'Menu' },
                   { icon: X, name: 'Close' },
                   { icon: ChevronRight, name: 'ChevronRight' },
+                  { icon: ChevronLeft, name: 'ChevronLeft' },
                   { icon: ArrowLeft, name: 'ArrowLeft' },
                   { icon: ArrowRight, name: 'ArrowRight' },
                   { icon: Download, name: 'Download' },
@@ -709,6 +924,7 @@ export default function StyleGuidePage() {
                   { icon: Filter, name: 'Filter' },
                   { icon: Calendar, name: 'Calendar' },
                   { icon: Clock, name: 'Clock' },
+                  { icon: Timer, name: 'Timer' },
                   { icon: MapPin, name: 'MapPin' },
                   { icon: Phone, name: 'Phone' },
                   { icon: Mail, name: 'Mail' },
@@ -716,7 +932,22 @@ export default function StyleGuidePage() {
                   { icon: CheckCircle, name: 'CheckCircle' },
                   { icon: XCircle, name: 'XCircle' },
                   { icon: AlertCircle, name: 'AlertCircle' },
-                  { icon: Info, name: 'Info' }
+                  { icon: Info, name: 'Info' },
+                  { icon: Heart, name: 'Heart' },
+                  { icon: ThumbsUp, name: 'ThumbsUp' },
+                  { icon: Star, name: 'Star' },
+                  { icon: Trophy, name: 'Trophy' },
+                  { icon: Medal, name: 'Medal' },
+                  { icon: Crown, name: 'Crown' },
+                  { icon: Target, name: 'Target' },
+                  { icon: Zap, name: 'Zap' },
+                  { icon: TrendingUp, name: 'TrendingUp' },
+                  { icon: Brain, name: 'Brain' },
+                  { icon: Award, name: 'Award' },
+                  { icon: Image, name: 'Image' },
+                  { icon: Send, name: 'Send' },
+                  { icon: MessageSquare, name: 'MessageSquare' },
+                  { icon: BarChart, name: 'BarChart' }
                 ].map(({ icon: Icon, name }) => (
                   <div key={name} className="flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-muted/50 transition-colors">
                     <Icon className="w-6 h-6 text-foreground" />
@@ -757,7 +988,47 @@ export default function StyleGuidePage() {
                   <div className="w-24 text-sm text-muted-foreground">space-8</div>
                   <div className="h-4 bg-primary/20 rounded" style={{width: '2rem'}} />
                 </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-24 text-sm text-muted-foreground">space-12</div>
+                  <div className="h-4 bg-primary/20 rounded" style={{width: '3rem'}} />
+                </div>
               </div>
+            </CardContent>
+          </Card>
+        </Section>
+
+        {/* Usage Guidelines */}
+        <Section title="Component Usage Guidelines">
+          <Card>
+            <CardHeader>
+              <CardTitle>Best Practices</CardTitle>
+              <CardDescription>Guidelines for using components effectively</CardDescription>
+            </CardHeader>
+            <CardContent className="prose prose-sm max-w-none">
+              <h3>Component Selection</h3>
+              <ul>
+                <li><strong>Buttons:</strong> Use primary for main actions, secondary for alternatives, outline for tertiary actions</li>
+                <li><strong>Alerts:</strong> Success for confirmations, info for neutral messages, warning for cautions, error for failures</li>
+                <li><strong>Badges:</strong> Use for categorization, status indicators, or counts</li>
+                <li><strong>Cards:</strong> Group related content, use hover effect for clickable items</li>
+                <li><strong>Loading States:</strong> Always show loading feedback for async operations</li>
+              </ul>
+
+              <h3>Accessibility</h3>
+              <ul>
+                <li>All interactive elements must be keyboard accessible</li>
+                <li>Use semantic HTML and ARIA labels where appropriate</li>
+                <li>Maintain sufficient color contrast ratios</li>
+                <li>Provide alternative text for icons and images</li>
+              </ul>
+
+              <h3>Consistency</h3>
+              <ul>
+                <li>Use the established color palette and typography scale</li>
+                <li>Maintain consistent spacing using the spacing scale</li>
+                <li>Follow the established patterns for similar functionality</li>
+                <li>Use the same icons for the same actions throughout the app</li>
+              </ul>
             </CardContent>
           </Card>
         </Section>
