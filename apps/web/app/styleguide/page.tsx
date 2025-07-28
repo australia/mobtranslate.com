@@ -575,58 +575,88 @@ export default function StyleGuidePage() {
 
         {/* Word Components */}
         <Section title="Word Components">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Word Card</CardTitle>
-                <CardDescription>Display component for dictionary words</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <WordCard 
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">WordCard</h3>
+              <div className="grid gap-4 max-w-3xl">
+                <WordCard
                   wordId="1"
-                  word="nginda"
-                  translation="you (singular)"
-                  languageCode="kuku_yalanji"
+                  word="Nginda"
+                  translation="You"
                   languageName="Kuku Yalanji"
+                  languageCode="aus-kky"
                   stats={{
-                    attempts: 10,
+                    bucket: 0
+                  }}
+                  clickable={false}
+                  onLike={async () => {}}
+                  initialLiked={false}
+                />
+                <WordCard
+                  wordId="2"
+                  word="Yirrbal"
+                  translation="Language, words, speaking"
+                  languageName="Yidiny"
+                  languageCode="aus-ydd"
+                  showStats={true}
+                  stats={{
+                    attempts: 15,
                     accuracy: 85,
-                    avgResponseTime: 2.5,
+                    avgResponseTime: 1200,
                     lastSeen: new Date().toISOString(),
                     bucket: 3
                   }}
-                  isLiked={false}
-                  likesCount={42}
-                  onLikeToggle={() => console.log('Like toggled')}
-                  hideStats={false}
+                  clickable={false}
+                  onLike={async () => {}}
                 />
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Word Like Button</CardTitle>
-                <CardDescription>Interactive like button for words</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <WordLikeButton
-                    wordId="1"
-                    initialLiked={false}
-                    initialCount={42}
-                  />
-                  <span className="text-sm text-muted-foreground">Not liked</span>
+                <WordCard
+                  wordId="3"
+                  word="Nganyja"
+                  translation="To see, look, watch"
+                  languageName="Warlpiri"
+                  languageCode="aus-wbp"
+                  compact={true}
+                  stats={{
+                    bucket: 5
+                  }}
+                  clickable={false}
+                  onLike={async () => {}}
+                  initialLiked={true}
+                />
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">WordLikeButton</h3>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm text-gray-600 mb-3">Sizes:</p>
+                  <div className="flex gap-4 items-center">
+                    <WordLikeButton wordId="1" size="sm" />
+                    <WordLikeButton wordId="2" size="default" />
+                    <WordLikeButton wordId="3" size="lg" />
+                  </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <WordLikeButton
-                    wordId="2"
-                    initialLiked={true}
-                    initialCount={23}
-                  />
-                  <span className="text-sm text-muted-foreground">Liked</span>
+                
+                <div>
+                  <p className="text-sm text-gray-600 mb-3">Variants:</p>
+                  <div className="flex gap-4 items-center">
+                    <WordLikeButton wordId="4" variant="default" />
+                    <WordLikeButton wordId="5" variant="minimal" />
+                    <WordLikeButton wordId="6" variant="floating" />
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+                
+                <div>
+                  <p className="text-sm text-gray-600 mb-3">With Labels:</p>
+                  <div className="flex gap-4 items-center">
+                    <WordLikeButton wordId="7" showLabel={true} size="sm" />
+                    <WordLikeButton wordId="8" showLabel={true} />
+                    <WordLikeButton wordId="9" showLabel={true} size="lg" variant="floating" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </Section>
 
