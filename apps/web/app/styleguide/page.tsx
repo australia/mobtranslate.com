@@ -443,7 +443,7 @@ export default function StyleGuidePage() {
                 <FormField label="Search Input">
                   <SearchInput 
                     value={searchValue}
-                    onChange={setSearchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
                     placeholder="Search dictionary..."
                   />
                 </FormField>
