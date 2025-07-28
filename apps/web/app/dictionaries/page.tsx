@@ -29,14 +29,15 @@ export default async function DictionariesPage() {
   }));
 
   return (
-    <SharedLayout>
+    <SharedLayout fullWidth>
       <PageHeader 
-        title="Aboriginal Language Dictionaries"
-        description="Browse our collection of Aboriginal language dictionaries, preserving and sharing traditional languages through digital preservation."
+        title="Indigenous Language Dictionaries"
+        description="Browse our collection of Indigenous language dictionaries from around the world, preserving and sharing traditional languages through digital preservation."
       />
 
-      <Section>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <Section contained={false}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {languagesWithCounts.map((lang) => (
             <Card key={lang.code} hover className="overflow-hidden">
               <CardHeader>
@@ -79,12 +80,14 @@ export default async function DictionariesPage() {
               </CardFooter>
             </Card>
           ))}
+          </div>
         </div>
       </Section>
 
-      <Section title="About Our Dictionaries">
-        <Card>
-          <CardContent className="p-8">
+      <Section title="About Our Dictionaries" contained={false}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card>
+            <CardContent className="p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold font-crimson mb-4">Language Preservation</h3>
@@ -96,13 +99,14 @@ export default async function DictionariesPage() {
               <div>
                 <h3 className="text-xl font-semibold font-crimson mb-4">Community Collaboration</h3>
                 <p className="text-muted-foreground font-source-sans leading-relaxed">
-                  Our dictionaries are created in collaboration with Aboriginal communities, linguists, and cultural keepers. 
+                  Our dictionaries are created in collaboration with Indigenous communities, linguists, and cultural keepers. 
                   We acknowledge the Traditional Owners of these languages and thank them for sharing their knowledge.
                 </p>
               </div>
             </div>
           </CardContent>
         </Card>
+        </div>
       </Section>
     </SharedLayout>
   );
@@ -110,11 +114,11 @@ export default async function DictionariesPage() {
 
 export async function generateMetadata() {
   return {
-    title: 'Aboriginal Language Dictionaries - MobTranslate',
-    description: 'Browse our collection of Aboriginal language dictionaries, preserving and sharing traditional languages through digital preservation.',
+    title: 'Indigenous Language Dictionaries - MobTranslate',
+    description: 'Browse our collection of Indigenous language dictionaries from around the world, preserving and sharing traditional languages through digital preservation.',
     openGraph: {
-      title: 'Aboriginal Language Dictionaries',
-      description: 'Explore dictionaries for Aboriginal languages including Kuku Yalanji, Mi\'gmaq, and Anindilyakwa.',
+      title: 'Indigenous Language Dictionaries',
+      description: 'Explore dictionaries for Indigenous languages including Kuku Yalanji, Mi\'gmaq, and Anindilyakwa.',
       type: 'website',
     },
   };

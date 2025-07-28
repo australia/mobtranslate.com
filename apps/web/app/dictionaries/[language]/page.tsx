@@ -58,7 +58,7 @@ export default async function DictionaryPage({
     };
 
     return (
-      <SharedLayout>
+      <SharedLayout fullWidth>
         <PageHeader 
           title={`${languageData.name} Dictionary`}
           description={languageData.description || `Explore the ${languageData.name} language dictionary`}

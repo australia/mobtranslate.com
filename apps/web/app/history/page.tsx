@@ -3,7 +3,7 @@
 import React from 'react';
 import SharedLayout from '../components/SharedLayout';
 import { PageHeader, Section } from '@ui/components';
-import { Calendar, Globe, Heart, Users, Code, Lightbulb, Trophy, Target } from 'lucide-react';
+import { Calendar, Globe, Heart, Code, Lightbulb, Trophy, Target } from 'lucide-react';
 
 export default function HistoryPage() {
   return (
@@ -11,7 +11,7 @@ export default function HistoryPage() {
       <div className="max-w-4xl mx-auto">
         <PageHeader
           title="Our History"
-          description="The story of MobTranslate.com - preserving Indigenous languages through technology"
+          description="The story of MobTranslate.com - preserving Indigenous languages worldwide through technology"
         />
 
         <div className="space-y-12">
@@ -24,7 +24,7 @@ export default function HistoryPage() {
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     MobTranslate.com is a community-driven project dedicated to preserving and promoting 
-                    Australian Aboriginal languages through accessible translation tools and modern technology. 
+                    Indigenous languages worldwide through accessible translation tools and modern technology. 
                     We believe that every language deserves to thrive in the digital age.
                   </p>
                 </div>
@@ -171,36 +171,6 @@ export default function HistoryPage() {
                     <li>• Intelligent learning systems</li>
                   </ul>
                 </div>
-              </div>
-            </div>
-          </Section>
-
-          {/* Community Impact */}
-          <Section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-              <Users className="h-8 w-8 mr-3 text-blue-500" />
-              Community & Impact
-            </h2>
-            
-            <div className="prose prose-lg max-w-none text-gray-700">
-              <p className="mb-6">
-                MobTranslate.com is more than just a translation tool—it's a bridge between traditional knowledge 
-                and modern technology. We work closely with Aboriginal communities and language authorities, 
-                always respecting cultural protocols around language sharing.
-              </p>
-              
-              <p className="mb-6">
-                Our open-source approach ensures that the tools we build can be adapted and used by communities 
-                worldwide. Every feature we develop is designed to support community-led language revitalization 
-                initiatives.
-              </p>
-              
-              <div className="bg-blue-50 border-l-4 border-blue-400 p-6 my-8">
-                <p className="text-blue-800 font-medium">
-                  MobTranslate.com exists to empower Indigenous communities with the digital tools they need 
-                  to keep their languages alive. For questions or collaboration opportunities, you can contact 
-                  Ajax on Twitter <a href="https://twitter.com/ajaxdavis" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">@ajaxdavis</a>.
-                </p>
               </div>
             </div>
           </Section>

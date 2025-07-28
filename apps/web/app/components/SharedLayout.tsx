@@ -175,7 +175,7 @@ export default function SharedLayout({ children, fullWidth = false }: SharedLayo
               <h3 className="text-lg font-medium mb-4">About Mob Translate</h3>
               <p className="text-muted-foreground leading-relaxed">
                 A community-driven project dedicated to preserving and promoting 
-                Australian Aboriginal languages through accessible translation tools.
+                Indigenous languages worldwide through accessible translation tools.
               </p>
               <div className="mt-4">
                 <a href="https://twitter.com/ajaxdavis" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-all duration-200 underline inline-flex items-center gap-1">
@@ -228,7 +228,7 @@ export default function SharedLayout({ children, fullWidth = false }: SharedLayo
               </div>
               <p className="mt-4 text-muted-foreground leading-relaxed">
                 Contribute to our open-source project and help us improve translations for
-                Aboriginal languages.
+                Indigenous languages worldwide.
               </p>
             </div>
           </div>
