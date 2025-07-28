@@ -42,6 +42,9 @@ export function ModernNav() {
   useEffect(() => {
     if (user) {
       fetchUsername();
+    } else {
+      setUsername(null);
+      setUserRole(null);
     }
   }, [user]);
 
@@ -73,6 +76,7 @@ export function ModernNav() {
             lang_id: null
           });
         
+        console.log('User role data:', roleData);
         if (roleData) {
           setUserRole(roleData);
         }
@@ -109,12 +113,24 @@ export function ModernNav() {
   const isAdmin = userRole === 'super_admin' || userRole === 'dictionary_admin';
   const isCurator = userRole === 'curator' || isAdmin;
   
+  // Add curator dashboard for curators
   if (isCurator) {
-    dropdownItems.push({ href: '/curator', label: 'Curator Dashboard', icon: FileCheck, description: 'Review submissions' });
+    dropdownItems.splice(1, 0, { 
+      href: '/curator', 
+      label: 'Curator Dashboard', 
+      icon: FileCheck, 
+      description: 'Review submissions' 
+    });
   }
   
+  // Add admin panel for admins
   if (isAdmin) {
-    dropdownItems.push({ href: '/admin', label: 'Admin Panel', icon: Shield, description: 'System administration' });
+    dropdownItems.splice(1, 0, { 
+      href: '/admin', 
+      label: 'Admin Panel', 
+      icon: Shield, 
+      description: 'System administration' 
+    });
   }
 
   if (loading) {
