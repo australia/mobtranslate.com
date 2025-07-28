@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Mail, Twitter } from 'lucide-react';
+import { Github, Twitter } from 'lucide-react';
 import SharedLayout from '../components/SharedLayout';
 import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Button, Badge } from '@ui/components';
 
@@ -8,7 +8,7 @@ export default function About() {
     <SharedLayout>
       <PageHeader 
         title="About Mob Translate"
-        description="A community-driven project aimed at creating translation tools for Australian Aboriginal languages. Our mission is to make language preservation and learning accessible to all through open-source technology."
+        description="A community-driven project aimed at creating translation tools for Indigenous languages worldwide. Our mission is to make language preservation and learning accessible to all through open-source technology."
       />
 
       <Section>
@@ -21,15 +21,15 @@ export default function About() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <Badge variant="primary" className="mt-0.5">1</Badge>
-                  <span className="font-source-sans">Create an open-source ecosystem for indigenous language translation</span>
+                  <span className="font-source-sans">Create an open-source ecosystem for Indigenous language translation</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Badge variant="primary" className="mt-0.5">2</Badge>
-                  <span className="font-source-sans">Build a "Google Translate" equivalent for Australian Aboriginal languages</span>
+                  <span className="font-source-sans">Build a "Google Translate" equivalent for Indigenous languages</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Badge variant="primary" className="mt-0.5">3</Badge>
-                  <span className="font-source-sans">Preserve and promote indigenous languages through technology</span>
+                  <span className="font-source-sans">Preserve and promote Indigenous languages through technology</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Badge variant="primary" className="mt-0.5">4</Badge>
@@ -47,7 +47,7 @@ export default function About() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <Badge variant="success" className="mt-0.5">✓</Badge>
-                  <span className="font-source-sans">Dictionary support for multiple indigenous languages</span>
+                  <span className="font-source-sans">Dictionary support for multiple Indigenous languages</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Badge variant="success" className="mt-0.5">✓</Badge>
@@ -67,38 +67,22 @@ export default function About() {
         </div>
       </Section>
 
-      <Section title="About the Creator">
+      <Section title="Contact">
         <Card>
-          <CardContent className="p-8">
-            <div className="flex flex-col md:flex-row gap-8">
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold font-crimson mb-4">Thomas Davis</h3>
-                <p className="text-muted-foreground leading-relaxed mb-6 font-source-sans">
-                  Thomas Davis is a passionate developer and advocate for indigenous language preservation. 
-                  With a background in web development and a commitment to open-source projects, 
-                  Thomas created Mob Translate to help preserve and promote Aboriginal languages through technology.
-                </p>
-                
-                <div className="flex flex-wrap gap-3">
-                  <a 
-                    href="mailto:thomasalwyndavis@gmail.com" 
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors"
-                  >
-                    <Mail size={16} className="text-primary" />
-                    <span className="font-source-sans">thomasalwyndavis@gmail.com</span>
-                  </a>
-                  <a 
-                    href="https://twitter.com/ajaxdavis" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors"
-                  >
-                    <Twitter size={16} className="text-primary" />
-                    <span className="font-source-sans">@ajaxdavis</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+          <CardContent className="p-8 text-center">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6 font-source-sans">
+              For questions, collaboration opportunities, or to get involved with the project, 
+              you can reach out on Twitter.
+            </p>
+            <a 
+              href="https://twitter.com/ajaxdavis" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
+            >
+              <Twitter size={20} />
+              <span className="font-source-sans font-medium">@ajaxdavis on Twitter</span>
+            </a>
           </CardContent>
         </Card>
       </Section>
@@ -116,7 +100,7 @@ export default function About() {
               >
                 GitHub repository
               </Link>
-              {' '}to learn how you can help make indigenous language translation more accessible.
+              {' '}to learn how you can help make Indigenous language translation more accessible.
             </p>
             
             <Button asChild size="lg">
