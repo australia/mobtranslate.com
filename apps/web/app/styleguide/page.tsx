@@ -250,72 +250,138 @@ export default function StyleGuidePage() {
 
         {/* Buttons Section */}
         <Section title="Buttons">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-6">
+            {/* Button Variants */}
             <Card>
               <CardHeader>
                 <CardTitle>Button Variants</CardTitle>
                 <CardDescription>Different button styles for various use cases</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <Button variant="primary">Primary Button</Button>
-                  <span className="text-sm text-muted-foreground">Main actions</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Button variant="secondary">Secondary Button</Button>
-                  <span className="text-sm text-muted-foreground">Alternative actions</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Button variant="outline">Outline Button</Button>
-                  <span className="text-sm text-muted-foreground">Tertiary actions</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Button variant="ghost">Ghost Button</Button>
-                  <span className="text-sm text-muted-foreground">Subtle actions</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Button variant="destructive">Destructive</Button>
-                  <span className="text-sm text-muted-foreground">Dangerous actions</span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Button variant="aboriginal">Aboriginal</Button>
-                  <span className="text-sm text-muted-foreground">Special variant</span>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <Button variant="primary" fullWidth>Primary</Button>
+                    <p className="text-xs text-muted-foreground">Main actions</p>
+                  </div>
+                  <div className="space-y-2">
+                    <Button variant="secondary" fullWidth>Secondary</Button>
+                    <p className="text-xs text-muted-foreground">Alternative actions</p>
+                  </div>
+                  <div className="space-y-2">
+                    <Button variant="destructive" fullWidth>Destructive</Button>
+                    <p className="text-xs text-muted-foreground">Dangerous actions</p>
+                  </div>
+                  <div className="space-y-2">
+                    <Button variant="outline" fullWidth>Outline</Button>
+                    <p className="text-xs text-muted-foreground">Bordered style</p>
+                  </div>
+                  <div className="space-y-2">
+                    <Button variant="ghost" fullWidth>Ghost</Button>
+                    <p className="text-xs text-muted-foreground">Minimal style</p>
+                  </div>
+                  <div className="space-y-2">
+                    <Button variant="link" fullWidth>Link</Button>
+                    <p className="text-xs text-muted-foreground">Text link style</p>
+                  </div>
+                  <div className="space-y-2">
+                    <Button variant="success" fullWidth>Success</Button>
+                    <p className="text-xs text-muted-foreground">Positive actions</p>
+                  </div>
+                  <div className="space-y-2">
+                    <Button variant="warning" fullWidth>Warning</Button>
+                    <p className="text-xs text-muted-foreground">Caution actions</p>
+                  </div>
                 </div>
               </CardContent>
             </Card>
 
+            {/* Button Sizes */}
             <Card>
               <CardHeader>
-                <CardTitle>Button Sizes & States</CardTitle>
-                <CardDescription>Size variations and interactive states</CardDescription>
+                <CardTitle>Button Sizes</CardTitle>
+                <CardDescription>Size variations for different contexts</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Button size="xs">Extra Small</Button>
+                  <Button size="sm">Small</Button>
+                  <Button size="md">Medium</Button>
+                  <Button size="lg">Large</Button>
+                  <Button size="xl">Extra Large</Button>
+                </div>
+                <div className="mt-6 space-y-3">
+                  <p className="text-sm font-medium">Full Width Buttons</p>
+                  <Button fullWidth size="sm">Small Full Width</Button>
+                  <Button fullWidth>Medium Full Width</Button>
+                  <Button fullWidth size="lg">Large Full Width</Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Button States */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Button States</CardTitle>
+                <CardDescription>Interactive states and behaviors</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div>
+                  <p className="text-sm font-medium mb-3">Hover States (hover over buttons)</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="primary">Primary Hover</Button>
+                    <Button variant="secondary">Secondary Hover</Button>
+                    <Button variant="destructive">Destructive Hover</Button>
+                    <Button variant="outline">Outline Hover</Button>
+                    <Button variant="ghost">Ghost Hover</Button>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-sm font-medium mb-3">Disabled States</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="primary" disabled>Primary</Button>
+                    <Button variant="secondary" disabled>Secondary</Button>
+                    <Button variant="destructive" disabled>Destructive</Button>
+                    <Button variant="outline" disabled>Outline</Button>
+                    <Button variant="ghost" disabled>Ghost</Button>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-sm font-medium mb-3">Loading States</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="primary" loading>Loading</Button>
+                    <Button variant="secondary" loading loadingText="Processing...">Processing</Button>
+                    <Button variant="outline" loading loadingText="Please wait">Please wait</Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Button with Icons */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Buttons with Icons</CardTitle>
+                <CardDescription>Icon placement and combinations</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <p className="text-sm font-medium mb-2">Sizes</p>
-                  <div className="flex items-center gap-2">
-                    <Button size="sm">Small</Button>
-                    <Button size="md">Medium</Button>
-                    <Button size="lg">Large</Button>
-                  </div>
+                <div className="flex flex-wrap gap-3">
+                  <Button leftIcon={<Download className="h-4 w-4" />}>Download</Button>
+                  <Button rightIcon={<ArrowRight className="h-4 w-4" />}>Next</Button>
+                  <Button leftIcon={<ArrowLeft className="h-4 w-4" />} rightIcon={<ArrowRight className="h-4 w-4" />}>
+                    Navigate
+                  </Button>
                 </div>
-                <div className="space-y-2">
-                  <p className="text-sm font-medium mb-2">States</p>
-                  <div className="flex flex-wrap gap-2">
-                    <Button disabled>Disabled</Button>
-                    <Button className="animate-pulse">Loading...</Button>
-                  </div>
+                <div className="flex flex-wrap gap-3">
+                  <Button variant="success" leftIcon={<CheckCircle className="h-4 w-4" />}>Save</Button>
+                  <Button variant="destructive" leftIcon={<Trash2 className="h-4 w-4" />}>Delete</Button>
+                  <Button variant="outline" leftIcon={<Edit className="h-4 w-4" />}>Edit</Button>
                 </div>
-                <div className="space-y-2">
-                  <p className="text-sm font-medium mb-2">With Icons</p>
-                  <div className="flex flex-wrap gap-2">
-                    <Button>
-                      <Search className="w-4 h-4 mr-2" />
-                      Search
-                    </Button>
-                    <Button variant="secondary">
-                      Continue
-                      <ChevronRight className="w-4 h-4 ml-2" />
-                    </Button>
+                <div>
+                  <p className="text-sm font-medium mb-3">Icon-only Buttons</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Button size="xs" variant="ghost" className="p-1"><X className="h-4 w-4" /></Button>
+                    <Button size="sm" variant="ghost" className="p-2"><Menu className="h-4 w-4" /></Button>
+                    <Button variant="outline" className="p-2.5"><Settings className="h-5 w-5" /></Button>
+                    <Button variant="primary" className="p-3"><Save className="h-5 w-5" /></Button>
                   </div>
                 </div>
               </CardContent>
