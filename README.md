@@ -1,5 +1,7 @@
 # MobTranslate
 
+> **📚 For comprehensive documentation, see [DOCUMENTATION.md](./DOCUMENTATION.md)**
+
 <p align="center">
   <img src="https://mobtranslate.com/og-image.png" alt="MobTranslate Logo" width="600" />
 </p>
@@ -13,7 +15,7 @@
   <a href="#features">Features</a> •
   <a href="#getting-started">Getting Started</a> •
   <a href="#tech-stack">Tech Stack</a> •
-  <a href="#api-documentation">API Documentation</a> •
+  <a href="./DOCUMENTATION.md">Full Documentation</a> •
   <a href="#contributing">Contributing</a>
 </p>
 
