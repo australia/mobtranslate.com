@@ -61,21 +61,39 @@ export default function LanguageSettingsPage() {
           user_id,
           is_active,
           assigned_at,
-          user_profiles!inner(email),
-          user_roles!inner(name)
+          role_id
         `)
-        .eq('language_id', params.id)
-        .eq('user_roles.name', 'curator');
+        .eq('language_id', params.id);
 
       if (curatorError) throw curatorError;
 
-      const formattedCurators = curatorData?.map(c => ({
-        id: c.id,
-        user_id: c.user_id,
-        email: c.user_profiles.email,
-        assigned_at: c.assigned_at,
-        is_active: c.is_active
-      })) || [];
+      // Get curator role ID
+      const { data: curatorRole } = await supabase
+        .from('user_roles')
+        .select('id')
+        .eq('name', 'curator')
+        .single();
+
+      // Filter for curator role assignments
+      const curatorAssignments = curatorData?.filter(c => c.role_id === curatorRole?.id) || [];
+
+      // Get user emails
+      const userIds = curatorAssignments.map(c => c.user_id);
+      const { data: userProfiles } = await supabase
+        .from('user_profiles')
+        .select('user_id, email')
+        .in('user_id', userIds);
+
+      const formattedCurators = curatorAssignments.map(c => {
+        const profile = userProfiles?.find(p => p.user_id === c.user_id);
+        return {
+          id: c.id,
+          user_id: c.user_id,
+          email: profile?.email || 'Unknown',
+          assigned_at: c.assigned_at,
+          is_active: c.is_active
+        };
+      });
 
       setCurators(formattedCurators);
     } catch (error) {
@@ -106,15 +124,20 @@ export default function LanguageSettingsPage() {
         throw new Error('User not found with that email');
       }
 
-      // Get the curator role ID
+      // Get the curator role ID - handle RLS restrictions
       const { data: roleData, error: roleError } = await supabase
         .from('user_roles')
         .select('id')
         .eq('name', 'curator')
-        .single();
+        .maybeSingle();
 
-      if (roleError || !roleData) {
-        throw new Error('Curator role not found');
+      if (roleError) {
+        console.error('Error fetching curator role:', roleError);
+        throw new Error('Failed to fetch curator role');
+      }
+
+      if (!roleData) {
+        throw new Error('Curator role not found in database');
       }
 
       // Create the assignment
@@ -272,7 +295,7 @@ export default function LanguageSettingsPage() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="user@example.com"
+                  placeholder="Enter user's email address"
                   value={newCuratorEmail}
                   onChange={(e) => setNewCuratorEmail(e.target.value)}
                 />
