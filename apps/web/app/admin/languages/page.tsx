@@ -4,7 +4,7 @@ import { useState } from 'react';
 import useSWR from 'swr';
 import { Button } from '@ui/components/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components/Table';
 import { Badge } from '@ui/components/badge';
 import { useToast } from '@ui/components/use-toast';
 import { Plus, Edit, Users, Globe, BookOpen, Settings } from 'lucide-react';

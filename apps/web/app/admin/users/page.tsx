@@ -6,7 +6,7 @@ import { Shield, UserPlus, Search, Edit, Trash2 } from 'lucide-react';
 import { Button } from '@ui/components';
 import { Input } from '@ui/components/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components/Table';
 import { Badge } from '@ui/components/badge';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@ui/components/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/components/select';
