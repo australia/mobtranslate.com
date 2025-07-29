@@ -14,8 +14,23 @@ export type { InputProps } from './input';
 export { Textarea } from './Textarea';
 export type { TextareaProps } from './Textarea';
 
-export { Select } from './Select';
-export type { SelectProps } from './Select';
+// Simple HTML select
+export { Select as SimpleSelect } from './select-simple';
+export type { SelectProps as SimpleSelectProps } from './select-simple';
+
+// Radix UI select
+export {
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
+  SelectScrollUpButton,
+  SelectScrollDownButton,
+} from './select';
 
 export { Label } from './Label';
 export type { LabelProps } from './Label';
@@ -117,5 +132,8 @@ export type { ToastProps, ToastActionElement } from './toast';
 
 // Avatar components
 export { Avatar, AvatarImage, AvatarFallback } from './avatar';
+
+// Tabs components
+export { Tabs, TabsList, TabsTrigger, TabsContent } from './tabs';
 
 // Note: Card and Input components are exported from their respective subdirectories above

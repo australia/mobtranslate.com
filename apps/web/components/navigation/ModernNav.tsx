@@ -68,17 +68,22 @@ export function ModernNav() {
       }
       
       // Check user role using Supabase directly
-      if (user) {
-        const supabase = createClient();
-        const { data: roleData } = await supabase
-          .rpc('get_user_language_role', {
-            user_uuid: user.id,
-            lang_id: null
-          });
-        
-        console.log('User role data:', roleData);
-        if (roleData) {
-          setUserRole(roleData);
+      if (user && typeof window !== 'undefined') {
+        try {
+          const supabase = createClient();
+          const { data: roleData, error } = await supabase
+            .rpc('get_user_language_role', {
+              user_uuid: user.id,
+              lang_id: null
+            });
+          
+          if (error) {
+            console.error('Error fetching user role:', error);
+          } else if (roleData) {
+            setUserRole(roleData);
+          }
+        } catch (err) {
+          console.error('Failed to fetch user role:', err);
         }
       }
     } catch (error) {
