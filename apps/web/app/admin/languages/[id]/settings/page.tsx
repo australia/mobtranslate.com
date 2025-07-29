@@ -28,7 +28,7 @@ interface LanguageSettings {
 }
 
 export default function LanguageSettingsPage() {
-  const params = useParams();
+  const params = useParams<{ id: string }>();
   const router = useRouter();
   const { toast } = useToast();
   const [language, setLanguage] = useState<LanguageSettings | null>(null);
@@ -38,14 +38,14 @@ export default function LanguageSettingsPage() {
 
   useEffect(() => {
     fetchLanguage();
-  }, [params.code]);
+  }, [params.id]);
 
   const fetchLanguage = async () => {
     try {
       const { data, error } = await supabase
         .from('languages')
         .select('*')
-        .eq('code', params.code)
+        .eq('id', params.id)
         .single();
 
       if (error) throw error;
@@ -116,6 +116,7 @@ export default function LanguageSettingsPage() {
           variant="ghost"
           size="icon"
           onClick={() => router.push('/admin/languages')}
+          className="h-9 w-9"
         >
           <ArrowLeft className="h-4 w-4" />
         </Button>
@@ -273,9 +274,9 @@ export default function LanguageSettingsPage() {
         </Card>
 
         <div className="flex justify-end">
-          <Button onClick={handleSave} disabled={saving}>
-            <Save className="h-4 w-4 mr-2" />
-            {saving ? 'Saving...' : 'Save Changes'}
+          <Button onClick={handleSave} disabled={saving} className="gap-2">
+            <Save className="h-4 w-4" />
+            <span>{saving ? 'Saving...' : 'Save Changes'}</span>
           </Button>
         </div>
       </div>

@@ -6,12 +6,9 @@ import { Button } from '@ui/components/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components/table';
 import { Badge } from '@ui/components/badge';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@ui/components/dialog';
-import { Input } from '@ui/components/input';
-import { Label } from '@ui/components/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/components/select';
 import { useToast } from '@ui/components/use-toast';
 import { Plus, Edit, Users, Globe, BookOpen, Settings } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface Language {
   id: string;
@@ -29,8 +26,7 @@ const fetcher = (url: string) => fetch(url).then((res) => {
 });
 
 export default function LanguagesPage() {
-  const [editingLanguage, setEditingLanguage] = useState<Language | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const router = useRouter();
   const { toast } = useToast();
 
   const { data: languages = [], error, isLoading, mutate } = useSWR(
@@ -46,55 +42,6 @@ export default function LanguagesPage() {
     });
   }
 
-  const handleSaveLanguage = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    
-    const languageData = {
-      name: formData.get('name') as string,
-      code: formData.get('code') as string,
-      is_active: formData.get('is_active') === 'true'
-    };
-
-    try {
-      const url = editingLanguage 
-        ? `/api/v2/admin/languages/${editingLanguage.id}`
-        : '/api/v2/admin/languages';
-      
-      const response = await fetch(url, {
-        method: editingLanguage ? 'PUT' : 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(languageData)
-      });
-
-      if (response.ok) {
-        toast({
-          title: 'Success',
-          description: `Language ${editingLanguage ? 'updated' : 'created'} successfully`
-        });
-        setIsDialogOpen(false);
-        setEditingLanguage(null);
-        mutate();
-      }
-    } catch (error) {
-      console.error('Failed to save language:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to save language',
-        variant: 'destructive'
-      });
-    }
-  };
-
-  const openEditDialog = (language: Language) => {
-    setEditingLanguage(language);
-    setIsDialogOpen(true);
-  };
-
-  const openCreateDialog = () => {
-    setEditingLanguage(null);
-    setIsDialogOpen(true);
-  };
 
   return (
     <div className="space-y-6">
@@ -105,7 +52,7 @@ export default function LanguagesPage() {
             Manage languages and their curation settings
           </p>
         </div>
-        <Button onClick={openCreateDialog}>
+        <Button onClick={() => router.push('/admin/languages/new')}>
           <Plus className="h-4 w-4 mr-2" />
           Add Language
         </Button>
@@ -223,7 +170,7 @@ export default function LanguagesPage() {
                         <Button
                           variant="ghost"
                           size="icon"
-                          onClick={() => openEditDialog(language)}
+                          onClick={() => router.push(`/admin/languages/${language.id}/edit`)}
                           title="Edit language"
                         >
                           <Edit className="h-4 w-4" />
@@ -233,7 +180,7 @@ export default function LanguagesPage() {
                           size="icon"
                           asChild
                         >
-                          <a href={`/admin/languages/${language.code}/settings`} title="Language settings">
+                          <a href={`/admin/languages/${language.id}/settings`} title="Language settings">
                             <Settings className="h-4 w-4" />
                           </a>
                         </Button>
@@ -247,75 +194,6 @@ export default function LanguagesPage() {
         </CardContent>
       </Card>
 
-      {/* Create/Edit Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent>
-          <form onSubmit={handleSaveLanguage}>
-            <DialogHeader>
-              <DialogTitle>
-                {editingLanguage ? 'Edit Language' : 'Add New Language'}
-              </DialogTitle>
-              <DialogDescription>
-                {editingLanguage 
-                  ? 'Update the language details below'
-                  : 'Add a new language to the platform'
-                }
-              </DialogDescription>
-            </DialogHeader>
-            
-            <div className="grid gap-4 py-4">
-              <div className="grid gap-2">
-                <Label htmlFor="name">Language Name</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  placeholder="e.g., Kuku Yalanji"
-                  defaultValue={editingLanguage?.name}
-                  required
-                />
-              </div>
-              
-              <div className="grid gap-2">
-                <Label htmlFor="code">Language Code</Label>
-                <Input
-                  id="code"
-                  name="code"
-                  placeholder="e.g., kky"
-                  defaultValue={editingLanguage?.code}
-                  pattern="[a-zA-Z_-]+"
-                  title="Letters, underscores, and hyphens only"
-                  required
-                />
-              </div>
-              
-              <div className="grid gap-2">
-                <Label htmlFor="is_active">Status</Label>
-                <Select 
-                  name="is_active" 
-                  defaultValue={editingLanguage?.is_active?.toString() ?? 'true'}
-                >
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="true">Active</SelectItem>
-                    <SelectItem value="false">Inactive</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-            
-            <DialogFooter>
-              <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
-                Cancel
-              </Button>
-              <Button type="submit">
-                {editingLanguage ? 'Update' : 'Create'}
-              </Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }

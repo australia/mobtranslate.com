@@ -28,19 +28,46 @@ export async function PUT(
     const body = await request.json();
     const { name, code, is_active } = body;
 
+    // Validate input
+    if (!name || !code) {
+      return NextResponse.json(
+        { error: 'Name and code are required' },
+        { status: 400 }
+      );
+    }
+
+    // First check if the language exists
+    const { data: existingLang, error: checkError } = await supabase
+      .from('languages')
+      .select('id')
+      .eq('id', params.id)
+      .single();
+
+    if (checkError || !existingLang) {
+      console.error('Language not found:', params.id);
+      return NextResponse.json(
+        { error: 'Language not found' },
+        { status: 404 }
+      );
+    }
+
     // Update language
     const { data: updatedLanguage, error } = await supabase
       .from('languages')
       .update({
         name,
         code: code.toLowerCase(),
-        is_active
+        is_active: is_active ?? true,
+        updated_at: new Date().toISOString()
       })
       .eq('id', params.id)
       .select()
       .single();
 
-    if (error) throw error;
+    if (error) {
+      console.error('Update error:', error);
+      throw error;
+    }
 
     return NextResponse.json(updatedLanguage);
   } catch (error) {
