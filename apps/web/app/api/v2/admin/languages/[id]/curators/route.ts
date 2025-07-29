@@ -1,6 +1,76 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const supabase = createClient();
+    
+    // Check authentication
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Fetch curators for this language
+    const { data: curatorData, error: curatorError } = await supabase
+      .from('user_role_assignments')
+      .select(`
+        id,
+        user_id,
+        is_active,
+        assigned_at,
+        role_id
+      `)
+      .eq('language_id', params.id);
+
+    if (curatorError) {
+      console.error('Error fetching curators:', curatorError);
+      return NextResponse.json({ error: curatorError.message }, { status: 400 });
+    }
+
+    // Hardcoded curator role ID
+    const curatorRoleId = '18852da6-18c0-4a2a-8fc0-4aa0c544aab5';
+    const curatorAssignments = curatorData?.filter(c => c.role_id === curatorRoleId) || [];
+
+    // Get user emails
+    const userIds = curatorAssignments.map(c => c.user_id);
+    let userProfiles = [];
+    
+    if (userIds.length > 0) {
+      const { data, error } = await supabase
+        .from('user_profiles')
+        .select('user_id, email')
+        .in('user_id', userIds);
+      
+      if (!error && data) {
+        userProfiles = data;
+      }
+    }
+
+    const formattedCurators = curatorAssignments.map(c => {
+      const profile = userProfiles?.find(p => p.user_id === c.user_id);
+      return {
+        id: c.id,
+        user_id: c.user_id,
+        email: profile?.email || 'Unknown',
+        assigned_at: c.assigned_at,
+        is_active: c.is_active
+      };
+    });
+
+    return NextResponse.json(formattedCurators);
+  } catch (error) {
+    console.error('Failed to fetch curators:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch curators' },
+      { status: 500 }
+    );
+  }
+}
+
 export async function POST(
   request: NextRequest,
   { params }: { params: { id: string } }

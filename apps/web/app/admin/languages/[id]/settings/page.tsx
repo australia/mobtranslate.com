@@ -53,44 +53,15 @@ export default function LanguageSettingsPage() {
       if (langError) throw langError;
       setLanguage(langData);
 
-      // Fetch curators for this language
-      const { data: curatorData, error: curatorError } = await supabase
-        .from('user_role_assignments')
-        .select('*')
-        .eq('language_id', params.id);
+      // Fetch curators using API endpoint
+      const response = await fetch(`/api/v2/admin/languages/${params.id}/curators`);
+      const curators = await response.json();
 
-      if (curatorError) throw curatorError;
-
-      // Filter for curator role assignments
-      // Using hardcoded curator role ID to avoid RLS issues
-      const curatorRoleId = '18852da6-18c0-4a2a-8fc0-4aa0c544aab5';
-      const curatorAssignments = curatorData?.filter(c => c.role_id === curatorRoleId) || [];
-      // Get user emails
-      const userIds = curatorAssignments.map(c => c.user_id);
-      let userProfiles = [];
-      
-      if (userIds.length > 0) {
-        const { data, error } = await supabase
-          .from('user_profiles')
-          .select('user_id, email')
-          .in('user_id', userIds);
-        
-        if (!error && data) {
-          userProfiles = data;
-        }
+      if (!response.ok) {
+        throw new Error(curators.error || 'Failed to fetch curators');
       }
 
-      const formattedCurators = curatorAssignments.map(c => {
-        const profile = userProfiles?.find(p => p.user_id === c.user_id);
-        return {
-          id: c.id,
-          user_id: c.user_id,
-          email: profile?.email || 'Unknown',
-          assigned_at: c.assigned_at,
-          is_active: c.is_active
-        };
-      });
-      setCurators(formattedCurators);
+      setCurators(curators);
     } catch (error) {
       console.error('Error fetching data:', error);
       toast({
