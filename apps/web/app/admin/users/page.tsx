@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import useSWR from 'swr';
 import { Shield, UserPlus, Search, Edit, Trash2 } from 'lucide-react';
 import { Button } from '@ui/components';
 import { Input } from '@ui/components/input';
@@ -38,11 +39,12 @@ interface User {
   }>;
 }
 
+const fetcher = (url: string) => fetch(url).then((res) => {
+  if (!res.ok) throw new Error('Failed to fetch');
+  return res.json();
+});
+
 export default function UserManagementPage() {
-  const [users, setUsers] = useState<User[]>([]);
-  const [roles, setRoles] = useState<any[]>([]);
-  const [languages, setLanguages] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [assignRoleOpen, setAssignRoleOpen] = useState(false);
@@ -51,41 +53,32 @@ export default function UserManagementPage() {
   const { toast } = useToast();
   const supabase = createClient();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // Fetch users with SWR
+  const { data: users = [], error: usersError, isLoading: usersLoading, mutate: mutateUsers } = useSWR(
+    '/api/v2/admin/users',
+    fetcher
+  );
 
-  const fetchData = async () => {
-    try {
-      // Fetch all users from the new API endpoint that includes auth users
-      const usersResponse = await fetch('/api/v2/admin/users');
-      if (!usersResponse.ok) throw new Error('Failed to fetch users');
-      const usersData = await usersResponse.json();
-      setUsers(usersData);
+  // Fetch roles with SWR
+  const { data: roles = [], error: rolesError } = useSWR(
+    '/api/v2/admin/roles',
+    fetcher
+  );
 
-      // Fetch available roles
-      const rolesResponse = await fetch('/api/v2/admin/roles');
-      const rolesData = await rolesResponse.json();
-      setRoles(rolesData);
+  // Fetch languages with SWR
+  const { data: languages = [], error: languagesError } = useSWR(
+    '/api/v2/admin/languages',
+    fetcher
+  );
 
-      // Fetch languages
-      const { data: langs } = await supabase
-        .from('languages')
-        .select('*')
-        .eq('is_active', true)
-        .order('name');
-      setLanguages(langs || []);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to load user data',
-        variant: 'destructive'
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Handle errors
+  if (usersError || rolesError || languagesError) {
+    toast({
+      title: 'Error',
+      description: 'Failed to load data',
+      variant: 'destructive'
+    });
+  }
 
   const handleAssignRole = async () => {
     if (!selectedUser || !selectedRole) return;
@@ -111,7 +104,8 @@ export default function UserManagementPage() {
       setSelectedUser(null);
       setSelectedRole('');
       setSelectedLanguage('');
-      await fetchData();
+      // Refresh users data
+      await mutateUsers();
     } catch (error) {
       console.error('Error assigning role:', error);
       toast({
@@ -138,7 +132,7 @@ export default function UserManagementPage() {
     }
   };
 
-  if (loading) {
+  if (usersLoading) {
     return <div className="animate-pulse">Loading users...</div>;
   }
 

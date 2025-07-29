@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Button } from '@/app/components/ui/button';
+import { useState } from 'react';
+import useSWR from 'swr';
+import { Button } from '@ui/components/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components/table';
 import { Badge } from '@ui/components/badge';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@ui/components/dialog';
 import { Input } from '@ui/components/input';
@@ -22,35 +23,28 @@ interface Language {
   created_at: string;
 }
 
+const fetcher = (url: string) => fetch(url).then((res) => {
+  if (!res.ok) throw new Error('Failed to fetch');
+  return res.json();
+});
+
 export default function LanguagesPage() {
-  const [languages, setLanguages] = useState<Language[]>([]);
-  const [loading, setLoading] = useState(true);
   const [editingLanguage, setEditingLanguage] = useState<Language | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { toast } = useToast();
 
-  useEffect(() => {
-    fetchLanguages();
-  }, []);
+  const { data: languages = [], error, isLoading, mutate } = useSWR(
+    '/api/v2/admin/languages',
+    fetcher
+  );
 
-  const fetchLanguages = async () => {
-    try {
-      const response = await fetch('/api/v2/admin/languages');
-      if (response.ok) {
-        const data = await response.json();
-        setLanguages(data);
-      }
-    } catch (error) {
-      console.error('Failed to fetch languages:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to load languages',
-        variant: 'destructive'
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+  if (error) {
+    toast({
+      title: 'Error',
+      description: 'Failed to load languages',
+      variant: 'destructive'
+    });
+  }
 
   const handleSaveLanguage = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -80,7 +74,7 @@ export default function LanguagesPage() {
         });
         setIsDialogOpen(false);
         setEditingLanguage(null);
-        fetchLanguages();
+        mutate();
       }
     } catch (error) {
       console.error('Failed to save language:', error);
@@ -193,7 +187,7 @@ export default function LanguagesPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {loading ? (
+              {isLoading ? (
                 <TableRow>
                   <TableCell colSpan={7} className="text-center">
                     Loading languages...
@@ -224,25 +218,26 @@ export default function LanguagesPage() {
                     <TableCell>
                       {new Date(language.created_at).toLocaleDateString()}
                     </TableCell>
-                    <TableCell className="text-right">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => openEditDialog(language)}
-                      >
-                        <Edit className="h-4 w-4 mr-2" />
-                        Edit
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        asChild
-                      >
-                        <a href={`/admin/languages/${language.code}`}>
-                          <Settings className="h-4 w-4 mr-2" />
-                          Settings
-                        </a>
-                      </Button>
+                    <TableCell>
+                      <div className="flex items-center justify-end gap-2">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          onClick={() => openEditDialog(language)}
+                          title="Edit language"
+                        >
+                          <Edit className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          asChild
+                        >
+                          <a href={`/admin/languages/${language.code}/settings`} title="Language settings">
+                            <Settings className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                 ))
@@ -287,8 +282,8 @@ export default function LanguagesPage() {
                   name="code"
                   placeholder="e.g., kky"
                   defaultValue={editingLanguage?.code}
-                  pattern="[a-z]{2,3}"
-                  title="2-3 lowercase letters"
+                  pattern="[a-zA-Z_-]+"
+                  title="Letters, underscores, and hyphens only"
                   required
                 />
               </div>

@@ -28,18 +28,18 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
-    // Fetch all auth users
-    const { data: authUsers, error: authError } = await supabase.auth.admin.listUsers();
-    
-    if (authError) {
-      console.error('Error fetching auth users:', authError);
+    // Fetch all user profiles with auth data
+    // Since we can't access auth.admin.listUsers() without service role key,
+    // we'll fetch from user_profiles which has all registered users
+    const { data: profiles, error: profileError } = await supabase
+      .from('user_profiles')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (profileError) {
+      console.error('Error fetching user profiles:', profileError);
       return NextResponse.json({ error: 'Failed to fetch users' }, { status: 500 });
     }
-
-    // Fetch all profiles
-    const { data: profiles } = await supabase
-      .from('user_profiles')
-      .select('*');
 
     // Fetch role assignments
     const { data: assignments } = await supabase
@@ -61,19 +61,22 @@ export async function GET(request: NextRequest) {
       `)
       .eq('is_active', true);
 
-    // Combine auth users with profiles and roles
-    const users = authUsers.users.map(authUser => {
-      const profile = profiles?.find(p => p.user_id === authUser.id);
-      const userAssignments = assignments?.filter(a => a.user_id === authUser.id) || [];
+    // Get auth user emails by fetching from auth.users via RPC function
+    const { data: authEmails } = await supabase.rpc('get_auth_user_emails');
+
+    // Combine profiles with roles and auth emails
+    const users = profiles?.map(profile => {
+      const userAssignments = assignments?.filter(a => a.user_id === profile.user_id) || [];
+      const authEmail = authEmails?.find((ae: any) => ae.id === profile.user_id);
       
       return {
-        id: authUser.id,
-        email: authUser.email || '',
-        display_name: profile?.display_name || authUser.user_metadata?.username || '',
-        username: profile?.username || authUser.user_metadata?.username || '',
-        created_at: authUser.created_at,
-        last_sign_in_at: authUser.last_sign_in_at,
-        email_confirmed_at: authUser.email_confirmed_at,
+        id: profile.user_id,
+        email: authEmail?.email || profile.email || '',
+        display_name: profile.display_name || '',
+        username: profile.username || '',
+        created_at: profile.created_at,
+        last_sign_in_at: authEmail?.last_sign_in_at,
+        email_confirmed_at: authEmail?.email_confirmed_at,
         roles: userAssignments.map(a => ({
           role: {
             id: a.user_roles.id,
@@ -85,7 +88,7 @@ export async function GET(request: NextRequest) {
           expires_at: a.expires_at
         }))
       };
-    });
+    }) || [];
 
     return NextResponse.json(users);
   } catch (error) {

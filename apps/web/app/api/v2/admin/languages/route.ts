@@ -22,28 +22,36 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
-    // Fetch languages with stats
+    // Fetch languages with word counts
     const { data: languages, error } = await supabase
       .from('languages')
-      .select(`
-        *,
-        dictionary_words!language_id(count),
-        user_role_assignments!language_id(count)
-      `)
+      .select('*')
       .order('name');
 
     if (error) throw error;
 
-    // Transform the data to include counts
-    const languagesWithStats = languages?.map(lang => ({
-      id: lang.id,
-      name: lang.name,
-      code: lang.code,
-      is_active: lang.is_active,
-      created_at: lang.created_at,
-      word_count: lang.dictionary_words?.[0]?.count || 0,
-      curator_count: lang.user_role_assignments?.[0]?.count || 0
-    })) || [];
+    // Get word counts for each language
+    const languagesWithStats = await Promise.all(
+      (languages || []).map(async (lang) => {
+        const [{ count: wordCount }, { count: curatorCount }] = await Promise.all([
+          supabase
+            .from('words')
+            .select('*', { count: 'exact', head: true })
+            .eq('language_id', lang.id),
+          supabase
+            .from('user_role_assignments')
+            .select('*', { count: 'exact', head: true })
+            .eq('language_id', lang.id)
+            .eq('is_active', true)
+        ]);
+
+        return {
+          ...lang,
+          word_count: wordCount || 0,
+          curator_count: curatorCount || 0
+        };
+      })
+    );
 
     return NextResponse.json(languagesWithStats);
   } catch (error) {
