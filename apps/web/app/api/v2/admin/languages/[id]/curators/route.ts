@@ -14,22 +14,8 @@ export async function POST(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Check if user is admin - avoid using user_has_role due to recursion
-    const { data: adminRoles, error: rolesError } = await supabase
-      .from('user_role_assignments')
-      .select('role_id, user_roles!inner(name)')
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .in('user_roles.name', ['super_admin', 'dictionary_admin']);
-
-    console.log('Admin check:', { userId: user.id, adminRoles, rolesError });
-
-    if (rolesError || !adminRoles || adminRoles.length === 0) {
-      // For now, bypass this check if you're logged in
-      // TODO: Properly assign admin roles
-      console.warn('User does not have admin roles, but allowing for development');
-      // return NextResponse.json({ error: 'Forbidden - no admin roles' }, { status: 403 });
-    }
+    // TODO: Add proper admin check without causing recursion
+    console.log('Authenticated user:', user.id, user.email);
 
     const body = await request.json();
     const { email } = body;
@@ -93,22 +79,8 @@ export async function DELETE(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Check if user is admin - avoid using user_has_role due to recursion
-    const { data: adminRoles, error: rolesError } = await supabase
-      .from('user_role_assignments')
-      .select('role_id, user_roles!inner(name)')
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .in('user_roles.name', ['super_admin', 'dictionary_admin']);
-
-    console.log('Admin check:', { userId: user.id, adminRoles, rolesError });
-
-    if (rolesError || !adminRoles || adminRoles.length === 0) {
-      // For now, bypass this check if you're logged in
-      // TODO: Properly assign admin roles
-      console.warn('User does not have admin roles, but allowing for development');
-      // return NextResponse.json({ error: 'Forbidden - no admin roles' }, { status: 403 });
-    }
+    // TODO: Add proper admin check without causing recursion
+    console.log('Authenticated user:', user.id, user.email);
 
     const { searchParams } = new URL(request.url);
     const assignmentId = searchParams.get('assignmentId');
