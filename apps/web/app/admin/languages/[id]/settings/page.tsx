@@ -106,50 +106,18 @@ export default function LanguageSettingsPage() {
   const handleAddCurator = async () => {
     if (!language || !newCuratorEmail) return;
 
-    console.log('Adding curator with email:', newCuratorEmail);
     setAddingCurator(true);
     try {
-      // First find the user by email
-      console.log('Looking for user with email:', newCuratorEmail);
-      const { data: userData, error: userError } = await supabase
-        .from('user_profiles')
-        .select('user_id')
-        .eq('email', newCuratorEmail)
-        .single();
+      const response = await fetch(`/api/v2/admin/languages/${language.id}/curators`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: newCuratorEmail })
+      });
 
-      console.log('User lookup result:', { userData, userError });
+      const data = await response.json();
 
-      if (userError || !userData) {
-        throw new Error('User not found with that email');
-      }
-
-      // Get the curator role ID
-      // We know from the database that the curator role ID is: 18852da6-18c0-4a2a-8fc0-4aa0c544aab5
-      // Using hardcoded ID to avoid RLS/header issues
-      const curatorRoleId = '18852da6-18c0-4a2a-8fc0-4aa0c544aab5';
-      console.log('Using curator role ID:', curatorRoleId);
-
-      // Create the assignment
-      const currentUser = await supabase.auth.getUser();
-      console.log('Current user:', currentUser.data.user?.id);
-      
-      const assignmentData = {
-        user_id: userData.user_id,
-        role_id: curatorRoleId,
-        language_id: language.id,
-        assigned_by: currentUser.data.user?.id,
-        is_active: true
-      };
-      
-      console.log('Creating assignment:', assignmentData);
-      
-      const { error: assignError } = await supabase
-        .from('user_role_assignments')
-        .insert(assignmentData);
-
-      if (assignError) {
-        console.error('Assignment error:', assignError);
-        throw assignError;
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to add curator');
       }
 
       toast({
@@ -173,12 +141,14 @@ export default function LanguageSettingsPage() {
 
   const handleRemoveCurator = async (curatorId: string) => {
     try {
-      const { error } = await supabase
-        .from('user_role_assignments')
-        .delete()
-        .eq('id', curatorId);
+      const response = await fetch(`/api/v2/admin/languages/${language?.id}/curators?assignmentId=${curatorId}`, {
+        method: 'DELETE'
+      });
 
-      if (error) throw error;
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to remove curator');
+      }
 
       toast({
         title: 'Success',
@@ -190,7 +160,7 @@ export default function LanguageSettingsPage() {
       console.error('Error removing curator:', error);
       toast({
         title: 'Error',
-        description: 'Failed to remove curator',
+        description: error instanceof Error ? error.message : 'Failed to remove curator',
         variant: 'destructive'
       });
     }
