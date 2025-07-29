@@ -53,6 +53,14 @@ export async function POST(
 
     if (assignError) {
       console.error('Assignment error:', assignError);
+      
+      // Check for duplicate key error
+      if (assignError.code === '23505') {
+        return NextResponse.json({ 
+          error: 'This user is already a curator for this language' 
+        }, { status: 400 });
+      }
+      
       return NextResponse.json({ error: assignError.message }, { status: 400 });
     }
 

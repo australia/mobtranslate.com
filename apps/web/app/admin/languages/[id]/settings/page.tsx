@@ -74,10 +74,18 @@ export default function LanguageSettingsPage() {
 
       // Get user emails
       const userIds = curatorAssignments.map(c => c.user_id);
-      const { data: userProfiles } = await supabase
-        .from('user_profiles')
-        .select('user_id, email')
-        .in('user_id', userIds);
+      let userProfiles = [];
+      
+      if (userIds.length > 0) {
+        const { data, error } = await supabase
+          .from('user_profiles')
+          .select('user_id, email')
+          .in('user_id', userIds);
+        
+        if (!error && data) {
+          userProfiles = data;
+        }
+      }
 
       const formattedCurators = curatorAssignments.map(c => {
         const profile = userProfiles?.find(p => p.user_id === c.user_id);
