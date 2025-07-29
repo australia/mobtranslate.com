@@ -49,7 +49,10 @@ export default async function Page() {
                         }
                         className="text-xs"
                       >
-                        {language.status}
+                        {language.status === 'severely endangered' ? 'very-low volume' : 
+                         language.status === 'endangered' ? 'low volume' :
+                         language.status === 'vulnerable' ? 'low volume' : 
+                         language.status}
                       </Badge>
                     )}
                   </div>

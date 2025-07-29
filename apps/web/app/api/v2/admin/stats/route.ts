@@ -12,11 +12,17 @@ export async function GET(request: NextRequest) {
     }
 
     // Check if user is admin
-    const { data: isAdmin } = await supabase
-      .rpc('user_has_role', {
-        user_uuid: user.id,
-        role_names: ['super_admin', 'dictionary_admin']
-      });
+    const { data: roleAssignments } = await supabase
+      .from('user_role_assignments')
+      .select(`
+        role_id,
+        user_roles!inner(name)
+      `)
+      .eq('user_id', user.id)
+      .eq('is_active', true)
+      .in('user_roles.name', ['super_admin', 'dictionary_admin']);
+
+    const isAdmin = roleAssignments && roleAssignments.length > 0;
 
     if (!isAdmin) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
@@ -40,30 +46,31 @@ export async function GET(request: NextRequest) {
         .select('*', { count: 'exact', head: true })
         .gte('updated_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()),
       
-      // Pending reviews
-      supabase.from('dictionary_words')
+      // Pending reviews (unverified words)
+      supabase.from('words')
         .select('*', { count: 'exact', head: true })
         .eq('is_verified', false),
       
       // Total words
-      supabase.from('dictionary_words')
+      supabase.from('words')
         .select('*', { count: 'exact', head: true }),
       
       // Total comments
       supabase.from('word_comments')
-        .select('*', { count: 'exact', head: true }),
+        .select('*', { count: 'exact', head: true })
+        .eq('is_deleted', false),
       
       // Improvement suggestions
-      supabase.from('improvement_suggestions')
+      supabase.from('word_improvement_suggestions')
         .select('*', { count: 'exact', head: true })
         .eq('status', 'pending'),
       
       // Recent activity (last 10 actions)
-      supabase.from('curation_activity')
+      supabase.from('curator_activities')
         .select(`
           id,
-          action,
-          details,
+          activity_type,
+          activity_data,
           created_at,
           user_id,
           profiles!user_id(
@@ -78,15 +85,15 @@ export async function GET(request: NextRequest) {
     // Calculate approval rate (last 30 days)
     const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
     const { count: approvedCount = 0 } = await supabase
-      .from('curation_activity')
+      .from('curator_activities')
       .select('*', { count: 'exact', head: true })
-      .eq('action', 'approved')
+      .in('activity_type', ['word_approved', 'improvement_approved'])
       .gte('created_at', thirtyDaysAgo);
     
     const { count: rejectedCount = 0 } = await supabase
-      .from('curation_activity')
+      .from('curator_activities')
       .select('*', { count: 'exact', head: true })
-      .eq('action', 'rejected')
+      .in('activity_type', ['word_rejected', 'improvement_rejected'])
       .gte('created_at', thirtyDaysAgo);
 
     const totalReviews = approvedCount + rejectedCount;

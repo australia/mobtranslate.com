@@ -70,7 +70,10 @@ export default async function DictionariesPage() {
                       }
                       className="text-xs"
                     >
-                      {lang.status}
+                      {lang.status === 'severely endangered' ? 'very-low volume' : 
+                       lang.status === 'endangered' ? 'low volume' :
+                       lang.status === 'vulnerable' ? 'low volume' : 
+                       lang.status}
                     </Badge>
                   </div>
                 )}

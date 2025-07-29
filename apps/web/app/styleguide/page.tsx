@@ -540,7 +540,7 @@ export default function StyleGuidePage() {
                     <Badge variant="success">verified</Badge>
                     <Badge variant="error">deprecated</Badge>
                     <Badge>1117 words</Badge>
-                    <Badge variant="destructive">severely endangered</Badge>
+                    <Badge variant="destructive">very-low volume</Badge>
                   </div>
                 </div>
               </div>

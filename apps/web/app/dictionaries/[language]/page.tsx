@@ -70,7 +70,10 @@ export default async function DictionaryPage({
             <Badge variant="outline">{pagination.total} words</Badge>
             {languageData.status && (
               <Badge variant={languageData.status === 'endangered' ? 'destructive' : 'default'}>
-                {languageData.status}
+                {languageData.status === 'severely endangered' ? 'very-low volume' : 
+                 languageData.status === 'endangered' ? 'low volume' :
+                 languageData.status === 'vulnerable' ? 'low volume' : 
+                 languageData.status}
               </Badge>
             )}
           </div>

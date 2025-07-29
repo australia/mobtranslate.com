@@ -25,27 +25,131 @@ export default async function AdminDashboard() {
 
   // Fetch stats
   const [
-    { count: totalUsers = 0 },
+    totalUsersResult,
+    { count: activeUsers = 0 },
     { count: totalWords = 0 },
     { count: pendingReviews = 0 },
     { count: totalComments = 0 },
-    { count: improvements = 0 }
+    { count: improvements = 0 },
+    { data: recentActivity },
+    { data: languageStats },
+    { count: totalLanguages = 0 }
   ] = await Promise.all([
-    supabase.from('profiles').select('*', { count: 'exact', head: true }),
-    supabase.from('dictionary_words').select('*', { count: 'exact', head: true }),
-    supabase.from('dictionary_words').select('*', { count: 'exact', head: true }).eq('is_verified', false),
-    supabase.from('word_comments').select('*', { count: 'exact', head: true }),
-    supabase.from('improvement_suggestions').select('*', { count: 'exact', head: true }).eq('status', 'pending')
+    // Total users - count from auth.users using RPC or fallback to user_profiles
+    supabase.rpc('count_auth_users').single(),
+    
+    // Active users (last 30 days) - count from user_profiles
+    supabase.from('user_profiles')
+      .select('*', { count: 'exact', head: true })
+      .gte('updated_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()),
+    
+    // Total words
+    supabase.from('words').select('*', { count: 'exact', head: true }),
+    
+    // Pending reviews
+    supabase.from('words')
+      .select('*', { count: 'exact', head: true })
+      .eq('is_verified', false),
+    
+    // Total comments
+    supabase.from('word_comments')
+      .select('*', { count: 'exact', head: true })
+      .eq('is_deleted', false),
+    
+    // Improvement suggestions
+    supabase.from('word_improvement_suggestions')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'pending'),
+    
+    // Recent activity (last 10 actions)
+    supabase.from('curator_activities')
+      .select(`
+        id,
+        activity_type,
+        activity_data,
+        created_at,
+        user_id,
+        language_id,
+        languages!language_id(name),
+        profiles!user_id(
+          display_name,
+          username
+        )
+      `)
+      .order('created_at', { ascending: false })
+      .limit(10),
+    
+    // Language statistics
+    supabase.from('languages')
+      .select(`
+        id,
+        name,
+        words!inner(count)
+      `)
+      .eq('is_active', true),
+    
+    // Total active languages
+    supabase.from('languages')
+      .select('*', { count: 'exact', head: true })
+      .eq('is_active', true)
   ]);
+
+  // Calculate approval rate (last 30 days)
+  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+  const { count: approvedCount = 0 } = await supabase
+    .from('curator_activities')
+    .select('*', { count: 'exact', head: true })
+    .in('activity_type', ['word_approved', 'improvement_approved'])
+    .gte('created_at', thirtyDaysAgo);
+  
+  const { count: rejectedCount = 0 } = await supabase
+    .from('curator_activities')
+    .select('*', { count: 'exact', head: true })
+    .in('activity_type', ['word_rejected', 'improvement_rejected'])
+    .gte('created_at', thirtyDaysAgo);
+
+  const totalReviews = approvedCount + rejectedCount;
+  const approvalRate = totalReviews > 0 ? Math.round((approvedCount / totalReviews) * 100) : 0;
+
+  // Handle totalUsers from RPC result or fallback
+  let totalUsers = 0;
+  if (totalUsersResult.data !== null) {
+    totalUsers = totalUsersResult.data;
+  } else {
+    // Fallback to counting user_profiles if RPC fails
+    const { count } = await supabase
+      .from('user_profiles')
+      .select('*', { count: 'exact', head: true });
+    totalUsers = count || 0;
+  }
+
+  // Calculate growth percentages
+  const { count: previousMonthUsers = 0 } = await supabase
+    .from('user_profiles')
+    .select('*', { count: 'exact', head: true })
+    .lt('created_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString());
+  
+  const userGrowth = previousMonthUsers > 0 
+    ? Math.round(((totalUsers - previousMonthUsers) / previousMonthUsers) * 100)
+    : 0;
+
+  const { count: previousMonthWords = 0 } = await supabase
+    .from('words')
+    .select('*', { count: 'exact', head: true })
+    .lt('created_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString());
+  
+  const wordGrowth = previousMonthWords > 0
+    ? Math.round(((totalWords - previousMonthWords) / previousMonthWords) * 100)
+    : 0;
 
   const statCards = [
     {
       title: 'Total Users',
       value: totalUsers,
-      description: 'Registered users',
+      description: `${activeUsers} active this month`,
       icon: Users,
       color: 'text-blue-600 bg-blue-100',
-      change: '+12%'
+      change: userGrowth > 0 ? `+${userGrowth}%` : userGrowth < 0 ? `${userGrowth}%` : null
     },
     {
       title: 'Pending Reviews',
@@ -58,10 +162,10 @@ export default async function AdminDashboard() {
     {
       title: 'Total Words',
       value: totalWords,
-      description: 'Across all languages',
+      description: `Across ${totalLanguages} languages`,
       icon: FileText,
       color: 'text-green-600 bg-green-100',
-      change: '+5%'
+      change: wordGrowth > 0 ? `+${wordGrowth}%` : wordGrowth < 0 ? `${wordGrowth}%` : null
     },
     {
       title: 'Comments',
@@ -69,7 +173,7 @@ export default async function AdminDashboard() {
       description: 'User interactions',
       icon: MessageSquare,
       color: 'text-purple-600 bg-purple-100',
-      change: '+23%'
+      change: null
     },
     {
       title: 'Improvements',
@@ -81,11 +185,11 @@ export default async function AdminDashboard() {
     },
     {
       title: 'Approval Rate',
-      value: '92%',
+      value: `${approvalRate}%`,
       description: 'Last 30 days',
       icon: CheckCircle,
       color: 'text-teal-600 bg-teal-100',
-      change: '+2%'
+      change: null
     }
   ];
 
@@ -141,36 +245,98 @@ export default async function AdminDashboard() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
-                  <Users className="h-4 w-4 text-blue-600" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-medium">New curator assigned</p>
-                  <p className="text-xs text-muted-foreground">John Doe assigned to Kuku Yalanji</p>
-                  <p className="text-xs text-muted-foreground">2 hours ago</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-medium">Bulk approval</p>
-                  <p className="text-xs text-muted-foreground">25 words approved in Yawuru</p>
-                  <p className="text-xs text-muted-foreground">5 hours ago</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center">
-                  <MessageSquare className="h-4 w-4 text-purple-600" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-medium">Comment flagged</p>
-                  <p className="text-xs text-muted-foreground">Inappropriate content reported</p>
-                  <p className="text-xs text-muted-foreground">1 day ago</p>
-                </div>
-              </div>
+              {recentActivity && recentActivity.length > 0 ? (
+                recentActivity.slice(0, 5).map((activity: any) => {
+                  const getActivityIcon = () => {
+                    switch (activity.activity_type) {
+                      case 'word_approved':
+                      case 'improvement_approved':
+                        return <CheckCircle className="h-4 w-4 text-green-600" />;
+                      case 'word_rejected':
+                      case 'improvement_rejected':
+                        return <Clock className="h-4 w-4 text-red-600" />;
+                      case 'comment_created':
+                      case 'comment_moderated':
+                        return <MessageSquare className="h-4 w-4 text-purple-600" />;
+                      case 'user_role_assigned':
+                        return <Users className="h-4 w-4 text-blue-600" />;
+                      default:
+                        return <Activity className="h-4 w-4 text-gray-600" />;
+                    }
+                  };
+
+                  const getActivityColor = () => {
+                    switch (activity.activity_type) {
+                      case 'word_approved':
+                      case 'improvement_approved':
+                        return 'bg-green-100';
+                      case 'word_rejected':
+                      case 'improvement_rejected':
+                        return 'bg-red-100';
+                      case 'comment_created':
+                      case 'comment_moderated':
+                        return 'bg-purple-100';
+                      case 'user_role_assigned':
+                        return 'bg-blue-100';
+                      default:
+                        return 'bg-gray-100';
+                    }
+                  };
+
+                  const getActivityDescription = () => {
+                    const userName = activity.profiles?.display_name || activity.profiles?.username || 'Unknown user';
+                    const languageName = activity.languages?.name || 'Unknown language';
+                    
+                    switch (activity.activity_type) {
+                      case 'word_approved':
+                        return `${userName} approved words in ${languageName}`;
+                      case 'word_rejected':
+                        return `${userName} rejected words in ${languageName}`;
+                      case 'improvement_approved':
+                        return `${userName} approved improvements`;
+                      case 'improvement_rejected':
+                        return `${userName} rejected improvements`;
+                      case 'comment_created':
+                        return `${userName} commented on a word`;
+                      case 'comment_moderated':
+                        return `${userName} moderated comments`;
+                      case 'user_role_assigned':
+                        return `${userName} was assigned a new role`;
+                      default:
+                        return `${userName} performed ${activity.activity_type}`;
+                    }
+                  };
+
+                  const formatTimeAgo = (date: string) => {
+                    const now = new Date();
+                    const activityDate = new Date(date);
+                    const diffMs = now.getTime() - activityDate.getTime();
+                    const diffMins = Math.floor(diffMs / 60000);
+                    const diffHours = Math.floor(diffMs / 3600000);
+                    const diffDays = Math.floor(diffMs / 86400000);
+
+                    if (diffMins < 60) return `${diffMins} minute${diffMins !== 1 ? 's' : ''} ago`;
+                    if (diffHours < 24) return `${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
+                    if (diffDays < 7) return `${diffDays} day${diffDays !== 1 ? 's' : ''} ago`;
+                    return activityDate.toLocaleDateString();
+                  };
+
+                  return (
+                    <div key={activity.id} className="flex items-start gap-3">
+                      <div className={`h-8 w-8 rounded-full ${getActivityColor()} flex items-center justify-center`}>
+                        {getActivityIcon()}
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm font-medium">{activity.activity_type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</p>
+                        <p className="text-xs text-muted-foreground">{getActivityDescription()}</p>
+                        <p className="text-xs text-muted-foreground">{formatTimeAgo(activity.created_at)}</p>
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <p className="text-sm text-muted-foreground text-center py-4">No recent activity</p>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -179,30 +345,44 @@ export default async function AdminDashboard() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Calendar className="h-5 w-5" />
-              Upcoming Tasks
+              Platform Statistics
             </CardTitle>
-            <CardDescription>Scheduled reviews and deadlines</CardDescription>
+            <CardDescription>Key metrics and insights</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
+              {pendingReviews > 0 && (
+                <div className="flex items-start gap-3">
+                  <div className="h-8 w-8 rounded-full bg-orange-100 flex items-center justify-center">
+                    <Clock className="h-4 w-4 text-orange-600" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium">Pending Reviews</p>
+                    <p className="text-xs text-muted-foreground">{pendingReviews} words awaiting verification</p>
+                    <p className="text-xs text-muted-foreground">Across all languages</p>
+                  </div>
+                </div>
+              )}
+              {improvements > 0 && (
+                <div className="flex items-start gap-3">
+                  <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center">
+                    <TrendingUp className="h-4 w-4 text-indigo-600" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium">Improvement Suggestions</p>
+                    <p className="text-xs text-muted-foreground">{improvements} suggestions pending review</p>
+                    <p className="text-xs text-muted-foreground">From community contributors</p>
+                  </div>
+                </div>
+              )}
               <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-full bg-orange-100 flex items-center justify-center">
-                  <Clock className="h-4 w-4 text-orange-600" />
+                <div className="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
+                  <CheckCircle className="h-4 w-4 text-green-600" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm font-medium">Document review deadline</p>
-                  <p className="text-xs text-muted-foreground">5 documents pending from last week</p>
-                  <p className="text-xs text-muted-foreground">Due in 2 days</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center">
-                  <TrendingUp className="h-4 w-4 text-indigo-600" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-medium">Monthly curation report</p>
-                  <p className="text-xs text-muted-foreground">Generate and review monthly stats</p>
-                  <p className="text-xs text-muted-foreground">Due in 5 days</p>
+                  <p className="text-sm font-medium">Monthly Activity</p>
+                  <p className="text-xs text-muted-foreground">{activeUsers} active users this month</p>
+                  <p className="text-xs text-muted-foreground">{approvalRate}% approval rate</p>
                 </div>
               </div>
             </div>

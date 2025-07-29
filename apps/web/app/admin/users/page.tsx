@@ -18,13 +18,18 @@ interface User {
   id: string;
   email: string;
   display_name?: string;
+  username?: string;
   created_at: string;
+  last_sign_in_at?: string;
+  email_confirmed_at?: string;
   roles?: Array<{
     role: {
+      id: string;
       name: string;
       display_name: string;
     };
     language?: {
+      id: string;
       name: string;
       code: string;
     };
@@ -52,28 +57,11 @@ export default function UserManagementPage() {
 
   const fetchData = async () => {
     try {
-      // Fetch all users with their roles
-      const { data: profiles } = await supabase
-        .from('profiles')
-        .select(`
-          id,
-          display_name,
-          email,
-          created_at
-        `)
-        .order('created_at', { ascending: false });
-
-      // Fetch role assignments
-      const { data: assignments } = await supabase
-        .from('user_role_assignments')
-        .select(`
-          user_id,
-          assigned_at,
-          expires_at,
-          role:user_roles(name, display_name),
-          language:languages(name, code)
-        `)
-        .eq('is_active', true);
+      // Fetch all users from the new API endpoint that includes auth users
+      const usersResponse = await fetch('/api/v2/admin/users');
+      if (!usersResponse.ok) throw new Error('Failed to fetch users');
+      const usersData = await usersResponse.json();
+      setUsers(usersData);
 
       // Fetch available roles
       const rolesResponse = await fetch('/api/v2/admin/roles');
@@ -87,14 +75,6 @@ export default function UserManagementPage() {
         .eq('is_active', true)
         .order('name');
       setLanguages(langs || []);
-
-      // Combine user data with roles
-      const usersWithRoles = profiles?.map(profile => ({
-        ...profile,
-        roles: assignments?.filter(a => a.user_id === profile.id) || []
-      })) || [];
-
-      setUsers(usersWithRoles);
     } catch (error) {
       console.error('Error fetching data:', error);
       toast({
@@ -144,7 +124,8 @@ export default function UserManagementPage() {
 
   const filteredUsers = users.filter(user =>
     user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    user.display_name?.toLowerCase().includes(searchQuery.toLowerCase())
+    user.display_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    user.username?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const getRoleBadgeColor = (roleName: string) => {
@@ -206,7 +187,7 @@ export default function UserManagementPage() {
                     <TableRow key={user.id}>
                       <TableCell>
                         <div>
-                          <div className="font-medium">{user.display_name || 'No name'}</div>
+                          <div className="font-medium">{user.display_name || user.username || 'No name'}</div>
                           <div className="text-sm text-gray-500">{user.email}</div>
                         </div>
                       </TableCell>
@@ -256,7 +237,7 @@ export default function UserManagementPage() {
                             <DialogHeader>
                               <DialogTitle>Assign Role</DialogTitle>
                               <DialogDescription>
-                                Assign a role to {user.display_name || user.email}
+                                Assign a role to {user.display_name || user.username || user.email}
                               </DialogDescription>
                             </DialogHeader>
                             <div className="space-y-4 mt-4">
