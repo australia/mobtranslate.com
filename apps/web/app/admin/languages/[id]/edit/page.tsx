@@ -58,9 +58,19 @@ export default function EditLanguagePage() {
     e.preventDefault();
     if (!language) return;
 
+    console.log('Saving language:', {
+      id: language.id,
+      name: language.name,
+      code: language.code,
+      is_active: language.is_active
+    });
+
     setSaving(true);
     try {
-      const response = await fetch(`/api/v2/admin/languages/${language.id}`, {
+      const url = `/api/v2/admin/languages/${language.id}`;
+      console.log('PUT request to:', url);
+      
+      const response = await fetch(url, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -70,9 +80,12 @@ export default function EditLanguagePage() {
         })
       });
 
+      console.log('Response status:', response.status);
+      const responseData = await response.json();
+      console.log('Response data:', responseData);
+
       if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Failed to update language');
+        throw new Error(responseData.error || 'Failed to update language');
       }
 
       toast({
@@ -82,6 +95,10 @@ export default function EditLanguagePage() {
       router.push('/admin/languages');
     } catch (error) {
       console.error('Error saving language:', error);
+      console.error('Error details:', {
+        message: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined
+      });
       toast({
         title: 'Error',
         description: error instanceof Error ? error.message : 'Failed to save language',

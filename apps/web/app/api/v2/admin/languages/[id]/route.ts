@@ -5,11 +5,15 @@ export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  console.log('PUT /api/v2/admin/languages/[id] - params:', params);
+  
   try {
     const supabase = createClient();
     
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();
+    console.log('Authenticated user:', user?.id);
+    
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -21,11 +25,14 @@ export async function PUT(
         role_names: ['super_admin', 'dictionary_admin']
       });
 
+    console.log('Is admin:', isAdmin);
+
     if (!isAdmin) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
     const body = await request.json();
+    console.log('Request body:', body);
     const { name, code, is_active } = body;
 
     // Validate input
