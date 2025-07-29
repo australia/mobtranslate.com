@@ -115,4 +115,7 @@ export {
 } from './toast';
 export type { ToastProps, ToastActionElement } from './toast';
 
+// Avatar components
+export { Avatar, AvatarImage, AvatarFallback } from './avatar';
+
 // Note: Card and Input components are exported from their respective subdirectories above

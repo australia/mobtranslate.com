@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNow } from '@/lib/utils/date';
 import { MessageCircle, ThumbsUp, ThumbsDown, Reply, MoreVertical, Flag } from 'lucide-react';
 import { Button } from '@ui/components';
 import { Avatar, AvatarFallback, AvatarImage } from '@ui/components/avatar';

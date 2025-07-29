@@ -8,7 +8,7 @@ import { Badge } from '@ui/components/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/components/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/components/select';
 import { StatsCard } from '@/components/stats/StatsCard';
-import { formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNow } from '@/lib/utils/date';
 
 interface DashboardData {
   stats: {
