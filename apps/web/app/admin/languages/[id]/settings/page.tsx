@@ -67,15 +67,10 @@ export default function LanguageSettingsPage() {
 
       if (curatorError) throw curatorError;
 
-      // Get curator role ID
-      const { data: curatorRole } = await supabase
-        .from('user_roles')
-        .select('id')
-        .eq('name', 'curator')
-        .single();
-
       // Filter for curator role assignments
-      const curatorAssignments = curatorData?.filter(c => c.role_id === curatorRole?.id) || [];
+      // Using hardcoded curator role ID to avoid RLS issues
+      const curatorRoleId = '18852da6-18c0-4a2a-8fc0-4aa0c544aab5';
+      const curatorAssignments = curatorData?.filter(c => c.role_id === curatorRoleId) || [];
 
       // Get user emails
       const userIds = curatorAssignments.map(c => c.user_id);
@@ -111,47 +106,51 @@ export default function LanguageSettingsPage() {
   const handleAddCurator = async () => {
     if (!language || !newCuratorEmail) return;
 
+    console.log('Adding curator with email:', newCuratorEmail);
     setAddingCurator(true);
     try {
       // First find the user by email
+      console.log('Looking for user with email:', newCuratorEmail);
       const { data: userData, error: userError } = await supabase
         .from('user_profiles')
         .select('user_id')
         .eq('email', newCuratorEmail)
         .single();
 
+      console.log('User lookup result:', { userData, userError });
+
       if (userError || !userData) {
         throw new Error('User not found with that email');
       }
 
-      // Get the curator role ID - handle RLS restrictions
-      const { data: roleData, error: roleError } = await supabase
-        .from('user_roles')
-        .select('id')
-        .eq('name', 'curator')
-        .maybeSingle();
-
-      if (roleError) {
-        console.error('Error fetching curator role:', roleError);
-        throw new Error('Failed to fetch curator role');
-      }
-
-      if (!roleData) {
-        throw new Error('Curator role not found in database');
-      }
+      // Get the curator role ID
+      // We know from the database that the curator role ID is: 18852da6-18c0-4a2a-8fc0-4aa0c544aab5
+      // Using hardcoded ID to avoid RLS/header issues
+      const curatorRoleId = '18852da6-18c0-4a2a-8fc0-4aa0c544aab5';
+      console.log('Using curator role ID:', curatorRoleId);
 
       // Create the assignment
+      const currentUser = await supabase.auth.getUser();
+      console.log('Current user:', currentUser.data.user?.id);
+      
+      const assignmentData = {
+        user_id: userData.user_id,
+        role_id: curatorRoleId,
+        language_id: language.id,
+        assigned_by: currentUser.data.user?.id,
+        is_active: true
+      };
+      
+      console.log('Creating assignment:', assignmentData);
+      
       const { error: assignError } = await supabase
         .from('user_role_assignments')
-        .insert({
-          user_id: userData.user_id,
-          role_id: roleData.id,
-          language_id: language.id,
-          assigned_by: (await supabase.auth.getUser()).data.user?.id,
-          is_active: true
-        });
+        .insert(assignmentData);
 
-      if (assignError) throw assignError;
+      if (assignError) {
+        console.error('Assignment error:', assignError);
+        throw assignError;
+      }
 
       toast({
         title: 'Success',
