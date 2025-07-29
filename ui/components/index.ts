@@ -136,4 +136,8 @@ export { Avatar, AvatarImage, AvatarFallback } from './avatar';
 // Tabs components
 export { Tabs, TabsList, TabsTrigger, TabsContent } from './tabs';
 
+// Switch component
+export { Switch } from './switch';
+export type { SwitchProps } from './switch';
+
 // Note: Card and Input components are exported from their respective subdirectories above
