@@ -1,6 +1,11 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { CuratorDashboard } from '@/components/curator/CuratorDashboard';
+import dynamic from 'next/dynamic';
+
+const CuratorDashboard = dynamic(
+  () => import('@/components/curator/CuratorDashboard').then(mod => mod.CuratorDashboard),
+  { ssr: false }
+);
 
 export default async function CuratorPage() {
   const supabase = createClient();
@@ -44,38 +49,11 @@ export default async function CuratorPage() {
     );
   }
 
-  // If user has global role or multiple language assignments, let them choose
+  // If user has global role or multiple language assignments, show the dashboard
   const globalRole = curatorAssignments.find(a => !a.language_id);
   
   if (globalRole || curatorAssignments.length > 1) {
-    // For now, show a language selector
-    const { data: languages } = await supabase
-      .from('languages')
-      .select('*')
-      .eq('is_active', true)
-      .order('name');
-
-    return (
-      <div className="min-h-screen py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold mb-8">Select a Language to Curate</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {languages?.map((language) => (
-              <a
-                key={language.id}
-                href={`/curator/${language.code}`}
-                className="p-6 border rounded-lg hover:shadow-lg transition-shadow"
-              >
-                <h2 className="text-xl font-semibold">{language.name}</h2>
-                <p className="text-gray-600 dark:text-gray-400 mt-2">
-                  {language.code}
-                </p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
+    return <CuratorDashboard />;
   }
 
   // If user only curates one language, redirect there
