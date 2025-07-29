@@ -8,8 +8,6 @@ import { Label } from '@ui/components/label';
 import { Input } from '@ui/components/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components/Table';
 import { Badge } from '@ui/components/badge';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@ui/components/dialog';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/components/select';
 import { useToast } from '@ui/components/use-toast';
 import { ArrowLeft, UserPlus, Trash2, Shield } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
@@ -24,7 +22,6 @@ interface Curator {
   id: string;
   user_id: string;
   email: string;
-  role: string;
   assigned_at: string;
   is_active: boolean;
 }
@@ -38,7 +35,6 @@ export default function LanguageSettingsPage() {
   const [loading, setLoading] = useState(true);
   const [addingCurator, setAddingCurator] = useState(false);
   const [newCuratorEmail, setNewCuratorEmail] = useState('');
-  const [newCuratorRole, setNewCuratorRole] = useState('curator');
   const supabase = createClient();
 
   useEffect(() => {
@@ -69,7 +65,7 @@ export default function LanguageSettingsPage() {
           user_roles!inner(name)
         `)
         .eq('language_id', params.id)
-        .in('user_roles.name', ['curator', 'lead_curator']);
+        .eq('user_roles.name', 'curator');
 
       if (curatorError) throw curatorError;
 
@@ -77,7 +73,6 @@ export default function LanguageSettingsPage() {
         id: c.id,
         user_id: c.user_id,
         email: c.user_profiles.email,
-        role: c.user_roles.name,
         assigned_at: c.assigned_at,
         is_active: c.is_active
       })) || [];
@@ -111,15 +106,15 @@ export default function LanguageSettingsPage() {
         throw new Error('User not found with that email');
       }
 
-      // Get the role ID
+      // Get the curator role ID
       const { data: roleData, error: roleError } = await supabase
         .from('user_roles')
         .select('id')
-        .eq('name', newCuratorRole)
+        .eq('name', 'curator')
         .single();
 
       if (roleError || !roleData) {
-        throw new Error('Role not found');
+        throw new Error('Curator role not found');
       }
 
       // Create the assignment
@@ -201,7 +196,7 @@ export default function LanguageSettingsPage() {
         <div>
           <h1 className="text-3xl font-bold tracking-tight">{language.name} Curator Management</h1>
           <p className="text-muted-foreground mt-2">
-            Manage curators and their permissions for this language
+            Manage curators for this language's dictionary
           </p>
         </div>
       </div>
@@ -212,7 +207,7 @@ export default function LanguageSettingsPage() {
           <CardHeader>
             <CardTitle>Current Curators</CardTitle>
             <CardDescription>
-              Users who can contribute to this language's dictionary
+              Users who can manage this language's dictionary content
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -220,7 +215,6 @@ export default function LanguageSettingsPage() {
               <TableHeader>
                 <TableRow>
                   <TableHead>Email</TableHead>
-                  <TableHead>Role</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Assigned</TableHead>
                   <TableHead className="text-right">Actions</TableHead>
@@ -229,7 +223,7 @@ export default function LanguageSettingsPage() {
               <TableBody>
                 {curators.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={5} className="text-center text-muted-foreground">
+                    <TableCell colSpan={4} className="text-center text-muted-foreground">
                       No curators assigned to this language
                     </TableCell>
                   </TableRow>
@@ -237,12 +231,6 @@ export default function LanguageSettingsPage() {
                   curators.map((curator) => (
                     <TableRow key={curator.id}>
                       <TableCell>{curator.email}</TableCell>
-                      <TableCell>
-                        <Badge variant={curator.role === 'lead_curator' ? 'default' : 'secondary'}>
-                          <Shield className="h-3 w-3 mr-1" />
-                          {curator.role === 'lead_curator' ? 'Lead Curator' : 'Curator'}
-                        </Badge>
-                      </TableCell>
                       <TableCell>
                         <Badge variant={curator.is_active ? 'default' : 'secondary'}>
                           {curator.is_active ? 'Active' : 'Inactive'}
@@ -289,22 +277,13 @@ export default function LanguageSettingsPage() {
                   onChange={(e) => setNewCuratorEmail(e.target.value)}
                 />
               </div>
-              <Select value={newCuratorRole} onValueChange={setNewCuratorRole}>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="curator">Curator</SelectItem>
-                  <SelectItem value="lead_curator">Lead Curator</SelectItem>
-                </SelectContent>
-              </Select>
               <Button 
                 onClick={handleAddCurator} 
                 disabled={addingCurator || !newCuratorEmail}
                 className="gap-2"
               >
                 <UserPlus className="h-4 w-4" />
-                {addingCurator ? 'Adding...' : 'Add'}
+                {addingCurator ? 'Adding...' : 'Add Curator'}
               </Button>
             </div>
           </CardContent>
@@ -315,37 +294,23 @@ export default function LanguageSettingsPage() {
           <CardHeader>
             <CardTitle>Curator Permissions</CardTitle>
             <CardDescription>
-              What each role can do
+              What curators can do for this language
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-medium flex items-center gap-2">
-                  <Badge variant="secondary">
-                    <Shield className="h-3 w-3 mr-1" />
-                    Curator
-                  </Badge>
-                </h4>
-                <ul className="mt-2 text-sm text-muted-foreground space-y-1">
-                  <li>• Add new words and translations</li>
-                  <li>• Edit existing entries</li>
-                  <li>• Upload audio recordings</li>
-                  <li>• View all dictionary content</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-medium flex items-center gap-2">
-                  <Badge>
-                    <Shield className="h-3 w-3 mr-1" />
-                    Lead Curator
-                  </Badge>
-                </h4>
-                <ul className="mt-2 text-sm text-muted-foreground space-y-1">
-                  <li>• All curator permissions</li>
-                  <li>• Review and approve changes</li>
-                  <li>• Delete entries</li>
-                  <li>• Manage other curators' submissions</li>
+            <div className="flex items-start gap-3">
+              <Badge className="mt-0.5">
+                <Shield className="h-3 w-3 mr-1" />
+                Curator
+              </Badge>
+              <div className="space-y-1 text-sm text-muted-foreground">
+                <p>Curators have full control over their assigned language's dictionary:</p>
+                <ul className="mt-2 space-y-1">
+                  <li>• Add, edit, and delete words and translations</li>
+                  <li>• Upload and manage audio recordings</li>
+                  <li>• Manage categories and tags</li>
+                  <li>• Review and approve community contributions</li>
+                  <li>• Export dictionary data</li>
                 </ul>
               </div>
             </div>
