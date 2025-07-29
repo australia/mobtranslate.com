@@ -56,13 +56,7 @@ export default function LanguageSettingsPage() {
       // Fetch curators for this language
       const { data: curatorData, error: curatorError } = await supabase
         .from('user_role_assignments')
-        .select(`
-          id,
-          user_id,
-          is_active,
-          assigned_at,
-          role_id
-        `)
+        .select('*')
         .eq('language_id', params.id);
 
       if (curatorError) throw curatorError;
@@ -71,7 +65,6 @@ export default function LanguageSettingsPage() {
       // Using hardcoded curator role ID to avoid RLS issues
       const curatorRoleId = '18852da6-18c0-4a2a-8fc0-4aa0c544aab5';
       const curatorAssignments = curatorData?.filter(c => c.role_id === curatorRoleId) || [];
-
       // Get user emails
       const userIds = curatorAssignments.map(c => c.user_id);
       let userProfiles = [];
@@ -97,7 +90,6 @@ export default function LanguageSettingsPage() {
           is_active: c.is_active
         };
       });
-
       setCurators(formattedCurators);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -134,7 +126,10 @@ export default function LanguageSettingsPage() {
       });
       
       setNewCuratorEmail('');
-      fetchLanguageAndCurators();
+      // Add a small delay to ensure the database has committed the change
+      setTimeout(() => {
+        fetchLanguageAndCurators();
+      }, 500);
     } catch (error) {
       console.error('Error adding curator:', error);
       toast({
