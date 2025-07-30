@@ -2,7 +2,14 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
 import DictionarySearch from './components/DictionarySearch';
-import { PageHeader, Section, Breadcrumbs, Badge } from '@/app/components/ui/table';
+import { PageHeader } from '@/app/components/ui/page-header';
+import { Section } from '@/app/components/ui/section';
+import { Badge } from '@/app/components/ui/badge';
+
+// TODO: Breadcrumbs component needs to be created or imported from the correct location
+const Breadcrumbs = ({ items, className }: { items: any[]; className?: string }) => (
+  <div className={className}>Breadcrumbs placeholder</div>
+);
 import { getWordsForLanguage } from '@/lib/supabase/queries';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';

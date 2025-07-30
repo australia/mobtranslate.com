@@ -4,7 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Button, LoadingState } from '@/app/components/ui/table';
+import { PageHeader } from '@/app/components/ui/page-header';
+import { Section } from '@/app/components/ui/section';
+import { Card, CardContent, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Button } from '@/app/components/ui/button';
+import { LoadingState } from '@/app/components/ui/loading-state';
 import { User, Save, AlertCircle, CheckCircle, Edit } from 'lucide-react';
 
 interface UserProfile {

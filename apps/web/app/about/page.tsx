@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import { Github, Twitter } from 'lucide-react';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Button, Badge } from '@/app/components/ui/table';
+import { PageHeader } from '@/app/components/ui/page-header';
+import { Section } from '@/app/components/ui/section';
+import { Card, CardContent, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Button } from '@/app/components/ui/button';
+import { Badge } from '@/app/components/ui/badge';
 
 export default function About() {
   return (

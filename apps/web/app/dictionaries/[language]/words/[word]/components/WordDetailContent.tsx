@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Card, CardContent, Badge, DictionaryEntry } from '@/app/components/ui/table';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
 import { WordLikeButton } from '@/components/WordLikeButton';
 import type { Word } from '@/lib/supabase/types';
 

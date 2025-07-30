@@ -3,12 +3,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { ArrowRight, Globe, Loader2, RefreshCw, AlertTriangle, Check, Copy } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/app/components/ui/table';
-import { Button } from '@/app/components/ui/table';
-import { Textarea } from '@/app/components/ui/table';
-import { Select } from '@/app/components/ui/table';
-import { Alert } from '@/app/components/ui/table';
-import { Badge } from '@/app/components/ui/table';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
+import { Button } from '@/app/components/ui/button';
+import { Textarea } from '@/app/components/ui/textarea';
+import { Select } from '@/app/components/ui/select';
+import { Alert } from '@/app/components/ui/alert';
+import { Badge } from '@/app/components/ui/badge';
 import { Language } from '@/lib/supabase/types';
 
 interface TranslatorProps {

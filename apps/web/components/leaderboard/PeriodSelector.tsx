@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Button } from '@/app/components/ui/table';
+import { Button } from '@/app/components/ui/button';
 import { Calendar, Star } from 'lucide-react';
 
 interface PeriodOption {

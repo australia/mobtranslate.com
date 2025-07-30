@@ -5,7 +5,7 @@ import { Button } from '@/app/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
 import { Badge } from '@/app/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
-import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/table/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/avatar';
 import { useToast } from '@/app/components/ui/use-toast';
 import { 
   MessageSquare, 

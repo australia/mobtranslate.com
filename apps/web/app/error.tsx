@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Button, Alert } from '@/app/components/ui/table';
+import { Button } from '@/app/components/ui/button';
+import { Alert } from '@/app/components/ui/alert';
 import { AlertTriangle } from 'lucide-react';
 import SharedLayout from './components/SharedLayout';
 

@@ -1,7 +1,15 @@
 import Link from 'next/link';
 import SharedLayout from './components/SharedLayout';
 import TranslatorWrapper from './components/TranslatorWrapper';
-import { PageHeader, Section, Card, CardContent, Container, Badge } from '@/app/components/ui/table';
+import { PageHeader } from '@/app/components/ui/page-header';
+import { Section } from '@/app/components/ui/section';
+import { Card, CardContent } from '@/app/components/ui/card';
+import { Badge } from '@/app/components/ui/badge';
+
+// TODO: Container component needs to be created or imported from the correct location
+const Container = ({ children }: { children: React.ReactNode }) => (
+  <div className="container">{children}</div>
+);
 import { getActiveLanguages } from '@/lib/supabase/queries';
 
 export const revalidate = 3600; // Revalidate every hour

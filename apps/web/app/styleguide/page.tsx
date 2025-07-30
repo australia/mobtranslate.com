@@ -1,44 +1,30 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import SharedLayout from '../components/SharedLayout';
-import { 
-  Button, 
-  Alert, 
-  Badge, 
-  Input, 
-  Card, 
-  CardContent, 
-  CardHeader, 
-  CardTitle, 
-  CardDescription,
-  CardFooter,
-  Container, 
-  PageHeader, 
-  Section, 
-  Table, 
-  TableHeader, 
-  TableBody, 
-  TableRow, 
-  TableHead, 
-  TableCell, 
-  LoadingSpinner, 
-  LoadingState, 
-  LoadingSkeleton,
-  EmptyState, 
-  DictionaryEntry,
-  SearchInput,
-  Textarea,
-  Select,
-  Label,
-  FormField,
-  FilterTags,
-  AlphabetFilter,
-  Pagination,
-  Breadcrumbs,
-  TableFooter,
-  TableCaption
-} from '@/app/components/ui/table';
+import { Button } from '@/app/components/ui/button';
+import { Alert } from '@/app/components/ui/alert';
+import { Badge } from '@/app/components/ui/badge';
+import { Input } from '@/app/components/ui/input';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/app/components/ui/card';
+import { PageHeader } from '@/app/components/ui/page-header';
+import { Section } from '@/app/components/ui/section';
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, TableFooter, TableCaption } from '@/app/components/ui/table';
+import { LoadingSpinner, LoadingState, LoadingSkeleton } from '@/app/components/ui/loading-state';
+import { EmptyState } from '@/app/components/ui/empty-state';
+import { Textarea } from '@/app/components/ui/textarea';
+import { Select } from '@/app/components/ui/select';
+import { Label } from '@/app/components/ui/label';
+
+// TODO: These components need to be created or imported from the correct location
+// import { Container } from '@/app/components/ui/container';
+// import { DictionaryEntry } from '@/app/components/ui/dictionary-entry';
+// import { SearchInput } from '@/app/components/ui/search-input';
+// import { FormField } from '@/app/components/ui/form-field';
+// import { FilterTags } from '@/app/components/ui/filter-tags';
+// import { AlphabetFilter } from '@/app/components/ui/alphabet-filter';
+// import { Pagination } from '@/app/components/ui/pagination';
+// import { Breadcrumbs } from '@/app/components/ui/breadcrumbs';
 import { 
   Search, Globe, BookOpen, Users, ChevronRight, AlertCircle, CheckCircle, Info, XCircle,
   Home, Settings, Menu, X, ArrowLeft, ArrowRight, Download, Upload, Edit, Trash2,
@@ -46,6 +32,106 @@ import {
   Heart, ThumbsUp, Star, Trophy, Medal, Crown, Target, Zap, TrendingUp, Brain,
   ChevronLeft, Timer, Award, Image, Send, MessageSquare, BarChart
 } from 'lucide-react';
+
+// Placeholder components for missing UI components
+const Container = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <div className={`container ${className || ''}`}>{children}</div>
+);
+
+const DictionaryEntry = ({ word }: { word: any }) => (
+  <div className="p-4 border rounded">
+    <h3 className="font-bold">{word.word}</h3>
+    <p className="text-sm text-muted-foreground">{word.type}</p>
+    <p>{word.definition}</p>
+    {word.example && <p className="italic mt-2">{word.example}</p>}
+    {word.alternates && <p className="text-sm mt-2">Also: {word.alternates.join(', ')}</p>}
+  </div>
+);
+
+const SearchInput = ({ value, onChange, placeholder }: any) => (
+  <div className="relative">
+    <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+    <input
+      type="text"
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      className="pl-8 pr-4 py-2 border rounded w-full"
+    />
+  </div>
+);
+
+const FormField = ({ label, children, helperText, error }: any) => (
+  <div className="space-y-2">
+    {label && <label className="text-sm font-medium">{label}</label>}
+    {children}
+    {helperText && <p className="text-sm text-muted-foreground">{helperText}</p>}
+    {error && <p className="text-sm text-red-500">{error}</p>}
+  </div>
+);
+
+const FilterTags = ({ tags, activeTags, onTagToggle }: any) => (
+  <div className="flex flex-wrap gap-2">
+    {tags.map((tag: any) => (
+      <button
+        key={tag.value}
+        onClick={() => onTagToggle(tag.value)}
+        className={`px-3 py-1 rounded-full text-sm ${activeTags.includes(tag.value) ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}
+      >
+        {tag.label}
+      </button>
+    ))}
+  </div>
+);
+
+const AlphabetFilter = ({ selectedLetter, onLetterSelect }: any) => (
+  <div className="flex flex-wrap gap-1">
+    {Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ').map(letter => (
+      <button
+        key={letter}
+        onClick={() => onLetterSelect(letter)}
+        className={`w-8 h-8 rounded text-sm ${selectedLetter === letter ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}
+      >
+        {letter}
+      </button>
+    ))}
+  </div>
+);
+
+const Pagination = ({ currentPage, totalPages, onPageChange }: any) => (
+  <div className="flex items-center justify-center gap-2">
+    <button
+      onClick={() => onPageChange(currentPage - 1)}
+      disabled={currentPage === 1}
+      className="p-2 rounded disabled:opacity-50"
+    >
+      <ChevronLeft className="h-4 w-4" />
+    </button>
+    <span className="text-sm">
+      Page {currentPage} of {totalPages}
+    </span>
+    <button
+      onClick={() => onPageChange(currentPage + 1)}
+      disabled={currentPage === totalPages}
+      className="p-2 rounded disabled:opacity-50"
+    >
+      <ChevronRight className="h-4 w-4" />
+    </button>
+  </div>
+);
+
+const Breadcrumbs = ({ items, className }: any) => (
+  <nav className={`flex items-center gap-2 text-sm ${className || ''}`}>
+    {items.map((item: any, index: number) => (
+      <React.Fragment key={index}>
+        {index > 0 && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
+        <a href={item.href} className="hover:underline">
+          {item.label}
+        </a>
+      </React.Fragment>
+    ))}
+  </nav>
+);
 
 // Import custom components
 import { SignInForm } from '@/components/auth/SignInForm';

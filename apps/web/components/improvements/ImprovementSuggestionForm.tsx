@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Lightbulb, Plus, X } from 'lucide-react';
-import { Button } from '@/app/components/ui/table';
+import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { Textarea } from '@/app/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';

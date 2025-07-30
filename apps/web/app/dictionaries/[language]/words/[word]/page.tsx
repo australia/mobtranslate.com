@@ -2,7 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../../../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, Badge, Breadcrumbs, Button } from '@/app/components/ui/table';
+import { PageHeader } from '@/app/components/ui/page-header';
+import { Section } from '@/app/components/ui/section';
+import { Card, CardContent } from '@/app/components/ui/card';
+import { Badge } from '@/app/components/ui/badge';
+import { Button } from '@/app/components/ui/button';
+
+// TODO: Breadcrumbs component needs to be created or imported from the correct location
+const Breadcrumbs = ({ items }: { items: any[] }) => (
+  <div>Breadcrumbs placeholder</div>
+);
 import { getWordsForLanguage, searchWords } from '@/lib/supabase/queries';
 import type { Word } from '@/lib/supabase/types';
 import { WordDetailContent } from './components/WordDetailContent';

@@ -1,7 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter, Button, Badge } from '@/app/components/ui/table';
+import { PageHeader } from '@/app/components/ui/page-header';
+import { Section } from '@/app/components/ui/section';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/app/components/ui/card';
+import { Button } from '@/app/components/ui/button';
+import { Badge } from '@/app/components/ui/badge';
 import { getActiveLanguages } from '@/lib/supabase/queries';
 import { createClient } from '@/lib/supabase/server';
 

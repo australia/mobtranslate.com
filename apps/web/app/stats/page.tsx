@@ -4,7 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Badge, LoadingState } from '@/app/components/ui/table';
+import { PageHeader } from '@/app/components/ui/page-header';
+import { Section } from '@/app/components/ui/section';
+import { Card, CardContent, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Badge } from '@/app/components/ui/badge';
+import { LoadingState } from '@/app/components/ui/loading-state';
 import { BarChart3, Trophy, Target, TrendingUp, Calendar, Brain, Clock, CheckCircle, XCircle } from 'lucide-react';
 import Link from 'next/link';
 
