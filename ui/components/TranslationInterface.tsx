@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { cn } from '../lib/utils';
 import { Card, CardContent } from './card';
 import { Textarea } from './Textarea';
-import { Select } from './Select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './select';
 import { Button } from './Button';
 import { Label } from './Label';
 import { LoadingState } from './LoadingSpinner';
@@ -71,16 +71,17 @@ const TranslationInterface: React.FC<TranslationInterfaceProps> = ({ languages, 
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <Label className="font-crimson">Target Language:</Label>
-              <Select
-                value={selectedLanguage}
-                onChange={(e) => setSelectedLanguage(e.target.value)}
-                className="min-w-[150px]"
-              >
-                {languages.map((language) => (
-                  <option key={language.code} value={language.code}>
-                    {language.name}
-                  </option>
-                ))}
+              <Select value={selectedLanguage} onValueChange={setSelectedLanguage}>
+                <SelectTrigger className="min-w-[150px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {languages.map((language) => (
+                    <SelectItem key={language.code} value={language.code}>
+                      {language.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
               </Select>
             </div>
             

@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles - Markdoc theme */
+@layer base {
+  :root {
+    --markdoc-light: #ffffff;
+    --markdoc-dark: #000000;
+    --markdoc-border: #eaeaea;
+    --markdoc-text: #000000;
+    --markdoc-text-muted: #666666;
+    --markdoc-link: #0070f3;
+    --markdoc-link-hover: #0051cc;
+    --markdoc-code-bg: #f4f4f4;
+    --markdoc-code-border: #e1e1e1;
+    --markdoc-yellow: #ffd500;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    color: var(--markdoc-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    background-color: var(--markdoc-light);
+  }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02rem;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin: 1.25rem 0;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--markdoc-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Code styles */
+code {
+  font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
+  font-size: 0.875em;
+  background-color: var(--markdoc-code-bg);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--markdoc-code-border);
+}
+
+pre {
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  line-height: 1.45;
+  font-size: 0.875rem;
+  border: 1px solid var(--markdoc-border);
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* Copy button for code blocks */
+pre {
+  position: relative;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e5e5e5;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.copy-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Lists */
+ul, ol {
+  margin: 1.25rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 1.5rem 0;
+  padding: 0 1rem;
+  border-left: 3px solid var(--markdoc-border);
+  color: var(--markdoc-text-muted);
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--markdoc-border);
+}
+
+th {
+  font-weight: 600;
+  border-bottom: 2px solid var(--markdoc-border);
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--markdoc-border);
+  margin: 3rem 0;
+}
+
+/* Prose overrides */
+.prose {
+  color: var(--markdoc-text);
+  max-width: none;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: var(--markdoc-text);
+}
+
+.prose p {
+  color: var(--markdoc-text);
+}
+
+.prose strong {
+  color: var(--markdoc-text);
+}
+
+.prose a {
+  color: var(--markdoc-link);
+}
+
+.prose a:hover {
+  color: var(--markdoc-link-hover);
+}
+
+.prose code {
+  color: var(--markdoc-text);
+}
+
+/* Quick links section */
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.quick-link-card {
+  padding: 1.5rem;
+  border: 1px solid var(--markdoc-border);
+  border-radius: 0.5rem;
+  transition: all 0.15s;
+  text-decoration: none;
+  display: block;
+  background-color: var(--markdoc-light);
+}
+
+.quick-link-card:hover {
+  border-color: var(--markdoc-text);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.quick-link-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  color: var(--markdoc-text);
+}
+
+.quick-link-card p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--markdoc-text-muted);
+  line-height: 1.5;
+}

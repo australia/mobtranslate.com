@@ -1,0 +1,212 @@
+# Getting Started
+
+This guide will help you set up MobTranslate for development on your local machine.
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) v22 or later
+- [pnpm](https://pnpm.io/) v7.15.0 or later  
+- [Git](https://git-scm.com/)
+- A [Supabase](https://supabase.com/) account (free tier works)
+- An [OpenAI API key](https://platform.openai.com/api-keys) for AI features
+
+## Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/australia/mobtranslate.com.git
+cd mobtranslate.com
+```
+
+### 2. Install Dependencies
+
+We use pnpm for package management:
+
+```bash
+pnpm install
+```
+
+This will install all dependencies for the monorepo, including:
+- The main web application (`apps/web`)
+- The shared UI component library (`ui`)
+- Dictionary types and utilities (`dictionaries`)
+
+### 3. Environment Variables
+
+Copy the example environment file:
+
+```bash
+cp apps/web/.env.example apps/web/.env
+```
+
+Then edit `apps/web/.env` with your credentials:
+
+```env
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
+
+# OpenAI Configuration
+OPENAI_API_KEY=your-openai-api-key
+
+# Application Configuration
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+#### Getting Supabase Credentials
+
+1. Create a new project at [app.supabase.com](https://app.supabase.com)
+2. Go to Settings → API
+3. Copy:
+   - `URL` → `NEXT_PUBLIC_SUPABASE_URL`
+   - `anon public` → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `service_role` → `SUPABASE_SERVICE_ROLE_KEY`
+
+#### Getting OpenAI API Key
+
+1. Go to [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+2. Create a new API key
+3. Copy it to `OPENAI_API_KEY`
+
+### 4. Database Setup
+
+Run the database migrations to set up your schema:
+
+```bash
+cd apps/web
+pnpm supabase db push
+```
+
+This will create all necessary tables, including:
+- Languages and words
+- User profiles and authentication
+- Learning progress tracking
+- Curation system tables
+
+### 5. Start Development Server
+
+From the root directory:
+
+```bash
+pnpm dev
+```
+
+This starts:
+- Next.js development server on [http://localhost:3000](http://localhost:3000)
+- TypeScript type checking
+- Hot module replacement
+
+## Project Structure
+
+```
+mobtranslate.com/
+├── apps/
+│   ├── web/              # Main Next.js application
+│   └── docs/             # Documentation site (this site)
+├── ui/                   # Shared UI components
+├── dictionaries/         # Language data and types
+├── supabase/            # Database migrations
+├── turbo.json           # Turborepo configuration
+└── package.json         # Root package file
+```
+
+## Development Workflow
+
+### Running Commands
+
+All commands should be run from the root directory:
+
+```bash
+# Start development server
+pnpm dev
+
+# Build all packages
+pnpm build
+
+# Run linting
+pnpm lint
+
+# Type checking
+pnpm typecheck
+```
+
+### Working with the Monorepo
+
+This project uses Turborepo for efficient builds:
+
+- Changes to `ui/` will trigger rebuilds in `apps/web`
+- Each package has its own `package.json`
+- Dependencies are hoisted to the root when possible
+
+### Making Changes
+
+1. Create a feature branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. Make your changes following our conventions:
+   - Use TypeScript for all new code
+   - Follow the existing component patterns
+   - Use components from `@ui/components`
+
+3. Test your changes:
+   ```bash
+   pnpm build
+   pnpm lint
+   ```
+
+4. Commit with conventional commits:
+   ```bash
+   git commit -m "feat: add new feature"
+   ```
+
+## Common Issues
+
+### Port Already in Use
+
+If port 3000 is already in use:
+
+```bash
+# Kill the process using port 3000
+lsof -ti:3000 | xargs kill -9
+
+# Or use a different port
+PORT=3001 pnpm dev
+```
+
+### Database Connection Issues
+
+If you can't connect to Supabase:
+
+1. Check your internet connection
+2. Verify your Supabase project is active
+3. Confirm your environment variables are correct
+4. Try regenerating your API keys in Supabase
+
+### Type Errors
+
+If you encounter TypeScript errors:
+
+```bash
+# Regenerate Supabase types
+pnpm supabase gen types typescript --local > apps/web/lib/database.types.ts
+
+# Clean and rebuild
+pnpm clean
+pnpm install
+pnpm build
+```
+
+## Next Steps
+
+Now that you have MobTranslate running locally:
+
+1. **[Explore the API](/api)** - Learn about available endpoints
+2. **[Understand the Architecture](/architecture)** - Deep dive into technical design
+3. **[Add a Language](/dictionaries)** - Contribute a new language
+4. **[Join Development](/contributing)** - Start contributing code
