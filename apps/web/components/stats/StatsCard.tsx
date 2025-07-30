@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Card } from '@ui/components';
+import { Card } from '@/app/components/ui/table';
 import { LucideIcon, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { cn } from '@/app/lib/utils';
 

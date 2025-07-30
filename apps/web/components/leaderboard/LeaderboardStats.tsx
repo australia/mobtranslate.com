@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Card, CardContent } from '@ui/components';
+import { Card, CardContent } from '@/app/components/ui/table';
 import { 
   Trophy, 
   Users, 

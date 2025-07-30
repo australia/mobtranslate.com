@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components';
-import { Badge } from '@ui/components/badge';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@ui/components/dialog';
-import { Input } from '@ui/components/input';
-import { Label } from '@ui/components/label';
-import { Textarea } from '@ui/components/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/components/select';
-import { useToast } from '@ui/components/use-toast';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table';
+import { Badge } from '@/app/components/ui/badge';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/app/components/ui/dialog';
+import { Input } from '@/app/components/ui/input';
+import { Label } from '@/app/components/ui/label';
+import { Textarea } from '@/app/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
+import { useToast } from '@/app/components/ui/use-toast';
 import { 
   FileText, 
   Upload, 

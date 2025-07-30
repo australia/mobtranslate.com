@@ -3,12 +3,12 @@
 import { useState, useEffect } from 'react';
 import { formatDistanceToNow } from '@/lib/utils/date';
 import { MessageCircle, ThumbsUp, ThumbsDown, Reply, MoreVertical, Flag } from 'lucide-react';
-import { Button } from '@ui/components';
-import { Avatar, AvatarFallback, AvatarImage } from '@ui/components/avatar';
-import { Textarea } from '@ui/components/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/components/select';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@ui/components/dropdown-menu';
-import { useToast } from '@ui/components/use-toast';
+import { Button } from '@/app/components/ui/table';
+import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/table/avatar';
+import { Textarea } from '@/app/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/app/components/ui/table/dropdown-menu';
+import { useToast } from '@/app/components/ui/use-toast';
 import { createClient } from '@/lib/supabase/client';
 
 interface Comment {

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, Badge } from '@ui/components';
+import { Card, CardContent, CardHeader, CardTitle, Badge } from '@/app/components/ui/table';
 import { type ImageAnalysis } from '@/lib/tools/image-analysis';
 import { 
   Image as ImageIcon, 

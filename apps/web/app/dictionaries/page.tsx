@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter, Button, Badge } from '@ui/components';
+import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter, Button, Badge } from '@/app/components/ui/table';
 import { getActiveLanguages } from '@/lib/supabase/queries';
 import { createClient } from '@/lib/supabase/server';
 

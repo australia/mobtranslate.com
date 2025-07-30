@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { Button } from '@ui/components/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
-import { Label } from '@ui/components/label';
-import { Input } from '@ui/components/input';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components/Table';
-import { Badge } from '@ui/components/badge';
-import { useToast } from '@ui/components/use-toast';
+import { Button } from '@/app/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Label } from '@/app/components/ui/label';
+import { Input } from '@/app/components/ui/input';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table/Table';
+import { Badge } from '@/app/components/ui/badge';
+import { useToast } from '@/app/components/ui/use-toast';
 import { ArrowLeft, UserPlus, Trash2, Shield } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 

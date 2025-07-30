@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Card, CardContent, Badge } from '@ui/components';
+import { Card, CardContent, Badge } from '@/app/components/ui/table';
 import { 
   Crown, 
   Trophy, 

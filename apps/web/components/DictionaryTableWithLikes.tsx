@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { cn } from '../app/lib/utils';
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@ui/components/Table';
-import { Badge } from '@ui/components/Badge';
-import { Card } from '@ui/components/card';
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/app/components/ui/table/Table';
+import { Badge } from '@/app/components/ui/table/Badge';
+import { Card } from '@/app/components/ui/card';
 import { WordLikeButton } from './WordLikeButton';
 
 export interface DictionaryWord {

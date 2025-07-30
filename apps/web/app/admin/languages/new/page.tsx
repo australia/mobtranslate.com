@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from '@ui/components/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
-import { Label } from '@ui/components/label';
-import { Input } from '@ui/components/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/components/select';
-import { useToast } from '@ui/components/use-toast';
+import { Button } from '@/app/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Label } from '@/app/components/ui/label';
+import { Input } from '@/app/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
+import { useToast } from '@/app/components/ui/use-toast';
 import { ArrowLeft, Save } from 'lucide-react';
 
 export default function NewLanguagePage() {

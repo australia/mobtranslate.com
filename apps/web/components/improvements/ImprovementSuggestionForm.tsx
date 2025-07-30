@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import { Lightbulb, Plus, X } from 'lucide-react';
-import { Button } from '@ui/components';
-import { Input } from '@ui/components/input';
-import { Textarea } from '@ui/components/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/components/select';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@ui/components/dialog';
-import { Label } from '@ui/components/label';
-import { useToast } from '@ui/components/use-toast';
+import { Button } from '@/app/components/ui/table';
+import { Input } from '@/app/components/ui/input';
+import { Textarea } from '@/app/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/app/components/ui/dialog';
+import { Label } from '@/app/components/ui/label';
+import { useToast } from '@/app/components/ui/use-toast';
 
 interface ImprovementSuggestionFormProps {
   wordId: string;

@@ -38,7 +38,7 @@ import {
   Breadcrumbs,
   TableFooter,
   TableCaption
-} from '@ui/components';
+} from '@/app/components/ui/table';
 import { 
   Search, Globe, BookOpen, Users, ChevronRight, AlertCircle, CheckCircle, Info, XCircle,
   Home, Settings, Menu, X, ArrowLeft, ArrowRight, Download, Upload, Edit, Trash2,

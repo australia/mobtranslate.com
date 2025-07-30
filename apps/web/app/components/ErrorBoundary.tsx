@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Alert, Button } from '@ui/components';
+import { Alert, Button } from '@/app/components/ui/table';
 import { AlertTriangle } from 'lucide-react';
 
 interface ErrorBoundaryProps {

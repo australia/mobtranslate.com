@@ -2,7 +2,7 @@
 
 import React from 'react';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader, Section } from '@ui/components';
+import { PageHeader, Section } from '@/app/components/ui/table';
 import { Calendar, Globe, Heart, Code, Lightbulb, Trophy, Target } from 'lucide-react';
 
 export default function HistoryPage() {

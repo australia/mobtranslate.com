@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { Button } from '@ui/components';
+import { Button } from '@/app/components/ui/table';
 import SharedLayout from './components/SharedLayout';
-import { PageHeader, Section } from '@ui/components';
+import { PageHeader, Section } from '@/app/components/ui/table';
 
 export default function NotFound() {
   return (

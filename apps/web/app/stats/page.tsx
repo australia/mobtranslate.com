@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Badge, LoadingState } from '@ui/components';
+import { PageHeader, Section, Card, CardContent, CardHeader, CardTitle, Badge, LoadingState } from '@/app/components/ui/table';
 import { BarChart3, Trophy, Target, TrendingUp, Calendar, Brain, Clock, CheckCircle, XCircle } from 'lucide-react';
 import Link from 'next/link';
 

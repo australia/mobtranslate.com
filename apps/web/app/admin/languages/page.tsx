@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 import useSWR from 'swr';
-import { Button } from '@ui/components/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components/Table';
-import { Badge } from '@ui/components/badge';
-import { useToast } from '@ui/components/use-toast';
+import { Button } from '@/app/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table/Table';
+import { Badge } from '@/app/components/ui/badge';
+import { useToast } from '@/app/components/ui/use-toast';
 import { Plus, Edit, Users, Globe, BookOpen, Settings } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 

@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { Shield, MessageSquare, Lightbulb, FileCheck, Activity, Users, TrendingUp, Clock } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
-import { Button } from '@ui/components';
-import { Badge } from '@ui/components/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/components/tabs';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/components/select';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Button } from '@/app/components/ui/table';
+import { Badge } from '@/app/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
 import { StatsCard } from '@/components/stats/StatsCard';
 import { formatDistanceToNow } from '@/lib/utils/date';
 

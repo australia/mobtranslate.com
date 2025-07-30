@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../../../components/SharedLayout';
-import { PageHeader, Section, Card, CardContent, Badge, Breadcrumbs, Button } from '@ui/components';
+import { PageHeader, Section, Card, CardContent, Badge, Breadcrumbs, Button } from '@/app/components/ui/table';
 import { getWordsForLanguage, searchWords } from '@/lib/supabase/queries';
 import type { Word } from '@/lib/supabase/types';
 import { WordDetailContent } from './components/WordDetailContent';

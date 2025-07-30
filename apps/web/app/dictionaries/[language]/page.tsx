@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
 import DictionarySearch from './components/DictionarySearch';
-import { PageHeader, Section, Breadcrumbs, Badge } from '@ui/components';
+import { PageHeader, Section, Breadcrumbs, Badge } from '@/app/components/ui/table';
 import { getWordsForLanguage } from '@/lib/supabase/queries';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';

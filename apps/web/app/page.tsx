@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import SharedLayout from './components/SharedLayout';
 import TranslatorWrapper from './components/TranslatorWrapper';
-import { PageHeader, Section, Card, CardContent, Container, Badge } from '@ui/components';
+import { PageHeader, Section, Card, CardContent, Container, Badge } from '@/app/components/ui/table';
 import { getActiveLanguages } from '@/lib/supabase/queries';
 
 export const revalidate = 3600; // Revalidate every hour

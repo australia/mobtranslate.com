@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback, useTransition, useMemo } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
-import { Card, CardContent, CardHeader, CardTitle, SearchInput, Badge, EmptyState, Button, LoadingState } from '@ui/components';
+import { Card, CardContent, CardHeader, CardTitle, SearchInput, Badge, EmptyState, Button, LoadingState } from '@/app/components/ui/table';
 import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
 import { useDictionary } from '@/lib/hooks/useDictionary';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';

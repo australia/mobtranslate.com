@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
-import { Badge } from '@ui/components/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@ui/components/tabs';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@ui/components/dialog';
-import { Label } from '@ui/components/label';
-import { Textarea } from '@ui/components/textarea';
-import { useToast } from '@ui/components/use-toast';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Badge } from '@/app/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/app/components/ui/dialog';
+import { Label } from '@/app/components/ui/label';
+import { Textarea } from '@/app/components/ui/textarea';
+import { useToast } from '@/app/components/ui/use-toast';
 import { 
   TrendingUp, 
   CheckCircle, 

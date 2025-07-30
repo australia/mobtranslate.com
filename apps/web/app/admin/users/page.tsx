@@ -3,15 +3,15 @@
 import { useState } from 'react';
 import useSWR from 'swr';
 import { Shield, UserPlus, Search, Edit, Trash2 } from 'lucide-react';
-import { Button } from '@ui/components';
-import { Input } from '@ui/components/input';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@ui/components/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@ui/components/Table';
-import { Badge } from '@ui/components/badge';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@ui/components/dialog';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@ui/components/select';
-import { Label } from '@ui/components/Label';
-import { useToast } from '@ui/components/use-toast';
+import { Button } from '@/app/components/ui/table';
+import { Input } from '@/app/components/ui/input';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table/Table';
+import { Badge } from '@/app/components/ui/badge';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/app/components/ui/dialog';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
+import { Label } from '@/app/components/ui/table/Label';
+import { useToast } from '@/app/components/ui/use-toast';
 import { createClient } from '@/lib/supabase/client';
 import { formatDistanceToNow } from '@/lib/utils/date';
 

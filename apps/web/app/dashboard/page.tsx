@@ -4,7 +4,7 @@ import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader, Section, Badge, Button } from '@ui/components';
+import { PageHeader, Section, Badge, Button } from '@/app/components/ui/table';
 import { StatsCard } from '@/components/stats/StatsCard';
 import { DashboardSkeleton } from '@/components/loading/Skeleton';
 import { useDashboardData } from '@/hooks/useApi';

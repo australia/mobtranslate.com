@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Heart, Volume2, Clock, TrendingUp, Zap, Target, BookOpen, Sparkles } from 'lucide-react';
 import { cn } from '@/app/lib/utils';
 import Link from 'next/link';
-import { Card } from '@ui/components';
+import { Card } from '@/app/components/ui/table';
 import { WordLikeButton } from '../WordLikeButton';
 
 interface WordCardProps {
