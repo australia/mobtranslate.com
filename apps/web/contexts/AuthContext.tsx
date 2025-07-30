@@ -55,6 +55,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
 
     setUser(data.user)
+    
+    // Return the response data so components can check needsProfile
+    return data
   }
 
   const signUp = async (email: string, password: string, username: string) => {

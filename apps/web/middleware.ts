@@ -64,7 +64,35 @@ export async function middleware(request: NextRequest) {
   )
 
   // Refresh session if it exists (this will automatically handle token refresh)
-  await supabase.auth.getUser()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  // Check if user needs to set up profile
+  if (user && !request.nextUrl.pathname.startsWith('/auth/setup-profile')) {
+    // Skip profile check for certain paths
+    const skipPaths = [
+      '/auth',
+      '/api',
+      '/_next',
+      '/favicon.ico',
+      '/settings' // Settings page handles profile creation too
+    ]
+    
+    const shouldSkip = skipPaths.some(path => request.nextUrl.pathname.startsWith(path))
+    
+    if (!shouldSkip) {
+      // Check if user has a profile
+      const { data: profile } = await supabase
+        .from('user_profiles')
+        .select('username')
+        .eq('user_id', user.id)
+        .single()
+      
+      if (!profile) {
+        // Redirect to profile setup
+        return NextResponse.redirect(new URL('/auth/setup-profile', request.url))
+      }
+    }
+  }
 
   return response
 }

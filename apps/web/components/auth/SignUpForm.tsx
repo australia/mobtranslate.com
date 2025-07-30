@@ -63,8 +63,15 @@ export function SignUpForm() {
       setEmail('')
       setPassword('')
       setConfirmPassword('')
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create account')
+    } catch (err: any) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to create account'
+      setError(errorMessage)
+      
+      // Check if the error indicates the user exists without a profile
+      if (errorMessage.includes('already exists but is missing a profile')) {
+        // Add a link to sign in
+        setError(errorMessage + ' Click below to sign in.')
+      }
     } finally {
       setLoading(false)
     }

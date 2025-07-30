@@ -30,26 +30,55 @@ function validateUsername(username: string): string | null {
 
 // GET - Fetch user profile
 export async function GET(request: NextRequest) {
+  console.log('[PROFILE GET] Starting profile fetch', {
+    timestamp: new Date().toISOString(),
+    headers: Object.fromEntries(request.headers.entries())
+  });
+
   const supabase = createClient();
 
   // Check authentication
   const { data: { user }, error: authError } = await supabase.auth.getUser();
+  
+  console.log('[PROFILE GET] Auth check result', {
+    hasUser: !!user,
+    userId: user?.id,
+    userEmail: user?.email,
+    authError: authError?.message,
+    authErrorCode: authError?.code
+  });
+
   if (authError || !user) {
     return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
   }
 
   try {
     // Get user profile
+    console.log('[PROFILE GET] Fetching profile for user:', user.id);
+    
     const { data: profile, error: profileError } = await supabase
       .from('user_profiles')
       .select('*')
       .eq('user_id', user.id)
       .single();
 
+    console.log('[PROFILE GET] Profile fetch result', {
+      hasProfile: !!profile,
+      profileData: profile,
+      error: profileError?.message,
+      errorCode: profileError?.code,
+      errorDetails: profileError?.details,
+      errorHint: profileError?.hint
+    });
+
     if (profileError) {
       // If no profile exists, create a default one
       if (profileError.code === 'PGRST116') {
-        console.log('No profile found, creating default profile for user:', user.id);
+        console.log('[PROFILE GET] No profile found (PGRST116), creating default profile', {
+          userId: user.id,
+          userEmail: user.email,
+          timestamp: new Date().toISOString()
+        });
         
         // Generate a default username from email
         const emailPrefix = user.email?.split('@')[0] || 'user';
@@ -64,6 +93,12 @@ export async function GET(request: NextRequest) {
         }
         
         // Try to create profile with generated username
+        console.log('[PROFILE GET] Attempting to create profile', {
+          user_id: user.id,
+          username: defaultUsername,
+          display_name: emailPrefix
+        });
+
         const { data: newProfile, error: createError } = await supabase
           .from('user_profiles')
           .insert({
@@ -74,12 +109,37 @@ export async function GET(request: NextRequest) {
           .select()
           .single();
         
+        console.log('[PROFILE GET] Profile creation attempt result', {
+          success: !createError,
+          newProfile,
+          error: createError?.message,
+          errorCode: createError?.code,
+          errorDetails: createError?.details,
+          errorHint: createError?.hint,
+          fullError: createError ? JSON.stringify(createError, null, 2) : null
+        });
+
         if (createError) {
-          console.error('Error creating default profile:', createError);
+          console.error('[PROFILE GET] Error creating default profile - DETAILED:', {
+            errorMessage: createError.message,
+            errorCode: createError.code,
+            errorDetails: createError.details,
+            errorHint: createError.hint,
+            userId: user.id,
+            attemptedUsername: defaultUsername,
+            timestamp: new Date().toISOString(),
+            fullError: JSON.stringify(createError, null, 2)
+          });
           // If username is taken, try with a different suffix
           const timestamp = Date.now().toString().slice(-6);
           const fallbackUsername = `user${timestamp}`;
           
+          console.log('[PROFILE GET] Attempting fallback profile creation', {
+            user_id: user.id,
+            username: fallbackUsername,
+            display_name: emailPrefix
+          });
+
           const { data: fallbackProfile, error: fallbackError } = await supabase
             .from('user_profiles')
             .insert({
@@ -90,9 +150,35 @@ export async function GET(request: NextRequest) {
             .select()
             .single();
           
+          console.log('[PROFILE GET] Fallback creation result', {
+            success: !fallbackError,
+            fallbackProfile,
+            error: fallbackError?.message,
+            errorCode: fallbackError?.code,
+            errorDetails: fallbackError?.details,
+            fullError: fallbackError ? JSON.stringify(fallbackError, null, 2) : null
+          });
+
           if (fallbackError) {
-            console.error('Error creating fallback profile:', fallbackError);
-            return NextResponse.json({ error: 'Failed to create user profile' }, { status: 500 });
+            console.error('[PROFILE GET] Error creating fallback profile - DETAILED:', {
+              errorMessage: fallbackError.message,
+              errorCode: fallbackError.code,
+              errorDetails: fallbackError.details,
+              errorHint: fallbackError.hint,
+              userId: user.id,
+              attemptedUsername: fallbackUsername,
+              timestamp: new Date().toISOString(),
+              fullError: JSON.stringify(fallbackError, null, 2),
+              stackTrace: new Error().stack
+            });
+            return NextResponse.json({ 
+              error: 'Failed to create user profile',
+              details: {
+                code: fallbackError.code,
+                message: fallbackError.message,
+                hint: fallbackError.hint
+              }
+            }, { status: 500 });
           }
           
           return NextResponse.json({ profile: fallbackProfile });
@@ -101,13 +187,109 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ profile: newProfile });
       }
       
-      console.error('Error fetching profile:', profileError);
-      return NextResponse.json({ error: 'Failed to fetch profile' }, { status: 500 });
+      console.error('[PROFILE GET] Error fetching profile - DETAILED:', {
+        errorMessage: profileError.message,
+        errorCode: profileError.code,
+        errorDetails: profileError.details,
+        errorHint: profileError.hint,
+        userId: user.id,
+        timestamp: new Date().toISOString(),
+        fullError: JSON.stringify(profileError, null, 2)
+      });
+      return NextResponse.json({ 
+        error: 'Failed to fetch profile',
+        details: {
+          code: profileError.code,
+          message: profileError.message
+        }
+      }, { status: 500 });
     }
 
     return NextResponse.json({ profile });
   } catch (error) {
-    console.error('Profile fetch error:', error);
+    console.error('[PROFILE GET] Unexpected error:', {
+      error: error instanceof Error ? error.message : String(error),
+      errorType: error?.constructor?.name,
+      stack: error instanceof Error ? error.stack : undefined,
+      userId: user?.id,
+      timestamp: new Date().toISOString(),
+      fullError: JSON.stringify(error, null, 2)
+    });
+    return NextResponse.json({ 
+      error: 'Internal server error',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 });
+  }
+}
+
+// POST - Create user profile
+export async function POST(request: NextRequest) {
+  const supabase = createClient();
+
+  // Check authentication
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) {
+    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
+  }
+
+  try {
+    const body = await request.json();
+    const { username, display_name } = body;
+
+    // Check if profile already exists
+    const { data: existingProfile } = await supabase
+      .from('user_profiles')
+      .select('user_id')
+      .eq('user_id', user.id)
+      .single();
+
+    if (existingProfile) {
+      return NextResponse.json({ error: 'Profile already exists' }, { status: 400 });
+    }
+
+    // Validate username
+    const usernameError = validateUsername(username);
+    if (usernameError) {
+      return NextResponse.json({ error: usernameError }, { status: 400 });
+    }
+
+    // Check if username is already taken
+    const { data: usernameCheck } = await supabase
+      .from('user_profiles')
+      .select('username')
+      .ilike('username', username)
+      .single();
+
+    if (usernameCheck) {
+      return NextResponse.json({ error: 'Username already taken' }, { status: 400 });
+    }
+
+    // Create profile
+    const { data: newProfile, error: createError } = await supabase
+      .from('user_profiles')
+      .insert({
+        user_id: user.id,
+        username: username,
+        display_name: display_name || username,
+        email: user.email
+      })
+      .select()
+      .single();
+
+    if (createError) {
+      console.error('Error creating profile:', createError);
+      return NextResponse.json({ 
+        error: 'Failed to create profile',
+        details: createError.message
+      }, { status: 500 });
+    }
+
+    return NextResponse.json({ 
+      profile: newProfile,
+      message: 'Profile created successfully'
+    });
+  } catch (error) {
+    console.error('Profile creation error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

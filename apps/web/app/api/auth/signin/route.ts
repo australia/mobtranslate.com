@@ -19,10 +19,21 @@ export async function POST(request: Request) {
     )
   }
 
+  // Check if user has a profile
+  const { data: profile, error: profileError } = await supabase
+    .from('user_profiles')
+    .select('username, display_name')
+    .eq('user_id', data.user.id)
+    .single()
+
+  const needsProfile = !profile || profileError?.code === 'PGRST116'
+
   return NextResponse.json(
     { 
       message: 'Successfully signed in',
-      user: data.user 
+      user: data.user,
+      needsProfile,
+      profile: profile || null
     },
     { status: 200 }
   )

@@ -24,8 +24,13 @@ export function SignInForm() {
     setLoading(true)
 
     try {
-      await signIn(email, password)
-      router.push('/')
+      const data = await signIn(email, password)
+      
+      if (data.needsProfile) {
+        router.push('/auth/setup-profile')
+      } else {
+        router.push('/')
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to sign in')
     } finally {
