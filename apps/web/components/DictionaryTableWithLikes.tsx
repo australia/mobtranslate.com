@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { cn } from '../app/lib/utils';
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/app/components/ui/table/Table';
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/app/components/ui/table';
 import { Badge } from '@/app/components/ui/table/Badge';
 import { Card } from '@/app/components/ui/card';
 import { WordLikeButton } from './WordLikeButton';
