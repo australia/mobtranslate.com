@@ -6,6 +6,7 @@ import { useRouter, useParams } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
 import { Button } from '@ui/components/Button';
+import { Badge } from '@ui/components/Badge';
 import { X, Check, AlertCircle, Zap, ArrowLeft, BarChart3, Sparkles, Target } from 'lucide-react';
 import { cn } from '@/app/lib/utils';
 import Link from 'next/link';
