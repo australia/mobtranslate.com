@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
+import { Badge } from '@ui/components/Badge';
 import { 
   Crown, 
   Trophy, 
