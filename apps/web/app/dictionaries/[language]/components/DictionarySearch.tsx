@@ -6,8 +6,8 @@ import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter }
 import { Badge } from '@ui/components/Badge';
 import { Button } from '@ui/components/Button';
 import { SearchInput } from '@ui/components/SearchInput';
-import { LoadingState } from '@ui/components/LoadingState';
 import { EmptyState } from '@ui/components/EmptyState';
+import { LoadingState } from '@/app/components/ui/loading-state';
 import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
 import { useDictionary } from '@/lib/hooks/useDictionary';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
