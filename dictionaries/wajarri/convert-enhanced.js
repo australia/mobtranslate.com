@@ -35,7 +35,7 @@ const openai = new OpenAI({
 const CHUNK_SIZE = 50; // Smaller chunks for better API processing
 const TEST_MODE = process.argv.includes('--test');
 const TEST_LIMIT = 20; // Smaller test for faster verification
-const MODEL = 'gpt-4o'; // Using more powerful model for better analysis
+const MODEL = 'gpt-4o-mini'; // Using faster model for efficient processing
 
 // API call counter
 let apiCallCount = 0;

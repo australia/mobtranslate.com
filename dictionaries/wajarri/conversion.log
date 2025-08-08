@@ -1,0 +1,147 @@
+(node:85652) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[32mINFO[39m [2025-08-08 21:27:58.734 +1000]: [36m🚀 Starting Enhanced Wajarri Dictionary Conversion Pipeline[39m
+[32mINFO[39m [2025-08-08 21:27:58.735 +1000]: [36mModel: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:27:58.735 +1000]: [36mMode: FULL[39m
+[32mINFO[39m [2025-08-08 21:27:58.770 +1000]: [36mOutput directory ready[39m
+    dir: "/Users/ajaxdavis/repos/mobtranslate.com/dictionaries/wajarri/output-enhanced"
+[32mINFO[39m [2025-08-08 21:27:58.770 +1000]: [36mLoading Wajarri dictionary...[39m
+[32mINFO[39m [2025-08-08 21:27:58.799 +1000]: [36mLoaded 1684 dictionary entries[39m
+[32mINFO[39m [2025-08-08 21:27:58.799 +1000]: [36mCreated 34 chunks of up to 50 entries each[39m
+[32mINFO[39m [2025-08-08 21:27:58.799 +1000]: [36m
+📊 Processing 1684 entries in 34 chunks...
+[39m
+[32mINFO[39m [2025-08-08 21:27:58.802 +1000]: [36m=== Starting OntoLex conversion with AI ===[39m
+[32mINFO[39m [2025-08-08 21:27:58.802 +1000]: [36mProcessing OntoLex chunk 1/34[39m
+[34mDEBUG[39m [2025-08-08 21:27:58.802 +1000]: [36mAPI Call #1 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:27:58.803 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:28:52.498 +1000]: [36m✓ API call completed[39m
+    apiCall: 1
+    purpose: "OntoLex conversion"
+    duration: "53696ms"
+    tokensUsed: 6955
+    totalTokens: 6955
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:28:52.499 +1000]: [36mProcessing OntoLex chunk 2/34[39m
+[34mDEBUG[39m [2025-08-08 21:28:52.499 +1000]: [36mAPI Call #2 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:28:52.499 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:29:32.399 +1000]: [36m✓ API call completed[39m
+    apiCall: 2
+    purpose: "OntoLex conversion"
+    duration: "39900ms"
+    tokensUsed: 7122
+    totalTokens: 14077
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:29:32.400 +1000]: [36mProcessing OntoLex chunk 3/34[39m
+[34mDEBUG[39m [2025-08-08 21:29:32.400 +1000]: [36mAPI Call #3 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:29:32.400 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:30:10.182 +1000]: [36m✓ API call completed[39m
+    apiCall: 3
+    purpose: "OntoLex conversion"
+    duration: "37782ms"
+    tokensUsed: 7317
+    totalTokens: 21394
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:30:10.182 +1000]: [36mProcessing OntoLex chunk 4/34[39m
+[34mDEBUG[39m [2025-08-08 21:30:10.182 +1000]: [36mAPI Call #4 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:30:10.182 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:30:49.864 +1000]: [36m✓ API call completed[39m
+    apiCall: 4
+    purpose: "OntoLex conversion"
+    duration: "39682ms"
+    tokensUsed: 7384
+    totalTokens: 28778
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:30:49.865 +1000]: [36mProcessing OntoLex chunk 5/34[39m
+[34mDEBUG[39m [2025-08-08 21:30:49.865 +1000]: [36mAPI Call #5 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:30:49.865 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:31:34.592 +1000]: [36m✓ API call completed[39m
+    apiCall: 5
+    purpose: "OntoLex conversion"
+    duration: "44727ms"
+    tokensUsed: 6965
+    totalTokens: 35743
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:31:34.592 +1000]: [36mProcessing OntoLex chunk 6/34[39m
+[34mDEBUG[39m [2025-08-08 21:31:34.592 +1000]: [36mAPI Call #6 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:31:34.592 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:32:09.867 +1000]: [36m✓ API call completed[39m
+    apiCall: 6
+    purpose: "OntoLex conversion"
+    duration: "35275ms"
+    tokensUsed: 7417
+    totalTokens: 43160
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:32:09.868 +1000]: [36mProcessing OntoLex chunk 7/34[39m
+[34mDEBUG[39m [2025-08-08 21:32:09.868 +1000]: [36mAPI Call #7 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:32:09.868 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:32:47.023 +1000]: [36m✓ API call completed[39m
+    apiCall: 7
+    purpose: "OntoLex conversion"
+    duration: "37155ms"
+    tokensUsed: 7016
+    totalTokens: 50176
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:32:47.023 +1000]: [36mProcessing OntoLex chunk 8/34[39m
+[34mDEBUG[39m [2025-08-08 21:32:47.023 +1000]: [36mAPI Call #8 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:32:47.023 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:33:20.852 +1000]: [36m✓ API call completed[39m
+    apiCall: 8
+    purpose: "OntoLex conversion"
+    duration: "33829ms"
+    tokensUsed: 7214
+    totalTokens: 57390
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:33:20.852 +1000]: [36mProcessing OntoLex chunk 9/34[39m
+[34mDEBUG[39m [2025-08-08 21:33:20.852 +1000]: [36mAPI Call #9 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:33:20.852 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:34:00.481 +1000]: [36m✓ API call completed[39m
+    apiCall: 9
+    purpose: "OntoLex conversion"
+    duration: "39629ms"
+    tokensUsed: 7036
+    totalTokens: 64426
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:34:00.481 +1000]: [36mProcessing OntoLex chunk 10/34[39m
+[34mDEBUG[39m [2025-08-08 21:34:00.481 +1000]: [36mAPI Call #10 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:34:00.481 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:34:41.379 +1000]: [36m✓ API call completed[39m
+    apiCall: 10
+    purpose: "OntoLex conversion"
+    duration: "40898ms"
+    tokensUsed: 6973
+    totalTokens: 71399
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:34:41.380 +1000]: [36mProcessing OntoLex chunk 11/34[39m
+[34mDEBUG[39m [2025-08-08 21:34:41.380 +1000]: [36mAPI Call #11 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:34:41.380 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:35:19.199 +1000]: [36m✓ API call completed[39m
+    apiCall: 11
+    purpose: "OntoLex conversion"
+    duration: "37819ms"
+    tokensUsed: 7001
+    totalTokens: 78400
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:35:19.199 +1000]: [36mProcessing OntoLex chunk 12/34[39m
+[34mDEBUG[39m [2025-08-08 21:35:19.199 +1000]: [36mAPI Call #12 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:35:19.199 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:36:12.366 +1000]: [36m✓ API call completed[39m
+    apiCall: 12
+    purpose: "OntoLex conversion"
+    duration: "53167ms"
+    tokensUsed: 7147
+    totalTokens: 85547
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:36:12.367 +1000]: [36mProcessing OntoLex chunk 13/34[39m
+[34mDEBUG[39m [2025-08-08 21:36:12.367 +1000]: [36mAPI Call #13 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:36:12.367 +1000]: [36mUsing model: gpt-4o[39m
+[32mINFO[39m [2025-08-08 21:37:05.532 +1000]: [36m✓ API call completed[39m
+    apiCall: 13
+    purpose: "OntoLex conversion"
+    duration: "53165ms"
+    tokensUsed: 7104
+    totalTokens: 92651
+    model: "gpt-4o"
+[32mINFO[39m [2025-08-08 21:37:05.532 +1000]: [36mProcessing OntoLex chunk 14/34[39m
+[34mDEBUG[39m [2025-08-08 21:37:05.532 +1000]: [36mAPI Call #14 for: OntoLex conversion[39m
+[34mDEBUG[39m [2025-08-08 21:37:05.532 +1000]: [36mUsing model: gpt-4o[39m
