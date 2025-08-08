@@ -1,0 +1,14 @@
+{
+  "chunks": [
+    {
+      "index": 0,
+      "start": 0,
+      "end": 20,
+      "entryCount": 20
+    }
+  ],
+  "apiCalls": 3,
+  "totalTokensUsed": 8167,
+  "model": "gpt-4o-mini",
+  "processed": "2025-08-08T10:58:19.905Z"
+}

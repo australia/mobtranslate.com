@@ -1,0 +1,19 @@
+{
+  "name": "wajarri-dictionary-converter",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Convert Wajarri dictionary JSON to multiple linguistic formats",
+  "main": "convert.js",
+  "scripts": {
+    "convert": "node convert.js",
+    "test": "node convert.js --test"
+  },
+  "dependencies": {
+    "papaparse": "^5.4.1",
+    "ajv": "^8.12.0",
+    "pino": "^8.19.0",
+    "pino-pretty": "^10.3.1",
+    "dotenv": "^16.4.1",
+    "openai": "^4.28.0"
+  }
+}

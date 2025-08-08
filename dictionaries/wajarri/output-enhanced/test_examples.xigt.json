@@ -1,0 +1,312 @@
+{
+  "items": [
+    {
+      "transcript": "ganggaly-ganggaly",
+      "gloss": [
+        {
+          "morpheme": "ganggaly",
+          "gloss": "cough"
+        },
+        {
+          "morpheme": "ganggaly",
+          "gloss": "cough"
+        }
+      ],
+      "translation": "a cough",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "burduwimanha",
+      "gloss": [
+        {
+          "morpheme": "burduwi",
+          "gloss": "lump"
+        },
+        {
+          "morpheme": "-manha",
+          "gloss": "verbal suffix indicating action"
+        }
+      ],
+      "translation": "a lump coming up",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "mabarn",
+      "gloss": [
+        {
+          "morpheme": "mab",
+          "gloss": "magic"
+        },
+        {
+          "morpheme": "-arn",
+          "gloss": "agentive suffix (person)"
+        }
+      ],
+      "translation": "aboriginal doctor",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gumba",
+      "gloss": [
+        {
+          "morpheme": "gum",
+          "gloss": "man"
+        },
+        {
+          "morpheme": "-ba",
+          "gloss": "noun suffix"
+        }
+      ],
+      "translation": "aboriginal person",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "bajabaja",
+      "gloss": [
+        {
+          "morpheme": "baja",
+          "gloss": "angry"
+        },
+        {
+          "morpheme": "baja",
+          "gloss": "angry"
+        }
+      ],
+      "translation": "abusive",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "baraga",
+      "gloss": [
+        {
+          "morpheme": "bar",
+          "gloss": "across"
+        },
+        {
+          "morpheme": "-aga",
+          "gloss": "directional suffix"
+        }
+      ],
+      "translation": "across",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "thulhara",
+      "gloss": [
+        {
+          "morpheme": "thul",
+          "gloss": "afternoon"
+        },
+        {
+          "morpheme": "-hara",
+          "gloss": "noun suffix"
+        }
+      ],
+      "translation": "afternoon",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gara-gara",
+      "gloss": [
+        {
+          "morpheme": "gara",
+          "gloss": "afternoon"
+        },
+        {
+          "morpheme": "gara",
+          "gloss": "afternoon"
+        }
+      ],
+      "translation": "afternoon",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "aburnun.gi",
+      "gloss": [
+        {
+          "morpheme": "aburnun",
+          "gloss": "afternoon"
+        },
+        {
+          "morpheme": ".gi",
+          "gloss": "English borrowing"
+        }
+      ],
+      "translation": "afternoon",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "thulharayimanha",
+      "gloss": [
+        {
+          "morpheme": "thulhara",
+          "gloss": "afternoon"
+        },
+        {
+          "morpheme": "-yimanha",
+          "gloss": "becoming (verbal suffix)"
+        }
+      ],
+      "translation": "afternoon, becoming",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gardantha",
+      "gloss": [
+        {
+          "morpheme": "gard",
+          "gloss": "ahead"
+        },
+        {
+          "morpheme": "-antha",
+          "gloss": "locative suffix"
+        }
+      ],
+      "translation": "ahead",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "wirru-wirru",
+      "gloss": [
+        {
+          "morpheme": "wirru",
+          "gloss": "aligned"
+        },
+        {
+          "morpheme": "wirru",
+          "gloss": "aligned"
+        }
+      ],
+      "translation": "aligned",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "tharlayi",
+      "gloss": [
+        {
+          "morpheme": "tharl",
+          "gloss": "alive"
+        },
+        {
+          "morpheme": "-ayi",
+          "gloss": "adjective suffix"
+        }
+      ],
+      "translation": "alive",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "wajigarda",
+      "gloss": [
+        {
+          "morpheme": "waji",
+          "gloss": "all"
+        },
+        {
+          "morpheme": "-garda",
+          "gloss": "noun suffix"
+        }
+      ],
+      "translation": "all (of it)",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gujurda",
+      "gloss": [
+        {
+          "morpheme": "gujur",
+          "gloss": "all"
+        },
+        {
+          "morpheme": "-da",
+          "gloss": "noun suffix"
+        }
+      ],
+      "translation": "all of something",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gagurl",
+      "gloss": [
+        {
+          "morpheme": "gag",
+          "gloss": "alone"
+        },
+        {
+          "morpheme": "-url",
+          "gloss": "noun suffix"
+        }
+      ],
+      "translation": "alone",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gurru",
+      "gloss": [
+        {
+          "morpheme": "gurr",
+          "gloss": "alone"
+        },
+        {
+          "morpheme": "-u",
+          "gloss": "noun suffix"
+        }
+      ],
+      "translation": "alone",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "burlaguba",
+      "gloss": [
+        {
+          "morpheme": "burlag",
+          "gloss": "already"
+        },
+        {
+          "morpheme": "-uba",
+          "gloss": "adverbial suffix"
+        }
+      ],
+      "translation": "already",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "buru",
+      "gloss": [
+        {
+          "morpheme": "bur",
+          "gloss": "already"
+        },
+        {
+          "morpheme": "-u",
+          "gloss": "noun suffix"
+        }
+      ],
+      "translation": "already",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "baja",
+      "gloss": [
+        {
+          "morpheme": "baj",
+          "gloss": "angry"
+        },
+        {
+          "morpheme": "-a",
+          "gloss": "adjective suffix"
+        }
+      ],
+      "translation": "angry",
+      "source": "Wajarri Dictionary"
+    }
+  ],
+  "metadata": {
+    "language": "Wajarri",
+    "iso639-3": "wbv",
+    "totalEntries": 20,
+    "processedWithAI": true,
+    "model": "gpt-4o-mini",
+    "date": "2025-08-08T10:58:13.749Z"
+  }
+}

@@ -1,0 +1,955 @@
+{
+  "@context": "https://www.w3.org/ns/lemon/ontolex.json",
+  "@graph": [
+    {
+      "@id": "wajarri:ganggaly-ganggaly",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ganggaly-ganggaly"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "a cough"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "a cough"
+      },
+      "ex:audioFile": "Track910.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:burduwimanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "burduwimanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "breaking out in boils, a lump coming up, getting a lump, swelling into a lump"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "a lump coming up"
+      },
+      "ex:audioFile": "Track1012.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:mabarn",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "mabarn"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "magic; magic man; Aboriginal doctor; the internal healing spirit possessed by certain people"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "aboriginal doctor"
+      },
+      "ex:audioFile": "Track7.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:gumba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gumba"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "man, Aboriginal person (rare usage)"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "aboriginal person"
+      },
+      "ex:audioFile": "Track8.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:bajabaja",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bajabaja"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "drunk, intoxicated, silly, abusive"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "abusive"
+      },
+      "ex:audioFile": "Track10.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:baraga",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "baraga"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "across, that way"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "across"
+      },
+      "ex:audioFile": "Track14.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:thulhara",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "thulhara"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "afternoon"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "afternoon"
+      },
+      "ex:audioFile": "Track870.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:gara-gara",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gara-gara"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "afternoon"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "afternoon"
+      },
+      "ex:audioFile": "Track21.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:aburnun.gi",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "aburnun.gi"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "from the english word afternoon"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "afternoon"
+      },
+      "ex:audioFile": "Track20.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:thulharayimanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "thulharayimanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "becoming afternoon."
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "afternoon, becoming"
+      },
+      "ex:audioFile": "Track118.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:gardantha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gardantha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "in front, before, ahead"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ahead"
+      },
+      "ex:audioFile": "Track23.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:wirru-wirru",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wirru-wirru"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "line, aligned"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "aligned"
+      },
+      "ex:audioFile": "Track25.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:tharlayi",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "tharlayi"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "alive (Ngunuru)"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "alive"
+      },
+      "ex:audioFile": "Track26.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:wajigarda",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wajigarda"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "the whole lot, the entire thing"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "all (of it)"
+      },
+      "ex:audioFile": "Track28.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:gujurda",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gujurda"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "lots of something, all, every"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "all of something"
+      },
+      "ex:audioFile": "Track27.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:gagurl",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gagurl"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "person or thing on their own, alone, self"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "alone"
+      },
+      "ex:audioFile": "Track30.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:gurru",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gurru"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "alone, one one's own, single; no parents, orphan, a thing that doesn't belong to anoying, something that is unowned"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "alone"
+      },
+      "ex:audioFile": "Track31.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:burlaguba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "burlaguba"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "already"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "already"
+      },
+      "ex:audioFile": "Track32.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:buru",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "buru"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "already"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "already"
+      },
+      "ex:audioFile": "Track33.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:baja",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "baja"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "wild, angry"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "angry"
+      },
+      "ex:audioFile": "Track36.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:bilarr",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bilarr"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "animal fat"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "animal fat"
+      },
+      "ex:audioFile": "Track565.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:juduwara",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "juduwara"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "a female animal, doe"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "animal, female"
+      },
+      "ex:audioFile": "Track39.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:mara_irri",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "mara irri"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "any bird or animal believed to have special powers (mabarnyuwa), gives warnings"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "animal, with special powers"
+      },
+      "ex:audioFile": "Track41.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:barlba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "barlba"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "ankle, anklebone (malleolus)"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ankle"
+      },
+      "ex:audioFile": "Track42.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:minga",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "minga"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "ant, ants; the township of Mingenew is said to get its name from minganyuwa 'having ants'"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ant"
+      },
+      "ex:audioFile": "Track44.mp3",
+      "ex:imageFile": "Minga_(ants)_page93.png"
+    },
+    {
+      "@id": "wajarri:munggu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "munggu"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "anthill, antbed"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "anthill"
+      },
+      "ex:audioFile": "Track46.mp3",
+      "ex:imageFile": "munggu anthill.png"
+    },
+    {
+      "@id": "wajarri:munggumanmanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "munggumanmanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "making an anthill"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "anthill-making"
+      },
+      "ex:audioFile": "Track47.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:bugumawumawu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bugumawumawu"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "ant-lion, the small grub that makes pits in the ground for catching ants and other insects"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ant-lion"
+      },
+      "ex:audioFile": "Track45.mp3",
+      "ex:imageFile": "bugumawumawu (ant lion).png"
+    },
+    {
+      "@id": "wajarri:wirda-wirda",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wirda-wirda"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "honey ants (possibly)"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ants, honey"
+      },
+      "ex:audioFile": "Track831.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:bugu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bugu"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "anus, also used for buttocks"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "anus"
+      },
+      "ex:audioFile": "Track50.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:yamarrimanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yamarrimanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "arguing, having a row"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "arguing"
+      },
+      "ex:audioFile": "Track52.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:yaminmanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "yaminmanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "having a row, arguing"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "arguing"
+      },
+      "ex:audioFile": "Track757.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:garri",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "garri"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "arm"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "arm"
+      },
+      "ex:audioFile": "Track53.mp3",
+      "ex:imageFile": "garri ab arm.png"
+    },
+    {
+      "@id": "wajarri:marnun",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "marnun"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "lower arm, forearm"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "arm, lower"
+      },
+      "ex:audioFile": "Track633.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:galya",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "galya"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "armpit, axilla"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "armpit"
+      },
+      "ex:audioFile": "Track54.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:waguny",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "waguny"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "armpit (Ngunuru)"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "armpit"
+      },
+      "ex:audioFile": "Track55.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:gurrigurri",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gurrigurri"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "around"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "around"
+      },
+      "ex:audioFile": "Track57.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:gurirdi-gurirdi",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gurirdi-gurirdi"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "around and around"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "around and around"
+      },
+      "ex:audioFile": "Track56.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:gurirdi-gurirdimanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gurirdi-gurirdimanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "going around and around, walking around, driving around"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "around, going"
+      },
+      "ex:audioFile": "Track725.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:guba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "guba"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "ash, ashes from an old fire, white ash"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ash"
+      },
+      "ex:audioFile": "Track59.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:burlgu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "burlgu"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "a mixture of tobacco with ash (guba), for chewing"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ash mixed with tobacco for chewing"
+      },
+      "ex:audioFile": "Track60.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:jiyijirr",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "jiyijirr"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "shame, shameful, shy, ashamed, embarrassed"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ashamed"
+      },
+      "ex:audioFile": "Track61.mp3",
+      "ex:imageFile": "Jiyirr-jiyirr_page76.png"
+    },
+    {
+      "@id": "wajarri:wanguny",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wanguny"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "ashamed, shamed, shy, nervous"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ashamed"
+      },
+      "ex:audioFile": "Track1127.mp3",
+      "ex:imageFile": "wanguny shy.png"
+    },
+    {
+      "@id": "wajarri:wangunyimanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wangunyimanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "becoming ashamed, going shame; getting shy, nervous"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ashamed, becoming"
+      },
+      "ex:audioFile": "Track1459.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:nganggu-gardagunmanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "nganggu-gardagunmanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "getting shy, ashamed, blushing; lit. cheek-breaking"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "ashamed, being"
+      },
+      "ex:audioFile": "Track62.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:manu-manu",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "manu-manu"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "asian person"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "asian person"
+      },
+      "ex:audioFile": "Track64.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:thabinmanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "thabinmanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "asking"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "asking"
+      },
+      "ex:audioFile": "Track65.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:wiyalyangamanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wiyalyangamanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "looking nice, being attractive"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "attractive, being"
+      },
+      "ex:audioFile": "Track98.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:maraji",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "maraji"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "aunt (mother's sister, father's sister). For many Wajarri the term for aunt (mother's sister) is the same as for mother 'yagu' as the mother and her sisters are seen to have the same parenting role and responsibilities"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "aunt"
+      },
+      "ex:audioFile": "Track69.mp3",
+      "ex:imageFile": "logo.png"
+    },
+    {
+      "@id": "wajarri:muduga",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "muduga"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "@language": "en",
+          "@value": "motor car"
+        }
+      },
+      "ex:translation": {
+        "@language": "en",
+        "@value": "automobile"
+      },
+      "ex:audioFile": "Track71.mp3",
+      "ex:imageFile": "logo.png"
+    }
+  ]
+}

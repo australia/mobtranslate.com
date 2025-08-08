@@ -1,0 +1,285 @@
+{
+  "@context": "https://www.w3.org/ns/lemon/ontolex.json",
+  "@graph": [
+    {
+      "@id": "wajarri:ganggaly-ganggaly",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "ganggaly-ganggaly"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "a cough"
+        }
+      },
+      "ontolex:audio": "Track910.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:burduwimanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "burduwimanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "breaking out in boils, a lump coming up, getting a lump, swelling into a lump"
+        }
+      },
+      "ontolex:audio": "Track1012.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:mabarn",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "mabarn"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "magic; magic man; Aboriginal doctor; the internal healing spirit possessed by certain people"
+        }
+      },
+      "ontolex:audio": "Track7.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:gumba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gumba"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "man, Aboriginal person (rare usage)"
+        }
+      },
+      "ontolex:audio": "Track8.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:bajabaja",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "bajabaja"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "drunk, intoxicated, silly, abusive"
+        }
+      },
+      "ontolex:audio": "Track10.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:baraga",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "baraga"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "across, that way"
+        }
+      },
+      "ontolex:audio": "Track14.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:thulhara",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "thulhara"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "afternoon"
+        }
+      },
+      "ontolex:audio": "Track870.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:gara-gara",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gara-gara"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "afternoon"
+        }
+      },
+      "ontolex:audio": "Track21.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:aburnun.gi",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "aburnun.gi"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "from the english word afternoon"
+        }
+      },
+      "ontolex:audio": "Track20.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:thulharayimanha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "thulharayimanha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "becoming afternoon."
+        }
+      },
+      "ontolex:audio": "Track118.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:gardantha",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gardantha"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "in front, before, ahead"
+        }
+      },
+      "ontolex:audio": "Track23.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:wirru-wirru",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wirru-wirru"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "line, aligned"
+        }
+      },
+      "ontolex:audio": "Track25.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:tharlayi",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "tharlayi"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "alive (Ngunuru)"
+        }
+      },
+      "ontolex:audio": "Track26.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:wajigarda",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "wajigarda"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "the whole lot, the entire thing"
+        }
+      },
+      "ontolex:audio": "Track28.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:gujurda",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gujurda"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "lots of something, all, every"
+        }
+      },
+      "ontolex:audio": "Track27.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:gagurl",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gagurl"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "person or thing on their own, alone, self"
+        }
+      },
+      "ontolex:audio": "Track30.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:gurru",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "gurru"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "alone, one one's own, single; no parents, orphan, a thing that doesn't belong to anoying, something that is unowned"
+        }
+      },
+      "ontolex:audio": "Track31.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:burlaguba",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "burlaguba"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "already"
+        }
+      },
+      "ontolex:audio": "Track32.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:buru",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "buru"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "already"
+        }
+      },
+      "ontolex:audio": "Track33.mp3",
+      "ontolex:image": "logo.png"
+    },
+    {
+      "@id": "wajarri:baja",
+      "@type": "ontolex:LexicalEntry",
+      "ontolex:canonicalForm": {
+        "ontolex:writtenRep": "baja"
+      },
+      "ontolex:sense": {
+        "ontolex:definition": {
+          "ontolex:writtenRep": "wild, angry"
+        }
+      },
+      "ontolex:audio": "Track36.mp3",
+      "ontolex:image": "logo.png"
+    }
+  ]
+}

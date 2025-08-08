@@ -1,0 +1,638 @@
+{
+  "items": [
+    {
+      "transcript": "ganggaly-ganggaly",
+      "gloss": [
+        {
+          "morpheme": "ganggaly",
+          "gloss": "cough"
+        },
+        {
+          "morpheme": "REDUP",
+          "gloss": "repetition"
+        }
+      ],
+      "translation": "a cough",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "burduwimanha",
+      "gloss": [
+        {
+          "morpheme": "burduwi",
+          "gloss": "lump"
+        },
+        {
+          "morpheme": "-manha",
+          "gloss": "verbal suffix"
+        }
+      ],
+      "translation": "a lump coming up",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "mabarn",
+      "gloss": [
+        {
+          "morpheme": "mabarn",
+          "gloss": "aboriginal doctor"
+        }
+      ],
+      "translation": "aboriginal doctor",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gumba",
+      "gloss": [
+        {
+          "morpheme": "gumba",
+          "gloss": "aboriginal person"
+        }
+      ],
+      "translation": "aboriginal person",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "bajabaja",
+      "gloss": [
+        {
+          "morpheme": "bajabaja",
+          "gloss": "abusive"
+        }
+      ],
+      "translation": "abusive",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "baraga",
+      "gloss": [
+        {
+          "morpheme": "baraga",
+          "gloss": "across"
+        }
+      ],
+      "translation": "across",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "thulhara",
+      "gloss": [
+        {
+          "morpheme": "thulhara",
+          "gloss": "afternoon"
+        }
+      ],
+      "translation": "afternoon",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gara-gara",
+      "gloss": [
+        {
+          "morpheme": "gara",
+          "gloss": "afternoon"
+        },
+        {
+          "morpheme": "REDUP",
+          "gloss": "repetition"
+        }
+      ],
+      "translation": "afternoon",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "aburnun.gi",
+      "gloss": [
+        {
+          "morpheme": "aburnun",
+          "gloss": "afternoon"
+        },
+        {
+          "morpheme": ".gi",
+          "gloss": "from English"
+        }
+      ],
+      "translation": "afternoon",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "thulharayimanha",
+      "gloss": [
+        {
+          "morpheme": "thulhara",
+          "gloss": "afternoon"
+        },
+        {
+          "morpheme": "-yimanha",
+          "gloss": "becoming"
+        }
+      ],
+      "translation": "afternoon, becoming",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gardantha",
+      "gloss": [
+        {
+          "morpheme": "gardantha",
+          "gloss": "ahead"
+        }
+      ],
+      "translation": "ahead",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "wirru-wirru",
+      "gloss": [
+        {
+          "morpheme": "wirru",
+          "gloss": "aligned"
+        },
+        {
+          "morpheme": "REDUP",
+          "gloss": "repetition"
+        }
+      ],
+      "translation": "aligned",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "tharlayi",
+      "gloss": [
+        {
+          "morpheme": "tharlayi",
+          "gloss": "alive"
+        }
+      ],
+      "translation": "alive",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "wajigarda",
+      "gloss": [
+        {
+          "morpheme": "wajigarda",
+          "gloss": "all (of it)"
+        }
+      ],
+      "translation": "all (of it)",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gujurda",
+      "gloss": [
+        {
+          "morpheme": "gujurda",
+          "gloss": "all of something"
+        }
+      ],
+      "translation": "all of something",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gagurl",
+      "gloss": [
+        {
+          "morpheme": "gagurl",
+          "gloss": "alone"
+        }
+      ],
+      "translation": "alone",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gurru",
+      "gloss": [
+        {
+          "morpheme": "gurru",
+          "gloss": "alone"
+        }
+      ],
+      "translation": "alone",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "burlaguba",
+      "gloss": [
+        {
+          "morpheme": "burlaguba",
+          "gloss": "already"
+        }
+      ],
+      "translation": "already",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "buru",
+      "gloss": [
+        {
+          "morpheme": "buru",
+          "gloss": "already"
+        }
+      ],
+      "translation": "already",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "baja",
+      "gloss": [
+        {
+          "morpheme": "baja",
+          "gloss": "angry"
+        }
+      ],
+      "translation": "angry",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "bilarr",
+      "gloss": [
+        {
+          "morpheme": "bilarr",
+          "gloss": "animal fat"
+        }
+      ],
+      "translation": "animal fat",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "juduwara",
+      "gloss": [
+        {
+          "morpheme": "juduwara",
+          "gloss": "animal, female"
+        }
+      ],
+      "translation": "animal, female",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "mara irri",
+      "gloss": [
+        {
+          "morpheme": "mara",
+          "gloss": "animal"
+        },
+        {
+          "morpheme": "irri",
+          "gloss": "with special powers"
+        }
+      ],
+      "translation": "animal, with special powers",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "barlba",
+      "gloss": [
+        {
+          "morpheme": "barlba",
+          "gloss": "ankle"
+        }
+      ],
+      "translation": "ankle",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "minga",
+      "gloss": [
+        {
+          "morpheme": "minga",
+          "gloss": "ant"
+        }
+      ],
+      "translation": "ant",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "munggu",
+      "gloss": [
+        {
+          "morpheme": "munggu",
+          "gloss": "anthill"
+        }
+      ],
+      "translation": "anthill",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "munggumanmanha",
+      "gloss": [
+        {
+          "morpheme": "munggu",
+          "gloss": "anthill"
+        },
+        {
+          "morpheme": "-manha",
+          "gloss": "verbal suffix"
+        }
+      ],
+      "translation": "anthill-making",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "bugumawumawu",
+      "gloss": [
+        {
+          "morpheme": "bugumawu",
+          "gloss": "ant-lion"
+        },
+        {
+          "morpheme": "REDUP",
+          "gloss": "repetition"
+        }
+      ],
+      "translation": "ant-lion",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "wirda-wirda",
+      "gloss": [
+        {
+          "morpheme": "wirda",
+          "gloss": "ants, honey"
+        },
+        {
+          "morpheme": "REDUP",
+          "gloss": "repetition"
+        }
+      ],
+      "translation": "ants, honey",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "bugu",
+      "gloss": [
+        {
+          "morpheme": "bugu",
+          "gloss": "anus"
+        }
+      ],
+      "translation": "anus",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "yamarrimanha",
+      "gloss": [
+        {
+          "morpheme": "yamarr",
+          "gloss": "arguing"
+        },
+        {
+          "morpheme": "-manha",
+          "gloss": "verbal suffix"
+        }
+      ],
+      "translation": "arguing",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "yaminmanha",
+      "gloss": [
+        {
+          "morpheme": "yamin",
+          "gloss": "arguing"
+        },
+        {
+          "morpheme": "-manha",
+          "gloss": "verbal suffix"
+        }
+      ],
+      "translation": "arguing",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "garri",
+      "gloss": [
+        {
+          "morpheme": "garri",
+          "gloss": "arm"
+        }
+      ],
+      "translation": "arm",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "marnun",
+      "gloss": [
+        {
+          "morpheme": "marnun",
+          "gloss": "lower arm"
+        }
+      ],
+      "translation": "arm, lower",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "galya",
+      "gloss": [
+        {
+          "morpheme": "galya",
+          "gloss": "armpit"
+        }
+      ],
+      "translation": "armpit",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "waguny",
+      "gloss": [
+        {
+          "morpheme": "waguny",
+          "gloss": "armpit"
+        }
+      ],
+      "translation": "armpit",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gurrigurri",
+      "gloss": [
+        {
+          "morpheme": "gurrigurri",
+          "gloss": "around"
+        }
+      ],
+      "translation": "around",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gurirdi-gurirdi",
+      "gloss": [
+        {
+          "morpheme": "gurirdi",
+          "gloss": "around"
+        },
+        {
+          "morpheme": "REDUP",
+          "gloss": "repetition"
+        }
+      ],
+      "translation": "around and around",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "gurirdi-gurirdimanmanha",
+      "gloss": [
+        {
+          "morpheme": "gurirdi",
+          "gloss": "around"
+        },
+        {
+          "morpheme": "REDUP",
+          "gloss": "repetition"
+        },
+        {
+          "morpheme": "-manha",
+          "gloss": "verbal suffix"
+        }
+      ],
+      "translation": "around, going",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "guba",
+      "gloss": [
+        {
+          "morpheme": "guba",
+          "gloss": "ash"
+        }
+      ],
+      "translation": "ash",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "burlgu",
+      "gloss": [
+        {
+          "morpheme": "burlgu",
+          "gloss": "ash mixed with tobacco for chewing"
+        }
+      ],
+      "translation": "ash mixed with tobacco for chewing",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "jiyijirr",
+      "gloss": [
+        {
+          "morpheme": "jiyijirr",
+          "gloss": "ashamed"
+        }
+      ],
+      "translation": "ashamed",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "wanguny",
+      "gloss": [
+        {
+          "morpheme": "wanguny",
+          "gloss": "ashamed"
+        }
+      ],
+      "translation": "ashamed",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "wangunyimanha",
+      "gloss": [
+        {
+          "morpheme": "wanguny",
+          "gloss": "ashamed"
+        },
+        {
+          "morpheme": "-manha",
+          "gloss": "verbal suffix"
+        }
+      ],
+      "translation": "ashamed, becoming",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "nganggu-gardagunmanha",
+      "gloss": [
+        {
+          "morpheme": "nganggu",
+          "gloss": "ashamed"
+        },
+        {
+          "morpheme": "-gardagun",
+          "gloss": "cheek-breaking"
+        },
+        {
+          "morpheme": "-manha",
+          "gloss": "verbal suffix"
+        }
+      ],
+      "translation": "ashamed, being",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "manu-manu",
+      "gloss": [
+        {
+          "morpheme": "manu",
+          "gloss": "asian person"
+        },
+        {
+          "morpheme": "REDUP",
+          "gloss": "repetition"
+        }
+      ],
+      "translation": "asian person",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "thabinmanha",
+      "gloss": [
+        {
+          "morpheme": "thabin",
+          "gloss": "asking"
+        },
+        {
+          "morpheme": "-manha",
+          "gloss": "verbal suffix"
+        }
+      ],
+      "translation": "asking",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "wiyalyangamanha",
+      "gloss": [
+        {
+          "morpheme": "wiyalyanga",
+          "gloss": "attractive"
+        },
+        {
+          "morpheme": "-manha",
+          "gloss": "verbal suffix"
+        }
+      ],
+      "translation": "attractive, being",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "maraji",
+      "gloss": [
+        {
+          "morpheme": "maraji",
+          "gloss": "aunt"
+        }
+      ],
+      "translation": "aunt",
+      "source": "Wajarri Dictionary"
+    },
+    {
+      "transcript": "muduga",
+      "gloss": [
+        {
+          "morpheme": "muduga",
+          "gloss": "automobile"
+        }
+      ],
+      "translation": "automobile",
+      "source": "Wajarri Dictionary"
+    }
+  ]
+}
