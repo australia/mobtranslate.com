@@ -2,11 +2,6 @@ import { createClient } from '@supabase/supabase-js'
 import { createSuccessResponse, createErrorResponse, corsHeaders } from '../../../middleware'
 import { NextRequest } from 'next/server'
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
-
 export async function OPTIONS() {
   return new Response(null, { status: 200, headers: corsHeaders() })
 }
@@ -16,6 +11,11 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
+    
     const { id } = params
 
     const { data: language, error } = await supabase
