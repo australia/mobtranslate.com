@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import { createSuccessResponse, createErrorResponse, corsHeaders } from '../../../../../middleware'
+import { createSuccessResponse, createErrorResponse, corsHeaders } from '../../../../middleware'
 import { NextRequest } from 'next/server'
 
 const supabase = createClient(
