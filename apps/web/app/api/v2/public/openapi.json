@@ -1,0 +1,856 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MobTranslate Dictionary API",
+    "version": "2.0.0",
+    "description": "Public API for accessing dictionary data including words, definitions, translations, and more. Perfect for building language learning apps, quiz games, and educational tools.",
+    "contact": {
+      "name": "API Support",
+      "url": "https://mobtranslate.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://mobtranslate.com/api/v2/public",
+      "description": "Production server"
+    },
+    {
+      "url": "http://localhost:3000/api/v2/public",
+      "description": "Development server"
+    }
+  ],
+  "paths": {
+    "/dictionaries": {
+      "get": {
+        "summary": "List all dictionaries",
+        "description": "Get a paginated list of all available dictionaries (languages)",
+        "tags": ["Dictionaries"],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items per page (max 100)",
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DictionariesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dictionaries/{id}": {
+      "get": {
+        "summary": "Get dictionary details",
+        "description": "Get detailed information about a specific dictionary",
+        "tags": ["Dictionaries"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Dictionary ID or language code",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DictionaryDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Dictionary not found"
+          }
+        }
+      }
+    },
+    "/dictionaries/{id}/words": {
+      "get": {
+        "summary": "Get words from dictionary",
+        "description": "Get a paginated list of words from a specific dictionary with full details",
+        "tags": ["Words"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Dictionary ID or language code",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search filter for words",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "word_class",
+            "in": "query",
+            "description": "Filter by word class ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "verified_only",
+            "in": "query",
+            "description": "Only return verified words",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WordsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/words/{id}": {
+      "get": {
+        "summary": "Get word details",
+        "description": "Get complete details for a specific word including all related data",
+        "tags": ["Words"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Word ID",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WordDetail"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Word not found"
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Search across dictionaries",
+        "description": "Search for words, definitions, or translations across all or specific dictionaries",
+        "tags": ["Search"],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "Search query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Type of search",
+            "schema": {
+              "type": "string",
+              "enum": ["all", "word", "definition", "translation"],
+              "default": "all"
+            }
+          },
+          {
+            "name": "dictionary_id",
+            "in": "query",
+            "description": "Filter by dictionary ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dictionary_code",
+            "in": "query",
+            "description": "Filter by language code",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Search query is required"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Dictionary": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "native_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "speakers_count": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string"
+          },
+          "iso_639_1": {
+            "type": "string"
+          },
+          "iso_639_2": {
+            "type": "string"
+          },
+          "iso_639_3": {
+            "type": "string"
+          },
+          "glottocode": {
+            "type": "string"
+          },
+          "writing_system": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "DictionaryDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Dictionary"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "orthography_notes": {
+                "type": "string"
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "stats": {
+                "type": "object",
+                "properties": {
+                  "total_words": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Word": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "word": {
+            "type": "string"
+          },
+          "normalized_word": {
+            "type": "string"
+          },
+          "phonetic_transcription": {
+            "type": "string"
+          },
+          "word_class": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "abbreviation": {
+                "type": "string"
+              }
+            }
+          },
+          "word_type": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          },
+          "stem": {
+            "type": "string"
+          },
+          "is_loan_word": {
+            "type": "boolean"
+          },
+          "loan_source_language": {
+            "type": "string"
+          },
+          "frequency_score": {
+            "type": "integer"
+          },
+          "register": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "dialectal_variation": {
+            "type": "boolean"
+          },
+          "obsolete": {
+            "type": "boolean"
+          },
+          "sensitive_content": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "is_verified": {
+            "type": "boolean"
+          },
+          "quality_score": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "definitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Definition"
+            }
+          },
+          "translations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Translation"
+            }
+          },
+          "usage_examples": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UsageExample"
+            }
+          },
+          "synonyms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "word": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "antonyms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "word": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "etymologies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Etymology"
+            }
+          },
+          "audio_pronunciations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AudioPronunciation"
+            }
+          }
+        }
+      },
+      "WordDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Word"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "language": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "native_name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "metadata": {
+                "type": "object"
+              },
+              "quality_flags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "verified_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "last_reviewed_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "review_count": {
+                "type": "integer"
+              },
+              "community_notes": {
+                "type": "string"
+              },
+              "cultural_contexts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CulturalContext"
+                }
+              },
+              "dialects": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Dialect"
+                }
+              },
+              "relationships": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/WordRelationship"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Definition": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "definition": {
+            "type": "string"
+          },
+          "definition_number": {
+            "type": "integer"
+          },
+          "context": {
+            "type": "string"
+          },
+          "register": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "is_primary": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      },
+      "Translation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "translation": {
+            "type": "string"
+          },
+          "target_language": {
+            "type": "string"
+          },
+          "is_primary": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      },
+      "UsageExample": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "example": {
+            "type": "string"
+          },
+          "translation": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      },
+      "Etymology": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "origin_language": {
+            "type": "string"
+          },
+          "origin_word": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "period": {
+            "type": "string"
+          }
+        }
+      },
+      "AudioPronunciation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "audio_url": {
+            "type": "string"
+          },
+          "speaker_info": {
+            "type": "string"
+          },
+          "dialect": {
+            "type": "string"
+          }
+        }
+      },
+      "CulturalContext": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "context_type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "usage_notes": {
+            "type": "string"
+          },
+          "examples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Dialect": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "dialect_name": {
+            "type": "string"
+          },
+          "variant": {
+            "type": "string"
+          },
+          "pronunciation": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          }
+        }
+      },
+      "WordRelationship": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "related_word": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "word": {
+                "type": "string"
+              },
+              "normalized_word": {
+                "type": "string"
+              }
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      },
+      "Pagination": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "total": {
+            "type": "integer"
+          },
+          "total_pages": {
+            "type": "integer"
+          },
+          "has_next": {
+            "type": "boolean"
+          },
+          "has_previous": {
+            "type": "boolean"
+          }
+        }
+      },
+      "DictionariesResponse": {
+        "type": "object",
+        "properties": {
+          "dictionaries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dictionary"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "WordsResponse": {
+        "type": "object",
+        "properties": {
+          "words": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Word"
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        }
+      },
+      "SearchResponse": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["word", "definition", "translation"]
+                },
+                "id": {
+                  "type": "string"
+                },
+                "match_score": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          },
+          "search_params": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "dictionary_id": {
+                "type": "string"
+              },
+              "dictionary_code": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
