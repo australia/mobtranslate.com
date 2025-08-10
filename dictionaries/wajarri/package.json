@@ -6,7 +6,10 @@
   "main": "convert.js",
   "scripts": {
     "convert": "node convert.js",
-    "test": "node convert.js --test"
+    "test": "node convert.js --test",
+    "init-db": "sqlite3 wajarri_dictionary.db < init-database.sql",
+    "import-db": "node import-to-sqlite.js",
+    "query-db": "node query-database.js"
   },
   "dependencies": {
     "papaparse": "^5.4.1",
@@ -14,6 +17,7 @@
     "pino": "^8.19.0",
     "pino-pretty": "^10.3.1",
     "dotenv": "^16.4.1",
-    "openai": "^4.28.0"
+    "openai": "^4.28.0",
+    "sqlite3": "^5.1.7"
   }
 }
