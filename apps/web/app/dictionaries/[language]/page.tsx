@@ -5,11 +5,6 @@ import DictionarySearch from './components/DictionarySearch';
 import { PageHeader } from '@/app/components/ui/page-header';
 import { Section } from '@/app/components/ui/section';
 import { Badge } from '@/app/components/ui/badge';
-
-// TODO: Breadcrumbs component needs to be created or imported from the correct location
-const Breadcrumbs = ({ items, className }: { items: any[]; className?: string }) => (
-  <div className={className}>Breadcrumbs placeholder</div>
-);
 import { getWordsForLanguage } from '@/lib/supabase/queries';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
@@ -46,12 +41,6 @@ export default async function DictionaryPage({
   
   try {
     const { words, language: languageData, pagination } = await getWordsForLanguage(queryParams);
-    
-    const breadcrumbItems = [
-      { href: '/', label: 'Home' },
-      { href: '/dictionaries', label: 'Dictionaries' },
-      { href: `/dictionaries/${language}`, label: languageData.name }
-    ];
 
     // Transform data for DictionarySearch component compatibility
     const dictionary = {
@@ -88,8 +77,6 @@ export default async function DictionaryPage({
 
         <Section contained={false}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Breadcrumbs items={breadcrumbItems} className="mb-6" />
-            
             <DictionarySearch 
               dictionary={dictionary} 
               initialSearch={searchParams.search || ''} 
