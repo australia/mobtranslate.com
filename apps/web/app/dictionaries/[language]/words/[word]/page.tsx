@@ -7,11 +7,6 @@ import { Section } from '@/app/components/ui/section';
 import { Card, CardContent } from '@/app/components/ui/card';
 import { Badge } from '@/app/components/ui/badge';
 import { Button } from '@/app/components/ui/button';
-
-// TODO: Breadcrumbs component needs to be created or imported from the correct location
-const Breadcrumbs = ({ items }: { items: any[] }) => (
-  <div>Breadcrumbs placeholder</div>
-);
 import { getWordsForLanguage, searchWords } from '@/lib/supabase/queries';
 import type { Word } from '@/lib/supabase/types';
 import { WordDetailContent } from './components/WordDetailContent';
@@ -62,14 +57,6 @@ export default async function WordDetailPage({
     if (!word) {
       notFound();
     }
-    
-    const breadcrumbItems = [
-      { href: '/', label: 'Home' },
-      { href: '/dictionaries', label: 'Dictionaries' },
-      { href: `/dictionaries/${languageCode}`, label: language.name },
-      { href: `/dictionaries/${languageCode}/words/${encodeURIComponent(word.word)}`, label: word.word }
-    ];
-
 
     return (
       <SharedLayout>
@@ -94,8 +81,6 @@ export default async function WordDetailPage({
 
         <Section contained={false}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <Breadcrumbs items={breadcrumbItems} />
-            
             <WordDetailContent word={word} />
             
             {/* Related words */}
