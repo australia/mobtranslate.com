@@ -82,32 +82,6 @@ export default async function Page() {
         </div>
         </div>
       </Section>
-
-      <Section variant="muted" contained={false}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl mb-4 font-crimson">Join the Movement</h2>
-          <p className="text-muted-foreground mb-6 font-source-sans">
-            Mob Translate is an open-source initiative dedicated to preserving and promoting 
-            Indigenous languages worldwide. We believe that language is culture, and by making 
-            these languages accessible to everyone, we're helping to keep them alive for future 
-            generations.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/about">
-              <Badge variant="secondary" className="cursor-pointer px-4 py-2">
-                Learn More
-              </Badge>
-            </Link>
-            <Link href="https://github.com/jameswsullivan/mobtranslate">
-              <Badge variant="outline" className="cursor-pointer px-4 py-2">
-                Contribute on GitHub
-              </Badge>
-            </Link>
-          </div>
-          </div>
-        </div>
-      </Section>
     </SharedLayout>
   );
 }
