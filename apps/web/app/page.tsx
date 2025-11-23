@@ -19,9 +19,10 @@ export default async function Page() {
 
   return (
     <SharedLayout>
-      <PageHeader 
-        title="Mob Translate"
+      <PageHeader
+        title="MOB TRANSLATE"
         description="A fully open source community-driven project to make 'Google Translate' for as many Indigenous languages as possible. Join us in preserving and promoting Indigenous languages through technology."
+        className="font-display font-black tracking-tighter"
       />
 
       <Section contained={false}>
@@ -46,7 +47,7 @@ export default async function Page() {
               <Card hover className="h-full">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-xl font-crimson">{language.name}</h3>
+                    <h3 className="text-xl font-display font-bold uppercase tracking-wide">{language.name}</h3>
                     {language.status && (
                       <Badge 
                         variant={
@@ -86,7 +87,7 @@ export default async function Page() {
       <Section variant="muted" contained={false}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl mb-4 font-crimson">Join the Movement</h2>
+          <h2 className="text-4xl font-display font-black tracking-tighter mb-4 uppercase">Join the Movement</h2>
           <p className="text-muted-foreground mb-6 font-source-sans">
             Mob Translate is an open-source initiative dedicated to preserving and promoting 
             Indigenous languages worldwide. We believe that language is culture, and by making 
