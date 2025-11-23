@@ -1,220 +1,151 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap');
+@theme {
+  /* TYPOGRAPHY */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Playfair Display', serif;
 
-@layer base {
-  :root {
-    /* --- Light Theme: White background, Black/Grey text --- */
-    --background-start-rgb: 255, 255, 255; /* White */
-    --background-end-rgb: 255, 255, 255;   /* White */
-    --background: 0 0% 100%; /* HSL for White */
+  /* PRIMARY COLOR PALETTE - "Malika Palette: Bold, Flat, Unapologetic" */
+  --color-primary: #7c3aed;              /* Deep Purple */
+  --color-primary-foreground: #ffffff;
 
-    --foreground-rgb: 0, 0, 0;       /* Black */
-    --foreground: 0 0% 3.9%;       /* HSL for Near Black */
-    
-    /* Greys */
-    --muted-rgb: 100, 100, 100;     /* Medium Grey */
-    --muted: 0 0% 45%;            /* HSL for Medium Grey */
-    --muted-foreground-rgb: 80, 80, 80; /* Darker Grey */
-    --muted-foreground: 0 0% 35%;    /* HSL for Darker Grey */
+  --color-secondary: #ef4444;            /* Lipstick Red */
+  --color-secondary-foreground: #ffffff;
 
-    /* Borders/Inputs */
-    --border-rgb: 200, 200, 200;    /* Light Grey */
-    --border: 0 0% 85%;           /* HSL for Light Grey */
-    --input-rgb: 200, 200, 200;     /* Light Grey */
-    --input: 0 0% 85%;            /* HSL for Light Grey */
-    --ring-rgb: 0, 0, 0;          /* Black for focus ring */
-    --ring: 0 0% 3.9%;            /* HSL for Near Black */
+  --color-accent: #f59e0b;               /* Marigold */
+  --color-accent-foreground: #000000;
 
-    /* Primary/Accent (Using Black/Grey for minimalist feel) */
-    --primary-rgb: 0, 0, 0;       /* Black */
-    --primary: 0 0% 3.9%;       /* HSL Near Black */
-    --primary-foreground-rgb: 255, 255, 255; /* White */
-    --primary-foreground: 0 0% 100%; /* HSL White */
+  /* BASE COLORS */
+  --color-background: #ffffff;
+  --color-foreground: #000000;
 
-    --secondary-rgb: 240, 240, 240; /* Very Light Grey */
-    --secondary: 0 0% 95%;        /* HSL Very Light Grey */
-    --secondary-foreground-rgb: 0, 0, 0; /* Black */
-    --secondary-foreground: 0 0% 3.9%; /* HSL Near Black */
-    
-    --accent-rgb: 240, 240, 240;    /* Very Light Grey */
-    --accent: 0 0% 95%;           /* HSL Very Light Grey */
-    --accent-foreground-rgb: 0, 0, 0; /* Black */
-    --accent-foreground: 0 0% 3.9%; /* HSL Near Black */
+  /* MUTED/NEUTRAL COLORS */
+  --color-muted: #f3f4f6;
+  --color-muted-foreground: #4b5563;
 
-    /* Destructive (Keep similar red?) */
-    --destructive-rgb: 239, 68, 68; /* Red */
-    --destructive: 0 84.2% 60.2%; /* HSL Red */
-    --destructive-foreground-rgb: 255, 255, 255; /* White */
-    --destructive-foreground: 0 0% 100%; /* HSL White */
+  /* CARD COLORS */
+  --color-card: #ffffff;
+  --color-card-foreground: #000000;
 
-    /* Card/Popover (Match background for minimalist) */
-    --card-rgb: 255, 255, 255;      /* White */
-    --card: 0 0% 100%;            /* HSL White */
-    --card-foreground-rgb: 0, 0, 0; /* Black */
-    --card-foreground: 0 0% 3.9%;   /* HSL Near Black */
+  /* BORDER & INPUT */
+  --color-border: #000000;
+  --color-input: #000000;
 
-    --popover-rgb: 255, 255, 255;   /* White */
-    --popover: 0 0% 100%;         /* HSL White */
-    --popover-foreground-rgb: 0, 0, 0; /* Black */
-    --popover-foreground: 0 0% 3.9%; /* HSL Near Black */
+  /* DESTRUCTIVE */
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
 
-    --radius: 0.3rem; /* Keep or adjust rounding? Minimalist might mean less rounding. Set to 0? */
-    --font-space-grotesk: 'Space Grotesk', sans-serif;
-  }
+  /* POPOVER */
+  --color-popover: #ffffff;
+  --color-popover-foreground: #000000;
 
-  .dark {
-    /* --- Dark Theme: Black background, White/Grey text --- */
-    --background-start-rgb: 10, 10, 10; /* Near Black */
-    --background-end-rgb: 10, 10, 10;   /* Near Black */
-    --background: 0 0% 3.9%;         /* HSL Near Black */
+  /* RING */
+  --color-ring: #7c3aed;
 
-    --foreground-rgb: 250, 250, 250; /* Near White */
-    --foreground: 0 0% 98%;         /* HSL Near White */
+  /* BORDER RADIUS SYSTEM */
+  --radius-none: 0px;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+  --radius: var(--radius-lg);
 
-    /* Greys */
-    --muted-rgb: 100, 100, 100;     /* Medium Grey */
-    --muted: 0 0% 45%;            /* HSL Medium Grey */
-    --muted-foreground-rgb: 180, 180, 180; /* Lighter Grey */
-    --muted-foreground: 0 0% 75%;    /* HSL Lighter Grey */
-    
-    /* Borders/Inputs */
-    --border-rgb: 50, 50, 50;       /* Dark Grey */
-    --border: 0 0% 20%;           /* HSL Dark Grey */
-    --input-rgb: 50, 50, 50;        /* Dark Grey */
-    --input: 0 0% 20%;            /* HSL Dark Grey */
-    --ring-rgb: 250, 250, 250;      /* Near White for focus ring */
-    --ring: 0 0% 98%;            /* HSL Near White */
-
-    /* Primary/Accent (Using White/Grey for minimalist feel) */
-    --primary-rgb: 250, 250, 250;   /* Near White */
-    --primary: 0 0% 98%;           /* HSL Near White */
-    --primary-foreground-rgb: 10, 10, 10; /* Near Black */
-    --primary-foreground: 0 0% 3.9%; /* HSL Near Black */
-
-    --secondary-rgb: 30, 30, 30;    /* Very Dark Grey */
-    --secondary: 0 0% 12%;          /* HSL Very Dark Grey */
-    --secondary-foreground-rgb: 250, 250, 250; /* Near White */
-    --secondary-foreground: 0 0% 98%; /* HSL Near White */
-
-    --accent-rgb: 30, 30, 30;       /* Very Dark Grey */
-    --accent: 0 0% 12%;             /* HSL Very Dark Grey */
-    --accent-foreground-rgb: 250, 250, 250; /* Near White */
-    --accent-foreground: 0 0% 98%;   /* HSL Near White */
-
-    /* Destructive */
-    --destructive-rgb: 153, 27, 27;  /* Darker Red */
-    --destructive: 0 72.2% 35.1%;  /* HSL Darker Red */
-    --destructive-foreground-rgb: 250, 250, 250; /* Near White */
-    --destructive-foreground: 0 0% 98%; /* HSL Near White */
-
-    /* Card/Popover (Match background for minimalist) */
-    --card-rgb: 10, 10, 10;         /* Near Black */
-    --card: 0 0% 3.9%;            /* HSL Near Black */
-    --card-foreground-rgb: 250, 250, 250; /* Near White */
-    --card-foreground: 0 0% 98%;   /* HSL Near White */
-
-    --popover-rgb: 10, 10, 10;      /* Near Black */
-    --popover: 0 0% 3.9%;         /* HSL Near Black */
-    --popover-foreground-rgb: 250, 250, 250; /* Near White */
-    --popover-foreground: 0 0% 98%; /* HSL Near White */
-  }
+  /* ANIMATION DEFINITIONS */
+  --animate-slide-up: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-reveal: reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.dark {
+  --color-background: #f5f1e8;        /* Warm cream */
+  --color-foreground: #1a1a1a;        /* Dark charcoal */
+  --color-muted: #e8e3d8;             /* Light warm beige */
+  --color-muted-foreground: #6b6b6b;  /* Medium gray */
+  --color-card: #ebe7dd;              /* Warm card background */
+  --color-card-foreground: #1a1a1a;
+  --color-border: #3a3a3a;            /* Dark border */
+  --color-input: #3a3a3a;
+  --color-popover: #ebe7dd;
+  --color-popover-foreground: #1a1a1a;
+}
+
+/* TYPOGRAPHY BASE STYLES */
 html {
-  /* Increase base font size */
   font-size: 17px;
   scroll-behavior: smooth;
 }
 
-@layer base {
-  * {
-    @apply border-border;
+body {
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* CUSTOM UTILITY CLASSES */
+
+/* Hard Shadow System - The signature Malika effect */
+.hard-shadow {
+  box-shadow: 6px 6px 0px 0px var(--color-foreground);
+  transition: all 0.2s ease;
+}
+
+.hard-shadow:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px var(--color-foreground);
+}
+
+.hard-shadow:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--color-foreground);
+}
+
+/* 3D Card Flip Utilities */
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Background Grid Pattern (disabled but available) */
+.bg-grid {
+  opacity: 0;
+}
+
+/* CUSTOM KEYFRAME ANIMATIONS */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
   }
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Source Sans 3', sans-serif;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Crimson Text', serif;
+  to {
+    transform: translateY(0);
   }
 }
 
-@layer components {
-  .container-custom {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+@keyframes reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
   }
-  
-  .hero-pattern {
-    background-color: #ffffff;
-    background-image: radial-gradient(#FF6B6B 0.5px, transparent 0.5px), radial-gradient(#FFD166 0.5px, #ffffff 0.5px);
-    background-size: 20px 20px;
-    background-position: 0 0, 10px 10px;
-    opacity: 0.1;
+  to {
+    clip-path: inset(0 0 0 0);
   }
-
-  .aboriginal-gradient {
-    background: linear-gradient(135deg, var(--color-ochre) 0%, var(--color-desert) 100%);
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-  }
-
-  .btn-primary {
-    @apply px-4 py-2 bg-primary text-primary-foreground rounded-md transition-all hover:bg-primary/90 active:translate-y-0.5 shadow-sm;
-  }
-
-  .btn-secondary {
-    @apply px-4 py-2 bg-secondary text-secondary-foreground rounded-md transition-all hover:bg-secondary/90 active:translate-y-0.5 shadow-sm;
-  }
-
-  .input-primary {
-    @apply px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm;
-  }
-  
-  .card {
-    @apply bg-card text-card-foreground rounded-xl border border-border/50 shadow-sm hover:shadow-md transition-all duration-200;
-  }
-  
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-}
-
-.font-source-sans {
-  font-family: 'Source Sans 3', sans-serif;
-}
-
-.font-crimson {
-  font-family: 'Crimson Text', serif;
-}
-
-:focus-visible {
-  @apply outline-none ring-2 ring-primary/50 ring-offset-2;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-secondary/30;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-primary/40 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary/60;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -222,7 +153,6 @@ html {
   to { opacity: 1; }
 }
 
-/* Smooth animations and transitions */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -245,18 +175,9 @@ html {
   }
 }
 
-@keyframes wave {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
+/* ANIMATION CLASSES */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .animate-slide-in {
@@ -267,39 +188,117 @@ html {
   animation: scaleIn 0.2s ease-out;
 }
 
-.animate-wave {
-  position: relative;
-  overflow: hidden;
+/* FOCUS STYLES */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-accent), 0 0 0 4px transparent;
 }
 
-.animate-wave::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  animation: wave 1.5s infinite;
+/* SCROLLBAR STYLES */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-/* Hover effects */
-.hover-lift {
-  @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-lg;
+::-webkit-scrollbar-track {
+  background-color: rgba(var(--color-muted), 0.3);
 }
 
-.hover-grow {
-  @apply transition-all duration-200 hover:scale-105;
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--color-primary), 0.4);
+  border-radius: 9999px;
 }
 
-/* Focus effects */
-.focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 transition-all;
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--color-primary), 0.6);
 }
 
-/* Loading states */
-.skeleton {
-  @apply bg-gray-200 animate-pulse rounded;
+/* COMPONENT UTILITY CLASSES */
+.btn-primary {
+  padding: 1rem 2rem;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border: 4px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+  box-shadow: 6px 6px 0px 0px var(--color-foreground);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px var(--color-foreground);
+}
+
+.btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--color-foreground);
+}
+
+.btn-secondary {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-accent);
+}
+
+.card-feature {
+  border: 4px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  background-color: var(--color-background);
+  transition: all 0.2s ease;
+  box-shadow: 6px 6px 0px 0px var(--color-foreground);
+}
+
+.card-feature:hover {
+  background-color: var(--color-accent);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px var(--color-foreground);
+}
+
+.input-primary {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-foreground);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background);
+}
+
+.input-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 /* Smooth scrolling */
@@ -307,25 +306,4 @@ html {
   html {
     scroll-behavior: smooth;
   }
-}
-
-/* Page transitions */
-.page-enter {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.page-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 300ms, transform 300ms;
-}
-
-.page-exit {
-  opacity: 1;
-}
-
-.page-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
 }

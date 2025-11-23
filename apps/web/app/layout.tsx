@@ -1,16 +1,22 @@
 import './globals.css';
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
-import { Space_Grotesk } from 'next/font/google';
+import { Inter, Playfair_Display } from 'next/font/google';
 import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from '@/contexts/AuthContext';
 import { Toaster } from '@/components/ui/toaster';
 
 // Load fonts
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-space-grotesk',
+  variable: '--font-sans',
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
 });
 
 export const metadata: Metadata = {
@@ -34,11 +40,11 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="min-h-screen bg-[url('/images/pattern-bg-light.svg')] bg-fixed bg-cover font-sans antialiased">
+      <body className="min-h-screen font-sans antialiased">
         <AuthProvider>
           <div className="relative flex min-h-screen flex-col">
             <div className="flex-1">{children}</div>
