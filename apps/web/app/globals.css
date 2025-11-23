@@ -1,132 +1,172 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  /* TYPOGRAPHY */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Playfair Display', serif;
+@layer base {
+  :root {
+    /* TYPOGRAPHY */
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-display: 'Playfair Display', serif;
 
-  /* PRIMARY COLOR PALETTE - "Malika Palette: Bold, Flat, Unapologetic" */
-  --color-primary: #7c3aed;              /* Deep Purple */
-  --color-primary-foreground: #ffffff;
+    /* PRIMARY COLOR PALETTE - "Malika Palette: Bold, Flat, Unapologetic" */
+    --color-primary: 124 58 237;              /* Deep Purple #7c3aed */
+    --color-primary-foreground: 255 255 255;
 
-  --color-secondary: #ef4444;            /* Lipstick Red */
-  --color-secondary-foreground: #ffffff;
+    --color-secondary: 239 68 68;             /* Lipstick Red #ef4444 */
+    --color-secondary-foreground: 255 255 255;
 
-  --color-accent: #f59e0b;               /* Marigold */
-  --color-accent-foreground: #000000;
+    --color-accent: 245 158 11;               /* Marigold #f59e0b */
+    --color-accent-foreground: 0 0 0;
 
-  /* BASE COLORS */
-  --color-background: #ffffff;
-  --color-foreground: #000000;
+    /* BASE COLORS */
+    --color-background: 255 255 255;
+    --color-foreground: 0 0 0;
 
-  /* MUTED/NEUTRAL COLORS */
-  --color-muted: #f3f4f6;
-  --color-muted-foreground: #4b5563;
+    /* MUTED/NEUTRAL COLORS */
+    --color-muted: 243 244 246;
+    --color-muted-foreground: 75 85 99;
 
-  /* CARD COLORS */
-  --color-card: #ffffff;
-  --color-card-foreground: #000000;
+    /* CARD COLORS */
+    --color-card: 255 255 255;
+    --color-card-foreground: 0 0 0;
 
-  /* BORDER & INPUT */
-  --color-border: #000000;
-  --color-input: #000000;
+    /* BORDER & INPUT */
+    --color-border: 0 0 0;
+    --color-input: 0 0 0;
 
-  /* DESTRUCTIVE */
-  --color-destructive: #ef4444;
-  --color-destructive-foreground: #ffffff;
+    /* DESTRUCTIVE */
+    --color-destructive: 239 68 68;
+    --color-destructive-foreground: 255 255 255;
 
-  /* POPOVER */
-  --color-popover: #ffffff;
-  --color-popover-foreground: #000000;
+    /* POPOVER */
+    --color-popover: 255 255 255;
+    --color-popover-foreground: 0 0 0;
 
-  /* RING */
-  --color-ring: #7c3aed;
+    /* RING */
+    --color-ring: 124 58 237;
 
-  /* BORDER RADIUS SYSTEM */
-  --radius-none: 0px;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
-  --radius-full: 9999px;
-  --radius: var(--radius-lg);
+    /* BORDER RADIUS */
+    --radius: 1rem;
+  }
 
-  /* ANIMATION DEFINITIONS */
-  --animate-slide-up: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-reveal: reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  .dark {
+    --color-background: 245 241 232;        /* Warm cream #f5f1e8 */
+    --color-foreground: 26 26 26;           /* Dark charcoal #1a1a1a */
+    --color-muted: 232 227 216;             /* Light warm beige #e8e3d8 */
+    --color-muted-foreground: 107 107 107;  /* Medium gray #6b6b6b */
+    --color-card: 235 231 221;              /* Warm card background #ebe7dd */
+    --color-card-foreground: 26 26 26;
+    --color-border: 58 58 58;               /* Dark border #3a3a3a */
+    --color-input: 58 58 58;
+    --color-popover: 235 231 221;
+    --color-popover-foreground: 26 26 26;
+  }
+
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight;
+  }
 }
 
-.dark {
-  --color-background: #f5f1e8;        /* Warm cream */
-  --color-foreground: #1a1a1a;        /* Dark charcoal */
-  --color-muted: #e8e3d8;             /* Light warm beige */
-  --color-muted-foreground: #6b6b6b;  /* Medium gray */
-  --color-card: #ebe7dd;              /* Warm card background */
-  --color-card-foreground: #1a1a1a;
-  --color-border: #3a3a3a;            /* Dark border */
-  --color-input: #3a3a3a;
-  --color-popover: #ebe7dd;
-  --color-popover-foreground: #1a1a1a;
+@layer utilities {
+  /* Hard Shadow System - The signature Malika effect */
+  .hard-shadow {
+    box-shadow: 6px 6px 0px 0px rgb(var(--color-foreground));
+    transition: all 0.2s ease;
+  }
+
+  .hard-shadow:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px 0px rgb(var(--color-foreground));
+  }
+
+  .hard-shadow:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px rgb(var(--color-foreground));
+  }
+
+  /* 3D Card Flip Utilities */
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  /* Background Grid Pattern */
+  .bg-grid {
+    opacity: 0;
+  }
 }
 
-/* TYPOGRAPHY BASE STYLES */
-html {
-  font-size: 17px;
-  scroll-behavior: smooth;
-}
+@layer components {
+  /* COMPONENT UTILITY CLASSES */
+  .btn-primary {
+    @apply px-8 py-4 rounded-lg font-bold uppercase tracking-wide transition-all hard-shadow;
+    background-color: rgb(var(--color-primary));
+    color: rgb(var(--color-primary-foreground));
+    border: 4px solid rgb(var(--color-foreground));
+  }
 
-body {
-  background-color: rgb(var(--color-background));
-  color: rgb(var(--color-foreground));
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: var(--font-sans);
-}
+  .btn-primary:hover {
+    background-color: rgb(var(--color-accent));
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-}
+  .btn-secondary {
+    @apply px-4 py-2 rounded-lg font-bold transition-all;
+    background-color: rgb(var(--color-secondary));
+    color: rgb(var(--color-secondary-foreground));
+    border: 2px solid rgb(var(--color-foreground));
+  }
 
-/* CUSTOM UTILITY CLASSES */
+  .btn-secondary:hover {
+    background-color: rgb(var(--color-accent));
+  }
 
-/* Hard Shadow System - The signature Malika effect */
-.hard-shadow {
-  box-shadow: 6px 6px 0px 0px var(--color-foreground);
-  transition: all 0.2s ease;
-}
+  .card-feature {
+    @apply rounded-lg p-6 transition-all hard-shadow;
+    border: 4px solid rgb(var(--color-foreground));
+    background-color: rgb(var(--color-background));
+  }
 
-.hard-shadow:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0px 0px var(--color-foreground);
-}
+  .card-feature:hover {
+    background-color: rgb(var(--color-accent));
+  }
 
-.hard-shadow:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px 0px var(--color-foreground);
-}
+  .input-primary {
+    @apply px-4 py-3 rounded-lg;
+    border: 2px solid rgb(var(--color-foreground));
+    background-color: rgb(var(--color-background));
+  }
 
-/* 3D Card Flip Utilities */
-.backface-hidden {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
+  .input-primary:focus {
+    @apply outline-none;
+    box-shadow: 0 0 0 2px rgb(var(--color-accent));
+  }
 
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-/* Background Grid Pattern (disabled but available) */
-.bg-grid {
-  opacity: 0;
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }
 
 /* CUSTOM KEYFRAME ANIMATIONS */
@@ -190,8 +230,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* FOCUS STYLES */
 :focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--color-accent), 0 0 0 4px transparent;
+  @apply outline-none;
+  box-shadow: 0 0 0 2px rgb(var(--color-accent)), 0 0 0 4px transparent;
 }
 
 /* SCROLLBAR STYLES */
@@ -211,94 +251,6 @@ h1, h2, h3, h4, h5, h6 {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(var(--color-primary), 0.6);
-}
-
-/* COMPONENT UTILITY CLASSES */
-.btn-primary {
-  padding: 1rem 2rem;
-  background-color: var(--color-primary);
-  color: var(--color-primary-foreground);
-  border: 4px solid var(--color-foreground);
-  border-radius: var(--radius-lg);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.2s ease;
-  box-shadow: 6px 6px 0px 0px var(--color-foreground);
-}
-
-.btn-primary:hover {
-  background-color: var(--color-accent);
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0px 0px var(--color-foreground);
-}
-
-.btn-primary:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px 0px var(--color-foreground);
-}
-
-.btn-secondary {
-  padding: 0.5rem 1rem;
-  background-color: var(--color-secondary);
-  color: var(--color-secondary-foreground);
-  border: 2px solid var(--color-foreground);
-  border-radius: var(--radius-lg);
-  font-weight: 700;
-  transition: all 0.2s ease;
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-accent);
-}
-
-.card-feature {
-  border: 4px solid var(--color-foreground);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  background-color: var(--color-background);
-  transition: all 0.2s ease;
-  box-shadow: 6px 6px 0px 0px var(--color-foreground);
-}
-
-.card-feature:hover {
-  background-color: var(--color-accent);
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0px 0px var(--color-foreground);
-}
-
-.input-primary {
-  padding: 0.75rem 1rem;
-  border: 2px solid var(--color-foreground);
-  border-radius: var(--radius-lg);
-  background-color: var(--color-background);
-}
-
-.input-primary:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--color-accent);
-}
-
-.container-custom {
-  max-width: 80rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-@media (min-width: 640px) {
-  .container-custom {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-custom {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
 }
 
 /* Smooth scrolling */
