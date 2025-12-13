@@ -1,15 +1,21 @@
 import { NextRequest } from 'next/server';
-import { getSupportedLanguages } from '@dictionaries';
+import { getActiveLanguages } from '@/lib/supabase/queries';
 
 export async function GET(request: NextRequest) {
   try {
-    // Get languages with metadata
-    const languages = getSupportedLanguages();
+    const languages = await getActiveLanguages();
 
     return new Response(
       JSON.stringify({
         success: true,
-        data: languages,
+        data: languages.map(lang => ({
+          code: lang.code,
+          meta: {
+            name: lang.name,
+            description: lang.description || '',
+            region: lang.region || '',
+          }
+        })),
         count: languages.length,
       }),
       {
@@ -19,7 +25,7 @@ export async function GET(request: NextRequest) {
     );
   } catch (error) {
     console.error('Error fetching dictionaries:', error);
-    
+
     return new Response(
       JSON.stringify({
         success: false,

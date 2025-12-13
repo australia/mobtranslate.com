@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import getDictionary from '@dictionaries';
+import { getWordsForLanguage } from '@/lib/supabase/queries';
+import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
 export async function GET(
   request: NextRequest,
@@ -7,85 +8,76 @@ export async function GET(
 ) {
   const { language } = params;
   const searchParams = request.nextUrl.searchParams;
-  
+
   // Extract query parameters for pagination and filtering
   const page = parseInt(searchParams.get('page') || '1', 10);
   const limit = parseInt(searchParams.get('limit') || '100', 10);
   const letter = searchParams.get('letter') || '';
-  const sortOrder = searchParams.get('sortOrder') || 'asc';
-  
+  const sortOrder = (searchParams.get('sortOrder') || 'asc') as 'asc' | 'desc';
+
   try {
-    const dictionary = await getDictionary(language);
-    
-    if (!dictionary) {
-      return NextResponse.json({ 
-        success: false, 
-        error: `Dictionary for language '${language}' not found` 
-      }, { status: 404 });
-    }
-    
-    // Filter words if a letter is specified
-    let filteredWords = dictionary.words;
-    
-    if (letter) {
-      const letterUpper = letter.toUpperCase();
-      filteredWords = filteredWords.filter(word => 
-        word.word.charAt(0).toUpperCase() === letterUpper
-      );
-    }
-    
-    // Sort alphabetically
-    filteredWords.sort((a, b) => {
-      return sortOrder === 'asc' 
-        ? a.word.localeCompare(b.word) 
-        : b.word.localeCompare(a.word);
+    const { words, language: languageData, pagination } = await getWordsForLanguage({
+      language,
+      page,
+      limit,
+      letter: letter || undefined,
+      sortOrder,
     });
-    
+
+    // Transform words for UI compatibility
+    const transformedWords = transformWordsForUI(words);
+
     // Group words by first letter for alphabetical listing
-    const wordsByLetter: Record<string, typeof filteredWords> = {};
-    
-    filteredWords.forEach(word => {
+    const wordsByLetter: Record<string, typeof transformedWords> = {};
+
+    transformedWords.forEach(word => {
       const firstLetter = word.word.charAt(0).toUpperCase();
       if (!wordsByLetter[firstLetter]) {
         wordsByLetter[firstLetter] = [];
       }
       wordsByLetter[firstLetter].push(word);
     });
-    
+
     // Get all available letters in the dictionary
     const availableLetters = Object.keys(wordsByLetter).sort();
-    
-    // Calculate pagination
-    const startIndex = (page - 1) * limit;
-    const endIndex = page * limit;
-    const paginatedWords = filteredWords.slice(startIndex, endIndex);
-    
-    // Prepare pagination metadata
-    const totalWords = filteredWords.length;
-    const totalPages = Math.ceil(totalWords / limit);
-    
+
     return NextResponse.json({
       success: true,
-      meta: dictionary.meta,
-      data: paginatedWords,
-      wordsByLetter: letter ? wordsByLetter : undefined, // Only include when filtering by letter
+      meta: {
+        name: languageData.name,
+        description: languageData.description || '',
+        region: languageData.region || '',
+        code: languageData.code
+      },
+      data: transformedWords,
+      wordsByLetter: letter ? wordsByLetter : undefined,
       availableLetters,
       pagination: {
-        total: totalWords,
-        page,
-        limit,
-        totalPages,
-        hasNext: page < totalPages,
-        hasPrev: page > 1,
+        total: pagination.total,
+        page: pagination.page,
+        limit: pagination.limit,
+        totalPages: pagination.totalPages,
+        hasNext: pagination.hasNext,
+        hasPrev: pagination.hasPrev,
       },
       filters: {
         letter,
         sortOrder,
       },
     }, { status: 200 });
-    
+
   } catch (error) {
     console.error(`Error fetching words for ${language}:`, error);
+
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+
+    if (errorMessage.includes('not found')) {
+      return NextResponse.json({
+        success: false,
+        error: `Dictionary for language '${language}' not found`
+      }, { status: 404 });
+    }
+
     return NextResponse.json({
       success: false,
       error: 'Failed to fetch dictionary words',
