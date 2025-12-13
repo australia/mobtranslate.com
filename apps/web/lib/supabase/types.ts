@@ -62,6 +62,7 @@ export interface Definition {
   domain?: string;
   is_primary?: boolean;
   notes?: string;
+  translations?: Translation[];
 }
 
 export interface Translation {

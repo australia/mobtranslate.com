@@ -3,6 +3,8 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
 import { WordLikeButton } from '@/components/WordLikeButton';
+import { DictionaryEntry } from '@ui/components/DictionaryEntry';
+import { Badge } from '@ui/components/Badge';
 import type { Word } from '@/lib/supabase/types';
 
 interface WordDetailContentProps {
@@ -84,7 +86,7 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
               <Badge variant="secondary">{word.domain}</Badge>
             )}
             {word.obsolete && (
-              <Badge variant="destructive">Obsolete</Badge>
+              <Badge variant="error">Obsolete</Badge>
             )}
           </div>
         </div>
