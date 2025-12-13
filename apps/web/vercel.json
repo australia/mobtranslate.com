@@ -1,3 +1,3 @@
 {
-  "installCommand": "npm install -g pnpm@9.15.0 && pnpm install --ignore-scripts"
+  "installCommand": "npx pnpm@9.15.0 install"
 }
