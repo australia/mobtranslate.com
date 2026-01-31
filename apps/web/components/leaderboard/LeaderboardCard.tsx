@@ -148,7 +148,7 @@ export default function LeaderboardCard({
             
             <div className="text-center">
               <div className="flex items-center justify-center mb-1">
-                <TrendingUp className="h-4 w-4 text-purple-500" />
+                <TrendingUp className="h-4 w-4 text-gray-700" />
               </div>
               <p className="text-xl font-bold text-gray-900">{totalParticipants}</p>
               <p className="text-sm text-gray-600">Competitors</p>

@@ -40,11 +40,11 @@ export function ChatInterface() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text mb-2">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-gray-900 text-transparent bg-clip-text mb-2">
             Language Learning Assistant
           </h1>
           <p className="text-muted-foreground">
@@ -103,7 +103,7 @@ export function ChatInterface() {
               >
                 {message.role === 'assistant' && (
                   <div className="flex-shrink-0">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-gray-500 flex items-center justify-center">
                       <Bot className="h-5 w-5 text-white" />
                     </div>
                   </div>
@@ -113,7 +113,7 @@ export function ChatInterface() {
                   className={cn(
                     "max-w-[80%] rounded-2xl px-4 py-3",
                     message.role === 'user'
-                      ? "bg-gradient-to-r from-indigo-500 to-purple-500 text-white"
+                      ? "bg-gradient-to-r from-indigo-500 to-gray-500 text-white"
                       : "bg-gray-100 dark:bg-gray-700"
                   )}
                 >
@@ -149,7 +149,7 @@ export function ChatInterface() {
             
             {isLoading && (
               <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-gray-500 flex items-center justify-center">
                   <Bot className="h-5 w-5 text-white" />
                 </div>
                 <div className="bg-gray-100 dark:bg-gray-700 rounded-2xl px-4 py-3">
@@ -189,11 +189,11 @@ export function ChatInterface() {
             disabled={isLoading || !input.trim()}
             className={cn(
               "absolute right-3 bottom-3 p-3 rounded-xl",
-              "bg-gradient-to-r from-indigo-500 to-purple-500",
-              "hover:from-indigo-600 hover:to-purple-600",
+              "bg-gradient-to-r from-indigo-500 to-gray-800",
+              "hover:from-indigo-600 hover:to-gray-900",
               "disabled:opacity-50 disabled:cursor-not-allowed",
               "transition-all duration-200",
-              "focus:outline-none focus:ring-2 focus:ring-purple-500/20"
+              "focus:outline-none focus:ring-2 focus:ring-gray-500/20"
             )}
           >
             <Send className="h-5 w-5 text-white" />

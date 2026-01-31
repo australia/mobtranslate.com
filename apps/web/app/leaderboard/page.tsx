@@ -141,7 +141,7 @@ export default function LeaderboardOverviewPage() {
               {overviewData.leaderboards.length > 0 ? (
                 <Section className="mt-12">
                   <h2 className="text-2xl font-semibold mb-8 flex items-center">
-                    <Trophy className="h-5 w-5 mr-2 text-purple-500" />
+                    <Trophy className="h-5 w-5 mr-2 text-gray-700" />
                     Language Leaderboards
                   </h2>
                   <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">

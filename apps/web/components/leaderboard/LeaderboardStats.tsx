@@ -28,7 +28,7 @@ export default function LeaderboardStats({
 }: LeaderboardStatsProps) {
   return (
     <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ${className}`}>
-      <Card className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+      <Card className="bg-gradient-to-r from-blue-500 to-blue-700 text-white">
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
             <div>
@@ -64,14 +64,14 @@ export default function LeaderboardStats({
         </CardContent>
       </Card>
 
-      <Card className="bg-gradient-to-r from-purple-500 to-pink-600 text-white">
+      <Card className="bg-gradient-to-r from-gray-700 to-gray-900 text-white">
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-purple-100 text-sm">Global Accuracy</p>
+              <p className="text-gray-300 text-sm">Global Accuracy</p>
               <p className="text-2xl font-bold">{averageAccuracy.toFixed(1)}%</p>
             </div>
-            <Target className="h-8 w-8 text-purple-200" />
+            <Target className="h-8 w-8 text-gray-400" />
           </div>
         </CardContent>
       </Card>

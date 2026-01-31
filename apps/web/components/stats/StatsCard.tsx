@@ -46,7 +46,7 @@ export function StatsCard({
   const gradientColors = {
     blue: 'from-blue-50 to-blue-100/50 dark:from-blue-950/20 dark:to-blue-900/10',
     green: 'from-green-50 to-green-100/50 dark:from-green-950/20 dark:to-green-900/10',
-    purple: 'from-purple-50 to-purple-100/50 dark:from-purple-950/20 dark:to-purple-900/10',
+    purple: 'from-gray-50 to-gray-100/50 dark:from-gray-950/20 dark:to-gray-900/10',
     orange: 'from-orange-50 to-orange-100/50 dark:from-orange-950/20 dark:to-orange-900/10',
     red: 'from-red-50 to-red-100/50 dark:from-red-950/20 dark:to-red-900/10',
     yellow: 'from-yellow-50 to-yellow-100/50 dark:from-yellow-950/20 dark:to-yellow-900/10',
@@ -58,7 +58,7 @@ export function StatsCard({
   const iconBgColors = {
     blue: 'bg-blue-100 dark:bg-blue-900/30',
     green: 'bg-green-100 dark:bg-green-900/30',
-    purple: 'bg-purple-100 dark:bg-purple-900/30',
+    purple: 'bg-gray-100 dark:bg-gray-900/30',
     orange: 'bg-orange-100 dark:bg-orange-900/30',
     red: 'bg-red-100 dark:bg-red-900/30',
     yellow: 'bg-yellow-100 dark:bg-yellow-900/30',

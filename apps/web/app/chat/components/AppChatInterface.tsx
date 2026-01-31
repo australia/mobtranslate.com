@@ -203,7 +203,7 @@ export function AppChatInterface() {
           <div className="p-4 border-b border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <Link href="/" className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold">
+                <div className="w-8 h-8 rounded bg-gradient-to-r from-indigo-500 to-gray-700 flex items-center justify-center text-white text-sm font-bold">
                   MT
                 </div>
                 <span className="font-semibold">Mob Translate</span>
@@ -240,7 +240,7 @@ export function AppChatInterface() {
           <div className="p-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-gray-700 flex items-center justify-center text-white text-sm font-bold">
                   {username?.charAt(0).toUpperCase() || 'U'}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -273,7 +273,7 @@ export function AppChatInterface() {
                 <Menu className="h-5 w-5" />
               </button>
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-gray-700 flex items-center justify-center">
                   <Bot className="h-5 w-5 text-white" />
                 </div>
                 <div>
@@ -361,7 +361,7 @@ export function AppChatInterface() {
               >
                 {message.role === 'assistant' && (
                   <div className="flex-shrink-0">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-gray-700 flex items-center justify-center">
                       <Bot className="h-5 w-5 text-white" />
                     </div>
                   </div>
@@ -371,7 +371,7 @@ export function AppChatInterface() {
                   className={cn(
                     "max-w-[80%] rounded-2xl px-4 py-3",
                     message.role === 'user'
-                      ? "bg-gradient-to-r from-indigo-500 to-purple-500 text-white"
+                      ? "bg-gradient-to-r from-indigo-500 to-gray-700 text-white"
                       : "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
                   )}
                 >
@@ -423,7 +423,7 @@ export function AppChatInterface() {
                 
                 {message.role === 'user' && (
                   <div className="flex-shrink-0">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center text-white text-sm font-bold">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-gray-700 flex items-center justify-center text-white text-sm font-bold">
                       {username?.charAt(0).toUpperCase() || 'U'}
                     </div>
                   </div>
@@ -433,7 +433,7 @@ export function AppChatInterface() {
             
             {isLoading && (
               <div className="flex gap-3 animate-slide-in">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-gray-700 flex items-center justify-center">
                   <Bot className="h-5 w-5 text-white" />
                 </div>
                 <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl px-4 py-3">
@@ -562,8 +562,8 @@ export function AppChatInterface() {
                 disabled={isLoading || !input.trim()}
                 className={cn(
                   "p-2 rounded-lg",
-                  "bg-gradient-to-r from-indigo-500 to-purple-500",
-                  "hover:from-indigo-600 hover:to-purple-600",
+                  "bg-gradient-to-r from-indigo-500 to-gray-700",
+                  "hover:from-indigo-600 hover:to-gray-800",
                   "disabled:opacity-50 disabled:cursor-not-allowed",
                   "transition-all duration-200"
                 )}

@@ -248,8 +248,8 @@ export function WordCard({
                   "flex items-center gap-2.5 p-3 rounded-lg transition-all duration-200",
                   "bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800"
                 )}>
-                  <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                    <TrendingUp className={cn("text-purple-600 dark:text-purple-400 flex-shrink-0", compact ? "h-3.5 w-3.5" : "h-4 w-4")} />
+                  <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-900/30">
+                    <TrendingUp className={cn("text-gray-800 dark:text-gray-600 flex-shrink-0", compact ? "h-3.5 w-3.5" : "h-4 w-4")} />
                   </div>
                   <div>
                     <p className={cn("font-bold text-gray-900 dark:text-gray-100", compact ? "text-sm" : "text-base")}>

@@ -111,7 +111,7 @@ export default function ImprovementsPage() {
     const colors = {
       spelling: 'bg-blue-100 text-blue-800',
       translation: 'bg-green-100 text-green-800',
-      pronunciation: 'bg-purple-100 text-purple-800',
+      pronunciation: 'bg-gray-100 text-gray-800',
       definition: 'bg-orange-100 text-orange-800',
       cultural: 'bg-pink-100 text-pink-800',
       other: 'bg-gray-100 text-gray-800'

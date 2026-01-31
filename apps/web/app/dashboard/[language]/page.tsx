@@ -234,7 +234,7 @@ export default function LanguageDashboardPage() {
                     value={dashboardData.overview.wordsLearned}
                     subtitle={`${dashboardData.overview.wordsMastered} mastered`}
                     icon={Brain}
-                    iconColor="text-purple-500"
+                    iconColor="text-gray-700"
                     className="animate-slide-in"
                     style={{ animationDelay: '100ms' }}
                   />
@@ -283,7 +283,7 @@ export default function LanguageDashboardPage() {
                   {/* Performance by Difficulty */}
                   <div className="bg-white rounded-xl border p-6 animate-slide-in" style={{ animationDelay: '250ms' }}>
                     <h3 className="text-base sm:text-lg font-semibold mb-4 flex items-center">
-                      <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-purple-500" />
+                      <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-gray-700" />
                       Performance by Difficulty
                     </h3>
                     <div className="h-64 sm:h-72">
@@ -409,13 +409,13 @@ export default function LanguageDashboardPage() {
                   </Link>
 
                   <Link href={`/stats/${language}`} className="block animate-slide-in hover-lift" style={{ animationDelay: '50ms' }}>
-                    <div className="bg-white rounded-xl border hover:border-purple-300 p-4 sm:p-6 h-full transition-all">
+                    <div className="bg-white rounded-xl border hover:border-gray-300 p-4 sm:p-6 h-full transition-all">
                       <div className="flex items-center justify-between">
                         <div className="min-w-0 flex-1">
                           <h3 className="font-medium text-sm sm:text-base">Detailed Stats</h3>
                           <p className="text-xs sm:text-sm text-gray-600 mt-1">View word-level statistics</p>
                         </div>
-                        <BarChart3 className="h-6 w-6 sm:h-8 sm:w-8 text-purple-500 flex-shrink-0 ml-3" />
+                        <BarChart3 className="h-6 w-6 sm:h-8 sm:w-8 text-gray-700 flex-shrink-0 ml-3" />
                       </div>
                     </div>
                   </Link>

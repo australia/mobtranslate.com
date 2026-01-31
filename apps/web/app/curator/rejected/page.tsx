@@ -88,7 +88,7 @@ export default function RejectedPage() {
   const displayWords = rejectedWords.length > 0 ? rejectedWords : mockRejectedWords;
 
   const getRejectionCategoryColor = (reason: string) => {
-    if (reason.toLowerCase().includes('duplicate')) return 'bg-purple-100 text-purple-800';
+    if (reason.toLowerCase().includes('duplicate')) return 'bg-gray-100 text-gray-800';
     if (reason.toLowerCase().includes('incorrect')) return 'bg-orange-100 text-orange-800';
     if (reason.toLowerCase().includes('offensive')) return 'bg-red-100 text-red-800';
     return 'bg-gray-100 text-gray-800';

@@ -34,8 +34,8 @@ export function LanguageStats({ stats }: LanguageStatsProps) {
           <div className="text-2xl font-bold text-green-600">{stats.masteredWords}</div>
           <div className="text-xs text-gray-600 dark:text-gray-400">Mastered</div>
         </div>
-        <div className="text-center p-3 bg-purple-50 dark:bg-purple-950/20 rounded-lg">
-          <div className="text-2xl font-bold text-purple-600">{stats.accuracy}%</div>
+        <div className="text-center p-3 bg-gray-50 dark:bg-gray-950/20 rounded-lg">
+          <div className="text-2xl font-bold text-gray-800">{stats.accuracy}%</div>
           <div className="text-xs text-gray-600 dark:text-gray-400">Accuracy</div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export function LanguageStats({ stats }: LanguageStatsProps) {
             </div>
             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
               <div
-                className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full transition-all duration-500"
+                className="bg-gradient-to-r from-indigo-500 to-gray-700 h-2 rounded-full transition-all duration-500"
                 style={{ width: `${language.progress}%` }}
               />
             </div>

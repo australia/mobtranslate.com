@@ -207,7 +207,7 @@ export default function ApprovedPage() {
             <CardTitle className="text-sm font-medium">
               Contributors
             </CardTitle>
-            <User className="h-4 w-4 text-purple-600" />
+            <User className="h-4 w-4 text-gray-800" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">

@@ -237,7 +237,7 @@ export default function LeaderboardPage() {
                 <Card className="animate-slide-in" style={{ animationDelay: '350ms' }}>
                   <CardHeader>
                     <CardTitle className="flex items-center">
-                      <Award className="h-5 w-5 mr-2 text-purple-500" />
+                      <Award className="h-5 w-5 mr-2 text-gray-700" />
                       Full Rankings
                     </CardTitle>
                   </CardHeader>
@@ -274,7 +274,7 @@ export default function LeaderboardPage() {
                               <td className="py-4 px-4">
                                 <div className="flex items-center space-x-3">
                                   <div className="flex-shrink-0 h-10 w-10">
-                                    <div className="h-10 w-10 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center text-white font-bold">
+                                    <div className="h-10 w-10 rounded-full bg-gradient-to-r from-gray-500 to-pink-400 flex items-center justify-center text-white font-bold">
                                       {entry.username.charAt(0).toUpperCase()}
                                     </div>
                                   </div>
@@ -292,7 +292,7 @@ export default function LeaderboardPage() {
                                 </div>
                               </td>
                               <td className="text-center py-4 px-2 hidden sm:table-cell">
-                                <span className="font-bold text-purple-600">{formatPoints(entry.points)}</span>
+                                <span className="font-bold text-gray-800">{formatPoints(entry.points)}</span>
                               </td>
                               <td className="text-center py-4 px-2">
                                 <span className={`font-bold ${
@@ -376,7 +376,7 @@ export default function LeaderboardPage() {
               {/* Current User Summary */}
               {leaderboardData.currentUserRank && (
                 <Section className="mt-8 mb-8">
-                  <Card className="bg-gradient-to-r from-blue-500 to-purple-600 text-white animate-slide-in hover-lift" style={{ animationDelay: '400ms' }}>
+                  <Card className="bg-gradient-to-r from-blue-500 to-gray-800 text-white animate-slide-in hover-lift" style={{ animationDelay: '400ms' }}>
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div>

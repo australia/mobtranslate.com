@@ -64,8 +64,8 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
   // Navigation links data
   const navLinks: NavLink[] = [
     { title: 'About', href: '/about' },
-    { title: 'History', href: '/history' },
     { title: 'Dictionaries', href: '/dictionaries' },
+    { title: 'Education', href: '/education' },
     { title: 'Contribute', href: 'https://github.com/australia/mobtranslate.com', external: true }
   ];
 
@@ -84,7 +84,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               href="/" 
               className="flex items-center space-x-3 text-2xl sm:text-3xl font-bold text-foreground hover:text-primary transition-all"
             >
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Mob Translate</span>
+              <span className="bg-gradient-to-r from-blue-600 to-gray-900 bg-clip-text text-transparent">Mob Translate</span>
             </Link>
             
             {/* Desktop Navigation - Simplify hover effect */}

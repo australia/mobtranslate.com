@@ -101,7 +101,7 @@ export default function CommentsPage() {
   const getCategoryColor = (category: Comment['category']) => {
     const colors = {
       general: 'bg-gray-100 text-gray-800',
-      pronunciation: 'bg-purple-100 text-purple-800',
+      pronunciation: 'bg-gray-100 text-gray-800',
       usage: 'bg-blue-100 text-blue-800',
       cultural: 'bg-pink-100 text-pink-800',
       grammar: 'bg-green-100 text-green-800'

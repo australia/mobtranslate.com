@@ -223,7 +223,7 @@ export default function DictionaryStatsPage() {
                     title="Overall Accuracy"
                     value={`${stats.overall.accuracy.toFixed(1)}%`}
                     icon={Target}
-                    iconColor="text-purple-500"
+                    iconColor="text-gray-700"
                     progress={{
                       value: stats.overall.accuracy,
                       max: 100,
@@ -273,7 +273,7 @@ export default function DictionaryStatsPage() {
                         </div>
                         <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500"
+                            className="h-full bg-gradient-to-r from-indigo-500 to-gray-700 transition-all duration-500"
                             style={{ 
                               width: `${stats.overall.totalWords > 0 
                                 ? (stats.overall.masteredWords / stats.overall.totalWords) * 100 
@@ -333,7 +333,7 @@ export default function DictionaryStatsPage() {
                         </div>
                       </div>
                       
-                      <div className="p-4 bg-purple-50 rounded-lg">
+                      <div className="p-4 bg-gray-50 rounded-lg">
                         <h4 className="font-medium mb-3">Last 30 Days</h4>
                         <div className="space-y-2">
                           <div className="flex justify-between">

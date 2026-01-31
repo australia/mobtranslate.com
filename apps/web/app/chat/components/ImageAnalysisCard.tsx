@@ -145,9 +145,9 @@ export function ImageAnalysisCard({ analysis }: ImageAnalysisCardProps) {
             </div>
 
             {analysis.relatedWords && analysis.relatedWords.length > 0 && (
-              <div className="mt-6 p-4 bg-purple-50 rounded-lg">
+              <div className="mt-6 p-4 bg-gray-50 rounded-lg">
                 <h4 className="font-medium mb-3 flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-purple-500" />
+                  <Sparkles className="h-4 w-4 text-gray-700" />
                   Related Concepts
                 </h4>
                 <div className="space-y-2">
@@ -166,7 +166,7 @@ export function ImageAnalysisCard({ analysis }: ImageAnalysisCardProps) {
           {activeTab === 'insights' && (
             <div className="space-y-4">
             {analysis.culturalInsights ? (
-              <div className="p-6 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg">
+              <div className="p-6 bg-gradient-to-r from-indigo-50 to-gray-50 rounded-lg">
                 <div className="flex items-start gap-3">
                   <BookOpen className="h-5 w-5 text-indigo-500 mt-0.5 flex-shrink-0" />
                   <p className="text-gray-700 leading-relaxed">

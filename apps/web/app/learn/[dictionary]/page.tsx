@@ -159,7 +159,7 @@ export default function LearnDictionaryPage() {
   if (loading) {
     return (
       <SharedLayout>
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <div className="relative">
             <div className="w-20 h-20 rounded-full border-4 border-indigo-200 dark:border-indigo-800"></div>
             <div className="absolute top-0 left-0 w-20 h-20 rounded-full border-4 border-transparent border-t-indigo-500 dark:border-t-indigo-400 animate-spin"></div>
@@ -171,7 +171,7 @@ export default function LearnDictionaryPage() {
 
   return (
     <SharedLayout>
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         {/* Confetti Effect */}
         {showConfetti && (
           <div className="fixed inset-0 pointer-events-none z-50">
@@ -187,7 +187,7 @@ export default function LearnDictionaryPage() {
               >
                 <div className={cn(
                   "w-2 h-2 rounded-full",
-                  i % 4 === 0 ? "bg-purple-500" : 
+                  i % 4 === 0 ? "bg-gray-500" : 
                   i % 4 === 1 ? "bg-blue-500" : 
                   i % 4 === 2 ? "bg-green-500" : "bg-yellow-500"
                 )} />
@@ -218,8 +218,8 @@ export default function LearnDictionaryPage() {
                     variant="outline" 
                     className={cn(
                       "gap-1 transition-all",
-                      streak >= 10 ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0" :
-                      streak >= 5 ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0" :
+                      streak >= 10 ? "bg-gradient-to-r from-gray-700 to-pink-500 text-white border-0" :
+                      streak >= 5 ? "bg-gradient-to-r from-blue-500 to-gray-700 text-white border-0" :
                       ""
                     )}
                   >
@@ -268,7 +268,7 @@ export default function LearnDictionaryPage() {
               {phase === 'word' && (
                 <div className="max-w-2xl mx-auto">
                   <div className="h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500 animate-progress" />
+                    <div className="h-full bg-gradient-to-r from-blue-500 to-gray-700 animate-progress" />
                   </div>
                 </div>
               )}
@@ -303,7 +303,7 @@ export default function LearnDictionaryPage() {
                           </Badge>
                         </div>
                         
-                        <h1 className="text-5xl md:text-6xl font-bold font-crimson text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+                        <h1 className="text-5xl md:text-6xl font-bold font-crimson text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-gray-800 dark:from-indigo-400 dark:to-gray-500">
                           {currentWord.word}
                         </h1>
                         
@@ -382,12 +382,12 @@ export default function LearnDictionaryPage() {
                         onClick={handleContinue}
                         className={cn(
                           "px-8 py-4 rounded-xl font-semibold text-white",
-                          "bg-gradient-to-r from-indigo-500 to-purple-500",
-                          "hover:from-indigo-600 hover:to-purple-600",
+                          "bg-gradient-to-r from-indigo-500 to-gray-700",
+                          "hover:from-indigo-600 hover:to-gray-800",
                           "shadow-lg hover:shadow-xl shadow-indigo-500/25 hover:shadow-indigo-600/30",
                           "transform hover:scale-105 active:scale-[0.98]",
                           "transition-all duration-200 ease-out",
-                          "focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                          "focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                         )}
                       >
                         Continue Learning

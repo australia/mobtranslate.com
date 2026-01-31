@@ -128,7 +128,7 @@ export default function DashboardPage() {
                     title="Words Learned"
                     value={overviewStats.totalWords}
                     icon={Target}
-                    iconColor="text-purple-500"
+                    iconColor="text-gray-700"
                     className="animate-slide-in"
                     style={{ animationDelay: '100ms' }}
                   />
@@ -271,13 +271,13 @@ export default function DashboardPage() {
                     </Link>
 
                     <Link href="/stats" className="block animate-slide-in hover-lift" style={{ animationDelay: '50ms' }}>
-                      <div className="bg-white rounded-xl border hover:border-purple-300 p-8 h-full transition-all duration-200">
+                      <div className="bg-white rounded-xl border hover:border-gray-300 p-8 h-full transition-all duration-200">
                         <div className="flex items-center justify-between">
                           <div className="min-w-0 flex-1">
                             <h3 className="font-medium">View Stats</h3>
                             <p className="text-sm text-gray-600 mt-1">See detailed statistics</p>
                           </div>
-                          <TrendingUp className="h-8 w-8 text-purple-500 flex-shrink-0 ml-4" />
+                          <TrendingUp className="h-8 w-8 text-gray-700 flex-shrink-0 ml-4" />
                         </div>
                       </div>
                     </Link>

@@ -59,7 +59,7 @@ export default function GuidelinesPage() {
             </div>
             
             <div className="flex gap-3">
-              <Shield className="h-5 w-5 text-purple-600 mt-0.5 flex-shrink-0" />
+              <Shield className="h-5 w-5 text-gray-800 mt-0.5 flex-shrink-0" />
               <div>
                 <h3 className="font-medium">Quality Over Quantity</h3>
                 <p className="text-sm text-muted-foreground">
@@ -173,7 +173,7 @@ export default function GuidelinesPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <MessageSquare className="h-5 w-5 text-purple-600" />
+            <MessageSquare className="h-5 w-5 text-gray-800" />
             Comment Moderation
           </CardTitle>
           <CardDescription>

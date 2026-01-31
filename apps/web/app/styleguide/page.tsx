@@ -923,7 +923,7 @@ export default function StyleGuidePage() {
                 title="Words Learned"
                 value="256"
                 icon={BookOpen}
-                iconColor="text-purple-500"
+                iconColor="text-gray-700"
                 trend={{
                   value: -5,
                   isPositive: false

@@ -184,7 +184,7 @@ export default function StatsPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-purple-600">
+                  <div className="text-2xl font-bold text-gray-800">
                     {stats.overall.streakDays} days
                   </div>
                 </CardContent>

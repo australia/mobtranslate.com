@@ -172,7 +172,7 @@ export default async function AdminDashboard() {
       value: totalComments,
       description: 'User interactions',
       icon: MessageSquare,
-      color: 'text-purple-600 bg-purple-100',
+      color: 'text-gray-800 bg-gray-100',
       change: null
     },
     {
@@ -257,7 +257,7 @@ export default async function AdminDashboard() {
                         return <Clock className="h-4 w-4 text-red-600" />;
                       case 'comment_created':
                       case 'comment_moderated':
-                        return <MessageSquare className="h-4 w-4 text-purple-600" />;
+                        return <MessageSquare className="h-4 w-4 text-gray-800" />;
                       case 'user_role_assigned':
                         return <Users className="h-4 w-4 text-blue-600" />;
                       default:
@@ -275,7 +275,7 @@ export default async function AdminDashboard() {
                         return 'bg-red-100';
                       case 'comment_created':
                       case 'comment_moderated':
-                        return 'bg-purple-100';
+                        return 'bg-gray-100';
                       case 'user_role_assigned':
                         return 'bg-blue-100';
                       default:
