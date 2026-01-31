@@ -6,7 +6,7 @@
   --font-display: 'Playfair Display', serif;
 
   /* PRIMARY COLOR PALETTE - "Malika Palette: Bold, Flat, Unapologetic" */
-  --color-primary: #7c3aed;
+  --color-primary: #2563eb;
   --color-primary-foreground: #ffffff;
 
   --color-secondary: #ef4444;
@@ -40,7 +40,7 @@
   --color-popover-foreground: #000000;
 
   /* RING */
-  --color-ring: #7c3aed;
+  --color-ring: #2563eb;
 
   /* BORDER RADIUS */
   --radius-none: 0px;
