@@ -86,7 +86,7 @@ const GAME_TYPES = [
     name: 'Word Scramble',
     description: 'Unscramble letters to form words',
     icon: Puzzle,
-    color: 'from-rose-500 to-pink-600',
+    color: 'from-rose-500 to-red-600',
     difficulty: 'Hard',
     time: '10-15 min',
   },

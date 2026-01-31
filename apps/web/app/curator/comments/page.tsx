@@ -103,7 +103,7 @@ export default function CommentsPage() {
       general: 'bg-gray-100 text-gray-800',
       pronunciation: 'bg-gray-100 text-gray-800',
       usage: 'bg-blue-100 text-blue-800',
-      cultural: 'bg-pink-100 text-pink-800',
+      cultural: 'bg-amber-100 text-amber-800',
       grammar: 'bg-green-100 text-green-800'
     };
     return colors[category] || colors.general;

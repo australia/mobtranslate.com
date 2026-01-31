@@ -51,7 +51,7 @@ export function StatsCard({
     red: 'from-red-50 to-red-100/50 dark:from-red-950/20 dark:to-red-900/10',
     yellow: 'from-yellow-50 to-yellow-100/50 dark:from-yellow-950/20 dark:to-yellow-900/10',
     indigo: 'from-indigo-50 to-indigo-100/50 dark:from-indigo-950/20 dark:to-indigo-900/10',
-    pink: 'from-pink-50 to-pink-100/50 dark:from-pink-950/20 dark:to-pink-900/10',
+    pink: 'from-gray-50 to-gray-100/50 dark:from-gray-950/20 dark:to-gray-900/10',
     gray: 'from-gray-50 to-gray-100/50 dark:from-gray-950/20 dark:to-gray-900/10'
   };
 
@@ -63,7 +63,7 @@ export function StatsCard({
     red: 'bg-red-100 dark:bg-red-900/30',
     yellow: 'bg-yellow-100 dark:bg-yellow-900/30',
     indigo: 'bg-indigo-100 dark:bg-indigo-900/30',
-    pink: 'bg-pink-100 dark:bg-pink-900/30',
+    pink: 'bg-gray-100 dark:bg-gray-900/30',
     gray: 'bg-gray-100 dark:bg-gray-900/30'
   };
 

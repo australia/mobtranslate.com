@@ -274,7 +274,7 @@ export default function LeaderboardPage() {
                               <td className="py-4 px-4">
                                 <div className="flex items-center space-x-3">
                                   <div className="flex-shrink-0 h-10 w-10">
-                                    <div className="h-10 w-10 rounded-full bg-gradient-to-r from-gray-500 to-pink-400 flex items-center justify-center text-white font-bold">
+                                    <div className="h-10 w-10 rounded-full bg-gradient-to-r from-gray-600 to-gray-400 flex items-center justify-center text-white font-bold">
                                       {entry.username.charAt(0).toUpperCase()}
                                     </div>
                                   </div>

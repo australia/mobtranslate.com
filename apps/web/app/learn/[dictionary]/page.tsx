@@ -218,7 +218,7 @@ export default function LearnDictionaryPage() {
                     variant="outline" 
                     className={cn(
                       "gap-1 transition-all",
-                      streak >= 10 ? "bg-gradient-to-r from-gray-700 to-pink-500 text-white border-0" :
+                      streak >= 10 ? "bg-gradient-to-r from-gray-700 to-gray-500 text-white border-0" :
                       streak >= 5 ? "bg-gradient-to-r from-blue-500 to-gray-700 text-white border-0" :
                       ""
                     )}

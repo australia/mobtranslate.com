@@ -113,7 +113,7 @@ export default function ImprovementsPage() {
       translation: 'bg-green-100 text-green-800',
       pronunciation: 'bg-gray-100 text-gray-800',
       definition: 'bg-orange-100 text-orange-800',
-      cultural: 'bg-pink-100 text-pink-800',
+      cultural: 'bg-amber-100 text-amber-800',
       other: 'bg-gray-100 text-gray-800'
     };
     return colors[category] || colors.other;
