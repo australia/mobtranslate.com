@@ -6,9 +6,24 @@ import { PageHeader } from '@/app/components/ui/page-header';
 import { Section } from '@/app/components/ui/section';
 import { Badge } from '@/app/components/ui/badge';
 
-// TODO: Breadcrumbs component needs to be created or imported from the correct location
-const Breadcrumbs = ({ items, className }: { items: any[]; className?: string }) => (
-  <div className={className}>Breadcrumbs placeholder</div>
+import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
+
+const Breadcrumbs = ({ items, className }: { items: { href: string; label: string }[]; className?: string }) => (
+  <nav className={`flex items-center gap-2 text-sm ${className || ''}`}>
+    {items.map((item, index) => (
+      <React.Fragment key={item.href}>
+        {index > 0 && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
+        {index === items.length - 1 ? (
+          <span className="text-foreground font-medium">{item.label}</span>
+        ) : (
+          <Link href={item.href} className="text-muted-foreground hover:text-foreground transition-colors">
+            {item.label}
+          </Link>
+        )}
+      </React.Fragment>
+    ))}
+  </nav>
 );
 import { getWordsForLanguage } from '@/lib/supabase/queries';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
