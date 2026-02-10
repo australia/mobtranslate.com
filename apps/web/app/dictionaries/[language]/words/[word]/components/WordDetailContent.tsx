@@ -1,11 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
 import { WordLikeButton } from '@/components/WordLikeButton';
 import { DictionaryEntry } from '@ui/components/DictionaryEntry';
 import { Badge } from '@ui/components/Badge';
 import type { Word } from '@/lib/supabase/types';
+
+const LocationMap = lazy(() => import('./LocationMap').then(m => ({ default: m.LocationMap })));
 
 interface WordDetailContentProps {
   word: Word;
@@ -72,8 +74,41 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
             </div>
           )}
           
+          {/* Location map */}
+          {word.is_location && word.latitude && word.longitude && (
+            <Suspense fallback={
+              <div className="w-full h-[300px] rounded-lg bg-muted animate-pulse flex items-center justify-center">
+                <span className="text-sm text-muted-foreground">Loading map...</span>
+              </div>
+            }>
+              <LocationMap
+                latitude={word.latitude}
+                longitude={word.longitude}
+                word={word.word}
+                locationDescription={
+                  word.definitions?.find(d =>
+                    d.definition.toLowerCase().includes('place name') ||
+                    d.definition.toLowerCase().includes('creek') ||
+                    d.definition.toLowerCase().includes('river') ||
+                    d.definition.toLowerCase().includes('mountain') ||
+                    d.definition.toLowerCase().includes('beach') ||
+                    d.definition.toLowerCase().includes('bay') ||
+                    d.definition.toLowerCase().includes('island') ||
+                    d.definition.toLowerCase().includes('hill') ||
+                    d.definition.toLowerCase().includes('falls') ||
+                    d.definition.toLowerCase().includes('camp') ||
+                    d.definition.toLowerCase().includes('flat')
+                  )?.definition
+                }
+              />
+            </Suspense>
+          )}
+
           {/* Metadata badges */}
           <div className="flex flex-wrap gap-2 pt-4 border-t">
+            {word.is_location && (
+              <Badge variant="secondary">Place Name</Badge>
+            )}
             {word.is_loan_word && (
               <Badge variant="outline">
                 Loan word{word.loan_source_language && ` from ${word.loan_source_language}`}

@@ -222,6 +222,51 @@ export async function getActiveLanguages() {
   return data as Language[];
 }
 
+export async function getLocationWordsForLanguage(languageCode: string) {
+  const supabase = createClient();
+
+  const languageData = await getLanguageByCode(languageCode);
+
+  const { data: words, error } = await supabase
+    .from('words')
+    .select(`
+      id,
+      word,
+      normalized_word,
+      is_location,
+      latitude,
+      longitude,
+      word_type,
+      word_class:word_classes(name),
+      definitions(definition)
+    `)
+    .eq('language_id', languageData.id)
+    .eq('is_location', true)
+    .not('latitude', 'is', null)
+    .not('longitude', 'is', null)
+    .order('word', { ascending: true });
+
+  if (error) throw error;
+
+  // Supabase returns word_class as array from join; normalize to single object
+  const normalized = (words || []).map((w: any) => ({
+    id: w.id as string,
+    word: w.word as string,
+    normalized_word: w.normalized_word as string | undefined,
+    is_location: w.is_location as boolean,
+    latitude: w.latitude as number,
+    longitude: w.longitude as number,
+    word_type: w.word_type as string | undefined,
+    word_class: Array.isArray(w.word_class) ? w.word_class[0] : w.word_class,
+    definitions: w.definitions as Array<{ definition: string }> | undefined,
+  }));
+
+  return {
+    words: normalized,
+    language: languageData,
+  };
+}
+
 export async function getWordClasses() {
   const supabase = createClient();
   

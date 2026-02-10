@@ -41,3 +41,4 @@ yarn-error.log*
 experiments/pdftomd/extract/tts/out_audio/
 
 .venv
+.env*.local

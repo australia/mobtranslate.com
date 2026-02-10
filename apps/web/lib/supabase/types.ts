@@ -42,6 +42,9 @@ export interface Word {
   obsolete?: boolean;
   sensitive_content?: boolean;
   notes?: string;
+  is_location?: boolean;
+  latitude?: number;
+  longitude?: number;
   metadata?: Record<string, any>;
   created_at?: string;
   updated_at?: string;

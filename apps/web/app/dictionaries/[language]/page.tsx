@@ -104,7 +104,20 @@ export default async function DictionaryPage({
         <Section contained={false}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbItems} className="mb-6" />
-            
+
+            <div className="mb-4">
+              <Link
+                href={`/dictionaries/${language}/map`}
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                View place names on map
+              </Link>
+            </div>
+
             <DictionarySearch 
               dictionary={dictionary} 
               initialSearch={searchParams.search || ''} 
