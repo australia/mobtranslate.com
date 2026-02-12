@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "../../../packages/ui/src/tokens/tokens.css";
+@import "../../../packages/ui/src/components/components.css";
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Code block syntax highlighting */
+.code-block .code-keyword { color: #c792ea; }
+.code-block .code-string { color: #c3e88d; }
+.code-block .code-comment { color: #546e7a; font-style: italic; }
+.code-block .code-tag { color: #f07178; }
+.code-block .code-number { color: #f78c6c; }
+.code-block .code-property { color: #82aaff; }
+.code-block .code-value { color: #c3e88d; }
+.code-block .code-selector { color: #ffcb6b; }

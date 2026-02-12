@@ -21,6 +21,8 @@
       "@ui/*": ["ui/*"],
       "@ui": ["ui"],
       "@ui/components/*": ["ui/components/*"],
+      "@mobtranslate/ui": ["packages/ui/src"],
+      "@mobtranslate/ui/*": ["packages/ui/src/*"],
       "@dictionaries/*": ["dictionaries/*"],
       "@dictionaries": ["dictionaries"]
     }
