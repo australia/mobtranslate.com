@@ -37,7 +37,7 @@ export default function RadioPage() {
       <Section title="Controlled" description="Use value and onValueChange for external state management.">
         <ComponentPreview>
           <div className="space-y-4">
-            <RadioGroup value={plan} onValueChange={setPlan}>
+            <RadioGroup value={plan} onValueChange={(value) => setPlan(String(value))}>
               <RadioItem value="free" label="Free" />
               <RadioItem value="standard" label="Standard" />
               <RadioItem value="premium" label="Premium" />

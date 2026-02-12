@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
+import { Badge } from '@/app/components/ui/badge';
 import { type ImageAnalysis } from '@/lib/tools/image-analysis';
 import { 
   Image as ImageIcon, 

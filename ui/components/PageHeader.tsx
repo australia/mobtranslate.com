@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { cn } from '../lib/utils';
-import { Container } from './Container';
 
 export interface PageHeaderProps {
   title: string;

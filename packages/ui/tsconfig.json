@@ -12,6 +12,8 @@
     "jsx": "react-jsx",
     "moduleResolution": "node",
     "strict": true,
+    "incremental": true,
+    "tsBuildInfoFile": ".cache/tsbuildinfo/typecheck.tsbuildinfo",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },

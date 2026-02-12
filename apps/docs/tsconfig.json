@@ -19,6 +19,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "tsBuildInfoFile": ".cache/tsbuildinfo/typecheck.tsbuildinfo",
     "paths": {
       "@/*": [
         "./*"

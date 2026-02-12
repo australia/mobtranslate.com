@@ -2,13 +2,22 @@
   "name": "mobtranslate.com",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "build": "turbo run build --affected",
+    "build:all": "turbo run build",
+    "dev": "turbo run dev --parallel --continue",
+    "lint": "turbo run lint --affected",
+    "lint:all": "turbo run lint",
+    "typecheck": "turbo run typecheck --affected",
+    "typecheck:all": "turbo run typecheck",
+    "check": "turbo run lint typecheck --affected",
+    "check:all": "turbo run lint typecheck",
     "format": "prettier --write \"**/*.{js,jsx,md}\"",
     "prettier": "prettier -c ."
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.55.0",
+    "@typescript-eslint/parser": "^8.55.0",
+    "eslint": "^8.57.1",
     "prettier": "^3.1.0",
     "turbo": "^2.4.4"
   },

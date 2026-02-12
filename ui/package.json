@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\""
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint \"**/*.{js,jsx,ts,tsx}\" --cache --cache-location .cache/eslint/.eslintcache --max-warnings 0",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
@@ -24,7 +25,7 @@
   "devDependencies": {
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.57.1",
     "react": "^18",
     "typescript": "^5.7.3"
   },

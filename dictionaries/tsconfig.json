@@ -9,6 +9,8 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "strict": true,
+    "incremental": true,
+    "tsBuildInfoFile": ".cache/tsbuildinfo/typecheck.tsbuildinfo",
     "skipLibCheck": true,
     "allowJs": true,
     "checkJs": false,
@@ -23,6 +25,7 @@
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "wajarri/examples/**"
   ]
 }

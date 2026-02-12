@@ -36,6 +36,7 @@
     "allowJs": true,
     "noEmit": true,
     "incremental": true,
+    "tsBuildInfoFile": ".cache/tsbuildinfo/typecheck.tsbuildinfo",
     "module": "esnext",
     "resolveJsonModule": true,
     "jsx": "preserve"

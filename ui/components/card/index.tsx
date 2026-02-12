@@ -3,7 +3,7 @@
 import * as React from "react";
 import { cn } from "../../lib/utils";
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type CardProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const Card = ({ className, ...props }: CardProps) => (
   <div
@@ -12,7 +12,7 @@ export const Card = ({ className, ...props }: CardProps) => (
   />
 );
 
-export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type CardHeaderProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const CardHeader = ({ className, ...props }: CardHeaderProps) => (
   <div
@@ -21,7 +21,7 @@ export const CardHeader = ({ className, ...props }: CardHeaderProps) => (
   />
 );
 
-export interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
+export type CardTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
 
 export const CardTitle = ({ className, ...props }: CardTitleProps) => (
   <h3
@@ -30,7 +30,7 @@ export const CardTitle = ({ className, ...props }: CardTitleProps) => (
   />
 );
 
-export interface CardDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+export type CardDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>;
 
 export const CardDescription = ({ className, ...props }: CardDescriptionProps) => (
   <p
@@ -39,13 +39,13 @@ export const CardDescription = ({ className, ...props }: CardDescriptionProps) =
   />
 );
 
-export interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type CardContentProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const CardContent = ({ className, ...props }: CardContentProps) => (
   <div className={cn("p-6 pt-0", className)} {...props} />
 );
 
-export interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type CardFooterProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const CardFooter = ({ className, ...props }: CardFooterProps) => (
   <div

@@ -6,7 +6,8 @@
     "dev": "next dev -p 3003",
     "build": "next build",
     "start": "next start -p 3003",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint --ext .js,.jsx,.ts,.tsx . --cache --cache-location .cache/eslint/.eslintcache --max-warnings 0",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",
@@ -17,8 +18,8 @@
   "devDependencies": {
     "@tailwindcss/postcss": "4.1.17",
     "@types/node": "22.13.5",
-    "@types/react": "19.0.10",
-    "@types/react-dom": "19.0.4",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "postcss": "8.5.3",
     "tailwindcss": "4.1.17",
     "typescript": "5.7.3"

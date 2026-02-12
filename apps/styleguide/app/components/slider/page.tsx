@@ -6,6 +6,10 @@ import { ComponentPreview } from '../../../components/component-preview';
 import { PropsTable } from '../../../components/props-table';
 import { CodeBlock } from '../../../components/code-block';
 
+function normalizeSliderValue(next: number | readonly number[]): number[] {
+  return Array.isArray(next) ? [...next] : [next];
+}
+
 function SliderWithValue({ defaultValue = [50], min = 0, max = 100, step = 1, disabled = false }: { defaultValue?: number[]; min?: number; max?: number; step?: number; disabled?: boolean }) {
   const [value, setValue] = useState(defaultValue);
   return (
@@ -13,7 +17,14 @@ function SliderWithValue({ defaultValue = [50], min = 0, max = 100, step = 1, di
       <div className="flex justify-between items-center">
         <span className="text-sm text-[var(--color-muted-foreground)]">Value: {value[0]}</span>
       </div>
-      <Slider value={value} onValueChange={setValue} min={min} max={max} step={step} disabled={disabled} />
+      <Slider
+        value={value}
+        onValueChange={(next) => setValue(normalizeSliderValue(next))}
+        min={min}
+        max={max}
+        step={step}
+        disabled={disabled}
+      />
     </div>
   );
 }
@@ -69,7 +80,7 @@ export default function SliderPage() {
               <p className="text-sm font-medium mb-2">Volume</p>
               <div className="flex items-center gap-3">
                 <span className="text-sm text-[var(--color-muted-foreground)] w-8">0</span>
-                <Slider value={volume} onValueChange={setVolume} className="flex-1" />
+                <Slider value={volume} onValueChange={(next) => setVolume(normalizeSliderValue(next))} className="flex-1" />
                 <span className="text-sm text-[var(--color-muted-foreground)] w-8 text-right">100</span>
               </div>
               <p className="text-xs text-[var(--color-muted-foreground)] mt-1 text-center">{volume[0]}%</p>
@@ -78,7 +89,7 @@ export default function SliderPage() {
               <p className="text-sm font-medium mb-2">Price Range</p>
               <div className="flex items-center gap-3">
                 <span className="text-sm text-[var(--color-muted-foreground)] w-8">$0</span>
-                <Slider value={price} onValueChange={setPrice} min={0} max={1000} step={10} className="flex-1" />
+                <Slider value={price} onValueChange={(next) => setPrice(normalizeSliderValue(next))} min={0} max={1000} step={10} className="flex-1" />
                 <span className="text-sm text-[var(--color-muted-foreground)] w-12 text-right">$1000</span>
               </div>
               <p className="text-xs text-[var(--color-muted-foreground)] mt-1 text-center">${price[0]}</p>
@@ -87,7 +98,7 @@ export default function SliderPage() {
               <p className="text-sm font-medium mb-2">Temperature</p>
               <div className="flex items-center gap-3">
                 <span className="text-sm text-[var(--color-muted-foreground)] w-10">16 C</span>
-                <Slider value={temperature} onValueChange={setTemperature} min={16} max={30} step={1} className="flex-1" />
+                <Slider value={temperature} onValueChange={(next) => setTemperature(normalizeSliderValue(next))} min={16} max={30} step={1} className="flex-1" />
                 <span className="text-sm text-[var(--color-muted-foreground)] w-10 text-right">30 C</span>
               </div>
               <p className="text-xs text-[var(--color-muted-foreground)] mt-1 text-center">{temperature[0]} C</p>

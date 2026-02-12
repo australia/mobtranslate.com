@@ -19,7 +19,7 @@ export default function SelectPage() {
           <div className="max-w-sm">
             <Select defaultValue="apple">
               <SelectTrigger>
-                <SelectValue placeholder="Select a fruit" />
+                <SelectValue>Select a fruit</SelectValue>
               </SelectTrigger>
               <SelectPortal>
                 <SelectPositioner>
@@ -37,7 +37,7 @@ export default function SelectPage() {
         </ComponentPreview>
         <CodeBlock code={`<Select defaultValue="apple">
   <SelectTrigger>
-    <SelectValue placeholder="Select a fruit" />
+    <SelectValue>Select a fruit</SelectValue>
   </SelectTrigger>
   <SelectPortal>
     <SelectPositioner>
@@ -56,7 +56,7 @@ export default function SelectPage() {
           <div className="max-w-sm">
             <Select>
               <SelectTrigger>
-                <SelectValue placeholder="Choose a language..." />
+                <SelectValue>Choose a language...</SelectValue>
               </SelectTrigger>
               <SelectPortal>
                 <SelectPositioner>
@@ -75,7 +75,7 @@ export default function SelectPage() {
         </ComponentPreview>
         <CodeBlock code={`<Select>
   <SelectTrigger>
-    <SelectValue placeholder="Choose a language..." />
+    <SelectValue>Choose a language...</SelectValue>
   </SelectTrigger>
   ...
 </Select>`} />
@@ -86,7 +86,7 @@ export default function SelectPage() {
           <div className="max-w-sm">
             <Select>
               <SelectTrigger>
-                <SelectValue placeholder="Select a timezone" />
+                <SelectValue>Select a timezone</SelectValue>
               </SelectTrigger>
               <SelectPortal>
                 <SelectPositioner>
@@ -120,7 +120,7 @@ export default function SelectPage() {
         </ComponentPreview>
         <CodeBlock code={`<Select>
   <SelectTrigger>
-    <SelectValue placeholder="Select a timezone" />
+    <SelectValue>Select a timezone</SelectValue>
   </SelectTrigger>
   <SelectPortal>
     <SelectPositioner>
@@ -148,7 +148,7 @@ export default function SelectPage() {
               <label className="text-sm font-medium">Country</label>
               <Select defaultValue="au">
                 <SelectTrigger>
-                  <SelectValue placeholder="Select country" />
+                  <SelectValue>Select country</SelectValue>
                 </SelectTrigger>
                 <SelectPortal>
                   <SelectPositioner>
@@ -167,7 +167,7 @@ export default function SelectPage() {
               <label className="text-sm font-medium">Role</label>
               <Select>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select role" />
+                  <SelectValue>Select role</SelectValue>
                 </SelectTrigger>
                 <SelectPortal>
                   <SelectPositioner>
@@ -185,7 +185,7 @@ export default function SelectPage() {
               <label className="text-sm font-medium">Status</label>
               <Select defaultValue="active">
                 <SelectTrigger>
-                  <SelectValue placeholder="Select status" />
+                  <SelectValue>Select status</SelectValue>
                 </SelectTrigger>
                 <SelectPortal>
                   <SelectPositioner>
@@ -208,7 +208,7 @@ export default function SelectPage() {
           <div className="max-w-sm">
             <Select>
               <SelectTrigger>
-                <SelectValue placeholder="Select a font" />
+                <SelectValue>Select a font</SelectValue>
               </SelectTrigger>
               <SelectPortal>
                 <SelectPositioner>
@@ -242,7 +242,7 @@ export default function SelectPage() {
             <div className="flex-1">
               <Select defaultValue="2025">
                 <SelectTrigger>
-                  <SelectValue placeholder="Year" />
+                  <SelectValue>Year</SelectValue>
                 </SelectTrigger>
                 <SelectPortal>
                   <SelectPositioner>
@@ -259,7 +259,7 @@ export default function SelectPage() {
             <div className="flex-1">
               <Select defaultValue="03">
                 <SelectTrigger>
-                  <SelectValue placeholder="Month" />
+                  <SelectValue>Month</SelectValue>
                 </SelectTrigger>
                 <SelectPortal>
                   <SelectPositioner>

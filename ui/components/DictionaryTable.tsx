@@ -23,7 +23,7 @@ export interface DictionaryTableProps {
   showLikeButtons?: boolean;
 }
 
-const DictionaryTable: React.FC<DictionaryTableProps> = ({ words, onWordClick, className, showLikeButtons = true }) => {
+const DictionaryTable: React.FC<DictionaryTableProps> = ({ words, onWordClick, className }) => {
     const getDefinitionText = (word: DictionaryWord) => {
       if (word.definitions && word.definitions.length > 0) {
         return word.definitions[0];

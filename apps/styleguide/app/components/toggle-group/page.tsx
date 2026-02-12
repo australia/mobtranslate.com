@@ -14,7 +14,7 @@ export default function ToggleGroupPage() {
 
       <Section title="Single Selection" description="Only one item can be active at a time.">
         <ComponentPreview>
-          <ToggleGroup defaultValue="center">
+          <ToggleGroup defaultValue={['center']}>
             <ToggleGroupItem value="left">Left</ToggleGroupItem>
             <ToggleGroupItem value="center">Center</ToggleGroupItem>
             <ToggleGroupItem value="right">Right</ToggleGroupItem>
@@ -24,7 +24,7 @@ export default function ToggleGroupPage() {
 
       <Section title="Text Formatting" description="Common toolbar pattern.">
         <ComponentPreview>
-          <ToggleGroup type="multiple">
+          <ToggleGroup>
             <ToggleGroupItem value="bold">B</ToggleGroupItem>
             <ToggleGroupItem value="italic">I</ToggleGroupItem>
             <ToggleGroupItem value="underline">U</ToggleGroupItem>
@@ -35,7 +35,7 @@ export default function ToggleGroupPage() {
 
       <Section title="Disabled Items">
         <ComponentPreview>
-          <ToggleGroup defaultValue="grid">
+          <ToggleGroup defaultValue={['grid']}>
             <ToggleGroupItem value="list">List</ToggleGroupItem>
             <ToggleGroupItem value="grid">Grid</ToggleGroupItem>
             <ToggleGroupItem value="kanban" disabled>Kanban</ToggleGroupItem>

@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "lint": "eslint .",
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint --ext .js,.jsx,.ts,.tsx . --ignore-pattern '**/*dictionary.js' --ignore-pattern 'wajarri/examples/**' --ignore-pattern 'wajarri/convert*.js' --ignore-pattern 'wajarri/import-to-sqlite.js' --ignore-pattern 'wajarri/query-database.js' --cache --cache-location .cache/eslint/.eslintcache --max-warnings 0",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
