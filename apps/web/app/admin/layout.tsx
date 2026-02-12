@@ -12,7 +12,8 @@ import {
   BarChart3,
   FileText,
   Home,
-  ChevronLeft
+  ChevronLeft,
+  RefreshCw
 } from 'lucide-react';
 import { cn } from '@/app/lib/utils';
 
@@ -56,6 +57,12 @@ const adminNavItems = [
     href: '/admin/documents',
     icon: FileText,
     description: 'Manage uploaded documents'
+  },
+  {
+    title: 'Dictionary Sync',
+    href: '/admin/dictionary-sync',
+    icon: RefreshCw,
+    description: 'YAML and DB sync control'
   },
   {
     title: 'Settings',

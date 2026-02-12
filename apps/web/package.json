@@ -11,7 +11,10 @@
     "import:kuku-yalanji": "tsx scripts/import-kuku-yalanji.ts",
     "import:wajarri": "tsx scripts/import-wajarri.ts",
     "setup:all": "npm run setup:dictionary && npm run import:kuku-yalanji",
-    "generate-embeddings": "tsx scripts/generate-embeddings.ts"
+    "generate-embeddings": "tsx scripts/generate-embeddings.ts",
+    "sync:dictionaries": "tsx scripts/run-dictionary-sync.ts run_due",
+    "sync:dictionaries:all": "tsx scripts/run-dictionary-sync.ts sync_all",
+    "sync:dictionaries:locations": "tsx scripts/run-dictionary-sync.ts enrich_locations"
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.3.23",
