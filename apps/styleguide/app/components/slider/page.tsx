@@ -204,7 +204,7 @@ export default function SliderPage() {
       <Section title="Best Practices">
         <div className="border-2 border-[var(--color-border)] rounded-lg p-4 space-y-3">
           <div>
-            <p className="text-sm font-semibold text-green-700">Do</p>
+            <p className="text-sm font-semibold text-[var(--color-success)]">Do</p>
             <ul className="text-sm list-disc list-inside space-y-1 mt-1 text-[var(--color-muted-foreground)]">
               <li>Display the current value alongside the slider so users know the exact selection.</li>
               <li>Add min/max labels for context when the range is not obvious.</li>
@@ -214,7 +214,7 @@ export default function SliderPage() {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-red-700">Don&apos;t</p>
+            <p className="text-sm font-semibold text-[var(--color-error)]">Don&apos;t</p>
             <ul className="text-sm list-disc list-inside space-y-1 mt-1 text-[var(--color-muted-foreground)]">
               <li>Use a slider without visible value feedback &mdash; users need to know the current value.</li>
               <li>Use very large ranges with step 1 &mdash; it makes precise selection nearly impossible.</li>

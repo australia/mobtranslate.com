@@ -3,6 +3,7 @@ import { ContextMenu, ContextMenuTrigger, ContextMenuPortal, ContextMenuPosition
 import { Section } from '../../../components/section';
 import { ComponentPreview } from '../../../components/component-preview';
 import { PropsTable } from '../../../components/props-table';
+import { CodeBlock } from '../../../components/code-block';
 
 export default function ContextMenuPage() {
   return (
@@ -35,6 +36,22 @@ export default function ContextMenuPage() {
             </ContextMenuPortal>
           </ContextMenu>
         </ComponentPreview>
+        <CodeBlock code={`<ContextMenu>
+  <ContextMenuTrigger>
+    <div>Right-click here</div>
+  </ContextMenuTrigger>
+  <ContextMenuPortal>
+    <ContextMenuPositioner>
+      <ContextMenuPopup>
+        <ContextMenuItem>Cut</ContextMenuItem>
+        <ContextMenuItem>Copy</ContextMenuItem>
+        <ContextMenuItem>Paste</ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuItem>Select All</ContextMenuItem>
+      </ContextMenuPopup>
+    </ContextMenuPositioner>
+  </ContextMenuPortal>
+</ContextMenu>`} />
       </Section>
 
       <Section title="API Reference">

@@ -166,7 +166,7 @@ export default function AccordionPage() {
                 <div className="p-4 space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-sm font-medium">Status</span>
-                    <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">Active</span>
+                    <span className="mt-badge mt-badge-success">Active</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm font-medium">Members</span>
@@ -282,7 +282,7 @@ export default function AccordionPage() {
       <Section title="Best Practices">
         <div className="border-2 border-[var(--color-border)] rounded-lg p-4 space-y-3">
           <div>
-            <p className="text-sm font-semibold text-green-700">Do</p>
+            <p className="text-sm font-semibold text-[var(--color-success)]">Do</p>
             <ul className="text-sm list-disc list-inside space-y-1 mt-1 text-[var(--color-muted-foreground)]">
               <li>Use concise, descriptive trigger labels so users can scan content quickly.</li>
               <li>Order items by importance or frequency of use.</li>
@@ -292,7 +292,7 @@ export default function AccordionPage() {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-red-700">Don&apos;t</p>
+            <p className="text-sm font-semibold text-[var(--color-error)]">Don&apos;t</p>
             <ul className="text-sm list-disc list-inside space-y-1 mt-1 text-[var(--color-muted-foreground)]">
               <li>Nest accordions within accordions &mdash; it creates confusing navigation.</li>
               <li>Use an accordion for just one or two items &mdash; consider showing content directly instead.</li>

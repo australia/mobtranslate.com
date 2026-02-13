@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { Button } from '@mobtranslate/ui';
 import { Section } from '../../../components/section';
 
 const durations = [
@@ -41,9 +42,9 @@ export default function MotionPage() {
                   }}
                 />
               </div>
-              <button className="mt-btn mt-btn-outline mt-btn-sm" onClick={() => { setPlaying(null); setTimeout(() => setPlaying(d.name), 10); }}>
+              <Button variant="outline" size="sm" onClick={() => { setPlaying(null); setTimeout(() => setPlaying(d.name), 10); }}>
                 Play
-              </button>
+              </Button>
             </div>
           ))}
         </div>

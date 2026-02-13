@@ -75,6 +75,14 @@ export default function ChipPage() {
           { name: 'onDelete', type: '() => void', default: '-', description: 'If provided, shows a delete button.' },
         ]} />
       </Section>
+
+      <Section title="Accessibility">
+        <div className="border border-[var(--color-border)] rounded-lg p-4 space-y-2">
+          <p className="text-sm"><strong>Deletable chips:</strong> The delete button has an accessible label and can be activated with Enter or Space.</p>
+          <p className="text-sm"><strong>Screen readers:</strong> Chip content is read as text. Deletable chips announce the delete action.</p>
+          <p className="text-sm"><strong>Focus:</strong> Deletable chips are focusable via keyboard. Non-interactive chips are not in the tab order.</p>
+        </div>
+      </Section>
     </div>
   );
 }

@@ -255,7 +255,7 @@ useEffect(() => {
       <Section title="Best Practices">
         <div className="border-2 border-[var(--color-border)] rounded-lg p-4 space-y-3">
           <div>
-            <p className="text-sm font-semibold text-green-700">Do</p>
+            <p className="text-sm font-semibold text-[var(--color-success)]">Do</p>
             <ul className="text-sm list-disc list-inside space-y-1 mt-1 text-[var(--color-muted-foreground)]">
               <li>Always pair the progress bar with a text label describing what is in progress.</li>
               <li>Show the numeric percentage or step count alongside the bar for precision.</li>
@@ -265,7 +265,7 @@ useEffect(() => {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-red-700">Don&apos;t</p>
+            <p className="text-sm font-semibold text-[var(--color-error)]">Don&apos;t</p>
             <ul className="text-sm list-disc list-inside space-y-1 mt-1 text-[var(--color-muted-foreground)]">
               <li>Show a progress bar without any label &mdash; users need to know what it represents.</li>
               <li>Use a progress bar for unknown durations &mdash; consider a spinner or indeterminate indicator instead.</li>

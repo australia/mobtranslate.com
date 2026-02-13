@@ -316,7 +316,7 @@ export default function DialogPage() {
       <Section title="Best Practices">
         <div className="border-2 border-[var(--color-border)] rounded-lg p-4 space-y-3">
           <div>
-            <p className="text-sm font-semibold text-green-700">Do</p>
+            <p className="text-sm font-semibold text-[var(--color-success)]">Do</p>
             <ul className="text-sm list-disc list-inside space-y-1 mt-1 text-[var(--color-muted-foreground)]">
               <li>Use dialogs sparingly for critical actions that require user attention.</li>
               <li>Always include a clear title and description to provide context.</li>
@@ -326,7 +326,7 @@ export default function DialogPage() {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-red-700">Don&apos;t</p>
+            <p className="text-sm font-semibold text-[var(--color-error)]">Don&apos;t</p>
             <ul className="text-sm list-disc list-inside space-y-1 mt-1 text-[var(--color-muted-foreground)]">
               <li>Nest dialogs within other dialogs &mdash; use a single dialog with step-based content instead.</li>
               <li>Use dialogs for non-essential information that could be shown inline.</li>

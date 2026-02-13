@@ -4,6 +4,7 @@ import { Collapsible, CollapsibleTrigger, CollapsiblePanel, Button } from '@mobt
 import { Section } from '../../../components/section';
 import { ComponentPreview } from '../../../components/component-preview';
 import { PropsTable } from '../../../components/props-table';
+import { CodeBlock } from '../../../components/code-block';
 
 export default function CollapsiblePage() {
   return (
@@ -16,7 +17,9 @@ export default function CollapsiblePage() {
       <Section title="Default" description="Click the trigger to show/hide content.">
         <ComponentPreview>
           <Collapsible>
-            <CollapsibleTrigger className="mt-btn mt-btn-outline mt-btn-sm">Toggle Content</CollapsibleTrigger>
+            <CollapsibleTrigger asChild>
+              <Button variant="outline" size="sm">Toggle Content</Button>
+            </CollapsibleTrigger>
             <CollapsiblePanel>
               <div className="mt-3 p-4 border-2 border-[var(--color-border)] rounded-lg">
                 <p className="text-sm">This content can be hidden or shown by clicking the trigger above.</p>
@@ -24,6 +27,12 @@ export default function CollapsiblePage() {
             </CollapsiblePanel>
           </Collapsible>
         </ComponentPreview>
+        <CodeBlock code={`<Collapsible>
+  <CollapsibleTrigger>Toggle Content</CollapsibleTrigger>
+  <CollapsiblePanel>
+    <p>This content can be hidden or shown.</p>
+  </CollapsiblePanel>
+</Collapsible>`} />
       </Section>
 
       <Section title="File Tree Pattern" description="A collapsible file tree.">

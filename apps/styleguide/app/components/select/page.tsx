@@ -345,7 +345,7 @@ export default function SelectPage() {
       <Section title="Best Practices">
         <div className="border-2 border-[var(--color-border)] rounded-lg p-4 space-y-3">
           <div>
-            <p className="text-sm font-semibold text-green-700">Do</p>
+            <p className="text-sm font-semibold text-[var(--color-success)]">Do</p>
             <ul className="text-sm list-disc list-inside space-y-1 mt-1 text-[var(--color-muted-foreground)]">
               <li>Use a descriptive placeholder that explains what the user should select.</li>
               <li>Group related options with SelectGroup and SelectGroupLabel for lists of 7+ items.</li>
@@ -355,7 +355,7 @@ export default function SelectPage() {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-red-700">Don&apos;t</p>
+            <p className="text-sm font-semibold text-[var(--color-error)]">Don&apos;t</p>
             <ul className="text-sm list-disc list-inside space-y-1 mt-1 text-[var(--color-muted-foreground)]">
               <li>Use a Select for only 2-3 options &mdash; Radio buttons are more accessible.</li>
               <li>Omit the placeholder when there is no default value.</li>

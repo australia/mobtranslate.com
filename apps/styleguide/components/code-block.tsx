@@ -75,7 +75,7 @@ export function CodeBlock({ code, language = 'tsx' }: { code: string; language?:
           {copied ? 'Copied!' : 'Copy'}
         </button>
       </div>
-      <div className="absolute left-3 top-2 text-[10px] uppercase tracking-wider text-[var(--color-muted-foreground)] opacity-50">
+      <div className="absolute left-3 top-2 text-[10px] uppercase tracking-wider text-[var(--color-background)] opacity-40">
         {language}
       </div>
       <pre className="bg-[var(--color-foreground)] text-[var(--color-background)] pt-8 pb-4 px-4 rounded-lg overflow-x-auto text-sm font-mono code-block">

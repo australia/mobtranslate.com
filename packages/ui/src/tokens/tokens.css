@@ -196,8 +196,8 @@
   --color-popover: #ffffff;
   --color-popover-foreground: #000000;
 
-  --color-border: #000000;
-  --color-input: #000000;
+  --color-border: #d1d5db;
+  --color-input: #d1d5db;
   --color-ring: #2563eb;
 
   /* === SPACING === */

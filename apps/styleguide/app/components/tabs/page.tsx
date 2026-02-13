@@ -242,9 +242,9 @@ export default function TabsPage() {
             </TabsContent>
             <TabsContent value="danger">
               <div className="p-4">
-                <div className="border-2 border-red-200 rounded-lg p-4 bg-red-50">
-                  <h4 className="font-semibold text-sm text-red-800">Delete Account</h4>
-                  <p className="text-xs text-red-600 mt-1">
+                <div className="mt-alert mt-alert-error">
+                  <h4 className="mt-alert-title">Delete Account</h4>
+                  <p className="mt-alert-description">
                     Once you delete your account, there is no going back. This action is permanent.
                   </p>
                 </div>
