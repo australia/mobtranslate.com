@@ -71,7 +71,7 @@ const DictionaryTableWithLikes: React.FC<DictionaryTableWithLikesProps> = ({
               </TableCell>
               <TableCell>
                 {word.type && (
-                  <Badge variant="secondary" className="text-xs">
+                  <Badge variant="outline" className="text-xs">
                     {word.type}
                   </Badge>
                 )}
