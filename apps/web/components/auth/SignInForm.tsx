@@ -35,7 +35,7 @@ export function SignInForm() {
   }
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className="w-full max-w-[28rem]">
       <CardHeader>
         <CardTitle>Sign in</CardTitle>
         <CardDescription>Enter your email below to sign in to your account</CardDescription>

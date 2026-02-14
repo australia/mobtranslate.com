@@ -57,7 +57,7 @@ export function SetupProfileForm({ userEmail }: SetupProfileFormProps) {
   }
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className="w-full max-w-[28rem]">
       <CardHeader>
         <CardTitle>Complete Your Profile</CardTitle>
         <CardDescription>
