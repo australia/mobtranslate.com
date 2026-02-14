@@ -316,6 +316,69 @@
 }
 
 /* === DARK MODE === */
+/* CSS-only fallback for system preference before JS hydrates */
+@media (prefers-color-scheme: dark) {
+  html:not(.light) {
+    --color-primary: #3b82f6;
+    --color-primary-hover: #60a5fa;
+    --color-primary-active: #2563eb;
+    --color-primary-foreground: #ffffff;
+
+    --color-secondary: #f87171;
+    --color-secondary-hover: #fca5a5;
+    --color-secondary-active: #ef4444;
+    --color-secondary-foreground: #ffffff;
+
+    --color-accent: #fbbf24;
+    --color-accent-hover: #fcd34d;
+    --color-accent-active: #f59e0b;
+    --color-accent-foreground: #000000;
+
+    --color-destructive: #f87171;
+    --color-destructive-hover: #fca5a5;
+    --color-destructive-active: #ef4444;
+    --color-destructive-foreground: #ffffff;
+
+    --color-error: #f87171;
+    --color-error-foreground: #ffffff;
+
+    --color-warning: #fbbf24;
+    --color-warning-foreground: #000000;
+
+    --color-success: #4ade80;
+    --color-success-hover: #86efac;
+    --color-success-foreground: #000000;
+
+    --color-info: #60a5fa;
+    --color-info-foreground: #ffffff;
+
+    --color-muted: #1f2937;
+    --color-muted-hover: #374151;
+    --color-muted-foreground: #9ca3af;
+
+    --color-background: #0f172a;
+    --color-foreground: #f1f5f9;
+
+    --color-card: #1e293b;
+    --color-card-foreground: #f1f5f9;
+
+    --color-popover: #1e293b;
+    --color-popover-foreground: #f1f5f9;
+
+    --color-border: #334155;
+    --color-input: #334155;
+    --color-ring: #3b82f6;
+
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.6);
+  }
+}
+
+/* Explicit dark mode via class toggle */
 .dark {
   --color-primary: #3b82f6;
   --color-primary-hover: #60a5fa;

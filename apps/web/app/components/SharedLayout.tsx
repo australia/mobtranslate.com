@@ -27,20 +27,39 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
+
     // Check user preference for dark mode
     if (typeof window !== 'undefined') {
-      // Default to light mode but respect user's saved preference
       const savedMode = localStorage.getItem('darkMode');
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
+      const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+
       if (savedMode === 'true' || (prefersDark && savedMode === null)) {
         setIsDarkMode(true);
         document.documentElement.classList.add('dark');
       } else {
-        // Ensure light mode is applied
         document.documentElement.classList.remove('dark');
       }
+
+      // Listen for system preference changes in real-time
+      const mediaQuery = window.matchMedia?.('(prefers-color-scheme: dark)');
+      const handleChange = (e: MediaQueryListEvent) => {
+        const saved = localStorage.getItem('darkMode');
+        // Only auto-switch if user hasn't explicitly chosen
+        if (saved === null) {
+          setIsDarkMode(e.matches);
+          if (e.matches) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }
+      };
+      mediaQuery?.addEventListener('change', handleChange);
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        mediaQuery?.removeEventListener('change', handleChange);
+      };
     }
 
     return () => window.removeEventListener('scroll', handleScroll);
