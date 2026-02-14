@@ -222,6 +222,40 @@ export async function getActiveLanguages() {
   return data as Language[];
 }
 
+export async function getLanguageStats() {
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .from('languages')
+    .select('id, name, code')
+    .eq('is_active', true);
+
+  if (error) throw error;
+
+  // Get total word count
+  const { count, error: countError } = await supabase
+    .from('words')
+    .select('*', { count: 'exact', head: true });
+
+  if (countError) throw countError;
+
+  // Get per-language word counts
+  const languageCounts: Record<string, number> = {};
+  for (const lang of data || []) {
+    const { count: langCount } = await supabase
+      .from('words')
+      .select('*', { count: 'exact', head: true })
+      .eq('language_id', lang.id);
+    languageCounts[lang.code] = langCount || 0;
+  }
+
+  return {
+    totalLanguages: data?.length || 0,
+    totalWords: count || 0,
+    wordsByLanguage: languageCounts,
+  };
+}
+
 export async function getLocationWordsForLanguage(languageCode: string) {
   const supabase = createClient();
 
