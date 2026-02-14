@@ -99,11 +99,11 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
         <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="flex h-20 sm:h-24 items-center justify-between">
             {/* Logo - Update font */}
-            <Link 
-              href="/" 
-              className="flex items-center space-x-3 text-2xl sm:text-3xl font-bold text-foreground hover:text-primary transition-all"
+            <Link
+              href="/"
+              className="flex items-center space-x-3 text-xl sm:text-2xl md:text-3xl font-bold text-foreground hover:text-primary transition-all shrink-0"
             >
-              <span className="bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent">Mob Translate</span>
+              <span className="bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent whitespace-nowrap">Mob Translate</span>
             </Link>
             
             {/* Desktop Navigation - Simplify hover effect */}

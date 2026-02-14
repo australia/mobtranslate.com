@@ -29,21 +29,21 @@ export default async function About() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-6 mb-16">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-16">
         <Card>
-          <CardContent className="p-6 text-center">
+          <CardContent className="p-5 sm:p-6 text-center">
             <div className="text-3xl font-display font-black text-primary">{stats.totalLanguages}</div>
             <div className="text-sm text-muted-foreground mt-1">Languages</div>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-6 text-center">
+          <CardContent className="p-5 sm:p-6 text-center">
             <div className="text-3xl font-display font-black text-primary">{stats.totalWords.toLocaleString()}</div>
             <div className="text-sm text-muted-foreground mt-1">Dictionary Words</div>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-6 text-center">
+          <CardContent className="p-5 sm:p-6 text-center">
             <div className="text-3xl font-display font-black text-primary">100%</div>
             <div className="text-sm text-muted-foreground mt-1">Open Source</div>
           </CardContent>

@@ -151,13 +151,12 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
   };
 
   return (
-    // Remove shadow, card background, and rounded corners
-    <div className="max-w-7xl mx-auto my-8 border border-border">
-      {/* Input Section - Remove card background */}
+    <div className="max-w-7xl mx-auto my-8 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-2xl overflow-hidden">
+      {/* Input Section */}
       <div className="p-4 md:p-6">
-        <div className="flex items-center gap-2 mb-4 text-muted-foreground">
+        <div className="flex items-center gap-2 mb-4 text-white/60">
           <Globe size={16} />
-          <span>Translate from English</span>
+          <span className="text-sm">Translate from English</span>
         </div>
         <div className="relative mb-4">
           <Textarea
@@ -166,25 +165,23 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             placeholder="Enter English text to translate..."
-            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[150px] text-sm leading-relaxed transition-all duration-200"
+            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
           />
-          <div 
+          <div
             className="absolute bottom-2 right-2 text-xs text-muted-foreground"
           >
             {inputText.length} characters
           </div>
         </div>
-        <div className="mt-4 flex items-center justify-between">
-          <div className="text-sm text-muted-foreground">
-          </div>
+        <div className="mt-4 flex items-center justify-end">
           <div className="flex items-center gap-2">
             <select
               value={selectedLanguage}
               onChange={(e) => setSelectedLanguage(e.target.value)}
-              className="px-4 py-1.5 border border-input bg-background text-foreground focus:outline-none focus:ring-1 focus:ring-primary text-sm transition-colors duration-200"
+              className="px-4 py-2 rounded-lg border border-white/20 bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-white/30 text-sm transition-colors duration-200 backdrop-blur-sm"
             >
               {languages.map((lang) => (
-                <option key={lang.code} value={lang.code}>
+                <option key={lang.code} value={lang.code} className="bg-gray-900 text-white">
                   {lang.name || lang.code}
                 </option>
               ))}
@@ -192,6 +189,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             <Button
               onClick={handleTranslate}
               disabled={!canTranslate}
+              className="rounded-lg"
             >
               {isLoading ? (
                 <div className="flex items-center gap-2">
@@ -210,10 +208,9 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
       </div>
 
       {/* Output Section */}
-      {(outputText || error || isLoading) && ( // Ensure container shows for loading state too
-        <div className="mt-6"> {/* Outer container, no padding/border */}
-          {/* Content Container - No Border, Better Padding */}
-          <div className="text-foreground text-base leading-relaxed bg-background/50 rounded-sm">
+      {(outputText || error || isLoading) && (
+        <div className="border-t border-white/10">
+          <div className="text-white text-base leading-relaxed">
             {/* Inner Container with Improved Padding */}
             <div className="py-5 px-6 relative" ref={outputRef}> {/* Added relative positioning */}
               {error ? (
@@ -273,7 +270,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             </div>
           </div>
 
-           <div className="p-6 mt-3 text-xs text-muted-foreground">
+           <div className="px-6 pb-4 text-xs text-white/40">
                 <p>
                   Note: Translations are generated using AI and may not be 100% accurate.
                   Please consult with language experts for critical translations.
