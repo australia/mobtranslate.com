@@ -71,8 +71,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
-.animate-slide-in { animation: slideIn 0.3s ease-out; }
+.animate-slide-in { animation: slideIn 0.3s ease-out backwards; }
 .animate-scale-in { animation: scaleIn 0.2s ease-out; }
+
+/* INTERACTIVE UTILITIES */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+.animate-shimmer { animation: shimmer 2s ease-in-out infinite; }
+.animate-wave { animation: wave 1.5s ease-in-out infinite; }
+
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hover-grow {
+  transition: transform 0.15s ease;
+}
+.hover-grow:hover {
+  transform: scale(1.03);
+}
 
 :focus-visible {
   outline: none;

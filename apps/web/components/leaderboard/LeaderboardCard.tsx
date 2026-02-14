@@ -102,7 +102,7 @@ export default function LeaderboardCard({
 
           {/* Champion Info */}
           {champion ? (
-            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg p-5 border border-yellow-200">
+            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-950/30 dark:to-orange-950/20 rounded-lg p-5 border border-yellow-200 dark:border-yellow-800/40">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                   <div className="h-10 w-10 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center text-white font-bold">
