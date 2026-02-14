@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { Users, FileText, MessageSquare, TrendingUp, Clock, CheckCircle, Activity, Calendar } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@mobtranslate/ui';
 
 export default async function AdminDashboard() {
   const supabase = createClient();
@@ -32,6 +32,7 @@ export default async function AdminDashboard() {
     { count: totalComments = 0 },
     { count: improvements = 0 },
     { data: recentActivity },
+    // eslint-disable-next-line no-unused-vars
     { data: languageStats },
     { count: totalLanguages = 0 }
   ] = await Promise.all([
@@ -108,13 +109,13 @@ export default async function AdminDashboard() {
     .in('activity_type', ['word_rejected', 'improvement_rejected'])
     .gte('created_at', thirtyDaysAgo);
 
-  const totalReviews = approvedCount + rejectedCount;
-  const approvalRate = totalReviews > 0 ? Math.round((approvedCount / totalReviews) * 100) : 0;
+  const totalReviews = (approvedCount || 0) + (rejectedCount || 0);
+  const approvalRate = totalReviews > 0 ? Math.round(((approvedCount || 0) / totalReviews) * 100) : 0;
 
   // Handle totalUsers from RPC result or fallback
   let totalUsers = 0;
   if (totalUsersResult.data !== null) {
-    totalUsers = totalUsersResult.data;
+    totalUsers = totalUsersResult.data as number;
   } else {
     // Fallback to counting user_profiles if RPC fails
     const { count } = await supabase
@@ -124,22 +125,24 @@ export default async function AdminDashboard() {
   }
 
   // Calculate growth percentages
-  const { count: previousMonthUsers = 0 } = await supabase
+  const { count: previousMonthUsersRaw } = await supabase
     .from('user_profiles')
     .select('*', { count: 'exact', head: true })
     .lt('created_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString());
-  
-  const userGrowth = previousMonthUsers > 0 
+  const previousMonthUsers = previousMonthUsersRaw || 0;
+
+  const userGrowth = previousMonthUsers > 0
     ? Math.round(((totalUsers - previousMonthUsers) / previousMonthUsers) * 100)
     : 0;
 
-  const { count: previousMonthWords = 0 } = await supabase
+  const { count: previousMonthWordsRaw } = await supabase
     .from('words')
     .select('*', { count: 'exact', head: true })
     .lt('created_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString());
-  
+  const previousMonthWords = previousMonthWordsRaw || 0;
+
   const wordGrowth = previousMonthWords > 0
-    ? Math.round(((totalWords - previousMonthWords) / previousMonthWords) * 100)
+    ? Math.round((((totalWords || 0) - previousMonthWords) / previousMonthWords) * 100)
     : 0;
 
   const statCards = [
@@ -148,7 +151,7 @@ export default async function AdminDashboard() {
       value: totalUsers,
       description: `${activeUsers} active this month`,
       icon: Users,
-      color: 'text-blue-600 bg-blue-100',
+      color: 'text-primary bg-primary/10',
       change: userGrowth > 0 ? `+${userGrowth}%` : userGrowth < 0 ? `${userGrowth}%` : null
     },
     {
@@ -156,7 +159,7 @@ export default async function AdminDashboard() {
       value: pendingReviews,
       description: 'Words awaiting review',
       icon: Clock,
-      color: 'text-orange-600 bg-orange-100',
+      color: 'text-warning bg-warning/10',
       change: null
     },
     {
@@ -164,7 +167,7 @@ export default async function AdminDashboard() {
       value: totalWords,
       description: `Across ${totalLanguages} languages`,
       icon: FileText,
-      color: 'text-green-600 bg-green-100',
+      color: 'text-success bg-success/10',
       change: wordGrowth > 0 ? `+${wordGrowth}%` : wordGrowth < 0 ? `${wordGrowth}%` : null
     },
     {
@@ -172,7 +175,7 @@ export default async function AdminDashboard() {
       value: totalComments,
       description: 'User interactions',
       icon: MessageSquare,
-      color: 'text-gray-800 bg-gray-100',
+      color: 'text-foreground bg-muted',
       change: null
     },
     {
@@ -180,7 +183,7 @@ export default async function AdminDashboard() {
       value: improvements,
       description: 'Pending suggestions',
       icon: TrendingUp,
-      color: 'text-indigo-600 bg-indigo-100',
+      color: 'text-primary bg-primary/10',
       change: null
     },
     {
@@ -188,7 +191,7 @@ export default async function AdminDashboard() {
       value: `${approvalRate}%`,
       description: 'Last 30 days',
       icon: CheckCircle,
-      color: 'text-teal-600 bg-teal-100',
+      color: 'text-primary bg-primary/10',
       change: null
     }
   ];
@@ -223,7 +226,7 @@ export default async function AdminDashboard() {
                   {stat.description}
                 </p>
                 {stat.change && (
-                  <span className="text-xs font-medium text-green-600">
+                  <span className="text-xs font-medium text-success">
                     {stat.change}
                   </span>
                 )}
@@ -251,17 +254,17 @@ export default async function AdminDashboard() {
                     switch (activity.activity_type) {
                       case 'word_approved':
                       case 'improvement_approved':
-                        return <CheckCircle className="h-4 w-4 text-green-600" />;
+                        return <CheckCircle className="h-4 w-4 text-success" />;
                       case 'word_rejected':
                       case 'improvement_rejected':
-                        return <Clock className="h-4 w-4 text-red-600" />;
+                        return <Clock className="h-4 w-4 text-error" />;
                       case 'comment_created':
                       case 'comment_moderated':
-                        return <MessageSquare className="h-4 w-4 text-gray-800" />;
+                        return <MessageSquare className="h-4 w-4 text-foreground" />;
                       case 'user_role_assigned':
-                        return <Users className="h-4 w-4 text-blue-600" />;
+                        return <Users className="h-4 w-4 text-primary" />;
                       default:
-                        return <Activity className="h-4 w-4 text-gray-600" />;
+                        return <Activity className="h-4 w-4 text-muted-foreground" />;
                     }
                   };
 
@@ -269,17 +272,17 @@ export default async function AdminDashboard() {
                     switch (activity.activity_type) {
                       case 'word_approved':
                       case 'improvement_approved':
-                        return 'bg-green-100';
+                        return 'bg-success/10';
                       case 'word_rejected':
                       case 'improvement_rejected':
-                        return 'bg-red-100';
+                        return 'bg-error/10';
                       case 'comment_created':
                       case 'comment_moderated':
-                        return 'bg-gray-100';
+                        return 'bg-muted';
                       case 'user_role_assigned':
-                        return 'bg-blue-100';
+                        return 'bg-primary/10';
                       default:
-                        return 'bg-gray-100';
+                        return 'bg-muted';
                     }
                   };
 
@@ -327,7 +330,7 @@ export default async function AdminDashboard() {
                         {getActivityIcon()}
                       </div>
                       <div className="flex-1">
-                        <p className="text-sm font-medium">{activity.activity_type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</p>
+                        <p className="text-sm font-medium">{activity.activity_type.replace(/_/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}</p>
                         <p className="text-xs text-muted-foreground">{getActivityDescription()}</p>
                         <p className="text-xs text-muted-foreground">{formatTimeAgo(activity.created_at)}</p>
                       </div>
@@ -351,10 +354,10 @@ export default async function AdminDashboard() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {pendingReviews > 0 && (
+              {(pendingReviews || 0) > 0 && (
                 <div className="flex items-start gap-3">
-                  <div className="h-8 w-8 rounded-full bg-orange-100 flex items-center justify-center">
-                    <Clock className="h-4 w-4 text-orange-600" />
+                  <div className="h-8 w-8 rounded-full bg-warning/10 flex items-center justify-center">
+                    <Clock className="h-4 w-4 text-warning" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium">Pending Reviews</p>
@@ -363,10 +366,10 @@ export default async function AdminDashboard() {
                   </div>
                 </div>
               )}
-              {improvements > 0 && (
+              {(improvements || 0) > 0 && (
                 <div className="flex items-start gap-3">
-                  <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center">
-                    <TrendingUp className="h-4 w-4 text-indigo-600" />
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <TrendingUp className="h-4 w-4 text-primary" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium">Improvement Suggestions</p>
@@ -376,8 +379,8 @@ export default async function AdminDashboard() {
                 </div>
               )}
               <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
+                <div className="h-8 w-8 rounded-full bg-success/10 flex items-center justify-center">
+                  <CheckCircle className="h-4 w-4 text-success" />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm font-medium">Monthly Activity</p>

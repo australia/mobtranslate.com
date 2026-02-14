@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { X, RotateCcw, Trophy, Clock, Sparkles, Zap } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, Button } from '@mobtranslate/ui';
 
 interface GameWord {
   id: string;
@@ -153,18 +153,19 @@ export default function MemoryGame({ words, onClose, languageName }: MemoryGameP
           <h2 className="text-3xl font-display font-black">Memory Match</h2>
           <p className="text-muted-foreground">Match {languageName} words with their translations</p>
         </div>
-        <button
+        <Button
+          variant="ghost"
           onClick={onClose}
-          className="p-3 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
+          className="p-3 rounded-xl bg-muted hover:bg-muted/80"
         >
           <X className="w-6 h-6" />
-        </button>
+        </Button>
       </div>
 
       {/* Stats Bar */}
       <div className="flex flex-wrap items-center gap-4 mb-8 p-4 rounded-2xl bg-muted/50">
         <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-background">
-          <Clock className="w-4 h-4 text-gray-700" />
+          <Clock className="w-4 h-4 text-foreground" />
           <span className="font-mono font-bold">{formatTime(timer)}</span>
         </div>
         <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-background">
@@ -172,7 +173,7 @@ export default function MemoryGame({ words, onClose, languageName }: MemoryGameP
           <span className="font-bold">{matchedPairs}/6 pairs</span>
         </div>
         <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-background">
-          <Sparkles className="w-4 h-4 text-blue-500" />
+          <Sparkles className="w-4 h-4 text-primary" />
           <span className="font-bold">{moves} moves</span>
         </div>
         {streak > 0 && (
@@ -181,25 +182,25 @@ export default function MemoryGame({ words, onClose, languageName }: MemoryGameP
             <span className="font-bold">{streak} streak!</span>
           </div>
         )}
-        <button
+        <Button
           onClick={initializeGame}
-          className="ml-auto flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold hover:opacity-90 transition-opacity"
+          className="ml-auto flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-bold hover:opacity-90"
         >
           <RotateCcw className="w-4 h-4" />
           Reset
-        </button>
+        </Button>
       </div>
 
       {/* Game Board */}
       <div className="flex-1 flex items-center justify-center">
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl w-full">
           {cards.map((card) => (
-            <button
+            <Button
               key={card.id}
               onClick={() => handleCardClick(card.id)}
               disabled={card.isFlipped || card.isMatched}
               className={cn(
-                "aspect-square rounded-2xl border-4 border-foreground transition-all duration-300 perspective-1000",
+                "aspect-square rounded-2xl border-4 border-foreground transition-all duration-300 perspective-1000 h-auto p-0",
                 card.isMatched && "opacity-50 scale-95",
                 !card.isFlipped && !card.isMatched && "hover:scale-105 cursor-pointer"
               )}
@@ -217,7 +218,7 @@ export default function MemoryGame({ words, onClose, languageName }: MemoryGameP
                 <div
                   className={cn(
                     "absolute inset-0 rounded-xl backface-hidden flex items-center justify-center",
-                    "bg-gradient-to-br from-blue-600 to-gray-800"
+                    "bg-gradient-to-br from-primary to-primary/70"
                   )}
                 >
                   <div className="text-4xl">❓</div>
@@ -240,7 +241,7 @@ export default function MemoryGame({ words, onClose, languageName }: MemoryGameP
                   </span>
                 </div>
               </div>
-            </button>
+            </Button>
           ))}
         </div>
       </div>
@@ -255,7 +256,7 @@ export default function MemoryGame({ words, onClose, languageName }: MemoryGameP
 
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="bg-muted rounded-xl p-4">
-                <div className="text-2xl font-bold text-gray-800">{formatTime(timer)}</div>
+                <div className="text-2xl font-bold text-foreground">{formatTime(timer)}</div>
                 <div className="text-xs text-muted-foreground">Time</div>
               </div>
               <div className="bg-muted rounded-xl p-4">
@@ -269,18 +270,19 @@ export default function MemoryGame({ words, onClose, languageName }: MemoryGameP
             </div>
 
             <div className="flex gap-4">
-              <button
+              <Button
                 onClick={initializeGame}
                 className="flex-1 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 Play Again
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="outline"
                 onClick={onClose}
                 className="flex-1 px-6 py-3 bg-background text-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 Exit
-              </button>
+              </Button>
             </div>
           </div>
         </div>

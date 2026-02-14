@@ -2,13 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../../../components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Card, CardContent } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
-import { Button } from '@/app/components/ui/button';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Card, CardContent, Badge } from '@mobtranslate/ui';
 
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 
 const Breadcrumbs = ({ items, className }: { items: { href: string; label: string }[]; className?: string }) => (
   <nav className={`flex items-center gap-2 text-sm ${className || ''}`}>
@@ -27,7 +25,6 @@ const Breadcrumbs = ({ items, className }: { items: { href: string; label: strin
   </nav>
 );
 import { getWordsForLanguage, searchWords } from '@/lib/supabase/queries';
-import type { Word } from '@/lib/supabase/types';
 import { WordDetailContent } from './components/WordDetailContent';
 
 export const revalidate = 300; // Revalidate every 5 minutes
@@ -122,7 +119,7 @@ export default async function WordDetailPage({
                       href={`/dictionaries/${languageCode}/words/${encodeURIComponent(related.word)}`}
                       className="block"
                     >
-                      <Card hover className="h-full">
+                      <Card className="h-full hover:shadow-lg transition-shadow">
                         <CardContent className="p-4">
                           <h3 className="font-medium font-crimson text-lg mb-2 text-primary">
                             {related.word}
@@ -144,14 +141,10 @@ export default async function WordDetailPage({
             )}
             
             <div className="pt-6 border-t">
-              <Button asChild variant="outline">
-                <Link href={`/dictionaries/${languageCode}`}>
-                  <svg className="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
+              <Link href={`/dictionaries/${languageCode}`} className="mt-btn mt-btn-outline mt-btn-md">
+                  <ChevronLeft className="mr-2 h-4 w-4" />
                   Back to {language.name} Dictionary
-                </Link>
-              </Button>
+              </Link>
             </div>
           </div>
         </Section>

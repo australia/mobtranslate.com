@@ -4,11 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Card, CardContent, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Button } from '@/app/components/ui/button';
-import { LoadingState } from '@/app/components/ui/loading-state';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Card, CardContent, CardHeader, CardTitle, Button } from '@mobtranslate/ui';
+import { LoadingState } from '@/components/layout/LoadingState';
 import { Brain, Play, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 
@@ -33,6 +32,7 @@ export default function LearnPage() {
     }
 
     fetchLanguages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading]);
 
   const fetchLanguages = async () => {

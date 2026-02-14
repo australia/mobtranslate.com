@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Heart } from 'lucide-react';
-import { cn } from '../app/lib/utils';
+import { Button, cn } from '@mobtranslate/ui';
 import { useWordLike } from '@/lib/hooks/useWordLike';
 
 interface WordLikeButtonProps {
@@ -53,39 +53,40 @@ export function WordLikeButton({
 
   const variantClasses = {
     default: cn(
-      "relative bg-white dark:bg-gray-800 shadow-sm hover:shadow-md",
-      "border border-gray-200 dark:border-gray-700",
+      "relative bg-card shadow-sm hover:shadow-md",
+      "border border-border",
       "transition-all duration-200",
-      isLiked 
-        ? "bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800" 
-        : "hover:bg-gray-50 dark:hover:bg-gray-750"
+      isLiked
+        ? "bg-red-50 border-red-200"
+        : "hover:bg-muted"
     ),
     minimal: cn(
       "relative",
       "transition-all duration-200",
       isLiked
-        ? "bg-red-100 dark:bg-red-900/30"
-        : "bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
+        ? "bg-red-100"
+        : "bg-muted hover:bg-muted/80"
     ),
     floating: cn(
-      "relative bg-white dark:bg-gray-800",
+      "relative bg-card",
       "shadow-lg hover:shadow-xl",
       "border-0",
       "transition-all duration-200 hover:-translate-y-0.5",
-      isLiked && "bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-950/30 dark:to-pink-950/30"
+      isLiked && "bg-gradient-to-br from-red-50 to-pink-50"
     )
   };
 
   const currentSize = sizeClasses[size];
 
   return (
-    <button
+    <Button
+      variant="ghost"
       onClick={handleClick}
       disabled={isLoading}
       className={cn(
         "group rounded-full flex items-center justify-center",
         "focus:outline-none focus:ring-2 focus:ring-offset-2",
-        isLiked ? "focus:ring-red-500" : "focus:ring-gray-400",
+        "focus:ring-ring",
         variantClasses[variant],
         showLabel ? "px-4 py-2 w-auto" : currentSize.button,
         isLoading && "opacity-50 cursor-not-allowed",
@@ -99,8 +100,8 @@ export function WordLikeButton({
             "transition-all duration-300",
             currentSize.icon,
             isLiked 
-              ? "text-red-500 fill-current" 
-              : "text-gray-400 group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-300",
+              ? "text-red-500 fill-current"
+              : "text-muted-foreground group-hover:text-foreground",
             isAnimating && "scale-125"
           )}
         />
@@ -121,8 +122,8 @@ export function WordLikeButton({
           "ml-2 font-medium transition-colors duration-200",
           currentSize.text,
           isLiked 
-            ? "text-red-600 dark:text-red-400" 
-            : "text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200"
+            ? "text-red-500"
+            : "text-muted-foreground group-hover:text-foreground"
         )}>
           {isLiked ? 'Liked' : 'Like'}
         </span>
@@ -130,10 +131,10 @@ export function WordLikeButton({
       
       {/* Loading spinner overlay */}
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center rounded-full bg-white/50 dark:bg-gray-800/50">
-          <div className="h-4 w-4 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+        <div className="absolute inset-0 flex items-center justify-center rounded-full bg-card/50">
+          <div className="h-4 w-4 border-2 border-border border-t-foreground rounded-full animate-spin" />
         </div>
       )}
-    </button>
+    </Button>
   );
 }

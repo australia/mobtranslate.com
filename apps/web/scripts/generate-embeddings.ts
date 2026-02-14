@@ -135,8 +135,9 @@ async function processWords(batchSize: number = 50) {
     for (const word of words) {
       try {
         // Create comprehensive context for the word
-        const context = createWordContext(word as WordData);
-        console.log(`\nProcessing: ${word.word} (${word.languages?.name})`);
+        const context = createWordContext(word as unknown as WordData);
+        const wordData = word as unknown as WordData;
+        console.log(`\nProcessing: ${wordData.word} (${wordData.languages?.name})`);
         console.log('Context:', context.substring(0, 200) + '...');
 
         // Generate embedding
@@ -176,7 +177,7 @@ async function processWords(batchSize: number = 50) {
 }
 
 // Also fetch related words through translations
-async function enrichWordData(wordId: number): Promise<string[]> {
+async function _enrichWordData(wordId: number): Promise<string[]> {
   // Get words that share translations
   const { data: relatedWords } = await supabase
     .from('translations')
@@ -198,11 +199,13 @@ async function enrichWordData(wordId: number): Promise<string[]> {
   const related: string[] = [];
   if (relatedWords) {
     relatedWords.forEach(r => {
-      if (r.source_word && r.word_id !== wordId) {
-        related.push(`Related: ${r.source_word.word} (${r.source_word.languages?.name})`);
+      const sourceWord = r.source_word as unknown as { word: string; languages?: { name: string } } | null;
+      const targetWord = r.target_word as unknown as { word: string; languages?: { name: string } } | null;
+      if (sourceWord && r.word_id !== wordId) {
+        related.push(`Related: ${sourceWord.word} (${sourceWord.languages?.name})`);
       }
-      if (r.target_word && r.target_word_id !== wordId) {
-        related.push(`Related: ${r.target_word.word} (${r.target_word.languages?.name})`);
+      if (targetWord && r.target_word_id !== wordId) {
+        related.push(`Related: ${targetWord.word} (${targetWord.languages?.name})`);
       }
     });
   }

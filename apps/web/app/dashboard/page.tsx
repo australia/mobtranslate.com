@@ -4,10 +4,9 @@ import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Badge } from '@/app/components/ui/badge';
-import { Button } from '@/app/components/ui/button';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Badge, Button } from '@mobtranslate/ui';
 import { StatsCard } from '@/components/stats/StatsCard';
 import { DashboardSkeleton } from '@/components/loading/Skeleton';
 import { useDashboardData } from '@/hooks/useApi';
@@ -86,7 +85,7 @@ export default function DashboardPage() {
             description="Track your progress across all languages"
             badge={
               overviewStats.currentStreak > 0 ? (
-                <Badge variant="default" className="ml-2 animate-scale-in">
+                <Badge variant="primary" className="ml-2 animate-scale-in">
                   <Trophy className="h-3 w-3 mr-1" />
                   {overviewStats.currentStreak} day streak
                 </Badge>
@@ -98,7 +97,7 @@ export default function DashboardPage() {
             <DashboardSkeleton />
           ) : error ? (
             <div className="mt-8 text-center">
-              <p className="text-red-600">Failed to load dashboard data</p>
+              <p className="text-error">Failed to load dashboard data</p>
               <Button onClick={() => window.location.reload()} className="mt-4">
                 Retry
               </Button>
@@ -112,7 +111,7 @@ export default function DashboardPage() {
                     title="Languages"
                     value={overviewStats.totalLanguages}
                     icon={Globe}
-                    iconColor="text-blue-500"
+                    iconColor="text-primary"
                     className="animate-slide-in"
                     style={{ animationDelay: '0ms' }}
                   />
@@ -120,7 +119,7 @@ export default function DashboardPage() {
                     title="Total Sessions"
                     value={overviewStats.totalSessions}
                     icon={BookOpen}
-                    iconColor="text-green-500"
+                    iconColor="text-success"
                     className="animate-slide-in"
                     style={{ animationDelay: '50ms' }}
                   />
@@ -128,7 +127,7 @@ export default function DashboardPage() {
                     title="Words Learned"
                     value={overviewStats.totalWords}
                     icon={Target}
-                    iconColor="text-gray-700"
+                    iconColor="text-muted-foreground"
                     className="animate-slide-in"
                     style={{ animationDelay: '100ms' }}
                   />
@@ -136,12 +135,12 @@ export default function DashboardPage() {
                     title="Accuracy"
                     value={`${overviewStats.overallAccuracy.toFixed(0)}%`}
                     icon={Activity}
-                    iconColor="text-orange-500"
+                    iconColor="text-warning"
                     progress={{
                       value: overviewStats.overallAccuracy,
                       max: 100,
-                      color: overviewStats.overallAccuracy >= 80 ? 'bg-green-500' : 
-                             overviewStats.overallAccuracy >= 60 ? 'bg-yellow-500' : 'bg-red-500'
+                      color: overviewStats.overallAccuracy >= 80 ? 'bg-success' :
+                             overviewStats.overallAccuracy >= 60 ? 'bg-warning' : 'bg-error'
                     }}
                     className="animate-slide-in"
                     style={{ animationDelay: '150ms' }}
@@ -149,9 +148,9 @@ export default function DashboardPage() {
                   <StatsCard
                     title="Current Streak"
                     value={overviewStats.currentStreak}
-                    subtitle="days"
+                    description="days"
                     icon={Trophy}
-                    iconColor="text-yellow-500"
+                    iconColor="text-warning"
                     className="animate-slide-in"
                     style={{ animationDelay: '200ms' }}
                   />
@@ -159,7 +158,7 @@ export default function DashboardPage() {
                     title="Study Time"
                     value={formatStudyTime(overviewStats.totalStudyTime)}
                     icon={Clock}
-                    iconColor="text-indigo-500"
+                    iconColor="text-primary"
                     className="animate-slide-in"
                     style={{ animationDelay: '250ms' }}
                   />
@@ -169,14 +168,14 @@ export default function DashboardPage() {
               {/* Language Cards */}
               <Section className="mt-12">
                 <h2 className="text-2xl font-semibold mb-8 flex items-center">
-                  <Zap className="h-5 w-5 mr-2 text-yellow-500" />
+                  <Zap className="h-5 w-5 mr-2 text-warning" />
                   Your Languages
                 </h2>
                 {languageStats.length === 0 ? (
-                  <div className="bg-white rounded-xl border p-16 text-center animate-scale-in">
-                    <Globe className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <div className="bg-card rounded-xl border p-16 text-center animate-scale-in">
+                    <Globe className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                     <h3 className="text-lg font-medium mb-2">No languages yet</h3>
-                    <p className="text-gray-600 mb-6">Start learning your first language to see your progress here</p>
+                    <p className="text-muted-foreground mb-6">Start learning your first language to see your progress here</p>
                     <Link href="/learn">
                       <Button className="hover-grow">
                         Start Learning
@@ -193,7 +192,7 @@ export default function DashboardPage() {
                         className="block animate-slide-in hover-lift"
                         style={{ animationDelay: `${index * 50}ms` }}
                       >
-                        <div className="bg-white rounded-xl border hover:border-blue-300 p-8 h-full transition-all duration-200">
+                        <div className="bg-card rounded-xl border hover:border-primary/30 p-8 h-full transition-all duration-200">
                           <div className="flex items-center justify-between mb-4">
                             <h3 className="text-xl font-semibold truncate">{lang.language}</h3>
                             <Badge variant="outline" className="flex-shrink-0 ml-2">
@@ -203,47 +202,47 @@ export default function DashboardPage() {
                           
                           <div className="grid grid-cols-2 gap-4 mb-6">
                             <div>
-                              <p className="text-sm text-gray-600">Sessions</p>
+                              <p className="text-sm text-muted-foreground">Sessions</p>
                               <p className="text-xl font-semibold">{lang.totalSessions}</p>
                             </div>
                             <div>
-                              <p className="text-sm text-gray-600">Words</p>
+                              <p className="text-sm text-muted-foreground">Words</p>
                               <p className="text-xl font-semibold">{lang.totalWords}</p>
                             </div>
                             <div>
-                              <p className="text-sm text-gray-600">Accuracy</p>
+                              <p className="text-sm text-muted-foreground">Accuracy</p>
                               <p className={`text-xl font-semibold ${
-                                lang.accuracy >= 80 ? 'text-green-600' :
-                                lang.accuracy >= 60 ? 'text-yellow-600' :
-                                'text-red-600'
+                                lang.accuracy >= 80 ? 'text-success' :
+                                lang.accuracy >= 60 ? 'text-warning' :
+                                'text-error'
                               }`}>
                                 {lang.accuracy.toFixed(0)}%
                               </p>
                             </div>
                             <div>
-                              <p className="text-sm text-gray-600">Streak</p>
+                              <p className="text-sm text-muted-foreground">Streak</p>
                               <p className="text-xl font-semibold flex items-center">
                                 {lang.streak}
-                                {lang.streak > 0 && <Zap className="h-4 w-4 ml-1 text-orange-500" />}
+                                {lang.streak > 0 && <Zap className="h-4 w-4 ml-1 text-warning" />}
                               </p>
                             </div>
                           </div>
                           
                           <div className="pt-3 border-t">
                             <div className="flex items-center justify-between text-sm">
-                              <span className="text-gray-600">Last practiced</span>
+                              <span className="text-muted-foreground">Last practiced</span>
                               <span className="font-medium text-right">{formatDate(lang.lastPracticed)}</span>
                             </div>
                             <div className="flex items-center justify-between text-sm mt-1">
-                              <span className="text-gray-600">Study time</span>
+                              <span className="text-muted-foreground">Study time</span>
                               <span className="font-medium">{formatStudyTime(lang.studyTime)}</span>
                             </div>
                           </div>
 
                           <div className="pt-3 mt-3 border-t">
                             <div className="flex items-center justify-between">
-                              <span className="text-sm text-blue-600">View details</span>
-                              <ChevronRight className="h-4 w-4 text-blue-600" />
+                              <span className="text-sm text-primary">View details</span>
+                              <ChevronRight className="h-4 w-4 text-primary" />
                             </div>
                           </div>
                         </div>
@@ -259,37 +258,37 @@ export default function DashboardPage() {
                   <h2 className="text-2xl font-semibold mb-8">Quick Actions</h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                     <Link href="/learn" className="block animate-slide-in hover-lift">
-                      <div className="bg-white rounded-xl border hover:border-green-300 p-8 h-full transition-all duration-200">
+                      <div className="bg-card rounded-xl border hover:border-success/30 p-8 h-full transition-all duration-200">
                         <div className="flex items-center justify-between">
                           <div className="min-w-0 flex-1">
                             <h3 className="font-medium">Continue Learning</h3>
-                            <p className="text-sm text-gray-600 mt-1">Pick up where you left off</p>
+                            <p className="text-sm text-muted-foreground mt-1">Pick up where you left off</p>
                           </div>
-                          <BookOpen className="h-8 w-8 text-green-500 flex-shrink-0 ml-4" />
+                          <BookOpen className="h-8 w-8 text-success flex-shrink-0 ml-4" />
                         </div>
                       </div>
                     </Link>
 
                     <Link href="/stats" className="block animate-slide-in hover-lift" style={{ animationDelay: '50ms' }}>
-                      <div className="bg-white rounded-xl border hover:border-gray-300 p-8 h-full transition-all duration-200">
+                      <div className="bg-card rounded-xl border hover:border-border p-8 h-full transition-all duration-200">
                         <div className="flex items-center justify-between">
                           <div className="min-w-0 flex-1">
                             <h3 className="font-medium">View Stats</h3>
-                            <p className="text-sm text-gray-600 mt-1">See detailed statistics</p>
+                            <p className="text-sm text-muted-foreground mt-1">See detailed statistics</p>
                           </div>
-                          <TrendingUp className="h-8 w-8 text-gray-700 flex-shrink-0 ml-4" />
+                          <TrendingUp className="h-8 w-8 text-muted-foreground flex-shrink-0 ml-4" />
                         </div>
                       </div>
                     </Link>
 
                     <Link href="/leaderboard" className="block animate-slide-in hover-lift" style={{ animationDelay: '100ms' }}>
-                      <div className="bg-white rounded-xl border hover:border-yellow-300 p-8 h-full transition-all duration-200">
+                      <div className="bg-card rounded-xl border hover:border-warning/30 p-8 h-full transition-all duration-200">
                         <div className="flex items-center justify-between">
                           <div className="min-w-0 flex-1">
                             <h3 className="font-medium">Global Leaderboards</h3>
-                            <p className="text-sm text-gray-600 mt-1">Compete with other learners</p>
+                            <p className="text-sm text-muted-foreground mt-1">Compete with other learners</p>
                           </div>
-                          <Trophy className="h-8 w-8 text-yellow-500 flex-shrink-0 ml-4" />
+                          <Trophy className="h-8 w-8 text-warning flex-shrink-0 ml-4" />
                         </div>
                       </div>
                     </Link>

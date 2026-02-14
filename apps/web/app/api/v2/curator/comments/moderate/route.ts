@@ -37,12 +37,12 @@ export async function GET(request: NextRequest) {
 
     // Get languages user can moderate
     const curatorLanguages = roleAssignments
-      .filter(ra => ra.language_id || ra.user_roles.name === 'super_admin' || ra.user_roles.name === 'dictionary_admin')
+      .filter(ra => ra.language_id || (ra.user_roles as any).name === 'super_admin' || (ra.user_roles as any).name === 'dictionary_admin')
       .map(ra => ra.language_id)
       .filter(Boolean);
 
-    const isSuperAdmin = roleAssignments.some(ra => 
-      ra.user_roles.name === 'super_admin' || ra.user_roles.name === 'dictionary_admin'
+    const isSuperAdmin = roleAssignments.some(ra =>
+      (ra.user_roles as any).name === 'super_admin' || (ra.user_roles as any).name === 'dictionary_admin'
     );
 
     // Build comments query

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   const supabase = createClient();
 
   // Check authentication
@@ -75,11 +75,11 @@ export async function GET(request: NextRequest) {
     // Process sessions
     sessions?.forEach(session => {
       if (!session.languages) return;
-      
+      const sessionLang = session.languages as any;
       const langId = session.language_id;
       const existing = languageMap.get(langId) || {
-        language: session.languages.name,
-        code: session.languages.code,
+        language: sessionLang.name,
+        code: sessionLang.code,
         totalSessions: 0,
         totalWords: 0,
         totalQuestions: 0,
@@ -108,9 +108,10 @@ export async function GET(request: NextRequest) {
     const wordsByLanguage = new Map<string, Set<string>>();
     
     wordCounts?.forEach(state => {
-      if (state.words?.languages && state.words.language_id) {
-        const langId = state.words.language_id;
-        const langInfo = state.words.languages;
+      const stateWords = state.words as any;
+      if (stateWords?.languages && stateWords.language_id) {
+        const langId = stateWords.language_id;
+        const langInfo = stateWords.languages;
         
         // Create language entry if it doesn't exist (for users who have words but no sessions)
         if (!languageMap.has(langId)) {

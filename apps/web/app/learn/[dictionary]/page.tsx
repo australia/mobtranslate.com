@@ -1,14 +1,11 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, useParams } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
-import { Button } from '@ui/components/Button';
-import { Badge } from '@ui/components/Badge';
+import { Card, CardContent, Button, Badge, cn } from '@mobtranslate/ui';
 import { X, Check, AlertCircle, Zap, ArrowLeft, BarChart3, Sparkles, Target } from 'lucide-react';
-import { cn } from '@/app/lib/utils';
 import Link from 'next/link';
 
 interface WordCard {
@@ -49,6 +46,7 @@ export default function LearnDictionaryPage() {
 
     fetchLanguageName();
     fetchNextWord();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading, languageCode]);
 
   useEffect(() => {
@@ -159,10 +157,10 @@ export default function LearnDictionaryPage() {
   if (loading) {
     return (
       <SharedLayout>
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="min-h-screen flex items-center justify-center bg-background">
           <div className="relative">
-            <div className="w-20 h-20 rounded-full border-4 border-indigo-200 dark:border-indigo-800"></div>
-            <div className="absolute top-0 left-0 w-20 h-20 rounded-full border-4 border-transparent border-t-indigo-500 dark:border-t-indigo-400 animate-spin"></div>
+            <div className="w-20 h-20 rounded-full border-4 border-border"></div>
+            <div className="absolute top-0 left-0 w-20 h-20 rounded-full border-4 border-transparent border-t-primary animate-spin"></div>
           </div>
         </div>
       </SharedLayout>
@@ -171,7 +169,7 @@ export default function LearnDictionaryPage() {
 
   return (
     <SharedLayout>
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="min-h-screen bg-background">
         {/* Confetti Effect */}
         {showConfetti && (
           <div className="fixed inset-0 pointer-events-none z-50">
@@ -197,7 +195,7 @@ export default function LearnDictionaryPage() {
         )}
 
         {/* Header */}
-        <div className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700">
+        <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b border-border">
           <div className="max-w-4xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -214,12 +212,12 @@ export default function LearnDictionaryPage() {
               
               <div className="flex items-center gap-3">
                 {streak > 0 && (
-                  <Badge 
-                    variant="outline" 
+                  <Badge
+                    variant="outline"
                     className={cn(
                       "gap-1 transition-all",
-                      streak >= 10 ? "bg-gradient-to-r from-gray-700 to-gray-500 text-white border-0" :
-                      streak >= 5 ? "bg-gradient-to-r from-blue-500 to-gray-700 text-white border-0" :
+                      streak >= 10 ? "bg-gradient-to-r from-primary to-primary/70 text-white border-0" :
+                      streak >= 5 ? "bg-gradient-to-r from-primary/80 to-primary/50 text-white border-0" :
                       ""
                     )}
                   >
@@ -242,7 +240,7 @@ export default function LearnDictionaryPage() {
           {phase === 'no-words' ? (
             <Card className="max-w-2xl mx-auto shadow-xl">
               <CardContent className="p-8 text-center">
-                <AlertCircle className="h-16 w-16 mx-auto text-yellow-500 mb-4" />
+                <AlertCircle className="h-16 w-16 mx-auto text-warning mb-4" />
                 <h2 className="text-xl font-semibold mb-2">No Words Available</h2>
                 <p className="text-muted-foreground mb-4">
                   There are no words available for {languageName || languageCode} yet.
@@ -257,8 +255,8 @@ export default function LearnDictionaryPage() {
           ) : phase === 'loading' ? (
             <div className="flex flex-col items-center justify-center min-h-[60vh]">
               <div className="relative">
-                <div className="w-20 h-20 rounded-full border-4 border-indigo-200 dark:border-indigo-800"></div>
-                <div className="absolute top-0 left-0 w-20 h-20 rounded-full border-4 border-transparent border-t-indigo-500 dark:border-t-indigo-400 animate-spin"></div>
+                <div className="w-20 h-20 rounded-full border-4 border-border"></div>
+                <div className="absolute top-0 left-0 w-20 h-20 rounded-full border-4 border-transparent border-t-primary animate-spin"></div>
               </div>
               <p className="text-lg text-muted-foreground mt-6 animate-pulse">Loading next word...</p>
             </div>
@@ -267,8 +265,8 @@ export default function LearnDictionaryPage() {
               {/* Progress indicator */}
               {phase === 'word' && (
                 <div className="max-w-2xl mx-auto">
-                  <div className="h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-blue-500 to-gray-700 animate-progress" />
+                  <div className="h-1 bg-muted rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-primary to-primary/70 animate-progress" />
                   </div>
                 </div>
               )}
@@ -303,7 +301,7 @@ export default function LearnDictionaryPage() {
                           </Badge>
                         </div>
                         
-                        <h1 className="text-5xl md:text-6xl font-bold font-crimson text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-gray-800 dark:from-indigo-400 dark:to-gray-500">
+                        <h1 className="text-5xl md:text-6xl font-bold font-crimson text-transparent bg-clip-text bg-gradient-to-r from-primary to-foreground">
                           {currentWord.word}
                         </h1>
                         
@@ -314,36 +312,37 @@ export default function LearnDictionaryPage() {
                       
                       <div className="grid grid-cols-1 gap-3">
                         {currentWord.choices.map((choice, index) => (
-                          <button
+                          <Button
                             key={index}
+                            variant="outline"
                             onClick={() => handleAnswer(index)}
                             className={cn(
-                              "w-full text-left p-5 rounded-xl",
-                              "bg-white dark:bg-gray-800",
-                              "border-2 border-gray-200 dark:border-gray-700",
-                              "hover:border-indigo-400 dark:hover:border-indigo-500",
-                              "hover:bg-indigo-50 dark:hover:bg-indigo-950/20",
-                              "hover:shadow-lg hover:shadow-indigo-200/50 dark:hover:shadow-indigo-900/50",
+                              "w-full text-left p-5 rounded-xl h-auto",
+                              "bg-card",
+                              "border-2 border-border",
+                              "hover:border-primary/40",
+                              "hover:bg-primary/5",
+                              "hover:shadow-lg",
                               "transform hover:scale-[1.02] active:scale-[0.98]",
                               "transition-all duration-200 ease-out",
-                              "focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+                              "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
                               "group cursor-pointer"
                             )}
                           >
                             <div className="flex items-start gap-4">
                               <div className={cn(
                                 "w-10 h-10 rounded-full flex items-center justify-center font-semibold flex-shrink-0",
-                                "bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800",
-                                "group-hover:from-indigo-100 group-hover:to-indigo-200 dark:group-hover:from-indigo-900/50 dark:group-hover:to-indigo-800/50",
+                                "bg-muted",
+                                "group-hover:bg-primary/10",
                                 "transition-all duration-200"
                               )}>
                                 {String.fromCharCode(65 + index)}
                               </div>
-                              <div className="text-base md:text-lg text-gray-700 dark:text-gray-200 leading-relaxed pt-0.5">
+                              <div className="text-base md:text-lg text-foreground leading-relaxed pt-0.5">
                                 {choice}
                               </div>
                             </div>
-                          </button>
+                          </Button>
                         ))}
                       </div>
                     </div>
@@ -353,14 +352,14 @@ export default function LearnDictionaryPage() {
                     <div className="text-center space-y-8 animate-fadeIn">
                       <div className={cn(
                         "inline-flex p-6 rounded-full",
-                        selectedChoice === currentWord.correctIndex 
-                          ? "bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20" 
-                          : "bg-gradient-to-br from-red-100 to-pink-100 dark:from-red-900/20 dark:to-pink-900/20"
+                        selectedChoice === currentWord.correctIndex
+                          ? "bg-gradient-to-br from-green-100 to-emerald-100"
+                          : "bg-gradient-to-br from-red-100 to-pink-100"
                       )}>
                         {selectedChoice === currentWord.correctIndex ? (
-                          <Check className="h-16 w-16 text-green-600 dark:text-green-400" />
+                          <Check className="h-16 w-16 text-green-600" />
                         ) : (
-                          <X className="h-16 w-16 text-red-600 dark:text-red-400" />
+                          <X className="h-16 w-16 text-red-600" />
                         )}
                       </div>
                       
@@ -368,30 +367,30 @@ export default function LearnDictionaryPage() {
                         <h2 className="text-3xl md:text-4xl font-bold font-crimson">
                           {currentWord.word}
                         </h2>
-                        <div className="text-xl text-green-600 dark:text-green-400 font-medium">
+                        <div className="text-xl text-green-600 font-medium">
                           {currentWord.choices[currentWord.correctIndex]}
                         </div>
                         {selectedChoice !== currentWord.correctIndex && (
-                          <div className="text-red-500 dark:text-red-400">
+                          <div className="text-red-500">
                             You selected: {currentWord.choices[selectedChoice!]}
                           </div>
                         )}
                       </div>
                       
-                      <button
+                      <Button
                         onClick={handleContinue}
                         className={cn(
                           "px-8 py-4 rounded-xl font-semibold text-white",
-                          "bg-gradient-to-r from-indigo-500 to-gray-700",
-                          "hover:from-indigo-600 hover:to-gray-800",
-                          "shadow-lg hover:shadow-xl shadow-indigo-500/25 hover:shadow-indigo-600/30",
+                          "bg-gradient-to-r from-primary to-primary/70",
+                          "hover:from-primary/90 hover:to-primary/60",
+                          "shadow-lg hover:shadow-xl shadow-primary/25 hover:shadow-primary/30",
                           "transform hover:scale-105 active:scale-[0.98]",
                           "transition-all duration-200 ease-out",
-                          "focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                          "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                         )}
                       >
                         Continue Learning
-                      </button>
+                      </Button>
                     </div>
                   )}
                 </CardContent>

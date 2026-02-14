@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Heart, Volume2, Clock, TrendingUp, Zap, Target, BookOpen, Sparkles } from 'lucide-react';
-import { cn } from '@/app/lib/utils';
+import React, { useState } from 'react';
+import { Volume2, Clock, TrendingUp, Zap, Target, BookOpen, Sparkles } from 'lucide-react';
+import { Button, Card, cn } from '@mobtranslate/ui';
 import Link from 'next/link';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
 import { WordLikeButton } from '../WordLikeButton';
 
 interface WordCardProps {
@@ -20,8 +19,7 @@ interface WordCardProps {
     lastSeen?: string;
     bucket?: number;
   };
-  onLike?: (wordId: string, liked: boolean) => Promise<void>;
-  initialLiked?: boolean;
+  onLike?: (_id: string, _isLiked: boolean) => Promise<void>;
   showStats?: boolean;
   compact?: boolean;
   className?: string;
@@ -46,7 +44,6 @@ export function WordCard({
   languageName,
   stats,
   onLike,
-  initialLiked = false,
   showStats = false,
   compact = false,
   className = '',
@@ -85,7 +82,7 @@ export function WordCard({
   };
 
   const bucket = stats?.bucket ?? 0;
-  const bucketConfig = bucketColors[bucket] || bucketColors[0];
+  const bucketConfig = bucketColors[bucket as keyof typeof bucketColors] || bucketColors[0];
 
   const cardContent = (
     <Card
@@ -117,7 +114,7 @@ export function WordCard({
             
             {/* Language Badge */}
             {languageName && !compact && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700">
+              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground border border-border">
                 <BookOpen className="h-3 w-3 mr-1" />
                 {languageName}
               </span>
@@ -129,14 +126,14 @@ export function WordCard({
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">
             <h3 className={cn(
-              "font-bold text-gray-900 dark:text-gray-100 mb-2 leading-tight",
+              "font-bold text-foreground mb-2 leading-tight",
               compact ? "text-lg" : "text-xl sm:text-2xl"
             )}>
               {word}
             </h3>
             {translation && (
               <p className={cn(
-                "text-gray-600 dark:text-gray-400 leading-relaxed",
+                "text-muted-foreground leading-relaxed",
                 compact ? "text-sm" : "text-base sm:text-lg"
               )}>
                 {translation}
@@ -147,29 +144,30 @@ export function WordCard({
           {/* Action Buttons */}
           <div className="flex items-center gap-2">
             {languageCode && (
-              <button
+              <Button
+                variant="ghost"
                 onClick={playAudio}
                 disabled={isPlayingAudio}
                 className={cn(
                   "relative p-2.5 rounded-full transition-all duration-200",
-                  "bg-white dark:bg-gray-800 shadow-sm hover:shadow-md",
-                  "border border-gray-200 dark:border-gray-700",
-                  "hover:bg-gray-50 dark:hover:bg-gray-750",
-                  "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
-                  isPlayingAudio && "bg-blue-50 dark:bg-blue-950/30 border-blue-300 dark:border-blue-700"
+                  "bg-card shadow-sm hover:shadow-md",
+                  "border border-border",
+                  "hover:bg-muted",
+                  "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+                  isPlayingAudio && "bg-primary/10 border-primary/20"
                 )}
                 title="Play pronunciation"
               >
                 <Volume2 className={cn(
                   "h-4 w-4 transition-colors",
-                  isPlayingAudio ? "text-blue-600 dark:text-blue-400" : "text-gray-600 dark:text-gray-400"
+                  isPlayingAudio ? "text-primary" : "text-muted-foreground"
                 )} />
                 {isPlayingAudio && (
                   <div className="absolute inset-0 rounded-full">
-                    <div className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-20" />
+                    <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20" />
                   </div>
                 )}
-              </button>
+              </Button>
             )}
             
             {onLike && (
@@ -185,7 +183,7 @@ export function WordCard({
         {/* Stats Section */}
         {showStats && stats && (
           <div className={cn(
-            "mt-4 pt-4 border-t border-gray-200 dark:border-gray-700",
+            "mt-4 pt-4 border-t border-border",
             compact ? "grid grid-cols-2 gap-3" : "grid grid-cols-2 sm:grid-cols-4 gap-4"
           )}>
             {/* Accuracy */}
@@ -193,29 +191,29 @@ export function WordCard({
               <div className="relative group/stat">
                 <div className={cn(
                   "flex items-center gap-2.5 p-3 rounded-lg transition-all duration-200",
-                  "bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  "bg-muted hover:bg-muted/80"
                 )}>
                   <div className={cn(
                     "p-2 rounded-lg",
-                    stats.accuracy >= 80 ? "bg-green-100 dark:bg-green-900/30" : 
-                    stats.accuracy >= 60 ? "bg-yellow-100 dark:bg-yellow-900/30" : 
-                    "bg-red-100 dark:bg-red-900/30"
+                    stats.accuracy >= 80 ? "bg-success/10" :
+                    stats.accuracy >= 60 ? "bg-warning/10" :
+                    "bg-error/10"
                   )}>
                     <Target className={cn("flex-shrink-0", compact ? "h-3.5 w-3.5" : "h-4 w-4", 
-                      stats.accuracy >= 80 ? "text-green-600 dark:text-green-400" : 
-                      stats.accuracy >= 60 ? "text-yellow-600 dark:text-yellow-400" : 
-                      "text-red-600 dark:text-red-400"
+                      stats.accuracy >= 80 ? "text-success" :
+                      stats.accuracy >= 60 ? "text-warning" :
+                      "text-error"
                     )} />
                   </div>
                   <div>
                     <p className={cn(
                       "font-bold", 
                       compact ? "text-sm" : "text-base",
-                      "text-gray-900 dark:text-gray-100"
+                      "text-foreground"
                     )}>
                       {stats.accuracy.toFixed(0)}%
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">Accuracy</p>
+                    <p className="text-xs text-muted-foreground">Accuracy</p>
                   </div>
                 </div>
               </div>
@@ -226,16 +224,16 @@ export function WordCard({
               <div className="relative group/stat">
                 <div className={cn(
                   "flex items-center gap-2.5 p-3 rounded-lg transition-all duration-200",
-                  "bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  "bg-muted hover:bg-muted/80"
                 )}>
-                  <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30">
-                    <Clock className={cn("text-blue-600 dark:text-blue-400 flex-shrink-0", compact ? "h-3.5 w-3.5" : "h-4 w-4")} />
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Clock className={cn("text-primary flex-shrink-0", compact ? "h-3.5 w-3.5" : "h-4 w-4")} />
                   </div>
                   <div>
-                    <p className={cn("font-bold text-gray-900 dark:text-gray-100", compact ? "text-sm" : "text-base")}>
+                    <p className={cn("font-bold text-foreground", compact ? "text-sm" : "text-base")}>
                       {formatResponseTime(stats.avgResponseTime)}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">Avg Time</p>
+                    <p className="text-xs text-muted-foreground">Avg Time</p>
                   </div>
                 </div>
               </div>
@@ -246,16 +244,16 @@ export function WordCard({
               <div className="relative group/stat">
                 <div className={cn(
                   "flex items-center gap-2.5 p-3 rounded-lg transition-all duration-200",
-                  "bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  "bg-muted hover:bg-muted/80"
                 )}>
-                  <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-900/30">
-                    <TrendingUp className={cn("text-gray-800 dark:text-gray-600 flex-shrink-0", compact ? "h-3.5 w-3.5" : "h-4 w-4")} />
+                  <div className="p-2 rounded-lg bg-muted">
+                    <TrendingUp className={cn("text-muted-foreground flex-shrink-0", compact ? "h-3.5 w-3.5" : "h-4 w-4")} />
                   </div>
                   <div>
-                    <p className={cn("font-bold text-gray-900 dark:text-gray-100", compact ? "text-sm" : "text-base")}>
+                    <p className={cn("font-bold text-foreground", compact ? "text-sm" : "text-base")}>
                       {stats.attempts}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">Attempts</p>
+                    <p className="text-xs text-muted-foreground">Attempts</p>
                   </div>
                 </div>
               </div>
@@ -266,16 +264,16 @@ export function WordCard({
               <div className="relative group/stat">
                 <div className={cn(
                   "flex items-center gap-2.5 p-3 rounded-lg transition-all duration-200",
-                  "bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  "bg-muted hover:bg-muted/80"
                 )}>
-                  <div className="p-2 rounded-lg bg-orange-100 dark:bg-orange-900/30">
-                    <Zap className={cn("text-orange-600 dark:text-orange-400 flex-shrink-0", compact ? "h-3.5 w-3.5" : "h-4 w-4")} />
+                  <div className="p-2 rounded-lg bg-warning/10">
+                    <Zap className={cn("text-warning flex-shrink-0", compact ? "h-3.5 w-3.5" : "h-4 w-4")} />
                   </div>
                   <div>
-                    <p className={cn("font-bold text-gray-900 dark:text-gray-100 truncate", compact ? "text-sm" : "text-base")}>
+                    <p className={cn("font-bold text-foreground truncate", compact ? "text-sm" : "text-base")}>
                       {formatLastSeen(stats.lastSeen)}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">Last Seen</p>
+                    <p className="text-xs text-muted-foreground">Last Seen</p>
                   </div>
                 </div>
               </div>

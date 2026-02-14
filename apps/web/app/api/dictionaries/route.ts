@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { getActiveLanguages } from '@/lib/supabase/queries';
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const languages = await getActiveLanguages();
 

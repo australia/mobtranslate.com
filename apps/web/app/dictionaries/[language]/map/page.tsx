@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import SharedLayout from '../../../components/SharedLayout';
-import { Badge } from '@/app/components/ui/badge';
+import { Badge } from '@mobtranslate/ui';
 import { getLocationWordsForLanguage } from '@/lib/supabase/queries';
 import { AllLocationsMap } from './AllLocationsMap';
 
@@ -78,7 +78,7 @@ export default async function MapPage({
               />
             ) : (
               <div className="w-full flex items-center justify-center" style={{ minHeight: 'calc(100vh - 200px)', background: '#73acc3' }}>
-                <div className="text-center bg-white/90 rounded-xl p-8 shadow-lg">
+                <div className="text-center bg-card/90 rounded-xl p-8 shadow-lg">
                   <p className="text-muted-foreground text-lg">No location data available yet</p>
                   <Link
                     href={`/dictionaries/${language}`}

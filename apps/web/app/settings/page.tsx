@@ -4,11 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Card, CardContent, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Button } from '@/app/components/ui/button';
-import { LoadingState } from '@/app/components/ui/loading-state';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Card, CardContent, CardHeader, CardTitle, Button, Input, Textarea } from '@mobtranslate/ui';
+import { LoadingState } from '@/components/layout/LoadingState';
 import { User, Save, AlertCircle, CheckCircle, Edit } from 'lucide-react';
 
 interface UserProfile {
@@ -172,7 +171,7 @@ export default function SettingsPage() {
 
   return (
     <SharedLayout>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-muted">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <PageHeader
             title="Account Settings"
@@ -192,86 +191,83 @@ export default function SettingsPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Edit className="h-5 w-5 mr-2 text-blue-500" />
+                    <Edit className="h-5 w-5 mr-2 text-primary" />
                     Profile Information
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {/* Error/Success Messages */}
                   {error && (
-                    <div className="flex items-center p-4 bg-red-50 border border-red-200 rounded-lg">
-                      <AlertCircle className="h-5 w-5 text-red-500 mr-3" />
-                      <span className="text-red-700">{error}</span>
+                    <div className="flex items-center p-4 bg-error/10 border border-error/20 rounded-lg">
+                      <AlertCircle className="h-5 w-5 text-error mr-3" />
+                      <span className="text-error">{error}</span>
                     </div>
                   )}
                   
                   {success && (
-                    <div className="flex items-center p-4 bg-green-50 border border-green-200 rounded-lg">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                      <span className="text-green-700">{success}</span>
+                    <div className="flex items-center p-4 bg-success/10 border border-success/20 rounded-lg">
+                      <CheckCircle className="h-5 w-5 text-success mr-3" />
+                      <span className="text-success">{success}</span>
                     </div>
                   )}
 
                   {/* Username Field */}
                   <div className="space-y-2">
-                    <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="username" className="block text-sm font-medium text-muted-foreground">
                       Username *
                     </label>
-                    <input
+                    <Input
                       type="text"
                       id="username"
                       value={formData.username}
                       onChange={(e) => handleInputChange('username', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Enter your username"
                       disabled={saving}
                     />
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-muted-foreground">
                       3-50 characters. Letters, numbers, underscores, and hyphens only.
                     </p>
                   </div>
 
                   {/* Display Name Field */}
                   <div className="space-y-2">
-                    <label htmlFor="display_name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="display_name" className="block text-sm font-medium text-muted-foreground">
                       Display Name
                     </label>
-                    <input
+                    <Input
                       type="text"
                       id="display_name"
                       value={formData.display_name}
                       onChange={(e) => handleInputChange('display_name', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Enter your display name (optional)"
                       disabled={saving}
                     />
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-muted-foreground">
                       Optional. How your name appears to other users. Max 100 characters.
                     </p>
                   </div>
 
                   {/* Bio Field */}
                   <div className="space-y-2">
-                    <label htmlFor="bio" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="bio" className="block text-sm font-medium text-muted-foreground">
                       Bio
                     </label>
-                    <textarea
+                    <Textarea
                       id="bio"
                       value={formData.bio}
                       onChange={(e) => handleInputChange('bio', e.target.value)}
                       rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       placeholder="Tell others about yourself (optional)"
                       disabled={saving}
                     />
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-muted-foreground">
                       Optional. Max 500 characters. ({formData.bio.length}/500)
                     </p>
                   </div>
 
                   {/* Save Button */}
                   <div className="flex items-center justify-between pt-4 border-t">
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-muted-foreground">
                       {hasChanges ? 'You have unsaved changes' : 'All changes saved'}
                     </div>
                     <Button
@@ -294,24 +290,24 @@ export default function SettingsPage() {
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <h4 className="text-sm font-medium text-gray-700">Email</h4>
-                      <p className="text-sm text-gray-900">{user.email}</p>
+                      <h4 className="text-sm font-medium text-muted-foreground">Email</h4>
+                      <p className="text-sm text-foreground">{user.email}</p>
                     </div>
                     <div>
-                      <h4 className="text-sm font-medium text-gray-700">Account Created</h4>
-                      <p className="text-sm text-gray-900">
+                      <h4 className="text-sm font-medium text-muted-foreground">Account Created</h4>
+                      <p className="text-sm text-foreground">
                         {profile ? new Date(profile.created_at).toLocaleDateString() : 'Loading...'}
                       </p>
                     </div>
                     <div>
-                      <h4 className="text-sm font-medium text-gray-700">Last Updated</h4>
-                      <p className="text-sm text-gray-900">
+                      <h4 className="text-sm font-medium text-muted-foreground">Last Updated</h4>
+                      <p className="text-sm text-foreground">
                         {profile ? new Date(profile.updated_at).toLocaleDateString() : 'Loading...'}
                       </p>
                     </div>
                     <div>
-                      <h4 className="text-sm font-medium text-gray-700">User ID</h4>
-                      <p className="text-xs text-gray-500 font-mono">{user.id}</p>
+                      <h4 className="text-sm font-medium text-muted-foreground">User ID</h4>
+                      <p className="text-xs text-muted-foreground font-mono">{user.id}</p>
                     </div>
                   </div>
                 </CardContent>

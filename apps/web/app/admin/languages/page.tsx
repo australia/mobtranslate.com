@@ -1,24 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import useSWR from 'swr';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table';
-import { Badge } from '@/app/components/ui/badge';
-import { useToast } from '@/app/components/ui/use-toast';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Badge } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 import { Plus, Edit, Users, Globe, BookOpen, Settings } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-
-interface Language {
-  id: string;
-  name: string;
-  code: string;
-  is_active: boolean;
-  word_count?: number;
-  curator_count?: number;
-  created_at: string;
-}
 
 const fetcher = (url: string) => fetch(url).then((res) => {
   if (!res.ok) throw new Error('Failed to fetch');
@@ -29,7 +15,7 @@ export default function LanguagesPage() {
   const router = useRouter();
   const { toast } = useToast();
 
-  const { data: languages = [], error, isLoading, mutate } = useSWR(
+  const { data: languages = [], error, isLoading } = useSWR(
     '/api/v2/admin/languages',
     fetcher
   );
@@ -38,7 +24,7 @@ export default function LanguagesPage() {
     toast({
       title: 'Error',
       description: 'Failed to load languages',
-      variant: 'destructive'
+      variant: 'error'
     });
   }
 
@@ -69,7 +55,7 @@ export default function LanguagesPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {languages.filter(l => l.is_active).length}
+              {languages.filter((l: any) => l.is_active).length}
             </div>
             <p className="text-xs text-muted-foreground">
               Available for curation
@@ -86,7 +72,7 @@ export default function LanguagesPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {languages.reduce((sum, l) => sum + (l.word_count || 0), 0).toLocaleString()}
+              {languages.reduce((sum: number, l: any) => sum + (l.word_count || 0), 0).toLocaleString()}
             </div>
             <p className="text-xs text-muted-foreground">
               Across all languages
@@ -103,7 +89,7 @@ export default function LanguagesPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {languages.reduce((sum, l) => sum + (l.curator_count || 0), 0)}
+              {languages.reduce((sum: number, l: any) => sum + (l.curator_count || 0), 0)}
             </div>
             <p className="text-xs text-muted-foreground">
               Active curators
@@ -147,16 +133,16 @@ export default function LanguagesPage() {
                   </TableCell>
                 </TableRow>
               ) : (
-                languages.map((language) => (
+                languages.map((language: any) => (
                   <TableRow key={language.id}>
                     <TableCell className="font-medium">{language.name}</TableCell>
                     <TableCell>
-                      <code className="text-sm bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
+                      <code className="text-sm bg-muted px-2 py-1 rounded">
                         {language.code}
                       </code>
                     </TableCell>
                     <TableCell>
-                      <Badge variant={language.is_active ? 'default' : 'secondary'}>
+                      <Badge variant={language.is_active ? 'primary' : 'secondary'}>
                         {language.is_active ? 'Active' : 'Inactive'}
                       </Badge>
                     </TableCell>
@@ -175,12 +161,8 @@ export default function LanguagesPage() {
                         >
                           <Edit className="h-4 w-4" />
                         </Button>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          asChild
-                        >
-                          <a href={`/admin/languages/${language.id}/settings`} title="Language settings">
+                        <Button asChild variant="ghost" size="sm">
+                          <a href={`/admin/languages/${language.id}/settings`} title="Language settings" className="p-2">
                             <Settings className="h-4 w-4" />
                           </a>
                         </Button>

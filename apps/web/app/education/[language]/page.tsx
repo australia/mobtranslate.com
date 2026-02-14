@@ -24,7 +24,7 @@ import {
   CheckCircle2,
   Lock
 } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger, Button } from '@mobtranslate/ui';
 
 // Game Components
 import MemoryGame from '../components/MemoryGame';
@@ -202,6 +202,7 @@ export default function LanguageEducationPage() {
   useEffect(() => {
     fetchLanguageData();
     fetchWords();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [languageCode]);
 
   const fetchLanguageData = async () => {
@@ -266,8 +267,8 @@ export default function LanguageEducationPage() {
         <div className="min-h-[60vh] flex items-center justify-center">
           <div className="text-center">
             <div className="relative w-20 h-20 mx-auto mb-6">
-              <div className="absolute inset-0 rounded-full border-4 border-gray-200"></div>
-              <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-blue-600 animate-spin"></div>
+              <div className="absolute inset-0 rounded-full border-4 border-border"></div>
+              <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-primary animate-spin"></div>
             </div>
             <p className="text-xl text-muted-foreground">Loading education content...</p>
           </div>
@@ -373,7 +374,7 @@ export default function LanguageEducationPage() {
                   <div className="text-xs text-white/60">Accuracy</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl font-bold text-gray-600">0</div>
+                  <div className="text-xl font-bold text-muted-foreground">0</div>
                   <div className="text-xs text-white/60">Words</div>
                 </div>
               </div>
@@ -412,12 +413,13 @@ export default function LanguageEducationPage() {
           {/* Games Tab */}
           <TabsContent value="games" className="mt-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {GAME_TYPES.map((game, index) => (
-                <button
+              {GAME_TYPES.map((game, _index) => (
+                <Button
+                  variant="ghost"
                   key={game.id}
                   onClick={() => words.length > 0 && setActiveGame(game.id)}
                   disabled={words.length === 0}
-                  className="group relative text-left overflow-hidden rounded-3xl border-4 border-foreground bg-card p-6 transition-all duration-300 hover:-translate-y-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="group relative text-left overflow-hidden rounded-3xl border-4 border-foreground bg-card p-6 transition-all duration-300 hover:-translate-y-2 disabled:opacity-50 disabled:cursor-not-allowed h-auto"
                   style={{
                     boxShadow: '6px 6px 0px 0px var(--color-foreground)',
                   }}
@@ -459,7 +461,7 @@ export default function LanguageEducationPage() {
                       </div>
                     </div>
                   </div>
-                </button>
+                </Button>
               ))}
             </div>
 
@@ -500,7 +502,7 @@ export default function LanguageEducationPage() {
                           key={lesson.id}
                           className={`group relative rounded-2xl border-2 p-5 transition-all duration-300 ${
                             lesson.completed
-                              ? 'bg-emerald-50 border-emerald-200 dark:bg-emerald-950/20 dark:border-emerald-800'
+                              ? 'bg-emerald-50 border-emerald-200'
                               : isLocked
                               ? 'bg-muted/50 border-muted-foreground/20 opacity-60'
                               : 'bg-card border-border hover:border-primary hover:-translate-y-1 cursor-pointer'

@@ -3,12 +3,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useChat } from 'ai/react';
 import { 
-  Send, 
-  Bot, 
-  User, 
-  Sparkles, 
-  BookOpen, 
-  BarChart3, 
+  Send,
+  Bot,
+  Sparkles,
+  BookOpen,
+  BarChart3,
   AlertCircle,
   Menu,
   X,
@@ -16,13 +15,11 @@ import {
   MessageCircle,
   Settings,
   LogOut,
-  ChevronLeft,
   Mic,
-  Paperclip,
   MoreVertical,
   Image as ImageIcon
 } from 'lucide-react';
-import { cn } from '@/app/lib/utils';
+import { cn, Button } from '@mobtranslate/ui';
 import { TranslationResult } from './TranslationResult';
 import { WordSuggestions } from './WordSuggestions';
 import { LanguageStats } from './LanguageStats';
@@ -30,7 +27,7 @@ import { ImageAnalysisCard } from './ImageAnalysisCard';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import type { ImageAnalysis } from '@/lib/tools/image-analysis';
+
 
 export function AppChatInterface() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -192,28 +189,29 @@ export function AppChatInterface() {
   ];
 
   return (
-    <div className="fixed inset-0 flex bg-gray-50 dark:bg-gray-900">
+    <div className="fixed inset-0 flex bg-muted">
       {/* Sidebar */}
       <div className={cn(
-        "fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transform transition-transform duration-300 lg:relative lg:translate-x-0",
+        "fixed inset-y-0 left-0 z-50 w-64 bg-card border-r border-border transform transition-transform duration-300 lg:relative lg:translate-x-0",
         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="flex flex-col h-full">
           {/* Sidebar Header */}
-          <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+          <div className="p-4 border-b border-border">
             <div className="flex items-center justify-between">
               <Link href="/" className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded bg-gradient-to-r from-indigo-500 to-gray-700 flex items-center justify-center text-white text-sm font-bold">
+                <div className="w-8 h-8 rounded bg-gradient-to-r from-primary to-primary/70 flex items-center justify-center text-white text-sm font-bold">
                   MT
                 </div>
                 <span className="font-semibold">Mob Translate</span>
               </Link>
-              <button
+              <Button
+                variant="ghost"
                 onClick={() => setIsSidebarOpen(false)}
-                className="lg:hidden p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                className="lg:hidden p-1"
               >
                 <X className="h-5 w-5" />
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -226,8 +224,8 @@ export function AppChatInterface() {
                 className={cn(
                   "flex items-center gap-3 px-3 py-2 rounded-lg transition-colors",
                   link.active 
-                    ? "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400" 
-                    : "hover:bg-gray-100 dark:hover:bg-gray-700"
+                    ? "bg-primary/10 text-primary"
+                    : "hover:bg-muted"
                 )}
               >
                 <link.icon className="h-5 w-5" />
@@ -237,24 +235,25 @@ export function AppChatInterface() {
           </nav>
 
           {/* User Section */}
-          <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="p-4 border-t border-border">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-gray-700 flex items-center justify-center text-white text-sm font-bold">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-primary/70 flex items-center justify-center text-white text-sm font-bold">
                   {username?.charAt(0).toUpperCase() || 'U'}
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium truncate">{username || 'User'}</p>
-                  <p className="text-xs text-gray-500 truncate">{user?.email}</p>
+                  <p className="text-xs text-muted-foreground truncate">{user?.email}</p>
                 </div>
               </div>
-              <button
+              <Button
+                variant="ghost"
                 onClick={handleSignOut}
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                className="p-2"
                 title="Sign out"
               >
                 <LogOut className="h-4 w-4" />
-              </button>
+              </Button>
             </div>
           </div>
         </div>
@@ -263,38 +262,39 @@ export function AppChatInterface() {
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col">
         {/* Chat Header */}
-        <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-3">
+        <header className="bg-card border-b border-border px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <button
+              <Button
+                variant="ghost"
                 onClick={() => setIsSidebarOpen(true)}
-                className="lg:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                className="lg:hidden p-2"
               >
                 <Menu className="h-5 w-5" />
-              </button>
+              </Button>
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-gray-700 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
                   <Bot className="h-5 w-5 text-white" />
                 </div>
                 <div>
                   <h1 className="font-semibold">AI Assistant</h1>
-                  <p className="text-xs text-gray-500">Always here to help</p>
+                  <p className="text-xs text-muted-foreground">Always here to help</p>
                 </div>
               </div>
             </div>
-            <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+            <Button variant="ghost" className="p-2">
               <MoreVertical className="h-5 w-5" />
-            </button>
+            </Button>
           </div>
         </header>
 
         {/* Error Message */}
         {error && (
-          <div className="mx-4 mt-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl flex items-start gap-3">
-            <AlertCircle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+          <div className="mx-4 mt-4 p-4 bg-error/10 border border-error/20 rounded-xl flex items-start gap-3">
+            <AlertCircle className="h-5 w-5 text-error flex-shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-semibold text-red-800 dark:text-red-200">Error</h3>
-              <p className="text-sm text-red-700 dark:text-red-300 mt-1">
+              <h3 className="font-semibold text-error">Error</h3>
+              <p className="text-sm text-error/80 mt-1">
                 {error.message || 'An error occurred while processing your request.'}
               </p>
             </div>
@@ -306,16 +306,17 @@ export function AppChatInterface() {
           <div className="max-w-3xl mx-auto space-y-6">
             {messages.length === 0 && (
               <div className="text-center py-12">
-                <Bot className="h-16 w-16 mx-auto text-indigo-500 mb-6" />
+                <Bot className="h-16 w-16 mx-auto text-primary mb-6" />
                 <h2 className="text-2xl font-semibold mb-2">How can I help you today?</h2>
-                <p className="text-gray-500 mb-8">Ask me anything about languages and translations</p>
+                <p className="text-muted-foreground mb-8">Ask me anything about languages and translations</p>
                 <div className="grid gap-3 max-w-xl mx-auto">
                   {suggestedPrompts.map((prompt, index) => (
-                    <button
+                    <Button
                       key={index}
+                      variant="outline"
                       onClick={async () => {
                         setInput(prompt.action);
-                        
+
                         if (uploadedFiles.length > 0) {
                           await append({
                             role: 'user',
@@ -327,28 +328,29 @@ export function AppChatInterface() {
                           const formEvent = new Event('submit') as any;
                           handleSubmit(formEvent);
                         }
-                        
+
                         setUploadedFiles([]);
                       }}
-                      className="flex items-center gap-3 p-4 rounded-xl text-left bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 transition-all group animate-slide-in"
+                      className="flex items-center gap-3 p-4 rounded-xl text-left bg-card border border-border hover:border-primary/30 hover:bg-primary/5 transition-all group animate-slide-in h-auto"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <prompt.icon className="h-5 w-5 text-indigo-500 group-hover:scale-110 transition-transform" />
+                      <prompt.icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
                       <span className="text-sm font-medium">{prompt.text}</span>
-                    </button>
+                    </Button>
                   ))}
                 </div>
               </div>
             )}
 
             {messages.map((message, index) => {
+              const msg = message as any;
               console.log('[DEBUG] Rendering message:', {
                 id: message.id,
                 role: message.role,
                 contentPreview: message.content?.substring(0, 50) + '...',
-                hasAttachments: !!(message.attachments || message.experimental_attachments),
-                attachmentCount: (message.attachments || message.experimental_attachments)?.length || 0,
-                attachmentTypes: (message.attachments || message.experimental_attachments)?.map(a => a?.contentType)
+                hasAttachments: !!(msg.attachments || msg.experimental_attachments),
+                attachmentCount: (msg.attachments || msg.experimental_attachments)?.length || 0,
+                attachmentTypes: (msg.attachments || msg.experimental_attachments)?.map((a: any) => a?.contentType)
               });
               return (
               <div
@@ -361,7 +363,7 @@ export function AppChatInterface() {
               >
                 {message.role === 'assistant' && (
                   <div className="flex-shrink-0">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-gray-700 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
                       <Bot className="h-5 w-5 text-white" />
                     </div>
                   </div>
@@ -371,13 +373,13 @@ export function AppChatInterface() {
                   className={cn(
                     "max-w-[80%] rounded-2xl px-4 py-3",
                     message.role === 'user'
-                      ? "bg-gradient-to-r from-indigo-500 to-gray-700 text-white"
-                      : "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+                      ? "bg-gradient-to-r from-primary to-primary/70 text-white"
+                      : "bg-card border border-border"
                   )}
                 >
                   <div className="space-y-2">
                     {message.toolInvocations?.map((toolInvocation) => {
-                      const { toolName, args, state } = toolInvocation;
+                      const { toolName, args: _args, state } = toolInvocation;
                       
                       if (state === 'result') {
                         if (toolName === 'translateWord') {
@@ -392,8 +394,8 @@ export function AppChatInterface() {
                             return <ImageAnalysisCard key={toolInvocation.toolCallId} analysis={result.analysis} />;
                           } else {
                             return (
-                              <div key={toolInvocation.toolCallId} className="p-3 bg-red-50 rounded-lg">
-                                <p className="text-sm text-red-700">
+                              <div key={toolInvocation.toolCallId} className="p-3 bg-error/10 rounded-lg">
+                                <p className="text-sm text-error">
                                   {result.error || 'Failed to analyze image'}
                                 </p>
                               </div>
@@ -407,13 +409,14 @@ export function AppChatInterface() {
                     <p className="whitespace-pre-wrap">{message.content}</p>
                     
                     {/* Display attached images */}
-                    {(message.attachments || message.experimental_attachments)?.filter(attachment => 
+                    {(msg.attachments || msg.experimental_attachments)?.filter((attachment: any) =>
                       attachment?.contentType?.startsWith('image/')
-                    ).map((attachment, index) => (
+                    ).map((attachment: any, idx: number) => (
+                      // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        key={`${message.id}-${index}`}
+                        key={`${message.id}-${idx}`}
                         src={attachment.url}
-                        alt={attachment.name || `attachment-${index}`}
+                        alt={attachment.name || `attachment-${idx}`}
                         className="mt-2 rounded-lg max-w-full h-auto"
                         style={{ maxHeight: '300px' }}
                       />
@@ -423,7 +426,7 @@ export function AppChatInterface() {
                 
                 {message.role === 'user' && (
                   <div className="flex-shrink-0">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-gray-700 flex items-center justify-center text-white text-sm font-bold">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-primary/70 flex items-center justify-center text-white text-sm font-bold">
                       {username?.charAt(0).toUpperCase() || 'U'}
                     </div>
                   </div>
@@ -433,14 +436,14 @@ export function AppChatInterface() {
             
             {isLoading && (
               <div className="flex gap-3 animate-slide-in">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-gray-700 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
                   <Bot className="h-5 w-5 text-white" />
                 </div>
-                <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl px-4 py-3">
+                <div className="bg-card border border-border rounded-2xl px-4 py-3">
                   <div className="flex gap-2">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                    <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                    <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                    <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                   </div>
                 </div>
               </div>
@@ -451,7 +454,7 @@ export function AppChatInterface() {
         </div>
 
         {/* Input Area */}
-        <div className="border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4">
+        <div className="border-t border-border bg-card p-4">
           <form 
             onSubmit={async (e) => {
               e.preventDefault();
@@ -477,22 +480,24 @@ export function AppChatInterface() {
           >
             {/* Show uploaded image preview */}
             {uploadedFiles.length > 0 && (
-              <div className="mb-3 p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
+              <div className="mb-3 p-2 bg-muted rounded-lg">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <ImageIcon className="h-4 w-4 text-gray-500" />
-                    <span className="text-sm text-gray-600">{uploadedFiles[0].name}</span>
+                    <ImageIcon className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-sm text-muted-foreground">{uploadedFiles[0].name}</span>
                   </div>
-                  <button
+                  <Button
                     type="button"
+                    variant="destructive"
+                    size="sm"
                     onClick={() => setUploadedFiles([])}
-                    className="text-sm text-red-600 hover:text-red-700"
                   >
                     Remove
-                  </button>
+                  </Button>
                 </div>
-                <img 
-                  src={uploadedFiles[0].url} 
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={uploadedFiles[0].url}
                   alt={uploadedFiles[0].name}
                   className="mt-2 rounded max-h-32 object-contain"
                 />
@@ -508,22 +513,20 @@ export function AppChatInterface() {
                 className="hidden"
               />
               
-              <button
+              <Button
                 type="button"
+                variant="ghost"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={isUploadingImage}
-                className={cn(
-                  "p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors",
-                  isUploadingImage && "opacity-50 cursor-not-allowed"
-                )}
+                className="p-2"
                 title="Upload image"
               >
                 {isUploadingImage ? (
-                  <div className="h-5 w-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+                  <div className="h-5 w-5 border-2 border-border border-t-foreground rounded-full animate-spin" />
                 ) : (
                   <ImageIcon className="h-5 w-5" />
                 )}
-              </button>
+              </Button>
               
               <div className="flex-1 relative">
                 <textarea
@@ -534,9 +537,9 @@ export function AppChatInterface() {
                   placeholder="Type your message..."
                   className={cn(
                     "w-full px-4 py-3 rounded-2xl resize-none",
-                    "bg-gray-100 dark:bg-gray-700",
-                    "border-0 focus:outline-none focus:ring-2 focus:ring-indigo-500",
-                    "placeholder:text-gray-400",
+                    "bg-muted",
+                    "border-0 focus:outline-none focus:ring-2 focus:ring-ring",
+                    "placeholder:text-muted-foreground",
                     "transition-all duration-200"
                   )}
                   rows={1}
@@ -549,27 +552,28 @@ export function AppChatInterface() {
                 />
               </div>
 
-              <button
+              <Button
                 type="button"
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                variant="ghost"
+                className="p-2"
                 title="Voice input"
               >
                 <Mic className="h-5 w-5" />
-              </button>
-              
-              <button
+              </Button>
+
+              <Button
                 type="submit"
                 disabled={isLoading || !input.trim()}
                 className={cn(
-                  "p-2 rounded-lg",
-                  "bg-gradient-to-r from-indigo-500 to-gray-700",
-                  "hover:from-indigo-600 hover:to-gray-800",
+                  "p-2",
+                  "bg-gradient-to-r from-primary to-primary/70",
+                  "hover:from-primary/90 hover:to-primary/60",
                   "disabled:opacity-50 disabled:cursor-not-allowed",
                   "transition-all duration-200"
                 )}
               >
                 <Send className="h-5 w-5 text-white" />
-              </button>
+              </Button>
             </div>
           </form>
         </div>

@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Count total words
-    const { count, error: countError } = await supabase
+    const { count, error: _countError } = await supabase
       .from('words')
       .select('*', { count: 'exact', head: true })
       .eq('language_id', language.id);

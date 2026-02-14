@@ -140,7 +140,7 @@ export default async function EducationPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="#languages"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 rounded-2xl font-bold text-lg shadow-2xl shadow-gray-500/25 hover:shadow-gray-500/40 hover:scale-105 transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-card text-foreground rounded-2xl font-bold text-lg shadow-2xl shadow-foreground/25 hover:shadow-foreground/40 hover:scale-105 transition-all duration-300"
               >
                 <Play className="w-5 h-5" />
                 Start Learning
@@ -169,7 +169,7 @@ export default async function EducationPage() {
       <section id="games" className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 text-gray-800 text-sm font-bold mb-4 border-2 border-gray-200">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-foreground text-sm font-bold mb-4 border-2 border-border">
               <Gamepad2 className="w-4 h-4" />
               INTERACTIVE GAMES
             </div>
@@ -414,7 +414,7 @@ export default async function EducationPage() {
                         <div className="text-xs text-white/60">Accuracy</div>
                       </div>
                       <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-                        <div className="text-2xl font-bold text-gray-600">156</div>
+                        <div className="text-2xl font-bold text-muted-foreground">156</div>
                         <div className="text-xs text-white/60">Words</div>
                       </div>
                     </div>

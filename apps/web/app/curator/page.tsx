@@ -40,7 +40,7 @@ export default async function CuratorPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-2xl font-bold mb-4">Access Denied</h1>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               You need curator permissions to access this page.
             </p>
           </div>
@@ -59,7 +59,7 @@ export default async function CuratorPage() {
   // If user only curates one language, redirect there
   const assignment = curatorAssignments[0];
   if (assignment.languages) {
-    redirect(`/curator/${assignment.languages.code}`);
+    redirect(`/curator/${(assignment.languages as any).code}`);
   }
 
   return null;

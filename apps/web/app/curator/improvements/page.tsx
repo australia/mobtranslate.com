@@ -1,22 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/app/components/ui/dialog';
-import { Label } from '@/app/components/ui/label';
-import { Textarea } from '@/app/components/ui/textarea';
-import { useToast } from '@/app/components/ui/use-toast';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Tabs, TabsList, TabsTrigger, Dialog, DialogPortal, DialogBackdrop, DialogPopup, DialogDescription, DialogTitle, Textarea } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 import { 
-  TrendingUp, 
-  CheckCircle, 
-  XCircle, 
-  User, 
+  TrendingUp,
+  CheckCircle,
+  XCircle,
+  User,
   Calendar,
   MessageSquare,
-  GitCompare,
   ThumbsUp,
   Eye
 } from 'lucide-react';
@@ -53,6 +46,7 @@ export default function ImprovementsPage() {
 
   useEffect(() => {
     fetchImprovements();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterStatus]);
 
   const fetchImprovements = async () => {
@@ -67,7 +61,7 @@ export default function ImprovementsPage() {
       toast({
         title: 'Error',
         description: 'Failed to load improvement suggestions',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setLoading(false);
@@ -102,19 +96,19 @@ export default function ImprovementsPage() {
       toast({
         title: 'Error',
         description: 'Failed to submit review',
-        variant: 'destructive'
+        variant: 'error'
       });
     }
   };
 
   const getCategoryColor = (category: Improvement['category']) => {
     const colors = {
-      spelling: 'bg-blue-100 text-blue-800',
-      translation: 'bg-green-100 text-green-800',
-      pronunciation: 'bg-gray-100 text-gray-800',
-      definition: 'bg-orange-100 text-orange-800',
-      cultural: 'bg-amber-100 text-amber-800',
-      other: 'bg-gray-100 text-gray-800'
+      spelling: 'bg-primary/10 text-primary',
+      translation: 'bg-success/10 text-success',
+      pronunciation: 'bg-muted text-foreground',
+      definition: 'bg-warning/10 text-warning',
+      cultural: 'bg-warning/10 text-warning',
+      other: 'bg-muted text-foreground'
     };
     return colors[category] || colors.other;
   };
@@ -207,7 +201,7 @@ export default function ImprovementsPage() {
         ) : displayImprovements.length === 0 ? (
           <Card>
             <CardContent className="text-center py-8">
-              <TrendingUp className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+              <TrendingUp className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <p className="text-lg font-medium">No suggestions found</p>
               <p className="text-muted-foreground">No improvement suggestions match your filters</p>
             </CardContent>
@@ -226,7 +220,7 @@ export default function ImprovementsPage() {
                         {improvement.category}
                       </Badge>
                       {improvement.status !== 'pending' && (
-                        <Badge variant={improvement.status === 'approved' ? 'default' : 'secondary'}>
+                        <Badge variant={improvement.status === 'approved' ? 'primary' : 'secondary'}>
                           {improvement.status}
                         </Badge>
                       )}
@@ -245,7 +239,7 @@ export default function ImprovementsPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 {/* Show the suggestion based on category */}
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                <div className="bg-primary/10 p-3 rounded-lg">
                   <p className="text-sm font-medium mb-1">Suggested Change:</p>
                   {improvement.suggested_translation && (
                     <p className="text-sm">Translation: <span className="font-medium">{improvement.suggested_translation}</span></p>
@@ -271,7 +265,7 @@ export default function ImprovementsPage() {
                     <User className="h-3 w-3" />
                     {improvement.submitted_by_name}
                     {improvement.submitted_by_reputation && (
-                      <span className="text-green-600">
+                      <span className="text-success">
                         ({improvement.submitted_by_reputation}% accuracy)
                       </span>
                     )}
@@ -281,7 +275,7 @@ export default function ImprovementsPage() {
                     {new Date(improvement.created_at).toLocaleDateString()}
                   </div>
                   {improvement.previous_suggestions && improvement.previous_suggestions > 0 && (
-                    <div className="flex items-center gap-1 text-orange-600">
+                    <div className="flex items-center gap-1 text-warning">
                       <MessageSquare className="h-3 w-3" />
                       {improvement.previous_suggestions} previous suggestions
                     </div>
@@ -306,7 +300,7 @@ export default function ImprovementsPage() {
                     <Button 
                       size="sm" 
                       variant="outline"
-                      className="flex-1 text-red-600 hover:text-red-700"
+                      className="flex-1 text-error hover:text-error/80"
                       onClick={() => {
                         setSelectedImprovement(improvement);
                         setReviewAction('reject');
@@ -338,29 +332,27 @@ export default function ImprovementsPage() {
 
       {/* Review Dialog */}
       <Dialog open={reviewDialogOpen} onOpenChange={setReviewDialogOpen}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
+        <DialogPortal><DialogBackdrop /><DialogPopup>
             <DialogTitle>
               Review Improvement Suggestion
             </DialogTitle>
             <DialogDescription>
               {selectedImprovement && `Reviewing suggestion for "${selectedImprovement.current_word}"`}
             </DialogDescription>
-          </DialogHeader>
 
           {selectedImprovement && (
             <div className="space-y-4 my-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label>Current Version</Label>
-                  <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded">
+                  <label className="text-sm font-medium">Current Version</label>
+                  <div className="bg-muted p-3 rounded">
                     <p className="font-medium">{selectedImprovement.current_word}</p>
                     <p className="text-sm text-muted-foreground">{selectedImprovement.current_translation}</p>
                   </div>
                 </div>
                 <div>
-                  <Label>Suggested Version</Label>
-                  <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded">
+                  <label className="text-sm font-medium">Suggested Version</label>
+                  <div className="bg-primary/10 p-3 rounded">
                     <p className="font-medium">
                       {selectedImprovement.suggested_word || selectedImprovement.current_word}
                     </p>
@@ -374,16 +366,16 @@ export default function ImprovementsPage() {
               </div>
 
               <div>
-                <Label>Reason for Change</Label>
+                <label className="text-sm font-medium">Reason for Change</label>
                 <p className="text-sm mt-1">{selectedImprovement.reason}</p>
               </div>
 
               <div>
-                <Label>Submitted By</Label>
+                <label className="text-sm font-medium">Submitted By</label>
                 <p className="text-sm mt-1">
                   {selectedImprovement.submitted_by_name}
                   {selectedImprovement.submitted_by_reputation && (
-                    <span className="text-green-600 ml-2">
+                    <span className="text-success ml-2">
                       ({selectedImprovement.submitted_by_reputation}% accuracy rate)
                     </span>
                   )}
@@ -392,9 +384,9 @@ export default function ImprovementsPage() {
 
               {reviewAction && (
                 <div>
-                  <Label htmlFor="notes">
+                  <label htmlFor="notes" className="text-sm font-medium">
                     {reviewAction === 'reject' ? 'Rejection Reason' : 'Review Notes'} (Optional)
-                  </Label>
+                  </label>
                   <Textarea
                     id="notes"
                     value={reviewNotes}
@@ -409,7 +401,7 @@ export default function ImprovementsPage() {
             </div>
           )}
 
-          <DialogFooter>
+          <div className="flex justify-end gap-2 mt-4">
             {!reviewAction ? (
               <>
                 <Button 
@@ -440,14 +432,14 @@ export default function ImprovementsPage() {
                 </Button>
                 <Button 
                   onClick={handleReview}
-                  variant={reviewAction === 'reject' ? 'destructive' : 'default'}
+                  variant={reviewAction === 'reject' ? 'error' : 'primary'}
                 >
                   {reviewAction === 'approve' ? 'Approve' : 'Reject'} Suggestion
                 </Button>
               </>
             )}
-          </DialogFooter>
-        </DialogContent>
+          </div>
+        </DialogPopup></DialogPortal>
       </Dialog>
     </div>
   );

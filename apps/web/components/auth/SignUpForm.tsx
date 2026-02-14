@@ -2,11 +2,7 @@
 
 import React, { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
-import { Button } from '@/app/components/ui/button'
-import { Input } from '@/app/components/ui/input'
-import { Label } from '@/app/components/ui/label'
-import { Alert, AlertDescription } from '@/app/components/ui/alert'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/app/components/ui/card'
+import { Button, Input, Alert, AlertDescription, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@mobtranslate/ui'
 import Link from 'next/link'
 
 export function SignUpForm() {
@@ -86,7 +82,7 @@ export function SignUpForm() {
       {success ? (
         <CardContent className="space-y-4">
           <Alert>
-            <AlertDescription className="text-green-700">
+            <AlertDescription className="text-success">
               Account created successfully! Please check your email to confirm your account before signing in.
             </AlertDescription>
           </Alert>
@@ -100,12 +96,12 @@ export function SignUpForm() {
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             {error && (
-              <Alert variant="destructive">
+              <Alert variant="error">
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
             )}
           <div className="space-y-2">
-            <Label htmlFor="username">Username</Label>
+            <label htmlFor="username" className="text-sm font-medium">Username</label>
             <Input
               id="username"
               type="text"
@@ -117,7 +113,7 @@ export function SignUpForm() {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <label htmlFor="email" className="text-sm font-medium">Email</label>
             <Input
               id="email"
               type="email"
@@ -129,7 +125,7 @@ export function SignUpForm() {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <label htmlFor="password" className="text-sm font-medium">Password</label>
             <Input
               id="password"
               type="password"
@@ -140,7 +136,7 @@ export function SignUpForm() {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="confirmPassword">Confirm Password</Label>
+            <label htmlFor="confirmPassword" className="text-sm font-medium">Confirm Password</label>
             <Input
               id="confirmPassword"
               type="password"

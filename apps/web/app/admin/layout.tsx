@@ -15,7 +15,7 @@ import {
   ChevronLeft,
   RefreshCw
 } from 'lucide-react';
-import { cn } from '@/app/lib/utils';
+import { cn } from '@mobtranslate/ui';
 
 interface AdminLayoutProps {
   children: ReactNode;
@@ -74,13 +74,13 @@ const adminNavItems = [
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-muted">
       {/* Admin Header */}
-      <header className="sticky top-0 z-50 border-b bg-white dark:bg-gray-800 shadow-sm">
+      <header className="sticky top-0 z-50 border-b bg-card shadow-sm">
         <div className="flex h-16 items-center px-4 gap-4">
           <Link 
             href="/" 
-            className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <ChevronLeft className="h-4 w-4" />
             Back to site
@@ -95,7 +95,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
       <div className="flex">
         {/* Sidebar Navigation */}
-        <aside className="w-64 min-h-[calc(100vh-4rem)] bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
+        <aside className="w-64 min-h-[calc(100vh-4rem)] bg-card border-r border-border">
           <nav className="p-4 space-y-1">
             {adminNavItems.map((item) => (
               <AdminNavLink key={item.href} {...item} />
@@ -123,22 +123,22 @@ function AdminNavLink({ href, icon: Icon, title, description }: typeof adminNavI
       href={href}
       className={cn(
         "flex items-start gap-3 rounded-lg px-3 py-2 transition-all",
-        "hover:bg-gray-100 dark:hover:bg-gray-700",
+        "hover:bg-muted",
         isActive && "bg-primary/10 text-primary hover:bg-primary/20"
       )}
     >
       <Icon className={cn(
         "h-5 w-5 mt-0.5 flex-shrink-0",
-        isActive ? "text-primary" : "text-gray-500 dark:text-gray-400"
+        isActive ? "text-primary" : "text-muted-foreground"
       )} />
       <div className="flex-1 min-w-0">
         <p className={cn(
           "text-sm font-medium",
-          isActive ? "text-primary" : "text-gray-900 dark:text-gray-100"
+          isActive ? "text-primary" : "text-foreground"
         )}>
           {title}
         </p>
-        <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+        <p className="text-xs text-muted-foreground truncate">
           {description}
         </p>
       </div>

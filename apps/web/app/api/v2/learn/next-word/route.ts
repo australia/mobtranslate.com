@@ -124,7 +124,7 @@ export async function POST(request: NextRequest) {
       choices: shuffledChoices,
       correctIndex: correctIndex,
       bucket: wordState.bucket || 0,
-      wordClass: selectedWord.word_class?.name
+      wordClass: (selectedWord.word_class as any)?.name
     });
 
   } catch (error) {

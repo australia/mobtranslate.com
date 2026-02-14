@@ -2,13 +2,8 @@
 
 import { useState } from 'react';
 import { Lightbulb, Plus, X } from 'lucide-react';
-import { Button } from '@/app/components/ui/button';
-import { Input } from '@/app/components/ui/input';
-import { Textarea } from '@/app/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/app/components/ui/dialog';
-import { Label } from '@/app/components/ui/label';
-import { useToast } from '@/app/components/ui/use-toast';
+import { Button, Input, Textarea, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue, Dialog, DialogPortal, DialogBackdrop, DialogPopup, DialogDescription, DialogTitle, DialogTrigger } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 
 interface ImprovementSuggestionFormProps {
   wordId: string;
@@ -16,7 +11,7 @@ interface ImprovementSuggestionFormProps {
   onSuccess?: () => void;
 }
 
-export function ImprovementSuggestionForm({ wordId, wordData, onSuccess }: ImprovementSuggestionFormProps) {
+export function ImprovementSuggestionForm({ wordId, wordData: _wordData, onSuccess }: ImprovementSuggestionFormProps) {
   const [open, setOpen] = useState(false);
   const [improvementType, setImprovementType] = useState<string>('definition');
   const [fieldName, setFieldName] = useState<string>('');
@@ -40,7 +35,7 @@ export function ImprovementSuggestionForm({ wordId, wordData, onSuccess }: Impro
       toast({
         title: 'Error',
         description: 'Please provide a suggested value',
-        variant: 'destructive'
+        variant: 'error'
       });
       return;
     }
@@ -74,7 +69,7 @@ export function ImprovementSuggestionForm({ wordId, wordData, onSuccess }: Impro
       toast({
         title: 'Error',
         description: 'Failed to submit improvement suggestion',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setSubmitting(false);
@@ -105,56 +100,52 @@ export function ImprovementSuggestionForm({ wordId, wordData, onSuccess }: Impro
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button variant="outline" className="gap-2">
-          <Lightbulb className="h-4 w-4" />
-          Suggest Improvement
-        </Button>
+      <DialogTrigger className="mt-btn mt-btn-outline mt-btn-md gap-2">
+        <Lightbulb className="h-4 w-4" />
+        Suggest Improvement
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px]">
-        <DialogHeader>
+      <DialogPortal><DialogBackdrop /><DialogPopup className="sm:max-w-[600px]">
           <DialogTitle>Suggest an Improvement</DialogTitle>
           <DialogDescription>
             Help improve this word entry by suggesting corrections or additions
           </DialogDescription>
-        </DialogHeader>
         
         <div className="space-y-4 mt-4">
           <div className="space-y-2">
-            <Label htmlFor="improvement-type">Improvement Type</Label>
-            <Select value={improvementType} onValueChange={setImprovementType}>
+            <label htmlFor="improvement-type" className="text-sm font-medium">Improvement Type</label>
+            <Select value={improvementType} onValueChange={(v) => v != null && setImprovementType(v)}>
               <SelectTrigger id="improvement-type">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent>
+              <SelectPortal><SelectPositioner><SelectPopup>
                 <SelectItem value="definition">Definition</SelectItem>
                 <SelectItem value="translation">Translation</SelectItem>
                 <SelectItem value="example">Example</SelectItem>
                 <SelectItem value="pronunciation">Pronunciation</SelectItem>
                 <SelectItem value="grammar">Grammar</SelectItem>
                 <SelectItem value="cultural_context">Cultural Context</SelectItem>
-              </SelectContent>
+              </SelectPopup></SelectPositioner></SelectPortal>
             </Select>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="field-name">Specific Field (optional)</Label>
-            <Select value={fieldName} onValueChange={setFieldName}>
+            <label htmlFor="field-name" className="text-sm font-medium">Specific Field (optional)</label>
+            <Select value={fieldName} onValueChange={(v) => v != null && setFieldName(v)}>
               <SelectTrigger id="field-name">
-                <SelectValue placeholder="Select a field" />
+                <SelectValue />
               </SelectTrigger>
-              <SelectContent>
+              <SelectPortal><SelectPositioner><SelectPopup>
                 {improvementFields[improvementType as keyof typeof improvementFields]?.map((field) => (
                   <SelectItem key={field} value={field}>
                     {field.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
                   </SelectItem>
                 ))}
-              </SelectContent>
+              </SelectPopup></SelectPositioner></SelectPortal>
             </Select>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="suggested-value">Suggested Value</Label>
+            <label htmlFor="suggested-value" className="text-sm font-medium">Suggested Value</label>
             <Textarea
               id="suggested-value"
               value={suggestedValue}
@@ -165,7 +156,7 @@ export function ImprovementSuggestionForm({ wordId, wordData, onSuccess }: Impro
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="reason">Reason for Change (optional)</Label>
+            <label htmlFor="reason" className="text-sm font-medium">Reason for Change (optional)</label>
             <Textarea
               id="reason"
               value={reason}
@@ -176,7 +167,7 @@ export function ImprovementSuggestionForm({ wordId, wordData, onSuccess }: Impro
           </div>
 
           <div className="space-y-2">
-            <Label>Supporting References (optional)</Label>
+            <label className="text-sm font-medium">Supporting References (optional)</label>
             {references.map((ref, index) => (
               <div key={index} className="flex gap-2">
                 <Input
@@ -217,7 +208,7 @@ export function ImprovementSuggestionForm({ wordId, wordData, onSuccess }: Impro
             {submitting ? 'Submitting...' : 'Submit Suggestion'}
           </Button>
         </div>
-      </DialogContent>
+      </DialogPopup></DialogPortal>
     </Dialog>
   );
 }

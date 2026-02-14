@@ -22,7 +22,7 @@ interface LanguageLeaderboard {
 function calculateStreakFromDaily(dailyActivity: Map<string, number>): number {
   if (dailyActivity.size === 0) return 0;
   
-  const sortedDays = Array.from(dailyActivity.keys()).sort((a, b) => 
+  const _sortedDays = Array.from(dailyActivity.keys()).sort((a, b) =>
     new Date(b).getTime() - new Date(a).getTime()
   );
   

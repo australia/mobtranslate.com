@@ -3,7 +3,7 @@
 import { useState, useEffect, ReactNode } from 'react';
 import Link from 'next/link';
 import { Menu, X, Sun, Moon, Github, Heart } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { cn, Button } from '@mobtranslate/ui';
 import { ModernNav } from '@/components/navigation/ModernNav';
 
 interface NavLink {
@@ -19,7 +19,7 @@ interface SharedLayoutProps {
 export default function SharedLayout({ children }: SharedLayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [_isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,7 +84,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               href="/" 
               className="flex items-center space-x-3 text-2xl sm:text-3xl font-bold text-foreground hover:text-primary transition-all"
             >
-              <span className="bg-gradient-to-r from-blue-600 to-gray-900 bg-clip-text text-transparent">Mob Translate</span>
+              <span className="bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent">Mob Translate</span>
             </Link>
             
             {/* Desktop Navigation - Simplify hover effect */}
@@ -101,13 +101,14 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                 </Link>
               ))}
               <div className="flex items-center gap-4">
-                <button
+                <Button
+                  variant="ghost"
                   onClick={toggleDarkMode}
-                  className="p-2.5 rounded-lg hover:bg-muted transition-colors"
+                  className="p-2.5"
                   aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
                 >
                   {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-                </button>
+                </Button>
                 <ModernNav />
               </div>
             </nav>
@@ -115,20 +116,22 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center gap-2">
               <ModernNav />
-              <button
+              <Button
+                variant="ghost"
                 onClick={toggleDarkMode}
-                className="p-2 rounded-md "
+                className="p-2"
                 aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-              <button 
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={toggleMenu}
-                className="p-2 rounded-md text-foreground hover:bg-muted transition-colors"
+                className="p-2"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
+              </Button>
             </div>
           </div>
         </div> {/* <-- Added this closing tag */}

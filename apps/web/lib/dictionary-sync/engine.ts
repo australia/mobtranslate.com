@@ -1091,7 +1091,7 @@ export async function runLocationEnrichmentForLanguage(
       };
     });
     const batchResults = await classifyLocationCandidatesWithAI(aiInput, language.name);
-    for (const [key, value] of batchResults.entries()) {
+    for (const [key, value] of Array.from(batchResults.entries())) {
       aiCandidates.set(key, value);
     }
   }

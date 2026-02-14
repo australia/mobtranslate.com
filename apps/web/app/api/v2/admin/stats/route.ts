@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const supabase = createClient();
     
@@ -96,8 +96,8 @@ export async function GET(request: NextRequest) {
       .in('activity_type', ['word_rejected', 'improvement_rejected'])
       .gte('created_at', thirtyDaysAgo);
 
-    const totalReviews = approvedCount + rejectedCount;
-    const approvalRate = totalReviews > 0 ? Math.round((approvedCount / totalReviews) * 100) : 0;
+    const totalReviews = (approvedCount ?? 0) + (rejectedCount ?? 0);
+    const approvalRate = totalReviews > 0 ? Math.round(((approvedCount ?? 0) / totalReviews) * 100) : 0;
 
     return NextResponse.json({
       totalUsers,

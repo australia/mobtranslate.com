@@ -4,13 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Card, CardContent, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
-import { EmptyState } from '@/app/components/ui/empty-state';
-import { Button } from '@/app/components/ui/button';
-import { LoadingState } from '@/app/components/ui/loading-state';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Card, CardContent, CardHeader, CardTitle, Badge, Button } from '@mobtranslate/ui';
+import { EmptyState } from '@/components/layout/EmptyState';
+import { LoadingState } from '@/components/layout/LoadingState';
 import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
 import { Heart, BookOpen } from 'lucide-react';
 import { transformWordForUI } from '@/lib/utils/dictionary-transform';
@@ -47,6 +45,7 @@ export default function MyLikesPage() {
     }
 
     fetchLikes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading, pagination.page]);
 
   const fetchLikes = async () => {
@@ -125,7 +124,7 @@ export default function MyLikesPage() {
           <LoadingState />
         ) : transformedWords.length === 0 ? (
           <EmptyState
-            icon={Heart}
+            icon={<Heart className="h-10 w-10 text-muted-foreground" />}
             title="No liked words yet"
             description="Click the heart icon on any word to like it!"
             action={

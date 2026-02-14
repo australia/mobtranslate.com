@@ -1,11 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/app/components/ui/card';
-import { Button } from '@/app/components/ui/button';
-import { Badge } from '@/app/components/ui/badge';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter, Badge } from '@mobtranslate/ui';
 import { getActiveLanguages } from '@/lib/supabase/queries';
 import { createClient } from '@/lib/supabase/server';
 
@@ -39,11 +37,11 @@ export default async function DictionariesPage() {
         description="Browse our collection of Indigenous language dictionaries from around the world, preserving and sharing traditional languages through digital preservation."
       />
 
-      <Section contained={false}>
+      <Section>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {languagesWithCounts.map((lang) => (
-            <Card key={lang.code} hover className="overflow-hidden flex flex-col h-full">
+            <Card key={lang.code} className="overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow">
               <CardHeader className="space-y-3">
                 <div>
                   <CardTitle className="font-crimson text-2xl mb-2">
@@ -70,7 +68,7 @@ export default async function DictionariesPage() {
                         lang.status === 'severely endangered' ? 'destructive' : 
                         lang.status === 'endangered' ? 'destructive' :
                         lang.status === 'vulnerable' ? 'secondary' : 
-                        'default'
+                        'primary'
                       }
                       className="text-xs"
                     >
@@ -83,11 +81,9 @@ export default async function DictionariesPage() {
                 )}
               </CardContent>
               <CardFooter className="bg-muted/50 border-t pt-4">
-                <Button asChild variant="outline" className="w-full">
-                  <Link href={`/dictionaries/${lang.code}`}>
+                <Link href={`/dictionaries/${lang.code}`} className="mt-btn mt-btn-outline mt-btn-md w-full">
                     View Dictionary
-                  </Link>
-                </Button>
+                </Link>
               </CardFooter>
             </Card>
           ))}
@@ -95,7 +91,7 @@ export default async function DictionariesPage() {
         </div>
       </Section>
 
-      <Section title="About Our Dictionaries" contained={false}>
+      <Section title="About Our Dictionaries">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card>
             <CardContent className="p-8">

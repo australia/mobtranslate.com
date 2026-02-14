@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Alert } from '@/app/components/ui/alert';
-import { Button } from '@/app/components/ui/button';
+import { Alert, Button } from '@mobtranslate/ui';
 import { AlertTriangle } from 'lucide-react';
 
 interface ErrorBoundaryProps {
@@ -46,7 +45,7 @@ export default class ErrorBoundary extends React.Component<
       return (
         <div className="min-h-[400px] flex items-center justify-center p-4">
           <div className="max-w-md w-full">
-            <Alert variant="destructive">
+            <Alert variant="error">
               <AlertTriangle className="h-4 w-4" />
               <div className="space-y-2">
                 <h3 className="font-semibold">Something went wrong</h3>

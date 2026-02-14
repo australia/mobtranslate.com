@@ -1,12 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
-import { 
-  Trophy, 
-  Users, 
-  Globe, 
-  TrendingUp,
+import { Card, CardContent } from '@mobtranslate/ui';
+import {
+  Users,
+  Globe,
   Brain,
   Target
 } from 'lucide-react';

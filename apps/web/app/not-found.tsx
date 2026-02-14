@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import { Button } from '@/app/components/ui/button';
 import SharedLayout from './components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
 
 export default function NotFound() {
   return (
@@ -22,12 +21,8 @@ export default function NotFound() {
           </p>
           
           <div className="flex gap-4 justify-center">
-            <Button asChild>
-              <Link href="/">Go Home</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/dictionaries">Browse Dictionaries</Link>
-            </Button>
+            <Link href="/" className="mt-btn mt-btn-primary mt-btn-md">Go Home</Link>
+            <Link href="/dictionaries" className="mt-btn mt-btn-outline mt-btn-md">Browse Dictionaries</Link>
           </div>
         </div>
       </Section>

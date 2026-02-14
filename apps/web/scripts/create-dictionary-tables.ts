@@ -22,7 +22,7 @@ async function createTables() {
 
   try {
     // First, let's check if the languages table exists
-    const { data: existingLanguages, error: checkError } = await supabase
+    const { data: _existingLanguages, error: checkError } = await supabase
       .from('languages')
       .select('id')
       .limit(1)

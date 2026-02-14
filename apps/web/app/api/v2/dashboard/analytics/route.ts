@@ -250,8 +250,8 @@ export async function GET(request: NextRequest) {
         
         wordAttempts.forEach(attempt => {
           const wordId = attempt.word_id;
-          const word = attempt.words;
-          
+          const word = attempt.words as any;
+
           if (!wordStatsMap.has(wordId)) {
             wordStatsMap.set(wordId, {
               id: wordId,

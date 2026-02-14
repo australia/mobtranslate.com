@@ -1,12 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Shield, MessageSquare, Lightbulb, FileCheck, Activity, Users, TrendingUp, Clock } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Button } from '@/app/components/ui/button';
-import { Badge } from '@/app/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
+import { Shield, MessageSquare, Lightbulb, FileCheck, Activity, TrendingUp } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Button, Badge, Tabs, TabsContent, TabsList, TabsTrigger, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue } from '@mobtranslate/ui';
 import { StatsCard } from '@/components/stats/StatsCard';
 import { formatDistanceToNow } from '@/lib/utils/date';
 
@@ -48,8 +44,8 @@ interface DashboardData {
 }
 
 interface CuratorDashboardProps {
-  languageId: string;
-  languageName: string;
+  languageId?: string;
+  languageName?: string;
 }
 
 export function CuratorDashboard({ languageId, languageName }: CuratorDashboardProps) {
@@ -59,6 +55,7 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
 
   useEffect(() => {
     fetchDashboardData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [languageId]);
 
   const fetchDashboardData = async () => {
@@ -78,15 +75,15 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
     switch (activityType) {
       case 'word_verified':
       case 'word_approved':
-        return <FileCheck className="h-4 w-4 text-green-600" />;
+        return <FileCheck className="h-4 w-4 text-success" />;
       case 'improvement_approved':
-        return <Lightbulb className="h-4 w-4 text-blue-600" />;
+        return <Lightbulb className="h-4 w-4 text-primary" />;
       case 'improvement_rejected':
-        return <Lightbulb className="h-4 w-4 text-red-600" />;
+        return <Lightbulb className="h-4 w-4 text-error" />;
       case 'comment_moderated':
-        return <MessageSquare className="h-4 w-4 text-orange-600" />;
+        return <MessageSquare className="h-4 w-4 text-warning" />;
       default:
-        return <Activity className="h-4 w-4 text-gray-600" />;
+        return <Activity className="h-4 w-4 text-muted-foreground" />;
     }
   };
 
@@ -124,7 +121,7 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
             <Shield className="h-6 w-6" />
             Curator Dashboard
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-muted-foreground">
             Managing {languageName} dictionary
           </p>
         </div>
@@ -133,9 +130,9 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
           <SelectTrigger className="w-[200px]">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent>
+          <SelectPortal><SelectPositioner><SelectPopup>
             <SelectItem value={languageId}>{languageName}</SelectItem>
-          </SelectContent>
+          </SelectPopup></SelectPositioner></SelectPortal>
         </Select>
       </div>
 
@@ -144,24 +141,21 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
         <StatsCard
           title="Pending Reviews"
           value={data.stats.pending_improvements}
-          icon={<Lightbulb className="h-5 w-5" />}
-          trend={data.stats.pending_improvements > 10 ? 'up' : 'stable'}
-          color="blue"
+          icon={Lightbulb}
+          iconColor="text-primary"
         />
         <StatsCard
           title="Recent Comments"
           value={data.stats.recent_comments}
-          subtitle="Last 24 hours"
-          icon={<MessageSquare className="h-5 w-5" />}
-          trend="stable"
-          color="green"
+          description="Last 24 hours"
+          icon={MessageSquare}
+          iconColor="text-success"
         />
         <StatsCard
           title="Unverified Words"
           value={data.stats.unverified_words}
-          icon={<FileCheck className="h-5 w-5" />}
-          trend={data.stats.unverified_words > 50 ? 'up' : 'down'}
-          color="orange"
+          icon={FileCheck}
+          iconColor="text-warning"
         />
       </div>
 
@@ -192,7 +186,7 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
                     <div key={word.id} className="flex items-center justify-between p-3 border rounded-lg">
                       <div>
                         <div className="font-medium">{word.word}</div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-muted-foreground">
                           Quality Score: {word.quality_score}% • 
                           {word.definition_count} definitions • 
                           {word.translation_count} translations
@@ -204,7 +198,7 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
                     </div>
                   ))}
                   {data.words_needing_review.length === 0 && (
-                    <p className="text-center text-gray-500 py-4">
+                    <p className="text-center text-muted-foreground py-4">
                       No words need review right now
                     </p>
                   )}
@@ -230,14 +224,14 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
                       {getActivityIcon(activity.activity_type)}
                       <div className="flex-1">
                         <p className="text-sm">{getActivityDescription(activity)}</p>
-                        <p className="text-xs text-gray-500">
-                          {formatDistanceToNow(new Date(activity.created_at), { addSuffix: true })}
+                        <p className="text-xs text-muted-foreground">
+                          {formatDistanceToNow(new Date(activity.created_at))}
                         </p>
                       </div>
                     </div>
                   ))}
                   {data.recent_activity.length === 0 && (
-                    <p className="text-center text-gray-500 py-4">
+                    <p className="text-center text-muted-foreground py-4">
                       No recent activity
                     </p>
                   )}
@@ -256,7 +250,7 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-center text-gray-500 py-8">
+              <p className="text-center text-muted-foreground py-8">
                 Review queue will be implemented here
               </p>
             </CardContent>
@@ -278,7 +272,7 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
                     {getActivityIcon(activity.activity_type)}
                     <div className="flex-1">
                       <p className="text-sm font-medium">{getActivityDescription(activity)}</p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-muted-foreground">
                         {new Date(activity.created_at).toLocaleString()}
                       </p>
                       {activity.activity_data && (
@@ -301,26 +295,23 @@ export function CuratorDashboard({ languageId, languageName }: CuratorDashboardP
             <StatsCard
               title="Words Reviewed"
               value={data.curator_metrics.words_reviewed}
-              subtitle="This month"
-              icon={<FileCheck className="h-5 w-5" />}
-              trend="up"
-              color="blue"
+              description="This month"
+              icon={FileCheck}
+              iconColor="text-primary"
             />
             <StatsCard
               title="Words Approved"
               value={data.curator_metrics.words_approved}
-              subtitle="This month"
-              icon={<TrendingUp className="h-5 w-5" />}
-              trend="up"
-              color="green"
+              description="This month"
+              icon={TrendingUp}
+              iconColor="text-success"
             />
             <StatsCard
               title="Improvements Reviewed"
               value={data.curator_metrics.improvements_reviewed}
-              subtitle="This month"
-              icon={<Lightbulb className="h-5 w-5" />}
-              trend="stable"
-              color="orange"
+              description="This month"
+              icon={Lightbulb}
+              iconColor="text-warning"
             />
           </div>
         </TabsContent>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { X, RotateCcw, Lightbulb, ChevronRight, Trophy, Zap, Clock, Shuffle } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, Button } from '@mobtranslate/ui';
 
 interface GameWord {
   id: string;
@@ -165,18 +165,19 @@ export default function WordScramble({ words, onClose, languageName }: WordScram
           <h2 className="text-3xl font-display font-black">Word Scramble</h2>
           <p className="text-muted-foreground">Unscramble {languageName} words</p>
         </div>
-        <button
+        <Button
+          variant="ghost"
           onClick={onClose}
-          className="p-3 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
+          className="p-3 rounded-xl bg-muted hover:bg-muted/80"
         >
           <X className="w-6 h-6" />
-        </button>
+        </Button>
       </div>
 
       {/* Stats */}
       <div className="flex flex-wrap items-center gap-3 mb-8">
         <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted">
-          <Clock className="w-4 h-4 text-gray-700" />
+          <Clock className="w-4 h-4 text-foreground" />
           <span className="font-mono font-bold">{formatTime(timer)}</span>
         </div>
         <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted">
@@ -214,7 +215,7 @@ export default function WordScramble({ words, onClose, languageName }: WordScram
                 <span className="text-muted-foreground self-center">Tap letters below to spell the word</span>
               ) : (
                 selectedLetters.map((letter, index) => (
-                  <button
+                  <Button
                     key={letter.id}
                     onClick={() => handleLetterClick(letter, true)}
                     disabled={isCorrect !== null}
@@ -230,7 +231,7 @@ export default function WordScramble({ words, onClose, languageName }: WordScram
                     }}
                   >
                     {letter.char}
-                  </button>
+                  </Button>
                 ))
               )}
             </div>
@@ -239,7 +240,7 @@ export default function WordScramble({ words, onClose, languageName }: WordScram
           {/* Scrambled Letters */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {scrambledLetters.map((letter) => (
-              <button
+              <Button
                 key={letter.id}
                 onClick={() => handleLetterClick(letter, false)}
                 disabled={isCorrect !== null}
@@ -247,7 +248,7 @@ export default function WordScramble({ words, onClose, languageName }: WordScram
                 style={{ boxShadow: '3px 3px 0px 0px var(--color-foreground)' }}
               >
                 {letter.char}
-              </button>
+              </Button>
             ))}
           </div>
 
@@ -255,21 +256,22 @@ export default function WordScramble({ words, onClose, languageName }: WordScram
           <div className="flex items-center gap-4">
             {isCorrect === null ? (
               <>
-                <button
+                <Button
+                  variant="outline"
                   onClick={handleReshuffle}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80"
                 >
                   <Shuffle className="w-4 h-4" />
                   Reshuffle
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={handleHint}
                   disabled={showHint}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-100 text-amber-700 hover:bg-amber-200 disabled:opacity-50 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-100 text-amber-700 hover:bg-amber-200 disabled:opacity-50"
                 >
                   <Lightbulb className="w-4 h-4" />
                   Hint
-                </button>
+                </Button>
               </>
             ) : (
               <div className="text-center">
@@ -279,13 +281,13 @@ export default function WordScramble({ words, onClose, languageName }: WordScram
                 )}>
                   {isCorrect ? '🎉 Correct!' : `❌ The word was: ${currentWord.word}`}
                 </p>
-                <button
+                <Button
                   onClick={handleNext}
                   className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
                 >
                   {currentIndex < gameWords.length - 1 ? 'Next Word' : 'See Results'}
                   <ChevronRight className="w-5 h-5" />
-                </button>
+                </Button>
               </div>
             )}
           </div>
@@ -300,7 +302,7 @@ export default function WordScramble({ words, onClose, languageName }: WordScram
 
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="bg-muted rounded-xl p-4">
-                <div className="text-2xl font-bold text-gray-800">{score}</div>
+                <div className="text-2xl font-bold text-foreground">{score}</div>
                 <div className="text-xs text-muted-foreground">Points</div>
               </div>
               <div className="bg-muted rounded-xl p-4">
@@ -314,19 +316,20 @@ export default function WordScramble({ words, onClose, languageName }: WordScram
             </div>
 
             <div className="flex gap-4">
-              <button
+              <Button
                 onClick={initializeGame}
                 className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 <RotateCcw className="w-4 h-4" />
                 Play Again
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="outline"
                 onClick={onClose}
                 className="flex-1 px-6 py-3 bg-background text-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 Exit
-              </button>
+              </Button>
             </div>
           </div>
         </div>

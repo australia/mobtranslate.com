@@ -117,10 +117,10 @@ export async function GET(request: NextRequest) {
 
       dailyData.push({
         period: currentDate.toISOString().split('T')[0],
-        users: newUsers,
-        words: newWords,
-        comments: newComments,
-        reviews
+        users: newUsers ?? 0,
+        words: newWords ?? 0,
+        comments: newComments ?? 0,
+        reviews: reviews ?? 0
       });
 
       currentDate.setDate(currentDate.getDate() + 1);
@@ -179,7 +179,7 @@ export async function GET(request: NextRequest) {
       if (!curatorPerformance[userId]) {
         curatorPerformance[userId] = {
           user_id: userId,
-          display_name: metric.profiles?.display_name || 'Unknown',
+          display_name: (metric.profiles as any)?.display_name || 'Unknown',
           words_reviewed: 0,
           improvements_reviewed: 0,
           comments_moderated: 0,
@@ -256,10 +256,10 @@ export async function GET(request: NextRequest) {
       languageStats: processedLanguageStats,
       topCurators,
       growth: {
-        users: calculateGrowth(currentPeriodTotals.users, previousUsers),
-        words: calculateGrowth(currentPeriodTotals.words, previousWords),
-        comments: calculateGrowth(currentPeriodTotals.comments, previousComments),
-        reviews: calculateGrowth(currentPeriodTotals.reviews, previousReviews)
+        users: calculateGrowth(currentPeriodTotals.users, previousUsers ?? 0),
+        words: calculateGrowth(currentPeriodTotals.words, previousWords ?? 0),
+        comments: calculateGrowth(currentPeriodTotals.comments, previousComments ?? 0),
+        reviews: calculateGrowth(currentPeriodTotals.reviews, previousReviews ?? 0)
       },
       totals: currentPeriodTotals
     });

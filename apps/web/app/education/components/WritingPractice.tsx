@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { X, RotateCcw, ChevronRight, Trophy, Zap, Check, Lightbulb, Delete, CornerDownLeft } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, Button } from '@mobtranslate/ui';
 
 interface GameWord {
   id: string;
@@ -157,12 +157,13 @@ export default function WritingPractice({ words, onClose, languageName }: Writin
           <h2 className="text-3xl font-display font-black">Writing Practice</h2>
           <p className="text-muted-foreground">Practice spelling {languageName} words</p>
         </div>
-        <button
+        <Button
+          variant="ghost"
           onClick={onClose}
-          className="p-3 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
+          className="p-3 rounded-xl bg-muted hover:bg-muted/80"
         >
           <X className="w-6 h-6" />
-        </button>
+        </Button>
       </div>
 
       {/* Stats */}
@@ -206,8 +207,8 @@ export default function WritingPractice({ words, onClose, languageName }: Writin
           <div className="w-full max-w-md mb-6">
             <div className={cn(
               "relative rounded-2xl border-4 transition-all duration-300",
-              isCorrect === true && "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30",
-              isCorrect === false && "border-rose-500 bg-rose-50 dark:bg-rose-950/30",
+              isCorrect === true && "border-emerald-500 bg-emerald-50",
+              isCorrect === false && "border-rose-500 bg-rose-50",
               isCorrect === null && "border-foreground bg-background focus-within:border-primary"
             )}>
               <input
@@ -237,44 +238,45 @@ export default function WritingPractice({ words, onClose, languageName }: Writin
             {/* Special Characters */}
             <div className="flex justify-center gap-2 mt-4 flex-wrap">
               {specialChars.map((char) => (
-                <button
+                <Button
                   key={char}
                   onClick={() => setUserInput(prev => prev + char)}
                   disabled={isCorrect !== null}
-                  className="w-10 h-10 rounded-lg border-2 border-foreground bg-card font-bold text-lg hover:bg-accent/20 disabled:opacity-50 transition-colors"
+                  className="w-10 h-10 rounded-lg border-2 border-foreground bg-card font-bold text-lg hover:bg-accent/20 disabled:opacity-50"
                 >
                   {char}
-                </button>
+                </Button>
               ))}
-              <button
+              <Button
+                variant="outline"
                 onClick={() => setUserInput(prev => prev.slice(0, -1))}
                 disabled={isCorrect !== null || userInput.length === 0}
-                className="w-10 h-10 rounded-lg border-2 border-foreground bg-muted hover:bg-muted/80 disabled:opacity-50 transition-colors"
+                className="w-10 h-10 rounded-lg border-2 border-foreground bg-muted hover:bg-muted/80 disabled:opacity-50"
               >
                 <Delete className="w-5 h-5 mx-auto" />
-              </button>
+              </Button>
             </div>
           </div>
 
           {/* Action Buttons */}
           {isCorrect === null ? (
             <div className="flex items-center gap-4">
-              <button
+              <Button
                 onClick={handleHint}
                 disabled={revealedHints.length >= currentWord.word.length}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-100 text-amber-700 hover:bg-amber-200 disabled:opacity-50 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-100 text-amber-700 hover:bg-amber-200 disabled:opacity-50"
               >
                 <Lightbulb className="w-4 h-4" />
                 Hint ({currentWord.word.length - revealedHints.length} left)
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={handleSubmit}
                 disabled={userInput.length === 0}
                 className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all disabled:opacity-50"
               >
                 Check
                 <CornerDownLeft className="w-4 h-4" />
-              </button>
+              </Button>
             </div>
           ) : (
             <div className="text-center">
@@ -289,13 +291,13 @@ export default function WritingPractice({ words, onClose, languageName }: Writin
                   Correct: <span className="font-bold text-foreground">{currentWord.word}</span>
                 </p>
               )}
-              <button
+              <Button
                 onClick={handleNext}
                 className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 {currentIndex < gameWords.length - 1 ? 'Next Word' : 'See Results'}
                 <ChevronRight className="w-5 h-5" />
-              </button>
+              </Button>
             </div>
           )}
         </div>
@@ -309,7 +311,7 @@ export default function WritingPractice({ words, onClose, languageName }: Writin
 
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="bg-muted rounded-xl p-4">
-                <div className="text-2xl font-bold text-gray-800">{score}</div>
+                <div className="text-2xl font-bold text-foreground">{score}</div>
                 <div className="text-xs text-muted-foreground">Points</div>
               </div>
               <div className="bg-muted rounded-xl p-4">
@@ -323,19 +325,20 @@ export default function WritingPractice({ words, onClose, languageName }: Writin
             </div>
 
             <div className="flex gap-4">
-              <button
+              <Button
                 onClick={initializeGame}
                 className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 <RotateCcw className="w-4 h-4" />
                 Practice Again
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="outline"
                 onClick={onClose}
                 className="flex-1 px-6 py-3 bg-background text-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 Exit
-              </button>
+              </Button>
             </div>
           </div>
         </div>

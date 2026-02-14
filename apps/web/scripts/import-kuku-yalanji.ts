@@ -82,7 +82,7 @@ async function importKukuYalanji() {
         }
 
         // Insert the word
-        const { data: word, error: wordError } = await supabase
+        let { data: word, error: wordError } = await supabase
           .from('words')
           .insert({
             language_id: languageId,
@@ -108,7 +108,12 @@ async function importKukuYalanji() {
           if (!existingWord) {
             throw wordError
           }
-          word.id = existingWord.id
+          word = existingWord
+        }
+
+        if (!word) {
+          console.error(`Failed to insert or find word: ${wordData.word}`)
+          continue
         }
 
         const wordId = word.id

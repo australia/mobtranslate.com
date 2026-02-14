@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { X, Check, ChevronRight, Trophy, Zap, Target, RotateCcw } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { X, Check, ChevronRight, Trophy, Zap, RotateCcw } from 'lucide-react';
+import { cn, Button } from '@mobtranslate/ui';
 
 interface GameWord {
   id: string;
@@ -103,7 +103,7 @@ export default function WordQuiz({ words, onClose, languageName }: WordQuizProps
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 rounded-full border-4 border-gray-200 border-t-blue-600 animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 rounded-full border-4 border-border border-t-primary animate-spin mx-auto mb-4" />
           <p className="text-muted-foreground">Loading quiz...</p>
         </div>
       </div>
@@ -118,12 +118,13 @@ export default function WordQuiz({ words, onClose, languageName }: WordQuizProps
           <h2 className="text-3xl font-display font-black">Word Quiz</h2>
           <p className="text-muted-foreground">Test your {languageName} vocabulary</p>
         </div>
-        <button
+        <Button
+          variant="ghost"
           onClick={onClose}
-          className="p-3 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
+          className="p-3 rounded-xl bg-muted hover:bg-muted/80"
         >
           <X className="w-6 h-6" />
-        </button>
+        </Button>
       </div>
 
       {/* Progress Bar */}
@@ -134,7 +135,7 @@ export default function WordQuiz({ words, onClose, languageName }: WordQuizProps
         </div>
         <div className="h-3 bg-muted rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-gray-700 to-gray-800 rounded-full transition-all duration-500 ease-out"
+            className="h-full bg-gradient-to-r from-primary to-primary/70 rounded-full transition-all duration-500 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -189,7 +190,7 @@ export default function WordQuiz({ words, onClose, languageName }: WordQuizProps
                   {currentQuestion.word.wordClass}
                 </span>
               )}
-              <h3 className="text-4xl sm:text-5xl font-display font-black bg-gradient-to-r from-blue-700 to-gray-800 bg-clip-text text-transparent mb-4">
+              <h3 className="text-4xl sm:text-5xl font-display font-black bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent mb-4">
                 {currentQuestion.word.word}
               </h3>
               <p className="text-lg text-muted-foreground">What does this word mean?</p>
@@ -209,10 +210,10 @@ export default function WordQuiz({ words, onClose, languageName }: WordQuizProps
                     disabled={isAnswered}
                     className={cn(
                       "w-full text-left p-5 rounded-2xl border-2 transition-all duration-300",
-                      !showResult && "hover:border-gray-400 hover:bg-gray-50 dark:hover:bg-gray-950/20",
+                      !showResult && "hover:border-muted-foreground hover:bg-muted",
                       !showResult && !isSelected && "border-border bg-background",
-                      showResult && isCorrect && "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30",
-                      showResult && isSelected && !isCorrect && "border-rose-500 bg-rose-50 dark:bg-rose-950/30",
+                      showResult && isCorrect && "border-emerald-500 bg-emerald-50",
+                      showResult && isSelected && !isCorrect && "border-rose-500 bg-rose-50",
                       showResult && !isSelected && !isCorrect && "border-border bg-muted/50 opacity-50"
                     )}
                   >
@@ -233,7 +234,7 @@ export default function WordQuiz({ words, onClose, languageName }: WordQuizProps
                       </div>
                       <span className={cn(
                         "text-lg",
-                        showResult && isCorrect && "font-bold text-emerald-700 dark:text-emerald-400"
+                        showResult && isCorrect && "font-bold text-emerald-700"
                       )}>
                         {option}
                       </span>
@@ -245,13 +246,13 @@ export default function WordQuiz({ words, onClose, languageName }: WordQuizProps
 
             {/* Next Button */}
             {isAnswered && (
-              <button
+              <Button
                 onClick={handleNext}
                 className="mt-8 w-full flex items-center justify-center gap-2 px-6 py-4 bg-primary text-primary-foreground rounded-2xl font-bold text-lg border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all animate-slide-in"
               >
                 {currentIndex < questions.length - 1 ? 'Next Question' : 'See Results'}
                 <ChevronRight className="w-5 h-5" />
-              </button>
+              </Button>
             )}
           </div>
         </div>
@@ -277,7 +278,7 @@ export default function WordQuiz({ words, onClose, languageName }: WordQuizProps
                 <div className="text-xs text-muted-foreground">Score</div>
               </div>
               <div className="bg-muted rounded-xl p-4">
-                <div className="text-2xl font-bold text-gray-800">{Math.round((score / questions.length) * 100)}%</div>
+                <div className="text-2xl font-bold text-foreground">{Math.round((score / questions.length) * 100)}%</div>
                 <div className="text-xs text-muted-foreground">Accuracy</div>
               </div>
               <div className="bg-muted rounded-xl p-4">
@@ -287,19 +288,20 @@ export default function WordQuiz({ words, onClose, languageName }: WordQuizProps
             </div>
 
             <div className="flex gap-4">
-              <button
+              <Button
                 onClick={generateQuestions}
                 className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 <RotateCcw className="w-4 h-4" />
                 Play Again
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="outline"
                 onClick={onClose}
                 className="flex-1 px-6 py-3 bg-background text-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 Exit
-              </button>
+              </Button>
             </div>
           </div>
         </div>

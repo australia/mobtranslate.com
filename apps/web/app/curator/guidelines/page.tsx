@@ -1,5 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge } from '@mobtranslate/ui';
 import { 
   BookOpen, 
   CheckCircle, 
@@ -27,7 +26,7 @@ export default function GuidelinesPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Heart className="h-5 w-5 text-red-600" />
+            <Heart className="h-5 w-5 text-error" />
             Core Principles
           </CardTitle>
           <CardDescription>
@@ -37,7 +36,7 @@ export default function GuidelinesPage() {
         <CardContent className="space-y-4">
           <div className="space-y-3">
             <div className="flex gap-3">
-              <Globe className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+              <Globe className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
                 <h3 className="font-medium">Cultural Respect</h3>
                 <p className="text-sm text-muted-foreground">
@@ -48,7 +47,7 @@ export default function GuidelinesPage() {
             </div>
             
             <div className="flex gap-3">
-              <Users className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+              <Users className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
               <div>
                 <h3 className="font-medium">Community First</h3>
                 <p className="text-sm text-muted-foreground">
@@ -59,7 +58,7 @@ export default function GuidelinesPage() {
             </div>
             
             <div className="flex gap-3">
-              <Shield className="h-5 w-5 text-gray-800 mt-0.5 flex-shrink-0" />
+              <Shield className="h-5 w-5 text-foreground mt-0.5 flex-shrink-0" />
               <div>
                 <h3 className="font-medium">Quality Over Quantity</h3>
                 <p className="text-sm text-muted-foreground">
@@ -76,7 +75,7 @@ export default function GuidelinesPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-blue-600" />
+            <BookOpen className="h-5 w-5 text-primary" />
             Word Review Guidelines
           </CardTitle>
           <CardDescription>
@@ -85,83 +84,83 @@ export default function GuidelinesPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <h3 className="font-medium text-green-600 flex items-center gap-2 mb-2">
+            <h3 className="font-medium text-success flex items-center gap-2 mb-2">
               <CheckCircle className="h-4 w-4" />
               Approve When:
             </h3>
             <ul className="space-y-2 text-sm ml-6">
               <li className="flex items-start gap-2">
-                <span className="text-green-600 mt-0.5">•</span>
+                <span className="text-success mt-0.5">•</span>
                 <span>The word and translation are accurate according to reliable sources</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-600 mt-0.5">•</span>
+                <span className="text-success mt-0.5">•</span>
                 <span>Pronunciation guides follow established orthographic conventions</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-600 mt-0.5">•</span>
+                <span className="text-success mt-0.5">•</span>
                 <span>Cultural context is appropriately included where relevant</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-600 mt-0.5">•</span>
+                <span className="text-success mt-0.5">•</span>
                 <span>Example sentences demonstrate proper usage</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-600 mt-0.5">•</span>
+                <span className="text-success mt-0.5">•</span>
                 <span>The submission respects dialectal variations when noted</span>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-medium text-red-600 flex items-center gap-2 mb-2">
+            <h3 className="font-medium text-error flex items-center gap-2 mb-2">
               <XCircle className="h-4 w-4" />
               Reject When:
             </h3>
             <ul className="space-y-2 text-sm ml-6">
               <li className="flex items-start gap-2">
-                <span className="text-red-600 mt-0.5">•</span>
+                <span className="text-error mt-0.5">•</span>
                 <span>The translation is clearly incorrect or misleading</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-red-600 mt-0.5">•</span>
+                <span className="text-error mt-0.5">•</span>
                 <span>Sacred or restricted knowledge is shared without authorization</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-red-600 mt-0.5">•</span>
+                <span className="text-error mt-0.5">•</span>
                 <span>The submission contains offensive or inappropriate content</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-red-600 mt-0.5">•</span>
+                <span className="text-error mt-0.5">•</span>
                 <span>Duplicate entries exist (unless dialectal variation)</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-red-600 mt-0.5">•</span>
+                <span className="text-error mt-0.5">•</span>
                 <span>The submission lacks essential information (translation, part of speech)</span>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-medium text-orange-600 flex items-center gap-2 mb-2">
+            <h3 className="font-medium text-warning flex items-center gap-2 mb-2">
               <AlertCircle className="h-4 w-4" />
               Request Improvements When:
             </h3>
             <ul className="space-y-2 text-sm ml-6">
               <li className="flex items-start gap-2">
-                <span className="text-orange-600 mt-0.5">•</span>
+                <span className="text-warning mt-0.5">•</span>
                 <span>Minor spelling corrections are needed</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-orange-600 mt-0.5">•</span>
+                <span className="text-warning mt-0.5">•</span>
                 <span>Additional context would enhance understanding</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-orange-600 mt-0.5">•</span>
+                <span className="text-warning mt-0.5">•</span>
                 <span>Pronunciation guide needs adjustment</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-orange-600 mt-0.5">•</span>
+                <span className="text-warning mt-0.5">•</span>
                 <span>Example sentences could better demonstrate usage</span>
               </li>
             </ul>
@@ -173,7 +172,7 @@ export default function GuidelinesPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <MessageSquare className="h-5 w-5 text-gray-800" />
+            <MessageSquare className="h-5 w-5 text-foreground" />
             Comment Moderation
           </CardTitle>
           <CardDescription>
@@ -209,7 +208,7 @@ export default function GuidelinesPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-green-600" />
+            <TrendingUp className="h-5 w-5 text-success" />
             Reviewing Improvement Suggestions
           </CardTitle>
           <CardDescription>
@@ -222,18 +221,18 @@ export default function GuidelinesPage() {
               Community members may suggest improvements to existing entries. When reviewing these:
             </p>
             
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg space-y-2">
-              <h4 className="font-medium text-blue-900 dark:text-blue-100">Consider the Source</h4>
-              <ul className="space-y-1 text-sm text-blue-800 dark:text-blue-200">
+            <div className="bg-primary/10 p-4 rounded-lg space-y-2">
+              <h4 className="font-medium text-primary">Consider the Source</h4>
+              <ul className="space-y-1 text-sm text-primary">
                 <li>• Check the contributor's accuracy rate and history</li>
                 <li>• Prioritize suggestions from native speakers</li>
                 <li>• Look for consensus among multiple suggestions</li>
               </ul>
             </div>
             
-            <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg space-y-2">
-              <h4 className="font-medium text-green-900 dark:text-green-100">Verify Changes</h4>
-              <ul className="space-y-1 text-sm text-green-800 dark:text-green-200">
+            <div className="bg-success/10 p-4 rounded-lg space-y-2">
+              <h4 className="font-medium text-success">Verify Changes</h4>
+              <ul className="space-y-1 text-sm text-success">
                 <li>• Cross-reference with authoritative sources</li>
                 <li>• Consider dialectal variations</li>
                 <li>• Ensure changes improve accuracy, not just preference</li>
@@ -247,7 +246,7 @@ export default function GuidelinesPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <AlertCircle className="h-5 w-5 text-orange-600" />
+            <AlertCircle className="h-5 w-5 text-warning" />
             Special Considerations
           </CardTitle>
           <CardDescription>

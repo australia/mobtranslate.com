@@ -2,12 +2,12 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
 import DictionarySearch from './components/DictionarySearch';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Badge } from '@/app/components/ui/badge';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Badge } from '@mobtranslate/ui';
 
 import Link from 'next/link';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, MapPin } from 'lucide-react';
 
 const Breadcrumbs = ({ items, className }: { items: { href: string; label: string }[]; className?: string }) => (
   <nav className={`flex items-center gap-2 text-sm ${className || ''}`}>
@@ -91,7 +91,7 @@ export default async function DictionaryPage({
             )}
             <Badge variant="outline">{pagination.total} words</Badge>
             {languageData.status && (
-              <Badge variant={languageData.status === 'endangered' ? 'destructive' : 'default'}>
+              <Badge variant={languageData.status === 'endangered' ? 'destructive' : 'primary'}>
                 {languageData.status === 'severely endangered' ? 'very-low volume' : 
                  languageData.status === 'endangered' ? 'low volume' :
                  languageData.status === 'vulnerable' ? 'low volume' : 
@@ -110,10 +110,7 @@ export default async function DictionaryPage({
                 href={`/dictionaries/${language}/map`}
                 className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
+                <MapPin className="h-4 w-4" />
                 View place names on map
               </Link>
             </div>

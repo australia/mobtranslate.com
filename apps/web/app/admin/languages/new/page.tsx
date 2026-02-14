@@ -2,12 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Label } from '@/app/components/ui/label';
-import { Input } from '@/app/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
-import { useToast } from '@/app/components/ui/use-toast';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Input, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 import { ArrowLeft, Save } from 'lucide-react';
 
 export default function NewLanguagePage() {
@@ -46,7 +42,7 @@ export default function NewLanguagePage() {
       toast({
         title: 'Error',
         description: error instanceof Error ? error.message : 'Failed to create language',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setSaving(false);
@@ -82,7 +78,7 @@ export default function NewLanguagePage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Language Name</Label>
+              <label className="text-sm font-medium" htmlFor="name">Language Name</label>
               <Input
                 id="name"
                 value={formData.name}
@@ -93,7 +89,7 @@ export default function NewLanguagePage() {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="code">Language Code</Label>
+              <label className="text-sm font-medium" htmlFor="code">Language Code</label>
               <Input
                 id="code"
                 value={formData.code}
@@ -109,18 +105,22 @@ export default function NewLanguagePage() {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="is_active">Status</Label>
+              <label className="text-sm font-medium" htmlFor="is_active">Status</label>
               <Select 
                 value={formData.is_active.toString()}
-                onValueChange={(value) => setFormData({ ...formData, is_active: value === 'true' })}
+                onValueChange={(value) => value != null && setFormData({ ...formData, is_active: value === 'true' })}
               >
                 <SelectTrigger id="is_active">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="true">Active</SelectItem>
-                  <SelectItem value="false">Inactive</SelectItem>
-                </SelectContent>
+                <SelectPortal>
+                  <SelectPositioner>
+                    <SelectPopup>
+                      <SelectItem value="true">Active</SelectItem>
+                      <SelectItem value="false">Inactive</SelectItem>
+                    </SelectPopup>
+                  </SelectPositioner>
+                </SelectPortal>
               </Select>
               <p className="text-sm text-muted-foreground">
                 You can set this to inactive to prepare the language before making it public

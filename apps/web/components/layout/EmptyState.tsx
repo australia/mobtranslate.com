@@ -1,5 +1,5 @@
 import * as React from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "@mobtranslate/ui"
 
 interface EmptyStateProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: React.ReactNode
@@ -26,7 +26,7 @@ export function EmptyState({
       {...props}
     >
       {icon && (
-        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-muted">
+        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-muted)]">
           {icon}
         </div>
       )}
@@ -34,7 +34,7 @@ export function EmptyState({
         <h3 className="mt-4 text-lg font-semibold">{title}</h3>
       )}
       {description && (
-        <p className="mb-4 mt-2 text-sm text-muted-foreground">
+        <p className="mb-4 mt-2 text-sm text-[var(--color-muted-foreground)]">
           {description}
         </p>
       )}

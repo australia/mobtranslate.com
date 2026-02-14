@@ -2,13 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { ArrowRight, Globe, Loader2, RefreshCw, AlertTriangle, Check, Copy } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
-import { Button } from '@/app/components/ui/button';
-import { Textarea } from '@/app/components/ui/textarea';
-import { Select } from '@/app/components/ui/select';
-import { Alert } from '@/app/components/ui/alert';
-import { Badge } from '@/app/components/ui/badge';
+import { ArrowRight, Globe, Loader2, AlertTriangle } from 'lucide-react';
+import { Textarea, Button } from '@mobtranslate/ui';
 import { Language } from '@/lib/supabase/types';
 
 interface TranslatorProps {
@@ -22,7 +17,6 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [languages, setLanguages] = useState<Language[]>(availableLanguages || []);
   const [error, setError] = useState<string | null>(null);
-  const [copied, setCopied] = useState<boolean>(false);
   const [canTranslate, setCanTranslate] = useState<boolean>(false);
   const outputRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -67,19 +61,6 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
     
     // For debugging
     console.log("Input text changed:", newText, "Length:", newText.length, "Trimmed length:", newText.trim().length, "Can translate:", newText.trim().length > 0);
-  };
-
-  const copyToClipboard = () => {
-    if (outputText && navigator.clipboard) {
-      navigator.clipboard.writeText(outputText)
-        .then(() => {
-          setCopied(true);
-          setTimeout(() => setCopied(false), 2000);
-        })
-        .catch(err => {
-          console.error('Failed to copy text: ', err);
-        });
-    }
   };
 
   const handleTranslate = async () => {
@@ -169,15 +150,6 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
     }
   };
 
-  // Reset the form
-  const resetForm = () => {
-    setInputText('');
-    setOutputText('');
-    setError(null);
-    setCanTranslate(false);
-    setCopied(false);
-  };
-
   return (
     // Remove shadow, card background, and rounded corners
     <div className="max-w-7xl mx-auto my-8 border border-border">
@@ -188,13 +160,13 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
           <span>Translate from English</span>
         </div>
         <div className="relative mb-4">
-          <textarea
+          <Textarea
             ref={textareaRef}
             value={inputText}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             placeholder="Enter English text to translate..."
-            className="w-full p-4 pr-10 border border-input bg-background text-foreground dark:text-foreground focus:outline-none focus:ring-1 focus:ring-primary resize-none min-h-[100px] sm:min-h-[150px] text-sm leading-relaxed transition-all duration-200"
+            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[150px] text-sm leading-relaxed transition-all duration-200"
           />
           <div 
             className="absolute bottom-2 right-2 text-xs text-muted-foreground"
@@ -209,7 +181,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             <select
               value={selectedLanguage}
               onChange={(e) => setSelectedLanguage(e.target.value)}
-              className="px-4 py-1.5 border border-input bg-background text-foreground dark:bg-input dark:border-input dark:text-foreground focus:outline-none focus:ring-1 focus:ring-primary text-sm transition-colors duration-200"
+              className="px-4 py-1.5 border border-input bg-background text-foreground focus:outline-none focus:ring-1 focus:ring-primary text-sm transition-colors duration-200"
             >
               {languages.map((lang) => (
                 <option key={lang.code} value={lang.code}>
@@ -217,14 +189,9 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
                 </option>
               ))}
             </select>
-            <button
+            <Button
               onClick={handleTranslate}
               disabled={!canTranslate}
-              className={`px-4 py-1.5 text-sm font-medium transition-all ${ 
-                canTranslate
-                  ? "bg-primary text-primary-foreground hover:bg-primary/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90"
-                  : "border border-input text-muted-foreground cursor-not-allowed opacity-50 dark:border-input dark:text-muted-foreground"
-              }`}
             >
               {isLoading ? (
                 <div className="flex items-center gap-2">
@@ -237,7 +204,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
                   <span>Translate</span>
                 </div>
               )}
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -246,7 +213,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
       {(outputText || error || isLoading) && ( // Ensure container shows for loading state too
         <div className="mt-6"> {/* Outer container, no padding/border */}
           {/* Content Container - No Border, Better Padding */}
-          <div className="text-foreground dark:text-foreground text-base leading-relaxed bg-background/50 dark:bg-background/20 rounded-sm"> {/* Removed border, increased font size */}
+          <div className="text-foreground text-base leading-relaxed bg-background/50 rounded-sm">
             {/* Inner Container with Improved Padding */}
             <div className="py-5 px-6 relative" ref={outputRef}> {/* Added relative positioning */}
               {error ? (
@@ -261,26 +228,26 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
                     <ReactMarkdown 
                       className=""
                       components={{
-                        h1: ({node, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-foreground border-b pb-1 border-border" />,
-                        h2: ({node, ...props}) => <h2 {...props} className="text-xl font-bold mb-3 mt-5 text-foreground" />,
-                        h3: ({node, ...props}) => <h3 {...props} className="text-lg font-semibold mb-3 mt-4 text-foreground" />,
-                        p: ({node, ...props}) => <p {...props} className="mb-4 leading-relaxed text-foreground" />,
-                        ul: ({node, ...props}) => <ul {...props} className="list-disc pl-6 mb-4 space-y-2" />,
-                        ol: ({node, ...props}) => <ol {...props} className="list-decimal pl-6 mb-4 space-y-2" />,
-                        li: ({node, ...props}) => <li {...props} className="text-foreground" />,
-                        blockquote: ({node, ...props}) => <blockquote {...props} className="border-l-4 border-border pl-4 italic my-4 text-muted-foreground" />,
-                        a: ({node, ...props}) => <a {...props} className="text-primary underline hover:text-primary/80 transition-colors" />,
-                        em: ({node, ...props}) => <em {...props} className="italic text-foreground" />,
-                        strong: ({node, ...props}) => <strong {...props} className="font-bold text-foreground" />,
-                        code: ({node, ...props}) => <code {...props} className=" px-1.5 py-0.5 rounded text-sm font-mono text-foreground" />,
-                        pre: ({node, ...props}) => <pre {...props} className=" p-4 rounded-md overflow-x-auto mb-4 text-sm font-mono" />,
-                        hr: ({node, ...props}) => <hr {...props} className="my-6 border-border" />,
-                        table: ({node, ...props}) => <div className="overflow-x-auto mb-4"><table {...props} className="min-w-full border-collapse text-sm" /></div>,
-                        thead: ({node, ...props}) => <thead {...props} className="" />,
-                        tbody: ({node, ...props}) => <tbody {...props} className="divide-y divide-border" />,
-                        tr: ({node, ...props}) => <tr {...props} className="" />,
-                        th: ({node, ...props}) => <th {...props} className="px-4 py-2 text-left font-medium text-foreground" />,
-                        td: ({node, ...props}) => <td {...props} className="px-4 py-2 text-foreground" />
+                        h1: ({_node, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-foreground border-b pb-1 border-border" />,
+                        h2: ({_node, ...props}) => <h2 {...props} className="text-xl font-bold mb-3 mt-5 text-foreground" />,
+                        h3: ({_node, ...props}) => <h3 {...props} className="text-lg font-semibold mb-3 mt-4 text-foreground" />,
+                        p: ({_node, ...props}) => <p {...props} className="mb-4 leading-relaxed text-foreground" />,
+                        ul: ({_node, ...props}) => <ul {...props} className="list-disc pl-6 mb-4 space-y-2" />,
+                        ol: ({_node, ...props}) => <ol {...props} className="list-decimal pl-6 mb-4 space-y-2" />,
+                        li: ({_node, ...props}) => <li {...props} className="text-foreground" />,
+                        blockquote: ({_node, ...props}) => <blockquote {...props} className="border-l-4 border-border pl-4 italic my-4 text-muted-foreground" />,
+                        a: ({_node, ...props}) => <a {...props} className="text-primary underline hover:text-primary/80 transition-colors" />,
+                        em: ({_node, ...props}) => <em {...props} className="italic text-foreground" />,
+                        strong: ({_node, ...props}) => <strong {...props} className="font-bold text-foreground" />,
+                        code: ({_node, ...props}) => <code {...props} className=" px-1.5 py-0.5 rounded text-sm font-mono text-foreground" />,
+                        pre: ({_node, ...props}) => <pre {...props} className=" p-4 rounded-md overflow-x-auto mb-4 text-sm font-mono" />,
+                        hr: ({_node, ...props}) => <hr {...props} className="my-6 border-border" />,
+                        table: ({_node, ...props}) => <div className="overflow-x-auto mb-4"><table {...props} className="min-w-full border-collapse text-sm" /></div>,
+                        thead: ({_node, ...props}) => <thead {...props} className="" />,
+                        tbody: ({_node, ...props}) => <tbody {...props} className="divide-y divide-border" />,
+                        tr: ({_node, ...props}) => <tr {...props} className="" />,
+                        th: ({_node, ...props}) => <th {...props} className="px-4 py-2 text-left font-medium text-foreground" />,
+                        td: ({_node, ...props}) => <td {...props} className="px-4 py-2 text-foreground" />
                       }}
                     >
                       {outputText}

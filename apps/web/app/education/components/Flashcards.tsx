@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { X, ChevronLeft, ChevronRight, RotateCcw, Check, X as XIcon, Shuffle, Volume2 } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { X, ChevronLeft, ChevronRight, RotateCcw, Check, X as XIcon, Shuffle } from 'lucide-react';
+import { cn, Button } from '@mobtranslate/ui';
 
 interface GameWord {
   id: string;
@@ -40,7 +40,7 @@ export default function Flashcards({ words, onClose, languageName }: FlashcardsP
   }, [initializeCards]);
 
   const currentCard = cards[currentIndex];
-  const progress = ((knownCards.size + learningCards.size) / cards.length) * 100;
+  const _progress = ((knownCards.size + learningCards.size) / cards.length) * 100;
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
@@ -48,13 +48,13 @@ export default function Flashcards({ words, onClose, languageName }: FlashcardsP
 
   const handleKnown = () => {
     if (!currentCard) return;
-    setKnownCards(prev => new Set([...prev, currentCard.id]));
+    setKnownCards(prev => new Set([...Array.from(prev), currentCard.id]));
     goToNext('right');
   };
 
   const handleLearning = () => {
     if (!currentCard) return;
-    setLearningCards(prev => new Set([...prev, currentCard.id]));
+    setLearningCards(prev => new Set([...Array.from(prev), currentCard.id]));
     goToNext('left');
   };
 
@@ -105,12 +105,13 @@ export default function Flashcards({ words, onClose, languageName }: FlashcardsP
           <h2 className="text-3xl font-display font-black">Flashcards</h2>
           <p className="text-muted-foreground">Study {languageName} words</p>
         </div>
-        <button
+        <Button
+          variant="ghost"
           onClick={onClose}
-          className="p-3 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
+          className="p-3 rounded-xl bg-muted hover:bg-muted/80"
         >
           <X className="w-6 h-6" />
-        </button>
+        </Button>
       </div>
 
       {/* Progress */}
@@ -136,20 +137,22 @@ export default function Flashcards({ words, onClose, languageName }: FlashcardsP
 
       {/* Controls */}
       <div className="flex items-center justify-center gap-4 mb-8">
-        <button
+        <Button
+          variant="outline"
           onClick={shuffleCards}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80"
         >
           <Shuffle className="w-4 h-4" />
           <span className="font-medium">Shuffle</span>
-        </button>
-        <button
+        </Button>
+        <Button
+          variant="outline"
           onClick={initializeCards}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted hover:bg-muted/80"
         >
           <RotateCcw className="w-4 h-4" />
           <span className="font-medium">Reset</span>
-        </button>
+        </Button>
       </div>
 
       {/* Card Area */}
@@ -157,13 +160,14 @@ export default function Flashcards({ words, onClose, languageName }: FlashcardsP
         <div className="flex-1 flex flex-col items-center justify-center">
           {/* Navigation */}
           <div className="flex items-center gap-6 w-full max-w-3xl">
-            <button
+            <Button
+              variant="ghost"
               onClick={goToPrevious}
               disabled={currentIndex === 0}
-              className="p-4 rounded-full bg-muted hover:bg-muted/80 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="p-4 rounded-full bg-muted hover:bg-muted/80 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <ChevronLeft className="w-6 h-6" />
-            </button>
+            </Button>
 
             {/* Flashcard */}
             <div
@@ -181,7 +185,7 @@ export default function Flashcards({ words, onClose, languageName }: FlashcardsP
                 )}
               >
                 {/* Front - Word */}
-                <div className="absolute inset-0 backface-hidden rounded-3xl border-4 border-foreground bg-gradient-to-br from-blue-600 to-gray-800 p-8 flex flex-col items-center justify-center shadow-[8px_8px_0px_0px] shadow-foreground">
+                <div className="absolute inset-0 backface-hidden rounded-3xl border-4 border-foreground bg-gradient-to-br from-primary to-primary/70 p-8 flex flex-col items-center justify-center shadow-[8px_8px_0px_0px] shadow-foreground">
                   {currentCard.wordClass && (
                     <span className="absolute top-6 left-6 px-3 py-1 bg-white/20 rounded-full text-white/90 text-sm font-medium">
                       {currentCard.wordClass}
@@ -210,31 +214,32 @@ export default function Flashcards({ words, onClose, languageName }: FlashcardsP
               </div>
             </div>
 
-            <button
+            <Button
+              variant="ghost"
               onClick={() => goToNext('right')}
               disabled={currentIndex === cards.length - 1}
-              className="p-4 rounded-full bg-muted hover:bg-muted/80 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="p-4 rounded-full bg-muted hover:bg-muted/80 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <ChevronRight className="w-6 h-6" />
-            </button>
+            </Button>
           </div>
 
           {/* Action Buttons */}
           <div className="flex items-center gap-6 mt-8">
-            <button
+            <Button
               onClick={handleLearning}
-              className="flex items-center gap-2 px-6 py-3 bg-amber-100 text-amber-700 rounded-2xl font-bold border-2 border-amber-300 hover:bg-amber-200 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 bg-amber-100 text-amber-700 rounded-2xl font-bold border-2 border-amber-300 hover:bg-amber-200"
             >
               <XIcon className="w-5 h-5" />
               Still Learning
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={handleKnown}
-              className="flex items-center gap-2 px-6 py-3 bg-emerald-100 text-emerald-700 rounded-2xl font-bold border-2 border-emerald-300 hover:bg-emerald-200 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 bg-emerald-100 text-emerald-700 rounded-2xl font-bold border-2 border-emerald-300 hover:bg-emerald-200"
             >
               <Check className="w-5 h-5" />
               Got It!
-            </button>
+            </Button>
           </div>
         </div>
       ) : (
@@ -246,30 +251,31 @@ export default function Flashcards({ words, onClose, languageName }: FlashcardsP
             <p className="text-muted-foreground mb-6">Great job reviewing the flashcards!</p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="bg-emerald-50 dark:bg-emerald-950/30 rounded-xl p-4 border-2 border-emerald-200">
+              <div className="bg-emerald-50 rounded-xl p-4 border-2 border-emerald-200">
                 <div className="text-3xl font-bold text-emerald-600">{knownCards.size}</div>
                 <div className="text-sm text-emerald-600/70">Known</div>
               </div>
-              <div className="bg-amber-50 dark:bg-amber-950/30 rounded-xl p-4 border-2 border-amber-200">
+              <div className="bg-amber-50 rounded-xl p-4 border-2 border-amber-200">
                 <div className="text-3xl font-bold text-amber-600">{learningCards.size}</div>
                 <div className="text-sm text-amber-600/70">Learning</div>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <button
+              <Button
                 onClick={initializeCards}
                 className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 <RotateCcw className="w-4 h-4" />
                 Study Again
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="outline"
                 onClick={onClose}
                 className="flex-1 px-6 py-3 bg-background text-foreground rounded-xl font-bold border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-foreground hover:shadow-[6px_6px_0px_0px] hover:-translate-y-1 transition-all"
               >
                 Exit
-              </button>
+              </Button>
             </div>
           </div>
         </div>

@@ -132,19 +132,22 @@ export async function GET(request: NextRequest) {
         .range(offset, offset + limit - 1)
 
       if (definitions) {
-        results.push(...definitions.map(d => ({
-          type: 'definition',
-          id: d.id,
-          definition: d.definition,
-          word: d.words ? {
-            id: d.words.id,
-            word: d.words.word,
-            normalized_word: d.words.normalized_word,
-            language: d.words.languages,
-            word_class: d.words.word_classes
-          } : null,
-          match_score: calculateMatchScore(d.definition, query)
-        })))
+        results.push(...definitions.map(d => {
+          const dw = d.words as any;
+          return {
+            type: 'definition',
+            id: d.id,
+            definition: d.definition,
+            word: dw ? {
+              id: dw.id,
+              word: dw.word,
+              normalized_word: dw.normalized_word,
+              language: dw.languages,
+              word_class: dw.word_classes
+            } : null,
+            match_score: calculateMatchScore(d.definition, query)
+          };
+        }))
         totalCount += count || 0
       }
     }
@@ -185,20 +188,23 @@ export async function GET(request: NextRequest) {
         .range(offset, offset + limit - 1)
 
       if (translations) {
-        results.push(...translations.map(t => ({
-          type: 'translation',
-          id: t.id,
-          translation: t.translation,
-          target_language: t.target_language,
-          word: t.words ? {
-            id: t.words.id,
-            word: t.words.word,
-            normalized_word: t.words.normalized_word,
-            language: t.words.languages,
-            word_class: t.words.word_classes
-          } : null,
-          match_score: calculateMatchScore(t.translation, query)
-        })))
+        results.push(...translations.map(t => {
+          const tw = t.words as any;
+          return {
+            type: 'translation',
+            id: t.id,
+            translation: t.translation,
+            target_language: t.target_language,
+            word: tw ? {
+              id: tw.id,
+              word: tw.word,
+              normalized_word: tw.normalized_word,
+              language: tw.languages,
+              word_class: tw.word_classes
+            } : null,
+            match_score: calculateMatchScore(t.translation, query)
+          };
+        }))
         totalCount += count || 0
       }
     }

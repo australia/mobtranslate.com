@@ -46,11 +46,11 @@ export async function GET(
         .from('word_improvement_suggestions')
         .select('id', { count: 'exact' })
         .eq('status', 'pending')
-        .in('word_id', 
+        .in('word_id',
           supabase
             .from('words')
             .select('id')
-            .eq('language_id', languageId)
+            .eq('language_id', languageId) as any
         ),
 
       // Recent comments (last 24 hours)
@@ -62,7 +62,7 @@ export async function GET(
           supabase
             .from('words')
             .select('id')
-            .eq('language_id', languageId)
+            .eq('language_id', languageId) as any
         ),
 
       // Unverified words

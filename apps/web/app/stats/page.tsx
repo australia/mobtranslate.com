@@ -4,12 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Card, CardContent, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
-import { LoadingState } from '@/app/components/ui/loading-state';
-import { BarChart3, Trophy, Target, TrendingUp, Calendar, Brain, Clock, CheckCircle, XCircle } from 'lucide-react';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Card, CardContent, CardHeader, CardTitle, Badge } from '@mobtranslate/ui';
+import { LoadingState } from '@/components/layout/LoadingState';
+import { BarChart3, TrendingUp, Brain, Clock, CheckCircle, XCircle } from 'lucide-react';
 import Link from 'next/link';
 
 interface Stats {
@@ -68,6 +67,7 @@ export default function StatsPage() {
     }
 
     fetchStats();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading]);
 
   const fetchStats = async () => {
@@ -158,7 +158,7 @@ export default function StatsPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-green-600">
+                  <div className="text-2xl font-bold text-success">
                     {stats.overall.masteredWords}
                   </div>
                 </CardContent>
@@ -184,7 +184,7 @@ export default function StatsPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-gray-800">
+                  <div className="text-2xl font-bold text-foreground">
                     {stats.overall.streakDays} days
                   </div>
                 </CardContent>
@@ -245,7 +245,7 @@ export default function StatsPage() {
                 <div className="space-y-4">
                   {stats.languages.map((language) => (
                     <Link key={language.code} href={`/stats/${language.code}`}>
-                      <div className="p-4 rounded-lg border hover:border-indigo-300 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 transition-all cursor-pointer">
+                      <div className="p-4 rounded-lg border hover:border-primary/30 hover:bg-primary/5 transition-all cursor-pointer">
                         <div className="flex justify-between items-center">
                           <div>
                             <h4 className="font-medium">{language.name}</h4>
@@ -255,7 +255,7 @@ export default function StatsPage() {
                           </div>
                           <div className="flex gap-2 items-center">
                             {language.mastered > 0 && (
-                              <Badge variant="secondary" className="bg-green-100 text-green-700">
+                              <Badge variant="secondary" className="bg-success/10 text-success">
                                 {language.mastered} mastered
                               </Badge>
                             )}
@@ -290,9 +290,9 @@ export default function StatsPage() {
                     <div key={index} className="flex items-center justify-between py-2 border-b last:border-0">
                       <div className="flex items-center gap-3">
                         {attempt.isCorrect ? (
-                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <CheckCircle className="h-4 w-4 text-success" />
                         ) : (
-                          <XCircle className="h-4 w-4 text-red-500" />
+                          <XCircle className="h-4 w-4 text-error" />
                         )}
                         <div>
                           <div className="font-medium">{attempt.word}</div>

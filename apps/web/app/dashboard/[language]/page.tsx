@@ -4,28 +4,22 @@ import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, useParams } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Badge } from '@/app/components/ui/badge';
-import { Button } from '@/app/components/ui/button';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Badge, Button, Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@mobtranslate/ui';
 import { StatsCard } from '@/components/stats/StatsCard';
 import { WordCard } from '@/components/words/WordCard';
-import { DashboardSkeleton, TableSkeleton } from '@/components/loading/Skeleton';
-import { useDashboardData, useWordLikes } from '@/hooks/useApi';
-import { 
-  TrendingUp, 
-  Brain, 
-  Clock, 
-  Target, 
-  Calendar,
+import { DashboardSkeleton } from '@/components/loading/Skeleton';
+import { useDashboardData } from '@/hooks/useApi';
+import {
+  Brain,
+  Clock,
+  Target,
   BarChart3,
   Trophy,
-  Zap,
   Activity,
   BookOpen,
-  Timer,
   ChevronLeft,
-  ArrowUp,
   Heart,
   Filter
 } from 'lucide-react';
@@ -152,7 +146,7 @@ export default function LanguageDashboardPage() {
       <div className="min-h-screen">
         <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="mb-6 animate-slide-in">
-            <Link href="/dashboard" className="inline-flex items-center text-gray-600 hover:text-gray-900">
+            <Link href="/dashboard" className="inline-flex items-center text-muted-foreground hover:text-foreground">
               <ChevronLeft className="h-4 w-4 mr-1" />
               Back to Dashboard
             </Link>
@@ -163,7 +157,7 @@ export default function LanguageDashboardPage() {
             description="Track your progress and performance"
             badge={
               dashboardData.overview.currentStreak ? (
-                <Badge variant="default" className="ml-2 animate-scale-in">
+                <Badge variant="primary" className="ml-2 animate-scale-in">
                   <Trophy className="h-3 w-3 mr-1" />
                   {dashboardData.overview.currentStreak} day streak
                 </Badge>
@@ -176,7 +170,7 @@ export default function LanguageDashboardPage() {
             {['7d', '30d', '90d', 'all'].map((p) => (
               <Button
                 key={p}
-                variant={period === p ? 'default' : 'outline'}
+                variant={period === p ? 'primary' : 'outline'}
                 size="sm"
                 onClick={() => setPeriod(p)}
                 className="hover-grow"
@@ -190,7 +184,7 @@ export default function LanguageDashboardPage() {
             <DashboardSkeleton />
           ) : error ? (
             <div className="mt-8 text-center">
-              <p className="text-red-600">Failed to load dashboard data</p>
+              <p className="text-error">Failed to load dashboard data</p>
               <Button onClick={() => window.location.reload()} className="mt-4">
                 Retry
               </Button>
@@ -204,11 +198,10 @@ export default function LanguageDashboardPage() {
                     title="Total Sessions"
                     value={dashboardData.overview.totalSessions}
                     icon={BookOpen}
-                    iconColor="text-blue-500"
+                    iconColor="text-primary"
                     trend={dashboardData.recentActivity.length > 1 && dashboardData.recentActivity[0].sessions > dashboardData.recentActivity[1].sessions ? {
                       value: dashboardData.recentActivity[0].sessions - dashboardData.recentActivity[1].sessions,
-                      label: 'today',
-                      positive: true
+                      isPositive: true
                     } : undefined}
                     className="animate-slide-in"
                     style={{ animationDelay: '0ms' }}
@@ -218,12 +211,12 @@ export default function LanguageDashboardPage() {
                     title="Accuracy"
                     value={`${dashboardData.overview.overallAccuracy.toFixed(1)}%`}
                     icon={Target}
-                    iconColor="text-green-500"
+                    iconColor="text-success"
                     progress={{
                       value: dashboardData.overview.overallAccuracy,
                       max: 100,
-                      color: dashboardData.overview.overallAccuracy >= 80 ? 'bg-green-500' : 
-                             dashboardData.overview.overallAccuracy >= 60 ? 'bg-yellow-500' : 'bg-red-500'
+                      color: dashboardData.overview.overallAccuracy >= 80 ? 'bg-success' :
+                             dashboardData.overview.overallAccuracy >= 60 ? 'bg-warning' : 'bg-error'
                     }}
                     className="animate-slide-in"
                     style={{ animationDelay: '50ms' }}
@@ -232,9 +225,9 @@ export default function LanguageDashboardPage() {
                   <StatsCard
                     title="Words Progress"
                     value={dashboardData.overview.wordsLearned}
-                    subtitle={`${dashboardData.overview.wordsMastered} mastered`}
+                    description={`${dashboardData.overview.wordsMastered} mastered`}
                     icon={Brain}
-                    iconColor="text-gray-700"
+                    iconColor="text-muted-foreground"
                     className="animate-slide-in"
                     style={{ animationDelay: '100ms' }}
                   />
@@ -242,9 +235,9 @@ export default function LanguageDashboardPage() {
                   <StatsCard
                     title="Study Time"
                     value={formatMinutes(dashboardData.overview.totalStudyTime)}
-                    subtitle={`${(dashboardData.overview.totalStudyTime / Math.max(dashboardData.overview.totalSessions, 1)).toFixed(0)}m per session`}
+                    description={`${(dashboardData.overview.totalStudyTime / Math.max(dashboardData.overview.totalSessions, 1)).toFixed(0)}m per session`}
                     icon={Clock}
-                    iconColor="text-orange-500"
+                    iconColor="text-warning"
                     className="animate-slide-in"
                     style={{ animationDelay: '150ms' }}
                   />
@@ -255,20 +248,20 @@ export default function LanguageDashboardPage() {
               <Section className="mt-8">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
                   {/* Daily Activity Chart */}
-                  <div className="bg-white rounded-xl border p-6 animate-slide-in" style={{ animationDelay: '200ms' }}>
+                  <div className="bg-card rounded-xl border p-6 animate-slide-in" style={{ animationDelay: '200ms' }}>
                     <h3 className="text-base sm:text-lg font-semibold mb-4 flex items-center">
-                      <Activity className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-blue-500" />
+                      <Activity className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-primary" />
                       Daily Activity
                     </h3>
                     <div className="h-64 sm:h-72">
                       <Line
                         data={{
-                          labels: dashboardData.recentActivity.slice(0, 7).reverse().map(d => 
+                          labels: dashboardData.recentActivity.slice(0, 7).reverse().map((d: any) =>
                             new Date(d.date).toLocaleDateString('en', { month: 'short', day: 'numeric' })
                           ),
                           datasets: [{
                             label: 'Accuracy %',
-                            data: dashboardData.recentActivity.slice(0, 7).reverse().map(d => d.accuracy),
+                            data: dashboardData.recentActivity.slice(0, 7).reverse().map((d: any) => d.accuracy),
                             borderColor: 'rgb(59, 130, 246)',
                             backgroundColor: 'rgba(59, 130, 246, 0.1)',
                             fill: true,
@@ -281,18 +274,18 @@ export default function LanguageDashboardPage() {
                   </div>
 
                   {/* Performance by Difficulty */}
-                  <div className="bg-white rounded-xl border p-6 animate-slide-in" style={{ animationDelay: '250ms' }}>
+                  <div className="bg-card rounded-xl border p-6 animate-slide-in" style={{ animationDelay: '250ms' }}>
                     <h3 className="text-base sm:text-lg font-semibold mb-4 flex items-center">
-                      <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-gray-700" />
+                      <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-muted-foreground" />
                       Performance by Difficulty
                     </h3>
                     <div className="h-64 sm:h-72">
                       <Bar
                         data={{
-                          labels: dashboardData.performanceByBucket.map(b => b.bucketName),
+                          labels: dashboardData.performanceByBucket.map((b: any) => b.bucketName),
                           datasets: [{
                             label: 'Accuracy %',
-                            data: dashboardData.performanceByBucket.map(b => b.accuracy),
+                            data: dashboardData.performanceByBucket.map((b: any) => b.accuracy),
                             backgroundColor: [
                               'rgba(239, 68, 68, 0.8)',
                               'rgba(245, 158, 11, 0.8)',
@@ -312,11 +305,11 @@ export default function LanguageDashboardPage() {
 
               {/* Word Statistics */}
               <Section className="mt-8">
-                <div className="bg-white rounded-xl border overflow-hidden animate-slide-in" style={{ animationDelay: '300ms' }}>
+                <div className="bg-card rounded-xl border overflow-hidden animate-slide-in" style={{ animationDelay: '300ms' }}>
                   <div className="p-4 sm:p-6 border-b">
                     <div className="flex items-center justify-between">
                       <h3 className="text-base sm:text-lg font-semibold flex items-center">
-                        <Brain className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-indigo-500" />
+                        <Brain className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-primary" />
                         Word Performance
                       </h3>
                       <Button
@@ -358,33 +351,33 @@ export default function LanguageDashboardPage() {
                       </div>
                     ) : (
                       <div className="overflow-x-auto">
-                        <table className="w-full text-xs sm:text-sm">
-                          <thead className="bg-gray-50">
-                            <tr className="border-b">
-                              <th className="text-left py-2 sm:py-3 px-3 sm:px-4 font-medium text-gray-700 sticky left-0 bg-gray-50 z-10">Word</th>
-                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700">
+                        <Table className="w-full text-xs sm:text-sm">
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead className="text-left py-2 sm:py-3 px-3 sm:px-4 sticky left-0 bg-muted z-10">Word</TableHead>
+                              <TableHead className="text-center py-2 sm:py-3 px-2 sm:px-3">
                                 <Heart className="h-4 w-4 mx-auto" />
-                              </th>
-                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700 hidden sm:table-cell">Attempts</th>
-                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700">Correct</th>
-                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700">Failed</th>
-                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700">Accuracy</th>
-                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700 hidden md:table-cell">Avg Time</th>
-                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700">Level</th>
-                              <th className="text-center py-2 sm:py-3 px-2 sm:px-3 font-medium text-gray-700 hidden lg:table-cell">Last Seen</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-gray-200">
+                              </TableHead>
+                              <TableHead className="text-center py-2 sm:py-3 px-2 sm:px-3 hidden sm:table-cell">Attempts</TableHead>
+                              <TableHead className="text-center py-2 sm:py-3 px-2 sm:px-3">Correct</TableHead>
+                              <TableHead className="text-center py-2 sm:py-3 px-2 sm:px-3">Failed</TableHead>
+                              <TableHead className="text-center py-2 sm:py-3 px-2 sm:px-3">Accuracy</TableHead>
+                              <TableHead className="text-center py-2 sm:py-3 px-2 sm:px-3 hidden md:table-cell">Avg Time</TableHead>
+                              <TableHead className="text-center py-2 sm:py-3 px-2 sm:px-3">Level</TableHead>
+                              <TableHead className="text-center py-2 sm:py-3 px-2 sm:px-3 hidden lg:table-cell">Last Seen</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
                             {dashboardData.wordStats.map((word: WordStat, index: number) => (
                               <WordTableRow key={word.id} word={word} index={index} onLike={handleWordLike} />
                             ))}
-                          </tbody>
-                        </table>
+                          </TableBody>
+                        </Table>
                       </div>
                     )
                   ) : (
-                    <div className="text-center py-12 text-gray-500">
-                      <Brain className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+                    <div className="text-center py-12 text-muted-foreground">
+                      <Brain className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                       <p>No word statistics available yet.</p>
                       <p className="text-sm mt-1">Start learning to see your progress!</p>
                     </div>
@@ -397,49 +390,49 @@ export default function LanguageDashboardPage() {
                 <h2 className="text-lg sm:text-xl font-semibold mb-4">Quick Actions</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                   <Link href={`/learn/${language}`} className="block animate-slide-in hover-lift">
-                    <div className="bg-white rounded-xl border hover:border-green-300 p-4 sm:p-6 h-full transition-all">
+                    <div className="bg-card rounded-xl border hover:border-success/30 p-4 sm:p-6 h-full transition-all">
                       <div className="flex items-center justify-between">
                         <div className="min-w-0 flex-1">
                           <h3 className="font-medium text-sm sm:text-base">Continue Learning</h3>
-                          <p className="text-xs sm:text-sm text-gray-600 mt-1">Practice more {dashboardData.languageInfo.name} words</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">Practice more {dashboardData.languageInfo.name} words</p>
                         </div>
-                        <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-green-500 flex-shrink-0 ml-3" />
+                        <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-success flex-shrink-0 ml-3" />
                       </div>
                     </div>
                   </Link>
 
                   <Link href={`/stats/${language}`} className="block animate-slide-in hover-lift" style={{ animationDelay: '50ms' }}>
-                    <div className="bg-white rounded-xl border hover:border-gray-300 p-4 sm:p-6 h-full transition-all">
+                    <div className="bg-card rounded-xl border hover:border-border p-4 sm:p-6 h-full transition-all">
                       <div className="flex items-center justify-between">
                         <div className="min-w-0 flex-1">
                           <h3 className="font-medium text-sm sm:text-base">Detailed Stats</h3>
-                          <p className="text-xs sm:text-sm text-gray-600 mt-1">View word-level statistics</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">View word-level statistics</p>
                         </div>
-                        <BarChart3 className="h-6 w-6 sm:h-8 sm:w-8 text-gray-700 flex-shrink-0 ml-3" />
+                        <BarChart3 className="h-6 w-6 sm:h-8 sm:w-8 text-muted-foreground flex-shrink-0 ml-3" />
                       </div>
                     </div>
                   </Link>
 
                   <Link href={`/leaderboard/${language}`} className="block animate-slide-in hover-lift" style={{ animationDelay: '100ms' }}>
-                    <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl border border-yellow-200 hover:border-yellow-300 p-4 sm:p-6 h-full transition-all">
+                    <div className="bg-warning/5 rounded-xl border border-warning/20 hover:border-warning/30 p-4 sm:p-6 h-full transition-all">
                       <div className="flex items-center justify-between">
                         <div className="min-w-0 flex-1">
                           <h3 className="font-medium text-sm sm:text-base">Leaderboard</h3>
-                          <p className="text-xs sm:text-sm text-gray-600 mt-1">Compete with other learners</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">Compete with other learners</p>
                         </div>
-                        <Trophy className="h-6 w-6 sm:h-8 sm:w-8 text-yellow-500 flex-shrink-0 ml-3" />
+                        <Trophy className="h-6 w-6 sm:h-8 sm:w-8 text-warning flex-shrink-0 ml-3" />
                       </div>
                     </div>
                   </Link>
 
                   <Link href="/dashboard" className="block animate-slide-in hover-lift" style={{ animationDelay: '150ms' }}>
-                    <div className="bg-white rounded-xl border hover:border-blue-300 p-4 sm:p-6 h-full transition-all">
+                    <div className="bg-card rounded-xl border hover:border-primary/30 p-4 sm:p-6 h-full transition-all">
                       <div className="flex items-center justify-between">
                         <div className="min-w-0 flex-1">
                           <h3 className="font-medium text-sm sm:text-base">All Languages</h3>
-                          <p className="text-xs sm:text-sm text-gray-600 mt-1">View dashboard overview</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-1">View dashboard overview</p>
                         </div>
-                        <Activity className="h-6 w-6 sm:h-8 sm:w-8 text-blue-500 flex-shrink-0 ml-3" />
+                        <Activity className="h-6 w-6 sm:h-8 sm:w-8 text-primary flex-shrink-0 ml-3" />
                       </div>
                     </div>
                   </Link>
@@ -454,6 +447,7 @@ export default function LanguageDashboardPage() {
 }
 
 // Word table row component with like functionality
+// eslint-disable-next-line no-unused-vars
 function WordTableRow({ word, index, onLike }: { word: WordStat; index: number; onLike: (wordId: string, liked: boolean) => Promise<void> }) {
   const [liked, setLiked] = useState(false);
   const [likeLoading, setLikeLoading] = useState(false);
@@ -474,52 +468,53 @@ function WordTableRow({ word, index, onLike }: { word: WordStat; index: number; 
   };
 
   return (
-    <tr className={`hover:bg-gray-50 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}`}>
-      <td className="py-2 sm:py-3 px-3 sm:px-4 sticky left-0 bg-inherit">
-        <Link 
+    <TableRow className={index % 2 === 0 ? 'bg-card' : 'bg-muted/50'}>
+      <TableCell className="py-2 sm:py-3 px-3 sm:px-4 sticky left-0 bg-inherit">
+        <Link
           href={`/word/${word.id}`}
-          className="text-blue-600 hover:text-blue-800 hover:underline font-medium block truncate max-w-[150px] sm:max-w-none"
+          className="text-primary hover:text-primary/80 hover:underline font-medium block truncate max-w-[150px] sm:max-w-none"
         >
           {word.word}
         </Link>
-      </td>
-      <td className="text-center py-2 sm:py-3 px-2 sm:px-3">
-        <button
+      </TableCell>
+      <TableCell className="text-center py-2 sm:py-3 px-2 sm:px-3">
+        <Button
+          variant="ghost"
           onClick={handleLike}
           disabled={likeLoading}
           className={`p-1 rounded-full transition-all ${
-            liked ? 'text-red-500' : 'text-gray-400 hover:text-red-500'
+            liked ? 'text-red-500' : 'text-muted-foreground hover:text-red-500'
           }`}
         >
           <Heart className={`h-4 w-4 ${liked ? 'fill-current' : ''}`} />
-        </button>
-      </td>
-      <td className="text-center py-2 sm:py-3 px-2 sm:px-3 hidden sm:table-cell">{word.totalAttempts}</td>
-      <td className="text-center py-2 sm:py-3 px-2 sm:px-3 text-green-600 font-medium">{word.correctAttempts}</td>
-      <td className="text-center py-2 sm:py-3 px-2 sm:px-3 text-red-600 font-medium">{word.failedAttempts}</td>
-      <td className="text-center py-2 sm:py-3 px-2 sm:px-3">
+        </Button>
+      </TableCell>
+      <TableCell className="text-center py-2 sm:py-3 px-2 sm:px-3 hidden sm:table-cell">{word.totalAttempts}</TableCell>
+      <TableCell className="text-center py-2 sm:py-3 px-2 sm:px-3 text-success font-medium">{word.correctAttempts}</TableCell>
+      <TableCell className="text-center py-2 sm:py-3 px-2 sm:px-3 text-error font-medium">{word.failedAttempts}</TableCell>
+      <TableCell className="text-center py-2 sm:py-3 px-2 sm:px-3">
         <span className={`font-bold ${
-          word.accuracy >= 80 ? 'text-green-600' : 
-          word.accuracy >= 60 ? 'text-yellow-600' : 
-          'text-red-600'
+          word.accuracy >= 80 ? 'text-success' :
+          word.accuracy >= 60 ? 'text-warning' :
+          'text-error'
         }`}>
           {word.accuracy.toFixed(0)}%
         </span>
-      </td>
-      <td className="text-center py-2 sm:py-3 px-2 sm:px-3 hidden md:table-cell text-gray-600">
+      </TableCell>
+      <TableCell className="text-center py-2 sm:py-3 px-2 sm:px-3 hidden md:table-cell text-muted-foreground">
         {word.avgResponseTime}ms
-      </td>
-      <td className="text-center py-2 sm:py-3 px-2 sm:px-3">
-        <Badge 
+      </TableCell>
+      <TableCell className="text-center py-2 sm:py-3 px-2 sm:px-3">
+        <Badge
           variant={word.bucket >= 4 ? 'default' : word.bucket >= 2 ? 'secondary' : 'outline'}
           className="text-xs px-2 py-0.5"
         >
           {['New', 'Learning', 'Learning+', 'Review', 'Review+', 'Mastered'][word.bucket] || 'New'}
         </Badge>
-      </td>
-      <td className="text-center py-2 sm:py-3 px-2 sm:px-3 text-gray-500 text-xs hidden lg:table-cell">
+      </TableCell>
+      <TableCell className="text-center py-2 sm:py-3 px-2 sm:px-3 text-muted-foreground text-xs hidden lg:table-cell">
         {new Date(word.lastSeen).toLocaleDateString('en', { month: 'short', day: 'numeric' })}
-      </td>
-    </tr>
+      </TableCell>
+    </TableRow>
   );
 }

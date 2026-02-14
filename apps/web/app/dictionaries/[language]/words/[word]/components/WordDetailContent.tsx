@@ -1,10 +1,10 @@
 'use client';
 
 import React, { Suspense, lazy } from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
+import { Card, CardContent } from '@mobtranslate/ui';
 import { WordLikeButton } from '@/components/WordLikeButton';
+import { Badge } from '@mobtranslate/ui';
 import { DictionaryEntry } from '@ui/components/DictionaryEntry';
-import { Badge } from '@ui/components/Badge';
 import type { Word } from '@/lib/supabase/types';
 
 const LocationMap = lazy(() => import('./LocationMap').then(m => ({ default: m.LocationMap })));

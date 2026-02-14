@@ -2,11 +2,8 @@
 
 import { useMemo, useState } from 'react';
 import useSWR from 'swr';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table';
-import { useToast } from '@/app/components/ui/use-toast';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 import { RefreshCw, Database, Clock, AlertTriangle, Sparkles, MapPinned, PlayCircle } from 'lucide-react';
 
 interface SyncTask {
@@ -99,7 +96,7 @@ export default function DictionarySyncAdminPage() {
       toast({
         title: 'Sync Action Failed',
         description: requestError instanceof Error ? requestError.message : 'Unexpected error',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setIsSubmitting(false);
@@ -110,24 +107,23 @@ export default function DictionarySyncAdminPage() {
     toast({
       title: 'Failed to load sync dashboard',
       description: error.message,
-      variant: 'destructive'
+      variant: 'error'
     });
   }
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 p-6 text-white shadow-xl">
+      <div className="rounded-2xl border bg-card p-6 shadow-xl">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Dictionary Sync Control</h1>
-            <p className="mt-2 max-w-2xl text-sm text-slate-200">
+            <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
               Production pipeline for YAML-to-DB sync, scheduled task tracking, and AI-assisted location enrichment.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <Button
               variant="secondary"
-              className="bg-white text-slate-900 hover:bg-slate-100"
               disabled={isSubmitting}
               onClick={() => runAction('run_due')}
             >
@@ -136,7 +132,7 @@ export default function DictionarySyncAdminPage() {
             </Button>
             <Button
               variant="secondary"
-              className="bg-cyan-200 text-slate-900 hover:bg-cyan-100"
+              className="bg-primary/20 text-foreground hover:bg-primary/30"
               disabled={isSubmitting}
               onClick={() => runAction('sync_all')}
             >
@@ -145,7 +141,7 @@ export default function DictionarySyncAdminPage() {
             </Button>
             <Button
               variant="secondary"
-              className="bg-emerald-200 text-slate-900 hover:bg-emerald-100"
+              className="bg-success/20 text-foreground hover:bg-success/30"
               disabled={isSubmitting}
               onClick={() => runAction('enrich_locations')}
             >
@@ -235,15 +231,15 @@ export default function DictionarySyncAdminPage() {
                   <TableRow key={task.id}>
                     <TableCell>{task.languages?.name || 'Unknown'}</TableCell>
                     <TableCell>
-                      <code className="rounded bg-slate-100 px-2 py-1 text-xs dark:bg-slate-800">{task.task_type}</code>
+                      <code className="rounded bg-muted px-2 py-1 text-xs">{task.task_type}</code>
                     </TableCell>
                     <TableCell>
                       <Badge
                         variant={
                           task.last_status === 'failed'
-                            ? 'destructive'
+                            ? 'error'
                             : task.last_status === 'success'
-                            ? 'default'
+                            ? 'primary'
                             : 'secondary'
                         }
                       >
@@ -291,7 +287,7 @@ export default function DictionarySyncAdminPage() {
                     <TableCell>{run.languages?.name || '-'}</TableCell>
                     <TableCell>{run.task_type}</TableCell>
                     <TableCell>
-                      <Badge variant={run.status === 'failed' ? 'destructive' : run.status === 'success' ? 'default' : 'secondary'}>
+                      <Badge variant={run.status === 'failed' ? 'error' : run.status === 'success' ? 'primary' : 'secondary'}>
                         {run.status}
                       </Badge>
                     </TableCell>

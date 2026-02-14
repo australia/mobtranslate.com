@@ -4,9 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { LoadingState } from '@/app/components/ui/loading-state';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { LoadingState } from '@/components/layout/LoadingState';
+import { Button } from '@mobtranslate/ui';
 import { Trophy, Globe, Zap, Users } from 'lucide-react';
 import LeaderboardCard from '../../components/leaderboard/LeaderboardCard';
 import PeriodSelector from '../../components/leaderboard/PeriodSelector';
@@ -63,6 +64,7 @@ export default function LeaderboardOverviewPage() {
     
     console.log('[Leaderboard Overview] User authenticated, fetching data');
     fetchOverviewData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, authLoading, router, period]);
 
   const fetchOverviewData = async () => {
@@ -126,7 +128,7 @@ export default function LeaderboardOverviewPage() {
               {/* Global Statistics */}
               <Section className="mt-12">
                 <h2 className="text-2xl font-semibold mb-8 flex items-center">
-                  <Zap className="h-5 w-5 mr-2 text-yellow-500" />
+                  <Zap className="h-5 w-5 mr-2 text-warning" />
                   Global Statistics
                 </h2>
                 <LeaderboardStats
@@ -141,7 +143,7 @@ export default function LeaderboardOverviewPage() {
               {overviewData.leaderboards.length > 0 ? (
                 <Section className="mt-12">
                   <h2 className="text-2xl font-semibold mb-8 flex items-center">
-                    <Trophy className="h-5 w-5 mr-2 text-gray-700" />
+                    <Trophy className="h-5 w-5 mr-2 text-muted-foreground" />
                     Language Leaderboards
                   </h2>
                   <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
@@ -163,24 +165,22 @@ export default function LeaderboardOverviewPage() {
               ) : (
                 <Section className="mt-12">
                   <div className="text-center py-12">
-                    <Trophy className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">No Active Leaderboards</h3>
-                    <p className="text-gray-600 mb-6">
+                    <Trophy className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+                    <h3 className="text-lg font-medium text-foreground mb-2">No Active Leaderboards</h3>
+                    <p className="text-muted-foreground mb-6">
                       No one has started learning yet for the selected time period.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                      <a
-                        href="/dashboard"
-                        className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-                      >
-                        View Dashboard
-                      </a>
-                      <a
-                        href="/learn"
-                        className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-                      >
-                        Start Learning
-                      </a>
+                      <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
+                        <a href="/dashboard">
+                          View Dashboard
+                        </a>
+                      </Button>
+                      <Button asChild variant="outline">
+                        <a href="/learn">
+                          Start Learning
+                        </a>
+                      </Button>
                     </div>
                   </div>
                 </Section>
@@ -190,9 +190,9 @@ export default function LeaderboardOverviewPage() {
               {overviewData.allLanguages.filter(l => l.totalParticipants === 0).length > 0 && (
                 <Section className="mt-12">
                   <h2 className="text-2xl font-semibold mb-8 flex items-center">
-                    <Globe className="h-5 w-5 mr-2 text-gray-500" />
+                    <Globe className="h-5 w-5 mr-2 text-muted-foreground" />
                     Available Languages
-                    <span className="ml-2 text-sm font-normal text-gray-600">
+                    <span className="ml-2 text-sm font-normal text-muted-foreground">
                       (No activity yet)
                     </span>
                   </h2>
@@ -203,12 +203,12 @@ export default function LeaderboardOverviewPage() {
                         <a
                           key={language.languageId}
                           href={`/learn/${language.languageCode}`}
-                          className="block p-4 bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all text-center group"
+                          className="block p-4 bg-card rounded-lg border border-border hover:border-primary/30 hover:shadow-md transition-all text-center group"
                         >
-                          <h3 className="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
+                          <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
                             {language.languageName}
                           </h3>
-                          <p className="text-sm text-gray-500 mt-1">Start learning</p>
+                          <p className="text-sm text-muted-foreground mt-1">Start learning</p>
                         </a>
                       ))}
                   </div>
@@ -216,7 +216,7 @@ export default function LeaderboardOverviewPage() {
               )}
 
               {/* Footer Note */}
-              <div className="mt-12 text-center text-sm text-gray-500">
+              <div className="mt-12 text-center text-sm text-muted-foreground">
                 <p>
                   Data updated: {new Date(overviewData.generatedAt).toLocaleString()}
                 </p>
@@ -227,8 +227,8 @@ export default function LeaderboardOverviewPage() {
             </>
           ) : (
             <div className="mt-8 text-center">
-              <Trophy className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-              <p className="text-gray-600">Unable to load leaderboard data</p>
+              <Trophy className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+              <p className="text-muted-foreground">Unable to load leaderboard data</p>
             </div>
           )}
         </div>

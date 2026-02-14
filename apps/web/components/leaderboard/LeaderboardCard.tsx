@@ -2,8 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
-import { Badge } from '@ui/components/Badge';
+import { Card, CardContent, Badge } from '@mobtranslate/ui';
 import { 
   Crown, 
   Trophy, 
@@ -58,7 +57,7 @@ const formatLastActivity = (lastActivity: string | null) => {
 };
 
 export default function LeaderboardCard({
-  languageId,
+  languageId: _languageId,
   languageName,
   languageCode,
   champion,
@@ -75,11 +74,11 @@ export default function LeaderboardCard({
           {/* Header */}
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2 flex items-center">
+              <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-2 flex items-center">
                 {languageName}
-                <ChevronRight className="h-4 w-4 ml-2 text-gray-400 group-hover:text-gray-600 transition-colors" />
+                <ChevronRight className="h-4 w-4 ml-2 text-muted-foreground group-hover:text-foreground transition-colors" />
               </h3>
-              <div className="flex items-center gap-3 text-sm text-gray-600">
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <div className="flex items-center">
                   <Users className="h-4 w-4 mr-1" />
                   {totalParticipants} learners
@@ -94,7 +93,7 @@ export default function LeaderboardCard({
             {champion && (
               <div className="text-right">
                 <Crown className="h-6 w-6 text-yellow-500 mx-auto mb-1" />
-                <Badge variant="default" className="bg-yellow-500 text-white text-xs">
+                <Badge variant="primary" className="bg-yellow-500 text-white text-xs">
                   Champion
                 </Badge>
               </div>
@@ -110,21 +109,21 @@ export default function LeaderboardCard({
                     {champion.username.charAt(0).toUpperCase()}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">{champion.username}</h4>
-                    <p className="text-sm text-gray-600">{formatPoints(champion.points)} points</p>
+                    <h4 className="font-semibold text-foreground">{champion.username}</h4>
+                    <p className="text-sm text-muted-foreground">{formatPoints(champion.points)} points</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-medium text-gray-900">{champion.accuracy.toFixed(1)}% accuracy</p>
-                  <p className="text-sm text-gray-600">{champion.currentStreak} day streak</p>
+                  <p className="text-sm font-medium text-foreground">{champion.accuracy.toFixed(1)}% accuracy</p>
+                  <p className="text-sm text-muted-foreground">{champion.currentStreak} day streak</p>
                 </div>
               </div>
             </div>
           ) : (
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <Trophy className="h-8 w-8 text-gray-300 mx-auto mb-2" />
-              <p className="text-gray-500 text-sm">No champion yet</p>
-              <p className="text-gray-400 text-xs">Be the first to compete!</p>
+            <div className="bg-muted rounded-lg p-6 text-center">
+              <Trophy className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
+              <p className="text-muted-foreground text-sm">No champion yet</p>
+              <p className="text-muted-foreground text-xs">Be the first to compete!</p>
             </div>
           )}
 
@@ -132,26 +131,26 @@ export default function LeaderboardCard({
           <div className="grid grid-cols-3 gap-6">
             <div className="text-center">
               <div className="flex items-center justify-center mb-1">
-                <Brain className="h-4 w-4 text-blue-500" />
+                <Brain className="h-4 w-4 text-primary" />
               </div>
-              <p className="text-xl font-bold text-gray-900">{totalQuestions.toLocaleString()}</p>
-              <p className="text-sm text-gray-600">Questions</p>
+              <p className="text-xl font-bold text-foreground">{totalQuestions.toLocaleString()}</p>
+              <p className="text-sm text-muted-foreground">Questions</p>
             </div>
             
             <div className="text-center">
               <div className="flex items-center justify-center mb-1">
-                <Target className="h-4 w-4 text-green-500" />
+                <Target className="h-4 w-4 text-success" />
               </div>
-              <p className="text-xl font-bold text-gray-900">{averageAccuracy.toFixed(1)}%</p>
-              <p className="text-sm text-gray-600">Avg Accuracy</p>
+              <p className="text-xl font-bold text-foreground">{averageAccuracy.toFixed(1)}%</p>
+              <p className="text-sm text-muted-foreground">Avg Accuracy</p>
             </div>
             
             <div className="text-center">
               <div className="flex items-center justify-center mb-1">
-                <TrendingUp className="h-4 w-4 text-gray-700" />
+                <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </div>
-              <p className="text-xl font-bold text-gray-900">{totalParticipants}</p>
-              <p className="text-sm text-gray-600">Competitors</p>
+              <p className="text-xl font-bold text-foreground">{totalParticipants}</p>
+              <p className="text-sm text-muted-foreground">Competitors</p>
             </div>
           </div>
         </CardContent>

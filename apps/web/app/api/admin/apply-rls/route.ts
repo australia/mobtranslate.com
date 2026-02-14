@@ -73,7 +73,7 @@ export async function POST() {
     
     for (const policy of policies) {
       try {
-        const { data, error } = await supabase.rpc('query', { 
+        const { data: _data, error } = await supabase.rpc('query', {
           query_text: policy 
         }).single();
         

@@ -1,22 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/app/components/ui/dialog';
-import { Label } from '@/app/components/ui/label';
-import { Textarea } from '@/app/components/ui/textarea';
-import { useToast } from '@/app/components/ui/use-toast';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Tabs, TabsList, TabsTrigger, Dialog, DialogPortal, DialogBackdrop, DialogPopup, DialogDescription, DialogTitle, Textarea } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 import { 
-  Clock, 
-  CheckCircle, 
-  XCircle, 
-  User, 
+  Clock,
+  CheckCircle,
+  XCircle,
+  User,
   Calendar,
   Globe,
-  MessageSquare,
   AlertCircle,
   Eye,
   Volume2
@@ -53,6 +46,7 @@ export default function PendingReviewsPage() {
 
   useEffect(() => {
     fetchPendingWords();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterLanguage]);
 
   const fetchPendingWords = async () => {
@@ -71,7 +65,7 @@ export default function PendingReviewsPage() {
       toast({
         title: 'Error',
         description: 'Failed to load pending reviews',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setLoading(false);
@@ -106,7 +100,7 @@ export default function PendingReviewsPage() {
       toast({
         title: 'Error',
         description: 'Failed to submit review',
-        variant: 'destructive'
+        variant: 'error'
       });
     }
   };
@@ -171,7 +165,7 @@ export default function PendingReviewsPage() {
   ];
 
   const displayWords = pendingWords.length > 0 ? pendingWords : mockPendingWords;
-  const languages = [...new Set(displayWords.map(w => w.language_name))];
+  const languages = Array.from(new Set(displayWords.map(w => w.language_name)));
 
   return (
     <div className="space-y-6">
@@ -209,7 +203,7 @@ export default function PendingReviewsPage() {
         ) : displayWords.length === 0 ? (
           <Card className="col-span-full">
             <CardContent className="text-center py-8">
-              <CheckCircle className="h-12 w-12 text-green-600 mx-auto mb-4" />
+              <CheckCircle className="h-12 w-12 text-success mx-auto mb-4" />
               <p className="text-lg font-medium">All caught up!</p>
               <p className="text-muted-foreground">No pending reviews at the moment</p>
             </CardContent>
@@ -224,7 +218,7 @@ export default function PendingReviewsPage() {
                     <CardDescription className="mt-1">
                       {word.translation}
                       {word.part_of_speech && (
-                        <span className="ml-2 text-xs bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded">
+                        <span className="ml-2 text-xs bg-muted px-2 py-0.5 rounded">
                           {word.part_of_speech}
                         </span>
                       )}
@@ -275,14 +269,14 @@ export default function PendingReviewsPage() {
                 </div>
 
                 {word.previous_attempts && word.previous_attempts > 0 && (
-                  <div className="flex items-center gap-2 text-sm text-orange-600">
+                  <div className="flex items-center gap-2 text-sm text-warning">
                     <AlertCircle className="h-4 w-4" />
                     Previously rejected {word.previous_attempts} time{word.previous_attempts > 1 ? 's' : ''}
                   </div>
                 )}
 
                 {word.similar_words && word.similar_words.length > 0 && (
-                  <div className="bg-gray-50 dark:bg-gray-800 p-2 rounded text-sm">
+                  <div className="bg-muted p-2 rounded text-sm">
                     <p className="text-xs text-muted-foreground mb-1">Similar words:</p>
                     {word.similar_words.map((sw, i) => (
                       <span key={i} className="text-xs">
@@ -309,7 +303,7 @@ export default function PendingReviewsPage() {
                   <Button 
                     size="sm" 
                     variant="outline"
-                    className="flex-1 text-red-600 hover:text-red-700"
+                    className="flex-1 text-error hover:text-error/80"
                     onClick={() => openReviewDialog(word, 'reject')}
                   >
                     <XCircle className="h-4 w-4 mr-2" />
@@ -332,37 +326,35 @@ export default function PendingReviewsPage() {
 
       {/* Review Dialog */}
       <Dialog open={reviewDialogOpen} onOpenChange={setReviewDialogOpen}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
+        <DialogPortal><DialogBackdrop /><DialogPopup>
             <DialogTitle>
               {reviewAction === 'approve' ? 'Approve' : reviewAction === 'reject' ? 'Reject' : 'Review'} Word
             </DialogTitle>
             <DialogDescription>
               {selectedWord && `Reviewing "${selectedWord.word}" (${selectedWord.translation})`}
             </DialogDescription>
-          </DialogHeader>
 
           {selectedWord && (
             <div className="space-y-4 my-4">
               {/* Show all word details */}
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <Label>Word</Label>
+                  <label className="text-sm font-medium">Word</label>
                   <p className="font-medium">{selectedWord.word}</p>
                 </div>
                 <div>
-                  <Label>Translation</Label>
+                  <label className="text-sm font-medium">Translation</label>
                   <p className="font-medium">{selectedWord.translation}</p>
                 </div>
                 {selectedWord.pronunciation && (
                   <div>
-                    <Label>Pronunciation</Label>
+                    <label className="text-sm font-medium">Pronunciation</label>
                     <p className="font-medium">{selectedWord.pronunciation}</p>
                   </div>
                 )}
                 {selectedWord.part_of_speech && (
                   <div>
-                    <Label>Part of Speech</Label>
+                    <label className="text-sm font-medium">Part of Speech</label>
                     <p className="font-medium">{selectedWord.part_of_speech}</p>
                   </div>
                 )}
@@ -370,30 +362,30 @@ export default function PendingReviewsPage() {
 
               {selectedWord.definition && (
                 <div>
-                  <Label>Definition</Label>
+                  <label className="text-sm font-medium">Definition</label>
                   <p className="text-sm">{selectedWord.definition}</p>
                 </div>
               )}
 
               {selectedWord.example_sentence && (
                 <div>
-                  <Label>Example Sentence</Label>
+                  <label className="text-sm font-medium">Example Sentence</label>
                   <p className="text-sm italic">{selectedWord.example_sentence}</p>
                 </div>
               )}
 
               {selectedWord.cultural_notes && (
                 <div>
-                  <Label>Cultural Notes</Label>
+                  <label className="text-sm font-medium">Cultural Notes</label>
                   <p className="text-sm">{selectedWord.cultural_notes}</p>
                 </div>
               )}
 
               {reviewAction && (
                 <div>
-                  <Label htmlFor="notes">
+                  <label htmlFor="notes" className="text-sm font-medium">
                     {reviewAction === 'reject' ? 'Rejection Reason' : 'Review Notes'} (Optional)
-                  </Label>
+                  </label>
                   <Textarea
                     id="notes"
                     value={reviewNotes}
@@ -408,7 +400,7 @@ export default function PendingReviewsPage() {
             </div>
           )}
 
-          <DialogFooter>
+          <div className="flex justify-end gap-2 mt-4">
             {!reviewAction ? (
               <>
                 <Button 
@@ -435,14 +427,14 @@ export default function PendingReviewsPage() {
                 </Button>
                 <Button 
                   onClick={handleReview}
-                  variant={reviewAction === 'reject' ? 'destructive' : 'default'}
+                  variant={reviewAction === 'reject' ? 'error' : 'primary'}
                 >
                   {reviewAction === 'approve' ? 'Approve' : 'Reject'} Word
                 </Button>
               </>
             )}
-          </DialogFooter>
-        </DialogContent>
+          </div>
+        </DialogPopup></DialogPortal>
       </Dialog>
     </div>
   );

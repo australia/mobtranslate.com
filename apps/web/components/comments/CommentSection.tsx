@@ -3,13 +3,8 @@
 import { useState, useEffect } from 'react';
 import { formatDistanceToNow } from '@/lib/utils/date';
 import { MessageCircle, ThumbsUp, ThumbsDown, Reply, MoreVertical, Flag } from 'lucide-react';
-import { Button } from '@/app/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/avatar';
-import { Textarea } from '@/app/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/app/components/ui/dropdown-menu';
-import { useToast } from '@/app/components/ui/use-toast';
-import { createClient } from '@/lib/supabase/client';
+import { Button, Avatar, Textarea, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue, Menu, MenuTrigger, MenuPortal, MenuPositioner, MenuPopup, MenuItem } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 
 interface Comment {
   id: string;
@@ -41,10 +36,10 @@ export function CommentSection({ wordId, isAuthenticated = false }: CommentSecti
   const [replyingTo, setReplyingTo] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const { toast } = useToast();
-  const supabase = createClient();
 
   useEffect(() => {
     fetchComments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wordId]);
 
   const fetchComments = async () => {
@@ -58,7 +53,7 @@ export function CommentSection({ wordId, isAuthenticated = false }: CommentSecti
       toast({
         title: 'Error',
         description: 'Failed to load comments',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setLoading(false);
@@ -94,7 +89,7 @@ export function CommentSection({ wordId, isAuthenticated = false }: CommentSecti
       toast({
         title: 'Error',
         description: 'Failed to post comment',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setSubmitting(false);
@@ -124,7 +119,7 @@ export function CommentSection({ wordId, isAuthenticated = false }: CommentSecti
       toast({
         title: 'Error',
         description: 'Failed to record vote',
-        variant: 'destructive'
+        variant: 'error'
       });
     }
   };
@@ -132,10 +127,7 @@ export function CommentSection({ wordId, isAuthenticated = false }: CommentSecti
   const CommentItem = ({ comment, isReply = false }: { comment: Comment; isReply?: boolean }) => (
     <div className={`${isReply ? 'ml-12' : ''} mb-4`}>
       <div className="flex gap-3">
-        <Avatar className="h-8 w-8">
-          <AvatarImage src={comment.user.avatar_url} />
-          <AvatarFallback>{comment.user.display_name?.charAt(0)}</AvatarFallback>
-        </Avatar>
+        <Avatar src={comment.user.avatar_url} fallback={comment.user.display_name?.charAt(0)} className="h-8 w-8" />
         
         <div className="flex-1">
           <div className="flex items-start justify-between">
@@ -143,61 +135,67 @@ export function CommentSection({ wordId, isAuthenticated = false }: CommentSecti
               <div className="flex items-center gap-2">
                 <span className="font-medium text-sm">{comment.user.display_name}</span>
                 {comment.comment_type && comment.comment_type !== 'general' && (
-                  <span className="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded">
+                  <span className="text-xs bg-muted px-2 py-0.5 rounded">
                     {comment.comment_type}
                   </span>
                 )}
-                <span className="text-xs text-gray-500">
-                  {formatDistanceToNow(new Date(comment.created_at), { addSuffix: true })}
+                <span className="text-xs text-muted-foreground">
+                  {formatDistanceToNow(new Date(comment.created_at))}
                 </span>
                 {comment.is_edited && (
-                  <span className="text-xs text-gray-500">(edited)</span>
+                  <span className="text-xs text-muted-foreground">(edited)</span>
                 )}
               </div>
             </div>
             
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+            <Menu>
+              <MenuTrigger>
                 <Button variant="ghost" size="sm" className="h-6 w-6 p-0">
                   <MoreVertical className="h-4 w-4" />
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>
+              </MenuTrigger>
+              <MenuPortal><MenuPositioner><MenuPopup>
+                <MenuItem>
                   <Flag className="h-4 w-4 mr-2" />
                   Report
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </MenuItem>
+              </MenuPopup></MenuPositioner></MenuPortal>
+            </Menu>
           </div>
           
           <p className="text-sm mt-1 whitespace-pre-wrap">{comment.comment_text}</p>
           
           <div className="flex items-center gap-4 mt-2">
-            <button
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={() => handleVote(comment.id, 'up')}
-              className="flex items-center gap-1 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"
             >
               <ThumbsUp className="h-4 w-4" />
               <span>{comment.upvotes}</span>
-            </button>
-            
-            <button
+            </Button>
+
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={() => handleVote(comment.id, 'down')}
-              className="flex items-center gap-1 text-sm text-gray-600 hover:text-red-600 transition-colors"
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-destructive"
             >
               <ThumbsDown className="h-4 w-4" />
               <span>{comment.downvotes}</span>
-            </button>
-            
+            </Button>
+
             {!isReply && isAuthenticated && (
-              <button
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => setReplyingTo(comment.id)}
-                className="flex items-center gap-1 text-sm text-gray-600 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
               >
                 <Reply className="h-4 w-4" />
                 Reply
-              </button>
+              </Button>
             )}
           </div>
           
@@ -257,17 +255,17 @@ export function CommentSection({ wordId, isAuthenticated = false }: CommentSecti
       {isAuthenticated && (
         <div className="mb-6">
           <div className="flex gap-2 mb-2">
-            <Select value={commentType} onValueChange={setCommentType}>
+            <Select value={commentType} onValueChange={(v) => v != null && setCommentType(v)}>
               <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Comment type" />
+                <SelectValue />
               </SelectTrigger>
-              <SelectContent>
+              <SelectPortal><SelectPositioner><SelectPopup>
                 <SelectItem value="general">General</SelectItem>
                 <SelectItem value="pronunciation">Pronunciation</SelectItem>
                 <SelectItem value="usage">Usage</SelectItem>
                 <SelectItem value="cultural">Cultural</SelectItem>
                 <SelectItem value="grammar">Grammar</SelectItem>
-              </SelectContent>
+              </SelectPopup></SelectPositioner></SelectPortal>
             </Select>
           </div>
           
@@ -290,7 +288,7 @@ export function CommentSection({ wordId, isAuthenticated = false }: CommentSecti
       
       <div className="space-y-4">
         {comments.length === 0 ? (
-          <p className="text-center text-gray-500 py-8">
+          <p className="text-center text-muted-foreground py-8">
             No comments yet. Be the first to comment!
           </p>
         ) : (

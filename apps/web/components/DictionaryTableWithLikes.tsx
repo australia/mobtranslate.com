@@ -1,10 +1,7 @@
 'use client';
 
 import React from 'react';
-import { cn } from '../app/lib/utils';
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/app/components/ui/table';
-import { Badge } from '@/app/components/ui/badge';
-import { Card } from '@/app/components/ui/card';
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, Badge, Button, Card, cn } from '@mobtranslate/ui';
 import { WordLikeButton } from './WordLikeButton';
 
 export interface DictionaryWord {
@@ -19,7 +16,7 @@ export interface DictionaryWord {
 
 export interface DictionaryTableWithLikesProps {
   words: DictionaryWord[];
-  onWordClick?: (word: string) => void;
+  onWordClick?: (_word: string) => void;
   className?: string;
   showLikeButtons?: boolean;
 }
@@ -61,12 +58,13 @@ const DictionaryTableWithLikes: React.FC<DictionaryTableWithLikesProps> = ({
             <TableRow key={word.id || index}>
               <TableCell>
                 {onWordClick ? (
-                  <button
+                  <Button
+                    variant="link"
                     onClick={() => onWordClick(word.word)}
-                    className="font-medium font-crimson text-primary hover:underline text-left"
+                    className="font-medium font-crimson text-primary hover:underline text-left p-0 h-auto"
                   >
                     {word.word}
-                  </button>
+                  </Button>
                 ) : (
                   <span className="font-medium font-crimson">{word.word}</span>
                 )}

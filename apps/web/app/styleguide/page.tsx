@@ -2,29 +2,12 @@
 
 import React, { useState } from 'react';
 import SharedLayout from '../components/SharedLayout';
-import { Button } from '@/app/components/ui/button';
-import { Alert } from '@/app/components/ui/alert';
-import { Badge } from '@/app/components/ui/badge';
-import { Input } from '@/app/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/app/components/ui/card';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, TableFooter, TableCaption } from '@/app/components/ui/table';
-import { LoadingSpinner, LoadingState, LoadingSkeleton } from '@/app/components/ui/loading-state';
-import { EmptyState } from '@/app/components/ui/empty-state';
-import { Textarea } from '@/app/components/ui/textarea';
-import { Select } from '@/app/components/ui/select';
-import { Label } from '@/app/components/ui/label';
+import { Button, Alert, Badge, Input, Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter, Table, TableHeader, TableBody, TableRow, TableHead, TableCell, TableFooter, TableCaption, Textarea, Select } from '@mobtranslate/ui';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { LoadingSpinner, LoadingState, LoadingSkeleton } from '@/components/layout/LoadingState';
+import { EmptyState } from '@/components/layout/EmptyState';
 
-// TODO: These components need to be created or imported from the correct location
-// import { Container } from '@/app/components/ui/container';
-// import { DictionaryEntry } from '@/app/components/ui/dictionary-entry';
-// import { SearchInput } from '@/app/components/ui/search-input';
-// import { FormField } from '@/app/components/ui/form-field';
-// import { FilterTags } from '@/app/components/ui/filter-tags';
-// import { AlphabetFilter } from '@/app/components/ui/alphabet-filter';
-// import { Pagination } from '@/app/components/ui/pagination';
-// import { Breadcrumbs } from '@/app/components/ui/breadcrumbs';
 import { 
   Search, Globe, BookOpen, Users, ChevronRight, AlertCircle, CheckCircle, Info, XCircle,
   Home, Settings, Menu, X, ArrowLeft, ArrowRight, Download, Upload, Edit, Trash2,
@@ -136,16 +119,14 @@ const Breadcrumbs = ({ items, className }: any) => (
 // Import custom components
 import { SignInForm } from '@/components/auth/SignInForm';
 import { SignUpForm } from '@/components/auth/SignUpForm';
-import { ModernNav } from '@/components/navigation/ModernNav';
 import { WordCard } from '@/components/words/WordCard';
 import { WordLikeButton } from '@/components/WordLikeButton';
 import { StatsCard } from '@/components/stats/StatsCard';
-import { 
-  Skeleton, 
-  CardSkeleton, 
-  WordCardSkeleton, 
-  TableSkeleton, 
-  DashboardSkeleton 
+import {
+  Skeleton,
+  CardSkeleton,
+  WordCardSkeleton,
+  TableSkeleton
 } from '@/components/loading/Skeleton';
 
 export default function StyleGuidePage() {
@@ -389,11 +370,11 @@ export default function StyleGuidePage() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap items-center gap-3">
-                  <Button size="xs">Extra Small</Button>
+                  <Button size="sm">Small</Button>
                   <Button size="sm">Small</Button>
                   <Button size="md">Medium</Button>
                   <Button size="lg">Large</Button>
-                  <Button size="xl">Extra Large</Button>
+                  <Button size="lg">Large</Button>
                 </div>
                 <div className="mt-6 space-y-3">
                   <p className="text-sm font-medium">Full Width Buttons</p>
@@ -451,9 +432,9 @@ export default function StyleGuidePage() {
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-3">
                   <Button leftIcon={<Download className="h-4 w-4" />}>Download</Button>
-                  <Button rightIcon={<ArrowRight className="h-4 w-4" />}>Next</Button>
-                  <Button leftIcon={<ArrowLeft className="h-4 w-4" />} rightIcon={<ArrowRight className="h-4 w-4" />}>
-                    Navigate
+                  <Button>Next <ArrowRight className="h-4 w-4 ml-2" /></Button>
+                  <Button leftIcon={<ArrowLeft className="h-4 w-4" />}>
+                    Navigate <ArrowRight className="h-4 w-4 ml-2" />
                   </Button>
                 </div>
                 <div className="flex flex-wrap gap-3">
@@ -464,7 +445,7 @@ export default function StyleGuidePage() {
                 <div>
                   <p className="text-sm font-medium mb-3">Icon-only Buttons</p>
                   <div className="flex flex-wrap gap-3">
-                    <Button size="xs" variant="ghost" className="p-1"><X className="h-4 w-4" /></Button>
+                    <Button size="sm" variant="ghost" className="p-1"><X className="h-4 w-4" /></Button>
                     <Button size="sm" variant="ghost" className="p-2"><Menu className="h-4 w-4" /></Button>
                     <Button variant="outline" className="p-2.5"><Settings className="h-5 w-5" /></Button>
                     <Button variant="primary" className="p-3"><Save className="h-5 w-5" /></Button>
@@ -656,7 +637,7 @@ export default function StyleGuidePage() {
                 </FormField>
                 
                 <FormField label="Error State" error="Please enter a valid value">
-                  <Input placeholder="Error state" error />
+                  <Input placeholder="Error state" className="border-red-500" />
                 </FormField>
                 
                 <FormField label="Disabled State">
@@ -666,7 +647,7 @@ export default function StyleGuidePage() {
                 <FormField label="Search Input">
                   <SearchInput 
                     value={searchValue}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={(e: any) => setSearchValue(e.target.value)}
                     placeholder="Search dictionary..."
                   />
                 </FormField>
@@ -680,9 +661,9 @@ export default function StyleGuidePage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <FormField label="Select Dropdown">
-                  <Select 
+                  <Select
                     value={selectValue}
-                    onChange={(e) => setSelectValue(e.target.value)}
+                    onValueChange={(e: any) => setSelectValue(e)}
                   >
                     <option value="">Choose an option</option>
                     <option value="kuku-yalanji">Kuku Yalanji</option>
@@ -723,7 +704,7 @@ export default function StyleGuidePage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <Label className="mb-2">Alphabet Filter</Label>
+                  <label className="text-sm font-medium mb-2">Alphabet Filter</label>
                   <AlphabetFilter 
                     selectedLetter={selectedLetter}
                     onLetterSelect={setSelectedLetter}
@@ -731,11 +712,11 @@ export default function StyleGuidePage() {
                 </div>
                 
                 <div>
-                  <Label className="mb-2">Filter Tags</Label>
+                  <label className="text-sm font-medium mb-2">Filter Tags</label>
                   <FilterTags 
                     tags={tagOptions}
                     activeTags={activeTags}
-                    onTagToggle={(tag) => {
+                    onTagToggle={(tag: string) => {
                       setActiveTags(prev => 
                         prev.includes(tag) 
                           ? prev.filter(t => t !== tag)
@@ -784,7 +765,7 @@ export default function StyleGuidePage() {
               </CardFooter>
             </Card>
 
-            <Card hover>
+            <Card>
               <CardHeader>
                 <CardTitle>Hoverable Card</CardTitle>
                 <CardDescription>Interactive card with hover effect</CardDescription>
@@ -1010,9 +991,9 @@ export default function StyleGuidePage() {
                   <div>
                     <p className="text-sm font-medium mb-3">Spinner Sizes</p>
                     <div className="flex items-center gap-4">
-                      <LoadingSpinner size="sm" />
-                      <LoadingSpinner size="md" />
-                      <LoadingSpinner size="lg" />
+                      <LoadingSpinner className="h-4 w-4" />
+                      <LoadingSpinner className="h-8 w-8" />
+                      <LoadingSpinner className="h-12 w-12" />
                     </div>
                   </div>
                   

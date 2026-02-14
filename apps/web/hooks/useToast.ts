@@ -1,16 +1,17 @@
 "use client"
 
 import * as React from "react"
-import type { ToastActionElement, ToastProps } from "./toast"
 
 const TOAST_LIMIT = 1
 const TOAST_REMOVE_DELAY = 1000000
 
-type ToasterToast = ToastProps & {
+export interface ToasterToast {
   id: string
   title?: React.ReactNode
   description?: React.ReactNode
-  action?: ToastActionElement
+  variant?: 'default' | 'success' | 'error' | 'warning'
+  open?: boolean
+  onOpenChange?: (_value: boolean) => void
 }
 
 const actionTypes = {
@@ -122,7 +123,7 @@ export const reducer = (state: State, action: Action): State => {
   }
 }
 
-const listeners: Array<(state: State) => void> = []
+const listeners: Array<(_state: State) => void> = []
 
 let memoryState: State = { toasts: [] }
 

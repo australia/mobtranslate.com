@@ -212,8 +212,8 @@ export async function GET(request: NextRequest, { params }: { params: { language
       const wordCounts = wordCountsByUser.get(userId) || { learned: 0, mastered: 0 };
       
       const accuracy = stats.totalQuestions > 0 ? (stats.correctAnswers / stats.totalQuestions) * 100 : 0;
-      const avgResponseTime = stats.responseTimes.length > 0 
-        ? stats.responseTimes.reduce((a, b) => a + b, 0) / stats.responseTimes.length 
+      const avgResponseTime = stats.responseTimes.length > 0
+        ? stats.responseTimes.reduce((a: any, b: any) => a + b, 0) / stats.responseTimes.length
         : 0;
       
       // Estimate sessions from daily activity

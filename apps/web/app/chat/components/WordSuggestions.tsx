@@ -13,9 +13,9 @@ interface WordSuggestionsProps {
 
 export function WordSuggestions({ words }: WordSuggestionsProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 my-2">
+    <div className="bg-card rounded-xl border border-border p-4 my-2">
       <div className="flex items-center gap-2 mb-3">
-        <Sparkles className="h-5 w-5 text-gray-700" />
+        <Sparkles className="h-5 w-5 text-foreground" />
         <h3 className="font-semibold">Suggested Words to Learn</h3>
       </div>
       <div className="grid gap-2">
@@ -23,14 +23,14 @@ export function WordSuggestions({ words }: WordSuggestionsProps) {
           <Link
             key={index}
             href={`/learn/${word.languageCode}`}
-            className="block p-3 rounded-lg bg-gradient-to-r from-gray-50 to-indigo-50 dark:from-gray-950/20 dark:to-indigo-950/20 hover:from-gray-100 hover:to-indigo-100 dark:hover:from-gray-950/30 dark:hover:to-indigo-950/30 transition-all"
+            className="block p-3 rounded-lg bg-muted hover:bg-muted/80 transition-all"
           >
             <div className="flex justify-between items-start">
               <div>
                 <div className="font-semibold text-lg">{word.word}</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">{word.meaning}</div>
+                <div className="text-sm text-muted-foreground">{word.meaning}</div>
               </div>
-              <div className="text-xs bg-white dark:bg-gray-800 px-2 py-1 rounded-full">
+              <div className="text-xs bg-card px-2 py-1 rounded-full">
                 {word.language}
               </div>
             </div>

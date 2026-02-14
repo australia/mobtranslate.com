@@ -1,9 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
-import { Button } from '@/app/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Button } from '@mobtranslate/ui';
 import { 
   XCircle, 
   Calendar,
@@ -32,6 +30,7 @@ export default function RejectedPage() {
 
   useEffect(() => {
     fetchRejectedWords();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeRange]);
 
   const fetchRejectedWords = async () => {
@@ -87,13 +86,6 @@ export default function RejectedPage() {
 
   const displayWords = rejectedWords.length > 0 ? rejectedWords : mockRejectedWords;
 
-  const getRejectionCategoryColor = (reason: string) => {
-    if (reason.toLowerCase().includes('duplicate')) return 'bg-gray-100 text-gray-800';
-    if (reason.toLowerCase().includes('incorrect')) return 'bg-orange-100 text-orange-800';
-    if (reason.toLowerCase().includes('offensive')) return 'bg-red-100 text-red-800';
-    return 'bg-gray-100 text-gray-800';
-  };
-
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -128,7 +120,7 @@ export default function RejectedPage() {
                 {displayWords.length} words rejected in selected period
               </CardDescription>
             </div>
-            <XCircle className="h-8 w-8 text-red-600" />
+            <XCircle className="h-8 w-8 text-error" />
           </div>
         </CardHeader>
         <CardContent>
@@ -137,19 +129,19 @@ export default function RejectedPage() {
               <p className="text-center py-8">Loading rejected words...</p>
             ) : displayWords.length === 0 ? (
               <div className="text-center py-8">
-                <FileX className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <FileX className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                 <p className="text-lg font-medium">No rejections</p>
                 <p className="text-muted-foreground">No words rejected in this time period</p>
               </div>
             ) : (
               displayWords.map((word) => (
-                <div key={word.id} className="p-4 rounded-lg border hover:bg-gray-50 dark:hover:bg-gray-800">
+                <div key={word.id} className="p-4 rounded-lg border hover:bg-muted">
                   <div className="flex items-start justify-between mb-3">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
                         <p className="font-medium text-lg">{word.word}</p>
                         <span className="text-muted-foreground">→</span>
-                        <p className="text-lg line-through text-gray-500">{word.translation}</p>
+                        <p className="text-lg line-through text-muted-foreground">{word.translation}</p>
                       </div>
                       <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <span className="flex items-center gap-1">
@@ -166,23 +158,23 @@ export default function RejectedPage() {
                         </span>
                       </div>
                     </div>
-                    <Badge variant="secondary" className="bg-red-100 text-red-800">
+                    <Badge variant="secondary" className="bg-error/10 text-error">
                       Rejected
                     </Badge>
                   </div>
                   
-                  <div className="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+                  <div className="bg-error/10 p-3 rounded-lg">
                     <div className="flex items-start gap-2">
-                      <AlertCircle className="h-4 w-4 text-red-600 mt-0.5 flex-shrink-0" />
+                      <AlertCircle className="h-4 w-4 text-error mt-0.5 flex-shrink-0" />
                       <div className="flex-1">
-                        <p className="text-sm font-medium text-red-800 dark:text-red-200 mb-1">
+                        <p className="text-sm font-medium text-error mb-1">
                           Rejection Reason:
                         </p>
-                        <p className="text-sm text-red-700 dark:text-red-300">
+                        <p className="text-sm text-error">
                           {word.rejection_reason}
                         </p>
                         {word.can_resubmit && (
-                          <p className="text-xs text-green-600 dark:text-green-400 mt-2">
+                          <p className="text-xs text-success mt-2">
                             ✓ Can be resubmitted with corrections
                           </p>
                         )}
@@ -203,7 +195,7 @@ export default function RejectedPage() {
             <CardTitle className="text-sm font-medium">
               Total Rejected
             </CardTitle>
-            <XCircle className="h-4 w-4 text-red-600" />
+            <XCircle className="h-4 w-4 text-error" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{displayWords.length}</div>
@@ -218,7 +210,7 @@ export default function RejectedPage() {
             <CardTitle className="text-sm font-medium">
               Can Resubmit
             </CardTitle>
-            <AlertCircle className="h-4 w-4 text-orange-600" />
+            <AlertCircle className="h-4 w-4 text-warning" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -235,7 +227,7 @@ export default function RejectedPage() {
             <CardTitle className="text-sm font-medium">
               Rejection Rate
             </CardTitle>
-            <XCircle className="h-4 w-4 text-gray-600" />
+            <XCircle className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">8%</div>

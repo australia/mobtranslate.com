@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from '@/contexts/AuthContext';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/components/layout/Toaster';
 
 // Load fonts
 const inter = Inter({

@@ -1,9 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
+import { Card, cn } from '@mobtranslate/ui';
 import { LucideIcon, TrendingUp, TrendingDown, Minus } from 'lucide-react';
-import { cn } from '@/app/lib/utils';
 
 interface StatsCardProps {
   title: string;
@@ -30,7 +29,7 @@ export function StatsCard({
   value,
   description,
   icon: Icon,
-  iconColor = 'text-blue-500',
+  iconColor = 'text-primary',
   trend,
   progress,
   className = '',
@@ -98,9 +97,9 @@ export function StatsCard({
           {trend && (
             <div className={cn(
               "flex items-center gap-1 px-2.5 py-1 rounded-full text-sm font-medium",
-              trend.isPositive 
-                ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400" 
-                : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
+              trend.isPositive
+                ? "bg-success/10 text-success"
+                : "bg-error/10 text-error"
             )}>
               {trend.isPositive ? (
                 <TrendingUp className="h-3.5 w-3.5" />
@@ -115,15 +114,15 @@ export function StatsCard({
         </div>
         
         <div className="space-y-1">
-          <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+          <p className="text-sm font-medium text-muted-foreground">
             {title}
           </p>
-          <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+          <p className="text-3xl font-bold text-foreground">
             {typeof value === 'number' ? value.toLocaleString() : value}
           </p>
           
           {description && (
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-sm text-muted-foreground mt-1">
               {description}
             </p>
           )}
@@ -133,23 +132,23 @@ export function StatsCard({
         {progress && (
           <div className="mt-4 space-y-2">
             <div className="flex items-center justify-between text-xs font-medium">
-              <span className="text-gray-600 dark:text-gray-400">Progress</span>
+              <span className="text-muted-foreground">Progress</span>
               <span className={cn(
-                progressPercentage >= 70 ? "text-green-600 dark:text-green-400" :
-                progressPercentage >= 40 ? "text-yellow-600 dark:text-yellow-400" :
-                "text-red-600 dark:text-red-400"
+                progressPercentage >= 70 ? "text-success" :
+                progressPercentage >= 40 ? "text-warning" :
+                "text-error"
               )}>
                 {progressPercentage.toFixed(0)}%
               </span>
             </div>
-            <div className="relative h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+            <div className="relative h-2 bg-muted rounded-full overflow-hidden">
               <div 
                 className={cn(
                   "absolute inset-y-0 left-0 rounded-full transition-all duration-700 ease-out",
                   progress.color || (
-                    progressPercentage >= 70 ? "bg-green-500" :
-                    progressPercentage >= 40 ? "bg-yellow-500" :
-                    "bg-red-500"
+                    progressPercentage >= 70 ? "bg-success" :
+                    progressPercentage >= 40 ? "bg-warning" :
+                    "bg-error"
                   )
                 )}
                 style={{ width: `${progressPercentage}%` }}
@@ -158,7 +157,7 @@ export function StatsCard({
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
               </div>
             </div>
-            <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+            <div className="flex items-center justify-between text-xs text-muted-foreground">
               <span>{progress.value.toLocaleString()}</span>
               <span>{progress.max.toLocaleString()}</span>
             </div>

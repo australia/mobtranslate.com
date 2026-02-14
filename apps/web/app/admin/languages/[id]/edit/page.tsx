@@ -2,12 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Label } from '@/app/components/ui/label';
-import { Input } from '@/app/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
-import { useToast } from '@/app/components/ui/use-toast';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Input, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 import { ArrowLeft, Save } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 
@@ -29,6 +25,7 @@ export default function EditLanguagePage() {
 
   useEffect(() => {
     fetchLanguage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.id]);
 
   const fetchLanguage = async () => {
@@ -46,7 +43,7 @@ export default function EditLanguagePage() {
       toast({
         title: 'Error',
         description: 'Failed to load language',
-        variant: 'destructive'
+        variant: 'error'
       });
       router.push('/admin/languages');
     } finally {
@@ -102,7 +99,7 @@ export default function EditLanguagePage() {
       toast({
         title: 'Error',
         description: error instanceof Error ? error.message : 'Failed to save language',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setSaving(false);
@@ -146,7 +143,7 @@ export default function EditLanguagePage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Language Name</Label>
+              <label className="text-sm font-medium" htmlFor="name">Language Name</label>
               <Input
                 id="name"
                 value={language.name}
@@ -157,7 +154,7 @@ export default function EditLanguagePage() {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="code">Language Code</Label>
+              <label className="text-sm font-medium" htmlFor="code">Language Code</label>
               <Input
                 id="code"
                 value={language.code}
@@ -173,18 +170,22 @@ export default function EditLanguagePage() {
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="is_active">Status</Label>
+              <label className="text-sm font-medium" htmlFor="is_active">Status</label>
               <Select 
                 value={language.is_active.toString()}
-                onValueChange={(value) => setLanguage({ ...language, is_active: value === 'true' })}
+                onValueChange={(value) => value != null && setLanguage({ ...language, is_active: value === 'true' })}
               >
                 <SelectTrigger id="is_active">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="true">Active</SelectItem>
-                  <SelectItem value="false">Inactive</SelectItem>
-                </SelectContent>
+                <SelectPortal>
+                  <SelectPositioner>
+                    <SelectPopup>
+                      <SelectItem value="true">Active</SelectItem>
+                      <SelectItem value="false">Inactive</SelectItem>
+                    </SelectPopup>
+                  </SelectPositioner>
+                </SelectPortal>
               </Select>
               <p className="text-sm text-muted-foreground">
                 Inactive languages won't appear in public listings

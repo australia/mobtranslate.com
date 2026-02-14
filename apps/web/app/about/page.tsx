@@ -1,11 +1,9 @@
 import Link from 'next/link';
 import { Github, Twitter } from 'lucide-react';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Card, CardContent, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Button } from '@/app/components/ui/button';
-import { Badge } from '@/app/components/ui/badge';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Card, CardContent, CardHeader, CardTitle, Badge, Button } from '@mobtranslate/ui';
 
 export default function About() {
   return (
@@ -78,15 +76,16 @@ export default function About() {
               For questions, collaboration opportunities, or to get involved with the project, 
               you can reach out on Twitter.
             </p>
-            <a 
-              href="https://twitter.com/ajaxdavis" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-            >
-              <Twitter size={20} />
-              <span className="font-source-sans font-medium">@ajaxdavis on Twitter</span>
-            </a>
+            <Button asChild className="inline-flex items-center gap-2 px-6 py-3">
+              <a
+                href="https://twitter.com/ajaxdavis"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twitter size={20} />
+                <span className="font-source-sans font-medium">@ajaxdavis on Twitter</span>
+              </a>
+            </Button>
           </CardContent>
         </Card>
       </Section>
@@ -107,12 +106,11 @@ export default function About() {
               {' '}to learn how you can help make Indigenous language translation more accessible.
             </p>
             
-            <Button asChild size="lg">
-              <a 
+            <Button asChild className="inline-flex items-center gap-2">
+              <a
                 href="https://github.com/australia/mobtranslate.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
               >
                 <Github size={20} />
                 <span>Contribute on GitHub</span>

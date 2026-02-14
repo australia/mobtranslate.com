@@ -101,7 +101,7 @@ async function checkTables() {
   ]
   
   for (const table of tables) {
-    const { data, error } = await supabase
+    const { data: _data, error } = await supabase
       .from(table)
       .select('*')
       .limit(1)

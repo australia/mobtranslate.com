@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const supabase = createClient();
     
@@ -77,16 +77,19 @@ export async function GET(request: NextRequest) {
         created_at: profile.created_at,
         last_sign_in_at: authEmail?.last_sign_in_at,
         email_confirmed_at: authEmail?.email_confirmed_at,
-        roles: userAssignments.map(a => ({
-          role: {
-            id: a.user_roles.id,
-            name: a.user_roles.name,
-            display_name: a.user_roles.display_name
-          },
-          language: a.languages,
-          assigned_at: a.assigned_at,
-          expires_at: a.expires_at
-        }))
+        roles: userAssignments.map(a => {
+          const ur = a.user_roles as any;
+          return {
+            role: {
+              id: ur.id,
+              name: ur.name,
+              display_name: ur.display_name
+            },
+            language: a.languages,
+            assigned_at: a.assigned_at,
+            expires_at: a.expires_at
+          };
+        })
       };
     }) || [];
 

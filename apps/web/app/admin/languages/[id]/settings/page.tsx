@@ -2,13 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Label } from '@/app/components/ui/label';
-import { Input } from '@/app/components/ui/input';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table';
-import { Badge } from '@/app/components/ui/badge';
-import { useToast } from '@/app/components/ui/use-toast';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Input, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Badge } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 import { ArrowLeft, UserPlus, Trash2, Shield } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 
@@ -39,6 +34,7 @@ export default function LanguageSettingsPage() {
 
   useEffect(() => {
     fetchLanguageAndCurators();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.id]);
 
   const fetchLanguageAndCurators = async () => {
@@ -67,7 +63,7 @@ export default function LanguageSettingsPage() {
       toast({
         title: 'Error',
         description: 'Failed to load language settings',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setLoading(false);
@@ -106,7 +102,7 @@ export default function LanguageSettingsPage() {
       toast({
         title: 'Error',
         description: error instanceof Error ? error.message : 'Failed to add curator',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setAddingCurator(false);
@@ -135,7 +131,7 @@ export default function LanguageSettingsPage() {
       toast({
         title: 'Error',
         description: error instanceof Error ? error.message : 'Failed to remove curator',
-        variant: 'destructive'
+        variant: 'error'
       });
     }
   };
@@ -198,7 +194,7 @@ export default function LanguageSettingsPage() {
                     <TableRow key={curator.id}>
                       <TableCell>{curator.email}</TableCell>
                       <TableCell>
-                        <Badge variant={curator.is_active ? 'default' : 'secondary'}>
+                        <Badge variant={curator.is_active ? 'primary' : 'secondary'}>
                           {curator.is_active ? 'Active' : 'Inactive'}
                         </Badge>
                       </TableCell>
@@ -234,7 +230,7 @@ export default function LanguageSettingsPage() {
           <CardContent>
             <div className="flex gap-4">
               <div className="flex-1">
-                <Label htmlFor="email" className="sr-only">Email</Label>
+                <label className="text-sm font-medium sr-only" htmlFor="email">Email</label>
                 <Input
                   id="email"
                   type="email"

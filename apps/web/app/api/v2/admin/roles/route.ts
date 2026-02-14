@@ -9,7 +9,7 @@ const createRoleSchema = z.object({
   permissions: z.record(z.boolean()).optional()
 });
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   const supabase = createClient();
   
   try {

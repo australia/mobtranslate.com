@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Button } from '@/app/components/ui/button';
+import { Button } from '@mobtranslate/ui';
 import { Calendar, Star } from 'lucide-react';
 
 interface PeriodOption {
@@ -12,7 +12,7 @@ interface PeriodOption {
 
 interface PeriodSelectorProps {
   selectedPeriod: string;
-  onPeriodChange: (period: string) => void;
+  onPeriodChange: (_period: string) => void;
   className?: string;
 }
 
@@ -34,7 +34,7 @@ export default function PeriodSelector({
       {PERIOD_OPTIONS.map((option) => (
         <Button
           key={option.value}
-          variant={selectedPeriod === option.value ? 'default' : 'outline'}
+          variant={selectedPeriod === option.value ? 'primary' : 'outline'}
           size="sm"
           onClick={() => onPeriodChange(option.value)}
           className="flex items-center"

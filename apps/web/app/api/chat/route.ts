@@ -2,8 +2,8 @@ import { streamText, tool } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
-import { AnalyzeImageToolSchema, ImageAnalysisSchema } from '@/lib/tools/image-analysis';
-import { generateEmbedding, createWordContext } from '../../../scripts/generate-embeddings';
+import { ImageAnalysisSchema } from '@/lib/tools/image-analysis';
+import { generateEmbedding } from '../../../scripts/generate-embeddings';
 
 export async function POST(req: Request) {
   console.log('[DEBUG] Chat API POST called');
@@ -91,11 +91,12 @@ export async function POST(req: Request) {
     // Get unique languages and calculate stats
     const languageStats = new Map();
     sessions?.forEach(session => {
-      if (session.languages) {
+      const lang = session.languages as any;
+      if (lang) {
         const langId = session.language_id;
         const existing = languageStats.get(langId) || {
-          name: session.languages.name,
-          code: session.languages.code,
+          name: lang.name,
+          code: lang.code,
           totalQuestions: 0,
           correctAnswers: 0,
           sessions: 0
@@ -122,7 +123,7 @@ export async function POST(req: Request) {
       `)
       .eq('user_id', user.id)
       .limit(20);
-    
+
     // Get recently learned words
     const { data: recentWords } = await supabase
       .from('word_attempts')
@@ -138,7 +139,7 @@ export async function POST(req: Request) {
       .eq('user_id', user.id)
       .order('created_at', { ascending: false })
       .limit(50);
-    
+
     // Get spaced repetition states
     const { data: wordStates } = await supabase
       .from('spaced_repetition_states')
@@ -151,7 +152,7 @@ export async function POST(req: Request) {
       `)
       .eq('user_id', user.id)
       .gte('bucket', 4); // Words that are well-learned
-    
+
     // Build context string
     const userContext = {
       username: profile?.display_name || profile?.username || 'User',
@@ -161,22 +162,25 @@ export async function POST(req: Request) {
         accuracy: lang.totalQuestions > 0 ? Math.round((lang.correctAnswers / lang.totalQuestions) * 100) : 0,
         sessions: lang.sessions
       })),
-      likedWords: likedWords?.map(l => ({
-        word: l.words?.word,
-        language: l.words?.languages?.name
-      })).filter(w => w.word) || [],
-      masteredWords: wordStates?.filter(w => w.bucket >= 5).map(w => ({
-        word: w.words?.word,
-        language: w.words?.languages?.name
-      })).filter(w => w.word) || [],
-      recentWords: [...new Map(recentWords?.map(r => [
-        `${r.words?.word}-${r.words?.languages?.code}`,
-        {
-          word: r.words?.word,
-          language: r.words?.languages?.name,
-          correct: r.is_correct
-        }
-      ]) || []).values()].slice(0, 10)
+      likedWords: likedWords?.map(l => {
+        const w = l.words as any;
+        return { word: w?.word, language: w?.languages?.name };
+      }).filter(w => w.word) || [],
+      masteredWords: wordStates?.filter(w => w.bucket >= 5).map(w => {
+        const wd = w.words as any;
+        return { word: wd?.word, language: wd?.languages?.name };
+      }).filter(w => w.word) || [],
+      recentWords: Array.from(new Map(recentWords?.map(r => {
+        const rw = r.words as any;
+        return [
+          `${rw?.word}-${rw?.languages?.code}`,
+          {
+            word: rw?.word,
+            language: rw?.languages?.name,
+            correct: r.is_correct
+          }
+        ] as [string, { word: any; language: any; correct: any }];
+      }) || []).values()).slice(0, 10)
     };
 
     console.log('User context loaded:', {
@@ -266,7 +270,7 @@ IMPORTANT: When a message contains an image attachment:
           targetLanguages: z.array(z.string()).describe('Target language codes, or all if not specified').optional(),
         }),
         // @ts-ignore - execute function is valid in Vercel AI SDK
-        execute: async ({ word, targetLanguages }) => {
+        execute: async ({ word }) => {
           try {
             console.log('Executing translateWord tool for:', word);
             
@@ -307,9 +311,9 @@ IMPORTANT: When a message contains an image attachment:
             return {
               word,
               translations: translations.map(t => ({
-                language: t.language?.name || 'Unknown',
+                language: (t.language as any)?.name || 'Unknown',
                 translation: t.definitions?.[0]?.definition || 'No definition available',
-                languageCode: t.language?.code || 'unknown'
+                languageCode: (t.language as any)?.code || 'unknown'
               }))
             };
           } catch (error) {
@@ -383,8 +387,8 @@ IMPORTANT: When a message contains an image attachment:
             return words.map(w => ({
               word: w.word || 'Unknown',
               meaning: w.definitions?.[0]?.definition || 'No definition available',
-              language: w.language?.name || 'Unknown',
-              languageCode: w.language?.code || 'unknown'
+              language: (w.language as any)?.name || 'Unknown',
+              languageCode: (w.language as any)?.code || 'unknown'
             }));
           } catch (error) {
             console.error('Error in getWordSuggestions tool:', error);
@@ -495,18 +499,21 @@ IMPORTANT: When a message contains an image attachment:
               };
             }
 
-            const filteredWords = languageCode 
-              ? likedWords?.filter(l => l.words?.languages?.code === languageCode) || []
+            const filteredWords = languageCode
+              ? likedWords?.filter(l => (l.words as any)?.languages?.code === languageCode) || []
               : likedWords || [];
 
             return {
-              likedWords: filteredWords.map(l => ({
-                word: l.words?.word || 'Unknown',
-                language: l.words?.languages?.name || 'Unknown',
-                languageCode: l.words?.languages?.code || 'unknown',
-                definition: l.words?.definitions?.[0]?.definition || 'No definition available',
-                likedAt: l.created_at
-              })),
+              likedWords: filteredWords.map(l => {
+                const w = l.words as any;
+                return {
+                  word: w?.word || 'Unknown',
+                  language: w?.languages?.name || 'Unknown',
+                  languageCode: w?.languages?.code || 'unknown',
+                  definition: w?.definitions?.[0]?.definition || 'No definition available',
+                  likedAt: l.created_at
+                };
+              }),
               totalCount: filteredWords.length
             };
           } catch (error) {
@@ -562,10 +569,10 @@ IMPORTANT: When a message contains an image attachment:
             
             // Extract items from patterns like "I see X, Y, and Z"
             const seePattern = /(?:see|contains?|includes?|shows?|displays?|features?)\s+(?:a |an |the )?([^,.]+(?:,\s*[^,.]+)*)/gi;
-            const matches = description.matchAll(seePattern);
+            const matches = Array.from(description.matchAll(seePattern));
             for (const match of matches) {
               const items = match[1].split(/,\s*|\s+and\s+/);
-              items.forEach(item => {
+              items.forEach((item: any) => {
                 const cleaned = item.trim().toLowerCase().replace(/^(a|an|the)\s+/, '');
                 if (cleaned && !detectedItems.includes(cleaned)) {
                   detectedItems.push(cleaned);
@@ -696,13 +703,16 @@ IMPORTANT: When a message contains an image attachment:
                 object: item,
                 confidence: searchMethod === 'exact' ? 0.9 : 0.7,
                 searchMethod,
-                translations: translations?.map(t => ({
-                  language: t.languages?.name || 'Unknown',
-                  languageCode: t.languages?.code || 'unknown',
-                  word: t.word,
-                  definition: t.definitions?.[0]?.definition,
-                  culturalContext: includeContext ? `The word "${t.word}" in ${t.languages?.name} ${searchMethod === 'similarity' ? 'is semantically related to' : 'reflects the cultural importance of'} ${item} in Aboriginal communities.` : undefined
-                })) || []
+                translations: translations?.map(t => {
+                  const tl = (t as any).languages;
+                  return {
+                    language: tl?.name || 'Unknown',
+                    languageCode: tl?.code || 'unknown',
+                    word: t.word,
+                    definition: t.definitions?.[0]?.definition,
+                    culturalContext: includeContext ? `The word "${t.word}" in ${tl?.name} ${searchMethod === 'similarity' ? 'is semantically related to' : 'reflects the cultural importance of'} ${item} in Aboriginal communities.` : undefined
+                  };
+                }) || []
               };
             });
 
@@ -711,7 +721,6 @@ IMPORTANT: When a message contains an image attachment:
             // Get related words based on the user's liked words
             const relatedWords = [];
             if (userContext.likedWords.length > 0) {
-              const likedCategories = new Set(userContext.likedWords.map(w => w.word.toLowerCase()));
               const natureWords = ['tree', 'water', 'sky', 'earth', 'wind'];
               const animalWords = ['dog', 'bird', 'fish', 'kangaroo', 'snake'];
               
@@ -783,13 +792,12 @@ IMPORTANT: When a message contains an image attachment:
       }),
     },
     maxSteps: 5,
-    // @ts-expect-error - toolCallStreaming is valid but not in types
     toolCallStreaming: true,
   });
 
   console.log('[DEBUG] Stream created successfully');
   const response = result.toDataStreamResponse({
-    getErrorMessage: (error) => error?.message || 'Something went wrong',
+    getErrorMessage: (error) => (error as any)?.message || 'Something went wrong',
   });
   console.log('[DEBUG] Returning response');
   return response;

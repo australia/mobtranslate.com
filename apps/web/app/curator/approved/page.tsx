@@ -1,15 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
-import { Button } from '@/app/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Button } from '@mobtranslate/ui';
 import { 
-  CheckCircle, 
+  CheckCircle,
   Calendar,
   User,
   Globe,
-  Search,
   FileText
 } from 'lucide-react';
 
@@ -31,6 +28,7 @@ export default function ApprovedPage() {
 
   useEffect(() => {
     fetchApprovedWords();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeRange]);
 
   const fetchApprovedWords = async () => {
@@ -116,7 +114,7 @@ export default function ApprovedPage() {
                 {displayWords.length} words approved in selected period
               </CardDescription>
             </div>
-            <CheckCircle className="h-8 w-8 text-green-600" />
+            <CheckCircle className="h-8 w-8 text-success" />
           </div>
         </CardHeader>
         <CardContent>
@@ -125,13 +123,13 @@ export default function ApprovedPage() {
               <p className="text-center py-8">Loading approved words...</p>
             ) : displayWords.length === 0 ? (
               <div className="text-center py-8">
-                <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                 <p className="text-lg font-medium">No approvals yet</p>
                 <p className="text-muted-foreground">No words approved in this time period</p>
               </div>
             ) : (
               displayWords.map((word) => (
-                <div key={word.id} className="flex items-start justify-between p-4 rounded-lg border hover:bg-gray-50 dark:hover:bg-gray-800">
+                <div key={word.id} className="flex items-start justify-between p-4 rounded-lg border hover:bg-muted">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <p className="font-medium text-lg">{word.word}</p>
@@ -153,12 +151,12 @@ export default function ApprovedPage() {
                       </span>
                     </div>
                     {word.review_notes && (
-                      <p className="text-sm text-gray-600 dark:text-gray-400 italic">
+                      <p className="text-sm text-muted-foreground italic">
                         Note: {word.review_notes}
                       </p>
                     )}
                   </div>
-                  <Badge variant="default" className="bg-green-600">
+                  <Badge variant="primary" className="bg-success">
                     Approved
                   </Badge>
                 </div>
@@ -175,7 +173,7 @@ export default function ApprovedPage() {
             <CardTitle className="text-sm font-medium">
               Total Approved
             </CardTitle>
-            <CheckCircle className="h-4 w-4 text-green-600" />
+            <CheckCircle className="h-4 w-4 text-success" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{displayWords.length}</div>
@@ -190,7 +188,7 @@ export default function ApprovedPage() {
             <CardTitle className="text-sm font-medium">
               Languages Covered
             </CardTitle>
-            <Globe className="h-4 w-4 text-blue-600" />
+            <Globe className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -207,7 +205,7 @@ export default function ApprovedPage() {
             <CardTitle className="text-sm font-medium">
               Contributors
             </CardTitle>
-            <User className="h-4 w-4 text-gray-800" />
+            <User className="h-4 w-4 text-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">

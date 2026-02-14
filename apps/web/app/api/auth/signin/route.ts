@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     .eq('user_id', data.user.id)
     .single()
 
-  const needsProfile = !profile || profileError?.code === 'PGRST116'
+  const needsProfile = !profile || (profileError as any)?.code === 'PGRST116'
 
   return NextResponse.json(
     { 

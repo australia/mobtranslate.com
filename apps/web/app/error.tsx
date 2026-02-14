@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Button } from '@/app/components/ui/button';
-import { Alert } from '@/app/components/ui/alert';
+import { Button, Alert } from '@mobtranslate/ui';
 import { AlertTriangle } from 'lucide-react';
 import SharedLayout from './components/SharedLayout';
 
@@ -22,7 +21,7 @@ export default function Error({
     <SharedLayout>
       <div className="min-h-[60vh] flex items-center justify-center p-4">
         <div className="max-w-md w-full">
-          <Alert variant="destructive" className="border-2">
+          <Alert variant="error" className="border-2">
             <AlertTriangle className="h-5 w-5" />
             <div className="space-y-3">
               <h2 className="text-lg font-semibold">Something went wrong!</h2>
@@ -40,7 +39,7 @@ export default function Error({
                 </details>
               )}
               <div className="flex gap-2 pt-2">
-                <Button onClick={reset} variant="default" size="sm">
+                <Button onClick={reset} variant="primary" size="sm">
                   Try again
                 </Button>
                 <Button

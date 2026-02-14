@@ -2,26 +2,23 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { Button } from '@/app/components/ui/button';
+import { Button, cn } from '@mobtranslate/ui';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { 
-  Heart, 
-  BarChart3, 
-  Brain, 
-  MessageCircle, 
-  Settings, 
+import {
+  Heart,
+  BarChart3,
+  Brain,
+  MessageCircle,
+  Settings,
   User,
   LogOut,
   ChevronDown,
   Trophy,
-  BookOpen,
   Home,
-  Grid3X3,
   Shield,
   FileCheck
 } from 'lucide-react';
-import { cn } from '@/app/lib/utils';
 import { createClient } from '@/lib/supabase/client';
 
 interface NavItem {
@@ -46,6 +43,7 @@ export function ModernNav() {
       setUsername(null);
       setUserRole(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   useEffect(() => {
@@ -141,8 +139,8 @@ export function ModernNav() {
   if (loading) {
     return (
       <div className="flex items-center gap-2">
-        <div className="h-8 w-20 bg-gray-200 animate-pulse rounded" />
-        <div className="h-8 w-20 bg-gray-200 animate-pulse rounded" />
+        <div className="h-8 w-20 bg-muted animate-pulse rounded" />
+        <div className="h-8 w-20 bg-muted animate-pulse rounded" />
       </div>
     );
   }
@@ -154,9 +152,9 @@ export function ModernNav() {
         <nav className="hidden md:flex items-center gap-1">
           {primaryNavItems.map((item) => (
             <Link key={item.href} href={item.href}>
-              <Button 
-                variant="ghost" 
-                size="default" 
+              <Button
+                variant="ghost"
+                size="md"
                 className="gap-2 hover:bg-primary/10 transition-all px-4 py-2.5"
               >
                 <item.icon className="h-4 w-4" />
@@ -203,42 +201,44 @@ export function ModernNav() {
 
           {/* Dropdown Menu */}
           {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 z-50 animate-slide-in">
+            <div className="absolute right-0 mt-2 w-64 bg-card rounded-lg shadow-lg border border-border py-2 z-50 animate-slide-in">
               {/* User Info */}
-              <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+              <div className="px-4 py-3 border-b border-border">
                 <p className="text-sm font-medium">{username || 'User'}</p>
-                <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                <p className="text-xs text-muted-foreground truncate">{user.email}</p>
               </div>
 
               {/* Menu Items */}
               <div className="py-2">
                 {dropdownItems.map((item) => (
                   <Link key={item.href} href={item.href}>
-                    <button
+                    <Button
+                      variant="ghost"
                       onClick={() => setIsDropdownOpen(false)}
-                      className="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-start gap-3"
+                      className="w-full px-4 py-2 h-auto text-left hover:bg-muted transition-colors flex items-start gap-3 rounded-none justify-start"
                     >
-                      <item.icon className="h-4 w-4 text-gray-600 dark:text-gray-400 mt-0.5" />
+                      <item.icon className="h-4 w-4 text-muted-foreground mt-0.5" />
                       <div className="flex-1">
                         <p className="text-sm font-medium">{item.label}</p>
                         {item.description && (
-                          <p className="text-xs text-gray-500">{item.description}</p>
+                          <p className="text-xs text-muted-foreground">{item.description}</p>
                         )}
                       </div>
-                    </button>
+                    </Button>
                   </Link>
                 ))}
               </div>
 
               {/* Sign Out */}
-              <div className="border-t border-gray-200 dark:border-gray-700 pt-2">
-                <button
+              <div className="border-t border-border pt-2">
+                <Button
+                  variant="ghost"
                   onClick={handleSignOut}
-                  className="w-full px-4 py-2 text-left hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors flex items-center gap-3 text-red-600 dark:text-red-400"
+                  className="w-full px-4 py-2 h-auto text-left hover:bg-destructive/10 transition-colors flex items-center gap-3 text-destructive rounded-none justify-start"
                 >
                   <LogOut className="h-4 w-4" />
                   <span className="text-sm font-medium">Sign out</span>
-                </button>
+                </Button>
               </div>
             </div>
           )}

@@ -1,21 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
-import { Label } from '@/app/components/ui/label';
-import { Input } from '@/app/components/ui/input';
-import { Textarea } from '@/app/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
-import { useToast } from '@/app/components/ui/use-toast';
-import { 
-  Settings, 
-  Globe, 
-  Shield, 
-  Bell, 
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger, Input, Textarea, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue, Switch } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
+import {
+  Globe,
+  Shield,
+  Bell,
   Database,
-  Mail,
   Key,
   Save,
   RefreshCw
@@ -127,7 +119,7 @@ export default function SettingsPage() {
       toast({
         title: 'Error',
         description: 'Failed to save settings',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setLoading(false);
@@ -174,7 +166,7 @@ export default function SettingsPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid gap-2">
-                <Label htmlFor="siteName">Site Name</Label>
+                <label className="text-sm font-medium" htmlFor="siteName">Site Name</label>
                 <Input
                   id="siteName"
                   value={settings.general.siteName}
@@ -184,7 +176,7 @@ export default function SettingsPage() {
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="siteDescription">Site Description</Label>
+                <label className="text-sm font-medium" htmlFor="siteDescription">Site Description</label>
                 <Textarea
                   id="siteDescription"
                   value={settings.general.siteDescription}
@@ -195,7 +187,7 @@ export default function SettingsPage() {
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="supportEmail">Support Email</Label>
+                <label className="text-sm font-medium" htmlFor="supportEmail">Support Email</label>
                 <Input
                   id="supportEmail"
                   type="email"
@@ -206,34 +198,31 @@ export default function SettingsPage() {
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="defaultLanguage">Default Language</Label>
+                <label className="text-sm font-medium" htmlFor="defaultLanguage">Default Language</label>
                 <Select 
                   value={settings.general.defaultLanguage}
-                  onValueChange={(value) => updateSetting('general', 'defaultLanguage', value)}
+                  onValueChange={(value) => value != null && updateSetting('general', 'defaultLanguage', value)}
                 >
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="en">English</SelectItem>
-                    <SelectItem value="es">Spanish</SelectItem>
-                    <SelectItem value="fr">French</SelectItem>
-                  </SelectContent>
+                  <SelectPortal>
+                    <SelectPositioner>
+                      <SelectPopup>
+                        <SelectItem value="en">English</SelectItem>
+                        <SelectItem value="es">Spanish</SelectItem>
+                        <SelectItem value="fr">French</SelectItem>
+                      </SelectPopup>
+                    </SelectPositioner>
+                  </SelectPortal>
                 </Select>
               </div>
 
-              <div className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  id="maintenanceMode"
-                  checked={settings.general.maintenanceMode}
-                  onChange={(e) => updateSetting('general', 'maintenanceMode', e.target.checked)}
-                  className="rounded"
-                />
-                <Label htmlFor="maintenanceMode" className="font-normal">
-                  Enable maintenance mode
-                </Label>
-              </div>
+              <Switch
+                checked={settings.general.maintenanceMode}
+                onCheckedChange={(checked) => updateSetting('general', 'maintenanceMode', checked)}
+                label="Enable maintenance mode"
+              />
 
               <Button onClick={() => handleSaveSettings('general')} disabled={loading}>
                 <Save className="h-4 w-4 mr-2" />
@@ -256,12 +245,12 @@ export default function SettingsPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid gap-2">
-                <Label htmlFor="autoApprovalThreshold">
+                <label className="text-sm font-medium" htmlFor="autoApprovalThreshold">
                   Auto-approval Threshold
                   <span className="text-xs text-muted-foreground ml-2">
                     (trusted users with this many approved submissions)
                   </span>
-                </Label>
+                </label>
                 <Input
                   id="autoApprovalThreshold"
                   type="number"
@@ -273,7 +262,7 @@ export default function SettingsPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
-                  <Label htmlFor="minWordLength">Minimum Word Length</Label>
+                  <label className="text-sm font-medium" htmlFor="minWordLength">Minimum Word Length</label>
                   <Input
                     id="minWordLength"
                     type="number"
@@ -284,7 +273,7 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="grid gap-2">
-                  <Label htmlFor="maxWordLength">Maximum Word Length</Label>
+                  <label className="text-sm font-medium" htmlFor="maxWordLength">Maximum Word Length</label>
                   <Input
                     id="maxWordLength"
                     type="number"
@@ -296,31 +285,16 @@ export default function SettingsPage() {
               </div>
 
               <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    id="requireEmailVerification"
-                    checked={settings.curation.requireEmailVerification}
-                    onChange={(e) => updateSetting('curation', 'requireEmailVerification', e.target.checked)}
-                    className="rounded"
-                  />
-                  <Label htmlFor="requireEmailVerification" className="font-normal">
-                    Require email verification for submissions
-                  </Label>
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    id="allowAnonymousComments"
-                    checked={settings.curation.allowAnonymousComments}
-                    onChange={(e) => updateSetting('curation', 'allowAnonymousComments', e.target.checked)}
-                    className="rounded"
-                  />
-                  <Label htmlFor="allowAnonymousComments" className="font-normal">
-                    Allow anonymous comments
-                  </Label>
-                </div>
+                <Switch
+                  checked={settings.curation.requireEmailVerification}
+                  onCheckedChange={(checked) => updateSetting('curation', 'requireEmailVerification', checked)}
+                  label="Require email verification for submissions"
+                />
+                <Switch
+                  checked={settings.curation.allowAnonymousComments}
+                  onCheckedChange={(checked) => updateSetting('curation', 'allowAnonymousComments', checked)}
+                  label="Allow anonymous comments"
+                />
               </div>
 
               <Button onClick={() => handleSaveSettings('curation')} disabled={loading}>
@@ -344,7 +318,7 @@ export default function SettingsPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid gap-2">
-                <Label htmlFor="passwordMinLength">Minimum Password Length</Label>
+                <label className="text-sm font-medium" htmlFor="passwordMinLength">Minimum Password Length</label>
                 <Input
                   id="passwordMinLength"
                   type="number"
@@ -357,10 +331,10 @@ export default function SettingsPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="grid gap-2">
-                  <Label htmlFor="sessionTimeout">
+                  <label className="text-sm font-medium" htmlFor="sessionTimeout">
                     Session Timeout
                     <span className="text-xs text-muted-foreground ml-2">(minutes)</span>
-                  </Label>
+                  </label>
                   <Input
                     id="sessionTimeout"
                     type="number"
@@ -371,7 +345,7 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="grid gap-2">
-                  <Label htmlFor="maxLoginAttempts">Max Login Attempts</Label>
+                  <label className="text-sm font-medium" htmlFor="maxLoginAttempts">Max Login Attempts</label>
                   <Input
                     id="maxLoginAttempts"
                     type="number"
@@ -384,31 +358,16 @@ export default function SettingsPage() {
               </div>
 
               <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    id="requireStrongPasswords"
-                    checked={settings.security.requireStrongPasswords}
-                    onChange={(e) => updateSetting('security', 'requireStrongPasswords', e.target.checked)}
-                    className="rounded"
-                  />
-                  <Label htmlFor="requireStrongPasswords" className="font-normal">
-                    Require strong passwords (uppercase, lowercase, numbers, symbols)
-                  </Label>
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    id="enableTwoFactor"
-                    checked={settings.security.enableTwoFactor}
-                    onChange={(e) => updateSetting('security', 'enableTwoFactor', e.target.checked)}
-                    className="rounded"
-                  />
-                  <Label htmlFor="enableTwoFactor" className="font-normal">
-                    Enable two-factor authentication
-                  </Label>
-                </div>
+                <Switch
+                  checked={settings.security.requireStrongPasswords}
+                  onCheckedChange={(checked) => updateSetting('security', 'requireStrongPasswords', checked)}
+                  label="Require strong passwords (uppercase, lowercase, numbers, symbols)"
+                />
+                <Switch
+                  checked={settings.security.enableTwoFactor}
+                  onCheckedChange={(checked) => updateSetting('security', 'enableTwoFactor', checked)}
+                  label="Enable two-factor authentication"
+                />
               </div>
 
               <Button onClick={() => handleSaveSettings('security')} disabled={loading}>
@@ -432,72 +391,34 @@ export default function SettingsPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <div className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    id="emailNotifications"
-                    checked={settings.notifications.emailNotifications}
-                    onChange={(e) => updateSetting('notifications', 'emailNotifications', e.target.checked)}
-                    className="rounded"
-                  />
-                  <Label htmlFor="emailNotifications" className="font-normal">
-                    Enable email notifications
-                  </Label>
-                </div>
+                <Switch
+                  checked={settings.notifications.emailNotifications}
+                  onCheckedChange={(checked) => updateSetting('notifications', 'emailNotifications', checked)}
+                  label="Enable email notifications"
+                />
 
                 {settings.notifications.emailNotifications && (
                   <div className="ml-6 space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        id="newUserNotification"
-                        checked={settings.notifications.newUserNotification}
-                        onChange={(e) => updateSetting('notifications', 'newUserNotification', e.target.checked)}
-                        className="rounded"
-                      />
-                      <Label htmlFor="newUserNotification" className="font-normal">
-                        New user registrations
-                      </Label>
-                    </div>
-
-                    <div className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        id="newSubmissionNotification"
-                        checked={settings.notifications.newSubmissionNotification}
-                        onChange={(e) => updateSetting('notifications', 'newSubmissionNotification', e.target.checked)}
-                        className="rounded"
-                      />
-                      <Label htmlFor="newSubmissionNotification" className="font-normal">
-                        New word submissions
-                      </Label>
-                    </div>
-
-                    <div className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        id="commentNotification"
-                        checked={settings.notifications.commentNotification}
-                        onChange={(e) => updateSetting('notifications', 'commentNotification', e.target.checked)}
-                        className="rounded"
-                      />
-                      <Label htmlFor="commentNotification" className="font-normal">
-                        New comments and flagged content
-                      </Label>
-                    </div>
-
-                    <div className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        id="weeklyReport"
-                        checked={settings.notifications.weeklyReport}
-                        onChange={(e) => updateSetting('notifications', 'weeklyReport', e.target.checked)}
-                        className="rounded"
-                      />
-                      <Label htmlFor="weeklyReport" className="font-normal">
-                        Weekly activity report
-                      </Label>
-                    </div>
+                    <Switch
+                      checked={settings.notifications.newUserNotification}
+                      onCheckedChange={(checked) => updateSetting('notifications', 'newUserNotification', checked)}
+                      label="New user registrations"
+                    />
+                    <Switch
+                      checked={settings.notifications.newSubmissionNotification}
+                      onCheckedChange={(checked) => updateSetting('notifications', 'newSubmissionNotification', checked)}
+                      label="New word submissions"
+                    />
+                    <Switch
+                      checked={settings.notifications.commentNotification}
+                      onCheckedChange={(checked) => updateSetting('notifications', 'commentNotification', checked)}
+                      label="New comments and flagged content"
+                    />
+                    <Switch
+                      checked={settings.notifications.weeklyReport}
+                      onCheckedChange={(checked) => updateSetting('notifications', 'weeklyReport', checked)}
+                      label="Weekly activity report"
+                    />
                   </div>
                 )}
               </div>

@@ -2,12 +2,11 @@
 
 import React, { useState, useCallback, useTransition, useMemo } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/app/components/ui/card';
-import { Badge } from '@ui/components/Badge';
-import { Button } from '@ui/components/Button';
+import { Card, CardHeader, CardTitle, CardContent } from '@mobtranslate/ui';
+import { Badge, Button } from '@mobtranslate/ui';
 import { SearchInput } from '@ui/components/SearchInput';
 import { EmptyState } from '@ui/components/EmptyState';
-import { LoadingState } from '@/app/components/ui/loading-state';
+import { LoadingState } from '@/components/layout/LoadingState';
 import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
 import { useDictionary } from '@/lib/hooks/useDictionary';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
@@ -54,7 +53,7 @@ export default function DictionarySearch({
   dictionary, 
   initialSearch = '', 
   pagination,
-  currentPage = 1 
+  currentPage: _currentPage = 1
 }: DictionarySearchProps) {
   const [search, setSearch] = useState(initialSearch);
   const router = useRouter();

@@ -2,17 +2,9 @@
 
 import { useState } from 'react';
 import useSWR from 'swr';
-import { Shield, UserPlus, Search, Edit, Trash2 } from 'lucide-react';
-import { Button } from '@/app/components/ui/button';
-import { Input } from '@/app/components/ui/input';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table';
-import { Badge } from '@/app/components/ui/badge';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/app/components/ui/dialog';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
-import { Label } from '@/app/components/ui/label';
-import { useToast } from '@/app/components/ui/use-toast';
-import { createClient } from '@/lib/supabase/client';
+import { Shield, UserPlus, Search } from 'lucide-react';
+import { Button, Input, Card, CardContent, CardDescription, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Badge, Dialog, DialogPortal, DialogBackdrop, DialogPopup, DialogDescription, DialogTitle, DialogTrigger, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 import { formatDistanceToNow } from '@/lib/utils/date';
 
 interface User {
@@ -51,7 +43,6 @@ export default function UserManagementPage() {
   const [selectedRole, setSelectedRole] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const { toast } = useToast();
-  const supabase = createClient();
 
   // Fetch users with SWR
   const { data: users = [], error: usersError, isLoading: usersLoading, mutate: mutateUsers } = useSWR(
@@ -76,7 +67,7 @@ export default function UserManagementPage() {
     toast({
       title: 'Error',
       description: 'Failed to load data',
-      variant: 'destructive'
+      variant: 'error'
     });
   }
 
@@ -111,12 +102,12 @@ export default function UserManagementPage() {
       toast({
         title: 'Error',
         description: 'Failed to assign role',
-        variant: 'destructive'
+        variant: 'error'
       });
     }
   };
 
-  const filteredUsers = users.filter(user =>
+  const filteredUsers = users.filter((user: any) =>
     user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
     user.display_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
     user.username?.toLowerCase().includes(searchQuery.toLowerCase())
@@ -124,8 +115,8 @@ export default function UserManagementPage() {
 
   const getRoleBadgeColor = (roleName: string) => {
     switch (roleName) {
-      case 'super_admin': return 'destructive';
-      case 'dictionary_admin': return 'default';
+      case 'super_admin': return 'error';
+      case 'dictionary_admin': return 'primary';
       case 'curator': return 'secondary';
       case 'contributor': return 'outline';
       default: return 'outline';
@@ -156,7 +147,7 @@ export default function UserManagementPage() {
           <CardContent>
             <div className="mb-6">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Search users by email or name..."
                   value={searchQuery}
@@ -177,12 +168,12 @@ export default function UserManagementPage() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {filteredUsers.map((user) => (
+                  {filteredUsers.map((user: any) => (
                     <TableRow key={user.id}>
                       <TableCell>
                         <div>
                           <div className="font-medium">{user.display_name || user.username || 'No name'}</div>
-                          <div className="text-sm text-gray-500">{user.email}</div>
+                          <div className="text-sm text-muted-foreground">{user.email}</div>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -192,7 +183,7 @@ export default function UserManagementPage() {
                               User
                             </Badge>
                           )}
-                          {user.roles?.map((assignment, idx) => (
+                          {user.roles?.map((assignment: any, idx: number) => (
                             <Badge
                               key={idx}
                               variant={getRoleBadgeColor(assignment.role.name)}
@@ -205,8 +196,8 @@ export default function UserManagementPage() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <span className="text-sm text-gray-500">
-                          {formatDistanceToNow(new Date(user.created_at), { addSuffix: true })}
+                        <span className="text-sm text-muted-foreground">
+                          {formatDistanceToNow(new Date(user.created_at))}
                         </span>
                       </TableCell>
                       <TableCell>
@@ -218,65 +209,71 @@ export default function UserManagementPage() {
                           }
                           setAssignRoleOpen(open);
                         }}>
-                          <DialogTrigger asChild>
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() => setSelectedUser(user)}
-                            >
-                              <UserPlus className="h-4 w-4" />
-                            </Button>
+                          <DialogTrigger
+                            className="mt-btn mt-btn-ghost mt-btn-sm"
+                            onClick={() => setSelectedUser(user)}
+                          >
+                            <UserPlus className="h-4 w-4" />
                           </DialogTrigger>
-                          <DialogContent>
-                            <DialogHeader>
+                          <DialogPortal>
+                            <DialogBackdrop />
+                            <DialogPopup>
                               <DialogTitle>Assign Role</DialogTitle>
                               <DialogDescription>
                                 Assign a role to {user.display_name || user.username || user.email}
                               </DialogDescription>
-                            </DialogHeader>
-                            <div className="space-y-4 mt-4">
-                              <div className="space-y-2">
-                                <Label htmlFor="role">Role</Label>
-                                <Select value={selectedRole} onValueChange={setSelectedRole}>
-                                  <SelectTrigger id="role">
-                                    <SelectValue placeholder="Select a role" />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    {roles.map((role) => (
-                                      <SelectItem key={role.id} value={role.id}>
-                                        {role.display_name}
-                                      </SelectItem>
-                                    ))}
-                                  </SelectContent>
-                                </Select>
-                              </div>
+                              <div className="space-y-4 mt-4">
+                                <div className="space-y-2">
+                                  <label className="text-sm font-medium" htmlFor="role">Role</label>
+                                  <Select value={selectedRole} onValueChange={(v) => v != null && setSelectedRole(v)}>
+                                    <SelectTrigger id="role">
+                                      <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectPortal>
+                                      <SelectPositioner>
+                                        <SelectPopup>
+                                          {roles.map((role: any) => (
+                                            <SelectItem key={role.id} value={role.id}>
+                                              {role.display_name}
+                                            </SelectItem>
+                                          ))}
+                                        </SelectPopup>
+                                      </SelectPositioner>
+                                    </SelectPortal>
+                                  </Select>
+                                </div>
 
-                              <div className="space-y-2">
-                                <Label htmlFor="language">Language (optional)</Label>
-                                <Select value={selectedLanguage} onValueChange={setSelectedLanguage}>
-                                  <SelectTrigger id="language">
-                                    <SelectValue placeholder="Global (all languages)" />
-                                  </SelectTrigger>
-                                  <SelectContent>
-                                    <SelectItem value="">Global (all languages)</SelectItem>
-                                    {languages.map((lang) => (
-                                      <SelectItem key={lang.id} value={lang.id}>
-                                        {lang.name} ({lang.code})
-                                      </SelectItem>
-                                    ))}
-                                  </SelectContent>
-                                </Select>
-                              </div>
+                                <div className="space-y-2">
+                                  <label className="text-sm font-medium" htmlFor="language">Language (optional)</label>
+                                  <Select value={selectedLanguage} onValueChange={(v) => v != null && setSelectedLanguage(v)}>
+                                    <SelectTrigger id="language">
+                                      <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectPortal>
+                                      <SelectPositioner>
+                                        <SelectPopup>
+                                          <SelectItem value="">Global (all languages)</SelectItem>
+                                          {languages.map((lang: any) => (
+                                            <SelectItem key={lang.id} value={lang.id}>
+                                              {lang.name} ({lang.code})
+                                            </SelectItem>
+                                          ))}
+                                        </SelectPopup>
+                                      </SelectPositioner>
+                                    </SelectPortal>
+                                  </Select>
+                                </div>
 
-                              <Button
-                                className="w-full"
-                                onClick={handleAssignRole}
-                                disabled={!selectedRole}
-                              >
-                                Assign Role
-                              </Button>
-                            </div>
-                          </DialogContent>
+                                <Button
+                                  className="w-full"
+                                  onClick={handleAssignRole}
+                                  disabled={!selectedRole}
+                                >
+                                  Assign Role
+                                </Button>
+                              </div>
+                            </DialogPopup>
+                          </DialogPortal>
                         </Dialog>
                       </TableCell>
                     </TableRow>

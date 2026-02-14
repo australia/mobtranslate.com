@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import SharedLayout from './components/SharedLayout';
 import TranslatorWrapper from './components/TranslatorWrapper';
-import { PageHeader } from '@/app/components/ui/page-header';
-import { Section } from '@/app/components/ui/section';
-import { Card, CardContent } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Section } from '@/components/layout/Section';
+import { Card, CardContent, Badge } from '@mobtranslate/ui';
 
 // TODO: Container component needs to be created or imported from the correct location
 const Container = ({ children }: { children: React.ReactNode }) => (
@@ -25,16 +24,15 @@ export default async function Page() {
         className="font-display font-black tracking-tighter"
       />
 
-      <Section contained={false}>
+      <Section>
         <Container>
           <TranslatorWrapper languages={languages} />
         </Container>
       </Section>
 
-      <Section 
+      <Section
         title="Available Dictionaries"
         description="Explore our growing collection of Indigenous language dictionaries"
-        contained={false}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -44,7 +42,7 @@ export default async function Page() {
               href={`/dictionaries/${language.code}`} 
               className="block no-underline"
             >
-              <Card hover className="h-full">
+              <Card className="h-full hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="text-xl font-display font-bold uppercase tracking-wide">{language.name}</h3>
@@ -53,8 +51,8 @@ export default async function Page() {
                         variant={
                           language.status === 'severely endangered' ? 'destructive' : 
                           language.status === 'endangered' ? 'destructive' :
-                          language.status === 'vulnerable' ? 'secondary' : 
-                          'default'
+                          language.status === 'vulnerable' ? 'secondary' :
+                          'primary'
                         }
                         className="text-xs"
                       >
@@ -84,7 +82,7 @@ export default async function Page() {
         </div>
       </Section>
 
-      <Section variant="muted" contained={false}>
+      <Section variant="muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-4xl font-display font-black tracking-tighter mb-4 uppercase">Join the Movement</h2>

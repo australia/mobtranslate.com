@@ -1,16 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
-import { 
-  BarChart3, 
-  TrendingUp, 
-  Users, 
-  FileText, 
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue } from '@mobtranslate/ui';
+import {
+  BarChart3,
+  TrendingUp,
+  Users,
   Activity,
-  Calendar,
   Globe,
   MessageSquare
 } from 'lucide-react';
@@ -31,10 +27,9 @@ interface AnalyticsData {
 export default function AnalyticsPage() {
   const [timeRange, setTimeRange] = useState('30d');
   const [analyticsData, setAnalyticsData] = useState<AnalyticsData | null>(null);
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     fetchAnalytics();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeRange]);
 
   const fetchAnalytics = async () => {
@@ -46,8 +41,6 @@ export default function AnalyticsPage() {
       }
     } catch (error) {
       console.error('Failed to fetch analytics:', error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -103,16 +96,20 @@ export default function AnalyticsPage() {
             Platform insights and performance metrics
           </p>
         </div>
-        <Select value={timeRange} onValueChange={setTimeRange}>
+        <Select value={timeRange} onValueChange={(v) => v != null && setTimeRange(v)}>
           <SelectTrigger className="w-32">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="7d">Last 7 days</SelectItem>
-            <SelectItem value="30d">Last 30 days</SelectItem>
-            <SelectItem value="90d">Last 90 days</SelectItem>
-            <SelectItem value="1y">Last year</SelectItem>
-          </SelectContent>
+          <SelectPortal>
+            <SelectPositioner>
+              <SelectPopup>
+                <SelectItem value="7d">Last 7 days</SelectItem>
+                <SelectItem value="30d">Last 30 days</SelectItem>
+                <SelectItem value="90d">Last 90 days</SelectItem>
+                <SelectItem value="1y">Last year</SelectItem>
+              </SelectPopup>
+            </SelectPositioner>
+          </SelectPortal>
         </Select>
       </div>
 
@@ -128,7 +125,7 @@ export default function AnalyticsPage() {
           <CardContent>
             <div className="text-2xl font-bold">{data.engagementMetrics.dailyActiveUsers}</div>
             <p className="text-xs text-muted-foreground">
-              <span className="text-green-600">+12%</span> from last period
+              <span className="text-success">+12%</span> from last period
             </p>
           </CardContent>
         </Card>
@@ -233,7 +230,7 @@ export default function AnalyticsPage() {
                       <p className="text-sm text-muted-foreground">{lang.words} words</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-medium text-green-600">
+                      <p className="text-sm font-medium text-success">
                         +{lang.growth}%
                       </p>
                       <p className="text-xs text-muted-foreground">growth</p>
@@ -262,9 +259,9 @@ export default function AnalyticsPage() {
                       </p>
                     </div>
                     <div className="flex gap-2">
-                      <div className="flex-1 h-2 bg-green-100 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-green-600"
+                      <div className="flex-1 h-2 bg-success/10 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-success"
                           style={{ 
                             width: `${(curator.approved / (curator.approved + curator.rejected)) * 100}%` 
                           }}

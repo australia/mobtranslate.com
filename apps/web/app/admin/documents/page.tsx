@@ -1,27 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table';
-import { Badge } from '@/app/components/ui/badge';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/app/components/ui/dialog';
-import { Input } from '@/app/components/ui/input';
-import { Label } from '@/app/components/ui/label';
-import { Textarea } from '@/app/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
-import { useToast } from '@/app/components/ui/use-toast';
-import { 
-  FileText, 
-  Upload, 
-  Download, 
-  Eye, 
-  Trash2, 
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Badge, Dialog, DialogPortal, DialogBackdrop, DialogPopup, DialogDescription, DialogTitle, Input, Textarea, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
+import {
+  FileText,
+  Upload,
+  Eye,
+  Trash2,
   Clock,
   CheckCircle,
   XCircle,
-  FileSearch,
-  Calendar
+  FileSearch
 } from 'lucide-react';
 
 interface Document {
@@ -51,6 +41,7 @@ export default function DocumentsPage() {
 
   useEffect(() => {
     fetchDocuments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchDocuments = async () => {
@@ -65,7 +56,7 @@ export default function DocumentsPage() {
       toast({
         title: 'Error',
         description: 'Failed to load documents',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setLoading(false);
@@ -95,7 +86,7 @@ export default function DocumentsPage() {
       toast({
         title: 'Error',
         description: 'Failed to upload document',
-        variant: 'destructive'
+        variant: 'error'
       });
     }
   };
@@ -118,7 +109,7 @@ export default function DocumentsPage() {
       toast({
         title: 'Error',
         description: 'Failed to process document',
-        variant: 'destructive'
+        variant: 'error'
       });
     }
   };
@@ -143,7 +134,7 @@ export default function DocumentsPage() {
       toast({
         title: 'Error',
         description: 'Failed to delete document',
-        variant: 'destructive'
+        variant: 'error'
       });
     }
   };
@@ -154,11 +145,11 @@ export default function DocumentsPage() {
   };
 
   const getStatusBadge = (status: Document['status']) => {
-    const variants: Record<Document['status'], { variant: 'default' | 'secondary' | 'destructive' | 'outline', icon: any }> = {
+    const variants: Record<Document['status'], { variant: 'primary' | 'secondary' | 'error' | 'outline', icon: any }> = {
       pending: { variant: 'secondary', icon: Clock },
       processing: { variant: 'outline', icon: FileSearch },
-      processed: { variant: 'default', icon: CheckCircle },
-      failed: { variant: 'destructive', icon: XCircle }
+      processed: { variant: 'primary', icon: CheckCircle },
+      failed: { variant: 'error', icon: XCircle }
     };
 
     const { variant, icon: Icon } = variants[status];
@@ -254,7 +245,7 @@ export default function DocumentsPage() {
             <CardTitle className="text-sm font-medium">
               Processed
             </CardTitle>
-            <CheckCircle className="h-4 w-4 text-green-600" />
+            <CheckCircle className="h-4 w-4 text-success" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -271,7 +262,7 @@ export default function DocumentsPage() {
             <CardTitle className="text-sm font-medium">
               Processing
             </CardTitle>
-            <FileSearch className="h-4 w-4 text-blue-600" />
+            <FileSearch className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -288,7 +279,7 @@ export default function DocumentsPage() {
             <CardTitle className="text-sm font-medium">
               Pending
             </CardTitle>
-            <Clock className="h-4 w-4 text-orange-600" />
+            <Clock className="h-4 w-4 text-warning" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -348,7 +339,7 @@ export default function DocumentsPage() {
                     </TableCell>
                     <TableCell>{doc.language_name || 'N/A'}</TableCell>
                     <TableCell>
-                      <code className="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">
+                      <code className="text-xs bg-muted px-2 py-1 rounded">
                         {doc.file_type.split('/')[1] || doc.file_type}
                       </code>
                     </TableCell>
@@ -387,7 +378,7 @@ export default function DocumentsPage() {
                           variant="ghost"
                           size="sm"
                           onClick={() => handleDelete(doc.id)}
-                          className="text-red-600 hover:text-red-700"
+                          className="text-error hover:text-error/80"
                         >
                           <Trash2 className="h-4 w-4" />
                         </Button>
@@ -403,139 +394,145 @@ export default function DocumentsPage() {
 
       {/* Upload Dialog */}
       <Dialog open={isUploadDialogOpen} onOpenChange={setIsUploadDialogOpen}>
-        <DialogContent>
-          <form onSubmit={handleUpload}>
-            <DialogHeader>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup>
+            <form onSubmit={handleUpload}>
               <DialogTitle>Upload Document</DialogTitle>
               <DialogDescription>
                 Upload a document for linguistic data extraction
               </DialogDescription>
-            </DialogHeader>
-            
-            <div className="grid gap-4 py-4">
-              <div className="grid gap-2">
-                <Label htmlFor="title">Title</Label>
-                <Input
-                  id="title"
-                  name="title"
-                  placeholder="Document title"
-                  required
-                />
+
+              <div className="grid gap-4 py-4">
+                <div className="grid gap-2">
+                  <label className="text-sm font-medium" htmlFor="title">Title</label>
+                  <Input
+                    id="title"
+                    name="title"
+                    placeholder="Document title"
+                    required
+                  />
+                </div>
+
+                <div className="grid gap-2">
+                  <label className="text-sm font-medium" htmlFor="description">Description</label>
+                  <Textarea
+                    id="description"
+                    name="description"
+                    placeholder="Brief description of the document"
+                    rows={3}
+                  />
+                </div>
+
+                <div className="grid gap-2">
+                  <label className="text-sm font-medium" htmlFor="language_id">Language</label>
+                  <Select name="language_id" required>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectPortal>
+                      <SelectPositioner>
+                        <SelectPopup>
+                          <SelectItem value="1">Kuku Yalanji</SelectItem>
+                          <SelectItem value="2">Yawuru</SelectItem>
+                          <SelectItem value="3">Warlpiri</SelectItem>
+                          <SelectItem value="4">Arrernte</SelectItem>
+                        </SelectPopup>
+                      </SelectPositioner>
+                    </SelectPortal>
+                  </Select>
+                </div>
+
+                <div className="grid gap-2">
+                  <label className="text-sm font-medium" htmlFor="file">File</label>
+                  <Input
+                    id="file"
+                    name="file"
+                    type="file"
+                    accept=".pdf,.txt,.md,.docx"
+                    required
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Supported formats: PDF, TXT, MD, DOCX (max 10MB)
+                  </p>
+                </div>
               </div>
-              
-              <div className="grid gap-2">
-                <Label htmlFor="description">Description</Label>
-                <Textarea
-                  id="description"
-                  name="description"
-                  placeholder="Brief description of the document"
-                  rows={3}
-                />
+
+              <div className="flex justify-end gap-2 mt-4">
+                <Button type="button" variant="outline" onClick={() => setIsUploadDialogOpen(false)}>
+                  Cancel
+                </Button>
+                <Button type="submit">
+                  <Upload className="h-4 w-4 mr-2" />
+                  Upload
+                </Button>
               </div>
-              
-              <div className="grid gap-2">
-                <Label htmlFor="language_id">Language</Label>
-                <Select name="language_id" required>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a language" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="1">Kuku Yalanji</SelectItem>
-                    <SelectItem value="2">Yawuru</SelectItem>
-                    <SelectItem value="3">Warlpiri</SelectItem>
-                    <SelectItem value="4">Arrernte</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              <div className="grid gap-2">
-                <Label htmlFor="file">File</Label>
-                <Input
-                  id="file"
-                  name="file"
-                  type="file"
-                  accept=".pdf,.txt,.md,.docx"
-                  required
-                />
-                <p className="text-xs text-muted-foreground">
-                  Supported formats: PDF, TXT, MD, DOCX (max 10MB)
-                </p>
-              </div>
-            </div>
-            
-            <DialogFooter>
-              <Button type="button" variant="outline" onClick={() => setIsUploadDialogOpen(false)}>
-                Cancel
-              </Button>
-              <Button type="submit">
-                <Upload className="h-4 w-4 mr-2" />
-                Upload
-              </Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
+            </form>
+          </DialogPopup>
+        </DialogPortal>
       </Dialog>
 
       {/* Details Dialog */}
       <Dialog open={isDetailsDialogOpen} onOpenChange={setIsDetailsDialogOpen}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup className="max-w-2xl">
             <DialogTitle>Document Details</DialogTitle>
-          </DialogHeader>
-          
-          {selectedDocument && (
-            <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold mb-2">General Information</h3>
-                <dl className="grid grid-cols-2 gap-2 text-sm">
-                  <dt className="text-muted-foreground">Title:</dt>
-                  <dd>{selectedDocument.title}</dd>
-                  
-                  <dt className="text-muted-foreground">Language:</dt>
-                  <dd>{selectedDocument.language_name || 'N/A'}</dd>
-                  
-                  <dt className="text-muted-foreground">Status:</dt>
-                  <dd>{getStatusBadge(selectedDocument.status)}</dd>
-                  
-                  <dt className="text-muted-foreground">File Type:</dt>
-                  <dd>{selectedDocument.file_type}</dd>
-                  
-                  <dt className="text-muted-foreground">File Size:</dt>
-                  <dd>{formatFileSize(selectedDocument.file_size)}</dd>
-                  
-                  <dt className="text-muted-foreground">Uploaded:</dt>
-                  <dd>{new Date(selectedDocument.created_at).toLocaleString()}</dd>
-                </dl>
-              </div>
 
-              {selectedDocument.status === 'processed' && (
+            {selectedDocument && (
+              <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold mb-2">Processing Results</h3>
+                  <h3 className="font-semibold mb-2">General Information</h3>
                   <dl className="grid grid-cols-2 gap-2 text-sm">
-                    <dt className="text-muted-foreground">Processed at:</dt>
-                    <dd>{selectedDocument.processed_at ? new Date(selectedDocument.processed_at).toLocaleString() : 'N/A'}</dd>
-                    
-                    <dt className="text-muted-foreground">Words extracted:</dt>
-                    <dd>{selectedDocument.word_count || 0}</dd>
+                    <dt className="text-muted-foreground">Title:</dt>
+                    <dd>{selectedDocument.title}</dd>
+
+                    <dt className="text-muted-foreground">Language:</dt>
+                    <dd>{selectedDocument.language_name || 'N/A'}</dd>
+
+                    <dt className="text-muted-foreground">Status:</dt>
+                    <dd>{getStatusBadge(selectedDocument.status)}</dd>
+
+                    <dt className="text-muted-foreground">File Type:</dt>
+                    <dd>{selectedDocument.file_type}</dd>
+
+                    <dt className="text-muted-foreground">File Size:</dt>
+                    <dd>{formatFileSize(selectedDocument.file_size)}</dd>
+
+                    <dt className="text-muted-foreground">Uploaded:</dt>
+                    <dd>{new Date(selectedDocument.created_at).toLocaleString()}</dd>
                   </dl>
                 </div>
-              )}
 
-              {selectedDocument.description && (
-                <div>
-                  <h3 className="font-semibold mb-2">Description</h3>
-                  <p className="text-sm">{selectedDocument.description}</p>
-                </div>
-              )}
+                {selectedDocument.status === 'processed' && (
+                  <div>
+                    <h3 className="font-semibold mb-2">Processing Results</h3>
+                    <dl className="grid grid-cols-2 gap-2 text-sm">
+                      <dt className="text-muted-foreground">Processed at:</dt>
+                      <dd>{selectedDocument.processed_at ? new Date(selectedDocument.processed_at).toLocaleString() : 'N/A'}</dd>
+
+                      <dt className="text-muted-foreground">Words extracted:</dt>
+                      <dd>{selectedDocument.word_count || 0}</dd>
+                    </dl>
+                  </div>
+                )}
+
+                {selectedDocument.description && (
+                  <div>
+                    <h3 className="font-semibold mb-2">Description</h3>
+                    <p className="text-sm">{selectedDocument.description}</p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            <div className="flex justify-end gap-2 mt-4">
+              <Button variant="outline" onClick={() => setIsDetailsDialogOpen(false)}>
+                Close
+              </Button>
             </div>
-          )}
-          
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setIsDetailsDialogOpen(false)}>
-              Close
-            </Button>
-          </DialogFooter>
-        </DialogContent>
+          </DialogPopup>
+        </DialogPortal>
       </Dialog>
     </div>
   );

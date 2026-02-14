@@ -1,21 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Badge } from '@/app/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/tabs';
-import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/avatar';
-import { useToast } from '@/app/components/ui/use-toast';
+import { Button, Card, CardContent, CardHeader, CardTitle, Badge, Tabs, TabsContent, TabsList, TabsTrigger, Avatar } from '@mobtranslate/ui';
+import { useToast } from '@/hooks/useToast';
 import { 
-  MessageSquare, 
-  Flag, 
-  CheckCircle, 
-  XCircle,
+  MessageSquare,
+  Flag,
+  CheckCircle,
   AlertTriangle,
   ThumbsUp,
   ThumbsDown,
-  User,
   Calendar,
   Eye,
   Trash2,
@@ -52,6 +46,7 @@ export default function CommentsPage() {
 
   useEffect(() => {
     fetchComments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterType]);
 
   const fetchComments = async () => {
@@ -66,7 +61,7 @@ export default function CommentsPage() {
       toast({
         title: 'Error',
         description: 'Failed to load comments',
-        variant: 'destructive'
+        variant: 'error'
       });
     } finally {
       setLoading(false);
@@ -93,18 +88,18 @@ export default function CommentsPage() {
       toast({
         title: 'Error',
         description: 'Failed to moderate comment',
-        variant: 'destructive'
+        variant: 'error'
       });
     }
   };
 
   const getCategoryColor = (category: Comment['category']) => {
     const colors = {
-      general: 'bg-gray-100 text-gray-800',
-      pronunciation: 'bg-gray-100 text-gray-800',
-      usage: 'bg-blue-100 text-blue-800',
-      cultural: 'bg-amber-100 text-amber-800',
-      grammar: 'bg-green-100 text-green-800'
+      general: 'bg-muted text-foreground',
+      pronunciation: 'bg-muted text-foreground',
+      usage: 'bg-primary/10 text-primary',
+      cultural: 'bg-warning/10 text-warning',
+      grammar: 'bg-success/10 text-success'
     };
     return colors[category] || colors.general;
   };
@@ -193,7 +188,7 @@ export default function CommentsPage() {
           </p>
         </div>
         {flaggedCount > 0 && (
-          <Badge variant="destructive" className="text-lg px-4 py-2">
+          <Badge variant="error" className="text-lg px-4 py-2">
             <AlertTriangle className="h-4 w-4 mr-2" />
             {flaggedCount} flagged
           </Badge>
@@ -224,7 +219,7 @@ export default function CommentsPage() {
           ) : displayComments.length === 0 ? (
             <Card>
               <CardContent className="text-center py-8">
-                <MessageSquare className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <MessageSquare className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                 <p className="text-lg font-medium">No comments found</p>
                 <p className="text-muted-foreground">No comments match your current filter</p>
               </CardContent>
@@ -234,21 +229,13 @@ export default function CommentsPage() {
               <Card 
                 key={comment.id} 
                 className={`hover:shadow-lg transition-shadow ${
-                  comment.is_flagged ? 'border-red-200 dark:border-red-800' : ''
+                  comment.is_flagged ? 'border-error/30' : ''
                 }`}
               >
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-3">
-                      <Avatar className="h-10 w-10">
-                        {comment.user_avatar ? (
-                          <AvatarImage src={comment.user_avatar} alt={comment.user_name} />
-                        ) : (
-                          <AvatarFallback>
-                            <User className="h-5 w-5" />
-                          </AvatarFallback>
-                        )}
-                      </Avatar>
+                      <Avatar className="h-10 w-10" src={comment.user_avatar} alt={comment.user_name} fallback={comment.user_name?.[0]?.toUpperCase() || '?'} />
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
                           <p className="font-medium">{comment.user_name}</p>
@@ -278,11 +265,11 @@ export default function CommentsPage() {
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="flex items-center gap-2 text-sm">
-                        <span className="flex items-center gap-1 text-green-600">
+                        <span className="flex items-center gap-1 text-success">
                           <ThumbsUp className="h-4 w-4" />
                           {comment.upvotes}
                         </span>
-                        <span className="flex items-center gap-1 text-red-600">
+                        <span className="flex items-center gap-1 text-error">
                           <ThumbsDown className="h-4 w-4" />
                           {comment.downvotes}
                         </span>
@@ -294,14 +281,14 @@ export default function CommentsPage() {
                   <p className="text-sm">{comment.content}</p>
 
                   {comment.is_flagged && (
-                    <div className="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+                    <div className="bg-error/10 p-3 rounded-lg">
                       <div className="flex items-start gap-2">
-                        <Flag className="h-4 w-4 text-red-600 mt-0.5" />
+                        <Flag className="h-4 w-4 text-error mt-0.5" />
                         <div className="flex-1">
-                          <p className="text-sm font-medium text-red-800 dark:text-red-200">
+                          <p className="text-sm font-medium text-error">
                             Flagged for: {comment.flag_reason}
                           </p>
-                          <p className="text-xs text-red-600 dark:text-red-400">
+                          <p className="text-xs text-error">
                             by {comment.flagged_by} on {comment.flagged_at && new Date(comment.flagged_at).toLocaleDateString()}
                           </p>
                         </div>
@@ -324,7 +311,7 @@ export default function CommentsPage() {
                           <Button
                             size="sm"
                             variant="outline"
-                            className="text-orange-600 hover:text-orange-700"
+                            className="text-warning hover:text-warning/80"
                             onClick={() => handleModerateComment(comment.id, 'hide')}
                           >
                             <Eye className="h-4 w-4 mr-2" />
@@ -335,7 +322,7 @@ export default function CommentsPage() {
                       <Button
                         size="sm"
                         variant="outline"
-                        className="text-red-600 hover:text-red-700"
+                        className="text-error hover:text-error/80"
                         onClick={() => handleModerateComment(comment.id, 'delete')}
                       >
                         <Trash2 className="h-4 w-4 mr-2" />
@@ -380,7 +367,7 @@ export default function CommentsPage() {
             <CardTitle className="text-sm font-medium">
               Flagged
             </CardTitle>
-            <Flag className="h-4 w-4 text-red-600" />
+            <Flag className="h-4 w-4 text-error" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{flaggedCount}</div>
@@ -395,7 +382,7 @@ export default function CommentsPage() {
             <CardTitle className="text-sm font-medium">
               Hidden
             </CardTitle>
-            <Eye className="h-4 w-4 text-orange-600" />
+            <Eye className="h-4 w-4 text-warning" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -412,7 +399,7 @@ export default function CommentsPage() {
             <CardTitle className="text-sm font-medium">
               Approval Rate
             </CardTitle>
-            <CheckCircle className="h-4 w-4 text-green-600" />
+            <CheckCircle className="h-4 w-4 text-success" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">94%</div>

@@ -2,11 +2,7 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Button } from '@/app/components/ui/button'
-import { Input } from '@/app/components/ui/input'
-import { Label } from '@/app/components/ui/label'
-import { Alert, AlertDescription } from '@/app/components/ui/alert'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/app/components/ui/card'
+import { Button, Input, Alert, AlertDescription, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@mobtranslate/ui'
 import { useAuth } from '@/contexts/AuthContext'
 
 interface SetupProfileFormProps {
@@ -71,12 +67,12 @@ export function SetupProfileForm({ userEmail }: SetupProfileFormProps) {
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-4">
           {error && (
-            <Alert variant="destructive">
+            <Alert variant="error">
               <AlertDescription>{error}</AlertDescription>
             </Alert>
           )}
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <label htmlFor="email" className="text-sm font-medium">Email</label>
             <Input
               id="email"
               type="email"
@@ -86,7 +82,7 @@ export function SetupProfileForm({ userEmail }: SetupProfileFormProps) {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="username">Username</Label>
+            <label htmlFor="username" className="text-sm font-medium">Username</label>
             <Input
               id="username"
               type="text"
@@ -104,7 +100,7 @@ export function SetupProfileForm({ userEmail }: SetupProfileFormProps) {
             </p>
           </div>
           <div className="space-y-2">
-            <Label htmlFor="displayName">Display Name (optional)</Label>
+            <label htmlFor="displayName" className="text-sm font-medium">Display Name (optional)</label>
             <Input
               id="displayName"
               type="text"

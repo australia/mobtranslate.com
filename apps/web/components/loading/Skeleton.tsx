@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { cn } from '@/app/lib/utils';
+import { cn } from '@mobtranslate/ui';
 
 interface SkeletonProps {
   className?: string;
@@ -19,7 +19,7 @@ export function Skeleton({
   animation = 'pulse'
 }: SkeletonProps) {
   const baseClasses = cn(
-    "bg-gray-200",
+    "bg-muted",
     animation === 'pulse' && "animate-pulse",
     animation === 'wave' && "animate-wave",
     variant === 'circular' && "rounded-full",
@@ -39,7 +39,7 @@ export function Skeleton({
 // Card Skeleton
 export function CardSkeleton({ className = '' }: { className?: string }) {
   return (
-    <div className={cn("bg-white rounded-lg border p-6", className)}>
+    <div className={cn("bg-card rounded-lg border p-6", className)}>
       <div className="flex items-start justify-between">
         <div className="flex-1">
           <Skeleton width="60%" height={20} className="mb-2" />
@@ -55,7 +55,7 @@ export function CardSkeleton({ className = '' }: { className?: string }) {
 export function WordCardSkeleton({ compact = false }: { compact?: boolean }) {
   return (
     <div className={cn(
-      "bg-white rounded-lg border",
+      "bg-card rounded-lg border",
       compact ? "p-3" : "p-4 sm:p-6"
     )}>
       <div className="flex items-start justify-between gap-4">
@@ -92,7 +92,7 @@ export function TableSkeleton({ rows = 5, columns = 5 }: { rows?: number; column
   return (
     <div className="overflow-hidden">
       <table className="w-full">
-        <thead className="bg-gray-50 border-b">
+        <thead className="bg-muted border-b">
           <tr>
             {Array.from({ length: columns }).map((_, i) => (
               <th key={i} className="text-left py-3 px-4">
@@ -101,7 +101,7 @@ export function TableSkeleton({ rows = 5, columns = 5 }: { rows?: number; column
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200">
+        <tbody className="divide-y divide-border">
           {Array.from({ length: rows }).map((_, rowIndex) => (
             <tr key={rowIndex}>
               {Array.from({ length: columns }).map((_, colIndex) => (
@@ -136,11 +136,11 @@ export function DashboardSkeleton() {
 
       {/* Charts */}
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg border p-6">
+        <div className="bg-card rounded-lg border p-6">
           <Skeleton width={150} height={24} className="mb-4" />
           <Skeleton variant="rectangular" height={300} />
         </div>
-        <div className="bg-white rounded-lg border p-6">
+        <div className="bg-card rounded-lg border p-6">
           <Skeleton width={150} height={24} className="mb-4" />
           <Skeleton variant="rectangular" height={300} />
         </div>

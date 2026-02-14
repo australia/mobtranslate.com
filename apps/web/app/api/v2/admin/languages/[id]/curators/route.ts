@@ -37,7 +37,7 @@ export async function GET(
 
     // Get user emails
     const userIds = curatorAssignments.map(c => c.user_id);
-    let userProfiles = [];
+    let userProfiles: any[] = [];
     
     if (userIds.length > 0) {
       const { data, error } = await supabase
