@@ -181,86 +181,121 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
         {children}
       </main>
       
-      {/* Footer - Remove background, simplify elements */}
-      <footer className="mt-auto py-8 border-t border-border">
+      {/* Footer */}
+      <footer className="mt-auto border-t border-border bg-muted/30">
         <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* About */}
-            <div>
-              <h3 className="text-lg font-medium mb-4">About Mob Translate</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                A community-driven project dedicated to preserving and promoting 
-                Indigenous languages worldwide through accessible translation tools.
+          {/* Main footer content */}
+          <div className="py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
+            {/* Brand */}
+            <div className="md:col-span-1">
+              <Link href="/" className="text-xl font-bold">
+                <span className="bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent">Mob Translate</span>
+              </Link>
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                Open-source translation tools for Indigenous languages. Built with respect, powered by community.
               </p>
-              <div className="mt-4">
-                <a href="https://twitter.com/ajaxdavis" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 transition-all duration-200 underline inline-flex items-center gap-1">
-                  Contact via @ajaxdavis on Twitter
+              <div className="flex items-center gap-3 mt-4">
+                <a
+                  href="https://github.com/australia/mobtranslate.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
+                  aria-label="GitHub Repository"
+                >
+                  <Github size={18} />
+                </a>
+                <a
+                  href="https://twitter.com/ajaxdavis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
+                  aria-label="Twitter"
+                >
+                  <Heart size={18} />
                 </a>
               </div>
             </div>
-            
-            {/* Quick Links - Simplify link style */}
+
+            {/* Navigation */}
             <div>
-              <h3 className="text-lg font-medium mb-4">Quick Links</h3>
-              <ul className="space-y-3">
+              <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Explore</h3>
+              <ul className="space-y-2.5">
                 {navLinks.map((link) => (
                   <li key={link.title}>
                     <Link
                       href={link.href}
                       target={link.external ? '_blank' : undefined}
                       rel={link.external ? 'noopener noreferrer' : undefined}
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
                       {link.title}
                     </Link>
                   </li>
                 ))}
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Resources</h3>
+              <ul className="space-y-2.5">
                 <li>
-                  <Link
-                    href="/styleguide"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <Link href="/styleguide" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     Style Guide
                   </Link>
                 </li>
+                <li>
+                  <a
+                    href="https://github.com/australia/mobtranslate.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Source Code
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/australia/mobtranslate.com/issues"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Report an Issue
+                  </a>
+                </li>
               </ul>
             </div>
-            
-            {/* Connect - Simplify button style */}
+
+            {/* Community */}
             <div>
-              <h3 className="text-lg font-medium mb-4">Connect</h3>
-              <div className="flex items-center gap-4">
-                <a 
-                  href="https://github.com/australia/mobtranslate.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 text-primary hover:text-primary/80 transition-colors"
-                  aria-label="GitHub Repository"
-                >
-                  <Github size={20} />
-                </a>
-                <a 
-                  href="https://github.com/australia/mobtranslate.com/stargazers"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 text-primary hover:text-primary/80 transition-colors"
-                  aria-label="Star on GitHub"
-                >
-                  <Heart size={20} />
-                </a>
-              </div>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
-                Contribute to our open-source project and help us improve translations for
-                Indigenous languages worldwide.
+              <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Community</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                We welcome developers, linguists, and community members. Every contribution helps preserve a language.
               </p>
+              <a
+                href="https://github.com/australia/mobtranslate.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-3 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+              >
+                <Github size={14} />
+                Contribute on GitHub
+              </a>
             </div>
           </div>
-          
-          {/* Update font */}
-          <div className="mt-8 pt-6 border-t border-border/30 text-center text-muted-foreground">
-            <p className="font-space-grotesk">
-              {new Date().getFullYear()} Mob Translate
+
+          {/* Acknowledgement + Copyright */}
+          <div className="py-6 border-t border-border/50">
+            <p className="text-xs text-muted-foreground leading-relaxed mb-4 max-w-3xl">
+              We acknowledge the Traditional Owners of the languages represented on this platform
+              and pay our respects to Elders past, present, and emerging. We recognise that sovereignty
+              was never ceded.
             </p>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-muted-foreground">
+              <p>{new Date().getFullYear()} Mob Translate. Open source under MIT License.</p>
+              <p>Made with care for language preservation.</p>
+            </div>
           </div>
         </div>
       </footer>

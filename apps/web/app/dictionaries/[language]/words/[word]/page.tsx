@@ -2,11 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../../../components/SharedLayout';
-import { PageHeader } from '@/components/layout/PageHeader';
 import { Section } from '@/components/layout/Section';
 import { Card, CardContent, Badge } from '@mobtranslate/ui';
 
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ArrowLeft } from 'lucide-react';
 
 const Breadcrumbs = ({ items, className }: { items: { href: string; label: string }[]; className?: string }) => (
   <nav className={`flex items-center gap-2 text-sm ${className || ''}`}>
@@ -84,13 +83,27 @@ export default async function WordDetailPage({
 
     return (
       <SharedLayout>
-        <PageHeader 
-          title={word.word}
-          description={`${word.word_type || word.word_class?.name || 'Word'} - ${language.name} Dictionary`}
-        >
-          <div className="flex items-center gap-2 mt-4">
+        {/* Header */}
+        <div className="py-6 md:py-10">
+          <Breadcrumbs items={breadcrumbItems} className="mb-6" />
+
+          <div className="flex items-center gap-3 mb-2">
+            <Link
+              href={`/dictionaries/${languageCode}`}
+              className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+            </Link>
+            <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+              {word.word}
+            </h1>
+          </div>
+          <div className="flex items-center gap-2 ml-11 flex-wrap">
+            <span className="text-muted-foreground">
+              {language.name} Dictionary
+            </span>
             {word.word_class && (
-              <Badge variant="secondary">
+              <Badge variant="outline">
                 {word.word_class.name}
               </Badge>
             )}
@@ -101,53 +114,44 @@ export default async function WordDetailPage({
               <Badge variant="destructive">Sensitive</Badge>
             )}
           </div>
-        </PageHeader>
+        </div>
 
-        <Section contained={false}>
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <Breadcrumbs items={breadcrumbItems} />
-            
-            <WordDetailContent word={word} />
-            
-            {/* Related words */}
-            {relatedWords && relatedWords.length > 0 && (
-              <Section title="Related Words">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {relatedWords.map((related) => (
-                    <Link 
-                      key={related.id}
-                      href={`/dictionaries/${languageCode}/words/${encodeURIComponent(related.word)}`}
-                      className="block"
-                    >
-                      <Card className="h-full hover:shadow-lg transition-shadow">
-                        <CardContent className="p-4">
-                          <h3 className="font-medium font-crimson text-lg mb-2 text-primary">
-                            {related.word}
-                          </h3>
-                          <p className="text-sm text-muted-foreground font-source-sans">
-                            {related.definitions?.[0]?.definition || 'No definition available'}
-                          </p>
-                          {related.word_class && (
-                            <Badge variant="outline" className="mt-2 text-xs">
-                              {related.word_class.name}
-                            </Badge>
-                          )}
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  ))}
-                </div>
-              </Section>
-            )}
-            
-            <div className="pt-6 border-t">
-              <Link href={`/dictionaries/${languageCode}`} className="mt-btn mt-btn-outline mt-btn-md">
-                  <ChevronLeft className="mr-2 h-4 w-4" />
-                  Back to {language.name} Dictionary
-              </Link>
+        {/* Content */}
+        <div className="max-w-4xl pb-12 space-y-8">
+          <WordDetailContent word={word} />
+
+          {/* Related words */}
+          {relatedWords && relatedWords.length > 0 && (
+            <div>
+              <h2 className="text-xl font-display font-bold mb-4">Related Words</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {relatedWords.map((related) => (
+                  <Link
+                    key={related.id}
+                    href={`/dictionaries/${languageCode}/words/${encodeURIComponent(related.word)}`}
+                    className="group block"
+                  >
+                    <Card className="h-full transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+                      <CardContent className="p-4">
+                        <h3 className="font-medium text-lg mb-2 text-primary group-hover:underline">
+                          {related.word}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {related.definitions?.[0]?.definition || 'No definition available'}
+                        </p>
+                        {related.word_class && (
+                          <Badge variant="outline" className="mt-2 text-xs">
+                            {related.word_class.name}
+                          </Badge>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        </Section>
+          )}
+        </div>
       </SharedLayout>
     );
   } catch (error) {

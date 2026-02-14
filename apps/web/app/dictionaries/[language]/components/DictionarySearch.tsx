@@ -124,7 +124,7 @@ export default function DictionarySearch({
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <CardTitle>Search Dictionary</CardTitle>
             <div className="flex items-center gap-2">
-              <Badge variant="secondary">{words.length} displayed</Badge>
+              <Badge variant="outline">{words.length} displayed</Badge>
               {currentPagination && (
                 <Badge variant="outline">{currentPagination.total} total</Badge>
               )}

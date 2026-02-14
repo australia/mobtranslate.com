@@ -2,12 +2,10 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
 import DictionarySearch from './components/DictionarySearch';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Section } from '@/components/layout/Section';
 import { Badge } from '@mobtranslate/ui';
 
 import Link from 'next/link';
-import { ChevronRight, MapPin } from 'lucide-react';
+import { ChevronRight, MapPin, BookOpen, ArrowLeft } from 'lucide-react';
 
 const Breadcrumbs = ({ items, className }: { items: { href: string; label: string }[]; className?: string }) => (
   <nav className={`flex items-center gap-2 text-sm ${className || ''}`}>
@@ -81,48 +79,74 @@ export default async function DictionaryPage({
 
     return (
       <SharedLayout>
-        <PageHeader 
-          title={`${languageData.name} Dictionary`}
-          description={languageData.description || `Explore the ${languageData.name} language dictionary`}
-        >
-          <div className="flex items-center justify-center gap-2 mt-4">
-            {languageData.region && (
-              <Badge variant="secondary">{languageData.region}</Badge>
-            )}
-            <Badge variant="outline">{pagination.total} words</Badge>
-            {languageData.status && (
-              <Badge variant={languageData.status === 'endangered' ? 'destructive' : 'primary'}>
-                {languageData.status === 'severely endangered' ? 'very-low volume' : 
-                 languageData.status === 'endangered' ? 'low volume' :
-                 languageData.status === 'vulnerable' ? 'low volume' : 
-                 languageData.status}
-              </Badge>
-            )}
-          </div>
-        </PageHeader>
+        {/* Header */}
+        <div className="py-6 md:py-10">
+          <Breadcrumbs items={breadcrumbItems} className="mb-6" />
 
-        <Section contained={false}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Breadcrumbs items={breadcrumbItems} className="mb-6" />
-
-            <div className="mb-4">
-              <Link
-                href={`/dictionaries/${language}/map`}
-                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <MapPin className="h-4 w-4" />
-                View place names on map
-              </Link>
+          <div className="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <Link
+                  href="/dictionaries"
+                  className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                </Link>
+                <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+                  {languageData.name}
+                </h1>
+              </div>
+              <p className="text-muted-foreground max-w-2xl ml-11">
+                {languageData.description || `Explore the ${languageData.name} language dictionary`}
+              </p>
             </div>
 
-            <DictionarySearch 
-              dictionary={dictionary} 
-              initialSearch={searchParams.search || ''} 
-              pagination={pagination}
-              currentPage={queryParams.page}
-            />
+            <div className="flex items-center gap-2 flex-wrap ml-11 md:ml-0">
+              {languageData.region && (
+                <Badge variant="secondary" className="gap-1">
+                  <MapPin className="w-3 h-3" />
+                  {languageData.region}
+                </Badge>
+              )}
+              <Badge variant="outline" className="gap-1">
+                <BookOpen className="w-3 h-3" />
+                {pagination.total.toLocaleString()} words
+              </Badge>
+              {languageData.status && (
+                <Badge
+                  variant={
+                    languageData.status === 'severely endangered' ? 'destructive' :
+                    languageData.status === 'endangered' ? 'destructive' :
+                    'secondary'
+                  }
+                >
+                  {languageData.status}
+                </Badge>
+              )}
+            </div>
           </div>
-        </Section>
+
+          {/* Map link */}
+          <div className="mt-4 ml-11">
+            <Link
+              href={`/dictionaries/${language}/map`}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium hover:bg-primary/20 transition-colors"
+            >
+              <MapPin className="w-4 h-4" />
+              View place names on map
+            </Link>
+          </div>
+        </div>
+
+        {/* Dictionary content */}
+        <div className="pb-12">
+          <DictionarySearch
+            dictionary={dictionary}
+            initialSearch={searchParams.search || ''}
+            pagination={pagination}
+            currentPage={queryParams.page}
+          />
+        </div>
       </SharedLayout>
     );
   } catch (error) {
