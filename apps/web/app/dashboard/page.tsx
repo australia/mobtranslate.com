@@ -4,22 +4,21 @@ import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Section } from '@/components/layout/Section';
 import { Badge, Button } from '@mobtranslate/ui';
 import { StatsCard } from '@/components/stats/StatsCard';
 import { DashboardSkeleton } from '@/components/loading/Skeleton';
 import { useDashboardData } from '@/hooks/useApi';
-import { 
-  Globe, 
-  BookOpen, 
-  Target, 
+import {
+  Globe,
+  BookOpen,
+  Target,
   Clock,
   Trophy,
   Activity,
   ChevronRight,
   TrendingUp,
-  Zap
+  Zap,
+  Sparkles
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -79,19 +78,28 @@ export default function DashboardPage() {
   return (
     <SharedLayout>
       <div className="min-h-screen">
-        <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          <PageHeader
-            title="Learning Dashboard"
-            description="Track your progress across all languages"
-            badge={
-              overviewStats.currentStreak > 0 ? (
-                <Badge variant="primary" className="ml-2 animate-scale-in">
-                  <Trophy className="h-3 w-3 mr-1" />
+        <div>
+          {/* Dashboard Header */}
+          <div className="py-6 md:py-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <Sparkles className="w-3.5 h-3.5" />
+              Your Progress
+            </div>
+            <div className="flex items-center gap-3 flex-wrap">
+              <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+                Learning Dashboard
+              </h1>
+              {overviewStats.currentStreak > 0 && (
+                <Badge variant="outline" className="gap-1 animate-scale-in">
+                  <Trophy className="h-3 w-3 text-amber-500" />
                   {overviewStats.currentStreak} day streak
                 </Badge>
-              ) : null
-            }
-          />
+              )}
+            </div>
+            <p className="text-muted-foreground mt-2">
+              Track your progress across all languages
+            </p>
+          </div>
 
           {isLoading ? (
             <DashboardSkeleton />
@@ -105,7 +113,7 @@ export default function DashboardPage() {
           ) : (
             <>
               {/* Overview Stats */}
-              <Section className="mt-12">
+              <div className="mt-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
                   <StatsCard
                     title="Languages"
@@ -163,12 +171,12 @@ export default function DashboardPage() {
                     style={{ animationDelay: '250ms' }}
                   />
                 </div>
-              </Section>
+              </div>
 
               {/* Language Cards */}
-              <Section className="mt-12">
-                <h2 className="text-2xl font-semibold mb-8 flex items-center">
-                  <Zap className="h-5 w-5 mr-2 text-warning" />
+              <div className="mt-12">
+                <h2 className="text-2xl font-display font-bold mb-8 flex items-center gap-2">
+                  <Zap className="h-5 w-5 text-amber-500" />
                   Your Languages
                 </h2>
                 {languageStats.length === 0 ? (
@@ -250,12 +258,12 @@ export default function DashboardPage() {
                     ))}
                   </div>
                 )}
-              </Section>
+              </div>
 
               {/* Quick Actions */}
               {languageStats.length > 0 && (
-                <Section className="mt-12">
-                  <h2 className="text-2xl font-semibold mb-8">Quick Actions</h2>
+                <div className="mt-12">
+                  <h2 className="text-2xl font-display font-bold mb-8">Quick Actions</h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                     <Link href="/learn" className="block animate-slide-in hover-lift">
                       <div className="bg-card rounded-xl border hover:border-success/30 p-8 h-full transition-all duration-200">
@@ -293,7 +301,7 @@ export default function DashboardPage() {
                       </div>
                     </Link>
                   </div>
-                </Section>
+                </div>
               )}
             </>
           )}
