@@ -4,11 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Section } from '@/components/layout/Section';
 import { LoadingState } from '@/components/layout/LoadingState';
-import { Button } from '@mobtranslate/ui';
-import { Trophy, Globe, Zap, Users } from 'lucide-react';
+import { Badge, Button } from '@mobtranslate/ui';
+import { Trophy, Globe, Zap, Users, Sparkles } from 'lucide-react';
 import LeaderboardCard from '../../components/leaderboard/LeaderboardCard';
 import PeriodSelector from '../../components/leaderboard/PeriodSelector';
 import LeaderboardStats from '../../components/leaderboard/LeaderboardStats';
@@ -95,24 +93,32 @@ export default function LeaderboardOverviewPage() {
     <SharedLayout>
       <div className="min-h-screen">
         <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          <PageHeader
-            title="Global Leaderboards"
-            description="Compete across languages and track your progress worldwide"
-            badge={
-              overviewData ? (
-                <div className="flex items-center ml-2 space-x-2">
-                  <div className="flex items-center bg-white bg-opacity-20 rounded-full px-3 py-1">
-                    <Globe className="h-3 w-3 mr-1" />
-                    <span className="text-sm font-medium">{overviewData.totalLanguages} languages</span>
-                  </div>
-                  <div className="flex items-center bg-white bg-opacity-20 rounded-full px-3 py-1">
-                    <Users className="h-3 w-3 mr-1" />
-                    <span className="text-sm font-medium">{totalParticipants} learners</span>
-                  </div>
+          <div className="py-6 md:py-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <Trophy className="w-3.5 h-3.5" />
+              Competition
+            </div>
+            <div className="flex items-center gap-3 flex-wrap">
+              <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+                Global Leaderboards
+              </h1>
+              {overviewData && (
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline" className="gap-1">
+                    <Globe className="h-3 w-3" />
+                    {overviewData.totalLanguages} languages
+                  </Badge>
+                  <Badge variant="outline" className="gap-1">
+                    <Users className="h-3 w-3" />
+                    {totalParticipants} learners
+                  </Badge>
                 </div>
-              ) : null
-            }
-          />
+              )}
+            </div>
+            <p className="text-muted-foreground mt-2">
+              Compete across languages and track your progress worldwide
+            </p>
+          </div>
 
           {/* Period Selector */}
           <PeriodSelector
@@ -126,8 +132,8 @@ export default function LeaderboardOverviewPage() {
           ) : overviewData ? (
             <>
               {/* Global Statistics */}
-              <Section className="mt-12">
-                <h2 className="text-2xl font-semibold mb-8 flex items-center">
+              <div className="mt-12">
+                <h2 className="text-2xl font-display font-bold mb-8 flex items-center">
                   <Zap className="h-5 w-5 mr-2 text-warning" />
                   Global Statistics
                 </h2>
@@ -137,12 +143,12 @@ export default function LeaderboardOverviewPage() {
                   totalQuestions={totalQuestions}
                   averageAccuracy={averageAccuracy}
                 />
-              </Section>
+              </div>
 
               {/* Active Languages */}
               {overviewData.leaderboards.length > 0 ? (
-                <Section className="mt-12">
-                  <h2 className="text-2xl font-semibold mb-8 flex items-center">
+                <div className="mt-12">
+                  <h2 className="text-2xl font-display font-bold mb-8 flex items-center">
                     <Trophy className="h-5 w-5 mr-2 text-muted-foreground" />
                     Language Leaderboards
                   </h2>
@@ -161,9 +167,9 @@ export default function LeaderboardOverviewPage() {
                       />
                     ))}
                   </div>
-                </Section>
+                </div>
               ) : (
-                <Section className="mt-12">
+                <div className="mt-12">
                   <div className="text-center py-12">
                     <Trophy className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
                     <h3 className="text-lg font-medium text-foreground mb-2">No Active Leaderboards</h3>
@@ -183,13 +189,13 @@ export default function LeaderboardOverviewPage() {
                       </Button>
                     </div>
                   </div>
-                </Section>
+                </div>
               )}
 
               {/* All Languages (including inactive) */}
               {overviewData.allLanguages.filter(l => l.totalParticipants === 0).length > 0 && (
-                <Section className="mt-12">
-                  <h2 className="text-2xl font-semibold mb-8 flex items-center">
+                <div className="mt-12">
+                  <h2 className="text-2xl font-display font-bold mb-8 flex items-center">
                     <Globe className="h-5 w-5 mr-2 text-muted-foreground" />
                     Available Languages
                     <span className="ml-2 text-sm font-normal text-muted-foreground">
@@ -212,7 +218,7 @@ export default function LeaderboardOverviewPage() {
                         </a>
                       ))}
                   </div>
-                </Section>
+                </div>
               )}
 
               {/* Footer Note */}

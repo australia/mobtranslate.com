@@ -4,13 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Section } from '@/components/layout/Section';
 import { Card, CardContent, CardHeader, CardTitle, Badge, Button } from '@mobtranslate/ui';
 import { EmptyState } from '@/components/layout/EmptyState';
 import { LoadingState } from '@/components/layout/LoadingState';
 import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
-import { Heart, BookOpen } from 'lucide-react';
+import { Heart, BookOpen, Sparkles } from 'lucide-react';
 import { transformWordForUI } from '@/lib/utils/dictionary-transform';
 
 interface LikedWord {
@@ -93,9 +91,9 @@ export default function MyLikesPage() {
   if (loading) {
     return (
       <SharedLayout>
-        <Section>
+        <div className="py-12">
           <LoadingState />
-        </Section>
+        </div>
       </SharedLayout>
     );
   }
@@ -106,19 +104,26 @@ export default function MyLikesPage() {
 
   return (
     <SharedLayout>
-      <PageHeader 
-        title="My Liked Words"
-        description="Words you've liked across all languages"
-      >
-        <div className="flex items-center justify-center gap-2 mt-4">
-          <Badge variant="secondary">
-            <Heart className="h-3 w-3 mr-1" />
+      <div className="py-6 md:py-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <Heart className="w-3.5 h-3.5" />
+          Collection
+        </div>
+        <div className="flex items-center gap-3 flex-wrap">
+          <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+            My Liked Words
+          </h1>
+          <Badge variant="outline" className="gap-1">
+            <Heart className="h-3 w-3" />
             {pagination.total} liked
           </Badge>
         </div>
-      </PageHeader>
+        <p className="text-muted-foreground mt-2">
+          Words you&apos;ve liked across all languages
+        </p>
+      </div>
 
-      <Section>
+      <div className="pb-12">
 
         {isLoading ? (
           <LoadingState />
@@ -185,7 +190,7 @@ export default function MyLikesPage() {
             )}
           </>
         )}
-      </Section>
+      </div>
     </SharedLayout>
   );
 }

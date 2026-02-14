@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, useParams } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Section } from '@/components/layout/Section';
 import { Card, CardContent, CardHeader, CardTitle, Badge, Button, Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@mobtranslate/ui';
 import { DashboardSkeleton } from '@/components/loading/Skeleton';
 import { useLeaderboardData } from '@/hooks/useApi';
@@ -23,7 +21,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Brain,
-  BookOpen
+  BookOpen,
+  Sparkles
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -104,18 +103,26 @@ export default function LeaderboardPage() {
             </Link>
           </div>
 
-          <PageHeader
-            title={`${leaderboardData?.languageInfo.name || language} Leaderboard`}
-            description="Compete with other learners and track your progress"
-            badge={
-              leaderboardData?.totalParticipants ? (
-                <Badge variant="primary" className="ml-2 animate-scale-in">
-                  <Users className="h-3 w-3 mr-1" />
+          <div className="py-6 md:py-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <Trophy className="w-3.5 h-3.5" />
+              Competition
+            </div>
+            <div className="flex items-center gap-3 flex-wrap">
+              <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+                {leaderboardData?.languageInfo.name || language} Leaderboard
+              </h1>
+              {leaderboardData?.totalParticipants > 0 && (
+                <Badge variant="outline" className="gap-1 animate-scale-in">
+                  <Users className="h-3 w-3" />
                   {leaderboardData.totalParticipants} learners
                 </Badge>
-              ) : null
-            }
-          />
+              )}
+            </div>
+            <p className="text-muted-foreground mt-2">
+              Compete with other learners and track your progress
+            </p>
+          </div>
 
           {/* Period Selector */}
           <div className="mt-6 flex flex-wrap gap-2 animate-slide-in">
@@ -147,7 +154,7 @@ export default function LeaderboardPage() {
             <>
               {/* Top 3 Podium */}
               {leaderboardData.leaderboard.length >= 3 && (
-                <Section className="mt-8">
+                <div className="mt-8">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto animate-slide-in" style={{ animationDelay: '150ms' }}>
                     {/* 2nd Place */}
                     <div className="md:order-1 flex flex-col items-center animate-scale-in" style={{ animationDelay: '250ms' }}>
@@ -192,11 +199,11 @@ export default function LeaderboardPage() {
                       </div>
                     </div>
                   </div>
-                </Section>
+                </div>
               )}
 
               {/* Full Leaderboard */}
-              <Section className="mt-8">
+              <div className="mt-8">
                 <Card className="animate-slide-in" style={{ animationDelay: '350ms' }}>
                   <CardHeader>
                     <CardTitle className="flex items-center">
@@ -289,10 +296,10 @@ export default function LeaderboardPage() {
                     </div>
                   </CardContent>
                 </Card>
-              </Section>
+              </div>
 
               {/* Community Statistics */}
-              <Section className="mt-8">
+              <div className="mt-8">
                 <Card className="animate-slide-in" style={{ animationDelay: '400ms' }}>
                   <CardHeader>
                     <CardTitle className="flex items-center">
@@ -334,11 +341,11 @@ export default function LeaderboardPage() {
                     </div>
                   </CardContent>
                 </Card>
-              </Section>
+              </div>
 
               {/* Current User Summary */}
               {leaderboardData.currentUserRank && (
-                <Section className="mt-8 mb-8">
+                <div className="mt-8 mb-8">
                   <Card className="bg-primary text-primary-foreground animate-slide-in hover-lift" style={{ animationDelay: '400ms' }}>
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
@@ -357,11 +364,11 @@ export default function LeaderboardPage() {
                       </div>
                     </CardContent>
                   </Card>
-                </Section>
+                </div>
               )}
             </>
           ) : (
-            <Section className="mt-8">
+            <div className="mt-8">
               <div className="text-center bg-card rounded-xl border p-12">
                 <Trophy className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                 <p className="text-muted-foreground mb-4">No leaderboard data available for this language</p>
@@ -372,7 +379,7 @@ export default function LeaderboardPage() {
                   </Button>
                 </Link>
               </div>
-            </Section>
+            </div>
           )}
         </div>
       </div>

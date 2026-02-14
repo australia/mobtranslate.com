@@ -4,11 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Section } from '@/components/layout/Section';
 import { Card, CardContent, CardHeader, CardTitle, Button, Input, Textarea } from '@mobtranslate/ui';
 import { LoadingState } from '@/components/layout/LoadingState';
-import { User, Save, AlertCircle, CheckCircle, Edit } from 'lucide-react';
+import { User, Save, AlertCircle, CheckCircle, Edit, Settings } from 'lucide-react';
 
 interface UserProfile {
   id: string;
@@ -171,23 +169,25 @@ export default function SettingsPage() {
 
   return (
     <SharedLayout>
-      <div className="min-h-screen bg-muted">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <PageHeader
-            title="Account Settings"
-            description="Manage your profile and account preferences"
-            badge={
-              <div className="flex items-center ml-2 bg-white bg-opacity-20 rounded-full px-3 py-1">
-                <User className="h-3 w-3 mr-1" />
-                <span className="text-sm font-medium">{profile?.username || 'Loading...'}</span>
-              </div>
-            }
-          />
+      <div className="min-h-screen">
+        <div className="max-w-4xl mx-auto py-8">
+          <div className="py-6 md:py-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <Settings className="w-3.5 h-3.5" />
+              Account
+            </div>
+            <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+              Account Settings
+            </h1>
+            <p className="text-muted-foreground mt-2">
+              Manage your profile and account preferences
+            </p>
+          </div>
 
           {loading ? (
             <LoadingState />
           ) : (
-            <Section className="mt-8">
+            <div className="mt-8 space-y-6">
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
@@ -283,7 +283,7 @@ export default function SettingsPage() {
               </Card>
 
               {/* Account Info */}
-              <Card className="mt-6">
+              <Card>
                 <CardHeader>
                   <CardTitle>Account Information</CardTitle>
                 </CardHeader>
@@ -312,7 +312,7 @@ export default function SettingsPage() {
                   </div>
                 </CardContent>
               </Card>
-            </Section>
+            </div>
           )}
         </div>
       </div>

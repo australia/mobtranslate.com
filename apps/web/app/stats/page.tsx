@@ -4,11 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Section } from '@/components/layout/Section';
 import { Card, CardContent, CardHeader, CardTitle, Badge } from '@mobtranslate/ui';
 import { LoadingState } from '@/components/layout/LoadingState';
-import { BarChart3, TrendingUp, Brain, Clock, CheckCircle, XCircle } from 'lucide-react';
+import { BarChart3, TrendingUp, Brain, Clock, CheckCircle, XCircle, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 interface Stats {
@@ -104,9 +102,9 @@ export default function StatsPage() {
   if (loading || isLoadingStats) {
     return (
       <SharedLayout>
-        <Section>
+        <div className="py-12">
           <LoadingState />
-        </Section>
+        </div>
       </SharedLayout>
     );
   }
@@ -117,12 +115,20 @@ export default function StatsPage() {
 
   return (
     <SharedLayout>
-      <PageHeader 
-        title="Your Learning Stats"
-        description="Track your progress across all languages"
-      />
+      <div className="py-6 md:py-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <Sparkles className="w-3.5 h-3.5" />
+          Analytics
+        </div>
+        <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+          Your Learning Stats
+        </h1>
+        <p className="text-muted-foreground mt-2">
+          Track your progress across all languages
+        </p>
+      </div>
 
-      <Section>
+      <div className="pb-12">
         {!stats || stats.overall.totalAttempts === 0 ? (
           <Card className="max-w-md mx-auto">
             <CardContent className="p-8 text-center">
@@ -309,7 +315,7 @@ export default function StatsPage() {
             </Card>
           </div>
         )}
-      </Section>
+      </div>
     </SharedLayout>
   );
 }

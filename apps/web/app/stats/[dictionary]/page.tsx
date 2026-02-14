@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, useParams } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Section } from '@/components/layout/Section';
 import { Card, CardContent, CardHeader, CardTitle, Badge, Button } from '@mobtranslate/ui';
 import { StatsCard } from '@/components/stats/StatsCard';
 import { WordCard } from '@/components/words/WordCard';
@@ -25,7 +23,8 @@ import {
   Heart,
   Zap,
   Award,
-  Filter
+  Filter,
+  Sparkles
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -103,18 +102,26 @@ export default function DictionaryStatsPage() {
             </Link>
           </div>
 
-          <PageHeader
-            title={`${languageName || languageCode} Statistics`}
-            description="Track your learning progress and performance"
-            badge={
-              stats?.overall.streakDays ? (
-                <Badge variant="primary" className="ml-2 animate-scale-in">
-                  <Trophy className="h-3 w-3 mr-1" />
+          <div className="py-6 md:py-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <Sparkles className="w-3.5 h-3.5" />
+              Language Analytics
+            </div>
+            <div className="flex items-center gap-3 flex-wrap">
+              <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+                {languageName || languageCode} Statistics
+              </h1>
+              {stats?.overall.streakDays > 0 && (
+                <Badge variant="outline" className="gap-1 animate-scale-in">
+                  <Trophy className="h-3 w-3 text-amber-500" />
                   {stats.overall.streakDays} day streak
                 </Badge>
-              ) : null
-            }
-          />
+              )}
+            </div>
+            <p className="text-muted-foreground mt-2">
+              Track your learning progress and performance
+            </p>
+          </div>
 
           {isLoading ? (
             <DashboardSkeleton />
@@ -126,7 +133,7 @@ export default function DictionaryStatsPage() {
               </Button>
             </div>
           ) : !stats || stats.overall.totalAttempts === 0 ? (
-            <Section className="mt-8">
+            <div className="mt-8">
               <Card className="max-w-md mx-auto">
                 <CardContent className="p-8 text-center">
                   <BarChart3 className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
@@ -142,11 +149,11 @@ export default function DictionaryStatsPage() {
                   </Link>
                 </CardContent>
               </Card>
-            </Section>
+            </div>
           ) : (
             <>
               {/* Overview Stats */}
-              <Section className="mt-8">
+              <div className="mt-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <StatsCard
                     title="Total Words Seen"
@@ -201,10 +208,10 @@ export default function DictionaryStatsPage() {
                     style={{ animationDelay: '150ms' }}
                   />
                 </div>
-              </Section>
+              </div>
 
               {/* Progress Overview */}
-              <Section className="mt-8">
+              <div className="mt-8">
                 <Card className="animate-slide-in" style={{ animationDelay: '200ms' }}>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
@@ -252,10 +259,10 @@ export default function DictionaryStatsPage() {
                     </div>
                   </CardContent>
                 </Card>
-              </Section>
+              </div>
 
               {/* Performance Trends */}
-              <Section className="mt-8">
+              <div className="mt-8">
                 <Card className="animate-slide-in" style={{ animationDelay: '250ms' }}>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
@@ -307,10 +314,10 @@ export default function DictionaryStatsPage() {
                     </div>
                   </CardContent>
                 </Card>
-              </Section>
+              </div>
 
               {/* Recent Activity */}
-              <Section className="mt-8">
+              <div className="mt-8">
                 <Card className="animate-slide-in" style={{ animationDelay: '300ms' }}>
                   <CardHeader>
                     <div className="flex items-center justify-between">
@@ -370,10 +377,10 @@ export default function DictionaryStatsPage() {
                     )}
                   </CardContent>
                 </Card>
-              </Section>
+              </div>
 
               {/* Quick Actions */}
-              <Section className="mt-8 mb-8">
+              <div className="mt-8 mb-8">
                 <h2 className="text-lg sm:text-xl font-semibold mb-4">Quick Actions</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <Link href={`/learn/${languageCode}`} className="block animate-slide-in hover-lift">
@@ -412,7 +419,7 @@ export default function DictionaryStatsPage() {
                     </div>
                   </Link>
                 </div>
-              </Section>
+              </div>
             </>
           )}
         </div>

@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, useParams } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Section } from '@/components/layout/Section';
 import { Badge, Button, Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@mobtranslate/ui';
 import { StatsCard } from '@/components/stats/StatsCard';
 import { WordCard } from '@/components/words/WordCard';
@@ -21,7 +19,8 @@ import {
   BookOpen,
   ChevronLeft,
   Heart,
-  Filter
+  Filter,
+  Sparkles
 } from 'lucide-react';
 import {
   Chart as ChartJS,
@@ -152,18 +151,26 @@ export default function LanguageDashboardPage() {
             </Link>
           </div>
 
-          <PageHeader
-            title={dashboardData.languageInfo.name || language}
-            description="Track your progress and performance"
-            badge={
-              dashboardData.overview.currentStreak ? (
-                <Badge variant="primary" className="ml-2 animate-scale-in">
-                  <Trophy className="h-3 w-3 mr-1" />
+          <div className="py-6 md:py-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <Sparkles className="w-3.5 h-3.5" />
+              Language Progress
+            </div>
+            <div className="flex items-center gap-3 flex-wrap">
+              <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+                {dashboardData.languageInfo.name || language}
+              </h1>
+              {dashboardData.overview.currentStreak > 0 && (
+                <Badge variant="outline" className="gap-1 animate-scale-in">
+                  <Trophy className="h-3 w-3 text-amber-500" />
                   {dashboardData.overview.currentStreak} day streak
                 </Badge>
-              ) : null
-            }
-          />
+              )}
+            </div>
+            <p className="text-muted-foreground mt-2">
+              Track your progress and performance
+            </p>
+          </div>
 
           {/* Period Selector */}
           <div className="mt-6 flex gap-2 animate-slide-in">
@@ -192,7 +199,7 @@ export default function LanguageDashboardPage() {
           ) : (
             <>
               {/* Overview Stats */}
-              <Section className="mt-8">
+              <div className="mt-8">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                   <StatsCard
                     title="Total Sessions"
@@ -242,10 +249,10 @@ export default function LanguageDashboardPage() {
                     style={{ animationDelay: '150ms' }}
                   />
                 </div>
-              </Section>
+              </div>
 
               {/* Charts Section */}
-              <Section className="mt-8">
+              <div className="mt-8">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
                   {/* Daily Activity Chart */}
                   <div className="bg-card rounded-xl border p-6 animate-slide-in" style={{ animationDelay: '200ms' }}>
@@ -301,10 +308,10 @@ export default function LanguageDashboardPage() {
                     </div>
                   </div>
                 </div>
-              </Section>
+              </div>
 
               {/* Word Statistics */}
-              <Section className="mt-8">
+              <div className="mt-8">
                 <div className="bg-card rounded-xl border overflow-hidden animate-slide-in" style={{ animationDelay: '300ms' }}>
                   <div className="p-4 sm:p-6 border-b">
                     <div className="flex items-center justify-between">
@@ -383,10 +390,10 @@ export default function LanguageDashboardPage() {
                     </div>
                   )}
                 </div>
-              </Section>
+              </div>
 
               {/* Quick Actions */}
-              <Section className="mt-8 mb-8">
+              <div className="mt-8 mb-8">
                 <h2 className="text-lg sm:text-xl font-semibold mb-4">Quick Actions</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                   <Link href={`/learn/${language}`} className="block animate-slide-in hover-lift">
@@ -437,7 +444,7 @@ export default function LanguageDashboardPage() {
                     </div>
                   </Link>
                 </div>
-              </Section>
+              </div>
             </>
           )}
         </div>
