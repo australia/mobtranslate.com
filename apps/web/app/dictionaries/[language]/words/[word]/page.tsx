@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../../../components/SharedLayout';
-import { Section } from '@/components/layout/Section';
 import { Card, CardContent, Badge } from '@mobtranslate/ui';
 
 import { ChevronRight, ArrowLeft } from 'lucide-react';
