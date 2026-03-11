@@ -15,56 +15,45 @@ export default async function Page() {
 
   return (
     <SharedLayout>
-      {/* Hero Section - Dark gradient with translator */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16 -mt-6 sm:-mt-8 lg:-mt-12">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
-          {/* Subtle cross pattern */}
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-          {/* Gradient orbs */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl" />
-        </div>
+        <div className="absolute inset-0 bg-gray-950" />
 
         <div className="relative px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-16 sm:py-20 lg:py-24">
           <div className="max-w-7xl mx-auto">
             {/* Heading */}
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-sm font-medium mb-6">
-                <Sparkles className="w-4 h-4 text-amber-400" />
+              <p className="text-sm font-medium text-white/40 uppercase tracking-widest mb-6">
                 Open Source Language Preservation
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black text-white mb-4 tracking-tight">
-                Translate into{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
-                  Indigenous Languages
-                </span>
+              </p>
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-black text-white mb-5 tracking-tight">
+                Translate into<br />
+                Indigenous Languages
               </h1>
-              <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed">
                 The community-driven &lsquo;Google Translate&rsquo; for First Nations languages.
                 Powered by AI. Built with respect.
               </p>
             </div>
 
             {/* Translator Widget */}
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-3xl mx-auto">
               <TranslatorWrapper languages={languages} />
             </div>
 
             {/* Stats Bar */}
-            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mt-12 pt-8 border-t border-white/10">
+            <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16 mt-14 pt-8 border-t border-white/10">
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-display font-black text-white">{stats.totalLanguages}</div>
-                <div className="text-sm text-white/50 mt-1">Languages</div>
+                <div className="text-sm text-white/40 mt-1">Languages</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-display font-black text-white">{stats.totalWords.toLocaleString()}+</div>
-                <div className="text-sm text-white/50 mt-1">Words</div>
+                <div className="text-sm text-white/40 mt-1">Words</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-display font-black text-white">100%</div>
-                <div className="text-sm text-white/50 mt-1">Open Source</div>
+                <div className="text-sm text-white/40 mt-1">Open Source</div>
               </div>
             </div>
           </div>
@@ -185,11 +174,9 @@ export default async function Page() {
         </div>
       </section>
 
-      {/* CTA - Evocative */}
+      {/* CTA */}
       <section className="relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-3xl" />
-        </div>
+        <div className="absolute inset-0 bg-gray-950" />
         <div className="relative px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-20 sm:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <Heart className="w-10 h-10 text-rose-400 mx-auto mb-6" />
