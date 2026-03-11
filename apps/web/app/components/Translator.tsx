@@ -151,10 +151,10 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto my-8 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-2xl overflow-hidden">
+    <div className="max-w-7xl mx-auto my-8 rounded-2xl border border-white/10 bg-white/[0.05] overflow-hidden">
       {/* Input Section */}
       <div className="p-4 md:p-6">
-        <div className="flex items-center gap-2 mb-4 text-white/60">
+        <div className="flex items-center gap-2 mb-4 text-white/40">
           <Globe size={16} />
           <span className="text-sm">Translate from English</span>
         </div>
@@ -165,11 +165,9 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             placeholder="Enter English text to translate..."
-            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
+            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl bg-white/[0.08] text-white placeholder:text-white/30 border-white/10"
           />
-          <div
-            className="absolute bottom-2 right-2 text-xs text-muted-foreground"
-          >
+          <div className="absolute bottom-2 right-2 text-xs text-white/30">
             {inputText.length} characters
           </div>
         </div>
@@ -178,10 +176,10 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             <select
               value={selectedLanguage}
               onChange={(e) => setSelectedLanguage(e.target.value)}
-              className="px-4 py-2 rounded-lg border border-white/20 bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-white/30 text-sm transition-colors duration-200 backdrop-blur-sm"
+              className="px-4 py-2 rounded-lg border border-white/10 bg-white/[0.08] text-white focus:outline-none focus:ring-2 focus:ring-white/20 text-sm transition-colors duration-200"
             >
               {languages.map((lang) => (
-                <option key={lang.code} value={lang.code} className="bg-gray-900 text-white">
+                <option key={lang.code} value={lang.code} className="bg-gray-950 text-white">
                   {lang.name || lang.code}
                 </option>
               ))}
