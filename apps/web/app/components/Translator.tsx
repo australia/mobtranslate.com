@@ -154,7 +154,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
     <div className="max-w-7xl mx-auto my-8 rounded-2xl border border-white/10 bg-white/[0.05] overflow-hidden">
       {/* Input Section */}
       <div className="p-4 md:p-6">
-        <div className="flex items-center gap-2 mb-4 text-white/40">
+        <div className="flex items-center gap-2 mb-4 text-white/60">
           <Globe size={16} />
           <span className="text-sm">Translate from English</span>
         </div>
@@ -165,9 +165,9 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             placeholder="Enter English text to translate..."
-            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl bg-white/[0.08] text-white placeholder:text-white/30 border-white/10"
+            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl bg-white/[0.08] text-white placeholder:text-white/40 border-white/10"
           />
-          <div className="absolute bottom-2 right-2 text-xs text-white/30">
+          <div className="absolute bottom-2 right-2 text-xs text-white/50">
             {inputText.length} characters
           </div>
         </div>
@@ -268,7 +268,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             </div>
           </div>
 
-           <div className="px-6 pb-4 text-xs text-white/40">
+           <div className="px-6 pb-4 text-xs text-white/50">
                 <p>
                   Note: Translations are generated using AI and may not be 100% accurate.
                   Please consult with language experts for critical translations.
