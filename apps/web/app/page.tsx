@@ -23,14 +23,14 @@ export default async function Page() {
           <div className="max-w-7xl mx-auto">
             {/* Heading */}
             <div className="text-center mb-12">
-              <p className="text-sm font-medium text-white/60 uppercase tracking-widest mb-6">
+              <p className="text-sm font-medium text-[rgba(255,255,255,0.6)] uppercase tracking-widest mb-6">
                 Open Source Language Preservation
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-black text-white mb-5 tracking-tight">
                 Translate into<br />
                 Indigenous Languages
               </h1>
-              <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-[rgba(255,255,255,0.7)] max-w-2xl mx-auto leading-relaxed">
                 The community-driven &lsquo;Google Translate&rsquo; for First Nations languages.
                 Powered by AI. Built with respect.
               </p>
@@ -42,18 +42,18 @@ export default async function Page() {
             </div>
 
             {/* Stats Bar */}
-            <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16 mt-14 pt-8 border-t border-white/10">
+            <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16 mt-14 pt-8 border-t border-[rgba(255,255,255,0.1)]">
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-display font-black text-white">{stats.totalLanguages}</div>
-                <div className="text-sm text-white/60 mt-1">Languages</div>
+                <div className="text-sm text-[rgba(255,255,255,0.6)] mt-1">Languages</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-display font-black text-white">{stats.totalWords.toLocaleString()}+</div>
-                <div className="text-sm text-white/60 mt-1">Words</div>
+                <div className="text-sm text-[rgba(255,255,255,0.6)] mt-1">Words</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-display font-black text-white">100%</div>
-                <div className="text-sm text-white/60 mt-1">Open Source</div>
+                <div className="text-sm text-[rgba(255,255,255,0.6)] mt-1">Open Source</div>
               </div>
             </div>
           </div>
@@ -183,19 +183,19 @@ export default async function Page() {
             <blockquote className="text-2xl sm:text-3xl font-display font-bold text-white mb-6 leading-snug">
               &ldquo;When a language dies, a way of understanding the world is lost forever.&rdquo;
             </blockquote>
-            <p className="text-white/60 mb-10 max-w-xl mx-auto">
+            <p className="text-[rgba(255,255,255,0.6)] mb-10 max-w-xl mx-auto">
               Every word we preserve keeps a culture alive. Join us in building
               the tools that give Indigenous languages a digital future.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-white/90 transition-colors">
+              <Link href="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-[rgba(255,255,255,0.9)] transition-colors">
                 Learn More
               </Link>
               <Link
                 href="https://github.com/australia/mobtranslate.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-[rgba(255,255,255,0.2)] text-white font-semibold rounded-lg hover:bg-[rgba(255,255,255,0.1)] transition-colors"
               >
                 Contribute on GitHub
               </Link>

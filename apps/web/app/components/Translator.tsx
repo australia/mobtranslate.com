@@ -151,10 +151,10 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto my-8 rounded-2xl border border-white/10 bg-white/[0.05] overflow-hidden">
+    <div className="max-w-7xl mx-auto my-8 rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] overflow-hidden">
       {/* Input Section */}
       <div className="p-4 md:p-6">
-        <div className="flex items-center gap-2 mb-4 text-white/60">
+        <div className="flex items-center gap-2 mb-4 text-[rgba(255,255,255,0.6)]">
           <Globe size={16} />
           <span className="text-sm">Translate from English</span>
         </div>
@@ -165,9 +165,9 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             placeholder="Enter English text to translate..."
-            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl bg-white/[0.08] text-white placeholder:text-white/40 border-white/10"
+            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl bg-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(255,255,255,0.4)] border-[rgba(255,255,255,0.1)]"
           />
-          <div className="absolute bottom-2 right-2 text-xs text-white/50">
+          <div className="absolute bottom-2 right-2 text-xs text-[rgba(255,255,255,0.5)]">
             {inputText.length} characters
           </div>
         </div>
@@ -176,7 +176,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             <select
               value={selectedLanguage}
               onChange={(e) => setSelectedLanguage(e.target.value)}
-              className="px-4 py-2 rounded-lg border border-white/10 bg-white/[0.08] text-white focus:outline-none focus:ring-2 focus:ring-white/20 text-sm transition-colors duration-200"
+              className="px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.08)] text-white focus:outline-none focus:ring-2 focus:ring-[rgba(255,255,255,0.2)] text-sm transition-colors duration-200"
             >
               {languages.map((lang) => (
                 <option key={lang.code} value={lang.code} className="bg-gray-950 text-white">
@@ -207,7 +207,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
 
       {/* Output Section */}
       {(outputText || error || isLoading) && (
-        <div className="border-t border-white/10">
+        <div className="border-t border-[rgba(255,255,255,0.1)]">
           <div className="text-white text-base leading-relaxed">
             {/* Inner Container with Improved Padding */}
             <div className="py-5 px-6 relative" ref={outputRef}> {/* Added relative positioning */}
@@ -223,23 +223,23 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
                     <ReactMarkdown
                       className=""
                       components={{
-                        h1: ({_node, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-inherit border-b pb-1 border-white/20" />,
+                        h1: ({_node, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-inherit border-b pb-1 border-[rgba(255,255,255,0.2)]" />,
                         h2: ({_node, ...props}) => <h2 {...props} className="text-xl font-bold mb-3 mt-5 text-inherit" />,
                         h3: ({_node, ...props}) => <h3 {...props} className="text-lg font-semibold mb-3 mt-4 text-inherit" />,
                         p: ({_node, ...props}) => <p {...props} className="mb-4 leading-relaxed text-inherit" />,
                         ul: ({_node, ...props}) => <ul {...props} className="list-disc pl-6 mb-4 space-y-2" />,
                         ol: ({_node, ...props}) => <ol {...props} className="list-decimal pl-6 mb-4 space-y-2" />,
                         li: ({_node, ...props}) => <li {...props} className="text-inherit" />,
-                        blockquote: ({_node, ...props}) => <blockquote {...props} className="border-l-4 border-white/20 pl-4 italic my-4 text-white/60" />,
+                        blockquote: ({_node, ...props}) => <blockquote {...props} className="border-l-4 border-[rgba(255,255,255,0.2)] pl-4 italic my-4 text-[rgba(255,255,255,0.6)]" />,
                         a: ({_node, ...props}) => <a {...props} className="text-blue-400 underline hover:text-blue-300 transition-colors" />,
                         em: ({_node, ...props}) => <em {...props} className="italic text-inherit" />,
                         strong: ({_node, ...props}) => <strong {...props} className="font-bold text-inherit" />,
                         code: ({_node, ...props}) => <code {...props} className=" px-1.5 py-0.5 rounded text-sm font-mono text-inherit" />,
                         pre: ({_node, ...props}) => <pre {...props} className=" p-4 rounded-md overflow-x-auto mb-4 text-sm font-mono" />,
-                        hr: ({_node, ...props}) => <hr {...props} className="my-6 border-white/20" />,
+                        hr: ({_node, ...props}) => <hr {...props} className="my-6 border-[rgba(255,255,255,0.2)]" />,
                         table: ({_node, ...props}) => <div className="overflow-x-auto mb-4"><table {...props} className="min-w-full border-collapse text-sm" /></div>,
                         thead: ({_node, ...props}) => <thead {...props} className="" />,
-                        tbody: ({_node, ...props}) => <tbody {...props} className="divide-y divide-white/20" />,
+                        tbody: ({_node, ...props}) => <tbody {...props} className="divide-y divide-[rgba(255,255,255,0.2)]" />,
                         tr: ({_node, ...props}) => <tr {...props} className="" />,
                         th: ({_node, ...props}) => <th {...props} className="px-4 py-2 text-left font-medium text-inherit" />,
                         td: ({_node, ...props}) => <td {...props} className="px-4 py-2 text-inherit" />
@@ -258,7 +258,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
                   
                   {/* Show small loading indicator when both loading and showing text */}
                   {isLoading && outputText && (
-                    <div className="absolute bottom-2 right-2 flex items-center gap-2 text-xs text-white/60 bg-black/40 backdrop-blur-sm px-2 py-1 rounded-sm">
+                    <div className="absolute bottom-2 right-2 flex items-center gap-2 text-xs text-[rgba(255,255,255,0.6)] bg-[rgba(0,0,0,0.4)] backdrop-blur-sm px-2 py-1 rounded-sm">
                       <Loader2 size={12} className="animate-spin" />
                       <span>Translating...</span>
                     </div>
@@ -268,7 +268,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             </div>
           </div>
 
-           <div className="px-6 pb-4 text-xs text-white/50">
+           <div className="px-6 pb-4 text-xs text-[rgba(255,255,255,0.5)]">
                 <p>
                   Note: Translations are generated using AI and may not be 100% accurate.
                   Please consult with language experts for critical translations.
