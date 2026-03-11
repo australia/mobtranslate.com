@@ -89,7 +89,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
       {/* Header - Remove scroll effects, simplify background */}
       <header 
         className={cn(
