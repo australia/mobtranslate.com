@@ -222,29 +222,29 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
                 <>
                   {/* Always show content when available */}
                   {outputText && (
-                    <ReactMarkdown 
+                    <ReactMarkdown
                       className=""
                       components={{
-                        h1: ({_node, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-foreground border-b pb-1 border-border" />,
-                        h2: ({_node, ...props}) => <h2 {...props} className="text-xl font-bold mb-3 mt-5 text-foreground" />,
-                        h3: ({_node, ...props}) => <h3 {...props} className="text-lg font-semibold mb-3 mt-4 text-foreground" />,
-                        p: ({_node, ...props}) => <p {...props} className="mb-4 leading-relaxed text-foreground" />,
+                        h1: ({_node, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-inherit border-b pb-1 border-white/20" />,
+                        h2: ({_node, ...props}) => <h2 {...props} className="text-xl font-bold mb-3 mt-5 text-inherit" />,
+                        h3: ({_node, ...props}) => <h3 {...props} className="text-lg font-semibold mb-3 mt-4 text-inherit" />,
+                        p: ({_node, ...props}) => <p {...props} className="mb-4 leading-relaxed text-inherit" />,
                         ul: ({_node, ...props}) => <ul {...props} className="list-disc pl-6 mb-4 space-y-2" />,
                         ol: ({_node, ...props}) => <ol {...props} className="list-decimal pl-6 mb-4 space-y-2" />,
-                        li: ({_node, ...props}) => <li {...props} className="text-foreground" />,
-                        blockquote: ({_node, ...props}) => <blockquote {...props} className="border-l-4 border-border pl-4 italic my-4 text-muted-foreground" />,
-                        a: ({_node, ...props}) => <a {...props} className="text-primary underline hover:text-primary/80 transition-colors" />,
-                        em: ({_node, ...props}) => <em {...props} className="italic text-foreground" />,
-                        strong: ({_node, ...props}) => <strong {...props} className="font-bold text-foreground" />,
-                        code: ({_node, ...props}) => <code {...props} className=" px-1.5 py-0.5 rounded text-sm font-mono text-foreground" />,
+                        li: ({_node, ...props}) => <li {...props} className="text-inherit" />,
+                        blockquote: ({_node, ...props}) => <blockquote {...props} className="border-l-4 border-white/20 pl-4 italic my-4 text-white/60" />,
+                        a: ({_node, ...props}) => <a {...props} className="text-blue-400 underline hover:text-blue-300 transition-colors" />,
+                        em: ({_node, ...props}) => <em {...props} className="italic text-inherit" />,
+                        strong: ({_node, ...props}) => <strong {...props} className="font-bold text-inherit" />,
+                        code: ({_node, ...props}) => <code {...props} className=" px-1.5 py-0.5 rounded text-sm font-mono text-inherit" />,
                         pre: ({_node, ...props}) => <pre {...props} className=" p-4 rounded-md overflow-x-auto mb-4 text-sm font-mono" />,
-                        hr: ({_node, ...props}) => <hr {...props} className="my-6 border-border" />,
+                        hr: ({_node, ...props}) => <hr {...props} className="my-6 border-white/20" />,
                         table: ({_node, ...props}) => <div className="overflow-x-auto mb-4"><table {...props} className="min-w-full border-collapse text-sm" /></div>,
                         thead: ({_node, ...props}) => <thead {...props} className="" />,
-                        tbody: ({_node, ...props}) => <tbody {...props} className="divide-y divide-border" />,
+                        tbody: ({_node, ...props}) => <tbody {...props} className="divide-y divide-white/20" />,
                         tr: ({_node, ...props}) => <tr {...props} className="" />,
-                        th: ({_node, ...props}) => <th {...props} className="px-4 py-2 text-left font-medium text-foreground" />,
-                        td: ({_node, ...props}) => <td {...props} className="px-4 py-2 text-foreground" />
+                        th: ({_node, ...props}) => <th {...props} className="px-4 py-2 text-left font-medium text-inherit" />,
+                        td: ({_node, ...props}) => <td {...props} className="px-4 py-2 text-inherit" />
                       }}
                     >
                       {outputText}
@@ -260,7 +260,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
                   
                   {/* Show small loading indicator when both loading and showing text */}
                   {isLoading && outputText && (
-                    <div className="absolute bottom-2 right-2 flex items-center gap-2 text-xs text-muted-foreground bg-background/80 px-2 py-1 rounded-sm">
+                    <div className="absolute bottom-2 right-2 flex items-center gap-2 text-xs text-white/60 bg-black/40 backdrop-blur-sm px-2 py-1 rounded-sm">
                       <Loader2 size={12} className="animate-spin" />
                       <span>Translating...</span>
                     </div>
