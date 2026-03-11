@@ -223,26 +223,26 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
                     <ReactMarkdown
                       className=""
                       components={{
-                        h1: ({_node, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-inherit border-b pb-1 border-[rgba(255,255,255,0.2)]" />,
-                        h2: ({_node, ...props}) => <h2 {...props} className="text-xl font-bold mb-3 mt-5 text-inherit" />,
-                        h3: ({_node, ...props}) => <h3 {...props} className="text-lg font-semibold mb-3 mt-4 text-inherit" />,
-                        p: ({_node, ...props}) => <p {...props} className="mb-4 leading-relaxed text-inherit" />,
-                        ul: ({_node, ...props}) => <ul {...props} className="list-disc pl-6 mb-4 space-y-2" />,
-                        ol: ({_node, ...props}) => <ol {...props} className="list-decimal pl-6 mb-4 space-y-2" />,
-                        li: ({_node, ...props}) => <li {...props} className="text-inherit" />,
-                        blockquote: ({_node, ...props}) => <blockquote {...props} className="border-l-4 border-[rgba(255,255,255,0.2)] pl-4 italic my-4 text-[rgba(255,255,255,0.6)]" />,
-                        a: ({_node, ...props}) => <a {...props} className="text-blue-400 underline hover:text-blue-300 transition-colors" />,
-                        em: ({_node, ...props}) => <em {...props} className="italic text-inherit" />,
-                        strong: ({_node, ...props}) => <strong {...props} className="font-bold text-inherit" />,
-                        code: ({_node, ...props}) => <code {...props} className=" px-1.5 py-0.5 rounded text-sm font-mono text-inherit" />,
-                        pre: ({_node, ...props}) => <pre {...props} className=" p-4 rounded-md overflow-x-auto mb-4 text-sm font-mono" />,
-                        hr: ({_node, ...props}) => <hr {...props} className="my-6 border-[rgba(255,255,255,0.2)]" />,
-                        table: ({_node, ...props}) => <div className="overflow-x-auto mb-4"><table {...props} className="min-w-full border-collapse text-sm" /></div>,
-                        thead: ({_node, ...props}) => <thead {...props} className="" />,
-                        tbody: ({_node, ...props}) => <tbody {...props} className="divide-y divide-[rgba(255,255,255,0.2)]" />,
-                        tr: ({_node, ...props}) => <tr {...props} className="" />,
-                        th: ({_node, ...props}) => <th {...props} className="px-4 py-2 text-left font-medium text-inherit" />,
-                        td: ({_node, ...props}) => <td {...props} className="px-4 py-2 text-inherit" />
+                        h1: ({node: _, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-inherit border-b pb-1 border-[rgba(255,255,255,0.2)]" />,
+                        h2: ({node: _, ...props}) => <h2 {...props} className="text-xl font-bold mb-3 mt-5 text-inherit" />,
+                        h3: ({node: _, ...props}) => <h3 {...props} className="text-lg font-semibold mb-3 mt-4 text-inherit" />,
+                        p: ({node: _, ...props}) => <p {...props} className="mb-4 leading-relaxed text-inherit" />,
+                        ul: ({node: _, ...props}) => <ul {...props} className="list-disc pl-6 mb-4 space-y-2" />,
+                        ol: ({node: _, ...props}) => <ol {...props} className="list-decimal pl-6 mb-4 space-y-2" />,
+                        li: ({node: _, ...props}) => <li {...props} className="text-inherit" />,
+                        blockquote: ({node: _, ...props}) => <blockquote {...props} className="border-l-4 border-[rgba(255,255,255,0.2)] pl-4 italic my-4 text-[rgba(255,255,255,0.6)]" />,
+                        a: ({node: _, ...props}) => <a {...props} className="text-blue-400 underline hover:text-blue-300 transition-colors" />,
+                        em: ({node: _, ...props}) => <em {...props} className="italic text-inherit" />,
+                        strong: ({node: _, ...props}) => <strong {...props} className="font-bold text-inherit" />,
+                        code: ({node: _, ...props}) => <code {...props} className=" px-1.5 py-0.5 rounded text-sm font-mono text-inherit" />,
+                        pre: ({node: _, ...props}) => <pre {...props} className=" p-4 rounded-md overflow-x-auto mb-4 text-sm font-mono" />,
+                        hr: ({node: _, ...props}) => <hr {...props} className="my-6 border-[rgba(255,255,255,0.2)]" />,
+                        table: ({node: _, ...props}) => <div className="overflow-x-auto mb-4"><table {...props} className="min-w-full border-collapse text-sm" /></div>,
+                        thead: ({node: _, ...props}) => <thead {...props} className="" />,
+                        tbody: ({node: _, ...props}) => <tbody {...props} className="divide-y divide-[rgba(255,255,255,0.2)]" />,
+                        tr: ({node: _, ...props}) => <tr {...props} className="" />,
+                        th: ({node: _, ...props}) => <th {...props} className="px-4 py-2 text-left font-medium text-inherit" />,
+                        td: ({node: _, ...props}) => <td {...props} className="px-4 py-2 text-inherit" />
                       }}
                     >
                       {outputText}

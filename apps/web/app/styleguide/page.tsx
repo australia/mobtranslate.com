@@ -794,7 +794,6 @@ export default function StyleGuidePage() {
                   }}
                   clickable={false}
                   onLike={async () => {}}
-                  initialLiked={false}
                 />
                 <WordCard
                   wordId="2"
@@ -825,7 +824,6 @@ export default function StyleGuidePage() {
                   }}
                   clickable={false}
                   onLike={async () => {}}
-                  initialLiked={true}
                 />
               </div>
             </div>
