@@ -20,6 +20,14 @@
       "dependsOn": ["lint", "typecheck"],
       "outputs": []
     },
+    "test": {
+      "dependsOn": [],
+      "outputs": ["coverage/**"]
+    },
+    "test:coverage": {
+      "dependsOn": [],
+      "outputs": ["coverage/**"]
+    },
     "dev": {
       "cache": false,
       "persistent": true

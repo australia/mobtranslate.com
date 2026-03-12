@@ -12,14 +12,22 @@
     "check": "turbo run lint typecheck --affected",
     "check:all": "turbo run lint typecheck",
     "format": "prettier --write \"**/*.{js,jsx,md}\"",
-    "prettier": "prettier -c ."
+    "prettier": "prettier -c .",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@typescript-eslint/eslint-plugin": "^8.55.0",
     "@typescript-eslint/parser": "^8.55.0",
+    "@vitejs/plugin-react": "^6.0.0",
     "eslint": "^8.57.1",
+    "jsdom": "^28.1.0",
     "prettier": "^3.1.0",
-    "turbo": "^2.4.4"
+    "turbo": "^2.4.4",
+    "vitest": "^4.1.0"
   },
   "packageManager": "pnpm@9.15.0",
   "engines": {
