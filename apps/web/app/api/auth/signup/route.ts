@@ -55,7 +55,7 @@ export async function POST(request: Request) {
     }
 
     // Check if username already exists (case-insensitive)
-    const { data: existingProfile, error: checkError } = await supabase
+    const { data: existingProfile } = await supabase
       .from('user_profiles')
       .select('username, email, user_id')
       .ilike('username', username)

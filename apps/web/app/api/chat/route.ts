@@ -19,8 +19,6 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     // Check for image attachments in last message
-    const lastMessage = body.messages?.[body.messages.length - 1];
-
     const { messages } = body;
 
     // Check if OpenAI API key is set
@@ -283,7 +281,7 @@ IMPORTANT: When a message contains an image attachment:
           count: z.number().describe('Number of suggestions').default(5),
         }),
         // @ts-ignore - execute function is valid in Vercel AI SDK
-        execute: async ({ languageCode, topic, count = 5 }) => {
+        execute: async ({ languageCode, count = 5 }) => {
           try {
             
             let query = supabase

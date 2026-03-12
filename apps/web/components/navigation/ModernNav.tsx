@@ -11,7 +11,6 @@ import {
   Brain,
   MessageCircle,
   Settings,
-  User,
   LogOut,
   ChevronDown,
   Trophy,

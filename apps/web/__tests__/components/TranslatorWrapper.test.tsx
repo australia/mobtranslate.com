@@ -8,10 +8,14 @@ vi.mock('react-markdown', () => ({
 }));
 
 // Mock @mobtranslate/ui
-vi.mock('@mobtranslate/ui', () => ({
-  Button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
-  Textarea: React.forwardRef(({ ...props }: any, ref: any) => <textarea ref={ref} {...props} />),
-}));
+vi.mock('@mobtranslate/ui', () => {
+  const Textarea = React.forwardRef(({ ...props }: any, ref: any) => <textarea ref={ref} {...props} />);
+  Textarea.displayName = 'Textarea';
+  return {
+    Button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
+    Textarea,
+  };
+});
 
 // Mock lucide-react
 vi.mock('lucide-react', () => ({

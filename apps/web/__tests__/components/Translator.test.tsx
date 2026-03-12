@@ -9,10 +9,14 @@ vi.mock('react-markdown', () => ({
 }));
 
 // Mock @mobtranslate/ui
-vi.mock('@mobtranslate/ui', () => ({
-  Button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
-  Textarea: React.forwardRef(({ ...props }: any, ref: any) => <textarea ref={ref} {...props} />),
-}));
+vi.mock('@mobtranslate/ui', () => {
+  const Textarea = React.forwardRef(({ ...props }: any, ref: any) => <textarea ref={ref} {...props} />);
+  Textarea.displayName = 'Textarea';
+  return {
+    Button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
+    Textarea,
+  };
+});
 
 // Mock lucide-react - must explicitly export each used icon
 vi.mock('lucide-react', () => ({
@@ -242,15 +246,11 @@ describe('Translator', () => {
 
   it('shows loading state during translation', async () => {
     const user = userEvent.setup();
-
     // Create a stream that never resolves to keep loading state
-    let resolveStream: () => void;
     const neverEndingStream = new ReadableStream<Uint8Array>({
       start() {},
       pull() {
-        return new Promise<void>((resolve) => {
-          resolveStream = resolve;
-        });
+        return new Promise<void>(() => {});
       },
     });
 
@@ -427,7 +427,6 @@ describe('Translator', () => {
   });
 
   it('does not submit when canTranslate is false (empty input)', async () => {
-    const user = userEvent.setup();
     render(<Translator availableLanguages={mockLanguages} />);
 
     const button = screen.getByText('Translate').closest('button')!;

@@ -16,12 +16,8 @@ function createChainableMock(tableName: string) {
     lte: vi.fn().mockReturnThis(),
     in: vi.fn().mockReturnThis(),
     order: vi.fn().mockReturnThis(),
-    limit: vi.fn().mockImplementation(function (this: any) {
-      return this;
-    }),
-    insert: vi.fn().mockImplementation(function (this: any) {
-      return this;
-    }),
+    limit: vi.fn().mockReturnThis(),
+    insert: vi.fn().mockReturnThis(),
     single: vi.fn().mockImplementation(() => {
       return mockQueryResults[tableName + ':single'] || { data: null, error: null };
     }),

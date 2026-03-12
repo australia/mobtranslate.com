@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, useParams } from 'next/navigation';
 import SharedLayout from '../../components/SharedLayout';
-import { Card, CardContent, Button, Badge, cn } from '@mobtranslate/ui';
-import { X, Check, AlertCircle, Zap, ArrowLeft, BarChart3, Sparkles, Target, Flame, Trophy, BookOpen, ArrowRight, RefreshCw } from 'lucide-react';
+import { Button, Badge, cn } from '@mobtranslate/ui';
+import { X, Check, ArrowLeft, BarChart3, Sparkles, Target, Flame, Trophy, BookOpen, ArrowRight, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 
 interface WordCard {

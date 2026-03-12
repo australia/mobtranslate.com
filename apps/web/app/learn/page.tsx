@@ -4,9 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { Card, CardContent, CardHeader, CardTitle, Button } from '@mobtranslate/ui';
+import { Card, CardContent, Button } from '@mobtranslate/ui';
 import { LoadingState } from '@/components/layout/LoadingState';
-import { Brain, Play, BookOpen, Sparkles, ChevronRight, Trophy, Flame, GraduationCap } from 'lucide-react';
+import { Brain, Play, BookOpen, Sparkles, Trophy, Flame, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
 
 interface Language {
@@ -121,7 +121,7 @@ export default function LearnPage() {
           </Card>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {languages.map((language, index) => (
+            {languages.map((language) => (
               <Link key={language.code} href={`/learn/${language.code}`} className="group block">
                 <div className="relative h-full rounded-2xl border-2 border-border bg-card p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/40 group-active:scale-[0.98]">
                   {/* Hover glow */}

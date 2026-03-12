@@ -21,8 +21,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Brain,
-  BookOpen,
-  Sparkles
+  BookOpen
 } from 'lucide-react';
 import Link from 'next/link';
 

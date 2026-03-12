@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest';
 import {
   transformWordForUI,
   transformWordsForUI,
-  TransformedDictionaryWord,
 } from '@/lib/utils/dictionary-transform';
 
 // Helper to create a minimal Word-like object matching the Word interface

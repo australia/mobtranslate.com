@@ -116,7 +116,7 @@ describe('ErrorBoundary', () => {
       return <div>Recovered content</div>;
     }
 
-    const { rerender } = render(
+    render(
       <ErrorBoundary>
         <ConditionalThrower />
       </ErrorBoundary>

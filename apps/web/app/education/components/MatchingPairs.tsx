@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { X, RotateCcw, Trophy, Clock, Zap, ChevronRight } from 'lucide-react';
+import { X, RotateCcw, Trophy, Clock, Zap } from 'lucide-react';
 import { cn, Button } from '@mobtranslate/ui';
 
 interface GameWord {

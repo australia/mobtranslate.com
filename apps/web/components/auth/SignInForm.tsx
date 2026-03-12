@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
-import { Button, Input, Alert, AlertDescription, Card, CardContent, CardFooter } from '@mobtranslate/ui'
+import { Button, Input, Card, CardContent, CardFooter } from '@mobtranslate/ui'
 import Link from 'next/link'
 import { Mail, Lock, LogIn, Loader2, AlertCircle } from 'lucide-react'
 

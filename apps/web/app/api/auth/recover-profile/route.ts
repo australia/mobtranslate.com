@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     }
 
     // Check if profile already exists
-    const { data: existingProfile, error: checkError } = await supabase
+    const { data: existingProfile } = await supabase
       .from('user_profiles')
       .select('*')
       .eq('user_id', signInData.user.id)
