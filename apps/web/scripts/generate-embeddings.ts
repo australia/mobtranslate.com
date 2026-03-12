@@ -18,23 +18,37 @@ if (fs.existsSync(envPath)) {
   });
 }
 
-if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-  throw new Error('Missing Supabase environment variables');
+function requireEnvVars() {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    throw new Error('Missing Supabase environment variables');
+  }
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error('Missing OpenAI API key');
+  }
 }
 
-if (!process.env.OPENAI_API_KEY) {
-  throw new Error('Missing OpenAI API key');
+// Lazy-initialized clients (avoid throwing at module load time)
+let _supabase: ReturnType<typeof createClient> | null = null;
+let _openai: OpenAI | null = null;
+
+function getSupabase() {
+  if (!_supabase) {
+    requireEnvVars();
+    _supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
+  }
+  return _supabase;
 }
 
-// Use service role key for admin operations
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-);
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+function getOpenAI() {
+  if (!_openai) {
+    requireEnvVars();
+    _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  }
+  return _openai;
+}
 
 interface WordData {
   id: number;
@@ -57,7 +71,7 @@ interface WordData {
 
 async function generateEmbedding(text: string): Promise<number[]> {
   try {
-    const response = await openai.embeddings.create({
+    const response = await getOpenAI().embeddings.create({
       model: "text-embedding-3-small",
       input: text,
     });
@@ -102,7 +116,7 @@ async function processWords(batchSize: number = 50) {
 
   while (true) {
     // Fetch a batch of words without embeddings
-    const { data: words, error } = await supabase
+    const { data: words, error } = await (getSupabase() as any)
       .from('words')
       .select(`
         id,
@@ -144,7 +158,7 @@ async function processWords(batchSize: number = 50) {
         const embedding = await generateEmbedding(context);
 
         // Update the word with its embedding
-        const { error: updateError } = await supabase
+        const { error: updateError } = await (getSupabase() as any)
           .from('words')
           .update({ embedding: JSON.stringify(embedding) })
           .eq('id', word.id);
@@ -179,7 +193,7 @@ async function processWords(batchSize: number = 50) {
 // Also fetch related words through translations
 async function _enrichWordData(wordId: number): Promise<string[]> {
   // Get words that share translations
-  const { data: relatedWords } = await supabase
+  const { data: relatedWords } = await (getSupabase() as any)
     .from('translations')
     .select(`
       word_id,
@@ -198,7 +212,7 @@ async function _enrichWordData(wordId: number): Promise<string[]> {
 
   const related: string[] = [];
   if (relatedWords) {
-    relatedWords.forEach(r => {
+    relatedWords.forEach((r: any) => {
       const sourceWord = r.source_word as unknown as { word: string; languages?: { name: string } } | null;
       const targetWord = r.target_word as unknown as { word: string; languages?: { name: string } } | null;
       if (sourceWord && r.word_id !== wordId) {
