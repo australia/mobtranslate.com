@@ -165,7 +165,8 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             placeholder="Enter English text to translate..."
-            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl bg-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(255,255,255,0.4)] border-[rgba(255,255,255,0.1)]"
+            className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl text-white placeholder:text-[rgba(255,255,255,0.4)]"
+            style={{ background: 'rgba(255,255,255,0.08)', borderColor: 'rgba(255,255,255,0.1)' }}
           />
           <div className="absolute bottom-2 right-2 text-xs text-[rgba(255,255,255,0.5)]">
             {inputText.length} characters

@@ -89,7 +89,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-background" style={{ overflowX: 'clip' }}>
       {/* Header with glass morphism */}
       <header
         className={cn(
