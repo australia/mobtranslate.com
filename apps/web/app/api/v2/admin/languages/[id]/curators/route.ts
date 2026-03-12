@@ -7,11 +7,23 @@ export async function GET(
 ) {
   try {
     const supabase = createClient();
-    
+
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Look up the curator role dynamically
+    const { data: curatorRole, error: roleError } = await supabase
+      .from('user_roles')
+      .select('id')
+      .eq('name', 'curator')
+      .single();
+
+    if (roleError || !curatorRole) {
+      console.error('Error fetching curator role:', roleError);
+      return NextResponse.json({ error: 'Curator role not found' }, { status: 500 });
     }
 
     // Fetch curators for this language
@@ -24,16 +36,15 @@ export async function GET(
         assigned_at,
         role_id
       `)
-      .eq('language_id', params.id);
+      .eq('language_id', params.id)
+      .eq('role_id', curatorRole.id);
 
     if (curatorError) {
       console.error('Error fetching curators:', curatorError);
       return NextResponse.json({ error: curatorError.message }, { status: 400 });
     }
 
-    // Hardcoded curator role ID
-    const curatorRoleId = '18852da6-18c0-4a2a-8fc0-4aa0c544aab5';
-    const curatorAssignments = curatorData?.filter(c => c.role_id === curatorRoleId) || [];
+    const curatorAssignments = curatorData || [];
 
     // Get user emails
     const userIds = curatorAssignments.map(c => c.user_id);
@@ -84,8 +95,20 @@ export async function POST(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // TODO: Add proper admin check without causing recursion
-    console.log('Authenticated user:', user.id, user.email);
+    // Verify the current user has an admin role
+    const { data: adminAssignments, error: adminCheckError } = await supabase
+      .from('user_role_assignments')
+      .select(`
+        role_id,
+        user_roles!inner(name)
+      `)
+      .eq('user_id', user.id)
+      .eq('is_active', true)
+      .in('user_roles.name', ['dictionary_admin', 'super_admin']);
+
+    if (adminCheckError || !adminAssignments || adminAssignments.length === 0) {
+      return NextResponse.json({ error: 'Forbidden: admin role required' }, { status: 403 });
+    }
 
     const body = await request.json();
     const { email } = body;
@@ -105,8 +128,18 @@ export async function POST(
       return NextResponse.json({ error: 'User not found with that email' }, { status: 404 });
     }
 
-    // Hardcoded curator role ID to avoid RLS issues
-    const curatorRoleId = '18852da6-18c0-4a2a-8fc0-4aa0c544aab5';
+    // Look up the curator role dynamically
+    const { data: curatorRole, error: roleError } = await supabase
+      .from('user_roles')
+      .select('id')
+      .eq('name', 'curator')
+      .single();
+
+    if (roleError || !curatorRole) {
+      return NextResponse.json({ error: 'Curator role not found' }, { status: 500 });
+    }
+
+    const curatorRoleId = curatorRole.id;
 
     // Create the assignment
     const { data: assignment, error: assignError } = await supabase
@@ -157,8 +190,20 @@ export async function DELETE(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // TODO: Add proper admin check without causing recursion
-    console.log('Authenticated user:', user.id, user.email);
+    // Verify the current user has an admin role
+    const { data: adminAssignments, error: adminCheckError } = await supabase
+      .from('user_role_assignments')
+      .select(`
+        role_id,
+        user_roles!inner(name)
+      `)
+      .eq('user_id', user.id)
+      .eq('is_active', true)
+      .in('user_roles.name', ['dictionary_admin', 'super_admin']);
+
+    if (adminCheckError || !adminAssignments || adminAssignments.length === 0) {
+      return NextResponse.json({ error: 'Forbidden: admin role required' }, { status: 403 });
+    }
 
     const { searchParams } = new URL(request.url);
     const assignmentId = searchParams.get('assignmentId');

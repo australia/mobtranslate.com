@@ -27,6 +27,7 @@ export default function ListeningChallenge({ words, onClose, languageName }: Lis
   const [isPlaying, setIsPlaying] = useState(false);
   const [playCount, setPlayCount] = useState(0);
   const [gameComplete, setGameComplete] = useState(false);
+  const [speechSupported, setSpeechSupported] = useState(true);
   const synth = useRef<SpeechSynthesis | null>(null);
 
   const initializeGame = useCallback(() => {
@@ -56,9 +57,19 @@ export default function ListeningChallenge({ words, onClose, languageName }: Lis
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      synth.current = window.speechSynthesis;
+      if (window.speechSynthesis) {
+        synth.current = window.speechSynthesis;
+      } else {
+        setSpeechSupported(false);
+      }
     }
     initializeGame();
+    return () => {
+      // Clean up speech synthesis on unmount
+      if (synth.current) {
+        synth.current.cancel();
+      }
+    };
   }, [initializeGame]);
 
   const currentWord = gameWords[currentIndex];
@@ -118,6 +129,42 @@ export default function ListeningChallenge({ words, onClose, languageName }: Lis
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
+
+  if (words.length === 0) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="text-center">
+          <h3 className="text-xl font-bold mb-2">No Words Available</h3>
+          <p className="text-muted-foreground mb-4">Add some words to the dictionary to play this game.</p>
+          <button onClick={onClose} className="px-4 py-2 bg-primary text-primary-foreground rounded-lg">Go Back</button>
+        </div>
+      </div>
+    );
+  }
+
+  if (words.length < 4) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="text-center">
+          <h3 className="text-xl font-bold mb-2">Not Enough Words</h3>
+          <p className="text-muted-foreground mb-4">Need at least 4 words to play this game. Currently have {words.length}.</p>
+          <button onClick={onClose} className="px-4 py-2 bg-primary text-primary-foreground rounded-lg">Go Back</button>
+        </div>
+      </div>
+    );
+  }
+
+  if (!speechSupported) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="text-center">
+          <h3 className="text-xl font-bold mb-2">Speech Not Supported</h3>
+          <p className="text-muted-foreground mb-4">Your browser does not support speech synthesis. Try a different browser to play this game.</p>
+          <button onClick={onClose} className="px-4 py-2 bg-primary text-primary-foreground rounded-lg">Go Back</button>
+        </div>
+      </div>
+    );
+  }
 
   if (!currentWord && !gameComplete) {
     return (

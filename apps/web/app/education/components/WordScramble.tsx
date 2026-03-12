@@ -149,6 +149,18 @@ export default function WordScramble({ words, onClose, languageName }: WordScram
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
+  if (words.length === 0) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="text-center">
+          <h3 className="text-xl font-bold mb-2">No Words Available</h3>
+          <p className="text-muted-foreground mb-4">Add some words to the dictionary to play this game.</p>
+          <button onClick={onClose} className="px-4 py-2 bg-primary text-primary-foreground rounded-lg">Go Back</button>
+        </div>
+      </div>
+    );
+  }
+
   if (!currentWord && !gameComplete) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">

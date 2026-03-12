@@ -91,12 +91,6 @@ export default function SettingsPage() {
           newData.display_name !== originalDisplayName ||
           newData.bio !== originalBio;
 
-        console.log('Change detection:', {
-          username: { new: newData.username, original: originalUsername, changed: newData.username !== originalUsername },
-          display_name: { new: newData.display_name, original: originalDisplayName, changed: newData.display_name !== originalDisplayName },
-          bio: { new: newData.bio, original: originalBio, changed: newData.bio !== originalBio },
-          hasChanges
-        });
 
         setHasChanges(hasChanges);
       }

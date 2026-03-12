@@ -67,6 +67,7 @@ export async function middleware(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser()
 
   // Check if user needs to set up profile
+  // Use a cookie to cache profile existence and avoid a DB query on every request
   if (user && !request.nextUrl.pathname.startsWith('/auth/setup-profile')) {
     // Skip profile check for certain paths
     const skipPaths = [
@@ -76,20 +77,35 @@ export async function middleware(request: NextRequest) {
       '/favicon.ico',
       '/settings' // Settings page handles profile creation too
     ]
-    
+
     const shouldSkip = skipPaths.some(path => request.nextUrl.pathname.startsWith(path))
-    
+
     if (!shouldSkip) {
-      // Check if user has a profile
-      const { data: profile } = await supabase
-        .from('user_profiles')
-        .select('username')
-        .eq('user_id', user.id)
-        .single()
-      
-      if (!profile) {
-        // Redirect to profile setup
-        return NextResponse.redirect(new URL('/auth/setup-profile', request.url))
+      // Check cookie first to avoid DB query on every request
+      const hasProfileCookie = request.cookies.get('has_profile')?.value
+
+      if (hasProfileCookie !== 'true') {
+        // Only query DB if cookie is not set
+        const { data: profile } = await supabase
+          .from('user_profiles')
+          .select('username')
+          .eq('user_id', user.id)
+          .single()
+
+        if (!profile) {
+          // Redirect to profile setup
+          return NextResponse.redirect(new URL('/auth/setup-profile', request.url))
+        }
+
+        // Profile exists - set cookie to avoid future DB queries
+        response.cookies.set({
+          name: 'has_profile',
+          value: 'true',
+          maxAge: 60 * 60 * 24, // 24 hours
+          path: '/',
+          httpOnly: true,
+          sameSite: 'lax',
+        })
       }
     }
   }

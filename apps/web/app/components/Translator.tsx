@@ -44,11 +44,6 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
     fetchLanguages();
   }, [availableLanguages]);
 
-  // Log state changes for debugging
-  useEffect(() => {
-    console.log("State updated - canTranslate:", canTranslate, "inputText:", inputText, "isLoading:", isLoading);
-  }, [canTranslate, inputText, isLoading]);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newText = e.target.value;
     setInputText(newText);
@@ -58,14 +53,10 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
     
     // Clear any previous errors when user starts typing again
     if (error) setError(null);
-    
-    // For debugging
-    console.log("Input text changed:", newText, "Length:", newText.length, "Trimmed length:", newText.trim().length, "Can translate:", newText.trim().length > 0);
   };
 
   const handleTranslate = async () => {
     if (!canTranslate) {
-      console.log("Cannot translate: Input text is empty after trimming");
       return;
     }
     
@@ -74,8 +65,6 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
     setError(null);
     
     try {
-      console.log(`Sending translation request for: "${inputText}"`);
-      
       const response = await fetch(`/api/translate/${selectedLanguage}`, {
         method: 'POST',
         headers: {
@@ -89,7 +78,6 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
 
       if (!response.ok) {
         const errorData = await response.text();
-        console.error(`Translation API error (${response.status}):`, errorData);
         throw new Error(errorData || 'Translation service unavailable');
       }
 
@@ -110,20 +98,17 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
         const { done, value } = await reader.read();
         
         if (done) {
-          console.log('Stream complete');
           break;
         }
-        
+
         // Decode the chunk
         const text = decoder.decode(value, { stream: !done });
-        console.log('Received chunk:', text);
-        
+
         // Update the accumulated result
         result += text;
-        
+
         // Update the UI - force React to flush updates
         setOutputText(result);
-        console.log('Updated output text to:', result);
         
         // Force a small delay to allow React to render
         // This is crucial for the streaming effect to be visible
@@ -177,6 +162,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             <select
               value={selectedLanguage}
               onChange={(e) => setSelectedLanguage(e.target.value)}
+              aria-label="Select target language"
               className="px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.08)] text-white focus:outline-none focus:ring-2 focus:ring-[rgba(255,255,255,0.2)] text-sm transition-colors duration-200"
             >
               {languages.map((lang) => (

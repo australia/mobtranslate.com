@@ -141,6 +141,18 @@ export default function WritingPractice({ words, onClose, languageName }: Writin
   // Character buttons for special characters
   const specialChars = ["'", "'", "á", "é", "í", "ó", "ú", "ñ"];
 
+  if (words.length === 0) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="text-center">
+          <h3 className="text-xl font-bold mb-2">No Words Available</h3>
+          <p className="text-muted-foreground mb-4">Add some words to the dictionary to play this game.</p>
+          <button onClick={onClose} className="px-4 py-2 bg-primary text-primary-foreground rounded-lg">Go Back</button>
+        </div>
+      </div>
+    );
+  }
+
   if (!currentWord && !gameComplete) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
@@ -263,11 +275,11 @@ export default function WritingPractice({ words, onClose, languageName }: Writin
             <div className="flex items-center gap-4">
               <Button
                 onClick={handleHint}
-                disabled={revealedHints.length >= currentWord.word.length}
+                disabled={!currentWord || revealedHints.length >= (currentWord?.word.length ?? 0)}
                 className="flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-100 text-amber-700 hover:bg-amber-200 disabled:opacity-50"
               >
                 <Lightbulb className="w-4 h-4" />
-                Hint ({currentWord.word.length - revealedHints.length} left)
+                Hint ({currentWord ? currentWord.word.length - revealedHints.length : 0} left)
               </Button>
               <Button
                 onClick={handleSubmit}

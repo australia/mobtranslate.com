@@ -29,15 +29,8 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (langError || !language) {
-      console.error('Language lookup error:', { languageCode, langError });
       return NextResponse.json({ error: 'Language not found or not active' }, { status: 404 });
     }
-
-    console.log('Creating quiz session for language:', { 
-      languageId: language.id, 
-      languageCode: language.code,
-      languageName: language.name 
-    });
 
     // Get user's spaced repetition states for this language
     const { data: states, error: statesError } = await supabase
@@ -64,8 +57,6 @@ export async function POST(request: NextRequest) {
     // If user has no states yet, create initial states for new words
     let wordPool = states || [];
     
-    console.log('Current word pool size:', wordPool.length, 'Session size:', sessionSize);
-    
     if (wordPool.length < sessionSize) {
       // Get some new words to fill the session
       const existingWordIds = wordPool.map((s: any) => s.word_id);
@@ -89,16 +80,8 @@ export async function POST(request: NextRequest) {
         .limit(sessionSize - wordPool.length);
 
       if (newWordsError) {
-        console.error('Error fetching new words:', { 
-          languageId: language.id, 
-          languageCode: language.code,
-          existingWordIds: existingWordIds.length,
-          error: newWordsError 
-        });
         return NextResponse.json({ error: 'Failed to fetch words from database' }, { status: 500 });
       }
-      
-      console.log('New words fetched:', newWords?.length || 0);
 
       // Create initial states for new words
       if (newWords && newWords.length > 0) {
@@ -216,21 +199,8 @@ export async function POST(request: NextRequest) {
 
     const validWords = sessionWords.filter(Boolean);
 
-    console.log('Session words prepared:', {
-      selectedWordIds: selectedWordIds.length,
-      sessionWords: sessionWords.length,
-      validWords: validWords.length,
-      firstWord: validWords[0]
-    });
-
     // Check if we have any valid words
     if (validWords.length === 0) {
-      console.error('No valid words found for session:', {
-        languageId: language.id,
-        languageCode: language.code,
-        wordPoolLength: wordPool.length,
-        sessionSize
-      });
       return NextResponse.json({ 
         error: 'No words available for this language. Please check if the language has dictionary data.' 
       }, { status: 404 });

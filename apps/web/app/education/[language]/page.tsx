@@ -467,6 +467,7 @@ export default function LanguageEducationPage() {
                   key={game.id}
                   onClick={() => words.length > 0 && setActiveGame(game.id)}
                   disabled={words.length === 0}
+                  aria-disabled={words.length === 0}
                   className="group relative text-left overflow-hidden rounded-3xl border-4 border-foreground bg-card p-6 transition-all duration-300 hover:-translate-y-2 disabled:opacity-50 disabled:cursor-not-allowed h-auto"
                   style={{
                     boxShadow: '6px 6px 0px 0px var(--color-foreground)',

@@ -26,33 +26,6 @@ interface Dictionary {
 }
 
 /**
- * Rough estimate of token count for GPT models
- * This is an approximation; actual token count may vary
- */
-function estimateTokenCount(text: string): number {
-  // For English, a rough estimate is 4 characters per token
-  // This is not perfect but provides a reasonable estimate
-  return Math.ceil(text.length / 4);
-}
-
-/**
- * Log the token usage for monitoring
- */
-function logTokenUsage(promptText: string, responseText: string = '') {
-  const promptTokens = estimateTokenCount(promptText);
-  const responseTokens = estimateTokenCount(responseText);
-  const totalTokens = promptTokens + responseTokens;
-
-  console.log(`[Token Usage] Estimated prompt tokens: ${promptTokens}`);
-  if (responseText) {
-    console.log(`[Token Usage] Estimated response tokens: ${responseTokens}`);
-    console.log(`[Token Usage] Estimated total tokens: ${totalTokens}`);
-  }
-
-  return { promptTokens, responseTokens, totalTokens };
-}
-
-/**
  * Creates a translation prompt using the dictionary data
  */
 const createTranslationPrompt = (text: string, dictionary: Dictionary) => {
@@ -161,14 +134,6 @@ export async function POST(
     // Create the translation prompt
     const prompt = createTranslationPrompt(text, dictionary);
 
-    // Log the estimated token usage
-    console.log(`[Translation API] Request: ${text}`);
-    console.log(`[Translation API] Language: ${language}`);
-    console.log(`[Translation API] Stream mode: ${stream}`);
-    const tokenInfo = logTokenUsage(prompt);
-    console.log(`[Translation API] Dictionary word count: ${dictionary.words.length}`);
-    console.log(`[Translation API] Estimated prompt tokens: ${tokenInfo.promptTokens}`);
-
     // Different response handling based on stream parameter
     if (stream) {
       // Create a streaming response
@@ -187,27 +152,17 @@ export async function POST(
         stream: true,
       });
 
-      console.log(`[Translation API] Stream created, sending response to client`);
-
-      // Track total response content for logging
-      let totalResponse = '';
-
       // Convert the OpenAI stream to a readable stream for the client
       const readable = new ReadableStream({
         async start(controller) {
           for await (const chunk of streamResponse) {
             const content = chunk.choices[0]?.delta?.content || '';
             if (content) {
-              totalResponse += content;
               const encoder = new TextEncoder();
               controller.enqueue(encoder.encode(content));
             }
           }
           controller.close();
-
-          // Log the estimated token usage for the complete response
-          console.log(`[Translation API] Stream completed`);
-          logTokenUsage(prompt, totalResponse);
         },
       });
 
@@ -234,23 +189,7 @@ export async function POST(
         ]
       });
 
-      // Log the full completion object for debugging
-      console.log(`[Translation API] Full completion object:`);
-      console.log(JSON.stringify(completion, null, 2));
-
       const translation = completion.choices[0].message.content || '';
-
-      // Log token usage from the actual API response if available
-      if (completion.usage) {
-        console.log(`[Token Usage] Actual prompt tokens: ${completion.usage.prompt_tokens}`);
-        console.log(`[Token Usage] Actual completion tokens: ${completion.usage.completion_tokens}`);
-        console.log(`[Token Usage] Actual total tokens: ${completion.usage.total_tokens}`);
-      } else {
-        // Fall back to our estimation if the API doesn't provide usage stats
-        logTokenUsage(prompt, translation);
-      }
-
-      console.log(`[Translation API] Completed translation`);
 
       return NextResponse.json({
         success: true,

@@ -11,8 +11,6 @@ export async function GET(_request: NextRequest) {
   }
 
   try {
-    console.log('[Overview API] Fetching data for user:', user.id);
-    
     // Get all quiz sessions grouped by language
     const { data: sessions, error: sessionsError } = await supabase
       .from('quiz_sessions')
@@ -37,8 +35,6 @@ export async function GET(_request: NextRequest) {
       return NextResponse.json({ error: 'Failed to fetch sessions' }, { status: 500 });
     }
     
-    console.log('[Overview API] Sessions found:', sessions?.length || 0);
-
     // Get unique word counts per language with language info
     const { data: wordCounts, error: wordCountError } = await supabase
       .from('spaced_repetition_states')
@@ -56,9 +52,6 @@ export async function GET(_request: NextRequest) {
       console.error('Error fetching word counts:', wordCountError);
     }
     
-    console.log('[Overview API] Word states found:', wordCounts?.length || 0);
-    console.log('[Overview API] Sample word state:', wordCounts?.[0]);
-
     // Process data by language
     const languageMap = new Map<string, {
       language: string;
@@ -145,11 +138,6 @@ export async function GET(_request: NextRequest) {
     });
 
     // Convert to array and calculate current streaks
-    console.log('[Overview API] Languages found:', languageMap.size);
-    languageMap.forEach((lang, id) => {
-      console.log(`[Overview API] Language ${id}:`, lang);
-    });
-    
     const languageStats = Array.from(languageMap.values()).map(lang => ({
       language: lang.language,
       code: lang.code,

@@ -237,8 +237,13 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
         </div>
       </header>
 
+      {/* Skip to content link */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-2 focus:left-2 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:text-sm focus:font-medium">
+        Skip to main content
+      </a>
+
       {/* Main Content Area with smooth transitions */}
-      <main className="flex-1 w-full mx-auto max-w-[1920px] 2xl:max-w-[2200px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-6 sm:py-8 lg:py-12">
+      <main id="main-content" className="flex-1 w-full mx-auto max-w-[1920px] 2xl:max-w-[2200px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-6 sm:py-8 lg:py-12">
         {children}
       </main>
 

@@ -6,52 +6,21 @@ import { ImageAnalysisSchema } from '@/lib/tools/image-analysis';
 import { generateEmbedding } from '../../../scripts/generate-embeddings';
 
 export async function POST(req: Request) {
-  console.log('[DEBUG] Chat API POST called');
-  
   try {
     const supabase = createClient();
-    
+
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    console.log('[DEBUG] Auth check:', { user: user?.id, authError });
-    
+
     if (authError || !user) {
-      console.error('[DEBUG] Auth failed:', authError);
       return new Response('Unauthorized', { status: 401 });
     }
 
     const body = await req.json();
-    console.log('[DEBUG] Request body:', { 
-      messageCount: body.messages?.length,
-      hasMessages: !!body.messages,
-      lastMessage: body.messages?.[body.messages.length - 1]
-    });
-    
-    // Log if last message has attachments
+
+    // Check for image attachments in last message
     const lastMessage = body.messages?.[body.messages.length - 1];
-    if (lastMessage) {
-      const attachments = lastMessage.attachments || lastMessage.experimental_attachments;
-      console.log('[DEBUG] Last message details:', {
-        role: lastMessage.role,
-        content: lastMessage.content?.substring(0, 100) + '...',
-        hasAttachments: !!attachments,
-        attachmentCount: attachments?.length || 0,
-        attachments: attachments?.map((a: any) => ({
-          name: a.name,
-          contentType: a.contentType,
-          url: a.url?.substring(0, 50) + '...'
-        }))
-      });
-      
-      // If there are image attachments, add them to the message content for the AI
-      if (attachments?.length > 0) {
-        const imageAttachments = attachments.filter((a: any) => a.contentType?.startsWith('image/'));
-        if (imageAttachments.length > 0) {
-          console.log('[DEBUG] Found image attachments, will process them');
-        }
-      }
-    }
-    
+
     const { messages } = body;
 
     // Check if OpenAI API key is set
@@ -67,7 +36,6 @@ export async function POST(req: Request) {
     }
 
     // Fetch comprehensive user context
-    console.log('Fetching user context...');
     
     // Get user profile
     const { data: profile } = await supabase
@@ -183,13 +151,6 @@ export async function POST(req: Request) {
       }) || []).values()).slice(0, 10)
     };
 
-    console.log('User context loaded:', {
-      username: userContext.username,
-      languageCount: userContext.languages.length,
-      likedWordsCount: userContext.likedWords.length,
-      masteredWordsCount: userContext.masteredWords.length
-    });
-
     // Process messages to handle image attachments
     const processedMessages = messages.map((message: any) => {
       const attachments = message.attachments || message.experimental_attachments;
@@ -210,12 +171,6 @@ export async function POST(req: Request) {
             }))
           ];
           
-          console.log('[DEBUG] Converted message with images:', {
-            role: message.role,
-            contentTypes: content.map(c => c.type),
-            imageCount: imageAttachments.length
-          });
-          
           return {
             ...message,
             content
@@ -225,15 +180,6 @@ export async function POST(req: Request) {
       
       return message;
     });
-
-    console.log('[DEBUG] OpenAI API key exists:', !!process.env.OPENAI_API_KEY);
-    console.log('[DEBUG] Creating stream with model: gpt-4o-mini');
-    console.log('[DEBUG] Messages being sent to OpenAI:', processedMessages.map((m: any) => ({
-      role: m.role,
-      contentPreview: typeof m.content === 'string' ? m.content.substring(0, 100) + '...' : 'Complex content with images',
-      hasAttachments: !!(m.attachments || m.experimental_attachments),
-      contentType: typeof m.content
-    })));
 
     const result = await streamText({
       model: openai('gpt-4o-mini'),
@@ -272,7 +218,6 @@ IMPORTANT: When a message contains an image attachment:
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ word }) => {
           try {
-            console.log('Executing translateWord tool for:', word);
             
             // Fetch translations from the database
             const { data: translations, error } = await supabase
@@ -340,7 +285,6 @@ IMPORTANT: When a message contains an image attachment:
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ languageCode, topic, count = 5 }) => {
           try {
-            console.log('Executing getWordSuggestions tool:', { languageCode, topic, count });
             
             let query = supabase
               .from('words')
@@ -410,7 +354,6 @@ IMPORTANT: When a message contains an image attachment:
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ languageCode }) => {
           try {
-            console.log('Executing getUserStats tool:', { languageCode });
             
             // Get user stats using the database function
             const { data: statsData, error } = await supabase.rpc('get_user_stats', {
@@ -472,7 +415,6 @@ IMPORTANT: When a message contains an image attachment:
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ languageCode, limit = 20 }) => {
           try {
-            console.log('Executing getUserLikedWords tool:', { languageCode, limit });
             
             let query = supabase
               .from('likes')
@@ -537,7 +479,6 @@ IMPORTANT: When a message contains an image attachment:
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ description, languages, includeContext = true, userRequestedLanguage }) => {
           try {
-            console.log('[DEBUG] analyzeImage tool called with:', { description, languages, includeContext, userRequestedLanguage });
             
             // Parse the description to extract key objects mentioned
             const detectedItems: string[] = [];
@@ -581,8 +522,6 @@ IMPORTANT: When a message contains an image attachment:
             }
 
 
-            console.log('[DEBUG] Detected items from description:', detectedItems);
-
             // Determine which languages to use
             let targetLanguages = languages || [];
             
@@ -592,7 +531,6 @@ IMPORTANT: When a message contains an image attachment:
               targetLanguages = userContext.languages
                 .sort((a, b) => b.accuracy - a.accuracy)
                 .map(l => l.code);
-              console.log('[DEBUG] Using ALL user\'s learning languages:', targetLanguages);
             }
             
             // If still no languages, check if user requested a specific language
@@ -606,7 +544,6 @@ IMPORTANT: When a message contains an image attachment:
               
               if (langData) {
                 targetLanguages = [langData.code];
-                console.log('[DEBUG] Using user requested language:', userRequestedLanguage, 'code:', langData.code);
               }
             }
             
@@ -624,7 +561,6 @@ IMPORTANT: When a message contains an image attachment:
                   
                   if (langData) {
                     targetLanguages = [langData.code];
-                    console.log('[DEBUG] Found language in description:', lang, 'code:', langData.code);
                     break;
                   }
                 }
@@ -633,7 +569,6 @@ IMPORTANT: When a message contains an image attachment:
             
             // If STILL no languages (user has no learning history), show translations from multiple languages
             if (targetLanguages.length === 0) {
-              console.log('[DEBUG] No target languages specified, will show all available translations');
               // Don't filter by language - show all available translations
             }
 
@@ -670,8 +605,6 @@ IMPORTANT: When a message contains an image attachment:
               
               if ((!translations || translations.length === 0) && process.env.OPENAI_API_KEY) {
                 try {
-                  console.log(`[DEBUG] No exact match for "${item}", trying vector similarity search`);
-                  
                   // Generate embedding for the search term
                   const searchContext = `Word: ${item}\nLanguage: English\nDefinitions: A ${item} (object or concept)`;
                   const embedding = await generateEmbedding(searchContext);
@@ -691,11 +624,9 @@ IMPORTANT: When a message contains an image attachment:
                       languages: { name: w.language_name, code: w.language_code },
                       definitions: [{ definition: w.definition }]
                     }));
-                    
-                    console.log(`[DEBUG] Found ${translations.length} similar words for "${item}"`);
                   }
-                } catch (error) {
-                  console.error(`[DEBUG] Error in vector search for "${item}":`, error);
+                } catch {
+                  // Vector search failed, continue with available results
                 }
               }
 
@@ -795,20 +726,13 @@ IMPORTANT: When a message contains an image attachment:
     toolCallStreaming: true,
   });
 
-  console.log('[DEBUG] Stream created successfully');
   const response = result.toDataStreamResponse({
     getErrorMessage: (error) => (error as any)?.message || 'Something went wrong',
   });
-  console.log('[DEBUG] Returning response');
   return response;
   
   } catch (error) {
     console.error('Chat API error:', error);
-    console.error('Error details:', {
-      name: (error as any)?.name,
-      message: (error as any)?.message,
-      stack: (error as any)?.stack
-    });
     
     return new Response(
       JSON.stringify({ 

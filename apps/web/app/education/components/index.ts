@@ -4,3 +4,7 @@ export { default as Flashcards } from './Flashcards';
 export { default as WordScramble } from './WordScramble';
 export { default as ListeningChallenge } from './ListeningChallenge';
 export { default as WritingPractice } from './WritingPractice';
+export { default as SpeedRound } from './SpeedRound';
+export { default as FillInTheBlank } from './FillInTheBlank';
+export { default as MatchingPairs } from './MatchingPairs';
+export { default as WordBuilder } from './WordBuilder';

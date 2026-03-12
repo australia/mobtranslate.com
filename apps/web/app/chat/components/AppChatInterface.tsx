@@ -4,7 +4,6 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { useChat } from 'ai/react';
 import {
   Send,
-  Bot,
   Sparkles,
   BookOpen,
   BarChart3,
@@ -47,11 +46,8 @@ export function AppChatInterface() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, setInput, error, append } = useChat({
     api: '/api/chat',
     maxSteps: 5,
-    onError: (error) => {
-      console.error('[DEBUG] Chat error:', error);
-    },
-    onFinish: (message) => {
-      console.log('[DEBUG] Message finished:', message);
+    onError: (_error) => {
+      // Error is displayed in the UI
     },
   });
 
@@ -72,11 +68,6 @@ export function AppChatInterface() {
     fetchUsername();
   }, [user]);
 
-  // Debug effect to monitor uploadedFiles state
-  useEffect(() => {
-    console.log('[DEBUG] uploadedFiles state changed:', uploadedFiles);
-  }, [uploadedFiles]);
-
   const fetchUsername = async () => {
     try {
       const response = await fetch('/api/user/profile');
@@ -92,8 +83,6 @@ export function AppChatInterface() {
   const handleKeyDown = async (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      console.log('[DEBUG] Enter key pressed, uploadedFiles:', uploadedFiles);
-
       if (uploadedFiles.length > 0) {
         // Use append to send message with attachments
         await append({
@@ -122,25 +111,20 @@ export function AppChatInterface() {
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('[DEBUG] handleImageUpload called');
     const file = e.target.files?.[0];
-    console.log('[DEBUG] Selected file:', file ? { name: file.name, type: file.type, size: file.size } : 'No file');
 
     if (!file) {
-      console.log('[DEBUG] No file selected, returning');
       return;
     }
 
     // Validate file type
     if (!file.type.startsWith('image/')) {
-      console.error('[DEBUG] Invalid file type:', file.type);
       alert('Please upload an image file');
       return;
     }
 
     // Validate file size (max 5MB)
     if (file.size > 5 * 1024 * 1024) {
-      console.error('[DEBUG] File too large:', file.size);
       alert('Image size must be less than 5MB');
       return;
     }
@@ -151,7 +135,6 @@ export function AppChatInterface() {
       const reader = new FileReader();
       reader.onloadend = () => {
         const base64 = reader.result as string;
-        console.log('[DEBUG] File converted to base64, length:', base64.length);
 
         // Create attachment in the format expected by Vercel AI SDK
         const attachment = {
@@ -160,7 +143,6 @@ export function AppChatInterface() {
           url: base64,
         };
 
-        console.log('[DEBUG] Setting uploadedFiles with attachment:', attachment);
         setUploadedFiles([attachment as any]);
         setIsUploadingImage(false);
 
@@ -169,14 +151,12 @@ export function AppChatInterface() {
       };
 
       reader.onerror = () => {
-        console.error('[DEBUG] FileReader error');
         alert('Failed to read image file');
         setIsUploadingImage(false);
       };
 
       reader.readAsDataURL(file);
     } catch (error) {
-      console.error('[DEBUG] Error in handleImageUpload:', error);
       alert('Failed to upload image');
       setIsUploadingImage(false);
     }
@@ -401,15 +381,6 @@ export function AppChatInterface() {
             {/* Messages */}
             {messages.map((message, index) => {
               const msg = message as any;
-              console.log('[DEBUG] Rendering message:', {
-                id: message.id,
-                role: message.role,
-                contentPreview: message.content?.substring(0, 50) + '...',
-                hasAttachments: !!(msg.attachments || msg.experimental_attachments),
-                attachmentCount: (msg.attachments || msg.experimental_attachments)?.length || 0,
-                attachmentTypes: (msg.attachments || msg.experimental_attachments)?.map((a: any) => a?.contentType)
-              });
-
               const isUser = message.role === 'user';
 
               return (
@@ -543,8 +514,6 @@ export function AppChatInterface() {
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-                console.log('[DEBUG] Form submitted with uploadedFiles:', uploadedFiles);
-                console.log('[DEBUG] Input value:', input);
 
                 if (uploadedFiles.length > 0) {
                   // Use append to send message with attachments
@@ -605,6 +574,7 @@ export function AppChatInterface() {
                   disabled={isUploadingImage}
                   className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted flex-shrink-0"
                   title="Upload image"
+                  aria-label="Upload image"
                 >
                   {isUploadingImage ? (
                     <div className="h-5 w-5 border-2 border-muted-foreground/30 border-t-foreground rounded-full animate-spin" />

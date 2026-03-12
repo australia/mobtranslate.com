@@ -56,8 +56,6 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const period = searchParams.get('period') || 'week';
 
-  console.log('[Leaderboard Overview API] Fetching overview for period:', period);
-
   try {
     // Get all languages
     const { data: languages, error: languagesError } = await supabase
@@ -66,14 +64,13 @@ export async function GET(request: NextRequest) {
       .order('name');
 
     if (languagesError) {
-      console.error('[Leaderboard Overview API] Error fetching languages:', languagesError);
       return NextResponse.json({ error: 'Failed to fetch languages' }, { status: 500 });
     }
 
     // Calculate date range for period filtering
     let dateFilter = '';
     const now = new Date();
-    
+
     switch (period) {
       case 'day': {
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -101,14 +98,10 @@ export async function GET(request: NextRequest) {
         dateFilter = '';
     }
 
-    console.log('[Leaderboard Overview API] Date filter:', dateFilter);
-
     const leaderboards: LanguageLeaderboard[] = [];
 
     // Process each language
     for (const language of languages) {
-      console.log('[Leaderboard Overview API] Processing language:', language.name);
-
       // Get quiz attempts for this language (since sessions aren't being completed properly)
       let attemptsQuery = supabase
         .from('quiz_attempts')
@@ -128,11 +121,8 @@ export async function GET(request: NextRequest) {
       const { data: attempts, error: attemptsError } = await attemptsQuery;
 
       if (attemptsError) {
-        console.error('[Leaderboard Overview API] Error fetching attempts for', language.name, ':', attemptsError);
         continue;
       }
-
-      console.log('[Leaderboard Overview API] Attempts found for', language.name, ':', attempts?.length || 0);
 
       if (!attempts || attempts.length === 0) {
         leaderboards.push({
@@ -325,11 +315,10 @@ export async function GET(request: NextRequest) {
       generatedAt: new Date().toISOString()
     };
 
-    console.log('[Leaderboard Overview API] Success! Returning', response.leaderboards.length, 'active languages');
     return NextResponse.json(response);
 
   } catch (error) {
-    console.error('[Leaderboard Overview API] Unexpected error:', error);
+    console.error('Leaderboard overview error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

@@ -55,18 +55,9 @@ export default function EditLanguagePage() {
     e.preventDefault();
     if (!language) return;
 
-    console.log('Saving language:', {
-      id: language.id,
-      name: language.name,
-      code: language.code,
-      is_active: language.is_active
-    });
-
     setSaving(true);
     try {
       const url = `/api/v2/admin/languages/${language.id}`;
-      console.log('PUT request to:', url);
-      
       const response = await fetch(url, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -77,9 +68,7 @@ export default function EditLanguagePage() {
         })
       });
 
-      console.log('Response status:', response.status);
       const responseData = await response.json();
-      console.log('Response data:', responseData);
 
       if (!response.ok) {
         throw new Error(responseData.error || 'Failed to update language');

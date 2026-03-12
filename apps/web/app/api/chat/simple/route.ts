@@ -8,17 +8,13 @@ const openai = createOpenAI({
 });
 
 export async function POST(req: Request) {
-  console.log('Simple Chat API called');
-  
   try {
     const supabase = createClient();
-    
+
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    console.log('Auth check:', { user: user?.id, authError });
-    
+
     if (authError || !user) {
-      console.error('Auth failed:', authError);
       return new Response('Unauthorized', { status: 401 });
     }
 
@@ -29,11 +25,7 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json();
-    console.log('Request body:', { messageCount: body.messages?.length });
-    
     const { messages } = body;
-
-    console.log('Creating simple stream...');
 
     // Simple stream without tools
     const result = streamText({
@@ -42,16 +34,10 @@ export async function POST(req: Request) {
       system: 'You are a helpful language learning assistant.',
     });
 
-    console.log('Simple stream created successfully');
     return result.toDataStreamResponse();
     
   } catch (error: any) {
     console.error('Simple Chat API error:', error);
-    console.error('Error details:', {
-      name: error?.name,
-      message: error?.message,
-      stack: error?.stack
-    });
     
     return new Response(
       JSON.stringify({ 

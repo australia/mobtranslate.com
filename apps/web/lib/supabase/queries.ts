@@ -33,13 +33,10 @@ export async function getWordsForLanguage({
   wordClass,
   letter
 }: DictionaryQueryParams) {
-  console.log('[getWordsForLanguage] Starting with params:', { language, page, limit });
-  
   const supabase = createClient();
-  
+
   // First get the language
   const languageData = await getLanguageByCode(language!);
-  console.log('[getWordsForLanguage] Language data:', languageData);
   
   // Build the query with relations
   let query = supabase
@@ -86,15 +83,8 @@ export async function getWordsForLanguage({
   query = query.range(from, to);
 
   const { data: words, error, count } = await query;
-  
-  console.log('[getWordsForLanguage] Query result:', { 
-    wordCount: words?.length, 
-    totalCount: count,
-    error: error?.message 
-  });
 
   if (error) {
-    console.error('[getWordsForLanguage] Query error:', error);
     throw error;
   }
 
@@ -126,8 +116,6 @@ export async function getWordsForLanguage({
       definitions: definitions?.filter(d => d.word_id === word.id) || [],
       usage_examples: usageExamples?.filter(e => e.word_id === word.id) || []
     }));
-
-    console.log('[getWordsForLanguage] Sample word with relations:', wordsWithRelations[0]);
 
     return {
       words: wordsWithRelations as Word[],

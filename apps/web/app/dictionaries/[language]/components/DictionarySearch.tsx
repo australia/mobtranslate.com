@@ -3,14 +3,58 @@
 import React, { useState, useCallback, useTransition, useMemo } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { Badge, Button, cn } from '@mobtranslate/ui';
-import { SearchInput } from '@ui/components/SearchInput';
-import { EmptyState } from '@ui/components/EmptyState';
 import { LoadingState } from '@/components/layout/LoadingState';
 import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
 import { useDictionary } from '@/lib/hooks/useDictionary';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 import { Search, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, X } from 'lucide-react';
+
+/** Inline SearchInput — replaces old @ui/components/SearchInput import */
+const SearchInput = React.forwardRef<
+  HTMLInputElement,
+  Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'>
+>(({ className, ...props }, ref) => (
+  <div className="relative">
+    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
+      <Search className="h-5 w-5" />
+    </div>
+    <input
+      type="search"
+      className={cn(
+        'w-full h-11 pl-10 pr-4 py-3 rounded-lg border border-border',
+        'bg-background text-base shadow-sm transition-all duration-200',
+        'placeholder:text-muted-foreground',
+        'hover:border-muted-foreground/50',
+        'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background focus:border-transparent',
+        'disabled:cursor-not-allowed disabled:opacity-50',
+        '[&::-webkit-search-cancel-button]:appearance-none',
+        className
+      )}
+      ref={ref}
+      {...props}
+    />
+  </div>
+));
+SearchInput.displayName = 'SearchInput';
+
+/** Inline EmptyState — replaces old @ui/components/EmptyState import */
+function EmptyState({ icon, title, description, action, className, ...props }: {
+  icon?: React.ReactNode;
+  title?: string;
+  description?: string;
+  action?: React.ReactNode;
+  className?: string;
+} & React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={cn('text-center py-8 text-muted-foreground', className)} {...props}>
+      {icon && <div className="text-4xl mb-2">{icon}</div>}
+      {title && <h3 className="text-lg font-medium text-foreground mb-2">{title}</h3>}
+      {description && <p className="text-sm mb-4">{description}</p>}
+      {action && <div>{action}</div>}
+    </div>
+  );
+}
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 

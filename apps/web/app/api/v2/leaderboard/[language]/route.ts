@@ -40,8 +40,6 @@ export async function GET(request: NextRequest, { params }: { params: { language
   const period = searchParams.get('period') || 'week';
   const languageCode = params.language;
 
-  console.log('[Leaderboard API] Fetching for language:', languageCode, 'period:', period);
-
   try {
     // Get language info
     const { data: langData, error: langError } = await supabase
@@ -87,8 +85,6 @@ export async function GET(request: NextRequest, { params }: { params: { language
         dateFilter = '';
     }
 
-    console.log('[Leaderboard API] Date filter:', dateFilter);
-
     // Get all users who have quiz attempts in this language for the period
     let attemptsQuery = supabase
       .from('quiz_attempts')
@@ -108,11 +104,8 @@ export async function GET(request: NextRequest, { params }: { params: { language
     const { data: attempts, error: attemptsError } = await attemptsQuery;
 
     if (attemptsError) {
-      console.error('[Leaderboard API] Error fetching attempts:', attemptsError);
       return NextResponse.json({ error: 'Failed to fetch leaderboard data' }, { status: 500 });
     }
-
-    console.log('[Leaderboard API] Attempts found:', attempts?.length || 0);
 
     // Get spaced repetition states for word counts
     const { data: states, error: statesError } = await supabase
@@ -285,7 +278,6 @@ export async function GET(request: NextRequest, { params }: { params: { language
       periodStats
     };
 
-    console.log('[Leaderboard API] Success! Returning', rankedEntries.length, 'entries');
     return NextResponse.json(response);
 
   } catch (error) {
