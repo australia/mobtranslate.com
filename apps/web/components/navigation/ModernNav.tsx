@@ -64,7 +64,7 @@ export function ModernNav() {
         const data = await response.json();
         setUsername(data.profile?.display_name || data.profile?.username);
       }
-      
+
       // Check user role using Supabase directly
       if (user && typeof window !== 'undefined') {
         try {
@@ -74,7 +74,7 @@ export function ModernNav() {
               user_uuid: user.id,
               lang_id: null
             });
-          
+
           if (error) {
             console.error('Error fetching user role:', error);
           } else if (roleData) {
@@ -111,36 +111,46 @@ export function ModernNav() {
     { href: '/chat', label: 'AI Chat', icon: MessageCircle, description: 'Chat with AI' },
     { href: '/settings', label: 'Settings', icon: Settings, description: 'Account settings' },
   ];
-  
+
   // Add admin/curator items based on role
   const isAdmin = userRole === 'super_admin' || userRole === 'dictionary_admin';
   const isCurator = userRole === 'curator' || isAdmin;
-  
+
   // Add curator dashboard for curators
   if (isCurator) {
-    dropdownItems.splice(1, 0, { 
-      href: '/curator', 
-      label: 'Curator Dashboard', 
-      icon: FileCheck, 
-      description: 'Review submissions' 
+    dropdownItems.splice(1, 0, {
+      href: '/curator',
+      label: 'Curator Dashboard',
+      icon: FileCheck,
+      description: 'Review submissions'
     });
   }
-  
+
   // Add admin panel for admins
   if (isAdmin) {
-    dropdownItems.splice(1, 0, { 
-      href: '/admin', 
-      label: 'Admin Panel', 
-      icon: Shield, 
-      description: 'System administration' 
+    dropdownItems.splice(1, 0, {
+      href: '/admin',
+      label: 'Admin Panel',
+      icon: Shield,
+      description: 'System administration'
     });
   }
+
+  // Get user initials for avatar
+  const getInitials = (name: string | null): string => {
+    if (!name) return 'U';
+    const parts = name.trim().split(/\s+/);
+    if (parts.length >= 2) {
+      return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+    return name.slice(0, 2).toUpperCase();
+  };
 
   if (loading) {
     return (
       <div className="flex items-center gap-2">
-        <div className="h-8 w-20 bg-muted animate-pulse rounded" />
-        <div className="h-8 w-20 bg-muted animate-pulse rounded" />
+        <div className="h-8 w-20 bg-muted animate-pulse rounded-lg" />
+        <div className="h-8 w-8 bg-muted animate-pulse rounded-full" />
       </div>
     );
   }
@@ -149,30 +159,34 @@ export function ModernNav() {
     return (
       <div className="flex items-center gap-2">
         {/* Primary Navigation Items */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-0.5">
           {primaryNavItems.map((item) => (
             <Link key={item.href} href={item.href}>
               <Button
                 variant="ghost"
                 size="md"
-                className="gap-2 hover:bg-primary/10 transition-all px-4 py-2.5"
+                className={cn(
+                  "gap-2 px-3.5 py-2 rounded-lg transition-all duration-200",
+                  "hover:bg-primary/10 hover:text-primary",
+                  "active:scale-[0.97]"
+                )}
               >
                 <item.icon className="h-4 w-4" />
-                <span className="font-medium">{item.label}</span>
+                <span className="font-medium text-sm">{item.label}</span>
               </Button>
             </Link>
           ))}
         </nav>
 
         {/* Mobile Primary Nav */}
-        <nav className="flex md:hidden items-center gap-1">
+        <nav className="flex md:hidden items-center gap-0.5">
           <Link href="/learn">
-            <Button variant="ghost" size="sm" className="p-2">
+            <Button variant="ghost" size="sm" className="p-2 rounded-lg hover:bg-primary/10">
               <Brain className="h-4 w-4" />
             </Button>
           </Link>
           <Link href="/dashboard">
-            <Button variant="ghost" size="sm" className="p-2">
+            <Button variant="ghost" size="sm" className="p-2 rounded-lg hover:bg-primary/10">
               <Home className="h-4 w-4" />
             </Button>
           </Link>
@@ -181,81 +195,117 @@ export function ModernNav() {
         {/* User Dropdown */}
         <div className="relative" ref={dropdownRef}>
           <Button
-            variant="outline"
+            variant="ghost"
             size="sm"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className={cn(
-              "gap-2 transition-all",
-              isDropdownOpen && "bg-primary/10 border-primary"
+              "gap-2 transition-all duration-200 rounded-full pl-1.5 pr-2.5 py-1.5",
+              "hover:bg-muted",
+              isDropdownOpen && "bg-muted ring-2 ring-primary/20"
             )}
           >
-            <User className="h-4 w-4" />
-            <span className="hidden sm:inline max-w-[100px] truncate">
+            {/* Avatar with initials */}
+            <span className="w-7 h-7 rounded-full bg-primary/15 text-primary flex items-center justify-center text-xs font-semibold shrink-0">
+              {getInitials(username)}
+            </span>
+            <span className="hidden sm:inline max-w-[100px] truncate text-sm font-medium">
               {username || 'Menu'}
             </span>
             <ChevronDown className={cn(
-              "h-3 w-3 transition-transform",
+              "h-3 w-3 text-muted-foreground transition-transform duration-200",
               isDropdownOpen && "rotate-180"
             )} />
           </Button>
 
           {/* Dropdown Menu */}
-          {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-64 bg-card rounded-lg shadow-lg border border-border py-2 z-50 animate-slide-in">
-              {/* User Info */}
-              <div className="px-4 py-3 border-b border-border">
-                <p className="text-sm font-medium">{username || 'User'}</p>
+          <div
+            className={cn(
+              "absolute right-0 mt-2 w-72 bg-card rounded-xl border border-border z-50",
+              "shadow-lg shadow-black/5 dark:shadow-black/20",
+              "transition-all duration-200 origin-top-right",
+              isDropdownOpen
+                ? "opacity-100 scale-100 translate-y-0"
+                : "opacity-0 scale-95 -translate-y-1 pointer-events-none"
+            )}
+          >
+            {/* User Info Header */}
+            <div className="px-4 py-3.5 border-b border-border/60 flex items-center gap-3">
+              <span className="w-9 h-9 rounded-full bg-primary/15 text-primary flex items-center justify-center text-sm font-semibold shrink-0">
+                {getInitials(username)}
+              </span>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold truncate">{username || 'User'}</p>
                 <p className="text-xs text-muted-foreground truncate">{user.email}</p>
               </div>
-
-              {/* Menu Items */}
-              <div className="py-2">
-                {dropdownItems.map((item) => (
-                  <Link key={item.href} href={item.href}>
-                    <Button
-                      variant="ghost"
-                      onClick={() => setIsDropdownOpen(false)}
-                      className="w-full px-4 py-2 h-auto text-left hover:bg-muted transition-colors flex items-start gap-3 rounded-none justify-start"
-                    >
-                      <item.icon className="h-4 w-4 text-muted-foreground mt-0.5" />
-                      <div className="flex-1">
-                        <p className="text-sm font-medium">{item.label}</p>
-                        {item.description && (
-                          <p className="text-xs text-muted-foreground">{item.description}</p>
-                        )}
-                      </div>
-                    </Button>
-                  </Link>
-                ))}
-              </div>
-
-              {/* Sign Out */}
-              <div className="border-t border-border pt-2">
-                <Button
-                  variant="ghost"
-                  onClick={handleSignOut}
-                  className="w-full px-4 py-2 h-auto text-left hover:bg-destructive/10 transition-colors flex items-center gap-3 text-destructive rounded-none justify-start"
-                >
-                  <LogOut className="h-4 w-4" />
-                  <span className="text-sm font-medium">Sign out</span>
-                </Button>
-              </div>
             </div>
-          )}
+
+            {/* Menu Items */}
+            <div className="py-1.5 px-1.5">
+              {dropdownItems.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  <button
+                    onClick={() => setIsDropdownOpen(false)}
+                    className={cn(
+                      "w-full px-3 py-2.5 text-left transition-colors duration-150 flex items-start gap-3 rounded-lg",
+                      "hover:bg-muted/70 group"
+                    )}
+                  >
+                    <span className="w-8 h-8 rounded-lg bg-muted group-hover:bg-primary/10 flex items-center justify-center shrink-0 transition-colors duration-150">
+                      <item.icon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors duration-150" />
+                    </span>
+                    <div className="flex-1 min-w-0 pt-0.5">
+                      <p className="text-sm font-medium">{item.label}</p>
+                      {item.description && (
+                        <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
+                      )}
+                    </div>
+                  </button>
+                </Link>
+              ))}
+            </div>
+
+            {/* Sign Out */}
+            <div className="border-t border-border/60 p-1.5">
+              <button
+                onClick={handleSignOut}
+                className={cn(
+                  "w-full px-3 py-2.5 text-left transition-colors duration-150 flex items-center gap-3 rounded-lg",
+                  "hover:bg-destructive/10 text-destructive group"
+                )}
+              >
+                <span className="w-8 h-8 rounded-lg bg-destructive/5 group-hover:bg-destructive/10 flex items-center justify-center shrink-0 transition-colors duration-150">
+                  <LogOut className="h-4 w-4" />
+                </span>
+                <span className="text-sm font-medium">Sign out</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2.5">
       <Link href="/auth/signin">
-        <Button variant="outline" size="sm">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="text-sm font-medium hover:bg-muted transition-colors duration-200 rounded-lg"
+        >
           Sign in
         </Button>
       </Link>
       <Link href="/auth/signup">
-        <Button size="sm" className="hidden sm:inline-flex">
+        <Button
+          size="sm"
+          className={cn(
+            "hidden sm:inline-flex text-sm font-medium rounded-lg",
+            "bg-primary hover:bg-primary/90 text-primary-foreground",
+            "shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/25",
+            "transition-all duration-200 active:scale-[0.97]"
+          )}
+        >
           Get Started
         </Button>
       </Link>

@@ -171,9 +171,9 @@ export default function DictionarySearch({
   return (
     <div className="space-y-4">
       {/* Search & Filter Bar */}
-      <div className="rounded-xl border bg-card overflow-hidden">
+      <div className="rounded-xl border bg-card overflow-hidden shadow-sm">
         {/* Search input row */}
-        <div className="p-4">
+        <div className="p-4 md:p-5">
           <div className="flex items-center gap-3">
             <div className="flex-1 relative">
               <SearchInput
@@ -185,26 +185,26 @@ export default function DictionarySearch({
             </div>
             <div className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground">
               {currentPagination && (
-                <span>{currentPagination.total.toLocaleString()} words</span>
+                <span className="px-3 py-1.5 rounded-lg bg-muted/50 font-medium">{currentPagination.total.toLocaleString()} words</span>
               )}
             </div>
           </div>
         </div>
 
         {/* Alphabet strip */}
-        <div className="border-t px-4 py-2.5 bg-muted/30">
+        <div className="border-t px-4 md:px-5 py-3 bg-muted/20">
           <div className="flex items-center gap-1">
-            <span className="text-xs text-muted-foreground mr-1 hidden sm:block">Browse:</span>
+            <span className="text-xs font-medium text-muted-foreground mr-1.5 hidden sm:block uppercase tracking-wider">Browse:</span>
             <div className="flex flex-wrap gap-0.5">
               {ALPHABET.map((letter) => (
                 <button
                   key={letter}
                   onClick={() => handleLetterClick(letter)}
                   className={cn(
-                    'w-7 h-7 sm:w-8 sm:h-8 rounded-md text-xs sm:text-sm font-medium transition-all duration-150',
+                    'w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs sm:text-sm font-medium transition-all duration-150',
                     activeLetter === letter.toLowerCase()
-                      ? 'bg-primary text-primary-foreground shadow-sm'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                      ? 'bg-amber-600 dark:bg-amber-700 text-white shadow-sm'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-amber-100 dark:hover:bg-amber-900/30'
                   )}
                 >
                   {letter}
@@ -214,7 +214,7 @@ export default function DictionarySearch({
             {hasActiveFilters && (
               <button
                 onClick={clearFilters}
-                className="ml-2 flex items-center gap-1 px-2 py-1 rounded-md text-xs text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                className="ml-2 flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
               >
                 <X className="w-3 h-3" />
                 Clear
@@ -273,9 +273,9 @@ export default function DictionarySearch({
 
           {/* Pagination */}
           {currentPagination && currentPagination.totalPages > 1 && (
-            <div className="flex items-center justify-between gap-4 pt-2">
+            <div className="flex items-center justify-between gap-4 pt-4 border-t">
               <p className="text-sm text-muted-foreground hidden sm:block">
-                Showing {((currentPagination.page - 1) * currentPagination.limit) + 1}&ndash;{Math.min(currentPagination.page * currentPagination.limit, currentPagination.total)} of {currentPagination.total.toLocaleString()}
+                Showing <span className="font-medium text-foreground">{((currentPagination.page - 1) * currentPagination.limit) + 1}&ndash;{Math.min(currentPagination.page * currentPagination.limit, currentPagination.total)}</span> of {currentPagination.total.toLocaleString()}
               </p>
 
               <div className="flex items-center gap-1 mx-auto sm:mx-0">
@@ -313,10 +313,10 @@ export default function DictionarySearch({
                       onClick={() => handlePageChange(pageNum)}
                       disabled={isLoadingOrPending}
                       className={cn(
-                        'w-8 h-8 rounded-md text-sm font-medium transition-colors',
+                        'w-8 h-8 rounded-lg text-sm font-medium transition-colors',
                         currentPagination.page === pageNum
-                          ? 'bg-primary text-primary-foreground'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                          ? 'bg-amber-600 dark:bg-amber-700 text-white shadow-sm'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-amber-100 dark:hover:bg-amber-900/30'
                       )}
                     >
                       {pageNum}

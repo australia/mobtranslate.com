@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
 import { LoadingState } from '@/components/layout/LoadingState';
 import { Badge, Button } from '@mobtranslate/ui';
-import { Trophy, Globe, Zap, Users, Sparkles } from 'lucide-react';
+import { Trophy, Globe, Users, Sparkles } from 'lucide-react';
 import LeaderboardCard from '../../components/leaderboard/LeaderboardCard';
 import PeriodSelector from '../../components/leaderboard/PeriodSelector';
 import LeaderboardStats from '../../components/leaderboard/LeaderboardStats';
@@ -43,7 +43,7 @@ interface LeaderboardOverviewData {
 export default function LeaderboardOverviewPage() {
   const { user, loading: authLoading } = useAuth();
   const router = useRouter();
-  
+
   const [loading, setLoading] = useState(true);
   const [overviewData, setOverviewData] = useState<LeaderboardOverviewData | null>(null);
   const [period, setPeriod] = useState('all');
@@ -53,13 +53,13 @@ export default function LeaderboardOverviewPage() {
       console.log('[Leaderboard Overview] Auth still loading...');
       return;
     }
-    
+
     if (!user) {
       console.log('[Leaderboard Overview] No user found, redirecting to login');
       router.push('/login');
       return;
     }
-    
+
     console.log('[Leaderboard Overview] User authenticated, fetching data');
     fetchOverviewData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -70,7 +70,7 @@ export default function LeaderboardOverviewPage() {
     try {
       const response = await fetch(`/api/v2/leaderboard/overview?period=${period}`);
       if (!response.ok) throw new Error('Failed to fetch leaderboard overview');
-      
+
       const data = await response.json();
       setOverviewData(data);
     } catch (error) {
@@ -85,37 +85,38 @@ export default function LeaderboardOverviewPage() {
   // Calculate aggregate stats
   const totalQuestions = overviewData?.leaderboards.reduce((sum, l) => sum + l.totalQuestions, 0) || 0;
   const totalParticipants = overviewData?.leaderboards.reduce((sum, l) => sum + l.totalParticipants, 0) || 0;
-  const averageAccuracy = overviewData?.leaderboards.length 
-    ? overviewData.leaderboards.reduce((sum, l) => sum + l.averageAccuracy, 0) / overviewData.leaderboards.length 
+  const averageAccuracy = overviewData?.leaderboards.length
+    ? overviewData.leaderboards.reduce((sum, l) => sum + l.averageAccuracy, 0) / overviewData.leaderboards.length
     : 0;
 
   return (
     <SharedLayout>
       <div className="min-h-screen">
         <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          <div className="py-6 md:py-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          {/* Page Header */}
+          <div className="py-8 md:py-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100/80 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-medium mb-4">
               <Trophy className="w-3.5 h-3.5" />
               Competition
             </div>
-            <div className="flex items-center gap-3 flex-wrap">
-              <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
-                Global Leaderboards
+            <div className="flex items-center gap-4 flex-wrap">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-foreground">
+                Leaderboard
               </h1>
               {overviewData && (
                 <div className="flex items-center gap-2">
-                  <Badge variant="outline" className="gap-1">
+                  <Badge variant="outline" className="gap-1.5 border-border/60 text-muted-foreground">
                     <Globe className="h-3 w-3" />
                     {overviewData.totalLanguages} languages
                   </Badge>
-                  <Badge variant="outline" className="gap-1">
+                  <Badge variant="outline" className="gap-1.5 border-border/60 text-muted-foreground">
                     <Users className="h-3 w-3" />
                     {totalParticipants} learners
                   </Badge>
                 </div>
               )}
             </div>
-            <p className="text-muted-foreground mt-2">
+            <p className="text-muted-foreground mt-2 text-base lg:text-lg max-w-2xl">
               Compete across languages and track your progress worldwide
             </p>
           </div>
@@ -124,19 +125,16 @@ export default function LeaderboardOverviewPage() {
           <PeriodSelector
             selectedPeriod={period}
             onPeriodChange={setPeriod}
-            className="mt-6"
           />
 
           {loading ? (
-            <LoadingState />
+            <div className="mt-12">
+              <LoadingState />
+            </div>
           ) : overviewData ? (
             <>
-              {/* Global Statistics */}
-              <div className="mt-12">
-                <h2 className="text-2xl font-display font-bold mb-8 flex items-center">
-                  <Zap className="h-5 w-5 mr-2 text-warning" />
-                  Global Statistics
-                </h2>
+              {/* Global Statistics Summary Bar */}
+              <div className="mt-10">
                 <LeaderboardStats
                   totalLanguages={overviewData.totalLanguages}
                   totalParticipants={totalParticipants}
@@ -145,14 +143,16 @@ export default function LeaderboardOverviewPage() {
                 />
               </div>
 
-              {/* Active Languages */}
+              {/* Active Language Leaderboards */}
               {overviewData.leaderboards.length > 0 ? (
-                <div className="mt-12">
-                  <h2 className="text-2xl font-display font-bold mb-8 flex items-center">
-                    <Trophy className="h-5 w-5 mr-2 text-muted-foreground" />
-                    Language Leaderboards
+                <div className="mt-14">
+                  <h2 className="text-2xl lg:text-3xl font-display font-bold mb-8 flex items-center gap-2.5">
+                    <div className="p-2 rounded-lg bg-amber-100/80 dark:bg-amber-900/30">
+                      <Trophy className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                    </div>
+                    Language Champions
                   </h2>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
                     {overviewData.leaderboards.map((leaderboard) => (
                       <LeaderboardCard
                         key={leaderboard.languageId}
@@ -169,15 +169,17 @@ export default function LeaderboardOverviewPage() {
                   </div>
                 </div>
               ) : (
-                <div className="mt-12">
-                  <div className="text-center py-12">
-                    <Trophy className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-foreground mb-2">No Active Leaderboards</h3>
-                    <p className="text-muted-foreground mb-6">
-                      No one has started learning yet for the selected time period.
+                <div className="mt-14">
+                  <div className="text-center py-16 bg-card rounded-2xl border border-border/60">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-5">
+                      <Trophy className="h-8 w-8 text-muted-foreground" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">No Active Leaderboards</h3>
+                    <p className="text-muted-foreground mb-8 max-w-sm mx-auto">
+                      No one has started learning yet for the selected time period. Be the first!
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                      <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
+                      <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white">
                         <a href="/dashboard">
                           View Dashboard
                         </a>
@@ -192,48 +194,50 @@ export default function LeaderboardOverviewPage() {
                 </div>
               )}
 
-              {/* All Languages (including inactive) */}
+              {/* Available Languages (inactive) */}
               {overviewData.allLanguages.filter(l => l.totalParticipants === 0).length > 0 && (
-                <div className="mt-12">
-                  <h2 className="text-2xl font-display font-bold mb-8 flex items-center">
-                    <Globe className="h-5 w-5 mr-2 text-muted-foreground" />
+                <div className="mt-14">
+                  <h2 className="text-2xl lg:text-3xl font-display font-bold mb-2 flex items-center gap-2.5">
+                    <div className="p-2 rounded-lg bg-muted">
+                      <Globe className="h-5 w-5 text-muted-foreground" />
+                    </div>
                     Available Languages
-                    <span className="ml-2 text-sm font-normal text-muted-foreground">
-                      (No activity yet)
-                    </span>
                   </h2>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+                  <p className="text-sm text-muted-foreground mb-6 ml-12">No activity yet -- start learning to claim the top spot</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
                     {overviewData.allLanguages
                       .filter(l => l.totalParticipants === 0)
                       .map((language) => (
                         <a
                           key={language.languageId}
                           href={`/learn/${language.languageCode}`}
-                          className="block p-4 bg-card rounded-lg border border-border hover:border-primary/30 hover:shadow-md transition-all text-center group"
+                          className="block p-4 bg-card rounded-xl border border-border/60 hover:border-amber-400/40 hover:shadow-md transition-all duration-200 text-center group"
                         >
-                          <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                          <h3 className="font-medium text-foreground group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors text-sm">
                             {language.languageName}
                           </h3>
-                          <p className="text-sm text-muted-foreground mt-1">Start learning</p>
+                          <p className="text-xs text-muted-foreground mt-1">Start learning</p>
                         </a>
                       ))}
                   </div>
                 </div>
               )}
 
-              {/* Footer Note */}
-              <div className="mt-12 text-center text-sm text-muted-foreground">
+              {/* Footer */}
+              <div className="mt-14 mb-8 text-center text-sm text-muted-foreground border-t border-border/40 pt-6">
                 <p>
                   Data updated: {new Date(overviewData.generatedAt).toLocaleString()}
                 </p>
                 <p className="mt-1">
-                  Showing results for: <span className="font-medium capitalize">{period === 'all' ? 'all time' : period}</span>
+                  Showing results for: <span className="font-medium capitalize text-foreground">{period === 'all' ? 'all time' : period}</span>
                 </p>
               </div>
             </>
           ) : (
-            <div className="mt-8 text-center">
-              <Trophy className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+            <div className="mt-12 text-center py-16">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4">
+                <Trophy className="h-8 w-8 text-muted-foreground" />
+              </div>
               <p className="text-muted-foreground">Unable to load leaderboard data</p>
             </div>
           )}

@@ -22,15 +22,15 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
   return (
     <div className="space-y-6">
       {/* Main Definition Card */}
-      <Card>
+      <Card className="border-l-4 border-l-amber-500/70 dark:border-l-amber-600/70 shadow-sm">
         <CardContent className="p-6 sm:p-8">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1 min-w-0">
               {/* Phonetic */}
               {word.phonetic_transcription && (
-                <div className="flex items-center gap-2 mb-3">
-                  <Volume2 className="w-4 h-4 text-muted-foreground" />
-                  <span className="font-mono text-muted-foreground">/{word.phonetic_transcription}/</span>
+                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-dashed">
+                  <Volume2 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                  <span className="font-mono text-lg text-muted-foreground">/{word.phonetic_transcription}/</span>
                 </div>
               )}
 
@@ -38,14 +38,14 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
               {definitions.length > 0 && (
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <BookOpen className="w-4 h-4 text-primary" />
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
+                    <BookOpen className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400">
                       Definition{definitions.length > 1 ? 's' : ''}
                     </h3>
                   </div>
-                  <ol className={definitions.length > 1 ? 'list-decimal list-inside space-y-2' : 'space-y-2'}>
+                  <ol className={definitions.length > 1 ? 'list-decimal list-inside space-y-3' : 'space-y-3'}>
                     {definitions.map((def, i) => (
-                      <li key={i} className="text-base leading-relaxed">
+                      <li key={i} className="text-base md:text-lg leading-relaxed">
                         {def}
                       </li>
                     ))}
@@ -56,12 +56,12 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
               {/* Translations */}
               {translations.length > 0 && (
                 <div className="mb-6">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
                     Translations
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {translations.map((t, i) => (
-                      <span key={i} className="px-3 py-1.5 rounded-lg bg-primary/5 text-sm font-medium">
+                      <span key={i} className="px-3.5 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-sm font-medium text-amber-800 dark:text-amber-300">
                         {t}
                       </span>
                     ))}
@@ -71,11 +71,13 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
 
               {/* Cultural Context */}
               {word.cultural_contexts?.[0]?.context_description && (
-                <div className="p-4 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50">
-                  <div className="flex items-start gap-2">
-                    <Info className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+                <div className="p-5 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center shrink-0 mt-0.5">
+                      <Info className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                    </div>
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-1">
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-1.5">
                         Cultural Context
                       </h4>
                       <p className="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
@@ -97,20 +99,20 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
 
       {/* Usage Examples */}
       {word.usage_examples && word.usage_examples.length > 0 && (
-        <Card>
+        <Card className="shadow-sm">
           <CardContent className="p-6 sm:p-8">
-            <div className="flex items-center gap-2 mb-4">
-              <MessageSquareQuote className="w-4 h-4 text-primary" />
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <div className="flex items-center gap-2 mb-5">
+              <MessageSquareQuote className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400">
                 Usage Examples
               </h3>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-5">
               {word.usage_examples.map((example, index) => (
-                <blockquote key={index} className="border-l-2 border-primary/30 pl-4 py-1">
-                  <p className="italic text-base">&ldquo;{example.example_text}&rdquo;</p>
+                <blockquote key={index} className="border-l-3 border-amber-400/50 dark:border-amber-600/50 pl-5 py-2 bg-muted/30 rounded-r-lg">
+                  <p className="italic text-base md:text-lg">&ldquo;{example.example_text}&rdquo;</p>
                   {example.translation && (
-                    <p className="text-sm text-muted-foreground mt-1.5">
+                    <p className="text-sm text-muted-foreground mt-2">
                       {example.translation}
                     </p>
                   )}
@@ -123,7 +125,7 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
 
       {/* Notes */}
       {word.notes && (
-        <Card>
+        <Card className="shadow-sm">
           <CardContent className="p-6 sm:p-8">
             <div className="flex items-center gap-2 mb-3">
               <Info className="w-4 h-4 text-muted-foreground" />

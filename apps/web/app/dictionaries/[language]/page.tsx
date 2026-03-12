@@ -5,17 +5,17 @@ import DictionarySearch from './components/DictionarySearch';
 import { Badge } from '@mobtranslate/ui';
 
 import Link from 'next/link';
-import { ChevronRight, MapPin, BookOpen, ArrowLeft } from 'lucide-react';
+import { ChevronRight, MapPin, BookOpen, ArrowLeft, Type } from 'lucide-react';
 
 const Breadcrumbs = ({ items, className }: { items: { href: string; label: string }[]; className?: string }) => (
   <nav className={`flex items-center gap-2 text-sm ${className || ''}`}>
     {items.map((item, index) => (
       <React.Fragment key={item.href}>
-        {index > 0 && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
+        {index > 0 && <ChevronRight className="h-4 w-4 text-muted-foreground/50" />}
         {index === items.length - 1 ? (
           <span className="text-foreground font-medium">{item.label}</span>
         ) : (
-          <Link href={item.href} className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link href={item.href} className="text-muted-foreground hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
             {item.label}
           </Link>
         )}
@@ -77,69 +77,79 @@ export default async function DictionaryPage({
       words: transformWordsForUI(words)
     };
 
+    // Gather unique word classes for stats
+    const wordClassSet = new Set<string>();
+    words.forEach(w => { if (w.word_class?.name) wordClassSet.add(w.word_class.name); });
+    const wordClasses = Array.from(wordClassSet);
+
     return (
       <SharedLayout>
         {/* Header */}
-        <div className="py-6 md:py-10">
+        <div className="py-8 md:py-12">
           <Breadcrumbs items={breadcrumbItems} className="mb-6" />
 
-          <div className="flex items-start justify-between gap-4 flex-wrap">
-            <div>
-              <div className="flex items-center gap-3 mb-2">
-                <Link
-                  href="/dictionaries"
-                  className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                </Link>
-                <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
-                  {languageData.name}
-                </h1>
-              </div>
-              <p className="text-muted-foreground max-w-2xl ml-11">
-                {languageData.description || `Explore the ${languageData.name} language dictionary`}
-              </p>
-            </div>
-
-            <div className="flex items-center gap-2 flex-wrap ml-11 md:ml-0">
-              {languageData.region && (
-                <Badge variant="secondary" className="gap-1">
-                  <MapPin className="w-3 h-3" />
-                  {languageData.region}
-                </Badge>
-              )}
-              <Badge variant="outline" className="gap-1">
-                <BookOpen className="w-3 h-3" />
-                {pagination.total.toLocaleString()} words
+          <div className="flex items-center gap-3 mb-4">
+            <Link
+              href="/dictionaries"
+              className="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center hover:bg-amber-200 dark:hover:bg-amber-800/50 transition-colors shadow-sm"
+            >
+              <ArrowLeft className="w-4 h-4 text-amber-700 dark:text-amber-400" />
+            </Link>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight">
+              {languageData.name}
+            </h1>
+            {languageData.status && (
+              <Badge
+                variant="secondary"
+                className={
+                  languageData.status === 'severely endangered' || languageData.status === 'endangered'
+                    ? 'bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300 border-red-200 dark:border-red-800 ml-1'
+                    : languageData.status === 'active' || languageData.status === 'vitalized'
+                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 ml-1'
+                    : 'ml-1'
+                }
+              >
+                {languageData.status}
               </Badge>
-              {languageData.status && (
-                <Badge
-                  variant={
-                    languageData.status === 'severely endangered' ? 'destructive' :
-                    languageData.status === 'endangered' ? 'destructive' :
-                    'secondary'
-                  }
-                >
-                  {languageData.status}
-                </Badge>
-              )}
+            )}
+          </div>
+
+          <p className="text-muted-foreground max-w-3xl mb-6 text-base md:text-lg leading-relaxed">
+            {languageData.description || `Explore the ${languageData.name} language dictionary`}
+          </p>
+
+          {/* Stats row */}
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            {languageData.region && (
+              <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card border shadow-sm">
+                <MapPin className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                <span className="text-sm font-medium">{languageData.region}</span>
+              </div>
+            )}
+            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card border shadow-sm">
+              <BookOpen className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              <span className="text-sm font-medium">{pagination.total.toLocaleString()} words</span>
             </div>
+            {wordClasses.length > 0 && (
+              <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card border shadow-sm">
+                <Type className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                <span className="text-sm font-medium">{wordClasses.length} word classes</span>
+              </div>
+            )}
           </div>
 
           {/* Map link */}
-          <div className="mt-4 ml-11">
-            <Link
-              href={`/dictionaries/${language}/map`}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium hover:bg-primary/20 transition-colors"
-            >
-              <MapPin className="w-4 h-4" />
-              View place names on map
-            </Link>
-          </div>
+          <Link
+            href={`/dictionaries/${language}/map`}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-300 text-sm font-medium hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors border border-amber-200 dark:border-amber-800/50 shadow-sm"
+          >
+            <MapPin className="w-4 h-4" />
+            View place names on map
+          </Link>
         </div>
 
         {/* Dictionary content */}
-        <div className="pb-12">
+        <div className="pb-16">
           <DictionarySearch
             dictionary={dictionary}
             initialSearch={searchParams.search || ''}

@@ -13,13 +13,63 @@ body {
   color: var(--color-foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+/* SELECTION — warm ochre highlight */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+/* SMOOTH DARK MODE TRANSITIONS */
+*,
+*::before,
+*::after {
+  transition-property: none;
+}
+
+.dark-transition,
+.dark-transition *,
+.dark-transition *::before,
+.dark-transition *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, fill 0.3s ease, stroke 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* PAGE TRANSITION ANIMATIONS */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: page-enter 0.4s ease-out;
+}
+
+/* FOCUS STYLES — warm ring using primary color */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-ring);
 }
 
 /* 3D CARD UTILITIES */
@@ -70,9 +120,15 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: scale(1); }
 }
 
+@keyframes pulse-gentle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
 .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
 .animate-slide-in { animation: slideIn 0.3s ease-out backwards; }
 .animate-scale-in { animation: scaleIn 0.2s ease-out; }
+.animate-pulse-gentle { animation: pulse-gentle 2s ease-in-out infinite; }
 
 /* INTERACTIVE UTILITIES */
 @keyframes shimmer {
@@ -94,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .hover-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgb(46 39 32 / 0.1);
 }
 
 .hover-grow {
@@ -104,16 +160,13 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.03);
 }
 
-:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--color-accent), 0 0 0 4px transparent;
-}
-
+/* SCROLLBAR — warm tinted */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background-color: rgba(from var(--color-muted) r g b / 0.3); }
-::-webkit-scrollbar-thumb { background-color: rgba(from var(--color-primary) r g b / 0.4); border-radius: 9999px; }
-::-webkit-scrollbar-thumb:hover { background-color: rgba(from var(--color-primary) r g b / 0.6); }
+::-webkit-scrollbar-track { background-color: rgb(from var(--color-muted) r g b / 0.3); }
+::-webkit-scrollbar-thumb { background-color: rgb(from var(--color-primary) r g b / 0.3); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background-color: rgb(from var(--color-primary) r g b / 0.5); }
 
+/* CONTAINER */
 .container-custom {
   max-width: 80rem;
   margin-left: auto;
@@ -130,6 +183,111 @@ h1, h2, h3, h4, h5, h6 {
   .container-custom { padding-left: 2rem; padding-right: 2rem; }
 }
 
+/* LINK STYLES — subtle underline animation */
+a:not([class]) {
+  color: var(--color-primary);
+  text-decoration-color: rgb(from var(--color-primary) r g b / 0.3);
+  text-underline-offset: 2px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+a:not([class]):hover {
+  text-decoration-color: var(--color-primary);
+}
+
+/* REDUCED MOTION — disable ALL animations for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
+}
+
+/* ===== ACCESSIBILITY UTILITIES ===== */
+
+/* Skip-to-content link — visually hidden until focused */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  text-decoration: none;
+  opacity: 0;
+  transition: top 0.15s ease, opacity 0.15s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+  opacity: 1;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Enhanced focus-visible for interactive elements */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-primary);
+}
+
+/* High contrast mode adjustments (Windows High Contrast / forced-colors) */
+@media (forced-colors: active) {
+  * {
+    border-color: CanvasText !important;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    forced-color-adjust: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px;
+    box-shadow: none !important;
+  }
+
+  .bg-primary,
+  .bg-muted {
+    forced-color-adjust: none;
+  }
+}
+
+/* Smooth color-scheme declaration for dark mode support */
+html {
+  color-scheme: light dark;
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

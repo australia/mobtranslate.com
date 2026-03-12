@@ -24,7 +24,8 @@ import {
   Zap,
   Award,
   Filter,
-  Sparkles
+  Sparkles,
+  Flame
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -33,7 +34,7 @@ export default function DictionaryStatsPage() {
   const router = useRouter();
   const params = useParams();
   const languageCode = params.dictionary as string;
-  
+
   const [showAsCards, setShowAsCards] = useState(false);
   const [languageName, setLanguageName] = useState<string>('');
   const { data: stats, error, isLoading } = useStatsData(languageCode);
@@ -57,7 +58,7 @@ export default function DictionaryStatsPage() {
         console.error('Error fetching language name:', error);
       }
     };
-    
+
     fetchLanguageName();
   }, [languageCode]);
 
@@ -66,7 +67,7 @@ export default function DictionaryStatsPage() {
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 1);
-    
+
     if (date.toDateString() === today.toDateString()) {
       return `Today at ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
     } else if (date.toDateString() === yesterday.toDateString()) {
@@ -81,7 +82,7 @@ export default function DictionaryStatsPage() {
       const response = await fetch(`/api/v2/likes/word/${wordId}`, {
         method: liked ? 'POST' : 'DELETE',
       });
-      
+
       if (!response.ok) throw new Error('Failed to update like');
     } catch (error) {
       console.error('Failed to like word:', error);
@@ -95,30 +96,32 @@ export default function DictionaryStatsPage() {
     <SharedLayout>
       <div className="min-h-screen">
         <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
-          <div className="mb-6 animate-slide-in">
-            <Link href="/stats" className="inline-flex items-center text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="h-4 w-4 mr-1" />
+          {/* Back Link */}
+          <div className="pt-6 mb-2">
+            <Link href="/stats" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <ArrowLeft className="h-4 w-4" />
               Back to Stats Overview
             </Link>
           </div>
 
+          {/* Page Header */}
           <div className="py-6 md:py-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100/80 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-medium mb-4">
               <Sparkles className="w-3.5 h-3.5" />
               Language Analytics
             </div>
             <div className="flex items-center gap-3 flex-wrap">
-              <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-foreground">
                 {languageName || languageCode} Statistics
               </h1>
               {stats?.overall.streakDays > 0 && (
-                <Badge variant="outline" className="gap-1 animate-scale-in">
-                  <Trophy className="h-3 w-3 text-amber-500" />
+                <Badge variant="outline" className="gap-1.5 border-amber-300/60 dark:border-amber-700/40 text-amber-700 dark:text-amber-300">
+                  <Flame className="h-3 w-3" />
                   {stats.overall.streakDays} day streak
                 </Badge>
               )}
             </div>
-            <p className="text-muted-foreground mt-2">
+            <p className="text-muted-foreground mt-2 text-base lg:text-lg max-w-2xl">
               Track your learning progress and performance
             </p>
           </div>
@@ -126,40 +129,40 @@ export default function DictionaryStatsPage() {
           {isLoading ? (
             <DashboardSkeleton />
           ) : error ? (
-            <div className="mt-8 text-center">
-              <p className="text-error">Failed to load stats data</p>
-              <Button onClick={() => window.location.reload()} className="mt-4">
+            <div className="mt-8 text-center py-16 bg-card rounded-2xl border border-border/60">
+              <p className="text-red-600 dark:text-red-400 font-medium">Failed to load stats data</p>
+              <Button onClick={() => window.location.reload()} className="mt-4" variant="outline">
                 Retry
               </Button>
             </div>
           ) : !stats || stats.overall.totalAttempts === 0 ? (
             <div className="mt-8">
-              <Card className="max-w-md mx-auto">
-                <CardContent className="p-8 text-center">
-                  <BarChart3 className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">No Stats Yet</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Start learning {languageName || languageCode} to see your progress here.
-                  </p>
-                  <Link href={`/learn/${languageCode}`}>
-                    <Button className="hover-grow">
-                      <BookOpen className="h-4 w-4 mr-2" />
-                      Start Learning
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+              <div className="text-center py-16 bg-card rounded-2xl border border-border/60 max-w-md mx-auto">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-5">
+                  <BarChart3 className="h-8 w-8 text-muted-foreground" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">No Stats Yet</h3>
+                <p className="text-muted-foreground mb-6 px-6">
+                  Start learning {languageName || languageCode} to see your progress here.
+                </p>
+                <Link href={`/learn/${languageCode}`}>
+                  <Button className="bg-amber-600 hover:bg-amber-700 text-white">
+                    <BookOpen className="h-4 w-4 mr-2" />
+                    Start Learning
+                  </Button>
+                </Link>
+              </div>
             </div>
           ) : (
             <>
               {/* Overview Stats */}
-              <div className="mt-8">
+              <div className="mt-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <StatsCard
                     title="Total Words Seen"
                     value={stats.overall.totalWords}
                     icon={Brain}
-                    iconColor="text-primary"
+                    iconColor="text-blue-600 dark:text-blue-400"
                     className="animate-slide-in"
                     style={{ animationDelay: '0ms' }}
                   />
@@ -169,11 +172,11 @@ export default function DictionaryStatsPage() {
                     value={stats.overall.masteredWords}
                     description={`of ${stats.overall.totalWords} words`}
                     icon={Award}
-                    iconColor="text-success"
+                    iconColor="text-emerald-600 dark:text-emerald-400"
                     progress={{
                       value: stats.overall.masteredWords,
                       max: stats.overall.totalWords,
-                      color: 'bg-success'
+                      color: 'bg-emerald-500'
                     }}
                     className="animate-slide-in"
                     style={{ animationDelay: '50ms' }}
@@ -183,12 +186,12 @@ export default function DictionaryStatsPage() {
                     title="Overall Accuracy"
                     value={`${stats.overall.accuracy.toFixed(1)}%`}
                     icon={Target}
-                    iconColor="text-muted-foreground"
+                    iconColor="text-amber-600 dark:text-amber-400"
                     progress={{
                       value: stats.overall.accuracy,
                       max: 100,
-                      color: stats.overall.accuracy >= 80 ? 'bg-success' :
-                             stats.overall.accuracy >= 60 ? 'bg-warning' : 'bg-error'
+                      color: stats.overall.accuracy >= 80 ? 'bg-emerald-500' :
+                             stats.overall.accuracy >= 60 ? 'bg-amber-500' : 'bg-red-500'
                     }}
                     className="animate-slide-in"
                     style={{ animationDelay: '100ms' }}
@@ -199,7 +202,7 @@ export default function DictionaryStatsPage() {
                     value={stats.overall.streakDays}
                     description="days"
                     icon={Zap}
-                    iconColor="text-warning"
+                    iconColor="text-orange-600 dark:text-orange-400"
                     trend={stats.overall.streakDays > 0 ? {
                       value: stats.overall.streakDays,
                       isPositive: true
@@ -212,10 +215,12 @@ export default function DictionaryStatsPage() {
 
               {/* Progress Overview */}
               <div className="mt-8">
-                <Card className="animate-slide-in" style={{ animationDelay: '200ms' }}>
+                <Card className="animate-slide-in border-border/60" style={{ animationDelay: '200ms' }}>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Target className="h-5 w-5 text-primary" />
+                    <CardTitle className="flex items-center gap-2.5">
+                      <div className="p-2 rounded-lg bg-amber-100 dark:bg-amber-900/30">
+                        <Target className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                      </div>
                       Learning Progress
                     </CardTitle>
                   </CardHeader>
@@ -223,16 +228,16 @@ export default function DictionaryStatsPage() {
                     <div className="space-y-4">
                       <div>
                         <div className="flex justify-between text-sm mb-2">
-                          <span>Overall Progress</span>
-                          <span className="font-medium">
-                            {stats.overall.totalWords > 0 
+                          <span className="text-muted-foreground font-medium">Overall Progress</span>
+                          <span className="font-bold text-foreground">
+                            {stats.overall.totalWords > 0
                               ? Math.round((stats.overall.masteredWords / stats.overall.totalWords) * 100)
                               : 0}%
                           </span>
                         </div>
                         <div className="h-3 bg-muted rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-500"
+                            className="h-full bg-gradient-to-r from-amber-500 to-orange-400 transition-all duration-500 rounded-full"
                             style={{
                               width: `${stats.overall.totalWords > 0
                                 ? (stats.overall.masteredWords / stats.overall.totalWords) * 100
@@ -241,19 +246,19 @@ export default function DictionaryStatsPage() {
                           />
                         </div>
                       </div>
-                      
+
                       <div className="grid grid-cols-3 gap-4 text-center pt-4">
-                        <div>
-                          <div className="text-2xl font-bold">{stats.overall.totalAttempts}</div>
-                          <div className="text-sm text-muted-foreground">Total Attempts</div>
+                        <div className="p-3 rounded-xl bg-muted/50">
+                          <div className="text-2xl lg:text-3xl font-bold text-foreground">{stats.overall.totalAttempts}</div>
+                          <div className="text-xs text-muted-foreground font-medium mt-1">Total Attempts</div>
                         </div>
-                        <div>
-                          <div className="text-2xl font-bold text-success">{stats.overall.correctAttempts}</div>
-                          <div className="text-sm text-muted-foreground">Correct Answers</div>
+                        <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/20">
+                          <div className="text-2xl lg:text-3xl font-bold text-emerald-600 dark:text-emerald-400">{stats.overall.correctAttempts}</div>
+                          <div className="text-xs text-muted-foreground font-medium mt-1">Correct Answers</div>
                         </div>
-                        <div>
-                          <div className="text-2xl font-bold text-warning">{stats.overall.dueWords}</div>
-                          <div className="text-sm text-muted-foreground">Due for Review</div>
+                        <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/20">
+                          <div className="text-2xl lg:text-3xl font-bold text-amber-600 dark:text-amber-400">{stats.overall.dueWords}</div>
+                          <div className="text-xs text-muted-foreground font-medium mt-1">Due for Review</div>
                         </div>
                       </div>
                     </div>
@@ -263,51 +268,53 @@ export default function DictionaryStatsPage() {
 
               {/* Performance Trends */}
               <div className="mt-8">
-                <Card className="animate-slide-in" style={{ animationDelay: '250ms' }}>
+                <Card className="animate-slide-in border-border/60" style={{ animationDelay: '250ms' }}>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <TrendingUp className="h-5 w-5 text-success" />
+                    <CardTitle className="flex items-center gap-2.5">
+                      <div className="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-900/30">
+                        <TrendingUp className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                      </div>
                       Performance Trends
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="grid md:grid-cols-2 gap-6">
-                      <div className="p-4 bg-primary/10 rounded-lg">
-                        <h4 className="font-medium mb-3">Last 7 Days</h4>
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
+                      <div className="bg-gradient-to-br from-amber-50/80 to-orange-50/50 dark:from-amber-950/20 dark:to-orange-950/10 rounded-xl p-5 border border-amber-200/50 dark:border-amber-800/30">
+                        <h4 className="font-semibold text-foreground mb-4">Last 7 Days</h4>
+                        <div className="space-y-3">
+                          <div className="flex justify-between items-center">
                             <span className="text-sm text-muted-foreground">Attempts</span>
-                            <span className="font-medium">{stats.recent.last7Days.attempts}</span>
+                            <span className="font-semibold text-foreground">{stats.recent.last7Days.attempts}</span>
                           </div>
-                          <div className="flex justify-between">
+                          <div className="flex justify-between items-center">
                             <span className="text-sm text-muted-foreground">Correct</span>
-                            <span className="font-medium text-success">{stats.recent.last7Days.correct}</span>
+                            <span className="font-semibold text-emerald-600 dark:text-emerald-400">{stats.recent.last7Days.correct}</span>
                           </div>
-                          <div className="pt-2 border-t">
-                            <div className="text-2xl font-bold">
+                          <div className="pt-3 border-t border-amber-200/50 dark:border-amber-800/20">
+                            <p className="text-3xl font-bold text-foreground tracking-tight">
                               {stats.recent.last7Days.accuracy.toFixed(1)}%
-                            </div>
-                            <div className="text-sm text-muted-foreground">Accuracy</div>
+                            </p>
+                            <p className="text-sm text-muted-foreground">Accuracy</p>
                           </div>
                         </div>
                       </div>
-                      
-                      <div className="p-4 bg-muted rounded-lg">
-                        <h4 className="font-medium mb-3">Last 30 Days</h4>
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
+
+                      <div className="bg-muted/50 rounded-xl p-5 border border-border/40">
+                        <h4 className="font-semibold text-foreground mb-4">Last 30 Days</h4>
+                        <div className="space-y-3">
+                          <div className="flex justify-between items-center">
                             <span className="text-sm text-muted-foreground">Attempts</span>
-                            <span className="font-medium">{stats.recent.last30Days.attempts}</span>
+                            <span className="font-semibold text-foreground">{stats.recent.last30Days.attempts}</span>
                           </div>
-                          <div className="flex justify-between">
+                          <div className="flex justify-between items-center">
                             <span className="text-sm text-muted-foreground">Correct</span>
-                            <span className="font-medium text-success">{stats.recent.last30Days.correct}</span>
+                            <span className="font-semibold text-emerald-600 dark:text-emerald-400">{stats.recent.last30Days.correct}</span>
                           </div>
-                          <div className="pt-2 border-t">
-                            <div className="text-2xl font-bold">
+                          <div className="pt-3 border-t border-border/40">
+                            <p className="text-3xl font-bold text-foreground tracking-tight">
                               {stats.recent.last30Days.accuracy.toFixed(1)}%
-                            </div>
-                            <div className="text-sm text-muted-foreground">Accuracy</div>
+                            </p>
+                            <p className="text-sm text-muted-foreground">Accuracy</p>
                           </div>
                         </div>
                       </div>
@@ -318,11 +325,13 @@ export default function DictionaryStatsPage() {
 
               {/* Recent Activity */}
               <div className="mt-8">
-                <Card className="animate-slide-in" style={{ animationDelay: '300ms' }}>
+                <Card className="animate-slide-in border-border/60" style={{ animationDelay: '300ms' }}>
                   <CardHeader>
                     <div className="flex items-center justify-between">
-                      <CardTitle className="flex items-center gap-2">
-                        <Clock className="h-5 w-5 text-primary" />
+                      <CardTitle className="flex items-center gap-2.5">
+                        <div className="p-2 rounded-lg bg-orange-100 dark:bg-orange-900/30">
+                          <Clock className="h-4 w-4 text-orange-600 dark:text-orange-400" />
+                        </div>
                         Recent Activity
                       </CardTitle>
                       {stats.recentAttempts.length > 0 && (
@@ -330,9 +339,9 @@ export default function DictionaryStatsPage() {
                           variant="outline"
                           size="sm"
                           onClick={() => setShowAsCards(!showAsCards)}
-                          className="flex items-center gap-2"
+                          className="flex items-center gap-2 text-xs"
                         >
-                          <Filter className="h-4 w-4" />
+                          <Filter className="h-3.5 w-3.5" />
                           {showAsCards ? 'List View' : 'Card View'}
                         </Button>
                       )}
@@ -340,9 +349,12 @@ export default function DictionaryStatsPage() {
                   </CardHeader>
                   <CardContent>
                     {stats.recentAttempts.length === 0 ? (
-                      <p className="text-center text-muted-foreground py-8">
-                        No recent activity
-                      </p>
+                      <div className="text-center py-12">
+                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-muted mb-3">
+                          <Clock className="h-6 w-6 text-muted-foreground" />
+                        </div>
+                        <p className="text-muted-foreground">No recent activity</p>
+                      </div>
                     ) : showAsCards ? (
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {stats.recentAttempts.slice(0, 12).map((attempt: any, index: number) => (
@@ -364,11 +376,11 @@ export default function DictionaryStatsPage() {
                         ))}
                       </div>
                     ) : (
-                      <div className="space-y-2">
+                      <div className="space-y-1">
                         {stats.recentAttempts.slice(0, 20).map((attempt: any, index: number) => (
-                          <RecentAttemptRow 
-                            key={attempt.id || index} 
-                            attempt={attempt} 
+                          <RecentAttemptRow
+                            key={attempt.id || index}
+                            attempt={attempt}
                             onLike={handleWordLike}
                             formatDate={formatDate}
                           />
@@ -381,40 +393,46 @@ export default function DictionaryStatsPage() {
 
               {/* Quick Actions */}
               <div className="mt-8 mb-8">
-                <h2 className="text-lg sm:text-xl font-semibold mb-4">Quick Actions</h2>
+                <h2 className="text-xl lg:text-2xl font-display font-bold mb-6">Quick Actions</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <Link href={`/learn/${languageCode}`} className="block animate-slide-in hover-lift">
-                    <div className="bg-card rounded-xl border hover:border-success/30 p-4 sm:p-6 h-full transition-all">
+                  <Link href={`/learn/${languageCode}`} className="block group">
+                    <div className="bg-card rounded-xl border border-border/60 hover:border-emerald-400/40 hover:shadow-md p-5 sm:p-6 h-full transition-all duration-200 group-hover:-translate-y-0.5">
                       <div className="flex items-center justify-between">
                         <div className="min-w-0 flex-1">
-                          <h3 className="font-medium text-sm sm:text-base">Continue Learning</h3>
+                          <h3 className="font-semibold text-sm sm:text-base text-foreground">Continue Learning</h3>
                           <p className="text-xs sm:text-sm text-muted-foreground mt-1">Keep up your {stats.overall.streakDays} day streak!</p>
                         </div>
-                        <BookOpen className="h-6 w-6 sm:h-8 sm:w-8 text-success flex-shrink-0 ml-3" />
+                        <div className="p-2.5 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex-shrink-0 ml-3">
+                          <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 text-emerald-600 dark:text-emerald-400" />
+                        </div>
                       </div>
                     </div>
                   </Link>
 
-                  <Link href={`/dashboard/${languageCode}`} className="block animate-slide-in hover-lift" style={{ animationDelay: '50ms' }}>
-                    <div className="bg-card rounded-xl border hover:border-primary/30 p-4 sm:p-6 h-full transition-all">
+                  <Link href={`/dashboard/${languageCode}`} className="block group">
+                    <div className="bg-card rounded-xl border border-border/60 hover:border-blue-400/40 hover:shadow-md p-5 sm:p-6 h-full transition-all duration-200 group-hover:-translate-y-0.5">
                       <div className="flex items-center justify-between">
                         <div className="min-w-0 flex-1">
-                          <h3 className="font-medium text-sm sm:text-base">Language Dashboard</h3>
+                          <h3 className="font-semibold text-sm sm:text-base text-foreground">Language Dashboard</h3>
                           <p className="text-xs sm:text-sm text-muted-foreground mt-1">View detailed analytics</p>
                         </div>
-                        <BarChart3 className="h-6 w-6 sm:h-8 sm:w-8 text-primary flex-shrink-0 ml-3" />
+                        <div className="p-2.5 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex-shrink-0 ml-3">
+                          <BarChart3 className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 dark:text-blue-400" />
+                        </div>
                       </div>
                     </div>
                   </Link>
 
-                  <Link href={`/leaderboard/${languageCode}`} className="block animate-slide-in hover-lift" style={{ animationDelay: '100ms' }}>
-                    <div className="bg-warning/5 rounded-xl border border-warning/20 hover:border-warning/30 p-4 sm:p-6 h-full transition-all">
+                  <Link href={`/leaderboard/${languageCode}`} className="block group">
+                    <div className="bg-card rounded-xl border border-amber-200/60 dark:border-amber-800/30 hover:border-amber-400/60 hover:shadow-md p-5 sm:p-6 h-full transition-all duration-200 group-hover:-translate-y-0.5">
                       <div className="flex items-center justify-between">
                         <div className="min-w-0 flex-1">
-                          <h3 className="font-medium text-sm sm:text-base">Leaderboard</h3>
+                          <h3 className="font-semibold text-sm sm:text-base text-foreground">Leaderboard</h3>
                           <p className="text-xs sm:text-sm text-muted-foreground mt-1">Compete with other learners</p>
                         </div>
-                        <Trophy className="h-6 w-6 sm:h-8 sm:w-8 text-warning flex-shrink-0 ml-3" />
+                        <div className="p-2.5 rounded-lg bg-amber-100 dark:bg-amber-900/30 flex-shrink-0 ml-3">
+                          <Trophy className="h-5 w-5 sm:h-6 sm:w-6 text-amber-600 dark:text-amber-400" />
+                        </div>
                       </div>
                     </div>
                   </Link>
@@ -429,12 +447,12 @@ export default function DictionaryStatsPage() {
 }
 
 // Recent attempt row component with like functionality
-function RecentAttemptRow({ 
-  attempt, 
+function RecentAttemptRow({
+  attempt,
   onLike,
-  formatDate 
-}: { 
-  attempt: any; 
+  formatDate
+}: {
+  attempt: any;
   onLike: (_wordId: string, _liked: boolean) => Promise<void>;
   formatDate: (_date: string) => string;
 }) {
@@ -443,7 +461,7 @@ function RecentAttemptRow({
 
   const handleLike = async () => {
     if (likeLoading || !attempt.id) return;
-    
+
     setLikeLoading(true);
     try {
       const newLikedState = !liked;
@@ -457,18 +475,22 @@ function RecentAttemptRow({
   };
 
   return (
-    <div className="flex items-center justify-between py-3 px-2 hover:bg-muted rounded-lg transition-colors">
+    <div className="flex items-center justify-between py-3 px-3 hover:bg-muted/50 rounded-lg transition-colors">
       <div className="flex items-center gap-3 flex-1">
         {attempt.isCorrect ? (
-          <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />
+          <div className="p-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex-shrink-0">
+            <CheckCircle className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+          </div>
         ) : (
-          <XCircle className="h-5 w-5 text-error flex-shrink-0" />
+          <div className="p-1.5 rounded-full bg-red-100 dark:bg-red-900/30 flex-shrink-0">
+            <XCircle className="h-4 w-4 text-red-600 dark:text-red-400" />
+          </div>
         )}
         <div className="min-w-0">
           <div className="flex items-center gap-2">
-            <Link 
+            <Link
               href={`/word/${attempt.id}`}
-              className="font-medium text-primary hover:text-primary/80 hover:underline truncate"
+              className="font-medium text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 hover:underline truncate transition-colors"
             >
               {attempt.word}
             </Link>

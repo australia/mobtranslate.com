@@ -4,17 +4,17 @@ import { notFound } from 'next/navigation';
 import SharedLayout from '../../../../components/SharedLayout';
 import { Card, CardContent, Badge } from '@mobtranslate/ui';
 
-import { ChevronRight, ArrowLeft } from 'lucide-react';
+import { ChevronRight, ArrowLeft, Sparkles } from 'lucide-react';
 
 const Breadcrumbs = ({ items, className }: { items: { href: string; label: string }[]; className?: string }) => (
   <nav className={`flex items-center gap-2 text-sm ${className || ''}`}>
     {items.map((item, index) => (
       <React.Fragment key={item.href}>
-        {index > 0 && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
+        {index > 0 && <ChevronRight className="h-4 w-4 text-muted-foreground/50" />}
         {index === items.length - 1 ? (
           <span className="text-foreground font-medium">{item.label}</span>
         ) : (
-          <Link href={item.href} className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link href={item.href} className="text-muted-foreground hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
             {item.label}
           </Link>
         )}
@@ -83,31 +83,32 @@ export default async function WordDetailPage({
     return (
       <SharedLayout>
         {/* Header */}
-        <div className="py-6 md:py-10">
+        <div className="py-8 md:py-12">
           <Breadcrumbs items={breadcrumbItems} className="mb-6" />
 
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3 mb-3">
             <Link
               href={`/dictionaries/${languageCode}`}
-              className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
+              className="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center hover:bg-amber-200 dark:hover:bg-amber-800/50 transition-colors shadow-sm"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-4 h-4 text-amber-700 dark:text-amber-400" />
             </Link>
-            <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight">
               {word.word}
             </h1>
           </div>
-          <div className="flex items-center gap-2 ml-11 flex-wrap">
-            <span className="text-muted-foreground">
+          <div className="flex items-center gap-2 ml-12 flex-wrap">
+            <span className="text-muted-foreground text-sm">
               {language.name} Dictionary
             </span>
+            <span className="text-muted-foreground/40">|</span>
             {word.word_class && (
-              <Badge variant="outline">
+              <Badge variant="outline" className="border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-400">
                 {word.word_class.name}
               </Badge>
             )}
             {word.obsolete && (
-              <Badge variant="outline">Obsolete</Badge>
+              <Badge variant="outline" className="border-red-200 dark:border-red-800 text-red-600 dark:text-red-400">Obsolete</Badge>
             )}
             {word.sensitive_content && (
               <Badge variant="destructive">Sensitive</Badge>
@@ -116,13 +117,16 @@ export default async function WordDetailPage({
         </div>
 
         {/* Content */}
-        <div className="max-w-4xl pb-12 space-y-8">
+        <div className="max-w-4xl pb-16 space-y-8">
           <WordDetailContent word={word} />
 
           {/* Related words */}
           {relatedWords && relatedWords.length > 0 && (
             <div>
-              <h2 className="text-xl font-display font-bold mb-4">Related Words</h2>
+              <div className="flex items-center gap-2.5 mb-5">
+                <Sparkles className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                <h2 className="text-xl font-display font-bold">Related Words</h2>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {relatedWords.map((related) => (
                   <Link
@@ -130,16 +134,16 @@ export default async function WordDetailPage({
                     href={`/dictionaries/${languageCode}/words/${encodeURIComponent(related.word)}`}
                     className="group block"
                   >
-                    <Card className="h-full transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+                    <Card className="h-full transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 border-l-3 border-l-amber-400/50 dark:border-l-amber-600/50">
                       <CardContent className="p-4">
-                        <h3 className="font-medium text-lg mb-2 text-primary group-hover:underline">
+                        <h3 className="font-display font-semibold text-lg mb-2 text-amber-800 dark:text-amber-300 group-hover:text-amber-600 dark:group-hover:text-amber-200 transition-colors">
                           {related.word}
                         </h3>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
                           {related.definitions?.[0]?.definition || 'No definition available'}
                         </p>
                         {related.word_class && (
-                          <Badge variant="outline" className="mt-2 text-xs">
+                          <Badge variant="outline" className="mt-2.5 text-xs border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-400">
                             {related.word_class.name}
                           </Badge>
                         )}

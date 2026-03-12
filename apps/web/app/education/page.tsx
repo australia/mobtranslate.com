@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
+import { Card, CardContent } from '@mobtranslate/ui';
 import { getActiveLanguages } from '@/lib/supabase/queries';
 import {
   BookOpen,
@@ -11,7 +12,6 @@ import {
   Users,
   Zap,
   ChevronRight,
-  Play,
   Target,
   Puzzle,
   Volume2,
@@ -26,58 +26,64 @@ const GAME_TYPES = [
     name: 'Memory Match',
     description: 'Match words to their English translations',
     icon: Brain,
-    color: 'from-blue-600 to-gray-800',
-    bgPattern: 'radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%)',
+    iconBg: 'bg-violet-50 dark:bg-violet-950/40',
+    iconColor: 'text-violet-600 dark:text-violet-400',
+    borderColor: 'border-l-violet-500',
   },
   {
     id: 'quiz',
     name: 'Word Quiz',
     description: 'Test your vocabulary with multiple choice',
     icon: Target,
-    color: 'from-amber-500 to-orange-600',
-    bgPattern: 'radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.3) 0%, transparent 50%)',
+    iconBg: 'bg-amber-50 dark:bg-amber-950/40',
+    iconColor: 'text-amber-600 dark:text-amber-400',
+    borderColor: 'border-l-amber-500',
   },
   {
     id: 'flashcards',
     name: 'Flashcards',
     description: 'Study with interactive flip cards',
     icon: BookOpen,
-    color: 'from-emerald-500 to-teal-600',
-    bgPattern: 'radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 50%)',
+    iconBg: 'bg-emerald-50 dark:bg-emerald-950/40',
+    iconColor: 'text-emerald-600 dark:text-emerald-400',
+    borderColor: 'border-l-emerald-500',
   },
   {
     id: 'scramble',
     name: 'Word Scramble',
     description: 'Unscramble letters to form words',
     icon: Puzzle,
-    color: 'from-rose-500 to-red-600',
-    bgPattern: 'radial-gradient(circle at 30% 70%, rgba(244, 63, 94, 0.3) 0%, transparent 50%)',
+    iconBg: 'bg-rose-50 dark:bg-rose-950/40',
+    iconColor: 'text-rose-600 dark:text-rose-400',
+    borderColor: 'border-l-rose-500',
   },
   {
     id: 'listening',
     name: 'Listening Challenge',
     description: 'Train your ear with audio recognition',
     icon: Volume2,
-    color: 'from-cyan-500 to-blue-600',
-    bgPattern: 'radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.3) 0%, transparent 50%)',
+    iconBg: 'bg-cyan-50 dark:bg-cyan-950/40',
+    iconColor: 'text-cyan-600 dark:text-cyan-400',
+    borderColor: 'border-l-cyan-500',
   },
   {
     id: 'writing',
     name: 'Writing Practice',
     description: 'Learn to write words correctly',
     icon: PenTool,
-    color: 'from-gray-600 to-gray-800',
-    bgPattern: 'radial-gradient(circle at 40% 60%, rgba(217, 70, 239, 0.3) 0%, transparent 50%)',
+    iconBg: 'bg-orange-50 dark:bg-orange-950/40',
+    iconColor: 'text-orange-600 dark:text-orange-400',
+    borderColor: 'border-l-orange-500',
   },
 ];
 
 const CURRICULUM_CATEGORIES = [
-  { name: 'Basics', icon: '🌱', lessons: 5, color: 'bg-emerald-100 text-emerald-800 border-emerald-300' },
-  { name: 'Family', icon: '👨‍👩‍👧‍👦', lessons: 4, color: 'bg-blue-100 text-blue-800 border-blue-300' },
-  { name: 'Animals', icon: '🦘', lessons: 6, color: 'bg-amber-100 text-amber-800 border-amber-300' },
-  { name: 'Nature', icon: '🌿', lessons: 5, color: 'bg-green-100 text-green-800 border-green-300' },
-  { name: 'Food', icon: '🍇', lessons: 4, color: 'bg-gray-100 text-gray-800 border-gray-300' },
-  { name: 'Numbers', icon: '🔢', lessons: 3, color: 'bg-rose-100 text-rose-800 border-rose-300' },
+  { name: 'Basics', icon: BookOpen, lessons: 5, color: 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800/40 text-emerald-700 dark:text-emerald-400' },
+  { name: 'Family', icon: Users, lessons: 4, color: 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800/40 text-blue-700 dark:text-blue-400' },
+  { name: 'Animals', icon: Sparkles, lessons: 6, color: 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800/40 text-amber-700 dark:text-amber-400' },
+  { name: 'Nature', icon: Target, lessons: 5, color: 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800/40 text-green-700 dark:text-green-400' },
+  { name: 'Food', icon: Brain, lessons: 4, color: 'bg-orange-50 dark:bg-orange-950/30 border-orange-200 dark:border-orange-800/40 text-orange-700 dark:text-orange-400' },
+  { name: 'Numbers', icon: Puzzle, lessons: 3, color: 'bg-rose-50 dark:bg-rose-950/30 border-rose-200 dark:border-rose-800/40 text-rose-700 dark:text-rose-400' },
 ];
 
 export default async function EducationPage() {
@@ -86,364 +92,265 @@ export default async function EducationPage() {
   return (
     <SharedLayout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16 -mt-6 sm:-mt-8 lg:-mt-12">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
-          {/* Geometric Pattern Overlay */}
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-          {/* Floating Orbs */}
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gray-500/30 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gray-600/10 rounded-full blur-3xl" />
+      <div className="py-12 md:py-20">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 text-sm font-semibold mb-6 border border-amber-200 dark:border-amber-800/50">
+          <Sparkles className="w-4 h-4" />
+          Interactive Language Learning
         </div>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-black tracking-tight mb-6 leading-tight">
+          Learn Through{' '}
+          <span className="bg-gradient-to-r from-amber-600 via-orange-500 to-rose-500 dark:from-amber-400 dark:via-orange-400 dark:to-rose-400 bg-clip-text text-transparent">
+            Play & Discovery
+          </span>
+        </h1>
+        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed mb-10">
+          Fun ways to explore Indigenous languages together.
+          Games, lessons, and interactive experiences for all skill levels.
+        </p>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
-          <div className="text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium mb-8">
-              <Sparkles className="w-4 h-4 text-amber-400" />
-              <span>Interactive Language Learning</span>
+        {/* Stats Row */}
+        <div className="grid grid-cols-3 gap-4 max-w-lg">
+          {[
+            { value: languages.length, label: 'Languages' },
+            { value: '6', label: 'Game Types' },
+            { value: '27+', label: 'Lessons' },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-3xl sm:text-4xl font-display font-black text-foreground">{stat.value}</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">{stat.label}</div>
             </div>
-
-            {/* Title */}
-            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-display font-black text-white mb-6 tracking-tight">
-              <span className="block">Learn Through</span>
-              <span className="block bg-gradient-to-r from-amber-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
-                Play & Discovery
-              </span>
-            </h1>
-
-            <p className="text-xl sm:text-2xl text-white/70 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
-              Fun ways to learn. Play ways to explore Indigenous languages together.
-              Games, lessons, and interactive experiences for all skill levels.
-            </p>
-
-            {/* Stats Row */}
-            <div className="flex flex-wrap justify-center gap-8 sm:gap-12 mb-12">
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-black text-white mb-1">{languages.length}</div>
-                <div className="text-white/60 text-sm uppercase tracking-wider">Languages</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-black text-white mb-1">6</div>
-                <div className="text-white/60 text-sm uppercase tracking-wider">Game Types</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-black text-white mb-1">27+</div>
-                <div className="text-white/60 text-sm uppercase tracking-wider">Lessons</div>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="#languages"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-card text-foreground rounded-2xl font-bold text-lg shadow-2xl shadow-foreground/25 hover:shadow-foreground/40 hover:scale-105 transition-all duration-300"
-              >
-                <Play className="w-5 h-5" />
-                Start Learning
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="#games"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-2xl font-bold text-lg hover:bg-white/20 hover:border-white/50 transition-all duration-300"
-              >
-                <Gamepad2 className="w-5 h-5" />
-                Explore Games
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
-
-        {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="currentColor" className="text-background"/>
-          </svg>
-        </div>
-      </section>
+      </div>
 
       {/* Games Section */}
-      <section id="games" className="py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-foreground text-sm font-bold mb-4 border-2 border-border">
-              <Gamepad2 className="w-4 h-4" />
-              INTERACTIVE GAMES
-            </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight mb-4">
-              Learn by Playing
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Six different game modes designed to make language learning fun and effective
-            </p>
-          </div>
+      <section id="games" className="mb-20">
+        <div className="flex items-center gap-3 mb-2">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold">Learn by Playing</h2>
+        </div>
+        <p className="text-muted-foreground mb-8 max-w-2xl">
+          Six different game modes designed to make language learning fun and effective.
+        </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {GAME_TYPES.map((game, index) => (
-              <div
-                key={game.id}
-                className="group relative overflow-hidden rounded-3xl border-4 border-foreground bg-card p-8 transition-all duration-500 hover:-translate-y-2 cursor-pointer"
-                style={{
-                  boxShadow: '8px 8px 0px 0px var(--color-foreground)',
-                  animationDelay: `${index * 100}ms`,
-                }}
-              >
-                {/* Background Gradient */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: game.bgPattern }}
-                />
-
-                {/* Icon */}
-                <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${game.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
-                  <game.icon className="w-8 h-8 text-white" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {GAME_TYPES.map((game) => (
+            <Card key={game.id} className={`border-l-4 ${game.borderColor} hover:-translate-y-1 transition-transform duration-200`}>
+              <CardContent className="p-5 sm:p-6">
+                <div className={`w-12 h-12 rounded-xl ${game.iconBg} flex items-center justify-center mb-4`}>
+                  <game.icon className={`w-6 h-6 ${game.iconColor}`} />
                 </div>
-
-                <h3 className="relative text-2xl font-display font-bold mb-2">{game.name}</h3>
-                <p className="relative text-muted-foreground">{game.description}</p>
-
-                {/* Hover Arrow */}
-                <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                  <ChevronRight className="w-6 h-6 text-foreground" />
-                </div>
-              </div>
-            ))}
-          </div>
+                <h3 className="text-lg font-display font-bold mb-1">{game.name}</h3>
+                <p className="text-sm text-muted-foreground">{game.description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
       {/* Languages Section */}
-      <section id="languages" className="py-16 sm:py-24 bg-muted/30 -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 text-amber-800 text-sm font-bold mb-4 border-2 border-amber-200">
-              <GraduationCap className="w-4 h-4" />
-              CHOOSE YOUR LANGUAGE
-            </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight mb-4">
-              Start Your Journey
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Select a language to begin exploring its rich vocabulary and cultural heritage
-            </p>
-          </div>
+      <section id="languages" className="mb-20">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-400 text-sm font-semibold mb-4 border border-orange-200 dark:border-orange-800/50">
+          <GraduationCap className="w-4 h-4" />
+          Choose Your Language
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-display font-bold mb-2">Start Your Journey</h2>
+        <p className="text-muted-foreground mb-8 max-w-2xl">
+          Select a language to begin exploring its rich vocabulary and cultural heritage.
+        </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {languages.map((language, index) => (
-              <Link
-                key={language.id}
-                href={`/education/${language.code}`}
-                className="group block"
-              >
-                <div
-                  className="relative overflow-hidden rounded-3xl border-4 border-foreground bg-card transition-all duration-500 hover:-translate-y-2"
-                  style={{
-                    boxShadow: '8px 8px 0px 0px var(--color-foreground)',
-                  }}
-                >
-                  {/* Header with gradient */}
-                  <div className={`relative h-32 bg-gradient-to-br ${
-                    index % 3 === 0 ? 'from-blue-600 to-gray-800' :
-                    index % 3 === 1 ? 'from-amber-500 to-orange-600' :
-                    'from-emerald-500 to-teal-600'
-                  } p-6 flex items-end`}>
-                    {/* Pattern Overlay */}
-                    <div className="absolute inset-0 opacity-20" style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.5' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E")`,
-                    }} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {languages.map((language, index) => {
+            const accentColors = [
+              { border: 'border-l-amber-500', badge: 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400' },
+              { border: 'border-l-orange-500', badge: 'bg-orange-50 dark:bg-orange-950/30 text-orange-700 dark:text-orange-400' },
+              { border: 'border-l-emerald-500', badge: 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400' },
+            ];
+            const accent = accentColors[index % 3];
 
-                    <h3 className="relative text-3xl font-display font-black text-white uppercase tracking-wide">
+            return (
+              <Link key={language.id} href={`/education/${language.code}`} className="group block">
+                <Card className={`border-l-4 ${accent.border} h-full hover:-translate-y-1 transition-transform duration-200`}>
+                  <CardContent className="p-6">
+                    <h3 className="text-2xl font-display font-bold mb-2 group-hover:text-primary transition-colors">
                       {language.name}
                     </h3>
-                  </div>
 
-                  <div className="p-6">
-                    <p className="text-muted-foreground mb-4 line-clamp-2">
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                       {language.description || `Learn the beautiful language of the ${language.name} people`}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-5">
                       {language.region && (
-                        <span className="px-3 py-1 bg-muted rounded-full text-sm font-medium">
+                        <span className="px-3 py-1 bg-muted rounded-full text-xs font-medium">
                           {language.region}
                         </span>
                       )}
                       {language.status && (
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                           language.status === 'severely endangered'
-                            ? 'bg-rose-100 text-rose-800'
+                            ? 'bg-rose-50 dark:bg-rose-950/30 text-rose-700 dark:text-rose-400'
                             : language.status === 'vulnerable'
-                            ? 'bg-amber-100 text-amber-800'
-                            : 'bg-emerald-100 text-emerald-800'
+                            ? 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400'
+                            : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400'
                         }`}>
                           {language.status}
                         </span>
                       )}
                     </div>
 
-                    {/* Features Preview */}
-                    <div className="flex items-center gap-4 pt-4 border-t border-border">
-                      <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                        <Gamepad2 className="w-4 h-4" />
+                    {/* Features */}
+                    <div className="flex items-center gap-4 pt-4 border-t border-border mb-4">
+                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                        <Gamepad2 className="w-3.5 h-3.5" />
                         <span>6 Games</span>
                       </div>
-                      <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                        <BookOpen className="w-4 h-4" />
+                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                        <BookOpen className="w-3.5 h-3.5" />
                         <span>Lessons</span>
                       </div>
-                      <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                        <Trophy className="w-4 h-4" />
+                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                        <Trophy className="w-3.5 h-3.5" />
                         <span>Progress</span>
                       </div>
                     </div>
 
-                    {/* Hover CTA */}
-                    <div className="mt-6 flex items-center justify-between">
-                      <span className="font-bold text-primary group-hover:underline">Start Learning</span>
-                      <ChevronRight className="w-5 h-5 text-primary group-hover:translate-x-2 transition-transform" />
+                    {/* CTA */}
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-bold text-primary group-hover:underline">Start Learning</span>
+                      <ChevronRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
                     </div>
-                  </div>
-                </div>
+                  </CardContent>
+                </Card>
               </Link>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
       {/* Curriculum Preview */}
-      <section className="py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 text-emerald-800 text-sm font-bold mb-4 border-2 border-emerald-200">
-              <BookOpen className="w-4 h-4" />
-              STRUCTURED CURRICULUM
-            </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight mb-4">
-              Learn Step by Step
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Our lessons are organized into thematic categories, from basic greetings to advanced conversations
-            </p>
-          </div>
+      <section className="mb-20">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-sm font-semibold mb-4 border border-emerald-200 dark:border-emerald-800/50">
+          <BookOpen className="w-4 h-4" />
+          Structured Curriculum
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-display font-bold mb-2">Learn Step by Step</h2>
+        <p className="text-muted-foreground mb-8 max-w-2xl">
+          Our lessons are organized into thematic categories, from basic greetings to advanced conversations.
+        </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            {CURRICULUM_CATEGORIES.map((category) => (
-              <div
-                key={category.name}
-                className={`relative p-6 rounded-2xl border-2 ${category.color} text-center transition-all duration-300 hover:scale-105 cursor-pointer`}
-              >
-                <div className="text-4xl mb-3">{category.icon}</div>
-                <h3 className="font-bold mb-1">{category.name}</h3>
-                <p className="text-sm opacity-70">{category.lessons} lessons</p>
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {CURRICULUM_CATEGORIES.map((category) => (
+            <Card key={category.name} className={`${category.color} border hover:scale-105 transition-transform duration-200 cursor-pointer`}>
+              <CardContent className="p-5 text-center">
+                <div className="w-10 h-10 rounded-xl bg-white/60 dark:bg-white/10 flex items-center justify-center mx-auto mb-3">
+                  <category.icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-bold text-sm mb-0.5">{category.name}</h3>
+                <p className="text-xs opacity-70">{category.lessons} lessons</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium mb-6">
-                <Zap className="w-4 h-4 text-amber-400" />
-                WHY LEARN WITH US
-              </div>
-              <h2 className="text-4xl sm:text-5xl font-display font-black mb-6">
-                More Than Just<br />
-                <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
-                  Translation
-                </span>
-              </h2>
-              <p className="text-xl text-white/70 mb-8">
-                We're building tools that help preserve and revitalize Indigenous languages
-                through engaging, community-driven education.
-              </p>
+      {/* Why Learn With Us */}
+      <section className="mb-20">
+        <Card className="border-amber-200 dark:border-amber-800/40 bg-gradient-to-br from-amber-50 via-orange-50/50 to-rose-50/30 dark:from-amber-950/30 dark:via-orange-950/20 dark:to-rose-950/10">
+          <CardContent className="p-8 sm:p-10">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 text-sm font-semibold mb-5 border border-amber-200 dark:border-amber-700/50">
+                  <Zap className="w-4 h-4" />
+                  Why Learn With Us
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-display font-black mb-4">
+                  More Than Just{' '}
+                  <span className="bg-gradient-to-r from-amber-600 to-orange-500 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">
+                    Translation
+                  </span>
+                </h2>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  We&apos;re building tools that help preserve and revitalize Indigenous languages
+                  through engaging, community-driven education.
+                </p>
 
-              <div className="space-y-4">
-                {[
-                  { icon: Brain, text: 'Spaced repetition for long-term memory' },
-                  { icon: Gamepad2, text: 'Game-based learning keeps you engaged' },
-                  { icon: Users, text: 'Community-contributed content' },
-                  { icon: Trophy, text: 'Track your progress with achievements' },
-                ].map((feature, i) => (
-                  <div key={i} className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                      <feature.icon className="w-6 h-6 text-amber-400" />
+                <div className="space-y-3">
+                  {[
+                    { icon: Brain, text: 'Spaced repetition for long-term memory' },
+                    { icon: Gamepad2, text: 'Game-based learning keeps you engaged' },
+                    { icon: Users, text: 'Community-contributed content' },
+                    { icon: Trophy, text: 'Track your progress with achievements' },
+                  ].map((feature, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shrink-0">
+                        <feature.icon className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <span className="text-sm font-medium">{feature.text}</span>
                     </div>
-                    <span className="text-lg text-white/90">{feature.text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative">
-              {/* Decorative Card Stack */}
-              <div className="relative">
-                <div className="absolute -top-4 -left-4 w-full h-full rounded-3xl bg-white/5 border border-white/10" />
-                <div className="absolute -top-2 -left-2 w-full h-full rounded-3xl bg-white/10 border border-white/20" />
-                <div className="relative bg-white/15 backdrop-blur-sm rounded-3xl border border-white/30 p-8">
-                  <div className="text-center mb-6">
-                    <div className="text-6xl mb-4">🎯</div>
-                    <h3 className="text-2xl font-bold mb-2">Daily Goal</h3>
-                    <p className="text-white/70">Learn 10 new words today</p>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="bg-white/10 rounded-xl p-4">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium">Progress</span>
-                        <span className="text-amber-400 font-bold">7/10</span>
-                      </div>
-                      <div className="h-3 bg-white/20 rounded-full overflow-hidden">
-                        <div className="h-full w-[70%] bg-gradient-to-r from-amber-400 to-orange-500 rounded-full" />
-                      </div>
-                    </div>
-
-                    <div className="flex gap-3">
-                      <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-                        <div className="text-2xl font-bold text-amber-400">12</div>
-                        <div className="text-xs text-white/60">Day Streak</div>
-                      </div>
-                      <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-                        <div className="text-2xl font-bold text-emerald-400">89%</div>
-                        <div className="text-xs text-white/60">Accuracy</div>
-                      </div>
-                      <div className="flex-1 bg-white/10 rounded-xl p-4 text-center">
-                        <div className="text-2xl font-bold text-muted-foreground">156</div>
-                        <div className="text-xs text-white/60">Words</div>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
+
+              <div>
+                {/* Progress Card Preview */}
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="text-center mb-5">
+                      <div className="w-14 h-14 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center mx-auto mb-3">
+                        <Target className="w-7 h-7 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <h3 className="text-xl font-bold mb-1">Daily Goal</h3>
+                      <p className="text-sm text-muted-foreground">Learn 10 new words today</p>
+                    </div>
+
+                    <div className="bg-muted/50 rounded-xl p-4 mb-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-sm font-medium">Progress</span>
+                        <span className="text-sm text-amber-600 dark:text-amber-400 font-bold">7/10</span>
+                      </div>
+                      <div className="h-2.5 bg-muted rounded-full overflow-hidden">
+                        <div className="h-full w-[70%] bg-gradient-to-r from-amber-500 to-orange-500 rounded-full" />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-3">
+                      <div className="bg-muted/50 rounded-xl p-3 text-center">
+                        <div className="text-xl font-bold text-amber-600 dark:text-amber-400">12</div>
+                        <div className="text-xs text-muted-foreground">Day Streak</div>
+                      </div>
+                      <div className="bg-muted/50 rounded-xl p-3 text-center">
+                        <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">89%</div>
+                        <div className="text-xs text-muted-foreground">Accuracy</div>
+                      </div>
+                      <div className="bg-muted/50 rounded-xl p-3 text-center">
+                        <div className="text-xl font-bold text-muted-foreground">156</div>
+                        <div className="text-xs text-muted-foreground">Words</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-24">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight mb-6">
-            Ready to Start?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Choose a language and begin your journey into the beautiful world of Indigenous languages.
-          </p>
-          <Link
-            href="#languages"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-2xl font-bold text-lg border-4 border-foreground shadow-[6px_6px_0px_0px] shadow-foreground hover:shadow-[8px_8px_0px_0px] hover:-translate-y-1 transition-all duration-300"
-          >
-            <Sparkles className="w-5 h-5" />
-            Start Learning Now
-            <ChevronRight className="w-5 h-5" />
-          </Link>
-        </div>
+      <section className="mb-16 text-center">
+        <h2 className="text-3xl sm:text-4xl font-display font-black tracking-tight mb-4">
+          Ready to Start?
+        </h2>
+        <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+          Choose a language and begin your journey into the beautiful world of Indigenous languages.
+        </p>
+        <Link
+          href="#languages"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90 transition-opacity"
+        >
+          <Sparkles className="w-5 h-5" />
+          Start Learning Now
+          <ChevronRight className="w-5 h-5" />
+        </Link>
       </section>
     </SharedLayout>
   );

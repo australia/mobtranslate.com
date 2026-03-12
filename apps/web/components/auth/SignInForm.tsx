@@ -3,8 +3,9 @@
 import React, { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
-import { Button, Input, Alert, AlertDescription, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@mobtranslate/ui'
+import { Button, Input, Alert, AlertDescription, Card, CardContent, CardFooter } from '@mobtranslate/ui'
 import Link from 'next/link'
+import { Mail, Lock, LogIn, Loader2, AlertCircle } from 'lucide-react'
 
 export function SignInForm() {
   const [email, setEmail] = useState('')
@@ -21,7 +22,7 @@ export function SignInForm() {
 
     try {
       const data = await signIn(email, password)
-      
+
       if (data.needsProfile) {
         router.push('/auth/setup-profile')
       } else {
@@ -35,57 +36,95 @@ export function SignInForm() {
   }
 
   return (
-    <Card className="w-full max-w-[28rem]">
-      <CardHeader>
-        <CardTitle>Sign in</CardTitle>
-        <CardDescription>Enter your email below to sign in to your account</CardDescription>
-      </CardHeader>
+    <Card className="w-full max-w-[28rem] border-0 shadow-xl shadow-black/5 dark:shadow-black/20">
+      <div className="px-6 pt-8 pb-2 sm:px-8">
+        <h2 className="text-2xl font-display font-bold tracking-tight text-foreground">
+          Welcome back
+        </h2>
+        <p className="mt-1.5 text-sm text-muted-foreground">
+          Sign in to continue preserving language
+        </p>
+      </div>
       <form onSubmit={handleSubmit}>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 px-6 sm:px-8 pt-4">
           {error && (
-            <Alert variant="error">
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
+            <div className="flex items-start gap-3 p-3.5 rounded-lg bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50">
+              <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400 mt-0.5 shrink-0" />
+              <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
+            </div>
           )}
-          <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium">Email</label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="name@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              disabled={loading}
-            />
+
+          <div className="space-y-1.5">
+            <label htmlFor="email" className="block text-sm font-medium text-foreground">
+              Email
+            </label>
+            <div className="relative">
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+              <Input
+                id="email"
+                type="email"
+                placeholder="name@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={loading}
+                className="pl-10"
+              />
+            </div>
           </div>
-          <div className="space-y-2">
-            <label htmlFor="password" className="text-sm font-medium">Password</label>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              disabled={loading}
-            />
-          </div>
-          <div className="text-sm">
-            <Link href="/auth/reset-password" className="text-primary hover:underline">
-              Forgot your password?
-            </Link>
+
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <label htmlFor="password" className="block text-sm font-medium text-foreground">
+                Password
+              </label>
+              <Link
+                href="/auth/reset-password"
+                className="text-xs text-primary hover:text-primary/80 transition-colors"
+              >
+                Forgot password?
+              </Link>
+            </div>
+            <div className="relative">
+              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+              <Input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                disabled={loading}
+                className="pl-10"
+              />
+            </div>
           </div>
         </CardContent>
-        <CardFooter className="flex flex-col space-y-2">
-          <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? 'Signing in...' : 'Sign in'}
+
+        <CardFooter className="flex flex-col gap-4 px-6 sm:px-8 pb-8 pt-2">
+          <Button type="submit" className="w-full h-11" disabled={loading}>
+            {loading ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Signing in...
+              </>
+            ) : (
+              <>
+                <LogIn className="w-4 h-4 mr-2" />
+                Sign in
+              </>
+            )}
           </Button>
-          <div className="text-sm text-muted-foreground">
-            Don't have an account?{' '}
-            <Link href="/auth/signup" className="text-primary hover:underline">
+
+          <p className="text-sm text-center text-muted-foreground">
+            Don&apos;t have an account?{' '}
+            <Link
+              href="/auth/signup"
+              className="font-medium text-primary hover:text-primary/80 transition-colors"
+            >
               Sign up
             </Link>
-          </div>
+          </p>
         </CardFooter>
       </form>
     </Card>

@@ -1,9 +1,10 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
-import { Button, Input, Alert, AlertDescription, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@mobtranslate/ui'
+import { Button, Input, Card, CardContent, CardFooter, Avatar } from '@mobtranslate/ui'
 import { useAuth } from '@/contexts/AuthContext'
+import { User, AtSign, Sparkles, Loader2, AlertCircle, CheckCircle2 } from 'lucide-react'
 
 interface SetupProfileFormProps {
   userEmail: string
@@ -17,6 +18,16 @@ export function SetupProfileForm({ userEmail }: SetupProfileFormProps) {
   const router = useRouter()
   const { refreshUser } = useAuth()
 
+  const avatarInitials = useMemo(() => {
+    if (displayName.trim()) {
+      return displayName.trim().split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2)
+    }
+    if (username.trim()) {
+      return username.trim().slice(0, 2).toUpperCase()
+    }
+    return '?'
+  }, [username, displayName])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
@@ -29,7 +40,7 @@ export function SetupProfileForm({ userEmail }: SetupProfileFormProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           username: username.trim(),
           display_name: displayName.trim() || username.trim()
         }),
@@ -44,9 +55,6 @@ export function SetupProfileForm({ userEmail }: SetupProfileFormProps) {
       // Refresh user data in context
       await refreshUser()
 
-      // Show success message
-      alert('Profile created successfully!')
-      
       // Redirect to home page
       router.push('/')
     } catch (err) {
@@ -57,66 +65,110 @@ export function SetupProfileForm({ userEmail }: SetupProfileFormProps) {
   }
 
   return (
-    <Card className="w-full max-w-[28rem]">
-      <CardHeader>
-        <CardTitle>Complete Your Profile</CardTitle>
-        <CardDescription>
-          Welcome! Please set up your username to continue.
-        </CardDescription>
-      </CardHeader>
+    <Card className="w-full max-w-[28rem] border-0 shadow-xl shadow-black/5 dark:shadow-black/20">
+      <div className="px-6 pt-8 pb-2 sm:px-8">
+        <div className="flex items-center gap-2 text-primary mb-3">
+          <Sparkles className="w-5 h-5" />
+          <span className="text-sm font-medium">Almost there!</span>
+        </div>
+        <h2 className="text-2xl font-display font-bold tracking-tight text-foreground">
+          Set up your profile
+        </h2>
+        <p className="mt-1.5 text-sm text-muted-foreground">
+          Choose how you&apos;ll appear in the community
+        </p>
+      </div>
+
       <form onSubmit={handleSubmit}>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-5 px-6 sm:px-8 pt-4">
           {error && (
-            <Alert variant="error">
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
+            <div className="flex items-start gap-3 p-3.5 rounded-lg bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50">
+              <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400 mt-0.5 shrink-0" />
+              <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
+            </div>
           )}
-          <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium">Email</label>
-            <Input
-              id="email"
-              type="email"
-              value={userEmail}
-              disabled
-              className="bg-muted"
+
+          {/* Avatar Preview */}
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 border border-border/50">
+            <Avatar
+              size="lg"
+              fallback={avatarInitials}
+              alt={displayName || username || 'User'}
             />
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-foreground truncate">
+                {displayName.trim() || username.trim() || 'Your Name'}
+              </p>
+              <p className="text-xs text-muted-foreground truncate">
+                @{username.trim() || 'username'}
+              </p>
+              <p className="text-xs text-muted-foreground truncate mt-0.5">
+                {userEmail}
+              </p>
+            </div>
           </div>
-          <div className="space-y-2">
-            <label htmlFor="username" className="text-sm font-medium">Username</label>
-            <Input
-              id="username"
-              type="text"
-              placeholder="Choose a unique username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-              disabled={loading}
-              pattern="^[a-zA-Z0-9_-]+$"
-              minLength={3}
-              maxLength={50}
-            />
+
+          <div className="space-y-1.5">
+            <label htmlFor="username" className="block text-sm font-medium text-foreground">
+              Username <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <AtSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+              <Input
+                id="username"
+                type="text"
+                placeholder="Choose a unique username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                disabled={loading}
+                pattern="^[a-zA-Z0-9_-]+$"
+                minLength={3}
+                maxLength={50}
+                className="pl-10"
+              />
+            </div>
             <p className="text-xs text-muted-foreground">
-              3-50 characters, letters, numbers, underscores, and hyphens only
+              3-50 characters. Letters, numbers, underscores, and hyphens only.
             </p>
           </div>
-          <div className="space-y-2">
-            <label htmlFor="displayName" className="text-sm font-medium">Display Name (optional)</label>
-            <Input
-              id="displayName"
-              type="text"
-              placeholder="How your name appears to others"
-              value={displayName}
-              onChange={(e) => setDisplayName(e.target.value)}
-              disabled={loading}
-            />
+
+          <div className="space-y-1.5">
+            <label htmlFor="displayName" className="block text-sm font-medium text-foreground">
+              Display name
+              <span className="text-muted-foreground font-normal ml-1">(optional)</span>
+            </label>
+            <div className="relative">
+              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+              <Input
+                id="displayName"
+                type="text"
+                placeholder="How your name appears to others"
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+                disabled={loading}
+                className="pl-10"
+              />
+            </div>
             <p className="text-xs text-muted-foreground">
               Leave blank to use your username
             </p>
           </div>
         </CardContent>
-        <CardFooter>
-          <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? 'Creating Profile...' : 'Complete Setup'}
+
+        <CardFooter className="flex flex-col gap-3 px-6 sm:px-8 pb-8 pt-2">
+          <Button type="submit" className="w-full h-11" disabled={loading}>
+            {loading ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Creating profile...
+              </>
+            ) : (
+              <>
+                <CheckCircle2 className="w-4 h-4 mr-2" />
+                Complete setup
+              </>
+            )}
           </Button>
         </CardFooter>
       </form>
