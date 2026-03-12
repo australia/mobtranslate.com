@@ -3,7 +3,7 @@ import SharedLayout from './components/SharedLayout';
 import TranslatorWrapper from './components/TranslatorWrapper';
 import { Card, CardContent, Badge } from '@mobtranslate/ui';
 import { getActiveLanguages, getLanguageStats } from '@/lib/supabase/queries';
-import { BookOpen, Globe, Users, ArrowRight, Heart, Sparkles, MapPin } from 'lucide-react';
+import { BookOpen, Globe, Users, ArrowRight, Sparkles, MapPin } from 'lucide-react';
 
 export const revalidate = 3600;
 
@@ -26,7 +26,7 @@ export default async function Page() {
             {/* Heading */}
             <div className="text-center mb-14 sm:mb-16">
               <p className="text-xs font-medium text-[rgba(255,255,255,0.45)] uppercase tracking-[0.2em] mb-8">
-                Open Source Language Preservation
+                Open Source Language Learning
               </p>
               <h1 className="text-5xl sm:text-6xl lg:text-8xl font-display font-black text-white mb-6 tracking-tight leading-[0.9]">
                 Translate into<br />
@@ -57,7 +57,7 @@ export default async function Page() {
                 <div className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight">
                   {stats.totalWords.toLocaleString()}+
                 </div>
-                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.35)] mt-2 font-medium">Words Preserved</div>
+                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.35)] mt-2 font-medium">Words</div>
               </div>
               <div className="hidden sm:block w-px h-12 bg-[rgba(255,255,255,0.06)]" />
               <div className="text-center">
@@ -126,11 +126,7 @@ export default async function Page() {
                         )}
                         {language.status && (
                           <Badge
-                            variant={
-                              language.status === 'severely endangered' ? 'destructive' :
-                              language.status === 'endangered' ? 'destructive' :
-                              'secondary'
-                            }
+                            variant="secondary"
                           >
                             {language.status}
                           </Badge>
@@ -168,7 +164,7 @@ export default async function Page() {
               </div>
               <h3 className="text-lg font-bold mb-2">Community Dictionaries</h3>
               <p className="text-sm text-muted-foreground">
-                Word lists curated with Indigenous language speakers and linguists, preserving authentic pronunciation and meaning.
+                Word lists curated with Indigenous language speakers and linguists, capturing authentic pronunciation and meaning.
               </p>
             </div>
             <div className="text-center">
@@ -198,25 +194,21 @@ export default async function Page() {
         <div className="absolute inset-0 bg-[#111110]" />
         <div className="relative px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-20 sm:py-24">
           <div className="max-w-3xl mx-auto text-center">
-            <Heart className="w-10 h-10 text-rose-400 mx-auto mb-6" />
-            <blockquote className="text-2xl sm:text-3xl font-display font-bold text-white mb-6 leading-snug">
-              &ldquo;When a language dies, a way of understanding the world is lost forever.&rdquo;
-            </blockquote>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4 leading-snug">
+              Start Learning Today
+            </h2>
             <p className="text-[rgba(255,255,255,0.45)] mb-10 max-w-xl mx-auto">
-              Every word we preserve keeps a culture alive. Join us in building
-              the tools that give Indigenous languages a digital future.
+              Pick a language and start building your vocabulary.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-[rgba(255,255,255,0.9)] transition-colors">
-                Learn More
+              <Link href="/dictionaries" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-[rgba(255,255,255,0.9)] transition-colors">
+                Browse Dictionaries
               </Link>
               <Link
-                href="https://github.com/australia/mobtranslate.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/education"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-[rgba(255,255,255,0.15)] text-white font-semibold rounded-lg hover:bg-[rgba(255,255,255,0.08)] transition-colors"
               >
-                Contribute on GitHub
+                Start Learning
               </Link>
             </div>
           </div>
@@ -229,7 +221,7 @@ export default async function Page() {
 export async function generateMetadata() {
   return {
     title: 'Mob Translate - Indigenous Language Translation',
-    description: 'A community-driven project to create translation tools for Indigenous languages worldwide, making language preservation and learning accessible to all.',
+    description: 'A community-driven project to create translation tools for Indigenous languages worldwide, making language learning and exploration accessible to all.',
     openGraph: {
       title: 'Mob Translate - Indigenous Language Translation',
       description: 'A community-driven project to create translation tools for Indigenous languages worldwide.',

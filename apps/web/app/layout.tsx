@@ -21,12 +21,12 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   title: 'Mob Translate | Indigenous Language Translation',
-  description: 'Open-source ecosystem for preserving and translating indigenous languages',
-  keywords: 'indigenous languages, translation, aboriginal languages, language preservation',
+  description: 'Open-source ecosystem for learning and translating indigenous languages',
+  keywords: 'indigenous languages, translation, aboriginal languages, language learning',
   authors: [{ name: 'Mob Translate Community' }],
   openGraph: {
     title: 'Mob Translate | Indigenous Language Translation',
-    description: 'Open-source ecosystem for preserving and translating indigenous languages',
+    description: 'Open-source ecosystem for learning and translating indigenous languages',
     url: 'https://mobtranslate.com',
     siteName: 'Mob Translate',
     locale: 'en_AU',

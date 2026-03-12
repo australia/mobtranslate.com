@@ -27,12 +27,12 @@ export default async function DictionariesPage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight">
               Dictionaries
             </h1>
-            <p className="text-sm text-muted-foreground mt-0.5">Preserving language, preserving culture</p>
+            <p className="text-sm text-muted-foreground mt-0.5">Browse and explore</p>
           </div>
         </div>
         <p className="text-muted-foreground max-w-2xl mb-8 text-base md:text-lg leading-relaxed">
           Browse our collection of Indigenous language dictionaries from around the world.
-          Each dictionary is built with community input, preserving traditional knowledge for future generations.
+          Each dictionary is built with community input.
         </p>
         <div className="flex items-center gap-4 sm:gap-8">
           <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-card border shadow-sm">
@@ -112,18 +112,7 @@ export default async function DictionariesPage() {
                     )}
                     {lang.status && (
                       <Badge
-                        variant={
-                          lang.status === 'severely endangered' ? 'destructive' :
-                          lang.status === 'endangered' ? 'destructive' :
-                          'secondary'
-                        }
-                        className={
-                          lang.status === 'severely endangered' || lang.status === 'endangered'
-                            ? 'bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300 border-red-200 dark:border-red-800'
-                            : lang.status === 'active' || lang.status === 'vitalized'
-                            ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800'
-                            : ''
-                        }
+                        variant="secondary"
                       >
                         {lang.status}
                       </Badge>
@@ -151,11 +140,10 @@ export default async function DictionariesPage() {
               <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center">
                 <BookOpen className="w-5 h-5 text-amber-700 dark:text-amber-400" />
               </div>
-              <h3 className="text-xl font-display font-bold">Language Preservation</h3>
+              <h3 className="text-xl font-display font-bold">Language Learning</h3>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Each dictionary represents years of community work to document and preserve traditional knowledge.
-              These digital resources ensure that future generations can access and learn from their linguistic heritage.
+              Each dictionary is built with community input, making it easy to explore and learn Indigenous languages online.
             </p>
           </div>
           <div className="space-y-4">
@@ -166,8 +154,8 @@ export default async function DictionariesPage() {
               <h3 className="text-xl font-display font-bold">Community Collaboration</h3>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Our dictionaries are created in collaboration with Indigenous communities, linguists, and cultural keepers.
-              We acknowledge the Traditional Owners of these languages and thank them for sharing their knowledge.
+              Our dictionaries are created in collaboration with Indigenous communities and linguists.
+              We welcome contributors who want to help grow these resources.
             </p>
           </div>
         </div>
@@ -179,7 +167,7 @@ export default async function DictionariesPage() {
 export async function generateMetadata() {
   return {
     title: 'Indigenous Language Dictionaries - MobTranslate',
-    description: 'Browse our collection of Indigenous language dictionaries from around the world, preserving and sharing traditional languages through digital preservation.',
+    description: 'Browse our collection of Indigenous language dictionaries from around the world. Explore and learn traditional languages online.',
     openGraph: {
       title: 'Indigenous Language Dictionaries',
       description: 'Explore dictionaries for Indigenous languages including Kuku Yalanji, Mi\'gmaq, and Anindilyakwa.',

@@ -101,13 +101,7 @@ export default async function DictionaryPage({
             {languageData.status && (
               <Badge
                 variant="secondary"
-                className={
-                  languageData.status === 'severely endangered' || languageData.status === 'endangered'
-                    ? 'bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300 border-red-200 dark:border-red-800 ml-1'
-                    : languageData.status === 'active' || languageData.status === 'vitalized'
-                    ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 ml-1'
-                    : 'ml-1'
-                }
+                className="ml-1"
               >
                 {languageData.status}
               </Badge>

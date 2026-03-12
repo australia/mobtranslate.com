@@ -14,18 +14,17 @@ export default async function About() {
       <div className="py-12 md:py-20">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 text-sm font-semibold mb-6 border border-amber-200 dark:border-amber-800/50">
           <Heart className="w-4 h-4 fill-current" />
-          Our Mission
+          About Us
         </div>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-black tracking-tight mb-6 leading-tight">
-          Preserving Languages,{' '}
+          Learn Indigenous{' '}
           <span className="bg-gradient-to-r from-amber-600 via-orange-500 to-rose-500 dark:from-amber-400 dark:via-orange-400 dark:to-rose-400 bg-clip-text text-transparent">
-            Preserving Worlds
+            Languages Online
           </span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-          Mob Translate is a community-driven open-source project building the tools
-          that give Indigenous languages a digital future. We believe every language
-          carries a unique way of understanding the world &mdash; and deserves to thrive.
+          Mob Translate is a community-driven open-source project building tools
+          for learning and exploring Indigenous languages. Free, open, and accessible to everyone.
         </p>
       </div>
 
@@ -53,7 +52,7 @@ export default async function About() {
       <section className="mb-20">
         <h2 className="text-2xl sm:text-3xl font-display font-bold mb-2">What We&apos;re Building</h2>
         <p className="text-muted-foreground mb-8 max-w-2xl">
-          Tools and platforms to ensure Indigenous languages flourish in the digital age.
+          Tools and platforms for learning and exploring Indigenous languages online.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {[
@@ -68,7 +67,7 @@ export default async function About() {
             {
               icon: BookOpen,
               title: 'Living Dictionaries',
-              description: 'Community-curated word lists that grow and evolve, preserving authentic meaning and pronunciation.',
+              description: 'Community-curated word lists that grow and evolve, capturing authentic meaning and pronunciation.',
               borderColor: 'border-l-orange-500',
               iconBg: 'bg-orange-50 dark:bg-orange-950/40',
               iconColor: 'text-orange-600 dark:text-orange-400',
@@ -187,29 +186,11 @@ export default async function About() {
         </Card>
       </section>
 
-      {/* Cultural Acknowledgement */}
+      {/* Acknowledgement */}
       <section className="mb-16">
-        <Card className="border-amber-200 dark:border-amber-800/40 bg-gradient-to-br from-amber-50 via-orange-50/50 to-rose-50/30 dark:from-amber-950/30 dark:via-orange-950/20 dark:to-rose-950/10">
-          <CardContent className="p-8 sm:p-10">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-amber-200/60 dark:bg-amber-800/40 flex items-center justify-center shrink-0 mt-1">
-                <Heart className="w-5 h-5 text-amber-700 dark:text-amber-400 fill-current" />
-              </div>
-              <div>
-                <h3 className="text-lg font-display font-bold mb-2 text-amber-900 dark:text-amber-300">
-                  Cultural Acknowledgement
-                </h3>
-                <p className="text-amber-800/80 dark:text-amber-400/70 leading-relaxed text-sm">
-                  We acknowledge the Traditional Custodians of the lands on which we work and live.
-                  We pay our respects to Elders past, present, and emerging, and recognise the
-                  ongoing connection of Indigenous peoples to their languages, cultures, and Country.
-                  This project exists to support &mdash; not replace &mdash; the vital work of
-                  Indigenous communities in preserving and revitalising their languages.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        <p className="text-sm text-muted-foreground">
+          We respectfully acknowledge the Traditional Owners of the languages on this platform.
+        </p>
       </section>
     </SharedLayout>
   );
@@ -218,6 +199,6 @@ export default async function About() {
 export async function generateMetadata() {
   return {
     title: 'About Mob Translate | Indigenous Language Translation',
-    description: 'Learn about our mission to preserve and promote Indigenous languages through open-source translation tools and community collaboration.',
+    description: 'Learn about our open-source tools for learning and exploring Indigenous languages, built with community collaboration.',
   };
 }

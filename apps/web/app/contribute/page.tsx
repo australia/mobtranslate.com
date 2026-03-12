@@ -22,7 +22,7 @@ export default function ContributePage() {
           Open Source
         </div>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-black tracking-tight mb-6 leading-tight">
-          Help Preserve{' '}
+          Help Build{' '}
           <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 dark:from-emerald-400 dark:via-teal-400 dark:to-cyan-400 bg-clip-text text-transparent">
             Indigenous Languages
           </span>
@@ -218,6 +218,6 @@ export default function ContributePage() {
 export async function generateMetadata() {
   return {
     title: 'Contribute | Mob Translate',
-    description: 'Help preserve Indigenous languages by contributing to Mob Translate. Code, linguistics, or community support -- every contribution matters.',
+    description: 'Help build Mob Translate by contributing code, linguistics, or community support -- every contribution matters.',
   };
 }

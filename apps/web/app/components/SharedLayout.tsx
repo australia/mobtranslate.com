@@ -359,7 +359,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                 Community
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                We welcome developers, linguists, and community members. Every contribution helps preserve a language.
+                We welcome developers, linguists, and community members. Every contribution helps build the platform.
               </p>
               <a
                 href="https://github.com/australia/mobtranslate.com"
@@ -377,15 +377,13 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
           <div className="py-6 border-t border-border/40">
             <div className="bg-primary/5 dark:bg-primary/10 rounded-xl px-5 py-4 mb-6 max-w-3xl">
               <p className="text-xs text-muted-foreground leading-relaxed italic">
-                We acknowledge the Traditional Owners of the languages represented on this platform
-                and pay our respects to Elders past, present, and emerging. We recognise that sovereignty
-                was never ceded. These languages hold thousands of years of knowledge, culture, and connection to Country.
+                We respectfully acknowledge the Traditional Owners of the languages on this platform.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-muted-foreground">
               <p>&copy; {new Date().getFullYear()} Mob Translate. Open source under MIT License.</p>
               <p className="flex items-center gap-1">
-                Made with <Heart size={10} className="text-primary fill-primary" /> for language preservation.
+                Made with <Heart size={10} className="text-primary fill-primary" /> by the community.
               </p>
             </div>
           </div>

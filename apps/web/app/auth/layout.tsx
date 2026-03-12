@@ -52,7 +52,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           <div className="flex-1 flex flex-col justify-center max-w-lg">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white/80 text-sm font-medium mb-6 w-fit">
               <Heart className="w-3.5 h-3.5 text-amber-400" />
-              Language Preservation
+              Language Learning
             </div>
 
             <h1 className="text-4xl xl:text-5xl font-display font-black text-white mb-4 tracking-tight leading-tight">
@@ -63,7 +63,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             </h1>
 
             <p className="text-lg text-white/60 mb-10 leading-relaxed">
-              Join our community preserving Indigenous languages through open-source
+              Join our community learning Indigenous languages through open-source
               translation tools, interactive dictionaries, and AI-powered learning.
             </p>
 

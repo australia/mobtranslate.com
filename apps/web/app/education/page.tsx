@@ -15,7 +15,11 @@ import {
   Target,
   Puzzle,
   Volume2,
-  PenTool
+  PenTool,
+  Timer,
+  FileText,
+  Link2,
+  Hammer
 } from 'lucide-react';
 
 export const revalidate = 3600;
@@ -75,6 +79,42 @@ const GAME_TYPES = [
     iconColor: 'text-orange-600 dark:text-orange-400',
     borderColor: 'border-l-orange-500',
   },
+  {
+    id: 'speed',
+    name: 'Speed Round',
+    description: 'Timed vocabulary challenge - 60 seconds',
+    icon: Timer,
+    iconBg: 'bg-yellow-50 dark:bg-yellow-950/40',
+    iconColor: 'text-yellow-600 dark:text-yellow-400',
+    borderColor: 'border-l-yellow-500',
+  },
+  {
+    id: 'fillinblank',
+    name: 'Fill in the Blank',
+    description: 'Complete sentences with the right word',
+    icon: FileText,
+    iconBg: 'bg-indigo-50 dark:bg-indigo-950/40',
+    iconColor: 'text-indigo-600 dark:text-indigo-400',
+    borderColor: 'border-l-indigo-500',
+  },
+  {
+    id: 'matching',
+    name: 'Matching Pairs',
+    description: 'Match words to their meanings',
+    icon: Link2,
+    iconBg: 'bg-teal-50 dark:bg-teal-950/40',
+    iconColor: 'text-teal-600 dark:text-teal-400',
+    borderColor: 'border-l-teal-500',
+  },
+  {
+    id: 'wordbuilder',
+    name: 'Word Builder',
+    description: 'Build words letter by letter',
+    icon: Hammer,
+    iconBg: 'bg-pink-50 dark:bg-pink-950/40',
+    iconColor: 'text-pink-600 dark:text-pink-400',
+    borderColor: 'border-l-pink-500',
+  },
 ];
 
 const CURRICULUM_CATEGORIES = [
@@ -112,7 +152,7 @@ export default async function EducationPage() {
         <div className="grid grid-cols-3 gap-4 max-w-lg">
           {[
             { value: languages.length, label: 'Languages' },
-            { value: '6', label: 'Game Types' },
+            { value: '10', label: 'Game Types' },
             { value: '27+', label: 'Lessons' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
@@ -129,7 +169,7 @@ export default async function EducationPage() {
           <h2 className="text-2xl sm:text-3xl font-display font-bold">Learn by Playing</h2>
         </div>
         <p className="text-muted-foreground mb-8 max-w-2xl">
-          Six different game modes designed to make language learning fun and effective.
+          Ten different game modes designed to make language learning fun and effective.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -186,13 +226,7 @@ export default async function EducationPage() {
                         </span>
                       )}
                       {language.status && (
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          language.status === 'severely endangered'
-                            ? 'bg-rose-50 dark:bg-rose-950/30 text-rose-700 dark:text-rose-400'
-                            : language.status === 'vulnerable'
-                            ? 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400'
-                            : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400'
-                        }`}>
+                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">
                           {language.status}
                         </span>
                       )}
@@ -202,7 +236,7 @@ export default async function EducationPage() {
                     <div className="flex items-center gap-4 pt-4 border-t border-border mb-4">
                       <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <Gamepad2 className="w-3.5 h-3.5" />
-                        <span>6 Games</span>
+                        <span>10 Games</span>
                       </div>
                       <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <BookOpen className="w-3.5 h-3.5" />
@@ -270,7 +304,7 @@ export default async function EducationPage() {
                   </span>
                 </h2>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  We&apos;re building tools that help preserve and revitalize Indigenous languages
+                  We&apos;re building tools that help you learn and explore Indigenous languages
                   through engaging, community-driven education.
                 </p>
 

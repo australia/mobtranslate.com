@@ -33,6 +33,10 @@ import Flashcards from '../components/Flashcards';
 import WordScramble from '../components/WordScramble';
 import ListeningChallenge from '../components/ListeningChallenge';
 import WritingPractice from '../components/WritingPractice';
+import SpeedRound from '../components/SpeedRound';
+import FillInTheBlank from '../components/FillInTheBlank';
+import MatchingPairs from '../components/MatchingPairs';
+import WordBuilder from '../components/WordBuilder';
 
 interface Language {
   id: string;
@@ -105,6 +109,42 @@ const GAME_TYPES = [
     description: 'Practice writing words',
     icon: PenTool,
     color: 'from-gray-600 to-gray-800',
+    difficulty: 'Hard',
+    time: '10-15 min',
+  },
+  {
+    id: 'speed',
+    name: 'Speed Round',
+    description: 'Timed vocabulary challenge',
+    icon: Zap,
+    color: 'from-yellow-500 to-amber-600',
+    difficulty: 'Medium',
+    time: '1 min',
+  },
+  {
+    id: 'fillinblank',
+    name: 'Fill in the Blank',
+    description: 'Complete sentences with the right word',
+    icon: BookOpen,
+    color: 'from-indigo-500 to-violet-600',
+    difficulty: 'Medium',
+    time: '5-10 min',
+  },
+  {
+    id: 'matching',
+    name: 'Matching Pairs',
+    description: 'Match words to their meanings',
+    icon: Target,
+    color: 'from-teal-500 to-emerald-600',
+    difficulty: 'Easy',
+    time: '5-10 min',
+  },
+  {
+    id: 'wordbuilder',
+    name: 'Word Builder',
+    description: 'Build words letter by letter',
+    icon: Puzzle,
+    color: 'from-pink-500 to-rose-600',
     difficulty: 'Hard',
     time: '10-15 min',
   },
@@ -256,6 +296,14 @@ export default function LanguageEducationPage() {
         return <ListeningChallenge words={gameWords} onClose={() => setActiveGame(null)} languageName={language?.name || ''} />;
       case 'writing':
         return <WritingPractice words={gameWords} onClose={() => setActiveGame(null)} languageName={language?.name || ''} />;
+      case 'speed':
+        return <SpeedRound words={gameWords} onClose={() => setActiveGame(null)} languageName={language?.name || ''} />;
+      case 'fillinblank':
+        return <FillInTheBlank words={gameWords} onClose={() => setActiveGame(null)} languageName={language?.name || ''} />;
+      case 'matching':
+        return <MatchingPairs words={gameWords} onClose={() => setActiveGame(null)} languageName={language?.name || ''} />;
+      case 'wordbuilder':
+        return <WordBuilder words={gameWords} onClose={() => setActiveGame(null)} languageName={language?.name || ''} />;
       default:
         return null;
     }

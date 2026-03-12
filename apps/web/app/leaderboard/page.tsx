@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
 import { LoadingState } from '@/components/layout/LoadingState';
 import { Badge, Button } from '@mobtranslate/ui';
-import { Trophy, Globe, Users, Sparkles } from 'lucide-react';
+import { Trophy, Globe, Users, Sparkles, LogIn } from 'lucide-react';
 import LeaderboardCard from '../../components/leaderboard/LeaderboardCard';
 import PeriodSelector from '../../components/leaderboard/PeriodSelector';
 import LeaderboardStats from '../../components/leaderboard/LeaderboardStats';
+import Link from 'next/link';
 
 interface Champion {
   userId: string;
@@ -41,34 +41,28 @@ interface LeaderboardOverviewData {
 }
 
 export default function LeaderboardOverviewPage() {
-  const { user, loading: authLoading } = useAuth();
-  const router = useRouter();
+  const { user } = useAuth();
 
   const [loading, setLoading] = useState(true);
   const [overviewData, setOverviewData] = useState<LeaderboardOverviewData | null>(null);
   const [period, setPeriod] = useState('all');
 
   useEffect(() => {
-    if (authLoading) {
-      console.log('[Leaderboard Overview] Auth still loading...');
-      return;
-    }
-
-    if (!user) {
-      console.log('[Leaderboard Overview] No user found, redirecting to login');
-      router.push('/login');
-      return;
-    }
-
-    console.log('[Leaderboard Overview] User authenticated, fetching data');
     fetchOverviewData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, authLoading, router, period]);
+  }, [period]);
 
   const fetchOverviewData = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/v2/leaderboard/overview?period=${period}`);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+      const response = await fetch(`/api/v2/leaderboard/overview?period=${period}`, {
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
       if (!response.ok) throw new Error('Failed to fetch leaderboard overview');
 
       const data = await response.json();
@@ -79,8 +73,6 @@ export default function LeaderboardOverviewPage() {
       setLoading(false);
     }
   };
-
-  if (authLoading || !user) return null;
 
   // Calculate aggregate stats
   const totalQuestions = overviewData?.leaderboards.reduce((sum, l) => sum + l.totalQuestions, 0) || 0;
@@ -120,6 +112,25 @@ export default function LeaderboardOverviewPage() {
               Compete across languages and track your progress worldwide
             </p>
           </div>
+
+          {/* Sign in prompt for unauthenticated users */}
+          {!user && (
+            <div className="mb-6 p-4 rounded-xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40 flex items-center justify-between flex-wrap gap-3">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-amber-100 dark:bg-amber-900/40">
+                  <LogIn className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                </div>
+                <p className="text-sm text-amber-800 dark:text-amber-300">
+                  <span className="font-medium">Sign in to track your progress</span> and compete on the leaderboard
+                </p>
+              </div>
+              <Link href="/auth/signin?redirect=/leaderboard">
+                <Button size="sm" className="bg-amber-600 hover:bg-amber-700 text-white">
+                  Sign In
+                </Button>
+              </Link>
+            </div>
+          )}
 
           {/* Period Selector */}
           <PeriodSelector

@@ -52,12 +52,7 @@ function calculateStreakFromDaily(dailyActivity: Map<string, number>): number {
 export async function GET(request: NextRequest) {
   const supabase = createClient();
 
-  // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
-
+  // Leaderboard is publicly accessible - no auth required
   const { searchParams } = new URL(request.url);
   const period = searchParams.get('period') || 'week';
 

@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
-import { Card, CardContent, CardHeader, CardTitle, Badge } from '@mobtranslate/ui';
+import { Card, CardContent, CardHeader, CardTitle, Badge, Button } from '@mobtranslate/ui';
 import { LoadingState } from '@/components/layout/LoadingState';
 import {
   BarChart3,
@@ -18,7 +17,8 @@ import {
   Award,
   Flame,
   BookOpen,
-  ChevronRight
+  ChevronRight,
+  LogIn
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -65,7 +65,6 @@ interface Stats {
 
 export default function StatsPage() {
   const { user, loading } = useAuth();
-  const router = useRouter();
   const [stats, setStats] = useState<Stats | null>(null);
   const [isLoadingStats, setIsLoadingStats] = useState(true);
 
@@ -73,7 +72,7 @@ export default function StatsPage() {
     if (loading) return;
 
     if (!user) {
-      router.push('/auth/signin?redirect=/stats');
+      setIsLoadingStats(false);
       return;
     }
 
@@ -123,7 +122,53 @@ export default function StatsPage() {
   }
 
   if (!user) {
-    return null;
+    return (
+      <SharedLayout>
+        <div className="min-h-screen">
+          <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            {/* Page Header */}
+            <div className="py-8 md:py-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100/80 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-medium mb-4">
+                <Sparkles className="w-3.5 h-3.5" />
+                Analytics
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-foreground">
+                Learning Stats
+              </h1>
+              <p className="text-muted-foreground mt-2 text-base lg:text-lg max-w-2xl">
+                Track your progress across all languages
+              </p>
+            </div>
+
+            <div className="pb-12">
+              <div className="text-center py-20 bg-card rounded-2xl border border-border/60 max-w-lg mx-auto">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-100/80 dark:bg-amber-900/30 mb-5">
+                  <BarChart3 className="h-8 w-8 text-amber-600 dark:text-amber-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Sign in to see your stats</h3>
+                <p className="text-muted-foreground mb-8 px-6 max-w-sm mx-auto">
+                  Track your learning progress, accuracy, streaks, and mastered words across all languages.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link href="/auth/signin?redirect=/stats">
+                    <Button className="bg-amber-600 hover:bg-amber-700 text-white gap-2">
+                      <LogIn className="h-4 w-4" />
+                      Sign In
+                    </Button>
+                  </Link>
+                  <Link href="/education">
+                    <Button variant="outline" className="gap-2">
+                      <BookOpen className="h-4 w-4" />
+                      Explore Languages
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </SharedLayout>
+    );
   }
 
   return (
