@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
 import { Badge, Button } from '@mobtranslate/ui';
 import { StatsCard } from '@/components/stats/StatsCard';
@@ -19,7 +18,8 @@ import {
   TrendingUp,
   Zap,
   Sparkles,
-  Flame
+  Flame,
+  LogIn
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -36,14 +36,9 @@ interface LanguageStats {
 
 export default function DashboardPage() {
   const { user, loading: authLoading } = useAuth();
-  const router = useRouter();
   const { data, error, isLoading } = useDashboardData();
 
-  React.useEffect(() => {
-    if (!authLoading && !user) {
-      router.push('/login');
-    }
-  }, [user, authLoading, router]);
+  // No redirect needed - we show a sign-in prompt for unauthenticated users
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -64,7 +59,56 @@ export default function DashboardPage() {
     return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
   };
 
-  if (!user || authLoading) return null;
+  if (authLoading) return null;
+
+  if (!user) {
+    return (
+      <SharedLayout>
+        <div className="min-h-screen">
+          <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+            <div className="py-8 md:py-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100/80 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-medium mb-4">
+                <Sparkles className="w-3.5 h-3.5" />
+                Dashboard
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-foreground">
+                Your Learning Dashboard
+              </h1>
+              <p className="text-muted-foreground mt-2 text-base lg:text-lg max-w-2xl">
+                Track your progress across all languages
+              </p>
+            </div>
+
+            <div className="pb-12">
+              <div className="text-center py-20 bg-card rounded-2xl border border-border/60 max-w-lg mx-auto">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-100/80 dark:bg-amber-900/30 mb-5">
+                  <Activity className="h-8 w-8 text-amber-600 dark:text-amber-400" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Sign in to view your dashboard</h3>
+                <p className="text-muted-foreground mb-8 px-6 max-w-sm mx-auto">
+                  See your learning progress, streaks, study time, and language statistics all in one place.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link href="/auth/signin?redirect=/dashboard">
+                    <Button className="bg-amber-600 hover:bg-amber-700 text-white gap-2">
+                      <LogIn className="h-4 w-4" />
+                      Sign In
+                    </Button>
+                  </Link>
+                  <Link href="/education">
+                    <Button variant="outline" className="gap-2">
+                      <BookOpen className="h-4 w-4" />
+                      Explore Languages
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </SharedLayout>
+    );
+  }
 
   const languageStats = data?.languages || [];
   const overviewStats = data?.overview || {

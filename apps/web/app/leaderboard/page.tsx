@@ -5,7 +5,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import SharedLayout from '../components/SharedLayout';
 import { LoadingState } from '@/components/layout/LoadingState';
 import { Badge, Button } from '@mobtranslate/ui';
-import { Trophy, Globe, Users, Sparkles, LogIn } from 'lucide-react';
+import { Trophy, Globe, Users, LogIn } from 'lucide-react';
 import LeaderboardCard from '../../components/leaderboard/LeaderboardCard';
 import PeriodSelector from '../../components/leaderboard/PeriodSelector';
 import LeaderboardStats from '../../components/leaderboard/LeaderboardStats';
