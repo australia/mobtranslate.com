@@ -4,7 +4,7 @@ import React, { useState, useMemo } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { Button, Input, Card, CardContent, CardFooter } from '@mobtranslate/ui'
 import Link from 'next/link'
-import { Mail, Lock, User, UserPlus, Loader2, AlertCircle, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Mail, Lock, User, UserPlus, Loader2, AlertCircle, CheckCircle2, ArrowRight, Eye, EyeOff } from 'lucide-react'
 
 function PasswordStrength({ password }: { password: string }) {
   const strength = useMemo(() => {
@@ -25,9 +25,18 @@ function PasswordStrength({ password }: { password: string }) {
 
   if (!password) return null
 
+  const percentValue = (strength.score / 5) * 100
+
   return (
-    <div className="space-y-1.5">
-      <div className="flex gap-1">
+    <div id="password-strength" className="space-y-1.5">
+      <div
+        className="flex gap-1"
+        role="meter"
+        aria-valuenow={percentValue}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label="Password strength"
+      >
         {[1, 2, 3, 4, 5].map((i) => (
           <div
             key={i}
@@ -52,7 +61,11 @@ export function SignUpForm() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const { signUp } = useAuth()
+
+  const passwordsDoNotMatch = confirmPassword && password !== confirmPassword
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -146,8 +159,8 @@ export function SignUpForm() {
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4 px-6 sm:px-8 pt-4">
             {error && (
-              <div className="flex items-start gap-3 p-3.5 rounded-lg bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50">
-                <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400 mt-0.5 shrink-0" />
+              <div id="signup-error" role="alert" className="flex items-start gap-3 p-3.5 rounded-lg bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50">
+                <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400 mt-0.5 shrink-0" aria-hidden="true" />
                 <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
               </div>
             )}
@@ -157,7 +170,7 @@ export function SignUpForm() {
                 Username
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" aria-hidden="true" />
                 <Input
                   id="username"
                   type="text"
@@ -167,9 +180,11 @@ export function SignUpForm() {
                   required
                   disabled={loading}
                   className="pl-10"
+                  aria-invalid={error ? true : undefined}
+                  aria-describedby="username-hint"
                 />
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p id="username-hint" className="text-xs text-muted-foreground">
                 Letters, numbers, underscores, and hyphens only
               </p>
             </div>
@@ -179,7 +194,7 @@ export function SignUpForm() {
                 Email
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" aria-hidden="true" />
                 <Input
                   id="email"
                   type="email"
@@ -189,6 +204,7 @@ export function SignUpForm() {
                   required
                   disabled={loading}
                   className="pl-10"
+                  aria-invalid={error ? true : undefined}
                 />
               </div>
             </div>
@@ -198,17 +214,31 @@ export function SignUpForm() {
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" aria-hidden="true" />
                 <Input
                   id="password"
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="At least 6 characters"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   disabled={loading}
-                  className="pl-10"
+                  className="pl-10 pr-10"
+                  aria-invalid={error ? true : undefined}
+                  aria-describedby={password ? 'password-strength' : undefined}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
+                </button>
               </div>
               <PasswordStrength password={password} />
             </div>
@@ -218,20 +248,34 @@ export function SignUpForm() {
                 Confirm password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" aria-hidden="true" />
                 <Input
                   id="confirmPassword"
-                  type="password"
+                  type={showConfirmPassword ? 'text' : 'password'}
                   placeholder="Repeat your password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                   disabled={loading}
-                  className="pl-10"
+                  className="pl-10 pr-10"
+                  aria-invalid={passwordsDoNotMatch ? true : undefined}
+                  aria-describedby={passwordsDoNotMatch ? 'confirm-password-error' : undefined}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showConfirmPassword ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
+                </button>
               </div>
-              {confirmPassword && password !== confirmPassword && (
-                <p className="text-xs text-red-600 dark:text-red-400">Passwords do not match</p>
+              {passwordsDoNotMatch && (
+                <p id="confirm-password-error" className="text-xs text-red-600 dark:text-red-400">Passwords do not match</p>
               )}
             </div>
           </CardContent>

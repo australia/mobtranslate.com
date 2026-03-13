@@ -25,14 +25,14 @@ export default async function Page() {
           <div className="max-w-7xl mx-auto">
             {/* Heading */}
             <div className="text-center mb-14 sm:mb-16">
-              <p className="text-xs font-medium text-[rgba(255,255,255,0.45)] uppercase tracking-[0.2em] mb-8">
+              <p className="text-xs font-medium text-[rgba(255,255,255,0.7)] uppercase tracking-[0.2em] mb-8">
                 Open Source Language Learning
               </p>
               <h1 className="text-5xl sm:text-6xl lg:text-8xl font-display font-black text-white mb-6 tracking-tight leading-[0.9]">
                 Translate into<br />
                 Indigenous Languages
               </h1>
-              <p className="text-lg sm:text-xl text-[rgba(255,255,255,0.5)] max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl text-[rgba(255,255,255,0.7)] max-w-2xl mx-auto leading-relaxed">
                 The community-driven &lsquo;Google Translate&rsquo; for First Nations languages.
                 <br className="hidden sm:block" />
                 Powered by AI. Built with respect.
@@ -44,25 +44,42 @@ export default async function Page() {
               <TranslatorWrapper languages={languages} />
             </div>
 
+            {/* Quick Action Links */}
+            <div className="flex items-center justify-center gap-6 sm:gap-8 mt-8">
+              <Link
+                href="/education"
+                className="inline-flex items-center gap-1.5 text-sm text-[rgba(255,255,255,0.5)] hover:text-white transition-colors"
+              >
+                Start Learning <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <span className="w-px h-4 bg-[rgba(255,255,255,0.1)]" />
+              <Link
+                href="/dictionaries"
+                className="inline-flex items-center gap-1.5 text-sm text-[rgba(255,255,255,0.5)] hover:text-white transition-colors"
+              >
+                Browse Dictionaries <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
             {/* Stats Bar */}
             <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16 lg:gap-24 mt-16 sm:mt-20 pt-10 border-t border-[rgba(255,255,255,0.06)]">
               <div className="text-center">
                 <div className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight">
                   {stats.totalLanguages}
                 </div>
-                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.35)] mt-2 font-medium">Languages</div>
+                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.7)] mt-2 font-medium">Languages</div>
               </div>
               <div className="hidden sm:block w-px h-12 bg-[rgba(255,255,255,0.06)]" />
               <div className="text-center">
                 <div className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight">
                   {stats.totalWords.toLocaleString()}+
                 </div>
-                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.35)] mt-2 font-medium">Words</div>
+                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.7)] mt-2 font-medium">Words</div>
               </div>
               <div className="hidden sm:block w-px h-12 bg-[rgba(255,255,255,0.06)]" />
               <div className="text-center">
                 <div className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight">100%</div>
-                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.35)] mt-2 font-medium">Open Source</div>
+                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.7)] mt-2 font-medium">Open Source</div>
               </div>
             </div>
           </div>
@@ -99,7 +116,7 @@ export default async function Page() {
                       </h3>
                       {language.region && (
                         <div className="flex items-center gap-1.5 mb-3">
-                          <MapPin className="w-3 h-3 text-muted-foreground" />
+                          <MapPin className="w-3 h-3 text-muted-foreground" aria-hidden="true" />
                           <p className="text-xs text-muted-foreground">{language.region}</p>
                         </div>
                       )}
@@ -109,7 +126,7 @@ export default async function Page() {
 
                       <div className="mb-4">
                         <div className="flex items-center gap-2 mb-1.5">
-                          <BookOpen className="w-4 h-4 text-primary" />
+                          <BookOpen className="w-4 h-4 text-primary" aria-hidden="true" />
                           <span className="text-sm font-semibold">{wordCount.toLocaleString()} words</span>
                         </div>
                         <div className="h-1.5 bg-muted rounded-full overflow-hidden">
@@ -160,7 +177,7 @@ export default async function Page() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-7 h-7 text-primary" />
+                <Globe className="w-7 h-7 text-primary" aria-hidden="true" />
               </div>
               <h3 className="text-lg font-bold mb-2">Community Dictionaries</h3>
               <p className="text-sm text-muted-foreground">
@@ -169,7 +186,7 @@ export default async function Page() {
             </div>
             <div className="text-center">
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Sparkles className="w-7 h-7 text-primary" />
+                <Sparkles className="w-7 h-7 text-primary" aria-hidden="true" />
               </div>
               <h3 className="text-lg font-bold mb-2">AI Translation</h3>
               <p className="text-sm text-muted-foreground">
@@ -178,7 +195,7 @@ export default async function Page() {
             </div>
             <div className="text-center">
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Users className="w-7 h-7 text-primary" />
+                <Users className="w-7 h-7 text-primary" aria-hidden="true" />
               </div>
               <h3 className="text-lg font-bold mb-2">Open Source</h3>
               <p className="text-sm text-muted-foreground">
@@ -186,6 +203,24 @@ export default async function Page() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Share Your Language Knowledge */}
+      <section className="py-16 sm:py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold tracking-tight mb-3">
+            Share Your Language Knowledge
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto mb-6">
+            Are you a speaker or knowledge holder of an Indigenous language? Help preserve your language for future generations.
+          </p>
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+          >
+            Learn How to Contribute <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
@@ -197,7 +232,7 @@ export default async function Page() {
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4 leading-snug">
               Start Learning Today
             </h2>
-            <p className="text-[rgba(255,255,255,0.45)] mb-10 max-w-xl mx-auto">
+            <p className="text-[rgba(255,255,255,0.7)] mb-10 max-w-xl mx-auto">
               Pick a language and start building your vocabulary.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">

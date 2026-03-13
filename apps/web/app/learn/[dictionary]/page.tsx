@@ -169,11 +169,12 @@ export default function LearnDictionaryPage() {
   if (loading) {
     return (
       <SharedLayout>
-        <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="min-h-screen flex items-center justify-center bg-background" role="status" aria-live="polite">
           <div className="relative">
             <div className="w-20 h-20 rounded-full border-4 border-border"></div>
             <div className="absolute top-0 left-0 w-20 h-20 rounded-full border-4 border-transparent border-t-primary animate-spin"></div>
           </div>
+          <span className="sr-only">Loading...</span>
         </div>
       </SharedLayout>
     );
@@ -214,7 +215,14 @@ export default function LearnDictionaryPage() {
         {/* Sticky Header with progress */}
         <div className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-border">
           {/* Session progress bar */}
-          <div className="h-1 bg-muted">
+          <div
+            className="h-1 bg-muted"
+            role="progressbar"
+            aria-valuenow={Math.min(wordsCompleted * 5, 100)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label="Session progress"
+          >
             <div
               className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-500 ease-out"
               style={{ width: `${Math.min(wordsCompleted * 5, 100)}%` }}
@@ -224,7 +232,7 @@ export default function LearnDictionaryPage() {
           <div className="max-w-3xl mx-auto px-4 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Link href="/learn" className="touch-target">
+                <Link href="/learn" className="touch-target" aria-label="Back to languages">
                   <Button variant="ghost" size="sm" className="h-9 w-9 p-0 rounded-xl hover:bg-muted transition-colors">
                     <ArrowLeft className="h-4 w-4" />
                   </Button>
@@ -254,7 +262,7 @@ export default function LearnDictionaryPage() {
                   </div>
                 )}
 
-                <Link href={`/stats/${languageCode}`} className="touch-target">
+                <Link href={`/stats/${languageCode}`} className="touch-target" aria-label="View statistics">
                   <Button variant="ghost" size="sm" className="h-9 w-9 p-0 rounded-xl hover:bg-muted transition-colors">
                     <BarChart3 className="h-4 w-4" />
                   </Button>
@@ -415,9 +423,9 @@ export default function LearnDictionaryPage() {
                           </Badge>
                         </div>
 
-                        <h1 className="text-5xl md:text-7xl font-bold font-display tracking-tight text-foreground py-4">
+                        <h2 className="text-5xl md:text-7xl font-bold font-display tracking-tight text-foreground py-4">
                           {currentWord.word}
-                        </h1>
+                        </h2>
 
                         <p className="text-lg text-muted-foreground font-medium">
                           What does this word mean?
@@ -436,7 +444,7 @@ export default function LearnDictionaryPage() {
                               "hover:border-primary/50 hover:bg-primary/5",
                               "active:scale-[0.97] hover:scale-[1.02]",
                               "transition-all duration-150 ease-out",
-                              "focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2",
+                              "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
                               "cursor-pointer select-none"
                             )}
                           >
@@ -461,7 +469,7 @@ export default function LearnDictionaryPage() {
 
                   {/* Feedback phase */}
                   {phase === 'feedback' && (
-                    <div className="text-center space-y-6 feedback-enter">
+                    <div className="text-center space-y-6 feedback-enter" role="alert" aria-live="assertive">
                       {/* Result icon */}
                       <div className={cn(
                         "inline-flex items-center justify-center w-20 h-20 rounded-full",
@@ -522,7 +530,7 @@ export default function LearnDictionaryPage() {
                             "shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30",
                             "transform hover:scale-105 active:scale-[0.97]",
                             "transition-all duration-200 ease-out",
-                            "focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2",
+                            "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2",
                             "gap-2"
                           )}
                         >
@@ -640,6 +648,17 @@ export default function LearnDictionaryPage() {
         .touch-target {
           -webkit-tap-highlight-color: transparent;
           touch-action: manipulation;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .confetti-piece,
+          .word-enter,
+          .feedback-enter,
+          .correct-flash,
+          .incorrect-flash,
+          .shimmer-bg {
+            animation: none !important;
+          }
         }
       `}</style>
     </SharedLayout>

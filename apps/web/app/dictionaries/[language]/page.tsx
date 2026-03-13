@@ -8,12 +8,12 @@ import Link from 'next/link';
 import { ChevronRight, MapPin, BookOpen, ArrowLeft, Type } from 'lucide-react';
 
 const Breadcrumbs = ({ items, className }: { items: { href: string; label: string }[]; className?: string }) => (
-  <nav className={`flex items-center gap-2 text-sm ${className || ''}`}>
+  <nav aria-label="Breadcrumb" className={`flex items-center gap-2 text-sm ${className || ''}`}>
     {items.map((item, index) => (
       <React.Fragment key={item.href}>
-        {index > 0 && <ChevronRight className="h-4 w-4 text-muted-foreground/50" />}
+        {index > 0 && <ChevronRight className="h-4 w-4 text-muted-foreground/50" aria-hidden="true" />}
         {index === items.length - 1 ? (
-          <span className="text-foreground font-medium">{item.label}</span>
+          <span className="text-foreground font-medium" aria-current="page">{item.label}</span>
         ) : (
           <Link href={item.href} className="text-muted-foreground hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
             {item.label}
@@ -91,6 +91,7 @@ export default async function DictionaryPage({
           <div className="flex items-center gap-3 mb-4">
             <Link
               href="/dictionaries"
+              aria-label="Back to dictionaries"
               className="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center hover:bg-amber-200 dark:hover:bg-amber-800/50 transition-colors shadow-sm"
             >
               <ArrowLeft className="w-4 h-4 text-amber-700 dark:text-amber-400" />
@@ -116,17 +117,17 @@ export default async function DictionaryPage({
           <div className="flex flex-wrap items-center gap-3 mb-6">
             {languageData.region && (
               <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card border shadow-sm">
-                <MapPin className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                <MapPin className="w-4 h-4 text-amber-600 dark:text-amber-400" aria-hidden="true" />
                 <span className="text-sm font-medium">{languageData.region}</span>
               </div>
             )}
             <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card border shadow-sm">
-              <BookOpen className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              <BookOpen className="w-4 h-4 text-amber-600 dark:text-amber-400" aria-hidden="true" />
               <span className="text-sm font-medium">{pagination.total.toLocaleString()} words</span>
             </div>
             {wordClasses.length > 0 && (
               <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card border shadow-sm">
-                <Type className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                <Type className="w-4 h-4 text-amber-600 dark:text-amber-400" aria-hidden="true" />
                 <span className="text-sm font-medium">{wordClasses.length} word classes</span>
               </div>
             )}

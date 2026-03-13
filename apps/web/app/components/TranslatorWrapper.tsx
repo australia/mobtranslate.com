@@ -9,5 +9,5 @@ interface TranslatorWrapperProps {
 }
 
 export default function TranslatorWrapper({ languages }: TranslatorWrapperProps) {
-  return <Translator availableLanguages={languages} />;
+  return <Translator availableLanguages={languages} showExamples />;
 }

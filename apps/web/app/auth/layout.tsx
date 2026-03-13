@@ -27,6 +27,11 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="flex min-h-screen bg-background text-foreground">
+      {/* Skip to content link */}
+      <a href="#auth-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-2 focus:left-2 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:text-sm focus:font-medium">
+        Skip to main content
+      </a>
+
       {/* Left Panel - Branding (hidden on mobile) */}
       <div className="hidden lg:flex lg:w-1/2 xl:w-[55%] relative overflow-hidden">
         {/* Gradient Background */}
@@ -91,14 +96,14 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
                   className="px-3 py-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
                 >
                   <div className="text-sm font-medium text-white/90">{item.word}</div>
-                  <div className="text-xs text-white/40">{item.meaning} &middot; {item.lang}</div>
+                  <div className="text-xs text-white/70">{item.meaning} &middot; {item.lang}</div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Bottom */}
-          <p className="text-xs text-white/30">
+          <p className="text-xs text-white/60">
             We acknowledge the Traditional Owners of the languages represented on this platform.
           </p>
         </div>
@@ -114,12 +119,15 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           >
             Mob Translate
           </Link>
+          <h1 className="text-2xl font-display font-bold mt-4 text-foreground">
+            Every Language Carries a World
+          </h1>
         </div>
 
         {/* Form area */}
-        <div className="flex flex-1 items-center justify-center p-4 sm:p-8">
+        <main id="auth-content" className="flex flex-1 items-center justify-center p-4 sm:p-8">
           {children}
-        </div>
+        </main>
 
         {/* Footer */}
         <div className="p-6 text-center text-sm text-muted-foreground">

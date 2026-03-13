@@ -8,9 +8,16 @@ import { Language } from '@/lib/supabase/types';
 
 interface TranslatorProps {
   availableLanguages?: Language[];
+  showExamples?: boolean;
 }
 
-const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
+const EXAMPLE_PHRASES = [
+  { label: 'Hello', text: 'Hello' },
+  { label: 'Thank you', text: 'Thank you' },
+  { label: 'Water', text: 'Water' },
+];
+
+const Translator = ({ availableLanguages, showExamples = false }: TranslatorProps = {}) => {
   const [inputText, setInputText] = useState<string>('');
   const [outputText, setOutputText] = useState<string>('');
   const [selectedLanguage, setSelectedLanguage] = useState<string>('kuku_yalanji');
@@ -128,6 +135,13 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
     }
   };
 
+  const handleExampleClick = (text: string) => {
+    setInputText(text);
+    setCanTranslate(text.trim().length > 0);
+    if (error) setError(null);
+    textareaRef.current?.focus();
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     // Submit on Ctrl+Enter or Cmd+Enter
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
@@ -136,6 +150,7 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
   };
 
   return (
+    <>
     <div className="max-w-7xl mx-auto my-8 rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] overflow-hidden">
       {/* Input Section */}
       <div className="p-4 md:p-6">
@@ -150,10 +165,12 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             placeholder="Enter English text to translate..."
+            aria-label="Translation input"
+            aria-describedby="char-counter"
             className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl text-white placeholder:text-[rgba(255,255,255,0.4)]"
             style={{ background: 'rgba(255,255,255,0.08)', borderColor: 'rgba(255,255,255,0.1)' }}
           />
-          <div className="absolute bottom-2 right-2 text-xs text-[rgba(255,255,255,0.5)]">
+          <div id="char-counter" className="absolute bottom-2 right-2 text-xs text-[rgba(255,255,255,0.5)]">
             {inputText.length} characters
           </div>
         </div>
@@ -195,11 +212,11 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
       {/* Output Section */}
       {(outputText || error || isLoading) && (
         <div className="border-t border-[rgba(255,255,255,0.1)]">
-          <div className="text-white text-base leading-relaxed">
+          <div className="text-white text-base leading-relaxed" aria-live="polite">
             {/* Inner Container with Improved Padding */}
             <div className="py-5 px-6 relative" ref={outputRef}> {/* Added relative positioning */}
               {error ? (
-                <div className="text-destructive flex items-start gap-2"> 
+                <div className="text-destructive flex items-start gap-2" role="alert">
                   <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
                   <p>{error}</p>
                 </div>
@@ -264,6 +281,21 @@ const Translator = ({ availableLanguages }: TranslatorProps = {}) => {
         </div>
       )}
     </div>
+    {showExamples && (
+      <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
+        <span className="text-xs text-[rgba(255,255,255,0.5)] mr-1">Try it:</span>
+        {EXAMPLE_PHRASES.map((example) => (
+          <button
+            key={example.label}
+            onClick={() => handleExampleClick(example.text)}
+            className="px-3 py-1 text-xs rounded-full border border-[rgba(255,255,255,0.15)] text-[rgba(255,255,255,0.7)] hover:text-white hover:border-[rgba(255,255,255,0.3)] hover:bg-[rgba(255,255,255,0.08)] transition-all duration-200"
+          >
+            {example.label}
+          </button>
+        ))}
+      </div>
+    )}
+    </>
   );
 };
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, ReactNode } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Sun, Moon, Github, Heart, Globe, BookOpen, Users, ExternalLink } from 'lucide-react';
 import { cn, Button } from '@mobtranslate/ui';
 import { ModernNav } from '@/components/navigation/ModernNav';
@@ -20,6 +21,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,12 +86,17 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
   const navLinks: NavLink[] = [
     { title: 'About', href: '/about' },
     { title: 'Dictionaries', href: '/dictionaries' },
-    { title: 'Education', href: '/education' },
-    { title: 'Contribute', href: 'https://github.com/australia/mobtranslate.com', external: true }
+    { title: 'Learn', href: '/education' },
+    { title: 'Community', href: '/leaderboard' }
   ];
 
   return (
     <div className="min-h-screen flex flex-col bg-background" style={{ overflowX: 'clip' }}>
+      {/* Skip to content link */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-2 focus:left-2 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:text-sm focus:font-medium">
+        Skip to main content
+      </a>
+
       {/* Header with glass morphism */}
       <header
         className={cn(
@@ -114,13 +121,16 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             </Link>
 
             {/* Desktop Navigation with underline animation */}
-            <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-              {navLinks.map((link) => (
+            <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Main navigation">
+              {navLinks.map((link) => {
+                const isActive = !link.external && pathname.startsWith(link.href);
+                return (
                 <Link
                   key={link.title}
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
+                  aria-current={isActive ? 'page' : undefined}
                   className={cn(
                     "relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200",
                     "after:absolute after:left-0 after:bottom-[-4px] after:h-[2px] after:w-0 after:bg-primary after:rounded-full",
@@ -132,7 +142,8 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                   {link.title}
                   {link.external && <ExternalLink className="h-3 w-3 opacity-50" />}
                 </Link>
-              ))}
+                );
+              })}
               <div className="flex items-center gap-3 ml-2">
                 {/* Dark mode toggle with smooth icon transition */}
                 <Button
@@ -215,14 +226,19 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
             isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
           )}
+          aria-hidden={!isMenuOpen}
         >
-          <nav className="px-4 sm:px-6 py-3 flex flex-col gap-1 border-t border-border/50 bg-background/80 backdrop-blur-xl">
-            {navLinks.map((link) => (
+          <nav className="px-4 sm:px-6 py-3 flex flex-col gap-1 border-t border-border/50 bg-background/80 backdrop-blur-xl" aria-label="Mobile navigation">
+            {navLinks.map((link) => {
+              const isActive = !link.external && pathname.startsWith(link.href);
+              return (
               <Link
                 key={link.title}
                 href={link.href}
                 target={link.external ? '_blank' : undefined}
                 rel={link.external ? 'noopener noreferrer' : undefined}
+                tabIndex={isMenuOpen ? 0 : -1}
+                aria-current={isActive ? 'page' : undefined}
                 className={cn(
                   "text-foreground hover:text-primary transition-colors duration-200 font-medium py-2.5 px-3 rounded-lg hover:bg-muted/50",
                   "flex items-center justify-between"
@@ -232,15 +248,11 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                 <span>{link.title}</span>
                 {link.external && <ExternalLink className="h-3.5 w-3.5 opacity-40" />}
               </Link>
-            ))}
+              );
+            })}
           </nav>
         </div>
       </header>
-
-      {/* Skip to content link */}
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-2 focus:left-2 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:text-sm focus:font-medium">
-        Skip to main content
-      </a>
 
       {/* Main Content Area with smooth transitions */}
       <main id="main-content" className="flex-1 w-full mx-auto max-w-[1920px] 2xl:max-w-[2200px] px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-6 sm:py-8 lg:py-12">
@@ -295,7 +307,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             {/* Explore */}
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-4 flex items-center gap-2">
-                <BookOpen size={14} className="text-primary" />
+                <BookOpen size={14} className="text-primary" aria-hidden="true" />
                 Explore
               </h3>
               <ul className="space-y-2.5">
@@ -318,7 +330,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             {/* Resources */}
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-4 flex items-center gap-2">
-                <Globe size={14} className="text-primary" />
+                <Globe size={14} className="text-primary" aria-hidden="true" />
                 Resources
               </h3>
               <ul className="space-y-2.5">
@@ -360,7 +372,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             {/* Community */}
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-4 flex items-center gap-2">
-                <Users size={14} className="text-primary" />
+                <Users size={14} className="text-primary" aria-hidden="true" />
                 Community
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
