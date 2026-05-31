@@ -240,17 +240,24 @@ export default function StyleGuidePage() {
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 bg-green-500 rounded-lg shadow-sm" />
+                  <div className="w-16 h-16 bg-success rounded-lg shadow-sm" />
                   <div>
                     <p className="font-semibold">Success</p>
-                    <p className="text-sm text-muted-foreground">Positive feedback</p>
+                    <p className="text-sm text-muted-foreground">Eucalyptus, positive feedback</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 bg-red-500 rounded-lg shadow-sm" />
+                  <div className="w-16 h-16 bg-destructive rounded-lg shadow-sm" />
                   <div>
-                    <p className="font-semibold">Error</p>
-                    <p className="text-sm text-muted-foreground">Error states</p>
+                    <p className="font-semibold">Error / destructive</p>
+                    <p className="text-sm text-muted-foreground">Terracotta, error states</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-16 h-16 bg-warning rounded-lg shadow-sm" />
+                  <div>
+                    <p className="font-semibold">Warning</p>
+                    <p className="text-sm text-muted-foreground">Amber, caution states</p>
                   </div>
                 </div>
               </CardContent>
@@ -263,12 +270,13 @@ export default function StyleGuidePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
-                <CardTitle>Headings - Crimson Text (Serif)</CardTitle>
+                <CardTitle>Headings — Playfair Display (marketing & headwords)</CardTitle>
+                <CardDescription>Display serif is scoped to marketing surfaces and dictionary headwords; product UI uses Inter.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <h1 className="text-5xl font-bold text-foreground">Display Heading</h1>
-                  <p className="text-sm text-muted-foreground mt-1">text-5xl font-bold</p>
+                  <h1 className="font-display text-5xl font-bold text-foreground">Display Heading</h1>
+                  <p className="text-sm text-muted-foreground mt-1">font-display text-5xl font-bold</p>
                 </div>
                 <div>
                   <h1 className="text-4xl font-bold">Heading 1</h1>
@@ -291,7 +299,8 @@ export default function StyleGuidePage() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Body Text - Source Sans Pro</CardTitle>
+                <CardTitle>Body &amp; UI — Inter</CardTitle>
+                <CardDescription>Inter carries all body, labels, data, and product headings.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
@@ -313,6 +322,47 @@ export default function StyleGuidePage() {
               </CardContent>
             </Card>
           </div>
+        </Section>
+
+        {/* Per-language identity */}
+        <Section title="Per-language identity">
+          <Card>
+            <CardHeader>
+              <CardTitle>Dictionary accents &amp; headword</CardTitle>
+              <CardDescription>
+                Each dictionary declares a <code className="font-mono text-xs">data-language</code> and inherits a
+                <code className="font-mono text-xs"> --lang-accent</code> mapped to its country, so no two languages read identically.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { code: 'kuku_yalanji', name: 'Kuku Yalanji', word: 'bama', gloss: 'person', region: 'Far North QLD' },
+                  { code: 'wbv', name: 'Wajarri', word: 'aba', gloss: 'grandmother', region: 'Mid West WA' },
+                  { code: 'anindilyakwa', name: 'Anindilyakwa', word: 'minya', gloss: 'what', region: 'Groote Eylandt, NT' },
+                  { code: 'migmaq', name: "Mi'gmaq", word: 'teluisi', gloss: 'my name is', region: 'Mi’kma’ki, Canada' },
+                ].map((l) => (
+                  <div
+                    key={l.code}
+                    data-language={l.code}
+                    className="rounded-xl border border-border overflow-hidden"
+                  >
+                    <div className="bg-[var(--lang-accent-soft)] px-4 pt-4 pb-5 border-b border-border">
+                      <p className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-[var(--lang-accent)] mb-1">
+                        {l.region}
+                      </p>
+                      <p className="headword text-2xl font-semibold leading-none">{l.word}</p>
+                    </div>
+                    <div className="px-4 py-3">
+                      <p className="text-sm text-muted-foreground">{l.gloss}</p>
+                      <div className="mt-2 h-1 rounded-full bg-[var(--lang-accent)]" style={{ width: '60%' }} />
+                      <p className="text-xs text-muted-foreground mt-2">{l.name}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </Section>
 
         {/* Buttons Section */}

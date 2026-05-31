@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
-import { Card, CardContent, Badge } from '@mobtranslate/ui';
+import { Badge } from '@mobtranslate/ui';
 import { getActiveLanguages, getLanguageStats } from '@/lib/supabase/queries';
-import { BookOpen, MapPin, ArrowRight, Languages, Globe, Heart, Users } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const revalidate = 3600;
 
@@ -13,47 +13,24 @@ export default async function DictionariesPage() {
     getLanguageStats(),
   ]);
 
-  const maxWords = Math.max(...Object.values(stats.wordsByLanguage));
+  const maxWords = Math.max(...Object.values(stats.wordsByLanguage), 1);
 
   return (
     <SharedLayout>
       {/* Header */}
-      <div className="py-10 md:py-16">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/40 dark:to-orange-900/40 flex items-center justify-center shadow-sm">
-            <Languages className="w-7 h-7 text-amber-700 dark:text-amber-400" />
-          </div>
-          <div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight">
-              Dictionaries
-            </h1>
-            <p className="text-sm text-muted-foreground mt-0.5">Browse and explore</p>
-          </div>
-        </div>
-        <p className="text-muted-foreground max-w-2xl mb-8 text-base md:text-lg leading-relaxed">
-          Browse our collection of Indigenous language dictionaries from around the world.
-          Each dictionary is built with community input.
+      <div className="marketing py-10 md:py-14 max-w-3xl">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-[-0.02em] mb-4">
+          Dictionaries
+        </h1>
+        <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+          A growing collection of Indigenous language dictionaries, each built with community
+          input and carrying the accent of its own country. {stats.totalLanguages} languages,{' '}
+          {stats.totalWords.toLocaleString()} entries and counting.
         </p>
-        <div className="flex items-center gap-4 sm:gap-8">
-          <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-card border shadow-sm">
-            <Globe className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-            <div>
-              <span className="text-lg font-bold font-display">{stats.totalLanguages}</span>
-              <span className="text-sm text-muted-foreground ml-1.5">languages</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-card border shadow-sm">
-            <BookOpen className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-            <div>
-              <span className="text-lg font-bold font-display">{stats.totalWords.toLocaleString()}</span>
-              <span className="text-sm text-muted-foreground ml-1.5">words</span>
-            </div>
-          </div>
-        </div>
       </div>
 
-      {/* Dictionary Cards */}
-      <div className="grid gap-6 sm:grid-cols-2 pb-16">
+      {/* Dictionary cards — per-language accent, no side-stripes */}
+      <div className="grid gap-5 sm:grid-cols-2 pb-16">
         {languages.map((lang) => {
           const wordCount = stats.wordsByLanguage[lang.code] || 0;
           const fillPercent = maxWords > 0 ? (wordCount / maxWords) * 100 : 0;
@@ -62,100 +39,62 @@ export default async function DictionariesPage() {
             <Link
               key={lang.code}
               href={`/dictionaries/${lang.code}`}
-              className="group block no-underline"
+              data-language={lang.code}
+              className="group block no-underline rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--lang-accent)]"
             >
-              <Card className="h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-amber-500/70 dark:border-l-amber-600/70">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h2 className="text-2xl font-display font-bold group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
-                        {lang.name}
-                      </h2>
-                      {lang.region && (
-                        <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-1.5">
-                          <MapPin className="w-3.5 h-3.5 text-amber-600/70 dark:text-amber-500/70" />
-                          {lang.region}
-                        </div>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-1.5 text-sm font-medium text-amber-700 dark:text-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-1 group-hover:translate-x-0 mt-1">
-                      Explore <ArrowRight className="w-4 h-4" />
-                    </div>
-                  </div>
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h2 className="text-2xl font-display font-semibold transition-colors group-hover:text-[var(--lang-accent)]">
+                    {lang.name}
+                  </h2>
+                  {lang.region && (
+                    <p className="text-sm text-muted-foreground mt-1">{lang.region}</p>
+                  )}
+                </div>
+                <ArrowRight className="w-5 h-5 text-[var(--lang-accent)] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 mt-1.5" />
+              </div>
 
-                  <p className="text-sm text-muted-foreground mb-5 line-clamp-2 leading-relaxed">
-                    {lang.description || `Explore the language of the ${lang.name} people`}
-                  </p>
+              <p className="text-sm text-muted-foreground mb-5 line-clamp-2 leading-relaxed">
+                {lang.description || `The language of the ${lang.name} people.`}
+              </p>
 
-                  {/* Word count bar */}
-                  <div className="mb-5">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-2">
-                        <BookOpen className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                        <span className="text-sm font-semibold">{wordCount.toLocaleString()} words</span>
-                      </div>
-                      <span className="text-xs text-muted-foreground">{Math.round(fillPercent)}%</span>
-                    </div>
-                    <div className="h-2.5 bg-muted rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-amber-500 to-orange-400 dark:from-amber-600 dark:to-orange-500 rounded-full transition-all duration-700 ease-out"
-                        style={{ width: `${Math.max(fillPercent, 3)}%` }}
-                      />
-                    </div>
-                  </div>
+              <div className="mb-4">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-sm font-semibold">{wordCount.toLocaleString()} words</span>
+                  <span className="text-xs text-muted-foreground tabular-nums">{Math.round(fillPercent)}%</span>
+                </div>
+                <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-[var(--lang-accent)] transition-all duration-700 ease-out"
+                    style={{ width: `${Math.max(fillPercent, 3)}%` }}
+                  />
+                </div>
+              </div>
 
-                  <div className="flex flex-wrap gap-2 text-xs">
-                    {lang.family && (
-                      <Badge variant="outline" className="border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-400">
-                        {lang.family}
-                      </Badge>
-                    )}
-                    {lang.status && (
-                      <Badge
-                        variant="secondary"
-                      >
-                        {lang.status}
-                      </Badge>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="flex flex-wrap gap-2">
+                {lang.family && <Badge variant="outline">{lang.family}</Badge>}
+                {lang.status && <Badge variant="secondary">{lang.status}</Badge>}
+              </div>
             </Link>
           );
         })}
       </div>
 
-      {/* Divider */}
-      <div className="flex items-center gap-4 py-2">
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-amber-300/50 to-transparent dark:via-amber-700/50" />
-        <Heart className="w-4 h-4 text-amber-500/60 dark:text-amber-600/60" />
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent via-amber-300/50 to-transparent dark:via-amber-700/50" />
-      </div>
-
-      {/* About section */}
-      <section className="py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-amber-700 dark:text-amber-400" />
-              </div>
-              <h3 className="text-xl font-display font-bold">Language Learning</h3>
-            </div>
+      {/* About — editorial, two columns, no icon-card chrome */}
+      <section className="marketing border-t border-border py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 max-w-4xl">
+          <div>
+            <h3 className="text-xl font-display font-semibold mb-3">Built with community</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Each dictionary is built with community input, making it easy to explore and learn Indigenous languages online.
+              Each dictionary is built with community input, making it easy to explore and learn
+              Indigenous languages online, with the language treated as the subject, not the artifact.
             </p>
           </div>
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center">
-                <Users className="w-5 h-5 text-amber-700 dark:text-amber-400" />
-              </div>
-              <h3 className="text-xl font-display font-bold">Community Collaboration</h3>
-            </div>
+          <div>
+            <h3 className="text-xl font-display font-semibold mb-3">Owned by the community</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Our dictionaries are created in collaboration with Indigenous communities and linguists.
-              We welcome contributors who want to help grow these resources.
+              Dictionaries are created in collaboration with Indigenous communities and linguists.
+              We welcome contributors who want to help these resources grow.
             </p>
           </div>
         </div>

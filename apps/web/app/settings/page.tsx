@@ -204,21 +204,21 @@ export default function SettingsPage() {
                 <CardContent className="space-y-6">
                   {/* Feedback Messages */}
                   {error && (
-                    <div className="flex items-start gap-3 p-4 rounded-lg bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50">
-                      <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 mt-0.5 shrink-0" />
-                      <span className="text-sm text-red-700 dark:text-red-300">{error}</span>
+                    <div className="flex items-start gap-3 p-4 rounded-lg bg-destructive/5 border border-destructive/40" role="alert">
+                      <AlertCircle className="h-5 w-5 text-destructive mt-0.5 shrink-0" />
+                      <span className="text-sm text-destructive">{error}</span>
                     </div>
                   )}
 
                   {success && (
-                    <div className="flex items-start gap-3 p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50">
-                      <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
-                      <span className="text-sm text-emerald-700 dark:text-emerald-300">{success}</span>
+                    <div className="flex items-start gap-3 p-4 rounded-lg bg-secondary/10 border border-secondary/40" role="status">
+                      <CheckCircle className="h-5 w-5 text-secondary mt-0.5 shrink-0" />
+                      <span className="text-sm text-secondary">{success}</span>
                     </div>
                   )}
 
-                  {/* Avatar Preview */}
-                  <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/50 border border-border/50">
+                  {/* Avatar Preview — plain row, no nested card */}
+                  <div className="flex items-center gap-4">
                     <Avatar
                       size="xl"
                       src={profile?.avatar_url || undefined}
@@ -304,7 +304,7 @@ export default function SettingsPage() {
                       <p className="text-xs text-muted-foreground">
                         Max 500 characters.
                       </p>
-                      <p className={`text-xs ${formData.bio.length > 450 ? 'text-amber-600 dark:text-amber-400' : 'text-muted-foreground'}`}>
+                      <p className={`text-xs ${formData.bio.length > 450 ? 'text-warning' : 'text-muted-foreground'}`}>
                         {formData.bio.length}/500
                       </p>
                     </div>
@@ -317,12 +317,12 @@ export default function SettingsPage() {
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       {hasChanges ? (
                         <>
-                          <div className="w-2 h-2 rounded-full bg-amber-500" />
+                          <div className="w-2 h-2 rounded-full bg-warning" />
                           Unsaved changes
                         </>
                       ) : (
                         <>
-                          <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                          <div className="w-2 h-2 rounded-full bg-success" />
                           All changes saved
                         </>
                       )}

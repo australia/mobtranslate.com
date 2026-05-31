@@ -84,8 +84,14 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
       });
 
       if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error('Too many translations right now. Wait a moment, then try again.');
+        }
+        if (response.status >= 500) {
+          throw new Error('The translation service is having trouble. Try again in a moment.');
+        }
         const errorData = await response.text();
-        throw new Error(errorData || 'Translation service unavailable');
+        throw new Error(errorData || 'That language is not available for translation yet.');
       }
 
       // Reset output text before starting to stream
@@ -128,7 +134,11 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
       }
     } catch (error) {
       console.error('Translation error:', error);
-      setError('Translation error occurred. Please try again.');
+      const message =
+        error instanceof Error && error.message
+          ? error.message
+          : 'Something went wrong reaching the translator. Check your connection and try again.';
+      setError(message);
       setOutputText('');
     } finally {
       setIsLoading(false);
@@ -216,9 +226,19 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
             {/* Inner Container with Improved Padding */}
             <div className="py-5 px-6 relative" ref={outputRef}> {/* Added relative positioning */}
               {error ? (
-                <div className="text-destructive flex items-start gap-2" role="alert">
-                  <AlertTriangle size={16} className="mt-0.5 flex-shrink-0" />
-                  <p>{error}</p>
+                <div className="flex items-start gap-3" role="alert">
+                  <AlertTriangle size={18} className="mt-0.5 flex-shrink-0 text-[#f4a056]" />
+                  <div>
+                    <p className="text-[#faf8f5] font-medium mb-1">Couldn&apos;t translate that</p>
+                    <p className="text-sm text-[#faf8f5]/70 mb-3">{error}</p>
+                    <button
+                      onClick={handleTranslate}
+                      disabled={!canTranslate}
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-[#ecb485] hover:text-[#f4d2b5] transition-colors disabled:opacity-50"
+                    >
+                      <ArrowRight size={14} /> Try again
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <>
@@ -253,10 +273,13 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
                     </ReactMarkdown>
                   )}
                   
-                  {/* Show loading indicator as an overlay when loading */}
+                  {/* Skeleton placeholder while the first tokens arrive (DESIGN §5.7) */}
                   {isLoading && !outputText && (
-                    <div className="flex items-center justify-center h-full min-h-[50px]">
-                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                    <div className="space-y-3" aria-hidden="true">
+                      <div className="h-5 w-1/3 rounded bg-[rgba(255,255,255,0.12)] animate-pulse" />
+                      <div className="h-4 w-full rounded bg-[rgba(255,255,255,0.08)] animate-pulse" />
+                      <div className="h-4 w-11/12 rounded bg-[rgba(255,255,255,0.08)] animate-pulse" />
+                      <div className="h-4 w-2/3 rounded bg-[rgba(255,255,255,0.08)] animate-pulse" />
                     </div>
                   )}
                   
@@ -272,11 +295,21 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
             </div>
           </div>
 
-           <div className="px-6 pb-4 text-xs text-[rgba(255,255,255,0.5)]">
+           <div className="px-6 pb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[rgba(255,255,255,0.5)]">
                 <p>
-                  Note: Translations are generated using AI and may not be 100% accurate.
-                  Please consult with language experts for critical translations.
+                  AI-generated, not authoritative. For anything important, check with a speaker
+                  or language expert.
                 </p>
+                {outputText && !isLoading && (
+                  <a
+                    href="https://github.com/australia/mobtranslate.com/issues/new"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[rgba(255,255,255,0.7)] underline underline-offset-2 hover:text-white transition-colors"
+                  >
+                    Report this translation
+                  </a>
+                )}
             </div>
         </div>
       )}

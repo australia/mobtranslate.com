@@ -16,7 +16,9 @@ export default async function CuratorPage() {
     redirect('/auth/signin?redirect=/curator');
   }
 
-  // Get languages where user is a curator
+  // Get languages where user is a curator.
+  // user_roles is an inner join so the role-name filter actually restricts the
+  // returned assignments (a plain embed filter leaves non-matching parents in place).
   const { data: curatorAssignments } = await supabase
     .from('user_role_assignments')
     .select(`
@@ -26,7 +28,7 @@ export default async function CuratorPage() {
         name,
         code
       ),
-      user_roles!role_id(
+      user_roles!role_id!inner(
         name
       )
     `)

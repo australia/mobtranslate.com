@@ -87,12 +87,12 @@ export default function LeaderboardOverviewPage() {
         <div className="max-w-[1920px] 2xl:max-w-[2200px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           {/* Page Header */}
           <div className="py-8 md:py-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100/80 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm font-medium mb-4">
+            <p className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.18em] text-primary mb-4">
               <Trophy className="w-3.5 h-3.5" />
               Competition
-            </div>
+            </p>
             <div className="flex items-center gap-4 flex-wrap">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-foreground">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground">
                 Leaderboard
               </h1>
               {overviewData && (
@@ -115,19 +115,17 @@ export default function LeaderboardOverviewPage() {
 
           {/* Sign in prompt for unauthenticated users */}
           {!user && (
-            <div className="mb-6 p-4 rounded-xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40 flex items-center justify-between flex-wrap gap-3">
+            <div className="mb-6 p-4 rounded-xl bg-muted border border-border flex items-center justify-between flex-wrap gap-3">
               <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-amber-100 dark:bg-amber-900/40">
-                  <LogIn className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                <div className="p-2 rounded-lg bg-primary/10">
+                  <LogIn className="h-4 w-4 text-primary" />
                 </div>
-                <p className="text-sm text-amber-800 dark:text-amber-300">
-                  <span className="font-medium">Sign in to track your progress</span> and compete on the leaderboard
+                <p className="text-sm text-foreground/80">
+                  <span className="font-medium text-foreground">Sign in to track your progress</span> and compete on the leaderboard
                 </p>
               </div>
               <Link href="/auth/signin?redirect=/leaderboard">
-                <Button size="sm" className="bg-amber-600 hover:bg-amber-700 text-white">
-                  Sign In
-                </Button>
+                <Button size="sm">Sign in</Button>
               </Link>
             </div>
           )}
@@ -157,11 +155,11 @@ export default function LeaderboardOverviewPage() {
               {/* Active Language Leaderboards */}
               {overviewData.leaderboards.length > 0 ? (
                 <div className="mt-14">
-                  <h2 className="text-2xl lg:text-3xl font-display font-bold mb-8 flex items-center gap-2.5">
-                    <div className="p-2 rounded-lg bg-amber-100/80 dark:bg-amber-900/30">
-                      <Trophy className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                  <h2 className="text-2xl lg:text-3xl font-semibold mb-8 flex items-center gap-2.5">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <Trophy className="h-5 w-5 text-primary" />
                     </div>
-                    Language Champions
+                    Language champions
                   </h2>
                   <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
                     {overviewData.leaderboards.map((leaderboard) => (
@@ -190,15 +188,11 @@ export default function LeaderboardOverviewPage() {
                       No one has started learning yet for the selected time period. Be the first!
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                      <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white">
-                        <a href="/dashboard">
-                          View Dashboard
-                        </a>
+                      <Button asChild>
+                        <a href="/dashboard">View dashboard</a>
                       </Button>
-                      <Button asChild variant="outline">
-                        <a href="/learn">
-                          Start Learning
-                        </a>
+                      <Button asChild variant="secondary">
+                        <a href="/learn">Start learning</a>
                       </Button>
                     </div>
                   </div>
@@ -208,13 +202,13 @@ export default function LeaderboardOverviewPage() {
               {/* Available Languages (inactive) */}
               {overviewData.allLanguages.filter(l => l.totalParticipants === 0).length > 0 && (
                 <div className="mt-14">
-                  <h2 className="text-2xl lg:text-3xl font-display font-bold mb-2 flex items-center gap-2.5">
+                  <h2 className="text-2xl lg:text-3xl font-semibold mb-2 flex items-center gap-2.5">
                     <div className="p-2 rounded-lg bg-muted">
                       <Globe className="h-5 w-5 text-muted-foreground" />
                     </div>
-                    Available Languages
+                    Available languages
                   </h2>
-                  <p className="text-sm text-muted-foreground mb-6 ml-12">No activity yet -- start learning to claim the top spot</p>
+                  <p className="text-sm text-muted-foreground mb-6 ml-12">No activity yet, start learning to claim the top spot.</p>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
                     {overviewData.allLanguages
                       .filter(l => l.totalParticipants === 0)
@@ -222,9 +216,10 @@ export default function LeaderboardOverviewPage() {
                         <a
                           key={language.languageId}
                           href={`/learn/${language.languageCode}`}
-                          className="block p-4 bg-card rounded-xl border border-border/60 hover:border-amber-400/40 hover:shadow-md transition-all duration-200 text-center group"
+                          data-language={language.languageCode}
+                          className="block p-4 bg-card rounded-xl border border-border hover:border-[var(--lang-accent)] hover:shadow-md transition-all duration-200 text-center group"
                         >
-                          <h3 className="font-medium text-foreground group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors text-sm">
+                          <h3 className="font-display font-medium text-foreground group-hover:text-[var(--lang-accent)] transition-colors text-sm">
                             {language.languageName}
                           </h3>
                           <p className="text-xs text-muted-foreground mt-1">Start learning</p>

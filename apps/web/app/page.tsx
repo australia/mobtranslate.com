@@ -1,11 +1,26 @@
 import Link from 'next/link';
 import SharedLayout from './components/SharedLayout';
 import TranslatorWrapper from './components/TranslatorWrapper';
-import { Card, CardContent, Badge } from '@mobtranslate/ui';
+import { Badge } from '@mobtranslate/ui';
 import { getActiveLanguages, getLanguageStats } from '@/lib/supabase/queries';
-import { BookOpen, Globe, Users, ArrowRight, Sparkles, MapPin } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 
 export const revalidate = 3600;
+
+const HOW_IT_WORKS = [
+  {
+    title: 'Community dictionaries',
+    body: 'Word lists are curated with Indigenous language speakers and linguists, capturing authentic pronunciation, meaning, and the story behind each entry.',
+  },
+  {
+    title: 'AI translation, flagged honestly',
+    body: 'Language models trained on those dictionaries offer contextual translations. Where the machine is guessing, we say so, every time.',
+  },
+  {
+    title: 'Open, forever',
+    body: 'Every line of code and every dictionary entry is open. A community can clone, fork, and self-host its own dictionary without us in the loop.',
+  },
+];
 
 export default async function Page() {
   const [languages, stats] = await Promise.all([
@@ -17,88 +32,69 @@ export default async function Page() {
 
   return (
     <SharedLayout>
-      {/* Hero Section — flat dark background, no gradients */}
-      <section className="relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16 -mt-6 sm:-mt-8 lg:-mt-12">
-        <div className="absolute inset-0 bg-[#111110]" />
-
+      {/* Hero — deep ochre-earth ground, language foregrounded */}
+      <section className="marketing relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16 -mt-6 sm:-mt-8 lg:-mt-12 bg-[#33180c] text-[#faf8f5]">
         <div className="relative px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 pt-20 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24">
-          <div className="max-w-7xl mx-auto">
-            {/* Heading */}
-            <div className="text-center mb-14 sm:mb-16">
-              <p className="text-xs font-medium text-[rgba(255,255,255,0.7)] uppercase tracking-[0.2em] mb-8">
-                Open Source Language Learning
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12 sm:mb-14">
+              <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#ecb485] mb-7">
+                Open source · community built
               </p>
-              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-display font-black text-white mb-6 tracking-tight leading-[0.9]">
-                Translate into<br />
-                Indigenous Languages
+              <h1 className="font-display font-bold text-[#faf8f5] mb-6 tracking-[-0.025em] leading-[0.95] text-5xl sm:text-6xl lg:text-7xl">
+                Translate into
+                <br />
+                <span className="text-[#ecb485]">Indigenous languages</span>
               </h1>
-              <p className="text-lg sm:text-xl text-[rgba(255,255,255,0.7)] max-w-2xl mx-auto leading-relaxed">
-                The community-driven &lsquo;Google Translate&rsquo; for First Nations languages.
-                <br className="hidden sm:block" />
-                Powered by AI. Built with respect.
+              <p className="text-lg sm:text-xl text-[#faf8f5]/70 max-w-2xl mx-auto leading-relaxed">
+                A community dictionary, translator, and learning surface for First Nations
+                languages. Built with the people who speak them.
               </p>
             </div>
 
-            {/* Translator Widget */}
+            {/* Translator */}
             <div className="max-w-3xl mx-auto">
               <TranslatorWrapper languages={languages} />
             </div>
 
-            {/* Quick Action Links */}
+            {/* Quick links */}
             <div className="flex items-center justify-center gap-6 sm:gap-8 mt-8">
               <Link
                 href="/education"
-                className="inline-flex items-center gap-1.5 text-sm text-[rgba(255,255,255,0.5)] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm text-[#faf8f5]/60 hover:text-[#faf8f5] transition-colors"
               >
-                Start Learning <ArrowRight className="w-3.5 h-3.5" />
+                Start learning <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-              <span className="w-px h-4 bg-[rgba(255,255,255,0.1)]" />
+              <span className="w-px h-4 bg-[#faf8f5]/15" />
               <Link
                 href="/dictionaries"
-                className="inline-flex items-center gap-1.5 text-sm text-[rgba(255,255,255,0.5)] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm text-[#faf8f5]/60 hover:text-[#faf8f5] transition-colors"
               >
-                Browse Dictionaries <ArrowRight className="w-3.5 h-3.5" />
+                Browse dictionaries <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
-            {/* Stats Bar */}
-            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16 lg:gap-24 mt-16 sm:mt-20 pt-10 border-t border-[rgba(255,255,255,0.06)]">
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight">
-                  {stats.totalLanguages}
-                </div>
-                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.7)] mt-2 font-medium">Languages</div>
-              </div>
-              <div className="hidden sm:block w-px h-12 bg-[rgba(255,255,255,0.06)]" />
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight">
-                  {stats.totalWords.toLocaleString()}+
-                </div>
-                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.7)] mt-2 font-medium">Words</div>
-              </div>
-              <div className="hidden sm:block w-px h-12 bg-[rgba(255,255,255,0.06)]" />
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-display font-black text-white tracking-tight">100%</div>
-                <div className="text-xs uppercase tracking-[0.15em] text-[rgba(255,255,255,0.7)] mt-2 font-medium">Open Source</div>
-              </div>
-            </div>
+            {/* Scope, stated as a sentence — not a SaaS metric counter */}
+            <p className="mt-16 sm:mt-20 pt-8 border-t border-[#faf8f5]/10 text-center text-sm sm:text-base text-[#faf8f5]/55 leading-relaxed max-w-2xl mx-auto">
+              {stats.totalLanguages} languages, {stats.totalWords.toLocaleString()} entries, and
+              every line of code and every dictionary entry open to the communities they belong to.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Dictionary Cards */}
-      <section className="py-20 sm:py-28">
+      {/* Dictionary index — a legitimate browse affordance (DESIGN §4.3) */}
+      <section className="marketing py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="max-w-2xl mb-12">
             <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight mb-3">
-              Explore Dictionaries
+              Explore the dictionaries
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Browse our growing collection of Indigenous language dictionaries, each built with community input and linguistic expertise.
+            <p className="text-muted-foreground text-lg">
+              A growing collection, each one carrying the accent of its own country.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {languages.map((language) => {
               const wordCount = stats.wordsByLanguage[language.code] || 0;
               const progressPercent = Math.min((wordCount / maxWords) * 100, 100);
@@ -107,54 +103,37 @@ export default async function Page() {
                 <Link
                   key={language.id}
                   href={`/dictionaries/${language.code}`}
-                  className="group block no-underline"
+                  data-language={language.code}
+                  className="group block no-underline rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--lang-accent)]"
                 >
-                  <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-t-4 border-t-primary/40 hover:border-t-primary">
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-display font-bold mb-1 group-hover:text-primary transition-colors">
-                        {language.name}
-                      </h3>
-                      {language.region && (
-                        <div className="flex items-center gap-1.5 mb-3">
-                          <MapPin className="w-3 h-3 text-muted-foreground" aria-hidden="true" />
-                          <p className="text-xs text-muted-foreground">{language.region}</p>
-                        </div>
-                      )}
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                        {language.description || `Explore the language of the ${language.name} people`}
-                      </p>
+                  <h3 className="text-xl font-display font-semibold mb-1 transition-colors group-hover:text-[var(--lang-accent)]">
+                    {language.name}
+                  </h3>
+                  {language.region && (
+                    <p className="text-xs text-muted-foreground mb-3">{language.region}</p>
+                  )}
+                  <p className="text-sm text-muted-foreground mb-5 line-clamp-2 leading-relaxed">
+                    {language.description || `The language of the ${language.name} people.`}
+                  </p>
 
-                      <div className="mb-4">
-                        <div className="flex items-center gap-2 mb-1.5">
-                          <BookOpen className="w-4 h-4 text-primary" aria-hidden="true" />
-                          <span className="text-sm font-semibold">{wordCount.toLocaleString()} words</span>
-                        </div>
-                        <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-primary/70 rounded-full transition-all duration-500"
-                            style={{ width: `${progressPercent}%` }}
-                          />
-                        </div>
-                      </div>
+                  <div className="mb-4">
+                    <div className="flex items-baseline justify-between mb-1.5">
+                      <span className="text-sm font-semibold text-foreground">
+                        {wordCount.toLocaleString()} words
+                      </span>
+                    </div>
+                    <div className="h-1 bg-muted rounded-full overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-[var(--lang-accent)] transition-all duration-500"
+                        style={{ width: `${progressPercent}%` }}
+                      />
+                    </div>
+                  </div>
 
-                      <div className="flex flex-wrap gap-2 text-xs">
-                        {language.family && (
-                          <Badge variant="outline">{language.family}</Badge>
-                        )}
-                        {language.status && (
-                          <Badge
-                            variant="secondary"
-                          >
-                            {language.status}
-                          </Badge>
-                        )}
-                      </div>
-
-                      <div className="mt-4 flex items-center gap-1 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                        Explore <ArrowRight className="w-3 h-3" />
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <div className="flex flex-wrap items-center gap-2">
+                    {language.family && <Badge variant="outline">{language.family}</Badge>}
+                    {language.status && <Badge variant="secondary">{language.status}</Badge>}
+                  </div>
                 </Link>
               );
             })}
@@ -162,88 +141,75 @@ export default async function Page() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-16 sm:py-20 bg-muted/30 dark:bg-muted/50 -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16">
+      {/* How it works — editorial, numbered. No icon-card template (migration #2) */}
+      <section className="marketing py-16 sm:py-20 bg-muted/30 dark:bg-muted/40 -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="max-w-2xl mb-12">
             <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight mb-3">
-              How It Works
+              How it works
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg">
               Built on open data and AI, with deep respect for language custodians.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-7 h-7 text-primary" aria-hidden="true" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-12">
+            {HOW_IT_WORKS.map((step, i) => (
+              <div key={step.title}>
+                <div className="font-display text-5xl font-bold text-primary/80 mb-4 tabular-nums">
+                  {String(i + 1).padStart(2, '0')}
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+                <p className="text-[15px] text-muted-foreground leading-relaxed max-w-[34ch]">
+                  {step.body}
+                </p>
               </div>
-              <h3 className="text-lg font-bold mb-2">Community Dictionaries</h3>
-              <p className="text-sm text-muted-foreground">
-                Word lists curated with Indigenous language speakers and linguists, capturing authentic pronunciation and meaning.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Sparkles className="w-7 h-7 text-primary" aria-hidden="true" />
-              </div>
-              <h3 className="text-lg font-bold mb-2">AI Translation</h3>
-              <p className="text-sm text-muted-foreground">
-                Powered by large language models trained on our dictionaries, providing contextual translations with cultural notes.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Users className="w-7 h-7 text-primary" aria-hidden="true" />
-              </div>
-              <h3 className="text-lg font-bold mb-2">Open Source</h3>
-              <p className="text-sm text-muted-foreground">
-                Every line of code, every dictionary entry is open. Built by the community, for the community. Forever free.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Share Your Language Knowledge */}
-      <section className="py-16 sm:py-20">
+      {/* Contribute */}
+      <section className="marketing py-16 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-display font-bold tracking-tight mb-3">
-            Share Your Language Knowledge
+            Share your language knowledge
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-6">
-            Are you a speaker or knowledge holder of an Indigenous language? Help preserve your language for future generations.
+            Are you a speaker or knowledge holder of an Indigenous language? Help keep it living
+            for the generations coming up.
           </p>
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-hover transition-colors"
           >
-            Learn How to Contribute <ArrowRight className="w-4 h-4" />
+            Learn how to contribute <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
 
-      {/* CTA — flat dark background, no gradients */}
-      <section className="relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16">
-        <div className="absolute inset-0 bg-[#111110]" />
-        <div className="relative px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-20 sm:py-24">
+      {/* CTA — same warm ground as the hero, bookending the page */}
+      <section className="marketing relative -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16 bg-[#33180c] text-[#faf8f5]">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-20 sm:py-24">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4 leading-snug">
-              Start Learning Today
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#faf8f5] mb-4 leading-snug">
+              Start learning today
             </h2>
-            <p className="text-[rgba(255,255,255,0.7)] mb-10 max-w-xl mx-auto">
-              Pick a language and start building your vocabulary.
+            <p className="text-[#faf8f5]/70 mb-10 max-w-xl mx-auto">
+              Pick a language and start building your vocabulary, a few words at a time.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/dictionaries" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-[rgba(255,255,255,0.9)] transition-colors">
-                Browse Dictionaries
-              </Link>
               <Link
                 href="/education"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-[rgba(255,255,255,0.15)] text-white font-semibold rounded-lg hover:bg-[rgba(255,255,255,0.08)] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#ecb485] text-[#33180c] font-semibold rounded-lg hover:bg-[#f4d2b5] transition-colors"
               >
-                Start Learning
+                Start learning <ArrowUpRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/dictionaries"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-[#faf8f5]/20 text-[#faf8f5] font-semibold rounded-lg hover:bg-[#faf8f5]/10 transition-colors"
+              >
+                Browse dictionaries
               </Link>
             </div>
           </div>

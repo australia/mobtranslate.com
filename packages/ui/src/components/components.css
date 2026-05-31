@@ -35,41 +35,62 @@
 .mt-btn-lg { height: 3rem; padding-inline: 1.5rem; font-size: var(--text-lg); }
 .mt-btn-icon { height: 2.75rem; width: 2.75rem; padding: 0; }
 
+/* Canonical variants: primary, secondary, ghost + destructive modifier.
+   Legacy variants (outline/success/warning/error/link) are kept as styled
+   aliases so existing call sites stay consistent, not broken. See DESIGN.md §5.1. */
 .mt-btn-primary {
   background: var(--color-primary);
   color: var(--color-primary-foreground);
   border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
 }
 .mt-btn-primary:hover:not([data-disabled]):not(:disabled) { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
-.mt-btn-primary:active:not([data-disabled]):not(:disabled) { background: var(--color-primary-active); }
+.mt-btn-primary:active:not([data-disabled]):not(:disabled) { background: var(--color-primary-active); box-shadow: none; }
 
-.mt-btn-secondary {
-  background: var(--color-muted);
-  color: var(--color-foreground);
-  border-color: var(--color-border);
-}
-.mt-btn-secondary:hover:not([data-disabled]):not(:disabled) { background: var(--color-muted-hover); }
-
-.mt-btn-destructive {
-  background: var(--color-destructive);
-  color: var(--color-destructive-foreground);
-  border-color: var(--color-destructive);
-}
-.mt-btn-destructive:hover:not([data-disabled]):not(:disabled) { background: var(--color-destructive-hover); border-color: var(--color-destructive-hover); }
-.mt-btn-destructive:active:not([data-disabled]):not(:disabled) { background: var(--color-destructive-active); }
-
+/* secondary = transparent fill + border (the paired-with-primary action) */
+.mt-btn-secondary,
 .mt-btn-outline {
   background: transparent;
   color: var(--color-foreground);
   border-color: var(--color-border);
 }
-.mt-btn-outline:hover:not([data-disabled]):not(:disabled) { background: var(--color-muted); }
+.mt-btn-secondary:hover:not([data-disabled]):not(:disabled),
+.mt-btn-outline:hover:not([data-disabled]):not(:disabled) { background: var(--color-muted); border-color: var(--color-input); }
 
 .mt-btn-ghost {
   background: transparent;
   color: var(--color-foreground);
 }
 .mt-btn-ghost:hover:not([data-disabled]):not(:disabled) { background: var(--color-muted); }
+
+/* destructive modifier (also aliased by legacy `error`) */
+.mt-btn-destructive,
+.mt-btn-error {
+  background: var(--color-destructive);
+  color: var(--color-destructive-foreground);
+  border-color: var(--color-destructive);
+  box-shadow: var(--shadow-sm);
+}
+.mt-btn-destructive:hover:not([data-disabled]):not(:disabled),
+.mt-btn-error:hover:not([data-disabled]):not(:disabled) { background: var(--color-destructive-hover); border-color: var(--color-destructive-hover); }
+.mt-btn-destructive:active:not([data-disabled]):not(:disabled),
+.mt-btn-error:active:not([data-disabled]):not(:disabled) { background: var(--color-destructive-active); box-shadow: none; }
+
+/* success = eucalyptus fill (approve, learn-correct); warning = amber */
+.mt-btn-success {
+  background: var(--color-success);
+  color: var(--color-success-foreground);
+  border-color: var(--color-success);
+  box-shadow: var(--shadow-sm);
+}
+.mt-btn-success:hover:not([data-disabled]):not(:disabled) { background: var(--color-success-hover); border-color: var(--color-success-hover); }
+.mt-btn-warning {
+  background: var(--color-warning);
+  color: var(--color-warning-foreground);
+  border-color: var(--color-warning);
+  box-shadow: var(--shadow-sm);
+}
+.mt-btn-warning:hover:not([data-disabled]):not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
 
 .mt-btn-link {
   background: transparent;

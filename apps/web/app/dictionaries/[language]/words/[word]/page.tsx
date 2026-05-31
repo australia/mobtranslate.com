@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import SharedLayout from '../../../../components/SharedLayout';
-import { Card, CardContent, Badge } from '@mobtranslate/ui';
+import { Badge } from '@mobtranslate/ui';
 
 import { ChevronRight, ArrowLeft, Sparkles } from 'lucide-react';
 
@@ -14,7 +14,7 @@ const Breadcrumbs = ({ items, className }: { items: { href: string; label: strin
         {index === items.length - 1 ? (
           <span className="text-foreground font-medium">{item.label}</span>
         ) : (
-          <Link href={item.href} className="text-muted-foreground hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
+          <Link href={item.href} className="text-muted-foreground hover:text-[var(--lang-accent)] transition-colors">
             {item.label}
           </Link>
         )}
@@ -82,78 +82,67 @@ export default async function WordDetailPage({
 
     return (
       <SharedLayout>
-        {/* Header */}
-        <div className="py-8 md:py-12">
-          <Breadcrumbs items={breadcrumbItems} className="mb-6" />
+        <div data-language={language.code}>
+          {/* Header — the entry headword is the focus (DESIGN §5.3) */}
+          <div className="py-8 md:py-12 max-w-4xl">
+            <div className="flex items-center justify-between gap-4 mb-6">
+              <Breadcrumbs items={breadcrumbItems} />
+              <Link
+                href={`/dictionaries/${languageCode}`}
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-[var(--lang-accent)] transition-colors shrink-0"
+              >
+                <ArrowLeft className="w-4 h-4" /> {language.name}
+              </Link>
+            </div>
 
-          <div className="flex items-center gap-3 mb-3">
-            <Link
-              href={`/dictionaries/${languageCode}`}
-              className="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center hover:bg-amber-200 dark:hover:bg-amber-800/50 transition-colors shadow-sm"
-            >
-              <ArrowLeft className="w-4 h-4 text-amber-700 dark:text-amber-400" />
-            </Link>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight">
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--lang-accent)] mb-2">
+              {language.name}
+            </p>
+            <h1 className="headword text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.015em] leading-none mb-4" lang={language.code}>
               {word.word}
             </h1>
-          </div>
-          <div className="flex items-center gap-2 ml-12 flex-wrap">
-            <span className="text-muted-foreground text-sm">
-              {language.name} Dictionary
-            </span>
-            <span className="text-muted-foreground/40">|</span>
-            {word.word_class && (
-              <Badge variant="outline" className="border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-400">
-                {word.word_class.name}
-              </Badge>
-            )}
-            {word.obsolete && (
-              <Badge variant="outline" className="border-red-200 dark:border-red-800 text-red-600 dark:text-red-400">Obsolete</Badge>
-            )}
-            {word.sensitive_content && (
-              <Badge variant="destructive">Sensitive</Badge>
-            )}
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="max-w-4xl pb-16 space-y-8">
-          <WordDetailContent word={word} />
-
-          {/* Related words */}
-          {relatedWords && relatedWords.length > 0 && (
-            <div>
-              <div className="flex items-center gap-2.5 mb-5">
-                <Sparkles className="w-5 h-5 text-amber-600 dark:text-amber-400" />
-                <h2 className="text-xl font-display font-bold">Related Words</h2>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {relatedWords.map((related) => (
-                  <Link
-                    key={related.id}
-                    href={`/dictionaries/${languageCode}/words/${encodeURIComponent(related.word)}`}
-                    className="group block"
-                  >
-                    <Card className="h-full transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 border-l-3 border-l-amber-400/50 dark:border-l-amber-600/50">
-                      <CardContent className="p-4">
-                        <h3 className="font-display font-semibold text-lg mb-2 text-amber-800 dark:text-amber-300 group-hover:text-amber-600 dark:group-hover:text-amber-200 transition-colors">
-                          {related.word}
-                        </h3>
-                        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
-                          {related.definitions?.[0]?.definition || 'No definition available'}
-                        </p>
-                        {related.word_class && (
-                          <Badge variant="outline" className="mt-2.5 text-xs border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-400">
-                            {related.word_class.name}
-                          </Badge>
-                        )}
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
+            <div className="flex items-center gap-2 flex-wrap">
+              {word.word_class && <Badge variant="secondary">{word.word_class.name}</Badge>}
+              {word.obsolete && <Badge variant="outline">Obsolete</Badge>}
+              {word.sensitive_content && <Badge variant="destructive">Sensitive</Badge>}
             </div>
-          )}
+          </div>
+
+          {/* Content */}
+          <div className="max-w-4xl pb-16 space-y-10">
+            <WordDetailContent word={word} />
+
+            {/* Related words */}
+            {relatedWords && relatedWords.length > 0 && (
+              <div className="border-t border-border pt-8">
+                <div className="flex items-center gap-2.5 mb-5">
+                  <Sparkles className="w-5 h-5 text-[var(--lang-accent)]" aria-hidden="true" />
+                  <h2 className="text-xl font-display font-semibold">Related words</h2>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {relatedWords.map((related) => (
+                    <Link
+                      key={related.id}
+                      href={`/dictionaries/${languageCode}/words/${encodeURIComponent(related.word)}`}
+                      className="group block rounded-xl border border-border p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--lang-accent)]"
+                    >
+                      <h3 className="font-display font-semibold text-lg mb-1.5 transition-colors group-hover:text-[var(--lang-accent)]" lang={language.code}>
+                        {related.word}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                        {related.definitions?.[0]?.definition || 'No definition available'}
+                      </p>
+                      {related.word_class && (
+                        <Badge variant="outline" className="mt-2.5 text-xs">
+                          {related.word_class.name}
+                        </Badge>
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </SharedLayout>
     );

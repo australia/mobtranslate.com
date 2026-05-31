@@ -205,34 +205,26 @@ export default async function AdminDashboard() {
         </p>
       </div>
 
-      {/* Stats Grid */}
+      {/* Stats Grid — left-aligned tiles */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {statCards.map((stat) => (
-          <Card key={stat.title}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                {stat.title}
-              </CardTitle>
-              <div className={`p-2 rounded-lg ${stat.color}`}>
+          <div key={stat.title} className="rounded-xl border border-border bg-card p-5">
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-sm font-medium text-muted-foreground">{stat.title}</p>
+              <div className={`p-1.5 rounded-lg ${stat.color}`}>
                 <stat.icon className="h-4 w-4" />
               </div>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">
+            </div>
+            <div className="flex items-baseline gap-2">
+              <span className="text-3xl font-semibold tabular-nums tracking-tight">
                 {typeof stat.value === 'number' ? stat.value.toLocaleString() : stat.value}
-              </div>
-              <div className="flex items-center justify-between">
-                <p className="text-xs text-muted-foreground">
-                  {stat.description}
-                </p>
-                {stat.change && (
-                  <span className="text-xs font-medium text-success">
-                    {stat.change}
-                  </span>
-                )}
-              </div>
-            </CardContent>
-          </Card>
+              </span>
+              {stat.change && (
+                <span className="text-xs font-medium text-success">{stat.change}</span>
+              )}
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">{stat.description}</p>
+          </div>
         ))}
       </div>
 

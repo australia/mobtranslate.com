@@ -15,7 +15,7 @@ const Breadcrumbs = ({ items, className }: { items: { href: string; label: strin
         {index === items.length - 1 ? (
           <span className="text-foreground font-medium" aria-current="page">{item.label}</span>
         ) : (
-          <Link href={item.href} className="text-muted-foreground hover:text-amber-700 dark:hover:text-amber-400 transition-colors">
+          <Link href={item.href} className="text-muted-foreground hover:text-[var(--lang-accent)] transition-colors">
             {item.label}
           </Link>
         )}
@@ -84,73 +84,67 @@ export default async function DictionaryPage({
 
     return (
       <SharedLayout>
-        {/* Header */}
-        <div className="py-8 md:py-12">
-          <Breadcrumbs items={breadcrumbItems} className="mb-6" />
-
-          <div className="flex items-center gap-3 mb-4">
-            <Link
-              href="/dictionaries"
-              aria-label="Back to dictionaries"
-              className="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center hover:bg-amber-200 dark:hover:bg-amber-800/50 transition-colors shadow-sm"
-            >
-              <ArrowLeft className="w-4 h-4 text-amber-700 dark:text-amber-400" />
-            </Link>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight">
-              {languageData.name}
-            </h1>
-            {languageData.status && (
-              <Badge
-                variant="secondary"
-                className="ml-1"
-              >
-                {languageData.status}
-              </Badge>
-            )}
-          </div>
-
-          <p className="text-muted-foreground max-w-3xl mb-6 text-base md:text-lg leading-relaxed">
-            {languageData.description || `Explore the ${languageData.name} language dictionary`}
-          </p>
-
-          {/* Stats row */}
-          <div className="flex flex-wrap items-center gap-3 mb-6">
-            {languageData.region && (
-              <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card border shadow-sm">
-                <MapPin className="w-4 h-4 text-amber-600 dark:text-amber-400" aria-hidden="true" />
-                <span className="text-sm font-medium">{languageData.region}</span>
+        <div data-language={languageData.code}>
+          {/* Identity band — soft per-language accent tint behind the headword */}
+          <div className="-mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16 -mt-6 sm:-mt-8 lg:-mt-12 bg-[var(--lang-accent-soft)] border-b border-border">
+            <div className="px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 pt-6 sm:pt-8 pb-8 md:pb-10">
+              <div className="flex items-center justify-between gap-4 mb-6">
+                <Breadcrumbs items={breadcrumbItems} />
+                <Link
+                  href="/dictionaries"
+                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-[var(--lang-accent)] transition-colors shrink-0"
+                >
+                  <ArrowLeft className="w-4 h-4" /> All dictionaries
+                </Link>
               </div>
-            )}
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card border shadow-sm">
-              <BookOpen className="w-4 h-4 text-amber-600 dark:text-amber-400" aria-hidden="true" />
-              <span className="text-sm font-medium">{pagination.total.toLocaleString()} words</span>
+
+              {languageData.region && (
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--lang-accent)] mb-2">
+                  {languageData.region}
+                </p>
+              )}
+
+              <div className="flex flex-wrap items-end gap-x-4 gap-y-2 mb-4">
+                <h1 className="headword text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.015em] leading-none">
+                  {languageData.name}
+                </h1>
+                {languageData.status && <Badge variant="secondary">{languageData.status}</Badge>}
+              </div>
+
+              <p className="text-muted-foreground max-w-2xl text-base md:text-lg leading-relaxed mb-6">
+                {languageData.description || `Explore the ${languageData.name} language dictionary.`}
+              </p>
+
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+                <span className="inline-flex items-center gap-1.5 text-foreground/80">
+                  <BookOpen className="w-4 h-4 text-[var(--lang-accent)]" aria-hidden="true" />
+                  <strong className="font-semibold">{pagination.total.toLocaleString()}</strong> words
+                </span>
+                {wordClasses.length > 0 && (
+                  <span className="inline-flex items-center gap-1.5 text-foreground/80">
+                    <Type className="w-4 h-4 text-[var(--lang-accent)]" aria-hidden="true" />
+                    <strong className="font-semibold">{wordClasses.length}</strong> word classes
+                  </span>
+                )}
+                <Link
+                  href={`/dictionaries/${language}/map`}
+                  className="inline-flex items-center gap-1.5 font-medium text-[var(--lang-accent)] hover:underline underline-offset-4"
+                >
+                  <MapPin className="w-4 h-4" /> View place names on map
+                </Link>
+              </div>
             </div>
-            {wordClasses.length > 0 && (
-              <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card border shadow-sm">
-                <Type className="w-4 h-4 text-amber-600 dark:text-amber-400" aria-hidden="true" />
-                <span className="text-sm font-medium">{wordClasses.length} word classes</span>
-              </div>
-            )}
           </div>
 
-          {/* Map link */}
-          <Link
-            href={`/dictionaries/${language}/map`}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-300 text-sm font-medium hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors border border-amber-200 dark:border-amber-800/50 shadow-sm"
-          >
-            <MapPin className="w-4 h-4" />
-            View place names on map
-          </Link>
-        </div>
-
-        {/* Dictionary content */}
-        <div className="pb-16">
-          <DictionarySearch
-            dictionary={dictionary}
-            initialSearch={searchParams.search || ''}
-            pagination={pagination}
-            currentPage={queryParams.page}
-          />
+          {/* Dictionary content */}
+          <div className="pt-8 pb-16">
+            <DictionarySearch
+              dictionary={dictionary}
+              initialSearch={searchParams.search || ''}
+              pagination={pagination}
+              currentPage={queryParams.page}
+            />
+          </div>
         </div>
       </SharedLayout>
     );

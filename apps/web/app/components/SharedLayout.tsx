@@ -115,7 +115,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               className="flex items-center gap-2.5 group shrink-0"
             >
               <span className="w-2 h-2 rounded-full bg-primary group-hover:scale-125 transition-transform duration-300" />
-              <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent whitespace-nowrap">
+              <span className="text-xl sm:text-2xl font-bold text-foreground whitespace-nowrap">
                 Mob Translate
               </span>
             </Link>
@@ -268,7 +268,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             <div className="sm:col-span-2 lg:col-span-1">
               <Link href="/" className="inline-flex items-center gap-2 group">
                 <span className="w-2 h-2 rounded-full bg-primary group-hover:scale-125 transition-transform duration-300" />
-                <span className="text-xl font-bold bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent">
+                <span className="text-xl font-bold text-foreground">
                   Mob Translate
                 </span>
               </Link>
@@ -392,9 +392,13 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
 
           {/* Acknowledgement of Country */}
           <div className="py-6 border-t border-border/40">
-            <div className="bg-primary/5 dark:bg-primary/10 rounded-xl px-5 py-4 mb-6 max-w-3xl">
-              <p className="text-xs text-muted-foreground leading-relaxed italic">
-                We respectfully acknowledge the Traditional Owners of the languages on this platform.
+            <div className="mb-8 max-w-2xl">
+              <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-primary mb-2">
+                Acknowledgement of Country
+              </p>
+              <p className="text-sm text-foreground/80 leading-relaxed">
+                We respectfully acknowledge the Traditional Owners of the lands on which these
+                languages are spoken, and pay respect to Elders past and present who keep them living.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-muted-foreground">

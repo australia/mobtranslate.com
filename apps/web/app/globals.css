@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "@mobtranslate/ui/src/tokens/tokens.css";
-@import "@mobtranslate/ui/src/components/components.css";
+/* Load component styles into the `components` layer so Tailwind utility classes
+   (e.g. pl-10, rounded-lg) reliably override them instead of losing to the
+   unlayered .mt-* rules. Fixes icon/input padding and className overrides. */
+@import "@mobtranslate/ui/src/components/components.css" layer(components);
+@import "./language-tokens.css";
 
 /* TYPOGRAPHY BASE STYLES */
 html {
@@ -18,11 +22,27 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Product is the default register: headings use Inter (DESIGN.md §3.3, migration #1).
+   The display serif (Playfair) is opt-in, scoped to marketing surfaces and the
+   dictionary headword via `.marketing` / `.font-display` / `.headword`. */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.015em;
   text-wrap: balance;
+}
+
+/* Marketing register — display serif earns its place here */
+.marketing h1,
+.marketing h2,
+.font-display,
+.headword {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+.marketing h1,
+.marketing h2 {
+  font-weight: 700;
 }
 
 /* SELECTION — warm ochre highlight */

@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import SharedLayout from '../components/SharedLayout';
 import { Card, CardContent, Button } from '@mobtranslate/ui';
 import { LoadingState } from '@/components/layout/LoadingState';
-import { Brain, Play, BookOpen, Sparkles, Trophy, Flame, GraduationCap } from 'lucide-react';
+import { Play, BookOpen, Sparkles, Trophy, Flame, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
 
 interface Language {
@@ -65,29 +65,18 @@ export default function LearnPage() {
 
   return (
     <SharedLayout>
-      {/* Hero Header */}
-      <div className="relative py-10 md:py-16 overflow-hidden">
-        {/* Subtle decorative background */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
-          <div className="absolute bottom-0 right-10 w-48 h-48 rounded-full bg-primary/3 blur-3xl" />
-        </div>
-
-        <div className="flex items-center gap-3 mb-6">
-          <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/10">
-            <Brain className="w-6 h-6 text-primary" />
-          </div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
-            <Sparkles className="w-3.5 h-3.5" />
-            Spaced Repetition
-          </div>
-        </div>
-
-        <h1 className="text-4xl md:text-5xl font-display font-bold tracking-tight">
-          Start Learning
+      {/* Header */}
+      <div className="py-10 md:py-14">
+        <p className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.18em] text-primary mb-4">
+          <Sparkles className="w-3.5 h-3.5" />
+          Spaced repetition
+        </p>
+        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+          Start learning
         </h1>
-        <p className="text-lg text-muted-foreground mt-3 max-w-lg">
-          Choose a language below and build your vocabulary with spaced repetition quizzes. The more you practice, the better you remember.
+        <p className="text-lg text-muted-foreground mt-3 max-w-xl leading-relaxed">
+          Choose a language and build your vocabulary with spaced-repetition quizzes. The more you
+          practice, the better you remember.
         </p>
       </div>
 
@@ -122,36 +111,32 @@ export default function LearnPage() {
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {languages.map((language) => (
-              <Link key={language.code} href={`/learn/${language.code}`} className="group block">
-                <div className="relative h-full rounded-2xl border-2 border-border bg-card p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/40 group-active:scale-[0.98]">
-                  {/* Hover glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <Link
+                key={language.code}
+                href={`/learn/${language.code}`}
+                data-language={language.code}
+                className="group block h-full rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 hover:border-[var(--lang-accent)]"
+              >
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-[var(--lang-accent-soft)] flex-shrink-0">
+                    <GraduationCap className="w-5 h-5 text-[var(--lang-accent)]" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-lg font-display font-semibold truncate group-hover:text-[var(--lang-accent)] transition-colors">{language.name}</h3>
+                    {language.wordCount !== undefined && (
+                      <p className="text-sm text-muted-foreground mt-0.5">
+                        {language.wordCount.toLocaleString()} {language.wordCount === 1 ? 'word' : 'words'}
+                      </p>
+                    )}
+                  </div>
+                </div>
 
-                  <div className="relative">
-                    {/* Language icon and name */}
-                    <div className="flex items-start gap-3 mb-4">
-                      <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 group-hover:bg-primary/15 transition-colors flex-shrink-0">
-                        <GraduationCap className="w-5 h-5 text-primary" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <h3 className="text-lg font-display font-bold truncate">{language.name}</h3>
-                        {language.wordCount !== undefined && (
-                          <p className="text-sm text-muted-foreground mt-0.5">
-                            {language.wordCount.toLocaleString()} words
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Start button */}
-                    <div className="flex items-center justify-between mt-6 pt-4 border-t border-border/60">
-                      <span className="text-sm font-semibold text-primary group-hover:text-primary/80 transition-colors">
-                        Start Learning
-                      </span>
-                      <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                        <Play className="h-4 w-4 text-primary group-hover:text-white ml-0.5 transition-colors" />
-                      </div>
-                    </div>
+                <div className="flex items-center justify-between mt-6 pt-4 border-t border-border/60">
+                  <span className="text-sm font-semibold text-[var(--lang-accent)]">
+                    Start learning
+                  </span>
+                  <div className="w-9 h-9 rounded-full bg-[var(--lang-accent-soft)] flex items-center justify-center text-[var(--lang-accent)] group-hover:bg-[var(--lang-accent)] group-hover:text-white transition-all duration-200">
+                    <Play className="h-4 w-4 ml-0.5" />
                   </div>
                 </div>
               </Link>

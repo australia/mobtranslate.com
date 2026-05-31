@@ -1,0 +1,59 @@
+/* =============================================
+   PER-LANGUAGE IDENTITY TOKENS — DESIGN.md §2.3
+   Each dictionary declares an accent mapped to its country, so Wajarri
+   (semi-arid Mid West WA) does not read identically to Kuku Yalanji
+   (Far North QLD rainforest). One block per language; the rest of the
+   system reads --lang-accent / --lang-accent-soft / --lang-region-label.
+
+   Selectors match BOTH the route slug (data-language="kuku_yalanji") and the
+   ISO 639-3 code (data-language="zku"), so either identifier works.
+   Default falls back to the ochre primary.
+   ============================================= */
+
+[data-language] {
+  --lang-accent: var(--color-primary);
+  --lang-accent-soft: var(--color-ochre-100);
+  --lang-region-label: "";
+}
+
+/* Kuku Yalanji — Far North Queensland rainforest */
+[data-language="kuku_yalanji"],
+[data-language="zku"] {
+  --lang-accent: var(--color-eucalyptus-600);
+  --lang-accent-soft: var(--color-eucalyptus-100);
+  --lang-region-label: "Far North Queensland";
+}
+
+/* Wajarri — Mid West Western Australia, semi-arid */
+[data-language="wbv"],
+[data-language="wajarri"] {
+  --lang-accent: var(--color-ochre-700);
+  --lang-accent-soft: var(--color-ochre-100);
+  --lang-region-label: "Mid West Western Australia";
+}
+
+/* Anindilyakwa — Groote Eylandt, tropical coast */
+[data-language="anindilyakwa"],
+[data-language="aoi"] {
+  --lang-accent: var(--color-nightsky-600);
+  --lang-accent-soft: var(--color-nightsky-100);
+  --lang-region-label: "Groote Eylandt, Northern Territory";
+}
+
+/* Mi'gmaq — Mi'kma'ki, Eastern Canada, boreal */
+[data-language="migmaq"],
+[data-language="mic"] {
+  --lang-accent: var(--color-eucalyptus-800);
+  --lang-accent-soft: var(--color-eucalyptus-50);
+  --lang-region-label: "Mi'kma'ki, Eastern Canada";
+}
+
+/* Dark mode: lift soft tints off the deep background so they stay legible */
+.dark [data-language="kuku_yalanji"],
+.dark [data-language="zku"] { --lang-accent: var(--color-eucalyptus-400); --lang-accent-soft: var(--color-eucalyptus-900); }
+.dark [data-language="wbv"],
+.dark [data-language="wajarri"] { --lang-accent: var(--color-ochre-400); --lang-accent-soft: var(--color-ochre-900); }
+.dark [data-language="anindilyakwa"],
+.dark [data-language="aoi"] { --lang-accent: var(--color-nightsky-400); --lang-accent-soft: var(--color-nightsky-900); }
+.dark [data-language="migmaq"],
+.dark [data-language="mic"] { --lang-accent: var(--color-eucalyptus-400); --lang-accent-soft: var(--color-eucalyptus-900); }

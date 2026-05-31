@@ -195,11 +195,20 @@ export default function PendingReviewsPage() {
       {/* Pending Words Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {loading ? (
-          <Card className="col-span-full">
-            <CardContent className="text-center py-8">
-              Loading pending reviews...
-            </CardContent>
-          </Card>
+          <>
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="rounded-xl border border-border bg-card p-5 space-y-3" aria-hidden="true">
+                <div className="h-6 w-1/2 rounded bg-muted animate-pulse" />
+                <div className="h-4 w-1/3 rounded bg-muted animate-pulse" />
+                <div className="h-4 w-full rounded bg-muted animate-pulse" />
+                <div className="h-4 w-2/3 rounded bg-muted animate-pulse" />
+                <div className="flex gap-2 pt-2">
+                  <div className="h-8 flex-1 rounded bg-muted animate-pulse" />
+                  <div className="h-8 flex-1 rounded bg-muted animate-pulse" />
+                </div>
+              </div>
+            ))}
+          </>
         ) : displayWords.length === 0 ? (
           <Card className="col-span-full">
             <CardContent className="text-center py-8">

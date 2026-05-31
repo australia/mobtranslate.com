@@ -6,6 +6,7 @@ import { Shield, UserPlus, Search } from 'lucide-react';
 import { Button, Input, Card, CardContent, CardDescription, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Badge, Dialog, DialogPortal, DialogBackdrop, DialogPopup, DialogDescription, DialogTitle, DialogTrigger, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue } from '@mobtranslate/ui';
 import { useToast } from '@/hooks/useToast';
 import { formatDistanceToNow } from '@/lib/utils/date';
+import { TableSkeleton } from '@/components/loading/Skeleton';
 
 interface User {
   id: string;
@@ -123,19 +124,15 @@ export default function UserManagementPage() {
     }
   };
 
-  if (usersLoading) {
-    return <div className="animate-pulse">Loading users...</div>;
-  }
-
   return (
-    <div className="min-h-screen py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div>
+      <div className="max-w-7xl mx-auto">
         <Card>
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle className="text-2xl flex items-center gap-2">
-                  <Shield className="h-6 w-6" />
+                  <Shield className="h-6 w-6 text-primary" />
                   User Management
                 </CardTitle>
                 <CardDescription>
@@ -145,6 +142,13 @@ export default function UserManagementPage() {
             </div>
           </CardHeader>
           <CardContent>
+            {usersError && (
+              <div className="mb-6 rounded-lg border border-destructive/40 bg-destructive/5 p-4 text-sm" role="alert">
+                <p className="font-medium text-destructive mb-1">Couldn&apos;t load users</p>
+                <p className="text-muted-foreground mb-3">The user list failed to load. Check your connection and try again.</p>
+                <Button size="sm" variant="secondary" onClick={() => mutateUsers()}>Retry</Button>
+              </div>
+            )}
             <div className="mb-6">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -158,6 +162,9 @@ export default function UserManagementPage() {
             </div>
 
             <div className="overflow-x-auto">
+              {usersLoading ? (
+                <TableSkeleton rows={6} columns={4} />
+              ) : (
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -280,6 +287,12 @@ export default function UserManagementPage() {
                   ))}
                 </TableBody>
               </Table>
+              )}
+              {!usersLoading && filteredUsers.length === 0 && (
+                <p className="py-12 text-center text-sm text-muted-foreground">
+                  {searchQuery ? `No users match “${searchQuery}”.` : 'No users found.'}
+                </p>
+              )}
             </div>
           </CardContent>
         </Card>

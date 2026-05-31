@@ -3,7 +3,7 @@
 import React, { useState, useCallback, useTransition, useMemo } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { Badge, Button, cn } from '@mobtranslate/ui';
-import { LoadingState } from '@/components/layout/LoadingState';
+import { TableSkeleton } from '@/components/loading/Skeleton';
 import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
 import { useDictionary } from '@/lib/hooks/useDictionary';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
@@ -247,8 +247,8 @@ export default function DictionarySearch({
                   className={cn(
                     'w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs sm:text-sm font-medium transition-all duration-150',
                     activeLetter === letter.toLowerCase()
-                      ? 'bg-amber-600 dark:bg-amber-700 text-white shadow-sm'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-amber-100 dark:hover:bg-amber-900/30'
+                      ? 'bg-[var(--lang-accent)] text-white shadow-sm'
+                      : 'text-muted-foreground hover:text-[var(--lang-accent)] hover:bg-[var(--lang-accent-soft)]'
                   )}
                 >
                   {letter}
@@ -295,7 +295,9 @@ export default function DictionarySearch({
 
       {/* Content */}
       {isLoadingOrPending ? (
-        <LoadingState />
+        <div className="rounded-xl border bg-card overflow-hidden">
+          <TableSkeleton rows={10} columns={4} />
+        </div>
       ) : words.length === 0 ? (
         <EmptyState
           title="No words found"
@@ -359,8 +361,8 @@ export default function DictionarySearch({
                       className={cn(
                         'w-8 h-8 rounded-lg text-sm font-medium transition-colors',
                         currentPagination.page === pageNum
-                          ? 'bg-amber-600 dark:bg-amber-700 text-white shadow-sm'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-amber-100 dark:hover:bg-amber-900/30'
+                          ? 'bg-[var(--lang-accent)] text-white shadow-sm'
+                          : 'text-muted-foreground hover:text-[var(--lang-accent)] hover:bg-[var(--lang-accent-soft)]'
                       )}
                     >
                       {pageNum}

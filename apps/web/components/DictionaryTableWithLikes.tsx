@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, Badge, Button, Card, cn } from '@mobtranslate/ui';
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, Badge, Card, cn } from '@mobtranslate/ui';
 import { WordLikeButton } from './WordLikeButton';
 
 export interface DictionaryWord {
@@ -46,11 +46,11 @@ const DictionaryTableWithLikes: React.FC<DictionaryTableWithLikesProps> = ({
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="font-crimson">Word</TableHead>
-            <TableHead className="font-crimson">Type</TableHead>
-            <TableHead className="font-crimson">Definition</TableHead>
-            <TableHead className="font-crimson">Example</TableHead>
-            {showLikeButtons && <TableHead className="font-crimson w-16">Like</TableHead>}
+            <TableHead>Word</TableHead>
+            <TableHead>Type</TableHead>
+            <TableHead>Definition</TableHead>
+            <TableHead>Example</TableHead>
+            {showLikeButtons && <TableHead className="w-16">Like</TableHead>}
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -58,15 +58,14 @@ const DictionaryTableWithLikes: React.FC<DictionaryTableWithLikesProps> = ({
             <TableRow key={word.id || index}>
               <TableCell>
                 {onWordClick ? (
-                  <Button
-                    variant="link"
+                  <button
                     onClick={() => onWordClick(word.word)}
-                    className="font-medium font-crimson text-primary hover:underline text-left p-0 h-auto"
+                    className="font-display text-base font-semibold text-foreground hover:text-[var(--lang-accent)] transition-colors text-left"
                   >
                     {word.word}
-                  </Button>
+                  </button>
                 ) : (
-                  <span className="font-medium font-crimson">{word.word}</span>
+                  <span className="font-display text-base font-semibold text-foreground">{word.word}</span>
                 )}
               </TableCell>
               <TableCell>

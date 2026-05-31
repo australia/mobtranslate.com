@@ -1,10 +1,9 @@
 'use client';
 
 import React, { Suspense, lazy } from 'react';
-import { Card, CardContent } from '@mobtranslate/ui';
 import { WordLikeButton } from '@/components/WordLikeButton';
 import { Badge } from '@mobtranslate/ui';
-import { MapPin, BookOpen, MessageSquareQuote, Info, Tag, Volume2 } from 'lucide-react';
+import { MapPin, MessageSquareQuote, Info, Tag, Volume2 } from 'lucide-react';
 import type { Word } from '@/lib/supabase/types';
 
 const LocationMap = lazy(() => import('./LocationMap').then(m => ({ default: m.LocationMap })));
@@ -13,6 +12,12 @@ interface WordDetailContentProps {
   word: Word;
 }
 
+const SectionLabel = ({ children }: { children: React.ReactNode }) => (
+  <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--lang-accent)] mb-3">
+    {children}
+  </h3>
+);
+
 export function WordDetailContent({ word }: WordDetailContentProps) {
   const definitions = word.definitions?.map(d => d.definition) || [];
   const translations = word.definitions?.flatMap(d =>
@@ -20,172 +25,128 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
   ) || [];
 
   return (
-    <div className="space-y-6">
-      {/* Main Definition Card */}
-      <Card className="border-l-4 border-l-amber-500/70 dark:border-l-amber-600/70 shadow-sm">
-        <CardContent className="p-6 sm:p-8">
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1 min-w-0">
-              {/* Phonetic */}
-              {word.phonetic_transcription && (
-                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-dashed">
-                  <Volume2 className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                  <span className="font-mono text-lg text-muted-foreground">/{word.phonetic_transcription}/</span>
-                </div>
-              )}
-
-              {/* Definitions */}
-              {definitions.length > 0 && (
-                <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <BookOpen className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400">
-                      Definition{definitions.length > 1 ? 's' : ''}
-                    </h3>
-                  </div>
-                  <ol className={definitions.length > 1 ? 'list-decimal list-inside space-y-3' : 'space-y-3'}>
-                    {definitions.map((def, i) => (
-                      <li key={i} className="text-base md:text-lg leading-relaxed">
-                        {def}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              )}
-
-              {/* Translations */}
-              {translations.length > 0 && (
-                <div className="mb-6">
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
-                    Translations
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {translations.map((t, i) => (
-                      <span key={i} className="px-3.5 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-sm font-medium text-amber-800 dark:text-amber-300">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Cultural Context */}
-              {word.cultural_contexts?.[0]?.context_description && (
-                <div className="p-5 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center shrink-0 mt-0.5">
-                      <Info className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-1.5">
-                        Cultural Context
-                      </h4>
-                      <p className="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
-                        {word.cultural_contexts[0].context_description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Like button */}
-            <div className="shrink-0">
-              <WordLikeButton wordId={word.id} size="lg" showLabel />
-            </div>
+    <div className="space-y-10">
+      {/* Pronunciation + save action */}
+      <div className="flex items-start justify-between gap-4">
+        {word.phonetic_transcription ? (
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <Volume2 className="w-4 h-4 text-[var(--lang-accent)]" aria-hidden="true" />
+            <span className="font-mono text-lg">/{word.phonetic_transcription}/</span>
           </div>
-        </CardContent>
-      </Card>
+        ) : <span />}
+        <div className="shrink-0">
+          <WordLikeButton wordId={word.id} size="lg" showLabel />
+        </div>
+      </div>
 
-      {/* Usage Examples */}
+      {/* Definitions */}
+      {definitions.length > 0 && (
+        <section>
+          <SectionLabel>Definition{definitions.length > 1 ? 's' : ''}</SectionLabel>
+          <ol className={definitions.length > 1 ? 'list-decimal pl-5 space-y-3 marker:text-muted-foreground' : 'space-y-3'}>
+            {definitions.map((def, i) => (
+              <li key={i} className="text-lg md:text-xl leading-relaxed max-w-[65ch]">
+                {def}
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {/* Translations */}
+      {translations.length > 0 && (
+        <section>
+          <SectionLabel>Translations</SectionLabel>
+          <div className="flex flex-wrap gap-2">
+            {translations.map((t, i) => (
+              <span
+                key={i}
+                className="px-3.5 py-1.5 rounded-full bg-[var(--lang-accent-soft)] text-sm font-medium text-foreground/90"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Usage examples */}
       {word.usage_examples && word.usage_examples.length > 0 && (
-        <Card className="shadow-sm">
-          <CardContent className="p-6 sm:p-8">
-            <div className="flex items-center gap-2 mb-5">
-              <MessageSquareQuote className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-400">
-                Usage Examples
-              </h3>
-            </div>
-            <div className="space-y-5">
-              {word.usage_examples.map((example, index) => (
-                <blockquote key={index} className="border-l-3 border-amber-400/50 dark:border-amber-600/50 pl-5 py-2 bg-muted/30 rounded-r-lg">
-                  <p className="italic text-base md:text-lg">&ldquo;{example.example_text}&rdquo;</p>
-                  {example.translation && (
-                    <p className="text-sm text-muted-foreground mt-2">
-                      {example.translation}
-                    </p>
-                  )}
-                </blockquote>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        <section>
+          <div className="flex items-center gap-2 mb-4">
+            <MessageSquareQuote className="w-4 h-4 text-[var(--lang-accent)]" aria-hidden="true" />
+            <SectionLabel>Examples</SectionLabel>
+          </div>
+          <div className="divide-y divide-border">
+            {word.usage_examples.map((example, index) => (
+              <div key={index} className="py-4 first:pt-0">
+                <p className="text-lg leading-relaxed" lang={word.language_id ? undefined : undefined}>
+                  {example.example_text}
+                </p>
+                {example.translation && (
+                  <p className="text-sm text-muted-foreground mt-1.5">{example.translation}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Cultural context — attributed panel, full border, no side-stripe */}
+      {word.cultural_contexts?.[0]?.context_description && (
+        <section className="rounded-xl bg-[var(--lang-accent-soft)] border border-border p-6">
+          <div className="flex items-center gap-2 mb-2">
+            <Info className="w-4 h-4 text-[var(--lang-accent)]" aria-hidden="true" />
+            <SectionLabel>Cultural note</SectionLabel>
+          </div>
+          <p className="text-base leading-relaxed text-foreground/90 max-w-[65ch]">
+            {word.cultural_contexts[0].context_description}
+          </p>
+        </section>
       )}
 
       {/* Notes */}
       {word.notes && (
-        <Card className="shadow-sm">
-          <CardContent className="p-6 sm:p-8">
-            <div className="flex items-center gap-2 mb-3">
-              <Info className="w-4 h-4 text-muted-foreground" />
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                Notes
-              </h3>
-            </div>
-            <p className="text-sm leading-relaxed">{word.notes}</p>
-          </CardContent>
-        </Card>
+        <section>
+          <SectionLabel>Notes</SectionLabel>
+          <p className="text-base leading-relaxed text-muted-foreground max-w-[65ch]">{word.notes}</p>
+        </section>
       )}
 
       {/* Location map */}
       {word.is_location && word.latitude && word.longitude && (
-        <Card>
-          <CardContent className="p-6 sm:p-8">
-            <div className="flex items-center gap-2 mb-4">
-              <MapPin className="w-4 h-4 text-primary" />
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
-                Location
-              </h3>
+        <section>
+          <div className="flex items-center gap-2 mb-4">
+            <MapPin className="w-4 h-4 text-[var(--lang-accent)]" aria-hidden="true" />
+            <SectionLabel>Location</SectionLabel>
+          </div>
+          <Suspense fallback={
+            <div className="w-full h-[300px] rounded-xl bg-muted animate-pulse flex items-center justify-center">
+              <span className="text-sm text-muted-foreground">Loading map…</span>
             </div>
-            <Suspense fallback={
-              <div className="w-full h-[300px] rounded-lg bg-muted animate-pulse flex items-center justify-center">
-                <span className="text-sm text-muted-foreground">Loading map...</span>
-              </div>
-            }>
-              <LocationMap
-                latitude={word.latitude}
-                longitude={word.longitude}
-                word={word.word}
-                locationDescription={
-                  word.definitions?.find(d =>
-                    d.definition.toLowerCase().includes('place name') ||
-                    d.definition.toLowerCase().includes('creek') ||
-                    d.definition.toLowerCase().includes('river') ||
-                    d.definition.toLowerCase().includes('mountain') ||
-                    d.definition.toLowerCase().includes('beach') ||
-                    d.definition.toLowerCase().includes('bay') ||
-                    d.definition.toLowerCase().includes('island') ||
-                    d.definition.toLowerCase().includes('hill') ||
-                    d.definition.toLowerCase().includes('falls') ||
-                    d.definition.toLowerCase().includes('camp') ||
-                    d.definition.toLowerCase().includes('flat')
-                  )?.definition
-                }
-              />
-            </Suspense>
-          </CardContent>
-        </Card>
+          }>
+            <LocationMap
+              latitude={word.latitude}
+              longitude={word.longitude}
+              word={word.word}
+              locationDescription={
+                word.definitions?.find(d =>
+                  ['place name', 'creek', 'river', 'mountain', 'beach', 'bay', 'island', 'hill', 'falls', 'camp', 'flat']
+                    .some(k => d.definition.toLowerCase().includes(k))
+                )?.definition
+              }
+            />
+          </Suspense>
+        </section>
       )}
 
       {/* Metadata badges */}
       {(word.is_location || word.is_loan_word || word.register || word.domain || word.obsolete) && (
-        <div className="flex items-center gap-2 flex-wrap">
-          <Tag className="w-3.5 h-3.5 text-muted-foreground" />
+        <div className="flex items-center gap-2 flex-wrap pt-2">
+          <Tag className="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
           {word.is_location && (
             <Badge variant="secondary" className="gap-1">
-              <MapPin className="w-3 h-3" />
-              Place Name
+              <MapPin className="w-3 h-3" /> Place name
             </Badge>
           )}
           {word.is_loan_word && (
@@ -193,15 +154,9 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
               Loan word{word.loan_source_language && ` from ${word.loan_source_language}`}
             </Badge>
           )}
-          {word.register && (
-            <Badge variant="secondary">{word.register}</Badge>
-          )}
-          {word.domain && (
-            <Badge variant="secondary">{word.domain}</Badge>
-          )}
-          {word.obsolete && (
-            <Badge variant="destructive">Obsolete</Badge>
-          )}
+          {word.register && <Badge variant="secondary">{word.register}</Badge>}
+          {word.domain && <Badge variant="secondary">{word.domain}</Badge>}
+          {word.obsolete && <Badge variant="destructive">Obsolete</Badge>}
         </div>
       )}
     </div>
