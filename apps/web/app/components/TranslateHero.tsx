@@ -17,7 +17,9 @@ type Mode = 'translate' | 'chat';
 export default function TranslateHero({ languages }: TranslateHeroProps) {
   const [mode, setMode] = useState<Mode>('translate');
   const [input, setInput] = useState('');
-  const [target, setTarget] = useState(languages[0]?.code || 'kuku_yalanji');
+  const [target, setTarget] = useState(
+    languages.find((l) => l.code === 'kuku_yalanji')?.code || languages[0]?.code || 'kuku_yalanji',
+  );
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<{ translation: string; gloss?: string } | null>(null);
   const [error, setError] = useState<string | null>(null);
