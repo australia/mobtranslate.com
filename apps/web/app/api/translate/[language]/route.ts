@@ -84,6 +84,28 @@ const createTranslationPrompt = (text: string, dictionary: Dictionary) => {
 };
 
 /**
+ * Concise prompt for the Google-Translate-style pane: returns ONLY the
+ * translation plus a short literal gloss, as JSON, with no teaching notes.
+ */
+const createConcisePrompt = (text: string, dictionary: Dictionary) => `
+You translate English into ${dictionary.meta.name}, an Indigenous language.
+
+Dictionary (use these entries wherever they apply):
+${dictionary.words
+  .slice(0, 500)
+  .map((w) => `"${w.word}": ${w.definitions ? w.definitions.join(', ') : w.definition || ''}`)
+  .join('\n')}
+
+Translate this English text into ${dictionary.meta.name}:
+"${text}"
+
+Rules:
+- Prefer dictionary words; where none exists, choose the closest culturally appropriate option.
+- Keep it concise. Do NOT add explanations, notes, or markdown.
+- Respond with ONLY a JSON object: {"translation": "<text in ${dictionary.meta.name}>", "gloss": "<short literal English back-translation>"}.
+`;
+
+/**
  * POST /api/translate/[language]
  * Translates text to the specified language using the dictionary and OpenAI
  */
@@ -93,7 +115,7 @@ export async function POST(
 ) {
   try {
     const { language } = params;
-    const { text, stream = false } = await request.json();
+    const { text, stream = false, mode = 'chat' } = await request.json();
 
     if (!text) {
       return NextResponse.json({
@@ -130,6 +152,36 @@ export async function POST(
         definitions: w.definitions?.map(d => d.definition) || []
       }))
     };
+
+    // Google-Translate pane: concise, structured, non-streaming.
+    if (mode === 'translate') {
+      const completion = await openai.chat.completions.create({
+        model: 'gpt-4.1-mini',
+        messages: [
+          {
+            role: 'system',
+            content: `You are a precise translator for ${dictionary.meta.name}. Return only JSON.`,
+          },
+          { role: 'user', content: createConcisePrompt(text, dictionary) },
+        ],
+        response_format: { type: 'json_object' },
+      });
+
+      const raw = completion.choices[0]?.message?.content || '{}';
+      let parsed: { translation?: string; gloss?: string };
+      try {
+        parsed = JSON.parse(raw);
+      } catch {
+        parsed = { translation: raw };
+      }
+
+      return NextResponse.json({
+        success: true,
+        translation: (parsed.translation || '').trim(),
+        gloss: (parsed.gloss || '').trim(),
+        language: { name: dictionary.meta.name, code: dictionary.meta.code },
+      });
+    }
 
     // Create the translation prompt
     const prompt = createTranslationPrompt(text, dictionary);

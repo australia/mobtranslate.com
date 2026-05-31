@@ -5,6 +5,7 @@ import SharedLayout from '../../../../components/SharedLayout';
 import { Badge } from '@mobtranslate/ui';
 
 import { ChevronRight, ArrowLeft, Sparkles } from 'lucide-react';
+import { SpeakButton } from '@/components/audio/SpeakButton';
 
 const Breadcrumbs = ({ items, className }: { items: { href: string; label: string }[]; className?: string }) => (
   <nav className={`flex items-center gap-2 text-sm ${className || ''}`}>
@@ -98,14 +99,20 @@ export default async function WordDetailPage({
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--lang-accent)] mb-2">
               {language.name}
             </p>
-            <h1 className="headword text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.015em] leading-none mb-4" lang={language.code}>
-              {word.word}
-            </h1>
+            <div className="flex items-center gap-3 mb-3">
+              <h1 className="headword text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.015em] leading-none" lang={language.code}>
+                {word.word}
+              </h1>
+              <SpeakButton text={word.word} lang={language.code} size="lg" />
+            </div>
             <div className="flex items-center gap-2 flex-wrap">
               {word.word_class && <Badge variant="secondary">{word.word_class.name}</Badge>}
               {word.obsolete && <Badge variant="outline">Obsolete</Badge>}
               {word.sensitive_content && <Badge variant="destructive">Sensitive</Badge>}
             </div>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Pronunciation is AI-synthesized (Indonesian donor voice) and needs community verification.
+            </p>
           </div>
 
           {/* Content */}

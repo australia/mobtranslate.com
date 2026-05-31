@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import SharedLayout from './components/SharedLayout';
-import TranslatorWrapper from './components/TranslatorWrapper';
+import TranslateHero from './components/TranslateHero';
 import { Badge } from '@mobtranslate/ui';
 import { getActiveLanguages, getLanguageStats } from '@/lib/supabase/queries';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
@@ -51,10 +51,8 @@ export default async function Page() {
               </p>
             </div>
 
-            {/* Translator */}
-            <div className="max-w-3xl mx-auto">
-              <TranslatorWrapper languages={languages} />
-            </div>
+            {/* Translator — Google-Translate two-pane with a Chat toggle */}
+            <TranslateHero languages={languages} />
 
             {/* Quick links */}
             <div className="flex items-center justify-center gap-6 sm:gap-8 mt-8">

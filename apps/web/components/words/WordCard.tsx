@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Volume2, Clock, TrendingUp, Zap, Target, BookOpen, Sparkles } from 'lucide-react';
-import { Button, Card, cn } from '@mobtranslate/ui';
+import React from 'react';
+import { Clock, TrendingUp, Zap, Target, BookOpen, Sparkles } from 'lucide-react';
+import { SpeakButton } from '@/components/audio/SpeakButton';
+import { Card, cn } from '@mobtranslate/ui';
 import Link from 'next/link';
 import { WordLikeButton } from '../WordLikeButton';
 
@@ -49,22 +50,6 @@ export function WordCard({
   className = '',
   clickable = true
 }: WordCardProps) {
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
-
-  const playAudio = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    if (languageCode && word && !isPlayingAudio) {
-      setIsPlayingAudio(true);
-      const utterance = new SpeechSynthesisUtterance(word);
-      utterance.lang = languageCode;
-      utterance.rate = 0.8;
-      utterance.onend = () => setIsPlayingAudio(false);
-      speechSynthesis.speak(utterance);
-    }
-  };
-
   const formatResponseTime = (ms?: number) => {
     if (!ms) return 'N/A';
     if (ms < 1000) return `${ms}ms`;
@@ -144,30 +129,9 @@ export function WordCard({
           {/* Action Buttons */}
           <div className="flex items-center gap-2">
             {languageCode && (
-              <Button
-                variant="ghost"
-                onClick={playAudio}
-                disabled={isPlayingAudio}
-                className={cn(
-                  "relative p-2.5 rounded-full transition-all duration-200",
-                  "bg-card shadow-sm hover:shadow-md",
-                  "border border-border",
-                  "hover:bg-muted",
-                  "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-                  isPlayingAudio && "bg-primary/10 border-primary/20"
-                )}
-                title="Play pronunciation"
-              >
-                <Volume2 className={cn(
-                  "h-4 w-4 transition-colors",
-                  isPlayingAudio ? "text-primary" : "text-muted-foreground"
-                )} />
-                {isPlayingAudio && (
-                  <div className="absolute inset-0 rounded-full">
-                    <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20" />
-                  </div>
-                )}
-              </Button>
+              <span data-language={languageCode}>
+                <SpeakButton text={word} lang={languageCode} size="md" className="border border-border bg-card shadow-sm" />
+              </span>
             )}
             
             {onLike && (
