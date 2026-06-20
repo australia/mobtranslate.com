@@ -1,25 +1,26 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { ListChecks, Plus, History } from 'lucide-react';
+import { ListChecks, MessageSquareText, History, BarChart3 } from 'lucide-react';
 import { cn } from '@mobtranslate/ui';
 import { uploadQueue } from '@/lib/recording/uploadQueue';
 import type { CapturedRecording } from '@/lib/recording/types';
 import { Recorder, type RecorderTarget } from './Recorder';
 import { Worklist } from './Worklist';
-import { CustomTargets } from './CustomTargets';
+import { SentenceList } from './SentenceList';
 import { ReviewPanel } from './ReviewPanel';
+import { CorpusDashboard } from './CorpusDashboard';
 import { SpeakerPicker } from './SpeakerPicker';
 import { UploadStatus } from './UploadStatus';
 import { EditWordModal } from './EditWordModal';
-import { fetchSpeakers, fetchWorklist, fetchTargets, type LanguageOption, type SpeakerProfile } from './api';
+import { fetchSpeakers, fetchWorklist, fetchTargets, fetchSentences, type LanguageOption, type SpeakerProfile } from './api';
 
 interface RecordingStudioProps {
   languages: LanguageOption[];
   initialLanguageId: string;
 }
 
-type Tab = 'words' | 'custom' | 'review';
+type Tab = 'words' | 'sentences' | 'review' | 'corpus';
 
 const SPEAKER_KEY = 'studio.speaker';
 
@@ -82,6 +83,12 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
   const advance = useCallback(
     async (prev: RecorderTarget) => {
       try {
+        if (prev.exampleId) {
+          const res = await fetchSentences({ languageId, filter: 'pending', limit: 3, offset: 0 });
+          const next = res.items.find((i) => i.example_id !== prev.exampleId);
+          setTarget(next ? { kind: 'sentence', label: next.text, gloss: next.gloss, exampleId: next.example_id } : null);
+          return;
+        }
         if (prev.targetId) {
           const list = await fetchTargets(languageId, 'pending');
           const next = list.find((t) => t.id !== prev.targetId);
@@ -90,9 +97,7 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
         }
         const res = await fetchWorklist({ languageId, filter: 'pending', limit: 3, offset: 0 });
         const next = res.items.find((i) => i.word_id !== prev.wordId);
-        setTarget(
-          next ? { kind: 'word', label: next.word, gloss: next.gloss, wordId: next.word_id, isCorrection: next.has_active } : null,
-        );
+        setTarget(next ? { kind: 'word', label: next.word, gloss: next.gloss, wordId: next.word_id } : null);
       } catch {
         setTarget(null);
       }
@@ -111,6 +116,7 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
         kind: target.kind,
         wordId: target.wordId ?? null,
         targetId: target.targetId ?? null,
+        exampleId: target.exampleId ?? null,
         gloss: target.gloss,
         speakerId,
         isCorrection: target.isCorrection ?? false,
@@ -123,9 +129,10 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
   );
 
   const tabs: { id: Tab; label: string; icon: typeof ListChecks }[] = [
-    { id: 'words', label: 'Word list', icon: ListChecks },
-    { id: 'custom', label: 'My list', icon: Plus },
+    { id: 'words', label: 'Words', icon: ListChecks },
+    { id: 'sentences', label: 'Sentences', icon: MessageSquareText },
     { id: 'review', label: 'Recordings', icon: History },
+    { id: 'corpus', label: 'Corpus', icon: BarChart3 },
   ];
 
   return (
@@ -206,10 +213,10 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
                   }}
                 />
               )}
-              {tab === 'custom' && (
-                <CustomTargets
+              {tab === 'sentences' && (
+                <SentenceList
                   languageId={languageId}
-                  currentTargetId={target?.targetId ?? null}
+                  currentKey={target?.exampleId ?? target?.targetId ?? null}
                   refreshKey={targetsKey}
                   onPick={(t) => setTarget(t)}
                 />
@@ -233,6 +240,15 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
                     }
                   />
                 </div>
+              )}
+              {tab === 'corpus' && language && (
+                <CorpusDashboard
+                  languageId={languageId}
+                  languageCode={language.code}
+                  speakerId={speakerId}
+                  speakerName={speakers.find((s) => s.id === speakerId)?.name ?? null}
+                  refreshKey={reviewKey}
+                />
               )}
             </div>
           </div>

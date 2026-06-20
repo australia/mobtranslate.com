@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
 // ---- POST: add a word/phrase the speaker wants recorded ----------------
 const createSchema = z.object({
   languageId: z.string().uuid(),
-  kind: z.enum(['word', 'phrase']).default('phrase'),
+  kind: z.enum(['word', 'phrase', 'sentence']).default('phrase'),
   text: z.string().min(1).max(500),
   gloss: z.string().max(1000).nullable().optional(),
   note: z.string().max(1000).nullable().optional(),

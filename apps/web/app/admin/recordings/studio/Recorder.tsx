@@ -8,11 +8,12 @@ import type { CapturedRecording } from '@/lib/recording/types';
 import { LevelMeter } from './LevelMeter';
 
 export interface RecorderTarget {
-  kind: 'word' | 'phrase';
+  kind: 'word' | 'phrase' | 'sentence';
   label: string;
   gloss: string | null;
   wordId?: string | null;
   targetId?: string | null;
+  exampleId?: string | null;
   isCorrection?: boolean;
   supersedesId?: string | null;
 }
@@ -192,11 +193,14 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
               Correcting a recording
             </span>
           ) : (
-            <span>{target.kind === 'phrase' ? 'Say this phrase' : 'Say this word'}</span>
+            <span>{target.kind === 'sentence' ? 'Say this sentence' : target.kind === 'phrase' ? 'Say this phrase' : 'Say this word'}</span>
           )}
         </div>
         <p
-          className="mt-3 font-display text-4xl sm:text-5xl font-bold leading-tight text-foreground break-words"
+          className={cn(
+            'mt-3 font-display font-bold leading-tight text-foreground break-words',
+            target.label.length > 40 ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl',
+          )}
           lang="und"
         >
           {target.label}

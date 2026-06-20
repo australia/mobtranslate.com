@@ -10,7 +10,8 @@ const metaSchema = z.object({
   languageId: z.string().uuid(),
   wordId: z.string().uuid().nullable().optional(),
   targetId: z.string().uuid().nullable().optional(),
-  kind: z.enum(['word', 'phrase']).default('word'),
+  exampleId: z.string().uuid().nullable().optional(),
+  kind: z.enum(['word', 'phrase', 'sentence']).default('word'),
   label: z.string().min(1).max(500),
   gloss: z.string().max(1000).nullable().optional(),
   speakerId: z.string().uuid().nullable().optional(),
@@ -112,8 +113,14 @@ export async function POST(request: NextRequest) {
   // for a word/target becomes its primary; later takes are kept as alternates.
   let version = 1;
   let isPrimary = true;
-  const groupCol = meta.wordId ? ('word_id' as const) : meta.targetId ? ('target_id' as const) : null;
-  const groupVal = meta.wordId ?? meta.targetId ?? null;
+  const groupCol = meta.wordId
+    ? ('word_id' as const)
+    : meta.exampleId
+      ? ('example_id' as const)
+      : meta.targetId
+        ? ('target_id' as const)
+        : null;
+  const groupVal = meta.wordId ?? meta.exampleId ?? meta.targetId ?? null;
 
   if (groupCol && groupVal) {
     const { data: siblings } = await db
@@ -147,6 +154,7 @@ export async function POST(request: NextRequest) {
       language_id: meta.languageId,
       word_id: meta.wordId ?? null,
       target_id: meta.targetId ?? null,
+      example_id: meta.exampleId ?? null,
       kind: meta.kind,
       label: meta.label,
       gloss: meta.gloss ?? null,

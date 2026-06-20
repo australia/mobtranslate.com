@@ -46,7 +46,7 @@ export interface CustomTarget {
   id: string;
   language_id: string;
   word_id: string | null;
-  kind: 'word' | 'phrase';
+  kind: 'word' | 'phrase' | 'sentence';
   text: string;
   gloss: string | null;
   note: string | null;
@@ -105,6 +105,74 @@ export async function fetchWorklist(params: {
   return jsonOrThrow(await fetch(`${BASE}/worklist?${sp}`, { cache: 'no-store' }));
 }
 
+// ---- Sentences (dictionary example sentences) --------------------------
+export interface SentenceItem {
+  example_id: string;
+  text: string;
+  gloss: string | null;
+  recording_count: number;
+  has_active: boolean;
+}
+
+export async function fetchSentences(params: {
+  languageId: string;
+  filter: 'pending' | 'recorded' | 'all';
+  q?: string;
+  limit?: number;
+  offset?: number;
+}): Promise<{ items: SentenceItem[]; hasMore: boolean; offset: number }> {
+  const sp = new URLSearchParams({
+    languageId: params.languageId,
+    filter: params.filter,
+    q: params.q ?? '',
+    limit: String(params.limit ?? 40),
+    offset: String(params.offset ?? 0),
+  });
+  return jsonOrThrow(await fetch(`${BASE}/sentences?${sp}`, { cache: 'no-store' }));
+}
+
+// ---- Corpus stats + export (TTS dashboard) -----------------------------
+export interface CorpusStats {
+  total_recordings: number;
+  total_seconds: number;
+  word_recordings: number;
+  phrase_recordings: number;
+  sentence_recordings: number;
+  distinct_speakers: number;
+  clipped_count: number;
+  too_short: number;
+  too_long: number;
+  b_lt1: number;
+  b_1_3: number;
+  b_3_10: number;
+  b_10_30: number;
+  b_gt30: number;
+}
+
+export async function fetchCorpusStats(languageId: string, speakerId?: string | null): Promise<CorpusStats> {
+  const sp = new URLSearchParams({ languageId });
+  if (speakerId) sp.set('speakerId', speakerId);
+  return jsonOrThrow(await fetch(`${BASE}/stats?${sp}`, { cache: 'no-store' }));
+}
+
+export interface ExportItem {
+  id: string;
+  file: string;
+  text: string;
+  normalized: string;
+  duration_ms: number | null;
+  sample_rate: number | null;
+  kind: string;
+  speaker: string | null;
+  url: string;
+}
+
+export async function fetchExport(languageId: string, speakerId?: string | null): Promise<{ count: number; totalSeconds: number; items: ExportItem[] }> {
+  const sp = new URLSearchParams({ languageId });
+  if (speakerId) sp.set('speakerId', speakerId);
+  return jsonOrThrow(await fetch(`${BASE}/export?${sp}`, { cache: 'no-store' }));
+}
+
 export async function fetchTargets(languageId: string, status = 'pending'): Promise<CustomTarget[]> {
   const sp = new URLSearchParams({ languageId, status });
   return jsonOrThrow(await fetch(`${BASE}/targets?${sp}`, { cache: 'no-store' }));
@@ -112,7 +180,7 @@ export async function fetchTargets(languageId: string, status = 'pending'): Prom
 
 export async function createTarget(input: {
   languageId: string;
-  kind: 'word' | 'phrase';
+  kind: 'word' | 'phrase' | 'sentence';
   text: string;
   gloss?: string | null;
   note?: string | null;

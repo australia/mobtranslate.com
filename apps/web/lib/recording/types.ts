@@ -1,6 +1,6 @@
 // Shared types for the native-speaker recording studio.
 
-export type RecordingKind = 'word' | 'phrase';
+export type RecordingKind = 'word' | 'phrase' | 'sentence';
 
 /** Result of a single microphone capture, held in memory before save. */
 export interface CapturedRecording {
@@ -26,6 +26,7 @@ export interface PendingRecording extends CapturedRecording {
   languageCode: string;
   wordId: string | null;
   targetId: string | null;
+  exampleId: string | null;
   kind: RecordingKind;
   /** The text that was actually spoken. */
   label: string;

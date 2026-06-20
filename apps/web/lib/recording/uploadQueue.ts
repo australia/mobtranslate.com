@@ -21,6 +21,7 @@ export interface EnqueueInput {
   kind: RecordingKind;
   wordId?: string | null;
   targetId?: string | null;
+  exampleId?: string | null;
   gloss?: string | null;
   speakerId?: string | null;
   isCorrection?: boolean;
@@ -81,6 +82,7 @@ export class UploadQueue {
       languageCode: input.languageCode,
       wordId: input.wordId ?? null,
       targetId: input.targetId ?? null,
+      exampleId: input.exampleId ?? null,
       kind: input.kind,
       label: input.label,
       gloss: input.gloss ?? null,
@@ -174,6 +176,7 @@ export class UploadQueue {
         languageId: rec.languageId,
         wordId: rec.wordId,
         targetId: rec.targetId,
+        exampleId: rec.exampleId,
         kind: rec.kind,
         label: rec.label,
         gloss: rec.gloss,
