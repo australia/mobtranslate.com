@@ -75,21 +75,34 @@ export async function POST(request: NextRequest) {
   let masterUrl: string;
   let opusPath: string | null = null;
   let opusUrl: string | null = null;
+  // The WAV master is the irreplaceable archival copy — if it can't be stored,
+  // fail the whole request so the client keeps the take and retries.
   try {
     const masterBuf = await master.arrayBuffer();
     const up = await uploadAudio(db, `${base}.wav`, masterBuf, 'audio/wav');
     storagePath = up.path;
     masterUrl = up.url;
-
-    if (opus instanceof Blob && opus.size > 0) {
-      const ext = (opus.type || '').includes('ogg') ? 'ogg' : 'webm';
-      const opusBuf = await opus.arrayBuffer();
-      const upo = await uploadAudio(db, `${base}.${ext}`, opusBuf, opus.type || 'audio/webm');
-      opusPath = upo.path;
-      opusUrl = upo.url;
-    }
   } catch (err) {
     return NextResponse.json({ error: (err as Error).message }, { status: 502 });
+  }
+
+  // The Opus copy is a best-effort streaming convenience. Never fail the save
+  // (and lose the master) over it. Normalize the content type to the base MIME
+  // — the storage allowlist matches exactly, so "audio/webm;codecs=opus" is
+  // rejected; "audio/webm" is the correct, accepted type for the container.
+  if (opus instanceof Blob && opus.size > 0) {
+    try {
+      const isOgg = (opus.type || '').includes('ogg');
+      const ext = isOgg ? 'ogg' : 'webm';
+      const contentType = isOgg ? 'audio/ogg' : 'audio/webm';
+      const opusBuf = await opus.arrayBuffer();
+      const upo = await uploadAudio(db, `${base}.${ext}`, opusBuf, contentType);
+      opusPath = upo.path;
+      opusUrl = upo.url;
+    } catch {
+      opusPath = null;
+      opusUrl = null;
+    }
   }
 
   // --- Versioning: supersede prior active recordings of the same target ---
