@@ -105,30 +105,37 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  // --- Versioning: supersede prior active recordings of the same target ---
+  // --- Versioning / primary selection ---
+  // Many recordings can coexist per word AND per speaker — a new take does NOT
+  // supersede earlier ones. We only retire a specific recording when this take
+  // is an explicit correction of it (supersedesId). The first active recording
+  // for a word/target becomes its primary; later takes are kept as alternates.
   let version = 1;
-  const supersedeFilter = meta.wordId
-    ? { col: 'word_id' as const, val: meta.wordId }
-    : meta.targetId
-      ? { col: 'target_id' as const, val: meta.targetId }
-      : null;
+  let isPrimary = true;
+  const groupCol = meta.wordId ? ('word_id' as const) : meta.targetId ? ('target_id' as const) : null;
+  const groupVal = meta.wordId ?? meta.targetId ?? null;
 
-  if (supersedeFilter) {
-    const { data: priors } = await db
+  if (groupCol && groupVal) {
+    const { data: siblings } = await db
       .from('recordings')
-      .select('id, version')
-      .eq(supersedeFilter.col, supersedeFilter.val)
-      .eq('status', 'active');
-    if (priors && priors.length) {
-      version = Math.max(...priors.map((p) => p.version ?? 1)) + 1;
-      const ids = priors.map((p) => p.id);
-      await db
-        .from('recordings')
-        .update({ status: 'superseded', is_primary: false })
-        .in('id', ids);
-    }
-  } else if (meta.supersedesId) {
+      .select('id, version, status, is_primary')
+      .eq(groupCol, groupVal);
+    const all = siblings ?? [];
+    version = all.length + 1; // simple per-word/target sequence label
+    // Keep the existing primary; only claim primary if none is set yet.
+    isPrimary = !all.some((s) => s.status === 'active' && s.is_primary);
+  }
+
+  // Explicit correction: retire exactly the one recording being replaced, and
+  // inherit its primary flag so the corrected take takes its place.
+  if (meta.supersedesId) {
+    const { data: prior } = await db
+      .from('recordings')
+      .select('is_primary')
+      .eq('id', meta.supersedesId)
+      .maybeSingle();
     await db.from('recordings').update({ status: 'superseded', is_primary: false }).eq('id', meta.supersedesId);
+    if (prior?.is_primary) isPrimary = true;
   }
 
   // --- Insert the new recording ---
@@ -163,7 +170,7 @@ export async function POST(request: NextRequest) {
       supersedes_id: meta.supersedesId ?? null,
       is_correction: meta.isCorrection ?? false,
       correction_note: meta.correctionNote ?? null,
-      is_primary: true,
+      is_primary: isPrimary,
       client_id: meta.clientId,
     })
     .select()

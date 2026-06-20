@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { Play, Pause, Star, Trash2, Ban, RotateCcw, Loader2, Download } from 'lucide-react';
+import { Play, Pause, Star, Trash2, Ban, RotateCcw, Loader2, Download, Repeat2 } from 'lucide-react';
 import { Button, cn } from '@mobtranslate/ui';
 import { deleteRecording, fetchRecordings, patchRecording, type RecordingRow } from './api';
 
@@ -9,9 +9,11 @@ interface ReviewPanelProps {
   languageId: string;
   wordId: string | null;
   refreshKey: number;
+  /** Re-record a specific take (the new recording supersedes this one). */
+  onReplace?: (row: RecordingRow) => void;
 }
 
-export function ReviewPanel({ languageId, wordId, refreshKey }: ReviewPanelProps) {
+export function ReviewPanel({ languageId, wordId, refreshKey, onReplace }: ReviewPanelProps) {
   const [rows, setRows] = useState<RecordingRow[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -63,7 +65,7 @@ export function ReviewPanel({ languageId, wordId, refreshKey }: ReviewPanelProps
     <div className="space-y-2">
       {!wordId && <p className="mb-2 text-sm text-muted-foreground">Most recent recordings across this language.</p>}
       {rows.map((r) => (
-        <RecordingItem key={r.id} row={r} onPrimary={onPrimary} onReject={onReject} onDelete={onDelete} />
+        <RecordingItem key={r.id} row={r} onPrimary={onPrimary} onReject={onReject} onDelete={onDelete} onReplace={onReplace} />
       ))}
     </div>
   );
@@ -74,11 +76,13 @@ function RecordingItem({
   onPrimary,
   onReject,
   onDelete,
+  onReplace,
 }: {
   row: RecordingRow;
   onPrimary: (id: string) => void;
   onReject: (id: string, rejected: boolean) => void;
   onDelete: (id: string) => void;
+  onReplace?: (row: RecordingRow) => void;
 }) {
   const [playing, setPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
@@ -159,6 +163,11 @@ function RecordingItem({
         {row.status === 'active' && !row.is_primary && (
           <button type="button" onClick={() => onPrimary(row.id)} aria-label="Set as primary" className="rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground">
             <Star className="h-4 w-4" />
+          </button>
+        )}
+        {row.status === 'active' && onReplace && (
+          <button type="button" onClick={() => onReplace(row)} aria-label="Re-record / replace this take" title="Re-record / replace" className="rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground">
+            <Repeat2 className="h-4 w-4" />
           </button>
         )}
         <button

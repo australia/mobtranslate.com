@@ -11,6 +11,7 @@ import { CustomTargets } from './CustomTargets';
 import { ReviewPanel } from './ReviewPanel';
 import { SpeakerPicker } from './SpeakerPicker';
 import { UploadStatus } from './UploadStatus';
+import { EditWordModal } from './EditWordModal';
 import { fetchSpeakers, fetchWorklist, fetchTargets, type LanguageOption, type SpeakerProfile } from './api';
 
 interface RecordingStudioProps {
@@ -34,6 +35,7 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
   const [worklistKey, setWorklistKey] = useState(0);
   const [targetsKey, setTargetsKey] = useState(0);
   const [reviewKey, setReviewKey] = useState(0);
+  const [editWordId, setEditWordId] = useState<string | null>(null);
 
   // Init the upload queue once.
   useEffect(() => {
@@ -166,6 +168,7 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
             speakerName={speakers.find((s) => s.id === speakerId)?.name ?? null}
             onSave={handleSave}
             onSkip={target ? () => advance(target) : undefined}
+            onEditWord={target?.wordId ? () => setEditWordId(target.wordId ?? null) : undefined}
           />
         </div>
 
@@ -213,13 +216,37 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
               )}
               {tab === 'review' && (
                 <div className="h-full overflow-y-auto">
-                  <ReviewPanel languageId={languageId} wordId={target?.wordId ?? null} refreshKey={reviewKey} />
+                  <ReviewPanel
+                    languageId={languageId}
+                    wordId={target?.wordId ?? null}
+                    refreshKey={reviewKey}
+                    onReplace={(row) =>
+                      setTarget({
+                        kind: row.kind,
+                        label: row.label,
+                        gloss: row.gloss,
+                        wordId: row.word_id,
+                        targetId: row.target_id,
+                        isCorrection: true,
+                        supersedesId: row.id,
+                      })
+                    }
+                  />
                 </div>
               )}
             </div>
           </div>
         </div>
       </div>
+
+      <EditWordModal
+        wordId={editWordId}
+        onClose={() => setEditWordId(null)}
+        onSaved={() => {
+          refreshAll();
+          setReviewKey((k) => k + 1);
+        }}
+      />
     </div>
   );
 }

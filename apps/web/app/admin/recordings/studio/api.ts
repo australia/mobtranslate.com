@@ -189,3 +189,52 @@ export async function deleteRecording(id: string): Promise<void> {
   const res = await fetch(`${BASE}/${id}`, { method: 'DELETE' });
   if (!res.ok) throw new Error('Delete failed');
 }
+
+// ---- Word editing (suggestions / revisions) ----------------------------
+export type EditableWordField = 'word' | 'phonetic_transcription' | 'notes' | 'word_type' | 'definition' | 'translation';
+
+export interface WordEditSnapshot {
+  id: string;
+  language_id: string;
+  word: string;
+  phonetic_transcription: string | null;
+  notes: string | null;
+  word_type: string | null;
+  primaryDefinition: { id: string; definition: string } | null;
+  primaryTranslation: { id: string; translation: string } | null;
+  pendingSuggestions: {
+    id: string;
+    improvement_type: string;
+    field_name: string | null;
+    suggested_value: unknown;
+    status: string;
+    created_at: string;
+  }[];
+}
+
+export interface WordEditChange {
+  field: EditableWordField;
+  current: string | null;
+  suggested: string | null;
+  rowId?: string | null;
+}
+
+export interface WordEditResult {
+  applied: number;
+  queued: number;
+  selfApprove: boolean;
+}
+
+export async function fetchWordEdit(wordId: string): Promise<WordEditSnapshot> {
+  return jsonOrThrow(await fetch(`/api/v2/admin/words/${wordId}`, { cache: 'no-store' }));
+}
+
+export async function submitWordEdit(wordId: string, changes: WordEditChange[], reason?: string): Promise<WordEditResult> {
+  return jsonOrThrow(
+    await fetch(`/api/v2/admin/words/${wordId}/edit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ changes, reason }),
+    }),
+  );
+}

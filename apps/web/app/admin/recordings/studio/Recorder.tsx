@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Mic, Square, Play, Pause, RotateCcw, Check, AlertTriangle, SkipForward, Volume2 } from 'lucide-react';
+import { Mic, Square, Play, Pause, RotateCcw, Check, AlertTriangle, SkipForward, Volume2, Pencil } from 'lucide-react';
 import { Button, cn } from '@mobtranslate/ui';
 import { StudioRecorder, type MicState } from '@/lib/recording/recorder';
 import type { CapturedRecording } from '@/lib/recording/types';
@@ -22,6 +22,8 @@ interface RecorderProps {
   speakerName: string | null;
   onSave: (captured: CapturedRecording) => Promise<void> | void;
   onSkip?: () => void;
+  /** Open the word editor (only meaningful for dictionary words). */
+  onEditWord?: () => void;
 }
 
 const MIC_HELP: Partial<Record<MicState, { title: string; body: string }>> = {
@@ -43,7 +45,7 @@ const MIC_HELP: Partial<Record<MicState, { title: string; body: string }>> = {
   },
 };
 
-export function Recorder({ target, speakerName, onSave, onSkip }: RecorderProps) {
+export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: RecorderProps) {
   const recorderRef = useRef<StudioRecorder | null>(null);
   const [micState, setMicState] = useState<MicState>('idle');
   const [micDetail, setMicDetail] = useState<string | undefined>();
@@ -200,6 +202,16 @@ export function Recorder({ target, speakerName, onSave, onSkip }: RecorderProps)
           {target.label}
         </p>
         {target.gloss && <p className="mt-2 text-xl text-muted-foreground">“{target.gloss}”</p>}
+        {target.wordId && onEditWord && (
+          <button
+            type="button"
+            onClick={onEditWord}
+            className="mt-3 inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+          >
+            <Pencil className="h-4 w-4" />
+            Edit word &amp; meaning
+          </button>
+        )}
       </div>
 
       {/* Mic guidance / off state */}

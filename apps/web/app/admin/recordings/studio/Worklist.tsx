@@ -116,7 +116,6 @@ export function Worklist({ languageId, currentWordId, refreshKey, onPick, onProg
                   label: item.word,
                   gloss: item.gloss,
                   wordId: item.word_id,
-                  isCorrection: item.has_active,
                 })
               }
               className={cn(

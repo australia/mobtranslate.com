@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { applyWordSuggestion, snapshotWordRevision } from '@/lib/words/editing';
 
 export async function GET(request: NextRequest) {
   try {
@@ -331,23 +332,28 @@ export async function POST(request: NextRequest) {
 
       if (error) throw error;
 
-      // If approved, apply the improvement
-      if (action === 'approve' && improvement.field_name) {
-        const updateData: any = {};
-        updateData[improvement.field_name] = improvement.suggested_value;
-        
-        await supabase
-          .from('words')
-          .update(updateData)
-          .eq('id', improvement.word_id);
+      // If approved, snapshot a revision then apply (handles word columns plus
+      // definition/translation edits, and both `{id,text}` and legacy shapes).
+      if (action === 'approve') {
+        await snapshotWordRevision(
+          supabase,
+          improvement.word_id,
+          user.id,
+          `Approved edit: ${improvement.field_name ?? improvement.improvement_type}`,
+        );
+        await applyWordSuggestion(supabase, {
+          word_id: improvement.word_id,
+          improvement_type: improvement.improvement_type,
+          field_name: improvement.field_name,
+          suggested_value: improvement.suggested_value,
+        });
 
-        // Update improvement as implemented
         await supabase
           .from('word_improvement_suggestions')
           .update({
             status: 'implemented',
             implemented_at: new Date().toISOString(),
-            implementation_notes: 'Auto-applied after approval'
+            implementation_notes: 'Applied after approval'
           })
           .eq('id', itemId);
       }
