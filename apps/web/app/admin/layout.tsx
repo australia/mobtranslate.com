@@ -13,7 +13,8 @@ import {
   FileText,
   Home,
   ChevronLeft,
-  RefreshCw
+  RefreshCw,
+  Mic
 } from 'lucide-react';
 import { cn } from '@mobtranslate/ui';
 
@@ -45,6 +46,12 @@ const adminNavItems = [
     href: '/admin/languages',
     icon: Languages,
     description: 'Manage language settings'
+  },
+  {
+    title: 'Recording Studio',
+    href: '/admin/recordings',
+    icon: Mic,
+    description: 'Capture speaker audio'
   },
   {
     title: 'Analytics',
