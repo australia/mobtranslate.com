@@ -172,7 +172,7 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
         <Volume2 className="h-12 w-12 text-muted-foreground" />
         <h2 className="mt-4 text-2xl font-semibold text-foreground">Pick a word to record</h2>
         <p className="mt-2 max-w-sm text-lg text-muted-foreground">
-          Choose a word or phrase from the list on the right, or add a new one to record.
+          Choose a word or phrase to record, or add a new one.
         </p>
       </div>
     );

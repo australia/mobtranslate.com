@@ -118,10 +118,12 @@ export const config = {
     /*
      * Match all request paths except for the ones starting with:
      * - api/tts (public pronunciation endpoint, needs no auth)
+     * - api/public (no-login speaker portal endpoints)
+     * - record (no-login speaker recording portal)
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!api/tts|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!api/tts|api/public|record|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 }

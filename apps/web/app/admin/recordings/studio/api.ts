@@ -207,6 +207,49 @@ export async function updateTarget(
   );
 }
 
+// ---- Speaker invites (no-login recording links) ------------------------
+export interface SpeakerInvite {
+  id: string;
+  token: string;
+  label: string | null;
+  status: 'active' | 'revoked';
+  expires_at: string | null;
+  last_used_at: string | null;
+  created_at: string;
+  url: string;
+  speaker?: { id: string; name: string } | null;
+}
+
+export async function fetchInvites(languageId: string): Promise<SpeakerInvite[]> {
+  const sp = new URLSearchParams({ languageId });
+  return jsonOrThrow(await fetch(`${BASE}/invites?${sp}`, { cache: 'no-store' }));
+}
+
+export async function createInvite(input: {
+  languageId: string;
+  speakerId?: string | null;
+  speakerName?: string | null;
+  label?: string | null;
+}): Promise<SpeakerInvite> {
+  return jsonOrThrow(
+    await fetch(`${BASE}/invites`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(input),
+    }),
+  );
+}
+
+export async function setInviteStatus(id: string, status: 'active' | 'revoked'): Promise<SpeakerInvite> {
+  return jsonOrThrow(
+    await fetch(`${BASE}/invites/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status }),
+    }),
+  );
+}
+
 export async function fetchSpeakers(languageId: string): Promise<SpeakerProfile[]> {
   const sp = new URLSearchParams({ languageId });
   return jsonOrThrow(await fetch(`${BASE}/speakers?${sp}`, { cache: 'no-store' }));

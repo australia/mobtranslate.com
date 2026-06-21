@@ -8,7 +8,7 @@
 import { deleteRecording, getAllRecordings, getRecording, putRecording, pruneUploaded } from './db';
 import type { CapturedRecording, PendingRecording, QueueItemView, RecordingKind } from './types';
 
-const ENDPOINT = '/api/v2/admin/recordings';
+const DEFAULT_ENDPOINT = '/api/v2/admin/recordings';
 const MAX_ATTEMPTS = 8;
 const BASE_BACKOFF_MS = 2000;
 const MAX_BACKOFF_MS = 60_000;
@@ -27,6 +27,8 @@ export interface EnqueueInput {
   isCorrection?: boolean;
   correctionNote?: string | null;
   supersedesId?: string | null;
+  /** Override the upload endpoint (defaults to the admin studio route). */
+  uploadEndpoint?: string;
 }
 
 type Listener = (items: QueueItemView[]) => void;
@@ -90,6 +92,7 @@ export class UploadQueue {
       isCorrection: input.isCorrection ?? false,
       correctionNote: input.correctionNote ?? null,
       supersedesId: input.supersedesId ?? null,
+      uploadEndpoint: input.uploadEndpoint ?? DEFAULT_ENDPOINT,
       status: 'queued',
       attempts: 0,
       lastError: null,
@@ -198,7 +201,7 @@ export class UploadQueue {
         form.append('opus', rec.opusBlob, `${rec.clientId}.${ext}`);
       }
 
-      const res = await fetch(ENDPOINT, { method: 'POST', body: form });
+      const res = await fetch(rec.uploadEndpoint || DEFAULT_ENDPOINT, { method: 'POST', body: form });
       if (!res.ok) {
         const text = await res.text().catch(() => '');
         rec.status = 'error';

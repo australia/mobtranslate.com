@@ -37,6 +37,8 @@ export interface PendingRecording extends CapturedRecording {
   /** Recording id this one corrects/replaces, if any. */
   supersedesId: string | null;
 
+  /** API endpoint this take uploads to (admin studio vs public invite portal). */
+  uploadEndpoint: string;
   status: 'queued' | 'uploading' | 'uploaded' | 'error';
   attempts: number;
   lastError: string | null;

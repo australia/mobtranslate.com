@@ -13,6 +13,7 @@ import { CorpusDashboard } from './CorpusDashboard';
 import { SpeakerPicker } from './SpeakerPicker';
 import { UploadStatus } from './UploadStatus';
 import { EditWordModal } from './EditWordModal';
+import { InviteSpeakers } from './InviteSpeakers';
 import { fetchSpeakers, fetchWorklist, fetchTargets, fetchSentences, type LanguageOption, type SpeakerProfile } from './api';
 
 interface RecordingStudioProps {
@@ -163,6 +164,7 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
             onSelect={selectSpeaker}
             onSpeakersChange={setSpeakers}
           />
+          <InviteSpeakers languageId={languageId} />
           <UploadStatus />
         </div>
       </div>
