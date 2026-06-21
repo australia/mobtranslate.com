@@ -19,6 +19,10 @@ export function LevelMeter({ level, active }: LevelMeterProps) {
   const lit = Math.round(Math.min(1, level) * SEGMENTS);
   return (
     <div className="w-full">
+      <div className="mb-1.5 flex items-center justify-between text-xs font-medium text-muted-foreground">
+        <span>Your microphone level</span>
+        <span>{!active ? '' : lit <= 1 ? 'speak up' : lit >= SEGMENTS - 2 ? 'a bit loud' : 'good'}</span>
+      </div>
       <div className="flex items-center gap-1.5" role="meter" aria-label="Microphone input level" aria-valuenow={Math.round(level * 100)} aria-valuemin={0} aria-valuemax={100}>
         {Array.from({ length: SEGMENTS }).map((_, i) => {
           const on = active && i < lit;

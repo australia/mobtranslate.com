@@ -45,7 +45,13 @@ export class UploadQueue {
     this.started = true;
     window.addEventListener('online', () => this.kick());
     window.addEventListener('focus', () => this.kick());
-    pruneUploaded().catch(() => undefined);
+    // iOS Safari has no Background Sync; reopening the tab/PWA is the moment to
+    // flush, so also retry on visibility regain and bfcache restore.
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) this.kick();
+    });
+    window.addEventListener('pageshow', () => this.kick());
+    pruneUploaded().catch((e) => console.warn('[uploadQueue] prune failed', e));
     this.kick();
   }
 
@@ -68,7 +74,7 @@ export class UploadQueue {
       attempts: r.attempts,
       lastError: r.lastError,
       createdAt: r.createdAt,
-      sizeBytes: (r.wavBlob?.size ?? 0) + (r.opusBlob?.size ?? 0),
+      sizeBytes: r.sizeBytes ?? (r.wavBlob?.size ?? 0) + (r.opusBlob?.size ?? 0),
     }));
     this.listeners.forEach((l) => l(views));
   }
@@ -93,6 +99,7 @@ export class UploadQueue {
       correctionNote: input.correctionNote ?? null,
       supersedesId: input.supersedesId ?? null,
       uploadEndpoint: input.uploadEndpoint ?? DEFAULT_ENDPOINT,
+      sizeBytes: (input.captured.wavBlob?.size ?? 0) + (input.captured.opusBlob?.size ?? 0),
       status: 'queued',
       attempts: 0,
       lastError: null,

@@ -57,3 +57,66 @@ export async function addPortalTarget(
 export async function fetchMyRecordings(token: string): Promise<MyRecording[]> {
   return jsonOrThrow(await fetch(`/api/public/invite/${token}/recordings`, { cache: 'no-store' }));
 }
+
+// ---- Transport abstraction: lets PortalApp serve both the anonymous token
+// portal and the signed-in (registered-user) portal from one component. ----
+export interface PortalTransport {
+  languageId: string;
+  languageCode: string;
+  languageName: string;
+  speakerName: string | null;
+  speakerId: string | null;
+  uploadEndpoint: string;
+  worklist(params: { kind: 'word' | 'sentence'; filter: 'pending' | 'recorded' | 'all'; limit?: number }): Promise<{ items: PortalWorkItem[] }>;
+  addTarget(input: { kind: 'word' | 'sentence'; text: string; gloss?: string | null }): Promise<{ id: string; text: string; gloss: string | null; kind: string }>;
+  myRecordings(): Promise<MyRecording[]>;
+}
+
+export function tokenTransport(
+  token: string,
+  ctx: { language_id: string; language_code: string; language_name: string; speaker_name: string | null; speaker_id: string | null },
+): PortalTransport {
+  return {
+    languageId: ctx.language_id,
+    languageCode: ctx.language_code,
+    languageName: ctx.language_name,
+    speakerName: ctx.speaker_name,
+    speakerId: ctx.speaker_id,
+    uploadEndpoint: `/api/public/invite/${token}/recordings`,
+    worklist: (p) => fetchPortalWorklist(token, p),
+    addTarget: (i) => addPortalTarget(token, i),
+    myRecordings: () => fetchMyRecordings(token),
+  };
+}
+
+export function authTransport(ctx: {
+  language_id: string;
+  language_code: string;
+  language_name: string;
+}): PortalTransport {
+  const base = '/api/v2/authenticated/recordings';
+  return {
+    languageId: ctx.language_id,
+    languageCode: ctx.language_code,
+    languageName: ctx.language_name,
+    speakerName: null, // the server links the speaker to the signed-in user
+    speakerId: null,
+    uploadEndpoint: base,
+    async worklist(p) {
+      const sp = new URLSearchParams({ languageId: ctx.language_id, kind: p.kind, filter: p.filter, limit: String(p.limit ?? 30) });
+      return jsonOrThrow(await fetch(`${base}/worklist?${sp}`, { cache: 'no-store' }));
+    },
+    async addTarget(i) {
+      return jsonOrThrow(
+        await fetch(`${base}/targets`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ languageId: ctx.language_id, ...i }),
+        }),
+      );
+    },
+    async myRecordings() {
+      return jsonOrThrow(await fetch(`${base}?languageId=${ctx.language_id}`, { cache: 'no-store' }));
+    },
+  };
+}

@@ -36,8 +36,15 @@ function tx<T>(mode: IDBTransactionMode, fn: (store: IDBObjectStore) => IDBReque
       new Promise<T>((resolve, reject) => {
         const t = db.transaction(STORE, mode);
         const req = fn(t.objectStore(STORE));
-        req.onsuccess = () => resolve(req.result);
+        let result: T;
+        req.onsuccess = () => {
+          result = req.result;
+        };
         req.onerror = () => reject(req.error);
+        // Resolve only when the transaction fully commits — durability matters
+        // because a take's audio may live only here until upload confirms.
+        t.oncomplete = () => resolve(result);
+        t.onabort = () => reject(t.error ?? new Error('IndexedDB transaction aborted'));
       }),
   );
 }

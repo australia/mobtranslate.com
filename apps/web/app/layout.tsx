@@ -1,6 +1,6 @@
 import './globals.css';
 import { ReactNode } from 'react';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from '@/contexts/AuthContext';
@@ -32,6 +32,17 @@ export const metadata: Metadata = {
     locale: 'en_AU',
     type: 'website',
   },
+  manifest: '/manifest.json',
+  appleWebApp: { capable: true, statusBarStyle: 'default', title: 'Mob Translate' },
+};
+
+// device-width + viewport-fit=cover so full-screen recording UIs clear the
+// notch / home indicator; safe-area insets are then usable in CSS.
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#b45e2a',
 };
 
 interface RootLayoutProps {

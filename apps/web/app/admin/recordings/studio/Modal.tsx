@@ -38,9 +38,10 @@ export function Modal({ open, onClose, title, description, children, className }
         aria-modal="true"
         aria-label={title}
         className={cn(
-          'relative z-10 w-full max-w-lg rounded-2xl border border-border bg-card p-6 shadow-xl',
+          'relative z-10 w-full max-w-lg overflow-y-auto rounded-2xl border border-border bg-card p-6 shadow-xl',
           className,
         )}
+        style={{ maxHeight: 'calc(100dvh - 2rem)', paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}
       >
         <div className="mb-4 flex items-start justify-between gap-4">
           <div>

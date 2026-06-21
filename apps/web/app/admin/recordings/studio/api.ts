@@ -213,11 +213,26 @@ export interface SpeakerInvite {
   token: string;
   label: string | null;
   status: 'active' | 'revoked';
+  mode?: 'anonymous' | 'registered';
+  invited_user_id?: string | null;
   expires_at: string | null;
   last_used_at: string | null;
   created_at: string;
   url: string;
   speaker?: { id: string; name: string } | null;
+  invited_user?: { email: string | null; display_name: string | null; username: string | null } | null;
+}
+
+export interface UserSearchResult {
+  id: string;
+  email: string | null;
+  username: string | null;
+  display_name: string | null;
+}
+
+export async function searchUsers(q: string): Promise<UserSearchResult[]> {
+  if (q.trim().length < 2) return [];
+  return jsonOrThrow(await fetch(`/api/v2/admin/users/search?q=${encodeURIComponent(q.trim())}`, { cache: 'no-store' }));
 }
 
 export async function fetchInvites(languageId: string): Promise<SpeakerInvite[]> {
@@ -229,6 +244,7 @@ export async function createInvite(input: {
   languageId: string;
   speakerId?: string | null;
   speakerName?: string | null;
+  invitedUserId?: string | null;
   label?: string | null;
 }): Promise<SpeakerInvite> {
   return jsonOrThrow(

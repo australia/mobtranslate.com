@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { requireAdmin, uploadAudio } from '@/lib/recording/server';
+import { BUCKET, requireAdmin, uploadAudio } from '@/lib/recording/server';
+import { compressedAudioMeta } from '@/lib/recording/types';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -93,9 +94,7 @@ export async function POST(request: NextRequest) {
   // rejected; "audio/webm" is the correct, accepted type for the container.
   if (opus instanceof Blob && opus.size > 0) {
     try {
-      const isOgg = (opus.type || '').includes('ogg');
-      const ext = isOgg ? 'ogg' : 'webm';
-      const contentType = isOgg ? 'audio/ogg' : 'audio/webm';
+      const { ext, contentType } = compressedAudioMeta(opus.type);
       const opusBuf = await opus.arrayBuffer();
       const upo = await uploadAudio(db, `${base}.${ext}`, opusBuf, contentType);
       opusPath = upo.path;
@@ -185,6 +184,9 @@ export async function POST(request: NextRequest) {
     .single();
 
   if (insErr) {
+    // Don't leave orphaned audio in storage if the row failed to insert.
+    const orphans = [storagePath, opusPath].filter(Boolean) as string[];
+    if (orphans.length) await db.storage.from(BUCKET).remove(orphans).catch(() => undefined);
     return NextResponse.json({ error: insErr.message }, { status: 500 });
   }
 

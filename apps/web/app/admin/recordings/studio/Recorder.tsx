@@ -46,6 +46,15 @@ const MIC_HELP: Partial<Record<MicState, { title: string; body: string }>> = {
   },
 };
 
+/** Best-effort haptic feedback (Android/Chrome; silently no-op on iOS). */
+function buzz(pattern: number | number[]) {
+  try {
+    (navigator as Navigator & { vibrate?: (p: number | number[]) => boolean }).vibrate?.(pattern);
+  } catch {
+    /* unsupported */
+  }
+}
+
 export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: RecorderProps) {
   const recorderRef = useRef<StudioRecorder | null>(null);
   const [micState, setMicState] = useState<MicState>('idle');
@@ -112,6 +121,7 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
     clearTake();
     try {
       await recorderRef.current?.start();
+      buzz(40);
       setIsRecording(true);
       startedAtRef.current = Date.now();
       setElapsed(0);
@@ -125,6 +135,7 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
     if (timerRef.current) clearInterval(timerRef.current);
     try {
       const captured = await recorderRef.current?.stop();
+      buzz([30, 40, 30]);
       setIsRecording(false);
       if (captured) {
         setTake(captured);
@@ -147,7 +158,7 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
     if (!audio) return;
     if (audio.paused) {
       audio.currentTime = 0;
-      void audio.play();
+      audio.play().catch(() => setPlaying(false));
     } else {
       audio.pause();
     }
@@ -158,6 +169,7 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
     setSaving(true);
     try {
       await onSave(take);
+      buzz(120);
       clearTake();
       setElapsed(0);
     } finally {
@@ -335,7 +347,8 @@ function ReviewControls({
       </button>
       <p className="text-base text-muted-foreground">
         {secs}s recorded{' '}
-        {take.clipped && <span className="ml-1 font-medium text-[var(--color-warning)]">· a bit loud, try moving back</span>}
+        {take.tooShort && <span className="ml-1 font-medium text-[var(--color-warning)]">· very short — did you get the whole word?</span>}
+        {take.clipped && !take.tooShort && <span className="ml-1 font-medium text-[var(--color-warning)]">· a bit loud, try moving back</span>}
       </p>
 
       <div className="flex w-full flex-col gap-3 sm:flex-row">

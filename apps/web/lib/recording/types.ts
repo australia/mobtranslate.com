@@ -16,6 +16,8 @@ export interface CapturedRecording {
   peakAmplitude: number;
   /** True if any sample reached full scale (likely clipping). */
   clipped: boolean;
+  /** True if the take is implausibly short (likely an accidental tap). */
+  tooShort?: boolean;
 }
 
 /** A recording queued in IndexedDB for background upload. */
@@ -39,12 +41,22 @@ export interface PendingRecording extends CapturedRecording {
 
   /** API endpoint this take uploads to (admin studio vs public invite portal). */
   uploadEndpoint: string;
+  /** Total bytes, captured at enqueue (blobs are nulled after upload). */
+  sizeBytes: number;
   status: 'queued' | 'uploading' | 'uploaded' | 'error';
   attempts: number;
   lastError: string | null;
   createdAt: number;
   /** Server recording id, once uploaded. */
   serverId?: string;
+}
+
+/** Map a MediaRecorder blob MIME to a storage extension + canonical content type. */
+export function compressedAudioMeta(mime: string | undefined): { ext: string; contentType: string } {
+  const m = (mime || '').toLowerCase();
+  if (m.includes('ogg')) return { ext: 'ogg', contentType: 'audio/ogg' };
+  if (m.includes('mp4') || m.includes('m4a') || m.includes('aac') || m.includes('mp4a')) return { ext: 'm4a', contentType: 'audio/mp4' };
+  return { ext: 'webm', contentType: 'audio/webm' };
 }
 
 /** Lightweight view of queue state for the UI (no blobs). */

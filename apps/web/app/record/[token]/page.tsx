@@ -26,5 +26,19 @@ export default async function RecordPortalPage({ params }: { params: { token: st
     );
   }
 
-  return <PortalApp token={params.token} ctx={ctx} />;
+  return (
+    <PortalApp
+      source={{
+        kind: 'token',
+        token: params.token,
+        ctx: {
+          language_id: ctx.language_id,
+          language_code: ctx.language_code,
+          language_name: ctx.language_name,
+          speaker_name: ctx.speaker_name,
+          speaker_id: ctx.speaker_id,
+        },
+      }}
+    />
+  );
 }

@@ -40,6 +40,16 @@ export async function requireAdmin(): Promise<AdminOk | AdminErr> {
   return { user, supabase };
 }
 
+/** Require any signed-in user (not necessarily an admin) — for the contribute portal. */
+export async function requireUser(): Promise<AdminOk | AdminErr> {
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { error: NextResponse.json({ error: 'Please sign in.' }, { status: 401 }) };
+  return { user, supabase };
+}
+
 /** Upload an audio blob to the recordings bucket and return its path + public URL. */
 export async function uploadAudio(
   supabase: SupabaseServer,

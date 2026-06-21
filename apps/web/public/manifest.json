@@ -1,0 +1,13 @@
+{
+  "name": "Mob Translate — Record",
+  "short_name": "Mob Record",
+  "description": "Record your language for the community dictionary.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf8f5",
+  "theme_color": "#b45e2a",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }
+  ]
+}

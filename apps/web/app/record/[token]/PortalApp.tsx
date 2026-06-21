@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Plus, ListChecks, MessageSquareText, ChevronDown, Play, Pause, CheckCircle2, Circle, Loader2, X } from 'lucide-react';
 import { Button, Input, Textarea, cn } from '@mobtranslate/ui';
 import { uploadQueue } from '@/lib/recording/uploadQueue';
@@ -8,26 +8,48 @@ import type { CapturedRecording } from '@/lib/recording/types';
 import { Recorder, type RecorderTarget } from '@/app/admin/recordings/studio/Recorder';
 import { UploadStatus } from '@/app/admin/recordings/studio/UploadStatus';
 import { Modal } from '@/app/admin/recordings/studio/Modal';
-import { addPortalTarget, fetchMyRecordings, fetchPortalWorklist, type MyRecording, type PortalWorkItem } from './portalApi';
-import type { InviteContext } from '@/lib/recording/public';
+import { authTransport, tokenTransport, type MyRecording, type PortalTransport, type PortalWorkItem } from './portalApi';
 
-export function PortalApp({ token, ctx }: { token: string; ctx: InviteContext }) {
+// Only serializable data crosses the server→client boundary; the transport
+// (which holds functions) is constructed here, on the client.
+export type PortalSource =
+  | { kind: 'token'; token: string; ctx: { language_id: string; language_code: string; language_name: string; speaker_name: string | null; speaker_id: string | null } }
+  | { kind: 'auth'; ctx: { language_id: string; language_code: string; language_name: string } };
+
+export function PortalApp({ source }: { source: PortalSource }) {
+  // Key the memo on stable primitives, not the source object identity, so the
+  // transport (and the effects depending on it) don't churn on re-render.
+  const sourceKey = source.kind === 'token' ? `t:${source.token}:${source.ctx.language_id}` : `a:${source.ctx.language_id}`;
+  const transport = useMemo<PortalTransport>(
+    () => (source.kind === 'token' ? tokenTransport(source.token, source.ctx) : authTransport(source.ctx)),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [sourceKey],
+  );
   const [kind, setKind] = useState<'word' | 'sentence'>('word');
   const [items, setItems] = useState<PortalWorkItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [target, setTarget] = useState<RecorderTarget | null>(null);
   const [adding, setAdding] = useState(false);
   const [showMine, setShowMine] = useState(false);
+  const [online, setOnline] = useState(true);
 
   useEffect(() => {
     uploadQueue.init();
+    const sync = () => setOnline(navigator.onLine);
+    sync();
+    window.addEventListener('online', sync);
+    window.addEventListener('offline', sync);
+    return () => {
+      window.removeEventListener('online', sync);
+      window.removeEventListener('offline', sync);
+    };
   }, []);
 
   const loadWorklist = useCallback(
     async (autoselect: boolean) => {
       setLoading(true);
       try {
-        const res = await fetchPortalWorklist(token, { kind, filter: 'pending', limit: 40 });
+        const res = await transport.worklist({ kind, filter: 'pending', limit: 40 });
         setItems(res.items);
         if (autoselect && res.items.length && !target) {
           const f = res.items[0];
@@ -39,7 +61,7 @@ export function PortalApp({ token, ctx }: { token: string; ctx: InviteContext })
         setLoading(false);
       }
     },
-    [token, kind, target],
+    [transport, kind, target],
   );
 
   useEffect(() => {
@@ -49,53 +71,62 @@ export function PortalApp({ token, ctx }: { token: string; ctx: InviteContext })
 
   const advance = useCallback(async () => {
     try {
-      const res = await fetchPortalWorklist(token, { kind, filter: 'pending', limit: 5 });
+      const res = await transport.worklist({ kind, filter: 'pending', limit: 5 });
       setItems(res.items);
       const next = res.items.find((i) => i.key !== (target?.wordId ?? target?.exampleId));
       setTarget(next ? toTarget(kind, next) : null);
     } catch {
       setTarget(null);
     }
-  }, [token, kind, target]);
+  }, [transport, kind, target]);
 
   const handleSave = useCallback(
     async (captured: CapturedRecording) => {
       if (!target) return;
       await uploadQueue.enqueue({
         captured,
-        languageId: ctx.language_id,
-        languageCode: ctx.language_code,
+        languageId: transport.languageId,
+        languageCode: transport.languageCode,
         label: target.label,
         kind: target.kind,
         wordId: target.wordId ?? null,
         exampleId: target.exampleId ?? null,
         targetId: target.targetId ?? null,
         gloss: target.gloss,
-        speakerId: ctx.speaker_id,
-        uploadEndpoint: `/api/public/invite/${token}/recordings`,
+        speakerId: transport.speakerId,
+        uploadEndpoint: transport.uploadEndpoint,
       });
       await advance();
     },
-    [target, ctx, token, advance],
+    [target, transport, advance],
   );
 
   return (
-    <div className="mx-auto min-h-screen max-w-xl px-4 pb-24">
+    <div className="mx-auto min-h-screen max-w-xl px-4" style={{ paddingBottom: 'max(6rem, env(safe-area-inset-bottom))' }}>
       {/* Header */}
-      <header className="sticky top-0 z-30 -mx-4 mb-4 border-b border-border bg-background/90 px-4 py-3 backdrop-blur">
+      <header
+        className="sticky top-0 z-30 -mx-4 mb-4 border-b border-border bg-background/90 px-4 py-3 backdrop-blur"
+        style={{ paddingTop: 'max(0.75rem, env(safe-area-inset-top))' }}
+      >
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0">
-            <p className="truncate text-lg font-bold text-foreground">{ctx.language_name}</p>
+            <p className="truncate text-lg font-bold text-foreground">{transport.languageName}</p>
             <p className="truncate text-sm text-muted-foreground">
-              {ctx.speaker_name ? `Recording as ${ctx.speaker_name}` : 'Recording'}
+              {transport.speakerName ? `Recording as ${transport.speakerName}` : 'Recording'}
             </p>
           </div>
           <UploadStatus />
         </div>
       </header>
 
+      {!online && (
+        <div className="mb-4 rounded-xl bg-[var(--color-warning)]/15 px-4 py-3 text-base font-medium text-[var(--color-warning)]">
+          You’re offline — your recordings are safe on this phone and will upload by themselves when you’re back online.
+        </div>
+      )}
+
       {/* Recorder */}
-      <Recorder target={target} speakerName={ctx.speaker_name} onSave={handleSave} onSkip={target ? () => advance() : undefined} />
+      <Recorder target={target} speakerName={transport.speakerName} onSave={handleSave} onSkip={target ? () => advance() : undefined} />
 
       {/* What to record */}
       <div className="mt-5 rounded-2xl border border-border bg-card p-4">
@@ -133,10 +164,10 @@ export function PortalApp({ token, ctx }: { token: string; ctx: InviteContext })
                   <Circle className="mt-0.5 h-5 w-5 flex-shrink-0 text-muted-foreground/50" />
                 )}
                 <span className="min-w-0 flex-1">
-                  <span className="block text-base font-medium text-foreground">{item.label}</span>
-                  {item.gloss && <span className="block text-sm text-muted-foreground">{item.gloss}</span>}
+                  <span className="block text-lg font-medium text-foreground">{item.label}</span>
+                  {item.gloss && <span className="block text-base text-muted-foreground">{item.gloss}</span>}
                 </span>
-                {item.recording_count > 0 && <span className="flex-shrink-0 text-xs text-muted-foreground">×{item.recording_count}</span>}
+                {item.recording_count > 0 && <span className="flex-shrink-0 text-sm text-muted-foreground">×{item.recording_count}</span>}
               </button>
             );
           })}
@@ -158,7 +189,7 @@ export function PortalApp({ token, ctx }: { token: string; ctx: InviteContext })
           <span className="text-base font-medium text-foreground">My recordings</span>
           <ChevronDown className={cn('h-5 w-5 text-muted-foreground transition-transform', showMine && 'rotate-180')} />
         </button>
-        {showMine && <MyRecordings token={token} />}
+        {showMine && <MyRecordings transport={transport} />}
       </div>
 
       <AddOwnModal
@@ -169,7 +200,7 @@ export function PortalApp({ token, ctx }: { token: string; ctx: InviteContext })
           setAdding(false);
           setTarget({ kind: t.kind as RecorderTarget['kind'], label: t.text, gloss: t.gloss, targetId: t.id });
         }}
-        token={token}
+        transport={transport}
       />
     </div>
   );
@@ -197,15 +228,15 @@ function TabBtn({ active, onClick, icon: Icon, label }: { active: boolean; onCli
   );
 }
 
-function MyRecordings({ token }: { token: string }) {
+function MyRecordings({ transport }: { transport: PortalTransport }) {
   const [rows, setRows] = useState<MyRecording[] | null>(null);
   useEffect(() => {
-    fetchMyRecordings(token).then(setRows).catch(() => setRows([]));
+    transport.myRecordings().then(setRows).catch(() => setRows([]));
     // refresh when a new upload completes
-    const onUp = () => fetchMyRecordings(token).then(setRows).catch(() => undefined);
+    const onUp = () => transport.myRecordings().then(setRows).catch(() => undefined);
     window.addEventListener('recording-uploaded', onUp);
     return () => window.removeEventListener('recording-uploaded', onUp);
-  }, [token]);
+  }, [transport]);
 
   if (rows === null) return <div className="flex justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-muted-foreground" /></div>;
   if (rows.length === 0) return <p className="px-1 py-4 text-center text-sm text-muted-foreground">Your saved recordings will appear here.</p>;
@@ -235,7 +266,7 @@ function PlayRow({ row }: { row: MyRecording }) {
     }
     if (a.paused) {
       a.currentTime = 0;
-      void a.play();
+      a.play().catch(() => setPlaying(false));
     } else a.pause();
   };
   return (
@@ -261,13 +292,13 @@ function PlayRow({ row }: { row: MyRecording }) {
 function AddOwnModal({
   open,
   kind,
-  token,
+  transport,
   onClose,
   onCreated,
 }: {
   open: boolean;
   kind: 'word' | 'sentence';
-  token: string;
+  transport: PortalTransport;
   onClose: () => void;
   onCreated: (t: { id: string; text: string; gloss: string | null; kind: string }) => void;
 }) {
@@ -281,7 +312,7 @@ function AddOwnModal({
     setSaving(true);
     setError(null);
     try {
-      const t = await addPortalTarget(token, { kind, text: text.trim(), gloss: gloss.trim() || null });
+      const t = await transport.addTarget({ kind, text: text.trim(), gloss: gloss.trim() || null });
       setText('');
       setGloss('');
       onCreated(t);

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { publicClient, RECORDINGS_BUCKET, resolveInvite } from '@/lib/recording/public';
+import { BUCKET, requireUser, uploadAudio } from '@/lib/recording/server';
 import { compressedAudioMeta } from '@/lib/recording/types';
 
 export const runtime = 'nodejs';
@@ -8,6 +8,7 @@ export const maxDuration = 60;
 
 const metaSchema = z.object({
   clientId: z.string().min(8),
+  languageId: z.string().uuid(),
   kind: z.enum(['word', 'phrase', 'sentence']).default('word'),
   label: z.string().min(1).max(2000),
   gloss: z.string().max(2000).nullable().optional(),
@@ -22,18 +23,22 @@ const metaSchema = z.object({
   clipped: z.boolean().optional(),
 });
 
-// ---- GET: the speaker's own recent recordings --------------------------
-export async function GET(_request: NextRequest, { params }: { params: { token: string } }) {
-  const db = publicClient();
-  const { data, error } = await db.rpc('invite_my_recordings', { p_token: params.token, p_limit: 100 });
+// ---- GET: my recordings for a language ----
+export async function GET(request: NextRequest) {
+  const auth = await requireUser();
+  if (auth.error) return auth.error;
+  const languageId = new URL(request.url).searchParams.get('languageId');
+  if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
+  const { data, error } = await auth.supabase.rpc('auth_my_recordings', { p_language_id: languageId, p_limit: 100 });
   if (error) return NextResponse.json({ error: error.message }, { status: 400 });
   return NextResponse.json(data ?? []);
 }
 
-// ---- POST: upload a recording (multipart) ------------------------------
-export async function POST(request: NextRequest, { params }: { params: { token: string } }) {
-  const ctx = await resolveInvite(params.token);
-  if (!ctx) return NextResponse.json({ error: 'This recording link is not valid.' }, { status: 404 });
+// ---- POST: upload a recording as the signed-in (invited) user ----
+export async function POST(request: NextRequest) {
+  const auth = await requireUser();
+  if (auth.error) return auth.error;
+  const db = auth.supabase;
 
   let form: FormData;
   try {
@@ -41,7 +46,6 @@ export async function POST(request: NextRequest, { params }: { params: { token: 
   } catch {
     return NextResponse.json({ error: 'Expected multipart/form-data' }, { status: 400 });
   }
-
   const rawMeta = form.get('meta');
   if (typeof rawMeta !== 'string') return NextResponse.json({ error: 'Missing meta' }, { status: 400 });
   let meta: z.infer<typeof metaSchema>;
@@ -55,41 +59,33 @@ export async function POST(request: NextRequest, { params }: { params: { token: 
   if (!(master instanceof Blob)) return NextResponse.json({ error: 'Missing master audio' }, { status: 400 });
   const opus = form.get('opus');
 
-  const db = publicClient();
-  const base = `invites/${ctx.language_id}/${meta.clientId}`;
-
-  // Upload the lossless master (fatal). Opus is best-effort.
+  const base = `users/${auth.user.id}/${meta.clientId}`;
   let storagePath: string;
   let masterUrl: string;
   let opusPath: string | null = null;
   let opusUrl: string | null = null;
   try {
-    const buf = Buffer.from(await master.arrayBuffer());
-    const { error } = await db.storage.from(RECORDINGS_BUCKET).upload(`${base}.wav`, buf, { contentType: 'audio/wav', upsert: true, cacheControl: '31536000' });
-    if (error) throw new Error(error.message);
-    storagePath = `${base}.wav`;
-    masterUrl = db.storage.from(RECORDINGS_BUCKET).getPublicUrl(storagePath).data.publicUrl;
+    const up = await uploadAudio(db, `${base}.wav`, await master.arrayBuffer(), 'audio/wav');
+    storagePath = up.path;
+    masterUrl = up.url;
   } catch (err) {
     return NextResponse.json({ error: `Could not save the recording: ${(err as Error).message}` }, { status: 502 });
   }
-
   if (opus instanceof Blob && opus.size > 0) {
     try {
       const { ext, contentType } = compressedAudioMeta(opus.type);
-      const buf = Buffer.from(await opus.arrayBuffer());
-      const { error } = await db.storage.from(RECORDINGS_BUCKET).upload(`${base}.${ext}`, buf, { contentType, upsert: true, cacheControl: '31536000' });
-      if (!error) {
-        opusPath = `${base}.${ext}`;
-        opusUrl = db.storage.from(RECORDINGS_BUCKET).getPublicUrl(opusPath).data.publicUrl;
-      }
+      const upo = await uploadAudio(db, `${base}.${ext}`, await opus.arrayBuffer(), contentType);
+      opusPath = upo.path;
+      opusUrl = upo.url;
     } catch {
-      /* best-effort */
+      opusPath = null;
+      opusUrl = null;
     }
   }
 
   const fileSize = master.size + (opus instanceof Blob ? opus.size : 0);
-  const { data, error } = await db.rpc('invite_create_recording', {
-    p_token: params.token,
+  const { data, error } = await db.rpc('auth_create_recording', {
+    p_language_id: meta.languageId,
     p_client_id: meta.clientId,
     p_kind: meta.kind,
     p_label: meta.label,
@@ -111,9 +107,8 @@ export async function POST(request: NextRequest, { params }: { params: { token: 
     p_clipped: meta.clipped ?? false,
   });
   if (error) {
-    // Avoid orphaned audio if the row couldn't be created.
     const orphans = [storagePath, opusPath].filter(Boolean) as string[];
-    if (orphans.length) await db.storage.from(RECORDINGS_BUCKET).remove(orphans).catch(() => undefined);
+    if (orphans.length) await db.storage.from(BUCKET).remove(orphans).catch(() => undefined);
     return NextResponse.json({ error: error.message }, { status: 400 });
   }
   return NextResponse.json(data, { status: 201 });
