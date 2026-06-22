@@ -87,6 +87,14 @@ const adminNavItems = [
 ];
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
+  const pathname = usePathname();
+
+  // The recording studio is an immersive, full-screen tool with its own
+  // topbar — render it bare, outside the admin sidebar chrome.
+  if (pathname === '/admin/recordings') {
+    return <>{children}</>;
+  }
+
   return (
     <div className="min-h-screen bg-muted">
       {/* Admin Header */}
