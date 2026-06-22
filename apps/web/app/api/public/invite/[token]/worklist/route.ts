@@ -4,7 +4,8 @@ import { publicClient } from '@/lib/recording/public';
 export const runtime = 'nodejs';
 
 // Words or sentences to record for the invite's language.
-export async function GET(request: NextRequest, { params }: { params: { token: string } }) {
+export async function GET(request: NextRequest, props: { params: Promise<{ token: string }> }) {
+  const params = await props.params;
   const { searchParams } = new URL(request.url);
   const kind = searchParams.get('kind') === 'sentence' ? 'sentence' : 'word';
   const filter = (searchParams.get('filter') ?? 'pending') as 'pending' | 'recorded' | 'all';

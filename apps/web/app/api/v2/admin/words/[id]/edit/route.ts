@@ -27,7 +27,8 @@ const bodySchema = z.object({
 
 // Submit edits to a word. Super_admins apply immediately (still logged as a
 // suggestion + revision); other curators leave them pending for /curator.
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const auth = await requireAdmin();
   if (auth.error) return auth.error;
   const db = auth.supabase;

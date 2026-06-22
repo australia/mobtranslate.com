@@ -6,13 +6,11 @@ const voteSchema = z.object({
   vote_type: z.enum(['up', 'down'])
 });
 
-export async function POST(
-  request: NextRequest,
-  { params }: { params: { commentId: string } }
-) {
+export async function POST(request: NextRequest, props: { params: Promise<{ commentId: string }> }) {
+  const params = await props.params;
   const { commentId } = params;
   const supabase = await createClient();
-  
+
   try {
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();

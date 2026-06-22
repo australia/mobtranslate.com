@@ -29,23 +29,24 @@ import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
-export default async function DictionaryPage({
-  params,
-  searchParams,
-}: {
-  params: { language: string };
-  searchParams: { 
-    search?: string;
-    page?: string;
-    limit?: string;
-    sortBy?: string;
-    sortOrder?: string;
-    wordClass?: string;
-    letter?: string;
-  };
-}) {
+export default async function DictionaryPage(
+  props: {
+    params: Promise<{ language: string }>;
+    searchParams: Promise<{ 
+      search?: string;
+      page?: string;
+      limit?: string;
+      sortBy?: string;
+      sortOrder?: string;
+      wordClass?: string;
+      letter?: string;
+    }>;
+  }
+) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   const { language } = params;
-  
+
   const queryParams: DictionaryQueryParams = {
     language,
     search: searchParams.search || undefined,
@@ -56,7 +57,7 @@ export default async function DictionaryPage({
     wordClass: searchParams.wordClass || undefined,
     letter: searchParams.letter || undefined,
   };
-  
+
   try {
     const { words, language: languageData, pagination } = await getWordsForLanguage(queryParams);
     
@@ -159,11 +160,12 @@ export default async function DictionaryPage({
   }
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { language: string };
-}) {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ language: string }>;
+  }
+) {
+  const params = await props.params;
   try {
     const { language: languageData } = await getWordsForLanguage({ 
       language: params.language,

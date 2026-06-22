@@ -27,7 +27,8 @@ function calculateStreakFromDaily(dailyActivity: Map<string, number>): number {
   return streak;
 }
 
-export async function GET(request: NextRequest, { params }: { params: { language: string } }) {
+export async function GET(request: NextRequest, props: { params: Promise<{ language: string }> }) {
+  const params = await props.params;
   const supabase = await createClient();
 
   // Check authentication

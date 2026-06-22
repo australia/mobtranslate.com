@@ -9,7 +9,8 @@ export const metadata = {
   robots: { index: false, follow: false }, // private invite links — keep out of search
 };
 
-export default async function RecordPortalPage({ params }: { params: { token: string } }) {
+export default async function RecordPortalPage(props: { params: Promise<{ token: string }> }) {
+  const params = await props.params;
   const ctx = await resolveInvite(params.token);
 
   if (!ctx) {

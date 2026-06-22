@@ -11,16 +11,14 @@ const createImprovementSchema = z.object({
   supporting_references: z.array(z.string()).optional()
 });
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const { id: wordId } = params;
   const { searchParams } = new URL(request.url);
   const status = searchParams.get('status');
-  
+
   const supabase = await createClient();
-  
+
   try {
     let query = supabase
       .from('word_improvement_suggestions')
@@ -83,13 +81,11 @@ export async function GET(
   }
 }
 
-export async function POST(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function POST(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const { id: wordId } = params;
   const supabase = await createClient();
-  
+
   try {
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();

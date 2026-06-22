@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { languageId: string } }
-) {
+export async function GET(request: NextRequest, props: { params: Promise<{ languageId: string }> }) {
+  const params = await props.params;
   const { languageId } = params;
   const supabase = await createClient();
-  
+
   try {
     // Check authentication and curator role
     const { data: { user }, error: authError } = await supabase.auth.getUser();

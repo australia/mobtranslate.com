@@ -23,7 +23,8 @@ const metaSchema = z.object({
 });
 
 // ---- GET: the speaker's own recent recordings --------------------------
-export async function GET(_request: NextRequest, { params }: { params: { token: string } }) {
+export async function GET(_request: NextRequest, props: { params: Promise<{ token: string }> }) {
+  const params = await props.params;
   const db = publicClient();
   const { data, error } = await db.rpc('invite_my_recordings', { p_token: params.token, p_limit: 100 });
   if (error) return NextResponse.json({ error: error.message }, { status: 400 });
@@ -31,7 +32,8 @@ export async function GET(_request: NextRequest, { params }: { params: { token: 
 }
 
 // ---- POST: upload a recording (multipart) ------------------------------
-export async function POST(request: NextRequest, { params }: { params: { token: string } }) {
+export async function POST(request: NextRequest, props: { params: Promise<{ token: string }> }) {
+  const params = await props.params;
   const ctx = await resolveInvite(params.token);
   if (!ctx) return NextResponse.json({ error: 'This recording link is not valid.' }, { status: 404 });
 

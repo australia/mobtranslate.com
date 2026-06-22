@@ -312,7 +312,7 @@ describe('Translator', () => {
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByText('Translation error occurred. Please try again.')).toBeInTheDocument();
+      expect(screen.getByText('The translation service is having trouble. Try again in a moment.')).toBeInTheDocument();
     });
   });
 
@@ -330,7 +330,7 @@ describe('Translator', () => {
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByText('Translation error occurred. Please try again.')).toBeInTheDocument();
+      expect(screen.getByText('Network error')).toBeInTheDocument();
     });
   });
 
@@ -348,14 +348,14 @@ describe('Translator', () => {
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByText('Translation error occurred. Please try again.')).toBeInTheDocument();
+      expect(screen.getByText('Network error')).toBeInTheDocument();
     });
 
     // Type more to clear error
     await user.type(textarea, ' world');
 
     await waitFor(() => {
-      expect(screen.queryByText('Translation error occurred. Please try again.')).not.toBeInTheDocument();
+      expect(screen.queryByText('Network error')).not.toBeInTheDocument();
     });
   });
 
@@ -454,7 +454,7 @@ describe('Translator', () => {
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByText(/Translations are generated using AI/)).toBeInTheDocument();
+      expect(screen.getByText(/AI-generated, not authoritative/)).toBeInTheDocument();
     });
   });
 

@@ -28,11 +28,12 @@ function FullBleed({ children, className }: { children: React.ReactNode; classNa
   );
 }
 
-export default async function MapPage({
-  params,
-}: {
-  params: { language: string };
-}) {
+export default async function MapPage(
+  props: {
+    params: Promise<{ language: string }>;
+  }
+) {
+  const params = await props.params;
   const { language } = params;
 
   try {
@@ -104,11 +105,12 @@ export default async function MapPage({
   }
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { language: string };
-}) {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ language: string }>;
+  }
+) {
+  const params = await props.params;
   try {
     const { words, language: languageData } = await getLocationWordsForLanguage(params.language);
 

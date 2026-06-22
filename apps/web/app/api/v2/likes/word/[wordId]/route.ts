@@ -2,10 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
 // GET - Check if a word is liked
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { wordId: string } }
-) {
+export async function GET(request: NextRequest, props: { params: Promise<{ wordId: string }> }) {
+  const params = await props.params;
   const supabase = await createClient();
   const { wordId } = params;
 
@@ -36,10 +34,8 @@ export async function GET(
 }
 
 // POST - Like a word
-export async function POST(
-  request: NextRequest,
-  { params }: { params: { wordId: string } }
-) {
+export async function POST(request: NextRequest, props: { params: Promise<{ wordId: string }> }) {
+  const params = await props.params;
   const supabase = await createClient();
   const { wordId } = params;
 
@@ -83,10 +79,8 @@ export async function POST(
 }
 
 // DELETE - Unlike a word
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { wordId: string } }
-) {
+export async function DELETE(request: NextRequest, props: { params: Promise<{ wordId: string }> }) {
+  const params = await props.params;
   const supabase = await createClient();
   const { wordId } = params;
 

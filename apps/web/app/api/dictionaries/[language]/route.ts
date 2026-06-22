@@ -2,10 +2,8 @@ import { NextRequest } from 'next/server';
 import { getWordsForLanguage } from '@/lib/supabase/queries';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { language: string } }
-) {
+export async function GET(request: NextRequest, props: { params: Promise<{ language: string }> }) {
+  const params = await props.params;
   const { language } = params;
   const searchParams = request.nextUrl.searchParams;
 

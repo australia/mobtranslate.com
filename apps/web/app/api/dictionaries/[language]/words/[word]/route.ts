@@ -4,8 +4,9 @@ import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { language: string; word: string } }
+  props: { params: Promise<{ language: string; word: string }> }
 ) {
+  const params = await props.params;
   const { language, word } = params;
   const decodedWord = decodeURIComponent(word);
 

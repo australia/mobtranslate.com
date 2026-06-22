@@ -8,13 +8,11 @@ const assignRoleSchema = z.object({
   expires_at: z.string().datetime().optional().nullable()
 });
 
-export async function POST(
-  request: NextRequest,
-  { params }: { params: { userId: string } }
-) {
+export async function POST(request: NextRequest, props: { params: Promise<{ userId: string }> }) {
+  const params = await props.params;
   const { userId } = params;
   const supabase = await createClient();
-  
+
   try {
     // Check if user is admin
     const { data: { user }, error: authError } = await supabase.auth.getUser();

@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import { ChevronRight, GraduationCap } from 'lucide-react';
 import { getLessons } from '@/lib/lessons/content';
 
-export default function LessonsIndexPage({ params }: { params: { language: string } }) {
+export default async function LessonsIndexPage(props: { params: Promise<{ language: string }> }) {
+  const params = await props.params;
   const lessons = getLessons(params.language);
   if (lessons.length === 0) notFound();
   const languageName = lessons[0].languageName;

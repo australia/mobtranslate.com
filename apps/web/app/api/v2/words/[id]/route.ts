@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getWordById } from '@/lib/supabase/queries';
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const { id } = params;
 
   try {

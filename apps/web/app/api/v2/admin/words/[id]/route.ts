@@ -5,7 +5,8 @@ export const runtime = 'nodejs';
 
 // Editable snapshot of a word: its columns, primary definition + translation,
 // and any pending edit suggestions.
-export async function GET(_request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(_request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const auth = await requireAdmin();
   if (auth.error) return auth.error;
   const db = auth.supabase;

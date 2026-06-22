@@ -109,10 +109,8 @@ Rules:
  * POST /api/translate/[language]
  * Translates text to the specified language using the dictionary and OpenAI
  */
-export async function POST(
-  request: NextRequest,
-  { params }: { params: { language: string } }
-) {
+export async function POST(request: NextRequest, props: { params: Promise<{ language: string }> }) {
+  const params = await props.params;
   try {
     const { language } = params;
     const { text, stream = false, mode = 'chat' } = await request.json();

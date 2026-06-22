@@ -8,13 +8,11 @@ const createCommentSchema = z.object({
   parent_id: z.string().uuid().optional()
 });
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const { id: wordId } = params;
   const supabase = await createClient();
-  
+
   try {
     // Get comments with user info and vote counts
     const { data: comments, error } = await supabase
@@ -69,13 +67,11 @@ export async function GET(
   }
 }
 
-export async function POST(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function POST(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const { id: wordId } = params;
   const supabase = await createClient();
-  
+
   try {
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();

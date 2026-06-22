@@ -59,13 +59,14 @@ async function getWordBySlug(languageCode: string, wordSlug: string) {
   };
 }
 
-export default async function WordDetailPage({
-  params,
-}: {
-  params: { language: string; word: string };
-}) {
+export default async function WordDetailPage(
+  props: {
+    params: Promise<{ language: string; word: string }>;
+  }
+) {
+  const params = await props.params;
   const { language: languageCode, word: wordSlug } = params;
-  
+
   try {
     const { word, language, relatedWords } = await getWordBySlug(languageCode, wordSlug);
     
@@ -159,11 +160,12 @@ export default async function WordDetailPage({
   }
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { language: string; word: string };
-}) {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ language: string; word: string }>;
+  }
+) {
+  const params = await props.params;
   try {
     const { word, language } = await getWordBySlug(params.language, params.word);
     

@@ -12,7 +12,8 @@ interface MyInvite {
   language_name: string;
 }
 
-export default async function SpeakLanguagePage({ params }: { params: { languageId: string } }) {
+export default async function SpeakLanguagePage(props: { params: Promise<{ languageId: string }> }) {
+  const params = await props.params;
   const supabase = await createClient();
   const {
     data: { user },

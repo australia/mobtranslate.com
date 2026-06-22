@@ -3,14 +3,15 @@ import { createClient } from '@/lib/supabase/server';
 import { CuratorDashboard } from '@/components/curator/CuratorDashboard';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     language: string;
-  };
+  }>;
 }
 
-export default async function LanguageCuratorPage({ params }: PageProps) {
+export default async function LanguageCuratorPage(props: PageProps) {
+  const params = await props.params;
   const supabase = await createClient();
-  
+
   // Check authentication
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) {

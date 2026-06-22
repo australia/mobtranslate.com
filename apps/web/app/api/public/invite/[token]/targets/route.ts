@@ -11,7 +11,8 @@ const schema = z.object({
 });
 
 // The speaker adds their own word/sentence + translation to record.
-export async function POST(request: NextRequest, { params }: { params: { token: string } }) {
+export async function POST(request: NextRequest, props: { params: Promise<{ token: string }> }) {
+  const params = await props.params;
   let body: z.infer<typeof schema>;
   try {
     body = schema.parse(await request.json());

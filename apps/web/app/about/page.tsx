@@ -54,10 +54,9 @@ export default async function About() {
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
             Mob Translate is a community-built dictionary, translator, and learning surface for
-            First Nations languages. It exists because most of these languages are listed as
-            vulnerable or endangered, and their records are scattered across PDFs, archives, and
-            lost notebooks. We&apos;re putting them in one fast, open place, owned by the communities
-            they belong to.
+            First Nations languages. It exists because the records for many of these languages are
+            scattered across PDFs, archives, and old notebooks. We&apos;re putting them in one fast,
+            open place, owned by the communities they belong to.
           </p>
           <p className="mt-6 text-base text-muted-foreground leading-relaxed">
             Today that&apos;s {stats.totalLanguages} languages and{' '}

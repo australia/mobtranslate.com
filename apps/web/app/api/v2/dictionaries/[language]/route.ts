@@ -2,13 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getWordsForLanguage } from '@/lib/supabase/queries';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { language: string } }
-) {
+export async function GET(request: NextRequest, props: { params: Promise<{ language: string }> }) {
+  const params = await props.params;
   const { language } = params;
   const searchParams = request.nextUrl.searchParams;
-  
+
   const queryParams: DictionaryQueryParams = {
     language,
     search: searchParams.get('search') || undefined,
