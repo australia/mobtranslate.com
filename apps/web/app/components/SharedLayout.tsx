@@ -273,7 +273,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                 </span>
               </Link>
               <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-xs">
-                Open-source translation tools for Indigenous languages. Built with respect, powered by community.
+                Open-source dictionaries and translation tools for Indigenous languages.
               </p>
               <div className="flex items-center gap-2.5 mt-5">
                 <a
@@ -390,22 +390,11 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             </div>
           </div>
 
-          {/* Acknowledgement of Country */}
+          {/* Bottom bar */}
           <div className="py-6 border-t border-border/40">
-            <div className="mb-8 max-w-2xl">
-              <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-primary mb-2">
-                Acknowledgement of Country
-              </p>
-              <p className="text-sm text-foreground/80 leading-relaxed">
-                We respectfully acknowledge the Traditional Owners of the lands on which these
-                languages are spoken, and pay respect to Elders past and present who keep them living.
-              </p>
-            </div>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-muted-foreground">
               <p>&copy; {new Date().getFullYear()} Mob Translate. Open source under MIT License.</p>
-              <p className="flex items-center gap-1">
-                Made with <Heart size={10} className="text-primary fill-primary" /> by the community.
-              </p>
+              <p>Open source · Community-built</p>
             </div>
           </div>
         </div>

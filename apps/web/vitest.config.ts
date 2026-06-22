@@ -9,6 +9,10 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
     include: ['**/__tests__/**/*.test.{ts,tsx}'],
+    // Render/interaction tests use userEvent + waitFor; under parallel CPU
+    // contention the default 5s can be exceeded, causing flaky timeouts.
+    testTimeout: 20000,
+    hookTimeout: 20000,
     coverage: {
       provider: 'v8',
       reporter: ['text', 'lcov'],

@@ -132,17 +132,6 @@ export default async function About() {
         </div>
       </section>
 
-      {/* Acknowledgement of Country — typeset, not an afterthought */}
-      <section className="marketing max-w-2xl mb-16 border-t border-border pt-8">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary mb-3">
-          Acknowledgement of Country
-        </p>
-        <p className="text-base text-foreground/80 leading-relaxed font-display">
-          We respectfully acknowledge the Traditional Owners of the lands on which these languages
-          are spoken, and pay our respects to Elders past and present who have kept them living
-          across generations.
-        </p>
-      </section>
     </SharedLayout>
   );
 }

@@ -81,11 +81,6 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
               ))}
             </div>
           </div>
-
-          {/* Bottom */}
-          <p className="text-xs text-[#faf8f5]/55 leading-relaxed max-w-sm">
-            We acknowledge the Traditional Owners of the lands on which these languages are spoken.
-          </p>
         </div>
       </div>
 
