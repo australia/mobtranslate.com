@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 function calculateStreakFromDaily(dailyActivity: Map<string, number>): number {
   if (dailyActivity.size === 0) return 0;
@@ -29,13 +30,16 @@ function calculateStreakFromDaily(dailyActivity: Map<string, number>): number {
 
 export async function GET(request: NextRequest, props: { params: Promise<{ language: string }> }) {
   const params = await props.params;
-  const supabase = await createClient();
 
-  // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  // Authenticate with the viewer's session (used to highlight their own rank),
+  // but read leaderboard data with the service-role client so every competitor
+  // shows — RLS would otherwise scope quiz data to the signed-in viewer.
+  const userClient = await createClient();
+  const { data: { user }, error: authError } = await userClient.auth.getUser();
   if (authError || !user) {
     return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
   }
+  const supabase = createAdminClient();
 
   const { searchParams } = new URL(request.url);
   const period = searchParams.get('period') || 'week';

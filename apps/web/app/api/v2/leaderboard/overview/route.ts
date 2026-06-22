@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 
 interface LanguageLeaderboard {
   languageId: string;
@@ -50,7 +50,10 @@ function calculateStreakFromDaily(dailyActivity: Map<string, number>): number {
 }
 
 export async function GET(request: NextRequest) {
-  const supabase = await createClient();
+  // Public leaderboard: aggregate every learner's quiz activity. Use the
+  // service-role client so RLS doesn't scope reads to the (optional) signed-in
+  // viewer — otherwise each user only ever sees themselves on the board.
+  const supabase = createAdminClient();
 
   // Leaderboard is publicly accessible - no auth required
   const { searchParams } = new URL(request.url);
