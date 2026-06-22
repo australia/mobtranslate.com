@@ -8,7 +8,7 @@ import {
 } from '@/lib/dictionary-sync/engine';
 
 async function isAdminAuthenticated() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user }
   } = await supabase.auth.getUser();

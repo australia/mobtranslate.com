@@ -3,7 +3,7 @@
 import { useState, useEffect, ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Sun, Moon, Github, Heart, Globe, BookOpen, Users, ExternalLink } from 'lucide-react';
+import { Menu, X, Sun, Moon, Code, Heart, Globe, BookOpen, Users, ExternalLink } from 'lucide-react';
 import { cn, Button } from '@mobtranslate/ui';
 import { ModernNav } from '@/components/navigation/ModernNav';
 
@@ -283,7 +283,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                   className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:scale-110 transition-all duration-200"
                   aria-label="GitHub Repository"
                 >
-                  <Github size={16} />
+                  <Code size={16} />
                 </a>
                 <a
                   href="https://twitter.com/ajaxdavis"
@@ -384,7 +384,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-4 text-sm font-medium text-primary hover:text-primary/80 hover:translate-x-0.5 transition-all duration-200"
               >
-                <Github size={14} />
+                <Code size={14} />
                 Contribute on GitHub
               </a>
             </div>

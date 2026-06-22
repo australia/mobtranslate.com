@@ -50,7 +50,7 @@ function calculateStreakFromDaily(dailyActivity: Map<string, number>): number {
 }
 
 export async function GET(request: NextRequest) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Leaderboard is publicly accessible - no auth required
   const { searchParams } = new URL(request.url);

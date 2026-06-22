@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import yaml from 'js-yaml';
+import * as yaml from 'js-yaml';
 import OpenAI from 'openai';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
@@ -1465,7 +1465,7 @@ export async function ensureSyncTasksForAllDictionaries(supabase: SupabaseClient
     ];
 
     for (const row of taskRows) {
-      await supabase.from('dictionary_sync_tasks').upsert(row, {
+      await supabase.from('dictionary_sync_tasks').upsert(row as never, {
         onConflict: 'language_id,task_type'
       });
     }

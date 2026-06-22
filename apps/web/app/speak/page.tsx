@@ -14,7 +14,7 @@ interface MyInvite {
 }
 
 export default async function SpeakHubPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();

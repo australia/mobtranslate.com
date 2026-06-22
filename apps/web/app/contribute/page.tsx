@@ -1,6 +1,5 @@
 import SharedLayout from '../components/SharedLayout';
 import {
-  Github,
   Code,
   Users,
   Globe,
@@ -141,7 +140,7 @@ export default function ContributePage() {
             rel="noopener noreferrer"
             className="mt-btn mt-btn-primary mt-btn-md inline-flex"
           >
-            <Github size={18} /> View on GitHub
+            <Code size={18} /> View on GitHub
           </a>
         </div>
       </section>

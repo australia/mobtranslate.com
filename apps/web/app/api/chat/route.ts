@@ -1,4 +1,4 @@
-import { streamText, tool } from 'ai';
+import { streamText, tool, stepCountIs, convertToModelMessages } from 'ai';
 import { openai } from '@ai-sdk/openai';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
@@ -7,7 +7,7 @@ import { generateEmbedding } from '../../../scripts/generate-embeddings';
 
 export async function POST(req: Request) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -149,35 +149,10 @@ export async function POST(req: Request) {
       }) || []).values()).slice(0, 10)
     };
 
-    // Process messages to handle image attachments
-    const processedMessages = messages.map((message: any) => {
-      const attachments = message.attachments || message.experimental_attachments;
-      
-      if (message.role === 'user' && attachments?.length > 0) {
-        const imageAttachments = attachments.filter((a: any) => a.contentType?.startsWith('image/'));
-        
-        if (imageAttachments.length > 0) {
-          // Convert to OpenAI's expected format with image content
-          const content = [
-            { type: 'text', text: message.content },
-            ...imageAttachments.map((img: any) => ({
-              type: 'image_url',
-              image_url: {
-                url: img.url,
-                detail: 'auto'
-              }
-            }))
-          ];
-          
-          return {
-            ...message,
-            content
-          };
-        }
-      }
-      
-      return message;
-    });
+    // AI SDK v5+: the client sends UI messages (with parts, incl. file/image
+    // parts). convertToModelMessages turns them into model messages, handling
+    // image attachments without the manual image_url shaping we did under v4.
+    const processedMessages = await convertToModelMessages(messages);
 
     const result = await streamText({
       model: openai('gpt-4o-mini'),
@@ -501,14 +476,14 @@ IMPORTANT: When a message contains an image attachment:
             });
             
             // Also extract any quoted items or items after "see" or "contains"
-            const quotedItems = description.match(/"([^"]+)"/g) || [];
-            quotedItems.forEach(item => {
+            const quotedItems: string[] = description.match(/"([^"]+)"/g) || [];
+            quotedItems.forEach((item: string) => {
               detectedItems.push(item.replace(/"/g, '').toLowerCase());
             });
-            
+
             // Extract items from patterns like "I see X, Y, and Z"
             const seePattern = /(?:see|contains?|includes?|shows?|displays?|features?)\s+(?:a |an |the )?([^,.]+(?:,\s*[^,.]+)*)/gi;
-            const matches = Array.from(description.matchAll(seePattern));
+            const matches = Array.from(description.matchAll(seePattern)) as RegExpMatchArray[];
             for (const match of matches) {
               const items = match[1].split(/,\s*|\s+and\s+/);
               items.forEach((item: any) => {
@@ -720,12 +695,11 @@ IMPORTANT: When a message contains an image attachment:
         },
       }),
     },
-    maxSteps: 5,
-    toolCallStreaming: true,
+    stopWhen: stepCountIs(5),
   });
 
-  const response = result.toDataStreamResponse({
-    getErrorMessage: (error) => (error as any)?.message || 'Something went wrong',
+  const response = result.toUIMessageStreamResponse({
+    onError: (error) => (error as any)?.message || 'Something went wrong',
   });
   return response;
   

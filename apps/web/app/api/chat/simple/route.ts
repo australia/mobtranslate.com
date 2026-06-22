@@ -9,7 +9,7 @@ const openai = createOpenAI({
 
 export async function POST(req: Request) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
 
     // Check authentication
     const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
       system: 'You are a helpful language learning assistant.',
     });
 
-    return result.toDataStreamResponse();
+    return result.toUIMessageStreamResponse();
     
   } catch (error: any) {
     console.error('Simple Chat API error:', error);

@@ -245,7 +245,6 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
                   {/* Always show content when available */}
                   {outputText && (
                     <ReactMarkdown
-                      className=""
                       components={{
                         h1: ({node: _, ...props}) => <h1 {...props} className="text-2xl font-bold mb-4 mt-6 text-inherit border-b pb-1 border-[rgba(255,255,255,0.2)]" />,
                         h2: ({node: _, ...props}) => <h2 {...props} className="text-xl font-bold mb-3 mt-5 text-inherit" />,

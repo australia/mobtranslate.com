@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
   try {
     body = createSchema.parse(await request.json());
   } catch (err) {
-    return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.errors : String(err) }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
   }
   const targets = [body.speakerId, body.speakerName, body.invitedUserId].filter(Boolean);
   if (targets.length !== 1) {

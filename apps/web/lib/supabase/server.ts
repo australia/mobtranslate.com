@@ -1,47 +1,36 @@
-import { createServerClient, type CookieOptions } from '@supabase/ssr'
+import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
-export function createClient() {
-  const cookieStore = cookies()
+// Next 15+/16: cookies() is async. @supabase/ssr 0.12: use getAll/setAll.
+export async function createClient() {
+  const cookieStore = await cookies()
 
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       auth: {
-        // Set session to last for 1 year
         persistSession: true,
         autoRefreshToken: true,
         detectSessionInUrl: true,
       },
       cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value
+        getAll() {
+          return cookieStore.getAll()
         },
-        set(name: string, value: string, options: CookieOptions) {
+        setAll(cookiesToSet) {
           try {
-            // Set cookie to expire in 1 year
-            const oneYear = 365 * 24 * 60 * 60 * 1000;
-            cookieStore.set({ 
-              name, 
-              value, 
-              ...options,
-              maxAge: oneYear,
-              expires: new Date(Date.now() + oneYear)
-            })
-          } catch (error) {
-            // The `set` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
-          }
-        },
-        remove(name: string, options: CookieOptions) {
-          try {
-            cookieStore.set({ name, value: '', ...options })
-          } catch (error) {
-            // The `delete` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
+            const oneYear = 365 * 24 * 60 * 60 * 1000
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, {
+                ...options,
+                maxAge: oneYear,
+                expires: new Date(Date.now() + oneYear),
+              })
+            )
+          } catch {
+            // Called from a Server Component — safe to ignore when middleware
+            // is refreshing user sessions.
           }
         },
       },

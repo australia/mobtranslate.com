@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { useChat } from 'ai/react';
+import { useChat } from '@ai-sdk/react';
+import { DefaultChatTransport, type FileUIPart } from 'ai';
 import {
   Send,
   Sparkles,
@@ -38,18 +39,44 @@ export function AppChatInterface() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
+  const [input, setInput] = useState('');
   const [uploadedFiles, setUploadedFiles] = useState<any[]>([]);
   const [isUploadingImage, setIsUploadingImage] = useState(false);
   const { user, signOut } = useAuth();
   const router = useRouter();
 
-  const { messages, input, handleInputChange, handleSubmit, isLoading, setInput, error, append } = useChat({
-    api: '/api/chat',
-    maxSteps: 5,
-    onError: (_error) => {
+  const { messages, sendMessage, status, error } = useChat({
+    transport: new DefaultChatTransport({ api: '/api/chat' }),
+    onError: (_error: Error) => {
       // Error is displayed in the UI
     },
   });
+
+  const isLoading = status === 'submitted' || status === 'streaming';
+
+  // Map the locally uploaded attachments ({ name, contentType, url }) to the
+  // v6 FileUIPart shape expected by sendMessage({ files }).
+  // TODO: verify image upload end-to-end
+  const uploadedFilesToFileParts = (): FileUIPart[] =>
+    uploadedFiles.map((file: any) => ({
+      type: 'file',
+      mediaType: file.contentType,
+      url: file.url,
+      filename: file.name,
+    }));
+
+  // Send the current input (and any uploaded image attachments) as a user message.
+  const submitMessage = (text: string) => {
+    const trimmed = text.trim();
+    if (uploadedFiles.length > 0) {
+      sendMessage({ text: trimmed, files: uploadedFilesToFileParts() });
+    } else {
+      if (!trimmed) return;
+      sendMessage({ text: trimmed });
+    }
+    setInput('');
+    setUploadedFiles([]);
+  };
 
   const scrollToBottom = useCallback(() => {
     if (messagesContainerRef.current) {
@@ -80,24 +107,10 @@ export function AppChatInterface() {
     }
   };
 
-  const handleKeyDown = async (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      if (uploadedFiles.length > 0) {
-        // Use append to send message with attachments
-        await append({
-          role: 'user',
-          content: input,
-          experimental_attachments: uploadedFiles,
-        });
-        setInput('');
-      } else {
-        // Use regular handleSubmit for messages without attachments
-        const formEvent = e as any;
-        handleSubmit(formEvent);
-      }
-
-      setUploadedFiles([]);
+      submitMessage(input);
     }
   };
 
@@ -340,22 +353,8 @@ export function AppChatInterface() {
                   {suggestedPrompts.map((prompt, index) => (
                     <button
                       key={index}
-                      onClick={async () => {
-                        setInput(prompt.action);
-
-                        if (uploadedFiles.length > 0) {
-                          await append({
-                            role: 'user',
-                            content: prompt.action,
-                            experimental_attachments: uploadedFiles,
-                          });
-                          setInput('');
-                        } else {
-                          const formEvent = new Event('submit') as any;
-                          handleSubmit(formEvent);
-                        }
-
-                        setUploadedFiles([]);
+                      onClick={() => {
+                        submitMessage(prompt.action);
                       }}
                       className={cn(
                         "flex items-start gap-3 p-4 rounded-2xl text-left",
@@ -380,7 +379,6 @@ export function AppChatInterface() {
 
             {/* Messages */}
             {messages.map((message, index) => {
-              const msg = message as any;
               const isUser = message.role === 'user';
 
               return (
@@ -412,25 +410,54 @@ export function AppChatInterface() {
                       )}
                     >
                       <div className="space-y-2">
-                        {message.toolInvocations?.map((toolInvocation) => {
-                          const { toolName, args: _args, state } = toolInvocation;
+                        {message.parts.map((part, partIndex) => {
+                          // Text content (markdown-rendered for the assistant)
+                          if (part.type === 'text') {
+                            return isUser ? (
+                              <p key={partIndex} className="whitespace-pre-wrap text-[15px] leading-relaxed">{part.text}</p>
+                            ) : (
+                              <div
+                                key={partIndex}
+                                className="whitespace-pre-wrap text-[15px] leading-relaxed prose-sm [&_strong]:font-semibold [&_em]:italic [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:bg-muted [&_code]:text-sm [&_code]:font-mono"
+                                dangerouslySetInnerHTML={{ __html: renderMarkdown(part.text) }}
+                              />
+                            );
+                          }
 
-                          if (state === 'result') {
-                            if (toolName === 'translateWord') {
-                              return <TranslationResult key={toolInvocation.toolCallId} {...toolInvocation.result} />;
-                            } else if (toolName === 'getWordSuggestions') {
-                              return <WordSuggestions key={toolInvocation.toolCallId} words={toolInvocation.result} />;
-                            } else if (toolName === 'getUserStats') {
-                              return <LanguageStats key={toolInvocation.toolCallId} stats={toolInvocation.result} />;
-                            } else if (toolName === 'analyzeImage') {
-                              const result = toolInvocation.result;
-                              if (result.success && result.analysis) {
-                                return <ImageAnalysisCard key={toolInvocation.toolCallId} analysis={result.analysis} />;
+                          // Attached images arrive as file parts in v6
+                          if (part.type === 'file' && part.mediaType?.startsWith('image/')) {
+                            return (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                key={`${message.id}-${partIndex}`}
+                                src={part.url}
+                                alt={part.filename || `attachment-${partIndex}`}
+                                className="mt-2 rounded-xl max-w-full h-auto shadow-sm"
+                                style={{ maxHeight: '300px' }}
+                              />
+                            );
+                          }
+
+                          // Tool results
+                          if (part.type.startsWith('tool-') && 'state' in part && part.state === 'output-available') {
+                            const key = ('toolCallId' in part && part.toolCallId) || partIndex;
+                            const output = (part as any).output;
+
+                            if (part.type === 'tool-translateWord') {
+                              return <TranslationResult key={key} {...(output as any)} />;
+                            } else if (part.type === 'tool-getWordSuggestions') {
+                              return <WordSuggestions key={key} words={output as any} />;
+                            } else if (part.type === 'tool-getUserStats') {
+                              return <LanguageStats key={key} stats={output as any} />;
+                            } else if (part.type === 'tool-analyzeImage') {
+                              const result = output as any;
+                              if (result?.success && result.analysis) {
+                                return <ImageAnalysisCard key={key} analysis={result.analysis} />;
                               } else {
                                 return (
-                                  <div key={toolInvocation.toolCallId} className="p-3 bg-red-500/10 rounded-lg">
+                                  <div key={key} className="p-3 bg-red-500/10 rounded-lg">
                                     <p className="text-sm text-red-500">
-                                      {result.error || 'Failed to analyze image'}
+                                      {result?.error || 'Failed to analyze image'}
                                     </p>
                                   </div>
                                 );
@@ -440,37 +467,12 @@ export function AppChatInterface() {
 
                           return null;
                         })}
-
-                        {message.content && (
-                          isUser ? (
-                            <p className="whitespace-pre-wrap text-[15px] leading-relaxed">{message.content}</p>
-                          ) : (
-                            <div
-                              className="whitespace-pre-wrap text-[15px] leading-relaxed prose-sm [&_strong]:font-semibold [&_em]:italic [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:bg-muted [&_code]:text-sm [&_code]:font-mono"
-                              dangerouslySetInnerHTML={{ __html: renderMarkdown(message.content) }}
-                            />
-                          )
-                        )}
-
-                        {/* Display attached images */}
-                        {(msg.attachments || msg.experimental_attachments)?.filter((attachment: any) =>
-                          attachment?.contentType?.startsWith('image/')
-                        ).map((attachment: any, idx: number) => (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            key={`${message.id}-${idx}`}
-                            src={attachment.url}
-                            alt={attachment.name || `attachment-${idx}`}
-                            className="mt-2 rounded-xl max-w-full h-auto shadow-sm"
-                            style={{ maxHeight: '300px' }}
-                          />
-                        ))}
                       </div>
                     </div>
 
                     {/* Timestamp */}
                     <span className="text-[11px] text-muted-foreground px-1">
-                      {formatTimestamp(message.createdAt ? new Date(message.createdAt) : new Date())}
+                      {formatTimestamp((message as any).createdAt ? new Date((message as any).createdAt) : new Date())}
                     </span>
                   </div>
 
@@ -512,23 +514,9 @@ export function AppChatInterface() {
         <div className="flex-shrink-0 border-t border-border bg-card/80 backdrop-blur-xl">
           <div className="max-w-3xl mx-auto px-4 py-3">
             <form
-              onSubmit={async (e) => {
+              onSubmit={(e) => {
                 e.preventDefault();
-
-                if (uploadedFiles.length > 0) {
-                  // Use append to send message with attachments
-                  await append({
-                    role: 'user',
-                    content: input,
-                    experimental_attachments: uploadedFiles,
-                  });
-                  setInput('');
-                } else {
-                  // Use regular handleSubmit for messages without attachments
-                  handleSubmit(e);
-                }
-
-                setUploadedFiles([]);
+                submitMessage(input);
               }}
             >
               {/* Show uploaded image preview */}
@@ -586,7 +574,7 @@ export function AppChatInterface() {
                 <textarea
                   ref={inputRef}
                   value={input}
-                  onChange={handleInputChange}
+                  onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Ask about Indigenous languages..."
                   className={cn(

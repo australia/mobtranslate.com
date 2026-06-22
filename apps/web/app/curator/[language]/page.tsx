@@ -9,7 +9,7 @@ interface PageProps {
 }
 
 export default async function LanguageCuratorPage({ params }: PageProps) {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   // Check authentication
   const { data: { user } } = await supabase.auth.getUser();

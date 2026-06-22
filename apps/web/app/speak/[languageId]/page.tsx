@@ -13,7 +13,7 @@ interface MyInvite {
 }
 
 export default async function SpeakLanguagePage({ params }: { params: { languageId: string } }) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();

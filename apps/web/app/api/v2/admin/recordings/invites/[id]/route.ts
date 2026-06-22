@@ -15,7 +15,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
   try {
     body = patchSchema.parse(await request.json());
   } catch (err) {
-    return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.errors : String(err) }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
   }
 
   const { data, error } = await auth.supabase

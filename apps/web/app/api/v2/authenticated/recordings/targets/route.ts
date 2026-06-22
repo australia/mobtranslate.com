@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
   try {
     body = schema.parse(await request.json());
   } catch (err) {
-    return NextResponse.json({ error: 'Invalid input', details: err instanceof z.ZodError ? err.errors : String(err) }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid input', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
   }
 
   const { data, error } = await auth.supabase.rpc('auth_add_target', {

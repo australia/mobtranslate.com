@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
-import { useChat } from 'ai/react';
+import React, { useRef, useEffect, useState } from 'react';
+import { useChat } from '@ai-sdk/react';
+import { DefaultChatTransport } from 'ai';
 import { Send, Bot, User, Sparkles, BookOpen, BarChart3, AlertCircle } from 'lucide-react';
 import { cn, Button } from '@mobtranslate/ui';
 import { TranslationResult } from './TranslationResult';
@@ -11,16 +12,25 @@ import { LanguageStats } from './LanguageStats';
 export function ChatInterface() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  
-  const { messages, input, handleInputChange, handleSubmit, isLoading, setInput, error } = useChat({
-    api: '/api/chat',
-    maxSteps: 5,
-    onError: (error) => {
+  const [input, setInput] = useState('');
+
+  const { messages, sendMessage, status, error } = useChat({
+    transport: new DefaultChatTransport({ api: '/api/chat' }),
+    onError: (error: Error) => {
       console.error('Chat error:', error);
       console.error('Error response:', (error as any).response);
       console.error('Error message:', error.message);
     },
   });
+
+  const isLoading = status === 'submitted' || status === 'streaming';
+
+  const submitMessage = () => {
+    const text = input.trim();
+    if (!text) return;
+    sendMessage({ text });
+    setInput('');
+  };
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -29,7 +39,7 @@ export function ChatInterface() {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      handleSubmit(e as any);
+      submitMessage();
     }
   };
 
@@ -81,8 +91,7 @@ export function ChatInterface() {
                       key={index}
                       variant="outline"
                       onClick={() => {
-                        setInput(prompt.action);
-                        handleSubmit(new Event('submit') as any);
+                        sendMessage({ text: prompt.action });
                       }}
                       className="flex items-center gap-3 p-4 rounded-xl text-left border hover:border-primary/30 hover:bg-primary/5 transition-all group h-auto"
                     >
@@ -119,22 +128,28 @@ export function ChatInterface() {
                   )}
                 >
                   <div className="space-y-2">
-                    {message.toolInvocations?.map((toolInvocation) => {
-                      const { toolName, args: _args, state } = toolInvocation;
-                      
-                      if (state === 'result') {
-                        if (toolName === 'translateWord') {
-                          return <TranslationResult key={toolInvocation.toolCallId} {...toolInvocation.result} />;
-                        } else if (toolName === 'getWordSuggestions') {
-                          return <WordSuggestions key={toolInvocation.toolCallId} words={toolInvocation.result} />;
-                        } else if (toolName === 'getUserStats') {
-                          return <LanguageStats key={toolInvocation.toolCallId} stats={toolInvocation.result} />;
+                    {message.parts.map((part, partIndex) => {
+                      if (part.type === 'text') {
+                        return (
+                          <p key={partIndex} className="whitespace-pre-wrap">{part.text}</p>
+                        );
+                      }
+
+                      if (part.type.startsWith('tool-') && 'state' in part && part.state === 'output-available') {
+                        const key = ('toolCallId' in part && part.toolCallId) || partIndex;
+                        const output = (part as any).output;
+
+                        if (part.type === 'tool-translateWord') {
+                          return <TranslationResult key={key} {...(output as any)} />;
+                        } else if (part.type === 'tool-getWordSuggestions') {
+                          return <WordSuggestions key={key} words={output as any} />;
+                        } else if (part.type === 'tool-getUserStats') {
+                          return <LanguageStats key={key} stats={output as any} />;
                         }
                       }
-                      
+
                       return null;
                     })}
-                    <p className="whitespace-pre-wrap">{message.content}</p>
                   </div>
                 </div>
                 
@@ -168,11 +183,17 @@ export function ChatInterface() {
         </div>
 
         {/* Input Area */}
-        <form onSubmit={handleSubmit} className="relative">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            submitMessage();
+          }}
+          className="relative"
+        >
           <textarea
             ref={inputRef}
             value={input}
-            onChange={handleInputChange}
+            onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Ask me anything about languages..."
             className={cn(

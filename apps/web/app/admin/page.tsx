@@ -4,7 +4,7 @@ import { Users, FileText, MessageSquare, TrendingUp, Clock, CheckCircle, Activit
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@mobtranslate/ui';
 
 export default async function AdminDashboard() {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   // Check authentication
   const { data: { user } } = await supabase.auth.getUser();

@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
   try {
     meta = metaSchema.parse(JSON.parse(rawMeta));
   } catch (err) {
-    return NextResponse.json({ error: 'Invalid meta', details: err instanceof z.ZodError ? err.errors : String(err) }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid meta', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
   }
 
   const master = form.get('master');

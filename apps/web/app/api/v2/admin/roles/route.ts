@@ -6,11 +6,11 @@ const createRoleSchema = z.object({
   name: z.string().min(1).max(50),
   display_name: z.string().min(1).max(100),
   description: z.string().optional(),
-  permissions: z.record(z.boolean()).optional()
+  permissions: z.record(z.string(), z.boolean()).optional()
 });
 
 export async function GET(_request: NextRequest) {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   try {
     // Check if user is super admin
@@ -54,7 +54,7 @@ export async function GET(_request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   try {
     // Check if user is super admin
@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Invalid request data', details: error.errors },
+        { error: 'Invalid request data', details: error.issues },
         { status: 400 }
       );
     }

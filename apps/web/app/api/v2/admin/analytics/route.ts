@@ -29,7 +29,7 @@ interface CuratorPerformance {
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();

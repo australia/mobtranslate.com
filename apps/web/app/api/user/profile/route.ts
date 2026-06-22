@@ -30,7 +30,7 @@ function validateUsername(username: string): string | null {
 
 // GET - Fetch user profile
 export async function GET(_request: NextRequest) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Check authentication
   const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -129,7 +129,7 @@ export async function GET(_request: NextRequest) {
 
 // POST - Create user profile
 export async function POST(request: NextRequest) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Check authentication
   const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -201,7 +201,7 @@ export async function POST(request: NextRequest) {
 
 // PUT - Update user profile
 export async function PUT(request: NextRequest) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Check authentication
   const { data: { user }, error: authError } = await supabase.auth.getUser();

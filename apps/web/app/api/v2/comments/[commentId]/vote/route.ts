@@ -11,7 +11,7 @@ export async function POST(
   { params }: { params: { commentId: string } }
 ) {
   const { commentId } = params;
-  const supabase = createClient();
+  const supabase = await createClient();
   
   try {
     // Check authentication
@@ -74,7 +74,7 @@ export async function POST(
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Invalid request data', details: error.errors },
+        { error: 'Invalid request data', details: error.issues },
         { status: 400 }
       );
     }

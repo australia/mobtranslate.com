@@ -6,7 +6,7 @@ export async function GET(
   request: NextRequest,
   { params }: { params: { wordId: string } }
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { wordId } = params;
 
   // Check authentication
@@ -40,7 +40,7 @@ export async function POST(
   request: NextRequest,
   { params }: { params: { wordId: string } }
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { wordId } = params;
 
   // Check authentication
@@ -87,7 +87,7 @@ export async function DELETE(
   request: NextRequest,
   { params }: { params: { wordId: string } }
 ) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { wordId } = params;
 
   // Check authentication

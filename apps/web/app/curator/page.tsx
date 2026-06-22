@@ -1,14 +1,9 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import dynamic from 'next/dynamic';
-
-const CuratorDashboard = dynamic(
-  () => import('@/components/curator/CuratorDashboard').then(mod => mod.CuratorDashboard),
-  { ssr: false }
-);
+import { CuratorDashboard } from '@/components/curator/CuratorDashboard';
 
 export default async function CuratorPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   // Check authentication
   const { data: { user } } = await supabase.auth.getUser();

@@ -1,4 +1,4 @@
-import { Github, Twitter, Globe, BookOpen, Users, Sparkles, Check } from 'lucide-react';
+import { Code, AtSign, Globe, BookOpen, Users, Sparkles, Check } from 'lucide-react';
 import SharedLayout from '../components/SharedLayout';
 import { getLanguageStats } from '@/lib/supabase/queries';
 
@@ -112,7 +112,7 @@ export default async function About() {
             rel="noopener noreferrer"
             className="mt-btn mt-btn-secondary mt-btn-md inline-flex"
           >
-            <Twitter size={18} /> @ajaxdavis
+            <AtSign size={18} /> @ajaxdavis
           </a>
         </div>
 
@@ -127,7 +127,7 @@ export default async function About() {
             rel="noopener noreferrer"
             className="mt-btn mt-btn-primary mt-btn-md inline-flex"
           >
-            <Github size={18} /> View on GitHub
+            <Code size={18} /> View on GitHub
           </a>
         </div>
       </section>

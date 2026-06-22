@@ -6,7 +6,7 @@ export async function GET(
   { params }: { params: { languageId: string } }
 ) {
   const { languageId } = params;
-  const supabase = createClient();
+  const supabase = await createClient();
   
   try {
     // Check authentication and curator role

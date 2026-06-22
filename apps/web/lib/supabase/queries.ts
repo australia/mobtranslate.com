@@ -2,7 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import type { Word, Language, DictionaryQueryParams } from './types';
 
 export async function getLanguageByCode(code: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   const { data, error } = await supabase
     .from('languages')
@@ -33,7 +33,7 @@ export async function getWordsForLanguage({
   wordClass,
   letter
 }: DictionaryQueryParams) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // First get the language
   const languageData = await getLanguageByCode(language!);
@@ -146,7 +146,7 @@ export async function getWordsForLanguage({
 }
 
 export async function getWordById(wordId: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   const { data, error } = await supabase
     .from('words')
@@ -169,7 +169,7 @@ export async function getWordById(wordId: string) {
 }
 
 export async function searchWords(searchTerm: string, languageCode?: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   let query = supabase
     .from('words')
@@ -198,7 +198,7 @@ export async function searchWords(searchTerm: string, languageCode?: string) {
 }
 
 export async function getActiveLanguages() {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   const { data, error } = await supabase
     .from('languages')
@@ -211,7 +211,7 @@ export async function getActiveLanguages() {
 }
 
 export async function getLanguageStats() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data, error } = await supabase
     .from('languages')
@@ -245,7 +245,7 @@ export async function getLanguageStats() {
 }
 
 export async function getLocationWordsForLanguage(languageCode: string) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const languageData = await getLanguageByCode(languageCode);
 
@@ -290,7 +290,7 @@ export async function getLocationWordsForLanguage(languageCode: string) {
 }
 
 export async function getWordClasses() {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   const { data, error } = await supabase
     .from('word_classes')

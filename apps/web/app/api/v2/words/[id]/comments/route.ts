@@ -13,7 +13,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const { id: wordId } = params;
-  const supabase = createClient();
+  const supabase = await createClient();
   
   try {
     // Get comments with user info and vote counts
@@ -74,7 +74,7 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   const { id: wordId } = params;
-  const supabase = createClient();
+  const supabase = await createClient();
   
   try {
     // Check authentication
@@ -114,7 +114,7 @@ export async function POST(
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Invalid request data', details: error.errors },
+        { error: 'Invalid request data', details: error.issues },
         { status: 400 }
       );
     }

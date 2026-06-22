@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     meta = metaSchema.parse(JSON.parse(rawMeta));
   } catch (err) {
     return NextResponse.json(
-      { error: 'Invalid meta', details: err instanceof z.ZodError ? err.errors : String(err) },
+      { error: 'Invalid meta', details: err instanceof z.ZodError ? err.issues : String(err) },
       { status: 400 },
     );
   }

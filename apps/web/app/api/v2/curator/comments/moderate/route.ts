@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();
@@ -157,7 +157,7 @@ export async function GET(request: NextRequest) {
 // Moderate a comment (delete, restore, warn user)
 export async function POST(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();
@@ -312,7 +312,7 @@ export async function POST(request: NextRequest) {
 // Bulk moderation actions
 export async function PUT(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();

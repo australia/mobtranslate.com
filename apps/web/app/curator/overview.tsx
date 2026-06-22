@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { CuratorDashboard } from '@/components/curator/CuratorDashboard';
 
 export default async function CuratorOverviewPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   
   // Check authentication
   const { data: { user } } = await supabase.auth.getUser();

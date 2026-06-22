@@ -64,7 +64,7 @@ const DEFAULT_SETTINGS: SystemSettings = {
 
 export async function GET(_request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();
@@ -103,7 +103,7 @@ export async function GET(_request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();
@@ -182,7 +182,7 @@ export async function PUT(request: NextRequest) {
 // Language-specific settings endpoint
 export async function PATCH(request: NextRequest) {
   try {
-    const supabase = createClient();
+    const supabase = await createClient();
     
     // Check authentication
     const { data: { user } } = await supabase.auth.getUser();

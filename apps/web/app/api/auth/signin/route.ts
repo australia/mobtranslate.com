@@ -5,7 +5,7 @@ export async function POST(request: Request) {
   const formData = await request.json()
   const email = formData.email
   const password = formData.password
-  const supabase = createClient()
+  const supabase = await createClient()
 
   const { data, error } = await supabase.auth.signInWithPassword({
     email,

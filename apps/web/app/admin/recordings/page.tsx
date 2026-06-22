@@ -6,7 +6,7 @@ import type { LanguageOption } from './studio/api';
 export const dynamic = 'force-dynamic';
 
 export default async function RecordingsPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const {
     data: { user },

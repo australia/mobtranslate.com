@@ -6,7 +6,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const wordId = params.id;
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Check if user is authenticated
   const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -50,7 +50,7 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   const wordId = params.id;
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Check if user is authenticated
   const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -116,7 +116,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   const wordId = params.id;
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Check if user is authenticated
   const { data: { user }, error: authError } = await supabase.auth.getUser();

@@ -13,7 +13,7 @@ export async function POST(
   { params }: { params: { userId: string } }
 ) {
   const { userId } = params;
-  const supabase = createClient();
+  const supabase = await createClient();
   
   try {
     // Check if user is admin
@@ -115,7 +115,7 @@ export async function POST(
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Invalid request data', details: error.errors },
+        { error: 'Invalid request data', details: error.issues },
         { status: 400 }
       );
     }

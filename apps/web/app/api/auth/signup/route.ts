@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     const email = formData.email
     const password = formData.password
     const username = formData.username?.trim()
-    const supabase = createClient()
+    const supabase = await createClient()
 
     // Validate required fields
     if (!email || !password || !username) {

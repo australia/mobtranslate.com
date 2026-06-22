@@ -37,7 +37,7 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
   try {
     body = bodySchema.parse(await request.json());
   } catch (err) {
-    return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.errors : String(err) }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
   }
 
   // Drop no-op changes.
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
   if (changes.length === 0) return NextResponse.json({ applied: 0, queued: 0, suggestions: [] });
 
   // Self-approve only for super_admins (per policy); others queue for review.
-  const userClient = createClient();
+  const userClient = await createClient();
   const { data: isSuper } = await userClient.rpc('user_has_role', { user_uuid: auth.user.id, role_names: ['super_admin'] });
   const selfApprove = !!isSuper;
 

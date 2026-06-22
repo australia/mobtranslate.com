@@ -8,7 +8,7 @@ import { createClient } from '@/lib/supabase/server';
 export const ADMIN_ROLES = ['super_admin', 'dictionary_admin'];
 export const BUCKET = 'recordings';
 
-export type SupabaseServer = ReturnType<typeof createClient>;
+export type SupabaseServer = Awaited<ReturnType<typeof createClient>>;
 
 interface AdminOk {
   user: { id: string };
@@ -23,7 +23,7 @@ interface AdminErr {
 
 /** Verify the caller is signed in and holds an admin role. */
 export async function requireAdmin(): Promise<AdminOk | AdminErr> {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -42,7 +42,7 @@ export async function requireAdmin(): Promise<AdminOk | AdminErr> {
 
 /** Require any signed-in user (not necessarily an admin) — for the contribute portal. */
 export async function requireUser(): Promise<AdminOk | AdminErr> {
-  const supabase = createClient();
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();

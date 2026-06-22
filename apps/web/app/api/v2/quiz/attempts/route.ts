@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: NextRequest) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Check authentication
   const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
         bucket_at_time: bucketAtTime,
         attempt_number: attemptNumber,
         user_agent: request.headers.get('user-agent'),
-        ip_address: request.ip || request.headers.get('x-forwarded-for')
+        ip_address: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
       })
       .select('id')
       .single();
@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
 
 // Get attempt history for a user
 export async function GET(request: NextRequest) {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Check authentication
   const { data: { user }, error: authError } = await supabase.auth.getUser();

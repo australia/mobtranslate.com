@@ -7,12 +7,12 @@ const nextConfig = {
     styledComponents: true
   },
   reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
   typescript: {
     ignoreBuildErrors: false,
   },
+  // Monorepo root is two levels up; pin it so Next 16 doesn't infer the wrong
+  // workspace root from a stray parent lockfile.
+  outputFileTracingRoot: path.resolve(__dirname, '../..'),
   webpack: (config) => {
     // Add aliases for the root level packages
     config.resolve.alias = {

@@ -19,7 +19,7 @@ export async function GET(
   const { searchParams } = new URL(request.url);
   const status = searchParams.get('status');
   
-  const supabase = createClient();
+  const supabase = await createClient();
   
   try {
     let query = supabase
@@ -88,7 +88,7 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   const { id: wordId } = params;
-  const supabase = createClient();
+  const supabase = await createClient();
   
   try {
     // Check authentication
@@ -142,7 +142,7 @@ export async function POST(
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Invalid request data', details: error.errors },
+        { error: 'Invalid request data', details: error.issues },
         { status: 400 }
       );
     }
