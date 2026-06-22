@@ -22,8 +22,18 @@ React 18→**19**, react-dom 18→**19**, Next 14→**16**, AI SDK `ai` 4→**6*
 - **lucide v1**: removed brand icons → `Github`→`Code`, `Twitter`→`AtSign`.
 - **Misc**: react-markdown `className` prop removed; `NextRequest.ip` removed; js-yaml named import; supabase-js stricter insert typing.
 
-## ⚠️ Needs your verification before push
-- **Chat (AI SDK v6)** — compiles and builds, but the streaming/`useChat` rewrite (message parts, tool-call rendering, image attachments) **could not be runtime-tested here** (needs a live OpenAI key + sign-in). Please exercise: a basic translation question, a tool result (e.g. "translate hello to Kuku Yalanji"), and an image upload. Search for `// TODO: verify image upload end-to-end` in `AppChatInterface.tsx`.
+## ✅ Runtime-verified (signed in, live OpenAI)
+- **Chat (AI SDK v6)** — verified end-to-end: sent "Translate hello to Kuku Yalanji",
+  the response streamed, the `translateWord` **tool executed**, and its result rendered
+  via `message.parts` as the `TranslationResult` card, plus the assistant's text part.
+  Live testing **caught a real bug** — v6 renamed the tool schema key `parameters` →
+  `inputSchema`; OpenAI rejected the v4-style schema ("must be type object, got None").
+  Fixed in all 5 tools (commit c5cfaf1).
+- Also verified rendering under React 19/Next 16: Home, About, Dictionaries, **Map**
+  (react-leaflet 5), Education, **Settings**, **Dashboard**, and the **Recording Studio**
+  (the recording/speaker feature) — all load and render correctly.
+- Still worth a human pass: **image upload** in chat (search `// TODO: verify image
+  upload end-to-end` in `AppChatInterface.tsx`) and a full multi-speaker recording flow.
 
 ## Held back (with reason)
 - **eslint** kept at 8.57 / **eslint-config-next** at 15. eslint **10** drops the `ESLINT_USE_FLAT_CONFIG` legacy flag this repo uses, and the Next eslint plugins (`eslint-plugin-import/react/jsx-a11y`) don't yet support eslint 10. Dev-only — no effect on build or runtime. Revisit when the plugins ship eslint-10 support (or migrate to flat config).
