@@ -1,273 +1,166 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 
-interface AnalyticsData {
-  period: string;
-  users: number;
-  words: number;
-  comments: number;
-  reviews: number;
+export const dynamic = 'force-dynamic';
+
+const ADMIN_ROLES = ['super_admin', 'dictionary_admin'];
+const DAY = 86_400_000;
+
+function monthKey(iso: string | null): string | null {
+  return iso ? iso.slice(0, 7) : null;
 }
 
-interface LanguageStats {
-  language_id: string;
-  language_name: string;
-  total_words: number;
-  verified_words: number;
-  pending_improvements: number;
-  total_comments: number;
+/** Last N month keys, oldest first, e.g. ["2025-07", ...]. */
+function lastMonths(n: number, now: Date): string[] {
+  const out: string[] = [];
+  const base = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
+  for (let i = n - 1; i >= 0; i--) {
+    const m = new Date(base);
+    m.setUTCMonth(base.getUTCMonth() - i);
+    out.push(m.toISOString().slice(0, 7));
+  }
+  return out;
 }
 
-interface CuratorPerformance {
-  user_id: string;
-  display_name: string;
-  words_reviewed: number;
-  improvements_reviewed: number;
-  comments_moderated: number;
-  average_review_time: number;
-}
+const BUCKET_LABELS: Record<number, string> = {
+  0: 'New', 1: 'Seen once', 2: 'Learning', 3: 'Familiar', 4: 'Strong', 5: 'Mastered',
+};
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
+    // Gate on an admin role using the caller's own session.
     const supabase = await createClient();
-    
-    // Check authentication
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    // Check if user is admin
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .in('user_roles.name', ['super_admin', 'dictionary_admin']);
-
-    const isAdmin = roleAssignments && roleAssignments.length > 0;
-
-    if (!isAdmin) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-    }
-
-    // Get query parameters
-    const { searchParams } = new URL(request.url);
-    const period = searchParams.get('period') || '7d'; // 7d, 30d, 90d
-
-    // Calculate date range
-    const endDate = new Date();
-    const startDate = new Date();
-    switch (period) {
-      case '30d':
-        startDate.setDate(endDate.getDate() - 30);
-        break;
-      case '90d':
-        startDate.setDate(endDate.getDate() - 90);
-        break;
-      default: // 7d
-        startDate.setDate(endDate.getDate() - 7);
-    }
-
-    // Generate daily data points for the period
-    const dailyData: AnalyticsData[] = [];
-    const currentDate = new Date(startDate);
-    
-    while (currentDate <= endDate) {
-      const dayStart = new Date(currentDate);
-      dayStart.setHours(0, 0, 0, 0);
-      const dayEnd = new Date(currentDate);
-      dayEnd.setHours(23, 59, 59, 999);
-
-      // Fetch counts for this day
-      const [
-        { count: newUsers = 0 },
-        { count: newWords = 0 },
-        { count: newComments = 0 },
-        { count: reviews = 0 }
-      ] = await Promise.all([
-        // New users
-        supabase.from('profiles')
-          .select('*', { count: 'exact', head: true })
-          .gte('created_at', dayStart.toISOString())
-          .lte('created_at', dayEnd.toISOString()),
-        
-        // New words
-        supabase.from('words')
-          .select('*', { count: 'exact', head: true })
-          .gte('created_at', dayStart.toISOString())
-          .lte('created_at', dayEnd.toISOString()),
-        
-        // New comments
-        supabase.from('word_comments')
-          .select('*', { count: 'exact', head: true })
-          .gte('created_at', dayStart.toISOString())
-          .lte('created_at', dayEnd.toISOString()),
-        
-        // Reviews (curator activities)
-        supabase.from('curator_activities')
-          .select('*', { count: 'exact', head: true })
-          .in('activity_type', ['word_approved', 'word_rejected', 'improvement_approved', 'improvement_rejected'])
-          .gte('created_at', dayStart.toISOString())
-          .lte('created_at', dayEnd.toISOString())
-      ]);
-
-      dailyData.push({
-        period: currentDate.toISOString().split('T')[0],
-        users: newUsers ?? 0,
-        words: newWords ?? 0,
-        comments: newComments ?? 0,
-        reviews: reviews ?? 0
-      });
-
-      currentDate.setDate(currentDate.getDate() + 1);
-    }
-
-    // Fetch language statistics
-    const { data: languageStats } = await supabase
-      .from('languages')
-      .select(`
-        id,
-        name,
-        words!inner(
-          id,
-          is_verified
-        ),
-        word_improvement_suggestions!inner(
-          id,
-          status
-        ),
-        word_comments!inner(
-          id
-        )
-      `);
-
-    // Process language stats
-    const processedLanguageStats: LanguageStats[] = (languageStats || []).map(lang => ({
-      language_id: lang.id,
-      language_name: lang.name,
-      total_words: lang.words?.length || 0,
-      verified_words: lang.words?.filter((w: any) => w.is_verified).length || 0,
-      pending_improvements: lang.word_improvement_suggestions?.filter((s: any) => s.status === 'pending').length || 0,
-      total_comments: lang.word_comments?.length || 0
-    }));
-
-    // Fetch curator performance metrics
-    const { data: curatorMetrics } = await supabase
-      .from('curator_metrics')
-      .select(`
-        user_id,
-        words_reviewed,
-        improvements_reviewed,
-        comments_moderated,
-        average_review_time_seconds,
-        profiles!user_id(
-          display_name
-        )
-      `)
-      .gte('period_start', startDate.toISOString())
-      .lte('period_end', endDate.toISOString());
-
-    // Aggregate curator metrics by user
-    const curatorPerformance: { [key: string]: CuratorPerformance } = {};
-    
-    (curatorMetrics || []).forEach(metric => {
-      const userId = metric.user_id;
-      if (!curatorPerformance[userId]) {
-        curatorPerformance[userId] = {
-          user_id: userId,
-          display_name: (metric.profiles as any)?.display_name || 'Unknown',
-          words_reviewed: 0,
-          improvements_reviewed: 0,
-          comments_moderated: 0,
-          average_review_time: 0
-        };
-      }
-      
-      curatorPerformance[userId].words_reviewed += metric.words_reviewed || 0;
-      curatorPerformance[userId].improvements_reviewed += metric.improvements_reviewed || 0;
-      curatorPerformance[userId].comments_moderated += metric.comments_moderated || 0;
-      
-      // Calculate weighted average for review time
-      if (metric.average_review_time_seconds) {
-        const totalReviews = metric.words_reviewed + metric.improvements_reviewed;
-        curatorPerformance[userId].average_review_time = 
-          (curatorPerformance[userId].average_review_time * curatorPerformance[userId].words_reviewed +
-           metric.average_review_time_seconds * totalReviews) /
-          (curatorPerformance[userId].words_reviewed + totalReviews);
-      }
+    const { data: isAdmin } = await supabase.rpc('user_has_role', {
+      user_uuid: user.id,
+      role_names: ADMIN_ROLES,
     });
+    if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
 
-    const topCurators = Object.values(curatorPerformance)
-      .sort((a, b) => (b.words_reviewed + b.improvements_reviewed) - (a.words_reviewed + a.improvements_reviewed))
-      .slice(0, 10);
+    // Platform-wide aggregates must read every user's rows, so use the
+    // service-role client (RLS would otherwise scope reads to the admin).
+    const db = createAdminClient();
+    const now = new Date();
+    const cutoff30 = new Date(now.getTime() - 30 * DAY).toISOString();
 
-    // Calculate growth percentages
-    const calculateGrowth = (current: number, previous: number) => {
-      if (previous === 0) return current > 0 ? 100 : 0;
-      return Math.round(((current - previous) / previous) * 100);
-    };
-
-    // Get current period totals
-    const currentPeriodTotals = dailyData.reduce((acc, day) => ({
-      users: acc.users + day.users,
-      words: acc.words + day.words,
-      comments: acc.comments + day.comments,
-      reviews: acc.reviews + day.reviews
-    }), { users: 0, words: 0, comments: 0, reviews: 0 });
-
-    // Get previous period for comparison
-    const previousStartDate = new Date(startDate);
-    previousStartDate.setDate(previousStartDate.getDate() - (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
-    
     const [
-      { count: previousUsers = 0 },
-      { count: previousWords = 0 },
-      { count: previousComments = 0 },
-      { count: previousReviews = 0 }
+      { count: totalWords },
+      { data: languages },
+      { data: profiles },
+      { data: attempts },
+      { data: srs },
+      { data: sessions },
     ] = await Promise.all([
-      supabase.from('profiles')
-        .select('*', { count: 'exact', head: true })
-        .gte('created_at', previousStartDate.toISOString())
-        .lt('created_at', startDate.toISOString()),
-      
-      supabase.from('words')
-        .select('*', { count: 'exact', head: true })
-        .gte('created_at', previousStartDate.toISOString())
-        .lt('created_at', startDate.toISOString()),
-      
-      supabase.from('word_comments')
-        .select('*', { count: 'exact', head: true })
-        .gte('created_at', previousStartDate.toISOString())
-        .lt('created_at', startDate.toISOString()),
-      
-      supabase.from('curator_activities')
-        .select('*', { count: 'exact', head: true })
-        .in('activity_type', ['word_approved', 'word_rejected', 'improvement_approved', 'improvement_rejected'])
-        .gte('created_at', previousStartDate.toISOString())
-        .lt('created_at', startDate.toISOString())
+      db.from('words').select('*', { count: 'exact', head: true }),
+      db.from('languages').select('id, name, code').eq('is_active', true),
+      db.from('user_profiles').select('user_id, display_name, username, created_at'),
+      db.from('quiz_attempts').select('user_id, is_correct, created_at'),
+      db.from('spaced_repetition_states').select('user_id, bucket'),
+      db.from('quiz_sessions').select('user_id, language_id, created_at'),
     ]);
 
+    const profileList = profiles ?? [];
+    const attemptList = attempts ?? [];
+    const srsList = srs ?? [];
+    const sessionList = sessions ?? [];
+    const langList = languages ?? [];
+
+    // --- Headline totals ---
+    const quizCorrect = attemptList.filter((a) => a.is_correct).length;
+    const quizAccuracy = attemptList.length ? Math.round((quizCorrect / attemptList.length) * 100) : 0;
+
+    const learnerIds = new Set<string>();
+    attemptList.forEach((a) => a.user_id && learnerIds.add(a.user_id));
+    srsList.forEach((s) => s.user_id && learnerIds.add(s.user_id));
+    sessionList.forEach((s) => s.user_id && learnerIds.add(s.user_id));
+
+    // --- Monthly timeseries (last 12 months) ---
+    const months = lastMonths(12, now);
+    const blank = (): Record<string, number> => Object.fromEntries(months.map((m) => [m, 0]));
+    const signups = blank();
+    profileList.forEach((p) => { const k = monthKey(p.created_at); if (k && k in signups) signups[k]++; });
+    const quizByMonth = blank();
+    attemptList.forEach((a) => { const k = monthKey(a.created_at); if (k && k in quizByMonth) quizByMonth[k]++; });
+    const fmtMonth = (m: string) =>
+      new Date(m + '-01T00:00:00Z').toLocaleDateString('en-US', { month: 'short', year: '2-digit', timeZone: 'UTC' });
+
+    // --- Learning progress funnel (spaced-repetition buckets) ---
+    const bucketCounts: Record<number, number> = {};
+    srsList.forEach((s) => { bucketCounts[s.bucket] = (bucketCounts[s.bucket] ?? 0) + 1; });
+    const learningBuckets = Object.keys(BUCKET_LABELS).map((k) => ({
+      bucket: Number(k),
+      label: BUCKET_LABELS[Number(k)],
+      count: bucketCounts[Number(k)] ?? 0,
+    }));
+
+    // --- Per language ---
+    const wordsByLang = await Promise.all(
+      langList.map(async (l) => {
+        const { count } = await db.from('words').select('*', { count: 'exact', head: true }).eq('language_id', l.id);
+        return [l.id, count ?? 0] as [string, number];
+      })
+    );
+    const wordCountMap = Object.fromEntries(wordsByLang);
+    const perLanguage = langList
+      .map((l) => {
+        const langSessions = sessionList.filter((s) => s.language_id === l.id);
+        return {
+          name: l.name,
+          code: l.code,
+          words: wordCountMap[l.id] ?? 0,
+          learners: new Set(langSessions.map((s) => s.user_id).filter(Boolean)).size,
+          sessions: langSessions.length,
+        };
+      })
+      .sort((a, b) => b.words - a.words);
+
+    // --- Top learners ---
+    const nameById = new Map(profileList.map((p) => [p.user_id, p.display_name || p.username || 'Learner']));
+    const perLearner = new Map<string, { attempts: number; correct: number }>();
+    attemptList.forEach((a) => {
+      if (!a.user_id) return;
+      const e = perLearner.get(a.user_id) ?? { attempts: 0, correct: 0 };
+      e.attempts++;
+      if (a.is_correct) e.correct++;
+      perLearner.set(a.user_id, e);
+    });
+    const topLearners = [...perLearner.entries()]
+      .map(([id, e]) => ({
+        name: nameById.get(id) || 'Learner',
+        attempts: e.attempts,
+        accuracy: e.attempts ? Math.round((e.correct / e.attempts) * 100) : 0,
+      }))
+      .sort((a, b) => b.attempts - a.attempts)
+      .slice(0, 8);
+
     return NextResponse.json({
-      timeSeriesData: dailyData,
-      languageStats: processedLanguageStats,
-      topCurators,
-      growth: {
-        users: calculateGrowth(currentPeriodTotals.users, previousUsers ?? 0),
-        words: calculateGrowth(currentPeriodTotals.words, previousWords ?? 0),
-        comments: calculateGrowth(currentPeriodTotals.comments, previousComments ?? 0),
-        reviews: calculateGrowth(currentPeriodTotals.reviews, previousReviews ?? 0)
+      generatedAt: now.toISOString(),
+      totals: {
+        users: profileList.length,
+        activeLearners: learnerIds.size,
+        quizAttempts: attemptList.length,
+        quizAccuracy,
+        wordsInLearning: srsList.length,
+        words: totalWords ?? 0,
+        languages: langList.length,
+        sessions: sessionList.length,
       },
-      totals: currentPeriodTotals
+      recent: {
+        newUsers30d: profileList.filter((p) => p.created_at && p.created_at >= cutoff30).length,
+        attempts30d: attemptList.filter((a) => a.created_at && a.created_at >= cutoff30).length,
+        sessions30d: sessionList.filter((s) => s.created_at && s.created_at >= cutoff30).length,
+      },
+      signupsByMonth: months.map((m) => ({ label: fmtMonth(m), count: signups[m] })),
+      quizByMonth: months.map((m) => ({ label: fmtMonth(m), count: quizByMonth[m] })),
+      learningBuckets,
+      perLanguage,
+      topLearners,
     });
   } catch (error) {
-    console.error('Failed to fetch analytics:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch analytics' },
-      { status: 500 }
-    );
+    console.error('Analytics error:', error);
+    return NextResponse.json({ error: 'Failed to load analytics' }, { status: 500 });
   }
 }

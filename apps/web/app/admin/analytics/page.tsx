@@ -1,310 +1,196 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Tabs, TabsContent, TabsList, TabsTrigger, Select, SelectPortal, SelectPositioner, SelectPopup, SelectItem, SelectTrigger, SelectValue } from '@mobtranslate/ui';
-import {
-  BarChart3,
-  TrendingUp,
-  Users,
-  Activity,
-  Globe,
-  MessageSquare
-} from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@mobtranslate/ui';
+import { Users, GraduationCap, Target, Brain, BookOpen, Globe, TrendingUp, Activity } from 'lucide-react';
 
-interface AnalyticsData {
-  userGrowth: Array<{ date: string; count: number }>;
-  wordSubmissions: Array<{ date: string; count: number }>;
-  curatorActivity: Array<{ curator: string; approved: number; rejected: number }>;
-  languageStats: Array<{ language: string; words: number; growth: number }>;
-  engagementMetrics: {
-    dailyActiveUsers: number;
-    avgCommentsPerWord: number;
-    avgApprovalsPerDay: number;
-    topContributors: Array<{ name: string; contributions: number }>;
+interface Bar { label: string; count: number }
+interface Analytics {
+  generatedAt: string;
+  totals: {
+    users: number; activeLearners: number; quizAttempts: number; quizAccuracy: number;
+    wordsInLearning: number; words: number; languages: number; sessions: number;
   };
+  recent: { newUsers30d: number; attempts30d: number; sessions30d: number };
+  signupsByMonth: Bar[];
+  quizByMonth: Bar[];
+  learningBuckets: Array<{ bucket: number; label: string; count: number }>;
+  perLanguage: Array<{ name: string; code: string; words: number; learners: number; sessions: number }>;
+  topLearners: Array<{ name: string; attempts: number; accuracy: number }>;
+}
+
+function StatCard({ icon: Icon, label, value, sub }: { icon: any; label: string; value: string | number; sub?: string }) {
+  return (
+    <Card>
+      <CardContent className="p-5">
+        <div className="flex items-center gap-2 text-muted-foreground mb-2">
+          <Icon className="h-4 w-4 text-primary shrink-0" />
+          <span className="text-xs font-medium uppercase tracking-wider">{label}</span>
+        </div>
+        <div className="text-3xl font-bold text-foreground tabular-nums">{value}</div>
+        {sub && <div className="text-xs text-muted-foreground mt-1">{sub}</div>}
+      </CardContent>
+    </Card>
+  );
+}
+
+function BarChart({ data, accent = 'bg-primary' }: { data: Bar[]; accent?: string }) {
+  const max = Math.max(1, ...data.map((d) => d.count));
+  const total = data.reduce((s, d) => s + d.count, 0);
+  if (total === 0) {
+    return <p className="text-sm text-muted-foreground py-8 text-center">No activity in this period yet.</p>;
+  }
+  return (
+    <div className="flex items-end gap-1.5 h-40">
+      {data.map((d, i) => (
+        <div key={i} className="flex-1 flex flex-col items-center gap-1 min-w-0">
+          <div className="w-full flex-1 flex items-end">
+            <div
+              className={`w-full ${accent} rounded-t transition-all`}
+              style={{ height: `${Math.max(d.count > 0 ? 4 : 0, (d.count / max) * 100)}%` }}
+              title={`${d.label}: ${d.count}`}
+            />
+          </div>
+          <span className="text-[10px] text-muted-foreground truncate w-full text-center">{d.label}</span>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default function AnalyticsPage() {
-  const [timeRange, setTimeRange] = useState('30d');
-  const [analyticsData, setAnalyticsData] = useState<AnalyticsData | null>(null);
+  const [data, setData] = useState<Analytics | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    fetchAnalytics();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [timeRange]);
-
-  const fetchAnalytics = async () => {
-    try {
-      const response = await fetch(`/api/v2/admin/analytics?range=${timeRange}`);
-      if (response.ok) {
-        const data = await response.json();
-        setAnalyticsData(data);
+    (async () => {
+      try {
+        const res = await fetch('/api/v2/admin/analytics');
+        if (!res.ok) throw new Error(res.status === 403 ? 'You need an admin role to view analytics.' : 'Failed to load analytics.');
+        setData(await res.json());
+      } catch (e) {
+        setError(e instanceof Error ? e.message : 'Failed to load analytics.');
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error('Failed to fetch analytics:', error);
-    }
-  };
+    })();
+  }, []);
 
-  // Mock data for demonstration
-  const mockData: AnalyticsData = {
-    userGrowth: [
-      { date: '2024-01-01', count: 150 },
-      { date: '2024-01-08', count: 165 },
-      { date: '2024-01-15', count: 180 },
-      { date: '2024-01-22', count: 195 },
-      { date: '2024-01-29', count: 210 }
-    ],
-    wordSubmissions: [
-      { date: '2024-01-01', count: 45 },
-      { date: '2024-01-08', count: 52 },
-      { date: '2024-01-15', count: 48 },
-      { date: '2024-01-22', count: 61 },
-      { date: '2024-01-29', count: 55 }
-    ],
-    curatorActivity: [
-      { curator: 'John Doe', approved: 125, rejected: 15 },
-      { curator: 'Jane Smith', approved: 98, rejected: 12 },
-      { curator: 'Bob Wilson', approved: 87, rejected: 8 },
-      { curator: 'Alice Brown', approved: 76, rejected: 10 }
-    ],
-    languageStats: [
-      { language: 'Kuku Yalanji', words: 1250, growth: 12 },
-      { language: 'Yawuru', words: 890, growth: 8 },
-      { language: 'Warlpiri', words: 675, growth: 15 },
-      { language: 'Arrernte', words: 542, growth: 5 }
-    ],
-    engagementMetrics: {
-      dailyActiveUsers: 45,
-      avgCommentsPerWord: 2.3,
-      avgApprovalsPerDay: 12,
-      topContributors: [
-        { name: 'Sarah Johnson', contributions: 89 },
-        { name: 'Mike Chen', contributions: 76 },
-        { name: 'Emma Davis', contributions: 64 },
-        { name: 'Tom Wilson', contributions: 58 }
-      ]
-    }
-  };
+  if (loading) {
+    return <div className="animate-pulse text-muted-foreground py-12 text-center">Loading analytics…</div>;
+  }
+  if (error || !data) {
+    return (
+      <Card><CardContent className="p-8 text-center">
+        <p className="text-foreground font-medium">{error || 'No analytics available.'}</p>
+      </CardContent></Card>
+    );
+  }
 
-  const data = analyticsData || mockData;
+  const { totals, recent } = data;
+  const bucketMax = Math.max(1, ...data.learningBuckets.map((b) => b.count));
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Analytics</h1>
-          <p className="text-muted-foreground mt-2">
-            Platform insights and performance metrics
-          </p>
-        </div>
-        <Select value={timeRange} onValueChange={(v) => v != null && setTimeRange(v)}>
-          <SelectTrigger className="w-32">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectPortal>
-            <SelectPositioner>
-              <SelectPopup>
-                <SelectItem value="7d">Last 7 days</SelectItem>
-                <SelectItem value="30d">Last 30 days</SelectItem>
-                <SelectItem value="90d">Last 90 days</SelectItem>
-                <SelectItem value="1y">Last year</SelectItem>
-              </SelectPopup>
-            </SelectPositioner>
-          </SelectPortal>
-        </Select>
+    <div className="space-y-8">
+      <div>
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight flex items-center gap-2">
+          <TrendingUp className="h-6 w-6 text-primary shrink-0" />
+          Analytics
+        </h1>
+        <p className="text-muted-foreground mt-1">
+          Real usage across MobTranslate · updated {new Date(data.generatedAt).toLocaleString()}
+        </p>
       </div>
 
-      {/* Key Metrics */}
-      <div className="grid gap-4 md:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Daily Active Users
-            </CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{data.engagementMetrics.dailyActiveUsers}</div>
-            <p className="text-xs text-muted-foreground">
-              <span className="text-success">+12%</span> from last period
-            </p>
-          </CardContent>
-        </Card>
+      {/* Headline stats */}
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        <StatCard icon={Users} label="Total users" value={totals.users} sub={`${recent.newUsers30d} new in last 30 days`} />
+        <StatCard icon={GraduationCap} label="Active learners" value={totals.activeLearners} sub="took a quiz or learned words" />
+        <StatCard icon={Target} label="Quiz questions answered" value={totals.quizAttempts} sub={`${totals.quizAccuracy}% answered correctly`} />
+        <StatCard icon={Brain} label="Words in learning" value={totals.wordsInLearning} sub="spaced-repetition cards started" />
+        <StatCard icon={BookOpen} label="Dictionary words" value={totals.words.toLocaleString()} sub={`across ${totals.languages} languages`} />
+        <StatCard icon={Activity} label="Quiz sessions" value={totals.sessions} sub={`${recent.sessions30d} in last 30 days`} />
+      </div>
 
+      {/* Trends */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Avg Comments/Word
-            </CardTitle>
-            <MessageSquare className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{data.engagementMetrics.avgCommentsPerWord}</div>
-            <p className="text-xs text-muted-foreground">
-              User engagement metric
-            </p>
-          </CardContent>
+          <CardHeader><CardTitle className="text-base">New sign-ups (last 12 months)</CardTitle></CardHeader>
+          <CardContent><BarChart data={data.signupsByMonth} /></CardContent>
         </Card>
-
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Approvals/Day
-            </CardTitle>
-            <Activity className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{data.engagementMetrics.avgApprovalsPerDay}</div>
-            <p className="text-xs text-muted-foreground">
-              Average daily approvals
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Total Languages
-            </CardTitle>
-            <Globe className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{data.languageStats.length}</div>
-            <p className="text-xs text-muted-foreground">
-              Active languages
-            </p>
-          </CardContent>
+          <CardHeader><CardTitle className="text-base">Quiz questions answered (last 12 months)</CardTitle></CardHeader>
+          <CardContent><BarChart data={data.quizByMonth} accent="bg-success" /></CardContent>
         </Card>
       </div>
 
-      {/* Detailed Analytics */}
-      <Tabs defaultValue="growth" className="space-y-4">
-        <TabsList>
-          <TabsTrigger value="growth">Growth</TabsTrigger>
-          <TabsTrigger value="languages">Languages</TabsTrigger>
-          <TabsTrigger value="curators">Curators</TabsTrigger>
-          <TabsTrigger value="contributors">Contributors</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="growth" className="space-y-4">
-          <div className="grid gap-4 md:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>User Growth</CardTitle>
-                <CardDescription>New user registrations over time</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="h-64 flex items-center justify-center text-muted-foreground">
-                  <BarChart3 className="h-8 w-8 mr-2" />
-                  Chart visualization would go here
+      {/* Learning progress funnel */}
+      <Card>
+        <CardHeader><CardTitle className="text-base">Word-learning progress</CardTitle></CardHeader>
+        <CardContent>
+          {totals.wordsInLearning === 0 ? (
+            <p className="text-sm text-muted-foreground py-4 text-center">No words being learned yet.</p>
+          ) : (
+            <div className="space-y-2.5">
+              {data.learningBuckets.map((b) => (
+                <div key={b.bucket} className="flex items-center gap-3">
+                  <span className="w-24 text-sm text-muted-foreground shrink-0">{b.label}</span>
+                  <div className="flex-1 bg-muted rounded-full h-5 overflow-hidden">
+                    <div className="h-full bg-primary rounded-full flex items-center justify-end px-2" style={{ width: `${Math.max(b.count > 0 ? 6 : 0, (b.count / bucketMax) * 100)}%` }}>
+                      {b.count > 0 && <span className="text-[10px] font-medium text-primary-foreground">{b.count}</span>}
+                    </div>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Word Submissions</CardTitle>
-                <CardDescription>New words added over time</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="h-64 flex items-center justify-center text-muted-foreground">
-                  <TrendingUp className="h-8 w-8 mr-2" />
-                  Chart visualization would go here
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Per language */}
+        <Card>
+          <CardHeader><CardTitle className="text-base flex items-center gap-2"><Globe className="h-4 w-4 text-primary" /> By language</CardTitle></CardHeader>
+          <CardContent>
+            <div className="space-y-1">
+              <div className="grid grid-cols-12 text-xs text-muted-foreground font-medium pb-2 border-b border-border">
+                <span className="col-span-6">Language</span>
+                <span className="col-span-3 text-right">Words</span>
+                <span className="col-span-3 text-right">Learners</span>
+              </div>
+              {data.perLanguage.map((l) => (
+                <div key={l.code} className="grid grid-cols-12 py-2 text-sm border-b border-border/50 last:border-0">
+                  <span className="col-span-6 font-medium text-foreground truncate">{l.name}</span>
+                  <span className="col-span-3 text-right tabular-nums text-muted-foreground">{l.words.toLocaleString()}</span>
+                  <span className="col-span-3 text-right tabular-nums text-muted-foreground">{l.learners}</span>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        </TabsContent>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
 
-        <TabsContent value="languages" className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle>Language Statistics</CardTitle>
-              <CardDescription>Word count and growth by language</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {data.languageStats.map((lang) => (
-                  <div key={lang.language} className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <p className="font-medium">{lang.language}</p>
-                      <p className="text-sm text-muted-foreground">{lang.words} words</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-sm font-medium text-success">
-                        +{lang.growth}%
-                      </p>
-                      <p className="text-xs text-muted-foreground">growth</p>
-                    </div>
+        {/* Top learners */}
+        <Card>
+          <CardHeader><CardTitle className="text-base flex items-center gap-2"><GraduationCap className="h-4 w-4 text-primary" /> Most active learners</CardTitle></CardHeader>
+          <CardContent>
+            {data.topLearners.length === 0 ? (
+              <p className="text-sm text-muted-foreground py-4 text-center">No quiz activity yet.</p>
+            ) : (
+              <div className="space-y-1">
+                {data.topLearners.map((u, i) => (
+                  <div key={i} className="flex items-center gap-3 py-2 text-sm border-b border-border/50 last:border-0">
+                    <span className="w-5 text-muted-foreground tabular-nums">{i + 1}</span>
+                    <span className="flex-1 font-medium text-foreground truncate">{u.name}</span>
+                    <span className="text-muted-foreground tabular-nums">{u.attempts} answered</span>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-foreground tabular-nums">{u.accuracy}%</span>
                   </div>
                 ))}
               </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="curators" className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle>Curator Activity</CardTitle>
-              <CardDescription>Review statistics by curator</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {data.curatorActivity.map((curator) => (
-                  <div key={curator.curator} className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <p className="font-medium">{curator.curator}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {curator.approved + curator.rejected} total reviews
-                      </p>
-                    </div>
-                    <div className="flex gap-2">
-                      <div className="flex-1 h-2 bg-success/10 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-success"
-                          style={{ 
-                            width: `${(curator.approved / (curator.approved + curator.rejected)) * 100}%` 
-                          }}
-                        />
-                      </div>
-                      <span className="text-xs text-muted-foreground">
-                        {Math.round((curator.approved / (curator.approved + curator.rejected)) * 100)}% approved
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="contributors" className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle>Top Contributors</CardTitle>
-              <CardDescription>Most active word contributors</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {data.engagementMetrics.topContributors.map((contributor, index) => (
-                  <div key={contributor.name} className="flex items-center gap-4">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-medium">
-                      {index + 1}
-                    </div>
-                    <div className="flex-1">
-                      <p className="font-medium">{contributor.name}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-sm font-medium">{contributor.contributions}</p>
-                      <p className="text-xs text-muted-foreground">contributions</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+            )}
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
