@@ -57,7 +57,7 @@ export async function GET(request: NextRequest) {
 
   // Leaderboard is publicly accessible - no auth required
   const { searchParams } = new URL(request.url);
-  const period = searchParams.get('period') || 'week';
+  const period = searchParams.get('period') || 'all';
 
   try {
     // Get all languages

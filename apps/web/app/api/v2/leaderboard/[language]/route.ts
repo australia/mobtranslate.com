@@ -42,7 +42,7 @@ export async function GET(request: NextRequest, props: { params: Promise<{ langu
   const supabase = createAdminClient();
 
   const { searchParams } = new URL(request.url);
-  const period = searchParams.get('period') || 'week';
+  const period = searchParams.get('period') || 'all';
   const languageCode = params.language;
 
   try {

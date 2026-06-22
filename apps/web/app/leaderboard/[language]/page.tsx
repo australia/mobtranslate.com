@@ -63,7 +63,7 @@ export default function LeaderboardPage() {
   const params = useParams();
   const language = params.language as string;
   
-  const [period, setPeriod] = useState('week');
+  const [period, setPeriod] = useState('all');
   const { data: leaderboardData, error, isLoading } = useLeaderboardData(language, period);
 
   React.useEffect(() => {
