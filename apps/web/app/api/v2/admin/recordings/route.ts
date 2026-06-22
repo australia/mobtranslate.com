@@ -206,18 +206,20 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const languageId = searchParams.get('languageId');
   const wordId = searchParams.get('wordId');
+  const speakerId = searchParams.get('speakerId');
   const status = searchParams.get('status'); // active | superseded | rejected | all
-  const limit = Math.min(200, Number(searchParams.get('limit') ?? 100));
+  const limit = Math.min(500, Number(searchParams.get('limit') ?? 200));
 
   const db = auth.supabase;
   let query = db
     .from('recordings')
-    .select('*, speaker:speaker_profiles(id, name, community)')
+    .select('*, speaker:speaker_profiles(id, name, community), language:languages(id, name, code)')
     .order('created_at', { ascending: false })
     .limit(limit);
 
   if (languageId) query = query.eq('language_id', languageId);
   if (wordId) query = query.eq('word_id', wordId);
+  if (speakerId) query = query.eq('speaker_id', speakerId);
   if (status && status !== 'all') query = query.eq('status', status);
 
   const { data, error } = await query;

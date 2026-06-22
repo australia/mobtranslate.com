@@ -14,7 +14,8 @@ import {
   Home,
   ChevronLeft,
   RefreshCw,
-  Mic
+  Mic,
+  Headphones
 } from 'lucide-react';
 import { cn } from '@mobtranslate/ui';
 
@@ -52,6 +53,12 @@ const adminNavItems = [
     href: '/admin/recordings',
     icon: Mic,
     description: 'Capture speaker audio'
+  },
+  {
+    title: 'Recording Library',
+    href: '/admin/recordings/library',
+    icon: Headphones,
+    description: 'Browse & play all recordings'
   },
   {
     title: 'Analytics',
