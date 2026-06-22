@@ -184,7 +184,7 @@ IMPORTANT: When a message contains an image attachment:
     tools: {
       translateWord: tool({
         description: 'Translate a word across multiple languages',
-        parameters: z.object({
+        inputSchema: z.object({
           word: z.string().describe('The word to translate'),
           targetLanguages: z.array(z.string()).describe('Target language codes, or all if not specified').optional(),
         }),
@@ -250,7 +250,7 @@ IMPORTANT: When a message contains an image attachment:
       
       getWordSuggestions: tool({
         description: 'Get word suggestions for learning based on a language or topic',
-        parameters: z.object({
+        inputSchema: z.object({
           languageCode: z.string().describe('Language code to get words from').optional(),
           topic: z.string().describe('Topic or category of words').optional(),
           count: z.number().describe('Number of suggestions').default(5),
@@ -321,7 +321,7 @@ IMPORTANT: When a message contains an image attachment:
 
       getUserStats: tool({
         description: 'Get the user\'s learning statistics and progress',
-        parameters: z.object({
+        inputSchema: z.object({
           languageCode: z.string().describe('Specific language to get stats for').optional(),
         }),
         // @ts-ignore - execute function is valid in Vercel AI SDK
@@ -381,7 +381,7 @@ IMPORTANT: When a message contains an image attachment:
 
       getUserLikedWords: tool({
         description: 'Get the words that the user has liked/favorited',
-        parameters: z.object({
+        inputSchema: z.object({
           languageCode: z.string().describe('Filter by specific language code').optional(),
           limit: z.number().describe('Maximum number of words to return').default(20),
         }),
@@ -443,7 +443,7 @@ IMPORTANT: When a message contains an image attachment:
 
       analyzeImage: tool({
         description: 'Analyze an image to detect objects and translate them to Aboriginal languages. Automatically uses the user\'s learning languages unless a specific language is requested. This tool is automatically triggered when a user sends an image.',
-        parameters: z.object({
+        inputSchema: z.object({
           description: z.string().describe('The description listing ALL specific objects visible in the image'),
           languages: z.array(z.string()).optional().describe('Specific language codes to translate to (defaults to user\'s learning languages)'),
           includeContext: z.boolean().default(true).describe('Include cultural context'),
