@@ -17,13 +17,25 @@ interface RawDictionaryWord {
   synonyms?: string[];
   example?: string;
   cultural_context?: string;
-  usages?: Array<{
-    translation?: string;
-    english?: string;
-  }>;
+  // Legacy shape (objects) OR the enriched shape (plain strings = usage notes).
+  usages?: Array<{ translation?: string; english?: string }> | string[];
   latitude?: number;
   longitude?: number;
   is_location?: boolean;
+  // Academic enrichment fields (grounded in the Patz grammar; see
+  // dictionaries/kuku_yalanji/SCHEMA.md). All optional and additive.
+  phonemic?: string;
+  gloss?: string;
+  semantic_domain?: string;
+  verb_class?: string;
+  derivation?: { morpheme?: string; function?: string };
+  reduplication?: { pattern?: string; base?: string };
+  loanword?: { source?: string; reference?: string };
+  dialect?: string;
+  commentary?: string[];
+  see_also?: string[];
+  examples?: Array<{ kuku_yalanji?: string; english?: string }>;
+  source?: string;
   [key: string]: unknown;
 }
 
@@ -52,6 +64,20 @@ interface NormalizedWord {
   isLocation: boolean;
   latitude: number | null;
   longitude: number | null;
+  // academic enrichment (see SCHEMA.md)
+  phonemic: string | null;
+  gloss: string | null;
+  semanticDomain: string | null;
+  verbClass: string | null;
+  derivation: { morpheme?: string; function?: string } | null;
+  reduplication: { pattern?: string; base?: string } | null;
+  loanwordSource: string | null;
+  dialect: string | null;
+  commentary: string[];
+  seeAlso: string[];
+  usageNotes: string[];
+  entrySource: string | null;
+  needsReview: string | null;
 }
 
 interface SyncStats {
@@ -403,8 +429,16 @@ function normalizeWordRow(
   const synonyms = cleanArray(row.synonyms);
 
   const usages: Array<{ example: string; translation: string | null }> = [];
+  const usageNotes: string[] = [];
   if (Array.isArray(row.usages)) {
     for (const usage of row.usages) {
+      if (typeof usage === 'string') {
+        // Enriched shape: a plain usage/register note.
+        if (usage.trim()) {
+          usageNotes.push(usage.trim());
+        }
+        continue;
+      }
       if (!usage || typeof usage !== 'object') {
         continue;
       }
@@ -416,12 +450,42 @@ function normalizeWordRow(
     }
   }
 
+  // Enriched `examples`: {kuku_yalanji, english} pairs -> usage_examples table.
+  if (Array.isArray(row.examples)) {
+    for (const ex of row.examples) {
+      if (!ex || typeof ex !== 'object') {
+        continue;
+      }
+      const ky = typeof ex.kuku_yalanji === 'string' ? ex.kuku_yalanji.trim() : '';
+      const en = typeof ex.english === 'string' && ex.english.trim() ? ex.english.trim() : null;
+      if (ky) {
+        usages.push({ example: ky, translation: en });
+      }
+    }
+  }
+
   if (typeof row.example === 'string' && row.example.trim()) {
     usages.push({ example: row.example.trim(), translation: null });
   }
 
   const sourceRef = `${sourceFile}#${index + 1}`;
   const wordType = typeof row.type === 'string' && row.type.trim() ? row.type.trim() : null;
+
+  const cleanStr = (v: unknown): string | null =>
+    typeof v === 'string' && v.trim() ? v.trim() : null;
+  const phonemic = cleanStr(row.phonemic);
+  const gloss = cleanStr(row.gloss);
+  const semanticDomain = cleanStr(row.semantic_domain);
+  const verbClass = cleanStr(row.verb_class);
+  const dialect = cleanStr(row.dialect);
+  const entrySource = cleanStr(row.source);
+  const needsReview = cleanStr(row.needs_review as string);
+  const derivation = row.derivation && typeof row.derivation === 'object' ? row.derivation : null;
+  const reduplication = row.reduplication && typeof row.reduplication === 'object' ? row.reduplication : null;
+  const loanwordSource = row.loanword && typeof row.loanword === 'object' ? cleanStr(row.loanword.source) : null;
+  const commentary = cleanArray(row.commentary as string[]);
+  const seeAlso = cleanArray(row.see_also as string[]);
+
   const yamlHash = hashString(
     JSON.stringify({
       word,
@@ -429,7 +493,20 @@ function normalizeWordRow(
       definitions,
       translations,
       synonyms,
-      usages
+      usages,
+      usageNotes,
+      phonemic,
+      gloss,
+      semanticDomain,
+      verbClass,
+      derivation,
+      reduplication,
+      loanwordSource,
+      dialect,
+      commentary,
+      seeAlso,
+      entrySource,
+      needsReview
     })
   );
 
@@ -449,7 +526,20 @@ function normalizeWordRow(
     culturalContext: typeof row.cultural_context === 'string' && row.cultural_context.trim() ? row.cultural_context.trim() : null,
     isLocation: row.is_location === true || hasCoordinates,
     latitude: hasCoordinates ? row.latitude! : null,
-    longitude: hasCoordinates ? row.longitude! : null
+    longitude: hasCoordinates ? row.longitude! : null,
+    phonemic,
+    gloss,
+    semanticDomain,
+    verbClass,
+    derivation,
+    reduplication,
+    loanwordSource,
+    dialect,
+    commentary,
+    seeAlso,
+    usageNotes,
+    entrySource,
+    needsReview
   };
 }
 
@@ -840,7 +930,23 @@ export async function runYamlSyncForLanguage(
     latitude: row.latitude,
     longitude: row.longitude,
     location_source: row.latitude != null && row.longitude != null ? 'yaml' : null,
-    location_updated_at: row.latitude != null && row.longitude != null ? new Date().toISOString() : null
+    location_updated_at: row.latitude != null && row.longitude != null ? new Date().toISOString() : null,
+    // academic enrichment fields (see SCHEMA.md)
+    phonemic: row.phonemic,
+    gloss: row.gloss,
+    semantic_domain: row.semanticDomain,
+    verb_class: row.verbClass,
+    derivation: row.derivation,
+    reduplication: row.reduplication,
+    loanword_source: row.loanwordSource,
+    is_loan_word: row.loanwordSource != null,
+    dialect: row.dialect,
+    dialectal_variation: row.dialect != null,
+    commentary: row.commentary.length ? row.commentary : null,
+    see_also: row.seeAlso.length ? row.seeAlso : null,
+    usage_notes: row.usageNotes.length ? row.usageNotes : null,
+    entry_source: row.entrySource,
+    needs_review: row.needsReview
   }));
 
   const sourceRefToWordId = new Map<string, string>();
