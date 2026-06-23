@@ -23,7 +23,7 @@ const Breadcrumbs = ({ items, className }: { items: { href: string; label: strin
     ))}
   </nav>
 );
-import { getWordsForLanguage } from '@/lib/supabase/queries';
+import { getWordsForLanguage } from '@/lib/db/queries';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 

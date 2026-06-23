@@ -3,7 +3,27 @@ import fs from 'fs';
 import path from 'path';
 import * as yaml from 'js-yaml';
 import OpenAI from 'openai';
-import type { SupabaseClient } from '@supabase/supabase-js';
+import { and, asc, eq, gt, inArray, isNull, lt, lte, or, sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import {
+  culturalContexts as culturalContextsT,
+  definitions as definitionsT,
+  dictionaryLocationCache as locationCacheT,
+  dictionarySyncRuns as syncRunsT,
+  dictionarySyncTasks as syncTasksT,
+  languages as languagesT,
+  synonyms as synonymsT,
+  translations as translationsT,
+  usageExamples as usageExamplesT,
+  wordClasses as wordClassesT,
+  words as wordsT,
+} from '@/lib/db/schema';
+
+// NOTE: this engine was migrated off the Supabase SDK onto Drizzle. The exported
+// functions keep their original positional signatures (a leading `_supabase` arg)
+// so existing callers (the admin route + the maintenance scripts) don't change;
+// the argument is now IGNORED — all data access goes through the Drizzle `db`.
+type IgnoredClient = unknown;
 
 type SyncTaskType = 'yaml_sync' | 'location_enrichment';
 type TriggerType = 'scheduler' | 'manual' | 'api' | 'cron';
@@ -295,62 +315,82 @@ function parseDictionaryYaml(filePath: string): ParsedDictionaryFile {
   };
 }
 
+interface LanguageRow {
+  id: string;
+  code: string;
+  name: string;
+  region?: string | null;
+  country?: string | null;
+}
+
 async function ensureLanguage(
-  supabase: SupabaseClient,
   languageCode: string,
   metadata?: ParsedDictionaryFile['meta']
-): Promise<{ id: string; code: string; name: string; region?: string | null; country?: string | null }> {
-  const { data: existing, error: existingError } = await supabase
-    .from('languages')
-    .select('id, code, name, region, country')
-    .eq('code', languageCode)
-    .single();
+): Promise<LanguageRow> {
+  const existing = await db
+    .select({
+      id: languagesT.id,
+      code: languagesT.code,
+      name: languagesT.name,
+      region: languagesT.region,
+      country: languagesT.country,
+    })
+    .from(languagesT)
+    .where(eq(languagesT.code, languageCode))
+    .limit(1);
 
-  if (!existingError && existing) {
-    return existing;
+  if (existing.length > 0) {
+    return existing[0];
   }
 
   if (metadata?.name) {
-    const { data: byName, error: byNameError } = await supabase
-      .from('languages')
-      .select('id, code, name, region, country')
-      .ilike('name', metadata.name)
-      .limit(1)
-      .single();
+    const byName = await db
+      .select({
+        id: languagesT.id,
+        code: languagesT.code,
+        name: languagesT.name,
+        region: languagesT.region,
+        country: languagesT.country,
+      })
+      .from(languagesT)
+      .where(sql`${languagesT.name} ilike ${metadata.name}`)
+      .limit(1);
 
-    if (!byNameError && byName) {
-      return byName;
+    if (byName.length > 0) {
+      return byName[0];
     }
   }
 
-  const insertPayload = {
-    code: languageCode,
-    name: metadata?.name || titleizeFromCode(languageCode),
-    native_name: metadata?.name || titleizeFromCode(languageCode),
-    region: typeof metadata?.region === 'string' ? metadata.region : null,
-    country: typeof metadata?.country === 'string' ? metadata.country : null,
-    is_active: true
-  };
+  const [inserted] = await db
+    .insert(languagesT)
+    .values({
+      code: languageCode,
+      name: metadata?.name || titleizeFromCode(languageCode),
+      nativeName: metadata?.name || titleizeFromCode(languageCode),
+      region: typeof metadata?.region === 'string' ? metadata.region : null,
+      country: typeof metadata?.country === 'string' ? metadata.country : null,
+      isActive: true,
+    })
+    .returning({
+      id: languagesT.id,
+      code: languagesT.code,
+      name: languagesT.name,
+      region: languagesT.region,
+      country: languagesT.country,
+    });
 
-  const { data: inserted, error: insertError } = await supabase
-    .from('languages')
-    .insert(insertPayload)
-    .select('id, code, name, region, country')
-    .single();
-
-  if (insertError || !inserted) {
-    throw new Error(`Failed to ensure language ${languageCode}: ${insertError?.message ?? 'unknown error'}`);
+  if (!inserted) {
+    throw new Error(`Failed to ensure language ${languageCode}`);
   }
 
   return inserted;
 }
 
-async function loadWordClassMap(supabase: SupabaseClient): Promise<Map<string, string>> {
-  const { data, error } = await supabase.from('word_classes').select('id, code');
-  if (error) {
-    throw new Error(`Failed to load word classes: ${error.message}`);
-  }
-  return new Map((data || []).map((row: any) => [String(row.code).toLowerCase(), row.id]));
+async function loadWordClassMap(): Promise<Map<string, string>> {
+  const rows = await db
+    .select({ id: wordClassesT.id, code: wordClassesT.code })
+    .from(wordClassesT);
+  return new Map(rows.map((row) => [String(row.code).toLowerCase(), row.id]));
 }
 
 function buildWordClassCode(type: string): string {
@@ -363,7 +403,6 @@ function buildWordClassCode(type: string): string {
 }
 
 async function ensureWordClass(
-  supabase: SupabaseClient,
   cache: Map<string, string>,
   type: string
 ): Promise<string | null> {
@@ -384,25 +423,29 @@ async function ensureWordClass(
     .map((token) => token.charAt(0).toUpperCase() + token.slice(1))
     .join(' ');
 
-  const { data, error } = await supabase
-    .from('word_classes')
-    .upsert(
-      {
+  try {
+    const [row] = await db
+      .insert(wordClassesT)
+      .values({
         code,
         name: name || type,
-        sort_order: 999
-      },
-      { onConflict: 'code' }
-    )
-    .select('id, code')
-    .single();
+        sortOrder: 999,
+      })
+      .onConflictDoUpdate({
+        target: wordClassesT.code,
+        set: { code },
+      })
+      .returning({ id: wordClassesT.id, code: wordClassesT.code });
 
-  if (error || !data) {
+    if (!row) {
+      return null;
+    }
+
+    cache.set(code, row.id);
+    return row.id;
+  } catch {
     return null;
   }
-
-  cache.set(code, data.id);
-  return data.id;
 }
 
 function normalizeWordRow(
@@ -543,13 +586,14 @@ function normalizeWordRow(
   };
 }
 
-async function deleteWordChildren(supabase: SupabaseClient, wordIds: string[]) {
+async function deleteWordChildren(wordIds: string[]) {
   for (const ids of chunk(wordIds, 500)) {
-    await supabase.from('translations').delete().in('word_id', ids);
-    await supabase.from('definitions').delete().in('word_id', ids);
-    await supabase.from('usage_examples').delete().in('word_id', ids);
-    await supabase.from('cultural_contexts').delete().in('word_id', ids);
-    await supabase.from('synonyms').delete().in('word_id', ids);
+    if (ids.length === 0) continue;
+    await db.delete(translationsT).where(inArray(translationsT.wordId, ids));
+    await db.delete(definitionsT).where(inArray(definitionsT.wordId, ids));
+    await db.delete(usageExamplesT).where(inArray(usageExamplesT.wordId, ids));
+    await db.delete(culturalContextsT).where(inArray(culturalContextsT.wordId, ids));
+    await db.delete(synonymsT).where(inArray(synonymsT.wordId, ids));
   }
 }
 
@@ -736,30 +780,35 @@ function buildHeuristicLocationSignal(
 }
 
 async function getLocationFromCache(
-  supabase: SupabaseClient,
   cacheKey: string,
   negativeCacheTtlDays: number
 ): Promise<{ kind: 'hit'; location: { latitude: number; longitude: number } } | { kind: 'negative' } | { kind: 'none' }> {
   const nowIso = new Date().toISOString();
-  const { data } = await supabase
-    .from('dictionary_location_cache')
-    .select('id, latitude, longitude, hit_count, created_at')
-    .eq('cache_key', cacheKey)
-    .gt('expires_at', nowIso)
-    .single();
+  const rows = await db
+    .select({
+      id: locationCacheT.id,
+      latitude: locationCacheT.latitude,
+      longitude: locationCacheT.longitude,
+      hit_count: locationCacheT.hitCount,
+      created_at: locationCacheT.createdAt,
+    })
+    .from(locationCacheT)
+    .where(and(eq(locationCacheT.cacheKey, cacheKey), gt(locationCacheT.expiresAt, nowIso)))
+    .limit(1);
 
+  const data = rows[0];
   if (!data) {
     return { kind: 'none' };
   }
 
   if (typeof data.latitude === 'number' && typeof data.longitude === 'number') {
-    await supabase
-      .from('dictionary_location_cache')
-      .update({
-        last_hit_at: nowIso,
-        hit_count: data.hit_count ? Number(data.hit_count) + 1 : 1
+    await db
+      .update(locationCacheT)
+      .set({
+        lastHitAt: nowIso,
+        hitCount: data.hit_count ? Number(data.hit_count) + 1 : 1,
       })
-      .eq('id', data.id);
+      .where(eq(locationCacheT.id, data.id));
     return { kind: 'hit', location: { latitude: data.latitude, longitude: data.longitude } };
   }
 
@@ -769,19 +818,18 @@ async function getLocationFromCache(
     return { kind: 'none' };
   }
 
-  await supabase
-    .from('dictionary_location_cache')
-    .update({
-      last_hit_at: nowIso,
-      hit_count: data.hit_count ? Number(data.hit_count) + 1 : 1
+  await db
+    .update(locationCacheT)
+    .set({
+      lastHitAt: nowIso,
+      hitCount: data.hit_count ? Number(data.hit_count) + 1 : 1,
     })
-    .eq('id', data.id);
+    .where(eq(locationCacheT.id, data.id));
 
   return { kind: 'negative' };
 }
 
 async function cacheLocationResult(
-  supabase: SupabaseClient,
   cacheKey: string,
   queryText: string,
   ttlDays: number,
@@ -796,20 +844,34 @@ async function cacheLocationResult(
     effectiveTtlDays >= 36500
       ? '9999-12-31T23:59:59.999Z'
       : new Date(Date.now() + effectiveTtlDays * 24 * 60 * 60 * 1000).toISOString();
-  await supabase.from('dictionary_location_cache').upsert(
-    {
-      cache_key: cacheKey,
-      provider: source,
-      query_text: queryText,
-      latitude: location?.latitude ?? null,
-      longitude: location?.longitude ?? null,
-      confidence: location ? confidence ?? 0.7 : 0.0,
-      metadata: location ? { source, ...(metadata || {}) } : { miss: true, source, ...(metadata || {}) },
-      expires_at: expiresAt,
-      last_hit_at: new Date().toISOString()
-    },
-    { onConflict: 'cache_key' }
-  );
+  const lastHitAt = new Date().toISOString();
+  const values = {
+    cacheKey,
+    provider: source,
+    queryText,
+    latitude: location?.latitude ?? null,
+    longitude: location?.longitude ?? null,
+    confidence: (location ? confidence ?? 0.7 : 0.0).toString(),
+    metadata: location ? { source, ...(metadata || {}) } : { miss: true, source, ...(metadata || {}) },
+    expiresAt,
+    lastHitAt,
+  };
+  await db
+    .insert(locationCacheT)
+    .values(values)
+    .onConflictDoUpdate({
+      target: locationCacheT.cacheKey,
+      set: {
+        provider: values.provider,
+        queryText: values.queryText,
+        latitude: values.latitude,
+        longitude: values.longitude,
+        confidence: values.confidence,
+        metadata: values.metadata,
+        expiresAt: values.expiresAt,
+        lastHitAt: values.lastHitAt,
+      },
+    });
 }
 
 function buildGeocodeQueries(
@@ -868,7 +930,7 @@ function buildGeocodeQueries(
 }
 
 export async function runYamlSyncForLanguage(
-  supabase: SupabaseClient,
+  _supabase: IgnoredClient,
   languageCode: string,
   sourceFilePath: string,
   config: TaskConfig = {}
@@ -878,15 +940,15 @@ export async function runYamlSyncForLanguage(
   const relativeSource = path.relative(dictionariesRoot, sourceFilePath).replace(/\\/g, '/');
   const sourceFile = `dictionaries/${relativeSource}`;
   const parsed = parseDictionaryYaml(sourceFilePath);
-  const language = await ensureLanguage(supabase, languageCode, parsed.meta);
-  const wordClassMap = await loadWordClassMap(supabase);
+  const language = await ensureLanguage(languageCode, parsed.meta);
+  const wordClassMap = await loadWordClassMap();
 
   const allRows = parsed.words.slice(0, cfg.max_words_per_run);
   const normalizedRows: NormalizedWord[] = [];
 
   for (let i = 0; i < allRows.length; i += 1) {
     const row = allRows[i];
-    const classId = row.type ? await ensureWordClass(supabase, wordClassMap, row.type) : null;
+    const classId = row.type ? await ensureWordClass(wordClassMap, row.type) : null;
     const normalized = normalizeWordRow(row, i, sourceFile, classId);
     if (normalized) {
       normalizedRows.push(normalized);
@@ -915,62 +977,72 @@ export async function runYamlSyncForLanguage(
     return stats;
   }
 
+  const nowIso = new Date().toISOString();
   const upsertPayload = normalizedRows.map((row) => ({
-    language_id: language.id,
+    languageId: language.id,
     word: row.word,
-    normalized_word: row.normalizedWord,
-    word_class_id: row.wordClassId,
-    word_type: row.wordType,
-    managed_by_yaml_sync: true,
-    yaml_source_file: sourceFile,
-    yaml_source_ref: row.sourceRef,
-    yaml_content_hash: row.yamlHash,
-    sync_updated_at: new Date().toISOString(),
-    is_location: row.isLocation,
+    normalizedWord: row.normalizedWord,
+    wordClassId: row.wordClassId,
+    wordType: row.wordType,
+    managedByYamlSync: true,
+    yamlSourceFile: sourceFile,
+    yamlSourceRef: row.sourceRef,
+    yamlContentHash: row.yamlHash,
+    syncUpdatedAt: nowIso,
+    isLocation: row.isLocation,
     latitude: row.latitude,
     longitude: row.longitude,
-    location_source: row.latitude != null && row.longitude != null ? 'yaml' : null,
-    location_updated_at: row.latitude != null && row.longitude != null ? new Date().toISOString() : null,
+    locationSource: row.latitude != null && row.longitude != null ? 'yaml' : null,
+    locationUpdatedAt: row.latitude != null && row.longitude != null ? nowIso : null,
     // academic enrichment fields (see SCHEMA.md)
     phonemic: row.phonemic,
     gloss: row.gloss,
-    semantic_domain: row.semanticDomain,
-    verb_class: row.verbClass,
+    semanticDomain: row.semanticDomain,
+    verbClass: row.verbClass,
     derivation: row.derivation,
     reduplication: row.reduplication,
-    loanword_source: row.loanwordSource,
-    is_loan_word: row.loanwordSource != null,
+    loanwordSource: row.loanwordSource,
+    isLoanWord: row.loanwordSource != null,
     dialect: row.dialect,
-    dialectal_variation: row.dialect != null,
+    dialectalVariation: row.dialect != null,
     commentary: row.commentary.length ? row.commentary : null,
-    see_also: row.seeAlso.length ? row.seeAlso : null,
-    usage_notes: row.usageNotes.length ? row.usageNotes : null,
-    entry_source: row.entrySource,
-    needs_review: row.needsReview
+    seeAlso: row.seeAlso.length ? row.seeAlso : null,
+    usageNotes: row.usageNotes.length ? row.usageNotes : null,
+    entrySource: row.entrySource,
+    needsReview: row.needsReview,
   }));
 
   const sourceRefToWordId = new Map<string, string>();
   for (const rows of chunk(upsertPayload, cfg.batch_size)) {
-    let { data, error } = await supabase
-      .from('words')
-      .upsert(rows, { onConflict: 'language_id,yaml_source_ref' })
-      .select('id, yaml_source_ref');
-
-    if (error && error.message.includes('words_language_id_word_word_class_id_key')) {
-      const retryRows = rows.map((row) => ({ ...row, word_class_id: null }));
-      const retryResult = await supabase
-        .from('words')
-        .upsert(retryRows, { onConflict: 'language_id,yaml_source_ref' })
-        .select('id, yaml_source_ref');
-      data = retryResult.data;
-      error = retryResult.error;
+    let data: Array<{ id: string; yaml_source_ref: string | null }> = [];
+    try {
+      data = await db
+        .insert(wordsT)
+        .values(rows)
+        .onConflictDoUpdate({
+          target: [wordsT.languageId, wordsT.yamlSourceRef],
+          set: buildWordUpsertSet(),
+        })
+        .returning({ id: wordsT.id, yaml_source_ref: wordsT.yamlSourceRef });
+    } catch (error: any) {
+      // The (language_id, word, word_class_id) unique key can collide; retry with
+      // a null word_class_id, mirroring the original Supabase behaviour.
+      if (error?.message?.includes('words_language_id_word_word_class_id_key')) {
+        const retryRows = rows.map((row) => ({ ...row, wordClassId: null }));
+        data = await db
+          .insert(wordsT)
+          .values(retryRows)
+          .onConflictDoUpdate({
+            target: [wordsT.languageId, wordsT.yamlSourceRef],
+            set: buildWordUpsertSet(),
+          })
+          .returning({ id: wordsT.id, yaml_source_ref: wordsT.yamlSourceRef });
+      } else {
+        throw new Error(`Failed to upsert words: ${error?.message ?? 'unknown error'}`);
+      }
     }
 
-    if (error) {
-      throw new Error(`Failed to upsert words: ${error.message}`);
-    }
-
-    for (const row of data || []) {
+    for (const row of data) {
       if (row.yaml_source_ref) {
         sourceRefToWordId.set(row.yaml_source_ref, row.id);
       }
@@ -979,13 +1051,13 @@ export async function runYamlSyncForLanguage(
   }
 
   const wordIds = Array.from(sourceRefToWordId.values());
-  await deleteWordChildren(supabase, wordIds);
+  await deleteWordChildren(wordIds);
 
-  const definitionsToInsert: any[] = [];
-  const translationsToInsert: any[] = [];
-  const examplesToInsert: any[] = [];
-  const culturalToInsert: any[] = [];
-  const synonymsToInsert: any[] = [];
+  const definitionsToInsert: Array<{ wordId: string; definition: string; definitionNumber: number; isPrimary: boolean }> = [];
+  const translationsToInsert: Array<{ wordId: string; definitionId: string | null; translation: string; targetLanguage: string; isPrimary: boolean }> = [];
+  const examplesToInsert: Array<{ wordId: string; exampleText: string; translation: string | null }> = [];
+  const culturalToInsert: Array<{ wordId: string; contextDescription: string }> = [];
+  const synonymsToInsert: Array<{ wordId: string; synonymWordId: string | null; synonymText: string }> = [];
 
   for (const row of normalizedRows) {
     const wordId = sourceRefToWordId.get(row.sourceRef);
@@ -995,49 +1067,46 @@ export async function runYamlSyncForLanguage(
 
     for (let i = 0; i < row.definitions.length; i += 1) {
       definitionsToInsert.push({
-        word_id: wordId,
+        wordId,
         definition: row.definitions[i],
-        definition_number: i + 1,
-        is_primary: i === 0
+        definitionNumber: i + 1,
+        isPrimary: i === 0,
       });
     }
 
     for (const usage of row.usages) {
       examplesToInsert.push({
-        word_id: wordId,
-        example_text: usage.example,
-        translation: usage.translation
+        wordId,
+        exampleText: usage.example,
+        translation: usage.translation,
       });
     }
 
     if (row.culturalContext) {
       culturalToInsert.push({
-        word_id: wordId,
-        context_description: row.culturalContext
+        wordId,
+        contextDescription: row.culturalContext,
       });
     }
 
     for (const synonym of row.synonyms) {
       synonymsToInsert.push({
-        word_id: wordId,
-        synonym_word_id: null,
-        synonym_text: synonym
+        wordId,
+        synonymWordId: null,
+        synonymText: synonym,
       });
     }
   }
 
   const definitionMap = new Map<string, string>();
   for (const rows of chunk(definitionsToInsert, cfg.batch_size)) {
-    const { data, error } = await supabase
-      .from('definitions')
-      .insert(rows)
-      .select('id, word_id, definition_number');
+    if (rows.length === 0) continue;
+    const data = await db
+      .insert(definitionsT)
+      .values(rows)
+      .returning({ id: definitionsT.id, word_id: definitionsT.wordId, definition_number: definitionsT.definitionNumber });
 
-    if (error) {
-      throw new Error(`Failed to insert definitions: ${error.message}`);
-    }
-
-    for (const row of data || []) {
+    for (const row of data) {
       if (row.definition_number === 1) {
         definitionMap.set(row.word_id, row.id);
       }
@@ -1053,67 +1122,57 @@ export async function runYamlSyncForLanguage(
     const primaryDefinitionId = definitionMap.get(wordId) ?? null;
     for (let i = 0; i < row.translations.length; i += 1) {
       translationsToInsert.push({
-        word_id: wordId,
-        definition_id: primaryDefinitionId,
+        wordId,
+        definitionId: primaryDefinitionId,
         translation: row.translations[i],
-        target_language: 'en',
-        is_primary: i === 0
+        targetLanguage: 'en',
+        isPrimary: i === 0,
       });
     }
   }
 
   for (const rows of chunk(translationsToInsert, cfg.batch_size)) {
-    const { error } = await supabase.from('translations').insert(rows);
-    if (error) {
-      throw new Error(`Failed to insert translations: ${error.message}`);
-    }
+    if (rows.length === 0) continue;
+    await db.insert(translationsT).values(rows);
     stats.translations_upserted += rows.length;
   }
 
   for (const rows of chunk(examplesToInsert, cfg.batch_size)) {
-    const { error } = await supabase.from('usage_examples').insert(rows);
-    if (error) {
-      throw new Error(`Failed to insert usage examples: ${error.message}`);
-    }
+    if (rows.length === 0) continue;
+    await db.insert(usageExamplesT).values(rows);
     stats.examples_upserted += rows.length;
   }
 
   for (const rows of chunk(culturalToInsert, cfg.batch_size)) {
-    const { error } = await supabase.from('cultural_contexts').insert(rows);
-    if (error) {
-      throw new Error(`Failed to insert cultural contexts: ${error.message}`);
-    }
+    if (rows.length === 0) continue;
+    await db.insert(culturalContextsT).values(rows);
   }
 
   for (const rows of chunk(synonymsToInsert, cfg.batch_size)) {
-    const { error } = await supabase.from('synonyms').insert(rows);
-    if (error) {
-      throw new Error(`Failed to insert synonyms: ${error.message}`);
-    }
+    if (rows.length === 0) continue;
+    await db.insert(synonymsT).values(rows);
   }
 
   if (cfg.prune_removed) {
-    const { data: existingWords, error } = await supabase
-      .from('words')
-      .select('id, yaml_source_ref')
-      .eq('language_id', language.id)
-      .eq('managed_by_yaml_sync', true)
-      .eq('yaml_source_file', sourceFile);
-
-    if (error) {
-      throw new Error(`Failed to load existing sync-managed words: ${error.message}`);
-    }
+    const existingWords = await db
+      .select({ id: wordsT.id, yaml_source_ref: wordsT.yamlSourceRef })
+      .from(wordsT)
+      .where(
+        and(
+          eq(wordsT.languageId, language.id),
+          eq(wordsT.managedByYamlSync, true),
+          eq(wordsT.yamlSourceFile, sourceFile)
+        )
+      );
 
     const activeRefs = new Set(normalizedRows.map((row) => row.sourceRef));
-    const idsToDelete = (existingWords || [])
+    const idsToDelete = existingWords
       .filter((row) => row.yaml_source_ref && !activeRefs.has(row.yaml_source_ref))
       .map((row) => row.id);
 
     for (const ids of chunk(idsToDelete, cfg.batch_size)) {
-      const { error: deleteError } = await supabase.from('words').delete().in('id', ids);
-      if (deleteError) {
-        throw new Error(`Failed to delete removed words: ${deleteError.message}`);
-      }
+      if (ids.length === 0) continue;
+      await db.delete(wordsT).where(inArray(wordsT.id, ids));
     }
     stats.words_deleted = idsToDelete.length;
   }
@@ -1121,20 +1180,62 @@ export async function runYamlSyncForLanguage(
   return stats;
 }
 
+// Shared upsert SET for the words table — re-applied on (language_id, yaml_source_ref)
+// conflict so an existing sync-managed row is refreshed (matches Supabase upsert).
+function buildWordUpsertSet() {
+  return {
+    word: sql`excluded.word`,
+    normalizedWord: sql`excluded.normalized_word`,
+    wordClassId: sql`excluded.word_class_id`,
+    wordType: sql`excluded.word_type`,
+    managedByYamlSync: sql`excluded.managed_by_yaml_sync`,
+    yamlSourceFile: sql`excluded.yaml_source_file`,
+    yamlContentHash: sql`excluded.yaml_content_hash`,
+    syncUpdatedAt: sql`excluded.sync_updated_at`,
+    isLocation: sql`excluded.is_location`,
+    latitude: sql`excluded.latitude`,
+    longitude: sql`excluded.longitude`,
+    locationSource: sql`excluded.location_source`,
+    locationUpdatedAt: sql`excluded.location_updated_at`,
+    phonemic: sql`excluded.phonemic`,
+    gloss: sql`excluded.gloss`,
+    semanticDomain: sql`excluded.semantic_domain`,
+    verbClass: sql`excluded.verb_class`,
+    derivation: sql`excluded.derivation`,
+    reduplication: sql`excluded.reduplication`,
+    loanwordSource: sql`excluded.loanword_source`,
+    isLoanWord: sql`excluded.is_loan_word`,
+    dialect: sql`excluded.dialect`,
+    dialectalVariation: sql`excluded.dialectal_variation`,
+    commentary: sql`excluded.commentary`,
+    seeAlso: sql`excluded.see_also`,
+    usageNotes: sql`excluded.usage_notes`,
+    entrySource: sql`excluded.entry_source`,
+    needsReview: sql`excluded.needs_review`,
+  };
+}
+
 export async function runLocationEnrichmentForLanguage(
-  supabase: SupabaseClient,
+  _supabase: IgnoredClient,
   languageCode: string,
   config: TaskConfig = {}
 ): Promise<SyncStats> {
   const cfg = { ...DEFAULT_SYNC_CONFIG, ...config };
 
-  const { data: language, error: languageError } = await supabase
-    .from('languages')
-    .select('id, code, name, region, country')
-    .eq('code', languageCode)
-    .single();
+  const languageRows = await db
+    .select({
+      id: languagesT.id,
+      code: languagesT.code,
+      name: languagesT.name,
+      region: languagesT.region,
+      country: languagesT.country,
+    })
+    .from(languagesT)
+    .where(eq(languagesT.code, languageCode))
+    .limit(1);
+  const language = languageRows[0];
 
-  if (languageError || !language) {
+  if (!language) {
     throw new Error(`Language ${languageCode} not found`);
   }
 
@@ -1143,38 +1244,69 @@ export async function runLocationEnrichmentForLanguage(
   const pageSize = Math.max(100, Math.min(cfg.max_candidates, 1000));
   const maxRows = Math.max(1, cfg.max_candidates);
   for (let from = 0; from < maxRows; from += pageSize) {
-    let query = supabase
-      .from('words')
-      .select(`
-        id,
-        word,
-        word_type,
-        is_location,
-        latitude,
-        longitude,
-        location_updated_at,
-        definitions(definition),
-        translations(translation)
-      `)
-      .eq('language_id', language.id)
-      .order('id', { ascending: true })
-      .range(from, Math.min(from + pageSize - 1, maxRows - 1));
-
+    const limit = Math.min(pageSize, maxRows - from);
+    const filters = [eq(wordsT.languageId, language.id)];
     if (!cfg.check_every_word) {
-      query = query.or(`location_updated_at.is.null,location_updated_at.lt.${staleCutoff}`);
+      filters.push(
+        or(isNull(wordsT.locationUpdatedAt), lt(wordsT.locationUpdatedAt, staleCutoff))!
+      );
     }
 
-    const { data: pageRows, error } = await query;
-    if (error) {
-      throw new Error(`Failed to load words for enrichment: ${error.message}`);
-    }
+    // Page of words (id-ordered) with their definitions + translations.
+    const pageWords = await db
+      .select({
+        id: wordsT.id,
+        word: wordsT.word,
+        word_type: wordsT.wordType,
+        is_location: wordsT.isLocation,
+        latitude: wordsT.latitude,
+        longitude: wordsT.longitude,
+        location_updated_at: wordsT.locationUpdatedAt,
+      })
+      .from(wordsT)
+      .where(and(...filters))
+      .orderBy(asc(wordsT.id))
+      .limit(limit)
+      .offset(from);
 
-    if (!pageRows || pageRows.length === 0) {
+    if (pageWords.length === 0) {
       break;
     }
 
-    rows.push(...pageRows);
-    if (pageRows.length < pageSize) {
+    const ids = pageWords.map((w) => w.id);
+    const [defs, trans] = await Promise.all([
+      db
+        .select({ word_id: definitionsT.wordId, definition: definitionsT.definition })
+        .from(definitionsT)
+        .where(inArray(definitionsT.wordId, ids)),
+      db
+        .select({ word_id: translationsT.wordId, translation: translationsT.translation })
+        .from(translationsT)
+        .where(inArray(translationsT.wordId, ids)),
+    ]);
+
+    const defsByWord = new Map<string, Array<{ definition: string }>>();
+    for (const d of defs) {
+      const arr = defsByWord.get(d.word_id) ?? [];
+      arr.push({ definition: d.definition });
+      defsByWord.set(d.word_id, arr);
+    }
+    const transByWord = new Map<string, Array<{ translation: string }>>();
+    for (const t of trans) {
+      const arr = transByWord.get(t.word_id) ?? [];
+      arr.push({ translation: t.translation });
+      transByWord.set(t.word_id, arr);
+    }
+
+    for (const w of pageWords) {
+      rows.push({
+        ...w,
+        definitions: defsByWord.get(w.id) ?? [],
+        translations: transByWord.get(w.id) ?? [],
+      });
+    }
+
+    if (pageWords.length < pageSize) {
       break;
     }
   }
@@ -1229,16 +1361,16 @@ export async function runLocationEnrichmentForLanguage(
       continue;
     }
 
-    const { error: classifyError } = await supabase
-      .from('words')
-      .update({
-        is_location: true,
-        location_source: ai ? 'ai' : 'heuristic',
-        location_confidence: score
-      })
-      .eq('id', row.id);
-
-    if (classifyError) {
+    try {
+      await db
+        .update(wordsT)
+        .set({
+          isLocation: true,
+          locationSource: ai ? 'ai' : 'heuristic',
+          locationConfidence: score.toString(),
+        })
+        .where(eq(wordsT.id, row.id));
+    } catch {
       stats.error_count += 1;
       continue;
     }
@@ -1256,7 +1388,7 @@ export async function runLocationEnrichmentForLanguage(
     let location: { latitude: number; longitude: number } | null = null;
     for (const query of geocodeQueries) {
       const cacheKey = hashString(`${language.code}:${query.toLowerCase()}`);
-      const cacheResult = await getLocationFromCache(supabase, cacheKey, cfg.negative_cache_ttl_days);
+      const cacheResult = await getLocationFromCache(cacheKey, cfg.negative_cache_ttl_days);
       if (cacheResult.kind === 'hit') {
         stats.cache_hits += 1;
         location = cacheResult.location;
@@ -1274,7 +1406,6 @@ export async function runLocationEnrichmentForLanguage(
         if (aiLocation) {
           location = { latitude: aiLocation.latitude, longitude: aiLocation.longitude };
           await cacheLocationResult(
-            supabase,
             cacheKey,
             query,
             cfg.cache_ttl_days,
@@ -1286,7 +1417,6 @@ export async function runLocationEnrichmentForLanguage(
           );
         } else {
           await cacheLocationResult(
-            supabase,
             cacheKey,
             query,
             cfg.cache_ttl_days,
@@ -1299,7 +1429,6 @@ export async function runLocationEnrichmentForLanguage(
         }
       } else {
         await cacheLocationResult(
-          supabase,
           cacheKey,
           query,
           cfg.cache_ttl_days,
@@ -1327,19 +1456,19 @@ export async function runLocationEnrichmentForLanguage(
       continue;
     }
 
-    const { error: updateError } = await supabase
-      .from('words')
-      .update({
-        is_location: true,
-        latitude: location.latitude,
-        longitude: location.longitude,
-        location_source: ai ? 'ai-classified+geocoded' : 'heuristic+geocoded',
-        location_confidence: score,
-        location_updated_at: new Date().toISOString()
-      })
-      .eq('id', row.id);
-
-    if (updateError) {
+    try {
+      await db
+        .update(wordsT)
+        .set({
+          isLocation: true,
+          latitude: location.latitude,
+          longitude: location.longitude,
+          locationSource: ai ? 'ai-classified+geocoded' : 'heuristic+geocoded',
+          locationConfidence: score.toString(),
+          locationUpdatedAt: new Date().toISOString(),
+        })
+        .where(eq(wordsT.id, row.id));
+    } catch {
       stats.error_count += 1;
       continue;
     }
@@ -1351,32 +1480,29 @@ export async function runLocationEnrichmentForLanguage(
 }
 
 async function beginRun(
-  supabase: SupabaseClient,
   task: any,
   triggeredBy: TriggerType
 ): Promise<{ runId: string; startedAt: number }> {
   const startedAt = Date.now();
-  const { data, error } = await supabase
-    .from('dictionary_sync_runs')
-    .insert({
-      task_id: task.id,
-      language_id: task.language_id,
-      task_type: task.task_type,
-      triggered_by: triggeredBy,
-      status: 'running'
+  const [data] = await db
+    .insert(syncRunsT)
+    .values({
+      taskId: task.id,
+      languageId: task.language_id,
+      taskType: task.task_type,
+      triggeredBy,
+      status: 'running',
     })
-    .select('id')
-    .single();
+    .returning({ id: syncRunsT.id });
 
-  if (error || !data) {
-    throw new Error(`Failed to create sync run: ${error?.message ?? 'unknown error'}`);
+  if (!data) {
+    throw new Error('Failed to create sync run');
   }
 
   return { runId: data.id, startedAt };
 }
 
 async function finalizeRun(
-  supabase: SupabaseClient,
   task: any,
   runId: string,
   startedAt: number,
@@ -1387,53 +1513,58 @@ async function finalizeRun(
   const finishedAtIso = new Date().toISOString();
   const durationMs = Date.now() - startedAt;
 
-  await supabase
-    .from('dictionary_sync_runs')
-    .update({
+  await db
+    .update(syncRunsT)
+    .set({
       status,
-      finished_at: finishedAtIso,
-      duration_ms: durationMs,
-      words_scanned: stats.words_scanned,
-      words_upserted: stats.words_upserted,
-      words_deleted: stats.words_deleted,
-      definitions_upserted: stats.definitions_upserted,
-      translations_upserted: stats.translations_upserted,
-      examples_upserted: stats.examples_upserted,
-      location_candidates: stats.location_candidates,
-      locations_resolved: stats.locations_resolved,
-      cache_hits: stats.cache_hits,
-      cache_misses: stats.cache_misses,
-      error_count: stats.error_count,
+      finishedAt: finishedAtIso,
+      durationMs,
+      wordsScanned: stats.words_scanned,
+      wordsUpserted: stats.words_upserted,
+      wordsDeleted: stats.words_deleted,
+      definitionsUpserted: stats.definitions_upserted,
+      translationsUpserted: stats.translations_upserted,
+      examplesUpserted: stats.examples_upserted,
+      locationCandidates: stats.location_candidates,
+      locationsResolved: stats.locations_resolved,
+      cacheHits: stats.cache_hits,
+      cacheMisses: stats.cache_misses,
+      errorCount: stats.error_count,
       summary: stats.summary,
-      error_details: errorMessage || null
+      errorDetails: errorMessage || null,
     })
-    .eq('id', runId);
+    .where(eq(syncRunsT.id, runId));
 
   const nextRun = new Date(Date.now() + (task.interval_minutes || 360) * 60 * 1000).toISOString();
-  await supabase
-    .from('dictionary_sync_tasks')
-    .update({
-      is_running: false,
-      lock_expires_at: null,
-      last_run_at: finishedAtIso,
-      last_status: status,
-      last_error: errorMessage || null,
-      next_run_at: nextRun
+  await db
+    .update(syncTasksT)
+    .set({
+      isRunning: false,
+      lockExpiresAt: null,
+      lastRunAt: finishedAtIso,
+      lastStatus: status,
+      lastError: errorMessage || null,
+      nextRunAt: nextRun,
     })
-    .eq('id', task.id);
+    .where(eq(syncTasksT.id, task.id));
 }
 
-async function lockTask(supabase: SupabaseClient, taskId: string): Promise<any | null> {
+async function lockTask(taskId: string): Promise<any | null> {
   const now = new Date();
   const lockExpiry = new Date(Date.now() + 20 * 60 * 1000).toISOString();
 
-  const { data: currentTask, error: readError } = await supabase
-    .from('dictionary_sync_tasks')
-    .select('id, is_running, lock_expires_at')
-    .eq('id', taskId)
-    .single();
+  const currentRows = await db
+    .select({
+      id: syncTasksT.id,
+      is_running: syncTasksT.isRunning,
+      lock_expires_at: syncTasksT.lockExpiresAt,
+    })
+    .from(syncTasksT)
+    .where(eq(syncTasksT.id, taskId))
+    .limit(1);
+  const currentTask = currentRows[0];
 
-  if (readError || !currentTask) {
+  if (!currentTask) {
     return null;
   }
 
@@ -1442,26 +1573,33 @@ async function lockTask(supabase: SupabaseClient, taskId: string): Promise<any |
     return null;
   }
 
-  const { data, error } = await supabase
-    .from('dictionary_sync_tasks')
-    .update({
-      is_running: true,
-      lock_expires_at: lockExpiry,
-      last_status: 'running'
+  const [data] = await db
+    .update(syncTasksT)
+    .set({
+      isRunning: true,
+      lockExpiresAt: lockExpiry,
+      lastStatus: 'running',
     })
-    .eq('id', taskId)
-    .select('*')
-    .single();
+    .where(eq(syncTasksT.id, taskId))
+    .returning();
 
-  if (error || !data) {
+  if (!data) {
     return null;
   }
 
-  return data;
+  // Return snake_case keys so downstream task-record access (task_type,
+  // interval_minutes, config, language_id) matches the original Supabase rows.
+  return {
+    ...data,
+    task_type: data.taskType,
+    language_id: data.languageId,
+    interval_minutes: data.intervalMinutes,
+    config: data.config,
+  };
 }
 
-async function runTask(supabase: SupabaseClient, task: any, triggeredBy: TriggerType): Promise<{ runId: string; status: string; stats: SyncStats; error?: string }> {
-  const lockedTask = await lockTask(supabase, task.id);
+async function runTask(task: any, triggeredBy: TriggerType): Promise<{ runId: string; status: string; stats: SyncStats; error?: string }> {
+  const lockedTask = await lockTask(task.id);
   if (!lockedTask) {
     return {
       runId: '',
@@ -1489,7 +1627,7 @@ async function runTask(supabase: SupabaseClient, task: any, triggeredBy: Trigger
     languages: task.languages
   };
 
-  const { runId, startedAt } = await beginRun(supabase, taskRecord, triggeredBy);
+  const { runId, startedAt } = await beginRun(taskRecord, triggeredBy);
   try {
     const languageCode = taskRecord.languages?.code as string | undefined;
     const languageName = taskRecord.languages?.name as string | undefined;
@@ -1503,12 +1641,12 @@ async function runTask(supabase: SupabaseClient, task: any, triggeredBy: Trigger
       if (!filePath) {
         throw new Error(`Dictionary YAML not found for language ${languageCode}`);
       }
-      stats = await runYamlSyncForLanguage(supabase, languageCode, filePath, taskRecord.config || {});
+      stats = await runYamlSyncForLanguage(null, languageCode, filePath, taskRecord.config || {});
     } else {
-      stats = await runLocationEnrichmentForLanguage(supabase, languageCode, taskRecord.config || {});
+      stats = await runLocationEnrichmentForLanguage(null, languageCode, taskRecord.config || {});
     }
 
-    await finalizeRun(supabase, taskRecord, runId, startedAt, 'success', stats);
+    await finalizeRun(taskRecord, runId, startedAt, 'success', stats);
     return { runId, status: 'success', stats };
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown task failure';
@@ -1526,26 +1664,26 @@ async function runTask(supabase: SupabaseClient, task: any, triggeredBy: Trigger
       error_count: 1,
       summary: {}
     };
-    await finalizeRun(supabase, taskRecord, runId, startedAt, 'failed', failedStats, message);
+    await finalizeRun(taskRecord, runId, startedAt, 'failed', failedStats, message);
     return { runId, status: 'failed', stats: failedStats, error: message };
   }
 }
 
-export async function ensureSyncTasksForAllDictionaries(supabase: SupabaseClient) {
+export async function ensureSyncTasksForAllDictionaries(_supabase?: IgnoredClient) {
   const dictionaries = discoverDictionaries();
 
   for (const dictionary of dictionaries) {
     const parsed = parseDictionaryYaml(dictionary.filePath);
-    const language = await ensureLanguage(supabase, dictionary.languageCode, parsed.meta);
+    const language = await ensureLanguage(dictionary.languageCode, parsed.meta);
 
     const taskRows = [
       {
-        language_id: language.id,
-        task_type: 'yaml_sync',
+        languageId: language.id,
+        taskType: 'yaml_sync',
         name: `${language.name} YAML Sync`,
         enabled: true,
-        interval_minutes: 360,
-        next_run_at: new Date(Date.now() + 5 * 60 * 1000).toISOString(),
+        intervalMinutes: 360,
+        nextRunAt: new Date(Date.now() + 5 * 60 * 1000).toISOString(),
         config: {
           batch_size: DEFAULT_SYNC_CONFIG.batch_size,
           prune_removed: true,
@@ -1553,12 +1691,12 @@ export async function ensureSyncTasksForAllDictionaries(supabase: SupabaseClient
         }
       },
       {
-        language_id: language.id,
-        task_type: 'location_enrichment',
+        languageId: language.id,
+        taskType: 'location_enrichment',
         name: `${language.name} Location Enrichment`,
         enabled: true,
-        interval_minutes: 720,
-        next_run_at: new Date(Date.now() + 10 * 60 * 1000).toISOString(),
+        intervalMinutes: 720,
+        nextRunAt: new Date(Date.now() + 10 * 60 * 1000).toISOString(),
         config: {
           cache_ttl_days: DEFAULT_SYNC_CONFIG.cache_ttl_days,
           max_candidates: DEFAULT_SYNC_CONFIG.max_candidates,
@@ -1571,44 +1709,61 @@ export async function ensureSyncTasksForAllDictionaries(supabase: SupabaseClient
     ];
 
     for (const row of taskRows) {
-      await supabase.from('dictionary_sync_tasks').upsert(row as never, {
-        onConflict: 'language_id,task_type'
-      });
+      // Mirror the original Supabase upsert (update on the (language_id, task_type)
+      // conflict) so re-ensuring refreshes the task's name/schedule/config.
+      await db
+        .insert(syncTasksT)
+        .values(row as any)
+        .onConflictDoUpdate({
+          target: [syncTasksT.languageId, syncTasksT.taskType],
+          set: {
+            name: row.name,
+            enabled: row.enabled,
+            intervalMinutes: row.intervalMinutes,
+            nextRunAt: row.nextRunAt,
+            config: row.config,
+          },
+        });
     }
   }
 }
 
 export async function runDueDictionaryTasks(
-  supabase: SupabaseClient,
+  _supabase: IgnoredClient,
   triggeredBy: TriggerType = 'scheduler'
 ) {
-  await ensureSyncTasksForAllDictionaries(supabase);
+  await ensureSyncTasksForAllDictionaries();
 
   const nowIso = new Date().toISOString();
-  const { data: dueTasks, error } = await supabase
-    .from('dictionary_sync_tasks')
-    .select(`
-      *,
-      languages!dictionary_sync_tasks_language_id_fkey(code, name)
-    `)
-    .eq('enabled', true)
-    .lte('next_run_at', nowIso)
-    .order('next_run_at', { ascending: true })
+  const dueTasks = await db
+    .select({
+      id: syncTasksT.id,
+      task_type: syncTasksT.taskType,
+      language_id: syncTasksT.languageId,
+      interval_minutes: syncTasksT.intervalMinutes,
+      config: syncTasksT.config,
+      language_code: languagesT.code,
+      language_name: languagesT.name,
+    })
+    .from(syncTasksT)
+    .leftJoin(languagesT, eq(syncTasksT.languageId, languagesT.id))
+    .where(and(eq(syncTasksT.enabled, true), lte(syncTasksT.nextRunAt, nowIso)))
+    .orderBy(asc(syncTasksT.nextRunAt))
     .limit(20);
 
-  if (error) {
-    throw new Error(`Failed to load due tasks: ${error.message}`);
-  }
-
   const results: any[] = [];
-  for (const task of dueTasks || []) {
-    const result = await runTask(supabase, task, triggeredBy);
+  for (const task of dueTasks) {
+    const taskWithRel = {
+      ...task,
+      languages: task.language_code ? { code: task.language_code, name: task.language_name } : null,
+    };
+    const result = await runTask(taskWithRel, triggeredBy);
     if (result.status !== 'skipped') {
       results.push({
         task_id: task.id,
         run_id: result.runId,
         task_type: task.task_type,
-        language_code: task.languages?.code,
+        language_code: task.language_code,
         status: result.status,
         error: result.error || null
       });
@@ -1619,7 +1774,7 @@ export async function runDueDictionaryTasks(
 }
 
 export async function runManualDictionaryTasks(
-  supabase: SupabaseClient,
+  _supabase: IgnoredClient,
   options: {
     taskType?: SyncTaskType;
     languageCode?: string;
@@ -1627,53 +1782,58 @@ export async function runManualDictionaryTasks(
     triggeredBy?: TriggerType;
   } = {}
 ) {
-  await ensureSyncTasksForAllDictionaries(supabase);
+  await ensureSyncTasksForAllDictionaries();
 
   let languageIdFilter: string | null = null;
   if (options.languageCode) {
-    const { data: language } = await supabase
-      .from('languages')
-      .select('id')
-      .eq('code', options.languageCode)
-      .single();
-    languageIdFilter = language?.id ?? null;
+    const langRows = await db
+      .select({ id: languagesT.id })
+      .from(languagesT)
+      .where(eq(languagesT.code, options.languageCode))
+      .limit(1);
+    languageIdFilter = langRows[0]?.id ?? null;
     if (!languageIdFilter) {
       return [];
     }
   }
 
-  let query = supabase
-    .from('dictionary_sync_tasks')
-    .select(`
-      *,
-      languages!dictionary_sync_tasks_language_id_fkey(code, name)
-    `)
-    .eq('enabled', true)
-    .order('next_run_at', { ascending: true })
+  const filters = [eq(syncTasksT.enabled, true)];
+  if (options.taskType) {
+    filters.push(eq(syncTasksT.taskType, options.taskType));
+  }
+  if (languageIdFilter) {
+    filters.push(eq(syncTasksT.languageId, languageIdFilter));
+  }
+
+  const tasks = await db
+    .select({
+      id: syncTasksT.id,
+      task_type: syncTasksT.taskType,
+      language_id: syncTasksT.languageId,
+      interval_minutes: syncTasksT.intervalMinutes,
+      config: syncTasksT.config,
+      language_code: languagesT.code,
+      language_name: languagesT.name,
+    })
+    .from(syncTasksT)
+    .leftJoin(languagesT, eq(syncTasksT.languageId, languagesT.id))
+    .where(and(...filters))
+    .orderBy(asc(syncTasksT.nextRunAt))
     .limit(options.limit ?? 20);
 
-  if (options.taskType) {
-    query = query.eq('task_type', options.taskType);
-  }
-
-  if (languageIdFilter) {
-    query = query.eq('language_id', languageIdFilter);
-  }
-
-  const { data: tasks, error } = await query;
-  if (error) {
-    throw new Error(`Failed to load tasks: ${error.message}`);
-  }
-
   const results: any[] = [];
-  for (const task of tasks || []) {
-    const result = await runTask(supabase, task, options.triggeredBy || 'manual');
+  for (const task of tasks) {
+    const taskWithRel = {
+      ...task,
+      languages: task.language_code ? { code: task.language_code, name: task.language_name } : null,
+    };
+    const result = await runTask(taskWithRel, options.triggeredBy || 'manual');
     if (result.status !== 'skipped') {
       results.push({
         task_id: task.id,
         run_id: result.runId,
         task_type: task.task_type,
-        language_code: task.languages?.code,
+        language_code: task.language_code,
         status: result.status,
         error: result.error || null
       });

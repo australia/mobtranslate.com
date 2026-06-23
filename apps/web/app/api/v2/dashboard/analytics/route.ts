@@ -1,14 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, desc, eq, gte, isNotNull } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { requireUser } from '@/lib/auth-helpers';
+import {
+  languages as languagesT,
+  quizAttempts,
+  quizSessions,
+  spacedRepetitionStates,
+  words as wordsT,
+} from '@/lib/db/schema';
 
 export async function GET(request: NextRequest) {
-  const supabase = await createClient();
-
   // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   const { searchParams } = new URL(request.url);
   const period = searchParams.get('period') || '30d';
@@ -24,104 +29,101 @@ export async function GET(request: NextRequest) {
     }
 
     // Get language info if filtering by language
-    let languageInfo = null;
-    let languageId = null;
-    
+    let languageInfo: { id: string; name: string; code: string } | null = null;
+    let languageId: string | null = null;
+
     if (languageCode) {
-      const { data: langData, error: langError } = await supabase
-        .from('languages')
-        .select('id, name, code')
-        .eq('code', languageCode)
-        .single();
-      
-      if (langError || !langData) {
+      const langRows = await db
+        .select({ id: languagesT.id, name: languagesT.name, code: languagesT.code })
+        .from(languagesT)
+        .where(eq(languagesT.code, languageCode))
+        .limit(1);
+
+      if (!langRows[0]) {
         return NextResponse.json({ error: 'Language not found' }, { status: 404 });
       }
 
-      languageInfo = langData;
-      languageId = langData.id;
+      languageInfo = langRows[0];
+      languageId = langRows[0].id;
     }
 
-    // Get all quiz sessions for the user in the period
-    let sessionQuery = supabase
-      .from('quiz_sessions')
-      .select(`
-        id,
-        language_id,
-        total_questions,
-        correct_answers,
-        accuracy_percentage,
-        streak,
-        avg_response_time_ms,
-        created_at,
-        completed_at,
-        languages(name, code)
-      `)
-      .eq('user_id', user.id)
-      .not('completed_at', 'is', null)
-      .order('created_at', { ascending: false });
+    // Get all completed quiz sessions for the user in the period (+ language)
+    let sessions: any[];
+    try {
+      const sessionFilters = [
+        eq(quizSessions.userId, user!.id),
+        isNotNull(quizSessions.completedAt),
+      ];
+      if (dateFilter) sessionFilters.push(gte(quizSessions.createdAt, dateFilter));
+      if (languageId) sessionFilters.push(eq(quizSessions.languageId, languageId));
 
-    if (dateFilter) {
-      sessionQuery = sessionQuery.gte('created_at', dateFilter);
-    }
-    
-    if (languageId) {
-      sessionQuery = sessionQuery.eq('language_id', languageId);
-    }
+      const sessionRows = await db
+        .select({
+          id: quizSessions.id,
+          language_id: quizSessions.languageId,
+          total_questions: quizSessions.totalQuestions,
+          correct_answers: quizSessions.correctAnswers,
+          accuracy_percentage: quizSessions.accuracyPercentage,
+          streak: quizSessions.streak,
+          avg_response_time_ms: quizSessions.avgResponseTimeMs,
+          created_at: quizSessions.createdAt,
+          completed_at: quizSessions.completedAt,
+          lang_name: languagesT.name,
+          lang_code: languagesT.code,
+        })
+        .from(quizSessions)
+        .leftJoin(languagesT, eq(quizSessions.languageId, languagesT.id))
+        .where(and(...sessionFilters))
+        .orderBy(desc(quizSessions.createdAt));
 
-    const { data: sessions, error: sessionsError } = await sessionQuery;
-
-    if (sessionsError) {
+      sessions = sessionRows.map((s) => ({
+        ...s,
+        languages: s.lang_name ? { name: s.lang_name, code: s.lang_code } : null,
+      }));
+    } catch (sessionsError) {
       console.error('Analytics: error fetching sessions:', sessionsError);
       return NextResponse.json({ error: 'Failed to fetch sessions' }, { status: 500 });
     }
 
-    // Get all quiz attempts in the period for detailed analysis
-    let attemptsQuery = supabase
-      .from('quiz_attempts')
-      .select(`
-        id,
-        word_id,
-        session_id,
-        is_correct,
-        response_time_ms,
-        bucket_at_time,
-        created_at,
-        words!inner(language_id)
-      `)
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false });
-
-    if (dateFilter) {
-      attemptsQuery = attemptsQuery.gte('created_at', dateFilter);
-    }
-
+    // Get all quiz attempts in the period for detailed analysis.
     // Filter by the word's language directly. (Filtering attempts through
     // session_id undercounts, since sessions are often left incomplete.)
-    if (languageId) {
-      attemptsQuery = attemptsQuery.eq('words.language_id', languageId);
-    }
+    let attempts: any[];
+    try {
+      const attemptFilters = [eq(quizAttempts.userId, user!.id)];
+      if (dateFilter) attemptFilters.push(gte(quizAttempts.createdAt, dateFilter));
+      if (languageId) attemptFilters.push(eq(wordsT.languageId, languageId));
 
-    const { data: attempts, error: attemptsError } = await attemptsQuery;
-
-    if (attemptsError) {
+      attempts = await db
+        .select({
+          id: quizAttempts.id,
+          word_id: quizAttempts.wordId,
+          session_id: quizAttempts.sessionId,
+          is_correct: quizAttempts.isCorrect,
+          response_time_ms: quizAttempts.responseTimeMs,
+          bucket_at_time: quizAttempts.bucketAtTime,
+          created_at: quizAttempts.createdAt,
+        })
+        .from(quizAttempts)
+        .innerJoin(wordsT, eq(quizAttempts.wordId, wordsT.id))
+        .where(and(...attemptFilters))
+        .orderBy(desc(quizAttempts.createdAt));
+    } catch (attemptsError) {
       console.error('Analytics: error fetching attempts:', attemptsError);
       return NextResponse.json({ error: 'Failed to fetch attempts' }, { status: 500 });
     }
 
     // Get current spaced repetition states for word counts
-    let statesQuery = supabase
-      .from('spaced_repetition_states')
-      .select('bucket, word_id, words!inner(language_id)')
-      .eq('user_id', user.id);
-    
-    if (languageId) {
-      statesQuery = statesQuery.eq('words.language_id', languageId);
-    }
-    
-    const { data: states, error: statesError } = await statesQuery;
-
-    if (statesError) {
+    let states: Array<{ bucket: number; word_id: string }> = [];
+    try {
+      const stateFilters = [eq(spacedRepetitionStates.userId, user!.id)];
+      if (languageId) stateFilters.push(eq(wordsT.languageId, languageId));
+      states = await db
+        .select({ bucket: spacedRepetitionStates.bucket, word_id: spacedRepetitionStates.wordId })
+        .from(spacedRepetitionStates)
+        .innerJoin(wordsT, eq(spacedRepetitionStates.wordId, wordsT.id))
+        .where(and(...stateFilters));
+    } catch (statesError) {
       console.error('Analytics: error fetching states:', statesError);
     }
 
@@ -178,31 +180,32 @@ export async function GET(request: NextRequest) {
     // Get word statistics if filtering by language
     let wordStats = null;
     if (languageId) {
-      // Get all attempts grouped by word
-      const { data: wordAttempts, error: wordError } = await supabase
-        .from('quiz_attempts')
-        .select(`
-          word_id,
-          is_correct,
-          response_time_ms,
-          created_at,
-          words!inner(
-            id,
-            word,
-            language_id
-          )
-        `)
-        .eq('user_id', user.id)
-        .eq('words.language_id', languageId)
-        .order('created_at', { ascending: false });
-      
-      if (!wordError && wordAttempts) {
+      // Get all attempts grouped by word (joined to the word for its text)
+      let wordAttempts: any[] | null = null;
+      try {
+        wordAttempts = await db
+          .select({
+            word_id: quizAttempts.wordId,
+            is_correct: quizAttempts.isCorrect,
+            response_time_ms: quizAttempts.responseTimeMs,
+            created_at: quizAttempts.createdAt,
+            words: { id: wordsT.id, word: wordsT.word, language_id: wordsT.languageId },
+          })
+          .from(quizAttempts)
+          .innerJoin(wordsT, eq(quizAttempts.wordId, wordsT.id))
+          .where(and(eq(quizAttempts.userId, user!.id), eq(wordsT.languageId, languageId)))
+          .orderBy(desc(quizAttempts.createdAt));
+      } catch (wordError) {
+        console.error('Analytics: error fetching word attempts:', wordError);
+      }
+
+      if (wordAttempts) {
         // Get current bucket states
-        const { data: bucketStates } = await supabase
-          .from('spaced_repetition_states')
-          .select('word_id, bucket')
-          .eq('user_id', user.id);
-        
+        const bucketStates = await db
+          .select({ word_id: spacedRepetitionStates.wordId, bucket: spacedRepetitionStates.bucket })
+          .from(spacedRepetitionStates)
+          .where(eq(spacedRepetitionStates.userId, user!.id));
+
         const bucketMap = new Map(bucketStates?.map(s => [s.word_id, s.bucket]) || []);
         
         // Process word statistics

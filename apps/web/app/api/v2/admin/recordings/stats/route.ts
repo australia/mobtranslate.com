@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
 import { requireAdmin } from '@/lib/recording/server';
 
 export const runtime = 'nodejs';
@@ -13,11 +15,15 @@ export async function GET(request: NextRequest) {
   const speakerId = searchParams.get('speakerId');
   if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
 
-  const { data, error } = await auth.supabase.rpc('recording_corpus_stats', {
-    p_language: languageId,
-    p_speaker: speakerId || null,
-  });
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  let res: any;
+  try {
+    res = await db.execute(
+      sql`select * from public.recording_corpus_stats(${languageId}::uuid, ${speakerId || null}::uuid)`,
+    );
+  } catch (err) {
+    return NextResponse.json({ error: ((err as any)?.cause?.message ?? (err as Error).message) }, { status: 500 });
+  }
 
-  return NextResponse.json(Array.isArray(data) ? data[0] : data);
+  const rows = (Array.isArray(res) ? res : res?.rows ?? []) as Array<Record<string, unknown>>;
+  return NextResponse.json(rows[0] ?? null);
 }

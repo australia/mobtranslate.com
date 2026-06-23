@@ -1,25 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, desc, eq } from 'drizzle-orm';
+import { sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { requireUser } from '@/lib/auth-helpers';
+import { quizAttempts, spacedRepetitionStates } from '@/lib/db/schema';
 
 export async function POST(request: NextRequest) {
-  const supabase = await createClient();
-
-  // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   try {
     const body = await request.json();
-    const { 
+    const {
       sessionId,
-      wordId, 
-      isCorrect, 
+      wordId,
+      isCorrect,
       responseTimeMs,
       selectedAnswer,
       correctAnswer,
-      distractors 
+      distractors
     } = body;
 
     // Validate required fields
@@ -27,104 +26,108 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Get current attempt number for this word
-    const { data: previousAttempts, error: countError } = await supabase
-      .from('quiz_attempts')
-      .select('id')
-      .eq('user_id', user.id)
-      .eq('word_id', wordId);
+    // Get current attempt number for this word (owner-scoped)
+    const previousAttempts = await db
+      .select({ id: quizAttempts.id })
+      .from(quizAttempts)
+      .where(and(eq(quizAttempts.userId, user!.id), eq(quizAttempts.wordId, wordId)));
 
-    if (countError) {
-      console.error('Error counting previous attempts:', countError);
-    }
-
-    const attemptNumber = (previousAttempts?.length || 0) + 1;
+    const attemptNumber = previousAttempts.length + 1;
 
     // Get current spaced repetition state
-    const { data: currentState, error: stateError } = await supabase
-      .from('spaced_repetition_states')
-      .select('*')
-      .eq('user_id', user.id)
-      .eq('word_id', wordId)
-      .single();
+    const currentStateRows = await db
+      .select()
+      .from(spacedRepetitionStates)
+      .where(
+        and(
+          eq(spacedRepetitionStates.userId, user!.id),
+          eq(spacedRepetitionStates.wordId, wordId)
+        )
+      )
+      .limit(1);
 
-    if (stateError && stateError.code !== 'PGRST116') {
-      console.error('Error fetching spaced repetition state:', stateError);
-      return NextResponse.json({ error: 'Failed to fetch learning state' }, { status: 500 });
-    }
-
-    const bucketAtTime = currentState?.bucket || 0;
+    const bucketAtTime = currentStateRows[0]?.bucket ?? 0;
 
     // Insert quiz attempt
-    const { data: attempt, error: attemptError } = await supabase
-      .from('quiz_attempts')
-      .insert({
-        user_id: user.id,
-        word_id: wordId,
-        session_id: sessionId,
-        is_correct: isCorrect,
-        response_time_ms: responseTimeMs,
-        selected_answer: selectedAnswer,
-        correct_answer: correctAnswer,
-        distractors: distractors ? JSON.stringify(distractors) : null,
-        bucket_at_time: bucketAtTime,
-        attempt_number: attemptNumber,
-        user_agent: request.headers.get('user-agent'),
-        ip_address: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip')
-      })
-      .select('id')
-      .single();
-
-    if (attemptError) {
+    let attempt: { id: string } | undefined;
+    try {
+      const inserted = await db
+        .insert(quizAttempts)
+        .values({
+          userId: user!.id,
+          wordId,
+          sessionId: sessionId ?? null,
+          isCorrect,
+          responseTimeMs,
+          selectedAnswer: selectedAnswer ?? null,
+          correctAnswer: correctAnswer ?? null,
+          distractors: distractors ?? null,
+          bucketAtTime,
+          attemptNumber,
+          userAgent: request.headers.get('user-agent'),
+          ipAddress:
+            request.headers.get('x-forwarded-for') ||
+            request.headers.get('x-real-ip')
+        })
+        .returning({ id: quizAttempts.id });
+      attempt = inserted[0];
+    } catch (attemptError) {
       console.error('Error inserting quiz attempt:', attemptError);
       return NextResponse.json({ error: 'Failed to record attempt' }, { status: 500 });
     }
 
     // Update spaced repetition state using the database function
-    const { error: updateError } = await supabase.rpc(
-      'update_spaced_repetition_state',
-      {
-        p_user_id: user.id,
-        p_word_id: wordId,
-        p_is_correct: isCorrect,
-        p_response_time_ms: responseTimeMs
-      }
-    );
-
-    if (updateError) {
+    try {
+      await db.execute(
+        sql`select public.update_spaced_repetition_state(${user!.id}::uuid, ${wordId}::uuid, ${isCorrect}, ${responseTimeMs})`
+      );
+    } catch (updateError) {
       console.error('Error updating spaced repetition state:', updateError);
       // Don't fail the request if state update fails, as the attempt was recorded
     }
 
     // Get updated state to return
-    const { data: updatedState, error: newStateError } = await supabase
-      .from('spaced_repetition_states')
-      .select('bucket, ef, due_date, streak, total_attempts, correct_attempts')
-      .eq('user_id', user.id)
-      .eq('word_id', wordId)
-      .single();
-
-    if (newStateError) {
+    let updatedState:
+      | typeof spacedRepetitionStates.$inferSelect
+      | undefined;
+    try {
+      const updatedRows = await db
+        .select()
+        .from(spacedRepetitionStates)
+        .where(
+          and(
+            eq(spacedRepetitionStates.userId, user!.id),
+            eq(spacedRepetitionStates.wordId, wordId)
+          )
+        )
+        .limit(1);
+      updatedState = updatedRows[0];
+    } catch (newStateError) {
       console.error('Error fetching updated state:', newStateError);
     }
 
     // Return success with updated learning state
     return NextResponse.json({
       success: true,
-      attemptId: attempt.id,
-      updatedState: updatedState ? {
-        bucket: updatedState.bucket,
-        ef: updatedState.ef,
-        dueDate: updatedState.due_date,
-        streak: updatedState.streak,
-        totalAttempts: updatedState.total_attempts,
-        correctAttempts: updatedState.correct_attempts,
-        accuracy: updatedState.total_attempts > 0 
-          ? (updatedState.correct_attempts / updatedState.total_attempts * 100).toFixed(1)
-          : '0.0'
-      } : null
+      attemptId: attempt!.id,
+      updatedState: updatedState
+        ? {
+            bucket: updatedState.bucket,
+            ef: updatedState.ef,
+            dueDate: updatedState.dueDate,
+            streak: updatedState.streak,
+            totalAttempts: updatedState.totalAttempts,
+            correctAttempts: updatedState.correctAttempts,
+            accuracy:
+              updatedState.totalAttempts > 0
+                ? (
+                    (updatedState.correctAttempts / updatedState.totalAttempts) *
+                    100
+                  ).toFixed(1)
+                : '0.0'
+          }
+        : null
     });
-
   } catch (error) {
     console.error('Error processing quiz attempt:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
@@ -133,13 +136,8 @@ export async function POST(request: NextRequest) {
 
 // Get attempt history for a user
 export async function GET(request: NextRequest) {
-  const supabase = await createClient();
-
-  // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   const { searchParams } = new URL(request.url);
   const wordId = searchParams.get('wordId');
@@ -148,48 +146,37 @@ export async function GET(request: NextRequest) {
   const offset = parseInt(searchParams.get('offset') || '0');
 
   try {
-    let query = supabase
-      .from('quiz_attempts')
-      .select(`
-        id,
-        word_id,
-        session_id,
-        is_correct,
-        response_time_ms,
-        selected_answer,
-        correct_answer,
-        bucket_at_time,
-        attempt_number,
-        created_at
-      `)
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false })
-      .range(offset, offset + limit - 1);
+    const filters = [eq(quizAttempts.userId, user!.id)];
+    if (wordId) filters.push(eq(quizAttempts.wordId, wordId));
+    if (sessionId) filters.push(eq(quizAttempts.sessionId, sessionId));
 
-    if (wordId) {
-      query = query.eq('word_id', wordId);
-    }
-
-    if (sessionId) {
-      query = query.eq('session_id', sessionId);
-    }
-
-    const { data: attempts, error } = await query;
-
-    if (error) {
-      console.error('Error fetching quiz attempts:', error);
-      return NextResponse.json({ error: 'Failed to fetch attempts' }, { status: 500 });
-    }
+    const rows = await db
+      .select({
+        id: quizAttempts.id,
+        word_id: quizAttempts.wordId,
+        session_id: quizAttempts.sessionId,
+        is_correct: quizAttempts.isCorrect,
+        response_time_ms: quizAttempts.responseTimeMs,
+        selected_answer: quizAttempts.selectedAnswer,
+        correct_answer: quizAttempts.correctAnswer,
+        bucket_at_time: quizAttempts.bucketAtTime,
+        attempt_number: quizAttempts.attemptNumber,
+        created_at: quizAttempts.createdAt
+      })
+      .from(quizAttempts)
+      .where(and(...filters))
+      .orderBy(desc(quizAttempts.createdAt))
+      .limit(limit)
+      .offset(offset);
 
     return NextResponse.json({
-      attempts: attempts || [],
+      attempts: rows,
       pagination: {
         limit,
         offset,
-        hasMore: attempts?.length === limit
+        hasMore: rows.length === limit
       }
     });
-
   } catch (error) {
     console.error('Error fetching quiz attempts:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

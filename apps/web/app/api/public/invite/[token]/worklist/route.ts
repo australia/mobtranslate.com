@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { publicClient } from '@/lib/recording/public';
+import { sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
 
 export const runtime = 'nodejs';
 
@@ -13,18 +14,16 @@ export async function GET(request: NextRequest, props: { params: Promise<{ token
   const limit = Math.min(60, Number(searchParams.get('limit') ?? 30));
   const offset = Math.max(0, Number(searchParams.get('offset') ?? 0));
 
-  const db = publicClient();
-  const { data, error } = await db.rpc('invite_worklist', {
-    p_token: params.token,
-    p_kind: kind,
-    p_filter: filter,
-    p_q: q,
-    p_limit: limit + 1,
-    p_offset: offset,
-  });
-  if (error) return NextResponse.json({ error: error.message }, { status: 400 });
+  let list: Array<Record<string, unknown>>;
+  try {
+    const r: any = await db.execute(
+      sql`select * from public.invite_worklist(${params.token}, ${kind}, ${filter}, ${q}, ${limit + 1}::int, ${offset}::int)`,
+    );
+    list = (Array.isArray(r) ? r : r.rows ?? []) as Array<Record<string, unknown>>;
+  } catch (err) {
+    return NextResponse.json({ error: ((err as any)?.cause?.message ?? (err as Error).message) }, { status: 400 });
+  }
 
-  const list = (data ?? []) as Array<Record<string, unknown>>;
   const hasMore = list.length > limit;
   return NextResponse.json({ items: hasMore ? list.slice(0, limit) : list, hasMore, offset, kind });
 }

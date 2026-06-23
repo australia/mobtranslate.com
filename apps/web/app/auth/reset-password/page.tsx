@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { createClient } from '@/lib/supabase/client'
+import { authClient } from '@/lib/auth-client'
 import { Button, Input, Card, CardContent, CardFooter } from '@mobtranslate/ui'
 import Link from 'next/link'
 import { Mail, Loader2, AlertCircle, CheckCircle2, ArrowLeft } from 'lucide-react'
@@ -18,18 +18,17 @@ export default function ResetPasswordPage() {
     setLoading(true)
 
     try {
-      const supabase = createClient()
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/auth/callback`,
+      // NOTE: actually sending the email requires `emailAndPassword.sendResetPassword`
+      // to be configured in lib/auth.ts (no mailer is wired on the box yet).
+      // We always show the enumeration-safe success state regardless of result.
+      await authClient.requestPasswordReset({
+        email,
+        redirectTo: `${window.location.origin}/auth/reset-password/confirm`,
       })
-
-      if (error) {
-        setError(error.message)
-      } else {
-        setSuccess(true)
-      }
+      setSuccess(true)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to send reset email')
+      // Stay enumeration-safe: show the generic success message even on error.
+      setSuccess(true)
     } finally {
       setLoading(false)
     }

@@ -5,7 +5,14 @@
 // On apply we snapshot the prior word state into `word_revisions` for a full
 // audit trail, then mutate the underlying words/definitions/translations rows.
 
-import type { SupabaseClient } from '@supabase/supabase-js';
+import { desc, eq } from 'drizzle-orm';
+import { db as drizzle } from '@/lib/db/index';
+import {
+  definitions as definitionsT,
+  translations as translationsT,
+  words as wordsT,
+  wordRevisions as revisionsT,
+} from '@/lib/db/schema';
 
 export const WORD_COLUMN_FIELDS = ['word', 'phonetic_transcription', 'notes', 'word_type'] as const;
 export type WordColumnField = (typeof WORD_COLUMN_FIELDS)[number];
@@ -39,7 +46,25 @@ export interface FieldChange {
   rowId?: string | null;
 }
 
-type DB = SupabaseClient;
+// The `db` parameter is kept for call-site compatibility but is no longer used:
+// these helpers now talk to the shared Drizzle client directly.
+type DB = unknown;
+
+// Map a snake_case words-table column (field_name) to the camelCase Drizzle
+// property key used in `.set({ ... })`.
+const WORD_COLUMN_MAP: Record<string, string> = {
+  word: 'word',
+  normalized_word: 'normalizedWord',
+  phonetic_transcription: 'phoneticTranscription',
+  notes: 'notes',
+  word_type: 'wordType',
+  gender: 'gender',
+  number: 'number',
+  stem: 'stem',
+  register: 'register',
+  domain: 'domain',
+  gloss: 'gloss',
+};
 
 /**
  * Apply one suggestion's change to the underlying tables.
@@ -47,7 +72,7 @@ type DB = SupabaseClient;
  * definition/translation.
  */
 export async function applyWordSuggestion(
-  db: DB,
+  _db: DB,
   suggestion: {
     word_id: string;
     improvement_type: string;
@@ -64,48 +89,57 @@ export async function applyWordSuggestion(
 
   if (improvement_type === 'definition') {
     const v = asRow(suggested_value);
-    if (v.id) await db.from('definitions').update({ definition: v.text }).eq('id', v.id);
-    else await db.from('definitions').insert({ word_id, definition: v.text, is_primary: true, definition_number: 1 });
+    if (v.id) await drizzle.update(definitionsT).set({ definition: v.text }).where(eq(definitionsT.id, v.id));
+    else await drizzle.insert(definitionsT).values({ wordId: word_id, definition: v.text, isPrimary: true, definitionNumber: 1 });
     return;
   }
 
   if (improvement_type === 'translation') {
     const v = asRow(suggested_value);
-    if (v.id) await db.from('translations').update({ translation: v.text }).eq('id', v.id);
-    else await db.from('translations').insert({ word_id, translation: v.text, is_primary: true, target_language: 'en' });
+    if (v.id) await drizzle.update(translationsT).set({ translation: v.text }).where(eq(translationsT.id, v.id));
+    else await drizzle.insert(translationsT).values({ wordId: word_id, translation: v.text, isPrimary: true, targetLanguage: 'en' });
     return;
   }
 
   // Plain words-table column (word / phonetic_transcription / notes / word_type / …).
   // Trust field_name as a column (matches the prior curator behaviour).
   if (field_name) {
-    await db
-      .from('words')
-      .update({ [field_name]: (suggested_value as string) ?? null })
-      .eq('id', word_id);
+    const prop = WORD_COLUMN_MAP[field_name];
+    if (prop) {
+      await drizzle
+        .update(wordsT)
+        .set({ [prop]: (suggested_value as string) ?? null })
+        .where(eq(wordsT.id, word_id));
+    }
   }
 }
 
 /** Snapshot the current word (with definitions + translations) into word_revisions. */
 export async function snapshotWordRevision(
-  db: DB,
+  _db: DB,
   wordId: string,
   userId: string,
   changeDescription: string,
 ): Promise<void> {
-  const [{ data: word }, { data: defs }, { data: trans }, { data: lastRev }] = await Promise.all([
-    db.from('words').select('*').eq('id', wordId).single(),
-    db.from('definitions').select('*').eq('word_id', wordId),
-    db.from('translations').select('*').eq('word_id', wordId),
-    db.from('word_revisions').select('revision_number').eq('word_id', wordId).order('revision_number', { ascending: false }).limit(1).maybeSingle(),
+  const [wordRows, defs, trans, lastRevRows] = await Promise.all([
+    drizzle.select().from(wordsT).where(eq(wordsT.id, wordId)).limit(1),
+    drizzle.select().from(definitionsT).where(eq(definitionsT.wordId, wordId)),
+    drizzle.select().from(translationsT).where(eq(translationsT.wordId, wordId)),
+    drizzle
+      .select({ revisionNumber: revisionsT.revisionNumber })
+      .from(revisionsT)
+      .where(eq(revisionsT.wordId, wordId))
+      .orderBy(desc(revisionsT.revisionNumber))
+      .limit(1),
   ]);
 
-  const revisionNumber = (lastRev?.revision_number ?? 0) + 1;
-  await db.from('word_revisions').insert({
-    word_id: wordId,
-    revision_data: { word, definitions: defs ?? [], translations: trans ?? [] },
-    change_description: changeDescription,
-    changed_by: userId,
-    revision_number: revisionNumber,
+  const word = wordRows[0] ?? null;
+  const revisionNumber = (lastRevRows[0]?.revisionNumber ?? 0) + 1;
+  await drizzle.insert(revisionsT).values({
+    wordId,
+    revisionData: { word, definitions: defs ?? [], translations: trans ?? [] },
+    changeDescription,
+    changedBy: userId,
+    revisionNumber,
   });
 }

@@ -1,15 +1,10 @@
-// Anon Supabase client + helpers for the no-login speaker portal.
-// All privileged work happens inside token-validated SECURITY DEFINER RPCs;
-// this client only ever runs as the `anon` role.
-import { createClient } from '@supabase/supabase-js';
+// Helpers for the no-login speaker portal.
+// Privileged work happens inside token-validated SECURITY DEFINER SQL functions
+// (`invite_*`); we call them via raw SQL against the self-hosted Postgres.
+import { sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
 
 export const RECORDINGS_BUCKET = 'recordings';
-
-export function publicClient() {
-  return createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
-}
 
 export interface InviteContext {
   invite_id: string;
@@ -24,8 +19,15 @@ export interface InviteContext {
 
 /** Resolve + validate an invite token. Returns null if invalid/revoked/expired. */
 export async function resolveInvite(token: string): Promise<InviteContext | null> {
-  const db = publicClient();
-  const { data, error } = await db.rpc('invite_context', { p_token: token });
-  if (error || !data) return null;
-  return data as InviteContext;
+  try {
+    const res: any = await db.execute(
+      sql`select public.invite_context(${token}) as ctx`
+    );
+    const rows = Array.isArray(res) ? res : res?.rows;
+    const ctx = rows?.[0]?.ctx;
+    if (!ctx) return null;
+    return ctx as InviteContext;
+  } catch {
+    return null;
+  }
 }

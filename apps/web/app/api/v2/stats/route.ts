@@ -1,69 +1,81 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { desc, eq, inArray } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { requireUser } from '@/lib/auth-helpers';
+import {
+  languages as languagesT,
+  quizAttempts,
+  spacedRepetitionStates,
+  words as wordsT,
+} from '@/lib/db/schema';
 
 export async function GET(_request: NextRequest) {
-  const supabase = await createClient();
-
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   try {
     // Get all attempts for the user
-    const { data: attempts, error: attemptsError } = await supabase
-      .from('quiz_attempts')
-      .select(`
-        id,
-        word_id,
-        is_correct,
-        response_time_ms,
-        bucket_at_time,
-        created_at
-      `)
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false });
-
-    if (attemptsError) {
+    let attempts: Array<{ id: string; word_id: string; is_correct: boolean; response_time_ms: number; bucket_at_time: number | null; created_at: string }>;
+    try {
+      attempts = await db
+        .select({
+          id: quizAttempts.id,
+          word_id: quizAttempts.wordId,
+          is_correct: quizAttempts.isCorrect,
+          response_time_ms: quizAttempts.responseTimeMs,
+          bucket_at_time: quizAttempts.bucketAtTime,
+          created_at: quizAttempts.createdAt,
+        })
+        .from(quizAttempts)
+        .where(eq(quizAttempts.userId, user!.id))
+        .orderBy(desc(quizAttempts.createdAt));
+    } catch (attemptsError) {
       console.error('Error fetching attempts:', attemptsError);
       return NextResponse.json({ error: 'Failed to fetch attempts' }, { status: 500 });
     }
 
     // Get spaced repetition states
-    const { data: states, error: statesError } = await supabase
-      .from('spaced_repetition_states')
-      .select(`
-        word_id,
-        bucket,
-        streak,
-        due_date
-      `)
-      .eq('user_id', user.id);
-
-    if (statesError) {
+    let states: Array<{ word_id: string; bucket: number; streak: number; due_date: string }>;
+    try {
+      states = await db
+        .select({
+          word_id: spacedRepetitionStates.wordId,
+          bucket: spacedRepetitionStates.bucket,
+          streak: spacedRepetitionStates.streak,
+          due_date: spacedRepetitionStates.dueDate,
+        })
+        .from(spacedRepetitionStates)
+        .where(eq(spacedRepetitionStates.userId, user!.id));
+    } catch (statesError) {
       console.error('Error fetching states:', statesError);
       return NextResponse.json({ error: 'Failed to fetch states' }, { status: 500 });
     }
 
     // Get word IDs from attempts and states
-    const wordIds = new Set<string>();
-    attempts?.forEach(a => wordIds.add(a.word_id));
-    states?.forEach(s => wordIds.add(s.word_id));
+    const wordIdsSet = new Set<string>();
+    attempts?.forEach(a => wordIdsSet.add(a.word_id));
+    states?.forEach(s => wordIdsSet.add(s.word_id));
+    const wordIds = Array.from(wordIdsSet);
 
     // Get word details
-    const { data: words } = await supabase
-      .from('words')
-      .select('id, word, language_id')
-      .in('id', Array.from(wordIds));
+    const words = wordIds.length
+      ? await db
+          .select({ id: wordsT.id, word: wordsT.word, language_id: wordsT.languageId })
+          .from(wordsT)
+          .where(inArray(wordsT.id, wordIds))
+      : [];
 
     // Get language details
-    const languageIds = new Set<string>();
-    words?.forEach(w => languageIds.add(w.language_id));
+    const languageIdsSet = new Set<string>();
+    words?.forEach(w => languageIdsSet.add(w.language_id));
+    const languageIds = Array.from(languageIdsSet);
 
-    const { data: languages } = await supabase
-      .from('languages')
-      .select('id, code, name')
-      .in('id', Array.from(languageIds));
+    const languages = languageIds.length
+      ? await db
+          .select({ id: languagesT.id, code: languagesT.code, name: languagesT.name })
+          .from(languagesT)
+          .where(inArray(languagesT.id, languageIds))
+      : [];
 
     // Create lookup maps
     const wordMap = new Map(words?.map(w => [w.id, w]) || []);

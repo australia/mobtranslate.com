@@ -1,12 +1,17 @@
 import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { and, eq, inArray } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { getSessionUser } from '@/lib/auth-helpers';
+import {
+  languages as languagesT,
+  userRoleAssignments as uraT,
+  userRoles as rolesT,
+} from '@/lib/db/schema';
 import { CuratorDashboard } from '@/components/curator/CuratorDashboard';
 
 export default async function CuratorPage() {
-  const supabase = await createClient();
-  
   // Check authentication
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getSessionUser();
   if (!user) {
     redirect('/auth/signin?redirect=/curator');
   }
@@ -14,22 +19,28 @@ export default async function CuratorPage() {
   // Get languages where user is a curator.
   // user_roles is an inner join so the role-name filter actually restricts the
   // returned assignments (a plain embed filter leaves non-matching parents in place).
-  const { data: curatorAssignments } = await supabase
-    .from('user_role_assignments')
-    .select(`
-      language_id,
-      languages!language_id(
-        id,
-        name,
-        code
-      ),
-      user_roles!role_id!inner(
-        name
+  const rows = await db
+    .select({
+      languageId: uraT.languageId,
+      language: languagesT,
+      roleName: rolesT.name,
+    })
+    .from(uraT)
+    .innerJoin(rolesT, eq(uraT.roleId, rolesT.id))
+    .leftJoin(languagesT, eq(uraT.languageId, languagesT.id))
+    .where(
+      and(
+        eq(uraT.userId, user.id),
+        eq(uraT.isActive, true),
+        inArray(rolesT.name, ['curator', 'dictionary_admin', 'super_admin'])
       )
-    `)
-    .eq('user_id', user.id)
-    .eq('is_active', true)
-    .in('user_roles.name', ['curator', 'dictionary_admin', 'super_admin']);
+    );
+
+  const curatorAssignments = rows.map((r) => ({
+    language_id: r.languageId,
+    languages: r.language ? { id: r.language.id, name: r.language.name, code: r.language.code } : null,
+    user_roles: { name: r.roleName },
+  }));
 
   if (!curatorAssignments || curatorAssignments.length === 0) {
     return (
@@ -63,7 +74,7 @@ export default async function CuratorPage() {
 
   // If user has global role or multiple language assignments, show the dashboard
   const globalRole = curatorAssignments.find(a => !a.language_id);
-  
+
   if (globalRole || curatorAssignments.length > 1) {
     return <CuratorDashboard />;
   }

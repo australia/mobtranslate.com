@@ -1,32 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, count, desc, eq, inArray } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { snakeRow } from '@/lib/db/case';
+import { getSessionUser, requireRole } from '@/lib/auth-helpers';
+import {
+  curatorActivities as curatorActivitiesT,
+  documentUploads as documentUploadsT,
+  languages as languagesT,
+  userProfiles as userProfilesT,
+} from '@/lib/db/schema';
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
-    // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
+    // Authentication required.
+    const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Check if user has appropriate role
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .in('user_roles.name', ['super_admin', 'dictionary_admin', 'curator']);
-
-    const hasAccess = roleAssignments && roleAssignments.length > 0;
-
-    if (!hasAccess) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-    }
+    // Any active super_admin / dictionary_admin / curator assignment (any language).
+    const { response } = await requireRole(['super_admin', 'dictionary_admin', 'curator']);
+    if (response) return response;
 
     // Get query parameters
     const { searchParams } = new URL(request.url);
@@ -36,55 +30,77 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '20');
     const offset = (page - 1) * limit;
 
-    // Build query
-    let query = supabase
-      .from('document_uploads')
-      .select(`
-        *,
-        languages!language_id(
-          id,
-          name,
-          code
-        ),
-        profiles!uploaded_by(
-          id,
-          display_name,
-          username
-        ),
-        approver:profiles!approved_by(
-          id,
-          display_name,
-          username
-        )
-      `, { count: 'exact' })
-      .order('created_at', { ascending: false })
-      .range(offset, offset + limit - 1);
-
-    // Apply filters
+    // Build filters
+    const filters = [];
     if (status) {
-      query = query.eq('processing_status', status);
+      filters.push(eq(documentUploadsT.processingStatus, status));
     }
     if (languageId) {
-      query = query.eq('language_id', languageId);
+      filters.push(eq(documentUploadsT.languageId, languageId));
     }
+    const where = filters.length ? and(...filters) : undefined;
 
-    const { data: documents, count, error } = await query;
+    const [rows, totalRows] = await Promise.all([
+      db
+        .select()
+        .from(documentUploadsT)
+        .where(where)
+        .orderBy(desc(documentUploadsT.createdAt))
+        .limit(limit)
+        .offset(offset),
+      db.select({ value: count() }).from(documentUploadsT).where(where),
+    ]);
 
-    if (error) {
-      console.error('Failed to fetch documents:', error);
-      return NextResponse.json(
-        { error: 'Failed to fetch documents' },
-        { status: 500 }
-      );
-    }
+    const total = totalRows[0]?.value ?? 0;
+
+    // Resolve nested language + uploader/approver profiles for the page.
+    const languageIds = Array.from(
+      new Set(rows.map((r) => r.languageId).filter((id): id is string => !!id))
+    );
+    const profileIds = Array.from(
+      new Set(
+        rows
+          .flatMap((r) => [r.uploadedBy, r.approvedBy])
+          .filter((id): id is string => !!id)
+      )
+    );
+
+    const [langRows, profileRows] = await Promise.all([
+      languageIds.length
+        ? db
+            .select({ id: languagesT.id, name: languagesT.name, code: languagesT.code })
+            .from(languagesT)
+            .where(inArray(languagesT.id, languageIds))
+        : Promise.resolve([] as Array<{ id: string; name: string; code: string }>),
+      profileIds.length
+        ? db
+            .select({
+              id: userProfilesT.userId,
+              display_name: userProfilesT.displayName,
+              username: userProfilesT.username,
+            })
+            .from(userProfilesT)
+            .where(inArray(userProfilesT.userId, profileIds))
+        : Promise.resolve([] as Array<{ id: string; display_name: string | null; username: string }>),
+    ]);
+
+    const langById = new Map(langRows.map((l) => [l.id, l]));
+    const profileById = new Map(profileRows.map((p) => [p.id, p]));
+
+    const documents = rows.map((r) => ({
+      ...snakeRow(r),
+      languages: r.languageId ? langById.get(r.languageId) ?? null : null,
+      profiles: r.uploadedBy ? profileById.get(r.uploadedBy) ?? null : null,
+      approver: r.approvedBy ? profileById.get(r.approvedBy) ?? null : null,
+    }));
 
     return NextResponse.json({
-      documents: documents || [],
+      documents,
       pagination: {
         page,
         limit,
-        total: count || 0,
-        totalPages: Math.ceil((count || 0) / limit)
+        total,
+        totalPages: Math.ceil(total / limit)
       }
     });
   } catch (error) {
@@ -98,10 +114,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
-    // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
+    // Authentication required.
+    const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -128,69 +142,54 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if user has permission to upload for this language
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .or(`language_id.eq.${language_id},language_id.is.null`)
-      .in('user_roles.name', ['contributor', 'curator', 'dictionary_admin', 'super_admin']);
-
-    const hasPermission = roleAssignments && roleAssignments.length > 0;
-
-    if (!hasPermission) {
-      return NextResponse.json(
-        { error: 'No permission to upload documents for this language' },
-        { status: 403 }
-      );
+    // Check if user has permission to upload for this language (language-scoped role).
+    const { response } = await requireRole(
+      ['contributor', 'curator', 'dictionary_admin', 'super_admin'],
+      language_id
+    );
+    if (response) {
+      if (response.status === 403) {
+        return NextResponse.json(
+          { error: 'No permission to upload documents for this language' },
+          { status: 403 }
+        );
+      }
+      return response;
     }
 
     // Create document upload record
-    const { data: document, error } = await supabase
-      .from('document_uploads')
-      .insert({
-        language_id,
-        uploaded_by: user.id,
-        file_name,
-        file_type,
-        file_size,
-        file_url,
-        storage_path,
-        document_type,
-        source_attribution,
-        extraction_config,
-        processing_status: 'pending'
+    const [document] = await db
+      .insert(documentUploadsT)
+      .values({
+        languageId: language_id,
+        uploadedBy: user.id,
+        fileName: file_name,
+        fileType: file_type,
+        fileSize: file_size,
+        fileUrl: file_url,
+        storagePath: storage_path,
+        documentType: document_type,
+        sourceAttribution: source_attribution,
+        extractionConfig: extraction_config,
+        processingStatus: 'pending',
       })
-      .select()
-      .single();
-
-    if (error) {
-      console.error('Failed to create document upload:', error);
-      return NextResponse.json(
-        { error: 'Failed to create document upload' },
-        { status: 500 }
-      );
-    }
+      .returning();
 
     // Log the upload event
-    await supabase.from('curator_activities').insert({
-      user_id: user.id,
-      language_id,
-      activity_type: 'document_uploaded',
-      target_type: 'document',
-      target_id: document.id,
-      activity_data: {
+    await db.insert(curatorActivitiesT).values({
+      userId: user.id,
+      languageId: language_id,
+      activityType: 'document_uploaded',
+      targetType: 'document',
+      targetId: document.id,
+      activityData: {
         file_name,
         file_type,
         document_type
       }
     });
 
-    return NextResponse.json({ document }, { status: 201 });
+    return NextResponse.json({ document: snakeRow(document) }, { status: 201 });
   } catch (error) {
     console.error('Failed to upload document:', error);
     return NextResponse.json(

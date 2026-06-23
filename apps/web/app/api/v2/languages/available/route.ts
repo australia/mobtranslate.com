@@ -1,33 +1,26 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { asc, count, eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { languages as languagesT, words as wordsT } from '@/lib/db/schema';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const supabase = await createClient();
-
   try {
-    const { data: langs, error } = await supabase
-      .from('languages')
-      .select('id, code, name')
-      .eq('is_active', true)
-      .order('name');
+    const langs = await db
+      .select({ id: languagesT.id, code: languagesT.code, name: languagesT.name })
+      .from(languagesT)
+      .where(eq(languagesT.isActive, true))
+      .orderBy(asc(languagesT.name));
 
-    if (error) {
-      console.error('Error fetching languages:', error);
-      return NextResponse.json({ error: 'Failed to fetch languages' }, { status: 500 });
-    }
-
-    // Count words per language with a real COUNT (the previous version embedded
-    // words!inner(id), which returns ONE row per language with words nested — so
-    // the reduce always produced wordCount: 1).
+    // Count words per language with a real COUNT.
     const counted = await Promise.all(
-      (langs ?? []).map(async (l) => {
-        const { count } = await supabase
-          .from('words')
-          .select('*', { count: 'exact', head: true })
-          .eq('language_id', l.id);
-        return { code: l.code, name: l.name, wordCount: count ?? 0 };
+      langs.map(async (l) => {
+        const c = await db
+          .select({ value: count() })
+          .from(wordsT)
+          .where(eq(wordsT.languageId, l.id));
+        return { code: l.code, name: l.name, wordCount: c[0]?.value ?? 0 };
       })
     );
 

@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { requireAdmin } from '@/lib/recording/server';
-import { createClient } from '@/lib/supabase/server';
+import { eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { requireRole, userHasRole } from '@/lib/auth-helpers';
+import {
+  curatorActivities as activitiesT,
+  words as wordsT,
+  wordImprovementSuggestions as wisT,
+} from '@/lib/db/schema';
 import {
   applyWordSuggestion,
   EDITABLE_FIELDS,
@@ -12,6 +18,8 @@ import {
 } from '@/lib/words/editing';
 
 export const runtime = 'nodejs';
+
+const ADMIN_ROLES = ['super_admin', 'dictionary_admin'];
 
 const changeSchema = z.object({
   field: z.enum(['word', 'phonetic_transcription', 'notes', 'word_type', 'definition', 'translation']),
@@ -29,9 +37,8 @@ const bodySchema = z.object({
 // suggestion + revision); other curators leave them pending for /curator.
 export async function POST(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-  const db = auth.supabase;
+  const { user, response } = await requireRole(ADMIN_ROLES);
+  if (response) return response;
   const wordId = params.id;
 
   let body: z.infer<typeof bodySchema>;
@@ -46,17 +53,21 @@ export async function POST(request: NextRequest, props: { params: Promise<{ id: 
   if (changes.length === 0) return NextResponse.json({ applied: 0, queued: 0, suggestions: [] });
 
   // Self-approve only for super_admins (per policy); others queue for review.
-  const userClient = await createClient();
-  const { data: isSuper } = await userClient.rpc('user_has_role', { user_uuid: auth.user.id, role_names: ['super_admin'] });
+  const isSuper = await userHasRole(user!.id, ['super_admin']);
   const selfApprove = !!isSuper;
 
-  const { data: word } = await db.from('words').select('id, language_id').eq('id', wordId).single();
+  const wordRows = await db
+    .select({ id: wordsT.id, languageId: wordsT.languageId })
+    .from(wordsT)
+    .where(eq(wordsT.id, wordId))
+    .limit(1);
+  const word = wordRows[0];
   if (!word) return NextResponse.json({ error: 'Word not found' }, { status: 404 });
 
   // Snapshot the current state before any mutation (only when applying now).
   if (selfApprove) {
     const summary = changes.map((c) => FIELD_LABELS[c.field as EditableField]).join(', ');
-    await snapshotWordRevision(db, wordId, auth.user.id, `Edited: ${summary}`);
+    await snapshotWordRevision(db, wordId, user!.id, `Edited: ${summary}`);
   }
 
   const created: unknown[] = [];
@@ -74,26 +85,29 @@ export async function POST(request: NextRequest, props: { params: Promise<{ id: 
     const currentValue = isRowField ? { id: c.rowId ?? null, text: c.current ?? '' } : (c.current ?? '');
     const fieldName = isRowField ? field : field;
 
-    const { data: suggestion, error: insErr } = await db
-      .from('word_improvement_suggestions')
-      .insert({
-        word_id: wordId,
-        submitted_by: auth.user.id,
-        improvement_type: improvementType,
-        field_name: fieldName,
-        current_value: currentValue,
-        suggested_value: suggestedValue,
-        improvement_reason: body.reason ?? null,
-        status: selfApprove ? 'implemented' : 'pending',
-        reviewed_by: selfApprove ? auth.user.id : null,
-        reviewed_at: selfApprove ? new Date().toISOString() : null,
-        implemented_at: selfApprove ? new Date().toISOString() : null,
-        implementation_notes: selfApprove ? 'Self-approved by super_admin from recording studio' : null,
-      })
-      .select()
-      .single();
-
-    if (insErr) return NextResponse.json({ error: insErr.message }, { status: 500 });
+    let suggestion: any;
+    try {
+      const inserted = await db
+        .insert(wisT)
+        .values({
+          wordId,
+          submittedBy: user!.id,
+          improvementType,
+          fieldName,
+          currentValue,
+          suggestedValue,
+          improvementReason: body.reason ?? null,
+          status: selfApprove ? 'implemented' : 'pending',
+          reviewedBy: selfApprove ? user!.id : null,
+          reviewedAt: selfApprove ? new Date().toISOString() : null,
+          implementedAt: selfApprove ? new Date().toISOString() : null,
+          implementationNotes: selfApprove ? 'Self-approved by super_admin from recording studio' : null,
+        })
+        .returning();
+      suggestion = inserted[0];
+    } catch (insErr) {
+      return NextResponse.json({ error: insErr instanceof Error ? insErr.message : String(insErr) }, { status: 500 });
+    }
     created.push(suggestion);
 
     if (selfApprove) {
@@ -110,13 +124,13 @@ export async function POST(request: NextRequest, props: { params: Promise<{ id: 
   }
 
   // Log the activity for the curator dashboard / audit trail.
-  await db.from('curator_activities').insert({
-    user_id: auth.user.id,
-    language_id: word.language_id,
-    activity_type: selfApprove ? 'word_edited' : 'edit_suggested',
-    target_type: 'word',
-    target_id: wordId,
-    activity_data: { fields: changes.map((c) => c.field), applied, queued, reason: body.reason ?? null },
+  await db.insert(activitiesT).values({
+    userId: user!.id,
+    languageId: word.languageId,
+    activityType: selfApprove ? 'word_edited' : 'edit_suggested',
+    targetType: 'word',
+    targetId: wordId,
+    activityData: { fields: changes.map((c) => c.field), applied, queued, reason: body.reason ?? null },
   });
 
   return NextResponse.json({ applied, queued, selfApprove, suggestions: created });

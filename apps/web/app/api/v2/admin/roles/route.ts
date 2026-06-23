@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { asc } from 'drizzle-orm';
 import { z } from 'zod';
+import { db } from '@/lib/db/index';
+import { snakeRow, snakeRows } from '@/lib/db/case';
+import { requireRole } from '@/lib/auth-helpers';
+import { userRoles as userRolesT } from '@/lib/db/schema';
 
 const createRoleSchema = z.object({
   name: z.string().min(1).max(50),
@@ -10,40 +14,23 @@ const createRoleSchema = z.object({
 });
 
 export async function GET(_request: NextRequest) {
-  const supabase = await createClient();
-  
   try {
-    // Check if user is super admin
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    if (authError || !user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+    // Only super admins may view roles.
+    const { response } = await requireRole(['super_admin']);
+    if (response) {
+      // Preserve the original "Admin access required" message on 403.
+      if (response.status === 403) {
+        return NextResponse.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
+      }
+      return response;
     }
 
-    const { data: isAdmin } = await supabase
-      .rpc('user_has_role', {
-        user_uuid: user.id,
-        role_names: ['super_admin']
-      });
+    const roles = await db
+      .select()
+      .from(userRolesT)
+      .orderBy(asc(userRolesT.createdAt));
 
-    if (!isAdmin) {
-      return NextResponse.json(
-        { error: 'Forbidden: Admin access required' },
-        { status: 403 }
-      );
-    }
-
-    // Get all roles
-    const { data: roles, error } = await supabase
-      .from('user_roles')
-      .select('*')
-      .order('created_at', { ascending: true });
-
-    if (error) throw error;
-
-    return NextResponse.json(roles);
+    return NextResponse.json(snakeRows(roles));
   } catch (error) {
     console.error('Error fetching roles:', error);
     return NextResponse.json(
@@ -54,48 +41,31 @@ export async function GET(_request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const supabase = await createClient();
-  
   try {
-    // Check if user is super admin
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    if (authError || !user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
-    const { data: isAdmin } = await supabase
-      .rpc('user_has_role', {
-        user_uuid: user.id,
-        role_names: ['super_admin']
-      });
-
-    if (!isAdmin) {
-      return NextResponse.json(
-        { error: 'Forbidden: Admin access required' },
-        { status: 403 }
-      );
+    // Only super admins may create roles.
+    const { response } = await requireRole(['super_admin']);
+    if (response) {
+      if (response.status === 403) {
+        return NextResponse.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
+      }
+      return response;
     }
 
     // Parse and validate request body
     const body = await request.json();
     const validatedData = createRoleSchema.parse(body);
 
-    // Create role
-    const { data: role, error } = await supabase
-      .from('user_roles')
-      .insert({
-        ...validatedData,
-        permissions: validatedData.permissions || {}
+    const [role] = await db
+      .insert(userRolesT)
+      .values({
+        name: validatedData.name,
+        displayName: validatedData.display_name,
+        description: validatedData.description ?? null,
+        permissions: validatedData.permissions || {},
       })
-      .select()
-      .single();
+      .returning();
 
-    if (error) throw error;
-
-    return NextResponse.json(role, { status: 201 });
+    return NextResponse.json(snakeRow(role), { status: 201 });
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
@@ -103,7 +73,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    
+
     console.error('Error creating role:', error);
     return NextResponse.json(
       { error: 'Failed to create role' },

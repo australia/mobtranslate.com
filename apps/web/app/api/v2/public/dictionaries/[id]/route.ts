@@ -1,6 +1,11 @@
-import { createClient } from '@supabase/supabase-js'
+import { and, count, eq, or } from 'drizzle-orm'
+import { db } from '@/lib/db/index'
+import { languages as languagesT, words as wordsT } from '@/lib/db/schema'
+import { snakeRow } from '@/lib/db/case'
 import { createSuccessResponse, createErrorResponse, corsHeaders } from '../../../middleware'
 import { NextRequest } from 'next/server'
+
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 export async function OPTIONS() {
   return new Response(null, { status: 200, headers: corsHeaders() })
@@ -9,28 +14,30 @@ export async function OPTIONS() {
 export async function GET(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   try {
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
-    
     const { id } = params
 
-    const { data: language, error } = await supabase
-      .from('languages')
-      .select('*')
-      .or(`id.eq.${id},code.eq.${id}`)
-      .eq('is_active', true)
-      .single()
+    // Match by code, or by id when the param is a valid UUID (avoids casting errors).
+    const idOrCode = UUID_RE.test(id)
+      ? or(eq(languagesT.id, id), eq(languagesT.code, id))!
+      : eq(languagesT.code, id)
 
-    if (error || !language) {
+    const langRows = await db
+      .select()
+      .from(languagesT)
+      .where(and(idOrCode, eq(languagesT.isActive, true)))
+      .limit(1)
+
+    const langRow = langRows[0]
+    if (!langRow) {
       return createErrorResponse('Dictionary not found', 404)
     }
+    const language = snakeRow(langRow)
 
-    const { count: wordCount } = await supabase
-      .from('words')
-      .select('*', { count: 'exact', head: true })
-      .eq('language_id', language.id)
+    const wordCountRows = await db
+      .select({ value: count() })
+      .from(wordsT)
+      .where(eq(wordsT.languageId, langRow.id))
+    const wordCount = wordCountRows[0]?.value ?? 0
 
     return createSuccessResponse({
       id: language.id,

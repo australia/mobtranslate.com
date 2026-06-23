@@ -1,29 +1,25 @@
 import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { asc, eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { languages as languagesT } from '@/lib/db/schema';
+import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
 import { RecordingStudio } from './studio/RecordingStudio';
 import type { LanguageOption } from './studio/api';
 
 export const dynamic = 'force-dynamic';
 
 export default async function RecordingsPage() {
-  const supabase = await createClient();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getSessionUser();
   if (!user) redirect('/auth/signin?redirect=/admin/recordings');
 
-  const { data: isAdmin } = await supabase.rpc('user_has_role', {
-    user_uuid: user.id,
-    role_names: ['super_admin', 'dictionary_admin'],
-  });
+  const isAdmin = await userHasRole(user.id, ['super_admin', 'dictionary_admin']);
   if (!isAdmin) redirect('/');
 
-  const { data: langs } = await supabase
-    .from('languages')
-    .select('id, code, name')
-    .eq('is_active', true)
-    .order('name');
+  const langs = await db
+    .select({ id: languagesT.id, code: languagesT.code, name: languagesT.name })
+    .from(languagesT)
+    .where(eq(languagesT.isActive, true))
+    .orderBy(asc(languagesT.name));
 
   const languages = (langs ?? []) as LanguageOption[];
 

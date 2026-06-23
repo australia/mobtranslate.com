@@ -1,10 +1,13 @@
 'use client'
 
-import React, { createContext, useContext, useEffect, useState } from 'react'
-import { User } from '@supabase/supabase-js'
+import React, { createContext, useContext } from 'react'
+import { authClient } from '@/lib/auth-client'
 
+// Public API kept identical to the old Supabase-backed context so the ~18
+// consumers (pages + components/auth/*) don't change. Internally backed by
+// better-auth (lib/auth-client.ts).
 interface AuthContextType {
-  user: User | null
+  user: any | null
   loading: boolean
   signIn: (_email: string, _password: string) => Promise<{ needsProfile?: boolean; user?: any; [key: string]: any }>
   signUp: (_email: string, _password: string, _username: string) => Promise<void>
@@ -15,84 +18,37 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null)
-  const [loading, setLoading] = useState(true)
+  const { data: session, isPending, refetch } = authClient.useSession()
+  const user = session?.user ?? null
 
   const refreshUser = async () => {
-    try {
-      const response = await fetch('/api/auth/user')
-      if (response.ok) {
-        const data = await response.json()
-        setUser(data.user)
-      } else {
-        setUser(null)
-      }
-    } catch (error) {
-      console.error('Error fetching user:', error)
-      setUser(null)
-    } finally {
-      setLoading(false)
-    }
+    await refetch?.()
   }
 
-  useEffect(() => {
-    refreshUser()
-  }, [])
-
   const signIn = async (email: string, password: string) => {
-    const response = await fetch('/api/auth/signin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
-
-    const data = await response.json()
-
-    if (!response.ok) {
-      throw new Error(data.error || 'Failed to sign in')
+    const { data, error } = await authClient.signIn.email({ email, password })
+    if (error) {
+      throw new Error(error.message || 'Failed to sign in')
     }
-
-    setUser(data.user)
-    
-    // Return the response data so components can check needsProfile
-    return data
+    await refetch?.()
+    // Profiles are auto-created on signup, so a profile always exists.
+    return { needsProfile: false, user: data?.user }
   }
 
   const signUp = async (email: string, password: string, username: string) => {
-    const response = await fetch('/api/auth/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password, username }),
-    })
-
-    const data = await response.json()
-
-    if (!response.ok) {
-      throw new Error(data.error || 'Failed to sign up')
+    const { error } = await authClient.signUp.email({ email, password, name: username })
+    if (error) {
+      throw new Error(error.message || 'Failed to sign up')
     }
-
-    // Note: User needs to confirm email before they can sign in
-    // Don't set user here
   }
 
   const signOut = async () => {
-    const response = await fetch('/api/auth/signout', {
-      method: 'POST',
-    })
-
-    if (!response.ok) {
-      throw new Error('Failed to sign out')
-    }
-
-    setUser(null)
+    await authClient.signOut()
+    await refetch?.()
   }
 
   return (
-    <AuthContext.Provider value={{ user, loading, signIn, signUp, signOut, refreshUser }}>
+    <AuthContext.Provider value={{ user, loading: isPending, signIn, signUp, signOut, refreshUser }}>
       {children}
     </AuthContext.Provider>
   )

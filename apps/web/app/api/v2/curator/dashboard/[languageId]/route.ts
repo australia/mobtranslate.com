@@ -1,34 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, desc, eq, gte, inArray, lte, count } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { snakeRow, snakeRows } from '@/lib/db/case';
+import { requireRole } from '@/lib/auth-helpers';
+import {
+  curatorActivities as activitiesT,
+  curatorMetrics as metricsT,
+  languageCurationSettings as settingsT,
+  userProfiles as profilesT,
+  words as wordsT,
+  wordComments as commentsT,
+  wordImprovementSuggestions as wisT,
+} from '@/lib/db/schema';
 
-export async function GET(request: NextRequest, props: { params: Promise<{ languageId: string }> }) {
+export async function GET(_request: NextRequest, props: { params: Promise<{ languageId: string }> }) {
   const params = await props.params;
   const { languageId } = params;
-  const supabase = await createClient();
 
   try {
-    // Check authentication and curator role
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    if (authError || !user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
-    // Check if user is a curator for this language
-    const { data: roleCheck } = await supabase
-      .rpc('user_has_role', {
-        user_uuid: user.id,
-        role_names: ['curator', 'dictionary_admin', 'super_admin'],
-        lang_id: languageId
-      });
-
-    if (!roleCheck) {
-      return NextResponse.json(
-        { error: 'Forbidden: User is not a curator for this language' },
-        { status: 403 }
-      );
+    // Check authentication and curator role for this language.
+    const { user, response } = await requireRole(
+      ['curator', 'dictionary_admin', 'super_admin'],
+      languageId
+    );
+    if (response) {
+      // Preserve original error message for the 403 case.
+      if (response.status === 403) {
+        return NextResponse.json(
+          { error: 'Forbidden: User is not a curator for this language' },
+          { status: 403 }
+        );
+      }
+      return response;
     }
 
     // Get dashboard stats
@@ -37,98 +40,98 @@ export async function GET(request: NextRequest, props: { params: Promise<{ langu
       recentComments,
       unverifiedWords,
       recentActivity,
-      languageSettings
+      languageSettings,
     ] = await Promise.all([
-      // Pending improvements
-      supabase
-        .from('word_improvement_suggestions')
-        .select('id', { count: 'exact' })
-        .eq('status', 'pending')
-        .in('word_id',
-          supabase
-            .from('words')
-            .select('id')
-            .eq('language_id', languageId) as any
-        ),
+      // Pending improvements (for words in this language)
+      db
+        .select({ value: count() })
+        .from(wisT)
+        .leftJoin(wordsT, eq(wisT.wordId, wordsT.id))
+        .where(and(eq(wisT.status, 'pending'), eq(wordsT.languageId, languageId))),
 
-      // Recent comments (last 24 hours)
-      supabase
-        .from('word_comments')
-        .select('id', { count: 'exact' })
-        .gte('created_at', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString())
-        .in('word_id',
-          supabase
-            .from('words')
-            .select('id')
-            .eq('language_id', languageId) as any
+      // Recent comments (last 24 hours, for words in this language)
+      db
+        .select({ value: count() })
+        .from(commentsT)
+        .leftJoin(wordsT, eq(commentsT.wordId, wordsT.id))
+        .where(
+          and(
+            gte(commentsT.createdAt, new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()),
+            eq(wordsT.languageId, languageId)
+          )
         ),
 
       // Unverified words
-      supabase
-        .from('words')
-        .select('id', { count: 'exact' })
-        .eq('language_id', languageId)
-        .eq('is_verified', false),
+      db
+        .select({ value: count() })
+        .from(wordsT)
+        .where(and(eq(wordsT.languageId, languageId), eq(wordsT.isVerified, false))),
 
-      // Recent curator activity
-      supabase
-        .from('curator_activities')
-        .select(`
-          *,
-          user:profiles!user_id(
-            display_name,
-            avatar_url
-          )
-        `)
-        .eq('language_id', languageId)
-        .order('created_at', { ascending: false })
+      // Recent curator activity (+ acting user's profile)
+      db
+        .select({ activity: activitiesT, profile: profilesT })
+        .from(activitiesT)
+        .leftJoin(profilesT, eq(activitiesT.userId, profilesT.userId))
+        .where(eq(activitiesT.languageId, languageId))
+        .orderBy(desc(activitiesT.createdAt))
         .limit(10),
 
       // Language curation settings
-      supabase
-        .from('language_curation_settings')
-        .select('*')
-        .eq('language_id', languageId)
-        .single()
+      db.select().from(settingsT).where(eq(settingsT.languageId, languageId)).limit(1),
     ]);
 
-    // Get words needing review
-    const { data: wordsNeedingReview } = await supabase
-      .from('words_needing_review')
-      .select('*')
-      .eq('language_id', languageId)
+    // Words needing review (unverified) — the legacy `words_needing_review` view
+    // does not exist in the self-hosted schema, so derive it from unverified words.
+    const wordsNeedingReview = await db
+      .select()
+      .from(wordsT)
+      .where(and(eq(wordsT.languageId, languageId), eq(wordsT.isVerified, false)))
       .limit(5);
 
-    // Get curator's recent metrics
+    // Get curator's recent metrics for the current month.
     const currentMonth = new Date();
     const periodStart = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
     const periodEnd = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0);
 
-    const { data: curatorMetrics } = await supabase
-      .from('curator_metrics')
-      .select('*')
-      .eq('user_id', user.id)
-      .eq('language_id', languageId)
-      .gte('period_start', periodStart.toISOString())
-      .lte('period_end', periodEnd.toISOString())
-      .single();
+    const curatorMetricsRows = await db
+      .select()
+      .from(metricsT)
+      .where(
+        and(
+          eq(metricsT.userId, user!.id),
+          eq(metricsT.languageId, languageId),
+          gte(metricsT.periodStart, periodStart.toISOString()),
+          lte(metricsT.periodEnd, periodEnd.toISOString())
+        )
+      )
+      .limit(1);
+    const curatorMetrics = curatorMetricsRows[0] ?? null;
+
+    const recentActivityData = recentActivity.map((row) => ({
+      ...snakeRow(row.activity),
+      user: row.profile
+        ? { display_name: row.profile.displayName, avatar_url: row.profile.avatarUrl }
+        : null,
+    }));
 
     const dashboardData = {
       stats: {
-        pending_improvements: pendingImprovements?.count || 0,
-        recent_comments: recentComments?.count || 0,
-        unverified_words: unverifiedWords?.count || 0
+        pending_improvements: pendingImprovements[0]?.value || 0,
+        recent_comments: recentComments[0]?.value || 0,
+        unverified_words: unverifiedWords[0]?.value || 0,
       },
-      recent_activity: recentActivity?.data || [],
-      words_needing_review: wordsNeedingReview || [],
-      curator_metrics: curatorMetrics || {
-        words_reviewed: 0,
-        words_approved: 0,
-        words_rejected: 0,
-        improvements_reviewed: 0,
-        comments_moderated: 0
-      },
-      language_settings: languageSettings?.data || null
+      recent_activity: recentActivityData,
+      words_needing_review: snakeRows(wordsNeedingReview),
+      curator_metrics: curatorMetrics
+        ? snakeRow(curatorMetrics)
+        : {
+            words_reviewed: 0,
+            words_approved: 0,
+            words_rejected: 0,
+            improvements_reviewed: 0,
+            comments_moderated: 0,
+          },
+      language_settings: languageSettings[0] ? snakeRow(languageSettings[0]) : null,
     };
 
     return NextResponse.json(dashboardData);

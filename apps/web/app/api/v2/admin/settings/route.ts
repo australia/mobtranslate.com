@@ -1,5 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { snakeRow } from '@/lib/db/case';
+import { getSessionUser, requireRole } from '@/lib/auth-helpers';
+import {
+  curatorActivities as curatorActivitiesT,
+  languageCurationSettings as languageCurationSettingsT,
+} from '@/lib/db/schema';
 
 interface SystemSettings {
   general: {
@@ -64,30 +71,9 @@ const DEFAULT_SETTINGS: SystemSettings = {
 
 export async function GET(_request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
-    // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    // Check if user is super admin
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .eq('user_roles.name', 'super_admin');
-
-    const isSuperAdmin = roleAssignments && roleAssignments.length > 0;
-
-    if (!isSuperAdmin) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-    }
+    // Only super admins may view system settings.
+    const { response } = await requireRole(['super_admin']);
+    if (response) return response;
 
     // In production, fetch settings from database
     // For now, return default settings
@@ -103,30 +89,9 @@ export async function GET(_request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
-    // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    // Check if user is super admin
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .eq('user_roles.name', 'super_admin');
-
-    const isSuperAdmin = roleAssignments && roleAssignments.length > 0;
-
-    if (!isSuperAdmin) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-    }
+    // Only super admins may update system settings.
+    const { user, response } = await requireRole(['super_admin']);
+    if (response) return response;
 
     // Get updated settings from request body
     const updatedSettings = await request.json();
@@ -153,12 +118,12 @@ export async function PUT(request: NextRequest) {
     }
 
     // Log the settings update
-    await supabase.from('curator_activities').insert({
-      user_id: user.id,
-      activity_type: 'settings_updated',
-      target_type: 'system',
-      target_id: '00000000-0000-0000-0000-000000000000', // System-level action
-      activity_data: {
+    await db.insert(curatorActivitiesT).values({
+      userId: user!.id,
+      activityType: 'settings_updated',
+      targetType: 'system',
+      targetId: '00000000-0000-0000-0000-000000000000', // System-level action
+      activityData: {
         updated_sections: Object.keys(updatedSettings),
         timestamp: new Date().toISOString()
       }
@@ -182,10 +147,8 @@ export async function PUT(request: NextRequest) {
 // Language-specific settings endpoint
 export async function PATCH(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
-    // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
+    // Authentication required to reach this endpoint.
+    const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -199,61 +162,59 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
-    // Check if user is admin for this language
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .or(`language_id.eq.${languageId},language_id.is.null`)
-      .in('user_roles.name', ['dictionary_admin', 'super_admin']);
-
-    const hasPermission = roleAssignments && roleAssignments.length > 0;
-
-    if (!hasPermission) {
-      return NextResponse.json(
-        { error: 'No permission to update settings for this language' },
-        { status: 403 }
-      );
+    // Check if user is admin for this language (language-scoped role; the SQL
+    // user_has_role(uuid, roles, lang_id) also matches global/null-language grants).
+    const { response } = await requireRole(['dictionary_admin', 'super_admin'], languageId);
+    if (response) {
+      if (response.status === 403) {
+        return NextResponse.json(
+          { error: 'No permission to update settings for this language' },
+          { status: 403 }
+        );
+      }
+      return response;
     }
 
-    // Update language curation settings
-    const { data: updatedSettings, error } = await supabase
-      .from('language_curation_settings')
-      .upsert({
-        language_id: languageId,
-        ...settings,
-        updated_at: new Date().toISOString()
+    // The client sends snake_case column keys (mirroring the old Supabase shape);
+    // Drizzle expects camelCase column properties, so map keys back.
+    const toCamel = (k: string) => k.replace(/_([a-z])/g, (_, c) => c.toUpperCase());
+    const camelSettings: Record<string, any> = {};
+    for (const [k, v] of Object.entries(settings as Record<string, any>)) {
+      camelSettings[toCamel(k)] = v;
+    }
+
+    // Update language curation settings (upsert on the unique language_id).
+    const [updatedSettings] = await db
+      .insert(languageCurationSettingsT)
+      .values({
+        languageId,
+        ...camelSettings,
+        updatedAt: new Date().toISOString(),
       })
-      .select()
-      .single();
-
-    if (error) {
-      console.error('Failed to update language settings:', error);
-      return NextResponse.json(
-        { error: 'Failed to update language settings' },
-        { status: 500 }
-      );
-    }
+      .onConflictDoUpdate({
+        target: languageCurationSettingsT.languageId,
+        set: {
+          ...camelSettings,
+          updatedAt: new Date().toISOString(),
+        },
+      })
+      .returning();
 
     // Log the update
-    await supabase.from('curator_activities').insert({
-      user_id: user.id,
-      language_id: languageId,
-      activity_type: 'language_settings_updated',
-      target_type: 'language',
-      target_id: languageId,
-      activity_data: {
+    await db.insert(curatorActivitiesT).values({
+      userId: user.id,
+      languageId,
+      activityType: 'language_settings_updated',
+      targetType: 'language',
+      targetId: languageId,
+      activityData: {
         updated_fields: Object.keys(settings)
       }
     });
 
     return NextResponse.json({
       message: 'Language settings updated successfully',
-      settings: updatedSettings
+      settings: snakeRow(updatedSettings)
     });
   } catch (error) {
     console.error('Failed to update language settings:', error);

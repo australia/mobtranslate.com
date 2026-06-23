@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { getWordsForLanguage, searchWords } from '@/lib/supabase/queries';
+import { getWordsForLanguage, searchWords } from '@/lib/db/queries';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
 export async function GET(

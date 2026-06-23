@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
 import { Badge } from '@mobtranslate/ui';
-import { getActiveLanguages, getLanguageStats } from '@/lib/supabase/queries';
+import { getActiveLanguages, getLanguageStats } from '@/lib/db/queries';
 import { ArrowRight } from 'lucide-react';
 
 export const revalidate = 3600;

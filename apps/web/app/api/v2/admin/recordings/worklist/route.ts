@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
 import { requireAdmin } from '@/lib/recording/server';
 
 export const runtime = 'nodejs';
@@ -17,24 +19,22 @@ export async function GET(request: NextRequest) {
   const limit = Math.min(100, Number(searchParams.get('limit') ?? 40));
   const offset = Math.max(0, Number(searchParams.get('offset') ?? 0));
 
-  const db = auth.supabase;
-
   // Fetch one extra row to compute hasMore without a separate count query.
-  const [{ data: rows, error: wlErr }, { data: progress, error: pErr }] = await Promise.all([
-    db.rpc('recording_worklist', {
-      p_language: languageId,
-      p_filter: filter,
-      p_q: q,
-      p_limit: limit + 1,
-      p_offset: offset,
-    }),
-    db.rpc('recording_progress', { p_language: languageId }),
-  ]);
+  let wlRes: any;
+  let pRes: any;
+  try {
+    [wlRes, pRes] = await Promise.all([
+      db.execute(
+        sql`select * from public.recording_worklist(${languageId}::uuid, ${filter}, ${q}, ${limit + 1}::int, ${offset}::int)`,
+      ),
+      db.execute(sql`select * from public.recording_progress(${languageId}::uuid)`),
+    ]);
+  } catch (err) {
+    return NextResponse.json({ error: ((err as any)?.cause?.message ?? (err as Error).message) }, { status: 500 });
+  }
 
-  if (wlErr) return NextResponse.json({ error: wlErr.message }, { status: 500 });
-  if (pErr) return NextResponse.json({ error: pErr.message }, { status: 500 });
-
-  const list = (rows ?? []) as Array<Record<string, unknown>>;
+  const list = (Array.isArray(wlRes) ? wlRes : wlRes?.rows ?? []) as Array<Record<string, unknown>>;
+  const progressRows = (Array.isArray(pRes) ? pRes : pRes?.rows ?? []) as Array<Record<string, unknown>>;
   const hasMore = list.length > limit;
   const items = hasMore ? list.slice(0, limit) : list;
 
@@ -42,6 +42,6 @@ export async function GET(request: NextRequest) {
     items,
     hasMore,
     offset,
-    progress: Array.isArray(progress) ? progress[0] : progress,
+    progress: progressRows[0] ?? null,
   });
 }

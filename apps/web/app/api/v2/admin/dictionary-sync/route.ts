@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
-import { createAdminClient } from '@/lib/supabase/admin';
+import { asc, count, desc, eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { snakeRows } from '@/lib/db/case';
+import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
+import {
+  dictionaryLocationCache as locationCacheT,
+  dictionarySyncRuns as syncRunsT,
+  dictionarySyncTasks as syncTasksT,
+  languages as languagesT,
+} from '@/lib/db/schema';
 import {
   ensureSyncTasksForAllDictionaries,
   runDueDictionaryTasks,
@@ -8,19 +16,13 @@ import {
 } from '@/lib/dictionary-sync/engine';
 
 async function isAdminAuthenticated() {
-  const supabase = await createClient();
-  const {
-    data: { user }
-  } = await supabase.auth.getUser();
+  const user = await getSessionUser();
 
   if (!user) {
     return { ok: false, status: 401, userId: null as string | null };
   }
 
-  const { data: hasRole } = await supabase.rpc('user_has_role', {
-    user_uuid: user.id,
-    role_names: ['super_admin', 'dictionary_admin']
-  });
+  const hasRole = await userHasRole(user.id, ['super_admin', 'dictionary_admin']);
 
   if (!hasRole) {
     return { ok: false, status: 403, userId: user.id };
@@ -42,50 +44,51 @@ export async function GET() {
       return NextResponse.json({ error: auth.status === 401 ? 'Unauthorized' : 'Forbidden' }, { status: auth.status });
     }
 
-    const supabase = createAdminClient();
-    await ensureSyncTasksForAllDictionaries(supabase);
+    await ensureSyncTasksForAllDictionaries();
 
-    const [{ data: tasks, error: tasksError }, { data: runs, error: runsError }, { count: cacheCount, error: cacheError }] =
-      await Promise.all([
-        supabase
-          .from('dictionary_sync_tasks')
-          .select(`
-            *,
-            languages!dictionary_sync_tasks_language_id_fkey(code, name)
-          `)
-          .order('task_type')
-          .order('next_run_at', { ascending: true }),
-        supabase
-          .from('dictionary_sync_runs')
-          .select(`
-            *,
-            languages!dictionary_sync_runs_language_id_fkey(code, name)
-          `)
-          .order('started_at', { ascending: false })
-          .limit(100),
-        supabase
-          .from('dictionary_location_cache')
-          .select('*', { count: 'exact', head: true })
-      ]);
+    // Tasks + their language (code, name) nested under `languages` to match the
+    // original Supabase relation embed.
+    const [taskRows, runRows, cacheCountRows] = await Promise.all([
+      db
+        .select({
+          task: syncTasksT,
+          language_code: languagesT.code,
+          language_name: languagesT.name,
+        })
+        .from(syncTasksT)
+        .leftJoin(languagesT, eq(syncTasksT.languageId, languagesT.id))
+        .orderBy(asc(syncTasksT.taskType), asc(syncTasksT.nextRunAt)),
+      db
+        .select({
+          run: syncRunsT,
+          language_code: languagesT.code,
+          language_name: languagesT.name,
+        })
+        .from(syncRunsT)
+        .leftJoin(languagesT, eq(syncRunsT.languageId, languagesT.id))
+        .orderBy(desc(syncRunsT.startedAt))
+        .limit(100),
+      db.select({ value: count() }).from(locationCacheT),
+    ]);
 
-    if (tasksError) {
-      throw tasksError;
-    }
-    if (runsError) {
-      throw runsError;
-    }
-    if (cacheError) {
-      throw cacheError;
-    }
+    const tasks = taskRows.map((r) => ({
+      ...snakeRows([r.task])[0],
+      languages: r.language_code ? { code: r.language_code, name: r.language_name } : null,
+    }));
+    const runs = runRows.map((r) => ({
+      ...snakeRows([r.run])[0],
+      languages: r.language_code ? { code: r.language_code, name: r.language_name } : null,
+    }));
+    const cacheCount = cacheCountRows[0]?.value ?? 0;
 
-    const runningCount = (tasks || []).filter((task: any) => task.is_running).length;
-    const failingCount = (tasks || []).filter((task: any) => task.last_status === 'failed').length;
-    const successCount = (runs || []).filter((run: any) => run.status === 'success').length;
-    const failureCount = (runs || []).filter((run: any) => run.status === 'failed').length;
+    const runningCount = tasks.filter((task: any) => task.is_running).length;
+    const failingCount = tasks.filter((task: any) => task.last_status === 'failed').length;
+    const successCount = runs.filter((run: any) => run.status === 'success').length;
+    const failureCount = runs.filter((run: any) => run.status === 'failed').length;
 
     return NextResponse.json({
-      tasks: tasks || [],
-      runs: runs || [],
+      tasks,
+      runs,
       stats: {
         running_tasks: runningCount,
         failing_tasks: failingCount,
@@ -115,16 +118,15 @@ export async function POST(request: NextRequest) {
     const taskType = typeof body.task_type === 'string' ? body.task_type : undefined;
     const languageCode = typeof body.language_code === 'string' ? body.language_code : undefined;
 
-    const supabase = createAdminClient();
-    await ensureSyncTasksForAllDictionaries(supabase);
+    await ensureSyncTasksForAllDictionaries();
 
     if (action === 'run_due') {
-      const results = await runDueDictionaryTasks(supabase, isCronRequest ? 'cron' : 'api');
+      const results = await runDueDictionaryTasks(null, isCronRequest ? 'cron' : 'api');
       return NextResponse.json({ action, count: results.length, results });
     }
 
     if (action === 'sync_all') {
-      const results = await runManualDictionaryTasks(supabase, {
+      const results = await runManualDictionaryTasks(null, {
         taskType: 'yaml_sync',
         triggeredBy: isCronRequest ? 'cron' : 'manual',
         limit: 50
@@ -133,7 +135,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === 'enrich_locations') {
-      const results = await runManualDictionaryTasks(supabase, {
+      const results = await runManualDictionaryTasks(null, {
         taskType: 'location_enrichment',
         triggeredBy: isCronRequest ? 'cron' : 'manual',
         limit: 50
@@ -146,9 +148,9 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'language_code is required for run_language' }, { status: 400 });
       }
 
-      const results = await runManualDictionaryTasks(supabase, {
+      const results = await runManualDictionaryTasks(null, {
         languageCode,
-        taskType,
+        taskType: taskType as 'yaml_sync' | 'location_enrichment' | undefined,
         triggeredBy: isCronRequest ? 'cron' : 'manual',
         limit: 10
       });
@@ -161,4 +163,3 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Failed to run dictionary sync action' }, { status: 500 });
   }
 }
-

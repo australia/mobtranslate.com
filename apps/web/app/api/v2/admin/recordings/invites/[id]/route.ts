@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { speakerInvites } from '@/lib/db/schema';
+import { snakeRow } from '@/lib/db/case';
 import { requireAdmin } from '@/lib/recording/server';
 
 export const runtime = 'nodejs';
@@ -19,12 +23,12 @@ export async function PATCH(request: NextRequest, props: { params: Promise<{ id:
     return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
   }
 
-  const { data, error } = await auth.supabase
-    .from('speaker_invites')
-    .update({ status: body.status })
-    .eq('id', params.id)
-    .select()
-    .single();
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json(data);
+  const rows = await db
+    .update(speakerInvites)
+    .set({ status: body.status })
+    .where(eq(speakerInvites.id, params.id))
+    .returning();
+  const data = rows[0];
+  if (!data) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  return NextResponse.json(snakeRow(data));
 }

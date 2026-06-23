@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { ChevronLeft, Mic } from 'lucide-react';
-import { createClient } from '@/lib/supabase/server';
+import { sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { getSessionUser } from '@/lib/auth-helpers';
 import { PortalApp } from '@/app/record/[token]/PortalApp';
 
 export const dynamic = 'force-dynamic';
@@ -14,13 +16,16 @@ interface MyInvite {
 
 export default async function SpeakLanguagePage(props: { params: Promise<{ languageId: string }> }) {
   const params = await props.params;
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getSessionUser();
   if (!user) redirect(`/auth/signin?redirect=/speak/${params.languageId}`);
 
-  const { data } = await supabase.rpc('auth_my_invites');
+  // auth_my_invites() reads auth.uid() from the request.jwt.claim.sub GUC.
+  // Set it transaction-locally so the SECURITY DEFINER function scopes to us.
+  const data = await db.transaction(async (tx) => {
+    await tx.execute(sql`select set_config('request.jwt.claim.sub', ${user.id}, true)`);
+    const res: any = await tx.execute(sql`select * from public.auth_my_invites()`);
+    return Array.isArray(res) ? res : res?.rows ?? [];
+  });
   const invites = (data ?? []) as MyInvite[];
   const invite = invites.find((i) => i.language_id === params.languageId);
 

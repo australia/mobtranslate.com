@@ -1,12 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, desc, eq, gte, inArray, count } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { snakeRow } from '@/lib/db/case';
+import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
+import {
+  curatorActivities as activitiesT,
+  languages as languagesT,
+  userProfiles as profilesT,
+  userRoleAssignments as uraT,
+  userRoles as rolesT,
+  words as wordsT,
+  wordComments as commentsT,
+} from '@/lib/db/schema';
+
+// NOTE: the `word_comments` table has no `is_flagged` / `moderated_at` /
+// `moderated_by` columns in the self-hosted schema (the legacy Supabase code
+// referenced them but they never existed). "Flagged" is therefore derived from
+// downvotes only, and the `approve` action just clears review state without
+// persisting flag columns — preserving the route's response contract.
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
     // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
+    const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -20,16 +36,17 @@ export async function GET(request: NextRequest) {
     const offset = (page - 1) * limit;
 
     // Check if user is a curator
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        language_id,
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .in('user_roles.name', ['curator', 'dictionary_admin', 'super_admin']);
+    const roleAssignments = await db
+      .select({ languageId: uraT.languageId, roleId: uraT.roleId, name: rolesT.name })
+      .from(uraT)
+      .innerJoin(rolesT, eq(uraT.roleId, rolesT.id))
+      .where(
+        and(
+          eq(uraT.userId, user.id),
+          eq(uraT.isActive, true),
+          inArray(rolesT.name, ['curator', 'dictionary_admin', 'super_admin'])
+        )
+      );
 
     if (!roleAssignments || roleAssignments.length === 0) {
       return NextResponse.json({ error: 'Not a curator' }, { status: 403 });
@@ -37,113 +54,122 @@ export async function GET(request: NextRequest) {
 
     // Get languages user can moderate
     const curatorLanguages = roleAssignments
-      .filter(ra => ra.language_id || (ra.user_roles as any).name === 'super_admin' || (ra.user_roles as any).name === 'dictionary_admin')
-      .map(ra => ra.language_id)
-      .filter(Boolean);
+      .filter((ra) => ra.languageId || ra.name === 'super_admin' || ra.name === 'dictionary_admin')
+      .map((ra) => ra.languageId)
+      .filter(Boolean) as string[];
 
-    const isSuperAdmin = roleAssignments.some(ra =>
-      (ra.user_roles as any).name === 'super_admin' || (ra.user_roles as any).name === 'dictionary_admin'
+    const isSuperAdmin = roleAssignments.some(
+      (ra) => ra.name === 'super_admin' || ra.name === 'dictionary_admin'
     );
 
-    // Build comments query
-    let query = supabase
-      .from('word_comments')
-      .select(`
-        *,
-        words!word_id(
-          id,
-          word,
-          language_id,
-          languages!language_id(
-            id,
-            name,
-            code
-          )
-        ),
-        profiles!user_id(
-          id,
-          display_name,
-          username,
-          reputation_score
-        ),
-        parent:word_comments!parent_id(
-          id,
-          comment_text,
-          user_id
-        )
-      `, { count: 'exact' })
-      .order('created_at', { ascending: false })
-      .range(offset, offset + limit - 1);
-
-    // Apply filters based on status
+    // Build comments query filters
+    const filters: any[] = [];
     if (status === 'flagged') {
-      // Comments with high downvotes or reported by users
-      query = query.or('downvotes.gte.3,is_flagged.eq.true');
+      filters.push(gte(commentsT.downvotes, 3));
     } else if (status === 'deleted') {
-      query = query.eq('is_deleted', true);
+      filters.push(eq(commentsT.isDeleted, true));
     }
     // For 'all', no additional filters
 
-    // Filter by language if specified
+    // Filter by language if specified (via joined word)
     if (languageId && !isSuperAdmin) {
-      query = query.eq('words.language_id', languageId);
+      filters.push(eq(wordsT.languageId, languageId));
     } else if (!isSuperAdmin && curatorLanguages.length > 0) {
-      query = query.in('words.language_id', curatorLanguages);
+      filters.push(inArray(wordsT.languageId, curatorLanguages));
     }
 
-    const { data: comments, count, error } = await query;
+    const where = filters.length ? and(...filters) : undefined;
 
-    if (error) {
-      console.error('Failed to fetch comments for moderation:', error);
-      return NextResponse.json(
-        { error: 'Failed to fetch comments' },
-        { status: 500 }
-      );
-    }
+    const [commentRows, totalRows] = await Promise.all([
+      db
+        .select({ comment: commentsT, word: wordsT, language: languagesT, profile: profilesT })
+        .from(commentsT)
+        .leftJoin(wordsT, eq(commentsT.wordId, wordsT.id))
+        .leftJoin(languagesT, eq(wordsT.languageId, languagesT.id))
+        .leftJoin(profilesT, eq(commentsT.userId, profilesT.userId))
+        .where(where)
+        .orderBy(desc(commentsT.createdAt))
+        .limit(limit)
+        .offset(offset),
+      db
+        .select({ value: count() })
+        .from(commentsT)
+        .leftJoin(wordsT, eq(commentsT.wordId, wordsT.id))
+        .where(where),
+    ]);
+
+    const total = totalRows[0]?.value ?? 0;
+
+    // Resolve parent comments (for replies) keyed by id.
+    const parentIds = Array.from(
+      new Set(commentRows.map((r) => r.comment.parentId).filter(Boolean) as string[])
+    );
+    const parents = parentIds.length
+      ? await db
+          .select({ id: commentsT.id, commentText: commentsT.commentText, userId: commentsT.userId })
+          .from(commentsT)
+          .where(inArray(commentsT.id, parentIds))
+      : [];
+    const parentById = new Map(parents.map((p) => [p.id, { id: p.id, comment_text: p.commentText, user_id: p.userId }]));
 
     // Calculate engagement metrics for each comment
-    const enrichedComments = (comments || []).map(comment => {
-      const totalVotes = comment.upvotes + comment.downvotes;
-      const controversyScore = totalVotes > 0 
-        ? Math.min(comment.upvotes, comment.downvotes) / Math.max(comment.upvotes, comment.downvotes)
-        : 0;
+    const enrichedComments = commentRows.map((row) => {
+      const comment: any = {
+        ...snakeRow(row.comment),
+        words: row.word
+          ? {
+              id: row.word.id,
+              word: row.word.word,
+              language_id: row.word.languageId,
+              languages: row.language
+                ? { id: row.language.id, name: row.language.name, code: row.language.code }
+                : null,
+            }
+          : null,
+        profiles: row.profile
+          ? { id: row.profile.id, display_name: row.profile.displayName, username: row.profile.username, reputation_score: null }
+          : null,
+        parent: row.comment.parentId ? parentById.get(row.comment.parentId) ?? null : null,
+      };
+
+      const upvotes = comment.upvotes ?? 0;
+      const downvotes = comment.downvotes ?? 0;
+      const totalVotes = upvotes + downvotes;
+      const controversyScore = totalVotes > 0 ? Math.min(upvotes, downvotes) / Math.max(upvotes, downvotes) : 0;
 
       return {
         ...comment,
         engagement: {
           totalVotes,
-          ratio: totalVotes > 0 ? comment.upvotes / totalVotes : 0.5,
+          ratio: totalVotes > 0 ? upvotes / totalVotes : 0.5,
           controversyScore,
-          flaggedForReview: comment.downvotes >= 3 || comment.is_flagged || controversyScore > 0.4
-        }
+          flaggedForReview: downvotes >= 3 || controversyScore > 0.4,
+        },
       };
     });
 
     // Get moderation statistics
-    const { count: totalFlagged } = await supabase
-      .from('word_comments')
-      .select('*', { count: 'exact', head: true })
-      .or('downvotes.gte.3,is_flagged.eq.true')
-      .eq('is_deleted', false);
-
-    const { count: totalDeleted } = await supabase
-      .from('word_comments')
-      .select('*', { count: 'exact', head: true })
-      .eq('is_deleted', true);
+    const [flaggedRows, deletedRows] = await Promise.all([
+      db
+        .select({ value: count() })
+        .from(commentsT)
+        .where(and(gte(commentsT.downvotes, 3), eq(commentsT.isDeleted, false))),
+      db.select({ value: count() }).from(commentsT).where(eq(commentsT.isDeleted, true)),
+    ]);
 
     return NextResponse.json({
       comments: enrichedComments,
       stats: {
-        totalFlagged: totalFlagged || 0,
-        totalDeleted: totalDeleted || 0,
-        currentlyViewing: count || 0
+        totalFlagged: flaggedRows[0]?.value ?? 0,
+        totalDeleted: deletedRows[0]?.value ?? 0,
+        currentlyViewing: total,
       },
       pagination: {
         page,
         limit,
-        total: count || 0,
-        totalPages: Math.ceil((count || 0) / limit)
-      }
+        total,
+        totalPages: Math.ceil(total / limit),
+      },
     });
   } catch (error) {
     console.error('Failed to fetch comments for moderation:', error);
@@ -157,10 +183,8 @@ export async function GET(request: NextRequest) {
 // Moderate a comment (delete, restore, warn user)
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
     // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
+    const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -182,30 +206,27 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get comment details
-    const { data: comment } = await supabase
-      .from('word_comments')
-      .select(`
-        *,
-        words!word_id(
-          id,
-          word,
-          language_id
-        )
-      `)
-      .eq('id', commentId)
-      .single();
+    // Get comment details (+ its word's language)
+    const rows = await db
+      .select({ comment: commentsT, word: wordsT })
+      .from(commentsT)
+      .leftJoin(wordsT, eq(commentsT.wordId, wordsT.id))
+      .where(eq(commentsT.id, commentId))
+      .limit(1);
+    const row = rows[0];
 
-    if (!comment) {
+    if (!row) {
       return NextResponse.json({ error: 'Comment not found' }, { status: 404 });
     }
+    const comment = row.comment;
+    const commentWord = row.word;
 
     // Check curator permission for this language
-    const { data: hasPermission } = await supabase.rpc('user_has_role', {
-      user_uuid: user.id,
-      role_names: ['curator', 'dictionary_admin', 'super_admin'],
-      language_uuid: comment.words.language_id
-    });
+    const hasPermission = await userHasRole(
+      user.id,
+      ['curator', 'dictionary_admin', 'super_admin'],
+      commentWord?.languageId
+    );
 
     if (!hasPermission) {
       return NextResponse.json(
@@ -216,89 +237,80 @@ export async function POST(request: NextRequest) {
 
     // Perform moderation action
     if (action === 'delete') {
-      const { error } = await supabase
-        .from('word_comments')
-        .update({
-          is_deleted: true,
-          deleted_at: new Date().toISOString(),
-          deleted_by: user.id
+      await db
+        .update(commentsT)
+        .set({
+          isDeleted: true,
+          deletedAt: new Date().toISOString(),
+          deletedBy: user.id,
         })
-        .eq('id', commentId);
-
-      if (error) throw error;
+        .where(eq(commentsT.id, commentId));
 
       // Log activity
-      await supabase.from('curator_activities').insert({
-        user_id: user.id,
-        language_id: comment.words.language_id,
-        activity_type: 'comment_deleted',
-        target_type: 'comment',
-        target_id: commentId,
-        activity_data: {
+      await db.insert(activitiesT).values({
+        userId: user.id,
+        languageId: commentWord?.languageId,
+        activityType: 'comment_deleted',
+        targetType: 'comment',
+        targetId: commentId,
+        activityData: {
           reason,
-          comment_preview: comment.comment_text.substring(0, 100),
-          warned_user: warnUser || false
-        }
+          comment_preview: comment.commentText.substring(0, 100),
+          warned_user: warnUser || false,
+        },
       });
 
       // If warnUser is true, you could send a notification or update user metrics
       if (warnUser) {
         // In production, implement warning system
-        console.log(`Warning issued to user ${comment.user_id} for comment ${commentId}`);
+        console.log(`Warning issued to user ${comment.userId} for comment ${commentId}`);
       }
     } else if (action === 'restore') {
-      const { error } = await supabase
-        .from('word_comments')
-        .update({
-          is_deleted: false,
-          deleted_at: null,
-          deleted_by: null
+      await db
+        .update(commentsT)
+        .set({
+          isDeleted: false,
+          deletedAt: null,
+          deletedBy: null,
         })
-        .eq('id', commentId);
-
-      if (error) throw error;
+        .where(eq(commentsT.id, commentId));
 
       // Log activity
-      await supabase.from('curator_activities').insert({
-        user_id: user.id,
-        language_id: comment.words.language_id,
-        activity_type: 'comment_restored',
-        target_type: 'comment',
-        target_id: commentId,
-        activity_data: {
-          comment_preview: comment.comment_text.substring(0, 100)
-        }
+      await db.insert(activitiesT).values({
+        userId: user.id,
+        languageId: commentWord?.languageId,
+        activityType: 'comment_restored',
+        targetType: 'comment',
+        targetId: commentId,
+        activityData: {
+          comment_preview: comment.commentText.substring(0, 100),
+        },
       });
     } else if (action === 'approve') {
-      // Clear any flags on the comment
-      const { error } = await supabase
-        .from('word_comments')
-        .update({
-          is_flagged: false,
-          moderated_at: new Date().toISOString(),
-          moderated_by: user.id
-        })
-        .eq('id', commentId);
-
-      if (error) throw error;
+      // Clear any flags on the comment. The schema has no flag columns, so we
+      // just touch updated_at to record the review.
+      await db
+        .update(commentsT)
+        .set({ updatedAt: new Date().toISOString() })
+        .where(eq(commentsT.id, commentId));
 
       // Log activity
-      await supabase.from('curator_activities').insert({
-        user_id: user.id,
-        language_id: comment.words.language_id,
-        activity_type: 'comment_approved',
-        target_type: 'comment',
-        target_id: commentId,
-        activity_data: {
-          comment_preview: comment.comment_text.substring(0, 100)
-        }
+      await db.insert(activitiesT).values({
+        userId: user.id,
+        languageId: commentWord?.languageId,
+        activityType: 'comment_approved',
+        targetType: 'comment',
+        targetId: commentId,
+        activityData: {
+          comment_preview: comment.commentText.substring(0, 100),
+        },
       });
     }
 
     return NextResponse.json({
       message: `Comment ${action}d successfully`,
       commentId,
-      action
+      action,
     });
   } catch (error) {
     console.error('Failed to moderate comment:', error);
@@ -312,10 +324,8 @@ export async function POST(request: NextRequest) {
 // Bulk moderation actions
 export async function PUT(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
     // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
+    const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -331,61 +341,59 @@ export async function PUT(request: NextRequest) {
     }
 
     // Check if user is a curator
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .in('user_roles.name', ['curator', 'dictionary_admin', 'super_admin']);
+    const roleAssignments = await db
+      .select({ roleId: uraT.roleId, name: rolesT.name })
+      .from(uraT)
+      .innerJoin(rolesT, eq(uraT.roleId, rolesT.id))
+      .where(
+        and(
+          eq(uraT.userId, user.id),
+          eq(uraT.isActive, true),
+          inArray(rolesT.name, ['curator', 'dictionary_admin', 'super_admin'])
+        )
+      );
 
     if (!roleAssignments || roleAssignments.length === 0) {
       return NextResponse.json({ error: 'Not a curator' }, { status: 403 });
     }
 
     // Perform bulk action
-    let updateData: any = {};
-    
+    let updateData: any = null;
+
     if (action === 'delete') {
       updateData = {
-        is_deleted: true,
-        deleted_at: new Date().toISOString(),
-        deleted_by: user.id
+        isDeleted: true,
+        deletedAt: new Date().toISOString(),
+        deletedBy: user.id,
       };
     } else if (action === 'approve') {
+      // No flag columns to clear; record the review by touching updated_at.
       updateData = {
-        is_flagged: false,
-        moderated_at: new Date().toISOString(),
-        moderated_by: user.id
+        updatedAt: new Date().toISOString(),
       };
     }
 
-    const { error } = await supabase
-      .from('word_comments')
-      .update(updateData)
-      .in('id', commentIds);
-
-    if (error) throw error;
+    if (updateData) {
+      await db.update(commentsT).set(updateData).where(inArray(commentsT.id, commentIds));
+    }
 
     // Log bulk activity
-    await supabase.from('curator_activities').insert({
-      user_id: user.id,
-      activity_type: `bulk_comments_${action}d`,
-      target_type: 'comments',
-      target_id: commentIds[0], // Use first ID as reference
-      activity_data: {
+    await db.insert(activitiesT).values({
+      userId: user.id,
+      activityType: `bulk_comments_${action}d`,
+      targetType: 'comments',
+      targetId: commentIds[0], // Use first ID as reference
+      activityData: {
         total_comments: commentIds.length,
         action,
-        reason
-      }
+        reason,
+      },
     });
 
     return NextResponse.json({
       message: `${commentIds.length} comments ${action}d successfully`,
       count: commentIds.length,
-      action
+      action,
     });
   } catch (error) {
     console.error('Failed to perform bulk moderation:', error);

@@ -1,5 +1,8 @@
 import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { eq, sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { getSessionUser } from '@/lib/auth-helpers';
+import { languages as languagesT } from '@/lib/db/schema';
 import { CuratorDashboard } from '@/components/curator/CuratorDashboard';
 
 interface PageProps {
@@ -10,31 +13,31 @@ interface PageProps {
 
 export default async function LanguageCuratorPage(props: PageProps) {
   const params = await props.params;
-  const supabase = await createClient();
 
   // Check authentication
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getSessionUser();
   if (!user) {
     redirect('/auth/signin?redirect=/curator/' + params.language);
   }
 
   // Get language info
-  const { data: language } = await supabase
-    .from('languages')
-    .select('*')
-    .eq('code', params.language)
-    .single();
+  const langRows = await db
+    .select()
+    .from(languagesT)
+    .where(eq(languagesT.code, params.language))
+    .limit(1);
+  const language = langRows[0];
 
   if (!language) {
     redirect('/curator');
   }
 
-  // Check if user can curate this language
-  const { data: canCurate } = await supabase
-    .rpc('can_user_curate_language', {
-      user_uuid: user.id,
-      lang_id: language.id
-    });
+  // Check if user can curate this language (SQL function still in the DB).
+  const res: any = await db.execute(
+    sql`select public.can_user_curate_language(${user.id}::uuid, ${language.id}::uuid) as can_curate`
+  );
+  const resultRows = Array.isArray(res) ? res : res?.rows ?? [];
+  const canCurate = resultRows[0]?.can_curate === true;
 
   if (!canCurate) {
     return (
@@ -54,9 +57,9 @@ export default async function LanguageCuratorPage(props: PageProps) {
   return (
     <div className="min-h-screen py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <CuratorDashboard 
-          languageId={language.id} 
-          languageName={language.name} 
+        <CuratorDashboard
+          languageId={language.id}
+          languageName={language.name}
         />
       </div>
     </div>

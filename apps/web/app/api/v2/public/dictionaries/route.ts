@@ -1,4 +1,7 @@
-import { createClient } from '@supabase/supabase-js'
+import { asc, count, eq } from 'drizzle-orm'
+import { db } from '@/lib/db/index'
+import { languages as languagesT } from '@/lib/db/schema'
+import { snakeRows } from '@/lib/db/case'
 import { createSuccessResponse, createErrorResponse, corsHeaders } from '../../middleware'
 import { NextRequest } from 'next/server'
 
@@ -8,28 +11,26 @@ export async function OPTIONS() {
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
     const searchParams = request.nextUrl.searchParams
     const page = parseInt(searchParams.get('page') || '1')
     const limit = Math.min(parseInt(searchParams.get('limit') || '20'), 100)
     const offset = (page - 1) * limit
 
-    const { data: languages, error, count } = await supabase
-      .from('languages')
-      .select('*', { count: 'exact' })
-      .eq('is_active', true)
-      .order('name', { ascending: true })
-      .range(offset, offset + limit - 1)
+    const [rows, totalRows] = await Promise.all([
+      db
+        .select()
+        .from(languagesT)
+        .where(eq(languagesT.isActive, true))
+        .orderBy(asc(languagesT.name))
+        .limit(limit)
+        .offset(offset),
+      db.select({ value: count() }).from(languagesT).where(eq(languagesT.isActive, true)),
+    ])
 
-    if (error) {
-      console.error('Error fetching languages:', error)
-      return createErrorResponse('Failed to fetch dictionaries', 500)
-    }
+    const total = totalRows[0]?.value ?? 0
+    const snaked = snakeRows(rows)
 
-    const dictionaries = languages?.map(lang => ({
+    const dictionaries = snaked.map(lang => ({
       id: lang.id,
       code: lang.code,
       name: lang.name,
@@ -49,14 +50,14 @@ export async function GET(request: NextRequest) {
       updated_at: lang.updated_at
     }))
 
-    const totalPages = count ? Math.ceil(count / limit) : 0
+    const totalPages = total ? Math.ceil(total / limit) : 0
 
     return createSuccessResponse({
       dictionaries,
       pagination: {
         page,
         limit,
-        total: count || 0,
+        total: total || 0,
         total_pages: totalPages,
         has_next: page < totalPages,
         has_previous: page > 1

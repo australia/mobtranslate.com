@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { or, ilike } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { userProfiles } from '@/lib/db/schema';
 import { requireAdmin } from '@/lib/recording/server';
 
 export const runtime = 'nodejs';
@@ -10,22 +13,30 @@ export async function GET(request: NextRequest) {
 
   const { searchParams } = new URL(request.url);
   const raw = (searchParams.get('q') ?? '').trim();
-  // Sanitize before building a PostgREST .or() filter — remove characters that
-  // are structural in PostgREST filter syntax ( , ( ) " : ) or are LIKE
-  // wildcards ( % * ), so a crafted query can't inject extra filter clauses.
-  // (Keeps unicode letters so non-ASCII names still search.)
-  const q = raw.replace(/[,()"*%:\\]/g, '').slice(0, 80);
+  // Drizzle parameterizes values so query injection is not a concern, but keep
+  // the LIKE wildcards out of the term and bound its length.
+  const q = raw.replace(/[%_\\]/g, '').slice(0, 80);
   if (q.length < 2) return NextResponse.json([]);
 
   const like = `%${q}%`;
-  const { data, error } = await auth.supabase
-    .from('user_profiles')
-    .select('user_id, email, username, display_name')
-    .or(`email.ilike.${like},username.ilike.${like},display_name.ilike.${like}`)
+  const rows = await db
+    .select({
+      userId: userProfiles.userId,
+      email: userProfiles.email,
+      username: userProfiles.username,
+      displayName: userProfiles.displayName,
+    })
+    .from(userProfiles)
+    .where(
+      or(
+        ilike(userProfiles.email, like),
+        ilike(userProfiles.username, like),
+        ilike(userProfiles.displayName, like),
+      ),
+    )
     .limit(20);
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
   return NextResponse.json(
-    (data ?? []).map((u) => ({ id: u.user_id, email: u.email, username: u.username, display_name: u.display_name })),
+    rows.map((u) => ({ id: u.userId, email: u.email, username: u.username, display_name: u.displayName })),
   );
 }

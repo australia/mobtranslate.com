@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { and, eq, or, isNull, asc } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { speakerProfiles } from '@/lib/db/schema';
+import { snakeRow, snakeRows } from '@/lib/db/case';
 import { requireAdmin } from '@/lib/recording/server';
 
 export const runtime = 'nodejs';
@@ -12,14 +16,19 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const languageId = searchParams.get('languageId');
 
-  const db = auth.supabase;
-  let query = db.from('speaker_profiles').select('*').eq('is_active', true).order('created_at', { ascending: true });
   // Show language-specific speakers plus any global ones.
-  if (languageId) query = query.or(`language_id.eq.${languageId},language_id.is.null`);
+  const conds = [eq(speakerProfiles.isActive, true)];
+  if (languageId) {
+    conds.push(or(eq(speakerProfiles.languageId, languageId), isNull(speakerProfiles.languageId))!);
+  }
 
-  const { data, error } = await query;
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json(data ?? []);
+  const rows = await db
+    .select()
+    .from(speakerProfiles)
+    .where(and(...conds))
+    .orderBy(asc(speakerProfiles.createdAt));
+
+  return NextResponse.json(snakeRows(rows));
 }
 
 // ---- POST: create a speaker profile ------------------------------------
@@ -38,6 +47,7 @@ const createSchema = z.object({
 export async function POST(request: NextRequest) {
   const auth = await requireAdmin();
   if (auth.error) return auth.error;
+  const userId = auth.user.id;
 
   let body: z.infer<typeof createSchema>;
   try {
@@ -46,24 +56,27 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
   }
 
-  const db = auth.supabase;
-  const { data, error } = await db
-    .from('speaker_profiles')
-    .insert({
-      name: body.name,
-      language_id: body.languageId ?? null,
-      community: body.community ?? null,
-      birth_year: body.birthYear ?? null,
-      age: body.age ?? null,
-      gender: body.gender ?? null,
-      dialect: body.dialect ?? null,
-      bio: body.bio ?? null,
-      cultural_consent: body.culturalConsent ?? true,
-      created_by: auth.user.id,
-    })
-    .select()
-    .single();
+  let data;
+  try {
+    const rows = await db
+      .insert(speakerProfiles)
+      .values({
+        name: body.name,
+        languageId: body.languageId ?? null,
+        community: body.community ?? null,
+        birthYear: body.birthYear ?? null,
+        age: body.age ?? null,
+        gender: body.gender ?? null,
+        dialect: body.dialect ?? null,
+        bio: body.bio ?? null,
+        culturalConsent: body.culturalConsent ?? true,
+        createdBy: userId,
+      })
+      .returning();
+    data = rows[0];
+  } catch (err) {
+    return NextResponse.json({ error: ((err as any)?.cause?.message ?? (err as Error).message) }, { status: 500 });
+  }
 
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json(data, { status: 201 });
+  return NextResponse.json(snakeRow(data), { status: 201 });
 }

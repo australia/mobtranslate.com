@@ -1,32 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { requireUser } from '@/lib/auth-helpers';
+import { userWordLikes } from '@/lib/db/schema';
 
 // GET - Check if a word is liked
 export async function GET(request: NextRequest, props: { params: Promise<{ wordId: string }> }) {
   const params = await props.params;
-  const supabase = await createClient();
   const { wordId } = params;
 
   // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   try {
-    const { data: like, error } = await supabase
-      .from('likes')
-      .select('id')
-      .eq('user_id', user.id)
-      .eq('word_id', wordId)
-      .maybeSingle();
+    const rows = await db
+      .select({ id: userWordLikes.id })
+      .from(userWordLikes)
+      .where(and(eq(userWordLikes.userId, user!.id), eq(userWordLikes.wordId, wordId)))
+      .limit(1);
 
-    if (error && error.code !== 'PGRST116') {
-      console.error('Error checking like:', error);
-      return NextResponse.json({ error: 'Failed to check like status' }, { status: 500 });
-    }
-
-    return NextResponse.json({ liked: !!like });
+    return NextResponse.json({ liked: rows.length > 0 });
   } catch (error) {
     console.error('Like check error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
@@ -36,37 +30,31 @@ export async function GET(request: NextRequest, props: { params: Promise<{ wordI
 // POST - Like a word
 export async function POST(request: NextRequest, props: { params: Promise<{ wordId: string }> }) {
   const params = await props.params;
-  const supabase = await createClient();
   const { wordId } = params;
 
   // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   try {
     // Check if already liked
-    const { data: existingLike } = await supabase
-      .from('likes')
-      .select('id')
-      .eq('user_id', user.id)
-      .eq('word_id', wordId)
-      .maybeSingle();
+    const existing = await db
+      .select({ id: userWordLikes.id })
+      .from(userWordLikes)
+      .where(and(eq(userWordLikes.userId, user!.id), eq(userWordLikes.wordId, wordId)))
+      .limit(1);
 
-    if (existingLike) {
+    if (existing.length > 0) {
       return NextResponse.json({ liked: true, message: 'Already liked' });
     }
 
     // Create like
-    const { error: likeError } = await supabase
-      .from('likes')
-      .insert({
-        user_id: user.id,
-        word_id: wordId
+    try {
+      await db.insert(userWordLikes).values({
+        userId: user!.id,
+        wordId: wordId
       });
-
-    if (likeError) {
+    } catch (likeError) {
       console.error('Error creating like:', likeError);
       return NextResponse.json({ error: 'Failed to like word' }, { status: 500 });
     }
@@ -81,26 +69,16 @@ export async function POST(request: NextRequest, props: { params: Promise<{ word
 // DELETE - Unlike a word
 export async function DELETE(request: NextRequest, props: { params: Promise<{ wordId: string }> }) {
   const params = await props.params;
-  const supabase = await createClient();
   const { wordId } = params;
 
   // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   try {
-    const { error: deleteError } = await supabase
-      .from('likes')
-      .delete()
-      .eq('user_id', user.id)
-      .eq('word_id', wordId);
-
-    if (deleteError) {
-      console.error('Error deleting like:', deleteError);
-      return NextResponse.json({ error: 'Failed to unlike word' }, { status: 500 });
-    }
+    await db
+      .delete(userWordLikes)
+      .where(and(eq(userWordLikes.userId, user!.id), eq(userWordLikes.wordId, wordId)));
 
     return NextResponse.json({ liked: false, message: 'Word unliked successfully' });
   } catch (error) {

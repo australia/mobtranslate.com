@@ -1,28 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { count, eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { snakeRow } from '@/lib/db/case';
+import { requireRole } from '@/lib/auth-helpers';
+import { languages as languagesT, words as wordsT } from '@/lib/db/schema';
 
 export async function PUT(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   try {
-    const supabase = await createClient();
-
-    // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
-    
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    // Check if user is admin
-    const { data: isAdmin } = await supabase
-      .rpc('user_has_role', {
-        user_uuid: user.id,
-        role_names: ['super_admin', 'dictionary_admin']
-      });
-
-    if (!isAdmin) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-    }
+    // Authz in code (RLS is gone): admin role required.
+    const { response } = await requireRole(['super_admin', 'dictionary_admin']);
+    if (response) return response;
 
     const body = await request.json();
     const { name, code, is_active } = body;
@@ -36,13 +24,13 @@ export async function PUT(request: NextRequest, props: { params: Promise<{ id: s
     }
 
     // First check if the language exists
-    const { data: existingLang, error: checkError } = await supabase
-      .from('languages')
-      .select('id')
-      .eq('id', params.id)
-      .single();
+    const existingLang = await db
+      .select({ id: languagesT.id })
+      .from(languagesT)
+      .where(eq(languagesT.id, params.id))
+      .limit(1);
 
-    if (checkError || !existingLang) {
+    if (existingLang.length === 0) {
       console.error('Language not found:', params.id);
       return NextResponse.json(
         { error: 'Language not found' },
@@ -51,24 +39,18 @@ export async function PUT(request: NextRequest, props: { params: Promise<{ id: s
     }
 
     // Update language
-    const { data: updatedLanguage, error } = await supabase
-      .from('languages')
-      .update({
+    const [updatedLanguage] = await db
+      .update(languagesT)
+      .set({
         name,
-        code: code.toLowerCase(),
-        is_active: is_active ?? true,
-        updated_at: new Date().toISOString()
+        code: String(code).toLowerCase(),
+        isActive: is_active ?? true,
+        updatedAt: new Date().toISOString(),
       })
-      .eq('id', params.id)
-      .select()
-      .single();
+      .where(eq(languagesT.id, params.id))
+      .returning();
 
-    if (error) {
-      console.error('Update error:', error);
-      throw error;
-    }
-
-    return NextResponse.json(updatedLanguage);
+    return NextResponse.json(snakeRow(updatedLanguage));
   } catch (error) {
     console.error('Failed to update language:', error);
     return NextResponse.json(
@@ -81,32 +63,18 @@ export async function PUT(request: NextRequest, props: { params: Promise<{ id: s
 export async function DELETE(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   try {
-    const supabase = await createClient();
-    
-    // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    // Only super admin can delete languages
-    const { data: isSuperAdmin } = await supabase
-      .rpc('user_has_role', {
-        user_uuid: user.id,
-        role_names: ['super_admin']
-      });
-
-    if (!isSuperAdmin) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-    }
+    // Only super admin can delete languages.
+    const { response } = await requireRole(['super_admin']);
+    if (response) return response;
 
     // Check if language has words
-    const { count } = await supabase
-      .from('dictionary_words')
-      .select('*', { count: 'exact', head: true })
-      .eq('language_id', params.id);
+    const wordCountRows = await db
+      .select({ value: count() })
+      .from(wordsT)
+      .where(eq(wordsT.languageId, params.id));
+    const wordCount = wordCountRows[0]?.value ?? 0;
 
-    if (count && count > 0) {
+    if (wordCount > 0) {
       return NextResponse.json(
         { error: 'Cannot delete language with existing words' },
         { status: 400 }
@@ -114,12 +82,7 @@ export async function DELETE(request: NextRequest, props: { params: Promise<{ id
     }
 
     // Delete language
-    const { error } = await supabase
-      .from('languages')
-      .delete()
-      .eq('id', params.id);
-
-    if (error) throw error;
+    await db.delete(languagesT).where(eq(languagesT.id, params.id));
 
     return NextResponse.json({ success: true });
   } catch (error) {

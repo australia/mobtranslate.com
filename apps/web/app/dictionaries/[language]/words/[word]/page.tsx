@@ -23,7 +23,7 @@ const Breadcrumbs = ({ items, className }: { items: { href: string; label: strin
     ))}
   </nav>
 );
-import { getWordsForLanguage, searchWords } from '@/lib/supabase/queries';
+import { getWordsForLanguage, searchWords } from '@/lib/db/queries';
 import { WordDetailContent } from './components/WordDetailContent';
 
 export const revalidate = 300; // Revalidate every 5 minutes

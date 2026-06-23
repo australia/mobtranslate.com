@@ -1,18 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, eq, sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { requireUser } from '@/lib/auth-helpers';
+import { quizSessions } from '@/lib/db/schema';
 
 export async function POST(request: NextRequest) {
-  const supabase = await createClient();
-
-  // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   try {
     const body = await request.json();
-    const { 
+    const {
       sessionId,
       totalQuestions,
       correctAnswers,
@@ -27,46 +25,51 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Verify session belongs to user
-    const { data: session, error: sessionError } = await supabase
-      .from('quiz_sessions')
-      .select('id, user_id, language_id, created_at')
-      .eq('id', sessionId)
-      .eq('user_id', user.id)
-      .single();
+    // Verify session belongs to user (ownership enforced in code; RLS is gone)
+    const sessionRows = await db
+      .select({
+        id: quizSessions.id,
+        userId: quizSessions.userId,
+        languageId: quizSessions.languageId,
+        createdAt: quizSessions.createdAt
+      })
+      .from(quizSessions)
+      .where(and(eq(quizSessions.id, sessionId), eq(quizSessions.userId, user!.id)))
+      .limit(1);
+    const session = sessionRows[0];
 
-    if (sessionError || !session) {
+    if (!session) {
       return NextResponse.json({ error: 'Session not found' }, { status: 404 });
     }
 
     // Update session with completion data
-    const { error: updateError } = await supabase
-      .from('quiz_sessions')
-      .update({
-        total_questions: totalQuestions,
-        correct_answers: correctAnswers,
-        accuracy_percentage: accuracy,
-        streak: streak,
-        avg_response_time_ms: avgResponseTime,
-        completed_at: new Date().toISOString()
-      })
-      .eq('id', sessionId);
-
-    if (updateError) {
+    try {
+      await db
+        .update(quizSessions)
+        .set({
+          totalQuestions: totalQuestions,
+          correctAnswers: correctAnswers,
+          accuracyPercentage: accuracy != null ? String(accuracy) : null,
+          streak: streak,
+          avgResponseTimeMs: avgResponseTime,
+          completedAt: new Date().toISOString()
+        })
+        .where(eq(quizSessions.id, sessionId));
+    } catch (updateError) {
       console.error('Error updating quiz session:', updateError);
       return NextResponse.json({ error: 'Failed to complete session' }, { status: 500 });
     }
 
     // Update user's quiz progress view (this will be recalculated by the database)
     try {
-      await supabase.rpc('refresh_user_quiz_progress', { p_user_id: user.id });
+      await db.execute(sql`select public.refresh_user_quiz_progress(${user!.id}::uuid)`);
     } catch (refreshError) {
       console.error('Error refreshing user progress:', refreshError);
       // Don't fail the request if refresh fails
     }
 
     // Calculate session statistics
-    const sessionDuration = Date.now() - new Date(session.created_at).getTime();
+    const sessionDuration = Date.now() - new Date(session.createdAt).getTime();
     const wordsPerMinute = totalQuestions > 0 ? (totalQuestions / (sessionDuration / 60000)).toFixed(1) : '0';
     
     const stats = {

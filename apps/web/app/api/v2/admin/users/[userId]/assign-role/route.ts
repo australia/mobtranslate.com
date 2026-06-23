@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, eq, isNull } from 'drizzle-orm';
 import { z } from 'zod';
+import { db } from '@/lib/db/index';
+import { requireRole, userHasRole } from '@/lib/auth-helpers';
+import { snakeRow } from '@/lib/db/case';
+import { userRoleAssignments as uraT, userRoles as userRolesT } from '@/lib/db/schema';
 
 const assignRoleSchema = z.object({
   role_id: z.string().uuid(),
@@ -11,29 +15,15 @@ const assignRoleSchema = z.object({
 export async function POST(request: NextRequest, props: { params: Promise<{ userId: string }> }) {
   const params = await props.params;
   const { userId } = params;
-  const supabase = await createClient();
 
   try {
-    // Check if user is admin
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    if (authError || !user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
-    const { data: isAdmin } = await supabase
-      .rpc('user_has_role', {
-        user_uuid: user.id,
-        role_names: ['super_admin', 'dictionary_admin']
-      });
-
-    if (!isAdmin) {
-      return NextResponse.json(
-        { error: 'Forbidden: Admin access required' },
-        { status: 403 }
-      );
+    // Authz in code (RLS is gone): admin role required.
+    const { user, response } = await requireRole(['super_admin', 'dictionary_admin']);
+    if (response) {
+      if (response.status === 403) {
+        return NextResponse.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
+      }
+      return response;
     }
 
     // Parse and validate request body
@@ -41,11 +31,12 @@ export async function POST(request: NextRequest, props: { params: Promise<{ user
     const { role_id, language_id, expires_at } = assignRoleSchema.parse(body);
 
     // Get the role to check permissions
-    const { data: role } = await supabase
-      .from('user_roles')
-      .select('name')
-      .eq('id', role_id)
-      .single();
+    const roleRows = await db
+      .select({ name: userRolesT.name })
+      .from(userRolesT)
+      .where(eq(userRolesT.id, role_id))
+      .limit(1);
+    const role = roleRows[0];
 
     if (!role) {
       return NextResponse.json(
@@ -55,11 +46,7 @@ export async function POST(request: NextRequest, props: { params: Promise<{ user
     }
 
     // Dictionary admins can't assign super_admin or dictionary_admin roles
-    const { data: isDictionaryAdmin } = await supabase
-      .rpc('user_has_role', {
-        user_uuid: user.id,
-        role_names: ['dictionary_admin']
-      });
+    const isDictionaryAdmin = await userHasRole(user!.id, ['dictionary_admin']);
 
     if (isDictionaryAdmin && ['super_admin', 'dictionary_admin'].includes(role.name)) {
       return NextResponse.json(
@@ -68,47 +55,48 @@ export async function POST(request: NextRequest, props: { params: Promise<{ user
       );
     }
 
-    // Check if assignment already exists
-    const { data: existingAssignment } = await supabase
-      .from('user_role_assignments')
-      .select('id')
-      .eq('user_id', userId)
-      .eq('role_id', role_id)
-      .eq('language_id', language_id || null)
-      .single();
+    // Check if assignment already exists (language_id may be null).
+    const existingRows = await db
+      .select({ id: uraT.id })
+      .from(uraT)
+      .where(
+        and(
+          eq(uraT.userId, userId),
+          eq(uraT.roleId, role_id),
+          language_id ? eq(uraT.languageId, language_id) : isNull(uraT.languageId)
+        )
+      )
+      .limit(1);
+    const existingAssignment = existingRows[0];
 
     if (existingAssignment) {
       // Update existing assignment
-      const { data: updated, error: updateError } = await supabase
-        .from('user_role_assignments')
-        .update({
-          is_active: true,
-          expires_at,
-          assigned_by: user.id,
-          assigned_at: new Date().toISOString()
+      const [updated] = await db
+        .update(uraT)
+        .set({
+          isActive: true,
+          expiresAt: expires_at ?? null,
+          assignedBy: user!.id,
+          assignedAt: new Date().toISOString(),
         })
-        .eq('id', existingAssignment.id)
-        .select()
-        .single();
+        .where(eq(uraT.id, existingAssignment.id))
+        .returning();
 
-      if (updateError) throw updateError;
-      return NextResponse.json(updated);
+      return NextResponse.json(snakeRow(updated));
     } else {
       // Create new assignment
-      const { data: assignment, error } = await supabase
-        .from('user_role_assignments')
-        .insert({
-          user_id: userId,
-          role_id,
-          language_id,
-          assigned_by: user.id,
-          expires_at
+      const [assignment] = await db
+        .insert(uraT)
+        .values({
+          userId,
+          roleId: role_id,
+          languageId: language_id ?? null,
+          assignedBy: user!.id,
+          expiresAt: expires_at ?? null,
         })
-        .select()
-        .single();
+        .returning();
 
-      if (error) throw error;
-      return NextResponse.json(assignment, { status: 201 });
+      return NextResponse.json(snakeRow(assignment), { status: 201 });
     }
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -117,7 +105,7 @@ export async function POST(request: NextRequest, props: { params: Promise<{ user
         { status: 400 }
       );
     }
-    
+
     console.error('Error assigning role:', error);
     return NextResponse.json(
       { error: 'Failed to assign role' },

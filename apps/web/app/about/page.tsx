@@ -1,6 +1,6 @@
 import { Code, AtSign, Globe, BookOpen, Users, Sparkles, Check } from 'lucide-react';
 import SharedLayout from '../components/SharedLayout';
-import { getLanguageStats } from '@/lib/supabase/queries';
+import { getLanguageStats } from '@/lib/db/queries';
 
 export const revalidate = 3600;
 

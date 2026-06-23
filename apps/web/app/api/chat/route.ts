@@ -1,18 +1,51 @@
 import { streamText, tool, stepCountIs, convertToModelMessages } from 'ai';
-import { openai } from '@ai-sdk/openai';
+import { createOpenAI } from '@ai-sdk/openai';
 import { z } from 'zod';
-import { createClient } from '@/lib/supabase/server';
+import { and, eq, ilike, inArray, isNotNull, gte, desc, sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import {
+  languages as languagesT,
+  quizSessions as quizSessionsT,
+  spacedRepetitionStates as srsT,
+  words as wordsT,
+  definitions as definitionsT,
+} from '@/lib/db/schema';
+import { getSessionUser } from '@/lib/auth-helpers';
 import { ImageAnalysisSchema } from '@/lib/tools/image-analysis';
 import { generateEmbedding } from '../../../scripts/generate-embeddings';
 
+// Helper: run a query that may reference a relation absent from the new DB
+// (e.g. the legacy `profiles`/`likes`/`word_attempts` tables never existed).
+// Supabase silently returned { data: null } for those; mirror that here.
+async function safe<T>(fn: () => Promise<T>): Promise<T | null> {
+  try {
+    return await fn();
+  } catch {
+    return null;
+  }
+}
+
+// Fetch the primary definition string for a set of word ids, keyed by word id.
+async function primaryDefinitions(wordIds: string[]): Promise<Map<string, string>> {
+  const out = new Map<string, string>();
+  if (wordIds.length === 0) return out;
+  const defs = await db
+    .select({ wordId: definitionsT.wordId, definition: definitionsT.definition })
+    .from(definitionsT)
+    .where(inArray(definitionsT.wordId, wordIds))
+    .orderBy(desc(definitionsT.isPrimary), definitionsT.definitionNumber);
+  for (const d of defs) {
+    if (!out.has(d.wordId)) out.set(d.wordId, d.definition);
+  }
+  return out;
+}
+
 export async function POST(req: Request) {
   try {
-    const supabase = await createClient();
-
     // Check authentication
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
+    const user = await getSessionUser();
 
-    if (authError || !user) {
+    if (!user) {
       return new Response('Unauthorized', { status: 401 });
     }
 
@@ -25,40 +58,49 @@ export async function POST(req: Request) {
     if (!process.env.OPENAI_API_KEY) {
       console.error('OPENAI_API_KEY is not set in environment variables');
       return new Response(
-        JSON.stringify({ error: 'OpenAI API key not configured' }), 
-        { 
+        JSON.stringify({ error: 'OpenAI API key not configured' }),
+        {
           status: 500,
           headers: { 'Content-Type': 'application/json' }
         }
       );
     }
 
+    // Construct the OpenAI provider lazily so the build doesn't need the key.
+    const openai = createOpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
     // Fetch comprehensive user context
-    
-    // Get user profile
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('username, display_name')
-      .eq('id', user.id)
-      .single();
-    
-    // Get user's learning languages
-    const { data: sessions } = await supabase
-      .from('quiz_sessions')
-      .select(`
-        language_id,
-        total_questions,
-        correct_answers,
-        languages(id, name, code)
-      `)
-      .eq('user_id', user.id)
-      .not('completed_at', 'is', null);
-    
+
+    // Get user profile (legacy `profiles` table — absent here, so null like before)
+    const profile = await safe(async () => null as { username?: string; display_name?: string } | null);
+
+    // Get user's learning languages (completed quiz sessions joined to languages)
+    const sessions = await safe(async () => {
+      const rows = await db
+        .select({
+          language_id: quizSessionsT.languageId,
+          total_questions: quizSessionsT.totalQuestions,
+          correct_answers: quizSessionsT.correctAnswers,
+          lang_id: languagesT.id,
+          lang_name: languagesT.name,
+          lang_code: languagesT.code,
+        })
+        .from(quizSessionsT)
+        .leftJoin(languagesT, eq(quizSessionsT.languageId, languagesT.id))
+        .where(and(eq(quizSessionsT.userId, user.id), isNotNull(quizSessionsT.completedAt)));
+      return rows.map(r => ({
+        language_id: r.language_id,
+        total_questions: r.total_questions,
+        correct_answers: r.correct_answers,
+        languages: r.lang_id ? { id: r.lang_id, name: r.lang_name, code: r.lang_code } : null,
+      }));
+    });
+
     // Get unique languages and calculate stats
     const languageStats = new Map();
     sessions?.forEach(session => {
       const lang = session.languages as any;
-      if (lang) {
+      if (lang && lang.id) {
         const langId = session.language_id;
         const existing = languageStats.get(langId) || {
           name: lang.name,
@@ -67,7 +109,7 @@ export async function POST(req: Request) {
           correctAnswers: 0,
           sessions: 0
         };
-        
+
         languageStats.set(langId, {
           ...existing,
           totalQuestions: existing.totalQuestions + (session.total_questions || 0),
@@ -76,48 +118,31 @@ export async function POST(req: Request) {
         });
       }
     });
-    
-    // Get liked words
-    const { data: likedWords } = await supabase
-      .from('likes')
-      .select(`
-        words(
-          id,
-          word,
-          languages(name, code)
-        )
-      `)
-      .eq('user_id', user.id)
-      .limit(20);
 
-    // Get recently learned words
-    const { data: recentWords } = await supabase
-      .from('word_attempts')
-      .select(`
-        words(
-          id,
-          word,
-          languages(name, code)
-        ),
-        is_correct,
-        created_at
-      `)
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false })
-      .limit(50);
+    // Get liked words (legacy `likes` table — absent here, so null like before)
+    const likedWords = await safe(async () => null as any[] | null);
 
-    // Get spaced repetition states
-    const { data: wordStates } = await supabase
-      .from('spaced_repetition_states')
-      .select(`
-        bucket,
-        words(
-          word,
-          languages(name, code)
-        )
-      `)
-      .eq('user_id', user.id)
-      .gte('bucket', 4); // Words that are well-learned
+    // Get recently learned words (legacy `word_attempts` table — absent here)
+    const recentWords = await safe(async () => null as any[] | null);
+
+    // Get spaced repetition states (well-learned words)
+    const wordStates = await safe(async () => {
+      const rows = await db
+        .select({
+          bucket: srsT.bucket,
+          word: wordsT.word,
+          lang_name: languagesT.name,
+          lang_code: languagesT.code,
+        })
+        .from(srsT)
+        .innerJoin(wordsT, eq(srsT.wordId, wordsT.id))
+        .leftJoin(languagesT, eq(wordsT.languageId, languagesT.id))
+        .where(and(eq(srsT.userId, user.id), gte(srsT.bucket, 4)));
+      return rows.map(r => ({
+        bucket: r.bucket,
+        words: { word: r.word, languages: { name: r.lang_name, code: r.lang_code } },
+      }));
+    });
 
     // Build context string
     const userContext = {
@@ -157,7 +182,7 @@ export async function POST(req: Request) {
     const result = await streamText({
       model: openai('gpt-4o-mini'),
       messages: processedMessages,
-      system: `You are a helpful language learning assistant for Mob Translate, a dictionary app for Aboriginal languages. 
+      system: `You are a helpful language learning assistant for Mob Translate, a dictionary app for Aboriginal languages.
 
 USER CONTEXT:
 - Name: ${userContext.username}
@@ -191,31 +216,26 @@ IMPORTANT: When a message contains an image attachment:
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ word }) => {
           try {
-            
+
             // Fetch translations from the database
-            const { data: translations, error } = await supabase
-              .from('words')
-              .select(`
-                word,
-                language:languages(code, name),
-                definitions(definition)
-              `)
-              .ilike('word', word)
+            const raw = await db
+              .select({
+                id: wordsT.id,
+                word: wordsT.word,
+                lang_code: languagesT.code,
+                lang_name: languagesT.name,
+              })
+              .from(wordsT)
+              .leftJoin(languagesT, eq(wordsT.languageId, languagesT.id))
+              .where(ilike(wordsT.word, word))
               .limit(10);
+            const rows = raw.map(r => ({
+              id: r.id,
+              word: r.word,
+              language: { code: r.lang_code, name: r.lang_name },
+            }));
 
-            if (error) {
-              console.error('Database error in translateWord:', error);
-              return {
-                word,
-                translations: [{
-                  language: 'Error',
-                  translation: 'Database error occurred',
-                  languageCode: 'error'
-                }]
-              };
-            }
-
-            if (!translations || translations.length === 0) {
+            if (!rows || rows.length === 0) {
               return {
                 word,
                 translations: [{
@@ -226,11 +246,13 @@ IMPORTANT: When a message contains an image attachment:
               };
             }
 
+            const defMap = await primaryDefinitions(rows.map(r => r.id));
+
             return {
               word,
-              translations: translations.map(t => ({
+              translations: rows.map(t => ({
                 language: (t.language as any)?.name || 'Unknown',
-                translation: t.definitions?.[0]?.definition || 'No definition available',
+                translation: defMap.get(t.id) || 'No definition available',
                 languageCode: (t.language as any)?.code || 'unknown'
               }))
             };
@@ -247,7 +269,7 @@ IMPORTANT: When a message contains an image attachment:
           }
         },
       }),
-      
+
       getWordSuggestions: tool({
         description: 'Get word suggestions for learning based on a language or topic',
         inputSchema: z.object({
@@ -258,39 +280,33 @@ IMPORTANT: When a message contains an image attachment:
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ languageCode, count = 5 }) => {
           try {
-            
-            let query = supabase
-              .from('words')
-              .select(`
-                word,
-                language:languages(code, name),
-                definitions(definition)
-              `)
-              .limit(count);
 
+            let languageId: string | null = null;
             if (languageCode) {
-              const { data: language } = await supabase
-                .from('languages')
-                .select('id')
-                .eq('code', languageCode)
-                .single();
-              
-              if (language) {
-                query = query.eq('language_id', language.id);
-              }
+              const lang = await db
+                .select({ id: languagesT.id })
+                .from(languagesT)
+                .where(eq(languagesT.code, languageCode))
+                .limit(1);
+              if (lang[0]) languageId = lang[0].id;
             }
 
-            const { data: words, error } = await query;
-
-            if (error) {
-              console.error('Database error in getWordSuggestions:', error);
-              return [{
-                word: 'Error',
-                meaning: 'Database error occurred',
-                language: 'Error',
-                languageCode: 'error'
-              }];
-            }
+            const wordRows = await db
+              .select({
+                id: wordsT.id,
+                word: wordsT.word,
+                lang_code: languagesT.code,
+                lang_name: languagesT.name,
+              })
+              .from(wordsT)
+              .leftJoin(languagesT, eq(wordsT.languageId, languagesT.id))
+              .where(languageId ? eq(wordsT.languageId, languageId) : undefined)
+              .limit(count);
+            const words = wordRows.map(r => ({
+              id: r.id,
+              word: r.word,
+              language: { code: r.lang_code, name: r.lang_name },
+            }));
 
             if (!words || words.length === 0) {
               return [{
@@ -301,9 +317,11 @@ IMPORTANT: When a message contains an image attachment:
               }];
             }
 
+            const defMap = await primaryDefinitions(words.map(w => w.id));
+
             return words.map(w => ({
               word: w.word || 'Unknown',
-              meaning: w.definitions?.[0]?.definition || 'No definition available',
+              meaning: defMap.get(w.id) || 'No definition available',
               language: (w.language as any)?.name || 'Unknown',
               languageCode: (w.language as any)?.code || 'unknown'
             }));
@@ -327,22 +345,13 @@ IMPORTANT: When a message contains an image attachment:
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ languageCode }) => {
           try {
-            
-            // Get user stats using the database function
-            const { data: statsData, error } = await supabase.rpc('get_user_stats', {
-              p_user_id: user.id,
-              p_language_code: languageCode || null
-            });
 
-            if (error) {
-              console.error('Database error in getUserStats:', error);
-              return {
-                totalWords: 0,
-                masteredWords: 0,
-                accuracy: 0,
-                languages: []
-              };
-            }
+            // Get user stats using the database function
+            const res: any = await db.execute(
+              sql`select public.get_user_stats(${user.id}::uuid, ${languageCode || null}) as stats`
+            );
+            const statsRows = Array.isArray(res) ? res : res?.rows;
+            const statsData = statsRows?.[0]?.stats;
 
             if (!statsData) {
               return {
@@ -354,7 +363,7 @@ IMPORTANT: When a message contains an image attachment:
             }
 
             const stats = statsData as any;
-            
+
             return {
               totalWords: stats.overall?.totalWords || 0,
               masteredWords: stats.overall?.masteredWords || 0,
@@ -386,33 +395,12 @@ IMPORTANT: When a message contains an image attachment:
           limit: z.number().describe('Maximum number of words to return').default(20),
         }),
         // @ts-ignore - execute function is valid in Vercel AI SDK
-        execute: async ({ languageCode, limit = 20 }) => {
+        execute: async ({ languageCode }) => {
           try {
-            
-            let query = supabase
-              .from('likes')
-              .select(`
-                created_at,
-                words(
-                  id,
-                  word,
-                  languages(name, code),
-                  definitions(definition)
-                )
-              `)
-              .eq('user_id', user.id)
-              .order('created_at', { ascending: false })
-              .limit(limit);
 
-            const { data: likedWords, error } = await query;
-
-            if (error) {
-              console.error('Database error in getUserLikedWords:', error);
-              return {
-                likedWords: [],
-                totalCount: 0
-              };
-            }
+            // Legacy `likes` table is absent in this DB (Supabase returned null);
+            // preserve the empty-result behavior.
+            const likedWords: any[] | null = await safe(async () => null as any[] | null);
 
             const filteredWords = languageCode
               ? likedWords?.filter(l => (l.words as any)?.languages?.code === languageCode) || []
@@ -452,10 +440,10 @@ IMPORTANT: When a message contains an image attachment:
         // @ts-ignore - execute function is valid in Vercel AI SDK
         execute: async ({ description, languages, includeContext = true, userRequestedLanguage }) => {
           try {
-            
+
             // Parse the description to extract key objects mentioned
             const detectedItems: string[] = [];
-            
+
             // Common food items
             const foodItems = ['chicken', 'beef', 'fish', 'rice', 'bread', 'salad', 'vegetables', 'fruit', 'meat', 'egg', 'cheese', 'soup', 'sandwich'];
             // Common objects
@@ -464,17 +452,17 @@ IMPORTANT: When a message contains an image attachment:
             const natureItems = ['tree', 'water', 'sky', 'sun', 'mountain', 'river', 'rock', 'grass', 'flower', 'cloud'];
             // Specific vegetables/fruits
             const produceItems = ['lettuce', 'tomato', 'onion', 'carrot', 'potato', 'orange', 'apple', 'banana', 'lemon'];
-            
+
             // Combine all possible objects
             const allObjects = [...foodItems, ...commonObjects, ...natureItems, ...produceItems];
-            
+
             // Find objects mentioned in the description
             allObjects.forEach(obj => {
               if (description.toLowerCase().includes(obj)) {
                 detectedItems.push(obj);
               }
             });
-            
+
             // Also extract any quoted items or items after "see" or "contains"
             const quotedItems: string[] = description.match(/"([^"]+)"/g) || [];
             quotedItems.forEach((item: string) => {
@@ -497,7 +485,7 @@ IMPORTANT: When a message contains an image attachment:
 
             // Determine which languages to use
             let targetLanguages = languages || [];
-            
+
             // DEFAULT: Always use user's learning languages if no specific languages provided
             if (targetLanguages.length === 0 && userContext.languages.length > 0) {
               // Use ALL of user's learning languages, prioritized by accuracy
@@ -505,92 +493,98 @@ IMPORTANT: When a message contains an image attachment:
                 .sort((a, b) => b.accuracy - a.accuracy)
                 .map(l => l.code);
             }
-            
+
             // If still no languages, check if user requested a specific language
             if (targetLanguages.length === 0 && userRequestedLanguage) {
               // Get the language code for this language
-              const { data: langData } = await supabase
-                .from('languages')
-                .select('code')
-                .ilike('name', `%${userRequestedLanguage}%`)
-                .single();
-              
-              if (langData) {
-                targetLanguages = [langData.code];
+              const langData = await db
+                .select({ code: languagesT.code })
+                .from(languagesT)
+                .where(ilike(languagesT.name, `%${userRequestedLanguage}%`))
+                .limit(1);
+
+              if (langData[0]) {
+                targetLanguages = [langData[0].code];
               }
             }
-            
+
             // If still no languages, check if description mentions a specific language
             if (targetLanguages.length === 0) {
               const languageNames = ['yalanji', 'yupik', 'inuktitut', 'ojibwe', 'cree', 'navajo'];
               for (const lang of languageNames) {
                 if (description.toLowerCase().includes(lang)) {
                   // Get the language code for this language
-                  const { data: langData } = await supabase
-                    .from('languages')
-                    .select('code')
-                    .ilike('name', `%${lang}%`)
-                    .single();
-                  
-                  if (langData) {
-                    targetLanguages = [langData.code];
+                  const langData = await db
+                    .select({ code: languagesT.code })
+                    .from(languagesT)
+                    .where(ilike(languagesT.name, `%${lang}%`))
+                    .limit(1);
+
+                  if (langData[0]) {
+                    targetLanguages = [langData[0].code];
                     break;
                   }
                 }
               }
             }
-            
+
             // If STILL no languages (user has no learning history), show translations from multiple languages
             if (targetLanguages.length === 0) {
               // Don't filter by language - show all available translations
             }
 
+            // Resolve target language codes → ids once (used to filter words).
+            let targetLanguageIds: string[] = [];
+            if (targetLanguages.length > 0) {
+              const langIds = await db
+                .select({ id: languagesT.id })
+                .from(languagesT)
+                .where(inArray(languagesT.code, targetLanguages));
+              targetLanguageIds = langIds.map(l => l.id);
+            }
+
             // Fetch translations for detected objects
             const translationPromises = detectedItems.map(async (item) => {
               // First try exact match
-              let query = supabase
-                .from('words')
-                .select(`
-                  word,
-                  language_id,
-                  languages(code, name),
-                  definitions(definition)
-                `)
-                .ilike('word', item);
-
-              // Filter by target languages if specified
-              if (targetLanguages.length > 0) {
-                const { data: langIds } = await supabase
-                  .from('languages')
-                  .select('id')
-                  .in('code', targetLanguages);
-                
-                if (langIds && langIds.length > 0) {
-                  query = query.in('language_id', langIds.map(l => l.id));
-                }
+              const conditions = [ilike(wordsT.word, item)];
+              if (targetLanguageIds.length > 0) {
+                conditions.push(inArray(wordsT.languageId, targetLanguageIds));
               }
 
-              const { data: exactTranslations } = await query.limit(10);
+              const exactRows = await db
+                .select({
+                  id: wordsT.id,
+                  word: wordsT.word,
+                  language_id: wordsT.languageId,
+                  lang_code: languagesT.code,
+                  lang_name: languagesT.name,
+                })
+                .from(wordsT)
+                .leftJoin(languagesT, eq(wordsT.languageId, languagesT.id))
+                .where(and(...conditions))
+                .limit(10);
 
-              // If no exact matches, use vector similarity search
-              let translations = exactTranslations || [];
+              const exactDefs = await primaryDefinitions(exactRows.map(r => r.id));
+              let translations: any[] = exactRows.map(r => ({
+                word: r.word,
+                languages: { code: r.lang_code, name: r.lang_name },
+                definitions: [{ definition: exactDefs.get(r.id) }],
+              }));
               let searchMethod = 'exact';
-              
+
               if ((!translations || translations.length === 0) && process.env.OPENAI_API_KEY) {
                 try {
                   // Generate embedding for the search term
                   const searchContext = `Word: ${item}\nLanguage: English\nDefinitions: A ${item} (object or concept)`;
                   const embedding = await generateEmbedding(searchContext);
-                  
+
                   // Search for similar words using the database function
-                  const { data: similarWords, error } = await supabase
-                    .rpc('search_similar_words', {
-                      query_embedding: JSON.stringify(embedding),
-                      match_count: 5,
-                      threshold: 0.6
-                    });
-                  
-                  if (!error && similarWords) {
+                  const res: any = await db.execute(
+                    sql`select * from public.search_similar_words(${JSON.stringify(embedding)}::vector, ${5}, ${0.6})`
+                  );
+                  const similarWords = Array.isArray(res) ? res : res?.rows;
+
+                  if (similarWords && similarWords.length > 0) {
                     searchMethod = 'similarity';
                     translations = similarWords.map((w: any) => ({
                       word: w.word,
@@ -627,7 +621,7 @@ IMPORTANT: When a message contains an image attachment:
             if (userContext.likedWords.length > 0) {
               const natureWords = ['tree', 'water', 'sky', 'earth', 'wind'];
               const animalWords = ['dog', 'bird', 'fish', 'kangaroo', 'snake'];
-              
+
               if (detectedItems.some(item => natureWords.includes(item))) {
                 relatedWords.push({
                   word: 'nature',
@@ -635,7 +629,7 @@ IMPORTANT: When a message contains an image attachment:
                   reason: 'Related to natural elements in the image'
                 });
               }
-              
+
               if (detectedItems.some(item => animalWords.includes(item))) {
                 relatedWords.push({
                   word: 'animals',
@@ -657,15 +651,15 @@ IMPORTANT: When a message contains an image attachment:
             } else {
               languageNote = 'Showing translations from all available Aboriginal languages';
             }
-            
+
             // Check if any objects used similarity search
             const usedSimilaritySearch = detectedObjects.some(obj => obj.searchMethod === 'similarity');
-            
+
             const result = {
               imageDescription: `${description || 'Image analyzed successfully'}. ${languageNote}${usedSimilaritySearch ? ' (Some translations found using semantic similarity)' : ''}`,
               detectedObjects: detectedObjects.filter(obj => obj.translations.length > 0),
-              culturalInsights: includeContext ? 
-                'Aboriginal languages often have deep connections to the land and nature. Many words for natural objects carry cultural significance and traditional knowledge.' : 
+              culturalInsights: includeContext ?
+                'Aboriginal languages often have deep connections to the land and nature. Many words for natural objects carry cultural significance and traditional knowledge.' :
                 undefined,
               learningTips: [
                 'Practice these words by finding similar objects in your environment',
@@ -678,12 +672,12 @@ IMPORTANT: When a message contains an image attachment:
 
             // Validate against schema
             const validated = ImageAnalysisSchema.parse(result);
-            
+
             return {
               success: true,
               analysis: validated
             };
-            
+
           } catch (error) {
             console.error('Error in analyzeImage tool:', error);
             return {
@@ -702,15 +696,15 @@ IMPORTANT: When a message contains an image attachment:
     onError: (error) => (error as any)?.message || 'Something went wrong',
   });
   return response;
-  
+
   } catch (error) {
     console.error('Chat API error:', error);
-    
+
     return new Response(
-      JSON.stringify({ 
-        error: (error as Error)?.message || 'Something went wrong' 
-      }), 
-      { 
+      JSON.stringify({
+        error: (error as Error)?.message || 'Something went wrong'
+      }),
+      {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
       }

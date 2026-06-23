@@ -1,55 +1,80 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, eq, sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { getSessionUser, requireRole } from '@/lib/auth-helpers';
+import {
+  curatorActivities as curatorActivitiesT,
+  documentUploads as documentUploadsT,
+  languages as languagesT,
+  words as wordsT,
+} from '@/lib/db/schema';
+
+// The SQL function update_document_processing_status(doc_id uuid, new_status text,
+// stage_name text, stage_status text, stage_data jsonb, error_details jsonb) still
+// exists — call it via raw SQL. The original passed 5 named args (no error_details),
+// so we pass null for the 6th positional arg.
+async function updateProcessingStatus(
+  docId: string,
+  newStatus: string,
+  stageName: string,
+  stageStatus: string,
+  stageData: Record<string, unknown>
+) {
+  await db.execute(
+    sql`select public.update_document_processing_status(
+      ${docId}::uuid,
+      ${newStatus},
+      ${stageName},
+      ${stageStatus},
+      ${JSON.stringify(stageData)}::jsonb,
+      ${null}::jsonb
+    )`
+  );
+}
 
 export async function POST(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   try {
-    const supabase = await createClient();
     const documentId = params.id;
-    
-    // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
+
+    // Authentication required.
+    const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Get document details
-    const { data: document, error: docError } = await supabase
-      .from('document_uploads')
-      .select(`
-        *,
-        languages!language_id(
-          id,
-          name,
-          code
-        )
-      `)
-      .eq('id', documentId)
-      .single();
+    // Get document details + its language code.
+    const docRows = await db
+      .select({
+        id: documentUploadsT.id,
+        language_id: documentUploadsT.languageId,
+        file_name: documentUploadsT.fileName,
+        processing_status: documentUploadsT.processingStatus,
+        language_code: languagesT.code,
+      })
+      .from(documentUploadsT)
+      .leftJoin(languagesT, eq(documentUploadsT.languageId, languagesT.id))
+      .where(eq(documentUploadsT.id, documentId))
+      .limit(1);
+    const document = docRows[0];
 
-    if (docError || !document) {
+    if (!document) {
       return NextResponse.json({ error: 'Document not found' }, { status: 404 });
     }
 
-    // Check if user has permission to process documents for this language
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .or(`language_id.eq.${document.language_id},language_id.is.null`)
-      .in('user_roles.name', ['curator', 'dictionary_admin', 'super_admin']);
-
-    const hasPermission = roleAssignments && roleAssignments.length > 0;
-
-    if (!hasPermission) {
-      return NextResponse.json(
-        { error: 'No permission to process documents for this language' },
-        { status: 403 }
-      );
+    // Check if user has permission to process documents for this language (scoped role).
+    const { response } = await requireRole(
+      ['curator', 'dictionary_admin', 'super_admin'],
+      document.language_id
+    );
+    if (response) {
+      if (response.status === 403) {
+        return NextResponse.json(
+          { error: 'No permission to process documents for this language' },
+          { status: 403 }
+        );
+      }
+      return response;
     }
 
     // Check document status
@@ -61,15 +86,11 @@ export async function POST(request: NextRequest, props: { params: Promise<{ id: 
     }
 
     // Update document status to processing
-    const { error: updateError } = await supabase.rpc('update_document_processing_status', {
-      doc_id: documentId,
-      new_status: 'processing',
-      stage_name: 'initialization',
-      stage_status: 'started',
-      stage_data: { started_by: user.id }
-    });
-
-    if (updateError) {
+    try {
+      await updateProcessingStatus(documentId, 'processing', 'initialization', 'started', {
+        started_by: user.id,
+      });
+    } catch (updateError) {
       console.error('Failed to update document status:', updateError);
       return NextResponse.json(
         { error: 'Failed to start processing' },
@@ -79,71 +100,48 @@ export async function POST(request: NextRequest, props: { params: Promise<{ id: 
 
     // In a real implementation, this would trigger an async job
     // For now, we'll simulate the processing pipeline
-    
+
     // Stage 1: Text extraction
-    await supabase.rpc('update_document_processing_status', {
-      doc_id: documentId,
-      new_status: 'processing',
-      stage_name: 'text_extraction',
-      stage_status: 'in_progress',
-      stage_data: { method: 'pdf_parser' }
+    await updateProcessingStatus(documentId, 'processing', 'text_extraction', 'in_progress', {
+      method: 'pdf_parser',
     });
 
     // Simulate extraction (in production, this would call the actual extraction service)
     const extractedText = `Sample extracted text from ${document.file_name}`;
     const extractedWords = ['sample', 'word', 'example'];
 
-    await supabase.rpc('update_document_processing_status', {
-      doc_id: documentId,
-      new_status: 'processing',
-      stage_name: 'text_extraction',
-      stage_status: 'completed',
-      stage_data: { 
-        method: 'pdf_parser',
-        text_length: extractedText.length,
-        pages_processed: 1
-      }
+    await updateProcessingStatus(documentId, 'processing', 'text_extraction', 'completed', {
+      method: 'pdf_parser',
+      text_length: extractedText.length,
+      pages_processed: 1,
     });
 
     // Stage 2: Language detection
-    await supabase.rpc('update_document_processing_status', {
-      doc_id: documentId,
-      new_status: 'processing',
-      stage_name: 'language_detection',
-      stage_status: 'completed',
-      stage_data: { 
-        detected_language: document.languages.code,
-        confidence: 0.95
-      }
+    await updateProcessingStatus(documentId, 'processing', 'language_detection', 'completed', {
+      detected_language: document.language_code,
+      confidence: 0.95,
     });
 
     // Stage 3: Word tokenization
-    await supabase.rpc('update_document_processing_status', {
-      doc_id: documentId,
-      new_status: 'processing',
-      stage_name: 'tokenization',
-      stage_status: 'completed',
-      stage_data: { 
-        tokens_found: extractedWords.length,
-        unique_tokens: extractedWords.length
-      }
+    await updateProcessingStatus(documentId, 'processing', 'tokenization', 'completed', {
+      tokens_found: extractedWords.length,
+      unique_tokens: extractedWords.length,
     });
 
     // Stage 4: Dictionary matching
     let wordsFound = 0;
     let wordsNew = 0;
-    let wordsUpdated = 0;
+    const wordsUpdated = 0;
 
     for (const word of extractedWords) {
       // Check if word exists
-      const { data: existingWord } = await supabase
-        .from('words')
-        .select('id')
-        .eq('word', word)
-        .eq('language_id', document.language_id)
-        .single();
+      const existingWord = await db
+        .select({ id: wordsT.id })
+        .from(wordsT)
+        .where(and(eq(wordsT.word, word), eq(wordsT.languageId, document.language_id!)))
+        .limit(1);
 
-      if (existingWord) {
+      if (existingWord.length > 0) {
         wordsFound++;
         // In production, this would create improvement suggestions
       } else {
@@ -152,52 +150,46 @@ export async function POST(request: NextRequest, props: { params: Promise<{ id: 
       }
     }
 
-    await supabase.rpc('update_document_processing_status', {
-      doc_id: documentId,
-      new_status: 'processing',
-      stage_name: 'matching',
-      stage_status: 'completed',
-      stage_data: { 
-        words_found: wordsFound,
-        words_new: wordsNew,
-        words_updated: wordsUpdated
-      }
+    await updateProcessingStatus(documentId, 'processing', 'matching', 'completed', {
+      words_found: wordsFound,
+      words_new: wordsNew,
+      words_updated: wordsUpdated,
     });
 
     // Update final document stats
-    const { error: finalUpdateError } = await supabase
-      .from('document_uploads')
-      .update({
-        processing_status: 'completed',
-        processing_completed_at: new Date().toISOString(),
-        words_found: extractedWords.length,
-        words_new: wordsNew,
-        words_updated: wordsUpdated,
-        extraction_results: {
-          total_words_found: extractedWords.length,
-          new_words_added: wordsNew,
-          existing_words_updated: wordsUpdated,
-          processing_duration_ms: 5000 // Simulated
-        }
-      })
-      .eq('id', documentId);
-
-    if (finalUpdateError) {
+    try {
+      await db
+        .update(documentUploadsT)
+        .set({
+          processingStatus: 'completed',
+          processingCompletedAt: new Date().toISOString(),
+          wordsFound: extractedWords.length,
+          wordsNew,
+          wordsUpdated,
+          extractionResults: {
+            total_words_found: extractedWords.length,
+            new_words_added: wordsNew,
+            existing_words_updated: wordsUpdated,
+            processing_duration_ms: 5000, // Simulated
+          },
+        })
+        .where(eq(documentUploadsT.id, documentId));
+    } catch (finalUpdateError) {
       console.error('Failed to update final document stats:', finalUpdateError);
     }
 
     // Log the processing completion
-    await supabase.from('curator_activities').insert({
-      user_id: user.id,
-      language_id: document.language_id,
-      activity_type: 'document_processed',
-      target_type: 'document',
-      target_id: documentId,
-      activity_data: {
+    await db.insert(curatorActivitiesT).values({
+      userId: user.id,
+      languageId: document.language_id,
+      activityType: 'document_processed',
+      targetType: 'document',
+      targetId: documentId,
+      activityData: {
         words_found: extractedWords.length,
         words_new: wordsNew,
-        processing_duration_ms: 5000
-      }
+        processing_duration_ms: 5000,
+      },
     });
 
     return NextResponse.json({

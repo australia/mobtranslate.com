@@ -1,75 +1,93 @@
-import { createClient } from '@supabase/supabase-js'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server';
+import { and, asc, count, eq, inArray } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import {
+  definitions as definitionsT,
+  languages as languagesT,
+  translations as translationsT,
+  wordClasses as wordClassesT,
+  words as wordsT,
+} from '@/lib/db/schema';
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
-
-    const searchParams = request.nextUrl.searchParams
-    const languageCode = searchParams.get('language')
-    const limit = Math.min(parseInt(searchParams.get('limit') || '50'), 200)
-    const offset = parseInt(searchParams.get('offset') || '0')
+    const searchParams = request.nextUrl.searchParams;
+    const languageCode = searchParams.get('language');
+    const limit = Math.min(parseInt(searchParams.get('limit') || '50'), 200);
+    const offset = parseInt(searchParams.get('offset') || '0');
 
     if (!languageCode) {
-      return NextResponse.json({ error: 'Language code is required' }, { status: 400 })
+      return NextResponse.json({ error: 'Language code is required' }, { status: 400 });
     }
 
     // Get language ID from code
-    const { data: language, error: langError } = await supabase
-      .from('languages')
-      .select('id')
-      .eq('code', languageCode)
-      .eq('is_active', true)
-      .single()
+    const langRows = await db
+      .select({ id: languagesT.id })
+      .from(languagesT)
+      .where(and(eq(languagesT.code, languageCode), eq(languagesT.isActive, true)))
+      .limit(1);
 
-    if (langError || !language) {
-      return NextResponse.json({ error: 'Language not found' }, { status: 404 })
+    const language = langRows[0];
+    if (!language) {
+      return NextResponse.json({ error: 'Language not found' }, { status: 404 });
     }
 
-    // Fetch words with definitions and translations
-    const { data: words, error, count } = await supabase
-      .from('words')
-      .select(`
-        id,
-        word,
-        word_type,
-        word_classes (
-          id,
-          name
-        ),
-        definitions (
-          definition
-        ),
-        translations (
-          translation
-        )
-      `, { count: 'exact' })
-      .eq('language_id', language.id)
-      .order('word', { ascending: true })
-      .range(offset, offset + limit - 1)
+    // Page of words (+ word_class) and the exact total count.
+    const [rows, totalRows] = await Promise.all([
+      db
+        .select({ word: wordsT, wordClass: wordClassesT })
+        .from(wordsT)
+        .leftJoin(wordClassesT, eq(wordsT.wordClassId, wordClassesT.id))
+        .where(eq(wordsT.languageId, language.id))
+        .orderBy(asc(wordsT.word))
+        .limit(limit)
+        .offset(offset),
+      db.select({ value: count() }).from(wordsT).where(eq(wordsT.languageId, language.id)),
+    ]);
 
-    if (error) {
-      console.error('Error fetching words:', error)
-      return NextResponse.json({ error: 'Failed to fetch words' }, { status: 500 })
+    const wordIds = rows.map((r) => r.word.id);
+    const [defs, trans] = await Promise.all([
+      wordIds.length > 0
+        ? db
+            .select({ wordId: definitionsT.wordId, definition: definitionsT.definition })
+            .from(definitionsT)
+            .where(inArray(definitionsT.wordId, wordIds))
+        : Promise.resolve([]),
+      wordIds.length > 0
+        ? db
+            .select({ wordId: translationsT.wordId, translation: translationsT.translation })
+            .from(translationsT)
+            .where(inArray(translationsT.wordId, wordIds))
+        : Promise.resolve([]),
+    ]);
+
+    const defsByWord = new Map<string, Array<{ definition: string }>>();
+    for (const d of defs) {
+      const arr = defsByWord.get(d.wordId) ?? [];
+      arr.push({ definition: d.definition });
+      defsByWord.set(d.wordId, arr);
+    }
+    const transByWord = new Map<string, Array<{ translation: string }>>();
+    for (const t of trans) {
+      const arr = transByWord.get(t.wordId) ?? [];
+      arr.push({ translation: t.translation });
+      transByWord.set(t.wordId, arr);
     }
 
-    const formattedWords = words?.map(word => ({
-      id: word.id,
-      word: word.word,
-      word_class: word.word_classes,
-      definitions: word.definitions || [],
-      translations: word.translations || [],
-    })) || []
+    const formattedWords = rows.map((r) => ({
+      id: r.word.id,
+      word: r.word.word,
+      word_class: r.wordClass ? { id: r.wordClass.id, name: r.wordClass.name } : null,
+      definitions: defsByWord.get(r.word.id) ?? [],
+      translations: transByWord.get(r.word.id) ?? [],
+    }));
 
     return NextResponse.json({
       words: formattedWords,
-      total: count || 0,
-    })
+      total: totalRows[0]?.value ?? 0,
+    });
   } catch (error) {
-    console.error('Unexpected error:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    console.error('Unexpected error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

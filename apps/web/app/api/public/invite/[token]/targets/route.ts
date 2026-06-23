@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { publicClient } from '@/lib/recording/public';
+import { sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
 
 export const runtime = 'nodejs';
 
@@ -20,13 +21,13 @@ export async function POST(request: NextRequest, props: { params: Promise<{ toke
     return NextResponse.json({ error: 'Invalid input', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
   }
 
-  const db = publicClient();
-  const { data, error } = await db.rpc('invite_add_target', {
-    p_token: params.token,
-    p_kind: body.kind,
-    p_text: body.text,
-    p_gloss: body.gloss ?? null,
-  });
-  if (error) return NextResponse.json({ error: error.message }, { status: 400 });
-  return NextResponse.json(data, { status: 201 });
+  try {
+    const r: any = await db.execute(
+      sql`select public.invite_add_target(${params.token}, ${body.kind}, ${body.text}, ${body.gloss ?? null}) as result`,
+    );
+    const rows = Array.isArray(r) ? r : r.rows ?? [];
+    return NextResponse.json(rows[0]?.result, { status: 201 });
+  } catch (err) {
+    return NextResponse.json({ error: ((err as any)?.cause?.message ?? (err as Error).message) }, { status: 400 });
+  }
 }

@@ -1,5 +1,13 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { requireUser } from '@/lib/auth-helpers';
+import {
+  languages as languagesT,
+  quizAttempts,
+  spacedRepetitionStates,
+  words as wordsT,
+} from '@/lib/db/schema';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,30 +27,59 @@ function streakFromDays(days: Set<string>): number {
 }
 
 export async function GET() {
-  const supabase = await createClient();
-
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   try {
     // Real activity lives in quiz_attempts (sessions are often left incomplete,
     // so they undercount). Join each attempt to its word's language.
-    const { data: attempts, error: attemptsError } = await supabase
-      .from('quiz_attempts')
-      .select('is_correct, created_at, words!inner(language_id, languages(id, name, code))')
-      .eq('user_id', user.id);
-
-    if (attemptsError) {
+    let attempts: any[];
+    try {
+      const attemptRows = await db
+        .select({
+          is_correct: quizAttempts.isCorrect,
+          created_at: quizAttempts.createdAt,
+          language_id: wordsT.languageId,
+          lang_id: languagesT.id,
+          lang_name: languagesT.name,
+          lang_code: languagesT.code,
+        })
+        .from(quizAttempts)
+        .innerJoin(wordsT, eq(quizAttempts.wordId, wordsT.id))
+        .innerJoin(languagesT, eq(wordsT.languageId, languagesT.id))
+        .where(eq(quizAttempts.userId, user!.id));
+      attempts = attemptRows.map((r) => ({
+        is_correct: r.is_correct,
+        created_at: r.created_at,
+        words: {
+          language_id: r.language_id,
+          languages: { id: r.lang_id, name: r.lang_name, code: r.lang_code },
+        },
+      }));
+    } catch (attemptsError) {
       console.error('Error fetching attempts:', attemptsError);
       return NextResponse.json({ error: 'Failed to fetch activity' }, { status: 500 });
     }
 
-    const { data: states } = await supabase
-      .from('spaced_repetition_states')
-      .select('word_id, words!inner(language_id, languages(id, name, code))')
-      .eq('user_id', user.id);
+    const stateRows = await db
+      .select({
+        word_id: spacedRepetitionStates.wordId,
+        language_id: wordsT.languageId,
+        lang_id: languagesT.id,
+        lang_name: languagesT.name,
+        lang_code: languagesT.code,
+      })
+      .from(spacedRepetitionStates)
+      .innerJoin(wordsT, eq(spacedRepetitionStates.wordId, wordsT.id))
+      .innerJoin(languagesT, eq(wordsT.languageId, languagesT.id))
+      .where(eq(spacedRepetitionStates.userId, user!.id));
+    const states = stateRows.map((r) => ({
+      word_id: r.word_id,
+      words: {
+        language_id: r.language_id,
+        languages: { id: r.lang_id, name: r.lang_name, code: r.lang_code },
+      },
+    }));
 
     type LangAgg = {
       language: string; code: string;

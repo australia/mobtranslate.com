@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
-import { createAdminClient } from '@/lib/supabase/admin';
+import { and, eq, gte, inArray } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { requireUser } from '@/lib/auth-helpers';
+import {
+  languages as languagesT,
+  quizAttempts,
+  spacedRepetitionStates,
+  userProfiles,
+  words as wordsT,
+} from '@/lib/db/schema';
 
 function calculateStreakFromDaily(dailyActivity: Map<string, number>): number {
   if (dailyActivity.size === 0) return 0;
@@ -31,15 +39,10 @@ function calculateStreakFromDaily(dailyActivity: Map<string, number>): number {
 export async function GET(request: NextRequest, props: { params: Promise<{ language: string }> }) {
   const params = await props.params;
 
-  // Authenticate with the viewer's session (used to highlight their own rank),
-  // but read leaderboard data with the service-role client so every competitor
-  // shows — RLS would otherwise scope quiz data to the signed-in viewer.
-  const userClient = await createClient();
-  const { data: { user }, error: authError } = await userClient.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
-  const supabase = createAdminClient();
+  // Authenticate with the viewer's session (used to highlight their own rank).
+  // RLS is gone, so plain reads return every competitor's quiz data.
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   const { searchParams } = new URL(request.url);
   const period = searchParams.get('period') || 'all';
@@ -47,13 +50,14 @@ export async function GET(request: NextRequest, props: { params: Promise<{ langu
 
   try {
     // Get language info
-    const { data: langData, error: langError } = await supabase
-      .from('languages')
-      .select('id, name, code')
-      .eq('code', languageCode)
-      .single();
+    const langRows = await db
+      .select({ id: languagesT.id, name: languagesT.name, code: languagesT.code })
+      .from(languagesT)
+      .where(eq(languagesT.code, languageCode))
+      .limit(1);
+    const langData = langRows[0];
 
-    if (langError || !langData) {
+    if (!langData) {
       return NextResponse.json({ error: 'Language not found' }, { status: 404 });
     }
 
@@ -91,39 +95,38 @@ export async function GET(request: NextRequest, props: { params: Promise<{ langu
     }
 
     // Get all users who have quiz attempts in this language for the period
-    let attemptsQuery = supabase
-      .from('quiz_attempts')
-      .select(`
-        user_id,
-        is_correct,
-        response_time_ms,
-        created_at,
-        words!inner(language_id)
-      `)
-      .eq('words.language_id', languageId);
-
-    if (dateFilter) {
-      attemptsQuery = attemptsQuery.gte('created_at', dateFilter);
-    }
-
-    const { data: attempts, error: attemptsError } = await attemptsQuery;
-
-    if (attemptsError) {
+    let attempts: Array<{ user_id: string; is_correct: boolean; response_time_ms: number; created_at: string }> = [];
+    try {
+      const attemptFilters = [eq(wordsT.languageId, languageId)];
+      if (dateFilter) attemptFilters.push(gte(quizAttempts.createdAt, dateFilter));
+      attempts = await db
+        .select({
+          user_id: quizAttempts.userId,
+          is_correct: quizAttempts.isCorrect,
+          response_time_ms: quizAttempts.responseTimeMs,
+          created_at: quizAttempts.createdAt,
+        })
+        .from(quizAttempts)
+        .innerJoin(wordsT, eq(quizAttempts.wordId, wordsT.id))
+        .where(and(...attemptFilters));
+    } catch (attemptsError) {
+      console.error('[Leaderboard API] Error fetching attempts:', attemptsError);
       return NextResponse.json({ error: 'Failed to fetch leaderboard data' }, { status: 500 });
     }
 
     // Get spaced repetition states for word counts
-    const { data: states, error: statesError } = await supabase
-      .from('spaced_repetition_states')
-      .select(`
-        user_id,
-        word_id,
-        bucket,
-        words!inner(language_id)
-      `)
-      .eq('words.language_id', languageId);
-
-    if (statesError) {
+    let states: Array<{ user_id: string; word_id: string; bucket: number }> = [];
+    try {
+      states = await db
+        .select({
+          user_id: spacedRepetitionStates.userId,
+          word_id: spacedRepetitionStates.wordId,
+          bucket: spacedRepetitionStates.bucket,
+        })
+        .from(spacedRepetitionStates)
+        .innerJoin(wordsT, eq(spacedRepetitionStates.wordId, wordsT.id))
+        .where(eq(wordsT.languageId, languageId));
+    } catch (statesError) {
       console.error('[Leaderboard API] Error fetching states:', statesError);
     }
 
@@ -185,11 +188,15 @@ export async function GET(request: NextRequest, props: { params: Promise<{ langu
     const usernamesMap = new Map<string, string>();
     
     if (userIds.length > 0) {
-      const { data: profiles } = await supabase
-        .from('user_profiles')
-        .select('user_id, username, display_name')
-        .in('user_id', userIds);
-      
+      const profiles = await db
+        .select({
+          user_id: userProfiles.userId,
+          username: userProfiles.username,
+          display_name: userProfiles.displayName,
+        })
+        .from(userProfiles)
+        .where(inArray(userProfiles.userId, userIds));
+
       profiles?.forEach(profile => {
         // Use display_name if available, otherwise username
         const displayName = profile.display_name || profile.username;
@@ -247,7 +254,7 @@ export async function GET(request: NextRequest, props: { params: Promise<{ langu
         longestStreak,
         avgResponseTime: Math.round(avgResponseTime),
         points,
-        isCurrentUser: userId === user.id
+        isCurrentUser: userId === user!.id
       };
     });
 

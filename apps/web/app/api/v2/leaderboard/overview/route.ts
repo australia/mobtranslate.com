@@ -1,5 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createAdminClient } from '@/lib/supabase/admin';
+import { and, asc, eq, gte, inArray } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import {
+  languages as languagesT,
+  quizAttempts as quizAttemptsT,
+  spacedRepetitionStates as spacedRepetitionStatesT,
+  userProfiles as userProfilesT,
+  words as wordsT,
+} from '@/lib/db/schema';
 
 interface LanguageLeaderboard {
   languageId: string;
@@ -50,10 +58,8 @@ function calculateStreakFromDaily(dailyActivity: Map<string, number>): number {
 }
 
 export async function GET(request: NextRequest) {
-  // Public leaderboard: aggregate every learner's quiz activity. Use the
-  // service-role client so RLS doesn't scope reads to the (optional) signed-in
-  // viewer — otherwise each user only ever sees themselves on the board.
-  const supabase = createAdminClient();
+  // Public leaderboard: aggregate every learner's quiz activity. RLS is gone in
+  // the self-hosted DB, so a plain read sees all rows (no per-viewer scoping).
 
   // Leaderboard is publicly accessible - no auth required
   const { searchParams } = new URL(request.url);
@@ -61,14 +67,10 @@ export async function GET(request: NextRequest) {
 
   try {
     // Get all languages
-    const { data: languages, error: languagesError } = await supabase
-      .from('languages')
-      .select('id, name, code')
-      .order('name');
-
-    if (languagesError) {
-      return NextResponse.json({ error: 'Failed to fetch languages' }, { status: 500 });
-    }
+    const languages = await db
+      .select({ id: languagesT.id, name: languagesT.name, code: languagesT.code })
+      .from(languagesT)
+      .orderBy(asc(languagesT.name));
 
     // Calculate date range for period filtering
     let dateFilter = '';
@@ -106,26 +108,21 @@ export async function GET(request: NextRequest) {
     // Process each language
     for (const language of languages) {
       // Get quiz attempts for this language (since sessions aren't being completed properly)
-      let attemptsQuery = supabase
-        .from('quiz_attempts')
-        .select(`
-          user_id,
-          is_correct,
-          response_time_ms,
-          created_at,
-          words!inner(language_id)
-        `)
-        .eq('words.language_id', language.id);
-
+      const attemptFilters = [eq(wordsT.languageId, language.id)];
       if (dateFilter) {
-        attemptsQuery = attemptsQuery.gte('created_at', dateFilter);
+        attemptFilters.push(gte(quizAttemptsT.createdAt, dateFilter));
       }
 
-      const { data: attempts, error: attemptsError } = await attemptsQuery;
-
-      if (attemptsError) {
-        continue;
-      }
+      const attempts = await db
+        .select({
+          user_id: quizAttemptsT.userId,
+          is_correct: quizAttemptsT.isCorrect,
+          response_time_ms: quizAttemptsT.responseTimeMs,
+          created_at: quizAttemptsT.createdAt,
+        })
+        .from(quizAttemptsT)
+        .innerJoin(wordsT, eq(quizAttemptsT.wordId, wordsT.id))
+        .where(and(...attemptFilters));
 
       if (!attempts || attempts.length === 0) {
         leaderboards.push({
@@ -142,15 +139,15 @@ export async function GET(request: NextRequest) {
       }
 
       // Get spaced repetition states for word counts
-      const { data: states } = await supabase
-        .from('spaced_repetition_states')
-        .select(`
-          user_id,
-          word_id,
-          bucket,
-          words!inner(language_id)
-        `)
-        .eq('words.language_id', language.id);
+      const states = await db
+        .select({
+          user_id: spacedRepetitionStatesT.userId,
+          word_id: spacedRepetitionStatesT.wordId,
+          bucket: spacedRepetitionStatesT.bucket,
+        })
+        .from(spacedRepetitionStatesT)
+        .innerJoin(wordsT, eq(spacedRepetitionStatesT.wordId, wordsT.id))
+        .where(eq(wordsT.languageId, language.id));
 
       // Process user statistics from quiz attempts
       const userStatsMap = new Map<string, any>();
@@ -210,11 +207,15 @@ export async function GET(request: NextRequest) {
       const usernamesMap = new Map<string, string>();
       
       if (userIds.length > 0) {
-        const { data: profiles } = await supabase
-          .from('user_profiles')
-          .select('user_id, username, display_name')
-          .in('user_id', userIds);
-        
+        const profiles = await db
+          .select({
+            user_id: userProfilesT.userId,
+            username: userProfilesT.username,
+            display_name: userProfilesT.displayName,
+          })
+          .from(userProfilesT)
+          .where(inArray(userProfilesT.userId, userIds));
+
         profiles?.forEach(profile => {
           // Use display_name if available, otherwise username
           const displayName = profile.display_name || profile.username;

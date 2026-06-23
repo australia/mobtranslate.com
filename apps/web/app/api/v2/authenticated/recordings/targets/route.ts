@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
 import { requireUser } from '@/lib/recording/server';
 
 export const runtime = 'nodejs';
@@ -22,12 +24,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid input', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
   }
 
-  const { data, error } = await auth.supabase.rpc('auth_add_target', {
-    p_language_id: body.languageId,
-    p_kind: body.kind,
-    p_text: body.text,
-    p_gloss: body.gloss ?? null,
-  });
-  if (error) return NextResponse.json({ error: error.message }, { status: 400 });
-  return NextResponse.json(data, { status: 201 });
+  // auth_add_target reads auth.uid() from the request.jwt.claim.sub GUC.
+  try {
+    const data = await db.transaction(async (tx) => {
+      await tx.execute(sql`select set_config('request.jwt.claim.sub', ${auth.user.id}, true)`);
+      const r: any = await tx.execute(
+        sql`select public.auth_add_target(${body.languageId}::uuid, ${body.kind}, ${body.text}, ${body.gloss ?? null}) as result`,
+      );
+      const rows = Array.isArray(r) ? r : r.rows ?? [];
+      return rows[0]?.result;
+    });
+    return NextResponse.json(data, { status: 201 });
+  } catch (err) {
+    return NextResponse.json({ error: ((err as any)?.cause?.message ?? (err as Error).message) }, { status: 400 });
+  }
 }

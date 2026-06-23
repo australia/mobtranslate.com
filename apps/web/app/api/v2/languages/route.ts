@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getActiveLanguages } from '@/lib/supabase/queries';
+import { getActiveLanguages } from '@/lib/db/queries';
 
 export async function GET() {
   try {

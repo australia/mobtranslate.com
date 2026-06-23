@@ -1,129 +1,22 @@
-import { createServerClient, type CookieOptions } from '@supabase/ssr'
-import { NextResponse, type NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server';
+import { getSessionCookie } from 'better-auth/cookies';
 
-export async function middleware(request: NextRequest) {
-  let response = NextResponse.next({
-    request: {
-      headers: request.headers,
-    },
-  })
-
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      auth: {
-        persistSession: true,
-        autoRefreshToken: true,
-        detectSessionInUrl: true,
-      },
-      cookies: {
-        get(name: string) {
-          return request.cookies.get(name)?.value
-        },
-        set(name: string, value: string, options: CookieOptions) {
-          request.cookies.set({
-            name,
-            value,
-            ...options,
-          })
-          response = NextResponse.next({
-            request: {
-              headers: request.headers,
-            },
-          })
-          // Set cookie to expire in 1 year
-          const oneYear = 365 * 24 * 60 * 60 * 1000;
-          response.cookies.set({
-            name,
-            value,
-            ...options,
-            maxAge: oneYear,
-            expires: new Date(Date.now() + oneYear),
-          })
-        },
-        remove(name: string, options: CookieOptions) {
-          request.cookies.set({
-            name,
-            value: '',
-            ...options,
-          })
-          response = NextResponse.next({
-            request: {
-              headers: request.headers,
-            },
-          })
-          response.cookies.set({
-            name,
-            value: '',
-            ...options,
-          })
-        },
-      },
-    }
-  )
-
-  // Refresh session if it exists (this will automatically handle token refresh)
-  const { data: { user } } = await supabase.auth.getUser()
-
-  // Check if user needs to set up profile
-  // Use a cookie to cache profile existence and avoid a DB query on every request
-  if (user && !request.nextUrl.pathname.startsWith('/auth/setup-profile')) {
-    // Skip profile check for certain paths
-    const skipPaths = [
-      '/auth',
-      '/api',
-      '/_next',
-      '/favicon.ico',
-      '/settings' // Settings page handles profile creation too
-    ]
-
-    const shouldSkip = skipPaths.some(path => request.nextUrl.pathname.startsWith(path))
-
-    if (!shouldSkip) {
-      // Check cookie first to avoid DB query on every request
-      const hasProfileCookie = request.cookies.get('has_profile')?.value
-
-      if (hasProfileCookie !== 'true') {
-        // Only query DB if cookie is not set
-        const { data: profile } = await supabase
-          .from('user_profiles')
-          .select('username')
-          .eq('user_id', user.id)
-          .single()
-
-        if (!profile) {
-          // Redirect to profile setup
-          return NextResponse.redirect(new URL('/auth/setup-profile', request.url))
-        }
-
-        // Profile exists - set cookie to avoid future DB queries
-        response.cookies.set({
-          name: 'has_profile',
-          value: 'true',
-          maxAge: 60 * 60 * 24, // 24 hours
-          path: '/',
-          httpOnly: true,
-          sameSite: 'lax',
-        })
-      }
-    }
-  }
-
-  return response
+// Auth is now better-auth. The old middleware called supabase.auth.getUser() and
+// queried user_profiles to redirect logged-in users without a profile to
+// /auth/setup-profile. Profiles are now created atomically on signup (the
+// databaseHooks.user.create hook in lib/auth.ts), so that redirect is obsolete.
+//
+// This runs on the Edge runtime, so we only do a lightweight, no-DB session
+// presence check via the better-auth cookie. Pages/routes enforce real authz
+// (getSessionUser / requireRole) server-side.
+export function middleware(request: NextRequest) {
+  // Touch the session cookie so it's available for future edge gating; no DB.
+  void getSessionCookie(request);
+  return NextResponse.next();
 }
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api/tts (public pronunciation endpoint, needs no auth)
-     * - api/public (no-login speaker portal endpoints)
-     * - record (no-login speaker recording portal)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api/tts|api/public|record|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!api/tts|api/public|api/auth|record|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
-}
+};

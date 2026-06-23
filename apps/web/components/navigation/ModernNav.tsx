@@ -18,7 +18,6 @@ import {
   Shield,
   FileCheck
 } from 'lucide-react';
-import { createClient } from '@/lib/supabase/client';
 
 interface NavItem {
   href: string;
@@ -64,20 +63,17 @@ export function ModernNav() {
         setUsername(data.profile?.display_name || data.profile?.username);
       }
 
-      // Check user role using Supabase directly
+      // Check user role via the server route (better-auth session + DB).
       if (user && typeof window !== 'undefined') {
         try {
-          const supabase = createClient();
-          const { data: roleData, error } = await supabase
-            .rpc('get_user_language_role', {
-              user_uuid: user.id,
-              lang_id: null
-            });
-
-          if (error) {
-            console.error('Error fetching user role:', error);
-          } else if (roleData) {
-            setUserRole(roleData);
+          const roleResponse = await fetch('/api/v2/user/role');
+          if (roleResponse.ok) {
+            const roleData = await roleResponse.json();
+            if (roleData?.role) {
+              setUserRole(roleData.role);
+            }
+          } else {
+            console.error('Error fetching user role:', roleResponse.status);
           }
         } catch (err) {
           console.error('Failed to fetch user role:', err);

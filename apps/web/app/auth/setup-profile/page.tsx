@@ -1,29 +1,28 @@
 import { SetupProfileForm } from '@/components/auth/SetupProfileForm'
 import { redirect } from 'next/navigation'
-import { createClient } from '@/lib/supabase/server'
+import { eq } from 'drizzle-orm'
+import { getSessionUser } from '@/lib/auth-helpers'
+import { db } from '@/lib/db/index'
+import { userProfiles } from '@/lib/db/schema'
 
 export default async function SetupProfilePage() {
-  const supabase = await createClient()
-  
-  // Check if user is authenticated
-  const { data: { user } } = await supabase.auth.getUser()
-  
+  const user = await getSessionUser()
+
   if (!user) {
     redirect('/auth/signin')
   }
-  
-  // Check if user already has a profile
-  const { data: profile } = await supabase
-    .from('user_profiles')
-    .select('username')
-    .eq('user_id', user.id)
-    .single()
-  
-  if (profile) {
-    // User already has a profile, redirect to home
+
+  // Profiles are auto-created on signup, but keep the guard for safety.
+  const profile = await db
+    .select({ username: userProfiles.username })
+    .from(userProfiles)
+    .where(eq(userProfiles.userId, user.id))
+    .limit(1)
+
+  if (profile.length > 0) {
     redirect('/')
   }
-  
+
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
       <SetupProfileForm userEmail={user.email || ''} />

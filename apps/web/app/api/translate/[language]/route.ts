@@ -1,11 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { OpenAI } from 'openai';
-import { createClient } from '@/lib/supabase/server';
+import { asc, eq, inArray } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import {
+  definitions as definitionsT,
+  languages as languagesT,
+  translations as translationsT,
+  words as wordsT,
+} from '@/lib/db/schema';
 
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// Lazily construct the OpenAI client inside the handler so the build doesn't
+// require OPENAI_API_KEY at module load.
+let _openai: OpenAI | null = null;
+function getOpenAI(): OpenAI {
+  if (!_openai) _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  return _openai;
+}
 
 interface DictionaryMeta {
   name: string;
@@ -37,38 +50,70 @@ async function loadDictionary(language: string): Promise<Dictionary | null> {
   const cached = dictCache.get(language);
   if (cached && Date.now() - cached.at < DICT_TTL) return cached.dictionary;
 
-  const supabase = await createClient();
-  const { data: lang } = await supabase
-    .from('languages')
-    .select('id, name, description, region, code')
-    .eq('code', language)
-    .maybeSingle();
+  const langRows = await db
+    .select({
+      id: languagesT.id,
+      name: languagesT.name,
+      description: languagesT.description,
+      region: languagesT.region,
+      code: languagesT.code,
+    })
+    .from(languagesT)
+    .where(eq(languagesT.code, language))
+    .limit(1);
+  const lang = langRows[0];
   if (!lang) return null;
 
-  // Page past the 1000-row PostgREST cap to get the whole dictionary.
-  type Row = { word: string; definitions: { definition: string }[] | null; translations: { translation: string }[] | null };
-  const rows: Row[] = [];
-  for (let from = 0; ; from += 1000) {
-    const { data, error } = await supabase
-      .from('words')
-      .select('word, definitions(definition), translations(translation)')
-      .eq('language_id', lang.id)
-      .order('word', { ascending: true })
-      .range(from, from + 999);
-    if (error || !data || data.length === 0) break;
-    rows.push(...(data as Row[]));
-    if (data.length < 1000) break;
-  }
+  // Load the whole dictionary: every word + its definitions + translations.
+  const wordRows = await db
+    .select({ id: wordsT.id, word: wordsT.word })
+    .from(wordsT)
+    .where(eq(wordsT.languageId, lang.id))
+    .orderBy(asc(wordsT.word));
+
+  const wordIds = wordRows.map((w) => w.id);
 
   // De-dupe by headword, merging glosses (translations + definitions) across senses.
   const byWord = new Map<string, Set<string>>();
-  for (const r of rows) {
-    const key = (r.word || '').trim();
-    if (!key) continue;
-    if (!byWord.has(key)) byWord.set(key, new Set());
-    const set = byWord.get(key)!;
-    r.translations?.forEach((t) => t.translation && set.add(t.translation.trim()));
-    r.definitions?.forEach((d) => d.definition && set.add(d.definition.trim()));
+  if (wordIds.length > 0) {
+    const wordById = new Map(wordRows.map((w) => [w.id, (w.word || '').trim()]));
+
+    // Pull defs + translations in chunks to stay within parameter limits.
+    const CHUNK = 5000;
+    const defsByWordId = new Map<string, string[]>();
+    const transByWordId = new Map<string, string[]>();
+    for (let i = 0; i < wordIds.length; i += CHUNK) {
+      const slice = wordIds.slice(i, i + CHUNK);
+      const [defs, trans] = await Promise.all([
+        db
+          .select({ wordId: definitionsT.wordId, definition: definitionsT.definition })
+          .from(definitionsT)
+          .where(inArray(definitionsT.wordId, slice)),
+        db
+          .select({ wordId: translationsT.wordId, translation: translationsT.translation })
+          .from(translationsT)
+          .where(inArray(translationsT.wordId, slice)),
+      ]);
+      for (const d of defs) {
+        const arr = defsByWordId.get(d.wordId) ?? [];
+        arr.push(d.definition);
+        defsByWordId.set(d.wordId, arr);
+      }
+      for (const t of trans) {
+        const arr = transByWordId.get(t.wordId) ?? [];
+        arr.push(t.translation);
+        transByWordId.set(t.wordId, arr);
+      }
+    }
+
+    for (const id of wordIds) {
+      const key = wordById.get(id) || '';
+      if (!key) continue;
+      if (!byWord.has(key)) byWord.set(key, new Set());
+      const set = byWord.get(key)!;
+      transByWordId.get(id)?.forEach((t) => t && set.add(t.trim()));
+      defsByWordId.get(id)?.forEach((d) => d && set.add(d.trim()));
+    }
   }
 
   const words: GlossEntry[] = [...byWord.entries()]
@@ -155,7 +200,7 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
 
     // Google-Translate pane: concise, structured, non-streaming.
     if (mode === 'translate') {
-      const completion = await openai.chat.completions.create({
+      const completion = await getOpenAI().chat.completions.create({
         model: 'gpt-4.1-mini',
         messages: [
           { role: 'system', content: `You are a precise translator for ${dictionary.meta.name}. Return only JSON.` },
@@ -184,7 +229,7 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
     const systemPrompt = `You are a helpful translator specializing in ${dictionary.meta.name}. Use the provided dictionary entries to ensure accurate translations while maintaining cultural context.`;
 
     if (stream) {
-      const streamResponse = await openai.chat.completions.create({
+      const streamResponse = await getOpenAI().chat.completions.create({
         model: 'gpt-4.1',
         messages: [
           { role: 'system', content: systemPrompt },
@@ -209,7 +254,7 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
       });
     }
 
-    const completion = await openai.chat.completions.create({
+    const completion = await getOpenAI().chat.completions.create({
       model: 'gpt-4.1',
       messages: [
         { role: 'system', content: systemPrompt },

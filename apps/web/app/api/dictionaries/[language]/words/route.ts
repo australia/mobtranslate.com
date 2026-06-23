@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getWordsForLanguage } from '@/lib/supabase/queries';
+import { getWordsForLanguage } from '@/lib/db/queries';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 
 export async function GET(request: NextRequest, props: { params: Promise<{ language: string }> }) {

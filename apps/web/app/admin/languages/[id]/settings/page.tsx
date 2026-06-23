@@ -5,7 +5,6 @@ import { useParams, useRouter } from 'next/navigation';
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Input, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Badge } from '@mobtranslate/ui';
 import { useToast } from '@/hooks/useToast';
 import { ArrowLeft, UserPlus, Trash2, Shield } from 'lucide-react';
-import { createClient } from '@/lib/supabase/client';
 
 interface Language {
   id: string;
@@ -30,7 +29,6 @@ export default function LanguageSettingsPage() {
   const [loading, setLoading] = useState(true);
   const [addingCurator, setAddingCurator] = useState(false);
   const [newCuratorEmail, setNewCuratorEmail] = useState('');
-  const supabase = createClient();
 
   useEffect(() => {
     fetchLanguageAndCurators();
@@ -39,14 +37,16 @@ export default function LanguageSettingsPage() {
 
   const fetchLanguageAndCurators = async () => {
     try {
-      // Fetch language
-      const { data: langData, error: langError } = await supabase
-        .from('languages')
-        .select('id, name, code')
-        .eq('id', params.id)
-        .single();
-
-      if (langError) throw langError;
+      // Fetch language from the admin languages API (returns all; pick by id).
+      const langResponse = await fetch('/api/v2/admin/languages');
+      const languages = await langResponse.json();
+      if (!langResponse.ok) {
+        throw new Error(languages.error || 'Failed to load language');
+      }
+      const langData = Array.isArray(languages)
+        ? languages.find((l: any) => l.id === params.id)
+        : null;
+      if (!langData) throw new Error('Language not found');
       setLanguage(langData);
 
       // Fetch curators using API endpoint

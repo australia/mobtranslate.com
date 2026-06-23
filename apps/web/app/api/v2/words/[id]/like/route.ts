@@ -1,38 +1,31 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { snakeRow } from '@/lib/db/case';
+import { requireUser } from '@/lib/auth-helpers';
+import { userWordLikes, words as wordsT } from '@/lib/db/schema';
 
 export async function GET(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const wordId = params.id;
-  const supabase = await createClient();
 
   // Check if user is authenticated
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-
-  if (authError || !user) {
-    return NextResponse.json(
-      { error: 'Authentication required' },
-      { status: 401 }
-    );
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   try {
     // Get the user's like status for this word
-    const { data, error } = await supabase
-      .from('user_word_likes')
-      .select('*')
-      .eq('user_id', user.id)
-      .eq('word_id', wordId)
-      .single();
-
-    if (error && error.code !== 'PGRST116') { // PGRST116 = no rows returned
-      throw error;
-    }
+    const rows = await db
+      .select()
+      .from(userWordLikes)
+      .where(and(eq(userWordLikes.userId, user!.id), eq(userWordLikes.wordId, wordId)))
+      .limit(1);
+    const data = rows[0];
 
     return NextResponse.json({
       isLiked: !!data,
-      isLove: data?.is_love || false,
-      likedAt: data?.liked_at || null
+      isLove: data?.isLove || false,
+      likedAt: data?.likedAt || null
     });
   } catch (error) {
     console.error('Error checking like status:', error);
@@ -46,57 +39,47 @@ export async function GET(request: NextRequest, props: { params: Promise<{ id: s
 export async function POST(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const wordId = params.id;
-  const supabase = await createClient();
 
   // Check if user is authenticated
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-
-  if (authError || !user) {
-    return NextResponse.json(
-      { error: 'Authentication required' },
-      { status: 401 }
-    );
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   try {
     const body = await request.json();
     const { isLove = false } = body;
 
     // Check if word exists
-    const { data: word, error: wordError } = await supabase
-      .from('words')
-      .select('id')
-      .eq('id', wordId)
-      .single();
+    const wordRows = await db
+      .select({ id: wordsT.id })
+      .from(wordsT)
+      .where(eq(wordsT.id, wordId))
+      .limit(1);
 
-    if (wordError || !word) {
+    if (wordRows.length === 0) {
       return NextResponse.json(
         { error: 'Word not found' },
         { status: 404 }
       );
     }
 
-    // Insert or update the like
-    const { data, error } = await supabase
-      .from('user_word_likes')
-      .upsert({
-        user_id: user.id,
-        word_id: wordId,
-        is_love: isLove,
-        liked_at: new Date().toISOString()
-      }, {
-        onConflict: 'user_id,word_id'
+    // Insert or update the like (upsert on user_id,word_id)
+    const [data] = await db
+      .insert(userWordLikes)
+      .values({
+        userId: user!.id,
+        wordId: wordId,
+        isLove: isLove,
+        likedAt: new Date().toISOString()
       })
-      .select()
-      .single();
-
-    if (error) {
-      throw error;
-    }
+      .onConflictDoUpdate({
+        target: [userWordLikes.userId, userWordLikes.wordId],
+        set: { isLove: isLove, likedAt: new Date().toISOString() }
+      })
+      .returning();
 
     return NextResponse.json({
       success: true,
-      like: data
+      like: snakeRow(data)
     });
   } catch (error) {
     console.error('Error liking word:', error);
@@ -110,28 +93,15 @@ export async function POST(request: NextRequest, props: { params: Promise<{ id: 
 export async function DELETE(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const wordId = params.id;
-  const supabase = await createClient();
 
   // Check if user is authenticated
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-
-  if (authError || !user) {
-    return NextResponse.json(
-      { error: 'Authentication required' },
-      { status: 401 }
-    );
-  }
+  const { user, response } = await requireUser();
+  if (response) return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
 
   try {
-    const { error } = await supabase
-      .from('user_word_likes')
-      .delete()
-      .eq('user_id', user.id)
-      .eq('word_id', wordId);
-
-    if (error) {
-      throw error;
-    }
+    await db
+      .delete(userWordLikes)
+      .where(and(eq(userWordLikes.userId, user!.id), eq(userWordLikes.wordId, wordId)));
 
     return NextResponse.json({
       success: true

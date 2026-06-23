@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { recordingTargets } from '@/lib/db/schema';
+import { snakeRow } from '@/lib/db/case';
 import { requireAdmin } from '@/lib/recording/server';
 
 export const runtime = 'nodejs';
@@ -31,10 +35,10 @@ export async function PATCH(request: NextRequest, props: { params: Promise<{ id:
   if (body.note !== undefined) update.note = body.note;
   if (body.priority !== undefined) update.priority = body.priority;
 
-  const db = auth.supabase;
-  const { data, error } = await db.from('recording_targets').update(update).eq('id', params.id).select().single();
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json(data);
+  const rows = await db.update(recordingTargets).set(update).where(eq(recordingTargets.id, params.id)).returning();
+  const data = rows[0];
+  if (!data) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  return NextResponse.json(snakeRow(data));
 }
 
 export async function DELETE(_request: NextRequest, props: { params: Promise<{ id: string }> }) {
@@ -42,8 +46,6 @@ export async function DELETE(_request: NextRequest, props: { params: Promise<{ i
   const auth = await requireAdmin();
   if (auth.error) return auth.error;
 
-  const db = auth.supabase;
-  const { error } = await db.from('recording_targets').delete().eq('id', params.id);
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  await db.delete(recordingTargets).where(eq(recordingTargets.id, params.id));
   return NextResponse.json({ ok: true });
 }

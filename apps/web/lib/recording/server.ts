@@ -1,69 +1,61 @@
 // Server-side helpers shared by the recording admin API routes.
 //
-// Routes act as the signed-in admin user (RLS enforces that only
-// super_admin / dictionary_admin can write), so no service-role key is needed.
+// Auth/authz is enforced in app code (RLS is gone): the caller must be signed in
+// (better-auth) and hold an admin role. Audio objects live on the box filesystem
+// (lib/storage) and are served same-origin via /api/storage/recordings/*.
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
+import { recordingPublicUrl, saveRecording, deleteRecording } from '@/lib/storage';
 
 export const ADMIN_ROLES = ['super_admin', 'dictionary_admin'];
 export const BUCKET = 'recordings';
 
-export type SupabaseServer = Awaited<ReturnType<typeof createClient>>;
-
 interface AdminOk {
   user: { id: string };
-  supabase: SupabaseServer;
   error?: undefined;
 }
 interface AdminErr {
   error: NextResponse;
   user?: undefined;
-  supabase?: undefined;
 }
 
 /** Verify the caller is signed in and holds an admin role. */
 export async function requireAdmin(): Promise<AdminOk | AdminErr> {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getSessionUser();
   if (!user) {
     return { error: NextResponse.json({ error: 'Unauthorized' }, { status: 401 }) };
   }
-  const { data: isAdmin } = await supabase.rpc('user_has_role', {
-    user_uuid: user.id,
-    role_names: ADMIN_ROLES,
-  });
+  const isAdmin = await userHasRole(user.id, ADMIN_ROLES);
   if (!isAdmin) {
     return { error: NextResponse.json({ error: 'Forbidden' }, { status: 403 }) };
   }
-  return { user, supabase };
+  return { user: { id: user.id } };
 }
 
 /** Require any signed-in user (not necessarily an admin) — for the contribute portal. */
 export async function requireUser(): Promise<AdminOk | AdminErr> {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getSessionUser();
   if (!user) return { error: NextResponse.json({ error: 'Please sign in.' }, { status: 401 }) };
-  return { user, supabase };
+  return { user: { id: user.id } };
 }
 
-/** Upload an audio blob to the recordings bucket and return its path + public URL. */
+/** Store an audio object on the box filesystem and return its path + same-origin URL. */
 export async function uploadAudio(
-  supabase: SupabaseServer,
   path: string,
   file: Blob | ArrayBuffer | Buffer,
-  contentType: string,
+  _contentType: string,
 ): Promise<{ path: string; url: string }> {
-  const body = file instanceof ArrayBuffer ? Buffer.from(file) : file;
-  const { error } = await supabase.storage.from(BUCKET).upload(path, body, {
-    contentType,
-    upsert: true,
-    cacheControl: '31536000',
-  });
-  if (error) throw new Error(`Storage upload failed: ${error.message}`);
-  const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
-  return { path, url: data.publicUrl };
+  const buf =
+    file instanceof ArrayBuffer
+      ? Buffer.from(file)
+      : Buffer.isBuffer(file)
+        ? file
+        : Buffer.from(await (file as Blob).arrayBuffer());
+  await saveRecording(path, buf);
+  return { path, url: recordingPublicUrl(path)! };
+}
+
+/** Remove a stored audio object (no error if missing). */
+export async function removeAudio(path: string): Promise<void> {
+  await deleteRecording(path);
 }

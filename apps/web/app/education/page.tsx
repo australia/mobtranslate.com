@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
 import { Card, CardContent } from '@mobtranslate/ui';
-import { getActiveLanguages } from '@/lib/supabase/queries';
+import { getActiveLanguages } from '@/lib/db/queries';
 import {
   BookOpen,
   Gamepad2,

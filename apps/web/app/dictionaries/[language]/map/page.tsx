@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import SharedLayout from '../../../components/SharedLayout';
 import { Badge } from '@mobtranslate/ui';
-import { getLocationWordsForLanguage } from '@/lib/supabase/queries';
+import { getLocationWordsForLanguage } from '@/lib/db/queries';
 import { AllLocationsMap } from './AllLocationsMap';
 
 export const revalidate = 60;

@@ -1,6 +1,15 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
-import { createAdminClient } from '@/lib/supabase/admin';
+import { count, eq } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { requireRole } from '@/lib/auth-helpers';
+import {
+  languages as languagesT,
+  quizAttempts as quizAttemptsT,
+  quizSessions as quizSessionsT,
+  spacedRepetitionStates as srsT,
+  userProfiles as userProfilesT,
+  words as wordsT,
+} from '@/lib/db/schema';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,39 +38,55 @@ const BUCKET_LABELS: Record<number, string> = {
 
 export async function GET() {
   try {
-    // Gate on an admin role using the caller's own session.
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    // Gate on an admin role using the caller's own session (RLS is gone — authz in code).
+    const { response } = await requireRole(ADMIN_ROLES);
+    if (response) return response;
 
-    const { data: isAdmin } = await supabase.rpc('user_has_role', {
-      user_uuid: user.id,
-      role_names: ADMIN_ROLES,
-    });
-    if (!isAdmin) return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-
-    // Platform-wide aggregates must read every user's rows, so use the
-    // service-role client (RLS would otherwise scope reads to the admin).
-    const db = createAdminClient();
     const now = new Date();
     const cutoff30 = new Date(now.getTime() - 30 * DAY).toISOString();
 
+    // Platform-wide aggregates read every user's rows directly (no RLS scoping).
     const [
-      { count: totalWords },
-      { data: languages },
-      { data: profiles },
-      { data: attempts },
-      { data: srs },
-      { data: sessions },
+      totalWordsRows,
+      languages,
+      profiles,
+      attempts,
+      srs,
+      sessions,
     ] = await Promise.all([
-      db.from('words').select('*', { count: 'exact', head: true }),
-      db.from('languages').select('id, name, code').eq('is_active', true),
-      db.from('user_profiles').select('user_id, display_name, username, created_at'),
-      db.from('quiz_attempts').select('user_id, is_correct, created_at'),
-      db.from('spaced_repetition_states').select('user_id, bucket'),
-      db.from('quiz_sessions').select('user_id, language_id, created_at'),
+      db.select({ value: count() }).from(wordsT),
+      db
+        .select({ id: languagesT.id, name: languagesT.name, code: languagesT.code })
+        .from(languagesT)
+        .where(eq(languagesT.isActive, true)),
+      db
+        .select({
+          user_id: userProfilesT.userId,
+          display_name: userProfilesT.displayName,
+          username: userProfilesT.username,
+          created_at: userProfilesT.createdAt,
+        })
+        .from(userProfilesT),
+      db
+        .select({
+          user_id: quizAttemptsT.userId,
+          is_correct: quizAttemptsT.isCorrect,
+          created_at: quizAttemptsT.createdAt,
+        })
+        .from(quizAttemptsT),
+      db
+        .select({ user_id: srsT.userId, bucket: srsT.bucket })
+        .from(srsT),
+      db
+        .select({
+          user_id: quizSessionsT.userId,
+          language_id: quizSessionsT.languageId,
+          created_at: quizSessionsT.createdAt,
+        })
+        .from(quizSessionsT),
     ]);
 
+    const totalWords = totalWordsRows[0]?.value ?? 0;
     const profileList = profiles ?? [];
     const attemptList = attempts ?? [];
     const srsList = srs ?? [];
@@ -99,8 +124,11 @@ export async function GET() {
     // --- Per language ---
     const wordsByLang = await Promise.all(
       langList.map(async (l) => {
-        const { count } = await db.from('words').select('*', { count: 'exact', head: true }).eq('language_id', l.id);
-        return [l.id, count ?? 0] as [string, number];
+        const rows = await db
+          .select({ value: count() })
+          .from(wordsT)
+          .where(eq(wordsT.languageId, l.id));
+        return [l.id, rows[0]?.value ?? 0] as [string, number];
       })
     );
     const wordCountMap = Object.fromEntries(wordsByLang);

@@ -1,198 +1,112 @@
-import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { and, eq, ilike, ne } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { snakeRow } from '@/lib/db/case';
+import { requireUser } from '@/lib/auth-helpers';
+import { userProfiles } from '@/lib/db/schema';
 
 // Username validation function (shared with signup)
 function validateUsername(username: string): string | null {
-  if (!username) {
-    return 'Username is required';
-  }
-  
-  if (username.length < 3) {
-    return 'Username must be at least 3 characters long';
-  }
-  
-  if (username.length > 50) {
-    return 'Username must be no more than 50 characters long';
-  }
-  
+  if (!username) return 'Username is required';
+  if (username.length < 3) return 'Username must be at least 3 characters long';
+  if (username.length > 50) return 'Username must be no more than 50 characters long';
   if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
     return 'Username can only contain letters, numbers, underscores, and hyphens';
   }
-  
-  // Reserved usernames
   const reserved = ['admin', 'root', 'user', 'anonymous', 'guest', 'system', 'api', 'www', 'mail', 'ftp'];
-  if (reserved.includes(username.toLowerCase())) {
-    return 'This username is reserved';
-  }
-  
+  if (reserved.includes(username.toLowerCase())) return 'This username is reserved';
   return null;
 }
 
-// GET - Fetch user profile
+// GET - Fetch user profile (create a default one if missing)
 export async function GET(_request: NextRequest) {
-  const supabase = await createClient();
-
-  // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return response;
 
   try {
-    // Get user profile
-    const { data: profile, error: profileError } = await supabase
-      .from('user_profiles')
-      .select('*')
-      .eq('user_id', user.id)
-      .single();
+    const existing = await db
+      .select()
+      .from(userProfiles)
+      .where(eq(userProfiles.userId, user!.id))
+      .limit(1);
 
-    if (profileError) {
-      // If no profile exists, create a default one
-      if (profileError.code === 'PGRST116') {
-        // Generate a default username from email
-        const emailPrefix = user.email?.split('@')[0] || 'user';
-        const randomSuffix = Math.floor(Math.random() * 9999).toString().padStart(4, '0');
-        let defaultUsername = `${emailPrefix}${randomSuffix}`.replace(/[^a-zA-Z0-9_-]/g, '');
-        
-        // Ensure username is valid length
-        if (defaultUsername.length < 3) {
-          defaultUsername = `user${randomSuffix}`;
-        } else if (defaultUsername.length > 50) {
-          defaultUsername = defaultUsername.substring(0, 50);
-        }
-        
-        // Try to create profile with generated username
-        const { data: newProfile, error: createError } = await supabase
-          .from('user_profiles')
-          .insert({
-            user_id: user.id,
-            username: defaultUsername,
-            display_name: emailPrefix
-          })
-          .select()
-          .single();
-        
-        if (createError) {
-          console.error('Error creating default profile:', createError);
-          // If username is taken, try with a different suffix
-          const timestamp = Date.now().toString().slice(-6);
-          const fallbackUsername = `user${timestamp}`;
-          
-          const { data: fallbackProfile, error: fallbackError } = await supabase
-            .from('user_profiles')
-            .insert({
-              user_id: user.id,
-              username: fallbackUsername,
-              display_name: emailPrefix
-            })
-            .select()
-            .single();
-          
-          if (fallbackError) {
-            console.error('Error creating fallback profile:', fallbackError);
-            return NextResponse.json({ 
-              error: 'Failed to create user profile',
-              details: {
-                code: fallbackError.code,
-                message: fallbackError.message,
-                hint: fallbackError.hint
-              }
-            }, { status: 500 });
-          }
-          
-          return NextResponse.json({ profile: fallbackProfile });
-        }
-        
-        return NextResponse.json({ profile: newProfile });
-      }
-      
-      console.error('Error fetching profile:', profileError);
-      return NextResponse.json({ 
-        error: 'Failed to fetch profile',
-        details: {
-          code: profileError.code,
-          message: profileError.message
-        }
-      }, { status: 500 });
+    if (existing.length > 0) {
+      return NextResponse.json({ profile: snakeRow(existing[0]) });
     }
 
-    return NextResponse.json({ profile });
+    // No profile — create a default one from the email prefix.
+    const emailPrefix = user!.email?.split('@')[0] || 'user';
+    const randomSuffix = Math.floor(Math.random() * 9999).toString().padStart(4, '0');
+    let defaultUsername = `${emailPrefix}${randomSuffix}`.replace(/[^a-zA-Z0-9_-]/g, '');
+    if (defaultUsername.length < 3) defaultUsername = `user${randomSuffix}`;
+    else if (defaultUsername.length > 50) defaultUsername = defaultUsername.substring(0, 50);
+
+    try {
+      const [created] = await db
+        .insert(userProfiles)
+        .values({ userId: user!.id, username: defaultUsername, displayName: emailPrefix, email: user!.email })
+        .returning();
+      return NextResponse.json({ profile: snakeRow(created) });
+    } catch {
+      // Username collision — fall back to a timestamp-based username.
+      const fallbackUsername = `user${Date.now().toString().slice(-6)}`;
+      const [fallback] = await db
+        .insert(userProfiles)
+        .values({ userId: user!.id, username: fallbackUsername, displayName: emailPrefix, email: user!.email })
+        .returning();
+      return NextResponse.json({ profile: snakeRow(fallback) });
+    }
   } catch (error) {
     console.error('Profile fetch error:', error);
-    return NextResponse.json({ 
-      error: 'Internal server error',
-      details: error instanceof Error ? error.message : 'Unknown error'
-    }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
+      { status: 500 }
+    );
   }
 }
 
 // POST - Create user profile
 export async function POST(request: NextRequest) {
-  const supabase = await createClient();
-
-  // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return response;
 
   try {
-    const body = await request.json();
-    const { username, display_name } = body;
+    const { username, display_name } = await request.json();
 
-    // Check if profile already exists
-    const { data: existingProfile } = await supabase
-      .from('user_profiles')
-      .select('user_id')
-      .eq('user_id', user.id)
-      .single();
-
-    if (existingProfile) {
+    const existing = await db
+      .select({ userId: userProfiles.userId })
+      .from(userProfiles)
+      .where(eq(userProfiles.userId, user!.id))
+      .limit(1);
+    if (existing.length > 0) {
       return NextResponse.json({ error: 'Profile already exists' }, { status: 400 });
     }
 
-    // Validate username
     const usernameError = validateUsername(username);
     if (usernameError) {
       return NextResponse.json({ error: usernameError }, { status: 400 });
     }
 
-    // Check if username is already taken
-    const { data: usernameCheck } = await supabase
-      .from('user_profiles')
-      .select('username')
-      .ilike('username', username)
-      .single();
-
-    if (usernameCheck) {
+    const taken = await db
+      .select({ username: userProfiles.username })
+      .from(userProfiles)
+      .where(ilike(userProfiles.username, username))
+      .limit(1);
+    if (taken.length > 0) {
       return NextResponse.json({ error: 'Username already taken' }, { status: 400 });
     }
 
-    // Create profile
-    const { data: newProfile, error: createError } = await supabase
-      .from('user_profiles')
-      .insert({
-        user_id: user.id,
-        username: username,
-        display_name: display_name || username,
-        email: user.email
+    const [created] = await db
+      .insert(userProfiles)
+      .values({
+        userId: user!.id,
+        username,
+        displayName: display_name || username,
+        email: user!.email,
       })
-      .select()
-      .single();
+      .returning();
 
-    if (createError) {
-      console.error('Error creating profile:', createError);
-      return NextResponse.json({ 
-        error: 'Failed to create profile',
-        details: createError.message
-      }, { status: 500 });
-    }
-
-    return NextResponse.json({ 
-      profile: newProfile,
-      message: 'Profile created successfully'
-    });
+    return NextResponse.json({ profile: snakeRow(created), message: 'Profile created successfully' });
   } catch (error) {
     console.error('Profile creation error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
@@ -201,70 +115,50 @@ export async function POST(request: NextRequest) {
 
 // PUT - Update user profile
 export async function PUT(request: NextRequest) {
-  const supabase = await createClient();
-
-  // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  if (authError || !user) {
-    return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
-  }
+  const { user, response } = await requireUser();
+  if (response) return response;
 
   try {
-    const body = await request.json();
-    const { username, display_name, bio } = body;
+    const { username, display_name, bio } = await request.json();
 
-    // Validate username if provided
     if (username !== undefined) {
       const usernameError = validateUsername(username);
       if (usernameError) {
         return NextResponse.json({ error: usernameError }, { status: 400 });
       }
-
-      // Check if username is already taken by another user
-      const { data: existingProfile } = await supabase
-        .from('user_profiles')
-        .select('user_id, username')
-        .ilike('username', username)
-        .neq('user_id', user.id)
-        .single();
-
-      if (existingProfile) {
+      const taken = await db
+        .select({ userId: userProfiles.userId })
+        .from(userProfiles)
+        .where(and(ilike(userProfiles.username, username), ne(userProfiles.userId, user!.id)))
+        .limit(1);
+      if (taken.length > 0) {
         return NextResponse.json({ error: 'Username already taken' }, { status: 400 });
       }
     }
 
-    // Validate display_name
     if (display_name !== undefined && display_name.length > 100) {
       return NextResponse.json({ error: 'Display name must be no more than 100 characters' }, { status: 400 });
     }
-
-    // Validate bio
     if (bio !== undefined && bio.length > 500) {
       return NextResponse.json({ error: 'Bio must be no more than 500 characters' }, { status: 400 });
     }
 
-    // Update profile
-    const updateData: any = {};
+    const updateData: Record<string, any> = {};
     if (username !== undefined) updateData.username = username;
-    if (display_name !== undefined) updateData.display_name = display_name;
+    if (display_name !== undefined) updateData.displayName = display_name;
     if (bio !== undefined) updateData.bio = bio;
 
-    const { data: updatedProfile, error: updateError } = await supabase
-      .from('user_profiles')
-      .update(updateData)
-      .eq('user_id', user.id)
-      .select()
-      .single();
+    const [updated] = await db
+      .update(userProfiles)
+      .set(updateData)
+      .where(eq(userProfiles.userId, user!.id))
+      .returning();
 
-    if (updateError) {
-      console.error('Error updating profile:', updateError);
+    if (!updated) {
       return NextResponse.json({ error: 'Failed to update profile' }, { status: 500 });
     }
 
-    return NextResponse.json({ 
-      profile: updatedProfile,
-      message: 'Profile updated successfully'
-    });
+    return NextResponse.json({ profile: snakeRow(updated), message: 'Profile updated successfully' });
   } catch (error) {
     console.error('Profile update error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

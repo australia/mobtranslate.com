@@ -1,13 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, desc, eq, inArray, count } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { snakeRow } from '@/lib/db/case';
+import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
 import { applyWordSuggestion, snapshotWordRevision } from '@/lib/words/editing';
+import {
+  curatorActivities as activitiesT,
+  definitions as definitionsT,
+  languages as languagesT,
+  translations as translationsT,
+  userProfiles as profilesT,
+  userRoleAssignments as uraT,
+  userRoles as rolesT,
+  words as wordsT,
+  wordImprovementSuggestions as wisT,
+} from '@/lib/db/schema';
 
 export async function GET(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
     // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
+    const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -21,16 +33,17 @@ export async function GET(request: NextRequest) {
     const offset = (page - 1) * limit;
 
     // Check if user is a curator for the specified language
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        language_id,
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .in('user_roles.name', ['curator', 'dictionary_admin', 'super_admin']);
+    const roleAssignments = await db
+      .select({ languageId: uraT.languageId, roleId: uraT.roleId, name: rolesT.name })
+      .from(uraT)
+      .innerJoin(rolesT, eq(uraT.roleId, rolesT.id))
+      .where(
+        and(
+          eq(uraT.userId, user.id),
+          eq(uraT.isActive, true),
+          inArray(rolesT.name, ['curator', 'dictionary_admin', 'super_admin'])
+        )
+      );
 
     if (!roleAssignments || roleAssignments.length === 0) {
       return NextResponse.json({ error: 'Not a curator' }, { status: 403 });
@@ -38,119 +51,131 @@ export async function GET(request: NextRequest) {
 
     // Get languages user can curate
     const curatorLanguages = roleAssignments
-      .filter(ra => ra.language_id || (ra.user_roles as any).name === 'super_admin' || (ra.user_roles as any).name === 'dictionary_admin')
-      .map(ra => ra.language_id)
-      .filter(Boolean);
+      .filter((ra) => ra.languageId || ra.name === 'super_admin' || ra.name === 'dictionary_admin')
+      .map((ra) => ra.languageId)
+      .filter(Boolean) as string[];
 
-    const isSuperAdmin = roleAssignments.some(ra =>
-      (ra.user_roles as any).name === 'super_admin' || (ra.user_roles as any).name === 'dictionary_admin'
+    const isSuperAdmin = roleAssignments.some(
+      (ra) => ra.name === 'super_admin' || ra.name === 'dictionary_admin'
     );
 
     let results: any[] = [];
     let totalCount = 0;
 
     if (type === 'all' || type === 'words') {
-      // Fetch pending words
-      let wordsQuery = supabase
-        .from('words')
-        .select(`
-          *,
-          languages!language_id(
-            id,
-            name,
-            code
-          ),
-          profiles!created_by(
-            id,
-            display_name,
-            username
-          ),
-          definitions!inner(
-            id,
-            definition
-          ),
-          translations!inner(
-            id,
-            translation
-          )
-        `, { count: 'exact' })
-        .eq('is_verified', false)
-        .order('created_at', { ascending: false });
-
-      // Filter by language if specified
+      // Fetch pending words (with language + creator profile)
+      const wordFilters = [eq(wordsT.isVerified, false)];
       if (languageId && !isSuperAdmin) {
-        wordsQuery = wordsQuery.eq('language_id', languageId);
+        wordFilters.push(eq(wordsT.languageId, languageId));
       } else if (!isSuperAdmin && curatorLanguages.length > 0) {
-        wordsQuery = wordsQuery.in('language_id', curatorLanguages);
+        wordFilters.push(inArray(wordsT.languageId, curatorLanguages));
+      }
+      const wordsWhere = and(...wordFilters);
+
+      const baseWordsQuery = db
+        .select({ word: wordsT, language: languagesT, profile: profilesT })
+        .from(wordsT)
+        .leftJoin(languagesT, eq(wordsT.languageId, languagesT.id))
+        .leftJoin(profilesT, eq(wordsT.createdBy, profilesT.userId))
+        .where(wordsWhere)
+        .orderBy(desc(wordsT.createdAt));
+
+      const [wordRows, wordsCountRows] = await Promise.all([
+        type === 'words' ? baseWordsQuery.limit(limit).offset(offset) : baseWordsQuery,
+        db.select({ value: count() }).from(wordsT).where(wordsWhere),
+      ]);
+
+      // Only words that have at least one definition AND translation (mirrors `!inner`).
+      const wordIds = wordRows.map((r) => r.word.id);
+      const [defs, trans] = wordIds.length
+        ? await Promise.all([
+            db.select({ id: definitionsT.id, definition: definitionsT.definition, wordId: definitionsT.wordId }).from(definitionsT).where(inArray(definitionsT.wordId, wordIds)),
+            db.select({ id: translationsT.id, translation: translationsT.translation, wordId: translationsT.wordId }).from(translationsT).where(inArray(translationsT.wordId, wordIds)),
+          ])
+        : [[], []];
+
+      const defsByWord = new Map<string, any[]>();
+      for (const d of defs) {
+        const arr = defsByWord.get(d.wordId) ?? [];
+        arr.push({ id: d.id, definition: d.definition });
+        defsByWord.set(d.wordId, arr);
+      }
+      const transByWord = new Map<string, any[]>();
+      for (const t of trans) {
+        const arr = transByWord.get(t.wordId) ?? [];
+        arr.push({ id: t.id, translation: t.translation });
+        transByWord.set(t.wordId, arr);
       }
 
-      if (type === 'words') {
-        wordsQuery = wordsQuery.range(offset, offset + limit - 1);
-      }
-
-      const { data: pendingWords, count: wordsCount } = await wordsQuery;
-
-      if (pendingWords) {
-        results.push(...pendingWords.map(word => ({
-          ...word,
+      for (const r of wordRows) {
+        const wDefs = defsByWord.get(r.word.id) ?? [];
+        const wTrans = transByWord.get(r.word.id) ?? [];
+        if (wDefs.length === 0 || wTrans.length === 0) continue; // !inner semantics
+        const created = r.word.createdAt;
+        results.push({
+          ...snakeRow(r.word),
+          languages: r.language ? snakeRow(r.language) : null,
+          profiles: r.profile ? snakeRow(r.profile) : null,
+          definitions: wDefs,
+          translations: wTrans,
           type: 'word',
-          priority: word.created_at ? 
-            Math.max(0, 10 - Math.floor((Date.now() - new Date(word.created_at).getTime()) / (1000 * 60 * 60 * 24))) 
-            : 5
-        })));
-        totalCount += wordsCount || 0;
+          priority: created
+            ? Math.max(0, 10 - Math.floor((Date.now() - new Date(created).getTime()) / (1000 * 60 * 60 * 24)))
+            : 5,
+        });
       }
+      totalCount += wordsCountRows[0]?.value ?? 0;
     }
 
     if (type === 'all' || type === 'improvements') {
-      // Fetch pending improvements
-      let improvementsQuery = supabase
-        .from('word_improvement_suggestions')
-        .select(`
-          *,
-          words!word_id(
-            id,
-            word,
-            language_id,
-            languages!language_id(
-              id,
-              name,
-              code
-            )
-          ),
-          profiles!submitted_by(
-            id,
-            display_name,
-            username,
-            reputation_score
-          )
-        `, { count: 'exact' })
-        .eq('status', 'pending')
-        .order('created_at', { ascending: false });
-
-      // Filter by language if specified
+      // Fetch pending improvements (join word + its language + submitter profile)
+      const impFilters = [eq(wisT.status, 'pending')];
       if (languageId && !isSuperAdmin) {
-        improvementsQuery = improvementsQuery.eq('words.language_id', languageId);
+        impFilters.push(eq(wordsT.languageId, languageId));
       } else if (!isSuperAdmin && curatorLanguages.length > 0) {
-        improvementsQuery = improvementsQuery.in('words.language_id', curatorLanguages);
+        impFilters.push(inArray(wordsT.languageId, curatorLanguages));
       }
+      const impWhere = and(...impFilters);
 
-      if (type === 'improvements') {
-        improvementsQuery = improvementsQuery.range(offset, offset + limit - 1);
-      }
+      const baseImpQuery = db
+        .select({ improvement: wisT, word: wordsT, language: languagesT, profile: profilesT })
+        .from(wisT)
+        .leftJoin(wordsT, eq(wisT.wordId, wordsT.id))
+        .leftJoin(languagesT, eq(wordsT.languageId, languagesT.id))
+        .leftJoin(profilesT, eq(wisT.submittedBy, profilesT.userId))
+        .where(impWhere)
+        .orderBy(desc(wisT.createdAt));
 
-      const { data: pendingImprovements, count: improvementsCount } = await improvementsQuery;
+      const [impRows, impCountRows] = await Promise.all([
+        type === 'improvements' ? baseImpQuery.limit(limit).offset(offset) : baseImpQuery,
+        db
+          .select({ value: count() })
+          .from(wisT)
+          .leftJoin(wordsT, eq(wisT.wordId, wordsT.id))
+          .where(impWhere),
+      ]);
 
-      if (pendingImprovements) {
-        results.push(...pendingImprovements.map(improvement => ({
-          ...improvement,
+      for (const r of impRows) {
+        results.push({
+          ...snakeRow(r.improvement),
+          words: r.word
+            ? {
+                id: r.word.id,
+                word: r.word.word,
+                language_id: r.word.languageId,
+                languages: r.language
+                  ? { id: r.language.id, name: r.language.name, code: r.language.code }
+                  : null,
+              }
+            : null,
+          profiles: r.profile
+            ? { id: r.profile.id, display_name: r.profile.displayName, username: r.profile.username, reputation_score: null }
+            : null,
           type: 'improvement',
-          priority: improvement.confidence_score ? 
-            Math.round(improvement.confidence_score * 10) 
-            : 5
-        })));
-        totalCount += improvementsCount || 0;
+          priority: r.improvement.confidenceScore ? Math.round(r.improvement.confidenceScore * 10) : 5,
+        });
       }
+      totalCount += impCountRows[0]?.value ?? 0;
     }
 
     // Sort by priority and created_at if fetching all
@@ -161,7 +186,7 @@ export async function GET(request: NextRequest) {
         }
         return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
       });
-      
+
       // Apply pagination to combined results
       results = results.slice(offset, offset + limit);
     }
@@ -172,8 +197,8 @@ export async function GET(request: NextRequest) {
         page,
         limit,
         total: totalCount,
-        totalPages: Math.ceil(totalCount / limit)
-      }
+        totalPages: Math.ceil(totalCount / limit),
+      },
     });
   } catch (error) {
     console.error('Failed to fetch pending items:', error);
@@ -187,10 +212,8 @@ export async function GET(request: NextRequest) {
 // Review a pending item (approve/reject)
 export async function POST(request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
     // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
+    const user = await getSessionUser();
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -215,22 +238,19 @@ export async function POST(request: NextRequest) {
     // Handle different item types
     if (itemType === 'word') {
       // Get word details
-      const { data: word } = await supabase
-        .from('words')
-        .select('*, language_id')
-        .eq('id', itemId)
-        .single();
+      const wordRows = await db.select().from(wordsT).where(eq(wordsT.id, itemId)).limit(1);
+      const word = wordRows[0];
 
       if (!word) {
         return NextResponse.json({ error: 'Word not found' }, { status: 404 });
       }
 
       // Check curator permission for this language
-      const { data: hasPermission } = await supabase.rpc('user_has_role', {
-        user_uuid: user.id,
-        role_names: ['curator', 'dictionary_admin', 'super_admin'],
-        language_uuid: word.language_id
-      });
+      const hasPermission = await userHasRole(
+        user.id,
+        ['curator', 'dictionary_admin', 'super_admin'],
+        word.languageId
+      );
 
       if (!hasPermission) {
         return NextResponse.json({ error: 'No permission to review this word' }, { status: 403 });
@@ -238,146 +258,136 @@ export async function POST(request: NextRequest) {
 
       // Update word based on action
       if (action === 'approve') {
-        const { error } = await supabase
-          .from('words')
-          .update({
-            is_verified: true,
-            verified_by: user.id,
-            verified_at: new Date().toISOString(),
-            last_reviewed_at: new Date().toISOString(),
-            last_reviewed_by: user.id,
-            review_count: (word.review_count || 0) + 1
+        const now = new Date().toISOString();
+        await db
+          .update(wordsT)
+          .set({
+            isVerified: true,
+            verifiedBy: user.id,
+            verifiedAt: now,
+            lastReviewedAt: now,
+            lastReviewedBy: user.id,
+            reviewCount: (word.reviewCount || 0) + 1,
           })
-          .eq('id', itemId);
-
-        if (error) throw error;
+          .where(eq(wordsT.id, itemId));
 
         // Log activity
-        await supabase.from('curator_activities').insert({
-          user_id: user.id,
-          language_id: word.language_id,
-          activity_type: 'word_approved',
-          target_type: 'word',
-          target_id: itemId,
-          activity_data: { word: word.word, notes }
+        await db.insert(activitiesT).values({
+          userId: user.id,
+          languageId: word.languageId,
+          activityType: 'word_approved',
+          targetType: 'word',
+          targetId: itemId,
+          activityData: { word: word.word, notes },
         });
       } else if (action === 'reject') {
-        // In production, you might want to move rejected words to a separate table
-        // or add a rejection reason field
-        const { error } = await supabase
-          .from('words')
-          .update({
-            last_reviewed_at: new Date().toISOString(),
-            last_reviewed_by: user.id,
-            review_count: (word.review_count || 0) + 1,
-            community_notes: reason || notes
+        const now = new Date().toISOString();
+        await db
+          .update(wordsT)
+          .set({
+            lastReviewedAt: now,
+            lastReviewedBy: user.id,
+            reviewCount: (word.reviewCount || 0) + 1,
+            communityNotes: reason || notes,
           })
-          .eq('id', itemId);
-
-        if (error) throw error;
+          .where(eq(wordsT.id, itemId));
 
         // Log activity
-        await supabase.from('curator_activities').insert({
-          user_id: user.id,
-          language_id: word.language_id,
-          activity_type: 'word_rejected',
-          target_type: 'word',
-          target_id: itemId,
-          activity_data: { word: word.word, reason, notes }
+        await db.insert(activitiesT).values({
+          userId: user.id,
+          languageId: word.languageId,
+          activityType: 'word_rejected',
+          targetType: 'word',
+          targetId: itemId,
+          activityData: { word: word.word, reason, notes },
         });
       }
     } else if (itemType === 'improvement') {
-      // Get improvement details
-      const { data: improvement } = await supabase
-        .from('word_improvement_suggestions')
-        .select(`
-          *,
-          words!word_id(
-            id,
-            word,
-            language_id
-          )
-        `)
-        .eq('id', itemId)
-        .single();
+      // Get improvement details (+ its word's language)
+      const impRows = await db
+        .select({ improvement: wisT, word: wordsT })
+        .from(wisT)
+        .leftJoin(wordsT, eq(wisT.wordId, wordsT.id))
+        .where(eq(wisT.id, itemId))
+        .limit(1);
+      const row = impRows[0];
 
-      if (!improvement) {
+      if (!row) {
         return NextResponse.json({ error: 'Improvement not found' }, { status: 404 });
       }
+      const improvement = row.improvement;
+      const improvementWord = row.word;
 
       // Check curator permission for this language
-      const { data: hasPermission } = await supabase.rpc('user_has_role', {
-        user_uuid: user.id,
-        role_names: ['curator', 'dictionary_admin', 'super_admin'],
-        language_uuid: improvement.words.language_id
-      });
+      const hasPermission = await userHasRole(
+        user.id,
+        ['curator', 'dictionary_admin', 'super_admin'],
+        improvementWord?.languageId
+      );
 
       if (!hasPermission) {
         return NextResponse.json({ error: 'No permission to review this improvement' }, { status: 403 });
       }
 
       // Update improvement status
-      const newStatus = action === 'approve' ? 'approved' : 
-                       action === 'reject' ? 'rejected' : 'under_review';
+      const newStatus = action === 'approve' ? 'approved' : action === 'reject' ? 'rejected' : 'under_review';
 
-      const { error } = await supabase
-        .from('word_improvement_suggestions')
-        .update({
+      await db
+        .update(wisT)
+        .set({
           status: newStatus,
-          reviewed_by: user.id,
-          reviewed_at: new Date().toISOString(),
-          review_comment: notes || reason
+          reviewedBy: user.id,
+          reviewedAt: new Date().toISOString(),
+          reviewComment: notes || reason,
         })
-        .eq('id', itemId);
-
-      if (error) throw error;
+        .where(eq(wisT.id, itemId));
 
       // If approved, snapshot a revision then apply (handles word columns plus
       // definition/translation edits, and both `{id,text}` and legacy shapes).
-      if (action === 'approve') {
+      if (action === 'approve' && improvement.wordId) {
         await snapshotWordRevision(
-          supabase,
-          improvement.word_id,
+          db,
+          improvement.wordId,
           user.id,
-          `Approved edit: ${improvement.field_name ?? improvement.improvement_type}`,
+          `Approved edit: ${improvement.fieldName ?? improvement.improvementType}`,
         );
-        await applyWordSuggestion(supabase, {
-          word_id: improvement.word_id,
-          improvement_type: improvement.improvement_type,
-          field_name: improvement.field_name,
-          suggested_value: improvement.suggested_value,
+        await applyWordSuggestion(db, {
+          word_id: improvement.wordId,
+          improvement_type: improvement.improvementType,
+          field_name: improvement.fieldName,
+          suggested_value: improvement.suggestedValue,
         });
 
-        await supabase
-          .from('word_improvement_suggestions')
-          .update({
+        await db
+          .update(wisT)
+          .set({
             status: 'implemented',
-            implemented_at: new Date().toISOString(),
-            implementation_notes: 'Applied after approval'
+            implementedAt: new Date().toISOString(),
+            implementationNotes: 'Applied after approval',
           })
-          .eq('id', itemId);
+          .where(eq(wisT.id, itemId));
       }
 
       // Log activity
-      await supabase.from('curator_activities').insert({
-        user_id: user.id,
-        language_id: improvement.words.language_id,
-        activity_type: action === 'approve' ? 'improvement_approved' : 'improvement_rejected',
-        target_type: 'improvement',
-        target_id: itemId,
-        activity_data: { 
-          word: improvement.words.word,
-          improvement_type: improvement.improvement_type,
+      await db.insert(activitiesT).values({
+        userId: user.id,
+        languageId: improvementWord?.languageId,
+        activityType: action === 'approve' ? 'improvement_approved' : 'improvement_rejected',
+        targetType: 'improvement',
+        targetId: itemId,
+        activityData: {
+          word: improvementWord?.word,
+          improvement_type: improvement.improvementType,
           action,
-          notes 
-        }
+          notes,
+        },
       });
     }
 
     return NextResponse.json({
       message: `Item ${action}ed successfully`,
       itemId,
-      action
+      action,
     });
   } catch (error) {
     console.error('Failed to review item:', error);

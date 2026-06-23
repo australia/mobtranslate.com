@@ -1,148 +1,170 @@
 import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { and, count, desc, eq, gte, inArray, lt } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { sql } from 'drizzle-orm';
+import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
+import {
+  curatorActivities as curatorActivitiesT,
+  languages as languagesT,
+  userProfiles as userProfilesT,
+  wordComments as wordCommentsT,
+  wordImprovementSuggestions as wisT,
+  words as wordsT,
+} from '@/lib/db/schema';
 import { Users, FileText, MessageSquare, TrendingUp, Clock, CheckCircle, Activity, Calendar } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@mobtranslate/ui';
 
 export default async function AdminDashboard() {
-  const supabase = await createClient();
-  
   // Check authentication
-  const { data: { user } } = await supabase.auth.getUser();
+  const user = await getSessionUser();
   if (!user) {
     redirect('/auth/signin?redirect=/admin');
   }
 
   // Check if user is admin
-  const { data: isAdmin } = await supabase
-    .rpc('user_has_role', {
-      user_uuid: user.id,
-      role_names: ['super_admin', 'dictionary_admin']
-    });
-
+  const isAdmin = await userHasRole(user.id, ['super_admin', 'dictionary_admin']);
   if (!isAdmin) {
     redirect('/');
   }
 
+  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+
   // Fetch stats
   const [
     totalUsersResult,
-    { count: activeUsers = 0 },
-    { count: totalWords = 0 },
-    { count: pendingReviews = 0 },
-    { count: totalComments = 0 },
-    { count: improvements = 0 },
-    { data: recentActivity },
-    // eslint-disable-next-line no-unused-vars
-    { data: languageStats },
-    { count: totalLanguages = 0 }
+    activeUsersRows,
+    totalWordsRows,
+    pendingReviewsRows,
+    totalCommentsRows,
+    improvementRows,
+    recentActivityRows,
+    totalLanguagesRows,
   ] = await Promise.all([
-    // Total users - count from auth.users using RPC or fallback to user_profiles
-    supabase.rpc('count_auth_users').single(),
-    
-    // Active users (last 30 days) - count from user_profiles
-    supabase.from('user_profiles')
-      .select('*', { count: 'exact', head: true })
-      .gte('updated_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()),
-    
+    // Total users — count from auth.users via the count_auth_users() SQL function.
+    db.execute(sql`select public.count_auth_users() as count`),
+
+    // Active users (last 30 days) — count from user_profiles
+    db
+      .select({ value: count() })
+      .from(userProfilesT)
+      .where(gte(userProfilesT.updatedAt, thirtyDaysAgo)),
+
     // Total words
-    supabase.from('words').select('*', { count: 'exact', head: true }),
-    
+    db.select({ value: count() }).from(wordsT),
+
     // Pending reviews
-    supabase.from('words')
-      .select('*', { count: 'exact', head: true })
-      .eq('is_verified', false),
-    
+    db.select({ value: count() }).from(wordsT).where(eq(wordsT.isVerified, false)),
+
     // Total comments
-    supabase.from('word_comments')
-      .select('*', { count: 'exact', head: true })
-      .eq('is_deleted', false),
-    
+    db.select({ value: count() }).from(wordCommentsT).where(eq(wordCommentsT.isDeleted, false)),
+
     // Improvement suggestions
-    supabase.from('word_improvement_suggestions')
-      .select('*', { count: 'exact', head: true })
-      .eq('status', 'pending'),
-    
-    // Recent activity (last 10 actions)
-    supabase.from('curator_activities')
-      .select(`
-        id,
-        activity_type,
-        activity_data,
-        created_at,
-        user_id,
-        language_id,
-        languages!language_id(name),
-        profiles!user_id(
-          display_name,
-          username
-        )
-      `)
-      .order('created_at', { ascending: false })
+    db.select({ value: count() }).from(wisT).where(eq(wisT.status, 'pending')),
+
+    // Recent activity (last 10 actions) + the actor's profile + the language name.
+    db
+      .select({
+        id: curatorActivitiesT.id,
+        activity_type: curatorActivitiesT.activityType,
+        activity_data: curatorActivitiesT.activityData,
+        created_at: curatorActivitiesT.createdAt,
+        user_id: curatorActivitiesT.userId,
+        language_id: curatorActivitiesT.languageId,
+        language_name: languagesT.name,
+        display_name: userProfilesT.displayName,
+        username: userProfilesT.username,
+      })
+      .from(curatorActivitiesT)
+      .leftJoin(languagesT, eq(curatorActivitiesT.languageId, languagesT.id))
+      .leftJoin(userProfilesT, eq(curatorActivitiesT.userId, userProfilesT.userId))
+      .orderBy(desc(curatorActivitiesT.createdAt))
       .limit(10),
-    
-    // Language statistics
-    supabase.from('languages')
-      .select(`
-        id,
-        name,
-        words!inner(count)
-      `)
-      .eq('is_active', true),
-    
+
     // Total active languages
-    supabase.from('languages')
-      .select('*', { count: 'exact', head: true })
-      .eq('is_active', true)
+    db.select({ value: count() }).from(languagesT).where(eq(languagesT.isActive, true)),
   ]);
 
+  const activeUsers = activeUsersRows[0]?.value ?? 0;
+  const totalWords = totalWordsRows[0]?.value ?? 0;
+  const pendingReviews = pendingReviewsRows[0]?.value ?? 0;
+  const totalComments = totalCommentsRows[0]?.value ?? 0;
+  const improvements = improvementRows[0]?.value ?? 0;
+  const totalLanguages = totalLanguagesRows[0]?.value ?? 0;
+
+  // Shape recent activity to match the original nested relation embeds.
+  const recentActivity = recentActivityRows.map((r) => ({
+    id: r.id,
+    activity_type: r.activity_type,
+    activity_data: r.activity_data,
+    created_at: r.created_at,
+    user_id: r.user_id,
+    language_id: r.language_id,
+    languages: r.language_name ? { name: r.language_name } : null,
+    profiles: r.display_name || r.username
+      ? { display_name: r.display_name, username: r.username }
+      : null,
+  }));
+
   // Calculate approval rate (last 30 days)
-  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
-  const { count: approvedCount = 0 } = await supabase
-    .from('curator_activities')
-    .select('*', { count: 'exact', head: true })
-    .in('activity_type', ['word_approved', 'improvement_approved'])
-    .gte('created_at', thirtyDaysAgo);
-  
-  const { count: rejectedCount = 0 } = await supabase
-    .from('curator_activities')
-    .select('*', { count: 'exact', head: true })
-    .in('activity_type', ['word_rejected', 'improvement_rejected'])
-    .gte('created_at', thirtyDaysAgo);
+  const [approvedRows, rejectedRows] = await Promise.all([
+    db
+      .select({ value: count() })
+      .from(curatorActivitiesT)
+      .where(
+        and(
+          inArray(curatorActivitiesT.activityType, ['word_approved', 'improvement_approved']),
+          gte(curatorActivitiesT.createdAt, thirtyDaysAgo)
+        )
+      ),
+    db
+      .select({ value: count() })
+      .from(curatorActivitiesT)
+      .where(
+        and(
+          inArray(curatorActivitiesT.activityType, ['word_rejected', 'improvement_rejected']),
+          gte(curatorActivitiesT.createdAt, thirtyDaysAgo)
+        )
+      ),
+  ]);
+  const approvedCount = approvedRows[0]?.value ?? 0;
+  const rejectedCount = rejectedRows[0]?.value ?? 0;
 
-  const totalReviews = (approvedCount || 0) + (rejectedCount || 0);
-  const approvalRate = totalReviews > 0 ? Math.round(((approvedCount || 0) / totalReviews) * 100) : 0;
+  const totalReviews = approvedCount + rejectedCount;
+  const approvalRate = totalReviews > 0 ? Math.round((approvedCount / totalReviews) * 100) : 0;
 
-  // Handle totalUsers from RPC result or fallback
+  // Handle totalUsers from the count_auth_users() result, falling back to a
+  // user_profiles count if it returns nothing.
+  const authCountRows: any[] = Array.isArray(totalUsersResult)
+    ? totalUsersResult
+    : (totalUsersResult as any)?.rows ?? [];
   let totalUsers = 0;
-  if (totalUsersResult.data !== null) {
-    totalUsers = totalUsersResult.data as number;
+  const rawCount = authCountRows[0]?.count;
+  if (rawCount !== null && rawCount !== undefined) {
+    totalUsers = Number(rawCount) || 0;
   } else {
-    // Fallback to counting user_profiles if RPC fails
-    const { count } = await supabase
-      .from('user_profiles')
-      .select('*', { count: 'exact', head: true });
-    totalUsers = count || 0;
+    const fallback = await db.select({ value: count() }).from(userProfilesT);
+    totalUsers = fallback[0]?.value ?? 0;
   }
 
   // Calculate growth percentages
-  const { count: previousMonthUsersRaw } = await supabase
-    .from('user_profiles')
-    .select('*', { count: 'exact', head: true })
-    .lt('created_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString());
-  const previousMonthUsers = previousMonthUsersRaw || 0;
+  const previousMonthUsersRows = await db
+    .select({ value: count() })
+    .from(userProfilesT)
+    .where(lt(userProfilesT.createdAt, thirtyDaysAgo));
+  const previousMonthUsers = previousMonthUsersRows[0]?.value ?? 0;
 
   const userGrowth = previousMonthUsers > 0
     ? Math.round(((totalUsers - previousMonthUsers) / previousMonthUsers) * 100)
     : 0;
 
-  const { count: previousMonthWordsRaw } = await supabase
-    .from('words')
-    .select('*', { count: 'exact', head: true })
-    .lt('created_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString());
-  const previousMonthWords = previousMonthWordsRaw || 0;
+  const previousMonthWordsRows = await db
+    .select({ value: count() })
+    .from(wordsT)
+    .where(lt(wordsT.createdAt, thirtyDaysAgo));
+  const previousMonthWords = previousMonthWordsRows[0]?.value ?? 0;
 
   const wordGrowth = previousMonthWords > 0
-    ? Math.round((((totalWords || 0) - previousMonthWords) / previousMonthWords) * 100)
+    ? Math.round(((totalWords - previousMonthWords) / previousMonthWords) * 100)
     : 0;
 
   const statCards = [
@@ -281,7 +303,7 @@ export default async function AdminDashboard() {
                   const getActivityDescription = () => {
                     const userName = activity.profiles?.display_name || activity.profiles?.username || 'Unknown user';
                     const languageName = activity.languages?.name || 'Unknown language';
-                    
+
                     switch (activity.activity_type) {
                       case 'word_approved':
                         return `${userName} approved words in ${languageName}`;

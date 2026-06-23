@@ -2,7 +2,7 @@ import Link from 'next/link';
 import SharedLayout from './components/SharedLayout';
 import TranslateHero from './components/TranslateHero';
 import { Badge } from '@mobtranslate/ui';
-import { getActiveLanguages, getLanguageStats } from '@/lib/supabase/queries';
+import { getActiveLanguages, getLanguageStats } from '@/lib/db/queries';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 
 export const revalidate = 3600;

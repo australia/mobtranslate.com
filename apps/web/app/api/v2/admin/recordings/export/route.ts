@@ -1,4 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { and, eq, asc } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { recordings, speakerProfiles } from '@/lib/db/schema';
+import { recordingPublicUrl } from '@/lib/storage';
 import { requireAdmin } from '@/lib/recording/server';
 
 export const runtime = 'nodejs';
@@ -14,31 +18,39 @@ export async function GET(request: NextRequest) {
   const speakerId = searchParams.get('speakerId');
   if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
 
-  const db = auth.supabase;
-  let query = db
-    .from('recordings')
-    .select('id, label, duration_ms, sample_rate, kind, master_url, speaker:speaker_profiles(name)')
-    .eq('language_id', languageId)
-    .eq('status', 'active')
-    .order('created_at', { ascending: true })
+  const conds = [eq(recordings.languageId, languageId), eq(recordings.status, 'active')];
+  if (speakerId) conds.push(eq(recordings.speakerId, speakerId));
+
+  const rows = await db
+    .select({
+      id: recordings.id,
+      label: recordings.label,
+      durationMs: recordings.durationMs,
+      sampleRate: recordings.sampleRate,
+      kind: recordings.kind,
+      storagePath: recordings.storagePath,
+      speakerName: speakerProfiles.name,
+    })
+    .from(recordings)
+    .leftJoin(speakerProfiles, eq(recordings.speakerId, speakerProfiles.id))
+    .where(and(...conds))
+    .orderBy(asc(recordings.createdAt))
     .limit(10000);
-  if (speakerId) query = query.eq('speaker_id', speakerId);
 
-  const { data, error } = await query;
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-
-  const rows = (data ?? []).filter((r) => r.master_url && (r.label ?? '').trim());
-  const items = rows.map((r) => ({
+  // Build same-origin master URLs from storage_path (never the legacy absolute url).
+  const withUrl = rows.map((r) => ({ ...r, masterUrl: recordingPublicUrl(r.storagePath) }));
+  const filtered = withUrl.filter((r) => r.masterUrl && (r.label ?? '').trim());
+  const items = filtered.map((r) => ({
     id: r.id,
     file: `${r.id}.wav`,
     text: (r.label ?? '').trim(),
     // LJSpeech "normalized" column: collapse whitespace; keep the language's orthography intact.
     normalized: (r.label ?? '').trim().replace(/\s+/g, ' '),
-    duration_ms: r.duration_ms,
-    sample_rate: r.sample_rate,
+    duration_ms: r.durationMs,
+    sample_rate: r.sampleRate,
     kind: r.kind,
-    speaker: (r.speaker as { name?: string } | null)?.name ?? null,
-    url: r.master_url,
+    speaker: r.speakerName ?? null,
+    url: r.masterUrl,
   }));
 
   const totalSeconds = Math.round(items.reduce((s, i) => s + (i.duration_ms ?? 0), 0) / 1000);

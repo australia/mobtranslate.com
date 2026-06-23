@@ -1,103 +1,124 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { and, count, desc, eq, gte, inArray } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
+import { requireRole } from '@/lib/auth-helpers';
+import {
+  curatorActivities as curatorActivitiesT,
+  userProfiles as userProfilesT,
+  wordComments as wordCommentsT,
+  wordImprovementSuggestions as wisT,
+  words as wordsT,
+} from '@/lib/db/schema';
 
 export async function GET(_request: NextRequest) {
   try {
-    const supabase = await createClient();
-    
-    // Check authentication
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    // Authz in code (RLS is gone): admin role required.
+    const { response } = await requireRole(['super_admin', 'dictionary_admin']);
+    if (response) return response;
 
-    // Check if user is admin
-    const { data: roleAssignments } = await supabase
-      .from('user_role_assignments')
-      .select(`
-        role_id,
-        user_roles!inner(name)
-      `)
-      .eq('user_id', user.id)
-      .eq('is_active', true)
-      .in('user_roles.name', ['super_admin', 'dictionary_admin']);
-
-    const isAdmin = roleAssignments && roleAssignments.length > 0;
-
-    if (!isAdmin) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
-    }
+    const cutoff30 = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
 
     // Fetch various stats
     const [
-      { count: totalUsers = 0 },
-      { count: activeUsers = 0 },
-      { count: pendingReviews = 0 },
-      { count: totalWords = 0 },
-      { count: totalComments = 0 },
-      { count: improvementSuggestions = 0 },
-      { data: recentActivity }
+      totalUsersRows,
+      activeUsersRows,
+      pendingReviewsRows,
+      totalWordsRows,
+      totalCommentsRows,
+      improvementRows,
+      recentActivityRows,
     ] = await Promise.all([
       // Total users
-      supabase.from('profiles').select('*', { count: 'exact', head: true }),
-      
+      db.select({ value: count() }).from(userProfilesT),
+
       // Active users (last 30 days)
-      supabase.from('profiles')
-        .select('*', { count: 'exact', head: true })
-        .gte('updated_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()),
-      
+      db
+        .select({ value: count() })
+        .from(userProfilesT)
+        .where(gte(userProfilesT.updatedAt, cutoff30)),
+
       // Pending reviews (unverified words)
-      supabase.from('words')
-        .select('*', { count: 'exact', head: true })
-        .eq('is_verified', false),
-      
+      db
+        .select({ value: count() })
+        .from(wordsT)
+        .where(eq(wordsT.isVerified, false)),
+
       // Total words
-      supabase.from('words')
-        .select('*', { count: 'exact', head: true }),
-      
+      db.select({ value: count() }).from(wordsT),
+
       // Total comments
-      supabase.from('word_comments')
-        .select('*', { count: 'exact', head: true })
-        .eq('is_deleted', false),
-      
+      db
+        .select({ value: count() })
+        .from(wordCommentsT)
+        .where(eq(wordCommentsT.isDeleted, false)),
+
       // Improvement suggestions
-      supabase.from('word_improvement_suggestions')
-        .select('*', { count: 'exact', head: true })
-        .eq('status', 'pending'),
-      
-      // Recent activity (last 10 actions)
-      supabase.from('curator_activities')
-        .select(`
-          id,
-          activity_type,
-          activity_data,
-          created_at,
-          user_id,
-          profiles!user_id(
-            display_name,
-            username
-          )
-        `)
-        .order('created_at', { ascending: false })
-        .limit(10)
+      db
+        .select({ value: count() })
+        .from(wisT)
+        .where(eq(wisT.status, 'pending')),
+
+      // Recent activity (last 10 actions) + the actor's profile.
+      db
+        .select({
+          id: curatorActivitiesT.id,
+          activity_type: curatorActivitiesT.activityType,
+          activity_data: curatorActivitiesT.activityData,
+          created_at: curatorActivitiesT.createdAt,
+          user_id: curatorActivitiesT.userId,
+          display_name: userProfilesT.displayName,
+          username: userProfilesT.username,
+        })
+        .from(curatorActivitiesT)
+        .leftJoin(userProfilesT, eq(curatorActivitiesT.userId, userProfilesT.userId))
+        .orderBy(desc(curatorActivitiesT.createdAt))
+        .limit(10),
     ]);
 
-    // Calculate approval rate (last 30 days)
-    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
-    const { count: approvedCount = 0 } = await supabase
-      .from('curator_activities')
-      .select('*', { count: 'exact', head: true })
-      .in('activity_type', ['word_approved', 'improvement_approved'])
-      .gte('created_at', thirtyDaysAgo);
-    
-    const { count: rejectedCount = 0 } = await supabase
-      .from('curator_activities')
-      .select('*', { count: 'exact', head: true })
-      .in('activity_type', ['word_rejected', 'improvement_rejected'])
-      .gte('created_at', thirtyDaysAgo);
+    const totalUsers = totalUsersRows[0]?.value ?? 0;
+    const activeUsers = activeUsersRows[0]?.value ?? 0;
+    const pendingReviews = pendingReviewsRows[0]?.value ?? 0;
+    const totalWords = totalWordsRows[0]?.value ?? 0;
+    const totalComments = totalCommentsRows[0]?.value ?? 0;
+    const improvementSuggestions = improvementRows[0]?.value ?? 0;
 
-    const totalReviews = (approvedCount ?? 0) + (rejectedCount ?? 0);
-    const approvalRate = totalReviews > 0 ? Math.round(((approvedCount ?? 0) / totalReviews) * 100) : 0;
+    const recentActivity = recentActivityRows.map((r) => ({
+      id: r.id,
+      activity_type: r.activity_type,
+      activity_data: r.activity_data,
+      created_at: r.created_at,
+      user_id: r.user_id,
+      profiles: r.display_name || r.username
+        ? { display_name: r.display_name, username: r.username }
+        : null,
+    }));
+
+    // Calculate approval rate (last 30 days)
+    const [approvedRows, rejectedRows] = await Promise.all([
+      db
+        .select({ value: count() })
+        .from(curatorActivitiesT)
+        .where(
+          and(
+            inArray(curatorActivitiesT.activityType, ['word_approved', 'improvement_approved']),
+            gte(curatorActivitiesT.createdAt, cutoff30)
+          )
+        ),
+      db
+        .select({ value: count() })
+        .from(curatorActivitiesT)
+        .where(
+          and(
+            inArray(curatorActivitiesT.activityType, ['word_rejected', 'improvement_rejected']),
+            gte(curatorActivitiesT.createdAt, cutoff30)
+          )
+        ),
+    ]);
+
+    const approvedCount = approvedRows[0]?.value ?? 0;
+    const rejectedCount = rejectedRows[0]?.value ?? 0;
+    const totalReviews = approvedCount + rejectedCount;
+    const approvalRate = totalReviews > 0 ? Math.round((approvedCount / totalReviews) * 100) : 0;
 
     return NextResponse.json({
       totalUsers,
@@ -107,7 +128,7 @@ export async function GET(_request: NextRequest) {
       totalComments,
       improvementSuggestions,
       approvalRate,
-      recentActivity: recentActivity || []
+      recentActivity
     });
   } catch (error) {
     console.error('Failed to fetch admin stats:', error);
