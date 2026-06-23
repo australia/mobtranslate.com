@@ -86,7 +86,8 @@ export async function GET(request: NextRequest) {
         is_correct,
         response_time_ms,
         bucket_at_time,
-        created_at
+        created_at,
+        words!inner(language_id)
       `)
       .eq('user_id', user.id)
       .order('created_at', { ascending: false });
@@ -94,13 +95,11 @@ export async function GET(request: NextRequest) {
     if (dateFilter) {
       attemptsQuery = attemptsQuery.gte('created_at', dateFilter);
     }
-    
-    // If filtering by language, only get attempts from sessions of that language
-    if (languageId && sessions) {
-      const sessionIds = sessions.map(s => s.id);
-      if (sessionIds.length > 0) {
-        attemptsQuery = attemptsQuery.in('session_id', sessionIds);
-      }
+
+    // Filter by the word's language directly. (Filtering attempts through
+    // session_id undercounts, since sessions are often left incomplete.)
+    if (languageId) {
+      attemptsQuery = attemptsQuery.eq('words.language_id', languageId);
     }
 
     const { data: attempts, error: attemptsError } = await attemptsQuery;
@@ -126,24 +125,22 @@ export async function GET(request: NextRequest) {
       console.error('Analytics: error fetching states:', statesError);
     }
 
-    // Calculate overview statistics
-    const totalSessions = sessions?.length || 0;
-    const totalQuestions = sessions?.reduce((sum, s) => sum + (s.total_questions || 0), 0) || 0;
-    const totalCorrect = sessions?.reduce((sum, s) => sum + (s.correct_answers || 0), 0) || 0;
+    // Calculate overview statistics from attempts (the real activity record;
+    // sessions are frequently left incomplete and would read as zero).
+    const totalQuestions = attempts?.length || 0;
+    const totalCorrect = attempts?.filter((a) => a.is_correct).length || 0;
     const overallAccuracy = totalQuestions > 0 ? (totalCorrect / totalQuestions) * 100 : 0;
-    
-    // Calculate current streak from recent sessions
-    const currentStreak = calculateCurrentStreak(sessions || []);
-    const longestStreak = Math.max(...(sessions?.map(s => s.streak || 0) || [0]), 0);
 
-    // Calculate total study time (approximate from session durations)
-    const totalStudyTime = sessions?.reduce((sum, s) => {
-      if (s.completed_at && s.created_at) {
-        const duration = new Date(s.completed_at).getTime() - new Date(s.created_at).getTime();
-        return sum + Math.round(duration / (1000 * 60)); // Convert to minutes
-      }
-      return sum + (s.total_questions || 0) * 0.5; // Estimate 30 seconds per question
-    }, 0) || 0;
+    // Distinct active days double as a "sessions" estimate + the streak basis.
+    const activeDays = new Set(
+      (attempts || [])
+        .map((a) => (a.created_at ? new Date(a.created_at).toDateString() : ''))
+        .filter(Boolean),
+    );
+    const totalSessions = activeDays.size;
+    const currentStreak = streakFromDays(activeDays);
+    const longestStreak = currentStreak; // simplified — historical longest not tracked per-day
+    const totalStudyTime = Math.round(totalQuestions * 0.5); // ~30s per question
 
     // Count words by learning stage
     const wordsMastered = states?.filter(s => s.bucket === 5).length || 0;
@@ -273,40 +270,18 @@ export async function GET(request: NextRequest) {
   }
 }
 
-function calculateCurrentStreak(sessions: any[]): number {
-  if (!sessions.length) return 0;
-  
-  // Group sessions by date
-  const sessionsByDate = new Map<string, any[]>();
-  sessions.forEach(session => {
-    const date = new Date(session.created_at).toDateString();
-    if (!sessionsByDate.has(date)) {
-      sessionsByDate.set(date, []);
-    }
-    sessionsByDate.get(date)!.push(session);
-  });
-
+/** Consecutive-day streak ending today or yesterday, from a set of date strings. */
+function streakFromDays(days: Set<string>): number {
+  if (days.size === 0) return 0;
   const today = new Date().toDateString();
-  const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toDateString();
-  
+  const yesterday = new Date(Date.now() - 86_400_000).toDateString();
+  if (!days.has(today) && !days.has(yesterday)) return 0;
   let streak = 0;
-  let checkDate = new Date();
-  
-  // Start from today or yesterday if user practiced
-  if (!sessionsByDate.has(today) && !sessionsByDate.has(yesterday)) {
-    return 0;
-  }
-  
-  if (!sessionsByDate.has(today)) {
-    checkDate = new Date(Date.now() - 24 * 60 * 60 * 1000);
-  }
-  
-  // Count consecutive days with sessions
-  while (sessionsByDate.has(checkDate.toDateString())) {
+  let cursor = new Date(days.has(today) ? Date.now() : Date.now() - 86_400_000);
+  while (days.has(cursor.toDateString())) {
     streak++;
-    checkDate = new Date(checkDate.getTime() - 24 * 60 * 60 * 1000);
+    cursor = new Date(cursor.getTime() - 86_400_000);
   }
-  
   return streak;
 }
 

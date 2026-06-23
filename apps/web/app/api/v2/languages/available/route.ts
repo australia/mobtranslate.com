@@ -1,19 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
-export async function GET(_request: NextRequest) {
+export const dynamic = 'force-dynamic';
+
+export async function GET() {
   const supabase = await createClient();
 
   try {
-    // Get all active languages with words using a single query
-    const { data: languageData, error } = await supabase
+    const { data: langs, error } = await supabase
       .from('languages')
-      .select(`
-        id,
-        code, 
-        name,
-        words!inner(id)
-      `)
+      .select('id, code, name')
       .eq('is_active', true)
       .order('name');
 
@@ -22,30 +18,24 @@ export async function GET(_request: NextRequest) {
       return NextResponse.json({ error: 'Failed to fetch languages' }, { status: 500 });
     }
 
-    // Process the query results properly
-    const formattedLanguages = languageData?.reduce((acc: any[], item: any) => {
-      // Each row represents a word, so we need to count unique languages
-      const existing = acc.find(lang => lang.code === item.code);
-      if (existing) {
-        existing.wordCount++;
-      } else {
-        acc.push({
-          code: item.code,
-          name: item.name,
-          wordCount: 1
-        });
-      }
-      return acc;
-    }, []) || [];
+    // Count words per language with a real COUNT (the previous version embedded
+    // words!inner(id), which returns ONE row per language with words nested — so
+    // the reduce always produced wordCount: 1).
+    const counted = await Promise.all(
+      (langs ?? []).map(async (l) => {
+        const { count } = await supabase
+          .from('words')
+          .select('*', { count: 'exact', head: true })
+          .eq('language_id', l.id);
+        return { code: l.code, name: l.name, wordCount: count ?? 0 };
+      })
+    );
 
-    // Sort by word count
-    formattedLanguages.sort((a, b) => b.wordCount - a.wordCount);
+    const languages = counted
+      .filter((l) => l.wordCount > 0)
+      .sort((a, b) => b.wordCount - a.wordCount);
 
-    return NextResponse.json({
-      languages: formattedLanguages,
-      total: formattedLanguages.length
-    });
-
+    return NextResponse.json({ languages, total: languages.length });
   } catch (error) {
     console.error('Error fetching available languages:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

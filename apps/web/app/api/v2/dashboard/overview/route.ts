@@ -1,252 +1,120 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
-export async function GET(_request: NextRequest) {
+export const dynamic = 'force-dynamic';
+
+/** Consecutive-day streak ending today or yesterday, from a set of date strings. */
+function streakFromDays(days: Set<string>): number {
+  if (days.size === 0) return 0;
+  const today = new Date().toDateString();
+  const yesterday = new Date(Date.now() - 86_400_000).toDateString();
+  if (!days.has(today) && !days.has(yesterday)) return 0;
+  let streak = 0;
+  let cursor = new Date(days.has(today) ? Date.now() : Date.now() - 86_400_000);
+  while (days.has(cursor.toDateString())) {
+    streak++;
+    cursor = new Date(cursor.getTime() - 86_400_000);
+  }
+  return streak;
+}
+
+export async function GET() {
   const supabase = await createClient();
 
-  // Check authentication
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) {
     return NextResponse.json({ error: 'Authentication required' }, { status: 401 });
   }
 
   try {
-    // Get all quiz sessions grouped by language
-    const { data: sessions, error: sessionsError } = await supabase
-      .from('quiz_sessions')
-      .select(`
-        id,
-        language_id,
-        total_questions,
-        correct_answers,
-        accuracy_percentage,
-        streak,
-        avg_response_time_ms,
-        created_at,
-        completed_at,
-        languages(id, name, code)
-      `)
-      .eq('user_id', user.id)
-      .not('completed_at', 'is', null)
-      .order('created_at', { ascending: false });
-
-    if (sessionsError) {
-      console.error('Error fetching sessions:', sessionsError);
-      return NextResponse.json({ error: 'Failed to fetch sessions' }, { status: 500 });
-    }
-    
-    // Get unique word counts per language with language info
-    const { data: wordCounts, error: wordCountError } = await supabase
-      .from('spaced_repetition_states')
-      .select(`
-        word_id,
-        bucket,
-        words!inner(
-          language_id,
-          languages(id, name, code)
-        )
-      `)
+    // Real activity lives in quiz_attempts (sessions are often left incomplete,
+    // so they undercount). Join each attempt to its word's language.
+    const { data: attempts, error: attemptsError } = await supabase
+      .from('quiz_attempts')
+      .select('is_correct, created_at, words!inner(language_id, languages(id, name, code))')
       .eq('user_id', user.id);
 
-    if (wordCountError) {
-      console.error('Error fetching word counts:', wordCountError);
+    if (attemptsError) {
+      console.error('Error fetching attempts:', attemptsError);
+      return NextResponse.json({ error: 'Failed to fetch activity' }, { status: 500 });
     }
-    
-    // Process data by language
-    const languageMap = new Map<string, {
-      language: string;
-      code: string;
-      totalSessions: number;
-      totalWords: number;
-      totalQuestions: number;
-      totalCorrect: number;
-      lastPracticed: string;
-      bestStreak: number;
-      totalTime: number;
-    }>();
 
-    // Process sessions
-    sessions?.forEach(session => {
-      if (!session.languages) return;
-      const sessionLang = session.languages as any;
-      const langId = session.language_id;
-      const existing = languageMap.get(langId) || {
-        language: sessionLang.name,
-        code: sessionLang.code,
-        totalSessions: 0,
-        totalWords: 0,
-        totalQuestions: 0,
-        totalCorrect: 0,
-        lastPracticed: session.created_at,
-        bestStreak: 0,
-        totalTime: 0
-      };
+    const { data: states } = await supabase
+      .from('spaced_repetition_states')
+      .select('word_id, words!inner(language_id, languages(id, name, code))')
+      .eq('user_id', user.id);
 
-      const sessionDuration = session.completed_at && session.created_at
-        ? Math.round((new Date(session.completed_at).getTime() - new Date(session.created_at).getTime()) / (1000 * 60))
-        : (session.total_questions || 0) * 0.5; // Estimate 30 seconds per question
+    type LangAgg = {
+      language: string; code: string;
+      questions: number; correct: number;
+      words: Set<string>; days: Set<string>; lastAt: string;
+    };
+    const byLang = new Map<string, LangAgg>();
+    const allDays = new Set<string>();
 
-      languageMap.set(langId, {
-        ...existing,
-        totalSessions: existing.totalSessions + 1,
-        totalQuestions: existing.totalQuestions + (session.total_questions || 0),
-        totalCorrect: existing.totalCorrect + (session.correct_answers || 0),
-        lastPracticed: session.created_at > existing.lastPracticed ? session.created_at : existing.lastPracticed,
-        bestStreak: Math.max(existing.bestStreak, session.streak || 0),
-        totalTime: existing.totalTime + sessionDuration
-      });
-    });
-
-    // Count unique words per language
-    const wordsByLanguage = new Map<string, Set<string>>();
-    
-    wordCounts?.forEach(state => {
-      const stateWords = state.words as any;
-      if (stateWords?.languages && stateWords.language_id) {
-        const langId = stateWords.language_id;
-        const langInfo = stateWords.languages;
-        
-        // Create language entry if it doesn't exist (for users who have words but no sessions)
-        if (!languageMap.has(langId)) {
-          languageMap.set(langId, {
-            language: langInfo.name,
-            code: langInfo.code,
-            totalSessions: 0,
-            totalWords: 0,
-            totalQuestions: 0,
-            totalCorrect: 0,
-            lastPracticed: new Date().toISOString(), // Will be updated if sessions exist
-            bestStreak: 0,
-            totalTime: 0
-          });
-        }
-        
-        // Track unique words per language
-        if (!wordsByLanguage.has(langId)) {
-          wordsByLanguage.set(langId, new Set());
-        }
-        wordsByLanguage.get(langId)!.add(state.word_id);
+    const ensure = (langId: string, name: string, code: string): LangAgg => {
+      let e = byLang.get(langId);
+      if (!e) {
+        e = { language: name, code, questions: 0, correct: 0, words: new Set(), days: new Set(), lastAt: '' };
+        byLang.set(langId, e);
       }
-    });
-    
-    // Update word counts in language stats
-    wordsByLanguage.forEach((words, langId) => {
-      const langStats = languageMap.get(langId);
-      if (langStats) {
-        langStats.totalWords = words.size;
+      return e;
+    };
+
+    (attempts ?? []).forEach((a: any) => {
+      const w = a.words;
+      const lang = w?.languages;
+      if (!w?.language_id || !lang) return;
+      const e = ensure(w.language_id, lang.name, lang.code);
+      e.questions++;
+      if (a.is_correct) e.correct++;
+      if (a.created_at) {
+        const day = new Date(a.created_at).toDateString();
+        e.days.add(day);
+        allDays.add(day);
+        if (a.created_at > e.lastAt) e.lastAt = a.created_at;
       }
     });
 
-    // Convert to array and calculate current streaks
-    const languageStats = Array.from(languageMap.values()).map(lang => ({
-      language: lang.language,
-      code: lang.code,
-      totalSessions: lang.totalSessions,
-      totalWords: lang.totalWords,
-      accuracy: lang.totalQuestions > 0 ? (lang.totalCorrect / lang.totalQuestions) * 100 : 0,
-      lastPracticed: lang.lastPracticed,
-      streak: calculateStreakForLanguage(sessions || [], lang.code),
-      studyTime: lang.totalTime
+    (states ?? []).forEach((s: any) => {
+      const w = s.words;
+      const lang = w?.languages;
+      if (!w?.language_id || !lang) return;
+      const e = ensure(w.language_id, lang.name, lang.code);
+      e.words.add(s.word_id);
+    });
+
+    const languages = [...byLang.values()].map((l) => ({
+      language: l.language,
+      code: l.code,
+      totalSessions: l.days.size, // distinct active days ≈ sessions
+      totalWords: l.words.size,
+      accuracy: l.questions > 0 ? (l.correct / l.questions) * 100 : 0,
+      lastPracticed: l.lastAt || new Date().toISOString(),
+      streak: streakFromDays(l.days),
+      studyTime: Math.round(l.questions * 0.5), // ~30s per question
     }));
 
-    // Calculate overall stats
-    const totalQuestions = sessions?.reduce((sum, s) => sum + (s.total_questions || 0), 0) || 0;
-    const totalCorrect = sessions?.reduce((sum, s) => sum + (s.correct_answers || 0), 0) || 0;
-    const overallAccuracy = totalQuestions > 0 ? (totalCorrect / totalQuestions) * 100 : 0;
-    
-    const overviewStats = {
-      totalLanguages: languageStats.length,
-      totalSessions: sessions?.length || 0,
-      totalWords: wordCounts?.length || 0,
-      overallAccuracy,
-      currentStreak: calculateOverallStreak(sessions || []),
-      totalStudyTime: languageStats.reduce((sum, lang) => sum + lang.studyTime, 0)
+    const allAttempts = attempts?.length ?? 0;
+    const allCorrect = (attempts ?? []).filter((a: any) => a.is_correct).length;
+
+    const overview = {
+      totalLanguages: languages.length,
+      totalSessions: allDays.size,
+      totalWords: states?.length ?? 0,
+      overallAccuracy: allAttempts > 0 ? (allCorrect / allAttempts) * 100 : 0,
+      currentStreak: streakFromDays(allDays),
+      totalStudyTime: languages.reduce((sum, l) => sum + l.studyTime, 0),
     };
 
     return NextResponse.json({
-      overview: overviewStats,
-      languages: languageStats.sort((a, b) => 
-        new Date(b.lastPracticed).getTime() - new Date(a.lastPracticed).getTime()
-      )
+      overview,
+      languages: languages.sort(
+        (a, b) => new Date(b.lastPracticed).getTime() - new Date(a.lastPracticed).getTime(),
+      ),
     });
-
   } catch (error) {
     console.error('Error fetching dashboard overview:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
-}
-
-function calculateStreakForLanguage(sessions: any[], languageCode: string): number {
-  const langSessions = sessions.filter(s => s.languages?.code === languageCode);
-  if (!langSessions.length) return 0;
-  
-  // Group sessions by date
-  const sessionsByDate = new Map<string, any[]>();
-  langSessions.forEach(session => {
-    const date = new Date(session.created_at).toDateString();
-    if (!sessionsByDate.has(date)) {
-      sessionsByDate.set(date, []);
-    }
-    sessionsByDate.get(date)!.push(session);
-  });
-
-  const today = new Date().toDateString();
-  const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toDateString();
-  
-  let streak = 0;
-  let checkDate = new Date();
-  
-  // Start from today or yesterday if user practiced
-  if (!sessionsByDate.has(today) && !sessionsByDate.has(yesterday)) {
-    return 0;
-  }
-  
-  if (!sessionsByDate.has(today)) {
-    checkDate = new Date(Date.now() - 24 * 60 * 60 * 1000);
-  }
-  
-  // Count consecutive days with sessions
-  while (sessionsByDate.has(checkDate.toDateString())) {
-    streak++;
-    checkDate = new Date(checkDate.getTime() - 24 * 60 * 60 * 1000);
-  }
-  
-  return streak;
-}
-
-function calculateOverallStreak(sessions: any[]): number {
-  if (!sessions.length) return 0;
-  
-  // Group sessions by date
-  const sessionsByDate = new Map<string, any[]>();
-  sessions.forEach(session => {
-    const date = new Date(session.created_at).toDateString();
-    if (!sessionsByDate.has(date)) {
-      sessionsByDate.set(date, []);
-    }
-    sessionsByDate.get(date)!.push(session);
-  });
-
-  const today = new Date().toDateString();
-  const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000).toDateString();
-  
-  let streak = 0;
-  let checkDate = new Date();
-  
-  // Start from today or yesterday if user practiced
-  if (!sessionsByDate.has(today) && !sessionsByDate.has(yesterday)) {
-    return 0;
-  }
-  
-  if (!sessionsByDate.has(today)) {
-    checkDate = new Date(Date.now() - 24 * 60 * 60 * 1000);
-  }
-  
-  // Count consecutive days with sessions
-  while (sessionsByDate.has(checkDate.toDateString())) {
-    streak++;
-    checkDate = new Date(checkDate.getTime() - 24 * 60 * 60 * 1000);
-  }
-  
-  return streak;
 }
