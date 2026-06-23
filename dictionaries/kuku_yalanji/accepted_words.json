@@ -1,0 +1,706 @@
+[
+ {
+  "word": "aybi",
+  "type": "noun",
+  "gloss": "Ivy (name)",
+  "definition": "Ivy; an English personal name adapted to Kuku Yalanji phonology",
+  "semantic_domain": "personal-name",
+  "loanword_source": "English 'Ivy'",
+  "commentary": [
+   "Attested in Patz §2.3 (i) as a phonologically adapted English loan name; not in the source dictionary.",
+   "Shows loan adaptation where /b/ corresponds to English /v/ (Ivy -> aybi)."
+  ]
+ },
+ {
+  "word": "bakarrmuku",
+  "type": "locational",
+  "gloss": "Wakooka Station",
+  "definition": "Wakooka Station, a place on Princess Charlotte Bay (north of Kuku Yalanji country)",
+  "semantic_domain": "place-name",
+  "commentary": [
+   "Attested in Patz Text 51 lines 2-3 and ex.(651) (Bakarrmuku-muny 'from Wakooka Station'); not in the source dictionary.",
+   "Place name; appears with ablative -muny in the texts."
+  ]
+ },
+ {
+  "word": "bijarri-l",
+  "type": "intransitive-verb",
+  "gloss": "to dream",
+  "definition": "to dream",
+  "semantic_domain": "cognition-emotion",
+  "commentary": [
+   "Attested in Patz §3.8.2.2(i) and §3.8.3 (i); not in the source dictionary.",
+   "Trisyllabic -rri root historically based on the nominal root bijarr 'dream' but functions as an independent l-conjugation verb."
+  ]
+ },
+ {
+  "word": "biki",
+  "type": "noun",
+  "gloss": "pig",
+  "definition": "pig (also reduplicated as bikibiki)",
+  "semantic_domain": "fauna-mammal",
+  "loanword_source": "English 'pig'",
+  "commentary": [
+   "Attested in Patz §2.3 (vii) as 'biki (or bikibiki) pig'; the base form biki is not in the source dictionary (only bikibiki).",
+   "Monosyllabic English root made disyllabic by adding a final vowel."
+  ]
+ },
+ {
+  "word": "binainyji",
+  "type": "noun",
+  "gloss": "fig-like fruit",
+  "definition": "a fig-like fruit",
+  "semantic_domain": "flora-plant",
+  "commentary": [
+   "Attested in Patz §2.4 minimal pairs (binainyji 'fig-like fruit', contrasting with binanj-ji 'with a rudder'); not in the source dictionary.",
+   "Cited as the bare noun form in the phonemic minimal-pair discussion."
+  ]
+ },
+ {
+  "word": "binjin",
+  "type": "noun",
+  "gloss": "petrol",
+  "definition": "petrol, fuel",
+  "semantic_domain": "artefact",
+  "loanword_source": "English 'benzene' or German 'Benzin'",
+  "commentary": [
+   "Attested in Patz §2.3 (i); not in the source dictionary.",
+   "Patz notes the source is uncertain: possibly English 'benzene' or German 'Benzin' (introduced by German missionaries)."
+  ]
+ },
+ {
+  "word": "biringal",
+  "type": "noun",
+  "gloss": "scorpion",
+  "definition": "scorpion",
+  "semantic_domain": "fauna-insect",
+  "commentary": [
+   "Attested in Patz ex.(356) (biringal-da 'by a scorpion', ergative); citation form biringal not in the source dictionary."
+  ]
+ },
+ {
+  "word": "biyin",
+  "type": "noun",
+  "gloss": "(safety) pin",
+  "definition": "a (safety) pin",
+  "semantic_domain": "artefact",
+  "loanword_source": "English 'pin'",
+  "commentary": [
+   "Attested in Patz §2.3 (vii); not in the source dictionary.",
+   "Monosyllabic English root 'pin' made disyllabic by inserting a semivowel sequence (pin -> biyin)."
+  ]
+ },
+ {
+  "word": "budmandu",
+  "type": "noun",
+  "gloss": "suitcase, port",
+  "definition": "portmanteau, suitcase, port (luggage)",
+  "semantic_domain": "artefact",
+  "loanword_source": "English 'portmanteau'",
+  "commentary": [
+   "Attested in Patz ex.(392) (Yinya budmandu karrkay 'That port (suitcase) is small'); not in the source dictionary."
+  ]
+ },
+ {
+  "word": "bulin",
+  "type": "noun",
+  "gloss": "plate",
+  "definition": "a plate",
+  "semantic_domain": "artefact",
+  "commentary": [
+   "Attested in Patz ex.(200) (bulin-ba yijarri-ka 'put on the plate', locative); citation form bulin not in the source dictionary.",
+   "Likely an English loan ('plate') though Patz does not list it among the confirmed loans in §2.3."
+  ]
+ },
+ {
+  "word": "buya-warri-y",
+  "type": "intransitive-verb",
+  "gloss": "to break wind",
+  "definition": "to break wind, fart (literally 'fart-run')",
+  "semantic_domain": "bodily-function",
+  "commentary": [
+   "Attested in Patz §3.8.5.2 (idiomatic verbal compounds) as buya-warri-y (fart(N)-run-y) 'to break wind'; not in the source dictionary.",
+   "Inseparable noun+verb compound formed with the verb root warri-y 'run'."
+  ]
+ },
+ {
+  "word": "buyandi-l",
+  "type": "transitive-verb",
+  "gloss": "put in container",
+  "definition": "to put (something) in a container",
+  "semantic_domain": "manipulation-impact",
+  "commentary": [
+   "Attested in Patz §3.8.2.2(iv) and §3.8.3 (iv) (buyandi-l 'put in container (tr)'); not in the source dictionary.",
+   "Listed by Patz among the opaque trisyllabic l-conjugation roots."
+  ]
+ },
+ {
+  "word": "buyun-dama-l",
+  "type": "transitive-verb",
+  "gloss": "spoil",
+  "definition": "to spoil or ruin something (literally 'bad-spear')",
+  "semantic_domain": "manipulation-impact",
+  "commentary": [
+   "Attested in Patz §3.8.5.2 (idiomatic verbal compounds), listed adjective+verb 'buyun-dama-l (bad-spear-l) spoil'; further attested ex.(436), and causative use 'buyun-dama-ny' ex.(72).",
+   "Idiomatic compound of buyun 'bad' + the verb root dama-l 'to spear'; inseparable, reduplicates as a whole (buyun-dama-l-dama-l, §3.8.6).",
+   "Not in the source dictionary."
+  ]
+ },
+ {
+  "word": "dada",
+  "type": "noun",
+  "gloss": "daddy",
+  "definition": "daddy (familiar/vocative term for father)",
+  "semantic_domain": "kinship",
+  "commentary": [
+   "Attested in Patz Text 36, line 7: 'Ngamu, dada, walnga!' 'Mother, daddy, wake up!' (mother.ABS daddy.ABS).",
+   "Familiar address term for father, distinct from the formal kin term nganjan 'father'.",
+   "Not in the source dictionary."
+  ]
+ },
+ {
+  "word": "dukul-warri-y",
+  "type": "intransitive-verb",
+  "gloss": "throw a tantrum",
+  "definition": "to throw a tantrum (literally 'head-run')",
+  "semantic_domain": "cognition-emotion",
+  "commentary": [
+   "Attested in Patz §3.8.5.2 (idiomatic verbal compounds), body-part+verb list: 'dukul-warri-y (head-run-y) throw a tantrum'.",
+   "Idiomatic compound of dukul 'head' + the verb root warri-y 'run'; inseparable.",
+   "Not in the source dictionary."
+  ]
+ },
+ {
+  "word": "gilaja",
+  "type": "noun",
+  "gloss": "glass, mirror",
+  "definition": "glass; a mirror",
+  "semantic_domain": "artefact",
+  "loanword_source": "glass",
+  "commentary": [
+   "Attested in Patz §2.3(iv),(viii) as a phonologically adapted English loanword; the variant gilaji 'glass' is also recorded in §2.3(viii)(a).",
+   "Loan from English 'glass': the consonant cluster /gl/ is broken up by an epenthetic vowel (§2.3(iv)) and the final consonant adapted by adding a vowel (§2.3(viii)).",
+   "Not in the source dictionary."
+  ]
+ },
+ {
+  "word": "janjarri-l",
+  "type": "transitive-verb",
+  "gloss": "investigate, ridicule",
+  "definition": "to investigate, snoop on; to laugh about, ridicule someone",
+  "semantic_domain": "cognition-emotion",
+  "commentary": [
+   "Attested in Patz §3.8.3.2(ii) glossed 'investigate' and §4.2.4.4 glossed 'laugh about, ridicule'; further attested in reduplicated form janjarri-l-janjarri-nya 'snoop' (ex. at §4.x).",
+   "A reinterpreted root ending in -rri (§3.8.3.2(ii)); l-conjugation transitive verb.",
+   "Not in the source dictionary."
+  ]
+ },
+ {
+  "word": "janjarriji-y",
+  "type": "intransitive-verb",
+  "gloss": "laugh at in a friendly way",
+  "definition": "to laugh at someone in a friendly way",
+  "semantic_domain": "cognition-emotion",
+  "commentary": [
+   "Attested in Patz §4.2.4.4: 'Janjarri-l \"laugh about, ridicule\" and janjarriji-y \"laugh at in a friendly way\" can probably also be included in this list [of fixed intransitive stems].'",
+   "Patz explicitly regards such -ji-y forms as 'fixed' intransitive stems with meaning shifted from the transitive base, not as productive antipassives; hence dictionary-worthy as its own lexeme.",
+   "Not in the source dictionary."
+  ]
+ },
+ {
+  "word": "janyiman",
+  "type": "noun",
+  "gloss": "Chinese person",
+  "definition": "a Chinese person",
+  "semantic_domain": "human-generic-classifier",
+  "loanword_source": "Chinaman",
+  "commentary": [
+   "Attested in Patz ex.(643) 'Waybala janyiman ... Chinese ...' and ex.(458)/(510)/(459) (also spelled janiman, e.g. ergative janiman-angka).",
+   "Borrowing referring to Chinese people, frequent in Palmer River goldrush narratives; likely from English 'Chinaman'.",
+   "Not in the source dictionary."
+  ]
+ },
+ {
+  "word": "jilba-dunga-y",
+  "type": "intransitive-verb",
+  "gloss": "go for a walk",
+  "definition": "to walk, go for a walk, go walkabout",
+  "semantic_domain": "motion-travel",
+  "commentary": [
+   "Attested in Patz ex.(379), ex.(446), ex.(495), ex.(564), ex.(617), and Text 12 line 1; glossed 'walk-go'.",
+   "Inseparable compound of jilba 'walk' + the verb root dunga-y 'go'; citation form ends -y per the dunga-y (y-conjugation) head verb (cf. Patz §3.8.3). The candidate also surfaces uninflected as 'jilba dunga' in ex.(86).",
+   "Not in the source dictionary."
+  ]
+ },
+ {
+  "word": "Jinabaji",
+  "type": "noun",
+  "gloss": "Jinabaji (personal name)",
+  "definition": "a personal name",
+  "semantic_domain": "personal-name",
+  "commentary": [
+   "Attested in Patz §4.1.1(a), listed as a proper noun among personal names: 'Mandu, Jinabaji, Mabel (personal names)'.",
+   "Not in the source dictionary."
+  ]
+ },
+ {
+  "word": "jirayma-l",
+  "type": "intransitive-verb",
+  "gloss": "long for, crave",
+  "definition": "to long for, crave something",
+  "semantic_domain": "cognition-emotion",
+  "commentary": [
+   "Attested in Patz §3.8.3.2(ii) and §3.8.3.1, glossed 'long for, crave' (cf. Djabugay jiran 'thirst, hunger').",
+   "A trisyllabic root with final -ma possibly historically the inchoative suffix, but now a fossilised, non-decomposable intransitive root (§3.8.3.2(ii)); l-conjugation.",
+   "Not in the source dictionary."
+  ]
+ },
+ {
+  "word": "juki",
+  "type": "noun",
+  "gloss": "chook, hen",
+  "definition": "A domestic chicken or hen.",
+  "semantic_domain": "fauna-bird",
+  "loanword_source": "English 'chook'",
+  "commentary": [
+   "Attested in Patz §2.3 (vii) as a loanword adapted by adding a final vowel to an English root ending in a stop.",
+   "Loanword from English colloquial 'chook' (hen). Cf. reduplicated jukijuki 'chicken(s)'."
+  ]
+ },
+ {
+  "word": "juyuy",
+  "type": "interjection",
+  "gloss": "that's nonsense, take no notice",
+  "definition": "An interjection used to dismiss something as nonsense or not worth heeding: 'that's nonsense, take no notice of it'.",
+  "semantic_domain": "interjection",
+  "commentary": [
+   "Attested in Patz §4.10 (Interjections), glossed 'that's nonsense, take no notice of it'."
+  ]
+ },
+ {
+  "word": "kandarr-warri-y",
+  "type": "intransitive-verb",
+  "gloss": "burp",
+  "definition": "To burp, belch (literally 'burp-run').",
+  "semantic_domain": "bodily-function",
+  "commentary": [
+   "Attested in Patz §3.8.5.2 as a compound verb, glossed (burp(N)-run-y) 'to burp'.",
+   "Idiomatic compound of the noun kandarr 'burp' and the verb root warri-y 'run', a frequent compounding root."
+  ]
+ },
+ {
+  "word": "kararr",
+  "type": "noun",
+  "gloss": "blanket",
+  "definition": "A blanket, sheet, or grass bedding spread out to lie on.",
+  "semantic_domain": "artefact",
+  "commentary": [
+   "Attested in Patz ex.(153), ex.(416), ex.(563) and §2.1.1 (minimal pairs), glossed 'grass, blanket to lie on / sheet, blanket'.",
+   "Not in the source dictionary; near_headwords are unrelated kara-/Karu- forms."
+  ]
+ },
+ {
+  "word": "kijandaku",
+  "type": "noun",
+  "gloss": "Roaring Meg Falls",
+  "definition": "Place name: Roaring Meg Falls, where kija 'moon' is said to have created women.",
+  "semantic_domain": "place-name",
+  "commentary": [
+   "Attested in Patz §1.2.1.8, given as kijandaku 'Roaring Meg Falls'.",
+   "Associated with the creation myth in which kija 'moon' created women at this site; contains kija 'moon'."
+  ]
+ },
+ {
+  "word": "mariji-y",
+  "type": "intransitive-verb",
+  "gloss": "swim",
+  "definition": "To swim; to swim across or through water.",
+  "semantic_domain": "motion-travel",
+  "commentary": [
+   "Attested in Patz ex.(268) 'We swam to the island' and ex.(291) 'They swam through the river', where it appears in the past form mariji-ny.",
+   "Citation form mariji-y (y-conjugation; -ny is the past suffix). A distinct 'swim' verb beside janji-l 'swim, bathe'."
+  ]
+ },
+ {
+  "word": "mayngku",
+  "type": "noun",
+  "gloss": "mango",
+  "definition": "A mango (the fruit and tree).",
+  "semantic_domain": "food",
+  "loanword_source": "English 'mango'",
+  "commentary": [
+   "Attested in Patz §2.3 (ix) and ex.(21), (79), (167), (347)/(362), (481).",
+   "Loanword from English 'mango'; English [ai] before a consonant is adapted as /ay/ in Kuku Yalanji."
+  ]
+ },
+ {
+  "word": "mumbu",
+  "type": "adjective",
+  "gloss": "dirty",
+  "definition": "dirty, soiled, muddied",
+  "semantic_domain": "value-quality",
+  "commentary": [
+   "Attested in Patz ex.(169) (§3.6.x causative) as the base of mumbu-bunga-l / mumbu-kanga-l 'make dirty'; not in the source dictionary."
+  ]
+ },
+ {
+  "word": "munja-l",
+  "type": "transitive-verb",
+  "gloss": "gather",
+  "definition": "to gather, collect (e.g. nuts, plant food)",
+  "semantic_domain": "hunting-fishing-gathering",
+  "commentary": [
+   "Attested in Patz ex.(363) (munja-ji-ny 'were gathered') and discussed §4.x (cf. Hershberger's muja-l); not in the source dictionary.",
+   "Verb root takes conjugation suffix -l (Patz §3.8.3)."
+  ]
+ },
+ {
+  "word": "narri-l",
+  "type": "transitive-verb",
+  "gloss": "step on",
+  "definition": "to step on, tread on (something)",
+  "semantic_domain": "manipulation-impact",
+  "commentary": [
+   "Attested in Patz ex.(349) (jina narri-ji-ny 'stepped on (my) foot', chance passive); cf. transitive narn-ny in ex.(351). Not in the source dictionary.",
+   "Verb root takes conjugation suffix -l (Patz §3.8.3)."
+  ]
+ },
+ {
+  "word": "ngangkurri-l",
+  "type": "intransitive-verb",
+  "gloss": "to bark",
+  "definition": "to bark (of a dog)",
+  "semantic_domain": "speech-communication",
+  "commentary": [
+   "Attested in Patz §3.8.2.2(i), paired with the noun ngangkurr 'sound of barking'; not in the source dictionary.",
+   "Denominal -ri-y/-l verb; takes conjugation suffix per Patz §3.8.3."
+  ]
+ },
+ {
+  "word": "ngirray-warri-y",
+  "type": "intransitive-verb",
+  "gloss": "burst into tears",
+  "definition": "to burst into tears (literally 'weeping-run')",
+  "semantic_domain": "cognition-emotion",
+  "commentary": [
+   "Attested in Patz §3.8.5.2 compound table (also listed §3.8.x), glossed 'burst into tears' (weeping(N)-run); not in the source dictionary.",
+   "Lexicalised compound of ngirray 'weeping' + warri-y 'run'."
+  ]
+ },
+ {
+  "word": "nguijan",
+  "type": "adjective",
+  "gloss": "jealous",
+  "definition": "jealous",
+  "semantic_domain": "cognition-emotion",
+  "commentary": [
+   "Attested in Patz §2.4(i) as a palatalisation example (vowel /a/ palatalised before /j/), glossed 'jealous'; not in the source dictionary."
+  ]
+ },
+ {
+  "word": "ngunja-l",
+  "type": "transitive-verb",
+  "gloss": "forage; take over",
+  "definition": "to forage; to claim or take over something that is (or is thought to be) discarded or nobody's particular property",
+  "semantic_domain": "transfer-possession",
+  "commentary": [
+   "Attested in Patz ex.(347), (372), (375); meaning glossed explicitly at §4.x ('claim/obtain something thought to be discarded'). Not in the source dictionary.",
+   "Verb root takes conjugation suffix -l (Patz §3.8.3)."
+  ]
+ },
+ {
+  "word": "nguymal",
+  "type": "adverb",
+  "gloss": "thoroughly, truly",
+  "definition": "thoroughly, truly (doing something completely / making a thorough job of it)",
+  "semantic_domain": "manner",
+  "commentary": [
+   "Attested in Patz §3.8.6.1 Manner-particle table and ex.(192) (kuni-ny nguymal 'killed with one shot'); not in the source dictionary.",
+   "Adverbial particle; may take manner suffix -ku (nguymal-ku)."
+  ]
+ },
+ {
+  "word": "nyanma-l",
+  "type": "transitive-verb",
+  "gloss": "hold on to",
+  "definition": "to hold on to, grip (something)",
+  "semantic_domain": "manipulation-impact",
+  "commentary": [
+   "Attested in Patz ex.(477) (jarba nyanma-l-nyanma-nya 'holding on to the snake'); not in the source dictionary.",
+   "Citation form with conjugation suffix -l per Patz §3.8.3 (root nyanma + -l)."
+  ]
+ },
+ {
+  "word": "nyunga",
+  "type": "noun",
+  "gloss": "thought",
+  "definition": "thought, idea",
+  "semantic_domain": "cognition-emotion",
+  "commentary": [
+   "Attested in Patz §3.8.5.2 as the noun base (thought) of the compound nyunga-dama-l 'imagine something'; not in the source dictionary."
+  ]
+ },
+ {
+  "word": "nyunga-dama-l",
+  "type": "transitive-verb",
+  "gloss": "imagine something",
+  "definition": "to imagine something (literally 'thought-spear')",
+  "semantic_domain": "cognition-emotion",
+  "commentary": [
+   "Attested in Patz §3.8.5.2 compound table, glossed 'imagine something' (thought-spear); not in the source dictionary.",
+   "Lexicalised compound of nyunga 'thought' + dama-l 'spear'."
+  ]
+ },
+ {
+  "word": "wadalwadal",
+  "type": "noun",
+  "gloss": "water spirit",
+  "definition": "A water spirit with a female body and a fishtail, living in a spring in the Thompson Creek valley and associated with one particular Yalanji family clan; it tolerates rightful family members, who may use its spring water believed to have healing powers.",
+  "semantic_domain": "spirit-mythical-being",
+  "commentary": [
+   "Attested in Patz §1.2.1.8 (grammar.md line 721); not in the source dictionary as this sense.",
+   "Lexicalised reduplication; distinct from the homophonous-looking near-headword 'wadal'."
+  ]
+ },
+ {
+  "word": "waju-l",
+  "type": "transitive-verb",
+  "gloss": "cook, burn",
+  "definition": "To cook, burn, or light (a fire); also 'boil'.",
+  "semantic_domain": "cooking",
+  "commentary": [
+   "Attested in Patz at numerous examples (e.g. ex.(133), ex.(467), Text 51 line 64) and singled out in §3.8 (Table 3.15) as the sole verb root with a final root vowel /u/; not in the source dictionary.",
+   "l-conjugation, transitive."
+  ]
+ },
+ {
+  "word": "wangkabaja",
+  "type": "noun",
+  "gloss": "Wangkabaja (place name)",
+  "definition": "A place name in Kuku Yalanji country.",
+  "semantic_domain": "place-name",
+  "commentary": [
+   "Attested in Patz §4.1.1(a) (grammar.md line 4001, listed 'Wangkabaja, Bibikarrbi (placenames)'); not in the source dictionary."
+  ]
+ },
+ {
+  "word": "wanjarrinya",
+  "type": "interrogative",
+  "gloss": "how many",
+  "definition": "How many?; interrogative quantifier.",
+  "semantic_domain": "quantity-number",
+  "commentary": [
+   "Attested in Patz §3.6.1 (grammar.md line 2790) and ex.(583); not in the source dictionary.",
+   "Based on the general interrogative root wanja but contains an opaque element -rri(y)- that Patz states cannot be analysed (§2.7, grammar.md line 2739), so treated as a distinct lexeme."
+  ]
+ },
+ {
+  "word": "warndi-y",
+  "type": "intransitive-verb",
+  "gloss": "get up, rise",
+  "definition": "To get up or rise from a sitting or lying position; to stand up.",
+  "semantic_domain": "posture-rest",
+  "commentary": [
+   "Attested in Patz (warndiy 'get up from sitting or lying position', grammar.md line 922; §2.2.1 cites it for the rare cluster /rnd/; Text 51 lines 96-97); not in the source dictionary.",
+   "y-conjugation, intransitive."
+  ]
+ },
+ {
+  "word": "wawu-yimba-l",
+  "type": "transitive-verb",
+  "gloss": "cross-examine",
+  "definition": "To cross-examine someone (literally 'breath-go straight through').",
+  "semantic_domain": "speech-communication",
+  "commentary": [
+   "Attested in Patz §3.8.5.2 (grammar.md line 3418, compound-verb table); not in the source dictionary.",
+   "Lexicalised compound of wawu 'breath, spirit' + yimba-l 'go straight through'; l-conjugation, transitive."
+  ]
+ },
+ {
+  "word": "wubulamba-l",
+  "type": "transitive-verb",
+  "gloss": "collect, gather",
+  "definition": "To collect or gather (things) together.",
+  "semantic_domain": "manipulation-impact",
+  "commentary": [
+   "Attested in Patz §3.8.2 (grammar.md lines 2942, 2982); not in the source dictionary.",
+   "Possibly historically wubul 'many' + a verbaliser, but Patz notes the morpheme-boundary cluster /mb/ is unexplainable, so it is treated as an opaque four-syllable l-conjugation transitive root."
+  ]
+ },
+ {
+  "word": "wudu",
+  "type": "particle",
+  "gloss": "absorbed in some activity",
+  "definition": "Adverbial manner particle: (doing something) absorbed in the activity, engrossed.",
+  "semantic_domain": "manner",
+  "commentary": [
+   "Attested in Patz §3.8.6.1, manner adverbial-particle table (grammar.md line 3700); not in the source dictionary."
+  ]
+ },
+ {
+  "word": "wukaramba-l",
+  "type": "transitive-verb",
+  "gloss": "repair",
+  "definition": "To repair or mend (something).",
+  "semantic_domain": "manipulation-impact",
+  "commentary": [
+   "Attested in Patz §3.8.2.1 (grammar.md line 2943); not in the source dictionary.",
+   "Four-syllable l-conjugation transitive root."
+  ]
+ },
+ {
+  "word": "yah",
+  "type": "interjection",
+  "gloss": "hey",
+  "definition": "Hey! - an interjection used to attract someone's attention.",
+  "semantic_domain": "interjection",
+  "commentary": [
+   "Attested in Patz §4.10 (grammar.md line 6296) and Text 51 line 8; not in the source dictionary.",
+   "A monosyllabic interjection; per §4.10 such forms may end in a glottal stop/breathy voice, lying outside normal Kuku Yalanji word phonology."
+  ]
+ },
+ {
+  "word": "yanya",
+  "type": "demonstrative",
+  "gloss": "this, these",
+  "definition": "this, these (demonstrative pronoun; Nyungkul absolutive form, referring to animate or inanimate, singular or plural by context)",
+  "semantic_domain": "location-deixis",
+  "dialect": "Nyungkul",
+  "commentary": [
+   "Attested in Patz §3.7, Table 3.12 / Table 3.13 (absolutive form of the demonstrative pronoun 'this/these'); also Text 51 line 72, exx.(123),(361),(429),(431),(625),(649). Not in the source dictionary.",
+   "Nyungkul counterpart of Yalanji yanyu; suppletive inflected bases use yala- (e.g. ERG yalabu, DAT yalayngka)."
+  ]
+ },
+ {
+  "word": "yanyu",
+  "type": "demonstrative",
+  "gloss": "this, these",
+  "definition": "this, these (demonstrative pronoun; Yalanji absolutive form, referring to animate or inanimate, singular or plural by context)",
+  "semantic_domain": "location-deixis",
+  "dialect": "Yalanji",
+  "commentary": [
+   "Attested in Patz §3.7, Table 3.12 / Table 3.13 (absolutive form of the demonstrative pronoun 'this/these'); also §2.1.2 (initial /y/ examples), §4.1.1(d). Not in the source dictionary.",
+   "Yalanji counterpart of Nyungkul yanya; suppletive inflected bases use yalu- (e.g. ERG yalubu, DAT yaluyngku)."
+  ]
+ },
+ {
+  "word": "yarkin-bunga-l",
+  "type": "transitive-verb",
+  "gloss": "kill",
+  "definition": "to kill (literally 'make a corpse'); state-causative compound verb",
+  "semantic_domain": "manipulation-impact",
+  "commentary": [
+   "Attested in Patz §3.8.5.1(i); not in the source dictionary.",
+   "Compound of yarkin 'corpse' (in dictionary) + state-causative verbaliser -bunga-l ('make into N'). l-conjugation. Lexicalised idiomatic meaning 'kill'."
+  ]
+ },
+ {
+  "word": "yarngkay",
+  "type": "particle",
+  "gloss": "secretly",
+  "definition": "secretly; adverbial manner particle describing the manner of an action",
+  "semantic_domain": "manner",
+  "commentary": [
+   "Attested in Patz §3.8.6.1 (Manner table of adverbial particles); not in the source dictionary.",
+   "Like other adverbial particles it may take manner suffix -ku and reduplicate, but occurs in simple root form and cannot take case inflection."
+  ]
+ },
+ {
+  "word": "yulu",
+  "type": "personal-pronoun",
+  "gloss": "he, she, it",
+  "definition": "he/she/it (third person singular nominative); a less common free variant of nyulu",
+  "semantic_domain": "location-deixis",
+  "commentary": [
+   "Attested in Patz §3.5.1, Table 3.6 (note): used in free variation with nyulu, which is more common. Not in the source dictionary (which has nyulu).",
+   "Closed-class personal pronoun; not a derived or inflected form."
+  ]
+ },
+ {
+  "word": "yuwulbuwun",
+  "type": "locational",
+  "gloss": "Jeannie River",
+  "definition": "Jeannie River (place name)",
+  "semantic_domain": "place-name",
+  "commentary": [
+   "Attested in Patz Text 51 line 4 and exx.(637),(651); not in the source dictionary.",
+   "Place name (proper noun)."
+  ]
+ },
+ {
+  "word": "jiba-wulawula",
+  "type": "adjective",
+  "gloss": "sweet",
+  "definition": "sweet (to the taste)",
+  "semantic_domain": "taste",
+  "commentary": [
+   "Attested in Patz §3.8.5.1(i), table 'Compound + bunga-l' (jiba-wulawula 'sweet' / jiba-wulawula-bunga-l 'sweeten'); not in the source dictionary.",
+   "Lexicalised compound of jiba 'stomach/liver' + wulawula."
+  ]
+ },
+ {
+  "word": "jibabadi-y",
+  "type": "intransitive-verb",
+  "gloss": "be sad",
+  "definition": "to be sad, feel sad, grieve",
+  "semantic_domain": "cognition-emotion",
+  "commentary": [
+   "Attested in Patz ex.(231) (bunjil jibabadi-y 'the widow[er] is sad') and ex.(559) (bayan-kari jibabadi-y 'the homeless one is sad'); not in the source dictionary.",
+   "Y-conjugation intransitive verb (citation = non-past per §3.8.3); lexicalised compound jiba 'stomach/liver' + badi 'cry'."
+  ]
+ },
+ {
+  "word": "kurrka-nyaji-ji",
+  "type": "intransitive-verb",
+  "gloss": "look back",
+  "definition": "to look back, turn and look behind oneself",
+  "semantic_domain": "perception",
+  "commentary": [
+   "Attested in Patz Appendix Text 3, line 19 (kurrka-nyaji-ji-ny 'looked back'); not in the source dictionary.",
+   "Lexicalised reflexive compound kurrka 'back' + nyaji 'see' + reflexive/general-intransitive -ji."
+  ]
+ },
+ {
+  "word": "luku",
+  "type": "noun",
+  "gloss": "tree",
+  "definition": "tree",
+  "semantic_domain": "flora-tree",
+  "commentary": [
+   "Attested in Patz ex.(67a): luku-bulal '(a) pair of trees' (tree + dual/pair), glossed 'A pair of trees is standing there'; not in the source dictionary."
+  ]
+ },
+ {
+  "word": "muduwaju",
+  "type": "temporal",
+  "gloss": "dawn, daybreak",
+  "definition": "dawn, daybreak, early morning",
+  "semantic_domain": "time-deixis",
+  "commentary": [
+   "Attested in Patz §3.4 / §6.4 discussion as muduwajuny 'at daybreak' (a time word, alongside wunkuny 'next day') and in Appendix Text 36 lines 24, 33 (muduwaju-ny); not in the source dictionary.",
+   "Entered as a temporal noun: the harvested 'become dawn' verb reading is doubtful because u-final intransitive (y-conjugation) verb roots are unattested (Patz §3.8.3.1, Table 3.15)."
+  ]
+ },
+ {
+  "word": "nguju-wuri-y",
+  "type": "intransitive-verb",
+  "gloss": "fool around",
+  "definition": "to fool around, play about, dance in a funny/playful way",
+  "semantic_domain": "motion-travel",
+  "commentary": [
+   "Attested in Patz ex.(433): nguju-wuri-y 'funny-dance-IMP' ('Don't play/fool around with the spear...'); not in the source dictionary.",
+   "Lexicalised compound nguju 'fun, funny' + wuri-y 'dance' (a y-conjugation intransitive verb per §3.8.3), so cited as nguju-wuri-y."
+  ]
+ },
+ {
+  "word": "ubirri",
+  "type": "noun",
+  "gloss": "Mossman",
+  "definition": "Mossman (place name in north Queensland)",
+  "semantic_domain": "place-name",
+  "commentary": [
+   "Attested in Patz ex.(69): ubirri-warra '(Mossman)-inhabitant.ABS' ('The Mossman people went to the Bloomfield people'); not in the source dictionary.",
+   "Place name; the inhabitant suffix -warra marks 'people of Mossman'."
+  ]
+ }
+]

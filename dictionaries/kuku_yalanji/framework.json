@@ -1,0 +1,1240 @@
+{
+  "pos": {
+    "pos_taxonomy": [
+      {
+        "label": "noun",
+        "definition": "Nominal subclass referring predominantly to corporeal objects: human beings (incl. kinship terms, external/internal body parts, bodily excretions), fauna, flora, geographical/geological items, celestial bodies, weather phenomena, artifacts; also 'imaginable' things (ghosts, spirits), types of noise, human actions (language, songs, dances, magic), and some bodily/mental states (warngku 'sleep', kaka 'pain', kuli 'anger', kuru '(female) love/lust'). Includes a set of generic terms usable alone or as classifiers (bama, dingkar, jalbu, jawun, minya, dikal, jarba, kuyu, mayi, juku, bubu, kulji, bana, muyar, baya, kalka, bayan, junjuy).",
+        "criteria": "Open word class. Inflects for case (syntactic + local). Shows transitive-subject (ERG) vs intransitive-subject/transitive-object (ABS) case distinction. May form transitive/intransitive verb stems by derivation. Does NOT take the degree suffix -bajaku (which places a word in the adjective rather than noun category).",
+        "section": "§3.1.1, §3.1.2, §4.1.1(c)"
+      },
+      {
+        "label": "adjective",
+        "definition": "Nominal subclass denoting properties of any nominal referent: size, dimension, value, age, physical/mental characteristics or states, texture, colour, taste, etc. Only three colour terms exist: ngumbu 'dark', bingaji 'light', ngalangala 'red, reddish'.",
+        "criteria": "Open word class; member of nominals. Inflects for case like nouns (ERG vs ABS distinction). Distinguished from nouns by taking the degree suffix -bajaku ('very') (§3.2.3.8), which places a word in the adjective category. May modify a verb in derived adverbial function.",
+        "section": "§3.1.1, §3.1.2, §3.2.3.8"
+      },
+      {
+        "label": "quantifier",
+        "definition": "Nominal subclass including numbers nyubun 'one', djambul 'two', kulurr 'three', and general quantity terms ('some', 'many', etc.). jirray 'a lot' attested as an intensifier.",
+        "criteria": "Member of nominals; inflects for case. Distinguished semantically as expressing quantity/number. Closed-set numerals (only up to three). See §3.2.5.",
+        "section": "§3.1.2, §3.2.5"
+      },
+      {
+        "label": "locational",
+        "definition": "Location word expressing points of reference in the locational system (place/direction deixis).",
+        "criteria": "Open word class together with time words. Occurs ONLY in local cases, which differ to some extent in form from the local cases of nominals/pronouns/demonstratives. May form transitive/intransitive verb stems by derivation. Detailed in §3.3.1.",
+        "section": "§3.1.1, §3.1.2, §3.3.1"
+      },
+      {
+        "label": "temporal",
+        "definition": "Time word expressing points of reference in the temporal system. Some carry temporal -ku marking (ngadiku 'a long time ago', yilayku 'yesterday').",
+        "criteria": "Open word class together with location words. Occurs ONLY in local cases (form differs from nominal/pronoun/demonstrative local cases). May form verb stems by derivation. Detailed in §3.4.",
+        "section": "§3.1.1, §3.1.2, §3.4, §3.10.1"
+      },
+      {
+        "label": "personal-pronoun",
+        "definition": "Closed pronominal class with symmetrical paradigm ordered by person and number.",
+        "criteria": "Closed word class. Inflects by case BUT uniquely has the SAME form for transitive and intransitive subject (S/A: NOM) vs a DIFFERENT form for transitive object (O) — i.e. nominative/accusative-type alignment, unlike the ergative-patterning nominals/demonstratives. New members cannot easily be added. Detailed in §3.5.",
+        "section": "§3.1.1, §3.1.2, §3.5"
+      },
+      {
+        "label": "interrogative",
+        "definition": "Interrogative (question) pronoun. Closed paradigm ordered by 'who', 'what', 'where'.",
+        "criteria": "Closed word class; pronominal. Inflects per the case system. Symmetrical paradigm organised by semantic content (who/what/where). Detailed in §3.6.",
+        "section": "§3.1.1, §3.1.2, §3.6"
+      },
+      {
+        "label": "demonstrative",
+        "definition": "Demonstrative. Closed paradigm ordered by deictic content such as 'here' and 'there'. Suppletive root yala 'this' noted (possibly related to comparison particle yala).",
+        "criteria": "Closed word class with symmetrical paradigm. Inflects for case; patterns with nominals (transitive-subject vs intransitive-subject/transitive-object case distinction, i.e. ergative-type) rather than with personal pronouns. Detailed in §3.7.",
+        "section": "§3.1.1, §3.1.2, §3.7, §3.9.2"
+      },
+      {
+        "label": "transitive-verb",
+        "definition": "Verb taking a transitive frame (ergative subject, absolutive object). Verb roots generally have concrete meaning: motion/rest, perception, voluntary/involuntary utterances, bodily functions, actions performed on/affecting/effecting an object. Less tangible (mental) actions usually expressed by compound verbs.",
+        "criteria": "Open word class. Inflected for tense, aspect, mood; further verbal inflections mark clause subordination (not indicated by any other means). May be modified by an adverbial particle or by an adjective in derived adverbial function. Transitive subtype identified by conjugation/derivational behaviour (e.g. causative/transitive verbalisers -bunga-l ~ -ba-l, -kanga-l, -mani-l). Detailed in §3.8.",
+        "section": "§3.1.1, §3.1.2, §3.8, §3.8.2.1, §3.8.5"
+      },
+      {
+        "label": "intransitive-verb",
+        "definition": "Verb taking an intransitive frame (absolutive subject). Same general concrete semantic range as transitive verbs; includes state/inchoative verbs (e.g. with -ma-l inchoative).",
+        "criteria": "Open word class. Inflected for tense, aspect, mood and subordinating morphology. Modifiable by adverbial particle / derived-adverbial adjective. Intransitive subtype identified by conjugation and by inchoative verbaliser -ma-l. Detailed in §3.8.",
+        "section": "§3.1.1, §3.1.2, §3.8, §3.8.5.1, §3.8.5.3"
+      },
+      {
+        "label": "adverb",
+        "definition": "Adverbial-function modifier of a verb. The grammar treats adverbial MODIFIERS as adverbial particles (§3.8.6.1) and as adjectives in derived adverbial function, NOT as a primary standalone open class. -ku also functions as an 'adverb marker' (§3.2.2).",
+        "criteria": "Not listed among the primary mutually-exclusive word classes in §3.1. A verb may be modified by (a) an adverbial particle (§3.8.6.1) or (b) an adjective in derived adverbial function. Retain 'adverb' as a canonical label only for mapping dictionary entries denoting verb-modifying manner words; map to particle where the form is non-inflecting.",
+        "section": "§3.1.1, §3.8.6.1, §3.2.2"
+      },
+      {
+        "label": "particle",
+        "definition": "Non-inflecting word. Two broad functional sub-categories: (1) adjectival particles which may act as predicator; (2) particles with a modifying, often discourse-related, function at clause level. Free-form particles fall into four groups: adjectival, comparison, negation, discourse (§3.9), plus adverbial particles (§3.8.6.1). Semantic range: manner of action, desire, ability, disapproval, negation, uncertainty, conditionality, possibility.",
+        "criteria": "Closed word class — new members cannot easily be added. Takes NO inflections of any kind. (Adjectival particles can however form derived verb/privative/degree stems but still take no case inflection, so are not 'proper' adjectives.) Distinguished from interjections by functioning within clause syntax.",
+        "section": "§3.1.1, §3.1.2, §3.8.6.1, §3.9"
+      },
+      {
+        "label": "interjection",
+        "definition": "Word standing outside the syntactic framework of a clause/sentence; usually uttered alone or preceding a clause in discourse. Express yes/no and general encouragement, agreement or disagreement. yuwu 'yes' and kari 'no' explicitly cited. Inventory: four monosyllabic and seven polysyllabic interjections (eleven total).",
+        "criteria": "Closed word class. Cannot take any affixes. Makes up a distinct intonation group. Stands outside clause syntax (extra-clausal). Full list given in §4.10 (not in the read range).",
+        "section": "§3.1.1, §3.1.2, §3.11, §4.10"
+      }
+    ],
+    "mapping_hints": [
+      {
+        "raw": "n",
+        "canonical": "noun",
+        "reason": "Standard dictionary abbreviation for noun; §3.1.2 noun class."
+      },
+      {
+        "raw": "noun",
+        "canonical": "noun",
+        "reason": "Direct match to §3.1.2 noun class."
+      },
+      {
+        "raw": "adj",
+        "canonical": "adjective",
+        "reason": "Standard abbreviation; §3.1.2 adjective class (property-denoting nominal, takes -bajaku)."
+      },
+      {
+        "raw": "modifier",
+        "canonical": "adjective",
+        "reason": "Property-modifier of a nominal = adjective in §3.1.2; if it modifies a verb instead, treat as particle (adverbial)."
+      },
+      {
+        "raw": "a",
+        "canonical": "adjective",
+        "reason": "Common single-letter dictionary code for adjective."
+      },
+      {
+        "raw": "quant",
+        "canonical": "quantifier",
+        "reason": "Numbers nyubun/djambul/kulurr and 'some/many' = quantifier subclass, §3.1.2/§3.2.5."
+      },
+      {
+        "raw": "num",
+        "canonical": "quantifier",
+        "reason": "Numerals are explicitly grouped under quantifiers in §3.1.2 (nyubun, djambul, kulurr)."
+      },
+      {
+        "raw": "number",
+        "canonical": "quantifier",
+        "reason": "§3.1.2 lists numbers as a kind of quantifier."
+      },
+      {
+        "raw": "loc",
+        "canonical": "locational",
+        "reason": "Location word; occurs only in local cases, §3.1.1/§3.3.1."
+      },
+      {
+        "raw": "location",
+        "canonical": "locational",
+        "reason": "Direct match to location word class, §3.3.1."
+      },
+      {
+        "raw": "direction",
+        "canonical": "locational",
+        "reason": "Directional reference is part of the locational system, §3.3.1."
+      },
+      {
+        "raw": "place",
+        "canonical": "locational",
+        "reason": "Place reference = location word, §3.3.1."
+      },
+      {
+        "raw": "time",
+        "canonical": "temporal",
+        "reason": "Time word class expressing temporal points of reference, §3.4."
+      },
+      {
+        "raw": "temp",
+        "canonical": "temporal",
+        "reason": "Abbreviation for time word, §3.4 (distinct from clitic TEMP glosses)."
+      },
+      {
+        "raw": "adv",
+        "canonical": "adverb",
+        "reason": "Manner/verb-modifying word; in this grammar usually an adverbial particle (§3.8.6.1) or derived-adverbial adjective — verify host; map to particle if non-inflecting."
+      },
+      {
+        "raw": "manner",
+        "canonical": "adverb",
+        "reason": "Manner-of-action modifier of a verb; §3.8.6.1 adverbial particles. Map to particle if non-inflecting."
+      },
+      {
+        "raw": "pron",
+        "canonical": "personal-pronoun",
+        "reason": "Default pronoun reading = personal pronoun (S/A=NOM, O distinct), §3.5; reclassify to interrogative/demonstrative if semantics indicate."
+      },
+      {
+        "raw": "pr",
+        "canonical": "personal-pronoun",
+        "reason": "Abbreviation 'pr' for pronoun; default to personal pronoun, §3.5."
+      },
+      {
+        "raw": "pronoun",
+        "canonical": "personal-pronoun",
+        "reason": "§3.5 personal pronoun unless marked interrogative/demonstrative."
+      },
+      {
+        "raw": "ipron",
+        "canonical": "interrogative",
+        "reason": "Interrogative pronoun (who/what/where), §3.6."
+      },
+      {
+        "raw": "question",
+        "canonical": "interrogative",
+        "reason": "Question word = interrogative pronoun, §3.6 (who/what/where paradigm)."
+      },
+      {
+        "raw": "interrog",
+        "canonical": "interrogative",
+        "reason": "Abbreviation for interrogative pronoun, §3.6."
+      },
+      {
+        "raw": "wh",
+        "canonical": "interrogative",
+        "reason": "wh-word = interrogative pronoun class, §3.6."
+      },
+      {
+        "raw": "dem",
+        "canonical": "demonstrative",
+        "reason": "Demonstrative (here/there), closed paradigm, §3.7."
+      },
+      {
+        "raw": "demonstrative",
+        "canonical": "demonstrative",
+        "reason": "Direct match, §3.7."
+      },
+      {
+        "raw": "deic",
+        "canonical": "demonstrative",
+        "reason": "Deictic 'this/that/here/there' = demonstrative class, §3.7."
+      },
+      {
+        "raw": "v",
+        "canonical": "transitive-verb",
+        "reason": "Bare 'v' must be disambiguated by frame; default verb mapping. Map to intransitive-verb if conjugation/derivation (e.g. -ma-l) indicates intransitive. Verify per entry."
+      },
+      {
+        "raw": "vb",
+        "canonical": "transitive-verb",
+        "reason": "Generic verb code; disambiguate transitivity from conjugation, §3.8."
+      },
+      {
+        "raw": "verb",
+        "canonical": "transitive-verb",
+        "reason": "Generic verb; split into transitive/intransitive per §3.8 conjugation evidence."
+      },
+      {
+        "raw": "vt",
+        "canonical": "transitive-verb",
+        "reason": "vt = transitive verb (ergative subject/absolutive object), §3.8."
+      },
+      {
+        "raw": "trv",
+        "canonical": "transitive-verb",
+        "reason": "Abbreviation 'trv' = transitive verb, §3.8."
+      },
+      {
+        "raw": "tv",
+        "canonical": "transitive-verb",
+        "reason": "tv = transitive verb, §3.8."
+      },
+      {
+        "raw": "trans",
+        "canonical": "transitive-verb",
+        "reason": "'trans' = transitive verb, §3.8 (ERG/ABS frame)."
+      },
+      {
+        "raw": "vi",
+        "canonical": "intransitive-verb",
+        "reason": "vi = intransitive verb (absolutive subject), §3.8/§3.8.5.1."
+      },
+      {
+        "raw": "iv",
+        "canonical": "intransitive-verb",
+        "reason": "iv = intransitive verb, §3.8."
+      },
+      {
+        "raw": "intr",
+        "canonical": "intransitive-verb",
+        "reason": "'intr' = intransitive verb, §3.8."
+      },
+      {
+        "raw": "intransitive",
+        "canonical": "intransitive-verb",
+        "reason": "Direct match to intransitive verb, §3.8."
+      },
+      {
+        "raw": "part",
+        "canonical": "particle",
+        "reason": "Non-inflecting particle (adjectival/comparison/negation/discourse/adverbial), §3.8.6.1/§3.9."
+      },
+      {
+        "raw": "ptcl",
+        "canonical": "particle",
+        "reason": "Abbreviation for particle, §3.9."
+      },
+      {
+        "raw": "particle",
+        "canonical": "particle",
+        "reason": "Direct match, §3.9."
+      },
+      {
+        "raw": "neg",
+        "canonical": "particle",
+        "reason": "Negation particles kari/balu are particles (subtype negation), §3.9.2(ii)."
+      },
+      {
+        "raw": "negation",
+        "canonical": "particle",
+        "reason": "Negation = particle subtype, §3.9.2(ii)."
+      },
+      {
+        "raw": "conj",
+        "canonical": "particle",
+        "reason": "Co-ordination words (kari, yamba, kaki, kunka, nganganjirrka) are discourse particles functioning as co-ordinators, §3.9.2(iii)/§4.3.2 — not a separate class in this grammar."
+      },
+      {
+        "raw": "conjunction",
+        "canonical": "particle",
+        "reason": "No standalone conjunction class; co-ordination handled by discourse particles, §3.9.2(iii)."
+      },
+      {
+        "raw": "disc",
+        "canonical": "particle",
+        "reason": "Discourse particle subtype, §3.9.2(iii)."
+      },
+      {
+        "raw": "comp",
+        "canonical": "particle",
+        "reason": "Comparison particle yala (gloss COMP), a particle subtype, §3.9.2(i)."
+      },
+      {
+        "raw": "intj",
+        "canonical": "interjection",
+        "reason": "Interjection (extra-clausal, no affixes), §3.11/§4.10."
+      },
+      {
+        "raw": "interj",
+        "canonical": "interjection",
+        "reason": "Abbreviation for interjection, §3.11."
+      },
+      {
+        "raw": "excl",
+        "canonical": "interjection",
+        "reason": "Exclamation = interjection in this grammar, §3.11/§4.10."
+      },
+      {
+        "raw": "exclamation",
+        "canonical": "interjection",
+        "reason": "Maps to interjection class, §3.11."
+      },
+      {
+        "raw": "interjection",
+        "canonical": "interjection",
+        "reason": "Direct match, §3.11."
+      },
+      {
+        "raw": "clitic",
+        "canonical": "particle",
+        "reason": "Bound enclitics (§3.10) are not free words; if 'clitic' appears as a headword treat as bound particle/affixal element — flag for review since §3.10 enclitics attach to hosts and cannot stand alone."
+      },
+      {
+        "raw": "ass",
+        "canonical": "interjection",
+        "reason": "Likely OCR/abbreviation for an assent/agreement word (yuwu 'yes' etc.); agreement/disagreement words are interjections, §3.11/§4.10. Flag for manual confirmation."
+      },
+      {
+        "raw": "kin",
+        "canonical": "noun",
+        "reason": "Kinship terms are explicitly a subset of nouns (human beings), §3.1.2."
+      },
+      {
+        "raw": "kinship",
+        "canonical": "noun",
+        "reason": "Kinship terms classified under nouns, §3.1.2."
+      },
+      {
+        "raw": "body",
+        "canonical": "noun",
+        "reason": "Body-part terms are nouns (corporeal objects), §3.1.2."
+      },
+      {
+        "raw": "generic",
+        "canonical": "noun",
+        "reason": "Generic/classifier terms (bama, minya, juku, etc.) are nouns, §3.1.2/§4.1.1(c)."
+      },
+      {
+        "raw": "classifier",
+        "canonical": "noun",
+        "reason": "Classifier-use generic terms are nouns, §3.1.2/§4.1.1(c)."
+      },
+      {
+        "raw": "color",
+        "canonical": "adjective",
+        "reason": "Colour terms (ngumbu, bingaji, ngalangala) are adjectives, §3.1.2."
+      },
+      {
+        "raw": "colour",
+        "canonical": "adjective",
+        "reason": "Colour terms are adjectives, §3.1.2."
+      }
+    ],
+    "particles": [
+      "binal 'know (about) something' — adjectival particle; predicator with dative noun / purposive verb; verbalises via -bunga-l/-ma-l (binal-mal 'learn about something'); takes -bajaku (binal-bajaku 'know exactly') (§3.9.1)",
+      "juburr 'be good at something' — adjectival particle; predicator; verbalises via causative/inchoative; takes -bajaku (juburr-bajaku 'be very good at'); does NOT form a privative stem (lexical alternative manjarr 'no good at, lazy') (§3.9.1)",
+      "yinil 'be afraid' — adjectival particle; predicator; yinil-bungal 'frighten someone'; in free variation with comitative yinil-ji / yini-ji (not verbalisable); takes -bajaku (§3.9.1, fn.20)",
+      "wawu 'want, like' — adjectival particle; predicator with dative/purposive complement; verb stems show vestigial comitative (wawurrwawurr-mal 'be happy; decide', wawurrwawurr-bungal 'make happy'); forms privative wawukari 'don't want'; does NOT take -bajaku (intensified by quantifier jirray: wawu jirray 'love'). Also a noun 'breath, spirit, soul' (§3.9.1)",
+      "yala '(be) like, (be) the same' — comparison particle (gloss COMP); possibly related to suppletive demonstrative root yala 'this'; co-occurs with walu 'face' for appearance; takes emphatic clitic -rrku (yalarrku 'just the same; also') (§3.9.2(i), §4.9.3)",
+      "kari 'not' — negation particle (gloss NEG); may take -ku (kariku 'not all / not yet') and -rrku (karirrku 'not really, not altogether'); also a discourse particle 'but' (contrasting event) and a co-ordination particle (§3.9.2(ii)/(iii), §4.9.3, §5.5.3)",
+      "balu 'desist, give up' — negation particle (gloss NEG2); takes temporal clitic -da (baluda 'let it be, don't do what you are about to do'); also discourse particle 'wrong (assumption)' (gloss 'wrong') (§3.9.2(ii)/(iii), §4.9.2)",
+      "yamba / yambada / yambala 'but' — discourse particle marking a contrasting state; functions as co-ordination particle (§3.9.2(iii), §4.3.2)",
+      "kaki 'when, if' — discourse particle; co-ordination particle (§3.9.2(iii), §4.3.2)",
+      "kunka 'in case' (specified hypothetical event) — discourse particle; co-ordination particle (§3.9.2(iii), §4.3.2)",
+      "nganganjirrka / nganganjida 'in case' (not necessarily specified hypothetical event) — discourse particle; functions as co-ordination particle but may also occur independently outside clausal context (§3.9.2(iii), §4.3.2)",
+      "nguba 'maybe, perhaps' — discourse particle (§3.9.2(iii), §4.9.3)",
+      "kuda — attested by R. Hershberger (1979) as a free-form clause-initial question marker particle; heard in conversation but treated with misgivings in elicitation (uncertain status) (§3.10.1 fn.24)",
+      "NOTE: adverbial particles are a further particle subtype discussed in §3.8.6.1, which is OUTSIDE the read range and is not enumerated here",
+      "CLITICS (§3.10, bound enclitics — word-final, unstressable, host-promiscuous, not free particles): TEMPORAL (§3.10.1) -da 'then/following' (TEMP1); -ku 'before' (temporal, ambiguous with emphatic -ku); -kuda 'meanwhile (?)' (TEMP2); -(ng)Vrr ~ -Vrr/-rr 'first of all' (TEMP3); proclitic wawu- 'since, after' with ablative only (TEMP4). EMPHATIC (§3.10.2) -ku 'general emphasis: really (?)' (EMPH1); -lu (Yalanji)/-la (Nyungkul) 'pay attention' (EMPH2); -bi 'surprise: lo and behold' (EMPH3); -rrku ~ -Vrrku 'totality, exclusive' (EMPH4, restricted to verbs, pronouns, and particles kari & yala). OTHER (§3.10.3) -baja 'very (adjectives, always +-ku) / again (action & motion verbs)'; -ji (Yalanji)/-yijin ~ -jilin (Nyungkul) 'X's turn, in turn' (pronouns only). ORDERING (§3.10.4): temporal > EMPH1-3 > -ji; the three temporals cannot co-occur; EMPH1-3 stack as -ku -lu -bi; -baja and -rrku not attested with other clitics."
+    ],
+    "interjections": [
+      "yuwu 'yes' — interjection (§3.1.2, §3.11)",
+      "kari 'no' — interjection (note: kari is also a negation/discourse particle; §3.1.2 cites it as the 'no' interjection) (§3.1.2, §3.11)",
+      "NOTE: §3.11 states there are exactly 11 interjections total — four monosyllabic and seven polysyllabic — that take no affixes and form a distinct intonation group; they express yes/no and general encouragement, agreement or disagreement. The FULL list is in §4.10, OUTSIDE the read range (lines 1440-1520, 3764-3983); only yuwu and kari are named in the read sections."
+    ],
+    "notes": "SCOPE: Read lines 1440-1520 (§3.1), 3764-3965 (§3.9-§3.10), 3965-3983 (§3.11-§3.12). §4.10 (full interjection list) and §3.8.6.1 (adverbial particles) are OUTSIDE this range and could not be enumerated.\n\nPRIMARY WORD CLASSES (§3.1, mutually exclusive): Nominals {nouns, adjectives, quantifiers}; Location words; Time words; Personal pronouns; Interrogative pronouns; Demonstratives; Verbs; Particles; Interjections. The grammar does NOT posit standalone 'adverb' or 'conjunction' classes — verb modification is by adverbial particles / derived-adverbial adjectives, and co-ordination is by discourse particles.\n\nCASE-ALIGNMENT CRITERIA (§3.1.1, load-bearing for transitivity inference): Personal pronouns = nominative/accusative pattern (SAME form for S and A; DIFFERENT form for O). Nominals, demonstratives, interrogatives = ergative/absolutive pattern (transitive subject A distinct vs intransitive subject S + transitive object O grouped). Location/time words occur ONLY in local cases, formally distinct from the local cases of the other classes.\n\nNOUN vs ADJECTIVE diagnostic (§3.2.3.8, §3.9.1c): the degree suffix -bajaku ('very') places a word in the adjective category, not the noun category. Nouns do not take it. (Adjectival particles take -bajaku but no case → still not 'proper' adjectives.)\n\nENGLISH LOAN MORPHOLOGY (§3.12) — for tagging loan headwords: (1) loan NOUN roots take catalytic -mun- before inflection (car-mun-du LOC, school-mun-ku DAT, motorbike-mun-ji COMIT), but -mun- is optional (toyota-nga, Chrisangka, car-nga attested without). (2) loan ADJECTIVES take -bala (< pidgin 'fellow'): drunk-bala, brown-bala, busy-bala-baja-ku. (3) loan VERBS borrowed as nominal roots then verbalised: intransitive via inchoative -ma-l (travel-ma-l; monosyllabic roots reduplicate the suffix: shift-ma-l-ma-l); 'work' takes causative -mani-l, passivised with -ji- (work-ma-n-mani-ji-ny); transitive verbs take -im- (< 'him') before transitive verbaliser -bunga-l ~ -ba-l (fix-im-bunga-l, push-im-bunga-l); only -bunga-l, not -kanga-l, is used with English verbs.\n\nCLITIC ORDERING & HOMOPHONY (§3.10): -ku is homophonous across temporal clitic, emphatic clitic, adverb marker, and one allomorph of the dative inflection (§3.2.2) — disambiguate by context. Enclitics are categorised as enclitics (not post-inflectional suffixes) because (a) they cannot be stressed and (b) co-occurrence is not confined to particular parts of speech.\n\nDERIVATION-DRIVEN POS hints for the dictionary: words verbalised by -bunga-l/-ba-l/-kanga-l/-mani-l → derived transitive verbs; words verbalised by -ma-l (inchoative) → derived intransitive/state verbs; -bajaku/-baja on a root → adjective/intensified adjective; privative stems (e.g. wawukari) and comitative -ji forms are derivational, not separate POS.\n\nOCR/UNCERTAINTY FLAGS: 'djambul' (two) and 'kulurr' (three) appear with variant spelling (likely jambul / kulurr); 'N galangala' = ngalangala; spaced numerals in examples (2 1 3 = 213) are OCR artefacts. The mapping_hint raw value 'ass' is an inference (assent/agreement interjection) and should be manually confirmed against the source dictionary. Verb transitivity for bare 'v'/'verb' tags MUST be resolved per-entry from conjugation class / derivational suffix, not assumed.\"}"
+  },
+  "verb": {
+    "conjugation_classes": [
+      {
+        "name": "l-conjugation",
+        "description": "Open class; citation form (= NONPAST) takes conjugation marker -l. 143 roots. 92% transitive (the small set of known intransitive l-conjugation roots is listed in full in §3.8.3.1: daka-l 'climb/rise', janji-l 'swim/bathe', kalji-l 'vomit', wala-l 'enter', walngka-l 'hang', wandi-l 'come out/wake up', warrki-l 'turn off at crossroads', wurrka-l 'ache', kadaba-l 'break', jalama-l 'jump', jirayma-l 'crave'). The highly productive inchoative verbaliser -ma-l belongs to this class, so among all l-conjugation VERBS (not just roots) the share of intransitives is much higher than among roots only. All trisyllabic roots but one belong here. Differs from y-conjugation only in NONPAST marker, in IMPERATIVE on disyllabic roots, and in reduplication link morpheme (-l-).",
+        "citation_form_ending": "-l",
+        "final_root_vowel": "a 58.5%, i 40.7%, u 0.8% (1 occurrence: waju-l 'cook/burn')",
+        "typical_transitivity": "92% transitive",
+        "section": "§3.8.3.1, Table 3.15"
+      },
+      {
+        "name": "y-conjugation",
+        "description": "Open class; citation form (= NONPAST) takes conjugation marker -y. 27 roots. 100% intransitive (exclusively intransitive). Six fixed reflexive and two reciprocal stems also belong to the intransitive group. Any intransitive stem derived from a transitive l-conjugation verb (via reciprocal -wa- or reflexive/intransitive -ji-) belongs to the y-conjugation (§3.8.5.4). Reduplication link morpheme is -n-. The link -n- cannot be explained synchronically but may be a remnant of a former n-conjugation (cf. Yidiny intransitive class marker -n).",
+        "citation_form_ending": "-y",
+        "final_root_vowel": "a 74%, i 26%, u 0",
+        "typical_transitivity": "100% intransitive",
+        "section": "§3.8.3.1, Table 3.15"
+      }
+    ],
+    "conjugation_rule": "PRIMARY (deterministic) RULE: Conjugation class correlates with transitivity, NOT with final root vowel or syllable count. (a) y-conjugation verbs are EXCLUSIVELY intransitive (100% intransitive) and their citation/NONPAST form ends in -y. (b) l-conjugation verbs are 92% transitive and end in -l; therefore essentially all transitive verbs are l-conjugation, plus a small closed list of intransitive l-conjugation roots given in full in §3.8.3.1. CONSEQUENCE for assignment from a citation form: a verb whose citation form ends in -y is y-conjugation AND intransitive; a verb ending in -l is l-conjugation and (unless it is one of the listed intransitive exceptions or an inchoative -ma-l / reflexive-intransitive stem) is transitive. FINAL ROOT VOWEL is NOT a class predictor — it is only a statistical correlation (Table 3.15): both classes have similar a:i distributions (l-conj: a 58.5%, i 40.7%, u 0.8%; y-conj: a 74%, i 26%, u 0). Final root vowels are a and i, with only ONE root in u (waju-l 'cook'). SYLLABLE COUNT is also NOT a class predictor but correlates: of 28 trisyllabic roots, all but one are l-conjugation (Table 3.15 shows 27 trisyllabic + 3 four-syllable in l-conjugation vs 1 trisyllabic + 1 four-syllable in y-conjugation); transitivity among trisyllabic roots varies though the majority are transitive (§3.8.2.2). Syllable count DOES condition the IMPERATIVE allomorph (see inflections), not class assignment. NOTE: derivation changes class — reciprocal -wa- and reflexive/intransitive -ji- always produce y-conjugation stems from transitive l-conjugation roots (§3.8.5.4); causative -bunga-l/-kanga-l/-mani-l produce l-conjugation transitive stems; inchoative -ma-l produces l-conjugation (but intransitive) stems.",
+    "inflections": [
+      {
+        "name": "NONPAST (present/future)",
+        "suffix": "l-conjugation: -l; y-conjugation: -y. Identical to the conjugation marker / citation form. Refers to present or future; explicit future signalled by a time word (e.g. juma 'soon'). The conjugation marker -l/-y is deleted when other inflections or stem-forming suffixes are added.",
+        "section": "§3.8.4.1 (Table 3.16), §3.8.4.2(i)"
+      },
+      {
+        "name": "PAST",
+        "suffix": "-ny (both conjugations). May carry perfective or imperfective implication; completion inferred from context. Examples: kuni-ny 'hit', bunda-ny 'sat', kadaba-ny 'broke'.",
+        "section": "§3.8.4.1 (Table 3.16), §3.8.4.2(ii)"
+      },
+      {
+        "name": "IMPERATIVE",
+        "suffix": "Three allomorphs conditioned by conjugation class AND number of root/stem syllables: (1) disyllabic l-conjugation root => zero/null inflection (e.g. kuni 'hit!', dida 'put on!'); (2) disyllabic y-conjugation root => -y (e.g. dunga-y 'go!', yirrka-y 'shout!') — homophonous with NONPAST, distinguished only by intonation; (3) root or stem of MORE THAN TWO syllables (either conjugation) => -ka (e.g. kadaba-ka, yijarri-ka, julurri-ji-ka, binal-ma-ka). SPECIAL CASES: (a) Three l-conjugation verbs use suppletive imperative roots: daji-l => daya 'give!', nyaji-l => nyaka 'see/hear!', mani-l => mana 'get!'. (b) Compounds and causative stems formed with -bunga-l, -mani-l, -kanga-l etc. take ZERO imperative (not -ka), because only the syllable count of the second/stem-forming component counts (e.g. wumbul-bunga 'heat it up!'); causative stems in -mani-l show suppletive mana in imperative (e.g. daray-mana 'drop it!').",
+        "section": "§3.8.4.1 (Table 3.16), §3.8.4.2(iii), §3.8.5.1"
+      },
+      {
+        "name": "IRREALIS",
+        "suffix": "-nyaku (both conjugations). Indicates an action that should/could have happened but did not for some reason. No inherent temporal reference (inferred from context). Used in independent clauses. Examples: dunga-nyaku, nuka-nyaku. Note: -nyaku apparently does NOT follow vowel-harmony rules (unlike -nkV and -nyV).",
+        "section": "§3.8.4.1 (Table 3.16), §3.8.4.2(iv)"
+      },
+      {
+        "name": "PURPOSIVE",
+        "suffix": "-nkV (both conjugations), vowel-harmonic: allomorph -nka after final root/stem vowel a or i, and -nku after final vowel u. Expresses 'desire or intention to V'; used in independent or subordinate clauses; obligatory with adjectival particles. Presumably cognate with widespread Australian purposive -gu. Examples: waju-nku, dama-nka, bangka-nka.",
+        "section": "§3.8.4.1 (Table 3.16), §3.8.4.2(v)"
+      },
+      {
+        "name": "PRECAUTIONARY",
+        "suffix": "-nyji (both conjugations). Indicates an undesirable event that should/can be avoided; precautionary clause typically subordinated to a main clause stating the preventive action. (Patz's term; = 'apprehensional'/'lest' of other authors.) Examples: milkabujar-ma-nyji, kada-nyji.",
+        "section": "§3.8.4.1 (Table 3.16), §3.8.4.2(vi)"
+      },
+      {
+        "name": "SUCCESSIVE",
+        "suffix": "-nyjiku (both conjugations). In a subordinate clause, refers to the LATTER of two successive events with no causal connection (preceding event in main clause). Similar in form/meaning to precautionary; cognate with Guugu Yimidhirr anticipatory -yiku. Examples: wandi-nyjiku, wula-nyjiku.",
+        "section": "§3.8.4.1 (Table 3.16), §3.8.4.2(vii)"
+      },
+      {
+        "name": "UNMARKED (UM) / SUBORDINATE (SUB)",
+        "suffix": "-nyV (both conjugations), vowel-harmonic: allomorph -nya after final root vowel a or i, and -nyu after final vowel u. Dual function: (a) in Nyungkul dialect, an 'unmarked' (tense/aspect-neutral) inflection marking non-events/background in narrative (glossed UM); Yalanji dialect uses normal tense inflections instead. (b) general subordination marker in both dialects — used in causal, simultaneous-action, prior-event, and hypothetical-reason subordinate clauses (glossed SUB). In causal clauses it behaves as a true inflection (cannot be further inflected); in the other subordinate clauses verb+-nyV is inflected for case, so there it functions as a nominaliser (possibly a homophonous nominaliser -nyV). Example: nuka-nya 'from eating'.",
+        "section": "§3.8.4.1 (Table 3.16), §3.8.4.2(viii)"
+      }
+    ],
+    "derivations": [
+      {
+        "suffix": "-bunga-l",
+        "function": "STATE-CAUSATIVE (causation of a state). Unmarked state-causative verbaliser; attaches to a nominal root/stem or adjectival particle to mean 'make into Noun / make Adjective'. Cannot occur independently. Reduced allomorphs -ba-l and sometimes -buwa-l in rapid speech, but only the full -bunga-l is used in reduplication. Produces a transitive l-conjugation verb. Patz argues it is best treated as a compound-forming root rather than a true suffix (it takes zero imperative like compounds, and reduplicates only the second component). Examples: dandi-bunga-l 'make hard', yarkin-bunga-l 'kill', binal-bunga-l 'teach', muwul-bunga-l 'keep secret'.",
+        "section": "§3.8.5.1(i)"
+      },
+      {
+        "suffix": "-kanga-l",
+        "function": "STATE-CAUSATIVE, marked variant implying 'causation of physical or emotional commotion'. Also exists as an independent transitive verb meaning 'chase, disturb'. Occurs ONLY with simple nominal roots (not stems/compounds). Choice between -bunga-l and -kanga-l is semantic; some bases take only one. Examples: ngirray-kanga-l 'evoke weeping', yinil-kanga-l 'frighten', bunjay-kanga-l 'evoke laughter', mula-kanga-l 'induce bleeding', kuli-kanga-l 'evoke anger'. Some bases allow either depending on context (e.g. mumbu-bunga-l vs mumbu-kanga-l 'make dirty').",
+        "section": "§3.8.5.1(i)"
+      },
+      {
+        "suffix": "-mani-l",
+        "function": "ACTION-CAUSATIVE (causation of an action denoted by an intransitive verb). Appended to an INTRANSITIVE verb root to form a transitive causative compound. A link morpheme -y- is inserted between the two roots after final vowels a or u (same for both conjugations); formula: intransitive-verb(-a#/-u#) + y + mani-l. (Causation of a transitive action cannot be expressed by a compound.) Related to the free verb root mani-l 'get'; imperative uses suppletive mana (e.g. jana-y-mana 'make it stand!'). Examples: dara-y-mani-l 'drop' (from dara-y 'fall'), jana-y-mani-l 'cause to stand', wala-y-mani-l 'cause to enter' (from wala-l). Can be intransitivised again with -ji- (not by deletion): wala-y-mani-ji-ny. Idiom: ngaki-l 'hide' + -mani-l = ngaki-mani-l 'elope'.",
+        "section": "§3.8.5.1(ii)"
+      },
+      {
+        "suffix": "-ma-l",
+        "function": "INCHOATIVE verbaliser, highly productive. Derives inchoative verb stems from nominals, adjectival particles, and (where plausible) time/location words: 'become X'. A TRUE derivation (not a compound): takes imperative -ka and reduplicates as a whole. Produces l-conjugation stems (the class membership noted in §3.8.3.1) but the resulting verbs are intransitive. Examples: yalbay-ma-l 'grow', dandi-ma-l 'become hard', kulji-ma-l 'turn to stone', manyarr-ma-l 'marry', binal-ma-l 'learn', kuwa-ma-l 'move west', bambay-ma-l 'fall ill'.",
+        "section": "§3.8.5.3(i)"
+      },
+      {
+        "suffix": "-maniji-y",
+        "function": "INCHOATIVE (alternative), treated as a COMPOUND (its imperative & reduplication behave like compounds, not like -ma-l). Possibly the intransitivised form of causative -mani-l, but unlike -mani-l it occurs with nominals. May attach to roots, inflected nouns, or comitative stems. Can imply 'become X owing to external circumstances' but not always. y-conjugation (ends in -y). Use is limited and -ma-l is generally preferred. Examples: wulbuman-maniji-y 'become an old woman', dunyu-nji-maniji-y 'get married', wungar-a-maniji-y 'move into the sun'.",
+        "section": "§3.8.5.3(ii)"
+      },
+      {
+        "suffix": "-wa-",
+        "function": "RECIPROCAL. Intransitivises a transitive verb for actions participants perform on each other; the conjoined participants appear as a single intransitive subject NP. Derived stem is y-conjugation (ends in -y, e.g. -wa-y). Examples: nyaji-wa-y 'see each other', kunja-wa-y 'call each other', binal-bunga-wa-y 'teach each other', murru-kanga-wa-y 'scold each other', kaja-wa-y 'wrap around each other'. Two fixed reciprocal lexemes with extended meaning: kuni-wa-y 'fight' (lit. hit each other), balka-wa-y 'chat' (lit. talk to each other). In Yalanji dialect -wa- may be used with some intransitive l-conjugation roots in free variation with plural -ri-.",
+        "section": "§3.8.5.4(i)"
+      },
+      {
+        "suffix": "-ji-",
+        "function": "REFLEXIVE / GENERAL INTRANSITIVE (glossed REFL in reflexive use, ITR as general intransitiviser). Primary use: reflexive — agent acts on self, coreferential object omitted, agent becomes intransitive subject. Also the general intransitivising suffix in PASSIVE and ANTIPASSIVE constructions. Intransitivises transitive (l-conjugation) verbs; derived stem is y-conjugation (ends in -y, e.g. -ji-y). Reflex of proto-Australian *DHirri-y. Examples: yaka-ji-y 'cut oneself', jubi-ji-y 'pinch oneself', kuli-kanga-ji-y 'excite oneself', jana-y-mani-ji-y 'make oneself stand', julngka-ji-y 'paint oneself', julurri-ji-(ka) 'wash'. Six fixed reflexive lexemes with shifted meaning: balkaji-y 'get born' (<balka-l 'make'), jikaji-y 'stretch oneself' (<jika-l 'straighten a spear'), jurrkiji-y 'move house' (<jurrki-l 'move sth'), murniji-y 'spin around/detour' (<murni-l 'stir'), nubiji-y 'be lost' (<nubi-l 'search for').",
+        "section": "§3.8.5.4(ii)"
+      },
+      {
+        "suffix": "-ri-",
+        "function": "PLURAL-SUBJECT agreement (glossed PLS). Used on intransitive roots/stems of EITHER conjugation to mark agreement with a plural intransitive subject. Derived stem is y-conjugation (ends in -y, e.g. -ri-y). Cannot by itself indicate plurality (subject must be independently marked plural by reduplication or plural pronoun); use is optional/redundant. No corresponding device for plural transitive subject or intransitive object. Examples: dunga-ri-y (from dunga-y 'go'), janji-ri-y (from janji-l 'bathe'), waju-ji-ri-y (from waju-ji-y), kuni-wa-ri-y (from kuni-wa-y). Order: -ri- follows -ji-/-wa- (e.g. ngaki-ji-ri-y, wandi-ri-ny, kada-ri-ka).",
+        "section": "§3.8.5.5(i)"
+      }
+    ],
+    "reduplication": "VERBAL REDUPLICATION (§3.8.5.5(ii)) indicates ongoing, repeated, or habitual action and/or intensity (e.g. nyaji-l 'see' -> 'examine, keep looking'). With rest verbs ('sit/lie/stand') the reduplicated form denotes the STATE (sitting/living, lying/sleeping, standing) while the simple root denotes getting into the posture. NOTE: excessively long duration is expressed NOT by reduplication but by simply repeating the verb several times with the final vowel of the last token lengthened (e.g. duda-l duda-l duda-l dudaaa-l). THREE reduplication methods:\\n\\n(a) SIMPLE ROOTS & INCHOATIVE STEMS: repeat whole root/stem joined by a LINK morpheme = -l- for l-conjugation, -n- for y-conjugation. Pattern: root/stem + LINK + root/stem + inflection. Examples l-conj: dinda-l-dinda-l 'keep roasting', karrba-l-karrba-l, wukurri-l-wukurri-l, kima-ma-l-kima-ma-l. Examples y-conj: dunga-n-dunga-y 'keep going', yirrka-n-yirrka-y 'keep shouting'. Inchoative -ma-l stems are reduplicated as a WHOLE by older/correct usage (kima-ma-l-kima-ma-l); many younger speakers instead reduplicate only the suffix (kima-ma-l-ma-l), regarded as incorrect by older informants. The three suppletive-imperative verbs use suppletive roots ONLY in reduplicated imperatives: nyaka-l-nyaka, daya-l-daya, mana-l-mana 'keep looking/giving/taking!' (but non-imperative reduplication keeps the regular root: nyaji-l-nyaji-l, daji-l-daji-l, mani-l-mani-l).\\n\\nPARTIAL reduplication: six y-conjugation roots reduplicate only one syllable. First-syllable type: badi-y -> banbadi-y 'keep crying', jana-y -> janjana-y 'keep standing', kada-y -> kankada-y 'keep coming', warri-y -> wanarri-y 'keep running'. Second-syllable type: bunda-y -> bundanda-y 'keep sitting/live at', wuna-y -> wunana-y 'keep lying/sleep'. (Some speakers contrast partial wanarri-y 'perpetual motion, e.g. running water' vs full warri-n-warri-y 'continuous running by human/animal'.)\\n\\n(b) OTHER DERIVED STEMS (reciprocal -wa-, reflexive/intransitive -ji-, plural-subject -ri-): only the ROOT is reduplicated, then the derivational suffix is appended to the reduplicated base. Because these stems are y-conjugation (derived from transitive l-conjugation or from intransitive l-conjugation roots), the LINK is -n- (NOT -l-), reflecting the derived stem's class. Examples: kuni-n-kuni-wa-y 'keep hitting each other', bayka-n-bayka-wa-y, daka-n-daka-wa-y; baka-n-baka-ji-y 'keep poking oneself', yaka-n-yaka-ji-y; dunga-n-dunga-ri-y, wuri-n-wuri-ri-y. SPECIAL: when the link -n- meets a root-initial n, they contract to a single n (no geminates allowed), so the link is not visible: nuka-l 'eat' -> nuka-nuka-ji-y 'keep eating (itr)' (footnote 19, §2.2.1).\\n\\n(c) COMPOUNDS (causative -bunga-l/-kanga-l/-mani-l and idiomatic compounds): only the SECOND component is reduplicated. Examples: wumbul-bunga-l -> wumbul-bunga-l-bunga-l 'keep making hot', dara-y-mani-l -> dara-y-mani-l-mani-l 'keep dropping', ngirray-kanga-l -> ngirray-kanga-l-kanga-l, buyun-dama-l -> buyun-dama-l-dama-l. A reduplicated-stem causative may be further reduplicated: kaka-kaka-bunga-l-bunga-l 'keep making painful'. (Distinguish reduplication of a nominal base before the causative, e.g. kaka-kaka-bunga-l 'make painful', bajay-bajay-bunga-l 'exhaust someone' — that reduplicates the caused STATE — from reduplication of the second compound component which means prolonged/repeated causation, e.g. muwul-bunga-l-bunga-l 'keep secret'.)",
+    "notes": "SOURCE: Patz, A Grammar of the Kuku Yalanji Language, §3.8 (Morphology of verbs), file /Users/ajaxdavis/repos/mobtranslate.com/dictionaries/kuku_yalanji/grammar.md lines 2926-3763.\\n\\nKEY POINTS FOR DICTIONARY ENRICHMENT:\\n1. CITATION FORM = NONPAST = root + conjugation marker (-l or -y). The marker is DELETED before any other inflection or stem-forming suffix. Roots are conventionally cited as e.g. 'kuni-l', 'dunga-y'. So a dictionary headword ending in -l => l-conjugation; ending in -y => y-conjugation.\\n2. CLASS<->TRANSITIVITY is the reliable inference: -y headword => intransitive (100%); -l headword => transitive UNLESS it is (a) one of the listed intransitive l-conjugation roots in §3.8.3.1, (b) an inchoative -ma-l stem (intransitive), or (c) trisyllabic where transitivity varies. Final vowel and syllable count are STATISTICAL ONLY — do not use them to assign class.\\n3. Root-final vowels are only a and i (plus the single u in waju-l). A purported root ending in any other vowel is suspect / an OCR artefact.\\n4. DERIVATION CHANGES CLASS: adding -wa- (reciprocal), -ji- (reflexive/intransitive), or -ri- (plural-subject) yields a y-conjugation (-y) intransitive stem; adding causatives -bunga-l/-kanga-l/-mani-l yields an l-conjugation transitive stem; -ma-l yields an l-conjugation intransitive stem.\\n5. SUFFIX ORDER on a stem: ROOT (+ derivation1) (+ derivation2) + INFLECTION; up to two derivational suffixes; up to three enclitics follow. Attested orders include CAUS+ITR (wala-y-mani-ji-), REFL/RECIP/CAUS + PLS (ngaki-ji-ri-, kuni-wa-ri-).\\n6. IMPERATIVE allomorph depends on syllable count of the relevant component: disyllabic l-root = zero, disyllabic y-root = -y, >2 syllables = -ka; BUT compounds/causatives take zero regardless of total length (only the stem-forming component's syllable count matters), and -mani-l causatives use suppletive mana.\\n7. THREE SUPPLETIVE l-conjugation verbs (imperative-only suppletion): daji-l/daya 'give', nyaji-l/nyaka 'see', mani-l/mana 'get'.\\n\\nOCR / RECONSTRUCTION CAVEATS: The source is a PDF->Markdown conversion with frequent OCR errors. Notably (a) Table 3.15/3.16 and surrounding prose sometimes render the conjugation label 'l-conjugation' as 'i-conjugation' (and the marker -l as -i, or as 'I'); these are OCR confusions of l/i/I — the class is the L-conjugation with marker -l throughout. (b) Numerals are split by stray spaces (e.g. '1 70' = 170, '1 32' = 132). (c) Example glosses contain spacing/diacritic noise (e.g. 'N gayu' = Ngayu, 'lMP'/'IMp' = IMP, 'NONPASf' = NONPAST, 'REF' = REFL). (d) The successive example shows truncated 'kuninyjik' in Table 3.17 for what is -nyjiku. (e) Section numbers appear variously as '3.8.3', '3.B.3', '3.8.5.5' etc. None of these artefacts affect the extracted system; intended forms reconstructed as noted."
+  },
+  "phon": {
+    "consonants": [
+      "/b/ — bilabial stop, written <b>, realised [b]~[p] (voicing not phonemic); voiced intervocalically/after l, retroflex r, nasals, else may be voiceless (§2.1.1, Table 2.1)",
+      "/d/ — apico-alveolar stop, written <d>, realised [d]~[t]; intervocalically may surface as tap [ɾ] and rarely trill [r] for some speakers (e.g. kaday~karray 'come', badiy~barriy 'cry') (§2.1.1, Table 2.1)",
+      "/j/ — lamino-palatal stop, written <j>, realised as affricate [ɟ]~[c] (voicing not phonemic); 'usually realised as an affricate in all environments' (§2.1.1, Table 2.1)",
+      "/k/ — dorso-velar stop, written <k>, realised [g]~[k] (voicing not phonemic); spelled <k> not <g> to keep ng vs nk distinct (§2.1.1, Table 2.1)",
+      "/m/ — bilabial nasal, written <m>, [m] (§2.1.1, Table 2.1)",
+      "/n/ — apico-alveolar nasal, written <n>, [n] (§2.1.1, Table 2.1)",
+      "/ɲ/ — lamino-palatal nasal, written <ny>, [ɲ] (OCR in Table 2.1 misprints this as [ŋ]; reconstructed as palatal nasal [ɲ] since it is the laminal nasal and ng is the velar nasal — cf. minimal pairs nyandal 'chop' vs ngandal 'mouth', jalbany 'taboo food' vs jalban 'tree top') (§2.1.1, Table 2.1)",
+      "/ŋ/ — dorso-velar nasal, written <ng>, [ŋ] (as in English 'sing') (§2.1.1, Table 2.1)",
+      "/l/ — apico-alveolar lateral, written <l>, [l]; slightly velarised [ɫ] after vowels /a/ and /u/ (e.g. kalal) (§2.1.1, Table 2.1)",
+      "/r/ — apico-(post)alveolar trill, written <rr>, [r]; usually reduced to tap [ɾ] intervocalically in normal speech (not in citation), clearly trilled elsewhere (§2.1.1, Table 2.1). NOTE: <rr>=trill /r/",
+      "/ɻ/ — apico-postalveolar retroflex continuant/approximant, written <r>, [ɻ] (retroflex; OCR shows bracket artefact '[]1'); similar to American 'bird' r without lip rounding (§2.1.1, Table 2.1). NOTE: <r>=retroflex /ɻ/",
+      "/w/ — bilabial-velar (labial-velar) semivowel, written <w>, [w] (§2.1.1, Table 2.1)",
+      "/j/ (palatal glide) — palatal semivowel, written <y>, [j]; classed in lamino-palatal column though strictly post-laminal (§2.1.1, Table 2.1)"
+    ],
+    "vowels": [
+      "/a/ — written <a>; major allophone more central and slightly higher than cardinal [a]; backed before velars, /l/, retroflex /r/, /w/; fronted/raised before laminals and /y/ (§2.1.2)",
+      "/i/ — written <i>; major allophone less high and less front than cardinal [i], spread lips; lowered/centralised before velars, /m/, /l/, retroflex /r/ (§2.1.2)",
+      "/u/ — written <u>; major allophone more fronted and lowered than cardinal [u], distinct lip rounding throughout; fronted before palatals (§2.1.2)",
+      "NO phonemic vowel length (§2.1.2). Vowels are short with slightly longer allophones word-finally. Long [a:] arises only marginally via optional locative -anga reduction (§2.5.3(i)), not contrastive. Vowels never diphthongised (§2.1.2)."
+    ],
+    "orthography_to_ipa": [
+      {
+        "grapheme": "b",
+        "ipa": "b~p",
+        "note": "bilabial stop; voicing allophonic (§2.1.1)"
+      },
+      {
+        "grapheme": "d",
+        "ipa": "d~t",
+        "note": "apico-alveolar stop; intervocalic tap [ɾ], rare trill (§2.1.1)"
+      },
+      {
+        "grapheme": "j",
+        "ipa": "ɟ~c",
+        "note": "lamino-palatal stop, usually affricate in all environments (§2.1.1)"
+      },
+      {
+        "grapheme": "k",
+        "ipa": "g~k",
+        "note": "dorso-velar stop; spelled k (not g) to distinguish ng from nk (§2.1.1, §2.1.1 intro)"
+      },
+      {
+        "grapheme": "m",
+        "ipa": "m",
+        "note": "bilabial nasal (§2.1.1)"
+      },
+      {
+        "grapheme": "n",
+        "ipa": "n",
+        "note": "apico-alveolar nasal (§2.1.1)"
+      },
+      {
+        "grapheme": "ny",
+        "ipa": "ɲ",
+        "note": "DIGRAPH = lamino-palatal nasal (Table 2.1 OCR shows [ŋ] in error; reconstructed [ɲ]). Contrasts with n word-finally; Hershbergers wrote final n=ny but Patz distinguishes both (§2.1.1)"
+      },
+      {
+        "grapheme": "ng",
+        "ipa": "ŋ",
+        "note": "DIGRAPH = dorso-velar nasal (§2.1.1)"
+      },
+      {
+        "grapheme": "l",
+        "ipa": "l",
+        "note": "apico-alveolar lateral; velarised [ɫ] after /a/,/u/ (§2.1.1)"
+      },
+      {
+        "grapheme": "rr",
+        "ipa": "r",
+        "note": "DIGRAPH = apico-alveolar TRILL; intervocalic tap [ɾ] in normal speech (§2.1.1)"
+      },
+      {
+        "grapheme": "r",
+        "ipa": "ɻ",
+        "note": "single r = apico-postalveolar RETROFLEX continuant (§2.1.1). r/rr distinction: r=retroflex, rr=trill"
+      },
+      {
+        "grapheme": "w",
+        "ipa": "w",
+        "note": "bilabial-velar semivowel (§2.1.1)"
+      },
+      {
+        "grapheme": "y",
+        "ipa": "j",
+        "note": "palatal semivowel. Word-final/preconsonantal after /i/ it is deleted (§2.5.2); Patz writes final -y after i where Hershbergers do not (§2.1.1, §2.5.2)"
+      },
+      {
+        "grapheme": "a",
+        "ipa": "a",
+        "note": "low vowel (§2.1.2)"
+      },
+      {
+        "grapheme": "i",
+        "ipa": "i",
+        "note": "high front vowel (§2.1.2)"
+      },
+      {
+        "grapheme": "u",
+        "ipa": "u",
+        "note": "high back rounded vowel (§2.1.2)"
+      }
+    ],
+    "phonotactics": "C1 (V C2)^n V (C3), n≥1 — see full description in dedicated field via §2.2 (this duplicate retained for schema requirement). Roots minimally disyllabic; begin with C, end in C or V. C1=any stop/nasal/semivowel /b d j k m n ny ng w y/. C3=/n ny l rr r y/ only. C2=single C or 2-3 C cluster (clusters listed §2.2.1(ii)-(vii), Table 2.2). Rhotic+palatal sequences forbidden. No geminates (reduced to single C). See morphophonology and full §2.2 detail.",
+    "morphophonology": [
+      "VOWEL HARMONY (§2.5.1): For ergative, dative, locative, perlative nominal inflections (all allomorphs), verbal subordination suffix -nyV, and 'first of all' clitic -ngVrr: suffix vowel V = /u/ after stem vowel /u/ (u(C)-); = /a/ after stem vowel /a/ or /i/ (a(C)- or i(C)-). I.e. total assimilation for u→u and a→a, but /i/ takes /a/ (not /i/). EXCEPTIONS: neutral ergative -buV (canonical -bu) and perlative -burrV (canonical -burr) are NEVER affected by harmony (§2.5.1).",
+      "DELETION OF SEMIVOWEL /y/ (§2.5.2): Rule y → ∅ / i __ {#, C}. After vowel /i/, word-finally or before another consonant, /y/ is not pronounced. Consequence: roots ending -iy are indistinguishable from -i in citation/absolutive form, but differ in inflection. Diagnostic via locative allomorphs: -ngV after V-final, -mbV after underlying /y/-final. E.g. kulji (true i-final) → kulji-nga 'stone-LOC'; but dili, duli have underlying /y/ (diliy, duliy) → dili-mba, duli-mba. Patz writes final -y after i (badiy, manijiy) though pronounced badi, maniji; Hershberger orthography did not (§2.5.2). Verbal nonpast -y likewise not pronounced after -i (e.g. badiy pronounced badi); analogous to bunday, janay where -y surfaces after a/u.",
+      "SYLLABLE REDUCTION (§2.5.3): (i) Optional/marginal: Locative -anga after root-final /a/ → long vowel a: (Locative -anga → a:), e.g. bana: for bananga 'water-LOC' (rare, ~half-dozen attestations, corrected by informants — not accepted norm). (ii) Causative derivation -bungal frequently reduced to -bal, esp. in reduplicated forms (kima-bungal~kima-bal; dandi-bungal-bungal~dandi-bal-bal); -bal may be becoming the norm. (iii) Six common verbs use established PARTIAL reduplication instead of full: first-syllable redup — banbadiy (*badi-n-badiy) 'keep crying', janjanay 'keep standing', kankaday 'keep coming', wanarriy 'keep running'; second-syllable redup — bundanday 'keep sitting', wunanay 'keep lying'; plus nukalkal (~nuka-l-nuka-l) 'keep eating'. Tendency: the syllable with the less frequent vowel /u/ or /i/ is deleted, the syllable with frequent /a/ retained (§2.5.3).",
+      "PHONETIC ASSIMILATION RULES (§2.4, three regressive rules, applied with variable consistency): (i) a, u → aⁱ, uⁱ / __ {ny, j} : vowels /a/,/u/ get palatal offglide before palatal nasal/stop (e.g. nukainy 'ate', jalbainy 'taboo food', wunkuiny 'next day', jukumuiny 'from the tree', waijul, nguijan); palatalisation stronger for /a/ than /u/. (ii) n → nʲ / __ j : apical /n/ palatalised before /j/ (Yalanjji, baykanjji). (iii) k → kʷ / __ u : velar stop labialised before /u/ (dakwuy 'hungry', nyikwu 'now'); greatest inter-speaker variation. ORDERING: rule (i) precedes rule (ii), preserving the /nj/ vs /nyj/ contrast — a phonemic palatal nasal triggers vowel offglide (binainyji 'fig-like fruit', jalbainy-ji) but a /j/-palatalised /n/ does not (binanj-ji 'with a rudder', jalbanj-ji 'with a tree top').",
+      "INITIAL SEMIVOWEL DELETION (§2.1.1): Initial /y/ before /i/ or /a/ may be dropped (vowel pronounced without onglide); younger speakers (<~20yr) may substitute glottal stop [ʔ]. Three variants: yinya~inya~ʔinya 'that', yanyu~anyu~ʔanyu 'this'. Initial /w/ before /u/ may be dropped (wunba~unba 'English bee') with NO glottal-stop variant; initial /w/ before /a/ is clearly pronounced; no initial /w/ before /i/ attested."
+    ],
+    "stress": "Primary stress is on the FIRST syllable of every word (§2.6.1). Rule: V → +stress / # root [C (VC₁VC₁)]__ , where C₁ may be a single consonant or a cluster. After the primary-stressed first syllable, pitch drops sharply for disyllables and more gradually for longer words. SECONDARY stress (non-obligatory, only in careful/citation speech): (a) Roots, reduplicated forms, and compounds of 4+ syllables may take secondary stress on the THIRD syllable (= first syllable of the second root in redup/compounds), e.g. wáwubàja 'river', yálmburràjaka 'whale', kángkal-kàngkal, míyil-dùdu, búlkiji-bùlkiji; a reduplicated trisyllabic root takes secondary stress on the FOURTH syllable (first syllable of second root). Compounds: primary stress on first syllable of whole, first constituent never >2 syllables. (b) Disyllabic inflections/derivational suffixes behave like roots and may carry secondary stress on their first syllable (e.g. máral-àngka 'girl-ERG', ngánjan-ànda, bímakay-kàrra). (c) Monosyllabic inflections/derivations/clitics are unstressed; but if the resulting word is >3 syllables the PENULTIMATE syllable takes secondary stress, UNLESS that penult is the last root syllable, in which case it stays unstressed (e.g. báma-ngka, báma-ngka-kù-lu, búlkiji-mùn-bu, yárraman-ànda-kù-lu). EXCEPTION: the sequence suffix+clitic -baja-ku 'very' on an adjective takes NO stress on any of its syllables (e.g. yalbay-baja-ku) (§2.6.1, §3.2.3.8). In normal (non-careful) speech only the first syllable is stressed even in long words (§2.6.1).",
+    "notes": "Source: /Users/ajaxdavis/repos/mobtranslate.com/dictionaries/kuku_yalanji/grammar.md (Elisabeth Patz, A Grammar of the Kuku Yalanji Language, Pacific Linguistics). Sections read: §2.1 (lines 761-882), §2.2 (884-1041), §2.4 (1113-1159), §2.5 (1161-1254), §2.6.1 (1256-1303). OCR ARTEFACTS RECONSTRUCTED: (1) Table 2.1 (line 780) prints palatal nasal <ny> as IPA [ŋ] — this is an OCR error; it must be palatal [ɲ] because the velar nasal is <ng>=[ŋ] in the same table and the text contrasts nyandal/ngandal, jalbany/jalban. (2) Table 2.1 retroflex <r> shows '[]1' garbage (line 782) — text (§2.1.1) describes it as a retroflex continuant like American 'bird' r, hence [ɻ]. (3) Various IPA in body misrendered as plain '[1]','[r]','[f]' etc.; lateral velarisation marker [ɫ] reconstructed from 'darker lateral sound similar to English table' (line 824). (4) Genitive/example forms with OCR: 'IITI'='/rr/', 'Idl'='/d/', 'Iyl'='/y/', 'lui'='/u/', 'Iii'='/i/', 'Inl'='/n/'. KEY ORTHOGRAPHY POINTS for dictionary validation: r=retroflex /ɻ/, rr=trill /r/ (do NOT conflate); ny=palatal nasal, ng=velar nasal; final -n vs -ny is contrastive (Patz keeps both, Hershberger merged to -n); final -y after -i is written by Patz (e.g. badiy) but DELETED in pronunciation (§2.5.2) and was NOT written in original Hershberger spelling — dictionary entries may inconsistently show -i vs -iy; the underlying /y/ is only recoverable from -mbV vs -ngV locative allomorphy. Stops have no voicing contrast; <k> not <g> is the velar-stop letter by convention. The phonetic assimilation/labialisation/offglide rules (§2.4) are SUB-PHONEMIC and speaker-variable — should NOT be written in standard orthography. Vowel-harmony, /y/-deletion and geminate-reduction are the morphophonological processes most relevant to programmatic suffix generation and spelling validation."
+  },
+  "nom": {
+    "cases": [
+      {
+        "case": "Absolutive (ABS)",
+        "function": "Marks intransitive subject (S) and transitive object (O). Citation/dictionary form coincides with absolutive.",
+        "section": "§3.2.1, §3.2.2, Table 3.1",
+        "suffix": "-ø (always zero, all environments). E.g. kaya-ø 'dog', dingkar-ø 'man', jarramali-ø 'thunderstorm'."
+      },
+      {
+        "case": "Ergative (ERG)",
+        "function": "Marks the transitive subject (A). Has neutral and potent sets.",
+        "section": "§3.2.1, §3.2.2, Table 3.1",
+        "suffix": "NEUTRAL: -bu/V- (after V; e.g. jina-bu, kulji-bu, juku-bu); -Vbu/r- (after r; e.g. wungar-abu, badur-ubu); -njV/y- (after y; e.g. balbay-nja, diliy-nja, junjuy-nju); -dV/elsewhere (e.g. jalun-du, jalbany-da, bayil-da, balarr-da). POTENT: -ngkV/V- (after V; e.g. kaya-ngka, kami-ngka, ngurrku-ngku); -VngkV/C- (after C; e.g. ngangkin-angka, walkarr-angka, dingkar-angka, dubuy-ungku, wabul-ungku). V determined by vowel harmony (§2.5.1): a after a or i, u after u."
+      },
+      {
+        "case": "Instrumental (INST)",
+        "function": "Marks the implement used by an agent in performing an action.",
+        "section": "§3.2.1, §3.2.2, Table 3.1",
+        "suffix": "= neutral ergative (no neutral/potent distinction). Same allomorphs as neutral ERG: -bu/V-, -Vbu/r-, -njV/y-, -dV/elsewhere."
+      },
+      {
+        "case": "Dative (DAT)",
+        "function": "Indicates goal of a purposeful action, cause for an action or emotion, or complement of comparison.",
+        "section": "§3.2.1, §3.2.2, Table 3.1",
+        "suffix": "NEUTRAL: -ngkV/y- (after y; e.g. ngujay-ngka, yibuy-ngku); -VkV/r- (after r; e.g. kadar-aka, kukur-uku); -kV/elsewhere (e.g. ngalkun-ku, dukul-ku, balji-ka). POTENT: -nkV/V- (after V; e.g. jalbu-nku, ngaji-nka, bama-nka); -VnkV/C- (after C; e.g. nganjan-anka, ngalngal-anka, karrkay-anka, junbirr-anka, yaburr-unku)."
+      },
+      {
+        "case": "General Locative (LOC)",
+        "function": "Marks location 'in/on/at' etc., goal of movement (allative), and goal of three-argument verbs ('show', 'give').",
+        "section": "§3.2.1, §3.2.2, Table 3.1",
+        "suffix": "NEUTRAL: -ngV/V- (after V; e.g. ngara-nga, ngarri-nga, kiju-ngu); -V/r- (after r; e.g. bibar-a, burrir-a, bujur-u); -mbV/y- (after y; e.g. buray-mba, dajaliy-mba, wakuy-mbu); -bV/elsewhere (e.g. nyabil-ba, dalkan-ba, diburr-bu). POTENT: -ndV/V- (after V; e.g. ngiwa-nda, bulki-nda, dunyu-ndu); -VndV/C- (after C; e.g. mukay-anda, mukirr-anda, wuyngkul-undu, kukur-undu)."
+      },
+      {
+        "case": "Ablative (ABL)",
+        "function": "Indicates a general source 'from', prior in time or location to the action/state of the clause.",
+        "section": "§3.2.1, §3.2.2, Table 3.1",
+        "suffix": "NEUTRAL: -muny in all environments (e.g. wawubaja-muny, manjal-muny, bururr-muny, jalkay-muny, bayan-muny). POTENT: general LOC + muny, i.e. potent LOC allomorph followed by -muny (e.g. ngawa-ndamuny, ngamu-ndumuny, maral-andamuny, diwan-andamuny)."
+      },
+      {
+        "case": "Abessive (ABESS)",
+        "function": "Indicates a locational source NOT left behind by the actor, i.e. a place from which an action is performed.",
+        "section": "§3.2.1, §3.2.2, Table 3.1",
+        "suffix": "-mundu in all environments (no neutral/potent distinction). E.g. nyidu-mundu 'hip', jikan-mundu 'grass', kungkarr-mundu 'north', jukarr-mundu 'sand'."
+      },
+      {
+        "case": "Perlative (PERL)",
+        "function": "Marks a defined space through which someone/something passes. Nyungkul dialect ONLY; Yalanji speakers use locative in this function.",
+        "section": "§3.2.1, §3.2.2, Table 3.1",
+        "suffix": "(Nyungkul only; no neutral/potent distinction.) -burr/V- (after V; e.g. walngka-burr, dimbi-burr); -Vburr/r- (after r; e.g. burrir-aburr 'island', muyar-aburr 'wind/air'); -jVrr/y- (after y; e.g. kabay-jarr 'small antbed', duliy-jarr 'burn grass'); -dVrr/elsewhere (e.g. baral-darr 'road', wabarr-darr 'shade', bural-darr 'deserted camp', buljun-durr 'weeds')."
+      }
+    ],
+    "derivations": [
+      {
+        "affix": "-mun- (catalytic suffix)",
+        "function": "Purely formal/catalytic suffix inserted between root and a NON-ZERO inflection on trisyllabic nominal roots/stems and English loan words (any number of syllables). Does not alter stress. Glossed -mun-. E.g. kunjuri-mun-du 'shield-mun-INST', bulkiji-mun-ku 'pipi-mun-DAT', mungari-mun-bu 'Kauri.pine-mun-LOC'. Not used consistently by all speakers but conservative speakers regard it as correct.",
+        "section": "§3.2.3.1"
+      },
+      {
+        "affix": "Possessive: -mu ~ -ngV (+ zero infl.); -ndVmun- (+ non-zero infl.)",
+        "function": "Alienable (and optionally inalienable) possession, attached to possessor noun. Differs by dialect and by whether stem takes zero vs non-zero inflection. YALANJI +zero: -mu/V-, -Vmu/C- (e.g. ngamu-mu, kaya-mu, maral-amu, dingkar-amu). NYUNGKUL +zero: -ngV/V-, -VngV/C- (e.g. ngamu-ngu, kaya-nga, maral-anga, dingkar-anga). BOTH dialects +non-zero: -ndVmun-/V-, -VndVmun-/C- (analysable as potent LOC + catalytic -mun-; e.g. jalbu-ndumun-du, maral-andamun-bu, karrkay-andamun-ku, kami-ndamun-bu). Non-zero inflections on possessive stems are always from the NEUTRAL set. No separate 'possessor-of-possessor' affix; possessive suffix appears on both nouns.",
+        "section": "§3.2.3.2, Table 3.2"
+      },
+      {
+        "affix": "Comitative: -ji ~ -nji (neutral ~ potent), with allomorphs",
+        "function": "'with/having noun'; attributive function or 'accompaniment' of person in motion/rest. Has neutral and potent variants; slightly different forms for zero vs non-zero inflection. NEUTRAL +zero: -iji/R- (after rhotic), -ji/elsewhere (e.g. bulbur-iji, jukar-iji, walarr-iji, juku-ji, kaka-ji, milbal-ji, ngunyin-ji). NEUTRAL +non-zero: -ijirr/R-, -jirr/elsewhere (with initial stop or m). POTENT +zero: -nji/V- (after V), -Vnji/C- (after C) (e.g. yaba-nji, yabuju-nji, nganjan-anji, jawun-unji, kadar-anji). POTENT +non-zero: -njirr/V-, -Vnjirr/C-. In normal speech -iji/-ji vary freely after a rhotic, and final -rr is optional before inflections (Kuku Yalanji gradually losing final -rr).",
+        "section": "§3.2.3.3, Table 3.3"
+      },
+      {
+        "affix": "-kari (privative)",
+        "function": "'without noun', 'noun-less'. Formed by suffixing negative particle kari to a nominal root; defined as one word by stress (first syllable only) and by non-zero inflection only after -kari-. Far less productive than comitative; usually in equational sentences, rarely with non-zero inflection. E.g. milka-kari 'deaf (no ears)', mani-kari 'no money', nganka-kari 'no flowers'. With non-zero infl: kaya-kari-ngka (ERG:pt), bajibay-kari-ka (DAT). Some speakers prefer NEUTRAL inflections with privative stems (e.g. kaya-kari-bu). Cannot co-occur with possessive.",
+        "section": "§3.2.3.4"
+      },
+      {
+        "affix": "-karra (kinship plural / KPL)",
+        "function": "Plural of kinship terms (incl. jawun 'unspecified relative, friend'; EXCLUDES kangkal 'own child', which uses no plural device). Kinship terms are NOT reduplicated for plural. Simply indicates plural (unlike Guugu Yimidhirr cognate -garr it does NOT imply relationship to a single person). E.g. dunyu-karra 'husbands', yabuju-karra 'younger brothers', ngaji-karra 'maternal grandfathers', ngalayan-karra 'fathers-in-law', manyarr-karra 'wives', ngamu-karra 'mothers', nganjan-karra 'fathers'.",
+        "section": "§3.2.3.5(ii)"
+      },
+      {
+        "affix": "-bulal (pair / dual)",
+        "function": "Derivational 'pair' suffix, related to dual pronoun bula. Implies an intrinsic link between two referents (belong/act together). Most often with human-reference nouns; NP often also includes dual pronoun and/or quantifier jambul 'two'. Contrasts with jambul 'two' which implies NO connection. E.g. jalbu-bulal-angka 'the two women (ERG:pt)', yarraman-bulal 'pair of horses', luku-bulal 'a pair of trees'.",
+        "section": "§3.2.3.5(iii)"
+      },
+      {
+        "affix": "-nyV (-nya / -nyu) nominaliser",
+        "function": "Derives a noun stem from a verb: -nya after final vowel a or i, -nyu after final vowel u (vowel harmony §2.5.1). Identical in form to the unmarked verbal subordinating inflection / 'causal' subordinate inflection; clear distinction not always possible. -nyV nominal stems with further case inflections occur only in 'simultaneous', 'prior event' and 'hypothetical reason' subordinate clauses. E.g. nuka-nya 'eats / habitual meat-eater'.",
+        "section": "§3.2.3.6"
+      },
+      {
+        "affix": "-(w)arra (inhabitants of)",
+        "function": "'inhabitant(s) of X / native of X'. Attaches to proper place names or comitative stems referring to characteristics of larger areas. Allomorphs: -warra/V- (after V), -arra/C- (after C). Apparently implies plurality (no attested singular use). E.g. jalun-ji-warra 'seaside people', mangkal-arra 'Cedar Bay people', Kubirri-warra 'Mossman people', wujalwujal-arra 'Bloomfield people', maja-ji-warra 'scrub people'.",
+        "section": "§3.2.3.7(i)"
+      },
+      {
+        "affix": "-baka (excessive)",
+        "function": "'too much noun', 'excessively noun', always negative connotation. Attaches to simple or reduplicated noun root, usually abstract reference. Derived stem usually functions as a noun (often a quasi-proper noun for a person); root may take extended meaning. E.g. kuli-baka 'excessively wild/grumpy one', jalbu-baka / jalbu-jalbu-baka 'notorious womaniser/lecher', kuru-baka 'flirtatious woman', ngirray-baka 'crybaby', dirra-baka 'someone who swears too much'. Can be used impersonally (e.g. Kamu-kamu-baka! 'too much drinking going on!').",
+        "section": "§3.2.3.7(ii)"
+      },
+      {
+        "affix": "mala- (expert) [prefix]",
+        "function": "PREFIX 'good at noun', 'noun expert'. Attaches to a noun root (cannot occur on its own). E.g. mala-kalka 'spear expert', mala-minya 'good hunter/game expert', mala-mayi 'good cook/food expert', mala-burri 'good singer/song expert', mala-bulki 'expert stockman', mala-balji 'dillybag expert'. Stress sometimes on first stem syllable, more often only on first ROOT syllable (mala-mínya), suggesting mala- may be a pro-clitic. Probably from 'hand' (cf. Yidiny/Dyirbal mala 'palm/hand'; Kuku Yalanji free root for 'hand' is mara). One Nyungkul speaker used mala- with nominalised verb stems (mala-dunga-nya 'good at getting away'), not confirmed by others.",
+        "section": "§3.2.3.7(iii)"
+      },
+      {
+        "affix": "jarra- (degree, DEG1) [prefix]",
+        "function": "PREFIX 'fairly/rather adjective'; occurs only with adjectives or comitative stems in attributive/adjectival function. Also used in comparisons = 'more adjective than' (compared component takes DATIVE). E.g. jarra-yalbay 'rather big', jarra-minday 'rather tame', jarra-jinbal 'rather fast', jarra-bambay 'rather sick', jarra-kima 'softer'. Stress on first syllable (regular). Attested with one verb jarra-kulba-l 'carry' but not productive with verbs.",
+        "section": "§3.2.3.8(i)"
+      },
+      {
+        "affix": "-baja(-ku) (degree, DEG2)",
+        "function": "'very adjective'; with adjectives a stem-forming suffix that MUST be followed by emphatic clitic -ku. (With verbs -baja is a postinflectional clitic 'again', §3.10.3.) If the adjectival stem takes a non-zero inflection, the inflection is inserted between -baja- and -ku, e.g. junkurr-ji-baja-ngka-ku, bambay-baja-nka-ku. E.g. dakuy-baja-ku 'very hungry', kingkin-baja-ku 'very cute'.",
+        "section": "§3.2.3.8(ii)"
+      },
+      {
+        "affix": "Compounding",
+        "function": "Nouns/adjectives formed by compounding roots/stems; defined by inseparability and word-stress. Some unanalysable (marrka-bina 'mangrove oyster', kalka-muku 'green tree snake' lit. spear-back). Productive with body-part terms esp. miyil 'eye' and milka 'ear': miyil-burra 'blind', miyil-dudu 'illiterate', miyil-kaban-ji 'literate', miyil-wurril 'cross-eyed', milka-dudu 'deaf', milka-bujar 'homesick', milka-dandi 'good memory', walu-dandi 'stubborn', mara-jalajala 'generous/clumsy person', manu-buray 'squeamish'.",
+        "section": "§3.2.3.10"
+      }
+    ],
+    "number_reduplication": "Kuku Yalanji marks nominal number by three derivations (§3.2.3.5). A simple root by itself generally implies SINGULAR (except mass nouns); plural can be inferred from context, or specified with a quantifier + simple root (e.g. bama wubul 'many Aborigines', jarba jambul 'two snakes'). (i) REDUPLICATION of the noun root is the normal device for general plural: wulman-wulman 'old men', kangkal-kangkal 'own children', kumu-kumu 'mosquitoes', bilngkumu-bilngkumu 'crocodiles', juku-juku 'trees', baral-baral 'roads', maral-maral 'girls'. (Adjectives reduplicate for adverbial function, §3.8.6.2.) (ii) KINSHIP PLURAL -karra: kinship terms (incl. jawun, EXCLUDING kangkal 'own child') are NOT reduplicated but take -karra (e.g. dunyu-karra 'husbands', manyarr-karra 'wives'); see derivations entry. (iii) PAIR -bulal: dual implying intrinsic connection between two referents, related to dual pronoun bula; contrasts with quantifier jambul 'two' (no connection implied); see derivations entry. §3.2.3.9: privative, kinship plural, pair, inhabitants, excessive and general-plural reduplication are first-order suffixes and may be followed by comitative ('accompaniment') and/or possessive.",
+    "kinship": [
+      "kangkal 'own child' (always takes NEUTRAL suffixes; excluded from kinship-plural -karra and from reduplication) — §3.2.3.5(ii), §3.2.4",
+      "manyarr 'wife' (neutral suffixes preferred, potent possible; e.g. manyarr-da ERG, manyarr-karra 'wives') — §3.2.4",
+      "babarr 'older sister' (glossed eZ; neutral preferred; possessive babarr-bal-amu in Yalanji) — §3.2.4",
+      "jinkurr 'younger sister' (glossed yZ; e.g. jinkurr-bul-undu LOC:pt) — §3.2.4",
+      "biwul 'mother-in-law' (glossed MiL; e.g. biwul-jil-unji COMIT) — §3.2.4",
+      "ngalayan 'father-in-law, son-in-law' (e.g. ngalayan-karra 'fathers-in-law') — §3.2.4",
+      "kujiway 'daughter-in-law' (possessive kujiway-mbal-amu in Yalanji) — §3.2.4",
+      "dunyu 'husband' (allows ONLY potent suffixes, e.g. dunyu-ngku ERG:pt, *dunyu-bu; dunyu-karra 'husbands') — §3.2.4, §3.2.3.5",
+      "yaba 'elder brother' (glossed eB; allows ONLY potent, e.g. yaba-nda LOC:pt, *yaba-nga; yaba-nji COMIT:pt) — §3.2.4",
+      "yabuju 'younger brother' (yabuju-karra 'younger brothers'; yabuju-nji COMIT:pt) — §3.2.3.5, §3.2.3.3",
+      "ngaji 'mother's father' (glossed; ngaji-nka DAT:pt; ngaji-karra 'maternal grandfathers') — §3.2.3.5, §3.2.2",
+      "kami 'father's father, mother's mother' (glossed FF/MM; kami-ngka ERG:pt, kami-ndamun-bu POSS-LOC) — §3.2.2, §3.2.3.2",
+      "nganjan 'father' (nganjan-anka DAT:pt, nganjan-anji COMIT, nganjan-karra 'fathers') — §3.2.2",
+      "ngamu 'mother' (ngamu-ndumuny ABL:pt, ngamu-mu/-ngu POSS, ngamu-karra 'mothers') — §3.2.2, §3.2.3.2",
+      "mukay 'mother's older sister, younger sister's child' (mukay-anda LOC:pt) — §3.2.2",
+      "jawun 'unspecified relative, friend' (takes kinship-plural -karra: jawun-karra 'friends'; jawun-unji COMIT) — §3.2.3.5, §3.2.3.3",
+      "bimakay '(not ego's) father's sister' (bimakay-mun-ungku ERG:pt, takes catalytic -mun-) — §3.2.3.1",
+      "NOTE: §3.2.4 states 31 kinship terms are attested in total. A subset of SEVEN take case + comitative suffixes from the NEUTRAL set: kangkal, manyarr, babarr, jinkurr, biwul, ngalayan, kujiway. Of these, kangkal always takes neutral; the other six prefer neutral but allow potent. In the YALANJI dialect these same kinship terms also prefer a possessive suffix identical to the locative inflection (e.g. babarr-bal-amu, kujiway-mbal-amu); in NYUNGKUL the possessive already coincides with neutral locative allomorphs so there is no distinction (kaya manyarr-anga, kaya biwul-ungu)."
+    ],
+    "location_words": [
+      "FULL LIST (§3.3): wangkar 'upwards'; wangkarwangkar 'up there, above'; bada 'downwards'; badabada 'down there, underneath'; walmbi 'left'; jakuy 'right'; kungkarr 'north'; kuwa 'west'; jibarr 'south'; naka 'east'; yuba 'near'; ngundu 'close by'; kalakalbay 'far away'; wuyar 'on top'; ngubar 'on the other side of the river'; yiringkurr 'everywhere'; kudamundu 'behind'; yarra 'over there (general direction)'.",
+      "UP/DOWN system (§3.3.1(i)): wangkar 'up(wards)' / bada 'down(wards)'. At Wujal Wujal (Bloomfield R.): wangkar = 'up the river', bada = 'down the river'. Extended: wangkar = above speaker (air, tree); bada = below speaker (ground, underwater). For up/down NOT along river valley, yarra + gesture is used with wangkar/bada. Simple root = DIRECTION (bada 'downwards'); reduplicated stem = LOCATION (badabada 'down there'). (§3.3.2)",
+      "LEFT/RIGHT system (§3.3.1(ii)): walmbi 'left' / jakuy 'right'. Limited use — apply only to BODY PARTS, NOT environmental direction. Generally occur as reduplicated comitative stems: jakuy-jakuy-ji '(my) right side', jina walmbi-walmbi-ji 'left foot'. walmbi-walmbi-ji by extension = 'left-handed person'. (Footnote 5: Hershbergers list jakuji as 'left hand' — opposite to Patz's data jakuy 'right'; they agree on walmbi 'left'.)",
+      "COMPASS POINTS (§3.3.1(iii)): primary orientation system; left/right NOT used for environment. 'Westward-shifted' relative to navigational compass: kungkarr 'north/northwest' (Cedar Bay, Cooktown, Rossville); kuwa 'northwest/west' (Hopevale, Laura); jibarr 'southwest/south' (Mount Carbine, Mareeba); naka 'southeast' (Mount Pieter Botte, Cairns). Apply only to places on LAND, not the sea. Direction toward sea (roughly east) = jalun-bu 'sea-LOC', or dingal 'base/end', or naka-dingal 'south-eastern end'.",
+      "GENERAL DIRECTION yarra (§3.3.1(iv)): no specific directional reference in itself; with other location words/nouns in LOCATIVE = 'over there in the direction of X'; alone, always accompanied by hand/head gesture. E.g. Yarra naka, yarra kuwa? 'the eastern or the western one?'",
+      "INFLECTION of location words (§3.3.2): occur only in LOCAL cases. Root itself implies LOCATIVE (zero inflection). locative = -ø; ablative = -muny (= neutral nominal); abessive = -mundu (= nominal). Perlative cannot be used. Examples: naka (LOC, zero); ngubar-muny 'from the other side' (ABL); kalakalbay-mundu 'from far away' (ABESS); badabada-mundu 'from down there' (ABESS); ngundu (LOC zero). kudamundu 'behind' = possibly fossilised abessive (kuda unanalysable); takes ABL but NOT abessive: kudamundu (LOC), kudamundu-muny (ABL), *kudamundu-mundu.",
+      "Temporal extension (§3.3): where semantically possible — yuba/ngundu = 'near/close by in time'; kudamundu = 'afterwards'."
+    ],
+    "time_words": [
+      "Time words form a SEPARATE word class (§3.4), distinguished morphologically from nouns and location words; do not co-occur with nominals. Members: nyiku 'now, today'; yilaybaja 'later on today'; yilay-yilay 'late afternoon'; wunkuny 'next day, tomorrow'; juma 'eventually, soon, next time'; yilayku 'yesterday'; ngadiy- 'a long time'.",
+      "ngadi(y)- occurs ONLY inflected: ngadi(y)-ngka (DAT) 'for a long time', ngadi(y)-muny (ABL) 'from way back', or with clitic -ku: ngadi(y)-ku 'a long time ago'. Root assumed to have final -y (deleted after i, §2.5.2), takes y-final DAT allomorph; not written in further examples. (Footnote 7)",
+      "yilay is another non-analysable root (cannot occur in isolation) occurring in yilaybaja, yilay-yilay, yilayku.",
+      "Clitic -ku may have perfective implication with time words (e.g. yilayku 'yesterday', ngadiku 'a long time ago').",
+      "Uninflected simple root = 'in/at/during a given time' (cf. locative implication of location words). Time words also occur in DATIVE ('for a given time') and ABLATIVE ('since/from a given time'), taking regular NEUTRAL inflections. E.g. yilaybaja-ka (DAT) 'for later today'; ngadi-muny (ABL) 'from a long time ago'.",
+      "juma 'soon' has two free-variant DAT forms: juma-ka and jumay-ngka (suggesting suppletive/archaic root jumay).",
+      "OTHER time stretches use common nouns/stems with regular nominal inflection (NOT this word class): wujurr 'night, darkness' (wujurr-bu LOC 'at/during the night'); warngku 'one day and night' (lit. 'sleep'); kija 'moon, month'; bulur-iji 'cold season' ('dew/chill-COMIT'); wungar-iji 'hot season' ('sun-COMIT').",
+      "Descriptive phrases for times of day (§3.4): wungar dakal 'sunrise' ('sun climb'); wungar wangkarwangkar 'mid-morning to early afternoon' ('sun above')."
+    ],
+    "quantifiers": [
+      "nyubun 'one' (§3.2.5)",
+      "jambul 'two' (§3.2.5)",
+      "mamarra 'two' — synonym, 'old-fashioned'/'stylish' but NOT taboo; widely known but not in general use (§3.2.5)",
+      "kulur 'a few, three' — now generally = cardinal 'three'; may also mean unspecified small number >2 and <kanbal (§3.2.5)",
+      "kanbal 'some, several' (§3.2.5)",
+      "wubul 'many' (countable) (§3.2.5)",
+      "kankur 'half' (§3.2.5)",
+      "yambayamba 'everything' (§3.2.5)",
+      "yamba-kari 'nothing' (§3.2.5)",
+      "jambul-jambul 'four' (derived, lit. two-two) (§3.2.5)",
+      "mara 'five' (derived, lit. 'hand') (§3.2.5)",
+      "jirray 'a mass of / large amount; big enough' — 'mass' (uncountable) quantifier, also refers to size; contrasts with countable wubul 'many' (e.g. bama jirray 'a large crowd', juku jirray 'a large forest') (§3.2.5)",
+      "buban 'too few / a little / insufficient' — 'mass' quantifier referring to small/insufficient amount; contrasts with countable kanbal 'some/several' (§3.2.5)",
+      "MORPHOLOGY (§3.2.5): Quantifiers take the same case system and derivations as other nominals BUT take ONLY 'neutral' suffixes. Cardinal numbers 'one' & 'two' (Nyungkul), and 'one' (Yalanji) take SPECIAL suffixes (Table 3.5): ABS -ø (nyubun / jambul); ERG -inja (nyubuninja); DAT -ingka (nyubuningka); LOC -imba (nyubunimba); ABL -imuny (nyubunimuny); COMIT -inji (nyubuninji); POSS = locative; abessive & perlative not attested. In Nyungkul, kulur takes these special suffixes for ERG & ABL and (in free variation with regular nominal suffixes) for DAT & POSS; its comitative is the regular neutral -iji (kulur-iji). Some speakers also use cardinal-number suffixes in free variation for wubul 'many'."
+    ],
+    "notes": "Source: §3.2–§3.4 of Patz, grammar of Kuku Yalanji (lines 1520–2520). General points: (1) Two inflectional sets — NEUTRAL (unmarked, no gloss) and POTENT (marked, glossed :pt) — exist for ergative, dative, locative and ablative; ABSolutive, INSTrumental, ABESSive and PERLative have no neutral/potent distinction (§3.2.2, Table 3.1). Choice reflects perceived inherent capacity for action ('potent') vs not ('neutral'), largely coinciding with animacy (§3.2.2, fuller discussion §4.1.4.2). (2) Vowel V in inflections is set by vowel harmony (§2.5.1): a after a or i, u after u. Allomorph environments use V- = after vowel, C- = after consonant, r- = after rhotic, y- = after y, R- = after rhotic (comitative). (3) Potent ablative = potent LOCATIVE allomorph + -muny. (4) Catalytic -mun- inserted before non-zero inflection on trisyllabic roots/loanwords. OCR/reconstruction notes: 'jna-bu' in source corrected to jina-bu 'foot'; 'kadar-aka'/'kukur-uku' shown with OCR slashes for -VkV/r- allomorph; possessive table 'ngawa-naamuny' is OCR garble for ngawa-ndamuny; 'cornitative'/'posseSSIve'/'JDossessive'/'-ffiun-' are OCR artefacts for comitative/possessive/Possessive/-mun-. Table 3.4 co-occurrence matrix at lines 2209–2219 is an empty/garbled grid in the conversion (column headers -bana,-dada,-danyu,-jima,-jirrima,-kala,-karranga,-ngun,-waji appear to belong to a different table, likely §3.5 pronoun-related, and are NOT nominal derivational suffixes from §3.2). The 'mass/countable' quantifier sentence examples (lines 2320–2325) are partly OCR-corrupted but the contrasts in (102)–(105) are intact. Kinship abbreviation key inferred from interlinear glosses: eB=elder brother (yaba), yZ=younger sister (jinkurr), eZ=older sister (babarr), MiL=mother-in-law (biwul), FFMM/FFIMM=father's father/mother's mother (kami), KPL=kinship plural -karra."
+  },
+  "dialect": {
+    "dialects": [
+      {
+        "name": "Yalanji (eastern Kuku Yalanji)",
+        "status": "viable",
+        "note": "§1.1.2: One of the two remaining dialects with a viable speech community. Spoken east of the Great Dividing Range. Eastern speakers call their own language Kuku Yalanji; western self-termed Kuku Yalanji speakers refer to this eastern dialect as Kuku Buyunji. Referred to throughout the grammar simply as 'Yalanji'. Example sentences are given in Yalanji unless otherwise indicated. Listed in Tindale (1974) column as 'Kokowalandja'. Together with Nyungkul, the primary subject of this study; the two share over 90% common vocabulary with only minor morphological differences (§1.1.2). Spoken by ~300 speakers total with Nyungkul (Schmidt 1990); traditionally inhabited rainforest terrain where Wujal Wujal Community is now situated (§1.1.3)."
+      },
+      {
+        "name": "Nyungkul (Kuku Nyungkul)",
+        "status": "viable",
+        "note": "§1.1.2: The second remaining dialect with a viable speech community. Referred to throughout the grammar simply as 'Nyungkul'. Listed only in the Brady, Anderson and Rigsby (1980) column of Table 1.1 (as 'Kuku Nyungkul'); not separately attested in the Tindale or Dixon columns. Together with Yalanji is the subject of this study. Shares over 90% common vocabulary with Yalanji and shows only minor morphological differences. There are slightly more Nyungkul than Yalanji speakers (§1.1.4). Traditionally inhabited rainforest terrain near Wujal Wujal (§1.1.3). Special mention is made of morphological differences in Nyungkul throughout the grammar (§1.1.2)."
+      },
+      {
+        "name": "Jalunji (Kuku Jalunji / 'Bloomfield dialect')",
+        "status": "scanty / questionable as a distinct dialect",
+        "note": "§1.1.2: Called the 'Bloomfield dialect' by H. Hershberger and R. Hershberger (1982), placing it in the territory of Kuku Buyunji / eastern Kuku Yalanji. Name analysable as jalun-ji 'with sea' (§3.2.3.3); spoken by the original seashore inhabitants. According to Patz's data this 'dialect' differs from neighbouring dialects ONLY in that it contains words for maritime fauna and flora unknown to speakers living further inland. No definite information whether Jalunji was regarded as 'different talk'; Jalunji people were confined to the narrow coastal strip and the term cannot apply to the dialect of the Bloomfield River. Note: the dialect ethno-categories jalunji 'with sea' vs bana yiralji 'with fresh water' distinguish seashore vs river dwellers (§1.2.1.1)."
+      },
+      {
+        "name": "Kuku Buyunji (Kokobujundji)",
+        "status": "viable (= eastern Yalanji)",
+        "note": "§1.1.2: Analysable as 'language with bad' or 'bad language'. This is the term western self-termed Kuku Yalanji speakers (Brady, Anderson, Rigsby column) use for the eastern dialect; eastern speakers themselves call their language Kuku Yalanji. Thus Kuku Buyunji and Yalanji correspond in territory and are the SAME dialect under different community names. Patz does not use the name Kuku Buyunji 'since that is not what the speakers call themselves'. Listed as 'Kokobujundji' (Tindale 1974) and 'Kuku Buyunji' (Brady, Anderson, Rigsby 1980). Cf. footnote: Guugu Yimidhirr speakers use 'Gugu Buyun' = 'bad language' (Haviland 1979a:29) for an intermediate dialect along the Annan River."
+      },
+      {
+        "name": "western Kuku Yalanji (Kuku Yalaja / Kokojelandji)",
+        "status": "scanty / largely extinct, no speech community",
+        "note": "§1.1.2, §1.1.4: The western dialect around Maytown/Palmer River. Eastern speakers refer to it as Kuku Yalaja (Anderson 1979:36). Listed in Tindale (1974) as 'Kokojelandji'. Patz extends the cover term Kuku Yalanji to include the western dialects, one of which is also termed Kuku Yalanji by its few remaining speakers. Western dialects were decimated by the Palmer River gold rush; speakers widely dispersed (Mareeba to Cooktown, Kuranda, Chillagoe, Mossman, Bloomfield River; resettled Yarrabah/Palm Island). No 'speech community' exists for any western dialect (§1.1.4). Small western Yalanji corpus (Norman Mitchell) shows some differences in verbal morphology (§1.1.2 fn8)."
+      },
+      {
+        "name": "Muluriji (Muluridji / Muluridyi)",
+        "status": "scanty (data collected)",
+        "note": "Table 1.1: 'Muluridji' (Tindale 1974), 'Muluriji' (Brady, Anderson, Rigsby 1980), 'Muluridyi' (Dixon fieldnotes, based on Hale notes/recording ~1960). Marked (*) as a dialect for which data has been collected. §1.1.2: the data for Kuku Tyunkay is in fact identical to that for Muluridyi."
+      },
+      {
+        "name": "Kuku Tyunkay (Jungkurara / Junkurara / Jungkurara)",
+        "status": "scanty (data collected); possibly not a distinct dialect",
+        "note": "Table 1.1: 'Jungkurara' (Tindale 1974), 'Kuku Tyunkay' (Dixon fieldnotes, based on Hale field notes ~1960). §1.1.2: Jungkurara may have a territory name as its basis; the ending -ara could represent the derivation -warra 'inhabitants of' (§3.2.3.7). Possibly does not refer to a different dialect — its data is identical to Muluridyi — but evidence is too scanty for a firm decision. Shown as dialect (3) on Map 2 as '(Kuku Tyunkay, Junkurara)'."
+      },
+      {
+        "name": "Kuku Jakanji",
+        "status": "attested (no data-collected marker)",
+        "note": "Table 1.1: listed only in the Brady, Anderson and Rigsby (1980) column as 'Kuku Jakanji'. Not marked (*) as a dialect for which data was collected. Appears as dialect 5 'Kuku Jakanji' on Map 2."
+      },
+      {
+        "name": "Wulbura (Wulpura)",
+        "status": "attested (no data-collected marker)",
+        "note": "Table 1.1: 'Wulpura' (Tindale 1974), 'Wulbura' (Brady, Anderson, Rigsby 1980). Not marked (*). Appears as dialect 11 'Wulbura' on Map 2."
+      },
+      {
+        "name": "Kuku Bidiji (Kokobididji)",
+        "status": "scanty (data collected)",
+        "note": "Table 1.1: 'Kokobididji' (Tindale 1974), 'Kuku Bidiji' (Brady, Anderson, Rigsby 1980), marked (*) = data collected. Appears as dialect 12 'Kuku Bidiji' on Map 2. §1.1.4: a very small proportion of Bidiji speakers live in the Bloomfield River area among Yalanji/Nyungkul."
+      },
+      {
+        "name": "Wakura (Wakara / Wagura)",
+        "status": "scanty (data collected)",
+        "note": "Table 1.1: 'Wakara' (Tindale 1974), 'Wakura' (Brady, Anderson, Rigsby 1980, marked *), 'Wagura' (Dixon fieldnotes, marked *, based on Richards 1924-26). Appears as dialect 9 'Wakura' on Map 2. §1.1.5: word lists for tribes around headwaters of the Hodgkinson, Mitchell and Walsh Rivers are presumably Wakura (Richards 1924; Mowbray 1886; Davidson 1886)."
+      },
+      {
+        "name": "Kuku Jangkun (Djankun / Dyangun / Dyangunbari)",
+        "status": "scanty (data collected)",
+        "note": "Table 1.1: 'Djankun' (Tindale 1974), 'Kuku Jangkun' (Brady, Anderson, Rigsby 1980), 'Dyangun (Dyangunbari)' (Dixon fieldnotes, marked *). Appears as dialect 7 'Kuku Jangkun' on Map 2."
+      },
+      {
+        "name": "Wagaman (Wakaman)",
+        "status": "scanty (data collected); boundary disputed",
+        "note": "Table 1.1: 'Wagaman' (Dixon fieldnotes column, marked *, recorded by Dixon and Laycock 1964). Appears as dialect 8 'Wagaman' on Map 2. §1.1.2 fn: Tindale includes a dialect 'Wakaman' extending much further south; per Sutton (1976a:116) Tindale's data corresponds to the initial-dropping language Agwamin and is clearly NOT a Kuku Yalanji dialect — the name Wakaman was used by different informants for different languages."
+      },
+      {
+        "name": "Kokokulungkur (Kokokulunggur)",
+        "status": "attested (no data-collected marker)",
+        "note": "Table 1.1: 'Kokokulungkur' (Tindale 1974) column only. Shown on Map 2 as dialect (4) '(Kokokulunggur)'. Not marked (*) for data collection."
+      },
+      {
+        "name": "Kuku Yalanji (cover term / superordinate language)",
+        "status": "cover term",
+        "note": "§1.1.2: 'Kuku Yalanji' is adopted as the cover term for the whole language, which had about a dozen dialects of which all but two are now extinct or known only to a handful of elderly speakers. Previous research identified thirteen dialects (Table 1.1) that partly overlap in territory. The name was originally chosen by Oates and Oates (1964a) for the eastern dialects; Patz extends it to include western dialects. Analysable as kuku 'word, language' + yala-nji 'this-COMIT' = 'the language with \"this\"' (§1.1.1, cf. §3.2.3.3). Dialects share between over 70% and over 90% of common vocabulary and agree closely in morphology (§1.1.2 fn). The cover-term description applies to the language as a whole given the close similarity of dialects."
+      }
+    ],
+    "dialect_marking": "§1.1.2: The grammar investigates two dialects, Yalanji (= eastern Kuku Yalanji) and Nyungkul. CONVENTION: Example sentences, unless otherwise indicated, are given in the YALANJI dialect, and special mention is made of morphological differences in Nyungkul. Because the dialects share over 90% common vocabulary and show only minor morphological differences, the linguistic details described are taken to apply to Kuku Yalanji as a whole. NOTE ON THE TASK'S {} NOTATION: The prompt references a {} notation for Yalanji vs Nyungkul forms, but NO curly-brace dialect-marking convention is stated anywhere in lines 480-760 or 1472-1518. The only explicitly stated marking convention is the prose one above (Yalanji = default/unmarked; Nyungkul = explicitly flagged). Dialect-of-origin for cited words/forms elsewhere is indicated by parenthetical labels (e.g. 'Nyungkul', 'western Yalanji', 'Kuku Yalaja'). No bracket/brace shorthand is defined in the read range. Cross-dialect lexical equivalences in Table 1.1 are presented as parallel columns keyed to source (Tindale 1974 / Brady, Anderson & Rigsby 1980 / Dixon fieldnotes 1960s), each column giving that source's name for a given dialect; an asterisk (*) in the 2nd/3rd columns marks dialects for which data was collected.",
+    "semantic_domains": [
+      {
+        "domain": "fauna-mammal",
+        "basis": "§1.2.1.4 food (possums, bandicoot, native mammals, wild pigs); §3.1.2 nouns refer to fauna; generic minya 'edible animal'"
+      },
+      {
+        "domain": "fauna-bird",
+        "basis": "§3.1.2 generic dikal 'bird'; §1.2.1.4 food (scrub hen, cassowary, Torres Strait pigeon, eggs); §1.2.1.3 totems birrmba 'white cockatoo', kumurrbina 'black cockatoo'; §1.2.1.8 messenger bird wakuka 'kookaburra', ngurrku 'mopoke'"
+      },
+      {
+        "domain": "fauna-fish",
+        "basis": "§3.1.2 generic kuyu 'fish'; §1.2.1.4 fish, freshwater eels, maritime fauna; §1.1.3 fish resources"
+      },
+      {
+        "domain": "fauna-reptile",
+        "basis": "§3.1.2 generic jarba 'snake'; §1.2.1.4 goannas, pythons, fresh/saltwater turtles; §1.2.1.8 kurriyala 'carpet snake', bajabaja 'blue tongue lizard'"
+      },
+      {
+        "domain": "fauna-insect",
+        "basis": "§1.2.1.4 insects (green ant, witchetty grub); §1.2.1.6 yangka 'green ant'; §1.2.1.3 walarr/dabu (bee species/moieties)"
+      },
+      {
+        "domain": "fauna-shellfish-crustacean",
+        "basis": "§1.2.1.4 shellfish, crustaceans, edible maritime fauna; §1.1.3 estuary/coastal resources"
+      },
+      {
+        "domain": "flora",
+        "basis": "§3.1.2 nouns refer to flora; generic mayi 'edible plants/food', juku 'tree'; §1.2.1.4 fruits/nuts (bush cherry, blue quandong, wild apple, figs, zamia nut, Moreton Bay chestnut), roots (yams, wild ginger); §1.2.1.6 kabal 'Leichardt tree', jujubala 'ironwood tree'"
+      },
+      {
+        "domain": "food",
+        "basis": "§1.2.1.4 Food (extensive); §3.1.2 mayi 'edible plants (also meal or food in general)', minya 'edible animal'; wild honey, eggs, damper, bread"
+      },
+      {
+        "domain": "kinship",
+        "basis": "§3.1.2 nouns include kinship terms; §1.2.1.3 social structure/marriage; §1.2.1.7 sibling food taboos; generic jawun 'unspecified family member (now friend)'"
+      },
+      {
+        "domain": "body-part",
+        "basis": "§3.1.2 nouns refer to external and internal body parts and bodily excretions; e.g. jiba 'liver', jina 'foot' (jina-baji 'sore foot' §1.2.1.2)"
+      },
+      {
+        "domain": "human-classifier-generic",
+        "basis": "§3.1.2 generic terms: bama 'Aboriginal person', dingkar 'male', jalbu 'female', jawun 'family member/friend'"
+      },
+      {
+        "domain": "bodily-mental-state",
+        "basis": "§3.1.2 warngku 'sleep', kaka 'pain', kuli 'anger', kuru '(female) love/lust'; noun-verb compounds jiba-badiy 'feel sorry (liver-cry)', wawulay 'feel exhausted (breath-die)'"
+      },
+      {
+        "domain": "artefact",
+        "basis": "§1.2.1.5 Artefacts (dillybags); §3.1.2 nouns refer to artifacts and objects of human habitat; generic bayan 'camp/house/shelter'"
+      },
+      {
+        "domain": "weapon",
+        "basis": "§1.2.1.5 hunting weapons (fish and turtle spears, spear prongs/hooks); §3.1.2 generic kalka 'spear'"
+      },
+      {
+        "domain": "medicine",
+        "basis": "§1.2.1.6 Medicine: bush medicine yangka 'green ant' for fever/colds/stomach; poultices of kabal 'Leichardt tree' bark, jujubala 'ironwood tree' leaves; rrunyuji/murri doctor"
+      },
+      {
+        "domain": "fire",
+        "basis": "§3.1.2 generic baya 'fire (also firewood; classifies smoke, matches, hot ashes)'; §1.2.1.4 ground-oven cooking; §1.2.1.8 burning ironwood leaves/turtle skin to drive away storms"
+      },
+      {
+        "domain": "water",
+        "basis": "§3.1.2 generic bana 'water, liquid'; §1.1.3 springs/creeks/rivers; §1.2.1.1 bana yiralji 'with fresh water'; §1.2.1.8 wadalwadal water spirit, healing spring water"
+      },
+      {
+        "domain": "land",
+        "basis": "§3.1.2 generic bubu 'country, ground, earth, space'; kulji 'stone, rock, rock formation (not mountain)'; §1.2.1.1 descent-group 'countries' (bubu), yirmbal 'story place'; §1.1.3 territory/ecological zones"
+      },
+      {
+        "domain": "sky-weather",
+        "basis": "§3.1.2 nouns refer to celestial bodies and weather phenomena; generic muyar 'air, wind'; §1.2.1.8 thunderstorms; §1.2.1.8 kija 'moon'"
+      },
+      {
+        "domain": "speech-language",
+        "basis": "§3.1.2 nouns for human actions such as language, songs, dances and magic; kuku 'word, language' (§1.1.1); §1.2.1.3 avoidance language; §1.2.1.8 kanyil 'curse song'"
+      },
+      {
+        "domain": "social-ceremony",
+        "basis": "§1.2.1.1 mobs/ceremonies; §1.2.1.3 moieties walarr/dabu, totems; §1.2.1.8 initiation (nasal septum piercing, tooth extraction, cicatrices), kanyil curse song, sorcery"
+      },
+      {
+        "domain": "spirit-mythical-being",
+        "basis": "§3.1.2 'imaginable' things such as ghosts and spirits; §1.2.1.8 wuyngkul (spirit of sick person), wadalwadal (water spirit), creation beings kija, kurriyala, ngurrku, bajabaja; ngalbabulal 'Mount Pieter Botte'"
+      },
+      {
+        "domain": "place-name",
+        "basis": "§1.2.1.1 banabila, wujalwujal; §1.2.1.8 kijandaku 'Roaring Meg Falls', mangkal 'Cedar Bay', ngalbabulal 'Mount Pieter Botte', Thompson Creek; §1.1.3 territory"
+      },
+      {
+        "domain": "personal-name",
+        "basis": "§1.2.1.2 Personal names: Aboriginal names mostly withheld; nicknames e.g. jina-baji 'sore foot'; §1.2.1.7 ngalba (deceased-name substitute term)"
+      },
+      {
+        "domain": "tribal-group-name",
+        "basis": "§1.2.1.1 Tribal groups and names: -warra 'inhabitants of' (banabila-warra, wujalwujal-warra); ecological self-terms majaji 'with rainforest', ngalkalji 'with open woodland', jalunji 'with sea', bana yiralji 'with fresh water'"
+      },
+      {
+        "domain": "quantifier-number",
+        "basis": "§3.1.2 quantifiers: nyubun 'one', djambul 'two', kulurr 'three', plus general quantity terms (§3.2.5)"
+      },
+      {
+        "domain": "colour",
+        "basis": "§3.1.2 three colour terms: ngumbu 'dark', bingaji 'light', ngalangala 'red/reddish' (cf. mulamula 'bright red' from mula 'blood')"
+      },
+      {
+        "domain": "property-adjective",
+        "basis": "§3.1.2 adjectives denote size, dimension, value, age, physical/mental characteristics, texture, colour, taste; bingaji also 'old man'"
+      },
+      {
+        "domain": "location-time",
+        "basis": "§3.1.2 location and time words express points of reference in locational/temporal systems (§3.3.1, §3.4)"
+      },
+      {
+        "domain": "noise-sound",
+        "basis": "§3.1.2 several specific terms for different types of noises"
+      },
+      {
+        "domain": "interjection",
+        "basis": "§3.1.2 / §4.10 interjections: yuwu 'yes', kari 'no', plus encouragement/agreement/disagreement"
+      }
+    ],
+    "cultural_notes": [
+      "§1.2.1.1 Tribal groups: Kuku Yalanji society is closely associated with land. Six groups or 'mobs' are identified with particular territorial tracts focused on river drainage areas (Anderson 1980:78). Within each mob are descent groups associated with patrilineally inherited 'countries' (bubu), named by their country, e.g. banabila-warra 'inhabitants of Banabila', wujalwujal-warra 'inhabitants of Wujal Wujal'. The derivation -warra means 'inhabitants of' (§3.2.3.7).",
+      "§1.2.1.1: Descent groups care for their bubu, which usually contains one or more sites of spiritual/mythological significance called yirmbal 'story place'.",
+      "§1.2.1.1: Ecological self-designations distinguish dwellers: majaji 'with rainforest' vs ngalkalji 'with open woodland'; jalunji 'with sea' vs bana yiralji 'with fresh water'. These are comitative (-ji) derivations.",
+      "§1.2.1.2 Personal names: Aboriginal names mostly held by people over ~60; people are reticent to disclose them and rarely called openly by native names. Native-language nicknames in general use, e.g. jina-baji 'sore foot' (jina 'foot') for a man whose foot was injured by a stonefish as a boy.",
+      "§1.2.1.3 Social structure: Each Yalanji/Nyungkul speaker belongs to one of two moieties: walarr or dabu — both also names of bee species. Main totems: birrmba 'white cockatoo' (walarr) and kumurrbina 'black cockatoo' (dabu) (W. Oates & L. Oates 1964a).",
+      "§1.2.1.3 Marriage: A correct marriage partner belongs to the opposite moiety; children belong to the same moiety as their father. Formerly a man could have as many wives as he could support, also providing for in-laws.",
+      "§1.2.1.3 Obligatory sharing: Each family member had an intrinsic right to a particular portion of available food, ensuring provision for the elderly or sick; now extended to money supplies.",
+      "§1.2.1.3 Avoidance: Total avoidance between a man and his mother-in-law (no speaking, not in same room); less strict taboos on other in-law relationships (may converse but not touch). buliman 'policemen' (English loan) is cited. An avoidance language was formerly used among certain in-law relations but is now lost (no records); cf. Guugu Yimidhirr brother-in-law avoidance style (Haviland 1979a,b).",
+      "§1.2.1.4 Food: Rainforest and coastal strip gave abundant supplies: fruit/nuts (bush cherry, blue quandong, wild apple, figs, zamia nut, Moreton Bay chestnut), roots (yams, wild ginger), wild honey, smaller mammals (possums, bandicoot), birds and eggs (scrub hen, cassowary, Torres Strait pigeon), goannas, pythons (poisonous snakes NOT eaten), fresh- and saltwater turtles, fish, shellfish, crustaceans, insects (green ant, witchetty grub).",
+      "§1.2.1.4 Food preparation: zamia nut and hairy yam needed elaborate prep — roasting, pounding into flour, leaching in water for hours; zamia leaching removes a poisonous substance, hairy yam soaking removes unpleasant taste. Meat/fish roasted in a ground oven between hot stones and leaves (still used for freshwater eels on 'walkabout'). Boiling in a bark trough or large shell was traditional to the Bloomfield River region (unknown elsewhere in North Queensland).",
+      "§1.2.1.4: Native mammals, cassowaries and pythons have all but disappeared since the introduction of the poisonous cane toad; new food resources are mangoes and wild pigs.",
+      "§1.2.1.4 Cannibalism: not unknown but only practised under hunger; the victim was not killed for the purpose but eaten after death by natural causes or in a fight; no special term or ceremony (Roth 1901:30). Palmer River gold-rush stories: Chinese regarded as better eating than Europeans; a slain enemy's skull fashioned into a billycan (informant Charlie Tayley; Anderson & Mitchell 1981).",
+      "§1.2.1.5 Artefacts: Different types of dillybags and traditional hunting weapons such as fish and turtle spears are still made and used, but metal has replaced traditional materials for spear prongs and hooks.",
+      "§1.2.1.6 Medicine: Minor ailments treated with bush medicine, e.g. yangka 'green ant (juice)' for fever, colds and stomach upsets; poultices from stewed bark of kabal 'Leichardt tree' or leaves of jujubala 'ironwood tree' for rheumatic pain. Severe/chronic illness handled by the rrunyuji (also spelled rrunyunji) or murri doctor, who would extract 'by magic' a 'thing' (usually a stingray barb, later a marble) believed to be the cause of illness.",
+      "§1.2.1.7 Taboos: Food from certain places may be taboo — game/fish from the north-eastern part of Weary Bay is believed to bring severe illness (cancer, paralysis) and must not be eaten. Food collected by certain family members is taboo to certain siblings: a woman should not eat meat/fish obtained by her younger brother; a man should not eat certain plant foods and eggs gathered by his younger sister.",
+      "§1.2.1.7 Death/name taboo: Mention of a deceased person's name was totally proscribed while the body was decomposing (corpse wrapped in bark, placed in a tree over a fire until only bones left, carried by family then buried). The substitute term ngalba replaced the name for the deceased and living persons of the same name; now ngalba + name (e.g. 'ngalba Ivy') is used. ngalba is presumably cognate to Guugu Yimidhirr ngalba- 'hide, be hidden' (fn11). Recently deceased persons are talked about as little as possible; tape recordings of them must not be listened to.",
+      "§1.2.1.8 Other customs: Initiation practices (piercing of the nasal septum, front tooth extraction, 'marking' with cicatrices) have been discontinued over the last ~60 years. Persistent offenders (thieves, taboo-breakers) used to be speared, sometimes to death.",
+      "§1.2.1.8 Magic: kanyil 'curse song' — if wronged (e.g. adultery), a person would 'sing' the offender, believed to ultimately cause the culprit's death; last reported kanyil performed in the late 1930s (W. Oates & L. Oates 1964a). Death often attributed to sorcery; the rrunyunji would watch for the sorcerer's spirit (attracted by the dead person's belongings), and once identified the family had a duty to avenge by spearing.",
+      "§1.2.1.8 Weather/belief: Thunderstorms (early November to end of December) are greatly feared; trespassing on a sacred site is thought to bring a storm; burning ironwood leaves or turtle skin is believed to drive a storm away.",
+      "§1.2.1.8 Messenger birds: wakuka 'kookaburra' is thought to herald the death of a family member.",
+      "§1.2.1.8 Spirits: wuyngkul = spirit of a sick person close to death, moving about causing mischief (accidents, sudden pain), visible to gifted people, disappearing on the death/recovery of the sick person. wadalwadal = a water spirit with female body and fishtail, living in a spring in the Thompson Creek valley, associated with one particular Yalanji family clan; tolerates rightful family members who may use its healing spring water.",
+      "§1.2.1.8 Creation myths: kija 'moon' created women at kijandaku 'Roaring Meg Falls'; kurriyala 'carpet snake' died and is buried at mangkal 'Cedar Bay'; ngurrku 'mopoke'; bajabaja 'blue tongue lizard', whose eggs hatched in the dry Bloomfield River bed and turned into two prominent rocks. All rivers/creeks originate from the amniotic fluid of one of two sisters who gave birth at ngalbabulal 'Mount Pieter Botte' (between Bloomfield and Daintree).",
+      "§1.1.1: kuku means 'word, language'; the language name Kuku Yalanji = 'the language with \"this\"' (yala-nji 'this-COMIT'). Several dialect names comprise kuku (koko) + a characteristic marked by comitative -ji (§3.2.3.3).",
+      "§1.1.4 Creole: A Cape York Creole is in use, with features: -im on English transitive verb roots (put-im, chuck-im); -bala on adjectives (deadbala 'dead person', flash-bala 'distinguished', slightly derogatory); blonga/bla for possession (car blonga/bla Cedric); lexical items too much, big mob 'a lot', savvy 'know'.",
+      "§3.1.2: Generic nouns can stand alone or act as classifiers (§4.1.1(c)): bama 'Aboriginal person', dingkar 'male', jalbu 'female', jawun 'unspecified family member (now generally friend)', minya 'edible animal (incl. birds and fish)', dikal 'bird', jarba 'snake', kuyu 'fish', mayi 'edible plants (also meal/food in general)', juku 'tree (classifies anything wooden)', bubu 'country, ground, earth, space', kulji 'stone, rock, rock formation (not mountain)', bana 'water, liquid', muyar 'air, wind', baya 'fire (also firewood; classifies smoke, matches, hot ashes)', kalka 'spear', bayan 'camp, house, shelter', junjuy 'something, anything'.",
+      "§3.1.2 Colour: only three colour terms — ngumbu 'dark', bingaji 'light', ngalangala 'red, reddish'. bingaji also means 'old man' (presumably from white hair); ngalangala may be reduplicated, cf. mulamula 'bright red' from mula 'blood' (no analysable root ngala).",
+      "§3.1.2 Emotion/state compounds: jiba-badiy 'feel sorry, sad' (lit. liver-cry); wawulay 'feel exhausted' (wawu-wulay 'breath-die'). Bodily/mental-state nouns: warngku 'sleep', kaka 'pain', kuli 'anger', kuru '(female) love or lust'.",
+      "§3.1.2 Numbers: nyubun 'one', djambul 'two', kulurr 'three' (note: djambul OCR — orthography elsewhere likely jambul); plus general quantity terms (§3.2.5).",
+      "§3.1.2 / §4.10 Interjections: yuwu 'yes', kari 'no', plus general encouragement/agreement/disagreement.",
+      "§1.1.3 Territory/ecology: Three ecological zones — open woodland (west of the Great Dividing Range), dense rainforest (eastern slopes to the coast, permanent springs/creeks/rivers, abundant game/plant food/fish), and coastal plains (river mouths e.g. Bloomfield & Daintree; coastal thicket and mangrove swamps; plentiful fish and maritime fauna). Yalanji and Nyungkul traditionally inhabited the rainforest terrain where Wujal Wujal Community now sits."
+    ],
+    "notes": "Read range covers §1.1.2 (dialects + Table 1.1), §1.2 (culture, §§1.2.1.1-1.2.1.8 and 1.2.2-1.2.3), and §3.1.2 (semantic content of word classes). Key OCR/reconstruction notes: (1) The task references a {} curly-brace dialect-marking notation, but NO such notation is defined anywhere in the read range — the only explicit convention is that example sentences default to Yalanji and Nyungkul differences are flagged explicitly in prose (§1.1.2). I did not invent a brace convention. (2) 'djambul' (§3.1.2 'two') is rendered with dj- in the OCR; the practical orthography described in §2.1.x uses j, so the intended form is likely 'jambul' — flagged, not silently changed. (3) The medicine man's term appears as both 'rrunyuji' (§1.2.1.6) and 'rrunyunji'/'rrunyunji' (§1.2.1.6, §1.2.1.8) in the text; both spellings are reproduced as printed. (4) Table 1.1 has minor OCR cell mis-alignment; I reconstructed dialect rows by cross-referencing the Map 2 numbered legend (lines 516-527) and the three source columns (Tindale 1974 / Brady, Anderson & Rigsby 1980 / Dixon fieldnotes 1960s). Asterisk (*) = data collected for that dialect. (5) Dialect counts: §1.1.2 states 'about a dozen' / 'thirteen' previously identified dialects; Map 2 legend numbers 1-12 plus parenthesised entries. (6) 'jujubala' is given as 'ironwood tree' in §1.2.1.6 but §1.2.1.8 also refers to 'ironwood leaves' for storms (consistent). (7) Footnote numbering in the OCR (fn 8, 9, 10, 11) is interleaved out of order with body text; content reconciled. All facts cited to their section numbers for traceability. The two genuinely living dialects for dictionary enrichment are Yalanji (default) and Nyungkul (marked)."
+  },
+  "loan": {
+    "phonological_rules": [
+      "(§2.3(i)) Kuku Yalanji stops /b/ and /j/ correspond to English fricatives closest in place of articulation: /b/ corresponds to English /v, f/; /j/ corresponds to English /s, z, ʃ, ʒ/. Examples: naybu 'knife', aybi 'Ivy (name)', buji 'pussy (cat)', juka 'sugar', maji 'matches'.",
+      "(§2.3(ii)) English voiceless and aspirated stops become unaspirated and usually voiced. NOTE: orthographic k in Kuku Yalanji normally represents voiced [g]. Examples (OCR notes intended forms): dubayku 'tobacco', muduka/mudaka 'motorcar'. (Informant gloss: 'pussycat' -> buji/bujiga, not aspirated phussikhath.)",
+      "(§2.3(iii)) English /t/ and /s/ before a velar stop become Kuku Yalanji /rr/ (retroflex/trilled rhotic, written rr). Examples: marrkin 'musket (rifle)' (< musket), warrkin 'Watkins' (place name, < Watkins).",
+      "(§2.3(iv)) English consonant clusters consisting of a stop or fricative PLUS a sonorant are broken up by inserting a vowel. Examples: jarruja 'trousers', gilaja 'glass (mirror)', bulawu 'flour', banabul 'pineapple'. If an INITIAL cluster is broken up, the inserted vowel is stressed per the word-stress rule (§2.6.1), e.g. jarruja. The grammar states examples are too few to predict WHICH vowel is inserted.",
+      "(§2.3(iv), continued) An INITIAL fricative+stop consonant cluster is instead simplified by DROPPING the first consonant, e.g. buwun 'spoon' (< spoon; the only example in the data).",
+      "(§2.3(v)) English loans with an initial vowel are preceded by a semivowel: /w/ before a back vowel, /y/ before a front or central vowel. Examples: wulman 'old man' (< old man), yalibala 'early' (< early).",
+      "(§2.3(vi)) Lateral /l/ is the one normally-disallowed initial consonant that IS retained in loanwords, e.g. landin 'Landing' (place name). No loans with an original initial rhotic (r/rr) have been attested.",
+      "(§2.3(vii)) Monosyllabic English roots are made disyllabic, EITHER by inserting a semivowel sequence within the root (e.g. buwun 'spoon', biyin '(safety) pin'), OR by adding a final vowel if the original or adapted root ends in a stop (e.g. biki / bikibiki 'pig', juki 'chook (hen)', baybu 'pipe', naybu 'knife'). No generalisation on the choice of final vowel is possible.",
+      "(§2.3(viii)) Final consonants not permitted in Kuku Yalanji phonotactics are adapted by one of four means: (a) adding a vowel after an original or adapted stop (as in (vii) and gilaji 'glass', mijiji 'Mrs'); (b) changing a stop to the corresponding nasal (marrkin 'musket'); (c) changing a peripheral nasal to a non-peripheral one (landin 'Landing'); (d) simply dropping the final consonant (jarruja 'trousers', bujika 'pussycat', warrkin 'Watkins').",
+      "(§2.3(ix)) Vowel adaptation: data is insufficient for a full generalisation, except that Kuku Yalanji vowels on the whole approximate the English vowel, and English [ɛ] or [æ] and the diphthong [aɪ] before a consonant tend to become /ay/ in Kuku Yalanji, e.g. mayngku 'mango', dubayka 'tobacco', baybu 'pipe'.",
+      "(§2.3 general) Only about a score (~20) of English loans became an integral part of the lexicon. Phonological adaptation of loans largely CEASED about one generation before the grammar (Donaldson 1980:62) with rising bilingualism; younger speakers use English words (car, aeroplane, church, store, soft-drink) with English pronunciation but with Kuku Yalanji inflectional affixes (see §3.12). Only older speakers (~60+) still partially adapt newer words (e.g. telelzision [OCR for 'television'], job job for 'Cop Shop')."
+    ],
+    "attested_loans": [
+      {
+        "kuku_yalanji": "naybu",
+        "english_source": "knife",
+        "note": "§2.3(i),(vii): /b/<English fricative; monosyllabic root made disyllabic by added final vowel"
+      },
+      {
+        "kuku_yalanji": "aybi",
+        "english_source": "Ivy (name)",
+        "note": "§2.3(i): /b/ corresponds to English /v/"
+      },
+      {
+        "kuku_yalanji": "buji",
+        "english_source": "pussy (cat)",
+        "note": "§2.3(i): /j/<English /s/; cf. bujika 'pussycat' below"
+      },
+      {
+        "kuku_yalanji": "juka",
+        "english_source": "sugar",
+        "note": "§2.3(i): /j/<English /ʃ/; also §2.3 listed as well-adapted older-speaker loan. NOTE: also spelled 'juka' in §2.3 intro for 'sugar'"
+      },
+      {
+        "kuku_yalanji": "maji",
+        "english_source": "matches",
+        "note": "§2.3(i): /j/ corresponds to English fricative /ʃ/"
+      },
+      {
+        "kuku_yalanji": "binjin",
+        "english_source": "petrol (English 'benzene' / possibly German 'Benzin')",
+        "note": "§2.3(i): DISPUTED/uncertain etymology; Patz cannot place it with certainty; possibly a loan from German Benzin via German missionaries rather than English"
+      },
+      {
+        "kuku_yalanji": "dubayku",
+        "english_source": "tobacco",
+        "note": "§2.3(ii),(ix): voiceless stops voiced/unaspirated; [aɪ]->/ay/. Variant dubayka also cited in §2.3(ix)"
+      },
+      {
+        "kuku_yalanji": "muduka",
+        "english_source": "motorcar",
+        "note": "§2.3(ii): voiceless stops voiced/unaspirated. NOTE: also given as 'mudaka' and 'muduka' in §2.3 (OCR/spelling variation); listed as well-adapted older-speaker loan for 'motorcar'"
+      },
+      {
+        "kuku_yalanji": "marrkin",
+        "english_source": "musket (rifle)",
+        "note": "§2.3(iii),(viii)(b): /s/ before velar stop -> /rr/; final stop changed to corresponding nasal"
+      },
+      {
+        "kuku_yalanji": "warrkin",
+        "english_source": "Watkins (name of an English settler; a place name)",
+        "note": "§2.3(iii),(viii)(d): /t/ before velar stop -> /rr/; final consonant dropped"
+      },
+      {
+        "kuku_yalanji": "jarruja",
+        "english_source": "trousers",
+        "note": "§2.3(iv),(viii)(d): initial cluster broken up by stressed inserted vowel; final consonant dropped"
+      },
+      {
+        "kuku_yalanji": "gilaja",
+        "english_source": "glass (mirror)",
+        "note": "§2.3(iv): consonant cluster broken up by vowel insertion. Cf. gilaji 'glass' in (viii)(a)"
+      },
+      {
+        "kuku_yalanji": "gilaji",
+        "english_source": "glass",
+        "note": "§2.3(viii)(a): final consonant adapted by adding a vowel after adapted stop. Note gilaja '(mirror)' vs gilaji 'glass' both attested"
+      },
+      {
+        "kuku_yalanji": "bulawu",
+        "english_source": "flour",
+        "note": "§2.3(iv): cluster broken up by vowel insertion; also §2.3 listed as well-adapted older-speaker loan for 'flour'"
+      },
+      {
+        "kuku_yalanji": "banabul",
+        "english_source": "pineapple",
+        "note": "§2.3(iv): consonant cluster broken up by vowel insertion; also listed as well-adapted older-speaker loan"
+      },
+      {
+        "kuku_yalanji": "buwun",
+        "english_source": "spoon",
+        "note": "§2.3(iv),(vii): initial fricative+stop cluster simplified by dropping first consonant; monosyllabic root made disyllabic by inserting a semivowel sequence; the only fricative+stop example in the data"
+      },
+      {
+        "kuku_yalanji": "wulman",
+        "english_source": "old man",
+        "note": "§2.3(v): initial-vowel loan preceded by /w/ before a back vowel"
+      },
+      {
+        "kuku_yalanji": "yalibala",
+        "english_source": "early",
+        "note": "§2.3(v): initial-vowel loan preceded by /y/ before a front/central vowel"
+      },
+      {
+        "kuku_yalanji": "landin",
+        "english_source": "Landing (place name: confluence of Thompson Creek and Bloomfield River with a landing ramp)",
+        "note": "§2.3(vi),(viii)(c): initial lateral /l/ retained (otherwise disallowed); final peripheral nasal changed to non-peripheral (n)"
+      },
+      {
+        "kuku_yalanji": "biyin",
+        "english_source": "(safety) pin",
+        "note": "§2.3(vii): monosyllabic root made disyllabic by inserting a semivowel sequence"
+      },
+      {
+        "kuku_yalanji": "biki",
+        "english_source": "pig",
+        "note": "§2.3(vii): monosyllabic root ending in stop made disyllabic by adding final vowel; reduplicated variant bikibiki also attested"
+      },
+      {
+        "kuku_yalanji": "bikibiki",
+        "english_source": "pig",
+        "note": "§2.3(vii): reduplicated variant of biki 'pig'"
+      },
+      {
+        "kuku_yalanji": "juki",
+        "english_source": "chook (hen)",
+        "note": "§2.3(vii): monosyllabic root ending in stop made disyllabic by adding final vowel"
+      },
+      {
+        "kuku_yalanji": "baybu",
+        "english_source": "pipe",
+        "note": "§2.3(vii),(ix): final vowel added to root ending in stop; [aɪ]->/ay/"
+      },
+      {
+        "kuku_yalanji": "mijiji",
+        "english_source": "Mrs",
+        "note": "§2.3(viii)(a): final consonant adapted by adding a vowel; /j/ corresponds to English sibilant"
+      },
+      {
+        "kuku_yalanji": "bujika",
+        "english_source": "pussycat",
+        "note": "§2.3(viii)(d): final consonant dropped (cat). Informant cited variant bujiga"
+      },
+      {
+        "kuku_yalanji": "mayngku",
+        "english_source": "mango",
+        "note": "§2.3(ix): English [æ] / vowel before consonant -> /ay/"
+      },
+      {
+        "kuku_yalanji": "kambi",
+        "english_source": "NOT a loan — native word 'flying fox' semantically extended to 'clothes'",
+        "note": "§2.3: example of the OTHER naming strategy (meaning extension), NOT phonological loan. Listed only to flag it should NOT be treated as a loan."
+      },
+      {
+        "kuku_yalanji": "diburr",
+        "english_source": "NOT a loan — native word 'eggs' extended to 'bullets'",
+        "note": "§2.3: meaning-extension strategy, not a phonological loan"
+      },
+      {
+        "kuku_yalanji": "waybala",
+        "english_source": "white fellow / white man (< 'white' + Pidgin 'fellow')",
+        "note": "§3.12: cited as model for -bala adjective suffix; itself a Pidgin-derived loan"
+      },
+      {
+        "kuku_yalanji": "telelzision",
+        "english_source": "television",
+        "note": "§2.3: OCR garble; intended 'television'. Cited as a partially-adapted newer word used by older speakers; NOT a fully integrated loan"
+      },
+      {
+        "kuku_yalanji": "job job",
+        "english_source": "Cop Shop (1980 TV program name)",
+        "note": "§2.3: partially-adapted nickname used by older speakers; NOT a standard lexical loan"
+      }
+    ],
+    "detection_heuristics": [
+      "A word glossing a post-contact / European-introduced commodity (car, flour, sugar, knife, pipe, pig, hen, glass, trousers, tobacco, matches, etc.) is a candidate loan (§2.3).",
+      "Presence of /b/ where the English source has /v/ or /f/, or /j/ where English has /s/, /z/, /ʃ/, /ʒ/, strongly indicates a loan (§2.3(i)). E.g. naybu<knife, buji<pussy, maji<matches.",
+      "Voiced/unaspirated stops corresponding to English voiceless stops (English p,t,k -> Yalanji b,d,k[=g]) signal a loan; orthographic k = [g] (§2.3(ii)).",
+      "A medial -rr- corresponding to English /t/ or /s/ immediately before a velar stop suggests a loan (§2.3(iii)): marrkin<musket, warrkin<Watkins.",
+      "An epenthetic vowel splitting what is an English stop/fricative+sonorant cluster (e.g. -CVC- where English had a cluster) flags a loan: jarruja<trousers, gilaja<glass, bulawu<flour, banabul<pineapple (§2.3(iv)).",
+      "Initial w- before a back vowel or y- before a front/central vowel that has no native morphological motivation may be a prothetic semivowel on a vowel-initial English root: wulman<old man, yalibala<early (§2.3(v)).",
+      "A word-INITIAL lateral l- is anomalous for native Kuku Yalanji phonotactics and therefore points to a loan (§2.3(vi)): landin<Landing. (Word-initial rhotics do not occur in loans.)",
+      "Internal -Vw V- or -ViV- semivowel sequences, or a 'extra' final vowel after a stop, may mark a monosyllabic English root forced to be disyllabic: buwun<spoon, biyin<pin, biki<pig, juki<chook, baybu<pipe, naybu<knife (§2.3(vii)).",
+      "An /ay/ diphthong corresponding to English [ɛ], [æ], or [aɪ] before a consonant suggests a loan: mayngku<mango, dubayka<tobacco, baybu<pipe (§2.3(ix)).",
+      "Final -i or -a appearing as an apparent stem extension after what would be an English-final stop, or a final consonant changed to its corresponding nasal, points to phonotactic loan repair: gilaji<glass, mijiji<Mrs, marrkin<musket, landin<Landing (§2.3(viii)).",
+      "Morphological tells (§3.12): a -bala-suffixed adjective (drunk-bala, brown-bala, waybala) is a Pidgin-derived English loan; a noun bearing catalytic -mun- before case (car-mun-du) is an English loan stem; an English-looking verb root carrying -im- + -bunga-l/-ba-l (fix-im-bunga-l, push-im-bunga-l) or -ma-l / -mani-l is a borrowed English verb.",
+      "Beware false positives: native words semantically EXTENDED to new referents (kambi 'flying fox'->'clothes', diburr 'eggs'->'bullets', mayi karraji 'fruit with strings'->'mangoes') are NOT phonological loans (§2.3) and must not be tagged as English loans despite the European gloss.",
+      "Loans entering after ~1 generation before the grammar typically retain English pronunciation (no phonological adaptation) and surface only with native inflection; absence of the above phonological signatures does NOT rule out a recent loan (§2.3, §3.12)."
+    ],
+    "morphological_adaptation": "(§3.12) English loans are integrated morphologically, sometimes with no phonological adaptation. (1) NOUNS: English noun roots of any syllable count usually take the CATALYTIC suffix -mun- before inflections or stem-forming suffixes, e.g. car-mun-du (LOC), school-mun-ku (DAT), motorbike-mun-ji (COMIT). The -mun- is NOT obligatory; loans are often attested without it, e.g. toyota-nga (LOC), Chris-angka (ERG, proper noun; OCR 'Chrisangka'), car-nga (LOC). (2) ADJECTIVES: English adjectives take -bala (a Pidgin feature, < 'fellow', cf. waybala 'white man'), e.g. drunk-bala, brown-bala, busy-bala-baja-ku 'very busy'. (3) VERBS: English verbs are borrowed as nominal roots then verbalised by inchoative or causative derivation. INTRANSITIVE verbs take the inchoative verbaliser -ma-l; if the root is monosyllabic the inchoative suffix is usually REDUPLICATED, e.g. travel-ma-l, shift-ma-l-ma-l. The verb 'work' often takes the causative suffix -mani-l (used with intransitive verbs, §3.8.5.1) but in passivised form with -ji-, e.g. ngayu work-ma-n-mani-ji-ny 'I worked (lit. I was made to work)'. TRANSITIVE verb roots take -im- (< Pidgin 'him', cf. 'fix him', Crowley & Rigsby 1979) before the transitive verbaliser -bunga-l ~ -ba-l, e.g. fix-im-bunga-l (~ fix-im-ba-l), push-im-bunga-l, count-im-bunga-l, polish-im-bunga-l. Only -bunga-l (NOT -kanga-l) is used with English verbs.",
+    "notes": "SECTION CITATIONS: All phonological rules and loan forms are from §2.3 'Phonological adaptation of English loan words' (grammar.md lines 1043-1111); morphological adaptation is from §3.12 (lines 3969-3979). Patz draws the nine generalisations from Dixon 1972:326; see also Dixon, Ramson & Thomas 1990 ch.5 and Donaldson 1980:62.\n\nOCR ARTEFACTS / RECONSTRUCTIONS (intended forms): 'orjiri-burr' (line 1045) likely an OCR garble of a native compound glossed 'through the sky' for 'aeroplane' (meaning-extension example, not a loan). 'IITI' / 'IIT/' in rule (iii) = the rhotic /rr/. 'Iwl'='/w/', 'Iyl'='/y/', 'layl'/'IayI'='/ay/', 'lsi'='/s/', 'It I'='/t/' (OCR of slashes as capital I/l). 'injarruja' (line 1110) = 'in jarruja' ('as in jarruja'). 'telelzision' = 'television'. Motorcar form appears variably as 'mudaka', 'muduka', and 'muduka' across the text; 'juka'/'juka' for sugar; 'dubayku'/'dubayka' for tobacco; 'gilaja' (mirror) vs 'gilaji' (glass) are both given. These spelling variants are in the source, not introduced here.\n\nKEY DISTINCTION for the dictionary pipeline: §2.3 documents TWO post-contact naming strategies. (A) Meaning extension of native words (kambi, diburr, mayi karraji, the aeroplane compound) - these are NATIVE words and must NOT be classified as English loans even though their gloss names a European item. (B) Phonological adaptation of the English name (all the loan forms in attested_loans). Detection must separate these.\n\nABBREVIATIONS used: LOC=locative, DAT=dative, COMIT=comitative, ERG=ergative, pt=proper noun/personal (Patz's gloss for the Chris-angka ergative-proper form). The transitive verbaliser is -bunga-l ~ -ba-l (allomorphs); -im- < 'him' and -bala < 'fellow' are Pidgin/creole-derived (Crowley & Rigsby 1979)."
+  }
+}

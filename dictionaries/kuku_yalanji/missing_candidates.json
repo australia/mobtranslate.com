@@ -1,0 +1,2129 @@
+[
+ {
+  "root": "waju",
+  "glosses": [
+   "burn",
+   "burn, light (fire), cook",
+   "cook",
+   "cook, boil",
+   "cook, burn"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "Text 51, line 64",
+   "ex.(133)",
+   "ex.(37)",
+   "ex.(467)",
+   "ex.(633),(658)",
+   "ex.(65)",
+   "ex.(97)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "waja",
+   "waji-waji"
+  ]
+ },
+ {
+  "root": "mayngku",
+  "glosses": [
+   "mango",
+   "mango (loanword)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(167)",
+   "ex.(347)/(362)",
+   "ex.(481)",
+   "ex.(79)",
+   "§2.3 (ix); ex.(21)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "maya",
+   "mayal",
+   "mayarriji",
+   "mayi",
+   "ma"
+  ]
+ },
+ {
+  "root": "kararr",
+  "glosses": [
+   "blanket",
+   "grass, blanket to lie on",
+   "sheet, blanket"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(153)",
+   "ex.(416)",
+   "ex.(563)",
+   "§2.1.1 (minimal pairs)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "karangaji",
+   "karangal",
+   "karangkal",
+   "Karrulbu",
+   "Karu-kumbu",
+   "Karulkumba"
+  ]
+ },
+ {
+  "root": "waju-l",
+  "glosses": [
+   "burn, cook",
+   "cook, burn",
+   "cook; burn, light (fire)"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(380)/(409)/(424)",
+   "§2.4 (i); cf. wajuny ex.(37)",
+   "§3.8.2.1, ex.(160), ex.(164)",
+   "§3.8.5.5(i) table; ex.(209)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "waja",
+   "waji-waji"
+  ]
+ },
+ {
+  "root": "yanya",
+  "glosses": [
+   "this",
+   "this (cataphoric demonstrative)",
+   "this (demonstrative)",
+   "this (demonstrative, Nyungkul 'this/these')"
+  ],
+  "pos": [
+   "demonstrative"
+  ],
+  "sources": [
+   "Text 51, line 72",
+   "ex.(123) / Table 3.12",
+   "ex.(361)/(429)/(431)",
+   "§5.2.1.1 ex.(625),(649)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yanyil",
+   "yanday",
+   "yanday-bungal",
+   "yanday-nyajil",
+   "yangka",
+   "yangkija"
+  ]
+ },
+ {
+  "root": "dakuy",
+  "glosses": [
+   "hungry"
+  ],
+  "pos": [
+   "adjective"
+  ],
+  "sources": [
+   "ex.(511)",
+   "ex.(82)",
+   "§2.4 (iii); ex.(16)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "dakumbar",
+   "dakal",
+   "dakaldakal",
+   "dakandil",
+   "daki-daki",
+   "dakil"
+  ]
+ },
+ {
+  "root": "yanyu",
+  "glosses": [
+   "this",
+   "this/these (Yalanji demonstrative pronoun)"
+  ],
+  "pos": [
+   "demonstrative"
+  ],
+  "sources": [
+   "Table 3.12 / Table 3.13",
+   "§2.1.2 (initial /y/ examples)",
+   "§4.1.1(d)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yanyil",
+   "yanday",
+   "yanday-bungal",
+   "yanday-nyajil",
+   "yangka",
+   "yangkija"
+  ]
+ },
+ {
+  "root": "bakarrmuku",
+  "glosses": [
+   "Wakooka Station (place name)"
+  ],
+  "pos": [
+   "locational",
+   "noun"
+  ],
+  "sources": [
+   "Text 51, line 2-3",
+   "ex.(651)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "bakarr",
+   "bakal",
+   "bakamu",
+   "bakay",
+   "Bakikiri",
+   "Baku"
+  ]
+ },
+ {
+  "root": "buyun-dama-l",
+  "glosses": [
+   "spoil (lit. make bad)",
+   "spoil (lit: bad-spear)"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(436)",
+   "§3.8.5.2"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "buyun",
+   "buyun-buyun",
+   "buyunkay",
+   "buyukal",
+   "buyay-manil",
+   "buyi"
+  ]
+ },
+ {
+  "root": "janjarri-l",
+  "glosses": [
+   "investigate",
+   "laugh about, ridicule"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "§3.8.3.2(ii)",
+   "§4.2.4.4"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "janjarr-janjarr",
+   "janji-manil",
+   "janjil",
+   "jana",
+   "janay",
+   "janay-manil"
+  ]
+ },
+ {
+  "root": "jujubala",
+  "glosses": [
+   "ironwood",
+   "ironwood tree"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(164)",
+   "§1.2.1.6"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "juju",
+   "juju-juju dungay",
+   "jujabala",
+   "ba",
+   "bala"
+  ]
+ },
+ {
+  "root": "wanjarrinya",
+  "glosses": [
+   "how many"
+  ],
+  "pos": [
+   "interrogative"
+  ],
+  "sources": [
+   "ex.(583)",
+   "§3.6.1 (list) / §3.6.1"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "wanjarr",
+   "wanjarrku",
+   "wanja",
+   "wanja-wanja",
+   "wanjabu",
+   "wanjaburr"
+  ]
+ },
+ {
+  "root": "warndi",
+  "glosses": [
+   "get up, rise",
+   "get up, rise, stand up"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "Text 51, line 96",
+   "ex.(646)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "warngku",
+   "warngku wunay",
+   "warngku-baka",
+   "warngku-kaday",
+   "warngku-kaja wunay",
+   "wara"
+  ]
+ },
+ {
+  "root": "warndi-y",
+  "glosses": [
+   "get up from sitting or lying position",
+   "get up, rise"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(326) warndi-mani-ny",
+   "§2.2.1 (rare cluster /rnd/)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "warngku",
+   "warngku wunay",
+   "warngku-baka",
+   "warngku-kaday",
+   "warngku-kaja wunay",
+   "wara"
+  ]
+ },
+ {
+  "root": "yah",
+  "glosses": [
+   "hey (interjection)",
+   "hey (to attract attention)"
+  ],
+  "pos": [
+   "interjection"
+  ],
+  "sources": [
+   "Text 51, line 8",
+   "§4.10"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "ya"
+  ]
+ },
+ {
+  "root": "yuwulbuwun",
+  "glosses": [
+   "Jeannie River (place name)"
+  ],
+  "pos": [
+   "locational",
+   "noun"
+  ],
+  "sources": [
+   "Text 51, line 4",
+   "ex.(637),(651)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yuwu",
+   "buwun"
+  ]
+ },
+ {
+  "root": "aybi",
+  "glosses": [
+   "Ivy (personal name, loanword)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§2.3 (i)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "ngaybirr"
+  ]
+ },
+ {
+  "root": "banbadi",
+  "glosses": [
+   "cry (reduplicated stem)"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(479)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "Banbanba",
+   "banbanba",
+   "Bangkal-ngaran",
+   "bana",
+   "banabila",
+   "banabila-warra"
+  ]
+ },
+ {
+  "root": "banbadi-l",
+  "glosses": [
+   "cry"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(439)/(454)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "Banbanba",
+   "banbanba",
+   "Bangkal-ngaran",
+   "bana",
+   "banabila",
+   "banabila-warra"
+  ]
+ },
+ {
+  "root": "bijarri-l",
+  "glosses": [
+   "to dream"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§3.8.2.2(i)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "bijarr",
+   "bijal",
+   "bijalabay",
+   "bijan",
+   "biji",
+   "bijikan"
+  ]
+ },
+ {
+  "root": "biki",
+  "glosses": [
+   "pig (loanword)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§2.3 (vii)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "bikibiki",
+   "bikarr",
+   "bikarrakal",
+   "bikarrakul",
+   "biku-nyajil"
+  ]
+ },
+ {
+  "root": "binainyji",
+  "glosses": [
+   "fig-like fruit"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§2.4 minimal pairs"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "binal",
+   "binal-bungal",
+   "binal-damaji",
+   "binalku",
+   "binan",
+   "binanjal"
+  ]
+ },
+ {
+  "root": "binjin",
+  "glosses": [
+   "petrol (loanword)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§2.3 (i)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "binju",
+   "binjul-binjul",
+   "binjurr-binjurr",
+   "binjurrbinjurr",
+   "Binda-babarra",
+   "Binda-dijarr"
+  ]
+ },
+ {
+  "root": "biringal",
+  "glosses": [
+   "scorpion"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(356)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "birinjil",
+   "bira",
+   "biray",
+   "birbun",
+   "birmba",
+   "birra"
+  ]
+ },
+ {
+  "root": "biyin",
+  "glosses": [
+   "(safety) pin (loanword)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§2.3 (vii)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "biyal",
+   "biyangkal",
+   "biyul"
+  ]
+ },
+ {
+  "root": "budmandu",
+  "glosses": [
+   "portmanteau, suitcase, port"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(392)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "buda",
+   "budida",
+   "budukul",
+   "ma"
+  ]
+ },
+ {
+  "root": "bulin",
+  "glosses": [
+   "plate"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(200)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "buliman",
+   "bula",
+   "bularr",
+   "bulawu",
+   "bulba",
+   "bulban"
+  ]
+ },
+ {
+  "root": "bundanda-l",
+  "glosses": [
+   "sit (reduplicated of bunda-l), stay"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(379)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "bunda",
+   "bunday",
+   "bungkay",
+   "bungku",
+   "bungku-duray",
+   "bungku-jaba"
+  ]
+ },
+ {
+  "root": "buyandi-l",
+  "glosses": [
+   "put in container (tr)"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "§3.8.2.2(iv)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "buyay-manil",
+   "buyi",
+   "buyilbuyil",
+   "buyku",
+   "buykuji",
+   "buymbil"
+  ]
+ },
+ {
+  "root": "buya-warri-y",
+  "glosses": [
+   "to break wind (lit: fart-run)"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.2"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "buyay-manil",
+   "buyi",
+   "buyilbuyil",
+   "buyku",
+   "buykuji",
+   "buymbil"
+  ]
+ },
+ {
+  "root": "dada",
+  "glosses": [
+   "daddy"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "Text 36, line 7"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "Kubidada",
+   "binda-damal"
+  ]
+ },
+ {
+  "root": "dakuy-ma",
+  "glosses": [
+   "get hungry (hungry-INCHO)"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(511)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "dakumbar",
+   "dakal",
+   "dakaldakal",
+   "dakandil",
+   "daki-daki",
+   "dakil"
+  ]
+ },
+ {
+  "root": "dukul-warri-y",
+  "glosses": [
+   "throw a tantrum (lit: head-run)"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.2"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "dukul-wuri",
+   "dukul",
+   "dukul bajibay",
+   "dukul-barangkal",
+   "dukul-dandi",
+   "dukul-dukul"
+  ]
+ },
+ {
+  "root": "gilaja",
+  "glosses": [
+   "glass, mirror (loanword)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§2.3 (iv),(viii)"
+  ],
+  "confidence": "high",
+  "near_headwords": []
+ },
+ {
+  "root": "janangan",
+  "glosses": [
+   "them (3pl accusative)"
+  ],
+  "pos": [
+   "personal-pronoun"
+  ],
+  "sources": [
+   "ex.(639),(645)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "jana",
+   "janay",
+   "janay-manil",
+   "janbal",
+   "janban",
+   "janbangaji"
+  ]
+ },
+ {
+  "root": "janjarriji-y",
+  "glosses": [
+   "laugh at in a friendly way"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§4.2.4.4"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "janjarr-janjarr",
+   "janji-manil",
+   "janjil",
+   "jana",
+   "janay",
+   "janay-manil"
+  ]
+ },
+ {
+  "root": "janyiman",
+  "glosses": [
+   "Chinese person"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(643)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "jana",
+   "janay",
+   "janay-manil",
+   "janbal",
+   "janban",
+   "janbangaji"
+  ]
+ },
+ {
+  "root": "jibabadi",
+  "glosses": [
+   "be sad"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(559)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "jibabu nyajil",
+   "jibabu-nyajil",
+   "jiba",
+   "jiba-janay",
+   "jiba-jurrkiji",
+   "jiba-ngulkurmal"
+  ]
+ },
+ {
+  "root": "jilba-dunga",
+  "glosses": [
+   "walk, go for a walk"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(495)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "jilba",
+   "jilba-burra",
+   "jilbar",
+   "jila",
+   "jila-burra",
+   "jila-warri"
+  ]
+ },
+ {
+  "root": "jilba-dunga-l",
+  "glosses": [
+   "walk, go for a walk"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(379)/(446)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "jilba",
+   "jilba-burra",
+   "jilbar",
+   "jila",
+   "jila-burra",
+   "jila-warri"
+  ]
+ },
+ {
+  "root": "jinabaji",
+  "glosses": [
+   "personal name"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§4.1.1(a)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "jinabiju",
+   "jinabu dungay",
+   "jina",
+   "jina-jina",
+   "jinajina",
+   "jinali"
+  ]
+ },
+ {
+  "root": "jirayma-l",
+  "glosses": [
+   "long for, crave"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§3.8.2.2(ii), §3.8.3.1"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "jiray",
+   "jirabay",
+   "jirakal",
+   "jiral-jiral",
+   "jiri",
+   "jiri bajaku"
+  ]
+ },
+ {
+  "root": "juki",
+  "glosses": [
+   "chook, hen (loanword)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§2.3 (vii)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "jukijuki",
+   "juka",
+   "jukar",
+   "jukar-jukarbina",
+   "jukar-warra",
+   "juku"
+  ]
+ },
+ {
+  "root": "juyuy",
+  "glosses": [
+   "that's nonsense, take no notice"
+  ],
+  "pos": [
+   "interjection"
+  ],
+  "sources": [
+   "§4.10"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yuy"
+  ]
+ },
+ {
+  "root": "kaka-kaka",
+  "glosses": [
+   "painful"
+  ],
+  "pos": [
+   "adjective"
+  ],
+  "sources": [
+   "§3.8.5.1(i)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "kaka",
+   "kakaji",
+   "kakan",
+   "kakarr",
+   "kakawarr",
+   "kakawarri"
+  ]
+ },
+ {
+  "root": "kambakamba",
+  "glosses": [
+   "old women"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(592)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "kamba",
+   "kambal",
+   "kambal-kambal",
+   "kambanmu",
+   "kambar",
+   "kambarr"
+  ]
+ },
+ {
+  "root": "kandarr-warri-y",
+  "glosses": [
+   "to burp (lit: burp-run)"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.2"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "kandarr",
+   "kandal",
+   "Kangkaji",
+   "kana",
+   "kana-baykal",
+   "kanbal"
+  ]
+ },
+ {
+  "root": "kijandaku",
+  "glosses": [
+   "Roaring Meg Falls (place name); contains kija 'moon'"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§1.2.1.8"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "kija",
+   "kijar-kijar",
+   "kiji-kijiyal",
+   "kiju",
+   "kijukum"
+  ]
+ },
+ {
+  "root": "kumurrbina",
+  "glosses": [
+   "black cockatoo"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§1.2.1.3"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "kumurr",
+   "kumurbina",
+   "kumul",
+   "kumuy",
+   "Kumarkaji",
+   "kumarkaji"
+  ]
+ },
+ {
+  "root": "kungkun-bunga",
+  "glosses": [
+   "watch closely"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(461)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "kungkun",
+   "kungkurr",
+   "kungkarr",
+   "Kuna",
+   "Kunkunbuku",
+   "Kunyurrimba"
+  ]
+ },
+ {
+  "root": "lawunkarra",
+  "glosses": [
+   "friends (our friends)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(1),(19)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "karra"
+  ]
+ },
+ {
+  "root": "manyarr-ma-l",
+  "glosses": [
+   "become a wife, marry"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.3(i)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "manyarr",
+   "manyarrinyu",
+   "Manyi",
+   "manyi",
+   "Mangkalba",
+   "mana"
+  ]
+ },
+ {
+  "root": "mariji-ny",
+  "glosses": [
+   "swim"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(268),(291)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "mari",
+   "mari doctor",
+   "Marangaku",
+   "Marbaymba",
+   "Marralin",
+   "Marurmbu"
+  ]
+ },
+ {
+  "root": "muduwajuny",
+  "glosses": [
+   "at daybreak, dawn"
+  ],
+  "pos": [
+   "temporal"
+  ],
+  "sources": [
+   "§5.2.2,§5.5.2"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "mudu wayjul",
+   "mudu",
+   "mudaka"
+  ]
+ },
+ {
+  "root": "mumbu",
+  "glosses": [
+   "dirty"
+  ],
+  "pos": [
+   "adjective"
+  ],
+  "sources": [
+   "ex.(169)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "mumbal",
+   "mumbar",
+   "mumal"
+  ]
+ },
+ {
+  "root": "munja-l",
+  "glosses": [
+   "gather"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(363)/(422)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "Munjujubal",
+   "munji",
+   "munju",
+   "munju-dandi",
+   "munju-jubal",
+   "munjurr"
+  ]
+ },
+ {
+  "root": "narri-l",
+  "glosses": [
+   "step on"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(349)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "narmba"
+  ]
+ },
+ {
+  "root": "ngangkurri-l",
+  "glosses": [
+   "to bark"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§3.8.2.2(i)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "ngangkurr",
+   "ngangkun",
+   "ngangkal",
+   "ngangkay",
+   "ngangkin",
+   "nganga"
+  ]
+ },
+ {
+  "root": "ngirray-warri-y",
+  "glosses": [
+   "burst into tears (lit: weeping-run)"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.2"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "ngirran",
+   "Ngiri",
+   "ngiri",
+   "ngidin",
+   "ngiki",
+   "ngiki-damaji"
+  ]
+ },
+ {
+  "root": "nguijan",
+  "glosses": [
+   "jealous"
+  ],
+  "pos": [
+   "adjective"
+  ],
+  "sources": [
+   "§2.4 (i)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "Ngulungaban",
+   "Ngumbuymbu",
+   "Ngurru",
+   "nguba",
+   "ngubar",
+   "ngubar-ngubar"
+  ]
+ },
+ {
+  "root": "ngunja-l",
+  "glosses": [
+   "forage; claim/take over (discarded thing)"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(347)/(372)/(375)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "ngunjil",
+   "ngunay",
+   "ngundu",
+   "ngungul-ngungul",
+   "ngungumurr",
+   "ngunnga"
+  ]
+ },
+ {
+  "root": "nguymal",
+  "glosses": [
+   "thoroughly, truly"
+  ],
+  "pos": [
+   "particle"
+  ],
+  "sources": [
+   "§3.8.6.1 Manner table; ex.(192)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "nguyal",
+   "nguyarr-manil",
+   "Ngulungaban",
+   "Ngumbuymbu",
+   "Ngurru",
+   "nguba"
+  ]
+ },
+ {
+  "root": "nurilnuril",
+  "glosses": [
+   "keep looking inside; reduplication of nuril 'look inside'"
+  ],
+  "pos": [
+   "verb"
+  ],
+  "sources": [
+   "§2.2.1 (reduplicated forms)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "nuril",
+   "nurru"
+  ]
+ },
+ {
+  "root": "nyanma",
+  "glosses": [
+   "hold on to"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(477)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "nyanangarriji",
+   "nyandal",
+   "nyandil",
+   "nyangarril",
+   "nyabil",
+   "nyajil"
+  ]
+ },
+ {
+  "root": "nyikwu",
+  "glosses": [
+   "now, today"
+  ],
+  "pos": [
+   "temporal"
+  ],
+  "sources": [
+   "§2.4 (iii)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "nyiku",
+   "nyiku baja",
+   "nyiku-nyiku",
+   "nyikurrku",
+   "nyidu",
+   "nyinday"
+  ]
+ },
+ {
+  "root": "nyunga",
+  "glosses": [
+   "thought"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§3.8.5.2"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "nyungu",
+   "nyungun",
+   "nyungun-bungal",
+   "nyunbarraman",
+   "nyunbay",
+   "nyundan"
+  ]
+ },
+ {
+  "root": "nyunga-dama-l",
+  "glosses": [
+   "imagine something (lit: thought-spear)"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.2"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "nyungu",
+   "nyungun",
+   "nyungun-bungal",
+   "nyunbarraman",
+   "nyunbay",
+   "nyundan"
+  ]
+ },
+ {
+  "root": "nyunguniny",
+  "glosses": [
+   "him/her (3sg accusative)"
+  ],
+  "pos": [
+   "personal-pronoun"
+  ],
+  "sources": [
+   "ex.(638)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "nyungun",
+   "nyungun-bungal",
+   "nyungu",
+   "nyunbarraman",
+   "nyunbay",
+   "nyundan"
+  ]
+ },
+ {
+  "root": "wadalwadal",
+  "glosses": [
+   "water spirit (female body, fishtail); lexicalised reduplication"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§1.2.1.8"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "wadal",
+   "wada",
+   "wadi",
+   "wadil",
+   "wadjal",
+   "wadu"
+  ]
+ },
+ {
+  "root": "waju-ny",
+  "glosses": [
+   "burn"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(205),(241),(249),(251)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "waja",
+   "waji-waji"
+  ]
+ },
+ {
+  "root": "wangkabaja",
+  "glosses": [
+   "placename"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§4.1.1(a)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "wangkanil",
+   "wangkar",
+   "wangkar-wangkar",
+   "wangku",
+   "wangal",
+   "wangariji"
+  ]
+ },
+ {
+  "root": "wanjanguy",
+  "glosses": [
+   "what kind; wanja + -nguy"
+  ],
+  "pos": [
+   "interrogative"
+  ],
+  "sources": [
+   "ex.(137)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "wanja",
+   "wanja-wanja",
+   "wanjabu",
+   "wanjaburr",
+   "wanjakan",
+   "wanjamun"
+  ]
+ },
+ {
+  "root": "wanyunguy",
+  "glosses": [
+   "what kind (of inanimate); wanyu + -nguy"
+  ],
+  "pos": [
+   "interrogative"
+  ],
+  "sources": [
+   "ex.(135)(136)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "wanyu",
+   "wanyurrimbu",
+   "wanyurrimun",
+   "wanyurrimundu",
+   "wanyurrinku",
+   "wanya"
+  ]
+ },
+ {
+  "root": "wawu-yimba-l",
+  "glosses": [
+   "cross-examine (lit: breath-go straight through)"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.2"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "wawu yilbal",
+   "wawu yungal",
+   "wawu",
+   "wawu jirray",
+   "wawu nandaji",
+   "wawu-balangaji"
+  ]
+ },
+ {
+  "root": "wubulamba-l",
+  "glosses": [
+   "collect, gather"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "§3.8.2.1, §3.8.2.2"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "wubul",
+   "wubul yarangkan",
+   "wubun",
+   "wuburr",
+   "wuba",
+   "wubaji"
+  ]
+ },
+ {
+  "root": "wudu",
+  "glosses": [
+   "absorbed in some activity"
+  ],
+  "pos": [
+   "particle"
+  ],
+  "sources": [
+   "§3.8.6.1 Manner table"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "wawu-dudaji"
+  ]
+ },
+ {
+  "root": "wukaramba-l",
+  "glosses": [
+   "repair"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "§3.8.2.1"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "wukarra",
+   "wukal",
+   "wukay",
+   "wukuju",
+   "wukurril",
+   "ba"
+  ]
+ },
+ {
+  "root": "yajarn-ji",
+  "glosses": [
+   "laugh"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "Text 51, line 104"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yajarril",
+   "yajin",
+   "ya"
+  ]
+ },
+ {
+  "root": "yalayarra",
+  "glosses": [
+   "the people of this place (Nyungkul)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§3.7"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yala-yala",
+   "yalayayku",
+   "yalaymba",
+   "yalaymbu",
+   "yalaymburr",
+   "yala"
+  ]
+ },
+ {
+  "root": "yalbay-ma-l",
+  "glosses": [
+   "grow"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.3(i)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yalbay",
+   "yala",
+   "yala-karrajikur",
+   "yala-yala",
+   "yalada",
+   "yalakay"
+  ]
+ },
+ {
+  "root": "yalurriny",
+  "glosses": [
+   "these people (Yalanji plural demonstrative)"
+  ],
+  "pos": [
+   "demonstrative"
+  ],
+  "sources": [
+   "§3.7 (plural demonstratives table)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yaluy",
+   "yala",
+   "yala-karrajikur",
+   "yala-yala",
+   "yalada",
+   "yalakay"
+  ]
+ },
+ {
+  "root": "yaluyarra",
+  "glosses": [
+   "the people of this place (yaluy + -arra 'inhabitants')"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§3.7"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yaluy",
+   "yala",
+   "yala-karrajikur",
+   "yala-yala",
+   "yalada",
+   "yalakay"
+  ]
+ },
+ {
+  "root": "yarkin-bunga-l",
+  "glosses": [
+   "kill (lit: corpse-CAUS)"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.1(i)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yarkin",
+   "yaral",
+   "yarangkay",
+   "yararri",
+   "yarra",
+   "yarraman"
+  ]
+ },
+ {
+  "root": "yarngkay",
+  "glosses": [
+   "secretly"
+  ],
+  "pos": [
+   "particle"
+  ],
+  "sources": [
+   "§3.8.6.1 Manner table"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yaral",
+   "yarangkay",
+   "yararri",
+   "yarkin",
+   "yarra",
+   "yarraman"
+  ]
+ },
+ {
+  "root": "yinyayarra",
+  "glosses": [
+   "the people of that place"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§3.7"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yinyay",
+   "yinya",
+   "yinyamun",
+   "yinyarrin",
+   "yinyil",
+   "yinyil-kangal"
+  ]
+ },
+ {
+  "root": "yinyaymba",
+  "glosses": [
+   "there"
+  ],
+  "pos": [
+   "locational"
+  ],
+  "sources": [
+   "Text 51, line 48"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "yinyay",
+   "yinya",
+   "yinyamun",
+   "yinyarrin",
+   "yinyil",
+   "yinyil-kangal"
+  ]
+ },
+ {
+  "root": "yulu",
+  "glosses": [
+   "he/she/it (3sg nominative, less common variant of nyulu)"
+  ],
+  "pos": [
+   "personal-pronoun"
+  ],
+  "sources": [
+   "Table 3.6 (note *)"
+  ],
+  "confidence": "high",
+  "near_headwords": [
+   "Yulbulu",
+   "yulal",
+   "yulba",
+   "yulban",
+   "yulkur",
+   "yulmbarriji"
+  ]
+ },
+ {
+  "root": "dayirr-bunga",
+  "glosses": [
+   "clean (clean-CAUS)"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(499)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "dayirr",
+   "daya"
+  ]
+ },
+ {
+  "root": "janzman",
+  "glosses": [
+   "Chinese (person)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(458)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "jana",
+   "janay",
+   "janay-manil",
+   "janbal",
+   "janban",
+   "janbangaji"
+  ]
+ },
+ {
+  "root": "jibabadi-y",
+  "glosses": [
+   "feel sad"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(231)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "jibabu nyajil",
+   "jibabu-nyajil",
+   "jiba",
+   "jiba-janay",
+   "jiba-jurrkiji",
+   "jiba-ngulkurmal"
+  ]
+ },
+ {
+  "root": "jiba-wulawula",
+  "glosses": [
+   "sweet"
+  ],
+  "pos": [
+   "adjective"
+  ],
+  "sources": [
+   "§3.8.5.1(i)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "jiba-wulay",
+   "jiba-warri",
+   "jiba",
+   "jiba-janay",
+   "jiba-jurrkiji",
+   "jiba-ngulkurmal"
+  ]
+ },
+ {
+  "root": "junkay-bunga",
+  "glosses": [
+   "straighten (lit. straight-CAUS)"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "Text 3, line 16"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "junkay",
+   "junkali",
+   "junkan",
+   "junkurr",
+   "junkurr-janay",
+   "junkurr-murubuku"
+  ]
+ },
+ {
+  "root": "kurrka-nyaji-ji",
+  "glosses": [
+   "look back (lit. back-see-REF)"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "Text 3, line 19"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "kurrka-juri",
+   "kurrka-wabaji",
+   "kurrkal",
+   "kurrkal-warri",
+   "Kurraybaja",
+   "Kurrbi"
+  ]
+ },
+ {
+  "root": "-lu",
+  "glosses": [
+   "emphatic clitic (attention) EMPH2 (Yalanji)"
+  ],
+  "pos": [
+   "particle"
+  ],
+  "sources": [
+   "§5.4.2,ex.(646)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "Babu walu-yindu wawubjaburr Bloomfieldmundurr jalunmun wangkar Binda-babaranga",
+   "Bubu Walu-yindu wawubajaburr",
+   "Jalunji",
+   "Kuku-Jalunji",
+   "Mulujin",
+   "Ngulungaban"
+  ]
+ },
+ {
+  "root": "luku",
+  "glosses": [
+   "tree"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(67a) ('tree-pair')"
+  ],
+  "confidence": "medium",
+  "near_headwords": []
+ },
+ {
+  "root": "muduwaju",
+  "glosses": [
+   "dawn, become dawn"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "Text 36, line 24"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "mudu wayjul",
+   "mudu",
+   "mudaka"
+  ]
+ },
+ {
+  "root": "mula-kanga-l",
+  "glosses": [
+   "induce bleeding"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.1(i)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "mula",
+   "mula wanarri",
+   "mula-mula",
+   "mulaji",
+   "mulawajarr",
+   "Muliku"
+  ]
+ },
+ {
+  "root": "narn-",
+  "glosses": [
+   "step on (variant)"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(351)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "narmba"
+  ]
+ },
+ {
+  "root": "nguju-wuri-l",
+  "glosses": [
+   "fool around, dance funny"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "ex.(433)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "nguju",
+   "nguju-baka",
+   "ngujuji",
+   "ngujungu",
+   "ngujuri",
+   "ngujurr"
+  ]
+ },
+ {
+  "root": "ngurrka-ji",
+  "glosses": [
+   "have a scar"
+  ],
+  "pos": [
+   "intransitive-verb"
+  ],
+  "sources": [
+   "§3.8.5.1(i)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "ngurrku",
+   "ngurrkul",
+   "Ngurru",
+   "ngurra",
+   "ngurran",
+   "ngurrbal"
+  ]
+ },
+ {
+  "root": "nubiymani",
+  "glosses": [
+   "lose"
+  ],
+  "pos": [
+   "transitive-verb"
+  ],
+  "sources": [
+   "ex.(488)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "nubi-manil",
+   "nubiji",
+   "nubil",
+   "ma"
+  ]
+ },
+ {
+  "root": "orjiri",
+  "glosses": [
+   "sky (in orjiri-burr 'through the sky' = aeroplane)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "§2.3"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "jiri"
+  ]
+ },
+ {
+  "root": "ubirri",
+  "glosses": [
+   "Mossman (place name)"
+  ],
+  "pos": [
+   "noun"
+  ],
+  "sources": [
+   "ex.(69)"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "birri"
+  ]
+ },
+ {
+  "root": "warmba",
+  "glosses": [
+   "uncovered, exposed (find/uncover)"
+  ],
+  "pos": [
+   "adjective"
+  ],
+  "sources": [
+   "ex.(57) (warmba-CAUS 'found')"
+  ],
+  "confidence": "medium",
+  "near_headwords": [
+   "warmbiji",
+   "warmbill",
+   "wara",
+   "waral",
+   "waral-dandi",
+   "waralji"
+  ]
+ }
+]

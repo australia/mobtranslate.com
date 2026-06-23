@@ -27,7 +27,7 @@ KEY_ALIASES = {
 
 
 def get(entry, canonical):
-    for k in KEY_ALIASES[canonical]:
+    for k in KEY_ALIASES.get(canonical, [canonical]):
         if k in entry and entry[k] not in (None, "", []):
             return entry[k]
     return None
@@ -110,16 +110,30 @@ def main():
         for entry in sorted(buckets[l], key=lambda e: str(e.get("word", "")).lower()):
             w = str(entry.get("word", "")).strip()
             pos = get(entry, "type")
+            phon = get(entry, "phonemic")
             defs = as_list(get(entry, "definitions"))
             trans = as_list(get(entry, "translations"))
+            examples = get(entry, "examples") or []
             syns = as_list(get(entry, "synonyms"))
             usages = as_list(get(entry, "usages"))
-            see = as_list(get(entry, "see"))
+            see = as_list(get(entry, "see_also")) or as_list(get(entry, "see"))
             meaning = get(entry, "meaning")
+            domain = get(entry, "semantic_domain")
+            vclass = get(entry, "verb_class")
+            deriv = get(entry, "derivation")
+            redup = get(entry, "reduplication")
+            loan = get(entry, "loanword")
+            dialect = get(entry, "dialect")
+            commentary = as_list(get(entry, "commentary"))
 
             header = f"### {w}"
+            bits = []
+            if phon:
+                bits.append(phon)
             if pos:
-                header += f"  *{str(pos).replace('-', ' ')}*"
+                bits.append(f"*{str(pos).replace('-', ' ')}*")
+            if bits:
+                header += "  " + "  ".join(bits)
             lines.append(header)
             lines.append("")
 
@@ -130,14 +144,34 @@ def main():
                 lines.append(f"- {d}")
             if defs:
                 lines.append("")
+            for ex in examples:
+                if isinstance(ex, dict) and ex.get("kuku_yalanji"):
+                    lines.append(f"> *{ex.get('kuku_yalanji')}* — {ex.get('english','')}")
+            if examples:
+                lines.append("")
             if trans:
                 lines.append(f"**English:** {', '.join(trans)}  ")
+            if domain:
+                lines.append(f"**Domain:** {str(domain).replace('-', ' ')}  ")
+            if vclass:
+                vc = str(vclass)
+                if isinstance(deriv, dict) and deriv.get("morpheme"):
+                    vc += f" · {deriv['morpheme']} ({deriv.get('function','').split('(')[0].strip()})"
+                lines.append(f"**Conjugation:** {vc}  ")
+            if isinstance(redup, dict):
+                lines.append(f"**Reduplication:** {redup.get('pattern','')} (base *{redup.get('base','')}*)  ")
+            if isinstance(loan, dict):
+                lines.append(f"**Loanword:** &lt; English *{loan.get('source','')}*  ")
+            if dialect:
+                lines.append(f"**Dialect:** {dialect}  ")
             if syns:
-                lines.append(f"**Synonyms:** {', '.join(syns)}  ")
+                lines.append(f"**Synonyms:** {', '.join(str(s) for s in syns)}  ")
             if usages:
-                lines.append(f"**Usage:** {'; '.join(usages)}  ")
+                lines.append(f"**Usage:** {'; '.join(str(u) for u in usages)}  ")
             if see:
-                lines.append(f"**See also:** {', '.join(see)}  ")
+                lines.append(f"**See also:** {', '.join(str(s) for s in see)}  ")
+            for note in commentary:
+                lines.append(f"- 📝 *{note}*")
             lines.append("")
 
     with open(OUT, "w", encoding="utf-8") as f:
