@@ -295,6 +295,7 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord, mic:
                 onRedo={startRecording}
                 onSave={handleSave}
                 saving={saving}
+                large={showHints}
               />
             )}
 
@@ -333,6 +334,7 @@ function ReviewControls({
   onRedo,
   onSave,
   saving,
+  large,
 }: {
   take: CapturedRecording;
   playing: boolean;
@@ -340,8 +342,60 @@ function ReviewControls({
   onRedo: () => void;
   onSave: () => void;
   saving: boolean;
+  /** Phone-first speaker portal: bigger, stacked, clearly-tiered controls. */
+  large?: boolean;
 }) {
   const secs = (take.durationMs / 1000).toFixed(1);
+  const quality = take.tooShort
+    ? <span className="font-medium text-[var(--color-warning)]">· very short — did you get the whole word?</span>
+    : take.clipped
+      ? <span className="font-medium text-[var(--color-warning)]">· a bit loud, try moving back</span>
+      : null;
+
+  if (large) {
+    return (
+      <div className="flex w-full flex-col items-center gap-5">
+        <button
+          type="button"
+          onClick={onPlay}
+          aria-label={playing ? 'Pause playback' : 'Play your recording'}
+          className="flex h-28 w-28 flex-col items-center justify-center gap-1 rounded-full bg-[var(--color-secondary)] text-white shadow-lg transition-transform active:scale-95 hover:bg-[var(--color-secondary-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ring)]"
+        >
+          {playing ? <Pause className="h-11 w-11" fill="currentColor" /> : <Play className="h-11 w-11" fill="currentColor" />}
+          <span className="text-base font-semibold">{playing ? 'Playing' : 'Listen'}</span>
+        </button>
+        <p className="text-center text-lg text-muted-foreground">
+          {secs}s recorded {quality}
+        </p>
+
+        <div className="flex w-full flex-col gap-3">
+          <Button
+            size="lg"
+            fullWidth
+            className="h-16 text-xl"
+            leftIcon={<Check className="h-7 w-7" />}
+            onClick={onSave}
+            loading={saving}
+            loadingText="Saving…"
+          >
+            Save &amp; next
+          </Button>
+          <Button
+            size="lg"
+            variant="secondary"
+            fullWidth
+            className="h-16 text-xl"
+            leftIcon={<RotateCcw className="h-6 w-6" />}
+            onClick={onRedo}
+            disabled={saving}
+          >
+            Record again
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex w-full max-w-md flex-col items-center gap-5">
       <button
@@ -352,31 +406,13 @@ function ReviewControls({
       >
         {playing ? <Pause className="h-10 w-10" fill="currentColor" /> : <Play className="h-10 w-10" fill="currentColor" />}
       </button>
-      <p className="text-base text-muted-foreground">
-        {secs}s recorded{' '}
-        {take.tooShort && <span className="ml-1 font-medium text-[var(--color-warning)]">· very short — did you get the whole word?</span>}
-        {take.clipped && !take.tooShort && <span className="ml-1 font-medium text-[var(--color-warning)]">· a bit loud, try moving back</span>}
-      </p>
+      <p className="text-base text-muted-foreground">{secs}s recorded {quality}</p>
 
       <div className="flex w-full flex-col gap-3 sm:flex-row">
-        <Button
-          size="lg"
-          className="h-14 flex-1 text-lg"
-          leftIcon={<Check className="h-6 w-6" />}
-          onClick={onSave}
-          loading={saving}
-          loadingText="Saving…"
-        >
+        <Button size="lg" className="h-14 flex-1 text-lg" leftIcon={<Check className="h-6 w-6" />} onClick={onSave} loading={saving} loadingText="Saving…">
           Save &amp; next
         </Button>
-        <Button
-          size="lg"
-          variant="outline"
-          className="h-14 flex-1 text-lg"
-          leftIcon={<RotateCcw className="h-5 w-5" />}
-          onClick={onRedo}
-          disabled={saving}
-        >
+        <Button size="lg" variant="outline" className="h-14 flex-1 text-lg" leftIcon={<RotateCcw className="h-5 w-5" />} onClick={onRedo} disabled={saving}>
           Record again
         </Button>
       </div>
