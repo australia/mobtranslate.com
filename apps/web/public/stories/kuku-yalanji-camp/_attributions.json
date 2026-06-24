@@ -1,0 +1,82 @@
+[
+  {
+    "scene": "country",
+    "file": "country.jpg",
+    "kb": 320,
+    "w": 4000,
+    "h": 2248,
+    "artist": "Robert Linsdell from St. Andrews, Canada",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=68848883"
+  },
+  {
+    "scene": "yarning",
+    "file": "yarning.jpg",
+    "kb": 373,
+    "w": 5639,
+    "h": 3759,
+    "artist": "Joshua Tree National Park",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=96484758"
+  },
+  {
+    "scene": "turtle",
+    "file": "turtle.jpg",
+    "kb": 558,
+    "w": 2848,
+    "h": 2096,
+    "artist": "Holobionics",
+    "license": "CC BY-SA 4.0",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=49070219"
+  },
+  {
+    "scene": "kangaroo",
+    "file": "kangaroo.jpg",
+    "kb": 722,
+    "w": 2944,
+    "h": 1652,
+    "artist": "Lydekker, Richard, 1849-1915",
+    "license": "No restrictions",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=43386851"
+  },
+  {
+    "scene": "fire",
+    "file": "fire.jpg",
+    "kb": 322,
+    "w": 1600,
+    "h": 1200,
+    "artist": "Janne Karaste",
+    "license": "CC BY-SA 3.0",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=1746955"
+  },
+  {
+    "scene": "camp",
+    "file": "camp.jpg",
+    "kb": 697,
+    "w": 4608,
+    "h": 3088,
+    "artist": "Lori Branham from Laguna Niguel, CA, US",
+    "license": "CC BY 2.0",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=35029324"
+  },
+  {
+    "scene": "stars",
+    "file": "stars.jpg",
+    "kb": 1067,
+    "w": 1920,
+    "h": 1280,
+    "artist": "Jordan Condon",
+    "license": "CC BY 3.0",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=73722693"
+  },
+  {
+    "scene": "dawn",
+    "file": "dawn.jpg",
+    "kb": 257,
+    "w": 2048,
+    "h": 1365,
+    "artist": "Radness.com.au",
+    "license": "CC BY-SA 3.0",
+    "page": "https://commons.wikimedia.org/w/index.php?curid=47257341"
+  }
+]
