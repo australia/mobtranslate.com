@@ -3,9 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Mic, Square, Play, Pause, RotateCcw, Check, AlertTriangle, SkipForward, Volume2, Pencil } from 'lucide-react';
 import { Button, cn } from '@mobtranslate/ui';
-import { StudioRecorder, type MicState } from '@/lib/recording/recorder';
+import { type MicState } from '@/lib/recording/recorder';
 import type { CapturedRecording } from '@/lib/recording/types';
 import { LevelMeter } from './LevelMeter';
+import { useStudioMic, type StudioMic } from './useStudioMic';
 
 export interface RecorderTarget {
   kind: 'word' | 'phrase' | 'sentence';
@@ -25,9 +26,20 @@ interface RecorderProps {
   onSkip?: () => void;
   /** Open the word editor (only meaningful for dictionary words). */
   onEditWord?: () => void;
+  /**
+   * Inject a shared microphone (from useStudioMic) so a guided flow can open the
+   * mic on a separate step and hand the same stream here. When omitted, the
+   * Recorder owns its own mic exactly as before.
+   */
+  mic?: StudioMic;
+  /**
+   * Show a plain-language "what to do now" line under the main control at every
+   * step. Off by default (admin studio); on for the guided speaker portal.
+   */
+  showHints?: boolean;
 }
 
-const MIC_HELP: Partial<Record<MicState, { title: string; body: string }>> = {
+export const MIC_HELP: Partial<Record<MicState, { title: string; body: string }>> = {
   denied: {
     title: 'Microphone is blocked',
     body: 'Your browser is blocking the microphone. Click the lock icon in the address bar, allow the microphone, then try again.',
@@ -55,11 +67,13 @@ function buzz(pattern: number | number[]) {
   }
 }
 
-export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: RecorderProps) {
-  const recorderRef = useRef<StudioRecorder | null>(null);
-  const [micState, setMicState] = useState<MicState>('idle');
-  const [micDetail, setMicDetail] = useState<string | undefined>();
-  const [level, setLevel] = useState(0);
+export function Recorder({ target, speakerName, onSave, onSkip, onEditWord, mic: injectedMic, showHints }: RecorderProps) {
+  // Use an injected (shared) mic when provided, else own one. Calling the hook
+  // unconditionally keeps hook order stable; the unused instance never opens the
+  // microphone, so there's no double-grab.
+  const ownMic = useStudioMic();
+  const mic = injectedMic ?? ownMic;
+  const { micState, micDetail, level } = mic;
   const [isRecording, setIsRecording] = useState(false);
   const [elapsed, setElapsed] = useState(0);
   const [take, setTake] = useState<CapturedRecording | null>(null);
@@ -72,17 +86,6 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
 
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const startedAtRef = useRef(0);
-
-  // Lazily create the recorder once.
-  if (!recorderRef.current && typeof window !== 'undefined') {
-    recorderRef.current = new StudioRecorder({
-      onLevel: setLevel,
-      onState: (s, detail) => {
-        setMicState(s);
-        setMicDetail(detail);
-      },
-    });
-  }
 
   const clearTake = useCallback(() => {
     if (objectUrlRef.current) {
@@ -105,22 +108,16 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
       if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
-      recorderRef.current?.close();
+      // The mic stream is owned by useStudioMic, which closes it on unmount.
     };
   }, []);
 
-  const turnOnMic = useCallback(async () => {
-    try {
-      await recorderRef.current?.open();
-    } catch {
-      /* state is surfaced via onState */
-    }
-  }, []);
+  const turnOnMic = mic.open;
 
   const startRecording = useCallback(async () => {
     clearTake();
     try {
-      await recorderRef.current?.start();
+      await mic.recorder?.start();
       buzz(40);
       setIsRecording(true);
       startedAtRef.current = Date.now();
@@ -129,12 +126,12 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
     } catch {
       setIsRecording(false);
     }
-  }, [clearTake]);
+  }, [clearTake, mic.recorder]);
 
   const stopRecording = useCallback(async () => {
     if (timerRef.current) clearInterval(timerRef.current);
     try {
-      const captured = await recorderRef.current?.stop();
+      const captured = await mic.recorder?.stop();
       buzz([30, 40, 30]);
       setIsRecording(false);
       if (captured) {
@@ -151,7 +148,7 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
     } catch {
       setIsRecording(false);
     }
-  }, []);
+  }, [mic.recorder]);
 
   const togglePlay = useCallback(() => {
     const audio = audioRef.current;
@@ -299,6 +296,16 @@ export function Recorder({ target, speakerName, onSave, onSkip, onEditWord }: Re
                 onSave={handleSave}
                 saving={saving}
               />
+            )}
+
+            {showHints && (
+              <p className="max-w-xs text-center text-lg font-medium leading-snug text-muted-foreground" aria-live="polite">
+                {isRecording
+                  ? 'Speak the word now. Tap the button again when you have finished.'
+                  : take
+                    ? 'Have a listen. Keep it, or record it again.'
+                    : 'Tap the red button, then say the word out loud.'}
+              </p>
             )}
 
             {!take && onSkip && !isRecording && (
