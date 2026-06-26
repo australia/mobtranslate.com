@@ -5,7 +5,7 @@ import { Button } from '@mobtranslate/ui'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Heart, BarChart3, Brain, MessageCircle, Settings } from 'lucide-react'
+import { Heart, BarChart3, Brain, MessageCircle, Settings, Mic } from 'lucide-react'
 
 export function AuthNav() {
   const { user, signOut, loading } = useAuth()
@@ -63,6 +63,12 @@ export function AuthNav() {
           <Button variant="ghost" size="sm" className="gap-2">
             <BarChart3 className="h-4 w-4" />
             <span className="hidden sm:inline">Dashboard</span>
+          </Button>
+        </Link>
+        <Link href="/voice">
+          <Button variant="ghost" size="sm" className="gap-2">
+            <Mic className="h-4 w-4" />
+            <span className="hidden sm:inline">Voice</span>
           </Button>
         </Link>
         <Link href="/my-likes">
