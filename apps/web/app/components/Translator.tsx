@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { ArrowRight, Globe, Loader2, AlertTriangle } from 'lucide-react';
 import { Textarea, Button } from '@mobtranslate/ui';
 import { Language } from '@/lib/supabase/types';
+import { SpeakButton } from '@/components/audio/SpeakButton';
 
 interface TranslatorProps {
   availableLanguages?: Language[];
@@ -294,7 +295,22 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
             </div>
           </div>
 
-           <div className="px-6 pb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[rgba(255,255,255,0.5)]">
+           <div className="px-6 pb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[rgba(255,255,255,0.5)]">
+                {outputText && !isLoading && (
+                  <SpeakButton
+                    text={outputText
+                      .replace(/```[\s\S]*?```/g, ' ')
+                      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+                      .replace(/[#>*_`~|]/g, ' ')
+                      .replace(/\s+/g, ' ')
+                      .trim()}
+                    lang={selectedLanguage}
+                    variant="labeled"
+                    size="sm"
+                    label="Hear it"
+                    className="text-[#ecb485] hover:bg-[rgba(255,255,255,0.1)]"
+                  />
+                )}
                 <p>
                   AI-generated, not authoritative. For anything important, check with a speaker
                   or language expert.

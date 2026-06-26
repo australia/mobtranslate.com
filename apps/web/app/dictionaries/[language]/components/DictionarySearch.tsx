@@ -315,6 +315,7 @@ export default function DictionarySearch({
           <DictionaryTableWithLikes
             words={words}
             onWordClick={handleWordClick}
+            langCode={meta.code}
           />
 
           {/* Pagination */}

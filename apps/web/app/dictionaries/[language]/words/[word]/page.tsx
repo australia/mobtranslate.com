@@ -114,9 +114,6 @@ export default async function WordDetailPage(
               {word.obsolete && <Badge variant="outline">Obsolete</Badge>}
               {word.sensitive_content && <Badge variant="destructive">Sensitive</Badge>}
             </div>
-            <p className="mt-2 text-xs text-muted-foreground">
-              Pronunciation is AI-synthesized (Indonesian donor voice) and needs community verification.
-            </p>
           </div>
 
           {/* Content */}
@@ -137,9 +134,12 @@ export default async function WordDetailPage(
                       href={`/dictionaries/${languageCode}/words/${encodeURIComponent(related.word)}`}
                       className="group block rounded-xl border border-border p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--lang-accent)]"
                     >
-                      <h3 className="font-display font-semibold text-lg mb-1.5 transition-colors group-hover:text-[var(--lang-accent)]" lang={language.code}>
-                        {related.word}
-                      </h3>
+                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                        <h3 className="font-display font-semibold text-lg transition-colors group-hover:text-[var(--lang-accent)]" lang={language.code}>
+                          {related.word}
+                        </h3>
+                        <SpeakButton text={related.word} lang={language.code} size="sm" />
+                      </div>
                       <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
                         {related.definitions?.[0]?.definition || 'No definition available'}
                       </p>

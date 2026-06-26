@@ -76,7 +76,11 @@ export function SpeakButton({
     return (
       <button
         type="button"
-        onClick={play}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          void play();
+        }}
         aria-label={aria}
         title={aria}
         className={cn(

@@ -7,6 +7,7 @@ import { Badge } from '@mobtranslate/ui';
 import { MapPin, MessageSquareQuote, Info, Tag, Volume2, GitBranch, Shuffle, Link2, BookMarked, Quote } from 'lucide-react';
 import type { Word } from '@/lib/supabase/types';
 import { Recordings } from './Recordings';
+import { SpeakButton } from '@/components/audio/SpeakButton';
 
 const LocationMap = lazy(() => import('./LocationMap').then(m => ({ default: m.LocationMap })));
 
@@ -118,9 +119,12 @@ export function WordDetailContent({ word, languageCode }: WordDetailContentProps
           <div className="divide-y divide-border">
             {word.usage_examples.map((example, index) => (
               <div key={example.id || index} className="py-5 first:pt-0">
-                <p className="text-lg leading-relaxed font-medium" lang={languageCode}>
-                  {example.example_text}
-                </p>
+                <div className="flex items-start gap-2">
+                  <p className="flex-1 text-lg leading-relaxed font-medium" lang={languageCode}>
+                    {example.example_text}
+                  </p>
+                  <SpeakButton text={example.example_text} lang={languageCode} size="sm" label="Hear example" />
+                </div>
                 {example.transliteration && (
                   <p className="text-sm text-muted-foreground/80 mt-1 font-mono">{example.transliteration}</p>
                 )}

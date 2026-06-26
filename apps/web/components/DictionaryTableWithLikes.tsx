@@ -3,6 +3,7 @@
 import React from 'react';
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, Badge, Card, cn } from '@mobtranslate/ui';
 import { WordLikeButton } from './WordLikeButton';
+import { SpeakButton } from './audio/SpeakButton';
 
 export interface DictionaryWord {
   id: string;
@@ -19,13 +20,16 @@ export interface DictionaryTableWithLikesProps {
   onWordClick?: (_word: string) => void;
   className?: string;
   showLikeButtons?: boolean;
+  /** Language code so each row can play its pronunciation. */
+  langCode?: string;
 }
 
-const DictionaryTableWithLikes: React.FC<DictionaryTableWithLikesProps> = ({ 
-  words, 
-  onWordClick, 
-  className, 
-  showLikeButtons = true 
+const DictionaryTableWithLikes: React.FC<DictionaryTableWithLikesProps> = ({
+  words,
+  onWordClick,
+  className,
+  showLikeButtons = true,
+  langCode,
 }) => {
   const getDefinitionText = (word: DictionaryWord) => {
     if (word.definitions && word.definitions.length > 0) {
@@ -57,16 +61,20 @@ const DictionaryTableWithLikes: React.FC<DictionaryTableWithLikesProps> = ({
           {words.map((word, index) => (
             <TableRow key={word.id || index}>
               <TableCell>
-                {onWordClick ? (
-                  <button
-                    onClick={() => onWordClick(word.word)}
-                    className="font-display text-base font-semibold text-foreground hover:text-[var(--lang-accent)] transition-colors text-left"
-                  >
-                    {word.word}
-                  </button>
-                ) : (
-                  <span className="font-display text-base font-semibold text-foreground">{word.word}</span>
-                )}
+                <div className="flex items-center gap-1.5">
+                  {onWordClick ? (
+                    <button
+                      onClick={() => onWordClick(word.word)}
+                      className="font-display text-base font-semibold text-foreground hover:text-[var(--lang-accent)] transition-colors text-left"
+                      lang={langCode}
+                    >
+                      {word.word}
+                    </button>
+                  ) : (
+                    <span className="font-display text-base font-semibold text-foreground" lang={langCode}>{word.word}</span>
+                  )}
+                  <SpeakButton text={word.word} lang={langCode} size="sm" />
+                </div>
               </TableCell>
               <TableCell>
                 {word.type && (
