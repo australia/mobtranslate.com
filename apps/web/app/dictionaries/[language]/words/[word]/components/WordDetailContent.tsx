@@ -5,6 +5,7 @@ import { WordLikeButton } from '@/components/WordLikeButton';
 import { Badge } from '@mobtranslate/ui';
 import { MapPin, MessageSquareQuote, Info, Tag, Volume2 } from 'lucide-react';
 import type { Word } from '@/lib/supabase/types';
+import { WordRecordings } from './WordRecordings';
 
 const LocationMap = lazy(() => import('./LocationMap').then(m => ({ default: m.LocationMap })));
 
@@ -69,6 +70,9 @@ export function WordDetailContent({ word }: WordDetailContentProps) {
           </div>
         </section>
       )}
+
+      {/* Community pronunciations — real speakers (replaces the AI donor voice over time) */}
+      <WordRecordings wordId={word.id} word={word.word} />
 
       {/* Usage examples */}
       {word.usage_examples && word.usage_examples.length > 0 && (
