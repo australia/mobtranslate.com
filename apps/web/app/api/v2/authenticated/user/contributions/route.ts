@@ -29,7 +29,7 @@ export async function GET() {
     from public.recordings r
     join public.speaker_profiles sp on sp.id = r.speaker_id
     join public.languages l on l.id = r.language_id
-    where sp.user_id = ${userId} and r.status = 'active'
+    where sp.user_id = ${userId}::uuid and r.status = 'active'
     group by r.language_id, l.code, l.name
     order by max(r.created_at) desc
   `);

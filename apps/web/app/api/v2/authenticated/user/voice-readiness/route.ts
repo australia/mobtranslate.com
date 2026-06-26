@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
     from public.recordings r
     join public.speaker_profiles sp on sp.id = r.speaker_id
     left join public.words w on w.id = r.word_id
-    where sp.user_id = ${userId} and r.language_id = ${lang.id} and r.status = 'active'
+    where sp.user_id = ${userId}::uuid and r.language_id = ${lang.id}::uuid and r.status = 'active'
   `))[0] ?? {};
 
   const metrics: VoiceMetrics = {
