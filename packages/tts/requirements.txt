@@ -1,0 +1,7 @@
+torch
+transformers
+scipy
+numpy
+fastapi
+uvicorn[standard]
+soundfile

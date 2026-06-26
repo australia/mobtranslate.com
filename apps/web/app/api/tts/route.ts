@@ -1,9 +1,71 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { createHash } from 'crypto';
+import { sql } from 'drizzle-orm';
+import { db } from '@/lib/db/index';
 
-// Plain HTTPS fetch (no WebSocket) so it runs reliably on Vercel serverless.
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-export const maxDuration = 20;
+export const maxDuration = 30;
+
+// ---- Neural TTS (the default for Kuku Yalanji) -------------------------------
+// For these languages we synthesize with the local MMS-TTS Pitjantjatjara service
+// (a real Aboriginal Pama-Nyungan voice + a Patz-grounded orthography bridge),
+// STORE every generation (box FS + tts_generations provenance row), and serve it.
+// Anything not neural-supported, or any service error, falls back to the Google
+// donor below — so pronunciation never breaks.
+const NEURAL_LANGS = new Set(['kuku_yalanji', 'zku']);
+const NEURAL_MODEL = 'facebook/mms-tts-pjt';
+const TTS_SERVICE_URL = process.env.TTS_SERVICE_URL || 'http://127.0.0.1:7820';
+const TTS_DIR = process.env.MOBTRANSLATE_TTS_DIR || '/mnt/donto-data/mobtranslate-storage/tts';
+
+async function neuralTts(text: string, lang: string): Promise<{ buf: Buffer; contentType: string } | null> {
+  try {
+    // Already generated? Serve the stored copy (synthesize once, serve forever).
+    const found: any = await db.execute(
+      sql`select storage_path, format from public.tts_generations
+          where language_code = ${lang} and text = ${text} and model = ${NEURAL_MODEL} limit 1`,
+    );
+    const row = (Array.isArray(found) ? found : found?.rows ?? [])[0];
+    if (row?.storage_path) {
+      const buf = await fs.readFile(path.join(TTS_DIR, row.storage_path)).catch(() => null);
+      if (buf) return { buf, contentType: row.format === 'wav' ? 'audio/wav' : 'audio/mpeg' };
+    }
+
+    // Synthesize via the local service.
+    const res = await fetch(`${TTS_SERVICE_URL}/tts`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ text, lang, format: 'mp3' }),
+      signal: AbortSignal.timeout(25000),
+    });
+    if (!res.ok) return null;
+    const contentType = res.headers.get('content-type') || 'audio/mpeg';
+    const fmt = contentType.includes('mpeg') ? 'mp3' : 'wav';
+    const buf = Buffer.from(await res.arrayBuffer());
+    if (!buf.length) return null;
+
+    // Persist: box FS + provenance row (idempotent).
+    const sha = createHash('sha256').update(`${NEURAL_MODEL}|${text}`).digest('hex');
+    const rel = `${lang}/${sha}.${fmt}`;
+    const abs = path.join(TTS_DIR, rel);
+    await fs.mkdir(path.dirname(abs), { recursive: true });
+    await fs.writeFile(abs, buf);
+    const mapped = res.headers.get('x-tts-mapped');
+    const durationMs = parseInt(res.headers.get('x-tts-duration-ms') || '', 10) || null;
+    await db.execute(sql`
+      insert into public.tts_generations
+        (language_code, text, normalized_input, model, engine, storage_path, format, duration_ms, sample_rate, seed, byte_size)
+      values (${lang}, ${text}, ${mapped}, ${NEURAL_MODEL}, 'mms-tts', ${rel}, ${fmt}, ${durationMs}, 16000, 1234, ${buf.length})
+      on conflict (language_code, text, model) do nothing
+    `);
+    return { buf, contentType };
+  } catch (err) {
+    console.error('neural TTS error (falling back to donor):', err);
+    return null;
+  }
+}
 
 /**
  * Per-language DONOR voice. We don't have native models; instead we read the
@@ -116,6 +178,23 @@ async function handle(text: string | null, lang: string | null) {
     );
   }
 
+  // Neural voice for supported languages (Kuku Yalanji); donor fallback otherwise.
+  if (lang && NEURAL_LANGS.has(lang.toLowerCase())) {
+    const neural = await neuralTts(clean, lang.toLowerCase());
+    if (neural) {
+      return new NextResponse(neural.buf as unknown as BodyInit, {
+        status: 200,
+        headers: {
+          'Content-Type': neural.contentType,
+          'Content-Length': String(neural.buf.length),
+          'X-TTS-Engine': 'mms-tts-pjt',
+          'Cache-Control': 'public, max-age=31536000, immutable',
+        },
+      });
+    }
+    // else: fall through to the donor voice below.
+  }
+
   try {
     const audio = await synthesize(clean, resolveTl(lang));
     if (!audio.length) {
@@ -126,6 +205,7 @@ async function handle(text: string | null, lang: string | null) {
       headers: {
         'Content-Type': 'audio/mpeg',
         'Content-Length': String(audio.length),
+        'X-TTS-Engine': 'google-donor',
         // Deterministic per (text, donor) → cache hard at the browser/CDN.
         'Cache-Control': 'public, max-age=31536000, immutable',
       },
