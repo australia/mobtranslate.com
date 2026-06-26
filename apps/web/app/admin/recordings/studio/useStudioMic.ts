@@ -20,7 +20,8 @@ export interface StudioMic {
   isOpen: boolean;
 }
 
-export function useStudioMic(): StudioMic {
+export function useStudioMic(opts?: { autoOpen?: boolean }): StudioMic {
+  const autoOpen = opts?.autoOpen ?? false;
   const recorderRef = useRef<StudioRecorder | null>(null);
   const [micState, setMicState] = useState<MicState>('idle');
   const [micDetail, setMicDetail] = useState<string | undefined>();
@@ -45,6 +46,27 @@ export function useStudioMic(): StudioMic {
       /* failure is surfaced via onState */
     }
   }, []);
+
+  // If the user has ALREADY granted microphone permission, open the stream
+  // automatically so they never have to tap "Turn on microphone" again. This
+  // only runs when the caller opts in (the on-demand recorders), never grabs
+  // the mic without an existing grant, and degrades to the manual button when
+  // the Permissions API is unavailable.
+  useEffect(() => {
+    if (!autoOpen) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const perm = await navigator.permissions?.query?.({ name: 'microphone' as PermissionName });
+        if (!cancelled && perm?.state === 'granted') void open();
+      } catch {
+        /* Permissions API unsupported — leave the manual button */
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [autoOpen, open]);
 
   useEffect(() => {
     return () => {

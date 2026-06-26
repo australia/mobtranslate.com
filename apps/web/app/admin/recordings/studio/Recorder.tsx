@@ -70,8 +70,10 @@ function buzz(pattern: number | number[]) {
 export function Recorder({ target, speakerName, onSave, onSkip, onEditWord, mic: injectedMic, showHints }: RecorderProps) {
   // Use an injected (shared) mic when provided, else own one. Calling the hook
   // unconditionally keeps hook order stable; the unused instance never opens the
-  // microphone, so there's no double-grab.
-  const ownMic = useStudioMic();
+  // microphone, so there's no double-grab. When we own the mic, auto-open it if
+  // permission was already granted, so the user isn't asked to "turn on the
+  // microphone" on every recorder. (The portal owns/controls the injected mic.)
+  const ownMic = useStudioMic({ autoOpen: !injectedMic });
   const mic = injectedMic ?? ownMic;
   const { micState, micDetail, level } = mic;
   const [isRecording, setIsRecording] = useState(false);
