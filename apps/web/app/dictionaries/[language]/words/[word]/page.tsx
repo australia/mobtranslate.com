@@ -23,7 +23,7 @@ const Breadcrumbs = ({ items, className }: { items: { href: string; label: strin
     ))}
   </nav>
 );
-import { getWordsForLanguage, searchWords } from '@/lib/db/queries';
+import { getWordsForLanguage, searchWords, getWordSynonyms } from '@/lib/db/queries';
 import { WordDetailContent } from './components/WordDetailContent';
 
 export const revalidate = 300; // Revalidate every 5 minutes
@@ -48,7 +48,10 @@ async function getWordBySlug(languageCode: string, wordSlug: string) {
   if (!exactMatch) {
     return { word: null, language, relatedWords: words.slice(0, 6) };
   }
-  
+
+  // Attach synonyms (detail-page only — not fetched on list views).
+  exactMatch.synonyms = await getWordSynonyms(exactMatch.id);
+
   // Get related words (same root, similar words)
   const relatedWords = await searchWords(exactMatch.stem || exactMatch.word, languageCode);
   
@@ -118,7 +121,7 @@ export default async function WordDetailPage(
 
           {/* Content */}
           <div className="max-w-4xl pb-16 space-y-10">
-            <WordDetailContent word={word} />
+            <WordDetailContent word={word} languageCode={language.code} />
 
             {/* Related words */}
             {relatedWords && relatedWords.length > 0 && (

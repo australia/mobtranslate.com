@@ -53,6 +53,21 @@ export interface Word {
   translations?: Translation[];
   usage_examples?: UsageExample[];
   cultural_contexts?: CulturalContext[];
+
+  // Expanded linguistic fields (Yalanji reference-grammar import).
+  phonemic?: string;            // IPA phonemic form, e.g. /ˈbalɡaɟi/
+  gloss?: string;               // concise gloss, e.g. "being"
+  semantic_domain?: string;     // kebab-case domain, e.g. "fauna-bird"
+  verb_class?: string;          // e.g. "y-conjugation"
+  dialect?: string;
+  loanword_source?: string;
+  entry_source?: string;
+  commentary?: string[];        // linguistic notes
+  derivation?: { function?: string; morpheme?: string } | null;
+  reduplication?: { base?: string; pattern?: string } | null;
+  see_also?: string[];          // cross-references to other entries
+  usage_notes?: string[];
+  synonyms?: { text: string; word_id?: string | null }[];
 }
 
 export interface Definition {

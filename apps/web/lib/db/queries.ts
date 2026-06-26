@@ -4,6 +4,7 @@ import {
   culturalContexts as culturalContextsT,
   definitions as definitionsT,
   languages as languagesT,
+  synonyms as synonymsT,
   translations as translationsT,
   usageExamples as usageExamplesT,
   wordClasses as wordClassesT,
@@ -139,7 +140,29 @@ function mapWord(
     word_class: opts.wordClass ? mapWordClass(opts.wordClass) : undefined,
     definitions: opts.definitions ?? [],
     usage_examples: opts.usageExamples ?? [],
+
+    // Expanded linguistic fields.
+    phonemic: w.phonemic ?? undefined,
+    gloss: w.gloss ?? undefined,
+    semantic_domain: w.semanticDomain ?? undefined,
+    verb_class: w.verbClass ?? undefined,
+    dialect: w.dialect ?? undefined,
+    loanword_source: w.loanwordSource ?? undefined,
+    entry_source: w.entrySource ?? undefined,
+    commentary: toStringArray(w.commentary),
+    usage_notes: toStringArray(w.usageNotes),
+    // see_also entries are sometimes comma-joined ("a, b") — flatten to tokens.
+    see_also: ((toStringArray(w.seeAlso) ?? []).flatMap((s) => s.split(',')).map((s) => s.trim()).filter(Boolean)) || undefined,
+    derivation: (w.derivation as Word['derivation']) ?? undefined,
+    reduplication: (w.reduplication as Word['reduplication']) ?? undefined,
   };
+}
+
+/** Normalize a jsonb value that should be a string[] (tolerates string / null). */
+function toStringArray(v: unknown): string[] | undefined {
+  if (Array.isArray(v)) return v.map((x) => String(x)).filter(Boolean);
+  if (typeof v === 'string' && v.trim()) return [v.trim()];
+  return undefined;
 }
 
 export async function getLanguageByCode(code: string): Promise<Language> {
@@ -511,4 +534,15 @@ export async function getLocationWordsForLanguage(languageCode: string) {
     words: normalized,
     language: languageData,
   };
+}
+
+/** Synonyms for a word (text + optional link to another entry). Detail-page only. */
+export async function getWordSynonyms(wordId: string): Promise<{ text: string; word_id: string | null }[]> {
+  const rows = await db
+    .select({ text: synonymsT.synonymText, wordId: synonymsT.synonymWordId })
+    .from(synonymsT)
+    .where(eq(synonymsT.wordId, wordId));
+  return rows
+    .map((r) => ({ text: (r.text ?? '').trim(), word_id: r.wordId ?? null }))
+    .filter((r) => r.text.length > 0);
 }
