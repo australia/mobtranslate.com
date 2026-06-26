@@ -16,7 +16,8 @@ import {
   Trophy,
   Home,
   Shield,
-  FileCheck
+  FileCheck,
+  Mic
 } from 'lucide-react';
 
 interface NavItem {
@@ -101,6 +102,7 @@ export function ModernNav() {
   ];
 
   const dropdownItems: NavItem[] = [
+    { href: '/voice', label: 'Your Voice', icon: Mic, description: 'Recordings & voice-model readiness' },
     { href: '/stats', label: 'Statistics', icon: BarChart3, description: 'View detailed stats' },
     { href: '/my-likes', label: 'My Likes', icon: Heart, description: 'Words you\'ve liked' },
     { href: '/chat', label: 'AI Chat', icon: MessageCircle, description: 'Chat with AI' },
