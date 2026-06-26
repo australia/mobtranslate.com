@@ -11,6 +11,21 @@ import {
   definitions as definitionsT,
 } from '@/lib/db/schema';
 import { getSessionUser } from '@/lib/auth-helpers';
+import { logTranslationRequest } from '@/lib/usage-log';
+
+/** Pull the plain text out of a UI message (parts[] or legacy content). */
+function uiMessageText(msg: any): string {
+  if (!msg) return '';
+  if (typeof msg.content === 'string' && msg.content) return msg.content;
+  if (Array.isArray(msg.parts)) {
+    return msg.parts
+      .filter((p: any) => p?.type === 'text' && typeof p.text === 'string')
+      .map((p: any) => p.text)
+      .join(' ')
+      .trim();
+  }
+  return '';
+}
 import { ImageAnalysisSchema } from '@/lib/tools/image-analysis';
 import { generateEmbedding } from '../../../scripts/generate-embeddings';
 
@@ -179,9 +194,25 @@ export async function POST(req: Request) {
     // image attachments without the manual image_url shaping we did under v4.
     const processedMessages = await convertToModelMessages(messages);
 
+    // The user's latest prompt — logged once the assistant finishes (best-effort).
+    const lastUserText = uiMessageText([...(messages ?? [])].reverse().find((m: any) => m?.role === 'user'));
+    const chatStartedAt = Date.now();
+
     const result = await streamText({
       model: openai('gpt-4o-mini'),
       messages: processedMessages,
+      onFinish: ({ text }) => {
+        if (!lastUserText) return;
+        void logTranslationRequest({
+          kind: 'chat_app',
+          source: 'chat_page',
+          inputText: lastUserText,
+          outputText: text,
+          userId: user.id,
+          model: 'gpt-4o-mini',
+          durationMs: Date.now() - chatStartedAt,
+        });
+      },
       system: `You are a helpful language learning assistant for Mob Translate, a dictionary app for Aboriginal languages.
 
 USER CONTEXT:

@@ -8,6 +8,8 @@ import {
   translations as translationsT,
   words as wordsT,
 } from '@/lib/db/schema';
+import { logTranslationRequest } from '@/lib/usage-log';
+import { getSessionUser } from '@/lib/auth-helpers';
 
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
@@ -182,9 +184,15 @@ Rules:
 
 export async function POST(request: NextRequest, props: { params: Promise<{ language: string }> }) {
   const params = await props.params;
+  const startedAt = Date.now();
+  // Who's asking (if signed in) — best-effort, never blocks the response.
+  const userId = await getSessionUser().then((u) => u?.id ?? null).catch(() => null);
+  let language = '';
+  let body: { text?: string; stream?: boolean; mode?: string } = {};
   try {
-    const { language } = params;
-    const { text, stream = false, mode = 'chat' } = await request.json();
+    ({ language } = params);
+    body = await request.json();
+    const { text, stream = false, mode = 'chat' } = body;
 
     if (!text) {
       return NextResponse.json({ success: false, error: 'No text provided for translation' }, { status: 400 });
@@ -217,10 +225,24 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
         parsed = { translation: raw };
       }
 
+      const translation = (parsed.translation || '').trim();
+      const gloss = (parsed.gloss || '').trim();
+      void logTranslationRequest({
+        kind: 'translate',
+        source: 'homepage',
+        languageCode: dictionary.meta.code,
+        inputText: text,
+        outputText: translation,
+        gloss,
+        userId,
+        model: 'gpt-4.1-mini',
+        durationMs: Date.now() - startedAt,
+      });
+
       return NextResponse.json({
         success: true,
-        translation: (parsed.translation || '').trim(),
-        gloss: (parsed.gloss || '').trim(),
+        translation,
+        gloss,
         language: { name: dictionary.meta.name, code: dictionary.meta.code },
       });
     }
@@ -241,11 +263,26 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
       const readable = new ReadableStream({
         async start(controller) {
           const encoder = new TextEncoder();
+          let full = '';
           for await (const chunk of streamResponse) {
             const content = chunk.choices[0]?.delta?.content || '';
-            if (content) controller.enqueue(encoder.encode(content));
+            if (content) {
+              full += content;
+              controller.enqueue(encoder.encode(content));
+            }
           }
           controller.close();
+          // Log the completed chat once the stream finishes.
+          void logTranslationRequest({
+            kind: 'chat',
+            source: 'homepage',
+            languageCode: dictionary.meta.code,
+            inputText: text,
+            outputText: full,
+            userId,
+            model: 'gpt-4.1',
+            durationMs: Date.now() - startedAt,
+          });
         },
       });
 
@@ -262,10 +299,34 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
       ],
     });
 
-    return NextResponse.json({ success: true, translation: completion.choices[0].message.content || '' });
+    const out = completion.choices[0].message.content || '';
+    void logTranslationRequest({
+      kind: 'chat',
+      source: 'homepage',
+      languageCode: dictionary.meta.code,
+      inputText: text,
+      outputText: out,
+      userId,
+      model: 'gpt-4.1',
+      durationMs: Date.now() - startedAt,
+    });
+    return NextResponse.json({ success: true, translation: out });
   } catch (error) {
     console.error('Translation error:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    // Best-effort: capture the failed attempt so the admin can see what broke.
+    if (body?.text) {
+      void logTranslationRequest({
+        kind: body.mode === 'translate' ? 'translate' : 'chat',
+        source: 'homepage',
+        languageCode: language,
+        inputText: body.text,
+        userId,
+        status: 'error',
+        error: errorMessage,
+        durationMs: Date.now() - startedAt,
+      });
+    }
     if (errorMessage.includes('not found')) {
       return NextResponse.json({ success: false, error: 'Dictionary for language not found' }, { status: 404 });
     }

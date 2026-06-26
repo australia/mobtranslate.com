@@ -4,6 +4,7 @@ import path from 'path';
 import { createHash } from 'crypto';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
+import { recordTtsPlay } from '@/lib/usage-log';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -182,6 +183,8 @@ async function handle(text: string | null, lang: string | null) {
   if (lang && NEURAL_LANGS.has(lang.toLowerCase())) {
     const neural = await neuralTts(clean, lang.toLowerCase());
     if (neural) {
+      // Count this as a play of the stored clip (admin "Explore" voice metrics).
+      void recordTtsPlay(lang.toLowerCase(), clean, NEURAL_MODEL);
       return new NextResponse(neural.buf as unknown as BodyInit, {
         status: 200,
         headers: {
