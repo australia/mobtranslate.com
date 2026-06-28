@@ -4,6 +4,7 @@ import React, { useState, useRef } from 'react';
 import { ArrowRight, Loader2, AlertTriangle, Copy, Check, MessageSquare, Languages } from 'lucide-react';
 import { SpeakButton } from '@/components/audio/SpeakButton';
 import Translator from './Translator';
+import { track } from '@/lib/analytics';
 import type { Language } from '@/lib/supabase/types';
 
 interface TranslateHeroProps {
@@ -30,6 +31,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
 
   const translate = async () => {
     if (!input.trim()) return;
+    track('translate', { language: target, text_length: input.trim().length });
     setLoading(true);
     setError(null);
     setResult(null);
@@ -72,7 +74,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
               key={m}
               role="tab"
               aria-selected={mode === m}
-              onClick={() => setMode(m)}
+              onClick={() => { setMode(m); track('hero_mode_switch', { mode: m }); }}
               className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md font-medium transition-colors ${
                 mode === m ? 'bg-[#faf8f5] text-[#33180c]' : 'text-[#faf8f5]/70 hover:text-[#faf8f5]'
               }`}

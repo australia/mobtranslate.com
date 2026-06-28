@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import SharedLayout from '../../components/SharedLayout';
+import { track } from '@/lib/analytics';
 import { Card, CardContent } from '@mobtranslate/ui';
 import {
   ArrowLeft, Waypoints, ShieldCheck, ShieldAlert, AlertTriangle, CheckCircle2,
@@ -55,6 +56,7 @@ export default function VoiceModelPage() {
 
   const setConsent = useCallback(async (grant: boolean) => {
     setSaving(true);
+    track('voice_consent', { grant });
     try {
       await fetch('/api/v2/me/voice/consent', {
         method: 'POST', headers: { 'content-type': 'application/json' },

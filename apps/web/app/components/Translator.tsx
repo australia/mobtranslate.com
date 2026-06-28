@@ -6,6 +6,7 @@ import { ArrowRight, Globe, Loader2, AlertTriangle } from 'lucide-react';
 import { Textarea, Button } from '@mobtranslate/ui';
 import { Language } from '@/lib/supabase/types';
 import { SpeakButton } from '@/components/audio/SpeakButton';
+import { track } from '@/lib/analytics';
 
 interface TranslatorProps {
   availableLanguages?: Language[];
@@ -67,7 +68,8 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
     if (!canTranslate) {
       return;
     }
-    
+
+    track('chat_send', { language: selectedLanguage, text_length: inputText.trim().length });
     setIsLoading(true);
     setOutputText('');
     setError(null);

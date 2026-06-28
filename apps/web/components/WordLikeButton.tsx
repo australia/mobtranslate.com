@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Heart } from 'lucide-react';
 import { Button, cn } from '@mobtranslate/ui';
 import { useWordLike } from '@/lib/hooks/useWordLike';
+import { track } from '@/lib/analytics';
 
 interface WordLikeButtonProps {
   wordId: string;
@@ -28,6 +29,7 @@ export function WordLikeButton({
     e.stopPropagation();
     if (!isLoading) {
       setIsAnimating(true);
+      track(isLiked ? 'word_unlike' : 'word_like', { word_id: wordId });
       toggleLike();
       setTimeout(() => setIsAnimating(false), 400);
     }

@@ -3,6 +3,7 @@
 import React, { useRef, useState, useCallback } from 'react';
 import { Volume2, Loader2, AlertCircle } from 'lucide-react';
 import { cn } from '@mobtranslate/ui';
+import { track } from '@/lib/analytics';
 
 type Status = 'idle' | 'loading' | 'playing' | 'error';
 
@@ -45,6 +46,7 @@ export function SpeakButton({
     }
     if (!text.trim()) return;
 
+    track('tts_play', { lang: lang ?? 'unknown', text_length: text.length });
     setStatus('loading');
     try {
       const url = `/api/tts?text=${encodeURIComponent(text)}${lang ? `&lang=${encodeURIComponent(lang)}` : ''}`;

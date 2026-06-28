@@ -5,6 +5,7 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from '@/contexts/AuthContext';
 import { Toaster } from '@/components/layout/Toaster';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 
 // Load fonts
 const inter = Inter({
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Toaster />
         </AuthProvider>
         <Analytics />
+        <GoogleAnalytics />
       </body>
     </html>
   );

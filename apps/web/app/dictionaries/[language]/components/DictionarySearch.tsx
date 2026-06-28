@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useCallback, useTransition, useMemo } from 'react';
+import React, { useState, useCallback, useTransition, useMemo, useRef } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { track } from '@/lib/analytics';
 import { Badge, Button, cn } from '@mobtranslate/ui';
 import { TableSkeleton } from '@/components/loading/Skeleton';
 import { DictionaryTableWithLikes } from '@/components/DictionaryTableWithLikes';
@@ -134,8 +135,20 @@ export default function DictionarySearch({
   const words = transformedSwrWords || initialWords;
   const currentPagination = swrPagination || pagination;
 
+  // Debounce the analytics event so we log committed searches, not keystrokes.
+  const searchTrackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const handleSearch = useCallback((value: string) => {
     setSearch(value);
+    if (searchTrackTimer.current) clearTimeout(searchTrackTimer.current);
+    if (value.trim().length >= 2) {
+      searchTrackTimer.current = setTimeout(() => {
+        track('dictionary_search', {
+          language: pathname.split('/')[2] || 'unknown',
+          query_length: value.trim().length,
+        });
+      }, 800);
+    }
     const params = new URLSearchParams(searchParams);
 
     if (value) {
