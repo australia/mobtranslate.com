@@ -26,6 +26,7 @@ const Breadcrumbs = ({ items, className }: { items: { href: string; label: strin
 import { getWordsForLanguage } from '@/lib/db/queries';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
+import { creditsForLanguage } from '@/lib/credits';
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -134,6 +135,38 @@ export default async function DictionaryPage(
                   <MapPin className="w-4 h-4" /> View place names on map
                 </Link>
               </div>
+
+              {/* Subtle attribution: the people & work behind this dictionary. */}
+              {(() => {
+                const langCredits = creditsForLanguage(languageData.code);
+                if (langCredits.length === 0) return null;
+                const makers = langCredits.filter((c) => c.category === 'dictionary');
+                const voice = langCredits.filter((c) => c.category === 'voice');
+                return (
+                  <p className="mt-5 text-xs text-muted-foreground/80">
+                    {makers.length > 0 && (
+                      <span>
+                        Dictionary by{' '}
+                        {makers.map((m, i) => (
+                          <span key={m.slug}>
+                            {i > 0 && ', '}
+                            <Link href={`/credits/${m.slug}`} className="hover:text-foreground underline-offset-2 hover:underline">{m.name}</Link>
+                          </span>
+                        ))}
+                        {' · '}
+                      </span>
+                    )}
+                    {voice.length > 0 && (
+                      <span>
+                        voice by{' '}
+                        <Link href={`/credits/${voice[0].slug}`} className="hover:text-foreground underline-offset-2 hover:underline">{voice[0].name}</Link>
+                        {' · '}
+                      </span>
+                    )}
+                    <Link href="/credits" className="text-[var(--lang-accent)] hover:underline underline-offset-2">all credits</Link>
+                  </p>
+                );
+              })()}
             </div>
           </div>
 

@@ -366,6 +366,11 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                     Leaderboard
                   </Link>
                 </li>
+                <li>
+                  <Link href="/credits" className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-0.5 transition-all duration-200 inline-block">
+                    Credits
+                  </Link>
+                </li>
               </ul>
             </div>
 
