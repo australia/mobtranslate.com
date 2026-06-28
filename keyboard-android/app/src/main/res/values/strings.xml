@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MobTranslate Keyboard</string>
+    <string name="ime_label">MobTranslate Keyboard</string>
+    <string name="subtype_kuku_yalanji">Kuku Yalanji</string>
+    <string name="subtype_anindilyakwa">Anindilyakwa</string>
+    <string name="subtype_wajarri">Wajarri</string>
+    <string name="subtype_migmaq">Mi\'gmaq</string>
+</resources>

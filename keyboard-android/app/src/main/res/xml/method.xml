@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<input-method xmlns:android="http://schemas.android.com/apk/res/android"
+    android:supportsSwitchingToNextInputMethod="true">
+
+    <subtype
+        android:label="@string/subtype_kuku_yalanji"
+        android:imeSubtypeLocale="en_AU"
+        android:languageTag="x-kuku-yalanji"
+        android:imeSubtypeMode="keyboard" />
+
+    <subtype
+        android:label="@string/subtype_anindilyakwa"
+        android:imeSubtypeLocale="en_AU"
+        android:languageTag="x-anindilyakwa"
+        android:imeSubtypeMode="keyboard" />
+
+    <subtype
+        android:label="@string/subtype_wajarri"
+        android:imeSubtypeLocale="en_AU"
+        android:languageTag="x-wajarri"
+        android:imeSubtypeMode="keyboard" />
+
+    <subtype
+        android:label="@string/subtype_migmaq"
+        android:imeSubtypeLocale="en_CA"
+        android:languageTag="x-migmaq"
+        android:imeSubtypeMode="keyboard" />
+
+</input-method>

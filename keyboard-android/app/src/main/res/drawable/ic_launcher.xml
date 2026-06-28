@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Brand-coloured rounded background -->
+    <path
+        android:fillColor="#B45E2A"
+        android:pathData="M0,24 C0,10.7 10.7,0 24,0 L84,0 C97.3,0 108,10.7 108,24 L108,84 C108,97.3 97.3,108 84,108 L24,108 C10.7,108 0,97.3 0,84 Z" />
+    <!-- Speech bubble -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,32 L78,32 C82.4,32 86,35.6 86,40 L86,64 C86,68.4 82.4,72 78,72 L52,72 L40,84 L40,72 L30,72 C25.6,72 22,68.4 22,64 L22,40 C22,35.6 25.6,32 30,32 Z" />
+    <!-- Three "speech" dots -->
+    <path android:fillColor="#B45E2A" android:pathData="M38,52 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <path android:fillColor="#B45E2A" android:pathData="M54,52 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <path android:fillColor="#B45E2A" android:pathData="M70,52 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+</vector>
