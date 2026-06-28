@@ -23,7 +23,7 @@ from scipy.io import wavfile
 from transformers import AutoTokenizer, VitsModel
 
 from . import registry
-from .orthography import normalize_for_pjt
+from .orthography import normalize_for_pjt, normalize_anindilyakwa_for_pjt
 
 log = logging.getLogger("mobtranslate_tts")
 
@@ -35,6 +35,8 @@ _HAS_FFMPEG = shutil.which("ffmpeg") is not None
 def _apply_bridge(text: str, bridge: str | None) -> str:
     if bridge == "yalanji":
         return normalize_for_pjt(text)
+    if bridge == "anindilyakwa":
+        return normalize_anindilyakwa_for_pjt(text)
     return text
 
 

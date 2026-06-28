@@ -16,7 +16,7 @@ export const maxDuration = 30;
 // STORE every generation (box FS + tts_generations provenance row), and serve it.
 // Anything not neural-supported, or any service error, falls back to the Google
 // donor below — so pronunciation never breaks.
-const NEURAL_LANGS = new Set(['kuku_yalanji', 'zku']);
+const NEURAL_LANGS = new Set(['kuku_yalanji', 'zku', 'anindilyakwa', 'aoi']);
 const NEURAL_MODEL = 'facebook/mms-tts-pjt';
 const TTS_SERVICE_URL = process.env.TTS_SERVICE_URL || 'http://127.0.0.1:7820';
 const TTS_DIR = process.env.MOBTRANSLATE_TTS_DIR || '/mnt/donto-data/mobtranslate-storage/tts';

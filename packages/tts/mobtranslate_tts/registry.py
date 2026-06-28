@@ -17,6 +17,11 @@ DEFAULT_MODEL = "facebook/mms-tts-pjt"
 REGISTRY: dict[str, dict] = {
     "kuku_yalanji": {"model": "facebook/mms-tts-pjt", "bridge": "yalanji"},
     "zku": {"model": "facebook/mms-tts-pjt", "bridge": "yalanji"},
+    # Anindilyakwa (Eastern Gunwinyguan) — no native/same-family MMS voice exists,
+    # so it rides the Pitjantjatjara voice through a cross-family orthography
+    # bridge (a scaffold; authentic elder recordings remain the goal).
+    "anindilyakwa": {"model": "facebook/mms-tts-pjt", "bridge": "anindilyakwa"},
+    "aoi": {"model": "facebook/mms-tts-pjt", "bridge": "anindilyakwa"},
 }
 
 

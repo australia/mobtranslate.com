@@ -100,6 +100,115 @@ def _split_reduplication(morph: str) -> tuple[str, str] | None:
     return None
 
 
+# ---------------------------------------------------------------------------
+# Anindilyakwa (Eastern Gunwinyguan) -> Pitjantjatjara
+#
+# Anindilyakwa is NOT Pama-Nyungan and has no same-family MMS voice, so pjt is a
+# CROSS-family donor (the user chose it as the closest available Australian
+# voice). It still shares the core Australian phonotactics — and, crucially, the
+# practical orthography (Stokes/Groote Eylandt Language Centre, confirmed against
+# the MobTranslate dictionary's 591 headwords) uses the SAME voiced-letter stop
+# convention as Yalanji: b d g j = /p t k c/. That maps cleanly onto pjt's single
+# voiceless series (p t k tj), and the pjt model's own allophony restores the
+# natural fortis/lenis voicing.
+#
+# Graphemes Anindilyakwa adds over Yalanji (all attested in the dictionary):
+#   ngw /ŋʷ/, kw /kʷ/, nj /ɲ/ (pjt spells this 'ny'), ly /ʎ/, and the
+#   retroflexes rd /ʈ/, rn /ɳ/, rl /ɭ/. Words almost always end in -a.
+#
+# Vowels: the practical orthography writes a e i u (o is marginal). pjt has the
+# 3-vowel a/i/u; e -> i and o -> u (nearest), matching the Yalanji bridge.
+#
+# Grounded in: van Egmond 2012 (*Enindhilyakwa phonology, morphosyntax & genetic
+# position*); Leeding 1989 (*Anindilyakwa phonology & morphology*); J. Stokes,
+# *Anindilyakwa Dictionary*; Wikipedia phoneme inventory. This is a SCAFFOLD
+# voice (a Pama-Nyungan donor reading Gunwinyguan), upgraded from the prior
+# Indonesian donor — authentic elder recordings remain the ground truth.
+# ---------------------------------------------------------------------------
+
+# Longest-first so 'ngw' wins over 'ng', 'kw' over 'k', etc.
+_ANIN_DIGRAPHS: list[tuple[str, str]] = [
+    ("ngw", "ngw"),  # labialised velar nasal /ŋʷ/
+    ("ng", "ng"),    # velar nasal /ŋ/
+    ("kw", "kw"),    # labialised velar stop /kʷ/
+    ("nj", "ny"),    # palatal nasal /ɲ/ -> pjt 'ny'  (ESSENTIAL: else n+j -> 'ntj')
+    ("ny", "ny"),    # palatal nasal, if already spelled 'ny'
+    ("ly", "ly"),    # palatal lateral /ʎ/ -> pjt 'ly'
+    ("rd", "rt"),    # retroflex stop /ʈ/ -> pjt retroflex stop spelling
+    ("rn", "rn"),    # retroflex nasal /ɳ/
+    ("rl", "rl"),    # retroflex lateral /ɭ/
+    ("rr", "rr"),    # alveolar trill /r/
+]
+
+# Same single-letter map as Yalanji: voiced stops -> pjt voiceless series, the
+# shared 3-vowel system, e->i / o->u for the marginal vowels.
+_ANIN_SINGLE: dict[str, str] = dict(_SINGLE)
+
+
+def anindilyakwa_to_pjt(morph: str) -> str:
+    """Map a single Anindilyakwa morpheme (practical orthography) to pjt spelling."""
+    s = morph.lower()
+    out: list[str] = []
+    i = 0
+    while i < len(s):
+        # Disambiguate 'rng' as r + ng (the common velar-nasal cluster), not the
+        # retroflex 'rn' + g — else e.g. 'ngarngku' mis-parses to a doubled k.
+        if s[i] == "r" and s[i + 1 : i + 3] == "ng":
+            out.append("r")
+            i += 1
+            continue
+        three = s[i : i + 3]
+        hit3 = next((r for d, r in _ANIN_DIGRAPHS if len(d) == 3 and d == three), None)
+        if hit3 is not None:
+            out.append(hit3)
+            i += 3
+            continue
+        two = s[i : i + 2]
+        hit2 = next((r for d, r in _ANIN_DIGRAPHS if len(d) == 2 and d == two), None)
+        if hit2 is not None:
+            out.append(hit2)
+            i += 2
+            continue
+        ch = s[i]
+        out.append(_ANIN_SINGLE.get(ch, ch))
+        i += 1
+    return "".join(out)
+
+
+def normalize_anindilyakwa_for_pjt(
+    text: str,
+    *,
+    compound_juncture: str = "",
+    redup_boundary: str = " ",
+) -> str:
+    """
+    Convert an Anindilyakwa string into Pitjantjatjara-shaped text for MMS-TTS.
+
+    Mirrors the Yalanji pipeline: split each whitespace word on '-' into
+    morphemes (Anindilyakwa is polysynthetic and the dictionary hyphenates
+    affixes), pass English/proper-noun morphemes through untouched, map native
+    morphemes via the Anindilyakwa->pjt table, and lightly separate genuine
+    reduplication so the model doesn't read it as one flat run. No Yalanji-
+    specific final-/y/ rule (Anindilyakwa words end in -a).
+    """
+    words_out: list[str] = []
+    for word in text.split():
+        morphs = word.split("-")
+        mapped: list[str] = []
+        for m in morphs:
+            if _is_foreign(m):
+                mapped.append(m)
+                continue
+            redup = _split_reduplication(m)
+            if redup:
+                a, b = redup
+                mapped.append(anindilyakwa_to_pjt(a) + redup_boundary + anindilyakwa_to_pjt(b))
+            else:
+                mapped.append(anindilyakwa_to_pjt(m))
+        words_out.append(compound_juncture.join(mapped))
+    return " ".join(words_out)
+
+
 def normalize_for_pjt(
     text: str,
     *,
