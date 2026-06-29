@@ -23,6 +23,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     (async () => {
+      await api.loadAuth();
       await refresh();
       setLoading(false);
     })();

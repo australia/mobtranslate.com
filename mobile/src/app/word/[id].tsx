@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { Card, Screen, SpeakerButton, Sub } from '../../components/kit';
+import { Card, Display, Screen, SpeakerButton } from '../../components/kit';
 import { getWord, type WordDetail } from '../../lib/api';
-import { C, S } from '../../lib/theme';
+import { C, F, S } from '../../lib/theme';
 
 export default function WordScreen() {
   const { id, code, word } = useLocalSearchParams<{ id: string; code?: string; word?: string }>();
@@ -21,9 +21,9 @@ export default function WordScreen() {
 
   return (
     <Screen>
-      <Stack.Screen options={{ title: headword }} />
+      <Stack.Screen options={{ title: '' }} />
       <View style={styles.headRow}>
-        <Text style={styles.word}>{headword}</Text>
+        <Display style={{ flex: 1 }}>{headword}</Display>
         {!!langCode && <SpeakerButton code={langCode} text={headword} big />}
       </View>
 
@@ -32,18 +32,16 @@ export default function WordScreen() {
       {!loading && detail && (
         <>
           {detail.definitions.length > 0 && (
-            <Card>
+            <Card soft>
               <Text style={styles.section}>Meaning</Text>
-              {detail.definitions.map((d, i) => (
-                <Text key={i} style={styles.def}>{`• ${d}`}</Text>
-              ))}
+              {detail.definitions.map((d, i) => <Text key={i} style={styles.def}>{`•  ${d}`}</Text>)}
             </Card>
           )}
           {detail.examples.length > 0 && (
-            <Card>
+            <Card soft>
               <Text style={styles.section}>Examples</Text>
               {detail.examples.map((ex, i) => (
-                <View key={i} style={styles.exRow}>
+                <View key={i} style={[styles.exRow, i > 0 && styles.exBorder]}>
                   <View style={{ flex: 1 }}>
                     <Text style={styles.exText}>{ex.text}</Text>
                     {!!ex.translation && <Text style={styles.exTrans}>{ex.translation}</Text>}
@@ -54,21 +52,22 @@ export default function WordScreen() {
             </Card>
           )}
           {detail.definitions.length === 0 && detail.examples.length === 0 && (
-            <Sub>No extra detail for this word yet.</Sub>
+            <Text style={styles.muted}>No extra detail for this word yet.</Text>
           )}
         </>
       )}
-      {!loading && !detail && <Sub>Could not load this word.</Sub>}
+      {!loading && !detail && <Text style={styles.muted}>Could not load this word.</Text>}
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
   headRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
-  word: { flex: 1, fontSize: S.display, fontWeight: '800', color: C.ink },
-  section: { fontSize: S.small, fontWeight: '700', color: C.ochre, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 8 },
-  def: { fontSize: S.body, color: C.ink, lineHeight: 28, marginBottom: 4 },
-  exRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, paddingVertical: 8, borderTopWidth: 1, borderTopColor: C.border },
-  exText: { fontSize: S.body, color: C.ink, lineHeight: 26 },
-  exTrans: { fontSize: S.label, color: C.muted, marginTop: 2 },
+  section: { fontFamily: F.bold, fontSize: S.eyebrow, letterSpacing: 1.5, color: C.ochre, marginBottom: 10 },
+  def: { fontFamily: F.body, fontSize: S.body, color: C.ink, lineHeight: 28, marginBottom: 4 },
+  exRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 10, paddingVertical: 10 },
+  exBorder: { borderTopWidth: 1, borderTopColor: C.hair },
+  exText: { fontFamily: F.body, fontSize: S.body, color: C.ink, lineHeight: 26 },
+  exTrans: { fontFamily: F.body, fontSize: S.label, color: C.muted, marginTop: 2 },
+  muted: { fontFamily: F.body, fontSize: S.label, color: C.muted },
 });

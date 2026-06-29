@@ -20,7 +20,9 @@
         "backgroundColor": "#2A1712",
         "foregroundImage": "./assets/images/adaptive-foreground.png"
       },
-      "permissions": ["android.permission.RECORD_AUDIO"],
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
       "predictiveBackGestureEnabled": false
     },
     "web": {
@@ -42,7 +44,9 @@
         {
           "microphonePermission": "Mob Translate uses the microphone so you can record words and sentences in your language."
         }
-      ]
+      ],
+      "expo-font",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
