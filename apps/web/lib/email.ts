@@ -23,7 +23,8 @@ export async function sendEmail(input: SendEmailInput): Promise<boolean> {
   try {
     const res = await fetch(RESEND_ENDPOINT, {
       method: 'POST',
-      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+      // api.resend.com is behind Cloudflare, which 1010-blocks some default UAs.
+      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', 'User-Agent': 'curl/8.5.0' },
       body: JSON.stringify({
         from,
         to: Array.isArray(input.to) ? input.to : [input.to],
