@@ -54,12 +54,19 @@ object Dictionary {
      * if there are none we offer a few prefix matches so candidates appear while
      * the user is still typing.
      */
-    fun lookup(context: Context, code: String, rawWord: String, limit: Int = 6): List<Suggestion> {
+    fun lookup(
+        context: Context,
+        code: String,
+        rawWord: String,
+        limit: Int = 6,
+        allowPrefix: Boolean = true,
+    ): List<Suggestion> {
         val word = rawWord.trim().lowercase()
         if (word.length < 2) return emptyList()
         val index = load(context, code)
 
         index[word]?.let { return it.take(limit) }
+        if (!allowPrefix) return emptyList()
 
         // Prefix fallback (linear scan; the indexes are only a few thousand keys).
         val out = ArrayList<Suggestion>()

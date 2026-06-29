@@ -12,6 +12,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 /**
  * The MobTranslate keyboard (an Android IME).
@@ -49,6 +51,25 @@ class MobKeyboardService : InputMethodService() {
 
     private fun dp(v: Int): Int = (v * resources.displayMetrics.density).toInt()
 
+    /**
+     * Keep the bottom row clear of the system navigation bar / gesture pill.
+     * Pads the keyboard's bottom by the navigation-bar inset (with a resource
+     * fallback for when the inset listener hasn't fired yet).
+     */
+    private fun applyBottomInset(root: LinearLayout) {
+        val basePad = dp(6)
+        val navResId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+        val navFallback = if (navResId > 0) resources.getDimensionPixelSize(navResId) else dp(28)
+        root.setPadding(root.paddingLeft, root.paddingTop, root.paddingRight, basePad + navFallback)
+        ViewCompat.setOnApplyWindowInsetsListener(root) { v, insets ->
+            val nav = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            val pad = if (nav > 0) nav else navFallback
+            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, basePad + pad)
+            insets
+        }
+        ViewCompat.requestApplyInsets(root)
+    }
+
     override fun onCreateInputView(): View {
         letterKeys.clear()
         val root = LinearLayout(this).apply {
@@ -56,6 +77,7 @@ class MobKeyboardService : InputMethodService() {
             setBackgroundColor(kbBg)
             setPadding(dp(3), dp(4), dp(3), dp(6))
         }
+        applyBottomInset(root)
 
         // Suggestion / language bar (horizontally scrollable).
         suggestionBar = LinearLayout(this).apply {
@@ -96,7 +118,7 @@ class MobKeyboardService : InputMethodService() {
         row5.addView(fnKey("⏎", 1.8f) { enter() })
         root.addView(row5)
 
-        renderSuggestions(emptyList())
+        renderSuggestions(emptyList(), emptyList())
         return root
     }
 
@@ -105,8 +127,9 @@ class MobKeyboardService : InputMethodService() {
         shift = false
         applyShiftToLabels()
         if (!::suggestionBar.isInitialized) return
-        // Warm the current language's index off the UI thread, then refresh.
+        // Warm the indexes off the UI thread, then refresh.
         Thread {
+            EnglishLexicon.ensureLoaded(applicationContext)
             Dictionary.preload(applicationContext, lang.code)
             suggestionBar.post { refreshSuggestions() }
         }.start()
@@ -252,48 +275,73 @@ class MobKeyboardService : InputMethodService() {
         if (!::suggestionBar.isInitialized) return
         val word = currentWordBeforeCursor()
         if (word.length < 2) {
-            renderSuggestions(emptyList())
+            renderSuggestions(emptyList(), emptyList())
             return
         }
-        val results = Dictionary.lookup(applicationContext, lang.code, word)
-        renderSuggestions(results)
+
+        // English completions / typo fixes — makes it feel like a normal keyboard.
+        val english = EnglishLexicon.suggest(word, 3)
+
+        // A couple of translations: of the typed word and its top English fixes.
+        val translations = ArrayList<Suggestion>()
+        val seen = HashSet<String>()
+        val candidates = ArrayList<String>().apply { add(word); addAll(english) }
+        for (c in candidates) {
+            for (s in Dictionary.lookup(applicationContext, lang.code, c, limit = 3, allowPrefix = false)) {
+                if (seen.add(s.target)) {
+                    translations.add(s)
+                    if (translations.size >= 2) break
+                }
+            }
+            if (translations.size >= 2) break
+        }
+
+        renderSuggestions(english, translations)
     }
 
-    private fun replaceWordWith(target: String) {
+    private fun replaceWordWith(target: String, thenRefresh: Boolean) {
         val ic = currentInputConnection ?: return
         val word = currentWordBeforeCursor()
         ic.beginBatchEdit()
         if (word.isNotEmpty()) ic.deleteSurroundingText(word.length, 0)
         ic.commitText(target, 1)
         ic.endBatchEdit()
-        renderSuggestions(emptyList())
+        if (thenRefresh) refreshSuggestions() else renderSuggestions(emptyList(), emptyList())
     }
 
-    private fun renderSuggestions(items: List<Suggestion>) {
+    private fun chip(
+        label: String, bg: Int, pressed: Int, textColor: Int, big: Boolean, onClick: () -> Unit,
+    ): TextView = TextView(this).apply {
+        text = label
+        setTextColor(textColor)
+        if (big) setTypeface(typeface, Typeface.BOLD)
+        textSize = if (big) 15f else 14f
+        gravity = Gravity.CENTER
+        setPadding(dp(14), dp(7), dp(14), dp(7))
+        background = pillBg(bg, pressed)
+        isClickable = true
+        setOnClickListener { onClick() }
+        layoutParams = LinearLayout.LayoutParams(WRAP, WRAP).apply {
+            setMargins(dp(3), dp(2), dp(3), dp(2))
+        }
+    }
+
+    private fun renderSuggestions(english: List<String>, translations: List<Suggestion>) {
         suggestionBar.removeAllViews()
 
         // Pinned language chip — tap to cycle languages.
         suggestionBar.addView(
-            TextView(this).apply {
-                text = "${lang.name}  ▾"
-                setTextColor(accent)
-                setTypeface(typeface, Typeface.BOLD)
-                textSize = 13f
-                gravity = Gravity.CENTER
-                setPadding(dp(12), dp(6), dp(12), dp(6))
-                background = pillBg(0x22B45E2A, 0x44B45E2A)
-                isClickable = true
-                setOnClickListener { cycleLanguage() }
-                layoutParams = LinearLayout.LayoutParams(WRAP, WRAP).apply {
-                    setMargins(dp(4), dp(2), dp(8), dp(2))
-                }
-            },
+            chip("${lang.name}  ▾", 0x22B45E2A, 0x44B45E2A, accent, big = false) { cycleLanguage() }
+                .apply {
+                    textSize = 13f
+                    (layoutParams as LinearLayout.LayoutParams).setMargins(dp(4), dp(2), dp(8), dp(2))
+                },
         )
 
-        if (items.isEmpty()) {
+        if (english.isEmpty() && translations.isEmpty()) {
             suggestionBar.addView(
                 TextView(this).apply {
-                    text = "type an English word → tap the translation"
+                    text = "type — corrections and ${lang.name} translations appear here"
                     setTextColor(hintText)
                     textSize = 12f
                     gravity = Gravity.CENTER_VERTICAL
@@ -304,21 +352,18 @@ class MobKeyboardService : InputMethodService() {
             return
         }
 
-        items.forEach { s ->
+        // English suggestions first (neutral) — completion / typo fix.
+        english.forEach { w ->
             suggestionBar.addView(
-                TextView(this).apply {
-                    text = s.target
-                    setTextColor(0xFFFFFFFF.toInt())
-                    setTypeface(typeface, Typeface.BOLD)
-                    textSize = 15f
-                    gravity = Gravity.CENTER
-                    setPadding(dp(14), dp(7), dp(14), dp(7))
-                    background = pillBg(accent, accentPressed)
-                    isClickable = true
-                    setOnClickListener { replaceWordWith(s.target) }
-                    layoutParams = LinearLayout.LayoutParams(WRAP, WRAP).apply {
-                        setMargins(dp(3), dp(2), dp(3), dp(2))
-                    }
+                chip(w, keyBg, keyPressed, keyText, big = false) { replaceWordWith(w, thenRefresh = true) },
+            )
+        }
+
+        // Then the translations (accent) — tap to insert the Aboriginal word.
+        translations.forEach { s ->
+            suggestionBar.addView(
+                chip(s.target, accent, accentPressed, 0xFFFFFFFF.toInt(), big = true) {
+                    replaceWordWith(s.target, thenRefresh = false)
                 },
             )
         }
