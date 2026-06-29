@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, Sun, Moon, Code, Heart, Globe, BookOpen, Users, ExternalLink } from 'lucide-react';
 import { cn, Button } from '@mobtranslate/ui';
 import { ModernNav } from '@/components/navigation/ModernNav';
+import { BrandMark } from '@/components/brand/BrandMark';
 
 interface NavLink {
   title: string;
@@ -114,7 +115,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               href="/"
               className="flex items-center gap-2.5 group shrink-0"
             >
-              <span className="w-2 h-2 rounded-full bg-primary group-hover:scale-125 transition-transform duration-300" />
+              <BrandMark size={30} className="rounded-[7px] shrink-0 group-hover:scale-105 transition-transform duration-300" />
               <span className="text-xl sm:text-2xl font-bold text-foreground whitespace-nowrap">
                 Mob Translate
               </span>
@@ -267,7 +268,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             {/* Brand + Social */}
             <div className="sm:col-span-2 lg:col-span-1">
               <Link href="/" className="inline-flex items-center gap-2 group">
-                <span className="w-2 h-2 rounded-full bg-primary group-hover:scale-125 transition-transform duration-300" />
+                <BrandMark size={26} className="rounded-md shrink-0 group-hover:scale-105 transition-transform duration-300" />
                 <span className="text-xl font-bold text-foreground">
                   Mob Translate
                 </span>

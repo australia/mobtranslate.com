@@ -205,12 +205,18 @@ export async function generateMetadata(
       limit: 1 
     });
     
+    const canonical = `/dictionaries/${params.language}`;
+    const description = languageData.description || `Explore the ${languageData.name} dictionary — words, meanings, pronunciation and cultural context.`;
     return {
-      title: `${languageData.name} Dictionary - MobTranslate`,
-      description: languageData.description || `Explore the ${languageData.name} language dictionary with translations and cultural context.`,
+      title: `${languageData.name} Dictionary`,
+      description,
+      // Canonical to the base dictionary URL so search/pagination params don't
+      // create duplicate content.
+      alternates: { canonical },
       openGraph: {
-        title: `${languageData.name} Dictionary`,
-        description: languageData.description,
+        title: `${languageData.name} Dictionary | Mob Translate`,
+        description,
+        url: canonical,
         type: 'website',
       },
     };

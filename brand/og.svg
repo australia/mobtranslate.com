@@ -1,0 +1,39 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C56A30"/>
+      <stop offset="1" stop-color="#A04A1A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Cream background -->
+  <rect width="1200" height="630" fill="#F7F1E9"/>
+  <!-- subtle ochre baseline -->
+  <rect x="0" y="618" width="1200" height="12" fill="#B45E2A"/>
+
+  <!-- Brand mark (the ochre tile + two bubbles), scaled to 300 at (96,165) -->
+  <g transform="translate(96,165) scale(0.586)">
+    <rect width="512" height="512" rx="116" fill="url(#tile)"/>
+    <rect x="78" y="126" width="300" height="172" rx="46" fill="#FFFFFF"/>
+    <path d="M150 286 L132 356 L196 290 Z" fill="#FFFFFF"/>
+    <rect x="246" y="232" width="190" height="150" rx="50" fill="#A04A1A"/>
+    <path d="M386 372 L406 432 L346 376 Z" fill="#A04A1A"/>
+    <rect x="262" y="248" width="158" height="118" rx="40" fill="#F3A64B"/>
+    <path d="M388 358 L402 402 L352 362 Z" fill="#F3A64B"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="470" y="290" font-family="Inter, sans-serif" font-weight="800" font-size="92" letter-spacing="-2">
+    <tspan fill="#B45E2A">Mob</tspan><tspan fill="#2A211B"> Translate</tspan>
+  </text>
+
+  <!-- Tagline (two lines so it never clips) -->
+  <text x="472" y="346" font-family="Inter, sans-serif" font-weight="500" font-size="34" fill="#6B5E52">Indigenous-language dictionaries,</text>
+  <text x="472" y="390" font-family="Inter, sans-serif" font-weight="500" font-size="34" fill="#6B5E52">translation &amp; voice</text>
+
+  <!-- Languages -->
+  <text x="472" y="446" font-family="Inter, sans-serif" font-weight="600" font-size="27" fill="#B45E2A" letter-spacing="0.3">Kuku Yalanji · Anindilyakwa · Wajarri · Mi'gmaq</text>
+
+  <!-- URL -->
+  <text x="472" y="500" font-family="Inter, sans-serif" font-weight="500" font-size="25" fill="#9A8C7E">mobtranslate.com</text>
+</svg>

@@ -30,8 +30,27 @@ export default async function Page() {
 
   const maxWords = Math.max(...Object.values(stats.wordsByLanguage), 1);
 
+  const siteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Mob Translate',
+    url: 'https://mobtranslate.com',
+    description:
+      'Open-source dictionaries, translation and pronunciation for Australian First Nations languages.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Mob Translate',
+      url: 'https://mobtranslate.com',
+      logo: 'https://mobtranslate.com/icons/icon-512.png',
+    },
+  };
+
   return (
     <SharedLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+      />
       {/* Hero — deep ochre-earth ground, language foregrounded */}
       <section className="marketing relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8 xl:-mx-12 2xl:-mx-16 -mt-6 sm:-mt-8 lg:-mt-12 bg-[#33180c] text-[#faf8f5]">
         <div className="relative px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 pt-20 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24">

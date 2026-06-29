@@ -21,18 +21,38 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Mob Translate | Indigenous Language Translation',
-  description: 'Open-source ecosystem for learning and translating indigenous languages',
-  keywords: 'indigenous languages, translation, aboriginal languages, language learning',
+  metadataBase: new URL('https://mobtranslate.com'),
+  title: {
+    default: 'Mob Translate — Indigenous language dictionaries, translation & voice',
+    template: '%s | Mob Translate',
+  },
+  description:
+    "Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages — Kuku Yalanji, Anindilyakwa, Wajarri, Mi'gmaq and more.",
+  applicationName: 'Mob Translate',
+  keywords: [
+    'indigenous languages', 'aboriginal languages', 'first nations languages', 'translation',
+    'dictionary', 'Kuku Yalanji', 'Anindilyakwa', 'Wajarri', "Mi'gmaq", 'language learning',
+    'language revitalisation',
+  ],
   authors: [{ name: 'Mob Translate Community' }],
+  creator: 'Mob Translate Community',
+  alternates: { canonical: '/' },
   openGraph: {
-    title: 'Mob Translate | Indigenous Language Translation',
-    description: 'Open-source ecosystem for learning and translating indigenous languages',
+    title: 'Mob Translate — Indigenous language dictionaries, translation & voice',
+    description:
+      'Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages.',
     url: 'https://mobtranslate.com',
     siteName: 'Mob Translate',
     locale: 'en_AU',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mob Translate',
+    description:
+      'Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages.',
+  },
+  robots: { index: true, follow: true },
   manifest: '/manifest.json',
   appleWebApp: { capable: true, statusBarStyle: 'default', title: 'Mob Translate' },
 };

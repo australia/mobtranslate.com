@@ -1,13 +1,17 @@
 {
-  "name": "Mob Translate — Record",
-  "short_name": "Mob Record",
-  "description": "Record your language for the community dictionary.",
+  "name": "Mob Translate — Indigenous language dictionaries",
+  "short_name": "Mob Translate",
+  "description": "Open-source dictionaries, translation and pronunciation for Australian First Nations languages.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#faf8f5",
   "theme_color": "#b45e2a",
+  "categories": ["education", "books", "productivity"],
   "icons": [
-    { "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }

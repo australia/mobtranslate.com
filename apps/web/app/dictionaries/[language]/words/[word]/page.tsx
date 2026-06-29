@@ -84,9 +84,27 @@ export default async function WordDetailPage(
       { href: `/dictionaries/${languageCode}/words/${encodeURIComponent(word.word)}`, label: word.word }
     ];
 
+    // Schema.org DefinedTerm — rich results for a dictionary entry.
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'DefinedTerm',
+      name: word.word,
+      inLanguage: language.code,
+      description: word.definitions?.[0]?.definition || undefined,
+      url: `https://mobtranslate.com/dictionaries/${languageCode}/words/${encodeURIComponent(word.word)}`,
+      inDefinedTermSet: {
+        '@type': 'DefinedTermSet',
+        name: `${language.name} Dictionary`,
+        url: `https://mobtranslate.com/dictionaries/${languageCode}`,
+      },
+    };
 
     return (
       <SharedLayout>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <div data-language={language.code}>
           {/* Header — the entry headword is the focus (DESIGN §5.3) */}
           <div className="py-8 md:py-12 max-w-4xl">
@@ -180,14 +198,17 @@ export async function generateMetadata(
     }
     
     const definition = word.definitions?.[0]?.definition || 'No definition available';
-    
+    const canonical = `/dictionaries/${params.language}/words/${encodeURIComponent(word.word)}`;
+    const description = `${word.word} in ${language.name}: ${definition}`;
     return {
-      title: `${word.word} - ${language.name} Dictionary - MobTranslate`,
-      description: `${word.word}: ${definition}`,
+      title: `${word.word} — ${language.name} word`,
+      description,
+      alternates: { canonical },
       openGraph: {
-        title: `${word.word} - ${language.name} Dictionary`,
-        description: definition,
-        type: 'website',
+        title: `${word.word} — ${language.name} | Mob Translate`,
+        description,
+        url: canonical,
+        type: 'article',
       },
     };
   } catch {

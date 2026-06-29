@@ -160,7 +160,7 @@ export function StoryDeck() {
           >
             <img
               src={s.img}
-              alt=""
+              alt={`${s.eyebrow}: ${s.gloss} (${s.word}) — Kuku Yalanji story`}
               loading={idx <= 1 ? 'eager' : 'lazy'}
               className={cn(
                 'h-full w-full object-cover transition-transform duration-[7000ms] ease-out motion-reduce:transition-none',
