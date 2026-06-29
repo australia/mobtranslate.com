@@ -1,0 +1,14 @@
+<svg width="1024" height="500" viewBox="0 0 1024 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5E2614"/><stop offset="1" stop-color="#23130F"/></linearGradient>
+    <linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0BC63"/><stop offset="1" stop-color="#D2691E"/></linearGradient>
+  </defs>
+  <rect width="1024" height="500" fill="url(#g)"/>
+  <g transform="translate(80,20) scale(0.8)">
+    <path d="M120 388 L120 150 L256 300 L392 150 L392 388" fill="none" stroke="url(#m)" stroke-width="56" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="256" cy="300" r="25" fill="#FBE7C2"/>
+  </g>
+  <text x="470" y="222" font-family="Inter, sans-serif" font-weight="800" font-size="74" letter-spacing="-1.5" fill="#FBF1E6">Mob Translate</text>
+  <text x="472" y="278" font-family="Inter, sans-serif" font-weight="500" font-size="30" fill="#E9C7AE">Dictionaries, translation &amp; voice</text>
+  <text x="472" y="332" font-family="Inter, sans-serif" font-weight="600" font-size="25" fill="#F0BC63">Kuku Yalanji · Anindilyakwa · Wajarri · Mi'gmaq</text>
+</svg>

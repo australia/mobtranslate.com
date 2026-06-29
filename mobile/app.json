@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "Mob Translate",
+    "slug": "mobtranslate",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "mobtranslate",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mobtranslate.app",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Mob Translate uses the microphone so you can record words and sentences in your language."
+      }
+    },
+    "android": {
+      "package": "com.mobtranslate.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#2A1712",
+        "foregroundImage": "./assets/images/adaptive-foreground.png"
+      },
+      "permissions": ["android.permission.RECORD_AUDIO"],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#2A1712",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 180
+        }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Mob Translate uses the microphone so you can record words and sentences in your language."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

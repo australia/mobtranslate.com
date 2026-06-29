@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mob Translate — Google Play submission kit</title>
+<style>
+  :root { --ochre:#B45E2A; --ochre-d:#8E481F; --ink:#2A211B; --muted:#6F6256; --bg:#FAF5EF; --surface:#fff; --border:#E7DCD0; --soft:#F3E4D6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
+  main { max-width:880px; margin:0 auto; padding:32px 20px 100px; }
+  header.site { display:flex; align-items:center; gap:14px; margin-bottom:6px; }
+  header.site img { width:48px; height:48px; border-radius:11px; }
+  h1 { font-size:30px; margin:0; letter-spacing:-.5px; }
+  .lead { color:var(--muted); margin:6px 0 28px; }
+  h2 { font-size:20px; margin:36px 0 6px; }
+  h2 .n { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:999px; background:var(--soft); color:var(--ochre); font-size:15px; font-weight:800; margin-right:8px; vertical-align:middle; }
+  .hint { color:var(--muted); font-size:14px; margin:0 0 14px; }
+  .field { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; margin:10px 0; }
+  .field .label { font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--ochre); }
+  .field .row { display:flex; align-items:flex-start; gap:12px; margin-top:6px; }
+  .field .val { flex:1; white-space:pre-wrap; word-break:break-word; }
+  .field .meta { color:var(--muted); font-size:13px; margin-top:6px; }
+  button.copy { flex:none; background:var(--ochre); color:#fff; border:0; border-radius:9px; padding:8px 14px; font-size:14px; font-weight:700; cursor:pointer; }
+  button.copy:active { background:var(--ochre-d); }
+  button.copy.done { background:#2E7D32; }
+  ol.steps { padding-left:0; list-style:none; counter-reset:s; }
+  ol.steps li { counter-increment:s; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px 14px 54px; position:relative; margin:8px 0; }
+  ol.steps li::before { content:counter(s); position:absolute; left:14px; top:13px; width:28px; height:28px; border-radius:999px; background:var(--ochre); color:#fff; font-weight:800; display:grid; place-items:center; }
+  .assets { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:14px; }
+  .asset { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:12px; text-align:center; }
+  .asset img { max-width:100%; border-radius:8px; border:1px solid var(--border); }
+  .asset .cap { font-size:13px; color:var(--muted); margin:8px 0 4px; }
+  .asset a { color:var(--ochre); font-weight:700; font-size:13px; text-decoration:none; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:600px){ .twocol{ grid-template-columns:1fr; } }
+  .callout { background:var(--soft); border-radius:14px; padding:14px 16px; font-size:14px; color:#5a3a22; }
+  a { color:var(--ochre); }
+  code { background:#efe6da; padding:1px 6px; border-radius:5px; font-size:14px; }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <img src="icon-512.png?v=2" alt="Mob Translate icon">
+    <div><h1>Mob Translate — Google Play kit</h1></div>
+  </header>
+  <p class="lead">Everything to publish the app on the Play Store. Tap <b>Copy</b> on any field and paste it into the matching box in Play Console. Download the images and upload them.</p>
+
+  <div class="callout">You need a <b>Google Play Developer account</b> first (one-time $25, with ID verification). Then create the app in <a href="https://play.google.com/console" target="_blank">play.google.com/console</a> and paste these in. The app file (<code>.aab</code>) is provided separately.</div>
+
+  <h2><span class="n">A</span>Steps in Play Console</h2>
+  <ol class="steps">
+    <li>Sign in to <b>Play Console</b> → <b>Create app</b>. App name: <b>Mob Translate</b>. Default language: <b>English (Australia)</b>. App or game: <b>App</b>. Free or paid: <b>Free</b>. Accept the declarations.</li>
+    <li><b>Store listing</b> (Grow → Store presence → Main store listing): paste the App name, Short description, Full description below. Upload the <b>App icon</b>, <b>Feature graphic</b>, and <b>Phone screenshots</b> from the Images section.</li>
+    <li><b>Store settings</b>: App category = <b>Education</b>; add tags; enter the contact email and website; set the <b>Privacy policy</b> URL (below).</li>
+    <li><b>Policy → App content</b>: complete <b>Privacy policy</b>, <b>Data safety</b> (use the answers below), <b>Content rating</b> questionnaire (answers below), <b>Target audience</b>, <b>Ads</b> (No ads), <b>Government apps</b> (No).</li>
+    <li><b>Production → Create release</b> (or test on <b>Internal testing</b> first): upload the <code>.aab</code>, paste the Release notes, review and roll out.</li>
+  </ol>
+
+  <h2><span class="n">B</span>Graphics — download &amp; upload</h2>
+  <p class="hint">Right‑click / long‑press to save, or tap the download link.</p>
+  <div class="assets">
+    <div class="asset"><img src="icon-512.png?v=2" alt="icon"><div class="cap">App icon · 512×512</div><a href="icon-512.png?v=2" download>Download</a></div>
+    <div class="asset"><img src="feature-graphic.png?v=2" alt="feature graphic"><div class="cap">Feature graphic · 1024×500</div><a href="feature-graphic.png?v=2" download>Download</a></div>
+    <div class="asset"><img src="screenshot-translate.png" alt="translate"><div class="cap">Screenshot · Translate</div><a href="screenshot-translate.png" download>Download</a></div>
+    <div class="asset"><img src="screenshot-words.png" alt="words"><div class="cap">Screenshot · Words</div><a href="screenshot-words.png" download>Download</a></div>
+    <div class="asset"><img src="screenshot-record.png" alt="record"><div class="cap">Screenshot · Record</div><a href="screenshot-record.png" download>Download</a></div>
+    <div class="asset"><img src="screenshot-keyboard.png" alt="keyboard"><div class="cap">Screenshot · Keyboard</div><a href="screenshot-keyboard.png" download>Download</a></div>
+  </div>
+  <p class="hint" style="margin-top:10px">Need ≥ 2 phone screenshots (these are 1080×1920). You can swap any for real device screenshots later.</p>
+
+  <h2><span class="n">C</span>Store listing text</h2>
+  <div id="fields"></div>
+
+  <h2><span class="n">D</span>Content rating answers</h2>
+  <p class="hint">Play uses the IARC questionnaire. Pick category <b>Reference, News, or Educational</b>, then answer:</p>
+  <div id="rating"></div>
+
+  <h2><span class="n">E</span>Data safety answers</h2>
+  <p class="hint">Policy → App content → Data safety. Answer these:</p>
+  <div id="datasafety"></div>
+
+  <p class="hint" style="margin-top:30px">Privacy policy page: <a href="privacy.html" target="_blank">open it here</a>.</p>
+</main>
+
+<script>
+const FIELDS = [
+  { label:'App name', meta:'Max 30 chars', val:'Mob Translate' },
+  { label:'Short description', meta:'Max 80 chars', val:'Dictionaries, translation and voice for Australian First Nations languages.' },
+  { label:'Full description', meta:'Max 4000 chars', val:
+`Mob Translate is a simple, respectful app for Australian First Nations languages — to translate, look up words, hear how they sound, and record your own.
+
+• Translate — type English and get the word or phrase in language, with a plain‑English meaning.
+• Words — search community dictionaries for Kuku Yalanji, Anindilyakwa, Wajarri and Mi'gmaq, with meanings and examples.
+• Hear it — tap to hear a word spoken aloud.
+• Record — Elders and speakers can add a sentence and record themselves saying it, in just a few big, clear taps. Recordings are saved to the community dictionary.
+• Language keyboard — type your language anywhere (messages, social, notes) with the special letters each language needs and live word suggestions.
+
+Mob Translate is open source and built with community dictionaries. Language belongs to its people; this app is a place to keep it strong and share it. Synthesized pronunciation is a helper until community recordings replace it.
+
+More languages and recordings are added over time. Made with and for community.` },
+  { label:'App category', meta:'Store settings', val:'Education' },
+  { label:'Tags', meta:'Up to 5', val:'Language learning, Dictionary, Education, Reference' },
+  { label:'Contact email', meta:'Store settings — change to your address', val:'hello@mobtranslate.com' },
+  { label:'Website', meta:'Store settings', val:'https://mobtranslate.com' },
+  { label:'Privacy policy URL', meta:'Policy → App content', val:'https://mobtranslate.com/privacy' },
+  { label:'Release notes', meta:"What's new", val:"First release: translate, search dictionaries, hear pronunciation, record your own words and sentences, and a built‑in language keyboard." },
+];
+const RATING = [
+  { label:'Category', val:'Reference, News, or Educational' },
+  { label:'Violence', val:'No' },
+  { label:'Sexuality / nudity', val:'No' },
+  { label:'Profanity / crude humour', val:'No' },
+  { label:'Controlled substances (drugs, alcohol, tobacco)', val:'No' },
+  { label:'Gambling / simulated gambling', val:'No' },
+  { label:'Does the app let users interact, share content, or share location?', val:'Users can submit their own recordings/sentences to the dictionary (user‑generated content). There is no user‑to‑user chat, social feed, or location sharing.' },
+  { label:'Expected rating', val:'Everyone / PEGI 3 (general audiences).' },
+];
+const DATASAFETY = [
+  { label:'Does your app collect or share any of the required user data types?', val:'Yes — it collects some data (only what is needed to run the app).' },
+  { label:'Is all collected data encrypted in transit?', val:'Yes (HTTPS).' },
+  { label:'Do you provide a way to request data deletion?', val:'Yes — users can email to request deletion.' },
+  { label:'Data collected — Personal info', val:'Name and Email address. Collected (not shared). Purpose: Account management / App functionality. Required only if the user creates an account.' },
+  { label:'Data collected — Audio', val:"Voice or sound recordings (the recordings users contribute). Collected (not shared). Purpose: App functionality (building the community dictionary). Optional — only if the user records." },
+  { label:'Data collected — App activity / text', val:'Text the user enters to translate or search is sent to return a result. Not used for tracking or ads. (The keyboard’s suggestions are processed on‑device and not uploaded.)' },
+  { label:'Is data shared with third parties?', val:'No.' },
+  { label:'Is data used for advertising or tracking?', val:'No.' },
+];
+
+function fieldHTML(f){
+  return `<div class="field"><div class="label">${f.label}</div>
+    <div class="row"><div class="val">${escapeHtml(f.val)}</div>
+    <button class="copy" data-copy="${encodeURIComponent(f.val)}">Copy</button></div>
+    ${f.meta?`<div class="meta">${f.meta}</div>`:''}</div>`;
+}
+function escapeHtml(s){ return s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+document.getElementById('fields').innerHTML = FIELDS.map(fieldHTML).join('');
+document.getElementById('rating').innerHTML = RATING.map(fieldHTML).join('');
+document.getElementById('datasafety').innerHTML = DATASAFETY.map(fieldHTML).join('');
+document.addEventListener('click', e => {
+  const b = e.target.closest('button.copy'); if(!b) return;
+  const text = decodeURIComponent(b.dataset.copy);
+  navigator.clipboard.writeText(text).then(()=>{ const o=b.textContent; b.textContent='Copied ✓'; b.classList.add('done'); setTimeout(()=>{b.textContent=o; b.classList.remove('done');},1400); });
+});
+</script>
+</body>
+</html>

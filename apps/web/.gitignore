@@ -1,1 +1,5 @@
 .vercel
+
+# Large downloadable binaries (served from disk, not committed)
+public/downloads/*.apk
+public/downloads/*.aab

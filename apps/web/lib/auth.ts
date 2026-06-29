@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs';
 import { sql } from 'drizzle-orm';
 import { db } from './db/index';
 import { authSchema } from './db/auth-schema';
+import { sendEmail, emailLayout } from './email';
 
 const getBaseURL = () => {
   if (process.env.BETTER_AUTH_URL) return process.env.BETTER_AUTH_URL;
@@ -36,9 +37,22 @@ export const auth = betterAuth({
   database: drizzleAdapter(db, { provider: 'pg', schema: authSchema }),
   emailAndPassword: {
     enabled: true,
-    // Email sending isn't wired on the box; existing users are already verified.
+    // Existing users are already verified; we don't force verification (no lockouts).
     requireEmailVerification: false,
     autoSignIn: true,
+    // Password reset emails via Resend.
+    sendResetPassword: async ({ user, url }: { user: { email: string }; url: string }) => {
+      await sendEmail({
+        to: user.email,
+        subject: 'Reset your Mob Translate password',
+        html: emailLayout({
+          heading: 'Reset your password',
+          body: 'We received a request to reset your Mob Translate password. Tap the button below to choose a new one. If you didn’t ask for this, you can ignore this email.',
+          button: { label: 'Reset password', url },
+        }),
+        text: `Reset your Mob Translate password: ${url}`,
+      });
+    },
     // Reuse the GoTrue bcrypt hashes so all 35 migrated users keep their
     // passwords (better-auth defaults to scrypt otherwise).
     password: {

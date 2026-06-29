@@ -372,6 +372,16 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                     Credits
                   </Link>
                 </li>
+                <li>
+                  <Link href="/download" className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-0.5 transition-all duration-200 inline-block">
+                    Get the app
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-0.5 transition-all duration-200 inline-block">
+                    Privacy
+                  </Link>
+                </li>
               </ul>
             </div>
 
