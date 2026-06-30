@@ -27,11 +27,11 @@ export const metadata: Metadata = {
     template: '%s | Mob Translate',
   },
   description:
-    "Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages — Kuku Yalanji, Anindilyakwa, Wajarri, Mi'gmaq and more.",
+    "Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages — Kuku Yalanji, Anindilyakwa, Mi'gmaq and more.",
   applicationName: 'Mob Translate',
   keywords: [
     'indigenous languages', 'aboriginal languages', 'first nations languages', 'translation',
-    'dictionary', 'Kuku Yalanji', 'Anindilyakwa', 'Wajarri', "Mi'gmaq", 'language learning',
+    'dictionary', 'Kuku Yalanji', 'Anindilyakwa', "Mi'gmaq", 'language learning',
     'language revitalisation',
   ],
   authors: [{ name: 'Mob Translate Community' }],

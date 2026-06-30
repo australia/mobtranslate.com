@@ -2,7 +2,7 @@
   "expo": {
     "name": "Mob Translate",
     "slug": "mobtranslate",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "mobtranslate",
@@ -16,8 +16,9 @@
     },
     "android": {
       "package": "com.mobtranslate.app",
+      "versionCode": 2,
       "adaptiveIcon": {
-        "backgroundColor": "#2A1712",
+        "backgroundColor": "#324E3B",
         "foregroundImage": "./assets/images/adaptive-foreground.png"
       },
       "permissions": [
@@ -34,9 +35,9 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#2A1712",
+          "backgroundColor": "#F4F1E8",
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 180
+          "imageWidth": 170
         }
       ],
       [

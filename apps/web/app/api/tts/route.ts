@@ -5,6 +5,7 @@ import { createHash } from 'crypto';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
 import { recordTtsPlay } from '@/lib/usage-log';
+import { discordTts } from '@/lib/discord';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -185,6 +186,7 @@ async function handle(text: string | null, lang: string | null) {
     if (neural) {
       // Count this as a play of the stored clip (admin "Explore" voice metrics).
       void recordTtsPlay(lang.toLowerCase(), clean, NEURAL_MODEL);
+      void discordTts({ language: lang, text: clean });
       return new NextResponse(neural.buf as unknown as BodyInit, {
         status: 200,
         headers: {
@@ -203,6 +205,7 @@ async function handle(text: string | null, lang: string | null) {
     if (!audio.length) {
       return NextResponse.json({ error: 'Synthesis returned no audio' }, { status: 502 });
     }
+    void discordTts({ language: lang, text: clean });
     return new NextResponse(audio as unknown as BodyInit, {
       status: 200,
       headers: {

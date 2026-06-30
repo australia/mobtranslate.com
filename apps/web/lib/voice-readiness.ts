@@ -18,9 +18,12 @@
  * Sources: low-resource TTS adaptation literature (arXiv 2312.01107, 2406.08911,
  * 2110.05798) and community VITS fine-tuning guides (Plachtaa/VITS-fast-fine-tuning).
  *
- * Two gates are HARD (no amount of data substitutes):
- *   1. Consent — explicit, revocable, speaker-granted (CARE governance).
- *   2. Audio quality floor — clipped / noisy / wrong-rate clips can't train a clean voice.
+ * Licensing: every recording a user uploads is contributed to the PUBLIC DOMAIN
+ * in perpetuity, so there is no per-voice training-consent gate — readiness is a
+ * pure function of the data.
+ *
+ * One gate is HARD (no amount of data substitutes):
+ *   - Audio quality floor — clipped / noisy / wrong-rate clips can't train a clean voice.
  */
 
 // Tier targets (the "good single-speaker voice" column is the 100% reference).
@@ -54,13 +57,12 @@ export interface DimensionScore {
 
 export interface ReadinessResult {
   // headline
-  dataReadinessPct: number; // weighted blend of data dimensions (ignores consent)
+  dataReadinessPct: number; // weighted blend of data dimensions
   tier: 'none' | 'collecting' | 'adaptable' | 'good' | 'strong';
   verdict: string;
   blockers: string[];
   nextSteps: string[];
   // gates
-  consent: { granted: boolean; at: string | null };
   qualityFloorMet: boolean;
   // breakdown
   dimensions: DimensionScore[];
@@ -123,9 +125,8 @@ export function computeReadiness(args: {
   // phonemic IPA for the words this speaker recorded, and the full language inventory
   recordedWordIpa: string[];
   languageInventory: Set<string>;
-  consent: { granted: boolean; at: string | null };
 }): ReadinessResult {
-  const { recordings, recordedWordIpa, languageInventory, consent } = args;
+  const { recordings, recordedWordIpa, languageInventory } = args;
 
   const clips = recordings.length;
   const words = recordings.filter((r) => r.kind === 'word').length;
@@ -191,7 +192,6 @@ export function computeReadiness(args: {
 
   // Blockers (hard) and next steps (soft, prioritised).
   const blockers: string[] = [];
-  if (!consent.granted) blockers.push('Training consent has not been granted for this voice.');
   if (clips > 0 && !qualityFloorMet)
     blockers.push(`Audio quality is below the ${TARGETS.qualityFloorPct}% clean-clip floor — re-record noisy or clipped clips.`);
   if (minutes < TARGETS.minutes.floor)
@@ -206,11 +206,9 @@ export function computeReadiness(args: {
     nextSteps.push(`Cover ${underCovered.length} under-represented sound${underCovered.length === 1 ? '' : 's'} (need ${TARGETS.phonemeOccurrences}+ examples each).`);
   if (sentences < TARGETS.sentences.good)
     nextSteps.push(`Record ${TARGETS.sentences.good - sentences} more sentences for natural prosody.`);
-  if (!consent.granted) nextSteps.push('Grant training consent when you’re ready (you can revoke it anytime).');
 
   let verdict: string;
   if (clips === 0) verdict = 'No recordings yet — record some words to begin building your voice.';
-  else if (!consent.granted) verdict = `Your corpus is ${dataReadinessPct}% of the way to a good voice, but training needs your consent first.`;
   else if (tier === 'strong') verdict = 'Ready for a strong, production-quality personal voice.';
   else if (tier === 'good') verdict = 'Ready to fine-tune a good personal voice now.';
   else if (tier === 'adaptable') verdict = 'Enough to adapt a first rough voice — keep recording to make it good.';
@@ -222,7 +220,6 @@ export function computeReadiness(args: {
     verdict,
     blockers,
     nextSteps,
-    consent,
     qualityFloorMet,
     dimensions,
     totals: { clips, words, sentences, minutes, cleanClips },

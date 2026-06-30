@@ -4,6 +4,7 @@ import React, { useState, useRef } from 'react';
 import { ArrowRight, Loader2, AlertTriangle, Copy, Check, MessageSquare, Languages } from 'lucide-react';
 import { SpeakButton } from '@/components/audio/SpeakButton';
 import Translator from './Translator';
+import { TranslationCorrectionDialog } from '@/components/improvements/TranslationCorrectionDialog';
 import { track } from '@/lib/analytics';
 import type { Language } from '@/lib/supabase/types';
 
@@ -193,6 +194,12 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                     <AlertTriangle className="w-3.5 h-3.5" />
                     AI-generated, needs community verification
                   </span>
+                  <TranslationCorrectionDialog
+                    languageCode={target}
+                    sourceText={input}
+                    currentTranslation={result.translation}
+                    triggerClassName="inline-flex items-center gap-1.5 text-[#faf8f5]/50 hover:text-[#ecb485] transition-colors"
+                  />
                 </div>
               )}
             </div>

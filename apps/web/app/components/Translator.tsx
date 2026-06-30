@@ -6,6 +6,7 @@ import { ArrowRight, Globe, Loader2, AlertTriangle } from 'lucide-react';
 import { Textarea, Button } from '@mobtranslate/ui';
 import { Language } from '@/lib/supabase/types';
 import { SpeakButton } from '@/components/audio/SpeakButton';
+import { TranslationCorrectionDialog } from '@/components/improvements/TranslationCorrectionDialog';
 import { track } from '@/lib/analytics';
 
 interface TranslatorProps {
@@ -317,6 +318,13 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
                   AI-generated, not authoritative. For anything important, check with a speaker
                   or language expert.
                 </p>
+                {outputText && !isLoading && (
+                  <TranslationCorrectionDialog
+                    languageCode={selectedLanguage}
+                    sourceText={inputText}
+                    currentTranslation={outputText}
+                  />
+                )}
                 {outputText && !isLoading && (
                   <a
                     href="https://github.com/australia/mobtranslate.com/issues/new"

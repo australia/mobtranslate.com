@@ -1,5 +1,10 @@
 # MobTranslate.com
 
+## Engineering principles (NON-NEGOTIABLE)
+- **NEVER use string matching / regex / hardcoded keyword lists to make semantic decisions.** Do not classify a word, meaning, category, intent, or anything language-dependent with `if text.includes(...)`, regex word-lists, or lookup tables. These are brittle, wrong at the edges, and unmaintainable.
+- **Always use AI calls (LLMs) to construct prompts and make semantic decisions.** When building an image-generation prompt (or any prompt) for a word/meaning, use one or more model calls to analyse the input and compose the prompt — let the model decide whether something is a concrete thing, a person, an action, or abstract, and how to depict it respectfully. Chain multiple AI calls (analyse → compose) rather than encoding rules as string checks. Models are cheap (gpt-5.4-mini); brittle string logic is not acceptable.
+- Image-gen specifically: word → AI analysis of the meaning → AI-composed watercolour prompt → gpt-image-2. No regex branching on the meaning text anywhere in that path.
+
 ## Project Overview
 Next.js 14 (App Router) web app for Indigenous Australian language dictionaries. Uses `@mobtranslate/ui` design system, Tailwind CSS, Supabase, and Vercel AI SDK.
 

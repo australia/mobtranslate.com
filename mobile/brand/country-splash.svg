@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- green mark on transparent, for the cream splash background -->
+  <g fill="none" stroke-opacity="0.98">
+    <circle cx="250" cy="268" r="166" stroke="#9DB69F" stroke-width="17"/>
+    <circle cx="256" cy="260" r="120" stroke="#6F8C73" stroke-width="17"/>
+    <circle cx="260" cy="254" r="76" stroke="#3F6149" stroke-width="17"/>
+  </g>
+  <circle cx="262" cy="250" r="34" fill="#324E3B"/>
+</svg>

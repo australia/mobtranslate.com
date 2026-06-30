@@ -9,6 +9,7 @@ import {
 } from '@/lib/db/schema'
 import { createSuccessResponse, createErrorResponse, corsHeaders } from '../../middleware'
 import { NextRequest } from 'next/server'
+import { discordSearch } from '@/lib/discord'
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
@@ -182,6 +183,8 @@ export async function GET(request: NextRequest) {
     results.sort((a, b) => b.match_score - a.match_score)
 
     const totalPages = Math.ceil(totalCount / limit)
+
+    void discordSearch({ query, language: dictionary_code || null, results: totalCount })
 
     return createSuccessResponse({
       results: results.slice(0, limit),

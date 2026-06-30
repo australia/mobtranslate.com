@@ -3,3 +3,9 @@
 # Large downloadable binaries (served from disk, not committed)
 public/downloads/*.apk
 public/downloads/*.aab
+
+# Cached generated Word-of-the-day images (generated at runtime, not source)
+public/wotd/
+
+# Cached generated per-word watercolour images (generated at runtime, not source)
+public/word-img/

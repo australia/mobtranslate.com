@@ -1500,7 +1500,7 @@ export const wordImprovementSuggestions = pgTable("word_improvement_suggestions"
 	pgPolicy("Authenticated users can suggest improvements", { as: "permissive", for: "insert", to: ["authenticated"] }),
 	pgPolicy("Curators can review improvements", { as: "permissive", for: "update", to: ["authenticated"] }),
 	check("word_improvement_suggestions_confidence_score_check", sql`(confidence_score >= (0)::double precision) AND (confidence_score <= (1)::double precision)`),
-	check("word_improvement_suggestions_improvement_type_check", sql`improvement_type = ANY (ARRAY['definition'::text, 'translation'::text, 'example'::text, 'pronunciation'::text, 'grammar'::text, 'cultural_context'::text])`),
+	check("word_improvement_suggestions_improvement_type_check", sql`improvement_type = ANY (ARRAY['definition'::text, 'translation'::text, 'example'::text, 'pronunciation'::text, 'grammar'::text, 'cultural_context'::text, 'location'::text])`),
 	check("word_improvement_suggestions_status_check", sql`status = ANY (ARRAY['pending'::text, 'under_review'::text, 'approved'::text, 'rejected'::text, 'implemented'::text])`),
 ]);
 export const languageWordCounts = pgMaterializedView("language_word_counts", {	languageId: uuid("language_id"),

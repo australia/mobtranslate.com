@@ -6,7 +6,7 @@ import { Globe, BookOpen, Sparkles } from 'lucide-react';
 
 const FLOATING_WORDS = [
   { word: 'Yaama', meaning: 'Hello', lang: 'Gamilaraay' },
-  { word: 'Ngany', meaning: 'I/Me', lang: 'Wajarri' },
+  { word: 'Bama', meaning: 'Person', lang: 'Kuku Yalanji' },
   { word: 'Bunjil', meaning: 'Eagle', lang: 'Kulin' },
   { word: 'Jalygurr', meaning: 'Stars', lang: 'Nyoongar' },
   { word: 'Minya', meaning: 'What', lang: 'Anindilyakwa' },

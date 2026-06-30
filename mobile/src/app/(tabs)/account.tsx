@@ -1,12 +1,27 @@
 import { useState } from 'react';
-import { ActivityIndicator, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { BigButton, Card, Header, Screen } from '../../components/kit';
+import { Button, Card, Screen, ScreenTitle } from '../../components/kit';
 import { useAuth } from '../../lib/auth';
 import { C, F, S, radius } from '../../lib/theme';
 
+function LinkRow({ icon, label, sub, onPress }: { icon: keyof typeof Ionicons.glyphMap; label: string; sub?: string; onPress: () => void }) {
+  return (
+    <Pressable onPress={onPress} style={({ pressed }) => [styles.linkRow, pressed && { backgroundColor: C.surfaceAlt }]}>
+      <View style={styles.linkIcon}><Ionicons name={icon} size={20} color={C.forest} /></View>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.linkLabel}>{label}</Text>
+        {!!sub && <Text style={styles.linkSub}>{sub}</Text>}
+      </View>
+      <Ionicons name="chevron-forward" size={20} color={C.faint} />
+    </Pressable>
+  );
+}
+
 export default function AccountScreen() {
   const { user, loading, signIn, signUp, signOut } = useAuth();
+  const router = useRouter();
   const [mode, setMode] = useState<'in' | 'up'>('in');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -14,23 +29,28 @@ export default function AccountScreen() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  if (loading) return <Screen><ActivityIndicator color={C.ochre} size="large" style={{ marginTop: 40 }} /></Screen>;
+  if (loading) return <Screen><ScreenTitle title="Your account" /><ActivityIndicator color={C.forest} size="large" style={{ marginTop: 20 }} /></Screen>;
 
   if (user) {
     return (
       <Screen>
-        <Header kicker="Account" title="Your account" />
-        <Card soft>
+        <ScreenTitle title="Your account" />
+        <Card>
           <View style={styles.userRow}>
-            <View style={styles.avatar}><Ionicons name="person" size={26} color={C.ochre} /></View>
+            <View style={styles.avatar}><Ionicons name="person" size={26} color={C.forest} /></View>
             <View style={{ flex: 1 }}>
               <Text style={styles.name}>{user.name || 'Signed in'}</Text>
               <Text style={styles.email}>{user.email}</Text>
             </View>
           </View>
         </Card>
-        <Text style={styles.body}>You can record words and sentences in your language. They are saved to your account.</Text>
-        <BigButton label="Sign out" icon="log-out" tone="ghost" onPress={signOut} />
+        <Card padded={false} style={{ overflow: 'hidden' }}>
+          <LinkRow icon="mic-outline" label="Record your voice" sub="Add words and sentences" onPress={() => router.push('/record')} />
+          <View style={styles.sep} />
+          <LinkRow icon="language" label="Language keyboard" sub="Type your language anywhere" onPress={() => router.push('/keyboard')} />
+        </Card>
+        <Text style={styles.body}>Recordings you upload are contributed to the public domain in perpetuity.</Text>
+        <Button label="Sign out" icon="log-out-outline" variant="ghost" onPress={signOut} full />
       </Screen>
     );
   }
@@ -46,27 +66,34 @@ export default function AccountScreen() {
 
   return (
     <Screen>
-      <Header kicker="Account" title={mode === 'up' ? 'Create account' : 'Sign in'}
+      <ScreenTitle title={mode === 'up' ? 'Create account' : 'Welcome back'}
         sub={mode === 'up' ? 'Make an account to add and record words.' : 'Sign in to record your language.'} />
-      {mode === 'up' && <TextInput value={name} onChangeText={setName} placeholder="Your name" placeholderTextColor={C.faint} style={styles.input} />}
-      <TextInput value={email} onChangeText={setEmail} placeholder="Email" placeholderTextColor={C.faint}
-        autoCapitalize="none" keyboardType="email-address" autoCorrect={false} style={styles.input} />
-      <TextInput value={password} onChangeText={setPassword} placeholder="Password" placeholderTextColor={C.faint}
-        secureTextEntry style={styles.input} />
-      <BigButton label={mode === 'up' ? 'Create account' : 'Sign in'} icon="arrow-forward" onPress={submit} loading={busy} disabled={!email.trim() || !password} />
-      {error && <Text style={styles.error}>{error}</Text>}
-      <BigButton label={mode === 'up' ? 'I already have an account' : 'Create a new account'} tone="ghost"
-        onPress={() => { setMode(mode === 'up' ? 'in' : 'up'); setError(null); }} />
+      <Card style={{ gap: 12 }}>
+        {mode === 'up' && <TextInput value={name} onChangeText={setName} placeholder="Your name" placeholderTextColor={C.muted} style={styles.input} />}
+        <TextInput value={email} onChangeText={setEmail} placeholder="Email" placeholderTextColor={C.muted}
+          autoCapitalize="none" keyboardType="email-address" autoCorrect={false} style={styles.input} />
+        <TextInput value={password} onChangeText={setPassword} placeholder="Password" placeholderTextColor={C.muted}
+          secureTextEntry style={styles.input} />
+        <Button label={mode === 'up' ? 'Create account' : 'Sign in'} icon="arrow-forward" onPress={submit} loading={busy} disabled={!email.trim() || !password} full />
+        {error && <Text style={styles.error}>{error}</Text>}
+      </Card>
+      <Button label={mode === 'up' ? 'I already have an account' : 'Create a new account'} variant="ghost"
+        onPress={() => { setMode(mode === 'up' ? 'in' : 'up'); setError(null); }} full />
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  input: { backgroundColor: C.surface, borderRadius: radius.md, borderWidth: 1, borderColor: C.border, paddingHorizontal: 16, height: 58, fontFamily: F.body, fontSize: S.body, color: C.ink },
+  input: { backgroundColor: C.surfaceAlt, borderRadius: radius.md, borderWidth: 1, borderColor: C.border, paddingHorizontal: 16, height: 56, fontFamily: F.body, fontSize: S.body, color: C.ink },
   error: { fontFamily: F.medium, fontSize: S.label, color: C.danger },
-  body: { fontFamily: F.body, fontSize: S.label, color: C.muted, lineHeight: 24 },
+  body: { fontFamily: F.body, fontSize: S.label, color: C.muted, lineHeight: 24, textAlign: 'center' },
   userRow: { flexDirection: 'row', alignItems: 'center', gap: 14 },
-  avatar: { width: 56, height: 56, borderRadius: radius.pill, backgroundColor: C.goldSoft, alignItems: 'center', justifyContent: 'center' },
+  avatar: { width: 56, height: 56, borderRadius: radius.pill, backgroundColor: C.sageSoft, alignItems: 'center', justifyContent: 'center' },
   name: { fontFamily: F.display, fontSize: S.heading, color: C.ink },
   email: { fontFamily: F.body, fontSize: S.label, color: C.muted, marginTop: 2 },
+  linkRow: { flexDirection: 'row', alignItems: 'center', gap: 14, padding: 16 },
+  linkIcon: { width: 42, height: 42, borderRadius: radius.md, backgroundColor: C.sageSoft, alignItems: 'center', justifyContent: 'center' },
+  linkLabel: { fontFamily: F.semibold, fontSize: S.body, color: C.ink },
+  linkSub: { fontFamily: F.body, fontSize: S.small, color: C.muted, marginTop: 1 },
+  sep: { height: 1, backgroundColor: C.hair, marginLeft: 72 },
 });

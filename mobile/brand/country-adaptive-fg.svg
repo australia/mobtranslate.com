@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- transparent; mark sized for Android adaptive safe zone (~66%) -->
+  <g fill="none" stroke="#F7F3EA" stroke-width="30" stroke-opacity="0.97">
+    <circle cx="500" cy="528" r="232"/>
+    <circle cx="510" cy="516" r="172"/>
+    <circle cx="518" cy="506" r="112"/>
+  </g>
+  <circle cx="520" cy="500" r="54" fill="#F7F3EA"/>
+</svg>

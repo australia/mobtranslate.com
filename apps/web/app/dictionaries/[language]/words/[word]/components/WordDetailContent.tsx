@@ -8,6 +8,7 @@ import { MapPin, MessageSquareQuote, Info, Tag, Volume2, GitBranch, Shuffle, Lin
 import type { Word } from '@/lib/supabase/types';
 import { Recordings } from './Recordings';
 import { SpeakButton } from '@/components/audio/SpeakButton';
+import { WordCorrectionAction } from '@/components/improvements/WordCorrectionAction';
 
 const LocationMap = lazy(() => import('./LocationMap').then(m => ({ default: m.LocationMap })));
 
@@ -67,8 +68,14 @@ export function WordDetailContent({ word, languageCode }: WordDetailContentProps
             </div>
           )}
         </div>
-        <div className="shrink-0">
+        <div className="shrink-0 flex flex-col items-end gap-2">
           <WordLikeButton wordId={word.id} size="lg" showLabel />
+          <WordCorrectionAction
+            wordId={word.id}
+            word={word.word}
+            definition={definitions[0]}
+            translation={translations[0]}
+          />
         </div>
       </div>
 

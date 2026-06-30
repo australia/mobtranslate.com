@@ -199,7 +199,7 @@ export async function POST(req: Request) {
     const chatStartedAt = Date.now();
 
     const result = await streamText({
-      model: openai('gpt-4o-mini'),
+      model: openai('gpt-5.4-mini'),
       messages: processedMessages,
       onFinish: ({ text }) => {
         if (!lastUserText) return;
@@ -209,7 +209,7 @@ export async function POST(req: Request) {
           inputText: lastUserText,
           outputText: text,
           userId: user.id,
-          model: 'gpt-4o-mini',
+          model: 'gpt-5.4-mini',
           durationMs: Date.now() - chatStartedAt,
         });
       },

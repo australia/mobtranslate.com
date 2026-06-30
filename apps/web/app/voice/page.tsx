@@ -7,7 +7,7 @@ import SharedLayout from '../components/SharedLayout';
 import { Card, CardContent } from '@mobtranslate/ui';
 import {
   Mic, BookOpen, MessageSquareQuote, Clock, Globe, Flame, ChevronRight,
-  Waypoints, LogIn, Loader2, AudioLines, ShieldCheck,
+  Waypoints, LogIn, Loader2, AudioLines,
 } from 'lucide-react';
 
 interface VoiceStats {
@@ -19,7 +19,6 @@ interface VoiceStats {
 interface Readiness {
   dataReadinessPct: number; tier: string; verdict: string;
   language: { code: string; name: string } | null;
-  consent: { granted: boolean; at: string | null };
 }
 
 const nf = new Intl.NumberFormat('en-US');
@@ -129,11 +128,6 @@ export default function VoicePage() {
                         <div className="flex items-center gap-2 flex-wrap">
                           <h2 className="text-lg font-semibold">Your voice model</h2>
                           <span className="text-xs rounded-full bg-muted px-2 py-0.5 text-muted-foreground">{TIER_LABEL[readiness.tier] ?? readiness.tier}</span>
-                          {readiness.consent.granted && (
-                            <span className="inline-flex items-center gap-1 text-xs rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2 py-0.5">
-                              <ShieldCheck className="h-3 w-3" /> consent given
-                            </span>
-                          )}
                         </div>
                         <p className="text-sm text-muted-foreground mt-1 truncate">{readiness.verdict}</p>
                         <div className="mt-3 h-2 rounded-full bg-muted overflow-hidden">

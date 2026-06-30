@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 
     // Simple stream without tools
     const result = streamText({
-      model: openai('gpt-4o-mini'),
+      model: openai('gpt-5.4-mini'),
       messages,
       system: 'You are a helpful language learning assistant.',
     });

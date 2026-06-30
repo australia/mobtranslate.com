@@ -4,10 +4,9 @@ import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 import SharedLayout from '../../components/SharedLayout';
-import { track } from '@/lib/analytics';
 import { Card, CardContent } from '@mobtranslate/ui';
 import {
-  ArrowLeft, Waypoints, ShieldCheck, ShieldAlert, AlertTriangle, CheckCircle2,
+  ArrowLeft, Waypoints, Globe, AlertTriangle, CheckCircle2,
   Clock, Mic, AudioLines, MessageSquareQuote, Volume2, Loader2, LogIn, ListChecks, Info,
 } from 'lucide-react';
 
@@ -15,7 +14,6 @@ interface Dimension { key: string; label: string; pct: number; value: number; ta
 interface Readiness {
   dataReadinessPct: number; tier: string; verdict: string;
   blockers: string[]; nextSteps: string[];
-  consent: { granted: boolean; at: string | null };
   qualityFloorMet: boolean;
   dimensions: Dimension[];
   totals: { clips: number; words: number; sentences: number; minutes: number; cleanClips: number };
@@ -45,27 +43,12 @@ export default function VoiceModelPage() {
   const { user, loading: authLoading } = useAuth();
   const [data, setData] = useState<Readiness | null>(null);
   const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
-  const [showConsent, setShowConsent] = useState(false);
 
   const load = useCallback(() => {
     setLoading(true);
     fetch('/api/v2/me/voice/readiness').then((r) => (r.ok ? r.json() : null)).then(setData).finally(() => setLoading(false));
   }, []);
   useEffect(() => { if (user) load(); }, [user, load]);
-
-  const setConsent = useCallback(async (grant: boolean) => {
-    setSaving(true);
-    track('voice_consent', { grant });
-    try {
-      await fetch('/api/v2/me/voice/consent', {
-        method: 'POST', headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ grant }),
-      });
-      setShowConsent(false);
-      load();
-    } finally { setSaving(false); }
-  }, [load]);
 
   if (authLoading) {
     return <SharedLayout><div className="py-24 grid place-items-center"><Loader2 className="h-6 w-6 animate-spin text-muted-foreground" /></div></SharedLayout>;
@@ -112,47 +95,16 @@ export default function VoiceModelPage() {
               </div>
             </div>
 
-            {/* Consent gate */}
-            <Card className={data.consent.granted ? 'border-emerald-500/40' : 'border-amber-500/40'}>
+            {/* Licensing note */}
+            <Card>
               <CardContent className="p-5">
                 <div className="flex items-start gap-3">
-                  {data.consent.granted
-                    ? <ShieldCheck className="h-6 w-6 text-emerald-500 shrink-0 mt-0.5" />
-                    : <ShieldAlert className="h-6 w-6 text-amber-500 shrink-0 mt-0.5" />}
+                  <Globe className="h-6 w-6 text-primary shrink-0 mt-0.5" />
                   <div className="flex-1">
-                    <h2 className="font-semibold">{data.consent.granted ? 'Training consent granted' : 'Training consent required'}</h2>
+                    <h2 className="font-semibold">Public domain</h2>
                     <p className="text-sm text-muted-foreground mt-1">
-                      {data.consent.granted
-                        ? 'You’ve agreed your recordings can be used to train a voice model that is yours. You can revoke this at any time — the model and its training audio are deleted on withdrawal.'
-                        : 'A voice model can only be trained on your recordings with your explicit consent. Your voice stays yours: consent is revocable, and withdrawing it deletes the model and its training audio.'}
+                      All uploaded recordings are contributed to the public domain in perpetuity, so anyone can use them to build and improve voices for the community.
                     </p>
-                    {data.consent.granted && data.consent.at && (
-                      <p className="text-xs text-muted-foreground mt-1">Granted {new Date(data.consent.at).toLocaleDateString()}.</p>
-                    )}
-                    <div className="mt-3">
-                      {data.consent.granted ? (
-                        <button onClick={() => setConsent(false)} disabled={saving}
-                          className="text-sm font-medium text-rose-600 hover:underline disabled:opacity-50">
-                          {saving ? 'Saving…' : 'Revoke consent'}
-                        </button>
-                      ) : showConsent ? (
-                        <div className="rounded-lg bg-muted/60 p-3 text-sm">
-                          <p className="mb-3">I consent to MobTranslate using my recordings to train a personal voice model. I understand it is revocable and that withdrawal deletes the model and training audio.</p>
-                          <div className="flex gap-2">
-                            <button onClick={() => setConsent(true)} disabled={saving}
-                              className="inline-flex items-center gap-2 rounded-lg bg-primary text-primary-foreground px-4 h-9 text-sm font-semibold disabled:opacity-50">
-                              {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />} I consent
-                            </button>
-                            <button onClick={() => setShowConsent(false)} className="rounded-lg border border-border px-4 h-9 text-sm">Cancel</button>
-                          </div>
-                        </div>
-                      ) : (
-                        <button onClick={() => setShowConsent(true)}
-                          className="inline-flex items-center gap-2 rounded-lg bg-primary text-primary-foreground px-4 h-9 text-sm font-semibold">
-                          <ShieldCheck className="h-4 w-4" /> Grant consent
-                        </button>
-                      )}
-                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -268,7 +220,7 @@ export default function VoiceModelPage() {
                   <li>Every <b className="text-foreground">sound</b> in the language should appear in several clips, so the model can pronounce anything.</li>
                   <li><b className="text-foreground">Sentences</b> (not just words) teach natural rhythm and intonation.</li>
                   <li>Audio must be <b className="text-foreground">clean</b>: one voice, no clipping, low background noise, consistent microphone, ≥16&nbsp;kHz mono.</li>
-                  <li>And it only happens with your <b className="text-foreground">consent</b>, which you can withdraw at any time.</li>
+                  <li>All uploaded recordings are <b className="text-foreground">public domain</b> in perpetuity, so the community can freely build and improve voices.</li>
                 </ul>
               </div>
             </details>

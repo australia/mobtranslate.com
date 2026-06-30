@@ -182,7 +182,7 @@ export function AppChatInterface() {
 
   const suggestedPrompts = [
     { icon: Languages, text: "Translate 'hello' to Kuku Yalanji", action: "Translate 'hello' to Kuku Yalanji" },
-    { icon: Globe, text: "Tell me about the Wajarri language", action: "Tell me about the Wajarri language" },
+    { icon: Globe, text: "Tell me about the Anindilyakwa language", action: "Tell me about the Anindilyakwa language" },
     { icon: GraduationCap, text: "What words should I learn first?", action: "What words should I learn first?" },
     { icon: BookOpen, text: "Help me learn Yupik vocabulary", action: "Help me learn Yupik vocabulary" },
   ];

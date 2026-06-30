@@ -10,7 +10,10 @@ export const metadata: Metadata = {
   openGraph: { title: 'Get the Mob Translate app', url: '/download', type: 'website' },
 };
 
-const APP_APK = '/downloads/mobtranslate-app.apk';
+// Versioned filename so a new release is never served from a stale browser /
+// CDN cache (and the installer always sees the newer build). Bump on each release.
+const APP_VERSION = '1.0.1';
+const APP_APK = `/downloads/mobtranslate-app-${APP_VERSION}.apk`;
 const KEYBOARD_APK = '/downloads/mobtranslate-keyboard.apk';
 
 export default function DownloadPage() {
@@ -27,11 +30,12 @@ export default function DownloadPage() {
         {/* Primary download */}
         <a
           href={APP_APK}
+          download
           className="mt-7 inline-flex items-center gap-3 rounded-xl bg-primary text-primary-foreground px-6 h-14 text-lg font-bold shadow-sm hover:shadow-md transition-shadow"
         >
           <Download className="h-5 w-5" /> Download the app (.apk)
         </a>
-        <p className="text-sm text-muted-foreground mt-2">Android. Tap the file after it downloads to install.</p>
+        <p className="text-sm text-muted-foreground mt-2">Android · version {APP_VERSION}. Tap the file after it downloads to install — it updates any older version in place.</p>
 
         {/* What's inside */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">

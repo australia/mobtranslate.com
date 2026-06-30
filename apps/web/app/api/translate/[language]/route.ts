@@ -10,6 +10,7 @@ import {
 } from '@/lib/db/schema';
 import { logTranslationRequest } from '@/lib/usage-log';
 import { getSessionUser } from '@/lib/auth-helpers';
+import { discordTranslate } from '@/lib/discord';
 
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
@@ -186,7 +187,8 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
   const params = await props.params;
   const startedAt = Date.now();
   // Who's asking (if signed in) — best-effort, never blocks the response.
-  const userId = await getSessionUser().then((u) => u?.id ?? null).catch(() => null);
+  const sessionUser = await getSessionUser().catch(() => null);
+  const userId = sessionUser?.id ?? null;
   let language = '';
   let body: { text?: string; stream?: boolean; mode?: string } = {};
   try {
@@ -209,7 +211,7 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
     // Google-Translate pane: concise, structured, non-streaming.
     if (mode === 'translate') {
       const completion = await getOpenAI().chat.completions.create({
-        model: 'gpt-4.1-mini',
+        model: 'gpt-5.4-mini',
         messages: [
           { role: 'system', content: `You are a precise translator for ${dictionary.meta.name}. Return only JSON.` },
           { role: 'user', content: createConcisePrompt(text, dictionary) },
@@ -235,9 +237,10 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
         outputText: translation,
         gloss,
         userId,
-        model: 'gpt-4.1-mini',
+        model: 'gpt-5.4-mini',
         durationMs: Date.now() - startedAt,
       });
+      void discordTranslate({ language: dictionary.meta.code, text, mode: 'translate', user: sessionUser });
 
       return NextResponse.json({
         success: true,
@@ -252,7 +255,7 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
 
     if (stream) {
       const streamResponse = await getOpenAI().chat.completions.create({
-        model: 'gpt-4.1',
+        model: 'gpt-5.4-mini',
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: prompt },
@@ -280,9 +283,10 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
             inputText: text,
             outputText: full,
             userId,
-            model: 'gpt-4.1',
+            model: 'gpt-5.4-mini',
             durationMs: Date.now() - startedAt,
           });
+          void discordTranslate({ language: dictionary.meta.code, text, mode: 'chat', user: sessionUser });
         },
       });
 
@@ -292,7 +296,7 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
     }
 
     const completion = await getOpenAI().chat.completions.create({
-      model: 'gpt-4.1',
+      model: 'gpt-5.4-mini',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: prompt },
@@ -307,9 +311,10 @@ export async function POST(request: NextRequest, props: { params: Promise<{ lang
       inputText: text,
       outputText: out,
       userId,
-      model: 'gpt-4.1',
+      model: 'gpt-5.4-mini',
       durationMs: Date.now() - startedAt,
     });
+    void discordTranslate({ language: dictionary.meta.code, text, mode: 'chat', user: sessionUser });
     return NextResponse.json({ success: true, translation: out });
   } catch (error) {
     console.error('Translation error:', error);

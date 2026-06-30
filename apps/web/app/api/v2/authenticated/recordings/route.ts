@@ -5,6 +5,8 @@ import { db } from '@/lib/db/index';
 import { requireUser, uploadAudio, removeAudio } from '@/lib/recording/server';
 import { recordingPublicUrl } from '@/lib/storage';
 import { compressedAudioMeta } from '@/lib/recording/types';
+import { getSessionUser } from '@/lib/auth-helpers';
+import { discordRecording } from '@/lib/discord';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -146,6 +148,19 @@ export async function POST(request: NextRequest) {
       const rows = Array.isArray(r) ? r : r.rows ?? [];
       return rows[0]?.result;
     });
+    // Best-effort activity event (never blocks the response).
+    void getSessionUser()
+      .then((u) =>
+        discordRecording({
+          language: meta.languageId,
+          label: meta.label,
+          gloss: meta.gloss ?? null,
+          kind: meta.kind,
+          durationMs: meta.durationMs ?? null,
+          user: u,
+        }),
+      )
+      .catch(() => undefined);
     return NextResponse.json(data, { status: 201 });
   } catch (err) {
     const orphans = [storagePath, opusPath].filter(Boolean) as string[];

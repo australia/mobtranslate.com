@@ -338,7 +338,6 @@ export default function StyleGuidePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
                   { code: 'kuku_yalanji', name: 'Kuku Yalanji', word: 'bama', gloss: 'person', region: 'Far North QLD' },
-                  { code: 'wbv', name: 'Wajarri', word: 'aba', gloss: 'grandmother', region: 'Mid West WA' },
                   { code: 'anindilyakwa', name: 'Anindilyakwa', word: 'minya', gloss: 'what', region: 'Groote Eylandt, NT' },
                   { code: 'migmaq', name: "Mi'gmaq", word: 'teluisi', gloss: 'my name is', region: 'Mi’kma’ki, Canada' },
                 ].map((l) => (

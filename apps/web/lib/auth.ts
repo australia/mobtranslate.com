@@ -5,6 +5,7 @@ import { sql } from 'drizzle-orm';
 import { db } from './db/index';
 import { authSchema } from './db/auth-schema';
 import { sendEmail, emailLayout } from './email';
+import { discordSignup, discordSignin } from './discord';
 
 const getBaseURL = () => {
   if (process.env.BETTER_AUTH_URL) return process.env.BETTER_AUTH_URL;
@@ -85,6 +86,24 @@ export const auth = betterAuth({
             await mirrorUserAndCreateProfile(createdUser);
           } catch (error) {
             console.error('[auth] mirror/profile creation failed:', error);
+          }
+          // Fire-and-forget activity event (signup).
+          void discordSignup({ email: createdUser.email, name: createdUser.name });
+        },
+      },
+    },
+    session: {
+      create: {
+        // Fires on every new session — i.e. each successful sign-in.
+        after: async (session: { userId: string }) => {
+          try {
+            const rows: any = await db.execute(sql`
+              select email, name from "user" where id = ${session.userId}::uuid limit 1
+            `);
+            const u = (Array.isArray(rows) ? rows : rows?.rows ?? [])[0];
+            void discordSignin({ email: u?.email ?? null, name: u?.name ?? null });
+          } catch (error) {
+            console.error('[auth] sign-in event lookup failed (non-fatal):', error);
           }
         },
       },

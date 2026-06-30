@@ -37,12 +37,11 @@ export async function GET() {
     // No recordings yet — return an empty-but-shaped readiness.
     const empty = computeReadiness({
       recordings: [], recordedWordIpa: [], languageInventory: new Set(),
-      consent: { granted: false, at: null },
     });
     return NextResponse.json({ language: null, ...empty });
   }
 
-  const [lang, recs, recordedIpa, inventoryIpa, consentRow] = await Promise.all([
+  const [lang, recs, recordedIpa, inventoryIpa] = await Promise.all([
     db.execute(sql`select code, name from public.languages where id = ${languageId}::uuid limit 1`),
     db.execute(sql`
       select r.kind, r.duration_ms, r.sample_rate, r.channels, r.peak_amplitude, r.clipped, r.word_id
@@ -59,13 +58,6 @@ export async function GET() {
       select phonemic from public.words
       where language_id = ${languageId}::uuid and phonemic is not null and phonemic <> ''
     `),
-    // Highest training-consent across the user's speaker profiles for this language (or any).
-    db.execute(sql`
-      select training_consent, training_consent_at
-      from public.speaker_profiles
-      where user_id = ${uid}::uuid and (language_id = ${languageId}::uuid or language_id is null)
-      order by training_consent desc, training_consent_at desc nulls last limit 1
-    `),
   ]);
 
   const recordings: RecordingLite[] = rows(recs).map((r) => ({
@@ -81,12 +73,10 @@ export async function GET() {
   const languageInventory = new Set<string>();
   for (const row of rows(inventoryIpa)) for (const p of ipaPhonemes(row.phonemic)) languageInventory.add(p);
 
-  const cr = rows(consentRow)[0];
   const result = computeReadiness({
     recordings,
     recordedWordIpa: rows(recordedIpa).map((r) => r.phonemic),
     languageInventory,
-    consent: { granted: cr?.training_consent === true, at: cr?.training_consent_at || null },
   });
 
   const l = rows(lang)[0];

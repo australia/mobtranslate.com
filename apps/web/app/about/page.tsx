@@ -131,6 +131,18 @@ export default async function About() {
         </div>
       </section>
 
+      {/* Get in touch */}
+      <section className="marketing max-w-3xl mb-24">
+        <h2 className="text-2xl sm:text-3xl font-display font-bold mb-2">Get in touch</h2>
+        <p className="text-muted-foreground leading-relaxed">
+          Questions, corrections, or want your community&apos;s language added? Email{' '}
+          <a href="mailto:ajax@mobtranslate.com" className="text-primary font-medium underline underline-offset-2">
+            ajax@mobtranslate.com
+          </a>{' '}
+          and we&apos;ll get back to you.
+        </p>
+      </section>
+
     </SharedLayout>
   );
 }

@@ -61,7 +61,12 @@ export default async function DictionaryPage(
 
   try {
     const { words, language: languageData, pagination } = await getWordsForLanguage(queryParams);
-    
+
+    // Hidden/inactive dictionaries are not browsable.
+    if (languageData && languageData.is_active === false) {
+      notFound();
+    }
+
     const breadcrumbItems = [
       { href: '/', label: 'Home' },
       { href: '/dictionaries', label: 'Dictionaries' },

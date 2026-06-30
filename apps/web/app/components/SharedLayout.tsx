@@ -403,6 +403,12 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                 <Code size={14} />
                 Contribute on GitHub
               </a>
+              <p className="text-sm text-muted-foreground leading-relaxed mt-4">
+                Get in touch:{' '}
+                <a href="mailto:ajax@mobtranslate.com" className="text-primary font-medium hover:text-primary/80">
+                  ajax@mobtranslate.com
+                </a>
+              </p>
             </div>
           </div>
 
