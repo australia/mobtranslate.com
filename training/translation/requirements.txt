@@ -1,0 +1,9 @@
+accelerate>=1.1,<2
+datasets>=3.1,<5
+evaluate>=0.4,<1
+peft>=0.18,<1
+sacrebleu>=2.4,<3
+sentencepiece>=0.2,<1
+tensorboard>=2.18,<3
+torch>=2.4
+transformers>=4.46,<4.49

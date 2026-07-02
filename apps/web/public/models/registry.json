@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 2,
+  "updatedAt": "2026-07-01",
+  "models": [
+    {
+      "id": "kuku-yalanji-nllb-lora",
+      "name": "Kuku Yalanji Translation",
+      "family": "NLLB LoRA",
+      "task": "machine_translation",
+      "language": {
+        "name": "Kuku Yalanji",
+        "appCode": "kuku_yalanji",
+        "iso6393": "gvn",
+        "region": "Far North Queensland, Australia"
+      },
+      "summary": "A versioned English -> Kuku Yalanji translation model line trained from approved MobTranslate parallel corpora.",
+      "releases": [
+        {
+          "version": "0.7.0-full-tpi-proxy-1.3b",
+          "status": "internal-proof",
+          "date": "2026-07-01",
+          "baseModel": "facebook/nllb-200-distilled-1.3B",
+          "dataset": "kuku_yalanji_ebible_parallel_v0.1.0",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "tpi_Latn"
+          },
+          "rights": "Kuku Yalanji eBible snapshot rights granted for MobTranslate model training by project owner attestation on 2026-06-30. This is an internal experimental artifact for evaluation, not a community-approved production translator.",
+          "metrics": {
+            "validation_loss": 1.6889983415603638,
+            "validation_bleu": 8.745047778356062,
+            "validation_chrf": 37.51880683611857,
+            "test_loss": 1.6783887147903442,
+            "test_bleu": 8.40094102893463,
+            "test_chrf": 37.09414284045649,
+            "standalone_bleu": 6.377271920080327,
+            "standalone_chrf": 34.48739010451607,
+            "length_ratio_mean": 0.7566,
+            "repeat_share_mean": 0.1159
+          },
+          "training": {
+            "trainRows": 13270,
+            "validationRows": 512,
+            "testRows": 512,
+            "epochs": 8,
+            "batchSize": 4,
+            "gradientAccumulationSteps": 8,
+            "trainRuntimeSeconds": 11278
+          },
+          "resources": {
+            "gpu": "NVIDIA A40",
+            "costPerHourUsd": 0.44,
+            "sampleIntervalSeconds": 5,
+            "samples": 2292,
+            "avgGpuUtilPct": 36.39,
+            "maxGpuUtilPct": 95,
+            "maxVramMiB": 10312,
+            "maxPowerW": 219.04,
+            "powerLimitW": 300
+          },
+          "notes": [
+            "Best current experimental English to Kuku Yalanji model and the first run to clearly beat v0.4 across automatic and row-level comparison metrics.",
+            "Served through the existing NLLB tpi_Latn token as a proxy target, which outperformed the failed 1.3B custom-token probe.",
+            "Still not faithful enough for production or community-approved use: long passages compress and some clauses drift or disappear.",
+            "Added non-Bible MobTranslate DB usage-example eval preview so translate/v2 shows everyday dictionary-context failures, not only Bible verse rows."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "safetensors",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/merged",
+              "sizeBytes": 2741397600,
+              "sha256": "91d858fc0c73cc13c09a65238f4a6d5380d1e6916c61069a301f663fc70054d9",
+              "note": "Current live translate/v2 internal-proof model. Decode with source eng_Latn and target tpi_Latn."
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "safetensors",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/adapter",
+              "sizeBytes": 188852112,
+              "sha256": "288fad8738ea8dd566a7df80a8db402059b317addbcec1e2c4ff3f50d582a56b"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "JSON",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/model_manifest.json",
+              "sha256": "bb6b0f96958dd0bca62d982567b6cae71e8efe2df01173391d6ac5058f35530e"
+            },
+            {
+              "label": "Evaluation report",
+              "kind": "evaluation",
+              "format": "JSON",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/test_predictions_norepeat.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/test_predictions_norepeat.json",
+              "sha256": "bd8d4c557205ba99ed64d4dd03ace8db6c17cfbcda6fc0fe3abbe02a279b001e"
+            },
+            {
+              "label": "MobTranslate DB usage example eval preview",
+              "kind": "evaluation",
+              "format": "JSON",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/mobtranslate_db_usage_examples_predictions_preview.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/mobtranslate_db_usage_examples_predictions_preview.json",
+              "sha256": "d5b353d517c0573e9da5ef483e93eb3e16a51e00b7631b376ac55695ec19d7e0",
+              "note": "48-row non-Bible preview generated through the live v0.7 CPU service from curated MobTranslate Kuku Yalanji usage_examples. Full 449-row reference set is published separately."
+            },
+            {
+              "label": "MobTranslate DB usage example reference set",
+              "kind": "dataset",
+              "format": "JSONL",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/mobtranslate_db_usage_examples_reference.jsonl",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v0.7.0-full-tpi-proxy-1.3b/mobtranslate_db_usage_examples_reference.jsonl",
+              "sha256": "0991576780abba766af1801e73683e03d321e1e48e7caef8960ee690f7b01535",
+              "note": "449 English to Kuku Yalanji examples exported from MobTranslate Postgres usage_examples on 2026-07-01; rights_status=rights_granted and approved_for_training=true."
+            }
+          ]
+        },
+        {
+          "version": "0.4.0-full-gvn-token",
+          "status": "internal-proof",
+          "date": "2026-07-01",
+          "baseModel": "facebook/nllb-200-distilled-600M",
+          "dataset": "kuku_yalanji_ebible_parallel_v0.1.0",
+          "directions": [
+            "eng-gvn"
+          ],
+          "rights": "Kuku Yalanji eBible snapshot rights granted for MobTranslate model training by project owner attestation on 2026-06-30. This is an internal experimental artifact for evaluation, not a community-approved production translator.",
+          "metrics": {
+            "train_loss": 2.5613213374418913,
+            "validation_loss": 1.9663472175598145,
+            "validation_bleu": 5.5394505873313955,
+            "validation_chrf": 33.13722868754415,
+            "test_loss": 1.9890578985214233,
+            "test_bleu": 5.274383048216052,
+            "test_chrf": 32.65721839454287,
+            "standalone_bleu": 3.645350780329075,
+            "standalone_chrf": 31.06721286004575,
+            "length_ratio_mean": 0.7516684141661562,
+            "repeat_share_mean": 0.13648879608973066
+          },
+          "training": {
+            "trainRows": 13270,
+            "validationRows": 512,
+            "testRows": 512,
+            "epochs": 8,
+            "batchSize": 8,
+            "gradientAccumulationSteps": 4,
+            "trainRuntimeSeconds": 3260.5311,
+            "trainSamplesPerSecond": 32.559
+          },
+          "resources": {
+            "gpu": "NVIDIA A40",
+            "costPerHourUsd": 0.44,
+            "sampleIntervalSeconds": 10,
+            "samples": 383,
+            "avgGpuUtilPct": 57.6,
+            "maxGpuUtilPct": 100,
+            "maxVramMiB": 12937,
+            "maxPowerW": 231.41,
+            "powerLimitW": 300
+          },
+          "notes": [
+            "Best current experimental English to Kuku Yalanji model and the first full 8-epoch high-confidence run.",
+            "Better than v0.3 on held-out metrics and samples, but still not faithful enough for production or community-approved release.",
+            "Primary remaining failure mode is semantic looseness and dropped content, especially on longer verses."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "safetensors",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v0.4.0-full-gvn-token/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/full-gvn-token-v0.4.0-ehdil5oaublnjo/models/kuku-yalanji-nllb-lora/gvn-token-full-v0.4.0/merged",
+              "sizeBytes": 2279621912,
+              "sha256": "ead18bff887db429bf4f60a528d7eecb36a4d3022fbc1f2c3c3bf66ca465da45",
+              "note": "Local experimental artifact. Served on translate/v2 for internal model comparison."
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "safetensors",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v0.4.0-full-gvn-token/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/full-gvn-token-v0.4.0-ehdil5oaublnjo/models/kuku-yalanji-nllb-lora/gvn-token-full-v0.4.0/adapter",
+              "sizeBytes": 3217507488,
+              "sha256": "d72d4faee2cd4c0d88e53816e20afb1cba81ea3516ea4821f40f8241aac2c86f"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "JSON",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v0.4.0-full-gvn-token/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/full-gvn-token-v0.4.0-ehdil5oaublnjo/models/kuku-yalanji-nllb-lora/gvn-token-full-v0.4.0/model_manifest.json",
+              "sha256": "3ab6f29e94ed1227078591af7e6b97252fc18d653f5a63e091081edecbe2b923"
+            },
+            {
+              "label": "Evaluation report",
+              "kind": "evaluation",
+              "format": "JSON",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v0.4.0-full-gvn-token/test_predictions_norepeat.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/full-gvn-token-v0.4.0-ehdil5oaublnjo/models/kuku-yalanji-nllb-lora/gvn-token-full-v0.4.0/test_predictions_norepeat.json",
+              "sha256": "6afc3ed6e863a1e827d748671e02b8c6d0da2f910d937ff88f28f1bfb02b1787"
+            }
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          }
+        },
+        {
+          "version": "0.1.0-mini-pilot",
+          "status": "internal-proof",
+          "date": "2026-06-30",
+          "baseModel": "facebook/nllb-200-distilled-600M",
+          "dataset": "kuku_yalanji_ebible_parallel_v0.1.0",
+          "directions": [
+            "eng-gvn"
+          ],
+          "rights": "Kuku Yalanji eBible snapshot rights granted for MobTranslate model training by project owner attestation on 2026-06-30. Proof artifacts are local/internal and are not a public release.",
+          "metrics": {
+            "train_loss": 6.29466187953949,
+            "validation_loss": 5.773140907287598,
+            "validation_bleu": 0.03125709530611059,
+            "validation_chrf": 4.744423720489478,
+            "test_loss": 5.816748142242432,
+            "test_bleu": 0.027459857535833278,
+            "test_chrf": 4.27236822385898,
+            "standalone_bleu": 0.026877152645078405,
+            "standalone_chrf": 4.175083111450398
+          },
+          "training": {
+            "trainRows": 2048,
+            "validationRows": 128,
+            "testRows": 128,
+            "epochs": 1,
+            "batchSize": 16,
+            "gradientAccumulationSteps": 2,
+            "trainRuntimeSeconds": 77.3559,
+            "trainSamplesPerSecond": 26.475
+          },
+          "resources": {
+            "gpu": "NVIDIA A40",
+            "costPerHourUsd": 0.44,
+            "sampleIntervalSeconds": 5,
+            "samples": 56,
+            "avgGpuUtilPct": 40.3,
+            "maxGpuUtilPct": 100,
+            "maxVramMiB": 26525,
+            "maxPowerW": 295.2,
+            "powerLimitW": 300
+          },
+          "notes": [
+            "Budget-safe proof run on the high-confidence corpus, not a production translator.",
+            "A40 utilization was healthy: 100% max GPU, 26.5 GiB max VRAM, and 295 W max power draw.",
+            "Use this release to test the translate/v2 model-lab path and inference server wiring."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "safetensors",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/mini-pilot-krwpuxkokvnxlb/models/kuku-yalanji-nllb-lora/mini-pilot-v0.1.0/merged",
+              "sizeBytes": 1230205440,
+              "sha256": "0c4475af17a0e9955e72d669a0d43f33b8a1611b9a67e6d1e1d7443bb4512343",
+              "note": "Local proof artifact. Publish only after community/project release decision."
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "safetensors",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/mini-pilot-krwpuxkokvnxlb/models/kuku-yalanji-nllb-lora/mini-pilot-v0.1.0/adapter",
+              "sizeBytes": 1058873424,
+              "sha256": "8952386f43d324e4881ddbc80aaccfcf9611e53043b640fc2f2ec0b898e02f75",
+              "note": "Includes resized language-token embeddings, so the proof adapter is large."
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "JSON",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/mini-pilot-krwpuxkokvnxlb/models/kuku-yalanji-nllb-lora/mini-pilot-v0.1.0/model_manifest.json",
+              "sha256": "ed7bb587f3a28f778396314328dec7246dff1a2a89442a366a4d33f6e0ab0d6b"
+            },
+            {
+              "label": "Evaluation report",
+              "kind": "evaluation",
+              "format": "JSON",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/mini-pilot-krwpuxkokvnxlb/models/kuku-yalanji-nllb-lora/mini-pilot-v0.1.0/test_predictions.json",
+              "sha256": "1eba7ff5591d287186429042e92b31ce986122a9413e83942551474d07a89196"
+            }
+          ]
+        },
+        {
+          "version": "0.1.0-smoke",
+          "status": "internal-proof",
+          "date": "2026-06-30",
+          "baseModel": "facebook/nllb-200-distilled-600M",
+          "dataset": "kuku_yalanji_ebible_parallel_smoke_v0.1.0",
+          "directions": [
+            "eng-gvn"
+          ],
+          "rights": "Kuku Yalanji eBible snapshot rights granted for MobTranslate model training by project owner attestation on 2026-06-30. Smoke artifacts are only a pipeline proof.",
+          "metrics": {
+            "train_loss": 6.536819398403168,
+            "validation_loss": 6.013435363769531,
+            "validation_bleu": 0.10854688457257954,
+            "validation_chrf": 4.913145821166582,
+            "test_loss": 6.416496276855469,
+            "test_bleu": 0.05399833096936043,
+            "test_chrf": 5.485379144730067,
+            "standalone_bleu": 0.055240976071079015,
+            "standalone_chrf": 5.448973385401746
+          },
+          "training": {
+            "trainRows": 256,
+            "validationRows": 64,
+            "testRows": 64,
+            "epochs": 1,
+            "batchSize": 4,
+            "gradientAccumulationSteps": 2,
+            "trainRuntimeSeconds": 142.6111,
+            "trainSamplesPerSecond": 1.795
+          },
+          "resources": {
+            "gpu": "NVIDIA A40",
+            "costPerHourUsd": 0.44
+          },
+          "notes": [
+            "First end-to-end RunPod proof: dataset upload, CUDA validation, LoRA training, merge, eval, artifact pullback.",
+            "Not useful as a translator; kept for regression testing the model project."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "safetensors",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/smoke-wqx80p8z4jirc2/models/kuku-yalanji-nllb-lora/smoke-v0.1.0/merged",
+              "sizeBytes": 1230205440,
+              "sha256": "43a0945ffbb606f01bc7adfd03b249963dfe7c05317420266c6f468564fc16fe",
+              "note": "Local smoke artifact."
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "safetensors",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/smoke-wqx80p8z4jirc2/models/kuku-yalanji-nllb-lora/smoke-v0.1.0/adapter",
+              "sizeBytes": 1058873424,
+              "sha256": "5380b7cae0823952f329e60803021337fff73d7f1cd4cfdafe0db319376906c7"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "JSON",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/smoke-wqx80p8z4jirc2/models/kuku-yalanji-nllb-lora/smoke-v0.1.0/model_manifest.json",
+              "sha256": "09b4dd518ba1ccec50809878d5dc71595d9a69cb1820610a43e9c936e90e7f24"
+            },
+            {
+              "label": "Evaluation report",
+              "kind": "evaluation",
+              "format": "JSON",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/smoke-wqx80p8z4jirc2/models/kuku-yalanji-nllb-lora/smoke-v0.1.0/test_predictions.json",
+              "sha256": "54eb1b9c792002ee18df6c7bebc8517b6596e56eafe4fb391faebc65399ee37c"
+            }
+          ]
+        },
+        {
+          "version": "0.1.0-baseline",
+          "status": "training-ready",
+          "date": "2026-06-30",
+          "baseModel": "facebook/nllb-200-distilled-600M",
+          "dataset": "kuku_yalanji_ebible_parallel_v0.1.0",
+          "directions": [
+            "eng-gvn"
+          ],
+          "rights": "Kuku Yalanji eBible snapshot rights granted for MobTranslate model training by project owner attestation on 2026-06-30. Base model license and final release terms still apply to trained artifacts.",
+          "metrics": null,
+          "notes": [
+            "Full baseline is intentionally blocked until the model project, download registry, and translate/v2 test bench are working.",
+            "Planned first publishable candidate: high-confidence rows only, English to Kuku Yalanji, 8 epochs, A40/RTX A6000 first."
+          ],
+          "artifacts": [
+            {
+              "label": "Model card",
+              "kind": "documentation",
+              "format": "Markdown",
+              "url": "/models/kuku-yalanji-nllb-lora/v0.1.0/MODEL_CARD.md",
+              "available": true
+            },
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "safetensors",
+              "url": null,
+              "available": false,
+              "note": "Published after the full baseline passes evaluation and review."
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "safetensors",
+              "url": null,
+              "available": false,
+              "note": "Published alongside the merged model."
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "JSON",
+              "url": null,
+              "available": false
+            },
+            {
+              "label": "Evaluation report",
+              "kind": "evaluation",
+              "format": "JSON",
+              "url": null,
+              "available": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
