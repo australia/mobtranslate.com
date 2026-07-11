@@ -338,6 +338,12 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               </h3>
               <ul className="space-y-2.5">
                 <li>
+                  <Link href="/labs/v2" className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-0.5 transition-all duration-200 inline-flex items-center gap-1.5">
+                    Translate
+                    <span className="rounded-full bg-amber-500/20 px-1.5 py-0.5 text-[10px] font-medium text-foreground/80">v2 research preview</span>
+                  </Link>
+                </li>
+                <li>
                   <Link href="/styleguide" className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-0.5 transition-all duration-200 inline-block">
                     Style Guide
                   </Link>
