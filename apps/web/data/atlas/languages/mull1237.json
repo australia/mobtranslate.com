@@ -1,0 +1,89 @@
+{
+  "slug": "mull1237",
+  "canonical_name": "Mullukmulluk",
+  "autonym_candidate": {
+    "value": "Akana",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 59
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "mull1237",
+    "iso639_3": "mpb",
+    "austlang": [
+      "N22"
+    ]
+  },
+  "family": "Northern Daly",
+  "classification_chain": [
+    {
+      "glottocode": "nort1547",
+      "name": "Northern Daly"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -13.427,
+    "lon": 130.664,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 169,
+    "has_wals": true,
+    "wals_feature_count": 61,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 86.7,
+    "feature_count": 230
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (N22)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/N22",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

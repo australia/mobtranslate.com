@@ -1,0 +1,98 @@
+{
+  "slug": "ngin1247",
+  "canonical_name": "Ngindadj",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "ngin1247",
+    "iso639_3": null,
+    "austlang": [
+      "S18"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "vict1234",
+      "name": "Victorian Pama-Nyungan"
+    },
+    {
+      "glottocode": "lowe1401",
+      "name": "Lower Murray"
+    },
+    {
+      "glottocode": "uppe1415",
+      "name": "Upper Riverland"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -34.098823177692,
+    "lon": 140.99932761004,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": null,
+    "label": "unknown"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (S18)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/S18",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": false,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": false
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": null,
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

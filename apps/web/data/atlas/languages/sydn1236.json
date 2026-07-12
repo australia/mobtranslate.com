@@ -1,0 +1,112 @@
+{
+  "slug": "sydn1236",
+  "canonical_name": "Sydney",
+  "autonym_candidate": {
+    "value": "Bedia-mangora",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 34
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "sydn1236",
+    "iso639_3": "xdk",
+    "austlang": [
+      "S61",
+      "S64"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "news1235",
+      "name": "New South Wales Pama-Nyungan"
+    },
+    {
+      "glottocode": "yuin1243",
+      "name": "Yuin-Kuri"
+    },
+    {
+      "glottocode": "kuri1270",
+      "name": "Kuri"
+    },
+    {
+      "glottocode": "sydn1235",
+      "name": "Sydney-Hawkesbury"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -33.52925837,
+    "lon": 150.3490464,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "live",
+    "word_count": 43,
+    "db_code": "dharug"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Birrpayi",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 130,
+    "leaf_hpd_bp": [
+      130,
+      130
+    ],
+    "divergence_age_bp": 702.7,
+    "divergence_hpd_bp": [
+      424.8,
+      1062
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "mobtranslate-pg live dictionary",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

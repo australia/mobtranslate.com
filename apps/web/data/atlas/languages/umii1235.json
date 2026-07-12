@@ -1,0 +1,84 @@
+{
+  "slug": "umii1235",
+  "canonical_name": "Umiida-Unggarangu",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "umii1235",
+    "iso639_3": null,
+    "austlang": []
+  },
+  "family": "Worrorran",
+  "classification_chain": [
+    {
+      "glottocode": "worr1236",
+      "name": "Worrorran"
+    },
+    {
+      "glottocode": "west2435",
+      "name": "Western Worrorran"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -16.559333,
+    "lon": 124.5,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 88,
+    "has_wals": false,
+    "wals_feature_count": 0,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 45.1,
+    "feature_count": 88
+  },
+  "lexicon": {
+    "state": "none"
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": false,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": false
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": null,
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

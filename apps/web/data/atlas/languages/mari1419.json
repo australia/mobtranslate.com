@@ -1,0 +1,97 @@
+{
+  "slug": "mari1419",
+  "canonical_name": "Maringarr",
+  "autonym_candidate": {
+    "value": "Marengar",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 15
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "mari1419",
+    "iso639_3": "zmt",
+    "austlang": [
+      "N102"
+    ]
+  },
+  "family": "Western Daly",
+  "classification_chain": [
+    {
+      "glottocode": "west2434",
+      "name": "Western Daly"
+    },
+    {
+      "glottocode": "brin1245",
+      "name": "Bringen"
+    },
+    {
+      "glottocode": "mari1418",
+      "name": "Maringarr-Matige"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -14.3819,
+    "lon": 130.25,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 16,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 16
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (N102)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/N102",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

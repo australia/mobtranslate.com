@@ -1,0 +1,112 @@
+{
+  "slug": "band1358",
+  "canonical_name": "Bandjalang",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "band1358",
+    "iso639_3": null,
+    "austlang": []
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "news1235",
+      "name": "New South Wales Pama-Nyungan"
+    },
+    {
+      "glottocode": "band1357",
+      "name": "Greater Bandjalangic"
+    },
+    {
+      "glottocode": "band1339",
+      "name": "Bandjalangic"
+    },
+    {
+      "glottocode": "coas1320",
+      "name": "Coastal Bandjalang"
+    },
+    {
+      "glottocode": "lowe1444",
+      "name": "Lower Richmond"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -28.937029,
+    "lon": 153.48612,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": null,
+    "label": "unknown"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "live",
+    "word_count": 77,
+    "db_code": "bandjalang"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Bandjalang",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 20,
+    "leaf_hpd_bp": [
+      20,
+      20
+    ],
+    "divergence_age_bp": 344.7,
+    "divergence_hpd_bp": [
+      213.9,
+      543.3
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": false,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": false,
+    "grammar_profile": false,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": false
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": null,
+    "grammar": null,
+    "lexicon": "mobtranslate-pg live dictionary",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

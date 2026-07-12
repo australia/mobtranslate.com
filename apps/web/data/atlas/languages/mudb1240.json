@@ -1,0 +1,116 @@
+{
+  "slug": "mudb1240",
+  "canonical_name": "Mudburra",
+  "autonym_candidate": {
+    "value": "Karranga",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 15
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "mudb1240",
+    "iso639_3": "dmw",
+    "austlang": [
+      "C21",
+      "C25",
+      "C33",
+      "C36"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "dese1234",
+      "name": "Desert Nyungic"
+    },
+    {
+      "glottocode": "ngum1251",
+      "name": "Ngumpin-Yapa"
+    },
+    {
+      "glottocode": "ngum1256",
+      "name": "Ngumpin"
+    },
+    {
+      "glottocode": "guri1250",
+      "name": "Eastern Ngumpin"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -16.7694,
+    "lon": 132.329,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 2,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 2
+  },
+  "lexicon": {
+    "state": "live",
+    "word_count": 38,
+    "db_code": "mudburra"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Mudburra",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 10,
+    "leaf_hpd_bp": [
+      10,
+      10
+    ],
+    "divergence_age_bp": 332.5,
+    "divergence_hpd_bp": [
+      210,
+      518.5
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "mobtranslate-pg live dictionary",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

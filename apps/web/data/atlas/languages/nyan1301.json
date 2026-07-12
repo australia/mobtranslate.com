@@ -1,0 +1,114 @@
+{
+  "slug": "nyan1301",
+  "canonical_name": "Nyangumarta",
+  "autonym_candidate": {
+    "value": "I:baruga",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 53
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "nyan1301",
+    "iso639_3": "nna",
+    "austlang": [
+      "A104",
+      "A59",
+      "A61",
+      "A72",
+      "A73",
+      "A98"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "dese1234",
+      "name": "Desert Nyungic"
+    },
+    {
+      "glottocode": "marr1265",
+      "name": "Marrngu"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -20.6271,
+    "lon": 121.391,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 3,
+    "label": "shifting"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 68,
+    "has_wals": true,
+    "wals_feature_count": 10,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 34.9,
+    "feature_count": 78
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 2,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (A104, A59, A61, A72, A73, A98)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/A104",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_NorthernNyangumarta",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 30,
+    "leaf_hpd_bp": [
+      30,
+      30
+    ],
+    "divergence_age_bp": 507.2,
+    "divergence_hpd_bp": [
+      236.2,
+      844.5
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

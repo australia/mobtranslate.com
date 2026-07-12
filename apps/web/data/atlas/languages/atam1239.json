@@ -1,0 +1,109 @@
+{
+  "slug": "atam1239",
+  "canonical_name": "Atampaya",
+  "autonym_candidate": {
+    "value": "Atampaya jezik",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 3
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "atam1239",
+    "iso639_3": "amz",
+    "austlang": [
+      "Y183"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "pama1251",
+      "name": "Paman"
+    },
+    {
+      "glottocode": "nort2758",
+      "name": "Northern Pama"
+    },
+    {
+      "glottocode": "guda1246",
+      "name": "Gudang-Northeast Paman"
+    },
+    {
+      "glottocode": "nort3278",
+      "name": "Northeast Paman"
+    },
+    {
+      "glottocode": "urad1238",
+      "name": "Uradhic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -11.0018,
+    "lon": 142.273,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 87,
+    "has_wals": true,
+    "wals_feature_count": 50,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 44.6,
+    "feature_count": 137
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 1,
+    "resource": {
+      "title": "English Wiktionary — Category:Atampaya lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Atampaya_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

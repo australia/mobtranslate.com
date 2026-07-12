@@ -1,0 +1,123 @@
+{
+  "slug": "mart1256",
+  "canonical_name": "Martu Wangka",
+  "autonym_candidate": {
+    "value": "Budijarra",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 35
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "mart1256",
+    "iso639_3": "mpj",
+    "austlang": [
+      "A100",
+      "A33",
+      "A51.1",
+      "A52",
+      "A56",
+      "A6",
+      "A86"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "dese1234",
+      "name": "Desert Nyungic"
+    },
+    {
+      "glottocode": "wati1241",
+      "name": "Wati"
+    },
+    {
+      "glottocode": "mart1257",
+      "name": "Martuwangkic"
+    },
+    {
+      "glottocode": "warn1245",
+      "name": "Warnman-Wangka"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -23.350911655789,
+    "lon": 123.66842240336,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 3,
+    "label": "shifting"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 4,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 4
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 2,
+    "resource": {
+      "title": "English Wiktionary — Category:Martu Wangka lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Martu_Wangka_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Manjiljarra",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 0,
+    "leaf_hpd_bp": [
+      0,
+      0
+    ],
+    "divergence_age_bp": 1626.9,
+    "divergence_hpd_bp": [
+      1106.4,
+      2229.9
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

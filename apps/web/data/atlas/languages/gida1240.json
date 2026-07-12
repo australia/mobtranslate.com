@@ -1,0 +1,110 @@
+{
+  "slug": "gida1240",
+  "canonical_name": "Gidabal",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "gida1240",
+    "iso639_3": null,
+    "austlang": []
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "news1235",
+      "name": "New South Wales Pama-Nyungan"
+    },
+    {
+      "glottocode": "band1357",
+      "name": "Greater Bandjalangic"
+    },
+    {
+      "glottocode": "band1339",
+      "name": "Bandjalangic"
+    },
+    {
+      "glottocode": "inla1268",
+      "name": "Inland Bandjalang"
+    },
+    {
+      "glottocode": "cond1242",
+      "name": "Condamine-Upper Clarence Bandjalang"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -28.289642,
+    "lon": 152.151281,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "none"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Githabul",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 0,
+    "leaf_hpd_bp": [
+      0,
+      0
+    ],
+    "divergence_age_bp": 344.7,
+    "divergence_hpd_bp": [
+      213.9,
+      543.3
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": false,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": false
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": null,
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

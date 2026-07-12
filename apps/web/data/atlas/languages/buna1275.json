@@ -1,0 +1,89 @@
+{
+  "slug": "buna1275",
+  "canonical_name": "Bunaba",
+  "autonym_candidate": {
+    "value": "Booneba",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 13
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "buna1275",
+    "iso639_3": "bck",
+    "austlang": [
+      "K5"
+    ]
+  },
+  "family": "Bunaban",
+  "classification_chain": [
+    {
+      "glottocode": "buna1274",
+      "name": "Bunaban"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -17.8297,
+    "lon": 125.631,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 17,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 17
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 1,
+    "resource": {
+      "title": "English Wiktionary — Category:Bunaba lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Bunaba_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

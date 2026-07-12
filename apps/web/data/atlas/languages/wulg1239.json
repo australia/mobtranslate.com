@@ -1,0 +1,99 @@
+{
+  "slug": "wulg1239",
+  "canonical_name": "Wulguru",
+  "autonym_candidate": {
+    "value": "Wulgurukaba",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 1
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "wulg1239",
+    "iso639_3": "qgu",
+    "austlang": [
+      "Y135"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "nyaw1248",
+      "name": "Nyawaygic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -19.85103121,
+    "lon": 146.3453957,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (Y135)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/Y135",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Coonambella",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 0,
+    "leaf_hpd_bp": [
+      0,
+      0
+    ],
+    "divergence_age_bp": 899.3,
+    "divergence_hpd_bp": [
+      470.9,
+      1449.7
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

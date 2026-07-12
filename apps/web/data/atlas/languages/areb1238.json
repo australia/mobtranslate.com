@@ -1,0 +1,99 @@
+{
+  "slug": "areb1238",
+  "canonical_name": "Areba",
+  "autonym_candidate": {
+    "value": "A:rap",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 8
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "areb1238",
+    "iso639_3": "aea",
+    "austlang": [
+      "Y107"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "pama1251",
+      "name": "Paman"
+    },
+    {
+      "glottocode": "norm1247",
+      "name": "Norman Pama"
+    },
+    {
+      "glottocode": "kuth1239",
+      "name": "Kuthant-Gurdjar"
+    },
+    {
+      "glottocode": "ribg1235",
+      "name": "Rib-Gurdjar"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -16.63548,
+    "lon": 142.63107,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (Y107)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/Y107",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

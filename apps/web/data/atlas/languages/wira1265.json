@@ -1,0 +1,98 @@
+{
+  "slug": "wira1265",
+  "canonical_name": "Wirangu",
+  "autonym_candidate": {
+    "value": "Hilleri",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 41
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "wira1265",
+    "iso639_3": "wgu",
+    "austlang": []
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "aran1266",
+      "name": "Arandic-Thura-Yura"
+    },
+    {
+      "glottocode": "thur1253",
+      "name": "Thura-Yura"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -32,
+    "lon": 134,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 66,
+    "has_wals": true,
+    "wals_feature_count": 12,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 33.8,
+    "feature_count": 78
+  },
+  "lexicon": {
+    "state": "none"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Wirangu",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 40,
+    "leaf_hpd_bp": [
+      40,
+      40
+    ],
+    "divergence_age_bp": 2163.3,
+    "divergence_hpd_bp": null,
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": false,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": null,
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

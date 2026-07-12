@@ -12,6 +12,7 @@
     "import:kuku-yalanji": "tsx scripts/import-kuku-yalanji.ts",
     "import:wajarri": "tsx scripts/import-wajarri.ts",
     "setup:all": "npm run setup:dictionary && npm run import:kuku-yalanji",
+    "atlas:build-data": "tsx scripts/atlas/build-data.ts",
     "generate-embeddings": "tsx scripts/generate-embeddings.ts",
     "sync:dictionaries": "tsx scripts/run-dictionary-sync.ts run_due",
     "sync:dictionaries:all": "tsx scripts/run-dictionary-sync.ts sync_all",

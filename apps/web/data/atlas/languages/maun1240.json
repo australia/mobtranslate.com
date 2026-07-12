@@ -1,0 +1,89 @@
+{
+  "slug": "maun1240",
+  "canonical_name": "Mawng",
+  "autonym_candidate": {
+    "value": "Goulburn Islands",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 16
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "maun1240",
+    "iso639_3": "mph",
+    "austlang": [
+      "N64"
+    ]
+  },
+  "family": "Iwaidjan Proper",
+  "classification_chain": [
+    {
+      "glottocode": "iwai1246",
+      "name": "Iwaidjan Proper"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -11.66,
+    "lon": 133.376,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 2,
+    "label": "threatened"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 194,
+    "has_wals": true,
+    "wals_feature_count": 126,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 99.5,
+    "feature_count": 320
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (N64)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/N64",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

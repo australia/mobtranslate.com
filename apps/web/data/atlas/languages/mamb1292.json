@@ -1,0 +1,98 @@
+{
+  "slug": "mamb1292",
+  "canonical_name": "Mambangura",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "mamb1292",
+    "iso639_3": null,
+    "austlang": [
+      "L19"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "karn1253",
+      "name": "Karnic"
+    },
+    {
+      "glottocode": "badj1246",
+      "name": "Badjiri-Eastern Karnic"
+    },
+    {
+      "glottocode": "east2872",
+      "name": "Eastern Karnic"
+    },
+    {
+      "glottocode": "ngur1261",
+      "name": "Wilson River (Grey Range)"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -27.58,
+    "lon": 142.45,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": null,
+    "label": "unknown"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (L19)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/L19",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": false,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": false
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": null,
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

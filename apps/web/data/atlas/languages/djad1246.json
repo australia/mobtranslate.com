@@ -1,0 +1,104 @@
+{
+  "slug": "djad1246",
+  "canonical_name": "Djadjawurrungic",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "djad1246",
+    "iso639_3": null,
+    "austlang": []
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "vict1234",
+      "name": "Victorian Pama-Nyungan"
+    },
+    {
+      "glottocode": "kuli1256",
+      "name": "Kulin-Bunganditj"
+    },
+    {
+      "glottocode": "kuli1251",
+      "name": "Kulin"
+    },
+    {
+      "glottocode": "nucl1335",
+      "name": "Nuclear Kulin"
+    },
+    {
+      "glottocode": "west2443",
+      "name": "Western Victoria"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -34.13829932,
+    "lon": 143.6694397,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": null,
+    "label": "unknown"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 15,
+    "resource": {
+      "title": "English Wiktionary — Category:Djadjawurrung lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Djadjawurrung_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": false,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": false,
+    "grammar_profile": false,
+    "lexicon_data": true,
+    "deep_time_dated": false,
+    "autonym_candidate": false
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": null,
+    "grammar": null,
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

@@ -1,0 +1,94 @@
+{
+  "slug": "alaw1244",
+  "canonical_name": "Alawa",
+  "autonym_candidate": {
+    "value": "Alaua",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 22
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "alaw1244",
+    "iso639_3": "alh",
+    "austlang": [
+      "N92",
+      "N99"
+    ]
+  },
+  "family": "Mangarrayi-Maran",
+  "classification_chain": [
+    {
+      "glottocode": "mang1423",
+      "name": "Mangarrayi-Maran"
+    },
+    {
+      "glottocode": "mara1414",
+      "name": "Maran"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -15.5458,
+    "lon": 134.282,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 48,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 48
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 20,
+    "resource": {
+      "title": "English Wiktionary — Category:Alawa lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Alawa_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

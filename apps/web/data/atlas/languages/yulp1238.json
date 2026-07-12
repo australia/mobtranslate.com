@@ -1,0 +1,112 @@
+{
+  "slug": "yulp1238",
+  "canonical_name": "Yulparitja",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "yulp1238",
+    "iso639_3": null,
+    "austlang": []
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "dese1234",
+      "name": "Desert Nyungic"
+    },
+    {
+      "glottocode": "wati1241",
+      "name": "Wati"
+    },
+    {
+      "glottocode": "mart1257",
+      "name": "Martuwangkic"
+    },
+    {
+      "glottocode": "warn1245",
+      "name": "Warnman-Wangka"
+    },
+    {
+      "glottocode": "mart1256",
+      "name": "Martu Wangka"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -23.350911655789,
+    "lon": 123.66842240336,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": null,
+    "label": "unknown"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 5,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 5
+  },
+  "lexicon": {
+    "state": "none"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Yulparija",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 20,
+    "leaf_hpd_bp": [
+      20,
+      20
+    ],
+    "divergence_age_bp": 1389.4,
+    "divergence_hpd_bp": [
+      912.5,
+      1913.6
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": false,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": false,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": false
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": null,
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": null,
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

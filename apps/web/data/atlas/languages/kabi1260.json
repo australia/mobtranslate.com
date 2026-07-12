@@ -1,0 +1,113 @@
+{
+  "slug": "kabi1260",
+  "canonical_name": "Kabikabi",
+  "autonym_candidate": {
+    "value": "Cabee",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 23
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "kabi1260",
+    "iso639_3": "gbw",
+    "austlang": [
+      "E29",
+      "E90",
+      "E94"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "nort3154",
+      "name": "North Coast Pama-Nyungan"
+    },
+    {
+      "glottocode": "waka1283",
+      "name": "Waka-Kabic"
+    },
+    {
+      "glottocode": "east2717",
+      "name": "Eastern Waka-Kabic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -25.44486229,
+    "lon": 153.1539929,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 2,
+    "resource": {
+      "title": "English Wiktionary — Category:Gabi lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Gabi_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_MaryRiverandBunyaBunyaCountry",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 120,
+    "leaf_hpd_bp": [
+      120,
+      120
+    ],
+    "divergence_age_bp": 1031.7,
+    "divergence_hpd_bp": [
+      542.3,
+      1584.9
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

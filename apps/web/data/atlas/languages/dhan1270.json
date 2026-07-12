@@ -1,0 +1,119 @@
+{
+  "slug": "dhan1270",
+  "canonical_name": "Dhangu",
+  "autonym_candidate": {
+    "value": "Dangu",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 11
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "dhan1270",
+    "iso639_3": "dhg",
+    "austlang": [
+      "N116.N",
+      "N131",
+      "N132",
+      "N139",
+      "N147",
+      "N192",
+      "N202"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "yuul1239",
+      "name": "Yuulngu"
+    },
+    {
+      "glottocode": "sout3142",
+      "name": "Southern Yolngu"
+    },
+    {
+      "glottocode": "sout3149",
+      "name": "Southern-Eastern Yolngu"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -11.9493,
+    "lon": 135.752,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 3,
+    "label": "shifting"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 4,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 4
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 8,
+    "resource": {
+      "title": "English Wiktionary — Category:Dhangu lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Dhangu_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Dhangu",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 0,
+    "leaf_hpd_bp": [
+      0,
+      0
+    ],
+    "divergence_age_bp": 677.7,
+    "divergence_hpd_bp": [
+      361.5,
+      1025
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

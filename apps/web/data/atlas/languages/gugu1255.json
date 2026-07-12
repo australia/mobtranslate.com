@@ -1,0 +1,104 @@
+{
+  "slug": "gugu1255",
+  "canonical_name": "Guugu Yimidhirr",
+  "autonym_candidate": {
+    "value": "Balara",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 78
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "gugu1255",
+    "iso639_3": "kky",
+    "austlang": [
+      "Y228",
+      "Y79",
+      "Y82",
+      "Y89"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "yimi1234",
+      "name": "Yimidhirr-Yalanji-Yidinic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -14.9424,
+    "lon": 144.831,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 4,
+    "label": "moribund"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 72,
+    "has_wals": true,
+    "wals_feature_count": 60,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 36.9,
+    "feature_count": 132
+  },
+  "lexicon": {
+    "state": "live",
+    "word_count": 110,
+    "db_code": "guugu_yimidhirr"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_GuuguYimidhirr",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 30,
+    "leaf_hpd_bp": [
+      30,
+      30
+    ],
+    "divergence_age_bp": 1441.3,
+    "divergence_hpd_bp": [
+      782.1,
+      2244.5
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "mobtranslate-pg live dictionary",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

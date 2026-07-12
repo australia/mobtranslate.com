@@ -1,0 +1,107 @@
+{
+  "slug": "wami1239",
+  "canonical_name": "Wamin",
+  "autonym_candidate": {
+    "value": "Agwamin",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 18
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "wami1239",
+    "iso639_3": "wmi",
+    "austlang": [
+      "Y102",
+      "Y108",
+      "Y132",
+      "Y132.1",
+      "Y233"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "pama1251",
+      "name": "Paman"
+    },
+    {
+      "glottocode": "fina1240",
+      "name": "Finasleigh Pama"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -18.3727,
+    "lon": 143.943,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (Y102, Y108, Y132, Y132.1, Y233)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/Y102",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_GraniteRange",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 120,
+    "leaf_hpd_bp": [
+      120,
+      120
+    ],
+    "divergence_age_bp": 1940.7,
+    "divergence_hpd_bp": [
+      1183.2,
+      2810.4
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

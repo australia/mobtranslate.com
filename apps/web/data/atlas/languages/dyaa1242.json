@@ -1,0 +1,114 @@
+{
+  "slug": "dyaa1242",
+  "canonical_name": "Dyaabugay",
+  "autonym_candidate": {
+    "value": "Barron River dialect",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 35
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "dyaa1242",
+    "iso639_3": "dyy",
+    "austlang": [
+      "Y106",
+      "Y110",
+      "Y111",
+      "Y112",
+      "Y160",
+      "Y162"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "yimi1234",
+      "name": "Yimidhirr-Yalanji-Yidinic"
+    },
+    {
+      "glottocode": "yidi1249",
+      "name": "Yidinic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -16.596,
+    "lon": 145.388,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 26,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 26
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 4,
+    "resource": {
+      "title": "English Wiktionary — Category:Dyaabugay lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Dyaabugay_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Djabugay",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 30,
+    "leaf_hpd_bp": [
+      30,
+      30
+    ],
+    "divergence_age_bp": 1155.2,
+    "divergence_hpd_bp": [
+      559.7,
+      1921.2
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

@@ -1,0 +1,115 @@
+{
+  "slug": "baty1234",
+  "canonical_name": "Butchulla",
+  "autonym_candidate": {
+    "value": "Badjela",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 14
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "baty1234",
+    "iso639_3": "xby",
+    "austlang": [
+      "E30"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "nort3154",
+      "name": "North Coast Pama-Nyungan"
+    },
+    {
+      "glottocode": "waka1283",
+      "name": "Waka-Kabic"
+    },
+    {
+      "glottocode": "east2717",
+      "name": "Eastern Waka-Kabic"
+    },
+    {
+      "glottocode": "kabi1260",
+      "name": "Kabikabi"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -25.44486,
+    "lon": 153.15399,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (E30)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/E30",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Batyala",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 50,
+    "leaf_hpd_bp": [
+      50,
+      50
+    ],
+    "divergence_age_bp": 1440.2,
+    "divergence_hpd_bp": [
+      874.6,
+      2074.5
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

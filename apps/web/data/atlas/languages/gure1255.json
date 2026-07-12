@@ -1,0 +1,120 @@
+{
+  "slug": "gure1255",
+  "canonical_name": "Gureng Gureng",
+  "autonym_candidate": {
+    "value": "Corine",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 45
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "gure1255",
+    "iso639_3": "gnr",
+    "austlang": [
+      "E32",
+      "E33",
+      "E36",
+      "E41"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "nort3154",
+      "name": "North Coast Pama-Nyungan"
+    },
+    {
+      "glottocode": "waka1283",
+      "name": "Waka-Kabic"
+    },
+    {
+      "glottocode": "east2717",
+      "name": "Eastern Waka-Kabic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -25.3893,
+    "lon": 151.175,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 133,
+    "has_wals": true,
+    "wals_feature_count": 23,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 68.2,
+    "feature_count": 156
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 1,
+    "resource": {
+      "title": "English Wiktionary — Category:Tulua lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Tulua_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_GoorengGooreng",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 40,
+    "leaf_hpd_bp": [
+      40,
+      40
+    ],
+    "divergence_age_bp": 1507.9,
+    "divergence_hpd_bp": [
+      905.5,
+      2202.2
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

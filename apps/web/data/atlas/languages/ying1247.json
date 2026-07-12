@@ -1,0 +1,106 @@
+{
+  "slug": "ying1247",
+  "canonical_name": "Yinggarda",
+  "autonym_candidate": {
+    "value": "Angaardi",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 26
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "ying1247",
+    "iso639_3": "yia",
+    "austlang": [
+      "W19",
+      "W42",
+      "W43",
+      "W46",
+      "W55"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3134",
+      "name": "South-West Pama-Nyungan"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -25.4446,
+    "lon": 115.58,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 65,
+    "has_wals": true,
+    "wals_feature_count": 36,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 33.3,
+    "feature_count": 101
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 1,
+    "resource": {
+      "title": "English Wiktionary — Category:Yinggarda lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Yinggarda_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Yingkarta",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 0,
+    "leaf_hpd_bp": [
+      0,
+      0
+    ],
+    "divergence_age_bp": 1325.8,
+    "divergence_hpd_bp": null,
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

@@ -1,0 +1,127 @@
+{
+  "slug": "pitj1243",
+  "canonical_name": "Pitjantjatjara",
+  "autonym_candidate": {
+    "value": "Bidjandja",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 63
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "pitj1243",
+    "iso639_3": "pjt",
+    "austlang": [
+      "A32",
+      "A83",
+      "C6"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "dese1234",
+      "name": "Desert Nyungic"
+    },
+    {
+      "glottocode": "wati1241",
+      "name": "Wati"
+    },
+    {
+      "glottocode": "pint1254",
+      "name": "Pintupic"
+    },
+    {
+      "glottocode": "nucl1724",
+      "name": "Nuclear Pintupic"
+    },
+    {
+      "glottocode": "wang1300",
+      "name": "Wangkatja-Tjarra"
+    },
+    {
+      "glottocode": "tjar1234",
+      "name": "Tjarra"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -26.9704,
+    "lon": 131.357,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 2,
+    "label": "threatened"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 109,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 109
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 326,
+    "resource": {
+      "title": "English Wiktionary — Category:Pitjantjatjara lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Pitjantjatjara_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Pitjantjatjara",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 10,
+    "leaf_hpd_bp": [
+      10,
+      10
+    ],
+    "divergence_age_bp": 905.1,
+    "divergence_hpd_bp": [
+      556.6,
+      1302.3
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

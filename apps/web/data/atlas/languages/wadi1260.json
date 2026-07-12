@@ -1,0 +1,118 @@
+{
+  "slug": "wadi1260",
+  "canonical_name": "Wadi Wadi",
+  "autonym_candidate": {
+    "value": "Biangil",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 52
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "wadi1260",
+    "iso639_3": "xwd",
+    "austlang": [
+      "D4",
+      "S33"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "vict1234",
+      "name": "Victorian Pama-Nyungan"
+    },
+    {
+      "glottocode": "kuli1256",
+      "name": "Kulin-Bunganditj"
+    },
+    {
+      "glottocode": "kuli1251",
+      "name": "Kulin"
+    },
+    {
+      "glottocode": "nucl1335",
+      "name": "Nuclear Kulin"
+    },
+    {
+      "glottocode": "west2443",
+      "name": "Western Victoria"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -34.13829932,
+    "lon": 143.6694397,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (D4, S33)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/D4",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    },
+    "historical_sources": [
+      {
+        "db_code": "curr_201_piangil",
+        "locality": "Piangil",
+        "word_count": 127,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft"
+      }
+    ]
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

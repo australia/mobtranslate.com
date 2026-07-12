@@ -1,0 +1,123 @@
+{
+  "slug": "thur1254",
+  "canonical_name": "Thurawal",
+  "autonym_candidate": {
+    "value": "2013)",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 31
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "thur1254",
+    "iso639_3": "tbh",
+    "austlang": [
+      "S50",
+      "S58",
+      "S59"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "news1235",
+      "name": "New South Wales Pama-Nyungan"
+    },
+    {
+      "glottocode": "yuin1243",
+      "name": "Yuin-Kuri"
+    },
+    {
+      "glottocode": "yuin1242",
+      "name": "Yuin"
+    },
+    {
+      "glottocode": "nort2761",
+      "name": "Northern Costal Yuin"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -34.634,
+    "lon": 150.721,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 86,
+    "has_wals": true,
+    "wals_feature_count": 13,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 44.1,
+    "feature_count": 99
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (S50, S58, S59)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/S50",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Dharawal",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 130,
+    "leaf_hpd_bp": [
+      130,
+      130
+    ],
+    "divergence_age_bp": 666.6,
+    "divergence_hpd_bp": [
+      332,
+      1106.7
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

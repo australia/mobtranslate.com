@@ -1,0 +1,108 @@
+{
+  "slug": "ngar1296",
+  "canonical_name": "Ngarla",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "ngar1296",
+    "iso639_3": "nrk",
+    "austlang": []
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3134",
+      "name": "South-West Pama-Nyungan"
+    },
+    {
+      "glottocode": "pilb1234",
+      "name": "Pilbara"
+    },
+    {
+      "glottocode": "ngay1241",
+      "name": "Ngayarda"
+    },
+    {
+      "glottocode": "nort3178",
+      "name": "Northern Ngayarda"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -20.20748,
+    "lon": 119.30579,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 1,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 1
+  },
+  "lexicon": {
+    "state": "none"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Ngarla",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 10,
+    "leaf_hpd_bp": [
+      10,
+      10
+    ],
+    "divergence_age_bp": 1075.7,
+    "divergence_hpd_bp": [
+      586.6,
+      1585.5
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": false,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": false
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": null,
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

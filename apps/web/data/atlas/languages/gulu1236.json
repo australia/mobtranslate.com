@@ -1,0 +1,87 @@
+{
+  "slug": "gulu1236",
+  "canonical_name": "Gulunggulu",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "gulu1236",
+    "iso639_3": null,
+    "austlang": [
+      "K59"
+    ]
+  },
+  "family": "Unattested",
+  "classification_chain": [
+    {
+      "glottocode": "unat1236",
+      "name": "Unattested"
+    },
+    {
+      "glottocode": "worr1238",
+      "name": "Worrorran (Unattested)"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -12.8686,
+    "lon": 134.2393,
+    "provenance": "derived_centroid",
+    "approximate": true,
+    "derived_via": "Unattested"
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (K59)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/K59",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": false,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": false
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "derived: mean of sibling-leaf coords (drawing convenience, not a claim)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

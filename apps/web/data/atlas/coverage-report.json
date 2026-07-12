@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "build_stamp": "2026-07-12T00:00:00Z",
+  "universe_registry_languoids": 1029,
+  "non_language_nodes_appendixed": 49,
+  "genuine_languoids": 980,
+  "migmaq_excluded_from_db": 1,
+  "migmaq_present_in_atlas": false,
+  "coordinates": {
+    "real_glottolog": 654,
+    "austlang_approx": 153,
+    "derived_centroid": 2,
+    "none": 171,
+    "any": 809
+  },
+  "ids": {
+    "any_id": 980,
+    "glottocode": 656,
+    "iso639_3": 380,
+    "austlang": 759
+  },
+  "classification": {
+    "with_family_chain": 647,
+    "unclassified": 333
+  },
+  "grammar_profiled": 203,
+  "endangerment_known": 442,
+  "lexicon": {
+    "live": 29,
+    "open_resource": 91,
+    "pointer_only": 648,
+    "none": 212
+  },
+  "deep_time_dated": 224,
+  "tiers": {
+    "comprehensive": 86,
+    "documented": 395,
+    "classified": 166,
+    "listed": 333
+  },
+  "db_join": {
+    "db_languages_total": 221,
+    "db_live_mapped": 29,
+    "curr_mapped_to_languoid": 4,
+    "curr_unmapped_appendix": 183,
+    "orphans": 1
+  }
+}

@@ -1,0 +1,3181 @@
+{
+  "version": "1.0.0",
+  "build_stamp": "2026-07-12T00:00:00Z",
+  "non_language_nodes": {
+    "count": 49,
+    "note": "Sign / Bookkeeping / Pidgin / Artificial / Mixed / Unclassifiable registry nodes — NOT counted as genuine Aboriginal/TSI languages.",
+    "items": [
+      {
+        "slug": "aghu1256",
+        "canonical_name": "Aghu Tharnggalu (Retired)",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "aghu1256",
+          "iso639_3": "gtu",
+          "austlang": []
+        },
+        "glottocode": "aghu1256",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -15,
+          "lon": 144,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "alya1240",
+        "canonical_name": "Alyawarr Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "alya1240",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "alya1240",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "anma1240",
+        "canonical_name": "Anmatyerr Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "anma1240",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "anma1240",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "arak1254",
+        "canonical_name": "Arakwal",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "arak1254",
+          "iso639_3": "rkw",
+          "austlang": []
+        },
+        "glottocode": "arak1254",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -19.4948,
+          "lon": 136.7641,
+          "provenance": "derived_centroid",
+          "approximate": true,
+          "derived_via": "Bookkeeping"
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "aran1270",
+        "canonical_name": "Aranda Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "aran1270",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "aran1270",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "aust1253",
+        "canonical_name": "Australian Aborigines Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "aust1253",
+          "iso639_3": "asw",
+          "austlang": []
+        },
+        "glottocode": "aust1253",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "aust1271",
+        "canonical_name": "Auslan",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "aust1271",
+          "iso639_3": "asf",
+          "austlang": []
+        },
+        "glottocode": "aust1271",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -30,
+          "lon": 145,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "band1337",
+        "canonical_name": "Bandjigali",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "band1337",
+          "iso639_3": "bjd",
+          "austlang": [
+            "D17",
+            "D21",
+            "D6"
+          ]
+        },
+        "glottocode": "band1337",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -30.0771,
+          "lon": 143.282,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "broo1238",
+        "canonical_name": "Broome Pearling Lugger Pidgin",
+        "node_kind": "Pidgin",
+        "ids": {
+          "glottocode": "broo1238",
+          "iso639_3": "bpl",
+          "austlang": [
+            "P3"
+          ]
+        },
+        "glottocode": "broo1238",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -17.927,
+          "lon": 122.233,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Pidgin node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "dier1242",
+        "canonical_name": "Dieri Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "dier1242",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "dier1242",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "fnqi1234",
+        "canonical_name": "Far North Queensland Indigenous Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "fnqi1234",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "fnqi1234",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -14.830544,
+          "lon": 142.923879,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "gugu1257",
+        "canonical_name": "Gugu Mini",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "gugu1257",
+          "iso639_3": "ggm",
+          "austlang": []
+        },
+        "glottocode": "gugu1257",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -19.4948,
+          "lon": 136.7641,
+          "provenance": "derived_centroid",
+          "approximate": true,
+          "derived_via": "Bookkeeping"
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "guri1249",
+        "canonical_name": "Gurindji Kriol",
+        "node_kind": "Mixed Language",
+        "ids": {
+          "glottocode": "guri1249",
+          "iso639_3": "gjr",
+          "austlang": []
+        },
+        "glottocode": "guri1249",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -17.4484,
+          "lon": 130.833,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Mixed Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "guri1252",
+        "canonical_name": "Gurindji Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "guri1252",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "guri1252",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "guri1253",
+        "canonical_name": "Gurindjic Sign",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "guri1253",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "guri1253",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "jing1268",
+        "canonical_name": "Jingulu Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "jing1268",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "jing1268",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "kayt1240",
+        "canonical_name": "Kaytej Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "kayt1240",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "kayt1240",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "koko1273",
+        "canonical_name": "Koko Babangk",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "koko1273",
+          "iso639_3": "okg",
+          "austlang": [
+            "Y203"
+          ]
+        },
+        "glottocode": "koko1273",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -15.82602,
+          "lon": 141.48016,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "kuka1248",
+        "canonical_name": "Kukatja Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "kuka1248",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "kuka1248",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "kuku1279",
+        "canonical_name": "Kuku-Mangk",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "kuku1279",
+          "iso639_3": "xmq",
+          "austlang": [
+            "Y174"
+          ]
+        },
+        "glottocode": "kuku1279",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -14.2866,
+          "lon": 141.824,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "kung1262",
+        "canonical_name": "Kunggara",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "kung1262",
+          "iso639_3": "kvs",
+          "austlang": []
+        },
+        "glottocode": "kung1262",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -17.62553,
+          "lon": 141.1441,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "ligh1234",
+        "canonical_name": "Light Warlpiri",
+        "node_kind": "Mixed Language",
+        "ids": {
+          "glottocode": "ligh1234",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "ligh1234",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -17.4484,
+          "lon": 130.833,
+          "provenance": "derived_centroid",
+          "approximate": true,
+          "derived_via": "Mixed Language"
+        },
+        "reason": "excluded from main atlas: Mixed Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "mani1310",
+        "canonical_name": "Maningrida Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "mani1310",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "mani1310",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "miri1273",
+        "canonical_name": "Miriwoong Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "miri1273",
+          "iso639_3": "rsm",
+          "austlang": []
+        },
+        "glottocode": "miri1273",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -15.77361,
+          "lon": 128.73861,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "mudb1241",
+        "canonical_name": "Mudburra Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "mudb1241",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "mudb1241",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "news1234",
+        "canonical_name": "New South Wales Pidgin",
+        "node_kind": "Pidgin",
+        "ids": {
+          "glottocode": "news1234",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "news1234",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -19.9379,
+          "lon": 118.1586,
+          "provenance": "derived_centroid",
+          "approximate": true,
+          "derived_via": "Pidgin"
+        },
+        "reason": "excluded from main atlas: Pidgin node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "ngar1286",
+        "canonical_name": "Ngarla on the Ashburton river south of the Hamersley range",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "ngar1286",
+          "iso639_3": "nlr",
+          "austlang": [
+            "A40",
+            "A79",
+            "W40"
+          ]
+        },
+        "glottocode": "ngar1286",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -20.37356,
+          "lon": 118.82594,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "nija1242",
+        "canonical_name": "Nijadali",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "nija1242",
+          "iso639_3": "nad",
+          "austlang": [
+            "A50",
+            "A55"
+          ]
+        },
+        "glottocode": "nija1242",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -22.85576,
+          "lon": 120.83057,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "nort3418",
+        "canonical_name": "North Central Desert Auxiliary Sign",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "nort3418",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "nort3418",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "nort3419",
+        "canonical_name": "North Australian Sign",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "nort3419",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "nort3419",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "nort3420",
+        "canonical_name": "North Central Desert Sign",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "nort3420",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "nort3420",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "olko1234",
+        "canonical_name": "Olkol",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "olko1234",
+          "iso639_3": "olk",
+          "austlang": [
+            "Y73"
+          ]
+        },
+        "glottocode": "olko1234",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -15.2,
+          "lon": 142.4,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "pala1356",
+        "canonical_name": "Palawa Kani",
+        "node_kind": "Artificial Language",
+        "ids": {
+          "glottocode": "pala1356",
+          "iso639_3": null,
+          "austlang": [
+            "T16"
+          ]
+        },
+        "glottocode": "pala1356",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": null,
+          "lon": null,
+          "provenance": "none",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Artificial Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "pidg1247",
+        "canonical_name": "Pidgin Ngarluma",
+        "node_kind": "Pidgin",
+        "ids": {
+          "glottocode": "pidg1247",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "pidg1247",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -21.94884,
+          "lon": 114.08427,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Pidgin node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "pidg1255",
+        "canonical_name": "Pidgin Kaurna",
+        "node_kind": "Pidgin",
+        "ids": {
+          "glottocode": "pidg1255",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "pidg1255",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -19.9379,
+          "lon": 118.1586,
+          "provenance": "derived_centroid",
+          "approximate": true,
+          "derived_via": "Pidgin"
+        },
+        "reason": "excluded from main atlas: Pidgin node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "quee1234",
+        "canonical_name": "Queensland Kanaka English",
+        "node_kind": "Pidgin",
+        "ids": {
+          "glottocode": "quee1234",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "quee1234",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -19.9379,
+          "lon": 118.1586,
+          "provenance": "derived_centroid",
+          "approximate": true,
+          "derived_via": "Pidgin"
+        },
+        "reason": "excluded from main atlas: Pidgin node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "sout3227",
+        "canonical_name": "South Australian Pidgin English",
+        "node_kind": "Pidgin",
+        "ids": {
+          "glottocode": "sout3227",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "sout3227",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -19.9379,
+          "lon": 118.1586,
+          "provenance": "derived_centroid",
+          "approximate": true,
+          "derived_via": "Pidgin"
+        },
+        "reason": "excluded from main atlas: Pidgin node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "tasm1247",
+        "canonical_name": "Tasmanian",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "tasm1247",
+          "iso639_3": "xtz",
+          "austlang": []
+        },
+        "glottocode": "tasm1247",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -19.4948,
+          "lon": 136.7641,
+          "provenance": "derived_centroid",
+          "approximate": true,
+          "derived_via": "Bookkeeping"
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "tenn1247",
+        "canonical_name": "Tennant Creek Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "tenn1247",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "tenn1247",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "tenn1248",
+        "canonical_name": "Tennant Creek Sign",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "tenn1248",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "tenn1248",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "urad1239",
+        "canonical_name": "Uradhi",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "urad1239",
+          "iso639_3": "urf",
+          "austlang": [
+            "Y10",
+            "Y184",
+            "Y191",
+            "Y29",
+            "Y6"
+          ]
+        },
+        "glottocode": "urad1239",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -12.0679,
+          "lon": 142.135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "waka1282",
+        "canonical_name": "Wakabunga",
+        "node_kind": "Unclassifiable",
+        "ids": {
+          "glottocode": "waka1282",
+          "iso639_3": "wwb",
+          "austlang": []
+        },
+        "glottocode": "waka1282",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -20.82138,
+          "lon": 139.05905,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Unclassifiable node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "warl1258",
+        "canonical_name": "Warlpiri-Anmatyerr Sign",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "warl1258",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "warl1258",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "warl1259",
+        "canonical_name": "Warlmanpa Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "warl1259",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "warl1259",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "warl1260",
+        "canonical_name": "Warlpiri Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "warl1260",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "warl1260",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "waru1270",
+        "canonical_name": "Warumungu Auxiliary Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "waru1270",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "waru1270",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "west3006",
+        "canonical_name": "Western Torres Strait Auxiliary Sign",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "west3006",
+          "iso639_3": null,
+          "austlang": []
+        },
+        "glottocode": "west3006",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -25,
+          "lon": 135,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "wira1260",
+        "canonical_name": "Wirangu-Nauo",
+        "node_kind": "Bookkeeping",
+        "ids": {
+          "glottocode": "wira1260",
+          "iso639_3": "wiw",
+          "austlang": [
+            "C1",
+            "L2"
+          ]
+        },
+        "glottocode": "wira1260",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -31.6356,
+          "lon": 131.719,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Bookkeeping node (not a genuine spoken Aboriginal/TSI language)"
+      },
+      {
+        "slug": "yoln1234",
+        "canonical_name": "Yolngu Sign Language",
+        "node_kind": "Sign Language",
+        "ids": {
+          "glottocode": "yoln1234",
+          "iso639_3": "ygs",
+          "austlang": []
+        },
+        "glottocode": "yoln1234",
+        "macroarea": "Australia",
+        "coordinates": {
+          "lat": -12.283333,
+          "lon": 136.816667,
+          "provenance": "glottolog",
+          "approximate": false
+        },
+        "reason": "excluded from main atlas: Sign Language node (not a genuine spoken Aboriginal/TSI language)"
+      }
+    ]
+  },
+  "historical_wordlists": {
+    "count": 183,
+    "note": "E. M. Curr 1886-87 OCR locality wordlists not confidently mappable to a Glottolog languoid.",
+    "items": [
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_0_kootzavnib_eonmnueci",
+        "name": "Curr Vocabulary #0 (Curr #0)",
+        "locality": "Curr Vocabulary #0",
+        "word_count": 28,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_1_port_darwin",
+        "name": "Port Darwin (Curr #1)",
+        "locality": "Port Darwin",
+        "word_count": 98,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_10_nickol_bay",
+        "name": "Nickol Bay (Curr #10)",
+        "locality": "Nickol Bay",
+        "word_count": 72,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_100_flinbebs_and_cloncurrt_rivers",
+        "name": "Flinders And Cloncurry Rivers (Curr #100)",
+        "locality": "Flinders And Cloncurry Rivers",
+        "word_count": 109,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_101_the_burke_river",
+        "name": "The Burke River (Curr #101)",
+        "locality": "The Burke River",
+        "word_count": 80,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_102_between_the_geoboina_and_burke_rivebs",
+        "name": "Between The Georgina And Burke Rivers (Curr #102)",
+        "locality": "Between The Georgina And Burke Rivers",
+        "word_count": 212,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_103_wollongong_illawakra_and_shoalhaven",
+        "name": "Wollongong, Illawarra, And Shoalhaven (Curr #103)",
+        "locality": "Wollongong, Illawarra, And Shoalhaven",
+        "word_count": 54,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_104_hamilton_biver_near_boulia",
+        "name": "Hamilton River, Near Boulia (Curr #104)",
+        "locality": "Hamilton River, Near Boulia",
+        "word_count": 77,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_106_upper_burnett_river_mount_debateable",
+        "name": "Upper Burnett River, Mount Debateable (Curr #106)",
+        "locality": "Upper Burnett River, Mount Debateable",
+        "word_count": 201,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_107_vocabulary_of_the_kookgerbi_lan6ua6k",
+        "name": "Vocabulary Of The Kookgerbi Language (Curr #107)",
+        "locality": "Vocabulary Of The Kookgerbi Language",
+        "word_count": 151,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_109_condamine",
+        "name": "Condamine (Curr #109)",
+        "locality": "Condamine",
+        "word_count": 33,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_11_north_west_cape",
+        "name": "North-west Cape (Curr #11)",
+        "locality": "North-west Cape",
+        "word_count": 97,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_110_weary_bay",
+        "name": "Weary Bay (Curr #110)",
+        "locality": "Weary Bay",
+        "word_count": 85,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_111_palmer_river",
+        "name": "Palmer River (Curr #111)",
+        "locality": "Palmer River",
+        "word_count": 70,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_112_lynd_rivee",
+        "name": "Lynd River (Curr #112)",
+        "locality": "Lynd River",
+        "word_count": 15,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_113_granite_range_head_of_mitchell_biver",
+        "name": "Granite Range, Head Of Mitchell River (Curr #113)",
+        "locality": "Granite Range, Head Of Mitchell River",
+        "word_count": 53,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_114_near_the_head_of_the_wai_h_river",
+        "name": "Near The Head Of The Walsh River (Curr #114)",
+        "locality": "Near The Head Of The Walsh River",
+        "word_count": 73,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_115_cjountby_about_thobkborouoh_diooinos_vto",
+        "name": "Country About Thornborough Diggings, Etc (Curr #115)",
+        "locality": "Country About Thornborough Diggings, Etc",
+        "word_count": 46,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_116_country_about_thornborough_diggings_etc",
+        "name": "Country About Thornborough Diggings, Etc (Curr #116)",
+        "locality": "Country About Thornborough Diggings, Etc",
+        "word_count": 58,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_117_head_of_gilbert_river",
+        "name": "Head Of Gilbert River (Curr #117)",
+        "locality": "Head Of Gilbert River",
+        "word_count": 75,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_119_herbert_river",
+        "name": "Herbert River (Curr #119)",
+        "locality": "Herbert River",
+        "word_count": 60,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_12_shark_s_bay",
+        "name": "Shark's Bay (Curr #12)",
+        "locality": "Shark's Bay",
+        "word_count": 69,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_120_halifax_bat",
+        "name": "Halifax Bay (Curr #120)",
+        "locality": "Halifax Bay",
+        "word_count": 91,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_121_the_head_waters_of_thb_burdekin",
+        "name": "The Head-waters Of The Burdekin (Curr #121)",
+        "locality": "The Head-waters Of The Burdekin",
+        "word_count": 59,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_122_the_clarke_or_the_cape_river",
+        "name": "The Clarke Or The Cape River (Curr #122)",
+        "locality": "The Clarke Or The Cape River",
+        "word_count": 44,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_123_bianob_neab",
+        "name": "Curr Vocabulary #123 (Curr #123)",
+        "locality": "Curr Vocabulary #123",
+        "word_count": 32,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_124_cleveland_bat",
+        "name": "Cleveland Bay (Curr #124)",
+        "locality": "Cleveland Bay",
+        "word_count": 127,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_125_mount_elliott",
+        "name": "Mount Elliott (Curr #125)",
+        "locality": "Mount Elliott",
+        "word_count": 14,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_126_mouths_of_the_bubdeein_biver",
+        "name": "Mouths Of The Burdekin River (Curr #126)",
+        "locality": "Mouths Of The Burdekin River",
+        "word_count": 99,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_127_porter_s_range",
+        "name": "Porter's Range (Curr #127)",
+        "locality": "Porter's Range",
+        "word_count": 106,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_128_top_of_the_range_near_dalrtmple",
+        "name": "Top Of The Range Near Dalrymple (Curr #128)",
+        "locality": "Top Of The Range Near Dalrymple",
+        "word_count": 63,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_129_upper_flinders_hughenden_and_dutton",
+        "name": "Upper Flinders, Hughenden, And Dutton (Curr #129)",
+        "locality": "Upper Flinders, Hughenden, And Dutton",
+        "word_count": 108,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_13_mouth_of_the_murchison_river",
+        "name": "Mouth Of The Murchison River (Curr #13)",
+        "locality": "Mouth Of The Murchison River",
+        "word_count": 61,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_130",
+        "name": "Curr Vocabulary #130 (Curr #130)",
+        "locality": "Curr Vocabulary #130",
+        "word_count": 65,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_131_natal_downs_station_cape_river",
+        "name": "Natal Downs Station, Cape River (Curr #131)",
+        "locality": "Natal Downs Station, Cape River",
+        "word_count": 173,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_132_ravenswood_upper_burdekin",
+        "name": "Ravenswood, Upper Burdekin (Curr #132)",
+        "locality": "Ravenswood, Upper Burdekin",
+        "word_count": 39,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_133_mount_black_conltntied",
+        "name": "Mount Black (Continued) (Curr #133)",
+        "locality": "Mount Black (Continued)",
+        "word_count": 70,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_134_lower_burdekin",
+        "name": "Lower Burdekin (Curr #134)",
+        "locality": "Lower Burdekin",
+        "word_count": 148,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_135_burdekin_rivebr_various_tribes",
+        "name": "Burdekin River - Various Tribes (Curr #135)",
+        "locality": "Burdekin River - Various Tribes",
+        "word_count": 75,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_136_port_denison_to_cape_gloucester",
+        "name": "Port Denison To Cape Gloucester (Curr #136)",
+        "locality": "Port Denison To Cape Gloucester",
+        "word_count": 31,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_139_head_of_diamantina",
+        "name": "Head Of Diamantina (Curr #139)",
+        "locality": "Head Of Diamantina",
+        "word_count": 29,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_14_northampton_eaw_tribe",
+        "name": "Northampton (Curr #14)",
+        "locality": "Northampton",
+        "word_count": 68,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_140_diamantina_biver_middleton_creek",
+        "name": "Diamantina River, Middleton Creek (Curr #140)",
+        "locality": "Diamantina River, Middleton Creek",
+        "word_count": 28,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_141_western_rever",
+        "name": "Western River (Curr #141)",
+        "locality": "Western River",
+        "word_count": 85,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_142_main_range_between_the_belyando_and_cape",
+        "name": "Main Range Between The Belyando And Cape (Curr #142)",
+        "locality": "Main Range Between The Belyando And Cape",
+        "word_count": 87,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_143_belyando_river",
+        "name": "Belyando River (Curr #143)",
+        "locality": "Belyando River",
+        "word_count": 119,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_144_logan_creek_and_part_of_suttor_and",
+        "name": "Logan Creek And Part Of Suttor And (Curr #144)",
+        "locality": "Logan Creek And Part Of Suttor And",
+        "word_count": 70,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_145_fobt_coopeb_amnxtkgo_trjser",
+        "name": "Fort Cooper - Aminungo Tribe (Curr #145)",
+        "locality": "Fort Cooper - Aminungo Tribe",
+        "word_count": 62,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_146_fort_cooper_aminungo_tbibk",
+        "name": "Fort Cooper - Aminungo Tribe (Curr #146)",
+        "locality": "Fort Cooper - Aminungo Tribe",
+        "word_count": 87,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_147_port_mackay_akd_its_neighbourhood",
+        "name": "Port Mackay And Its Neighbourhood (Curr #147)",
+        "locality": "Port Mackay And Its Neighbourhood",
+        "word_count": 19,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_148_broad_sound_yaamba_maryborough_and_st",
+        "name": "Broad Sound, Yaamba, Maryborough, And St (Curr #148)",
+        "locality": "Broad Sound, Yaamba, Maryborough, And St",
+        "word_count": 72,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_149_rockhampton_and_gracemere",
+        "name": "Rockhampton And Gracemere (Curr #149)",
+        "locality": "Rockhampton And Gracemere",
+        "word_count": 79,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_15",
+        "name": "Curr Vocabulary #15 (Curr #15)",
+        "locality": "Curr Vocabulary #15",
+        "word_count": 58,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_151_peak_downs_district_logan",
+        "name": "Peak Downs District, Logan (Curr #151)",
+        "locality": "Peak Downs District, Logan",
+        "word_count": 56,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_152_alice_river",
+        "name": "Alice River (Curr #152)",
+        "locality": "Alice River",
+        "word_count": 86,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_154_blackall_barcoo_river",
+        "name": "Blackall, Barcoo River (Curr #154)",
+        "locality": "Blackall, Barcoo River",
+        "word_count": 52,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_155_babooo_mver",
+        "name": "Barcoo River (Curr #155)",
+        "locality": "Barcoo River",
+        "word_count": 188,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_156_nogoa_river",
+        "name": "Nogoa River (Curr #156)",
+        "locality": "Nogoa River",
+        "word_count": 226,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_157_head_of_the_comet_river",
+        "name": "Head Of The Comet River (Curr #157)",
+        "locality": "Head Of The Comet River",
+        "word_count": 83,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_158_bbown_biver_xmftn_e",
+        "name": "Brown River (Curr #158)",
+        "locality": "Brown River",
+        "word_count": 54,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_159_additional_words",
+        "name": "Additional Words (Curr #159)",
+        "locality": "Additional Words",
+        "word_count": 143,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_16_champion_bay",
+        "name": "Champion Bay (Curr #16)",
+        "locality": "Champion Bay",
+        "word_count": 101,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_160_eastern_slopes_of_expedition_bange_lower",
+        "name": "Eastern Slopes Of Expedition Range, Lower (Curr #160)",
+        "locality": "Eastern Slopes Of Expedition Range, Lower",
+        "word_count": 58,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_161_peak_downs_district_logan_downs_station",
+        "name": "Peak Downs District, Logan Downs Station (Curr #161)",
+        "locality": "Peak Downs District, Logan Downs Station",
+        "word_count": 68,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_163_baffle_creek",
+        "name": "Baffle Creek (Curr #163)",
+        "locality": "Baffle Creek",
+        "word_count": 81,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_164_great_sandy_or_eraser_s_island",
+        "name": "Great Sandy Or Fraser's Island (Curr #164)",
+        "locality": "Great Sandy Or Fraser's Island",
+        "word_count": 256,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_165_barcoo_river",
+        "name": "Barcoo River (Curr #165)",
+        "locality": "Barcoo River",
+        "word_count": 22,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_166_mary_river_and_bunya_bunya",
+        "name": "Mary River And Bunya Bunya (Curr #166)",
+        "locality": "Mary River And Bunya Bunya",
+        "word_count": 194,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_168_brown_river",
+        "name": "Brown River (Curr #168)",
+        "locality": "Brown River",
+        "word_count": 22,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_169_ondamine_and_chaelet_8_greek_mubbum",
+        "name": "Condamine And Charley's Creek (Curr #169)",
+        "locality": "Condamine And Charley's Creek",
+        "word_count": 78,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_17_victoria_plains_minnal_yungar_tribe",
+        "name": "Victoria Plains - Minnal Yungar Tribe (Curr #17)",
+        "locality": "Victoria Plains - Minnal Yungar Tribe",
+        "word_count": 65,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_170_stradbbokb_and_moreton_islands_k_enpul",
+        "name": "Stradbroke And Moreton Islands (Curr #170)",
+        "locality": "Stradbroke And Moreton Islands",
+        "word_count": 162,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_171_between_the_albert_and_tweed_kcvebs",
+        "name": "Between The Albert And Tweed Rivers (Curr #171)",
+        "locality": "Between The Albert And Tweed Rivers",
+        "word_count": 159,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_173_tweed_mver_and_point_dangae",
+        "name": "Tweed River And Point Danger (Curr #173)",
+        "locality": "Tweed River And Point Danger",
+        "word_count": 51,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_174_part_of_the_maranoa_river_and",
+        "name": "Part Of The Maranoa River, And (Curr #174)",
+        "locality": "Part Of The Maranoa River, And",
+        "word_count": 149,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_175_balonne_nerran_etc_rivers",
+        "name": "Balonne, Narran, Etc., Rivers (Curr #175)",
+        "locality": "Balonne, Narran, Etc., Rivers",
+        "word_count": 102,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_176_dumaresque_ob_upper_macintyre",
+        "name": "Dumaresq Or Upper Macintyre (Curr #176)",
+        "locality": "Dumaresq Or Upper Macintyre",
+        "word_count": 186,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_177_paroo_and_warrego_rivers_north",
+        "name": "Paroo And Warrego Rivers North (Curr #177)",
+        "locality": "Paroo And Warrego Rivers North",
+        "word_count": 254,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_178_richmond_river",
+        "name": "Richmond River (Curr #178)",
+        "locality": "Richmond River",
+        "word_count": 217,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_179_tenterbtsld_new_england",
+        "name": "Tenterfield, New England (Curr #179)",
+        "locality": "Tenterfield, New England",
+        "word_count": 124,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_18_newcastle",
+        "name": "Newcastle (Curr #18)",
+        "locality": "Newcastle",
+        "word_count": 80,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_180_queenbulla_ashford_and_quininguillan",
+        "name": "Queenbulla, Ashford, And Quininguillan (Curr #180)",
+        "locality": "Queenbulla, Ashford, And Quininguillan",
+        "word_count": 65,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_181_namoi_and_barwan_bivebs",
+        "name": "Namoi And Barwan Rivers (Curr #181)",
+        "locality": "Namoi And Barwan Rivers",
+        "word_count": 407,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_182_the_culgoa_river",
+        "name": "The Culgoa River (Curr #182)",
+        "locality": "The Culgoa River",
+        "word_count": 75,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_183_brewarmna_and_barwan_river_the_wailwun",
+        "name": "Brewarrina And Barwan River - The Wailwun (Curr #183)",
+        "locality": "Brewarrina And Barwan River - The Wailwun",
+        "word_count": 56,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_184_the_clarence_river",
+        "name": "The Clarence River (Curr #184)",
+        "locality": "The Clarence River",
+        "word_count": 134,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_186_the_lower_macleat_river",
+        "name": "The Lower Macleay River (Curr #186)",
+        "locality": "The Lower Macleay River",
+        "word_count": 80,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_187_the_manning_reyeb",
+        "name": "The Manning River (Curr #187)",
+        "locality": "The Manning River",
+        "word_count": 87,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_188_the_hunter_river",
+        "name": "The Hunter River (Curr #188)",
+        "locality": "The Hunter River",
+        "word_count": 71,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_189_hawkesbury_biver_and_broken_bay",
+        "name": "Hawkesbury River And Broken Bay (Curr #189)",
+        "locality": "Hawkesbury River And Broken Bay",
+        "word_count": 84,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_19_perth",
+        "name": "Perth (Curr #19)",
+        "locality": "Perth",
+        "word_count": 140,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_190_takko_urana_billebong_and_jebbildebie",
+        "name": "Urana, Billabong, And Jerilderie (Curr #190)",
+        "locality": "Urana, Billabong, And Jerilderie",
+        "word_count": 1100,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_191_port_jackson_or_a_part_of_sydney_harbour",
+        "name": "Port Jackson, Or A Part Of Sydney Harbour (Curr #191)",
+        "locality": "Port Jackson, Or A Part Of Sydney Harbour",
+        "word_count": 79,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_192_botany_bay",
+        "name": "Botany Bay (Curr #192)",
+        "locality": "Botany Bay",
+        "word_count": 43,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_196_quxamiuetah_eon_tift",
+        "name": "Curr Vocabulary #196 (Curr #196)",
+        "locality": "Curr Vocabulary #196",
+        "word_count": 44,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_197_moneboo",
+        "name": "Moneboo (Curr #197)",
+        "locality": "Moneboo",
+        "word_count": 115,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_199_abdinoiral_wordb_akd_phbases_oonfimied",
+        "name": "Aboriginal Words And Phrases (Curr #199)",
+        "locality": "Aboriginal Words And Phrases",
+        "word_count": 91,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_2_eastebn_shore_of_lake_torrens",
+        "name": "Eastern Shore Of Lake Torrens (Curr #2)",
+        "locality": "Eastern Shore Of Lake Torrens",
+        "word_count": 125,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_20_york_district",
+        "name": "York District (Curr #20)",
+        "locality": "York District",
+        "word_count": 51,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_200_about_fifty_miles_southerly_from_swan",
+        "name": "About Fifty Miles Southerly From Swan (Curr #200)",
+        "locality": "About Fifty Miles Southerly From Swan",
+        "word_count": 42,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_202_bubcbang_on_the_murray_river",
+        "name": "Bumbang, On The Murray River (Curr #202)",
+        "locality": "Bumbang, On The Murray River",
+        "word_count": 58,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_203_kulkynb",
+        "name": "Kulkyne (Curr #203)",
+        "locality": "Kulkyne",
+        "word_count": 85,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_204_the_tatiarra_country",
+        "name": "The Tatiara Country (Curr #204)",
+        "locality": "The Tatiara Country",
+        "word_count": 165,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_206_morton_plains",
+        "name": "Morton Plains (Curr #206)",
+        "locality": "Morton Plains",
+        "word_count": 191,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_2081_mount_emu",
+        "name": "Mount Emu (Curr #2081)",
+        "locality": "Mount Emu",
+        "word_count": 114,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_210_gippsland",
+        "name": "Gippsland (Curr #210)",
+        "locality": "Gippsland",
+        "word_count": 291,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_211_ome0",
+        "name": "Omeo (Curr #211)",
+        "locality": "Omeo",
+        "word_count": 78,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_212_sn0wy_river",
+        "name": "Snowy River (Curr #212)",
+        "locality": "Snowy River",
+        "word_count": 59,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_213_ufpbb_ubjlay",
+        "name": "Curr Vocabulary #213 (Curr #213)",
+        "locality": "Curr Vocabulary #213",
+        "word_count": 120,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_23_kojonup_and_eticup",
+        "name": "Kojonup And Eticup (Curr #23)",
+        "locality": "Kojonup And Eticup",
+        "word_count": 82,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_24_geographe_bay_and_vasse",
+        "name": "Geographe Bay And Vasse (Curr #24)",
+        "locality": "Geographe Bay And Vasse",
+        "word_count": 214,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_26_blackwood_district",
+        "name": "Blackwood District (Curr #26)",
+        "locality": "Blackwood District",
+        "word_count": 125,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_27_from_the_irwin_to_the_murchison_river",
+        "name": "From The Irwin To The Murchison River (Curr #27)",
+        "locality": "From The Irwin To The Murchison River",
+        "word_count": 102,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_28_upper_sandford_muliarra_tribe",
+        "name": "Upper Sandford - Muliarra Tribe (Curr #28)",
+        "locality": "Upper Sandford - Muliarra Tribe",
+        "word_count": 97,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_29_two_hundred_miles_north_east_of",
+        "name": "Two Hundred Miles North-east Of (Curr #29)",
+        "locality": "Two Hundred Miles North-east Of",
+        "word_count": 76,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_3_port_essington",
+        "name": "Port Essington (Curr #3)",
+        "locality": "Port Essington",
+        "word_count": 80,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_30_mount_stirling_kokar_tribe",
+        "name": "Mount Stirling - Kokar Tribe (Curr #30)",
+        "locality": "Mount Stirling - Kokar Tribe",
+        "word_count": 84,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_31_king_george_s_sound",
+        "name": "King George's Sound (Curr #31)",
+        "locality": "King George's Sound",
+        "word_count": 62,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_32_vocabulary_of_warrangoo_tribe",
+        "name": "Vocabulary Of Warrangoo Tribe (Curr #32)",
+        "locality": "Vocabulary Of Warrangoo Tribe",
+        "word_count": 86,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_33_from_doubtful_bay_to_israelite_bay",
+        "name": "From Doubtful Bay To Israelite Bay (Curr #33)",
+        "locality": "From Doubtful Bay To Israelite Bay",
+        "word_count": 79,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_34_eyre_s_sanp_patch",
+        "name": "Eyre's Sand Patch (Curr #34)",
+        "locality": "Eyre's Sand Patch",
+        "word_count": 95,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_35_eucla_additional_words",
+        "name": "Eucla - Additional Words (Curr #35)",
+        "locality": "Eucla - Additional Words",
+        "word_count": 38,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_36_head_op_the_great_australian_bight",
+        "name": "Head Of The Great Australian Bight (Curr #36)",
+        "locality": "Head Of The Great Australian Bight",
+        "word_count": 44,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_37_alice_springs_telegraph_station",
+        "name": "Alice Springs Telegraph Station (Curr #37)",
+        "locality": "Alice Springs Telegraph Station",
+        "word_count": 151,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_38_charlotte_waters_telegraph_station",
+        "name": "Charlotte Waters Telegraph Station (Curr #38)",
+        "locality": "Charlotte Waters Telegraph Station",
+        "word_count": 161,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_39_macumba_river",
+        "name": "Macumba River (Curr #39)",
+        "locality": "Macumba River",
+        "word_count": 67,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_4_language_of_raffles_bay_tribe",
+        "name": "Language Of Raffles Bay Tribe (Curr #4)",
+        "locality": "Language Of Raffles Bay Tribe",
+        "word_count": 74,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_40_streaky_bay",
+        "name": "Streaky Bay (Curr #40)",
+        "locality": "Streaky Bay",
+        "word_count": 130,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_41_port_lincx_ln",
+        "name": "Port Lincoln (Curr #41)",
+        "locality": "Port Lincoln",
+        "word_count": 53,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_42_peake_telegraph_station",
+        "name": "Peake Telegraph Station (Curr #42)",
+        "locality": "Peake Telegraph Station",
+        "word_count": 58,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_43_north_west_of_lake_eyre",
+        "name": "North-west Of Lake Eyre (Curr #43)",
+        "locality": "North-west Of Lake Eyre",
+        "word_count": 85,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_44_the_north_shore_of_lake_eyre",
+        "name": "The North Shore Of Lake Eyre (Curr #44)",
+        "locality": "The North Shore Of Lake Eyre",
+        "word_count": 70,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_46_west_of_lake_eyre",
+        "name": "West Of Lake Eyre (Curr #46)",
+        "locality": "West Of Lake Eyre",
+        "word_count": 112,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_47_wabburton_filveb",
+        "name": "Warburton River (Curr #47)",
+        "locality": "Warburton River",
+        "word_count": 56,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_48_cooper_s_creek",
+        "name": "Cooper's Creek (Curr #48)",
+        "locality": "Cooper's Creek",
+        "word_count": 139,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_49_oooper_s_creek_in_the_neighbourhood_where",
+        "name": "Cooper's Creek, In The Neighbourhood Where (Curr #49)",
+        "locality": "Cooper's Creek, In The Neighbourhood Where",
+        "word_count": 36,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_5_leichardt_bivek",
+        "name": "Leichardt River (Curr #5)",
+        "locality": "Leichardt River",
+        "word_count": 34,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_51_nockatoonga_wilson_river",
+        "name": "Nockatoonga, Wilson River (Curr #51)",
+        "locality": "Nockatoonga, Wilson River",
+        "word_count": 79,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_52_thaboominda_bulloo_bxvwbf_conhnued",
+        "name": "Thargomindah, Bulloo River (Continued) (Curr #52)",
+        "locality": "Thargomindah, Bulloo River (Continued)",
+        "word_count": 50,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_58_umbertana",
+        "name": "Umberatana (Curr #58)",
+        "locality": "Umberatana",
+        "word_count": 72,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_59_tuba_ob_euba_tribe_mount_sekle",
+        "name": "Tuba Or Euba Tribe, Mount Serle (Curr #59)",
+        "locality": "Tuba Or Euba Tribe, Mount Serle",
+        "word_count": 76,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_6_words_found_in_the_common_vocabulary",
+        "name": "Words Found In The Common Vocabulary (Curr #6)",
+        "locality": "Words Found In The Common Vocabulary",
+        "word_count": 51,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_60_vocabulary_op_the_kooylannie_language",
+        "name": "Vocabulary Of The Kooylannie Language (Curr #60)",
+        "locality": "Vocabulary Of The Kooylannie Language",
+        "word_count": 168,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_62_eastern_shore_of_lake_torrens",
+        "name": "Eastern Shore Of Lake Torrens (Curr #62)",
+        "locality": "Eastern Shore Of Lake Torrens",
+        "word_count": 80,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_63_lower_bulloo_river",
+        "name": "Lower Bulloo River (Curr #63)",
+        "locality": "Lower Bulloo River",
+        "word_count": 168,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_64_maraghowie",
+        "name": "Maraghowie (Curr #64)",
+        "locality": "Maraghowie",
+        "word_count": 58,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_65_mount_remarkable",
+        "name": "Mount Remarkable (Curr #65)",
+        "locality": "Mount Remarkable",
+        "word_count": 142,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_66_port_pirie_forty_miles_east_of",
+        "name": "Port Pirie, Forty Miles East Of (Curr #66)",
+        "locality": "Port Pirie, Forty Miles East Of",
+        "word_count": 122,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_67_yorke_s_peninsula_south",
+        "name": "Yorke's Peninsula, South (Curr #67)",
+        "locality": "Yorke's Peninsula, South",
+        "word_count": 111,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_68_from_teichelmann_and_schurmann_and",
+        "name": "From Teichelmann And Schurmann, And (Curr #68)",
+        "locality": "From Teichelmann And Schurmann, And",
+        "word_count": 40,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_69_evelyn_creek",
+        "name": "Evelyn Creek (Curr #69)",
+        "locality": "Evelyn Creek",
+        "word_count": 130,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_7_the_gudang_language",
+        "name": "The Gudang Language (Curr #7)",
+        "locality": "The Gudang Language",
+        "word_count": 84,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_70_country_north_west_of_the",
+        "name": "Country North-west Of The (Curr #70)",
+        "locality": "Country North-west Of The",
+        "word_count": 21,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_71_country_about_sixty_miles_north",
+        "name": "Country About Sixty Miles North (Curr #71)",
+        "locality": "Country About Sixty Miles North",
+        "word_count": 42,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_72_boolooomatia",
+        "name": "Boolooomatia (Curr #72)",
+        "locality": "Boolooomatia",
+        "word_count": 30,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_73_torrowotto",
+        "name": "Torrowotto (Curr #73)",
+        "locality": "Torrowotto",
+        "word_count": 75,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_74_the_lower_portions_op_the_paroo_and",
+        "name": "The Lower Portions Of The Paroo And (Curr #74)",
+        "locality": "The Lower Portions Of The Paroo And",
+        "word_count": 82,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_75_bourke_darling_river",
+        "name": "Bourke, Darling River (Curr #75)",
+        "locality": "Bourke, Darling River",
+        "word_count": 11,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_76_fifty_miles_below_bourke_on_the",
+        "name": "Fifty Miles Below Bourke On The (Curr #76)",
+        "locality": "Fifty Miles Below Bourke On The",
+        "word_count": 92,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_77_additional_words_bt_mux_at_boosbs_esq",
+        "name": "Additional Words (Curr #77)",
+        "locality": "Additional Words",
+        "word_count": 38,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_78_tintinaligi_dabuno_biyeb",
+        "name": "Tintinaligi, Dabuno River (Curr #78)",
+        "locality": "Tintinaligi, Dabuno River",
+        "word_count": 60,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_79_from_weinteriga_on_the_darling_to_the",
+        "name": "From Weinteriga, On The Darling, To The (Curr #79)",
+        "locality": "From Weinteriga, On The Darling, To The",
+        "word_count": 74,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_8_vocabulary_of_the_ngurla_tribe",
+        "name": "Vocabulary Of The Ngurla Tribe (Curr #8)",
+        "locality": "Vocabulary Of The Ngurla Tribe",
+        "word_count": 91,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_80_menindie_darling_river",
+        "name": "Menindie, Darling River (Curr #80)",
+        "locality": "Menindie, Darling River",
+        "word_count": 87,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_81_tolabno_station_near_menindik",
+        "name": "Tolarno Station Near Menindee (Curr #81)",
+        "locality": "Tolarno Station Near Menindee",
+        "word_count": 84,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_82_marowera_language",
+        "name": "Marowera Language (Curr #82)",
+        "locality": "Marowera Language",
+        "word_count": 72,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_83_from_the_banks_of_the_murray",
+        "name": "From The Banks Of The Murray (Curr #83)",
+        "locality": "From The Banks Of The Murray",
+        "word_count": 83,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_84_wellinqton",
+        "name": "Wellington (Curr #84)",
+        "locality": "Wellington",
+        "word_count": 50,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_85_nobth_wesi_bend_of",
+        "name": "North-west Bend Of (Curr #85)",
+        "locality": "North-west Bend Of",
+        "word_count": 59,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_86_north_west_bend_of_the_river_murray",
+        "name": "North-west Bend Of The River Murray (Curr #86)",
+        "locality": "North-west Bend Of The River Murray",
+        "word_count": 47,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_87_from_malleb_cliffs_station_to",
+        "name": "From Mallee Cliffs Station To (Curr #87)",
+        "locality": "From Mallee Cliffs Station To",
+        "word_count": 92,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_88_ytt_tha",
+        "name": "Ytt-tha (Curr #88)",
+        "locality": "Ytt-tha",
+        "word_count": 69,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_89_eastward_of_the_nicholson_eivee",
+        "name": "Eastward Of The Nicholson River (Curr #89)",
+        "locality": "Eastward Of The Nicholson River",
+        "word_count": 62,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_9_the_shaw_river",
+        "name": "The Shaw River (Curr #9)",
+        "locality": "The Shaw River",
+        "word_count": 124,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_90_cloncurry_river",
+        "name": "Cloncurry River (Curr #90)",
+        "locality": "Cloncurry River",
+        "word_count": 196,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_91_mouth_of_the_leighabdt_kiver",
+        "name": "Mouth Of The Leichardt River (Curr #91)",
+        "locality": "Mouth Of The Leichardt River",
+        "word_count": 37,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_92_mouth_of_the_river_norman",
+        "name": "Mouth Of The River Norman (Curr #92)",
+        "locality": "Mouth Of The River Norman",
+        "word_count": 89,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_94_west_of_leichardt_river",
+        "name": "West Of Leichardt River (Curr #94)",
+        "locality": "West Of Leichardt River",
+        "word_count": 82,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_95",
+        "name": "Curr Vocabulary #95 (Curr #95)",
+        "locality": "Curr Vocabulary #95",
+        "word_count": 45,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_96_kamilaboi_station_eon_in_ed",
+        "name": "Kamilaroi (Continued) (Curr #96)",
+        "locality": "Kamilaroi (Continued)",
+        "word_count": 30,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_97_between_the_gregory_and_leichardt",
+        "name": "Between The Gregory And Leichardt (Curr #97)",
+        "locality": "Between The Gregory And Leichardt",
+        "word_count": 86,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_98_seymour_templeton_and_cloncurry_rivers",
+        "name": "Seymour, Templeton, And Cloncurry Rivers (Curr #98)",
+        "locality": "Seymour, Templeton, And Cloncurry Rivers",
+        "word_count": 26,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      },
+      {
+        "kind": "historical_wordlist",
+        "source_kind": "historical_wordlist",
+        "db_code": "curr_99_the_cloncurry_river",
+        "name": "The Cloncurry River (Curr #99)",
+        "locality": "The Cloncurry River",
+        "word_count": 39,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft",
+        "note": "E. M. Curr 1886-87 locality wordlist (OCR); not confidently mappable to a Glottolog languoid — kept as a labelled historical appendix item, NOT a modern language."
+      }
+    ]
+  }
+}

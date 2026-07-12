@@ -1,0 +1,110 @@
+{
+  "slug": "mart1255",
+  "canonical_name": "Martuthunira",
+  "autonym_candidate": {
+    "value": "Jawunmala",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 30
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "mart1255",
+    "iso639_3": "vma",
+    "austlang": [
+      "W35"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3134",
+      "name": "South-West Pama-Nyungan"
+    },
+    {
+      "glottocode": "pilb1234",
+      "name": "Pilbara"
+    },
+    {
+      "glottocode": "ngay1241",
+      "name": "Ngayarda"
+    },
+    {
+      "glottocode": "cent2248",
+      "name": "Central Ngayarda"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -20.9294,
+    "lon": 116.607,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 184,
+    "has_wals": true,
+    "wals_feature_count": 136,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 94.4,
+    "feature_count": 320
+  },
+  "lexicon": {
+    "state": "live",
+    "word_count": 110,
+    "db_code": "martuthunira"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Martuthunira",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 0,
+    "leaf_hpd_bp": [
+      0,
+      0
+    ],
+    "divergence_age_bp": 1618,
+    "divergence_hpd_bp": null,
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "mobtranslate-pg live dictionary",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

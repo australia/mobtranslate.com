@@ -1,0 +1,102 @@
+{
+  "slug": "kwin1241",
+  "canonical_name": "Kwini",
+  "autonym_candidate": {
+    "value": "Bagu",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 57
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "kwin1241",
+    "iso639_3": "gww",
+    "austlang": [
+      "A35",
+      "A36",
+      "K36",
+      "K42",
+      "K45",
+      "K57"
+    ]
+  },
+  "family": "Worrorran",
+  "classification_chain": [
+    {
+      "glottocode": "worr1236",
+      "name": "Worrorran"
+    },
+    {
+      "glottocode": "nort2751",
+      "name": "Northern Worrorran"
+    },
+    {
+      "glottocode": "forr1234",
+      "name": "Forrest River"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -14.2515,
+    "lon": 126.562,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 160,
+    "has_wals": true,
+    "wals_feature_count": 23,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 82.1,
+    "feature_count": 183
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 2,
+    "resource": {
+      "title": "English Wiktionary — Category:Kwini lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Kwini_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

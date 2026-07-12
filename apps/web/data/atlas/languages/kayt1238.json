@@ -1,0 +1,106 @@
+{
+  "slug": "kayt1238",
+  "canonical_name": "Kaytetye",
+  "autonym_candidate": {
+    "value": "Gaididj",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 28
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "kayt1238",
+    "iso639_3": "gbb",
+    "austlang": [
+      "C13"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "aran1266",
+      "name": "Arandic-Thura-Yura"
+    },
+    {
+      "glottocode": "aran1267",
+      "name": "Arandic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -21.5844,
+    "lon": 133.602,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 3,
+    "label": "shifting"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 1,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 1
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 3,
+    "resource": {
+      "title": "English Wiktionary — Category:Kaytetye lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Kaytetye_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Kaytetye",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 30,
+    "leaf_hpd_bp": [
+      30,
+      30
+    ],
+    "divergence_age_bp": 1076.1,
+    "divergence_hpd_bp": null,
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

@@ -1,0 +1,112 @@
+{
+  "slug": "kanj1260",
+  "canonical_name": "Kanju",
+  "autonym_candidate": {
+    "value": "Andjingid",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 46
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "kanj1260",
+    "iso639_3": "kbe",
+    "austlang": [
+      "Y42",
+      "Y44"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "pama1251",
+      "name": "Paman"
+    },
+    {
+      "glottocode": "comp1236",
+      "name": "Compromise Middle Pama"
+    },
+    {
+      "glottocode": "nort3256",
+      "name": "Northeastern Pama"
+    },
+    {
+      "glottocode": "nort2759",
+      "name": "Umpilaic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -13.3243,
+    "lon": 142.893,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 1,
+    "resource": {
+      "title": "English Wiktionary — Category:Kanju lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Kanju_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Kaanju",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 30,
+    "leaf_hpd_bp": [
+      30,
+      30
+    ],
+    "divergence_age_bp": 788.8,
+    "divergence_hpd_bp": [
+      435.5,
+      1210.9
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

@@ -1,0 +1,113 @@
+{
+  "slug": "warl1255",
+  "canonical_name": "Warlmanpa",
+  "autonym_candidate": {
+    "value": "Albura",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 40
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "warl1255",
+    "iso639_3": "wrl",
+    "austlang": [
+      "C17"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "dese1234",
+      "name": "Desert Nyungic"
+    },
+    {
+      "glottocode": "ngum1251",
+      "name": "Ngumpin-Yapa"
+    },
+    {
+      "glottocode": "ngar1289",
+      "name": "Yapa"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -18.949,
+    "lon": 133.862,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 4,
+    "label": "moribund"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 41,
+    "has_wals": false,
+    "wals_feature_count": 0,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 21,
+    "feature_count": 41
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 3,
+    "resource": {
+      "title": "English Wiktionary — Category:Warlmanpa lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Warlmanpa_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Warlmanpa",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 10,
+    "leaf_hpd_bp": [
+      10,
+      10
+    ],
+    "divergence_age_bp": 1106,
+    "divergence_hpd_bp": [
+      708.3,
+      1603.4
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

@@ -1,0 +1,133 @@
+{
+  "slug": "ngaa1240",
+  "canonical_name": "Ngaanyatjarra",
+  "autonym_candidate": {
+    "value": "Engañacharra",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 50
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "ngaa1240",
+    "iso639_3": "ntj",
+    "austlang": [
+      "A17",
+      "A30",
+      "A37",
+      "A38",
+      "A38.1",
+      "A43",
+      "A7",
+      "A8",
+      "A80"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "dese1234",
+      "name": "Desert Nyungic"
+    },
+    {
+      "glottocode": "wati1241",
+      "name": "Wati"
+    },
+    {
+      "glottocode": "pint1254",
+      "name": "Pintupic"
+    },
+    {
+      "glottocode": "nucl1724",
+      "name": "Nuclear Pintupic"
+    },
+    {
+      "glottocode": "wang1300",
+      "name": "Wangkatja-Tjarra"
+    },
+    {
+      "glottocode": "tjar1234",
+      "name": "Tjarra"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -25.7514,
+    "lon": 127.602,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 3,
+    "label": "shifting"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 154,
+    "has_wals": true,
+    "wals_feature_count": 34,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 79,
+    "feature_count": 188
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 9,
+    "resource": {
+      "title": "English Wiktionary — Category:Ngaanyatjarra lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Ngaanyatjarra_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Ngaanyatjarra",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 10,
+    "leaf_hpd_bp": [
+      10,
+      10
+    ],
+    "divergence_age_bp": 1055.8,
+    "divergence_hpd_bp": [
+      693.4,
+      1502.4
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

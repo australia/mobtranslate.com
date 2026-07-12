@@ -1,0 +1,96 @@
+{
+  "slug": "remb1249",
+  "canonical_name": "Rembarrnga",
+  "autonym_candidate": {
+    "value": "Gunwinyguan",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 27
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "remb1249",
+    "iso639_3": "rmb",
+    "austlang": [
+      "L40",
+      "N175",
+      "N44",
+      "N73"
+    ]
+  },
+  "family": "Gunwinyguan",
+  "classification_chain": [
+    {
+      "glottocode": "gunw1250",
+      "name": "Gunwinyguan"
+    },
+    {
+      "glottocode": "jala1236",
+      "name": "Jala"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -12.9608,
+    "lon": 134.308,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 4,
+    "label": "moribund"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 7,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 7
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 1,
+    "resource": {
+      "title": "English Wiktionary — Category:Rembarunga lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Rembarunga_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

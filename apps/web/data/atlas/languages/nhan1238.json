@@ -1,0 +1,114 @@
+{
+  "slug": "nhan1238",
+  "canonical_name": "Nhanda",
+  "autonym_candidate": {
+    "value": "Amangu",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 22
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "nhan1238",
+    "iso639_3": "nha",
+    "austlang": [
+      "W12",
+      "W13",
+      "W14",
+      "W15",
+      "W16",
+      "W17"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3134",
+      "name": "South-West Pama-Nyungan"
+    },
+    {
+      "glottocode": "kart1249",
+      "name": "Kartu-Nhanda"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -27.42523643,
+    "lon": 114.2680442,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 163,
+    "has_wals": true,
+    "wals_feature_count": 27,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 83.6,
+    "feature_count": 190
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 11,
+    "resource": {
+      "title": "English Wiktionary — Category:Nhanda lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Nhanda_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_ChampionBay",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 0,
+    "leaf_hpd_bp": [
+      0,
+      0
+    ],
+    "divergence_age_bp": 1007,
+    "divergence_hpd_bp": [
+      539.7,
+      1599.8
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

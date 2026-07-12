@@ -1,0 +1,101 @@
+{
+  "slug": "yard1234",
+  "canonical_name": "Yardliyawarra",
+  "autonym_candidate": {
+    "value": "Aluri",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 18
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "yard1234",
+    "iso639_3": "yxl",
+    "austlang": [
+      "L7"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "yarl1237",
+      "name": "Yarli-Baagandji"
+    },
+    {
+      "glottocode": "yarl1236",
+      "name": "Yarli"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -29.79543,
+    "lon": 141.77353,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (L7)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/L7",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    },
+    "historical_sources": [
+      {
+        "db_code": "curr_61_wonoka",
+        "locality": "Wonoka",
+        "word_count": 67,
+        "source": "E. M. Curr, The Australian Race (1886-87)",
+        "license": "Public Domain",
+        "source_url": "https://archive.org/details/australianrace01curruoft"
+      }
+    ]
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

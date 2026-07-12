@@ -1,0 +1,98 @@
+{
+  "slug": "bard1255",
+  "canonical_name": "Bardi",
+  "autonym_candidate": {
+    "value": "Ba:d",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 11
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "bard1255",
+    "iso639_3": "bcj",
+    "austlang": [
+      "K15",
+      "K69"
+    ]
+  },
+  "family": "Nyulnyulan",
+  "classification_chain": [
+    {
+      "glottocode": "nyul1248",
+      "name": "Nyulnyulan"
+    },
+    {
+      "glottocode": "west2872",
+      "name": "Western Nyulnyulan"
+    },
+    {
+      "glottocode": "bard1254",
+      "name": "Bardic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -16.6274,
+    "lon": 122.906,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 94,
+    "has_wals": true,
+    "wals_feature_count": 13,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 48.2,
+    "feature_count": 107
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 4,
+    "resource": {
+      "title": "English Wiktionary — Category:Bardi lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Bardi_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

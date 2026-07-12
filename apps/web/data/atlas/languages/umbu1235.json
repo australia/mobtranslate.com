@@ -1,0 +1,84 @@
+{
+  "slug": "umbu1235",
+  "canonical_name": "Umbugarla",
+  "autonym_candidate": {
+    "value": "Ambugala",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 10
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "umbu1235",
+    "iso639_3": "umr",
+    "austlang": [
+      "N43"
+    ]
+  },
+  "family": "(isolate)",
+  "classification_chain": null,
+  "classification_state": "unclassified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -12.9325,
+    "lon": 131.825,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 126,
+    "has_wals": false,
+    "wals_feature_count": 0,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 64.6,
+    "feature_count": 126
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (N43)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/N43",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": false,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "listed",
+  "sources": {
+    "classification": null,
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

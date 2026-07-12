@@ -1,0 +1,97 @@
+{
+  "slug": "nija1241",
+  "canonical_name": "Nyiyaparli-Palyku",
+  "autonym_candidate": {
+    "value": "Bailgu",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 25
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "nija1241",
+    "iso639_3": "xny",
+    "austlang": []
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3134",
+      "name": "South-West Pama-Nyungan"
+    },
+    {
+      "glottocode": "pilb1234",
+      "name": "Pilbara"
+    },
+    {
+      "glottocode": "ngay1241",
+      "name": "Ngayarda"
+    },
+    {
+      "glottocode": "cent2248",
+      "name": "Central Ngayarda"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -22.8558,
+    "lon": 120.831,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 4,
+    "label": "moribund"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 1,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 1
+  },
+  "lexicon": {
+    "state": "none"
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": false,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": null,
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

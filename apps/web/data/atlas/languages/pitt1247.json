@@ -1,0 +1,118 @@
+{
+  "slug": "pitt1247",
+  "canonical_name": "Pitta Pitta",
+  "autonym_candidate": {
+    "value": "Bida Bida",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 47
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "pitt1247",
+    "iso639_3": "pit",
+    "austlang": [
+      "G2",
+      "G4",
+      "G5",
+      "G53",
+      "G6",
+      "G7",
+      "L32",
+      "S2",
+      "S7"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "karn1253",
+      "name": "Karnic"
+    },
+    {
+      "glottocode": "palk1239",
+      "name": "Palku"
+    },
+    {
+      "glottocode": "pitt1246",
+      "name": "Pitta-Pitta"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -22.7952,
+    "lon": 139.983,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 160,
+    "has_wals": true,
+    "wals_feature_count": 41,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 82.1,
+    "feature_count": 201
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (G2, G4, G5, G53, G6, G7, L32, S2, S7)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/G2",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_KingsCreekandtheGeorginaRiver",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 120,
+    "leaf_hpd_bp": [
+      120,
+      120
+    ],
+    "divergence_age_bp": 994,
+    "divergence_hpd_bp": null,
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

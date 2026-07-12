@@ -1,0 +1,94 @@
+{
+  "slug": "wurl1240",
+  "canonical_name": "Wurla",
+  "autonym_candidate": {
+    "value": "Ola",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 13
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "wurl1240",
+    "iso639_3": null,
+    "austlang": [
+      "K24",
+      "K43"
+    ]
+  },
+  "family": "Worrorran",
+  "classification_chain": [
+    {
+      "glottocode": "worr1236",
+      "name": "Worrorran"
+    },
+    {
+      "glottocode": "ngar1284",
+      "name": "Ngarinyin"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -16.15,
+    "lon": 127.52,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 91,
+    "has_wals": false,
+    "wals_feature_count": 0,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 46.7,
+    "feature_count": 91
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (K24, K43)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/K24",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

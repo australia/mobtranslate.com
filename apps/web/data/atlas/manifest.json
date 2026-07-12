@@ -1,0 +1,125 @@
+{
+  "name": "Atlas of Australian Languages — data release",
+  "data_release_version": "1.0.0",
+  "build_stamp": "2026-07-12T00:00:00Z",
+  "generator": "apps/web/scripts/atlas/build-data.ts",
+  "canonical_universe": "australian_languages_registry.json (1,029 languoids)",
+  "artifacts": {
+    "index": "index.json",
+    "per_language_detail": "languages/<slug>.json",
+    "appendix": "appendix.json",
+    "orphans": "orphans.json",
+    "coverage_report": "coverage-report.json"
+  },
+  "source_datasets": [
+    {
+      "name": "Glottolog",
+      "version": "5.3 CLDF",
+      "license": "CC-BY-4.0",
+      "role": "classification, coordinates, ISO/glottocode, AES endangerment"
+    },
+    {
+      "name": "Grambank",
+      "version": "v1.0.3 CLDF",
+      "license": "CC-BY-4.0",
+      "role": "grammatical feature profiles (195 features)"
+    },
+    {
+      "name": "WALS",
+      "version": "2020.4 CLDF",
+      "license": "CC-BY-4.0",
+      "role": "supplementary grammatical features"
+    },
+    {
+      "name": "AIATSIS AUSTLANG",
+      "version": "data.gov.au export",
+      "license": "CC-BY-4.0",
+      "role": "canonical AU language codes, approx. coordinates, alt-names"
+    },
+    {
+      "name": "Bouckaert, Bowern & Atkinson 2018 (Phlorest)",
+      "version": "phlorest CLDF",
+      "license": "CC-BY-4.0",
+      "role": "dated Pama-Nyungan phylogeographic tree (deep_time)"
+    },
+    {
+      "name": "PHOIBLE",
+      "version": "referenced",
+      "license": "CC-BY-SA-3.0",
+      "role": "phonological inventories (pointer; not ingested in P0)"
+    },
+    {
+      "name": "E. M. Curr, The Australian Race (1886-87)",
+      "version": "archive.org OCR",
+      "license": "Public Domain",
+      "role": "historical locality wordlists (live DB curr_* + appendix)"
+    },
+    {
+      "name": "English Wiktionary",
+      "version": "kaikki.org export",
+      "license": "CC-BY-SA-4.0",
+      "role": "open lexical resources for some languoids"
+    },
+    {
+      "name": "mobtranslate-pg (live DB)",
+      "version": "read-only snapshot @ 2026-07-12T00:00:00Z",
+      "license": "mixed (see per-source)",
+      "role": "live lexical word-counts"
+    }
+  ],
+  "coverage_summary": {
+    "version": "1.0.0",
+    "build_stamp": "2026-07-12T00:00:00Z",
+    "universe_registry_languoids": 1029,
+    "non_language_nodes_appendixed": 49,
+    "genuine_languoids": 980,
+    "migmaq_excluded_from_db": 1,
+    "migmaq_present_in_atlas": false,
+    "coordinates": {
+      "real_glottolog": 654,
+      "austlang_approx": 153,
+      "derived_centroid": 2,
+      "none": 171,
+      "any": 809
+    },
+    "ids": {
+      "any_id": 980,
+      "glottocode": 656,
+      "iso639_3": 380,
+      "austlang": 759
+    },
+    "classification": {
+      "with_family_chain": 647,
+      "unclassified": 333
+    },
+    "grammar_profiled": 203,
+    "endangerment_known": 442,
+    "lexicon": {
+      "live": 29,
+      "open_resource": 91,
+      "pointer_only": 648,
+      "none": 212
+    },
+    "deep_time_dated": 224,
+    "tiers": {
+      "comprehensive": 86,
+      "documented": 395,
+      "classified": 166,
+      "listed": 333
+    },
+    "db_join": {
+      "db_languages_total": 221,
+      "db_live_mapped": 29,
+      "curr_mapped_to_languoid": 4,
+      "curr_unmapped_appendix": 183,
+      "orphans": 1
+    }
+  },
+  "caveats": [
+    "A spreading language lineage is NOT a moving/arriving population. Bouckaert root age ~5,578 BP dates the Pama-Nyungan LINGUISTIC spread across an already long-populated continent (~65,000 yr of presence).",
+    "state/jurisdiction is null for all languoids: not present in the open Glottolog/AUSTLANG exports.",
+    "Autonyms are UNVERIFIED candidates drawn from alt-names (which conflate endonyms with spelling variants); never asserted as confirmed.",
+    "Derived-centroid coordinates are a drawing convenience (mean of sibling-leaf coords), not a claim about where a language is spoken; flagged approximate + provenance=derived_centroid.",
+    "Curr 1886-87 OCR wordlists are historical sources, not modern language identities."
+  ]
+}

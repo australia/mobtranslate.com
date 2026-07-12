@@ -1,0 +1,115 @@
+{
+  "slug": "yind1248",
+  "canonical_name": "Yindjilandji",
+  "autonym_candidate": {
+    "value": "Bularnu",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 24
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "yind1248",
+    "iso639_3": "yil",
+    "austlang": [
+      "G14",
+      "G42",
+      "G52"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "ngar1290",
+      "name": "Ngarna"
+    },
+    {
+      "glottocode": "sout2766",
+      "name": "Southern Ngarna"
+    },
+    {
+      "glottocode": "ngar1291",
+      "name": "Ngarru"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -19.24252,
+    "lon": 137.5894,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 75,
+    "has_wals": false,
+    "wals_feature_count": 0,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 38.5,
+    "feature_count": 75
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 2,
+    "resource": {
+      "title": "English Wiktionary — Category:Yindjilandji lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Yindjilandji_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Yindjilandji",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 50,
+    "leaf_hpd_bp": [
+      50,
+      50
+    ],
+    "divergence_age_bp": 1118.3,
+    "divergence_hpd_bp": [
+      562.3,
+      1758.6
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

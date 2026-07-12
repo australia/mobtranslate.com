@@ -1,0 +1,77 @@
+{
+  "slug": "y194",
+  "canonical_name": "Utyangikwathiya",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": null,
+  "ids": {
+    "glottocode": null,
+    "iso639_3": null,
+    "austlang": [
+      "Y194"
+    ]
+  },
+  "family": "unclassified",
+  "classification_chain": null,
+  "classification_state": "unclassified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -11.892225785948,
+    "lon": 142.47211045581,
+    "provenance": "austlang",
+    "approximate": true
+  },
+  "endangerment": {
+    "aes_level": null,
+    "label": "unknown"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (Y194)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/Y194",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": false,
+    "iso639_3": false,
+    "austlang": true,
+    "classification_chain": false,
+    "coordinates_real": false,
+    "coordinates_any": true,
+    "endangerment": false,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": false
+  },
+  "tier": "listed",
+  "sources": {
+    "classification": "AIATSIS AUSTLANG (CC-BY-4.0)",
+    "coordinates": "AIATSIS AUSTLANG approx. point (CC-BY-4.0)",
+    "endangerment": null,
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "austlang-only"
+}

@@ -1,0 +1,114 @@
+{
+  "slug": "adny1235",
+  "canonical_name": "Adnyamathanha",
+  "autonym_candidate": {
+    "value": "Ad'n'amadana",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 76
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "adny1235",
+    "iso639_3": "adt",
+    "austlang": [
+      "L10",
+      "L55"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "aran1266",
+      "name": "Arandic-Thura-Yura"
+    },
+    {
+      "glottocode": "thur1253",
+      "name": "Thura-Yura"
+    },
+    {
+      "glottocode": "core1260",
+      "name": "Core Thura Yura"
+    },
+    {
+      "glottocode": "nort2752",
+      "name": "Northern Thura-Yura"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -30.1451,
+    "lon": 138.671,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 3,
+    "label": "shifting"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 131,
+    "has_wals": true,
+    "wals_feature_count": 15,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 67.2,
+    "feature_count": 146
+  },
+  "lexicon": {
+    "state": "live",
+    "word_count": 24,
+    "db_code": "adnyamathanha"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Adnyamathanha",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 25,
+    "leaf_hpd_bp": [
+      25,
+      25
+    ],
+    "divergence_age_bp": 1460.7,
+    "divergence_hpd_bp": [
+      830.7,
+      2070.1
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "mobtranslate-pg live dictionary",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

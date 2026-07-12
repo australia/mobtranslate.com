@@ -1,0 +1,107 @@
+{
+  "slug": "dira1238",
+  "canonical_name": "Dirari",
+  "autonym_candidate": {
+    "value": "Dhirari",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 6
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "dira1238",
+    "iso639_3": "dit",
+    "austlang": [
+      "L14"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "karn1253",
+      "name": "Karnic"
+    },
+    {
+      "glottocode": "cent2016",
+      "name": "Central Karnic"
+    },
+    {
+      "glottocode": "west2438",
+      "name": "Western Central Karnic"
+    },
+    {
+      "glottocode": "pirl1239",
+      "name": "Pirlatapa-Dieric"
+    },
+    {
+      "glottocode": "dier1240",
+      "name": "Dieric"
+    },
+    {
+      "glottocode": "dier1241",
+      "name": "Dieri"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -28.7992,
+    "lon": 138.078,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (L14)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/L14",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

@@ -1,0 +1,91 @@
+{
+  "slug": "yiij1234",
+  "canonical_name": "Yiiji",
+  "autonym_candidate": {
+    "value": "'Jeidji",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 9
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "yiij1234",
+    "iso639_3": null,
+    "austlang": [
+      "K32"
+    ]
+  },
+  "family": "Worrorran",
+  "classification_chain": [
+    {
+      "glottocode": "worr1236",
+      "name": "Worrorran"
+    },
+    {
+      "glottocode": "nort2751",
+      "name": "Northern Worrorran"
+    },
+    {
+      "glottocode": "wuna1249",
+      "name": "Wunambal"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -14.8347,
+    "lon": 125.72,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 4,
+    "label": "moribund"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (K32)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/K32",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

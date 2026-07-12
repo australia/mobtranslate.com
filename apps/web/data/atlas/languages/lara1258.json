@@ -1,0 +1,84 @@
+{
+  "slug": "lara1258",
+  "canonical_name": "Laragia",
+  "autonym_candidate": {
+    "value": "Binnimiginda",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 37
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "lara1258",
+    "iso639_3": "lrg",
+    "austlang": [
+      "N21"
+    ]
+  },
+  "family": "(isolate)",
+  "classification_chain": null,
+  "classification_state": "unclassified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -12.4111,
+    "lon": 130.922,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 108,
+    "has_wals": true,
+    "wals_feature_count": 28,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 55.4,
+    "feature_count": 136
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (N21)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/N21",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": false,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "listed",
+  "sources": {
+    "classification": null,
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

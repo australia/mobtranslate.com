@@ -1,0 +1,116 @@
+{
+  "slug": "angu1242",
+  "canonical_name": "Anguthimri",
+  "autonym_candidate": {
+    "value": null,
+    "status": "none"
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "angu1242",
+    "iso639_3": "awg",
+    "austlang": [
+      "Y20"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "pama1251",
+      "name": "Paman"
+    },
+    {
+      "glottocode": "nort2758",
+      "name": "Northern Pama"
+    },
+    {
+      "glottocode": "alba1272",
+      "name": "Albatross Bay"
+    },
+    {
+      "glottocode": "angu1243",
+      "name": "Anguthimri-Yangathimri-Yuputhimri"
+    },
+    {
+      "glottocode": "angu1244",
+      "name": "Anguthimri-Yangathimri"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -12.395,
+    "lon": 141.755,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": false,
+    "grambank_feature_count": 0,
+    "has_wals": true,
+    "wals_feature_count": 23,
+    "has_db_typology": false,
+    "db_typology_coverage_pct": null,
+    "feature_count": 23
+  },
+  "lexicon": {
+    "state": "live",
+    "word_count": 495,
+    "db_code": "anguthimri"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Mbakwithi",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 20,
+    "leaf_hpd_bp": [
+      20,
+      20
+    ],
+    "divergence_age_bp": 499.2,
+    "divergence_hpd_bp": [
+      305.6,
+      762.1
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": false
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "mobtranslate-pg live dictionary",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

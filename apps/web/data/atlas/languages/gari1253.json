@@ -1,0 +1,87 @@
+{
+  "slug": "gari1253",
+  "canonical_name": "Garig-Ilgar",
+  "autonym_candidate": {
+    "value": "Garig",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 3
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "gari1253",
+    "iso639_3": "ilg",
+    "austlang": [
+      "N184"
+    ]
+  },
+  "family": "Iwaidjan Proper",
+  "classification_chain": [
+    {
+      "glottocode": "iwai1246",
+      "name": "Iwaidjan Proper"
+    },
+    {
+      "glottocode": "cent2228",
+      "name": "Central Iwaidjic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -11.412,
+    "lon": 132.182,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "open_resource",
+    "word_count": 3,
+    "resource": {
+      "title": "English Wiktionary — Category:Ilgar lemmas",
+      "url": "https://en.wiktionary.org/wiki/Category:Ilgar_lemmas",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": false,
+    "lexicon_data": true,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": null,
+    "lexicon": "CC-BY-SA-4.0",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

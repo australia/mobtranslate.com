@@ -1,0 +1,107 @@
+{
+  "slug": "gang1267",
+  "canonical_name": "Ganggalida",
+  "autonym_candidate": {
+    "value": "Engarilla",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 29
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "gang1267",
+    "iso639_3": "gcd",
+    "austlang": [
+      "G30",
+      "G34",
+      "N85"
+    ]
+  },
+  "family": "Tangkic",
+  "classification_chain": [
+    {
+      "glottocode": "tang1340",
+      "name": "Tangkic"
+    },
+    {
+      "glottocode": "sout2758",
+      "name": "Southern Tangkic"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -17.5446,
+    "lon": 139.426,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 94,
+    "has_wals": true,
+    "wals_feature_count": 58,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 48.2,
+    "feature_count": 152
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (G30, G34, N85)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/G30",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Ganggalida",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 0,
+    "leaf_hpd_bp": [
+      0,
+      0
+    ],
+    "divergence_age_bp": 473.5,
+    "divergence_hpd_bp": [
+      327.9,
+      653.3
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

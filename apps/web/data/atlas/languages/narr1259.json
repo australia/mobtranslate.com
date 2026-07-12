@@ -1,0 +1,119 @@
+{
+  "slug": "narr1259",
+  "canonical_name": "Narrinyeri",
+  "autonym_candidate": {
+    "value": "Alkaiyana",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 34
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "narr1259",
+    "iso639_3": "nay",
+    "austlang": [
+      "S1",
+      "S11",
+      "S14",
+      "S19",
+      "S3",
+      "S69",
+      "S8"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "sout3135",
+      "name": "Southeastern Pama-Nyungan"
+    },
+    {
+      "glottocode": "vict1234",
+      "name": "Victorian Pama-Nyungan"
+    },
+    {
+      "glottocode": "lowe1401",
+      "name": "Lower Murray"
+    },
+    {
+      "glottocode": "yara1253",
+      "name": "Yaraldi-Keramin-Yitha"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -36.2301,
+    "lon": 140.158,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 6,
+    "label": "extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 72,
+    "has_wals": true,
+    "wals_feature_count": 6,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 36.9,
+    "feature_count": 78
+  },
+  "lexicon": {
+    "state": "live",
+    "word_count": 177,
+    "db_code": "ngarrindjeri"
+  },
+  "deep_time": {
+    "dated": true,
+    "tree_node": "bk_leaf_Ngarrindjeri",
+    "backbone": "bouckaert2018",
+    "leaf_age_bp": 160,
+    "leaf_hpd_bp": [
+      160,
+      160
+    ],
+    "divergence_age_bp": 764.5,
+    "divergence_hpd_bp": [
+      451.4,
+      1154.3
+    ],
+    "note": "Dates the LANGUAGE lineage (Bouckaert 2018 BEAST tree), NOT a population arrival."
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": true,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "mobtranslate-pg live dictionary",
+    "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "sout2773",
+  "canonical_name": "Southern Coastal Yawuru",
+  "autonym_candidate": {
+    "value": "Julbayi",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 1
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "sout2773",
+    "iso639_3": null,
+    "austlang": [
+      "K48"
+    ]
+  },
+  "family": "Nyulnyulan",
+  "classification_chain": [
+    {
+      "glottocode": "nyul1248",
+      "name": "Nyulnyulan"
+    },
+    {
+      "glottocode": "east2381",
+      "name": "Eastern Nyulnyulan"
+    },
+    {
+      "glottocode": "yawu1243",
+      "name": "Yawuric"
+    },
+    {
+      "glottocode": "yawu1244",
+      "name": "Yawuru"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -18.004,
+    "lon": 122.693,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": null,
+    "label": "unknown"
+  },
+  "grammar": {
+    "profiled": false,
+    "state": "not_profiled"
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (K48)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/K48",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": false,
+    "grammar_profile": false,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": null,
+    "grammar": null,
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

@@ -1,0 +1,113 @@
+{
+  "slug": "bili1250",
+  "canonical_name": "Bilinarra",
+  "autonym_candidate": {
+    "value": "Bilinara",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 4
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "dialect",
+  "ids": {
+    "glottocode": "bili1250",
+    "iso639_3": null,
+    "austlang": [
+      "N36"
+    ]
+  },
+  "family": "Pama-Nyungan",
+  "classification_chain": [
+    {
+      "glottocode": "pama1250",
+      "name": "Pama-Nyungan"
+    },
+    {
+      "glottocode": "dese1234",
+      "name": "Desert Nyungic"
+    },
+    {
+      "glottocode": "ngum1251",
+      "name": "Ngumpin-Yapa"
+    },
+    {
+      "glottocode": "ngum1256",
+      "name": "Ngumpin"
+    },
+    {
+      "glottocode": "guri1250",
+      "name": "Eastern Ngumpin"
+    },
+    {
+      "glottocode": "ngum1257",
+      "name": "Ngumpit"
+    },
+    {
+      "glottocode": "ngar1235",
+      "name": "Ngarinman"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -16.868771,
+    "lon": 130.533991,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 5,
+    "label": "nearly extinct"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 167,
+    "has_wals": true,
+    "wals_feature_count": 7,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 85.6,
+    "feature_count": 174
+  },
+  "lexicon": {
+    "state": "pointer_only",
+    "resource_count": 1,
+    "pointer": {
+      "title": "AIATSIS AUSTLANG catalogue entry (N36)",
+      "url": "https://collection.aiatsis.gov.au/austlang/language/N36",
+      "license": "metadata CC-BY-4.0; resources rights-managed"
+    }
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": false,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": false,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "documented",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "catalogue pointer (rights-managed)",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}

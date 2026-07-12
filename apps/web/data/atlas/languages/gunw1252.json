@@ -1,0 +1,89 @@
+{
+  "slug": "gunw1252",
+  "canonical_name": "Bininj Kun-Wok",
+  "autonym_candidate": {
+    "value": "Bininj Gun wok",
+    "status": "unverified — from alt-names",
+    "all_candidates_count": 54
+  },
+  "is_genuine_language": true,
+  "source_kind": "language",
+  "level": "language",
+  "ids": {
+    "glottocode": "gunw1252",
+    "iso639_3": "gup",
+    "austlang": [
+      "N173",
+      "N201",
+      "N59",
+      "N65",
+      "N71"
+    ]
+  },
+  "family": "Gunwinyguan",
+  "classification_chain": [
+    {
+      "glottocode": "gunw1250",
+      "name": "Gunwinyguan"
+    }
+  ],
+  "classification_state": "classified",
+  "macroarea": "Australia",
+  "region": "Australia",
+  "state": null,
+  "coordinates": {
+    "lat": -12.3398,
+    "lon": 133.358,
+    "provenance": "glottolog",
+    "approximate": false
+  },
+  "endangerment": {
+    "aes_level": 3,
+    "label": "shifting"
+  },
+  "grammar": {
+    "profiled": true,
+    "has_grambank": true,
+    "grambank_feature_count": 191,
+    "has_wals": true,
+    "wals_feature_count": 51,
+    "has_db_typology": true,
+    "db_typology_coverage_pct": 97.9,
+    "feature_count": 242
+  },
+  "lexicon": {
+    "state": "live",
+    "word_count": 49,
+    "db_code": "gunwinggu"
+  },
+  "deep_time": {
+    "dated": false,
+    "state": "undated_or_coordinate_only"
+  },
+  "data_completeness": {
+    "name": true,
+    "any_id": true,
+    "glottocode": true,
+    "iso639_3": true,
+    "austlang": true,
+    "classification_chain": true,
+    "coordinates_real": true,
+    "coordinates_any": true,
+    "endangerment": true,
+    "grammar_profile": true,
+    "lexicon_data": true,
+    "deep_time_dated": false,
+    "autonym_candidate": true
+  },
+  "tier": "comprehensive",
+  "sources": {
+    "classification": "Glottolog 5.3 CLDF (CC-BY-4.0)",
+    "coordinates": "Glottolog 5.3 (CC-BY-4.0)",
+    "endangerment": "Glottolog AES (CC-BY-4.0)",
+    "grammar": "Grambank v1.0.3 / WALS 2020.4 (CC-BY-4.0)",
+    "lexicon": "mobtranslate-pg live dictionary",
+    "deep_time": null,
+    "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
+  },
+  "registry_source": "glottolog"
+}
