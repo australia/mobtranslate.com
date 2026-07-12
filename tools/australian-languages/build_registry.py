@@ -213,6 +213,16 @@ def main():
             conf, meth = "medium", "synonym-vote"
         else:
             conf, meth = "low", "synonym-weak"
+        # family/subgroup reject: a name that only matches a Glottolog FAMILY node (e.g. the
+        # Bundjalung dialects -> 'Bandjalangic' family, or Pitta-Pitta / Kulin / S-E Tasmanian
+        # subgroups) has no 1:1 language/dialect glottocode. Families are not emitted as rows, so
+        # without this the variety would be counted "mapped" yet appear on NO row and NOT in the
+        # unmapped list — a silent drop. Reject it so it flows into the austlang-only rows (kept,
+        # with coords, and listed as unmapped), consistent with the distance gate below.
+        if glang.get(best_gc, {}).get("Level") == "family":
+            al_match[code] = dict(glottocode=None, score=best, margin=margin,
+                                  method="rejected-family-node", confidence="unmapped")
+            continue
         # distance sanity gate (only when both the variety and the glottocode have coords)
         alat, alon = num(r.get("approximate_latitude_of_language_variety")), \
                      num(r.get("approximate_longitude_of_language_variety"))
@@ -376,6 +386,8 @@ def main():
             for band in ["high", "medium", "low", "unmapped"]},
         "austlang_rejected_by_distance_gate": sum(
             1 for m in al_match.values() if m["method"] == "rejected-distance"),
+        "austlang_rejected_by_family_node": sum(
+            1 for m in al_match.values() if m["method"] == "rejected-family-node"),
         "duplicate_glottocodes": dup,
         "coords_outside_australia_bbox": outside,
         "aus_bbox": AUS_BBOX,
