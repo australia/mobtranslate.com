@@ -51,9 +51,430 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 32,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 32
+    "feature_count": 32,
+    "features": [
+      {
+        "feature_id": "23A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Locus of Marking in the Clause",
+        "value": "Double marking",
+        "state": "value",
+        "raw": "Double marking"
+      },
+      {
+        "feature_id": "24A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Locus of Marking in Possessive Noun Phrases",
+        "value": "Dependent marking",
+        "state": "value",
+        "raw": "Dependent marking"
+      },
+      {
+        "feature_id": "25A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Locus of Marking: Whole-language Typology",
+        "value": "Inconsistent or other",
+        "state": "value",
+        "raw": "Inconsistent or other"
+      },
+      {
+        "feature_id": "25B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Zero Marking of A and P Arguments",
+        "value": "Non-zero marking",
+        "state": "value",
+        "raw": "Non-zero marking"
+      },
+      {
+        "feature_id": "27A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Reduplication",
+        "value": "Productive full and partial reduplication",
+        "state": "value",
+        "raw": "Productive full and partial reduplication"
+      },
+      {
+        "feature_id": "46A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Indefinite Pronouns",
+        "value": "Interrogative-based",
+        "state": "value",
+        "raw": "Interrogative-based"
+      },
+      {
+        "feature_id": "51A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Position of Case Affixes",
+        "value": "Postpositional clitics",
+        "state": "value",
+        "raw": "Postpositional clitics"
+      },
+      {
+        "feature_id": "58A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Obligatory Possessive Inflection",
+        "value": "Absent",
+        "state": "absent",
+        "raw": "Absent"
+      },
+      {
+        "feature_id": "58B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Number of Possessive Nouns",
+        "value": "None reported",
+        "state": "value",
+        "raw": "None reported"
+      },
+      {
+        "feature_id": "59A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Possessive Classification",
+        "value": "No possessive classification",
+        "state": "value",
+        "raw": "No possessive classification"
+      },
+      {
+        "feature_id": "11A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Front Rounded Vowels",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "13A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Tone",
+        "value": "No tones",
+        "state": "value",
+        "raw": "No tones"
+      },
+      {
+        "feature_id": "18A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Absence of Common Consonants",
+        "value": "No fricatives",
+        "state": "value",
+        "raw": "No fricatives"
+      },
+      {
+        "feature_id": "19A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Presence of Uncommon Consonants",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "1A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Consonant Inventories",
+        "value": "Moderately small",
+        "state": "value",
+        "raw": "Moderately small"
+      },
+      {
+        "feature_id": "2A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Vowel Quality Inventories",
+        "value": "Average (5-6)",
+        "state": "value",
+        "raw": "Average (5-6)"
+      },
+      {
+        "feature_id": "3A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Consonant-Vowel Ratio",
+        "value": "Average",
+        "state": "value",
+        "raw": "Average"
+      },
+      {
+        "feature_id": "4A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Voicing in Plosives and Fricatives",
+        "value": "No voicing contrast",
+        "state": "value",
+        "raw": "No voicing contrast"
+      },
+      {
+        "feature_id": "5A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Voicing and Gaps in Plosive Systems",
+        "value": "Other",
+        "state": "value",
+        "raw": "Other"
+      },
+      {
+        "feature_id": "6A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Uvular Consonants",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "7A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Glottalized Consonants",
+        "value": "No glottalized consonants",
+        "state": "value",
+        "raw": "No glottalized consonants"
+      },
+      {
+        "feature_id": "8A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Lateral Consonants",
+        "value": "/l/, no obstruent laterals",
+        "state": "value",
+        "raw": "/l/, no obstruent laterals"
+      },
+      {
+        "feature_id": "101A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Expression of Pronominal Subjects",
+        "value": "Subject affixes on verb",
+        "state": "value",
+        "raw": "Subject affixes on verb"
+      },
+      {
+        "feature_id": "105A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Ditransitive Constructions: The Verb 'Give'",
+        "value": "Double-object construction",
+        "state": "value",
+        "raw": "Double-object construction"
+      },
+      {
+        "feature_id": "112A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Negative Morphemes",
+        "value": "Negative particle",
+        "state": "value",
+        "raw": "Negative particle"
+      },
+      {
+        "feature_id": "69A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "Position of Tense-Aspect Affixes",
+        "value": "Tense-aspect prefixes",
+        "state": "value",
+        "raw": "Tense-aspect prefixes"
+      },
+      {
+        "feature_id": "81A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject, Object and Verb",
+        "value": "SVO",
+        "state": "value",
+        "raw": "SVO"
+      },
+      {
+        "feature_id": "82A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject and Verb",
+        "value": "SV",
+        "state": "value",
+        "raw": "SV"
+      },
+      {
+        "feature_id": "83A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object and Verb",
+        "value": "VO",
+        "state": "value",
+        "raw": "VO"
+      },
+      {
+        "feature_id": "84A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object, Oblique, and Verb",
+        "value": "No dominant order",
+        "state": "value",
+        "raw": "No dominant order"
+      },
+      {
+        "feature_id": "85A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Adposition and Noun Phrase",
+        "value": "Postpositions",
+        "state": "value",
+        "raw": "Postpositions"
+      },
+      {
+        "feature_id": "95A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Relationship between the Order of Object and Verb and the Order of Adposition and Noun Phrase",
+        "value": "VO and Postpositions",
+        "state": "value",
+        "raw": "VO and Postpositions"
+      },
+      {
+        "feature_id": "AUX007",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "case",
+        "label": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+        "value": "postpositional-clitic",
+        "state": "value",
+        "raw": "postpositional-clitic"
+      },
+      {
+        "feature_id": "AUX036",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "negation",
+        "label": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+        "value": "particle",
+        "state": "value",
+        "raw": "particle"
+      },
+      {
+        "feature_id": "AUX051",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun",
+        "label": "Whether interrogatives ('who/what') double as indefinites ('someone/something') — an 'ignorative' series. Partially derivable from WALS Indefinite Pronouns (interrogative-based).",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX010",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun-marking",
+        "label": "How pronominal subjects are expressed: obligatory free pronoun, subject affix on the verb, clitic on a variable host (e.g. second position / auxiliary), etc.",
+        "value": "subject-affix-on-verb",
+        "state": "value",
+        "raw": "subject-affix-on-verb"
+      },
+      {
+        "feature_id": "AUX011",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun-marking",
+        "label": "Whether bound pronouns form a clitic cluster on a variable (typically second-position/auxiliary) host rather than being fixed to the verb.",
+        "value": "no",
+        "state": "absent",
+        "raw": "no"
+      },
+      {
+        "feature_id": "AUX038",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "syntax",
+        "label": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+        "value": "SVO",
+        "state": "value",
+        "raw": "SVO"
+      },
+      {
+        "feature_id": "AUX039",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "syntax",
+        "label": "Prepositions vs postpositions vs no dominant adpositions.",
+        "value": "postpositions",
+        "state": "value",
+        "raw": "postpositions"
+      },
+      {
+        "feature_id": "AUX026",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+        "value": "prefix",
+        "state": "value",
+        "raw": "prefix"
+      },
+      {
+        "feature_id": "AUX030",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether reduplication is productive and of what kind (full/partial).",
+        "value": "full-and-partial",
+        "state": "value",
+        "raw": "full-and-partial"
+      }
+    ],
+    "features_summary": {
+      "total": 41,
+      "coded": 41,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 32,
+        "AUS extension": 9
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -93,5 +514,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "uwin1234",
+      "name": "Uwinymil",
+      "family": "Gunwinyguan",
+      "basis": "same-subgroup",
+      "subgroup": "Warrayic"
+    }
+  ]
 }

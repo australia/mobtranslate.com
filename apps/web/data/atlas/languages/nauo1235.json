@@ -86,5 +86,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "ngad1257",
+      "name": "Ngadjuri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Unclassified Core Thura-Yura"
+    },
+    {
+      "slug": "nugu1241",
+      "name": "Nugunu (Australia)",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Unclassified Core Thura-Yura"
+    }
+  ]
 }

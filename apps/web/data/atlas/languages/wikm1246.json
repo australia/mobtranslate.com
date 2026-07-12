@@ -99,5 +99,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "wike1239",
+      "name": "Wik-Epa",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Ep-Meanha-Keyenganh"
+    }
+  ]
 }

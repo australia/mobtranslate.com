@@ -88,5 +88,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "guda1243",
+      "name": "Gudanji",
+      "family": "Mirndi",
+      "basis": "same-subgroup",
+      "subgroup": "Wambaya-Gudanji"
+    }
+  ]
 }

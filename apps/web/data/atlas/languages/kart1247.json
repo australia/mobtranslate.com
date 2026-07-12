@@ -111,5 +111,35 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "many1256",
+      "name": "Manyjilyjara",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    },
+    {
+      "slug": "pudi1238",
+      "name": "Puditara",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    },
+    {
+      "slug": "wang1288",
+      "name": "Wangkajunga",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    },
+    {
+      "slug": "yulp1238",
+      "name": "Yulparitja",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    }
+  ]
 }

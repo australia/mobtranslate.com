@@ -90,5 +90,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "gana1269",
+      "name": "Ganalbingu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Djinba"
+    },
+    {
+      "slug": "mand1418",
+      "name": "Mandjalpingu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Djinba"
+    }
+  ]
 }

@@ -50,9 +50,130 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 7,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 7
+    "feature_count": 7,
+    "features": [
+      {
+        "feature_id": "27A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Reduplication",
+        "value": "Productive full and partial reduplication",
+        "state": "value",
+        "raw": "Productive full and partial reduplication"
+      },
+      {
+        "feature_id": "51A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Position of Case Affixes",
+        "value": "Case suffixes",
+        "state": "value",
+        "raw": "Case suffixes"
+      },
+      {
+        "feature_id": "69A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "Position of Tense-Aspect Affixes",
+        "value": "Tense-aspect suffixes",
+        "state": "value",
+        "raw": "Tense-aspect suffixes"
+      },
+      {
+        "feature_id": "81A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject, Object and Verb",
+        "value": "SOV",
+        "state": "value",
+        "raw": "SOV"
+      },
+      {
+        "feature_id": "82A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject and Verb",
+        "value": "SV",
+        "state": "value",
+        "raw": "SV"
+      },
+      {
+        "feature_id": "83A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object and Verb",
+        "value": "OV",
+        "state": "value",
+        "raw": "OV"
+      },
+      {
+        "feature_id": "88A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Demonstrative and Noun",
+        "value": "Demonstrative-Noun",
+        "state": "value",
+        "raw": "Demonstrative-Noun"
+      },
+      {
+        "feature_id": "AUX007",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "case",
+        "label": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+        "value": "suffix",
+        "state": "value",
+        "raw": "suffix"
+      },
+      {
+        "feature_id": "AUX038",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "syntax",
+        "label": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+        "value": "SOV",
+        "state": "value",
+        "raw": "SOV"
+      },
+      {
+        "feature_id": "AUX026",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+        "value": "suffix",
+        "state": "value",
+        "raw": "suffix"
+      },
+      {
+        "feature_id": "AUX030",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether reduplication is productive and of what kind (full/partial).",
+        "value": "full-and-partial",
+        "state": "value",
+        "raw": "full-and-partial"
+      }
+    ],
+    "features_summary": {
+      "total": 11,
+      "coded": 11,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 7,
+        "AUS extension": 4
+      }
+    }
   },
   "lexicon": {
     "state": "open_resource",
@@ -92,5 +213,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "ngal1293",
+      "name": "Ngalakgan",
+      "family": "Gunwinyguan",
+      "basis": "same-subgroup",
+      "subgroup": "Jala"
+    }
+  ]
 }

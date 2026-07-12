@@ -87,9 +87,109 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 10,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 10
+    "feature_count": 10,
+    "features": [
+      {
+        "feature_id": "132A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Number of Non-Derived Basic Colour Categories",
+        "value": "6",
+        "state": "value",
+        "raw": "6"
+      },
+      {
+        "feature_id": "133A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Number of Basic Colour Categories",
+        "value": "11",
+        "state": "value",
+        "raw": "11"
+      },
+      {
+        "feature_id": "134A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Green and Blue",
+        "value": "Green vs. blue",
+        "state": "value",
+        "raw": "Green vs. blue"
+      },
+      {
+        "feature_id": "135A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Red and Yellow",
+        "value": "Red vs. yellow",
+        "state": "value",
+        "raw": "Red vs. yellow"
+      },
+      {
+        "feature_id": "36A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "The Associative Plural",
+        "value": "Unique affixal associative plural",
+        "state": "value",
+        "raw": "Unique affixal associative plural"
+      },
+      {
+        "feature_id": "65A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "Perfective/Imperfective Aspect",
+        "value": "No grammatical marking",
+        "state": "value",
+        "raw": "No grammatical marking"
+      },
+      {
+        "feature_id": "66A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "The Past Tense",
+        "value": "Present, no remoteness distinctions",
+        "state": "value",
+        "raw": "Present, no remoteness distinctions"
+      },
+      {
+        "feature_id": "67A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "The Future Tense",
+        "value": "No inflectional future",
+        "state": "value",
+        "raw": "No inflectional future"
+      },
+      {
+        "feature_id": "68A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "The Perfect",
+        "value": "No perfect",
+        "state": "value",
+        "raw": "No perfect"
+      }
+    ],
+    "features_summary": {
+      "total": 9,
+      "coded": 9,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 9
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",

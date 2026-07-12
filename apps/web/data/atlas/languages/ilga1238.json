@@ -78,5 +78,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "gari1254",
+      "name": "Garig",
+      "family": "Iwaidjan Proper",
+      "basis": "same-subgroup",
+      "subgroup": "Garig-Ilgar"
+    }
+  ]
 }

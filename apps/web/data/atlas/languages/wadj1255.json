@@ -95,5 +95,35 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "gung1248",
+      "name": "Gungabula",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southern Maric"
+    },
+    {
+      "slug": "guwa1243",
+      "name": "Guwamu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southern Maric"
+    },
+    {
+      "slug": "kung1258",
+      "name": "Kunggari",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southern Maric"
+    },
+    {
+      "slug": "mand1417",
+      "name": "Mandandanyi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southern Maric"
+    }
+  ]
 }

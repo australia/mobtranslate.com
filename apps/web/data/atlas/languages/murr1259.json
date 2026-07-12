@@ -74,5 +74,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "murr1260",
+      "name": "Murrinhdiminin",
+      "family": "Southern Daly",
+      "basis": "same-subgroup",
+      "subgroup": "Murriny Patha"
+    },
+    {
+      "slug": "murr1261",
+      "name": "Murrinhkura",
+      "family": "Southern Daly",
+      "basis": "same-subgroup",
+      "subgroup": "Murriny Patha"
+    }
+  ]
 }

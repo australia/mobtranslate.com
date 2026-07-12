@@ -91,5 +91,35 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kart1247",
+      "name": "Kartujarra",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    },
+    {
+      "slug": "many1256",
+      "name": "Manyjilyjara",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    },
+    {
+      "slug": "wang1288",
+      "name": "Wangkajunga",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    },
+    {
+      "slug": "yulp1238",
+      "name": "Yulparitja",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    }
+  ]
 }

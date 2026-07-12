@@ -74,5 +74,28 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kala1378",
+      "name": "Kalaw Kawaw Ya",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Kala Lagaw Ya"
+    },
+    {
+      "slug": "kawr1234",
+      "name": "Kawrareg",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Kala Lagaw Ya"
+    },
+    {
+      "slug": "mabu1248",
+      "name": "Mabuyag",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Kala Lagaw Ya"
+    }
+  ]
 }

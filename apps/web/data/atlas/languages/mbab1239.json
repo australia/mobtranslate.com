@@ -52,9 +52,229 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 21,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 21
+    "feature_count": 21,
+    "features": [
+      {
+        "feature_id": "129A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Hand and Arm",
+        "value": "Different",
+        "state": "value",
+        "raw": "Different"
+      },
+      {
+        "feature_id": "39B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Inclusive/Exclusive Forms in Pama-Nyungan",
+        "value": "No inclusive/exclusive opposition",
+        "state": "value",
+        "raw": "No inclusive/exclusive opposition"
+      },
+      {
+        "feature_id": "11A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Front Rounded Vowels",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "12A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Syllable Structure",
+        "value": "Moderately complex",
+        "state": "value",
+        "raw": "Moderately complex"
+      },
+      {
+        "feature_id": "13A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Tone",
+        "value": "No tones",
+        "state": "value",
+        "raw": "No tones"
+      },
+      {
+        "feature_id": "14A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Fixed Stress Locations",
+        "value": "Second",
+        "state": "value",
+        "raw": "Second"
+      },
+      {
+        "feature_id": "15A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight-Sensitive Stress",
+        "value": "Fixed stress (no weight-sensitivity)",
+        "state": "value",
+        "raw": "Fixed stress (no weight-sensitivity)"
+      },
+      {
+        "feature_id": "16A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight Factors in Weight-Sensitive Stress Systems",
+        "value": "No weight",
+        "state": "value",
+        "raw": "No weight"
+      },
+      {
+        "feature_id": "18A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Absence of Common Consonants",
+        "value": "No fricatives",
+        "state": "value",
+        "raw": "No fricatives"
+      },
+      {
+        "feature_id": "19A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Presence of Uncommon Consonants",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "1A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Consonant Inventories",
+        "value": "Average",
+        "state": "value",
+        "raw": "Average"
+      },
+      {
+        "feature_id": "2A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Vowel Quality Inventories",
+        "value": "Small (2-4)",
+        "state": "value",
+        "raw": "Small (2-4)"
+      },
+      {
+        "feature_id": "3A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Consonant-Vowel Ratio",
+        "value": "Moderately high",
+        "state": "value",
+        "raw": "Moderately high"
+      },
+      {
+        "feature_id": "4A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Voicing in Plosives and Fricatives",
+        "value": "No voicing contrast",
+        "state": "value",
+        "raw": "No voicing contrast"
+      },
+      {
+        "feature_id": "5A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Voicing and Gaps in Plosive Systems",
+        "value": "Other",
+        "state": "value",
+        "raw": "Other"
+      },
+      {
+        "feature_id": "6A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Uvular Consonants",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "7A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Glottalized Consonants",
+        "value": "No glottalized consonants",
+        "state": "value",
+        "raw": "No glottalized consonants"
+      },
+      {
+        "feature_id": "8A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Lateral Consonants",
+        "value": "/l/, no obstruent laterals",
+        "state": "value",
+        "raw": "/l/, no obstruent laterals"
+      },
+      {
+        "feature_id": "105A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Ditransitive Constructions: The Verb 'Give'",
+        "value": "Indirect-object construction",
+        "state": "value",
+        "raw": "Indirect-object construction"
+      },
+      {
+        "feature_id": "70A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "The Morphological Imperative",
+        "value": "Second person number-neutral",
+        "state": "value",
+        "raw": "Second person number-neutral"
+      },
+      {
+        "feature_id": "71A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "The Prohibitive",
+        "value": "Normal imperative + special negative",
+        "state": "value",
+        "raw": "Normal imperative + special negative"
+      }
+    ],
+    "features_summary": {
+      "total": 21,
+      "coded": 21,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 21
+      }
+    }
   },
   "lexicon": {
     "state": "open_resource",
@@ -106,5 +326,14 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "wami1239",
+      "name": "Wamin",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Finasleigh Pama"
+    }
+  ]
 }

@@ -102,5 +102,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "east2375",
+      "name": "East Ngarluma",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Ngarluma"
+    },
+    {
+      "slug": "jabu1247",
+      "name": "Jaburarra",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Ngarluma"
+    }
+  ]
 }

@@ -102,5 +102,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "nucl1333",
+      "name": "Nuclear Dhuwal",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Dhuwal"
+    }
+  ]
 }

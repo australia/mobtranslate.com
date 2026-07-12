@@ -94,5 +94,28 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "gali1267",
+      "name": "Galibal",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Condamine-Upper Clarence Bandjalang"
+    },
+    {
+      "slug": "gida1240",
+      "name": "Gidabal",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Condamine-Upper Clarence Bandjalang"
+    },
+    {
+      "slug": "warw1234",
+      "name": "Warwick",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Condamine-Upper Clarence Bandjalang"
+    }
+  ]
 }

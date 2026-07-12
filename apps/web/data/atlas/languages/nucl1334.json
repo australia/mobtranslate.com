@@ -94,5 +94,42 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "mada1281",
+      "name": "Madarrpa",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Gupapuyngu"
+    },
+    {
+      "slug": "mang1385",
+      "name": "Manggalili",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Gupapuyngu"
+    },
+    {
+      "slug": "muny1238",
+      "name": "Munyuku",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Gupapuyngu"
+    },
+    {
+      "slug": "wala1264",
+      "name": "Walangu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Gupapuyngu"
+    },
+    {
+      "slug": "wubu1238",
+      "name": "Wubulkarra",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Gupapuyngu"
+    }
+  ]
 }

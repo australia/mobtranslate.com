@@ -91,5 +91,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "east2382",
+      "name": "Eastern Inland Yawuru",
+      "family": "Nyulnyulan",
+      "basis": "same-subgroup",
+      "subgroup": "Yawuru"
+    },
+    {
+      "slug": "nort2762",
+      "name": "Northern Yawuru",
+      "family": "Nyulnyulan",
+      "basis": "same-subgroup",
+      "subgroup": "Yawuru"
+    }
+  ]
 }

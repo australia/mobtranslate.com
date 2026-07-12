@@ -94,5 +94,21 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "bind1234",
+      "name": "Bindal-Cunningham",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Bindalic"
+    },
+    {
+      "slug": "bind1235",
+      "name": "Bindal-Gorton",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Bindalic"
+    }
+  ]
 }

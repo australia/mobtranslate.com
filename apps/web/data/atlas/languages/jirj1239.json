@@ -57,9 +57,160 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 12,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 12
+    "feature_count": 12,
+    "features": [
+      {
+        "feature_id": "124A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Complex Sentences",
+        "label": "'Want' Complement Subjects",
+        "value": "Desiderative verbal affix",
+        "state": "value",
+        "raw": "Desiderative verbal affix"
+      },
+      {
+        "feature_id": "129A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Hand and Arm",
+        "value": "Different",
+        "state": "value",
+        "raw": "Different"
+      },
+      {
+        "feature_id": "130A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Finger and Hand",
+        "value": "Identical",
+        "state": "value",
+        "raw": "Identical"
+      },
+      {
+        "feature_id": "130B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Cultural Categories of Languages with Identity of 'Finger' and 'Hand'",
+        "value": "Hunter-gatherers",
+        "state": "value",
+        "raw": "Hunter-gatherers"
+      },
+      {
+        "feature_id": "27A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Reduplication",
+        "value": "Productive full and partial reduplication",
+        "state": "value",
+        "raw": "Productive full and partial reduplication"
+      },
+      {
+        "feature_id": "52A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Comitatives and Instrumentals",
+        "value": "Differentiation",
+        "state": "value",
+        "raw": "Differentiation"
+      },
+      {
+        "feature_id": "14A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Fixed Stress Locations",
+        "value": "Initial",
+        "state": "value",
+        "raw": "Initial"
+      },
+      {
+        "feature_id": "15A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight-Sensitive Stress",
+        "value": "Fixed stress (no weight-sensitivity)",
+        "state": "value",
+        "raw": "Fixed stress (no weight-sensitivity)"
+      },
+      {
+        "feature_id": "16A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight Factors in Weight-Sensitive Stress Systems",
+        "value": "No weight",
+        "state": "value",
+        "raw": "No weight"
+      },
+      {
+        "feature_id": "17A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Rhythm Types",
+        "value": "No rhythmic stress",
+        "state": "value",
+        "raw": "No rhythmic stress"
+      },
+      {
+        "feature_id": "105A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Ditransitive Constructions: The Verb 'Give'",
+        "value": "Double-object construction",
+        "state": "value",
+        "raw": "Double-object construction"
+      },
+      {
+        "feature_id": "88A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Demonstrative and Noun",
+        "value": "Mixed",
+        "state": "value",
+        "raw": "Mixed"
+      },
+      {
+        "feature_id": "AUX009",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "case",
+        "label": "Whether 'with (accompaniment)' and 'with (instrument)' use the same or different marking — a much-discussed Australianist parameter.",
+        "value": "differentiated",
+        "state": "value",
+        "raw": "differentiated"
+      },
+      {
+        "feature_id": "AUX030",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether reduplication is productive and of what kind (full/partial).",
+        "value": "full-and-partial",
+        "state": "value",
+        "raw": "full-and-partial"
+      }
+    ],
+    "features_summary": {
+      "total": 14,
+      "coded": 14,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 12,
+        "AUS extension": 2
+      }
+    }
   },
   "lexicon": {
     "state": "none"
@@ -93,5 +244,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "dang1262",
+      "name": "Dangedl",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yir-Yoront"
+    },
+    {
+      "slug": "gorm1238",
+      "name": "Gorminang",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yir-Yoront"
+    }
+  ]
 }

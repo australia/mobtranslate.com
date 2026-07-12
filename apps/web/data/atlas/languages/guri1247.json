@@ -70,9 +70,39 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 2,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 2
+    "feature_count": 2,
+    "features": [
+      {
+        "feature_id": "36A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "The Associative Plural",
+        "value": "Unique affixal associative plural",
+        "state": "value",
+        "raw": "Unique affixal associative plural"
+      },
+      {
+        "feature_id": "142A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Other",
+        "label": "Para-Linguistic Usages of Clicks",
+        "value": "Other or none",
+        "state": "value",
+        "raw": "Other or none"
+      }
+    ],
+    "features_summary": {
+      "total": 2,
+      "coded": 2,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 2
+      }
+    }
   },
   "lexicon": {
     "state": "live",
@@ -120,5 +150,14 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "ngar1235",
+      "name": "Ngarinman",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Ngumpit"
+    }
+  ]
 }

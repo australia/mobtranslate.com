@@ -70,5 +70,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "brun1235",
+      "name": "Bruny Island",
+      "family": "South-Eastern Tasmanian",
+      "basis": "same-subgroup",
+      "subgroup": "South-Eastern Tasmanian"
+    }
+  ]
 }

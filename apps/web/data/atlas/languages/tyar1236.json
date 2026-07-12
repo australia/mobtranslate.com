@@ -43,9 +43,210 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 17,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 17
+    "feature_count": 17,
+    "features": [
+      {
+        "feature_id": "112A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Negative Morphemes",
+        "value": "Double negation",
+        "state": "value",
+        "raw": "Double negation"
+      },
+      {
+        "feature_id": "143A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Negative Morpheme and Verb",
+        "value": "ObligDoubleNeg",
+        "state": "value",
+        "raw": "ObligDoubleNeg"
+      },
+      {
+        "feature_id": "143B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Obligatory Double Negation",
+        "value": "NegVNeg",
+        "state": "value",
+        "raw": "NegVNeg"
+      },
+      {
+        "feature_id": "143E",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Preverbal Negative Morphemes",
+        "value": "NegV",
+        "state": "value",
+        "raw": "NegV"
+      },
+      {
+        "feature_id": "143F",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Postverbal Negative Morphemes",
+        "value": "VNeg",
+        "state": "value",
+        "raw": "VNeg"
+      },
+      {
+        "feature_id": "143G",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Minor morphological means of signaling negation",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "144A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Negative Word With Respect to Subject, Object, and Verb",
+        "value": "ObligDoubleNeg",
+        "state": "value",
+        "raw": "ObligDoubleNeg"
+      },
+      {
+        "feature_id": "144L",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "The Position of Negative Morphemes in SOV Languages",
+        "value": "ObligDoubleNeg",
+        "state": "value",
+        "raw": "ObligDoubleNeg"
+      },
+      {
+        "feature_id": "144N",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Obligatory Double Negation in SOV languages",
+        "value": "SONegVNeg",
+        "state": "value",
+        "raw": "SONegVNeg"
+      },
+      {
+        "feature_id": "144P",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "NegSOV Order",
+        "value": "No NegSOV",
+        "state": "value",
+        "raw": "No NegSOV"
+      },
+      {
+        "feature_id": "144Q",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "SNegOV Order",
+        "value": "No SNegOV",
+        "state": "value",
+        "raw": "No SNegOV"
+      },
+      {
+        "feature_id": "144R",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "SONegV Order",
+        "value": "Word&OnlyWithAnotherNeg",
+        "state": "value",
+        "raw": "Word&OnlyWithAnotherNeg"
+      },
+      {
+        "feature_id": "144S",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "SOVNeg Order",
+        "value": "Word&OnlyWithAnotherNeg",
+        "state": "value",
+        "raw": "Word&OnlyWithAnotherNeg"
+      },
+      {
+        "feature_id": "81A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject, Object and Verb",
+        "value": "SOV",
+        "state": "value",
+        "raw": "SOV"
+      },
+      {
+        "feature_id": "82A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject and Verb",
+        "value": "SV",
+        "state": "value",
+        "raw": "SV"
+      },
+      {
+        "feature_id": "83A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object and Verb",
+        "value": "OV",
+        "state": "value",
+        "raw": "OV"
+      },
+      {
+        "feature_id": "86A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Genitive and Noun",
+        "value": "Genitive-Noun",
+        "state": "value",
+        "raw": "Genitive-Noun"
+      },
+      {
+        "feature_id": "AUX036",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "negation",
+        "label": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+        "value": "double",
+        "state": "value",
+        "raw": "double"
+      },
+      {
+        "feature_id": "AUX038",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "syntax",
+        "label": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+        "value": "SOV",
+        "state": "value",
+        "raw": "SOV"
+      }
+    ],
+    "features_summary": {
+      "total": 19,
+      "coded": 19,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 17,
+        "AUS extension": 2
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -85,5 +286,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "mull1237",
+      "name": "Mullukmulluk",
+      "family": "Northern Daly",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Daly"
+    }
+  ]
 }

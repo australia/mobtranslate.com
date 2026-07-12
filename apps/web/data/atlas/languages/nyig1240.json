@@ -53,7 +53,2199 @@
     "wals_feature_count": 20,
     "has_db_typology": true,
     "db_typology_coverage_pct": 65.6,
-    "feature_count": 148
+    "feature_count": 148,
+    "features": [
+      {
+        "feature_id": "GB024",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Order of numeral and noun in the noun phrase: 1=Numeral-Noun, 2=Noun-Numeral, 3=both orders occur.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB130",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Unmarked order of S and V in intransitive clauses: 1=SV, 2=VS, 3=both.",
+        "value": "SV",
+        "state": "value",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB134",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether constituent order is the same in main and subordinate clauses.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB150",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether the language has clause chaining (long strings of dependent clauses + one final finite verb).",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB152",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether there is a morphological simultaneous-vs-sequential clause distinction.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB204",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether collective 'all' and distributive 'every' quantifiers differ in form or position.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB257",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether yes/no questions can be marked by intonation alone.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB260",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether yes/no questions can be marked by a special word order.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB265",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether the comparative uses a form that elsewhere means 'surpass/exceed'.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB266",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether the comparative marks the standard with a form that elsewhere is locational ('from/at').",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB270",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether comparatives can be expressed by two conjoined clauses ('X is big, Y is small').",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB273",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether the comparative standard marker has neither a locational nor a 'surpass' source.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB275",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether there is a bound comparative degree marker on the property word.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB276",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether there is a free comparative degree marker (like 'more') modifying the property word.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB291",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether yes/no questions can be marked by tone.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB297",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether yes/no questions can be marked by a V-not-V construction.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB325",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether interrogative quantifiers show a count/mass distinction ('how many' vs 'how much').",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB326",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether content interrogatives normally stay in situ (not fronted).",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB327",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether a relative clause can follow its head noun.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB328",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether a relative clause can precede its head noun.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB329",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether there are internally-headed relative clauses.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB330",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether there are correlative relative clauses.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB331",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "clause_and_syntax",
+        "label": "Whether there are non-adjacent (extraposed) relative clauses.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB035",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "demonstrative",
+        "label": "Whether demonstratives make three or more distance contrasts (e.g. near/mid/far).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB036",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "demonstrative",
+        "label": "Whether demonstratives encode an elevation distinction (up-here vs down-there).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB037",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "demonstrative",
+        "label": "Whether demonstratives encode a visible-vs-nonvisible distinction.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB020",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether the language has a definite or specific article (a grammatical word like English 'the').",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB021",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether indefinite nominals commonly take an indefinite article (like English 'a/an').",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB022",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an article, if present, comes before the noun (prenominal).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB023",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an article, if present, comes after the noun (postnominal).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB025",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Order of an adnominal demonstrative ('this/that') and noun: 1=Dem-Noun, 2=Noun-Dem, 3=both.",
+        "value": "both.",
+        "state": "value",
+        "raw": "3"
+      },
+      {
+        "feature_id": "GB026",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether adjective-like property words can be separated from their noun (occur discontinuously).",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB030",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether independent 3rd-person pronouns mark a gender distinction (he vs she).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB031",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether every person category has a dual (or unit-augmented) form in addition to plural.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB038",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether the language has demonstrative classifiers.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB043",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is productive morphological dual marking on nouns.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB044",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is productive morphological plural marking on nouns.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB046",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is an associative plural marker ('X and those associated with X').",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB047",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an action/state noun can be productively derived from a verb (e.g. 'run' -> 'running').",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB048",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an agent noun can be productively derived from a verb (e.g. 'teach' -> 'teacher').",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB049",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an object/result noun can be productively derived from a verb.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB051",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether the gender/noun-class system uses biological sex as a class-assignment factor.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB052",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether the gender/noun-class system uses shape as a class-assignment factor.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB053",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether the gender/noun-class system uses animacy as a class-assignment factor.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB054",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether the gender/noun-class system uses plant status as a class-assignment factor.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB057",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether the language has numeral classifiers (a sortal element required when counting).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB058",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether the language has possessive classifiers.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB059",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether the possessive construction differs for alienable vs inalienable nouns (e.g. 'my dog' vs 'my hand').",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB065",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Unmarked order of possessor noun and possessed noun: 1=Possessor-Possessed, 2=Possessed-Possessor, 3=both.",
+        "value": "both",
+        "state": "value",
+        "raw": "3"
+      },
+      {
+        "feature_id": "GB158",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether verbs undergo reduplication.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB159",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether nouns undergo reduplication.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB160",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether words other than verbs or nouns undergo reduplication.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB165",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is productive morphological trial marking on nouns.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB166",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is productive morphological paucal marking on nouns ('a few').",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB170",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an adjective-like property word can agree with its noun in gender/noun class.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB171",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an adnominal demonstrative can agree with its noun in gender/noun class.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB172",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an article can agree with its noun in gender/noun class.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB177",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether the verb marks the animacy of an argument (independent of NP-level gender/class).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB184",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an adjective-like property word can agree with its noun in number.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB185",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an adnominal demonstrative can agree with its noun in number.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB186",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an article can agree with its noun in number.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB187",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is productive diminutive marking on the noun (excluding pure noun-class shift).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB188",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is productive augmentative marking on the noun (excluding pure noun-class shift).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB192",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether a noun's phonological shape is a factor in gender/class assignment.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB193",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Order of adjective-like property word and noun: 0=not used attributively, 1=Adj-N, 2=N-Adj, 3=both.",
+        "value": "ANM - N",
+        "state": "value",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB198",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether an adnominal numeral can agree with its noun in gender/noun class.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB203",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Order of the collective 'all' quantifier and noun: 0=no such quantifier, 1=Q-N, 2=N-Q, 3=both.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB250",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether predicative possession can use a transitive 'have' (habeo) verb.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB252",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether predicative possession can use a locative-coded possessor ('at me is a dog').",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB253",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether predicative possession can use a dative-coded possessor ('to me is a dog').",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB254",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether predicative possession can use a possessor coded like an adnominal possessor.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB256",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether predicative possession can use a comitative-coded possessum ('I am with a dog').",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB262",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is a clause-initial yes/no question particle.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB263",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is a clause-final yes/no question particle.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB264",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is a yes/no question particle sitting neither clause-initially nor clause-finally.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB285",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether yes/no questions can be marked by a question particle plus verbal morphology.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB299",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether standard negation can be marked by a non-inflecting negative particle.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB302",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is a free (particle/auxiliary) passive marker.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB303",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is a free (particle/auxiliary) antipassive marker.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB313",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there are special adnominal possessive pronouns not formed by a regular process.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB314",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether augmentative meaning can be expressed by shifting gender/noun class.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB315",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether diminutive meaning can be expressed by shifting gender/noun class.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB317",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether dual number is marked in the NP by a dedicated free (unbound) element.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB318",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether plural number is marked in the NP by a dedicated free (unbound) element.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB319",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether trial number is marked in the NP by a dedicated free (unbound) element.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB320",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether paucal number is marked in the NP by a dedicated free (unbound) element.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB321",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "nominal",
+        "label": "Whether there is a large class of nouns whose gender/class is not phonologically or semantically predictable.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB333",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "numerals",
+        "label": "Whether the numeral system is decimal (base 10).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB334",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "numerals",
+        "label": "Whether there is any synchronic evidence of a quinary (base 5) element.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB335",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "numerals",
+        "label": "Whether there is any synchronic evidence of a vigesimal (base 20) element.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB336",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "numerals",
+        "label": "Whether there is a body-part tallying counting system.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB027",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether noun-conjoining ('X and Y') and comitative ('X with Y') use different markers.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB039",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether noun number markers show nonphonological (lexically/grammatically conditioned) allomorphy.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB041",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether more than three nouns are suppletive for number (a different root for singular vs plural).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB042",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether there is productive overt singular marking on nouns.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB072",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether oblique (non-core) non-pronominal NPs carry morphological case.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB074",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether the language has prepositions.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB075",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether the language has postpositions.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB095",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether core-argument marking varies by TAM (tense/aspect/mood) — e.g. split by tense.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB098",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether core-argument marking varies by person (e.g. a person-based split in ergativity).",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB105",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether the recipient of a ditransitive ('give') can be marked like a monotransitive object.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB135",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether clausal objects sit in the same position as nominal objects.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB146",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether there is a morphosyntactic distinction between controlled and uncontrolled events/states.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB296",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether there is a definable class of ideophones depicting imagery beyond sound.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB301",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether the language has an inclusory construction ('we with John' = 'John and I').",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB316",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether singular number is marked in the NP by a dedicated free (unbound) element.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB322",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether there is grammatical marking of direct (sensory) evidence.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB323",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "other",
+        "label": "Whether there is grammatical marking of indirect evidence (hearsay, inference).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB028",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "pronoun",
+        "label": "Whether the pronoun system distinguishes inclusive ('we incl. you') from exclusive ('we excl. you').",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB167",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "pronoun",
+        "label": "Whether the language has a logophoric pronoun.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB196",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "pronoun",
+        "label": "Whether 2nd-person independent pronouns mark a male/female distinction.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB197",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "pronoun",
+        "label": "Whether 1st-person independent pronouns mark a male/female distinction.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB305",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "pronoun",
+        "label": "Whether there is a phonologically independent reflexive pronoun.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB306",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "pronoun",
+        "label": "Whether there is a phonologically independent (non-bipartite) reciprocal pronoun.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB068",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether core adjectives behave like verbs when used as a predicate ('the dog is big' patterns like 'the dog runs').",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB069",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether attributive adjectives require the same morphology as verbs.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB070",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether non-pronominal core arguments (S/A/P) carry morphological case.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB071",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether pronominal core arguments (S/A/P) carry morphological case.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB073",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether independent oblique personal pronouns carry morphological case.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB079",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verbs take prefixes/proclitics beyond pure S/A/P agreement (incl. portmanteau agreement+TAM).",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB080",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verbs take suffixes/enclitics beyond pure S/A/P agreement (incl. portmanteau agreement+TAM).",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB081",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verbs show productive infixation (a morpheme inserted inside the root).",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB082",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether present tense is overtly marked on the verb.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB083",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a dedicated overt past-tense marker on the verb.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB084",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a dedicated overt future-tense marker on the verb.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB086",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verbs make a perfective-vs-imperfective aspect distinction morphologically.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB089",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the S (intransitive subject) can be indexed by a suffix/enclitic on the verb.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB090",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the S (intransitive subject) can be indexed by a prefix/proclitic on the verb.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB091",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the A (transitive subject) can be indexed by a suffix/enclitic on the verb.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB092",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the A (transitive subject) can be indexed by a prefix/proclitic on the verb.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB093",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the P (transitive object) can be indexed by a suffix/enclitic on the verb.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB094",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the P (transitive object) can be indexed by a prefix/proclitic on the verb.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB096",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether core-argument marking varies by verb class.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB099",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verb stems change according to the person of a core participant.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB103",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a benefactive applicative marker on the verb ('do X for someone').",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB104",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is an instrumental applicative marker on the verb ('do X with an instrument').",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB107",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether standard negation can be marked by an affix, clitic, or verb modification.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB108",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verbs carry directional or locative morphology (associated-motion-type marking).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB109",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verbs are suppletive for participant number (different root for singular vs plural participant).",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB110",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verbs are suppletive for tense or aspect.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB111",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verbs fall into conjugation classes.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB113",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there are verbal affixes/clitics that transitivize intransitive verbs (causative-like).",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB114",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a bound (affixal) reflexive marker on the verb.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB115",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a bound (affixal) reciprocal marker on the verb.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB116",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verbs classify the shape/size/consistency of absolutive arguments (e.g. via incorporated nouns or suppletion).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB117",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a copula for predicate nominals ('X is a Y').",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB118",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there are serial verb constructions (two+ verbs in one clause without a linker).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB122",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether verb compounding is a regular process.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB123",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there are verb-adjunct (light-verb / coverb) constructions.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB124",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether noun incorporation into the verb is a productive intransitivizing process.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB126",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the language has a dedicated existential verb ('there is').",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB127",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether posture verbs ('lie' vs 'stand' vs 'sit') are obligatorily chosen by an inanimate's shape/position.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB129",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the language has a small closed set of verb roots (about 100 or fewer).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB131",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the unmarked transitive constituent order is verb-initial.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB132",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the unmarked transitive constituent order is verb-medial.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB133",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the unmarked transitive constituent order is verb-final.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB136",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the order of core (S/A/P) constituents is fixed.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB137",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether standard negation can be marked clause-finally.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB138",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether standard negation can be marked clause-initially.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB139",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether prohibitive (negative imperative) negation differs from declarative negation.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB140",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether one negator covers verbal, locational, existential and nominal predication alike.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB147",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a morphological passive marked on the lexical verb.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB148",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a morphological antipassive marked on the lexical verb.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB149",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a morphological inverse marker on the verb.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB151",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a switch-reference marker (signals same/different subject across clauses).",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB155",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether causatives are formed by affixes/clitics on the verb.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB156",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a causative built from a grammaticalized verb 'to say'.",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB286",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether yes/no questions can be marked by verbal morphology alone.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB298",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether standard negation can be marked by an inflecting negative auxiliary verb.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB300",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the verb for 'give' has suppletive forms.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "GB304",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether the agent can be expressed overtly in a passive clause ('by ...').",
+        "value": "unknown",
+        "state": "unknown",
+        "raw": "?"
+      },
+      {
+        "feature_id": "GB309",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there are multiple past or future tenses distinguishing distance in time (e.g. recent vs remote past).",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB312",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is dedicated overt mood marking on the verb.",
+        "value": "present",
+        "state": "present",
+        "raw": "1"
+      },
+      {
+        "feature_id": "GB324",
+        "source": "Grambank",
+        "layer": "grambank",
+        "domain": "verb_and_valency",
+        "label": "Whether there is a dedicated interrogative verb for content questions ('do-what?').",
+        "value": "absent",
+        "state": "absent",
+        "raw": "0"
+      },
+      {
+        "feature_id": "23A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Locus of Marking in the Clause",
+        "value": "Double marking",
+        "state": "value",
+        "raw": "Double marking"
+      },
+      {
+        "feature_id": "24A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Locus of Marking in Possessive Noun Phrases",
+        "value": "Dependent marking",
+        "state": "value",
+        "raw": "Dependent marking"
+      },
+      {
+        "feature_id": "25A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Locus of Marking: Whole-language Typology",
+        "value": "Inconsistent or other",
+        "state": "value",
+        "raw": "Inconsistent or other"
+      },
+      {
+        "feature_id": "25B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Zero Marking of A and P Arguments",
+        "value": "Non-zero marking",
+        "state": "value",
+        "raw": "Non-zero marking"
+      },
+      {
+        "feature_id": "27A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Reduplication",
+        "value": "Productive full and partial reduplication",
+        "state": "value",
+        "raw": "Productive full and partial reduplication"
+      },
+      {
+        "feature_id": "58A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Obligatory Possessive Inflection",
+        "value": "Absent",
+        "state": "absent",
+        "raw": "Absent"
+      },
+      {
+        "feature_id": "58B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Number of Possessive Nouns",
+        "value": "None reported",
+        "state": "value",
+        "raw": "None reported"
+      },
+      {
+        "feature_id": "59A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Possessive Classification",
+        "value": "Two classes",
+        "state": "value",
+        "raw": "Two classes"
+      },
+      {
+        "feature_id": "101A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Expression of Pronominal Subjects",
+        "value": "Subject affixes on verb",
+        "state": "value",
+        "raw": "Subject affixes on verb"
+      },
+      {
+        "feature_id": "112A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Negative Morphemes",
+        "value": "Negative particle",
+        "state": "value",
+        "raw": "Negative particle"
+      },
+      {
+        "feature_id": "116A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Polar Questions",
+        "value": "Question particle",
+        "state": "value",
+        "raw": "Question particle"
+      },
+      {
+        "feature_id": "143A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Negative Morpheme and Verb",
+        "value": "NegV",
+        "state": "value",
+        "raw": "NegV"
+      },
+      {
+        "feature_id": "143E",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Preverbal Negative Morphemes",
+        "value": "NegV",
+        "state": "value",
+        "raw": "NegV"
+      },
+      {
+        "feature_id": "143F",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Postverbal Negative Morphemes",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "143G",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Minor morphological means of signaling negation",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "81A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject, Object and Verb",
+        "value": "No dominant order",
+        "state": "value",
+        "raw": "No dominant order"
+      },
+      {
+        "feature_id": "82A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject and Verb",
+        "value": "No dominant order",
+        "state": "value",
+        "raw": "No dominant order"
+      },
+      {
+        "feature_id": "83A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object and Verb",
+        "value": "VO",
+        "state": "value",
+        "raw": "VO"
+      },
+      {
+        "feature_id": "86A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Genitive and Noun",
+        "value": "No dominant order",
+        "state": "value",
+        "raw": "No dominant order"
+      },
+      {
+        "feature_id": "88A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Demonstrative and Noun",
+        "value": "Demonstrative-Noun",
+        "state": "value",
+        "raw": "Demonstrative-Noun"
+      },
+      {
+        "feature_id": "AUX008",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "case",
+        "label": "Whether both non-pronominal core arguments and pronominal core arguments carry case (so case can differ by word class).",
+        "value": "both",
+        "state": "value",
+        "raw": "both"
+      },
+      {
+        "feature_id": "AUX023",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "demonstrative",
+        "label": "Number of distance contrasts (2, 3+ deictic terms).",
+        "value": "two",
+        "state": "value",
+        "raw": "two"
+      },
+      {
+        "feature_id": "AUX036",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "negation",
+        "label": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+        "value": "particle",
+        "state": "value",
+        "raw": "particle"
+      },
+      {
+        "feature_id": "AUX014",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "number",
+        "label": "Productive morphological dual on nouns.",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX015",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "number",
+        "label": "Productive morphological paucal ('a few') on nouns.",
+        "value": "no",
+        "state": "absent",
+        "raw": "no"
+      },
+      {
+        "feature_id": "AUX016",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "number",
+        "label": "Productive morphological trial (exactly three) on nouns.",
+        "value": "no",
+        "state": "absent",
+        "raw": "no"
+      },
+      {
+        "feature_id": "AUX043",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "numerals",
+        "label": "Base of the numeral system: decimal, quinary, vigesimal, body-part tally, or restricted (many Australian languages have very small numeral systems).",
+        "value": "restricted/none",
+        "state": "value",
+        "raw": "restricted/none"
+      },
+      {
+        "feature_id": "AUX024",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun",
+        "label": "Whether independent 3rd-person pronouns mark gender (he/she).",
+        "value": "no",
+        "state": "absent",
+        "raw": "no"
+      },
+      {
+        "feature_id": "AUX010",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun-marking",
+        "label": "How pronominal subjects are expressed: obligatory free pronoun, subject affix on the verb, clitic on a variable host (e.g. second position / auxiliary), etc.",
+        "value": "subject-affix-on-verb",
+        "state": "value",
+        "raw": "subject-affix-on-verb"
+      },
+      {
+        "feature_id": "AUX011",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun-marking",
+        "label": "Whether bound pronouns form a clitic cluster on a variable (typically second-position/auxiliary) host rather than being fixed to the verb.",
+        "value": "no",
+        "state": "absent",
+        "raw": "no"
+      },
+      {
+        "feature_id": "AUX012",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun-marking",
+        "label": "Whether the transitive subject (A) is cross-referenced by a bound marker on the verb.",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX013",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun-marking",
+        "label": "Whether the transitive object (P) is cross-referenced by a bound marker on the verb.",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX038",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "syntax",
+        "label": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+        "value": "no-dominant-order",
+        "state": "value",
+        "raw": "no-dominant-order"
+      },
+      {
+        "feature_id": "AUX040",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "syntax",
+        "label": "A verb marker signalling same/different subject across clauses.",
+        "value": "no",
+        "state": "absent",
+        "raw": "no"
+      },
+      {
+        "feature_id": "AUX031",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "valency",
+        "label": "A phonologically bound reflexive marker on the verb (e.g. Kuku Yalanji -ji-).",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX032",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "valency",
+        "label": "A phonologically bound reciprocal marker on the verb (e.g. Kuku Yalanji -wa-).",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX035",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "valency",
+        "label": "Whether causatives are formed by an affix/clitic on the verb.",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX025",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether verbs fall into conjugation classes (as in most Pama-Nyungan languages).",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX027",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether there are multiple past or future tenses distinguishing temporal distance (e.g. recent vs remote past) — common in Australian languages.",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX028",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Directional or locative morphology on the verb. NOTE: true associated-motion systems (coming/going while V-ing) are a fine Australianist category that open datasets do not isolate; this uses Grambank's broader directional/locative-on-verb feature as a proxy.",
+        "value": "no",
+        "state": "absent",
+        "raw": "no"
+      },
+      {
+        "feature_id": "AUX029",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether a verb uses a different root for singular vs plural participant (e.g. 'go.sg' vs 'go.pl').",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX030",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether reduplication is productive and of what kind (full/partial).",
+        "value": "full-and-partial",
+        "state": "value",
+        "raw": "full-and-partial"
+      },
+      {
+        "feature_id": "AUX052",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether predicates are built from an uninflecting coverb + a small closed class of inflecting light verbs (widespread in non-Pama-Nyungan Australia).",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX053",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether noun incorporation into the verb is a productive intransitivizing process.",
+        "value": "no",
+        "state": "absent",
+        "raw": "no"
+      }
+    ],
+    "features_summary": {
+      "total": 218,
+      "coded": 172,
+      "unknown": 46,
+      "by_source": {
+        "Grambank": 174,
+        "WALS": 20,
+        "AUS extension": 24
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -93,5 +2285,71 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "warr1258",
+      "name": "Warrwa",
+      "family": "Nyulnyulan",
+      "basis": "grammar-similarity",
+      "score": 0.8727,
+      "n_joint": 110
+    },
+    {
+      "slug": "woiw1237",
+      "name": "Woiwurrung-Thagungwurrung",
+      "family": "Pama-Nyungan",
+      "basis": "grammar-similarity",
+      "score": 0.8571,
+      "n_joint": 77
+    },
+    {
+      "slug": "thur1254",
+      "name": "Thurawal",
+      "family": "Pama-Nyungan",
+      "basis": "grammar-similarity",
+      "score": 0.8358,
+      "n_joint": 67
+    },
+    {
+      "slug": "yuwa1242",
+      "name": "Yuwaalaraay",
+      "family": "Pama-Nyungan",
+      "basis": "grammar-similarity",
+      "score": 0.8319,
+      "n_joint": 113
+    },
+    {
+      "slug": "nyan1301",
+      "name": "Nyangumarta",
+      "family": "Pama-Nyungan",
+      "basis": "grammar-similarity",
+      "score": 0.8261,
+      "n_joint": 46
+    },
+    {
+      "slug": "nyul1247",
+      "name": "Nyulnyul",
+      "family": "Nyulnyulan",
+      "basis": "grammar-similarity",
+      "score": 0.8261,
+      "n_joint": 115
+    },
+    {
+      "slug": "nhan1238",
+      "name": "Nhanda",
+      "family": "Pama-Nyungan",
+      "basis": "grammar-similarity",
+      "score": 0.8241,
+      "n_joint": 108
+    },
+    {
+      "slug": "ward1246",
+      "name": "Wardaman",
+      "family": "Yangmanic",
+      "basis": "grammar-similarity",
+      "score": 0.8198,
+      "n_joint": 111
+    }
+  ]
 }

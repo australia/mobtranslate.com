@@ -86,5 +86,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "ngin1247",
+      "name": "Ngindadj",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Upper Riverland"
+    },
+    {
+      "slug": "yira1241",
+      "name": "Yirawirung",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Upper Riverland"
+    }
+  ]
 }

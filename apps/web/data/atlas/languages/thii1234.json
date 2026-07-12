@@ -95,5 +95,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "djiw1241",
+      "name": "Djiwarli",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Djiwarli-Thiin"
+    }
+  ]
 }

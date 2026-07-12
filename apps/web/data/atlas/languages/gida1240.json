@@ -106,5 +106,28 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "ding1241",
+      "name": "Dinggabal",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Condamine-Upper Clarence Bandjalang"
+    },
+    {
+      "slug": "gali1267",
+      "name": "Galibal",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Condamine-Upper Clarence Bandjalang"
+    },
+    {
+      "slug": "warw1234",
+      "name": "Warwick",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Condamine-Upper Clarence Bandjalang"
+    }
+  ]
 }

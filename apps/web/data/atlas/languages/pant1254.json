@@ -102,5 +102,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "mija1241",
+      "name": "Mijaranypa",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Panytyima"
+    }
+  ]
 }

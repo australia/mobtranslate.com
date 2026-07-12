@@ -63,9 +63,40 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 1,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 1
+    "feature_count": 1,
+    "features": [
+      {
+        "feature_id": "55A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Numeral Classifiers",
+        "value": "Absent",
+        "state": "absent",
+        "raw": "Absent"
+      },
+      {
+        "feature_id": "AUX044",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "numerals",
+        "label": "Whether counting requires a sortal numeral classifier.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "absent"
+      }
+    ],
+    "features_summary": {
+      "total": 2,
+      "coded": 2,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 1,
+        "AUS extension": 1
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -117,5 +148,14 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "guri1247",
+      "name": "Gurindji",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Ngumpit"
+    }
+  ]
 }

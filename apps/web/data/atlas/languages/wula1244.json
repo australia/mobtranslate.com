@@ -82,5 +82,42 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "balu1254",
+      "name": "Balurbi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Djinang"
+    },
+    {
+      "slug": "djad1244",
+      "name": "Djadiwitjibi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Djinang"
+    },
+    {
+      "slug": "many1257",
+      "name": "Manyarring",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Djinang"
+    },
+    {
+      "slug": "mild1238",
+      "name": "Mildjingi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Djinang"
+    },
+    {
+      "slug": "murr1257",
+      "name": "Murrungun",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Djinang"
+    }
+  ]
 }

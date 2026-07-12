@@ -88,5 +88,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "binb1242",
+      "name": "Binbinka",
+      "family": "Mirndi",
+      "basis": "same-subgroup",
+      "subgroup": "Wambayan"
+    }
+  ]
 }

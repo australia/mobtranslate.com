@@ -87,5 +87,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "koka1244",
+      "name": "Kokata",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Unclassified Wati"
+    },
+    {
+      "slug": "pini1245",
+      "name": "Lake Carnegie Western Desert",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Unclassified Wati"
+    }
+  ]
 }

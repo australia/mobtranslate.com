@@ -98,5 +98,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kera1256",
+      "name": "Keramin",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Sunraysia"
+    },
+    {
+      "slug": "yari1243",
+      "name": "Yari-Yari",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Sunraysia"
+    }
+  ]
 }

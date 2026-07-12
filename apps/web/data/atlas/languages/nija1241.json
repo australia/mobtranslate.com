@@ -57,9 +57,29 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 1,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 1
+    "feature_count": 1,
+    "features": [
+      {
+        "feature_id": "39B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Inclusive/Exclusive Forms in Pama-Nyungan",
+        "value": "Inclusive and exclusive differentiated",
+        "state": "value",
+        "raw": "Inclusive and exclusive differentiated"
+      }
+    ],
+    "features_summary": {
+      "total": 1,
+      "coded": 1,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 1
+      }
+    }
   },
   "lexicon": {
     "state": "none"
@@ -93,5 +113,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "mart1255",
+      "name": "Martuthunira",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Central Ngayarda"
+    },
+    {
+      "slug": "tjur1240",
+      "name": "Tjurruru",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Central Ngayarda"
+    }
+  ]
 }

@@ -103,5 +103,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "diye1234",
+      "name": "Diyeri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Dieri"
+    }
+  ]
 }

@@ -61,9 +61,260 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 19,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 19
+    "feature_count": 19,
+    "features": [
+      {
+        "feature_id": "26A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Prefixing vs. Suffixing in Inflectional Morphology",
+        "value": "Strongly suffixing",
+        "state": "value",
+        "raw": "Strongly suffixing"
+      },
+      {
+        "feature_id": "51A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Position of Case Affixes",
+        "value": "Case suffixes",
+        "state": "value",
+        "raw": "Case suffixes"
+      },
+      {
+        "feature_id": "57A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Position of Pronominal Possessive Affixes",
+        "value": "Possessive suffixes",
+        "state": "value",
+        "raw": "Possessive suffixes"
+      },
+      {
+        "feature_id": "101A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Expression of Pronominal Subjects",
+        "value": "Subject clitics on variable host",
+        "state": "value",
+        "raw": "Subject clitics on variable host"
+      },
+      {
+        "feature_id": "112A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Negative Morphemes",
+        "value": "Negative particle",
+        "state": "value",
+        "raw": "Negative particle"
+      },
+      {
+        "feature_id": "69A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "Position of Tense-Aspect Affixes",
+        "value": "Tense-aspect suffixes",
+        "state": "value",
+        "raw": "Tense-aspect suffixes"
+      },
+      {
+        "feature_id": "143A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Negative Morpheme and Verb",
+        "value": "NegV",
+        "state": "value",
+        "raw": "NegV"
+      },
+      {
+        "feature_id": "143E",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Preverbal Negative Morphemes",
+        "value": "NegV",
+        "state": "value",
+        "raw": "NegV"
+      },
+      {
+        "feature_id": "143F",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Postverbal Negative Morphemes",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "143G",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Minor morphological means of signaling negation",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "144A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Negative Word With Respect to Subject, Object, and Verb",
+        "value": "Other",
+        "state": "value",
+        "raw": "Other"
+      },
+      {
+        "feature_id": "144B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of negative words relative to beginning and end of clause and with respect to adjacency to verb",
+        "value": "Immed preverbal",
+        "state": "value",
+        "raw": "Immed preverbal"
+      },
+      {
+        "feature_id": "144T",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "The Position of Negative Morphemes in Verb-Initial Languages",
+        "value": "NegV & VS & VO",
+        "state": "value",
+        "raw": "NegV & VS & VO"
+      },
+      {
+        "feature_id": "144V",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Verb-Initial with Preverbal Negative",
+        "value": "Separate word, no double negation  Word&NoDoubleNeg",
+        "state": "value",
+        "raw": "Separate word, no double negation  Word&NoDoubleNeg"
+      },
+      {
+        "feature_id": "144W",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Verb-Initial with Negative that is Immediately Postverbal or between Subject and Object",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "144X",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Verb-Initial with Clause-Final Negative",
+        "value": "No clause-final neg",
+        "state": "value",
+        "raw": "No clause-final neg"
+      },
+      {
+        "feature_id": "82A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject and Verb",
+        "value": "VS",
+        "state": "value",
+        "raw": "VS"
+      },
+      {
+        "feature_id": "83A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object and Verb",
+        "value": "VO",
+        "state": "value",
+        "raw": "VO"
+      },
+      {
+        "feature_id": "93A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Interrogative Phrases in Content Questions",
+        "value": "Initial interrogative phrase",
+        "state": "value",
+        "raw": "Initial interrogative phrase"
+      },
+      {
+        "feature_id": "AUX007",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "case",
+        "label": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+        "value": "suffix",
+        "state": "value",
+        "raw": "suffix"
+      },
+      {
+        "feature_id": "AUX036",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "negation",
+        "label": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+        "value": "particle",
+        "state": "value",
+        "raw": "particle"
+      },
+      {
+        "feature_id": "AUX010",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun-marking",
+        "label": "How pronominal subjects are expressed: obligatory free pronoun, subject affix on the verb, clitic on a variable host (e.g. second position / auxiliary), etc.",
+        "value": "clitic-variable-host",
+        "state": "value",
+        "raw": "clitic-variable-host"
+      },
+      {
+        "feature_id": "AUX011",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun-marking",
+        "label": "Whether bound pronouns form a clitic cluster on a variable (typically second-position/auxiliary) host rather than being fixed to the verb.",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX026",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+        "value": "suffix",
+        "state": "value",
+        "raw": "suffix"
+      }
+    ],
+    "features_summary": {
+      "total": 24,
+      "coded": 24,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 19,
+        "AUS extension": 5
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -115,5 +366,14 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "bung1264",
+      "name": "Bunganditj",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warrnambool-Bunganditj"
+    }
+  ]
 }

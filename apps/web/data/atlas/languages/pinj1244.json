@@ -97,5 +97,42 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "bibb1234",
+      "name": "Bibbulman",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Nyunga"
+    },
+    {
+      "slug": "gore1235",
+      "name": "Goreng",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Nyunga"
+    },
+    {
+      "slug": "kani1276",
+      "name": "Kaniyang",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Nyunga"
+    },
+    {
+      "slug": "waju1234",
+      "name": "Wajuk",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Nyunga"
+    },
+    {
+      "slug": "ward1248",
+      "name": "Wardandi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Nyunga"
+    }
+  ]
 }

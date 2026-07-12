@@ -90,5 +90,28 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "gund1249",
+      "name": "Kurnkopanut",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warrnambool"
+    },
+    {
+      "slug": "pikw1234",
+      "name": "Pikwurrung",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warrnambool"
+    },
+    {
+      "slug": "tjak1234",
+      "name": "Tjakut",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warrnambool"
+    }
+  ]
 }

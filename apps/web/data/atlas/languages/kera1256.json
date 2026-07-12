@@ -90,5 +90,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kure1240",
+      "name": "Kureinji",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Sunraysia"
+    },
+    {
+      "slug": "yari1243",
+      "name": "Yari-Yari",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Sunraysia"
+    }
+  ]
 }

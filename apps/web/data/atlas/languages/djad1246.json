@@ -100,5 +100,49 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "ladj1234",
+      "name": "Ladji Ladji",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Victoria"
+    },
+    {
+      "slug": "madh1244",
+      "name": "Madhi Madhi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Victoria"
+    },
+    {
+      "slug": "nari1241",
+      "name": "Nari Nari",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Victoria"
+    },
+    {
+      "slug": "wadi1260",
+      "name": "Wadi Wadi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Victoria"
+    },
+    {
+      "slug": "wemb1242",
+      "name": "Wembawembic",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Victoria"
+    },
+    {
+      "slug": "wotj1234",
+      "name": "Wotjobaluk",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Victoria"
+    }
+  ]
 }

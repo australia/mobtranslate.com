@@ -110,5 +110,35 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "gung1248",
+      "name": "Gungabula",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southern Maric"
+    },
+    {
+      "slug": "guwa1243",
+      "name": "Guwamu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southern Maric"
+    },
+    {
+      "slug": "mand1417",
+      "name": "Mandandanyi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southern Maric"
+    },
+    {
+      "slug": "wadj1255",
+      "name": "Wadjigu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southern Maric"
+    }
+  ]
 }

@@ -83,5 +83,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "miri1266",
+      "name": "Miriwung",
+      "family": "Jarrakan",
+      "basis": "same-subgroup",
+      "subgroup": "Miriwunic"
+    }
+  ]
 }

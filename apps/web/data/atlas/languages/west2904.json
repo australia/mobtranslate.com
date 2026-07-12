@@ -74,5 +74,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kuni1269",
+      "name": "Kunindirri",
+      "family": "Garrwan",
+      "basis": "same-subgroup",
+      "subgroup": "Garrwa"
+    }
+  ]
 }

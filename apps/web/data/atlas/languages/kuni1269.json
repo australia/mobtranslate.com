@@ -82,5 +82,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "west2904",
+      "name": "Western Garrwa",
+      "family": "Garrwan",
+      "basis": "same-subgroup",
+      "subgroup": "Garrwa"
+    }
+  ]
 }

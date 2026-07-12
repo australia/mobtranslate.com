@@ -98,5 +98,42 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "dati1238",
+      "name": "Datiwuy",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Nuclear Dhuwal"
+    },
+    {
+      "slug": "djap1238",
+      "name": "Djapu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Nuclear Dhuwal"
+    },
+    {
+      "slug": "liya1242",
+      "name": "Liyagawumirr",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Nuclear Dhuwal"
+    },
+    {
+      "slug": "marr1258",
+      "name": "Marrakulu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Nuclear Dhuwal"
+    },
+    {
+      "slug": "marr1259",
+      "name": "Marrangu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Nuclear Dhuwal"
+    }
+  ]
 }

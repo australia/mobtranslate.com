@@ -59,9 +59,190 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 16,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 16
+    "feature_count": 16,
+    "features": [
+      {
+        "feature_id": "14A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Fixed Stress Locations",
+        "value": "No fixed stress",
+        "state": "value",
+        "raw": "No fixed stress"
+      },
+      {
+        "feature_id": "15A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight-Sensitive Stress",
+        "value": "Unbounded: Stress can be anywhere",
+        "state": "value",
+        "raw": "Unbounded: Stress can be anywhere"
+      },
+      {
+        "feature_id": "16A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight Factors in Weight-Sensitive Stress Systems",
+        "value": "Long vowel",
+        "state": "value",
+        "raw": "Long vowel"
+      },
+      {
+        "feature_id": "17A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Rhythm Types",
+        "value": "Trochaic",
+        "state": "value",
+        "raw": "Trochaic"
+      },
+      {
+        "feature_id": "116A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Polar Questions",
+        "value": "Interrogative intonation only",
+        "state": "value",
+        "raw": "Interrogative intonation only"
+      },
+      {
+        "feature_id": "69A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "Position of Tense-Aspect Affixes",
+        "value": "Tense-aspect suffixes",
+        "state": "value",
+        "raw": "Tense-aspect suffixes"
+      },
+      {
+        "feature_id": "82A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject and Verb",
+        "value": "SV",
+        "state": "value",
+        "raw": "SV"
+      },
+      {
+        "feature_id": "83A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object and Verb",
+        "value": "OV",
+        "state": "value",
+        "raw": "OV"
+      },
+      {
+        "feature_id": "84A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object, Oblique, and Verb",
+        "value": "No dominant order",
+        "state": "value",
+        "raw": "No dominant order"
+      },
+      {
+        "feature_id": "87A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Adjective and Noun",
+        "value": "Noun-Adjective",
+        "state": "value",
+        "raw": "Noun-Adjective"
+      },
+      {
+        "feature_id": "88A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Demonstrative and Noun",
+        "value": "Noun-Demonstrative",
+        "state": "value",
+        "raw": "Noun-Demonstrative"
+      },
+      {
+        "feature_id": "89A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Numeral and Noun",
+        "value": "Noun-Numeral",
+        "state": "value",
+        "raw": "Noun-Numeral"
+      },
+      {
+        "feature_id": "92A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Polar Question Particles",
+        "value": "No question particle",
+        "state": "value",
+        "raw": "No question particle"
+      },
+      {
+        "feature_id": "93A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Interrogative Phrases in Content Questions",
+        "value": "Not initial interrogative phrase",
+        "state": "value",
+        "raw": "Not initial interrogative phrase"
+      },
+      {
+        "feature_id": "94A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Adverbial Subordinator and Clause",
+        "value": "Internal subordinator word",
+        "state": "value",
+        "raw": "Internal subordinator word"
+      },
+      {
+        "feature_id": "97A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Relationship between the Order of Object and Verb and the Order of Adjective and Noun",
+        "value": "OV and NAdj",
+        "state": "value",
+        "raw": "OV and NAdj"
+      },
+      {
+        "feature_id": "AUX026",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+        "value": "suffix",
+        "state": "value",
+        "raw": "suffix"
+      }
+    ],
+    "features_summary": {
+      "total": 17,
+      "coded": 17,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 16,
+        "AUS extension": 1
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -113,5 +294,21 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kanj1260",
+      "name": "Kanju",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Umpilaic"
+    },
+    {
+      "slug": "umpi1239",
+      "name": "Umpila",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Umpilaic"
+    }
+  ]
 }

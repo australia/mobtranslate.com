@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "build_stamp": "2026-07-12T00:00:00Z",
   "universe_registry_languoids": 1029,
   "non_language_nodes_appendixed": 49,
@@ -32,6 +32,13 @@
     "none": 212
   },
   "deep_time_dated": 224,
+  "typology": {
+    "langs_with_feature_table": 203,
+    "langs_with_related": 606,
+    "feature_definitions": 436,
+    "coded_data_points": 30353,
+    "similarity_pairs": 9499
+  },
   "tiers": {
     "comprehensive": 86,
     "documented": 395,

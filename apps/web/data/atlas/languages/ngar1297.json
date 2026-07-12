@@ -100,5 +100,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "jait1239",
+      "name": "Jaitmatang",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southern Inland Yuin"
+    }
+  ]
 }

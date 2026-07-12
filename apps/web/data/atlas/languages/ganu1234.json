@@ -98,5 +98,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "gayi1238",
+      "name": "Gayiri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Wadjigu"
+    },
+    {
+      "slug": "wadj1256",
+      "name": "Wadja",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Wadjigu"
+    }
+  ]
 }

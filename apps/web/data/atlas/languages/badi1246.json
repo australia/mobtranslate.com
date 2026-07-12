@@ -61,9 +61,360 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 29,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 29
+    "feature_count": 29,
+    "features": [
+      {
+        "feature_id": "33A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Coding of Nominal Plurality",
+        "value": "Plural suffix",
+        "state": "value",
+        "raw": "Plural suffix"
+      },
+      {
+        "feature_id": "46A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Indefinite Pronouns",
+        "value": "Interrogative-based",
+        "state": "value",
+        "raw": "Interrogative-based"
+      },
+      {
+        "feature_id": "64A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Nominal and Verbal Conjunction",
+        "value": "Differentiation",
+        "state": "value",
+        "raw": "Differentiation"
+      },
+      {
+        "feature_id": "14A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Fixed Stress Locations",
+        "value": "Initial",
+        "state": "value",
+        "raw": "Initial"
+      },
+      {
+        "feature_id": "15A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight-Sensitive Stress",
+        "value": "Fixed stress (no weight-sensitivity)",
+        "state": "value",
+        "raw": "Fixed stress (no weight-sensitivity)"
+      },
+      {
+        "feature_id": "16A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight Factors in Weight-Sensitive Stress Systems",
+        "value": "No weight",
+        "state": "value",
+        "raw": "No weight"
+      },
+      {
+        "feature_id": "17A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Rhythm Types",
+        "value": "Trochaic",
+        "state": "value",
+        "raw": "Trochaic"
+      },
+      {
+        "feature_id": "105A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Ditransitive Constructions: The Verb 'Give'",
+        "value": "Indirect-object construction",
+        "state": "value",
+        "raw": "Indirect-object construction"
+      },
+      {
+        "feature_id": "112A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Negative Morphemes",
+        "value": "Negative particle",
+        "state": "value",
+        "raw": "Negative particle"
+      },
+      {
+        "feature_id": "116A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Polar Questions",
+        "value": "Interrogative intonation only",
+        "state": "value",
+        "raw": "Interrogative intonation only"
+      },
+      {
+        "feature_id": "69A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "Position of Tense-Aspect Affixes",
+        "value": "Tense-aspect suffixes",
+        "state": "value",
+        "raw": "Tense-aspect suffixes"
+      },
+      {
+        "feature_id": "143A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Negative Morpheme and Verb",
+        "value": "NegV",
+        "state": "value",
+        "raw": "NegV"
+      },
+      {
+        "feature_id": "143E",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Preverbal Negative Morphemes",
+        "value": "NegV",
+        "state": "value",
+        "raw": "NegV"
+      },
+      {
+        "feature_id": "143F",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Postverbal Negative Morphemes",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "143G",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Minor morphological means of signaling negation",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "144A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Negative Word With Respect to Subject, Object, and Verb",
+        "value": "Other",
+        "state": "value",
+        "raw": "Other"
+      },
+      {
+        "feature_id": "144L",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "The Position of Negative Morphemes in SOV Languages",
+        "value": "Other NegV",
+        "state": "value",
+        "raw": "Other NegV"
+      },
+      {
+        "feature_id": "144S",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "SOVNeg Order",
+        "value": "NoSOVNeg",
+        "state": "value",
+        "raw": "NoSOVNeg"
+      },
+      {
+        "feature_id": "81A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject, Object and Verb",
+        "value": "SOV",
+        "state": "value",
+        "raw": "SOV"
+      },
+      {
+        "feature_id": "82A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject and Verb",
+        "value": "SV",
+        "state": "value",
+        "raw": "SV"
+      },
+      {
+        "feature_id": "83A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object and Verb",
+        "value": "OV",
+        "state": "value",
+        "raw": "OV"
+      },
+      {
+        "feature_id": "84A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object, Oblique, and Verb",
+        "value": "No dominant order",
+        "state": "value",
+        "raw": "No dominant order"
+      },
+      {
+        "feature_id": "86A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Genitive and Noun",
+        "value": "Genitive-Noun",
+        "state": "value",
+        "raw": "Genitive-Noun"
+      },
+      {
+        "feature_id": "87A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Adjective and Noun",
+        "value": "Noun-Adjective",
+        "state": "value",
+        "raw": "Noun-Adjective"
+      },
+      {
+        "feature_id": "88A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Demonstrative and Noun",
+        "value": "Demonstrative-Noun",
+        "state": "value",
+        "raw": "Demonstrative-Noun"
+      },
+      {
+        "feature_id": "89A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Numeral and Noun",
+        "value": "No dominant order",
+        "state": "value",
+        "raw": "No dominant order"
+      },
+      {
+        "feature_id": "92A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Polar Question Particles",
+        "value": "No question particle",
+        "state": "value",
+        "raw": "No question particle"
+      },
+      {
+        "feature_id": "93A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Interrogative Phrases in Content Questions",
+        "value": "Initial interrogative phrase",
+        "state": "value",
+        "raw": "Initial interrogative phrase"
+      },
+      {
+        "feature_id": "97A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Relationship between the Order of Object and Verb and the Order of Adjective and Noun",
+        "value": "OV and NAdj",
+        "state": "value",
+        "raw": "OV and NAdj"
+      },
+      {
+        "feature_id": "AUX036",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "negation",
+        "label": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+        "value": "particle",
+        "state": "value",
+        "raw": "particle"
+      },
+      {
+        "feature_id": "AUX017",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "number",
+        "label": "How nominal plural is coded: suffix, prefix, reduplication, plural word, clitic, none.",
+        "value": "suffix",
+        "state": "value",
+        "raw": "suffix"
+      },
+      {
+        "feature_id": "AUX051",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun",
+        "label": "Whether interrogatives ('who/what') double as indefinites ('someone/something') — an 'ignorative' series. Partially derivable from WALS Indefinite Pronouns (interrogative-based).",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX038",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "syntax",
+        "label": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+        "value": "SOV",
+        "state": "value",
+        "raw": "SOV"
+      },
+      {
+        "feature_id": "AUX026",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+        "value": "suffix",
+        "state": "value",
+        "raw": "suffix"
+      }
+    ],
+    "features_summary": {
+      "total": 34,
+      "coded": 34,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 29,
+        "AUS extension": 5
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -115,5 +466,21 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "malg1242",
+      "name": "Malgana",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Kartu"
+    },
+    {
+      "slug": "waja1257",
+      "name": "Wajarri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Kartu"
+    }
+  ]
 }

@@ -87,5 +87,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "bard1255",
+      "name": "Bardi",
+      "family": "Nyulnyulan",
+      "basis": "same-subgroup",
+      "subgroup": "Bardic"
+    }
+  ]
 }

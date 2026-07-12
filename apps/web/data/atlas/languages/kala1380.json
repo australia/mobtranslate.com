@@ -104,5 +104,14 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "ngur1261",
+      "name": "Wilson River (Grey Range)",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Eastern Karnic"
+    }
+  ]
 }

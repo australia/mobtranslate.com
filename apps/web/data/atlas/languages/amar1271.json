@@ -79,5 +79,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "maun1240",
+      "name": "Mawng",
+      "family": "Iwaidjan Proper",
+      "basis": "same-subgroup",
+      "subgroup": "Iwaidjan Proper"
+    }
+  ]
 }

@@ -79,5 +79,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "benl1235",
+      "name": "Ben-Lomond-Cape-Portland",
+      "family": "North-Eastern Tasmanian",
+      "basis": "same-subgroup",
+      "subgroup": "North-Eastern Tasmanian"
+    }
+  ]
 }

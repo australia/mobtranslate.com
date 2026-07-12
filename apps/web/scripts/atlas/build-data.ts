@@ -30,7 +30,7 @@ import postgres from 'postgres';
 // ---------------------------------------------------------------------------
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const DATA_RELEASE_VERSION = process.env.ATLAS_RELEASE_VERSION ?? '1.0.0';
+const DATA_RELEASE_VERSION = process.env.ATLAS_RELEASE_VERSION ?? '1.1.0';
 // Fixed build stamp for reproducibility. NEVER Date.now() in a way that
 // changes the artifact on every run — pass ATLAS_BUILD_STAMP to override.
 const BUILD_STAMP = process.env.ATLAS_BUILD_STAMP ?? '2026-07-12T00:00:00Z';
@@ -99,6 +99,58 @@ function round(n: number, dp = 4): number {
 }
 
 // ---------------------------------------------------------------------------
+// Grammar-feature value resolution (the "hard facts" layer).
+// Turns a raw coded value + coding status + the feature's value_space into a
+// plain-English label and a discrete state. CRITICALLY keeps '?' (unknown) and
+// 'N/A' (not applicable) DISTINCT from 'absent' — never collapse them.
+// ---------------------------------------------------------------------------
+type FeatureState = 'present' | 'absent' | 'unknown' | 'na' | 'value';
+
+interface FeatureValueSpaceEntry {
+  value?: string;
+  code?: string;
+  meaning?: string;
+}
+
+function resolveFeatureValue(
+  rawValue: string | null | undefined,
+  status: string | null | undefined,
+  valueSpace: any,
+): { label: string; state: FeatureState } {
+  const v = (rawValue ?? '').toString().trim();
+  // Unknown is honest and first-class: coder marked it '?' or status=unknown.
+  if (status === 'unknown' || v === '' || v === '?') {
+    return { label: 'unknown', state: 'unknown' };
+  }
+
+  // Map a numeric/coded value to its plain-English meaning via value_space,
+  // when value_space is a list of {value|code, meaning} objects (Grambank/WALS).
+  let label = v;
+  if (Array.isArray(valueSpace)) {
+    const entry = (valueSpace as FeatureValueSpaceEntry[]).find(
+      (e) => e && typeof e === 'object' && (e.value === v || e.code === v),
+    );
+    if (entry?.meaning) label = entry.meaning;
+    // aus_extension value_space is a plain string[] and the stored value is
+    // already the human label, so `label = v` is correct there.
+  }
+
+  const lowered = label.toLowerCase().trim();
+  let state: FeatureState = 'value';
+  if (/^(absent|none|no)$/.test(lowered)) state = 'absent';
+  else if (/^(present|yes)$/.test(lowered)) state = 'present';
+  else if (/^(n\/?a|not[ -]applicable)$/.test(lowered)) state = 'na';
+
+  return { label, state };
+}
+
+const LAYER_SOURCE: Record<string, string> = {
+  grambank: 'Grambank',
+  wals: 'WALS',
+  aus_extension: 'AUS extension',
+};
+
+// ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 interface RegistryLanguoid {
@@ -138,6 +190,51 @@ interface DbLanguage {
   status: string | null;
   metadata: Record<string, any> | null;
   word_count: number;
+}
+
+// --- typology plane (grammar hard-facts + recorded-agreement similarity) ---
+interface DbTypoFeatureMeta {
+  id: string;
+  layer: string;
+  name: string | null;
+  gloss: string | null;
+  domain: string | null;
+  value_space: any;
+}
+interface DbLangFeature {
+  glottocode: string;
+  layer: string;
+  feature_id: string;
+  value: string | null;
+  status: string | null;
+}
+interface DbSimilarity {
+  lang_a: string;
+  lang_b: string;
+  grambank_recorded_agreement: number;
+  n_joint: number;
+}
+
+// A single resolved grammar feature baked onto a language record.
+interface AtlasFeature {
+  feature_id: string;
+  source: string; // Grambank | WALS | AUS extension
+  layer: string;
+  domain: string | null;
+  label: string; // short plain-English gloss (never the raw code)
+  value: string; // resolved plain-English value
+  state: FeatureState; // present | absent | unknown | na | value
+  raw: string | null;
+}
+// A related-language pointer with an honest basis label.
+interface AtlasRelated {
+  slug: string;
+  name: string;
+  family: string;
+  basis: 'grammar-similarity' | 'same-subgroup';
+  score?: number; // recorded-agreement (grammar-similarity only)
+  n_joint?: number; // jointly-coded feature count (grammar-similarity only)
+  subgroup?: string | null; // shared parent node name (same-subgroup only)
 }
 
 // ---------------------------------------------------------------------------
@@ -218,8 +315,12 @@ async function main() {
   // -- Plane 4: live DB snapshot (READ-ONLY) --------------------------------
   const dbUrl = process.env.DATABASE_URL;
   let dbLanguages: DbLanguage[] = [];
+  // typology plane result sets
+  let dbFeatureMeta: DbTypoFeatureMeta[] = [];
+  let dbLangFeatures: DbLangFeature[] = [];
+  let dbSimilarity: DbSimilarity[] = [];
   if (!dbUrl) {
-    log('WARNING: DATABASE_URL not set — building WITHOUT the live-DB lexical plane.');
+    log('WARNING: DATABASE_URL not set — building WITHOUT the live-DB lexical + typology planes.');
   } else {
     const sql = postgres(dbUrl, { max: 4, prepare: false });
     try {
@@ -233,11 +334,80 @@ async function main() {
                  l.family, l.region, l.country, l.status, l.metadata
         ORDER BY l.code`;
       dbLanguages = rows.map((r) => ({ ...r, word_count: Number(r.word_count) }));
+
+      // Feature metadata (Grambank 195 + WALS 188 + AUS extension 53), all with
+      // plain-English glosses/value spaces so we never surface a raw code.
+      dbFeatureMeta = await sql<DbTypoFeatureMeta[]>`
+        SELECT id, layer, name, gloss, domain, value_space
+        FROM typology_features`;
+
+      // Every coded/unknown datum for every language in the typology plane.
+      dbLangFeatures = await sql<DbLangFeature[]>`
+        SELECT glottocode, layer, feature_id, value, status
+        FROM typology_language_features`;
+
+      // Recorded-agreement similarity pairs (carry n_joint ALWAYS so the profile
+      // can honestly say "agree on N jointly-coded features", not "overall").
+      dbSimilarity = await sql<DbSimilarity[]>`
+        SELECT lang_a, lang_b, grambank_recorded_agreement, n_joint
+        FROM typology_similarity`;
     } finally {
       await sql.end({ timeout: 5 });
     }
-    log(`db snapshot: ${dbLanguages.length} languages`);
+    log(
+      `db snapshot: ${dbLanguages.length} languages, ${dbFeatureMeta.length} feature defs, ` +
+        `${dbLangFeatures.length} coded data points, ${dbSimilarity.length} similarity pairs`,
+    );
   }
+
+  // -- Index the typology plane by glottocode -------------------------------
+  // feature metadata: `${layer}:${id}` -> meta
+  const featMetaByKey = new Map<string, DbTypoFeatureMeta>();
+  for (const f of dbFeatureMeta) featMetaByKey.set(`${f.layer}:${f.id}`, f);
+
+  // glottocode -> resolved AtlasFeature[] (sorted by source, domain, id)
+  const featuresByGlotto = new Map<string, AtlasFeature[]>();
+  for (const lf of dbLangFeatures) {
+    const meta = featMetaByKey.get(`${lf.layer}:${lf.feature_id}`);
+    const { label, state } = resolveFeatureValue(lf.value, lf.status, meta?.value_space);
+    const feat: AtlasFeature = {
+      feature_id: lf.feature_id,
+      source: LAYER_SOURCE[lf.layer] ?? lf.layer,
+      layer: lf.layer,
+      domain: meta?.domain ?? null,
+      // Prefer the plain-English gloss; fall back to the feature's short title.
+      label: (meta?.gloss || meta?.name || lf.feature_id).toString(),
+      value: label,
+      state,
+      raw: lf.value ?? null,
+    };
+    const arr = featuresByGlotto.get(lf.glottocode) ?? [];
+    arr.push(feat);
+    featuresByGlotto.set(lf.glottocode, arr);
+  }
+  const LAYER_ORDER: Record<string, number> = { grambank: 0, wals: 1, aus_extension: 2 };
+  for (const arr of featuresByGlotto.values()) {
+    arr.sort(
+      (a, b) =>
+        (LAYER_ORDER[a.layer] ?? 9) - (LAYER_ORDER[b.layer] ?? 9) ||
+        (a.domain ?? '').localeCompare(b.domain ?? '') ||
+        a.feature_id.localeCompare(b.feature_id),
+    );
+  }
+
+  // glottocode -> top recorded-agreement neighbours (symmetric union of both
+  // directions in the one-directional similarity table).
+  const simByGlotto = new Map<string, { other: string; score: number; n_joint: number }[]>();
+  const pushSim = (from: string, other: string, score: number, n_joint: number) => {
+    const arr = simByGlotto.get(from) ?? [];
+    arr.push({ other, score, n_joint });
+    simByGlotto.set(from, arr);
+  };
+  for (const s of dbSimilarity) {
+    pushSim(s.lang_a, s.lang_b, s.grambank_recorded_agreement, s.n_joint);
+    pushSim(s.lang_b, s.lang_a, s.grambank_recorded_agreement, s.n_joint);
+  }
+  for (const arr of simByGlotto.values()) arr.sort((a, b) => b.score - a.score);
 
   // -- Registry lookup indexes for the DB join ------------------------------
   const regByGlotto = new Map<string, RegistryLanguoid>();
@@ -453,7 +623,25 @@ async function main() {
 
     // --- Grammar (Grambank/WALS authoritative from registry; DB typology = supplementary) ---
     const typo = l.glottocode ? typoByGlotto.get(l.glottocode) : undefined;
-    const grammarProfiled = l.grambank_coverage || l.wals_coverage;
+    // The ACTUAL coded feature rows (the browsable "hard facts" layer).
+    const featureRows = l.glottocode ? featuresByGlotto.get(l.glottocode) ?? [] : [];
+    const featuresSummary = featureRows.length
+      ? (() => {
+          const s = {
+            total: featureRows.length,
+            coded: 0,
+            unknown: 0,
+            by_source: {} as Record<string, number>,
+          };
+          for (const f of featureRows) {
+            if (f.state === 'unknown') s.unknown++;
+            else s.coded++;
+            s.by_source[f.source] = (s.by_source[f.source] ?? 0) + 1;
+          }
+          return s;
+        })()
+      : null;
+    const grammarProfiled = l.grambank_coverage || l.wals_coverage || featureRows.length > 0;
     const grammar = grammarProfiled || typo
       ? {
           profiled: true,
@@ -461,9 +649,12 @@ async function main() {
           grambank_feature_count: l.grambank_feature_count,
           has_wals: l.wals_coverage,
           wals_feature_count: l.wals_feature_count,
-          has_db_typology: !!typo,
+          has_db_typology: !!typo || featureRows.length > 0,
           db_typology_coverage_pct: typo?.coverage_pct ?? null,
           feature_count: l.grambank_feature_count + l.wals_feature_count,
+          // baked hard-facts table (present only when we actually have coded data)
+          features: featureRows.length ? featureRows : undefined,
+          features_summary: featuresSummary ?? undefined,
         }
       : { profiled: false as const, state: 'not_profiled' as const };
 
@@ -679,6 +870,81 @@ async function main() {
     cov.tier[tier]++;
   }
 
+  // -- Post-pass: related languages (grammar-similarity + same-subgroup) -----
+  // Needs the full record set, so runs after the main loop. Prefer recorded
+  // grammar-similarity pairs (each carries n_joint); ALSO surface genuine
+  // classification siblings (same immediate subgroup node) as a cheap, DB-free
+  // second basis. Every item is labelled with its basis so the profile is honest.
+  const recordByGlotto = new Map<string, any>();
+  for (const r of records) if (r.ids?.glottocode) recordByGlotto.set(r.ids.glottocode, r);
+  const siblingsByParent = new Map<string, any[]>();
+  for (const r of records) {
+    const chain = r.classification_chain as { glottocode: string; name: string }[] | null;
+    if (chain && chain.length) {
+      const parent = chain[chain.length - 1];
+      const arr = siblingsByParent.get(parent.glottocode) ?? [];
+      arr.push(r);
+      siblingsByParent.set(parent.glottocode, arr);
+    }
+  }
+  let recordsWithFeatures = 0;
+  let recordsWithRelated = 0;
+  for (const r of records) {
+    if (r.grammar?.features?.length) recordsWithFeatures++;
+    const related: AtlasRelated[] = [];
+    const seen = new Set<string>([r.slug]);
+    const gc = r.ids?.glottocode as string | null;
+
+    // (1) recorded grammar-similarity neighbours (preferred)
+    if (gc && simByGlotto.has(gc)) {
+      let added = 0;
+      for (const s of simByGlotto.get(gc)!) {
+        if (added >= 8) break;
+        const other = recordByGlotto.get(s.other);
+        if (!other || seen.has(other.slug)) continue;
+        seen.add(other.slug);
+        related.push({
+          slug: other.slug,
+          name: other.canonical_name,
+          family: other.family,
+          basis: 'grammar-similarity',
+          score: round(s.score, 4),
+          n_joint: s.n_joint,
+        });
+        added++;
+      }
+    }
+
+    // (2) classification siblings sharing the immediate subgroup node
+    const chain = r.classification_chain as { glottocode: string; name: string }[] | null;
+    if (chain && chain.length) {
+      const parent = chain[chain.length - 1];
+      const sibs = (siblingsByParent.get(parent.glottocode) ?? [])
+        .filter((s) => s.slug !== r.slug)
+        .sort((a, b) => a.canonical_name.localeCompare(b.canonical_name));
+      let added = 0;
+      for (const s of sibs) {
+        if (added >= 8) break;
+        if (seen.has(s.slug)) continue;
+        seen.add(s.slug);
+        related.push({
+          slug: s.slug,
+          name: s.canonical_name,
+          family: s.family,
+          basis: 'same-subgroup',
+          subgroup: parent.name,
+        });
+        added++;
+      }
+    }
+
+    if (related.length) {
+      r.related = related;
+      recordsWithRelated++;
+    }
+  }
+  log(`typology enrich: ${recordsWithFeatures} langs got a feature table, ${recordsWithRelated} got related[]`);
+
   // -- Write artifacts ------------------------------------------------------
   fs.rmSync(OUT_DIR, { recursive: true, force: true });
   fs.mkdirSync(path.join(OUT_DIR, 'languages'), { recursive: true });
@@ -758,6 +1024,13 @@ async function main() {
       none: cov.lexicon_none,
     },
     deep_time_dated: cov.dated_tree,
+    typology: {
+      langs_with_feature_table: recordsWithFeatures,
+      langs_with_related: recordsWithRelated,
+      feature_definitions: dbFeatureMeta.length,
+      coded_data_points: dbLangFeatures.length,
+      similarity_pairs: dbSimilarity.length,
+    },
     tiers: cov.tier,
     db_join: {
       db_languages_total: dbLanguages.length,
@@ -776,6 +1049,11 @@ async function main() {
     build_stamp: BUILD_STAMP,
     generator: 'apps/web/scripts/atlas/build-data.ts',
     canonical_universe: 'australian_languages_registry.json (1,029 languoids)',
+    schema_notes:
+      'v1.1.0 enriches per-language detail with grammar.features[] (the actual coded ' +
+      'Grambank/WALS/AUS-extension datum values, plain-English glossed, present/absent/?/N-A ' +
+      'states kept distinct) and related[] (recorded grammar-similarity neighbours carrying ' +
+      'n_joint, plus same-subgroup classification siblings; each item labelled with its basis).',
     artifacts: {
       index: 'index.json',
       per_language_detail: 'languages/<slug>.json',
@@ -786,7 +1064,8 @@ async function main() {
     source_datasets: [
       { name: 'Glottolog', version: '5.3 CLDF', license: 'CC-BY-4.0', role: 'classification, coordinates, ISO/glottocode, AES endangerment' },
       { name: 'Grambank', version: 'v1.0.3 CLDF', license: 'CC-BY-4.0', role: 'grammatical feature profiles (195 features)' },
-      { name: 'WALS', version: '2020.4 CLDF', license: 'CC-BY-4.0', role: 'supplementary grammatical features' },
+      { name: 'WALS', version: '2020.4 CLDF', license: 'CC-BY-4.0', role: 'supplementary grammatical features (coded values baked into grammar.features)' },
+      { name: 'Australianist typology extension (AUS extension)', version: 'mobtranslate-pg typology plane', license: 'CC-BY-4.0 (derived)', role: 'Australia-specific grammatical features + recorded-agreement similarity (grammar.features, related[])' },
       { name: 'AIATSIS AUSTLANG', version: 'data.gov.au export', license: 'CC-BY-4.0', role: 'canonical AU language codes, approx. coordinates, alt-names' },
       { name: 'Bouckaert, Bowern & Atkinson 2018 (Phlorest)', version: 'phlorest CLDF', license: 'CC-BY-4.0', role: 'dated Pama-Nyungan phylogeographic tree (deep_time)' },
       { name: 'PHOIBLE', version: 'referenced', license: 'CC-BY-SA-3.0', role: 'phonological inventories (pointer; not ingested in P0)' },

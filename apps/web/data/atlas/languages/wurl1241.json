@@ -94,5 +94,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "bili1250",
+      "name": "Bilinarra",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Ngarinman"
+    },
+    {
+      "slug": "east2376",
+      "name": "Eastern Ngarinman",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Ngarinman"
+    }
+  ]
 }

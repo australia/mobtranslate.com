@@ -87,5 +87,49 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "cent2015",
+      "name": "Central-northern Warlpiri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warlpiri"
+    },
+    {
+      "slug": "hans1242",
+      "name": "Hansen River Warlpiri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warlpiri"
+    },
+    {
+      "slug": "land1255",
+      "name": "Lander River Warlpiri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warlpiri"
+    },
+    {
+      "slug": "nort2753",
+      "name": "North-western Warlpiri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warlpiri"
+    },
+    {
+      "slug": "sout2761",
+      "name": "South-western Warlpiri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warlpiri"
+    },
+    {
+      "slug": "sout2762",
+      "name": "Southern Warlpiri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warlpiri"
+    }
+  ]
 }

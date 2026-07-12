@@ -87,5 +87,35 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "mari1422",
+      "name": "Maridan",
+      "family": "Western Daly",
+      "basis": "same-subgroup",
+      "subgroup": "Marithielic"
+    },
+    {
+      "slug": "mari1421",
+      "name": "Maridjabin",
+      "family": "Western Daly",
+      "basis": "same-subgroup",
+      "subgroup": "Marithielic"
+    },
+    {
+      "slug": "mari1424",
+      "name": "Marithiel",
+      "family": "Western Daly",
+      "basis": "same-subgroup",
+      "subgroup": "Marithielic"
+    },
+    {
+      "slug": "marr1256",
+      "name": "Marriammu",
+      "family": "Western Daly",
+      "basis": "same-subgroup",
+      "subgroup": "Marithielic"
+    }
+  ]
 }

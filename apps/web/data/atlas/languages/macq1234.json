@@ -78,5 +78,28 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "circ1241",
+      "name": "Circular Head",
+      "family": "Western Tasmanian",
+      "basis": "same-subgroup",
+      "subgroup": "Northwestern Tasmanian"
+    },
+    {
+      "slug": "robb1234",
+      "name": "Robbins Island",
+      "family": "Western Tasmanian",
+      "basis": "same-subgroup",
+      "subgroup": "Northwestern Tasmanian"
+    },
+    {
+      "slug": "west3002",
+      "name": "Western Northwestern Tasmanian",
+      "family": "Western Tasmanian",
+      "basis": "same-subgroup",
+      "subgroup": "Northwestern Tasmanian"
+    }
+  ]
 }

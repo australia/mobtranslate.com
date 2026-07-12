@@ -103,5 +103,28 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kuku1282",
+      "name": "Kuku-Mu'inh",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Paman Kuku"
+    },
+    {
+      "slug": "kuku1283",
+      "name": "Kuku-Muminh",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Paman Kuku"
+    },
+    {
+      "slug": "kuku1280",
+      "name": "Kuku-Uwanh",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Paman Kuku"
+    }
+  ]
 }

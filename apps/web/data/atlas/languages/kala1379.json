@@ -103,5 +103,21 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kala1401",
+      "name": "Kalaamaya",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Mirning"
+    },
+    {
+      "slug": "ngad1258",
+      "name": "Ngadjunmaya",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Mirning"
+    }
+  ]
 }

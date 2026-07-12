@@ -65,9 +65,59 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 4,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 4
+    "feature_count": 4,
+    "features": [
+      {
+        "feature_id": "132A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Number of Non-Derived Basic Colour Categories",
+        "value": "5",
+        "state": "value",
+        "raw": "5"
+      },
+      {
+        "feature_id": "133A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Number of Basic Colour Categories",
+        "value": "4.5-5.5",
+        "state": "value",
+        "raw": "4.5-5.5"
+      },
+      {
+        "feature_id": "134A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Green and Blue",
+        "value": "Black/blue vs. green",
+        "state": "value",
+        "raw": "Black/blue vs. green"
+      },
+      {
+        "feature_id": "135A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Red and Yellow",
+        "value": "Red vs. yellow",
+        "state": "value",
+        "raw": "Red vs. yellow"
+      }
+    ],
+    "features_summary": {
+      "total": 4,
+      "coded": 4,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 4
+      }
+    }
   },
   "lexicon": {
     "state": "open_resource",
@@ -119,5 +169,14 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "wanm1242",
+      "name": "Wanman",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Warnman-Wangka"
+    }
+  ]
 }

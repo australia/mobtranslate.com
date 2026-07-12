@@ -49,9 +49,29 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 1,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 1
+    "feature_count": 1,
+    "features": [
+      {
+        "feature_id": "39B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Inclusive/Exclusive Forms in Pama-Nyungan",
+        "value": "Inclusive and exclusive differentiated",
+        "state": "value",
+        "raw": "Inclusive and exclusive differentiated"
+      }
+    ],
+    "features_summary": {
+      "total": 1,
+      "coded": 1,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 1
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -103,5 +123,14 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "mbar1254",
+      "name": "Mbara-Yanga",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Paman"
+    }
+  ]
 }

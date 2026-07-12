@@ -91,5 +91,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "mamn1244",
+      "name": "Mamangathi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Awngtim"
+    },
+    {
+      "slug": "tyan1236",
+      "name": "Thanikwithi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Awngtim"
+    }
+  ]
 }

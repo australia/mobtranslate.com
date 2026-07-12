@@ -107,5 +107,21 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kara1508",
+      "name": "Karangura",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Ngamini-Yarluyandi-Karangura"
+    },
+    {
+      "slug": "ngam1284",
+      "name": "Ngamini",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Ngamini-Yarluyandi-Karangura"
+    }
+  ]
 }

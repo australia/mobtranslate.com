@@ -87,5 +87,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kuku1273",
+      "name": "Kuku-Yalanji",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yalandyic"
+    },
+    {
+      "slug": "mulu1243",
+      "name": "Muluridyi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yalandyic"
+    }
+  ]
 }

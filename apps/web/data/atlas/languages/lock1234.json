@@ -122,5 +122,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "torr1263",
+      "name": "Torres Strait Creole",
+      "family": "Indo-European",
+      "basis": "same-subgroup",
+      "subgroup": "Torres Strait-Lockhart River Creole"
+    }
+  ]
 }

@@ -95,5 +95,28 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "mamb1292",
+      "name": "Mambangura",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Wilson River (Grey Range)"
+    },
+    {
+      "slug": "punt1240",
+      "name": "Punthamara",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Wilson River (Grey Range)"
+    },
+    {
+      "slug": "wong1246",
+      "name": "Wangkumara",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Wilson River (Grey Range)"
+    }
+  ]
 }

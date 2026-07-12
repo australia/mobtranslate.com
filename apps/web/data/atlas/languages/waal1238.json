@@ -94,5 +94,28 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "bary1234",
+      "name": "Baryulgil",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Middle Clarence Bandjalang"
+    },
+    {
+      "slug": "biri1260",
+      "name": "Biriin",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Middle Clarence Bandjalang"
+    },
+    {
+      "slug": "casi1237",
+      "name": "Casino",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Middle Clarence Bandjalang"
+    }
+  ]
 }

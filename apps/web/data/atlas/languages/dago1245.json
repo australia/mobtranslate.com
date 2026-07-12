@@ -80,5 +80,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "ward1246",
+      "name": "Wardaman",
+      "family": "Yangmanic",
+      "basis": "same-subgroup",
+      "subgroup": "Yangmanic"
+    },
+    {
+      "slug": "yang1288",
+      "name": "Yangman",
+      "family": "Yangmanic",
+      "basis": "same-subgroup",
+      "subgroup": "Yangmanic"
+    }
+  ]
 }

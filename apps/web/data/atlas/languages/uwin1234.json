@@ -78,5 +78,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "wara1290",
+      "name": "Warray",
+      "family": "Gunwinyguan",
+      "basis": "same-subgroup",
+      "subgroup": "Warrayic"
+    }
+  ]
 }

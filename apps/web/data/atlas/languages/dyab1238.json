@@ -87,5 +87,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "nyul1247",
+      "name": "Nyulnyul",
+      "family": "Nyulnyulan",
+      "basis": "same-subgroup",
+      "subgroup": "Nyulnyulic"
+    }
+  ]
 }

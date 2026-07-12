@@ -47,9 +47,490 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 40,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 40
+    "feature_count": 40,
+    "features": [
+      {
+        "feature_id": "122A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Complex Sentences",
+        "label": "Relativization on Subjects",
+        "value": "Gap",
+        "state": "value",
+        "raw": "Gap"
+      },
+      {
+        "feature_id": "136A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "M-T Pronouns",
+        "value": "No M-T pronouns",
+        "state": "value",
+        "raw": "No M-T pronouns"
+      },
+      {
+        "feature_id": "136B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "M in First Person Singular",
+        "value": "No m in first person singular",
+        "state": "value",
+        "raw": "No m in first person singular"
+      },
+      {
+        "feature_id": "137A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "N-M Pronouns",
+        "value": "No N-M pronouns",
+        "state": "value",
+        "raw": "No N-M pronouns"
+      },
+      {
+        "feature_id": "137B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "M in Second Person Singular",
+        "value": "No m in second person singular",
+        "state": "value",
+        "raw": "No m in second person singular"
+      },
+      {
+        "feature_id": "23A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Locus of Marking in the Clause",
+        "value": "Head marking",
+        "state": "value",
+        "raw": "Head marking"
+      },
+      {
+        "feature_id": "24A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Locus of Marking in Possessive Noun Phrases",
+        "value": "Head marking",
+        "state": "value",
+        "raw": "Head marking"
+      },
+      {
+        "feature_id": "25A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Locus of Marking: Whole-language Typology",
+        "value": "Head-marking",
+        "state": "value",
+        "raw": "Head-marking"
+      },
+      {
+        "feature_id": "25B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Zero Marking of A and P Arguments",
+        "value": "Non-zero marking",
+        "state": "value",
+        "raw": "Non-zero marking"
+      },
+      {
+        "feature_id": "26A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Prefixing vs. Suffixing in Inflectional Morphology",
+        "value": "Equal prefixing and suffixing",
+        "state": "value",
+        "raw": "Equal prefixing and suffixing"
+      },
+      {
+        "feature_id": "33A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Coding of Nominal Plurality",
+        "value": "Plural prefix",
+        "state": "value",
+        "raw": "Plural prefix"
+      },
+      {
+        "feature_id": "46A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Indefinite Pronouns",
+        "value": "Interrogative-based",
+        "state": "value",
+        "raw": "Interrogative-based"
+      },
+      {
+        "feature_id": "51A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Position of Case Affixes",
+        "value": "Case suffixes",
+        "state": "value",
+        "raw": "Case suffixes"
+      },
+      {
+        "feature_id": "55A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Numeral Classifiers",
+        "value": "Absent",
+        "state": "absent",
+        "raw": "Absent"
+      },
+      {
+        "feature_id": "57A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Position of Pronominal Possessive Affixes",
+        "value": "Possessive prefixes",
+        "state": "value",
+        "raw": "Possessive prefixes"
+      },
+      {
+        "feature_id": "58A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Obligatory Possessive Inflection",
+        "value": "Absent",
+        "state": "absent",
+        "raw": "Absent"
+      },
+      {
+        "feature_id": "58B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Number of Possessive Nouns",
+        "value": "None reported",
+        "state": "value",
+        "raw": "None reported"
+      },
+      {
+        "feature_id": "59A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Possessive Classification",
+        "value": "Two classes",
+        "state": "value",
+        "raw": "Two classes"
+      },
+      {
+        "feature_id": "112A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Negative Morphemes",
+        "value": "Negative affix",
+        "state": "value",
+        "raw": "Negative affix"
+      },
+      {
+        "feature_id": "113A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Symmetric and Asymmetric Standard Negation",
+        "value": "Asymmetric",
+        "state": "value",
+        "raw": "Asymmetric"
+      },
+      {
+        "feature_id": "114A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Subtypes of Asymmetric Standard Negation",
+        "value": "A/NonReal and A/Cat",
+        "state": "value",
+        "raw": "A/NonReal and A/Cat"
+      },
+      {
+        "feature_id": "116A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Polar Questions",
+        "value": "Interrogative intonation only",
+        "state": "value",
+        "raw": "Interrogative intonation only"
+      },
+      {
+        "feature_id": "69A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Verbal Categories",
+        "label": "Position of Tense-Aspect Affixes",
+        "value": "Tense-aspect suffixes",
+        "state": "value",
+        "raw": "Tense-aspect suffixes"
+      },
+      {
+        "feature_id": "143A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Negative Morpheme and Verb",
+        "value": "OptDoubleNeg",
+        "state": "value",
+        "raw": "OptDoubleNeg"
+      },
+      {
+        "feature_id": "143C",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Optional Double Negation",
+        "value": "[Neg-V(-Neg)]",
+        "state": "value",
+        "raw": "[Neg-V(-Neg)]"
+      },
+      {
+        "feature_id": "143E",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Preverbal Negative Morphemes",
+        "value": "[Neg-V]",
+        "state": "value",
+        "raw": "[Neg-V]"
+      },
+      {
+        "feature_id": "143F",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Postverbal Negative Morphemes",
+        "value": "[V-Neg]",
+        "state": "value",
+        "raw": "[V-Neg]"
+      },
+      {
+        "feature_id": "143G",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Minor morphological means of signaling negation",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "144A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Negative Word With Respect to Subject, Object, and Verb",
+        "value": "MorphNeg",
+        "state": "value",
+        "raw": "MorphNeg"
+      },
+      {
+        "feature_id": "144D",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "The Position of Negative Morphemes in SVO Languages",
+        "value": "OptNeg",
+        "state": "value",
+        "raw": "OptNeg"
+      },
+      {
+        "feature_id": "144G",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Optional Double Negation in SVO languages",
+        "value": "S[Neg-V(-Neg)]O",
+        "state": "value",
+        "raw": "S[Neg-V(-Neg)]O"
+      },
+      {
+        "feature_id": "144H",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "NegSVO Order",
+        "value": "No NegSVO",
+        "state": "value",
+        "raw": "No NegSVO"
+      },
+      {
+        "feature_id": "144I",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "SNegVO Order",
+        "value": "Prefix&OptDoubleNeg",
+        "state": "value",
+        "raw": "Prefix&OptDoubleNeg"
+      },
+      {
+        "feature_id": "144J",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "SVNegO Order",
+        "value": "Suffix&OnlyWithAnotherNeg",
+        "state": "value",
+        "raw": "Suffix&OnlyWithAnotherNeg"
+      },
+      {
+        "feature_id": "144K",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "SVONeg Order",
+        "value": "No SVONeg",
+        "state": "value",
+        "raw": "No SVONeg"
+      },
+      {
+        "feature_id": "81A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject, Object and Verb",
+        "value": "SVO",
+        "state": "value",
+        "raw": "SVO"
+      },
+      {
+        "feature_id": "82A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject and Verb",
+        "value": "SV",
+        "state": "value",
+        "raw": "SV"
+      },
+      {
+        "feature_id": "83A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object and Verb",
+        "value": "VO",
+        "state": "value",
+        "raw": "VO"
+      },
+      {
+        "feature_id": "86A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Genitive and Noun",
+        "value": "Noun-Genitive",
+        "state": "value",
+        "raw": "Noun-Genitive"
+      },
+      {
+        "feature_id": "92A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Polar Question Particles",
+        "value": "No question particle",
+        "state": "value",
+        "raw": "No question particle"
+      },
+      {
+        "feature_id": "AUX007",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "case",
+        "label": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+        "value": "suffix",
+        "state": "value",
+        "raw": "suffix"
+      },
+      {
+        "feature_id": "AUX036",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "negation",
+        "label": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+        "value": "affix",
+        "state": "value",
+        "raw": "affix"
+      },
+      {
+        "feature_id": "AUX017",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "number",
+        "label": "How nominal plural is coded: suffix, prefix, reduplication, plural word, clitic, none.",
+        "value": "prefix",
+        "state": "value",
+        "raw": "prefix"
+      },
+      {
+        "feature_id": "AUX044",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "numerals",
+        "label": "Whether counting requires a sortal numeral classifier.",
+        "value": "absent",
+        "state": "absent",
+        "raw": "absent"
+      },
+      {
+        "feature_id": "AUX051",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun",
+        "label": "Whether interrogatives ('who/what') double as indefinites ('someone/something') — an 'ignorative' series. Partially derivable from WALS Indefinite Pronouns (interrogative-based).",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX038",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "syntax",
+        "label": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+        "value": "SVO",
+        "state": "value",
+        "raw": "SVO"
+      },
+      {
+        "feature_id": "AUX026",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+        "value": "suffix",
+        "state": "value",
+        "raw": "suffix"
+      }
+    ],
+    "features_summary": {
+      "total": 47,
+      "coded": 47,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 40,
+        "AUS extension": 7
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -89,5 +570,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "alaw1244",
+      "name": "Alawa",
+      "family": "Mangarrayi-Maran",
+      "basis": "same-subgroup",
+      "subgroup": "Maran"
+    },
+    {
+      "slug": "mara1385",
+      "name": "Marra",
+      "family": "Mangarrayi-Maran",
+      "basis": "same-subgroup",
+      "subgroup": "Maran"
+    }
+  ]
 }

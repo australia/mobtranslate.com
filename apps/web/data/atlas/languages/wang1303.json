@@ -94,5 +94,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "midl1244",
+      "name": "Midlaliri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Arabana"
+    },
+    {
+      "slug": "pilt1234",
+      "name": "Piltapalta",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Arabana"
+    }
+  ]
 }

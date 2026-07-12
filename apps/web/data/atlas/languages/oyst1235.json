@@ -35,9 +35,39 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 2,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 2
+    "feature_count": 2,
+    "features": [
+      {
+        "feature_id": "129A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Hand and Arm",
+        "value": "Different",
+        "state": "value",
+        "raw": "Different"
+      },
+      {
+        "feature_id": "130A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Finger and Hand",
+        "value": "Identical",
+        "state": "value",
+        "raw": "Identical"
+      }
+    ],
+    "features_summary": {
+      "total": 2,
+      "coded": 2,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 2
+      }
+    }
   },
   "lexicon": {
     "state": "none"

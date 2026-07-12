@@ -87,5 +87,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kala1414",
+      "name": "Kalali",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Bulloo River"
+    },
+    {
+      "slug": "ming1253",
+      "name": "Mingbari",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Bulloo River"
+    }
+  ]
 }

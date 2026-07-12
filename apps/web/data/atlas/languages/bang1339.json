@@ -59,9 +59,49 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 3,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 3
+    "feature_count": 3,
+    "features": [
+      {
+        "feature_id": "14A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Fixed Stress Locations",
+        "value": "Antepenultimate",
+        "state": "value",
+        "raw": "Antepenultimate"
+      },
+      {
+        "feature_id": "15A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight-Sensitive Stress",
+        "value": "Fixed stress (no weight-sensitivity)",
+        "state": "value",
+        "raw": "Fixed stress (no weight-sensitivity)"
+      },
+      {
+        "feature_id": "16A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight Factors in Weight-Sensitive Stress Systems",
+        "value": "No weight",
+        "state": "value",
+        "raw": "No weight"
+      }
+    ],
+    "features_summary": {
+      "total": 3,
+      "coded": 3,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 3
+      }
+    }
   },
   "lexicon": {
     "state": "live",
@@ -109,5 +149,21 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "adny1235",
+      "name": "Adnyamathanha",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Thura-Yura"
+    },
+    {
+      "slug": "guya1249",
+      "name": "Guyani",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Thura-Yura"
+    }
+  ]
 }

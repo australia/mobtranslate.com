@@ -94,5 +94,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "east2873",
+      "name": "Eastern Wangganguru",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Wangganguru"
+    },
+    {
+      "slug": "miki1244",
+      "name": "Mikiri-nganha",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Wangganguru"
+    }
+  ]
 }

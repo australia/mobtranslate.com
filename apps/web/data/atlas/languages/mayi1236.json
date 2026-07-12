@@ -93,5 +93,28 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "mayi1234",
+      "name": "Mayi-Thakurti",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Maykulan"
+    },
+    {
+      "slug": "mayi1235",
+      "name": "Mayi-Yapi",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Maykulan"
+    },
+    {
+      "slug": "wunu1234",
+      "name": "Wunumara",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Maykulan"
+    }
+  ]
 }

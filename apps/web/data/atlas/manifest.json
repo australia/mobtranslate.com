@@ -1,9 +1,10 @@
 {
   "name": "Atlas of Australian Languages — data release",
-  "data_release_version": "1.0.0",
+  "data_release_version": "1.1.0",
   "build_stamp": "2026-07-12T00:00:00Z",
   "generator": "apps/web/scripts/atlas/build-data.ts",
   "canonical_universe": "australian_languages_registry.json (1,029 languoids)",
+  "schema_notes": "v1.1.0 enriches per-language detail with grammar.features[] (the actual coded Grambank/WALS/AUS-extension datum values, plain-English glossed, present/absent/?/N-A states kept distinct) and related[] (recorded grammar-similarity neighbours carrying n_joint, plus same-subgroup classification siblings; each item labelled with its basis).",
   "artifacts": {
     "index": "index.json",
     "per_language_detail": "languages/<slug>.json",
@@ -28,7 +29,13 @@
       "name": "WALS",
       "version": "2020.4 CLDF",
       "license": "CC-BY-4.0",
-      "role": "supplementary grammatical features"
+      "role": "supplementary grammatical features (coded values baked into grammar.features)"
+    },
+    {
+      "name": "Australianist typology extension (AUS extension)",
+      "version": "mobtranslate-pg typology plane",
+      "license": "CC-BY-4.0 (derived)",
+      "role": "Australia-specific grammatical features + recorded-agreement similarity (grammar.features, related[])"
     },
     {
       "name": "AIATSIS AUSTLANG",
@@ -68,7 +75,7 @@
     }
   ],
   "coverage_summary": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "build_stamp": "2026-07-12T00:00:00Z",
     "universe_registry_languoids": 1029,
     "non_language_nodes_appendixed": 49,
@@ -101,6 +108,13 @@
       "none": 212
     },
     "deep_time_dated": 224,
+    "typology": {
+      "langs_with_feature_table": 203,
+      "langs_with_related": 606,
+      "feature_definitions": 436,
+      "coded_data_points": 30353,
+      "similarity_pairs": 9499
+    },
     "tiers": {
       "comprehensive": 86,
       "documented": 395,

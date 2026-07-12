@@ -78,5 +78,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "gunn1248",
+      "name": "Gun-narda",
+      "family": "Maningrida",
+      "basis": "same-subgroup",
+      "subgroup": "Burarra"
+    },
+    {
+      "slug": "gunn1249",
+      "name": "Gun-nartpa",
+      "family": "Maningrida",
+      "basis": "same-subgroup",
+      "subgroup": "Burarra"
+    }
+  ]
 }

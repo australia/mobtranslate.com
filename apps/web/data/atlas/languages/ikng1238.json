@@ -94,5 +94,28 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "akar1244",
+      "name": "Akarre",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Eastern Arrernte"
+    },
+    {
+      "slug": "mpar1238",
+      "name": "Mparntwe Arrernte",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Eastern Arrernte"
+    },
+    {
+      "slug": "nort3403",
+      "name": "Northern Arrernte",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Eastern Arrernte"
+    }
+  ]
 }

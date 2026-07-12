@@ -86,5 +86,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "dang1262",
+      "name": "Dangedl",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yir-Yoront"
+    },
+    {
+      "slug": "jirj1239",
+      "name": "Jir'jorond",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yir-Yoront"
+    }
+  ]
 }

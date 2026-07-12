@@ -95,5 +95,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "biri1256",
+      "name": "Biri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Eastern Maric"
+    },
+    {
+      "slug": "gang1268",
+      "name": "Gangulu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Eastern Maric"
+    }
+  ]
 }

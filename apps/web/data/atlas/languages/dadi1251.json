@@ -99,5 +99,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "yith1234",
+      "name": "Yitha Yitha",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Lower Darling-Lower Lachlan"
+    }
+  ]
 }

@@ -82,5 +82,42 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "gawa1249",
+      "name": "Gawambaraay",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yuwaalaraay-Gamilaraay"
+    },
+    {
+      "slug": "guyi1237",
+      "name": "Guyinbaraay",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yuwaalaraay-Gamilaraay"
+    },
+    {
+      "slug": "wirr1237",
+      "name": "Wirriyaraay",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yuwaalaraay-Gamilaraay"
+    },
+    {
+      "slug": "yuwa1242",
+      "name": "Yuwaalaraay",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yuwaalaraay-Gamilaraay"
+    },
+    {
+      "slug": "yuwa1243",
+      "name": "Yuwaalayaay",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yuwaalaraay-Gamilaraay"
+    }
+  ]
 }

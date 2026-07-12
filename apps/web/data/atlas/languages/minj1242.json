@@ -106,5 +106,28 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "ngan1309",
+      "name": "Nganduwal",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Tweed-Albert"
+    },
+    {
+      "slug": "ngar1298",
+      "name": "Ngaraangbal",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Tweed-Albert"
+    },
+    {
+      "slug": "yugu1249",
+      "name": "Yugumbir",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Tweed-Albert"
+    }
+  ]
 }

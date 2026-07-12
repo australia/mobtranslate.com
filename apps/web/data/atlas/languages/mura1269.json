@@ -74,5 +74,42 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kund1258",
+      "name": "Kundedjnjenghmi",
+      "family": "Gunwinyguan",
+      "basis": "same-subgroup",
+      "subgroup": "Bininj Kun-Wok"
+    },
+    {
+      "slug": "gund1246",
+      "name": "Kundjeyhmi",
+      "family": "Gunwinyguan",
+      "basis": "same-subgroup",
+      "subgroup": "Bininj Kun-Wok"
+    },
+    {
+      "slug": "gune1238",
+      "name": "Kune",
+      "family": "Gunwinyguan",
+      "basis": "same-subgroup",
+      "subgroup": "Bininj Kun-Wok"
+    },
+    {
+      "slug": "guma1252",
+      "name": "Kunwinjku",
+      "family": "Gunwinyguan",
+      "basis": "same-subgroup",
+      "subgroup": "Bininj Kun-Wok"
+    },
+    {
+      "slug": "naia1238",
+      "name": "Manyallaluk Mayali",
+      "family": "Gunwinyguan",
+      "basis": "same-subgroup",
+      "subgroup": "Bininj Kun-Wok"
+    }
+  ]
 }

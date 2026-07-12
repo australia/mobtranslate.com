@@ -46,9 +46,510 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 50,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 50
+    "feature_count": 50,
+    "features": [
+      {
+        "feature_id": "27A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Reduplication",
+        "value": "Productive full and partial reduplication",
+        "state": "value",
+        "raw": "Productive full and partial reduplication"
+      },
+      {
+        "feature_id": "30A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Number of Genders",
+        "value": "Five or more",
+        "state": "value",
+        "raw": "Five or more"
+      },
+      {
+        "feature_id": "31A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Sex-based and Non-sex-based Gender Systems",
+        "value": "Sex-based",
+        "state": "value",
+        "raw": "Sex-based"
+      },
+      {
+        "feature_id": "32A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Systems of Gender Assignment",
+        "value": "Semantic",
+        "state": "value",
+        "raw": "Semantic"
+      },
+      {
+        "feature_id": "33A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Coding of Nominal Plurality",
+        "value": "Mixed morphological plural",
+        "state": "value",
+        "raw": "Mixed morphological plural"
+      },
+      {
+        "feature_id": "36A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "The Associative Plural",
+        "value": "Associative same as additive plural",
+        "state": "value",
+        "raw": "Associative same as additive plural"
+      },
+      {
+        "feature_id": "44A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Gender Distinctions in Independent Personal Pronouns",
+        "value": "3rd person singular only",
+        "state": "value",
+        "raw": "3rd person singular only"
+      },
+      {
+        "feature_id": "46A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Indefinite Pronouns",
+        "value": "Interrogative-based",
+        "state": "value",
+        "raw": "Interrogative-based"
+      },
+      {
+        "feature_id": "48A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Person Marking on Adpositions",
+        "value": "No adpositions",
+        "state": "value",
+        "raw": "No adpositions"
+      },
+      {
+        "feature_id": "51A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Position of Case Affixes",
+        "value": "Postpositional clitics",
+        "state": "value",
+        "raw": "Postpositional clitics"
+      },
+      {
+        "feature_id": "57A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Position of Pronominal Possessive Affixes",
+        "value": "No possessive affixes",
+        "state": "value",
+        "raw": "No possessive affixes"
+      },
+      {
+        "feature_id": "63A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Syntax",
+        "label": "Noun Phrase Conjunction",
+        "value": "'And' identical to 'with'",
+        "state": "value",
+        "raw": "'And' identical to 'with'"
+      },
+      {
+        "feature_id": "100A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Alignment of Verbal Person Marking",
+        "value": "Accusative",
+        "state": "value",
+        "raw": "Accusative"
+      },
+      {
+        "feature_id": "102A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Verbal Person Marking",
+        "value": "Both the A and P arguments",
+        "state": "value",
+        "raw": "Both the A and P arguments"
+      },
+      {
+        "feature_id": "103A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Third Person Zero of Verbal Person Marking",
+        "value": "No zero realization",
+        "state": "value",
+        "raw": "No zero realization"
+      },
+      {
+        "feature_id": "104A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Order of Person Markers on the Verb",
+        "value": "A precedes P",
+        "state": "value",
+        "raw": "A precedes P"
+      },
+      {
+        "feature_id": "107A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Passive Constructions",
+        "value": "Absent",
+        "state": "absent",
+        "raw": "Absent"
+      },
+      {
+        "feature_id": "116A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Polar Questions",
+        "value": "Interrogative intonation only",
+        "state": "value",
+        "raw": "Interrogative intonation only"
+      },
+      {
+        "feature_id": "118A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Predicative Adjectives",
+        "value": "Nonverbal encoding",
+        "state": "value",
+        "raw": "Nonverbal encoding"
+      },
+      {
+        "feature_id": "119A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Nominal and Locational Predication",
+        "value": "Identical",
+        "state": "value",
+        "raw": "Identical"
+      },
+      {
+        "feature_id": "120A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Simple Clauses",
+        "label": "Zero Copula for Predicate Nominals",
+        "value": "Possible",
+        "state": "value",
+        "raw": "Possible"
+      },
+      {
+        "feature_id": "143A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Negative Morpheme and Verb",
+        "value": "NegV",
+        "state": "value",
+        "raw": "NegV"
+      },
+      {
+        "feature_id": "143E",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Preverbal Negative Morphemes",
+        "value": "NegV",
+        "state": "value",
+        "raw": "NegV"
+      },
+      {
+        "feature_id": "143F",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Postverbal Negative Morphemes",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "143G",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Minor morphological means of signaling negation",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "81A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject, Object and Verb",
+        "value": "No dominant order",
+        "state": "value",
+        "raw": "No dominant order"
+      },
+      {
+        "feature_id": "82A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Subject and Verb",
+        "value": "SV",
+        "state": "value",
+        "raw": "SV"
+      },
+      {
+        "feature_id": "83A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object and Verb",
+        "value": "No dominant order",
+        "state": "value",
+        "raw": "No dominant order"
+      },
+      {
+        "feature_id": "84A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Object, Oblique, and Verb",
+        "value": "No dominant order",
+        "state": "value",
+        "raw": "No dominant order"
+      },
+      {
+        "feature_id": "85A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Adposition and Noun Phrase",
+        "value": "Postpositions",
+        "state": "value",
+        "raw": "Postpositions"
+      },
+      {
+        "feature_id": "87A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Adjective and Noun",
+        "value": "Noun-Adjective",
+        "state": "value",
+        "raw": "Noun-Adjective"
+      },
+      {
+        "feature_id": "88A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Demonstrative and Noun",
+        "value": "Noun-Demonstrative",
+        "state": "value",
+        "raw": "Noun-Demonstrative"
+      },
+      {
+        "feature_id": "89A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Numeral and Noun",
+        "value": "Noun-Numeral",
+        "state": "value",
+        "raw": "Noun-Numeral"
+      },
+      {
+        "feature_id": "90A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Order of Relative Clause and Noun",
+        "value": "Adjoined",
+        "state": "value",
+        "raw": "Adjoined"
+      },
+      {
+        "feature_id": "90F",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Adjoined relative clauses",
+        "value": "Adjoined relative clause dominant",
+        "state": "value",
+        "raw": "Adjoined relative clause dominant"
+      },
+      {
+        "feature_id": "92A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Polar Question Particles",
+        "value": "No question particle",
+        "state": "value",
+        "raw": "No question particle"
+      },
+      {
+        "feature_id": "93A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Position of Interrogative Phrases in Content Questions",
+        "value": "Not initial interrogative phrase",
+        "state": "value",
+        "raw": "Not initial interrogative phrase"
+      },
+      {
+        "feature_id": "95A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Relationship between the Order of Object and Verb and the Order of Adposition and Noun Phrase",
+        "value": "Other",
+        "state": "value",
+        "raw": "Other"
+      },
+      {
+        "feature_id": "96A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Relationship between the Order of Object and Verb and the Order of Relative Clause and Noun",
+        "value": "Other",
+        "state": "value",
+        "raw": "Other"
+      },
+      {
+        "feature_id": "97A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Word Order",
+        "label": "Relationship between the Order of Object and Verb and the Order of Adjective and Noun",
+        "value": "Other",
+        "state": "value",
+        "raw": "Other"
+      },
+      {
+        "feature_id": "AUX003",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "alignment",
+        "label": "Alignment of person marking (agreement/bound pronouns) on the verb.",
+        "value": "accusative",
+        "state": "value",
+        "raw": "accusative"
+      },
+      {
+        "feature_id": "AUX007",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "case",
+        "label": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+        "value": "postpositional-clitic",
+        "state": "value",
+        "raw": "postpositional-clitic"
+      },
+      {
+        "feature_id": "AUX021",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "gender",
+        "label": "Count of gender / noun-class categories.",
+        "value": "five+",
+        "state": "value",
+        "raw": "five+"
+      },
+      {
+        "feature_id": "AUX022",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "gender",
+        "label": "Whether the gender system is sex-based or non-sex-based (or absent).",
+        "value": "sex-based",
+        "state": "value",
+        "raw": "sex-based"
+      },
+      {
+        "feature_id": "AUX017",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "number",
+        "label": "How nominal plural is coded: suffix, prefix, reduplication, plural word, clitic, none.",
+        "value": "mixed",
+        "state": "value",
+        "raw": "mixed"
+      },
+      {
+        "feature_id": "AUX051",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "pronoun",
+        "label": "Whether interrogatives ('who/what') double as indefinites ('someone/something') — an 'ignorative' series. Partially derivable from WALS Indefinite Pronouns (interrogative-based).",
+        "value": "yes",
+        "state": "present",
+        "raw": "yes"
+      },
+      {
+        "feature_id": "AUX038",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "syntax",
+        "label": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+        "value": "no-dominant-order",
+        "state": "value",
+        "raw": "no-dominant-order"
+      },
+      {
+        "feature_id": "AUX039",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "syntax",
+        "label": "Prepositions vs postpositions vs no dominant adpositions.",
+        "value": "postpositions",
+        "state": "value",
+        "raw": "postpositions"
+      },
+      {
+        "feature_id": "AUX030",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether reduplication is productive and of what kind (full/partial).",
+        "value": "full-and-partial",
+        "state": "value",
+        "raw": "full-and-partial"
+      }
+    ],
+    "features_summary": {
+      "total": 49,
+      "coded": 49,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 40,
+        "AUS extension": 9
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -88,5 +589,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "murr1258",
+      "name": "Murriny Patha",
+      "family": "Southern Daly",
+      "basis": "same-subgroup",
+      "subgroup": "Southern Daly"
+    }
+  ]
 }

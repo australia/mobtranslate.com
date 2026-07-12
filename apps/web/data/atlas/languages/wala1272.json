@@ -74,5 +74,49 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "anda1282",
+      "name": "Andadjin",
+      "family": "Worrorran",
+      "basis": "same-subgroup",
+      "subgroup": "Ngarinyin"
+    },
+    {
+      "slug": "guwi1238",
+      "name": "Guwidj",
+      "family": "Worrorran",
+      "basis": "same-subgroup",
+      "subgroup": "Ngarinyin"
+    },
+    {
+      "slug": "munu1238",
+      "name": "Munumburru",
+      "family": "Worrorran",
+      "basis": "same-subgroup",
+      "subgroup": "Ngarinyin"
+    },
+    {
+      "slug": "ngar1285",
+      "name": "Ngarnawu",
+      "family": "Worrorran",
+      "basis": "same-subgroup",
+      "subgroup": "Ngarinyin"
+    },
+    {
+      "slug": "woly1239",
+      "name": "Wolyamidi",
+      "family": "Worrorran",
+      "basis": "same-subgroup",
+      "subgroup": "Ngarinyin"
+    },
+    {
+      "slug": "wurl1240",
+      "name": "Wurla",
+      "family": "Worrorran",
+      "basis": "same-subgroup",
+      "subgroup": "Ngarinyin"
+    }
+  ]
 }

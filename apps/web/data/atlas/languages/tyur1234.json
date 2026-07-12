@@ -90,5 +90,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "aker1238",
+      "name": "Akerre",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Arrarnta"
+    },
+    {
+      "slug": "pert1234",
+      "name": "Pertame",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Arrarnta"
+    }
+  ]
 }

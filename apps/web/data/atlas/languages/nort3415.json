@@ -74,5 +74,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "sout3391",
+      "name": "Southwestern Tasmanian",
+      "family": "Western Tasmanian",
+      "basis": "same-subgroup",
+      "subgroup": "Western Coastal Tasmanian"
+    }
+  ]
 }

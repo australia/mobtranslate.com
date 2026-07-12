@@ -62,9 +62,39 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 2,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 2
+    "feature_count": 2,
+    "features": [
+      {
+        "feature_id": "39B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Inclusive/Exclusive Forms in Pama-Nyungan",
+        "value": "Inclusive and exclusive differentiated",
+        "state": "value",
+        "raw": "Inclusive and exclusive differentiated"
+      },
+      {
+        "feature_id": "142A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Other",
+        "label": "Para-Linguistic Usages of Clicks",
+        "value": "Other or none",
+        "state": "value",
+        "raw": "Other or none"
+      }
+    ],
+    "features_summary": {
+      "total": 2,
+      "coded": 2,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 2
+      }
+    }
   },
   "lexicon": {
     "state": "live",

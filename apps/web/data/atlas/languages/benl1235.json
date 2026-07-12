@@ -70,5 +70,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "neta1235",
+      "name": "North Midlands Tasmanian",
+      "family": "North-Eastern Tasmanian",
+      "basis": "same-subgroup",
+      "subgroup": "North-Eastern Tasmanian"
+    }
+  ]
 }

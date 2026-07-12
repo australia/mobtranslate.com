@@ -107,5 +107,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "wikm1247",
+      "name": "Wik-Mungkan",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Mungkan-Mungkanhu"
+    }
+  ]
 }

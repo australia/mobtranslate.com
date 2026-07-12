@@ -74,5 +74,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "ngan1298",
+      "name": "Ngangi-Tjemerri",
+      "family": "Southern Daly",
+      "basis": "same-subgroup",
+      "subgroup": "Nangikurrunggurr"
+    }
+  ]
 }

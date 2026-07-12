@@ -69,9 +69,59 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 4,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 4
+    "feature_count": 4,
+    "features": [
+      {
+        "feature_id": "14A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Fixed Stress Locations",
+        "value": "No fixed stress",
+        "state": "value",
+        "raw": "No fixed stress"
+      },
+      {
+        "feature_id": "15A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight-Sensitive Stress",
+        "value": "Left-edge: First or second",
+        "state": "value",
+        "raw": "Left-edge: First or second"
+      },
+      {
+        "feature_id": "16A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Weight Factors in Weight-Sensitive Stress Systems",
+        "value": "Long vowel",
+        "state": "value",
+        "raw": "Long vowel"
+      },
+      {
+        "feature_id": "17A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Phonology",
+        "label": "Rhythm Types",
+        "value": "No rhythmic stress",
+        "state": "value",
+        "raw": "No rhythmic stress"
+      }
+    ],
+    "features_summary": {
+      "total": 4,
+      "coded": 4,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 4
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",
@@ -123,5 +173,14 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "thur1254",
+      "name": "Thurawal",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Costal Yuin"
+    }
+  ]
 }

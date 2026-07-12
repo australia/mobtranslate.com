@@ -60,9 +60,90 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 5,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 5
+    "feature_count": 5,
+    "features": [
+      {
+        "feature_id": "129A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Hand and Arm",
+        "value": "Identical",
+        "state": "value",
+        "raw": "Identical"
+      },
+      {
+        "feature_id": "30A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Number of Genders",
+        "value": "None",
+        "state": "absent",
+        "raw": "None"
+      },
+      {
+        "feature_id": "31A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Sex-based and Non-sex-based Gender Systems",
+        "value": "No gender",
+        "state": "value",
+        "raw": "No gender"
+      },
+      {
+        "feature_id": "32A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Systems of Gender Assignment",
+        "value": "No gender",
+        "state": "value",
+        "raw": "No gender"
+      },
+      {
+        "feature_id": "39B",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Nominal Categories",
+        "label": "Inclusive/Exclusive Forms in Pama-Nyungan",
+        "value": "No inclusive/exclusive opposition",
+        "state": "value",
+        "raw": "No inclusive/exclusive opposition"
+      },
+      {
+        "feature_id": "AUX021",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "gender",
+        "label": "Count of gender / noun-class categories.",
+        "value": "none",
+        "state": "absent",
+        "raw": "none"
+      },
+      {
+        "feature_id": "AUX022",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "gender",
+        "label": "Whether the gender system is sex-based or non-sex-based (or absent).",
+        "value": "none",
+        "state": "absent",
+        "raw": "none"
+      }
+    ],
+    "features_summary": {
+      "total": 7,
+      "coded": 7,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 5,
+        "AUS extension": 2
+      }
+    }
   },
   "lexicon": {
     "state": "none"
@@ -108,5 +189,35 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "kart1247",
+      "name": "Kartujarra",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    },
+    {
+      "slug": "many1256",
+      "name": "Manyjilyjara",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    },
+    {
+      "slug": "pudi1238",
+      "name": "Puditara",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    },
+    {
+      "slug": "wang1288",
+      "name": "Wangkajunga",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Martu Wangka"
+    }
+  ]
 }

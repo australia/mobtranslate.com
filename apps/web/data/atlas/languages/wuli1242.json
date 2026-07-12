@@ -95,5 +95,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "waka1274",
+      "name": "Wakawaka",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Waka-Kabic"
+    }
+  ]
 }

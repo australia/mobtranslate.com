@@ -68,9 +68,29 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 1,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 1
+    "feature_count": 1,
+    "features": [
+      {
+        "feature_id": "138A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Tea",
+        "value": "Others",
+        "state": "value",
+        "raw": "Others"
+      }
+    ],
+    "features_summary": {
+      "total": 1,
+      "coded": 1,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 1
+      }
+    }
   },
   "lexicon": {
     "state": "pointer_only",

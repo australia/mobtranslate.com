@@ -107,5 +107,42 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "dhan1271",
+      "name": "Dhangu-Djangu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Dhangu"
+    },
+    {
+      "slug": "gaal1238",
+      "name": "Gaalpu",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Dhangu"
+    },
+    {
+      "slug": "golu1238",
+      "name": "Golumala",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Dhangu"
+    },
+    {
+      "slug": "ngay1242",
+      "name": "Ngaymil",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Dhangu"
+    },
+    {
+      "slug": "wang1293",
+      "name": "Wangurri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Dhangu"
+    }
+  ]
 }

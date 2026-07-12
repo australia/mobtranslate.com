@@ -107,5 +107,21 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "biri1256",
+      "name": "Biri",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Eastern Maric"
+    },
+    {
+      "slug": "giya1234",
+      "name": "Giya",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Eastern Maric"
+    }
+  ]
 }

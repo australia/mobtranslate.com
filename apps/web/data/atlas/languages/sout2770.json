@@ -86,5 +86,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "nort2760",
+      "name": "Northern Inland Yuin",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yuin"
+    },
+    {
+      "slug": "sout2771",
+      "name": "Southern Coastal Yuin",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Yuin"
+    }
+  ]
 }

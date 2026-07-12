@@ -82,5 +82,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "athi1234",
+      "name": "Athima",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southwestern Alaya-Athima"
+    },
+    {
+      "slug": "kunj1245",
+      "name": "Kunjen",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Southwestern Alaya-Athima"
+    }
+  ]
 }

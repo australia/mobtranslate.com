@@ -87,5 +87,14 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "umii1236",
+      "name": "Umiida",
+      "family": "Worrorran",
+      "basis": "same-subgroup",
+      "subgroup": "Umiida-Unggarangu"
+    }
+  ]
 }

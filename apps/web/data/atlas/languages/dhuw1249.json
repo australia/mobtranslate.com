@@ -70,9 +70,29 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 1,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 1
+    "feature_count": 1,
+    "features": [
+      {
+        "feature_id": "129A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Lexicon",
+        "label": "Hand and Arm",
+        "value": "Different",
+        "state": "value",
+        "raw": "Different"
+      }
+    ],
+    "features_summary": {
+      "total": 1,
+      "coded": 1,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 1
+      }
+    }
   },
   "lexicon": {
     "state": "live",
@@ -120,5 +140,14 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "guma1253",
+      "name": "Gumatj",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Dhuwal-Dhuwala"
+    }
+  ]
 }

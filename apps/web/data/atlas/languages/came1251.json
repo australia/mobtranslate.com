@@ -95,5 +95,21 @@
     "deep_time": null,
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "awab1244",
+      "name": "Awabagal",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Awabakal"
+    },
+    {
+      "slug": "wona1238",
+      "name": "Wonarua",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Awabakal"
+    }
+  ]
 }

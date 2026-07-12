@@ -63,9 +63,40 @@
     "grambank_feature_count": 0,
     "has_wals": true,
     "wals_feature_count": 1,
-    "has_db_typology": false,
+    "has_db_typology": true,
     "db_typology_coverage_pct": null,
-    "feature_count": 1
+    "feature_count": 1,
+    "features": [
+      {
+        "feature_id": "27A",
+        "source": "WALS",
+        "layer": "wals",
+        "domain": "Morphology",
+        "label": "Reduplication",
+        "value": "Full reduplication only",
+        "state": "value",
+        "raw": "Full reduplication only"
+      },
+      {
+        "feature_id": "AUX030",
+        "source": "AUS extension",
+        "layer": "aus_extension",
+        "domain": "verb",
+        "label": "Whether reduplication is productive and of what kind (full/partial).",
+        "value": "full-only",
+        "state": "value",
+        "raw": "full-only"
+      }
+    ],
+    "features_summary": {
+      "total": 2,
+      "coded": 2,
+      "unknown": 0,
+      "by_source": {
+        "WALS": 1,
+        "AUS extension": 1
+      }
+    }
   },
   "lexicon": {
     "state": "open_resource",
@@ -117,5 +148,14 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "dhuw1249",
+      "name": "Dhuwal",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Western Dhuwal-Dhuwala"
+    }
+  ]
 }

@@ -90,5 +90,35 @@
     "deep_time": "Bouckaert, Bowern & Atkinson 2018 (Phlorest CLDF, CC-BY-4.0)",
     "ids": "Glottolog 5.3 + AIATSIS AUSTLANG"
   },
-  "registry_source": "glottolog"
+  "registry_source": "glottolog",
+  "related": [
+    {
+      "slug": "arit1239",
+      "name": "Arritinngithigh",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Pama"
+    },
+    {
+      "slug": "mbiy1238",
+      "name": "Mbiywom",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Pama"
+    },
+    {
+      "slug": "mpal1237",
+      "name": "Mpalityanh-Luthigh",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Pama"
+    },
+    {
+      "slug": "ngko1236",
+      "name": "Ngkoth",
+      "family": "Pama-Nyungan",
+      "basis": "same-subgroup",
+      "subgroup": "Northern Pama"
+    }
+  ]
 }
