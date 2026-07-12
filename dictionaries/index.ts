@@ -4,15 +4,27 @@ import path from 'path';
 import kuku_yalanji from './kuku_yalanji/dictionary.js';
 import migmaq from './migmaq/dictionary.js';
 import anindilyakwa from './anindilyakwa/dictionary.js';
+import woiwurrung from './woiwurrung/dictionary.js';
+import gamilaraay from './gamilaraay/dictionary.js';
+import anguthimri from './anguthimri/dictionary.js';
+import eastern_arrernte from './eastern_arrernte/dictionary.js';
+import pitjantjatjara from './pitjantjatjara/dictionary.js';
 
 const dictionaries: Record<string, any> = {
   kuku_yalanji,
   migmaq,
-  anindilyakwa
+  anindilyakwa,
+  woiwurrung,
+  gamilaraay,
+  anguthimri,
+  eastern_arrernte,
+  pitjantjatjara
 }
 
 // Define supported language codes
-export type LanguageCode = 'kuku_yalanji' | 'migmaq' | 'anindilyakwa';
+export type LanguageCode =
+  | 'kuku_yalanji' | 'migmaq' | 'anindilyakwa'
+  | 'woiwurrung' | 'gamilaraay' | 'anguthimri' | 'eastern_arrernte' | 'pitjantjatjara';
 
 // Define dictionary word type
 export interface DictionaryWord {
@@ -58,6 +70,31 @@ export const dictionaryMeta: Record<LanguageCode, DictionaryMeta> = {
     name: 'Anindilyakwa',
     description: 'Anindilyakwa is an Australian Aboriginal language spoken on Groote Eylandt in the Northern Territory.',
     region: 'Groote Eylandt, Northern Territory',
+  },
+  woiwurrung: {
+    name: 'Woiwurrung',
+    description: 'Woiwurrung is a Kulin (Pama-Nyungan) language of the Woi-wurrung people of the Yarra River basin around Melbourne, Victoria. Sourced from Wiktionary (CC-BY-SA 4.0).',
+    region: 'Yarra Valley & Melbourne, Victoria',
+  },
+  gamilaraay: {
+    name: 'Gamilaraay',
+    description: 'Gamilaraay (Kamilaroi) is a Pama-Nyungan language of north-central New South Wales. Sourced from Wiktionary (CC-BY-SA 4.0).',
+    region: 'North-central New South Wales',
+  },
+  anguthimri: {
+    name: 'Anguthimri',
+    description: 'Anguthimri is a Paman (Pama-Nyungan) language of western Cape York Peninsula, Queensland. Sourced from Wiktionary (CC-BY-SA 4.0).',
+    region: 'Western Cape York Peninsula, Queensland',
+  },
+  eastern_arrernte: {
+    name: 'Eastern Arrernte',
+    description: 'Eastern Arrernte (Eastern Aranda) is an Arandic (Pama-Nyungan) language of the Alice Springs region, Central Australia. Sourced from Wiktionary (CC-BY-SA 4.0).',
+    region: 'Alice Springs region, Northern Territory',
+  },
+  pitjantjatjara: {
+    name: 'Pitjantjatjara',
+    description: 'Pitjantjatjara is a Western Desert (Pama-Nyungan) language of the APY Lands in northern South Australia and adjacent NT/WA. Sourced from Wiktionary (CC-BY-SA 4.0).',
+    region: 'APY Lands, northern South Australia',
   }
 };
 
