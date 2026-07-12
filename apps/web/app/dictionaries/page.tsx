@@ -1,19 +1,15 @@
 import React from 'react';
-import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
-import { Badge } from '@mobtranslate/ui';
-import { getActiveLanguages, getLanguageStats } from '@/lib/db/queries';
-import { ArrowRight } from 'lucide-react';
+import { getDictionaryLanguages } from '@/lib/db/queries';
+import DictionariesBrowser from './DictionariesBrowser';
 
 export const revalidate = 3600;
 
 export default async function DictionariesPage() {
-  const [languages, stats] = await Promise.all([
-    getActiveLanguages(),
-    getLanguageStats(),
-  ]);
+  const languages = await getDictionaryLanguages();
 
-  const maxWords = Math.max(...Object.values(stats.wordsByLanguage), 1);
+  const totalLanguages = languages.length;
+  const totalWords = languages.reduce((sum, l) => sum + l.wordCount, 0);
 
   return (
     <SharedLayout>
@@ -23,61 +19,15 @@ export default async function DictionariesPage() {
           Dictionaries
         </h1>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-          A growing collection of Indigenous language dictionaries, each built with community
-          input and carrying the accent of its own country. {stats.totalLanguages} languages,{' '}
-          {stats.totalWords.toLocaleString()} entries and counting.
+          A growing collection of Australian and Indigenous language resources — from curated
+          community dictionaries to openly-licensed and historical wordlists. {totalLanguages}{' '}
+          languages, {totalWords.toLocaleString()} entries and counting, each labelled by source so
+          you always know what you are reading.
         </p>
       </div>
 
-      {/* Dictionary cards — per-language accent, no side-stripes */}
-      <div className="grid gap-5 sm:grid-cols-2 pb-16">
-        {languages.map((lang) => {
-          const wordCount = stats.wordsByLanguage[lang.code] || 0;
-          const fillPercent = maxWords > 0 ? (wordCount / maxWords) * 100 : 0;
-
-          return (
-            <Link
-              key={lang.code}
-              href={`/dictionaries/${lang.code}`}
-              data-language={lang.code}
-              className="group block no-underline rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-[var(--lang-accent)]"
-            >
-              <div className="flex items-start justify-between mb-2">
-                <div>
-                  <h2 className="text-2xl font-display font-semibold transition-colors group-hover:text-[var(--lang-accent)]">
-                    {lang.name}
-                  </h2>
-                  {lang.region && (
-                    <p className="text-sm text-muted-foreground mt-1">{lang.region}</p>
-                  )}
-                </div>
-                <ArrowRight className="w-5 h-5 text-[var(--lang-accent)] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 mt-1.5" />
-              </div>
-
-              <p className="text-sm text-muted-foreground mb-5 line-clamp-2 leading-relaxed">
-                {lang.description || `The language of the ${lang.name} people.`}
-              </p>
-
-              <div className="mb-4">
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-sm font-semibold">{wordCount.toLocaleString()} words</span>
-                  <span className="text-xs text-muted-foreground tabular-nums">{Math.round(fillPercent)}%</span>
-                </div>
-                <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-[var(--lang-accent)] transition-all duration-700 ease-out"
-                    style={{ width: `${Math.max(fillPercent, 3)}%` }}
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {lang.family && <Badge variant="outline">{lang.family}</Badge>}
-                {lang.status && <Badge variant="secondary">{lang.status}</Badge>}
-              </div>
-            </Link>
-          );
-        })}
+      <div className="marketing">
+        <DictionariesBrowser languages={languages} />
       </div>
 
       {/* About — editorial, two columns, no icon-card chrome */}

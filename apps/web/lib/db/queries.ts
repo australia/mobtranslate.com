@@ -187,6 +187,78 @@ export async function getActiveLanguages(): Promise<Language[]> {
   return rows.map(mapLanguage);
 }
 
+// ---------------------------------------------------------------------------
+// Dictionaries index — one efficient query that surfaces the source/provenance
+// TIER for every active language plus its word count, in a single round-trip
+// (avoids the per-language N+1 that getLanguageStats does). Used by the
+// /dictionaries list so it can honestly separate curated community
+// dictionaries, community-sourced (Wiktionary) wordlists, and the OCR'd
+// E.M. Curr 1886-87 historical vocabularies.
+// ---------------------------------------------------------------------------
+
+/** Machine-readable trust tier for a dictionary's provenance. */
+export type DictionaryTierId = 'curated' | 'wiktionary' | 'curr';
+
+export interface DictionaryLanguage {
+  code: string;
+  name: string;
+  description?: string;
+  region?: string;
+  family?: string;
+  status?: string;
+  wordCount: number;
+  /** Normalized provenance tier. */
+  tierId: DictionaryTierId;
+  /** Raw metadata->>'tier' label, if any. */
+  tierLabel?: string;
+  /** Raw metadata->>'source' label, if any. */
+  source?: string;
+  /** metadata->>'source_url' when present (e.g. the archive.org scan). */
+  sourceUrl?: string;
+  /** For Curr entries, the raw locality string transcribed from the source. */
+  locality?: string;
+}
+
+export async function getDictionaryLanguages(): Promise<DictionaryLanguage[]> {
+  const rows = await db
+    .select({
+      code: languagesT.code,
+      name: languagesT.name,
+      description: languagesT.description,
+      region: languagesT.region,
+      family: languagesT.family,
+      status: languagesT.status,
+      metadata: languagesT.metadata,
+      wordCount: sql<number>`(
+        SELECT count(*)::int FROM ${wordsT} w WHERE w.language_id = ${languagesT.id}
+      )`,
+    })
+    .from(languagesT)
+    .where(eq(languagesT.isActive, true))
+    .orderBy(asc(languagesT.name));
+
+  return rows.map((r) => {
+    const md = (r.metadata as Record<string, any> | null) ?? {};
+    const rawTierId = typeof md.tier_id === 'string' ? md.tier_id : '';
+    const tierId: DictionaryTierId =
+      rawTierId === 'curr' ? 'curr' : rawTierId === 'wiktionary' ? 'wiktionary' : 'curated';
+    return {
+      code: r.code,
+      name: r.name,
+      description: r.description ?? undefined,
+      region: r.region ?? undefined,
+      family: r.family ?? undefined,
+      status: r.status ?? undefined,
+      wordCount: Number(r.wordCount ?? 0),
+      tierId,
+      tierLabel: typeof md.tier === 'string' && md.tier ? md.tier : undefined,
+      source: typeof md.source === 'string' && md.source ? md.source : undefined,
+      sourceUrl: typeof md.source_url === 'string' && md.source_url ? md.source_url : undefined,
+      locality: typeof md.locality === 'string' && md.locality ? md.locality : undefined,
+    };
+  });
+}
+
 export async function getWordsForLanguage({
   language,
   search,
