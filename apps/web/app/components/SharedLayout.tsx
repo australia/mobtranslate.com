@@ -87,6 +87,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
   const navLinks: NavLink[] = [
     { title: 'About', href: '/about' },
     { title: 'Dictionaries', href: '/dictionaries' },
+    { title: 'Map', href: '/map' },
     { title: 'Translate', href: '/translate/v2' },
     { title: 'Models', href: '/models' },
     { title: 'Learn', href: '/education' },
