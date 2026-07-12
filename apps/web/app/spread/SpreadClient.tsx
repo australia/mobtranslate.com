@@ -52,6 +52,22 @@ const SPREAD_BOUNDS: [[number, number], [number, number]] = [
 // keep the continent in the clear band between the top banner and bottom controls
 const FIT_PADDING = { top: 148, bottom: 118, left: 40, right: 40 };
 
+/**
+ * Optional thesis "lens" that reframes the map HONESTLY (used by /atlas/spread).
+ * When absent (the standalone /spread route) the animation behaves exactly as
+ * before — every new code path below is gated on `thesis` being present.
+ *   - mode 'wind'   : the dated Bouckaert "wind" plays (with an honest note).
+ *   - mode 'freeze' : Dixon's dissent — the dated wind is DISABLED and greyed,
+ *                     never replaced by a second fabricated animation.
+ */
+export interface SpreadThesisLens {
+  id: string;
+  mode: 'wind' | 'freeze';
+  chip?: string | null;
+  overlayNote?: string | null;
+  banner?: string | null;
+}
+
 /** A soft additive glow sprite, rendered once and stamped per particle head. */
 function makeGlowSprite(): HTMLCanvasElement | null {
   if (typeof document === 'undefined') return null;
@@ -70,7 +86,9 @@ function makeGlowSprite(): HTMLCanvasElement | null {
   return c;
 }
 
-export default function SpreadClient() {
+export default function SpreadClient({
+  thesis = null,
+}: { thesis?: SpreadThesisLens | null } = {}) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapWrapRef = useRef<HTMLDivElement | null>(null);
   const baseCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -93,6 +111,7 @@ export default function SpreadClient() {
   const speedRef = useRef<number>(1);
   const focalRef = useRef<string | null>('kuku1273');
   const reducedRef = useRef<boolean>(false);
+  const frozenRef = useRef<boolean>(false); // Dixon lens: dated wind disabled
 
   const [libReady, setLibReady] = useState(false);
   const [libError, setLibError] = useState(false);
@@ -107,6 +126,7 @@ export default function SpreadClient() {
   const [methodOpen, setMethodOpen] = useState(false);
   const [bannerOpen, setBannerOpen] = useState(true);
   const [legendOpen, setLegendOpen] = useState(true);
+  const [frozen, setFrozen] = useState(false); // mirrors frozenRef for the DOM
 
   const prefersReduced = useMemo(
     () =>
@@ -199,6 +219,21 @@ export default function SpreadClient() {
   useEffect(() => {
     focalRef.current = focal;
   }, [focal]);
+
+  // Thesis lens -> refs. Freeze (Dixon) disables the dated wind and greys the
+  // map; switching to any other lens releases the freeze but never auto-restarts
+  // time (the reader keeps their place). No-op when `thesis` is null (/spread).
+  useEffect(() => {
+    const isFrozen = thesis?.mode === 'freeze';
+    frozenRef.current = isFrozen;
+    setFrozen(isFrozen);
+    movedRef.current = true; // force a canvas clear/redraw on any lens change
+    if (isFrozen) {
+      playingRef.current = false;
+      setPlaying(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [thesis?.id, thesis?.mode]);
 
   const buildStyle = useCallback(() => {
     return {
@@ -456,7 +491,8 @@ export default function SpreadClient() {
 
       // 3. Gulf-of-Carpentaria origin — a warm luminous ember (source of it all)
       const o = projCache.origin;
-      const pulse = reducedRef.current ? 0.5 : 0.5 + 0.5 * Math.sin(ts / 900);
+      const pulse =
+        reducedRef.current || frozenRef.current ? 0.5 : 0.5 + 0.5 * Math.sin(ts / 900);
       bctx.save();
       bctx.globalCompositeOperation = 'lighter';
       const halo = bctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, 26 + 8 * pulse);
@@ -615,7 +651,7 @@ export default function SpreadClient() {
       const cw = wind.clientWidth;
       const chh = wind.clientHeight;
 
-      if (movedRef.current || reducedRef.current) {
+      if (movedRef.current || reducedRef.current || frozenRef.current) {
         wctx.clearRect(0, 0, cw, chh);
         movedRef.current = false;
       } else {
@@ -624,7 +660,8 @@ export default function SpreadClient() {
         wctx.fillStyle = `rgba(0,0,0,${TRAIL_FADE})`;
         wctx.fillRect(0, 0, cw, chh);
       }
-      if (reducedRef.current) return; // static end-state: no wind motion
+      // static end-state (reduced motion) OR Dixon freeze: no wind motion at all
+      if (reducedRef.current || frozenRef.current) return;
 
       const edges = d.datedEdges;
       const frontier: number[] = [];
@@ -784,6 +821,7 @@ export default function SpreadClient() {
   return (
     <div
       ref={containerRef as any}
+      data-frozen={frozen ? '1' : '0'}
       className="spread-frame relative w-full h-[calc(100dvh-11rem)] min-h-[600px] overflow-hidden rounded-[1.4rem]"
     >
       {/* warm-tinted basemap (mounts here, behind the canvases) + two stacked canvases */}
@@ -878,8 +916,41 @@ export default function SpreadClient() {
               {bannerOpen ? '–' : '+'}
             </button>
           </div>
+
+          {/* thesis-lens honesty note (only on /atlas/spread, when a thesis is selected) */}
+          {thesis && (thesis.overlayNote || thesis.chip) && (
+            <div className="mt-3 flex items-start gap-2.5 border-t border-white/10 pt-2.5">
+              <span
+                className="spread-chip mt-0.5 shrink-0"
+                style={{
+                  color: '#bfe0c9',
+                  background: 'rgba(112,150,126,0.18)',
+                  borderColor: 'rgba(112,150,126,0.4)',
+                }}
+              >
+                Lens
+              </span>
+              <p className="min-w-0 text-[12.5px] leading-relaxed text-[#d7c8ac]">
+                {thesis.overlayNote ?? thesis.chip}
+              </p>
+            </div>
+          )}
         </div>
       </div>
+
+      {/* ---- Dixon freeze overlay: the dated wind is DISABLED, not replaced ---- */}
+      {thesis?.mode === 'freeze' && thesis.banner && mapReady && (
+        <div className="pointer-events-none absolute inset-0 z-[12] flex items-center justify-center p-6">
+          <div className="spread-panel spread-freeze pointer-events-auto max-w-md px-5 py-4 text-center">
+            <span className="spread-chip mx-auto mb-2 inline-block">
+              Animation disabled — contested tree
+            </span>
+            <p className="text-[13.5px] leading-relaxed text-[#eaddc4]">
+              {thesis.banner}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* ---- Legend (bottom-left, above the controls) ---- */}
       {mapReady && data && (
@@ -1453,6 +1524,22 @@ export default function SpreadClient() {
           border: 1px solid rgba(255, 240, 214, 0.07);
           border-radius: 0.6rem;
           padding: 0.6rem 0.75rem;
+        }
+
+        /* ---- Dixon freeze: grey & still the whole animation (never a 2nd map) ---- */
+        .spread-frame[data-frozen='1'] .maplibregl-map,
+        .spread-frame[data-frozen='1'] .maplibregl-canvas {
+          filter: grayscale(0.94) brightness(0.6) contrast(0.9);
+          transition: filter 0.5s ease;
+        }
+        .spread-frame[data-frozen='1'] canvas {
+          filter: grayscale(0.9) brightness(0.66);
+          transition: filter 0.5s ease;
+        }
+        .spread-freeze {
+          border-color: rgba(224, 135, 58, 0.42);
+          box-shadow: 0 0 0 1px rgba(224, 135, 58, 0.18),
+            0 24px 60px -26px rgba(0, 0, 0, 0.9);
         }
 
         @media (prefers-reduced-motion: reduce) {

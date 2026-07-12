@@ -140,7 +140,7 @@ export default function AtlasPage() {
       status: 'Coming soon',
     },
     {
-      href: '/spread',
+      href: '/atlas/spread',
       icon: Waves,
       title: 'Deep-time spread',
       desc: 'The animated Pama-Nyungan expansion, and every scholarly thesis of why the languages moved — held side by side.',
