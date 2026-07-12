@@ -14,15 +14,24 @@ export default async function DictionariesPage() {
   return (
     <SharedLayout>
       {/* Header */}
-      <div className="marketing py-10 md:py-14 max-w-3xl">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-[-0.02em] mb-4">
+      <div className="marketing pt-10 pb-8 md:pt-14 md:pb-10 max-w-2xl">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-[-0.02em] mb-3">
           Dictionaries
         </h1>
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+        <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-pretty">
           Official dictionaries for hundreds of Australian and Indigenous languages — community-built
           collections alongside openly-licensed and public-domain vocabularies, each with its source
-          shown. {totalLanguages.toLocaleString()} dictionaries, {totalWords.toLocaleString()} entries
-          and counting.
+          shown.
+        </p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          <span className="font-medium text-foreground tabular-nums">
+            {totalLanguages.toLocaleString()}
+          </span>{' '}
+          dictionaries ·{' '}
+          <span className="font-medium text-foreground tabular-nums">
+            {totalWords.toLocaleString()}
+          </span>{' '}
+          entries and counting
         </p>
       </div>
 
