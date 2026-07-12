@@ -3,53 +3,27 @@
 import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Badge } from '@mobtranslate/ui';
-import { ArrowRight, Search, X, Info } from 'lucide-react';
+import { ArrowRight, Search, X } from 'lucide-react';
 import type { DictionaryLanguage, DictionaryTierId } from '@/lib/db/queries';
 
 // ---------------------------------------------------------------------------
-// Client-side browser for the /dictionaries index. Search + family filter +
-// provenance-tier filter over the full language set. Honesty is the binding
-// rule of this program: curated community dictionaries, community-sourced
-// (Wiktionary) wordlists, and the OCR'd E.M. Curr 1886-87 historical
-// vocabularies are visually + textually separated, never conflated.
+// Client-side browser for the /dictionaries index.
+//
+// Every language is a first-class, official dictionary (operator directive,
+// 2026-07-12). We do NOT rank them into "real" vs "lesser" tiers. What we DO
+// keep is honest SOURCE ATTRIBUTION — a neutral provenance chip on every card
+// — because the open licences require it (Wiktionary = CC-BY-SA 4.0; E.M. Curr
+// 1886-87 = public domain) and because knowing where a lexicon came from is
+// simply good scholarship. Attribution is not demotion.
 // ---------------------------------------------------------------------------
 
-type TierMeta = {
-  order: number;
-  label: string;
-  badge: string;
-  badgeVariant: 'default' | 'secondary' | 'outline';
-  blurb: string;
-};
+type SourceMeta = { label: string; filterLabel: string };
 
-const TIERS: Record<DictionaryTierId, TierMeta> = {
-  curated: {
-    order: 0,
-    label: 'Community dictionaries',
-    badge: 'Community dictionary',
-    badgeVariant: 'default',
-    blurb:
-      'Curated dictionaries built with community input and ongoing linguistic review — the flagship collections.',
-  },
-  wiktionary: {
-    order: 1,
-    label: 'Community-sourced wordlists',
-    badge: 'Community-sourced · Wiktionary',
-    badgeVariant: 'secondary',
-    blurb:
-      'Open, crowd-edited vocabularies drawn from English Wiktionary (CC-BY-SA 4.0). Useful and openly licensed, but not community-reviewed dictionaries.',
-  },
-  curr: {
-    order: 2,
-    label: 'Historical wordlists (E.M. Curr, 1886-87)',
-    badge: 'Historical · Curr 1886-87 · OCR',
-    badgeVariant: 'outline',
-    blurb:
-      'Comparative vocabularies transcribed by OCR from E. M. Curr, The Australian Race (1886-87), a public-domain colonial source. These carry OCR errors and colonial-era spellings (e.g. "Flinbebs And Cloncurrt Rivers" = Flinders & Cloncurry Rivers; "Bivebs" = Rivers). They are primary-source snapshots, not polished dictionaries — read them as historical evidence.',
-  },
+const SOURCE: Record<DictionaryTierId, SourceMeta> = {
+  curated: { label: 'Community', filterLabel: 'Community' },
+  wiktionary: { label: 'Wiktionary', filterLabel: 'Wiktionary' },
+  curr: { label: 'Curr 1886–87', filterLabel: 'Curr 1886–87' },
 };
-
-const TIER_ORDER: DictionaryTierId[] = ['curated', 'wiktionary', 'curr'];
 
 function LanguageCard({
   lang,
@@ -58,12 +32,11 @@ function LanguageCard({
   lang: DictionaryLanguage;
   maxWords: number;
 }) {
-  const tier = TIERS[lang.tierId];
+  const src = SOURCE[lang.tierId];
   const fillPercent = maxWords > 0 ? (lang.wordCount / maxWords) * 100 : 0;
-  const subtitle =
-    lang.tierId === 'curr'
-      ? lang.locality || lang.region
-      : lang.region;
+  const subtitle = lang.locality || lang.region;
+  // Curr entries carry auto-generated boilerplate descriptions — skip them.
+  const showDescription = lang.description && lang.tierId !== 'curr';
 
   return (
     <Link
@@ -83,7 +56,7 @@ function LanguageCard({
         <ArrowRight className="w-5 h-5 shrink-0 text-[var(--lang-accent)] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 mt-1.5" />
       </div>
 
-      {lang.description && lang.tierId !== 'curr' && (
+      {showDescription && (
         <p className="text-sm text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
           {lang.description}
         </p>
@@ -104,8 +77,8 @@ function LanguageCard({
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <Badge variant={tier.badgeVariant}>{tier.badge}</Badge>
         {lang.family && <Badge variant="outline">{lang.family}</Badge>}
+        <Badge variant="secondary">{src.label}</Badge>
       </div>
     </Link>
   );
@@ -117,7 +90,7 @@ export default function DictionariesBrowser({
   languages: DictionaryLanguage[];
 }) {
   const [query, setQuery] = useState('');
-  const [tierFilter, setTierFilter] = useState<DictionaryTierId | 'all'>('all');
+  const [sourceFilter, setSourceFilter] = useState<DictionaryTierId | 'all'>('all');
   const [familyFilter, setFamilyFilter] = useState<string>('all');
 
   const families = useMemo(() => {
@@ -131,7 +104,16 @@ export default function DictionariesBrowser({
     [languages]
   );
 
-  const tierCounts = useMemo(() => {
+  // Richest dictionaries first, then alphabetical — showcase the real content.
+  const sorted = useMemo(
+    () =>
+      [...languages].sort(
+        (a, b) => b.wordCount - a.wordCount || a.name.localeCompare(b.name)
+      ),
+    [languages]
+  );
+
+  const sourceCounts = useMemo(() => {
     const c: Record<string, number> = { all: languages.length };
     for (const l of languages) c[l.tierId] = (c[l.tierId] || 0) + 1;
     return c;
@@ -139,8 +121,8 @@ export default function DictionariesBrowser({
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return languages.filter((l) => {
-      if (tierFilter !== 'all' && l.tierId !== tierFilter) return false;
+    return sorted.filter((l) => {
+      if (sourceFilter !== 'all' && l.tierId !== sourceFilter) return false;
       if (familyFilter !== 'all') {
         if (familyFilter === '__none__') {
           if (l.family) return false;
@@ -154,23 +136,13 @@ export default function DictionariesBrowser({
       }
       return true;
     });
-  }, [languages, query, tierFilter, familyFilter]);
+  }, [sorted, query, sourceFilter, familyFilter]);
 
-  const grouped = useMemo(() => {
-    const g: Record<DictionaryTierId, DictionaryLanguage[]> = {
-      curated: [],
-      wiktionary: [],
-      curr: [],
-    };
-    for (const l of filtered) g[l.tierId].push(l);
-    return g;
-  }, [filtered]);
-
-  const tierChips: { id: DictionaryTierId | 'all'; label: string }[] = [
-    { id: 'all', label: 'All' },
+  const sourceChips: { id: DictionaryTierId | 'all'; label: string }[] = [
+    { id: 'all', label: 'All sources' },
     { id: 'curated', label: 'Community' },
     { id: 'wiktionary', label: 'Wiktionary' },
-    { id: 'curr', label: 'Historical (Curr 1886)' },
+    { id: 'curr', label: 'Curr 1886–87' },
   ];
 
   return (
@@ -218,14 +190,14 @@ export default function DictionariesBrowser({
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {tierChips.map((chip) => {
-              const active = tierFilter === chip.id;
-              const n = tierCounts[chip.id] ?? 0;
+            {sourceChips.map((chip) => {
+              const active = sourceFilter === chip.id;
+              const n = sourceCounts[chip.id] ?? 0;
               return (
                 <button
                   key={chip.id}
                   type="button"
-                  onClick={() => setTierFilter(chip.id)}
+                  onClick={() => setSourceFilter(chip.id)}
                   className={`px-3 h-8 rounded-full border text-sm font-medium transition-colors ${
                     active
                       ? 'bg-foreground text-background border-foreground'
@@ -243,51 +215,20 @@ export default function DictionariesBrowser({
 
       {/* Result count */}
       <p className="text-sm text-muted-foreground mb-6">
-        Showing {filtered.length.toLocaleString()} of {languages.length.toLocaleString()} languages
+        Showing {filtered.length.toLocaleString()} of {languages.length.toLocaleString()} dictionaries
       </p>
 
-      {filtered.length === 0 && (
+      {filtered.length === 0 ? (
         <div className="rounded-xl border border-dashed border-border p-12 text-center text-muted-foreground">
           No dictionaries match your filters.
         </div>
+      ) : (
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((lang) => (
+            <LanguageCard key={lang.code} lang={lang} maxWords={maxWords} />
+          ))}
+        </div>
       )}
-
-      {/* Sections, in trust order */}
-      {TIER_ORDER.map((tierId) => {
-        const items = grouped[tierId];
-        if (items.length === 0) return null;
-        const meta = TIERS[tierId];
-        return (
-          <section key={tierId} className="mb-12">
-            <div className="mb-4">
-              <div className="flex items-baseline gap-3 flex-wrap">
-                <h2 className="text-2xl font-display font-bold tracking-[-0.01em]">
-                  {meta.label}
-                </h2>
-                <span className="text-sm text-muted-foreground tabular-nums">
-                  {items.length.toLocaleString()}
-                </span>
-              </div>
-              <div
-                className={`mt-2 flex items-start gap-2 text-sm leading-relaxed rounded-lg p-3 ${
-                  tierId === 'curr'
-                    ? 'bg-amber-500/10 text-amber-900 dark:text-amber-200 border border-amber-500/30'
-                    : 'text-muted-foreground'
-                }`}
-              >
-                {tierId === 'curr' && <Info className="h-4 w-4 mt-0.5 shrink-0" />}
-                <p className="max-w-3xl">{meta.blurb}</p>
-              </div>
-            </div>
-
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {items.map((lang) => (
-                <LanguageCard key={lang.code} lang={lang} maxWords={maxWords} />
-              ))}
-            </div>
-          </section>
-        );
-      })}
     </div>
   );
 }

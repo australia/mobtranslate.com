@@ -222,6 +222,7 @@ export interface DictionaryLanguage {
 export async function getDictionaryLanguages(): Promise<DictionaryLanguage[]> {
   const rows = await db
     .select({
+      id: languagesT.id,
       code: languagesT.code,
       name: languagesT.name,
       description: languagesT.description,
@@ -229,13 +230,23 @@ export async function getDictionaryLanguages(): Promise<DictionaryLanguage[]> {
       family: languagesT.family,
       status: languagesT.status,
       metadata: languagesT.metadata,
-      wordCount: sql<number>`(
-        SELECT count(*)::int FROM ${wordsT} w WHERE w.language_id = ${languagesT.id}
-      )`,
     })
     .from(languagesT)
     .where(eq(languagesT.isActive, true))
     .orderBy(asc(languagesT.name));
+
+  // Word counts via a single GROUP BY, merged in JS. (A correlated subquery of
+  // the form `WHERE w.language_id = <languages.id>` mis-resolved through
+  // Drizzle's column interpolation — the unqualified `id` bound to words.id and
+  // every count came back 0. GROUP BY + map is unambiguous and one round-trip.)
+  const counts = await db
+    .select({ languageId: wordsT.languageId, n: count() })
+    .from(wordsT)
+    .groupBy(wordsT.languageId);
+  const countMap = new Map<string, number>();
+  for (const c of counts) {
+    if (c.languageId) countMap.set(c.languageId as string, Number(c.n));
+  }
 
   return rows.map((r) => {
     const md = (r.metadata as Record<string, any> | null) ?? {};
@@ -249,7 +260,7 @@ export async function getDictionaryLanguages(): Promise<DictionaryLanguage[]> {
       region: r.region ?? undefined,
       family: r.family ?? undefined,
       status: r.status ?? undefined,
-      wordCount: Number(r.wordCount ?? 0),
+      wordCount: countMap.get(r.id as string) ?? 0,
       tierId,
       tierLabel: typeof md.tier === 'string' && md.tier ? md.tier : undefined,
       source: typeof md.source === 'string' && md.source ? md.source : undefined,

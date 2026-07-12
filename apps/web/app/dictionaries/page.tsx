@@ -19,10 +19,10 @@ export default async function DictionariesPage() {
           Dictionaries
         </h1>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-          A growing collection of Australian and Indigenous language resources — from curated
-          community dictionaries to openly-licensed and historical wordlists. {totalLanguages}{' '}
-          languages, {totalWords.toLocaleString()} entries and counting, each labelled by source so
-          you always know what you are reading.
+          Official dictionaries for hundreds of Australian and Indigenous languages — community-built
+          collections alongside openly-licensed and public-domain vocabularies, each with its source
+          shown. {totalLanguages.toLocaleString()} dictionaries, {totalWords.toLocaleString()} entries
+          and counting.
         </p>
       </div>
 
