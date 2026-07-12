@@ -9,6 +9,37 @@ export const DATA_URL = '/spread/diffusion_model.json';
 /** Brand rust/ochre — reserved for Pama-Nyungan, the time-calibrated expansion. */
 export const PN_COLOR = '#e0692f';
 
+/**
+ * The showpiece commits to a single look: a warm night sky over Country,
+ * regardless of the site's light/dark theme. A dark, label-stripped CARTO
+ * basemap so the landmass reads as a quiet silhouette; a subtle CSS warm-tint
+ * (applied in the client) turns it earthy rather than corporate-dark.
+ */
+export const SPREAD_BASEMAP = {
+  tiles: [
+    'https://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+    'https://b.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+    'https://c.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',
+  ],
+  attribution: '© OpenStreetMap contributors © CARTO',
+  bg: '#0b0809',
+};
+
+/**
+ * Canvas palette — fixed hex/rgb tuned to the earth tokens (ochre, gold,
+ * eucalyptus, ember). Fixed rather than CSS vars because these paint onto a
+ * <canvas> that sits over a raster basemap, not the page background.
+ */
+export const SKY = {
+  windTail: '226, 138, 58', // warm ochre (rgb, for rgba tails)
+  windMid: '255, 197, 112', // amber-gold
+  windCore: '255, 244, 224', // near-white gold core
+  edge: '224, 135, 58', // dated-expansion riverbeds
+  ember: '224, 105, 47', // Gulf-of-Carpentaria source (PN_COLOR)
+  emberCore: '255, 221, 168', // ember hot centre
+  context: '112, 150, 126', // muted eucalyptus — undated northern families
+};
+
 export interface RawNode {
   id: string;
   backbone: 'glottolog' | 'bouckaert2018';
