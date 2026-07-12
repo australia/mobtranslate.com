@@ -88,6 +88,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
     { title: 'About', href: '/about' },
     { title: 'Dictionaries', href: '/dictionaries' },
     { title: 'Map', href: '/map' },
+    { title: 'Spread', href: '/spread' },
     { title: 'Translate', href: '/translate/v2' },
     { title: 'Models', href: '/models' },
     { title: 'Learn', href: '/education' },

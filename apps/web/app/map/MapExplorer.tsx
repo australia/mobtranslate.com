@@ -544,12 +544,27 @@ export default function MapExplorer() {
             languages share &mdash; with <strong>not&nbsp;coded</strong> always shown, never hidden.
           </p>
         </div>
-        <button
-          onClick={() => setAboutOpen(true)}
-          className="shrink-0 rounded-lg border border-border bg-card px-3.5 py-2 text-sm font-medium text-foreground hover:bg-muted/60 transition-colors"
-        >
-          About this data
-        </button>
+        <div className="flex shrink-0 flex-wrap items-center gap-2">
+          <Link
+            href="/spread"
+            className="group inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/10 px-3.5 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+            </span>
+            How our languages spread &mdash; animated
+            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+              &rarr;
+            </span>
+          </Link>
+          <button
+            onClick={() => setAboutOpen(true)}
+            className="rounded-lg border border-border bg-card px-3.5 py-2 text-sm font-medium text-foreground hover:bg-muted/60 transition-colors"
+          >
+            About this data
+          </button>
+        </div>
       </header>
 
       <div className="relative w-full h-[calc(100dvh-13rem)] min-h-[540px] rounded-2xl border border-border overflow-hidden shadow-sm bg-muted/40">
