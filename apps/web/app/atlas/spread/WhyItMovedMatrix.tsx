@@ -12,7 +12,7 @@ import {
   Link2,
   MapPin,
 } from 'lucide-react';
-import thesesData from '../../../data/atlas/theses.json';
+import thesesData from '../../../data/theses.json';
 import { THESIS_MAP } from './thesisMap';
 
 /* ---------------------------------------------------------------- types (loose) */

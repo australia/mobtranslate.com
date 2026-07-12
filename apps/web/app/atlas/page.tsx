@@ -151,7 +151,7 @@ export default function AtlasPage() {
       icon: Grid3x3,
       title: 'Grammar & similarity',
       desc: 'Colour the map by any Grambank or WALS feature; compare grammatical profiles between languages.',
-      status: 'Coming soon',
+      status: 'Live',
     },
     {
       href: '/atlas/methods',

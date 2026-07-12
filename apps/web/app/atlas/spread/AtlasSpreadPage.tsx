@@ -4,7 +4,7 @@ import { useCallback, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ChevronDown, Info } from 'lucide-react';
 import SpreadClient from '../../spread/SpreadClient';
-import thesesData from '../../../data/atlas/theses.json';
+import thesesData from '../../../data/theses.json';
 import WhyItMovedMatrix from './WhyItMovedMatrix';
 import { resolveThesisLens, THESIS_MAP, LENS_HINT } from './thesisMap';
 

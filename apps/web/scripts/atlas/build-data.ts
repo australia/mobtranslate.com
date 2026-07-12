@@ -945,6 +945,154 @@ async function main() {
   }
   log(`typology enrich: ${recordsWithFeatures} langs got a feature table, ${recordsWithRelated} got related[]`);
 
+  // -- Grammar matrix (feature explorer + language compare + neighbours) -----
+  // A single compact artifact the /atlas/grammar client needs to (a) colour the
+  // map by ANY feature's value across every language that codes it, (b) compare
+  // two languages feature-by-feature, and (c) list closest-by-recorded-agreement
+  // neighbours — WITHOUT loading 203 shards or hitting the DB at request time.
+  //
+  // Honesty baked in:
+  //   • the similarity metric is ONLY ever called grammar_recorded_agreement /
+  //     "Similarity in recorded Grambank features" (never "grammatical similarity")
+  //   • every neighbour/pair carries n_joint (jointly-coded Grambank features)
+  //   • '?'-unknown and N/A are kept DISTINCT from 'absent' via a state char, so
+  //     the client can render them as an explicit grey — never conflated.
+  type StateChar = 'p' | 'a' | 'v' | 'u' | 'x'; // present|absent|value|unknown|na
+  const stateChar = (s: string): StateChar =>
+    s === 'present' ? 'p' : s === 'absent' ? 'a' : s === 'unknown' ? 'u' : s === 'na' ? 'x' : 'v';
+
+  interface FeatAgg {
+    id: string; source: string; layer: string; domain: string | null; gloss: string;
+    vals: Map<string, { state: string; count: number }>;
+    coded: number; unknown: number; na: number; total: number;
+  }
+  const featAgg = new Map<string, FeatAgg>();
+  const gmValues: Record<string, Record<string, [string, StateChar]>> = {};
+  const gmLangs: Record<string, { n: number; name: string; family: string }> = {};
+
+  for (const r of records) {
+    const feats = r.grammar?.features as AtlasFeature[] | undefined;
+    if (!feats || !feats.length) continue;
+    const slug = r.slug as string;
+    let coded = 0;
+    for (const f of feats) {
+      const key = `${f.layer}:${f.feature_id}`;
+      let agg = featAgg.get(key);
+      if (!agg) {
+        agg = { id: f.feature_id, source: f.source, layer: f.layer, domain: f.domain, gloss: f.label, vals: new Map(), coded: 0, unknown: 0, na: 0, total: 0 };
+        featAgg.set(key, agg);
+      }
+      agg.total++;
+      if (f.state === 'unknown') agg.unknown++;
+      else if (f.state === 'na') agg.na++;
+      else {
+        agg.coded++;
+        coded++;
+        const vv = agg.vals.get(f.value) ?? { state: f.state, count: 0 };
+        vv.count++;
+        agg.vals.set(f.value, vv);
+      }
+      (gmValues[key] ??= {})[slug] = [f.value, stateChar(f.state)];
+    }
+    gmLangs[slug] = { n: coded, name: r.canonical_name as string, family: r.family as string };
+  }
+
+  const gmFeatures = Array.from(featAgg.entries()).map(([key, a]) => ({
+    key,
+    id: a.id,
+    source: a.source,
+    layer: a.layer,
+    domain: a.domain,
+    gloss: a.gloss,
+    // distinct coded values, most-common first (drives the map legend order)
+    values: Array.from(a.vals.entries())
+      .map(([v, o]) => ({ v, state: o.state, count: o.count }))
+      .sort((x, y) => y.count - x.count || x.v.localeCompare(y.v)),
+    coded: a.coded,   // langs with a real value
+    unknown: a.unknown, // langs that coded it as '?'
+    na: a.na,
+    langs: a.total,   // langs with any row for this feature (coded+unknown+na)
+  }));
+  gmFeatures.sort(
+    (x, y) =>
+      (LAYER_ORDER[x.layer] ?? 9) - (LAYER_ORDER[y.layer] ?? 9) ||
+      (x.domain ?? '').localeCompare(y.domain ?? '') ||
+      x.id.localeCompare(y.id),
+  );
+
+  // domains (for the feature-picker filter)
+  const gmDomainCount = new Map<string, number>();
+  for (const f of gmFeatures) gmDomainCount.set(f.domain ?? 'other', (gmDomainCount.get(f.domain ?? 'other') ?? 0) + 1);
+  const gmDomains = Array.from(gmDomainCount.entries())
+    .map(([id, count]) => ({ id, count }))
+    .sort((a, b) => b.count - a.count || a.id.localeCompare(b.id));
+
+  // neighbours (top-8 recorded-agreement per profiled lang) + a global top-pairs
+  // leaderboard. Both carry n_joint ALWAYS, and are labelled recorded-agreement.
+  const gmNeighbours: Record<string, { slug: string; name: string; family: string; score: number; n_joint: number }[]> = {};
+  for (const [gc, arr] of simByGlotto) {
+    const self = recordByGlotto.get(gc);
+    if (!self) continue;
+    const list = arr
+      .filter((s) => recordByGlotto.has(s.other))
+      .slice(0, 8)
+      .map((s) => {
+        const o = recordByGlotto.get(s.other);
+        return { slug: o.slug, name: o.canonical_name, family: o.family, score: round(s.score, 4), n_joint: s.n_joint };
+      });
+    if (list.length) gmNeighbours[self.slug] = list;
+  }
+  const gmTopPairs = dbSimilarity
+    .map((s) => {
+      const a = recordByGlotto.get(s.lang_a);
+      const b = recordByGlotto.get(s.lang_b);
+      if (!a || !b || s.n_joint < 25) return null;
+      return {
+        a: { slug: a.slug, name: a.canonical_name, family: a.family },
+        b: { slug: b.slug, name: b.canonical_name, family: b.family },
+        score: round(s.grambank_recorded_agreement, 4),
+        n_joint: s.n_joint,
+      };
+    })
+    .filter(Boolean)
+    .sort((x: any, y: any) => y.score - x.score || y.n_joint - x.n_joint)
+    .slice(0, 60);
+
+  const gmSourceCounts = { Grambank: 0, WALS: 0, 'AUS extension': 0 } as Record<string, number>;
+  for (const f of gmFeatures) gmSourceCounts[f.source] = (gmSourceCounts[f.source] ?? 0) + 1;
+
+  const grammarMatrix = {
+    version: DATA_RELEASE_VERSION,
+    build_stamp: BUILD_STAMP,
+    metric: {
+      name: 'grammar_recorded_agreement',
+      label: 'Similarity in recorded Grambank features',
+      not_called: 'grammatical similarity / overall grammatical similarity',
+      definition:
+        'Fraction of JOINTLY-CODED Grambank features (real values only; \'?\'/N-A/not-recorded excluded from BOTH numerator and denominator) on which two languages carry the same value. n_joint = the number of features both languages code. This is agreement over recorded Grambank codings only — NOT a claim about overall grammatical similarity, and NOT genetic relatedness.',
+    },
+    baseline_caveat:
+      "Grambank's ~195 variables are a standardized cross-linguistic BASELINE for comparison, not the whole grammar of any language. A high agreement over few shared features is weaker than the same agreement over many — always read n_joint.",
+    coverage: {
+      profiled_languages: Object.keys(gmLangs).length,
+      genuine_languoids: cov.genuine,
+      features_total: gmFeatures.length,
+      by_source: gmSourceCounts,
+      coded_data_points: Object.values(gmValues).reduce((n, m) => n + Object.keys(m).length, 0),
+      similarity_pairs: dbSimilarity.length,
+    },
+    domains: gmDomains,
+    features: gmFeatures,
+    langs: gmLangs,
+    values: gmValues,
+    neighbours: gmNeighbours,
+    top_pairs: gmTopPairs,
+  };
+  log(
+    `grammar matrix: ${gmFeatures.length} features, ${Object.keys(gmLangs).length} profiled langs, ` +
+      `${grammarMatrix.coverage.coded_data_points} data points, ${Object.keys(gmNeighbours).length} neighbour lists, ${gmTopPairs.length} top pairs`,
+  );
+
   // -- Write artifacts ------------------------------------------------------
   fs.rmSync(OUT_DIR, { recursive: true, force: true });
   fs.mkdirSync(path.join(OUT_DIR, 'languages'), { recursive: true });
@@ -966,6 +1114,16 @@ async function main() {
     path.join(OUT_DIR, 'index.json'),
     JSON.stringify({ version: DATA_RELEASE_VERSION, build_stamp: BUILD_STAMP, count: indexRows.length, languages: indexRows }, null, 2),
   );
+
+  // grammar-matrix.json — canonical copy in the data tree (read server-side for
+  // the SSR feature catalog + coverage + neighbours) AND a minified copy under
+  // public/ that the /atlas/grammar client fetches for the big values map. Same
+  // bytes source; written minified because the client streams it over the wire.
+  const matrixJson = JSON.stringify(grammarMatrix);
+  fs.writeFileSync(path.join(OUT_DIR, 'grammar-matrix.json'), matrixJson);
+  const PUBLIC_ATLAS_DATA = path.resolve(__dirname, '../../public/atlas-data');
+  fs.mkdirSync(PUBLIC_ATLAS_DATA, { recursive: true });
+  fs.writeFileSync(path.join(PUBLIC_ATLAS_DATA, 'grammar-matrix.json'), matrixJson);
 
   // appendix.json (non-language nodes + unmapped historical wordlists)
   fs.writeFileSync(
