@@ -1,0 +1,69 @@
+{
+ "glottocode": "guma1253",
+ "name": "Gumatj",
+ "iso639_3": "gnn",
+ "family": "Pama-Nyungan",
+ "subgroup": "Yuulngu",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "yuul1239",
+   "name": "Yuulngu"
+  },
+  {
+   "glottocode": "sout3142",
+   "name": "Southern Yolngu"
+  },
+  {
+   "glottocode": "sout3149",
+   "name": "Southern-Eastern Yolngu"
+  },
+  {
+   "glottocode": "dhuw1248",
+   "name": "Dhuwal-Dhuwala"
+  },
+  {
+   "glottocode": "west2439",
+   "name": "Western Dhuwal-Dhuwala"
+  }
+ ],
+ "latitude": -12.25254,
+ "longitude": 136.83042,
+ "austlang_codes": [
+  "N141"
+ ],
+ "endangerment": "shifting",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 1,
+  "aus_extension_coded": 1,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX030",
+   "name": "Reduplication productivity",
+   "gloss": "Whether reduplication is productive and of what kind (full/partial).",
+   "domain": "verb",
+   "value": "full-only",
+   "derivation": "WALS 27A=27A-2"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

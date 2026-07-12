@@ -1,0 +1,71 @@
+{
+ "glottocode": "jirj1239",
+ "name": "Jir'jorond",
+ "iso639_3": "yyr",
+ "family": "Pama-Nyungan",
+ "subgroup": "Paman",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "pama1251",
+   "name": "Paman"
+  },
+  {
+   "glottocode": "sout3141",
+   "name": "Southwest Pama"
+  },
+  {
+   "glottocode": "coas1313",
+   "name": "Coastal Southwest Paman"
+  },
+  {
+   "glottocode": "yiry1245",
+   "name": "Yir-Yoront"
+  }
+ ],
+ "latitude": -14.83,
+ "longitude": 141.83,
+ "austlang_codes": [],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 12,
+  "aus_extension_coded": 2,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX009",
+   "name": "Comitative vs instrumental syncretism",
+   "gloss": "Whether 'with (accompaniment)' and 'with (instrument)' use the same or different marking — a much-discussed Australianist parameter.",
+   "domain": "case",
+   "value": "differentiated",
+   "derivation": "WALS 52A=52A-2"
+  },
+  {
+   "id": "AUX030",
+   "name": "Reduplication productivity",
+   "gloss": "Whether reduplication is productive and of what kind (full/partial).",
+   "domain": "verb",
+   "value": "full-and-partial",
+   "derivation": "WALS 27A=27A-1"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

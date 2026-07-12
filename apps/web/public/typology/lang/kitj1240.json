@@ -1,0 +1,42 @@
+{
+ "glottocode": "kitj1240",
+ "name": "Kitja",
+ "iso639_3": "gia",
+ "family": "Jarrakan",
+ "subgroup": "Jarrakan",
+ "family_chain": [
+  {
+   "glottocode": "jarr1235",
+   "name": "Jarrakan"
+  }
+ ],
+ "latitude": -17.5758,
+ "longitude": 127.392,
+ "austlang_codes": [
+  "K11",
+  "K20",
+  "K47"
+ ],
+ "endangerment": "nearly extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 1,
+  "aus_extension_coded": 0,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

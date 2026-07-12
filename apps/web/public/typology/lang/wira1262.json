@@ -1,0 +1,203 @@
+{
+ "glottocode": "wira1262",
+ "name": "Wiradhuri",
+ "iso639_3": "wrh",
+ "family": "Pama-Nyungan",
+ "subgroup": "Southeastern Pama-Nyungan",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "sout3135",
+   "name": "Southeastern Pama-Nyungan"
+  },
+  {
+   "glottocode": "wira1261",
+   "name": "Wiradhuric"
+  }
+ ],
+ "latitude": -34.0742,
+ "longitude": 145.994,
+ "austlang_codes": [
+  "D10",
+  "D58"
+ ],
+ "endangerment": "nearly extinct",
+ "coverage": {
+  "grambank_coded": 14,
+  "grambank_unknown": 56,
+  "grambank_total": 195,
+  "grambank_pct": 7.2,
+  "wals_coded": 0,
+  "aus_extension_coded": 5,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [
+  {
+   "id": "GB152",
+   "name": "Is there a morphologically marked distinction between simultaneous and sequential clauses?",
+   "gloss": "Whether there is a morphological simultaneous-vs-sequential clause distinction.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB326",
+   "name": "Do (nominal) content interrogatives normally or frequently occur in situ?",
+   "gloss": "Whether content interrogatives normally stay in situ (not fronted).",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB035",
+   "name": "Are there three or more distance contrasts in demonstratives?",
+   "gloss": "Whether demonstratives make three or more distance contrasts (e.g. near/mid/far).",
+   "domain": "demonstrative",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB021",
+   "name": "Do indefinite nominals commonly have indefinite articles?",
+   "gloss": "Whether indefinite nominals commonly take an indefinite article (like English 'a/an').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB048",
+   "name": "Is there a productive morphological pattern for deriving an agent noun from a verb?",
+   "gloss": "Whether an agent noun can be productively derived from a verb (e.g. 'teach' -> 'teacher').",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB170",
+   "name": "Can an adnominal property word agree with the noun in gender/noun class?",
+   "gloss": "Whether an adjective-like property word can agree with its noun in gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB333",
+   "name": "Is there a decimal numeral system?",
+   "gloss": "Whether the numeral system is decimal (base 10).",
+   "domain": "numerals",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB334",
+   "name": "Is there synchronic evidence for any element of a quinary numeral system?",
+   "gloss": "Whether there is any synchronic evidence of a quinary (base 5) element.",
+   "domain": "numerals",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB028",
+   "name": "Is there a distinction between inclusive and exclusive?",
+   "gloss": "Whether the pronoun system distinguishes inclusive ('we incl. you') from exclusive ('we excl. you').",
+   "domain": "pronoun",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB110",
+   "name": "Is there verb suppletion for tense or aspect?",
+   "gloss": "Whether verbs are suppletive for tense or aspect.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB114",
+   "name": "Is there a phonologically bound reflexive marker on the verb?",
+   "gloss": "Whether there is a bound (affixal) reflexive marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB115",
+   "name": "Is there a phonologically bound reciprocal marker on the verb?",
+   "gloss": "Whether there is a bound (affixal) reciprocal marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB147",
+   "name": "Is there a morphological passive marked on the lexical verb?",
+   "gloss": "Whether there is a morphological passive marked on the lexical verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB309",
+   "name": "Are there multiple past or multiple future tenses, distinguishing distance from Time of Reference?",
+   "gloss": "Whether there are multiple past or future tenses distinguishing distance in time (e.g. recent vs remote past).",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  }
+ ],
+ "aus_extension": [
+  {
+   "id": "AUX023",
+   "name": "Distance contrasts in demonstratives",
+   "gloss": "Number of distance contrasts (2, 3+ deictic terms).",
+   "domain": "demonstrative",
+   "value": "two",
+   "derivation": "Grambank GB035=0"
+  },
+  {
+   "id": "AUX027",
+   "name": "Multiple (distance) past/future tenses",
+   "gloss": "Whether there are multiple past or future tenses distinguishing temporal distance (e.g. recent vs remote past) — common in Australian languages.",
+   "domain": "verb",
+   "value": "yes",
+   "derivation": "Grambank GB309=1"
+  },
+  {
+   "id": "AUX031",
+   "name": "Bound reflexive marker on verb",
+   "gloss": "A phonologically bound reflexive marker on the verb (e.g. Kuku Yalanji -ji-).",
+   "domain": "valency",
+   "value": "yes",
+   "derivation": "Grambank GB114=1"
+  },
+  {
+   "id": "AUX032",
+   "name": "Bound reciprocal marker on verb",
+   "gloss": "A phonologically bound reciprocal marker on the verb (e.g. Kuku Yalanji -wa-).",
+   "domain": "valency",
+   "value": "yes",
+   "derivation": "Grambank GB115=1"
+  },
+  {
+   "id": "AUX043",
+   "name": "Numeral base system",
+   "gloss": "Base of the numeral system: decimal, quinary, vigesimal, body-part tally, or restricted (many Australian languages have very small numeral systems).",
+   "domain": "numerals",
+   "value": "restricted/none",
+   "derivation": "derived: GB333-336 all 0"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

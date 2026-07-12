@@ -1,0 +1,61 @@
+{
+ "glottocode": "ngar1287",
+ "name": "Ngarluma",
+ "iso639_3": "nrl",
+ "family": "Pama-Nyungan",
+ "subgroup": "South-West Pama-Nyungan",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "sout3134",
+   "name": "South-West Pama-Nyungan"
+  },
+  {
+   "glottocode": "pilb1234",
+   "name": "Pilbara"
+  },
+  {
+   "glottocode": "ngay1241",
+   "name": "Ngayarda"
+  },
+  {
+   "glottocode": "cent2248",
+   "name": "Central Ngayarda"
+  },
+  {
+   "glottocode": "ngar1293",
+   "name": "Ngarluma-Kariyarra"
+  }
+ ],
+ "latitude": -20.9235,
+ "longitude": 117.203,
+ "austlang_codes": [
+  "W38",
+  "W47"
+ ],
+ "endangerment": "moribund",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 3,
+  "aus_extension_coded": 0,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

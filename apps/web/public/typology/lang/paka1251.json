@@ -1,0 +1,65 @@
+{
+ "glottocode": "paka1251",
+ "name": "Pakanha",
+ "iso639_3": "pkn",
+ "family": "Pama-Nyungan",
+ "subgroup": "Paman",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "pama1251",
+   "name": "Paman"
+  },
+  {
+   "glottocode": "comp1236",
+   "name": "Compromise Middle Pama"
+  },
+  {
+   "glottocode": "wika1239",
+   "name": "Wik"
+  },
+  {
+   "glottocode": "kuku1276",
+   "name": "Kuku-Wik-Ep"
+  },
+  {
+   "glottocode": "kuku1277",
+   "name": "Kuku-Wik"
+  },
+  {
+   "glottocode": "mung1276",
+   "name": "Mungkanic"
+  }
+ ],
+ "latitude": -15.0908,
+ "longitude": 142.74,
+ "austlang_codes": [
+  "Y64",
+  "Y96"
+ ],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 1,
+  "aus_extension_coded": 0,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

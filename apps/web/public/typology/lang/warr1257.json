@@ -1,0 +1,99 @@
+{
+ "glottocode": "warr1257",
+ "name": "Warrnambool",
+ "iso639_3": "gjm",
+ "family": "Pama-Nyungan",
+ "subgroup": "Southeastern Pama-Nyungan",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "sout3135",
+   "name": "Southeastern Pama-Nyungan"
+  },
+  {
+   "glottocode": "vict1234",
+   "name": "Victorian Pama-Nyungan"
+  },
+  {
+   "glottocode": "kuli1256",
+   "name": "Kulin-Bunganditj"
+  },
+  {
+   "glottocode": "warr1256",
+   "name": "Warrnambool-Bunganditj"
+  }
+ ],
+ "latitude": -38.155612905976,
+ "longitude": 141.53965852318,
+ "austlang_codes": [
+  "S20",
+  "S25",
+  "S75"
+ ],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 19,
+  "aus_extension_coded": 5,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX007",
+   "name": "Position of case affixes",
+   "gloss": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+   "domain": "case",
+   "value": "suffix",
+   "derivation": "WALS 51A=51A-1"
+  },
+  {
+   "id": "AUX010",
+   "name": "Bound-pronoun / pronominal-subject host",
+   "gloss": "How pronominal subjects are expressed: obligatory free pronoun, subject affix on the verb, clitic on a variable host (e.g. second position / auxiliary), etc.",
+   "domain": "pronoun-marking",
+   "value": "clitic-variable-host",
+   "derivation": "WALS 101A=101A-3"
+  },
+  {
+   "id": "AUX011",
+   "name": "Second-position pronominal clitic cluster",
+   "gloss": "Whether bound pronouns form a clitic cluster on a variable (typically second-position/auxiliary) host rather than being fixed to the verb.",
+   "domain": "pronoun-marking",
+   "value": "yes",
+   "derivation": "derived: WALS 101A=101A-3"
+  },
+  {
+   "id": "AUX026",
+   "name": "Position of tense-aspect affixes",
+   "gloss": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+   "domain": "verb",
+   "value": "suffix",
+   "derivation": "WALS 69A=69A-2"
+  },
+  {
+   "id": "AUX036",
+   "name": "Standard negation strategy",
+   "gloss": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+   "domain": "negation",
+   "value": "particle",
+   "derivation": "WALS 112A=112A-2"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

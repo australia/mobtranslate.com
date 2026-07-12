@@ -1,0 +1,84 @@
+{
+ "glottocode": "krio1252",
+ "name": "Kriol",
+ "iso639_3": "rop",
+ "family": "Indo-European",
+ "subgroup": "Classical Indo-European",
+ "family_chain": [
+  {
+   "glottocode": "indo1319",
+   "name": "Indo-European"
+  },
+  {
+   "glottocode": "clas1257",
+   "name": "Classical Indo-European"
+  },
+  {
+   "glottocode": "germ1287",
+   "name": "Germanic"
+  },
+  {
+   "glottocode": "nort3152",
+   "name": "Northwest Germanic"
+  },
+  {
+   "glottocode": "west2793",
+   "name": "West Germanic"
+  },
+  {
+   "glottocode": "nort3175",
+   "name": "North Sea Germanic"
+  },
+  {
+   "glottocode": "angl1264",
+   "name": "Anglo-Frisian"
+  },
+  {
+   "glottocode": "angl1265",
+   "name": "Anglic"
+  },
+  {
+   "glottocode": "late1254",
+   "name": "Later Anglic"
+  },
+  {
+   "glottocode": "merc1242",
+   "name": "Middle-Modern English"
+  },
+  {
+   "glottocode": "macr1271",
+   "name": "Macro-English"
+  },
+  {
+   "glottocode": "paci1280",
+   "name": "Pacific Creole English"
+  }
+ ],
+ "latitude": -18.135,
+ "longitude": 137.669,
+ "austlang_codes": [
+  "P1"
+ ],
+ "endangerment": "not endangered",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 9,
+  "aus_extension_coded": 0,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

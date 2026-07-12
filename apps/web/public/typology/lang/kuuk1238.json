@@ -1,0 +1,65 @@
+{
+ "glottocode": "kuuk1238",
+ "name": "Kuuku-Ya'u",
+ "iso639_3": "kuy",
+ "family": "Pama-Nyungan",
+ "subgroup": "Paman",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "pama1251",
+   "name": "Paman"
+  },
+  {
+   "glottocode": "comp1236",
+   "name": "Compromise Middle Pama"
+  },
+  {
+   "glottocode": "nort3256",
+   "name": "Northeastern Pama"
+  },
+  {
+   "glottocode": "nort2759",
+   "name": "Umpilaic"
+  }
+ ],
+ "latitude": -12.4947,
+ "longitude": 143.165,
+ "austlang_codes": [
+  "Y22"
+ ],
+ "endangerment": "moribund",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 16,
+  "aus_extension_coded": 1,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX026",
+   "name": "Position of tense-aspect affixes",
+   "gloss": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+   "domain": "verb",
+   "value": "suffix",
+   "derivation": "WALS 69A=69A-2"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

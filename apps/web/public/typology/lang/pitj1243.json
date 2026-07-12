@@ -1,0 +1,198 @@
+{
+ "glottocode": "pitj1243",
+ "name": "Pitjantjatjara",
+ "iso639_3": "pjt",
+ "family": "Pama-Nyungan",
+ "subgroup": "Desert Nyungic",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "dese1234",
+   "name": "Desert Nyungic"
+  },
+  {
+   "glottocode": "wati1241",
+   "name": "Wati"
+  },
+  {
+   "glottocode": "pint1254",
+   "name": "Pintupic"
+  },
+  {
+   "glottocode": "nucl1724",
+   "name": "Nuclear Pintupic"
+  },
+  {
+   "glottocode": "wang1300",
+   "name": "Wangkatja-Tjarra"
+  },
+  {
+   "glottocode": "tjar1234",
+   "name": "Tjarra"
+  }
+ ],
+ "latitude": -26.9704,
+ "longitude": 131.357,
+ "austlang_codes": [
+  "A32",
+  "A83",
+  "C6"
+ ],
+ "endangerment": "threatened",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 96,
+  "aus_extension_coded": 16,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX001",
+   "name": "Nominal case alignment",
+   "gloss": "Case-marking alignment of full (non-pronominal) noun phrases.",
+   "domain": "alignment",
+   "value": "ergative",
+   "derivation": "WALS 98A=98A-4"
+  },
+  {
+   "id": "AUX002",
+   "name": "Pronominal case alignment",
+   "gloss": "Case-marking alignment of independent personal pronouns.",
+   "domain": "alignment",
+   "value": "accusative",
+   "derivation": "WALS 99A=99A-2"
+  },
+  {
+   "id": "AUX003",
+   "name": "Verbal person-marking alignment",
+   "gloss": "Alignment of person marking (agreement/bound pronouns) on the verb.",
+   "domain": "alignment",
+   "value": "accusative",
+   "derivation": "WALS 100A=100A-2"
+  },
+  {
+   "id": "AUX004",
+   "name": "Case-marking split between nouns and pronouns",
+   "gloss": "Whether full nouns and pronouns use DIFFERENT case alignments (e.g. nouns ergative but pronouns nominative-accusative) — the classic Australian split.",
+   "domain": "alignment",
+   "value": "yes",
+   "derivation": "derived: WALS 98A=98A-4 vs 99A=99A-2"
+  },
+  {
+   "id": "AUX005",
+   "name": "Person/NP-type conditioned split ergativity",
+   "gloss": "Whether ergativity is conditioned by the person/NP-type hierarchy (ergative on nouns/3rd, accusative on speech-act pronouns) — a hierarchy-based split.",
+   "domain": "alignment",
+   "value": "yes",
+   "derivation": "derived: WALS 98A=98A-4,99A=99A-2"
+  },
+  {
+   "id": "AUX006",
+   "name": "Number of morphological cases",
+   "gloss": "Size of the morphological case inventory on nouns.",
+   "domain": "case",
+   "value": "10+",
+   "derivation": "WALS 49A=49A-8"
+  },
+  {
+   "id": "AUX007",
+   "name": "Position of case affixes",
+   "gloss": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+   "domain": "case",
+   "value": "postpositional-clitic",
+   "derivation": "WALS 51A=51A-6"
+  },
+  {
+   "id": "AUX018",
+   "name": "Plurality in independent pronouns",
+   "gloss": "How number is built into independent personal pronouns.",
+   "domain": "number",
+   "value": "person-number-affix",
+   "derivation": "WALS 35A=35A-3"
+  },
+  {
+   "id": "AUX019",
+   "name": "Inclusive/exclusive distinction",
+   "gloss": "Whether 1st-person non-singular distinguishes inclusive ('we incl. you') from exclusive.",
+   "domain": "pronoun",
+   "value": "no",
+   "derivation": "WALS 39A=39A-3"
+  },
+  {
+   "id": "AUX020",
+   "name": "Inclusive/exclusive in verbal inflection",
+   "gloss": "Whether the inclusive/exclusive distinction also appears in verbal person marking.",
+   "domain": "pronoun",
+   "value": "no-marking",
+   "derivation": "WALS 40A=40A-1"
+  },
+  {
+   "id": "AUX021",
+   "name": "Number of genders / noun classes",
+   "gloss": "Count of gender / noun-class categories.",
+   "domain": "gender",
+   "value": "none",
+   "derivation": "WALS 30A=30A-1"
+  },
+  {
+   "id": "AUX022",
+   "name": "Sex-based vs non-sex-based gender",
+   "gloss": "Whether the gender system is sex-based or non-sex-based (or absent).",
+   "domain": "gender",
+   "value": "none",
+   "derivation": "WALS 31A=31A-1"
+  },
+  {
+   "id": "AUX036",
+   "name": "Standard negation strategy",
+   "gloss": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+   "domain": "negation",
+   "value": "word~affix-variation",
+   "derivation": "WALS 112A=112A-5"
+  },
+  {
+   "id": "AUX039",
+   "name": "Adposition type",
+   "gloss": "Prepositions vs postpositions vs no dominant adpositions.",
+   "domain": "syntax",
+   "value": "postpositions",
+   "derivation": "WALS 85A=85A-1"
+  },
+  {
+   "id": "AUX045",
+   "name": "Predicative possession strategy",
+   "gloss": "How 'X has Y' is expressed: locational, genitive, topic, conjunctional, or a 'have' verb.",
+   "domain": "clause",
+   "value": "conjunctional",
+   "derivation": "WALS 117A=117A-4"
+  },
+  {
+   "id": "AUX047",
+   "name": "Evidentiality coding",
+   "gloss": "Whether grammatical evidentiality is marked, and its scope (direct/indirect).",
+   "domain": "verb",
+   "value": "indirect-only",
+   "derivation": "WALS 77A=77A-2"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": {
+  "code": "pitjantjatjara",
+  "href": "/dictionaries/pitjantjatjara"
+ },
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

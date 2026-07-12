@@ -1,0 +1,93 @@
+{
+ "glottocode": "cond1242",
+ "name": "Condamine-Upper Clarence Bandjalang",
+ "iso639_3": "gih",
+ "family": "Pama-Nyungan",
+ "subgroup": "Southeastern Pama-Nyungan",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "sout3135",
+   "name": "Southeastern Pama-Nyungan"
+  },
+  {
+   "glottocode": "news1235",
+   "name": "New South Wales Pama-Nyungan"
+  },
+  {
+   "glottocode": "band1357",
+   "name": "Greater Bandjalangic"
+  },
+  {
+   "glottocode": "band1339",
+   "name": "Bandjalangic"
+  },
+  {
+   "glottocode": "inla1268",
+   "name": "Inland Bandjalang"
+  }
+ ],
+ "latitude": -28.289642,
+ "longitude": 152.151281,
+ "austlang_codes": [
+  "E14"
+ ],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 22,
+  "aus_extension_coded": 4,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX007",
+   "name": "Position of case affixes",
+   "gloss": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+   "domain": "case",
+   "value": "suffix",
+   "derivation": "WALS 51A=51A-1"
+  },
+  {
+   "id": "AUX026",
+   "name": "Position of tense-aspect affixes",
+   "gloss": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+   "domain": "verb",
+   "value": "suffix",
+   "derivation": "WALS 69A=69A-2"
+  },
+  {
+   "id": "AUX038",
+   "name": "Dominant constituent order",
+   "gloss": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+   "domain": "syntax",
+   "value": "no-dominant-order",
+   "derivation": "WALS 81A=81A-7"
+  },
+  {
+   "id": "AUX045",
+   "name": "Predicative possession strategy",
+   "gloss": "How 'X has Y' is expressed: locational, genitive, topic, conjunctional, or a 'have' verb.",
+   "domain": "clause",
+   "value": "conjunctional",
+   "derivation": "WALS 117A=117A-4"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

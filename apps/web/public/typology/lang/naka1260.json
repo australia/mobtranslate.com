@@ -1,0 +1,53 @@
+{
+ "glottocode": "naka1260",
+ "name": "Nakara",
+ "iso639_3": "nck",
+ "family": "Maningrida",
+ "subgroup": "Nakkara-Ndjebbana",
+ "family_chain": [
+  {
+   "glottocode": "mani1293",
+   "name": "Maningrida"
+  },
+  {
+   "glottocode": "nakk1234",
+   "name": "Nakkara-Ndjebbana"
+  }
+ ],
+ "latitude": -12.07653,
+ "longitude": 134.32729,
+ "austlang_codes": [
+  "N80"
+ ],
+ "endangerment": "moribund",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 15,
+  "aus_extension_coded": 1,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX036",
+   "name": "Standard negation strategy",
+   "gloss": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+   "domain": "negation",
+   "value": "particle",
+   "derivation": "WALS 112A=112A-2"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

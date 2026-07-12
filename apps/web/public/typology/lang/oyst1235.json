@@ -1,0 +1,33 @@
+{
+ "glottocode": "oyst1235",
+ "name": "Oyster Bay-Big River-Little Swanport",
+ "iso639_3": "xpd",
+ "family": "(isolate)",
+ "subgroup": "(isolate)",
+ "family_chain": [],
+ "latitude": -42.307378,
+ "longitude": 147.50061,
+ "austlang_codes": [],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 2,
+  "aus_extension_coded": 0,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

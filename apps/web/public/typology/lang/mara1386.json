@@ -1,0 +1,1816 @@
+{
+ "glottocode": "mara1386",
+ "name": "Maranunggu",
+ "iso639_3": "zmr",
+ "family": "Western Daly",
+ "subgroup": "Maranunggu-Ame-Manda",
+ "family_chain": [
+  {
+   "glottocode": "west2434",
+   "name": "Western Daly"
+  },
+  {
+   "glottocode": "waga1259",
+   "name": "Maranunggu-Ame-Manda"
+  }
+ ],
+ "latitude": -13.6754,
+ "longitude": 130.12,
+ "austlang_codes": [
+  "N13"
+ ],
+ "endangerment": "nearly extinct",
+ "coverage": {
+  "grambank_coded": 173,
+  "grambank_unknown": 22,
+  "grambank_total": 195,
+  "grambank_pct": 88.7,
+  "wals_coded": 97,
+  "aus_extension_coded": 40,
+  "aus_extension_total": 53
+ },
+ "cluster": 3,
+ "cluster_meta": {
+  "cluster": 3,
+  "size": 5,
+  "dominant_subgroup_glottocode": "sout3134",
+  "subgroup_purity": 0.6
+ },
+ "grambank_features": [
+  {
+   "id": "GB024",
+   "name": "What is the order of numeral and noun in the NP?",
+   "gloss": "Order of numeral and noun in the noun phrase: 1=Numeral-Noun, 2=Noun-Numeral, 3=both orders occur.",
+   "domain": "clause_and_syntax",
+   "value": "2",
+   "value_meaning": "N-Num"
+  },
+  {
+   "id": "GB130",
+   "name": "What is the pragmatically unmarked order of S and V in intransitive clauses?",
+   "gloss": "Unmarked order of S and V in intransitive clauses: 1=SV, 2=VS, 3=both.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "SV"
+  },
+  {
+   "id": "GB134",
+   "name": "Is the order of constituents the same in main and subordinate clauses?",
+   "gloss": "Whether constituent order is the same in main and subordinate clauses.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB150",
+   "name": "Is there clause chaining?",
+   "gloss": "Whether the language has clause chaining (long strings of dependent clauses + one final finite verb).",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB152",
+   "name": "Is there a morphologically marked distinction between simultaneous and sequential clauses?",
+   "gloss": "Whether there is a morphological simultaneous-vs-sequential clause distinction.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB204",
+   "name": "Do collective ('all') and distributive ('every') universal quantifiers differ in their forms or their syntactic positions?",
+   "gloss": "Whether collective 'all' and distributive 'every' quantifiers differ in form or position.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB257",
+   "name": "Can polar interrogation be marked by intonation only?",
+   "gloss": "Whether yes/no questions can be marked by intonation alone.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB260",
+   "name": "Can polar interrogation be indicated by a special word order?",
+   "gloss": "Whether yes/no questions can be marked by a special word order.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB291",
+   "name": "Can polar interrogation be marked by tone?",
+   "gloss": "Whether yes/no questions can be marked by tone.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB297",
+   "name": "Can polar interrogation be indicated by a V-not-V construction?",
+   "gloss": "Whether yes/no questions can be marked by a V-not-V construction.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB325",
+   "name": "Is there a count/mass distinction in interrogative quantifiers?",
+   "gloss": "Whether interrogative quantifiers show a count/mass distinction ('how many' vs 'how much').",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB326",
+   "name": "Do (nominal) content interrogatives normally or frequently occur in situ?",
+   "gloss": "Whether content interrogatives normally stay in situ (not fronted).",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB329",
+   "name": "Are there internally-headed relative clauses?",
+   "gloss": "Whether there are internally-headed relative clauses.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB330",
+   "name": "Are there correlative relative clauses?",
+   "gloss": "Whether there are correlative relative clauses.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB035",
+   "name": "Are there three or more distance contrasts in demonstratives?",
+   "gloss": "Whether demonstratives make three or more distance contrasts (e.g. near/mid/far).",
+   "domain": "demonstrative",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB036",
+   "name": "Do demonstratives show an elevation distinction?",
+   "gloss": "Whether demonstratives encode an elevation distinction (up-here vs down-there).",
+   "domain": "demonstrative",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB037",
+   "name": "Do demonstratives show a visible-nonvisible distinction?",
+   "gloss": "Whether demonstratives encode a visible-vs-nonvisible distinction.",
+   "domain": "demonstrative",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB020",
+   "name": "Are there definite or specific articles?",
+   "gloss": "Whether the language has a definite or specific article (a grammatical word like English 'the').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB021",
+   "name": "Do indefinite nominals commonly have indefinite articles?",
+   "gloss": "Whether indefinite nominals commonly take an indefinite article (like English 'a/an').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB022",
+   "name": "Are there prenominal articles?",
+   "gloss": "Whether an article, if present, comes before the noun (prenominal).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB023",
+   "name": "Are there postnominal articles?",
+   "gloss": "Whether an article, if present, comes after the noun (postnominal).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB025",
+   "name": "What is the order of adnominal demonstrative and noun?",
+   "gloss": "Order of an adnominal demonstrative ('this/that') and noun: 1=Dem-Noun, 2=Noun-Dem, 3=both.",
+   "domain": "nominal",
+   "value": "2",
+   "value_meaning": "N-Dem"
+  },
+  {
+   "id": "GB026",
+   "name": "Can adnominal property words occur discontinuously?",
+   "gloss": "Whether adjective-like property words can be separated from their noun (occur discontinuously).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB030",
+   "name": "Is there a gender distinction in independent 3rd person pronouns?",
+   "gloss": "Whether independent 3rd-person pronouns mark a gender distinction (he vs she).",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB031",
+   "name": "Is there a dual or unit augmented form (in addition to plural or augmented) for all person categories in the pronoun system?",
+   "gloss": "Whether every person category has a dual (or unit-augmented) form in addition to plural.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB038",
+   "name": "Are there demonstrative classifiers?",
+   "gloss": "Whether the language has demonstrative classifiers.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB043",
+   "name": "Is there productive morphological dual marking on nouns?",
+   "gloss": "Whether there is productive morphological dual marking on nouns.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB044",
+   "name": "Is there productive morphological plural marking on nouns?",
+   "gloss": "Whether there is productive morphological plural marking on nouns.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB046",
+   "name": "Is there an associative plural marker for nouns?",
+   "gloss": "Whether there is an associative plural marker ('X and those associated with X').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB051",
+   "name": "Is there a gender/noun class system where sex is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses biological sex as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB052",
+   "name": "Is there a gender/noun class system where shape is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses shape as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB053",
+   "name": "Is there a gender/noun class system where animacy is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses animacy as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB054",
+   "name": "Is there a gender/noun class system where plant status is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses plant status as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB057",
+   "name": "Are there numeral classifiers?",
+   "gloss": "Whether the language has numeral classifiers (a sortal element required when counting).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB058",
+   "name": "Are there possessive classifiers?",
+   "gloss": "Whether the language has possessive classifiers.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB059",
+   "name": "Is the adnominal possessive construction different for alienable and inalienable nouns?",
+   "gloss": "Whether the possessive construction differs for alienable vs inalienable nouns (e.g. 'my dog' vs 'my hand').",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB065",
+   "name": "What is the pragmatically unmarked order of adnominal possessor noun and possessed noun?",
+   "gloss": "Unmarked order of possessor noun and possessed noun: 1=Possessor-Possessed, 2=Possessed-Possessor, 3=both.",
+   "domain": "nominal",
+   "value": "3",
+   "value_meaning": "both"
+  },
+  {
+   "id": "GB158",
+   "name": "Are verbs reduplicated?",
+   "gloss": "Whether verbs undergo reduplication.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB159",
+   "name": "Are nouns reduplicated?",
+   "gloss": "Whether nouns undergo reduplication.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB160",
+   "name": "Are elements apart from verbs or nouns reduplicated?",
+   "gloss": "Whether words other than verbs or nouns undergo reduplication.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB165",
+   "name": "Is there productive morphological trial marking on nouns?",
+   "gloss": "Whether there is productive morphological trial marking on nouns.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB166",
+   "name": "Is there productive morphological paucal marking on nouns?",
+   "gloss": "Whether there is productive morphological paucal marking on nouns ('a few').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB170",
+   "name": "Can an adnominal property word agree with the noun in gender/noun class?",
+   "gloss": "Whether an adjective-like property word can agree with its noun in gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB171",
+   "name": "Can an adnominal demonstrative agree with the noun in gender/noun class?",
+   "gloss": "Whether an adnominal demonstrative can agree with its noun in gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB172",
+   "name": "Can an article agree with the noun in gender/noun class?",
+   "gloss": "Whether an article can agree with its noun in gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB177",
+   "name": "Can the verb carry a marker of animacy of argument, unrelated to any gender/noun class of the argument visible in the NP domain?",
+   "gloss": "Whether the verb marks the animacy of an argument (independent of NP-level gender/class).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB184",
+   "name": "Can an adnominal property word agree with the noun in number?",
+   "gloss": "Whether an adjective-like property word can agree with its noun in number.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB185",
+   "name": "Can an adnominal demonstrative agree with the noun in number?",
+   "gloss": "Whether an adnominal demonstrative can agree with its noun in number.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB186",
+   "name": "Can an article agree with the noun in number?",
+   "gloss": "Whether an article can agree with its noun in number.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB187",
+   "name": "Is there any productive diminutive marking on the noun (exclude marking by system of nominal classification only)?",
+   "gloss": "Whether there is productive diminutive marking on the noun (excluding pure noun-class shift).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB188",
+   "name": "Is there any productive augmentative marking on the noun (exclude marking by system of nominal classification only)?",
+   "gloss": "Whether there is productive augmentative marking on the noun (excluding pure noun-class shift).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB192",
+   "name": "Is there a gender system where a noun's phonological properties are a factor in class assignment?",
+   "gloss": "Whether a noun's phonological shape is a factor in gender/class assignment.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB193",
+   "name": "What is the order of adnominal property word and noun?",
+   "gloss": "Order of adjective-like property word and noun: 0=not used attributively, 1=Adj-N, 2=N-Adj, 3=both.",
+   "domain": "nominal",
+   "value": "2",
+   "value_meaning": "N - ANM"
+  },
+  {
+   "id": "GB198",
+   "name": "Can an adnominal numeral agree with the noun in gender/noun class?",
+   "gloss": "Whether an adnominal numeral can agree with its noun in gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB203",
+   "name": "What is the order of the adnominal collective universal quantifier ('all') and the noun?",
+   "gloss": "Order of the collective 'all' quantifier and noun: 0=no such quantifier, 1=Q-N, 2=N-Q, 3=both.",
+   "domain": "nominal",
+   "value": "3",
+   "value_meaning": "both"
+  },
+  {
+   "id": "GB250",
+   "name": "Can predicative possession be expressed with a transitive 'habeo' verb?",
+   "gloss": "Whether predicative possession can use a transitive 'have' (habeo) verb.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB262",
+   "name": "Is there a clause-initial polar interrogative particle?",
+   "gloss": "Whether there is a clause-initial yes/no question particle.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB263",
+   "name": "Is there a clause-final polar interrogative particle?",
+   "gloss": "Whether there is a clause-final yes/no question particle.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB264",
+   "name": "Is there a polar interrogative particle that most commonly occurs neither clause-initially nor clause-finally?",
+   "gloss": "Whether there is a yes/no question particle sitting neither clause-initially nor clause-finally.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB285",
+   "name": "Can polar interrogation be marked by a question particle and verbal morphology?",
+   "gloss": "Whether yes/no questions can be marked by a question particle plus verbal morphology.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB299",
+   "name": "Can standard negation be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether standard negation can be marked by a non-inflecting negative particle.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB302",
+   "name": "Is there a phonologically free passive marker (\"particle\" or \"auxiliary\")?",
+   "gloss": "Whether there is a free (particle/auxiliary) passive marker.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB303",
+   "name": "Is there a phonologically free antipassive marker (\"particle\" or \"auxiliary\")?",
+   "gloss": "Whether there is a free (particle/auxiliary) antipassive marker.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB313",
+   "name": "Are there special adnominal possessive pronouns that are not formed by an otherwise regular process?",
+   "gloss": "Whether there are special adnominal possessive pronouns not formed by a regular process.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB314",
+   "name": "Can augmentative meaning be expressed productively by a shift of gender/noun class?",
+   "gloss": "Whether augmentative meaning can be expressed by shifting gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB315",
+   "name": "Can diminutive meaning be expressed productively by a shift of gender/noun class?",
+   "gloss": "Whether diminutive meaning can be expressed by shifting gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB317",
+   "name": "Is dual number regularly marked in the noun phrase by a dedicated phonologically free element?",
+   "gloss": "Whether dual number is marked in the NP by a dedicated free (unbound) element.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB318",
+   "name": "Is plural number regularly marked in the noun phrase by a dedicated phonologically free element?",
+   "gloss": "Whether plural number is marked in the NP by a dedicated free (unbound) element.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB319",
+   "name": "Is trial number regularly marked in the noun phrase by a dedicated phonologically free element?",
+   "gloss": "Whether trial number is marked in the NP by a dedicated free (unbound) element.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB320",
+   "name": "Is paucal number regularly marked in the noun phrase by a dedicated phonologically free element?",
+   "gloss": "Whether paucal number is marked in the NP by a dedicated free (unbound) element.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB321",
+   "name": "Is there a large class of nouns whose gender/noun class is not phonologically or semantically predictable?",
+   "gloss": "Whether there is a large class of nouns whose gender/class is not phonologically or semantically predictable.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB430",
+   "name": "Can adnominal possession be marked by a prefix on the possessor?",
+   "gloss": "Whether adnominal possession can be marked by a prefix on the possessor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB431",
+   "name": "Can adnominal possession be marked by a prefix on the possessed noun?",
+   "gloss": "Whether adnominal possession can be marked by a prefix on the possessed noun.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB432",
+   "name": "Can adnominal possession be marked by a suffix on the possessor?",
+   "gloss": "Whether adnominal possession can be marked by a suffix on the possessor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB433",
+   "name": "Can adnominal possession be marked by a suffix on the possessed noun?",
+   "gloss": "Whether adnominal possession can be marked by a suffix on the possessed noun.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB519",
+   "name": "Can mood be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether mood can be marked by a non-inflecting particle.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB520",
+   "name": "Can aspect be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether aspect can be marked by a non-inflecting particle.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB521",
+   "name": "Can tense be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether tense can be marked by a non-inflecting particle.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB333",
+   "name": "Is there a decimal numeral system?",
+   "gloss": "Whether the numeral system is decimal (base 10).",
+   "domain": "numerals",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB334",
+   "name": "Is there synchronic evidence for any element of a quinary numeral system?",
+   "gloss": "Whether there is any synchronic evidence of a quinary (base 5) element.",
+   "domain": "numerals",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB335",
+   "name": "Is there synchronic evidence for any element of a vigesimal numeral system?",
+   "gloss": "Whether there is any synchronic evidence of a vigesimal (base 20) element.",
+   "domain": "numerals",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB336",
+   "name": "Is there a body-part tallying system?",
+   "gloss": "Whether there is a body-part tallying counting system.",
+   "domain": "numerals",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB027",
+   "name": "Are nominal conjunction and comitative expressed by different elements?",
+   "gloss": "Whether noun-conjoining ('X and Y') and comitative ('X with Y') use different markers.",
+   "domain": "other",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB039",
+   "name": "Is there nonphonological allomorphy of noun number markers?",
+   "gloss": "Whether noun number markers show nonphonological (lexically/grammatically conditioned) allomorphy.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB041",
+   "name": "Are there several nouns (more than three) which are suppletive for number?",
+   "gloss": "Whether more than three nouns are suppletive for number (a different root for singular vs plural).",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB042",
+   "name": "Is there productive overt morphological singular marking on nouns?",
+   "gloss": "Whether there is productive overt singular marking on nouns.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB072",
+   "name": "Are there morphological cases for oblique non-pronominal NPs (i.e. not S/A/P)?",
+   "gloss": "Whether oblique (non-core) non-pronominal NPs carry morphological case.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB074",
+   "name": "Are there prepositions?",
+   "gloss": "Whether the language has prepositions.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB075",
+   "name": "Are there postpositions?",
+   "gloss": "Whether the language has postpositions.",
+   "domain": "other",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB095",
+   "name": "Are variations in marking strategies of core participants based on TAM distinctions?",
+   "gloss": "Whether core-argument marking varies by TAM (tense/aspect/mood) — e.g. split by tense.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB098",
+   "name": "Are variations in marking strategies of core participants based on person distinctions?",
+   "gloss": "Whether core-argument marking varies by person (e.g. a person-based split in ergativity).",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB105",
+   "name": "Can the recipient in a ditransitive construction be marked like the monotransitive patient?",
+   "gloss": "Whether the recipient of a ditransitive ('give') can be marked like a monotransitive object.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB135",
+   "name": "Do clausal objects usually occur in the same position as nominal objects?",
+   "gloss": "Whether clausal objects sit in the same position as nominal objects.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB146",
+   "name": "Is there a morpho-syntactic distinction between predicates expressing controlled versus uncontrolled events or states?",
+   "gloss": "Whether there is a morphosyntactic distinction between controlled and uncontrolled events/states.",
+   "domain": "other",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB301",
+   "name": "Is there an inclusory construction?",
+   "gloss": "Whether the language has an inclusory construction ('we with John' = 'John and I').",
+   "domain": "other",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB316",
+   "name": "Is singular number regularly marked in the noun phrase by a dedicated phonologically free element?",
+   "gloss": "Whether singular number is marked in the NP by a dedicated free (unbound) element.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB408",
+   "name": "Is there any accusative alignment of flagging?",
+   "gloss": "Whether any part of the case/adposition (flagging) system shows accusative alignment.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB409",
+   "name": "Is there any ergative alignment of flagging?",
+   "gloss": "Whether any part of the case/adposition (flagging) system shows ergative alignment.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB410",
+   "name": "Is there any neutral alignment of flagging?",
+   "gloss": "Whether any part of the case/adposition (flagging) system shows neutral alignment (S=A=P unmarked).",
+   "domain": "other",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB415",
+   "name": "Is there a politeness distinction in 2nd person forms?",
+   "gloss": "Whether there is a politeness (T/V) distinction in 2nd-person forms.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB028",
+   "name": "Is there a distinction between inclusive and exclusive?",
+   "gloss": "Whether the pronoun system distinguishes inclusive ('we incl. you') from exclusive ('we excl. you').",
+   "domain": "pronoun",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB167",
+   "name": "Is there a logophoric pronoun?",
+   "gloss": "Whether the language has a logophoric pronoun.",
+   "domain": "pronoun",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB196",
+   "name": "Is there a male/female distinction in 2nd person independent pronouns?",
+   "gloss": "Whether 2nd-person independent pronouns mark a male/female distinction.",
+   "domain": "pronoun",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB197",
+   "name": "Is there a male/female distinction in 1st person independent pronouns?",
+   "gloss": "Whether 1st-person independent pronouns mark a male/female distinction.",
+   "domain": "pronoun",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB305",
+   "name": "Is there a phonologically independent reflexive pronoun?",
+   "gloss": "Whether there is a phonologically independent reflexive pronoun.",
+   "domain": "pronoun",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB306",
+   "name": "Is there a phonologically independent non-bipartite reciprocal pronoun?",
+   "gloss": "Whether there is a phonologically independent (non-bipartite) reciprocal pronoun.",
+   "domain": "pronoun",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB068",
+   "name": "Do core adjectives (defined semantically as property concepts such as value, shape, age, dimension) act like verbs in predicative position?",
+   "gloss": "Whether core adjectives behave like verbs when used as a predicate ('the dog is big' patterns like 'the dog runs').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB069",
+   "name": "Do core adjectives (defined semantically as property concepts; value, shape, age, dimension) used attributively require the same morphological treatment as verbs?",
+   "gloss": "Whether attributive adjectives require the same morphology as verbs.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB070",
+   "name": "Are there morphological cases for non-pronominal core arguments (i.e. S/A/P)?",
+   "gloss": "Whether non-pronominal core arguments (S/A/P) carry morphological case.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB071",
+   "name": "Are there morphological cases for pronominal core arguments (i.e. S/A/P)?",
+   "gloss": "Whether pronominal core arguments (S/A/P) carry morphological case.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB073",
+   "name": "Are there morphological cases for independent oblique personal pronominal arguments (i.e. not S/A/P)?",
+   "gloss": "Whether independent oblique personal pronouns carry morphological case.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB079",
+   "name": "Do verbs have prefixes/proclitics, other than those that only mark A, S or P (do include portmanteau: A & S + TAM)?",
+   "gloss": "Whether verbs take prefixes/proclitics beyond pure S/A/P agreement (incl. portmanteau agreement+TAM).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB080",
+   "name": "Do verbs have suffixes/enclitics, other than those that only mark A, S or P (do include portmanteau: A & S + TAM)?",
+   "gloss": "Whether verbs take suffixes/enclitics beyond pure S/A/P agreement (incl. portmanteau agreement+TAM).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB081",
+   "name": "Is there productive infixation in verbs?",
+   "gloss": "Whether verbs show productive infixation (a morpheme inserted inside the root).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB082",
+   "name": "Is there overt morphological marking of present tense on verbs?",
+   "gloss": "Whether present tense is overtly marked on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB083",
+   "name": "Is there overt morphological marking on the verb dedicated to past tense?",
+   "gloss": "Whether there is a dedicated overt past-tense marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB084",
+   "name": "Is there overt morphological marking on the verb dedicated to future tense?",
+   "gloss": "Whether there is a dedicated overt future-tense marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB086",
+   "name": "Is a morphological distinction between perfective and imperfective aspect available on verbs?",
+   "gloss": "Whether verbs make a perfective-vs-imperfective aspect distinction morphologically.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB089",
+   "name": "Can the S argument be indexed by a suffix/enclitic on the verb in the simple main clause?",
+   "gloss": "Whether the S (intransitive subject) can be indexed by a suffix/enclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB090",
+   "name": "Can the S argument be indexed by a prefix/proclitic on the verb in the simple main clause?",
+   "gloss": "Whether the S (intransitive subject) can be indexed by a prefix/proclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB091",
+   "name": "Can the A argument be indexed by a suffix/enclitic on the verb in the simple main clause?",
+   "gloss": "Whether the A (transitive subject) can be indexed by a suffix/enclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB092",
+   "name": "Can the A argument be indexed by a prefix/proclitic on the verb in the simple main clause?",
+   "gloss": "Whether the A (transitive subject) can be indexed by a prefix/proclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB093",
+   "name": "Can the P argument be indexed by a suffix/enclitic on the verb in the simple main clause?",
+   "gloss": "Whether the P (transitive object) can be indexed by a suffix/enclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB094",
+   "name": "Can the P argument be indexed by a prefix/proclitic on the verb in the simple main clause?",
+   "gloss": "Whether the P (transitive object) can be indexed by a prefix/proclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB096",
+   "name": "Are variations in marking strategies of core participants based on verb classes?",
+   "gloss": "Whether core-argument marking varies by verb class.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB099",
+   "name": "Can verb stems alter according to the person of a core participant?",
+   "gloss": "Whether verb stems change according to the person of a core participant.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB103",
+   "name": "Is there a benefactive applicative marker on the verb (including indexing)?",
+   "gloss": "Whether there is a benefactive applicative marker on the verb ('do X for someone').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB104",
+   "name": "Is there an instrumental applicative marker on the verb (including indexing)?",
+   "gloss": "Whether there is an instrumental applicative marker on the verb ('do X with an instrument').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB107",
+   "name": "Can standard negation be marked by an affix, clitic or modification of the verb?",
+   "gloss": "Whether standard negation can be marked by an affix, clitic, or verb modification.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB108",
+   "name": "Is there directional or locative morphological marking on verbs?",
+   "gloss": "Whether verbs carry directional or locative morphology (associated-motion-type marking).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB109",
+   "name": "Is there verb suppletion for participant number?",
+   "gloss": "Whether verbs are suppletive for participant number (different root for singular vs plural participant).",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB110",
+   "name": "Is there verb suppletion for tense or aspect?",
+   "gloss": "Whether verbs are suppletive for tense or aspect.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB111",
+   "name": "Are there conjugation classes?",
+   "gloss": "Whether verbs fall into conjugation classes.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB113",
+   "name": "Are there verbal affixes or clitics that turn intransitive verbs into transitive ones?",
+   "gloss": "Whether there are verbal affixes/clitics that transitivize intransitive verbs (causative-like).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB114",
+   "name": "Is there a phonologically bound reflexive marker on the verb?",
+   "gloss": "Whether there is a bound (affixal) reflexive marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB115",
+   "name": "Is there a phonologically bound reciprocal marker on the verb?",
+   "gloss": "Whether there is a bound (affixal) reciprocal marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB116",
+   "name": "Do verbs classify the shape, size or consistency of absolutive arguments by means of incorporated nouns, verbal affixes or suppletive verb stems?",
+   "gloss": "Whether verbs classify the shape/size/consistency of absolutive arguments (e.g. via incorporated nouns or suppletion).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB117",
+   "name": "Is there a copula for predicate nominals?",
+   "gloss": "Whether there is a copula for predicate nominals ('X is a Y').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB118",
+   "name": "Are there serial verb constructions?",
+   "gloss": "Whether there are serial verb constructions (two+ verbs in one clause without a linker).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB119",
+   "name": "Can mood be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether mood can be marked by an inflecting auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB120",
+   "name": "Can aspect be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether aspect can be marked by an inflecting auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB121",
+   "name": "Can tense be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether tense can be marked by an inflecting auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB122",
+   "name": "Is verb compounding a regular process?",
+   "gloss": "Whether verb compounding is a regular process.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB123",
+   "name": "Are there verb-adjunct (aka light-verb) constructions?",
+   "gloss": "Whether there are verb-adjunct (light-verb / coverb) constructions.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB124",
+   "name": "Is incorporation of nouns into verbs a productive intransitivizing process?",
+   "gloss": "Whether noun incorporation into the verb is a productive intransitivizing process.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB126",
+   "name": "Is there an existential verb?",
+   "gloss": "Whether the language has a dedicated existential verb ('there is').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB127",
+   "name": "Are different posture verbs used obligatorily depending on an inanimate locatum's shape or position (e.g. 'to lie' vs. 'to stand')?",
+   "gloss": "Whether posture verbs ('lie' vs 'stand' vs 'sit') are obligatorily chosen by an inanimate's shape/position.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB129",
+   "name": "Is there a notably small number, i.e. about 100 or less, of verb roots in the language?",
+   "gloss": "Whether the language has a small closed set of verb roots (about 100 or fewer).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB131",
+   "name": "Is a pragmatically unmarked constituent order verb-initial for transitive clauses?",
+   "gloss": "Whether the unmarked transitive constituent order is verb-initial.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB132",
+   "name": "Is a pragmatically unmarked constituent order verb-medial for transitive clauses?",
+   "gloss": "Whether the unmarked transitive constituent order is verb-medial.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB133",
+   "name": "Is a pragmatically unmarked constituent order verb-final for transitive clauses?",
+   "gloss": "Whether the unmarked transitive constituent order is verb-final.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB136",
+   "name": "Is the order of core argument (i.e. S/A/P) constituents fixed?",
+   "gloss": "Whether the order of core (S/A/P) constituents is fixed.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB137",
+   "name": "Can standard negation be marked clause-finally?",
+   "gloss": "Whether standard negation can be marked clause-finally.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB138",
+   "name": "Can standard negation be marked clause-initially?",
+   "gloss": "Whether standard negation can be marked clause-initially.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB139",
+   "name": "Is there a difference between imperative (prohibitive) and declarative negation constructions?",
+   "gloss": "Whether prohibitive (negative imperative) negation differs from declarative negation.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB147",
+   "name": "Is there a morphological passive marked on the lexical verb?",
+   "gloss": "Whether there is a morphological passive marked on the lexical verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB148",
+   "name": "Is there a morphological antipassive marked on the lexical verb?",
+   "gloss": "Whether there is a morphological antipassive marked on the lexical verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB149",
+   "name": "Is there a morphologically marked inverse on verbs?",
+   "gloss": "Whether there is a morphological inverse marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB151",
+   "name": "Is there an overt verb marker dedicated to signalling coreference or noncoreference between the subject of one clause and an argument of an adjacent clause (\"switch reference\")?",
+   "gloss": "Whether there is a switch-reference marker (signals same/different subject across clauses).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB155",
+   "name": "Are causatives formed by affixes or clitics on verbs?",
+   "gloss": "Whether causatives are formed by affixes/clitics on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB156",
+   "name": "Is there a causative construction involving an element that is unmistakably grammaticalized from a verb for 'to say'?",
+   "gloss": "Whether there is a causative built from a grammaticalized verb 'to say'.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB286",
+   "name": "Can polar interrogation be indicated by overt verbal morphology only?",
+   "gloss": "Whether yes/no questions can be marked by verbal morphology alone.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB298",
+   "name": "Can standard negation be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether standard negation can be marked by an inflecting negative auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB300",
+   "name": "Does the verb for 'give' have suppletive verb forms?",
+   "gloss": "Whether the verb for 'give' has suppletive forms.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB304",
+   "name": "Can the agent be expressed overtly in a passive clause?",
+   "gloss": "Whether the agent can be expressed overtly in a passive clause ('by ...').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB309",
+   "name": "Are there multiple past or multiple future tenses, distinguishing distance from Time of Reference?",
+   "gloss": "Whether there are multiple past or future tenses distinguishing distance in time (e.g. recent vs remote past).",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB312",
+   "name": "Is there overt morphological marking on the verb dedicated to mood?",
+   "gloss": "Whether there is dedicated overt mood marking on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB324",
+   "name": "Is there an interrogative verb for content interrogatives (who?, what?, etc.)?",
+   "gloss": "Whether there is a dedicated interrogative verb for content questions ('do-what?').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB400",
+   "name": "Are all person categories neutralized in some voice, tense, aspect, mood and/or negation?",
+   "gloss": "Whether all person categories are neutralized in some voice/TAM/negation context.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB402",
+   "name": "Does the verb for 'see' have suppletive verb forms?",
+   "gloss": "Whether the verb for 'see' has suppletive forms.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB421",
+   "name": "Is there a preposed complementizer in complements of verbs of thinking and/or knowing?",
+   "gloss": "Whether there is a preposed complementizer for complements of 'think/know' verbs.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB422",
+   "name": "Is there a postposed complementizer in complements of verbs of thinking and/or knowing?",
+   "gloss": "Whether there is a postposed complementizer for complements of 'think/know' verbs.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB522",
+   "name": "Can the S or A argument be omitted from a pragmatically unmarked clause when the referent is inferrable from context (\"pro-drop\" or \"null anaphora\")?",
+   "gloss": "Whether the S or A argument can be dropped when inferrable from context (pro-drop / null anaphora).",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  }
+ ],
+ "aus_extension": [
+  {
+   "id": "AUX001",
+   "name": "Nominal case alignment",
+   "gloss": "Case-marking alignment of full (non-pronominal) noun phrases.",
+   "domain": "alignment",
+   "value": "neutral",
+   "derivation": "WALS 98A=98A-1"
+  },
+  {
+   "id": "AUX003",
+   "name": "Verbal person-marking alignment",
+   "gloss": "Alignment of person marking (agreement/bound pronouns) on the verb.",
+   "domain": "alignment",
+   "value": "accusative",
+   "derivation": "WALS 100A=100A-2"
+  },
+  {
+   "id": "AUX006",
+   "name": "Number of morphological cases",
+   "gloss": "Size of the morphological case inventory on nouns.",
+   "domain": "case",
+   "value": "borderline",
+   "derivation": "WALS 49A=49A-9"
+  },
+  {
+   "id": "AUX007",
+   "name": "Position of case affixes",
+   "gloss": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+   "domain": "case",
+   "value": "none",
+   "derivation": "WALS 51A=51A-9"
+  },
+  {
+   "id": "AUX008",
+   "name": "Case marked separately on pronouns vs nouns",
+   "gloss": "Whether both non-pronominal core arguments and pronominal core arguments carry case (so case can differ by word class).",
+   "domain": "case",
+   "value": "neither",
+   "derivation": "derived: GB070=0,GB071=0"
+  },
+  {
+   "id": "AUX010",
+   "name": "Bound-pronoun / pronominal-subject host",
+   "gloss": "How pronominal subjects are expressed: obligatory free pronoun, subject affix on the verb, clitic on a variable host (e.g. second position / auxiliary), etc.",
+   "domain": "pronoun-marking",
+   "value": "subject-affix-on-verb",
+   "derivation": "WALS 101A=101A-2"
+  },
+  {
+   "id": "AUX011",
+   "name": "Second-position pronominal clitic cluster",
+   "gloss": "Whether bound pronouns form a clitic cluster on a variable (typically second-position/auxiliary) host rather than being fixed to the verb.",
+   "domain": "pronoun-marking",
+   "value": "no",
+   "derivation": "derived: WALS 101A=101A-2"
+  },
+  {
+   "id": "AUX012",
+   "name": "A argument indexed on the verb",
+   "gloss": "Whether the transitive subject (A) is cross-referenced by a bound marker on the verb.",
+   "domain": "pronoun-marking",
+   "value": "no",
+   "derivation": "derived: GB091/GB092"
+  },
+  {
+   "id": "AUX013",
+   "name": "P argument indexed on the verb",
+   "gloss": "Whether the transitive object (P) is cross-referenced by a bound marker on the verb.",
+   "domain": "pronoun-marking",
+   "value": "no",
+   "derivation": "derived: GB093/GB094"
+  },
+  {
+   "id": "AUX014",
+   "name": "Nominal dual number",
+   "gloss": "Productive morphological dual on nouns.",
+   "domain": "number",
+   "value": "no",
+   "derivation": "Grambank GB043=0"
+  },
+  {
+   "id": "AUX015",
+   "name": "Nominal paucal number",
+   "gloss": "Productive morphological paucal ('a few') on nouns.",
+   "domain": "number",
+   "value": "no",
+   "derivation": "Grambank GB166=0"
+  },
+  {
+   "id": "AUX016",
+   "name": "Nominal trial number",
+   "gloss": "Productive morphological trial (exactly three) on nouns.",
+   "domain": "number",
+   "value": "no",
+   "derivation": "Grambank GB165=0"
+  },
+  {
+   "id": "AUX017",
+   "name": "Coding of nominal plurality",
+   "gloss": "How nominal plural is coded: suffix, prefix, reduplication, plural word, clitic, none.",
+   "domain": "number",
+   "value": "none",
+   "derivation": "WALS 33A=33A-9"
+  },
+  {
+   "id": "AUX018",
+   "name": "Plurality in independent pronouns",
+   "gloss": "How number is built into independent personal pronouns.",
+   "domain": "number",
+   "value": "person-number-stem+pron-plural",
+   "derivation": "WALS 35A=35A-5"
+  },
+  {
+   "id": "AUX019",
+   "name": "Inclusive/exclusive distinction",
+   "gloss": "Whether 1st-person non-singular distinguishes inclusive ('we incl. you') from exclusive.",
+   "domain": "pronoun",
+   "value": "yes",
+   "derivation": "WALS 39A=39A-5"
+  },
+  {
+   "id": "AUX020",
+   "name": "Inclusive/exclusive in verbal inflection",
+   "gloss": "Whether the inclusive/exclusive distinction also appears in verbal person marking.",
+   "domain": "pronoun",
+   "value": "yes",
+   "derivation": "WALS 40A=40A-5"
+  },
+  {
+   "id": "AUX023",
+   "name": "Distance contrasts in demonstratives",
+   "gloss": "Number of distance contrasts (2, 3+ deictic terms).",
+   "domain": "demonstrative",
+   "value": "three-plus",
+   "derivation": "Grambank GB035=1"
+  },
+  {
+   "id": "AUX024",
+   "name": "Gender in independent 3rd-person pronouns",
+   "gloss": "Whether independent 3rd-person pronouns mark gender (he/she).",
+   "domain": "pronoun",
+   "value": "yes",
+   "derivation": "Grambank GB030=1"
+  },
+  {
+   "id": "AUX025",
+   "name": "Verb conjugation classes",
+   "gloss": "Whether verbs fall into conjugation classes (as in most Pama-Nyungan languages).",
+   "domain": "verb",
+   "value": "yes",
+   "derivation": "Grambank GB111=1"
+  },
+  {
+   "id": "AUX026",
+   "name": "Position of tense-aspect affixes",
+   "gloss": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+   "domain": "verb",
+   "value": "none",
+   "derivation": "WALS 69A=69A-5"
+  },
+  {
+   "id": "AUX027",
+   "name": "Multiple (distance) past/future tenses",
+   "gloss": "Whether there are multiple past or future tenses distinguishing temporal distance (e.g. recent vs remote past) — common in Australian languages.",
+   "domain": "verb",
+   "value": "yes",
+   "derivation": "Grambank GB309=1"
+  },
+  {
+   "id": "AUX028",
+   "name": "Associated motion / verbal directional marking",
+   "gloss": "Directional or locative morphology on the verb. NOTE: true associated-motion systems (coming/going while V-ing) are a fine Australianist category that open datasets do not isolate; this uses Grambank's broader directional/locative-on-verb feature as a proxy.",
+   "domain": "verb",
+   "value": "no",
+   "derivation": "Grambank GB108=0"
+  },
+  {
+   "id": "AUX029",
+   "name": "Verb suppletion for participant number",
+   "gloss": "Whether a verb uses a different root for singular vs plural participant (e.g. 'go.sg' vs 'go.pl').",
+   "domain": "verb",
+   "value": "yes",
+   "derivation": "Grambank GB109=1"
+  },
+  {
+   "id": "AUX030",
+   "name": "Reduplication productivity",
+   "gloss": "Whether reduplication is productive and of what kind (full/partial).",
+   "domain": "verb",
+   "value": "full-only",
+   "derivation": "WALS 27A=27A-2"
+  },
+  {
+   "id": "AUX031",
+   "name": "Bound reflexive marker on verb",
+   "gloss": "A phonologically bound reflexive marker on the verb (e.g. Kuku Yalanji -ji-).",
+   "domain": "valency",
+   "value": "no",
+   "derivation": "Grambank GB114=0"
+  },
+  {
+   "id": "AUX032",
+   "name": "Bound reciprocal marker on verb",
+   "gloss": "A phonologically bound reciprocal marker on the verb (e.g. Kuku Yalanji -wa-).",
+   "domain": "valency",
+   "value": "no",
+   "derivation": "Grambank GB115=0"
+  },
+  {
+   "id": "AUX033",
+   "name": "Reflexive/reciprocal identity",
+   "gloss": "Whether reciprocal marking is identical to, or distinct from, reflexive marking.",
+   "domain": "valency",
+   "value": "distinct",
+   "derivation": "WALS 106A=106A-2"
+  },
+  {
+   "id": "AUX034",
+   "name": "Morphological antipassive",
+   "gloss": "A morphological antipassive on the lexical verb (demotes P; salient in ergative languages).",
+   "domain": "valency",
+   "value": "no",
+   "derivation": "Grambank GB148=0"
+  },
+  {
+   "id": "AUX035",
+   "name": "Causative by affix/clitic",
+   "gloss": "Whether causatives are formed by an affix/clitic on the verb.",
+   "domain": "valency",
+   "value": "no",
+   "derivation": "Grambank GB155=0"
+  },
+  {
+   "id": "AUX036",
+   "name": "Standard negation strategy",
+   "gloss": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+   "domain": "negation",
+   "value": "particle",
+   "derivation": "WALS 112A=112A-2"
+  },
+  {
+   "id": "AUX037",
+   "name": "Prohibitive vs declarative negation",
+   "gloss": "Whether the prohibitive (negative imperative) uses a different construction from declarative negation.",
+   "domain": "negation",
+   "value": "no",
+   "derivation": "Grambank GB139=0"
+  },
+  {
+   "id": "AUX038",
+   "name": "Dominant constituent order",
+   "gloss": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+   "domain": "syntax",
+   "value": "SOV",
+   "derivation": "WALS 81A=81A-1"
+  },
+  {
+   "id": "AUX039",
+   "name": "Adposition type",
+   "gloss": "Prepositions vs postpositions vs no dominant adpositions.",
+   "domain": "syntax",
+   "value": "postpositions",
+   "derivation": "WALS 85A=85A-1"
+  },
+  {
+   "id": "AUX040",
+   "name": "Switch-reference",
+   "gloss": "A verb marker signalling same/different subject across clauses.",
+   "domain": "syntax",
+   "value": "no",
+   "derivation": "Grambank GB151=0"
+  },
+  {
+   "id": "AUX041",
+   "name": "Clause chaining",
+   "gloss": "Chains of dependent (medial) clauses closed by one finite verb.",
+   "domain": "syntax",
+   "value": "no",
+   "derivation": "Grambank GB150=0"
+  },
+  {
+   "id": "AUX042",
+   "name": "Pro-drop (null core arguments)",
+   "gloss": "Whether S/A can be omitted when inferrable — pervasive in bound-pronoun Australian languages.",
+   "domain": "syntax",
+   "value": "yes",
+   "derivation": "Grambank GB522=1"
+  },
+  {
+   "id": "AUX043",
+   "name": "Numeral base system",
+   "gloss": "Base of the numeral system: decimal, quinary, vigesimal, body-part tally, or restricted (many Australian languages have very small numeral systems).",
+   "domain": "numerals",
+   "value": "restricted/none",
+   "derivation": "derived: GB333-336 all 0"
+  },
+  {
+   "id": "AUX047",
+   "name": "Evidentiality coding",
+   "gloss": "Whether grammatical evidentiality is marked, and its scope (direct/indirect).",
+   "domain": "verb",
+   "value": "none",
+   "derivation": "WALS 77A=77A-1"
+  },
+  {
+   "id": "AUX052",
+   "name": "Verb–adjunct (coverb / light-verb) constructions",
+   "gloss": "Whether predicates are built from an uninflecting coverb + a small closed class of inflecting light verbs (widespread in non-Pama-Nyungan Australia).",
+   "domain": "verb",
+   "value": "no",
+   "derivation": "Grambank GB123=0"
+  },
+  {
+   "id": "AUX053",
+   "name": "Noun incorporation (intransitivizing)",
+   "gloss": "Whether noun incorporation into the verb is a productive intransitivizing process.",
+   "domain": "verb",
+   "value": "no",
+   "derivation": "Grambank GB124=0"
+  }
+ ],
+ "neighbours": [
+  {
+   "glottocode": "kuku1280",
+   "name": "Kuku-Uwanh",
+   "grambank_recorded_agreement": 0.7972,
+   "n_joint": 143
+  },
+  {
+   "glottocode": "koka1244",
+   "name": "Kokata",
+   "grambank_recorded_agreement": 0.7744,
+   "n_joint": 133
+  },
+  {
+   "glottocode": "yidi1250",
+   "name": "Yidiñ",
+   "grambank_recorded_agreement": 0.7626,
+   "n_joint": 139
+  },
+  {
+   "glottocode": "gugu1255",
+   "name": "Guugu Yimidhirr",
+   "grambank_recorded_agreement": 0.7612,
+   "n_joint": 67
+  },
+  {
+   "glottocode": "waja1257",
+   "name": "Wajarri",
+   "grambank_recorded_agreement": 0.7586,
+   "n_joint": 58
+  },
+  {
+   "glottocode": "nyan1301",
+   "name": "Nyangumarta",
+   "grambank_recorded_agreement": 0.7541,
+   "n_joint": 61
+  },
+  {
+   "glottocode": "pint1250",
+   "name": "Pintupi-Luritja",
+   "grambank_recorded_agreement": 0.754,
+   "n_joint": 126
+  },
+  {
+   "glottocode": "warr1258",
+   "name": "Warrwa",
+   "grambank_recorded_agreement": 0.7538,
+   "n_joint": 130
+  },
+  {
+   "glottocode": "wikm1247",
+   "name": "Wik-Mungkan",
+   "grambank_recorded_agreement": 0.7538,
+   "n_joint": 130
+  },
+  {
+   "glottocode": "urni1239",
+   "name": "Urningangg",
+   "grambank_recorded_agreement": 0.7533,
+   "n_joint": 150
+  }
+ ],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

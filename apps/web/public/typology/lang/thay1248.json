@@ -1,0 +1,53 @@
+{
+ "glottocode": "thay1248",
+ "name": "Thaypan",
+ "iso639_3": "typ",
+ "family": "Pama-Nyungan",
+ "subgroup": "Paman",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "pama1251",
+   "name": "Paman"
+  },
+  {
+   "glottocode": "alay1234",
+   "name": "Alaya-Athima"
+  },
+  {
+   "glottocode": "thay1250",
+   "name": "Thaypanic"
+  }
+ ],
+ "latitude": -14.8292,
+ "longitude": 143.324,
+ "austlang_codes": [
+  "Y66",
+  "Y84"
+ ],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 3,
+  "aus_extension_coded": 0,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

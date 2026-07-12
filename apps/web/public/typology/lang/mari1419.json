@@ -1,0 +1,65 @@
+{
+ "glottocode": "mari1419",
+ "name": "Maringarr",
+ "iso639_3": "zmt",
+ "family": "Western Daly",
+ "subgroup": "Bringen",
+ "family_chain": [
+  {
+   "glottocode": "west2434",
+   "name": "Western Daly"
+  },
+  {
+   "glottocode": "brin1245",
+   "name": "Bringen"
+  },
+  {
+   "glottocode": "mari1418",
+   "name": "Maringarr-Matige"
+  }
+ ],
+ "latitude": -14.3819,
+ "longitude": 130.25,
+ "austlang_codes": [
+  "N102"
+ ],
+ "endangerment": "nearly extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 16,
+  "aus_extension_coded": 2,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX026",
+   "name": "Position of tense-aspect affixes",
+   "gloss": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+   "domain": "verb",
+   "value": "suffix",
+   "derivation": "WALS 69A=69A-2"
+  },
+  {
+   "id": "AUX038",
+   "name": "Dominant constituent order",
+   "gloss": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+   "domain": "syntax",
+   "value": "SOV",
+   "derivation": "WALS 81A=81A-1"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

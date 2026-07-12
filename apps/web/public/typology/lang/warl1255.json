@@ -1,0 +1,459 @@
+{
+ "glottocode": "warl1255",
+ "name": "Warlmanpa",
+ "iso639_3": "wrl",
+ "family": "Pama-Nyungan",
+ "subgroup": "Desert Nyungic",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "dese1234",
+   "name": "Desert Nyungic"
+  },
+  {
+   "glottocode": "ngum1251",
+   "name": "Ngumpin-Yapa"
+  },
+  {
+   "glottocode": "ngar1289",
+   "name": "Yapa"
+  }
+ ],
+ "latitude": -18.949,
+ "longitude": 133.862,
+ "austlang_codes": [
+  "C17"
+ ],
+ "endangerment": "moribund",
+ "coverage": {
+  "grambank_coded": 41,
+  "grambank_unknown": 1,
+  "grambank_total": 195,
+  "grambank_pct": 21.0,
+  "wals_coded": 0,
+  "aus_extension_coded": 2,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [
+  {
+   "id": "GB204",
+   "name": "Do collective ('all') and distributive ('every') universal quantifiers differ in their forms or their syntactic positions?",
+   "gloss": "Whether collective 'all' and distributive 'every' quantifiers differ in form or position.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB257",
+   "name": "Can polar interrogation be marked by intonation only?",
+   "gloss": "Whether yes/no questions can be marked by intonation alone.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB260",
+   "name": "Can polar interrogation be indicated by a special word order?",
+   "gloss": "Whether yes/no questions can be marked by a special word order.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB265",
+   "name": "Is there a comparative construction that includes a form that elsewhere means 'surpass, exceed'?",
+   "gloss": "Whether the comparative uses a form that elsewhere means 'surpass/exceed'.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB266",
+   "name": "Is there a comparative construction that employs a marker of the standard which elsewhere has a locational meaning?",
+   "gloss": "Whether the comparative marks the standard with a form that elsewhere is locational ('from/at').",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB270",
+   "name": "Can comparatives be expressed using two conjoined clauses?",
+   "gloss": "Whether comparatives can be expressed by two conjoined clauses ('X is big, Y is small').",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB273",
+   "name": "Is there a comparative construction with a standard marker that elsewhere has neither a locational meaning nor a 'surpass/exceed' meaning?",
+   "gloss": "Whether the comparative standard marker has neither a locational nor a 'surpass' source.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB275",
+   "name": "Is there a bound comparative degree marker on the property word in a comparative construction?",
+   "gloss": "Whether there is a bound comparative degree marker on the property word.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB276",
+   "name": "Is there a non-bound comparative degree marker modifying the property word in a comparative construction?",
+   "gloss": "Whether there is a free comparative degree marker (like 'more') modifying the property word.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB297",
+   "name": "Can polar interrogation be indicated by a V-not-V construction?",
+   "gloss": "Whether yes/no questions can be marked by a V-not-V construction.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB035",
+   "name": "Are there three or more distance contrasts in demonstratives?",
+   "gloss": "Whether demonstratives make three or more distance contrasts (e.g. near/mid/far).",
+   "domain": "demonstrative",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB036",
+   "name": "Do demonstratives show an elevation distinction?",
+   "gloss": "Whether demonstratives encode an elevation distinction (up-here vs down-there).",
+   "domain": "demonstrative",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB037",
+   "name": "Do demonstratives show a visible-nonvisible distinction?",
+   "gloss": "Whether demonstratives encode a visible-vs-nonvisible distinction.",
+   "domain": "demonstrative",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB020",
+   "name": "Are there definite or specific articles?",
+   "gloss": "Whether the language has a definite or specific article (a grammatical word like English 'the').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB021",
+   "name": "Do indefinite nominals commonly have indefinite articles?",
+   "gloss": "Whether indefinite nominals commonly take an indefinite article (like English 'a/an').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB051",
+   "name": "Is there a gender/noun class system where sex is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses biological sex as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB052",
+   "name": "Is there a gender/noun class system where shape is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses shape as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB053",
+   "name": "Is there a gender/noun class system where animacy is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses animacy as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB054",
+   "name": "Is there a gender/noun class system where plant status is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses plant status as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB172",
+   "name": "Can an article agree with the noun in gender/noun class?",
+   "gloss": "Whether an article can agree with its noun in gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB203",
+   "name": "What is the order of the adnominal collective universal quantifier ('all') and the noun?",
+   "gloss": "Order of the collective 'all' quantifier and noun: 0=no such quantifier, 1=Q-N, 2=N-Q, 3=both.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "no UQ"
+  },
+  {
+   "id": "GB262",
+   "name": "Is there a clause-initial polar interrogative particle?",
+   "gloss": "Whether there is a clause-initial yes/no question particle.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB263",
+   "name": "Is there a clause-final polar interrogative particle?",
+   "gloss": "Whether there is a clause-final yes/no question particle.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB264",
+   "name": "Is there a polar interrogative particle that most commonly occurs neither clause-initially nor clause-finally?",
+   "gloss": "Whether there is a yes/no question particle sitting neither clause-initially nor clause-finally.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB285",
+   "name": "Can polar interrogation be marked by a question particle and verbal morphology?",
+   "gloss": "Whether yes/no questions can be marked by a question particle plus verbal morphology.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB299",
+   "name": "Can standard negation be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether standard negation can be marked by a non-inflecting negative particle.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB321",
+   "name": "Is there a large class of nouns whose gender/noun class is not phonologically or semantically predictable?",
+   "gloss": "Whether there is a large class of nouns whose gender/class is not phonologically or semantically predictable.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB519",
+   "name": "Can mood be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether mood can be marked by a non-inflecting particle.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB520",
+   "name": "Can aspect be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether aspect can be marked by a non-inflecting particle.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB521",
+   "name": "Can tense be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether tense can be marked by a non-inflecting particle.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB039",
+   "name": "Is there nonphonological allomorphy of noun number markers?",
+   "gloss": "Whether noun number markers show nonphonological (lexically/grammatically conditioned) allomorphy.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB082",
+   "name": "Is there overt morphological marking of present tense on verbs?",
+   "gloss": "Whether present tense is overtly marked on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB083",
+   "name": "Is there overt morphological marking on the verb dedicated to past tense?",
+   "gloss": "Whether there is a dedicated overt past-tense marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB084",
+   "name": "Is there overt morphological marking on the verb dedicated to future tense?",
+   "gloss": "Whether there is a dedicated overt future-tense marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB119",
+   "name": "Can mood be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether mood can be marked by an inflecting auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB120",
+   "name": "Can aspect be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether aspect can be marked by an inflecting auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB121",
+   "name": "Can tense be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether tense can be marked by an inflecting auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB139",
+   "name": "Is there a difference between imperative (prohibitive) and declarative negation constructions?",
+   "gloss": "Whether prohibitive (negative imperative) negation differs from declarative negation.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB140",
+   "name": "Is verbal predication marked by the same negator as all of the following types of predication: locational, existential and nominal?",
+   "gloss": "Whether one negator covers verbal, locational, existential and nominal predication alike.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB298",
+   "name": "Can standard negation be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether standard negation can be marked by an inflecting negative auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB312",
+   "name": "Is there overt morphological marking on the verb dedicated to mood?",
+   "gloss": "Whether there is dedicated overt mood marking on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  }
+ ],
+ "aus_extension": [
+  {
+   "id": "AUX023",
+   "name": "Distance contrasts in demonstratives",
+   "gloss": "Number of distance contrasts (2, 3+ deictic terms).",
+   "domain": "demonstrative",
+   "value": "three-plus",
+   "derivation": "Grambank GB035=1"
+  },
+  {
+   "id": "AUX037",
+   "name": "Prohibitive vs declarative negation",
+   "gloss": "Whether the prohibitive (negative imperative) uses a different construction from declarative negation.",
+   "domain": "negation",
+   "value": "yes",
+   "derivation": "Grambank GB139=1"
+  }
+ ],
+ "neighbours": [
+  {
+   "glottocode": "bili1250",
+   "name": "Bilinarra",
+   "grambank_recorded_agreement": 0.9,
+   "n_joint": 30
+  },
+  {
+   "glottocode": "mayk1239",
+   "name": "Maykulan",
+   "grambank_recorded_agreement": 0.9,
+   "n_joint": 30
+  },
+  {
+   "glottocode": "marg1253",
+   "name": "Margany",
+   "grambank_recorded_agreement": 0.8788,
+   "n_joint": 33
+  },
+  {
+   "glottocode": "wage1238",
+   "name": "Wageman",
+   "grambank_recorded_agreement": 0.875,
+   "n_joint": 40
+  },
+  {
+   "glottocode": "gugu1253",
+   "name": "Gugu Badhun",
+   "grambank_recorded_agreement": 0.8438,
+   "n_joint": 32
+  },
+  {
+   "glottocode": "yuwa1242",
+   "name": "Yuwaalaraay",
+   "grambank_recorded_agreement": 0.8387,
+   "n_joint": 31
+  },
+  {
+   "glottocode": "waru1265",
+   "name": "Warumungu",
+   "grambank_recorded_agreement": 0.8333,
+   "n_joint": 36
+  },
+  {
+   "glottocode": "yulp1239",
+   "name": "Yulparija",
+   "grambank_recorded_agreement": 0.8333,
+   "n_joint": 30
+  },
+  {
+   "glottocode": "muru1266",
+   "name": "Muruwari",
+   "grambank_recorded_agreement": 0.8125,
+   "n_joint": 32
+  },
+  {
+   "glottocode": "nhan1238",
+   "name": "Nhanda",
+   "grambank_recorded_agreement": 0.8125,
+   "n_joint": 32
+  }
+ ],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "glottocode": "waka1274",
+ "name": "Wakawaka",
+ "iso639_3": "wkw",
+ "family": "Pama-Nyungan",
+ "subgroup": "Southeastern Pama-Nyungan",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "sout3135",
+   "name": "Southeastern Pama-Nyungan"
+  },
+  {
+   "glottocode": "nort3154",
+   "name": "North Coast Pama-Nyungan"
+  },
+  {
+   "glottocode": "waka1283",
+   "name": "Waka-Kabic"
+  },
+  {
+   "glottocode": "west2808",
+   "name": "Western Waka-Kabic"
+  }
+ ],
+ "latitude": -26.248,
+ "longitude": 151.868,
+ "austlang_codes": [
+  "E20",
+  "E22",
+  "E24",
+  "E28",
+  "E45",
+  "E87",
+  "E88"
+ ],
+ "endangerment": "nearly extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 1,
+  "aus_extension_coded": 0,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

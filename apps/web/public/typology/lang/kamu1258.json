@@ -1,0 +1,65 @@
+{
+ "glottocode": "kamu1258",
+ "name": "Kamu",
+ "iso639_3": "xmu",
+ "family": "Eastern Daly",
+ "subgroup": "Eastern Daly",
+ "family_chain": [
+  {
+   "glottocode": "east2374",
+   "name": "Eastern Daly"
+  }
+ ],
+ "latitude": -13.5393,
+ "longitude": 131.098,
+ "austlang_codes": [
+  "N33"
+ ],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 17,
+  "aus_extension_coded": 3,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX007",
+   "name": "Position of case affixes",
+   "gloss": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+   "domain": "case",
+   "value": "postpositional-clitic",
+   "derivation": "WALS 51A=51A-6"
+  },
+  {
+   "id": "AUX038",
+   "name": "Dominant constituent order",
+   "gloss": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+   "domain": "syntax",
+   "value": "no-dominant-order",
+   "derivation": "WALS 81A=81A-7"
+  },
+  {
+   "id": "AUX039",
+   "name": "Adposition type",
+   "gloss": "Prepositions vs postpositions vs no dominant adpositions.",
+   "domain": "syntax",
+   "value": "postpositions",
+   "derivation": "WALS 85A=85A-1"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

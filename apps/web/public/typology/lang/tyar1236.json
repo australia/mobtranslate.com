@@ -1,0 +1,57 @@
+{
+ "glottocode": "tyar1236",
+ "name": "Tyaraity",
+ "iso639_3": "woa",
+ "family": "Northern Daly",
+ "subgroup": "Northern Daly",
+ "family_chain": [
+  {
+   "glottocode": "nort1547",
+   "name": "Northern Daly"
+  }
+ ],
+ "latitude": -12.4868,
+ "longitude": 130.676,
+ "austlang_codes": [
+  "N10"
+ ],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 17,
+  "aus_extension_coded": 2,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX036",
+   "name": "Standard negation strategy",
+   "gloss": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+   "domain": "negation",
+   "value": "double",
+   "derivation": "WALS 112A=112A-6"
+  },
+  {
+   "id": "AUX038",
+   "name": "Dominant constituent order",
+   "gloss": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+   "domain": "syntax",
+   "value": "SOV",
+   "derivation": "WALS 81A=81A-1"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

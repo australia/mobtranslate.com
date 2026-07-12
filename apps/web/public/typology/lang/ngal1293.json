@@ -1,0 +1,125 @@
+{
+ "glottocode": "ngal1293",
+ "name": "Ngalakgan",
+ "iso639_3": "nig",
+ "family": "Gunwinyguan",
+ "subgroup": "Jala",
+ "family_chain": [
+  {
+   "glottocode": "gunw1250",
+   "name": "Gunwinyguan"
+  },
+  {
+   "glottocode": "jala1236",
+   "name": "Jala"
+  }
+ ],
+ "latitude": -14.4281,
+ "longitude": 134.716,
+ "austlang_codes": [
+  "N77"
+ ],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 58,
+  "aus_extension_coded": 10,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX003",
+   "name": "Verbal person-marking alignment",
+   "gloss": "Alignment of person marking (agreement/bound pronouns) on the verb.",
+   "domain": "alignment",
+   "value": "split",
+   "derivation": "WALS 100A=100A-6"
+  },
+  {
+   "id": "AUX007",
+   "name": "Position of case affixes",
+   "gloss": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+   "domain": "case",
+   "value": "suffix",
+   "derivation": "WALS 51A=51A-1"
+  },
+  {
+   "id": "AUX009",
+   "name": "Comitative vs instrumental syncretism",
+   "gloss": "Whether 'with (accompaniment)' and 'with (instrument)' use the same or different marking — a much-discussed Australianist parameter.",
+   "domain": "case",
+   "value": "mixed",
+   "derivation": "WALS 52A=52A-3"
+  },
+  {
+   "id": "AUX017",
+   "name": "Coding of nominal plurality",
+   "gloss": "How nominal plural is coded: suffix, prefix, reduplication, plural word, clitic, none.",
+   "domain": "number",
+   "value": "none",
+   "derivation": "WALS 33A=33A-9"
+  },
+  {
+   "id": "AUX026",
+   "name": "Position of tense-aspect affixes",
+   "gloss": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+   "domain": "verb",
+   "value": "suffix",
+   "derivation": "WALS 69A=69A-2"
+  },
+  {
+   "id": "AUX030",
+   "name": "Reduplication productivity",
+   "gloss": "Whether reduplication is productive and of what kind (full/partial).",
+   "domain": "verb",
+   "value": "full-and-partial",
+   "derivation": "WALS 27A=27A-1"
+  },
+  {
+   "id": "AUX036",
+   "name": "Standard negation strategy",
+   "gloss": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+   "domain": "negation",
+   "value": "affix",
+   "derivation": "WALS 112A=112A-1"
+  },
+  {
+   "id": "AUX038",
+   "name": "Dominant constituent order",
+   "gloss": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+   "domain": "syntax",
+   "value": "no-dominant-order",
+   "derivation": "WALS 81A=81A-7"
+  },
+  {
+   "id": "AUX039",
+   "name": "Adposition type",
+   "gloss": "Prepositions vs postpositions vs no dominant adpositions.",
+   "domain": "syntax",
+   "value": "no-adpositions",
+   "derivation": "WALS 85A=85A-5"
+  },
+  {
+   "id": "AUX045",
+   "name": "Predicative possession strategy",
+   "gloss": "How 'X has Y' is expressed: locational, genitive, topic, conjunctional, or a 'have' verb.",
+   "domain": "clause",
+   "value": "conjunctional",
+   "derivation": "WALS 117A=117A-4"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

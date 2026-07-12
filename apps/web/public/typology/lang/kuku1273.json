@@ -1,0 +1,3328 @@
+{
+ "glottocode": "kuku1273",
+ "name": "Kuku-Yalanji",
+ "iso639_3": "gvn",
+ "family": "Pama-Nyungan",
+ "subgroup": "Yimidhirr-Yalanji-Yidinic",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "yimi1234",
+   "name": "Yimidhirr-Yalanji-Yidinic"
+  },
+  {
+   "glottocode": "yala1261",
+   "name": "Yalandyic"
+  }
+ ],
+ "latitude": -16.0036,
+ "longitude": 145.188,
+ "austlang_codes": [
+  "Y103",
+  "Y163",
+  "Y78",
+  "Y81",
+  "Y99"
+ ],
+ "endangerment": "shifting",
+ "coverage": {
+  "grambank_coded": 184,
+  "grambank_unknown": 11,
+  "grambank_total": 195,
+  "grambank_pct": 94.4,
+  "wals_coded": 60,
+  "aus_extension_coded": 29,
+  "aus_extension_total": 53
+ },
+ "cluster": 7,
+ "cluster_meta": {
+  "cluster": 7,
+  "size": 31,
+  "dominant_subgroup_glottocode": "dese1234",
+  "subgroup_purity": 0.194
+ },
+ "grambank_features": [
+  {
+   "id": "GB024",
+   "name": "What is the order of numeral and noun in the NP?",
+   "gloss": "Order of numeral and noun in the noun phrase: 1=Numeral-Noun, 2=Noun-Numeral, 3=both orders occur.",
+   "domain": "clause_and_syntax",
+   "value": "3",
+   "value_meaning": "both."
+  },
+  {
+   "id": "GB130",
+   "name": "What is the pragmatically unmarked order of S and V in intransitive clauses?",
+   "gloss": "Unmarked order of S and V in intransitive clauses: 1=SV, 2=VS, 3=both.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "SV"
+  },
+  {
+   "id": "GB134",
+   "name": "Is the order of constituents the same in main and subordinate clauses?",
+   "gloss": "Whether constituent order is the same in main and subordinate clauses.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB150",
+   "name": "Is there clause chaining?",
+   "gloss": "Whether the language has clause chaining (long strings of dependent clauses + one final finite verb).",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB152",
+   "name": "Is there a morphologically marked distinction between simultaneous and sequential clauses?",
+   "gloss": "Whether there is a morphological simultaneous-vs-sequential clause distinction.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB204",
+   "name": "Do collective ('all') and distributive ('every') universal quantifiers differ in their forms or their syntactic positions?",
+   "gloss": "Whether collective 'all' and distributive 'every' quantifiers differ in form or position.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB257",
+   "name": "Can polar interrogation be marked by intonation only?",
+   "gloss": "Whether yes/no questions can be marked by intonation alone.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB260",
+   "name": "Can polar interrogation be indicated by a special word order?",
+   "gloss": "Whether yes/no questions can be marked by a special word order.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB265",
+   "name": "Is there a comparative construction that includes a form that elsewhere means 'surpass, exceed'?",
+   "gloss": "Whether the comparative uses a form that elsewhere means 'surpass/exceed'.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB266",
+   "name": "Is there a comparative construction that employs a marker of the standard which elsewhere has a locational meaning?",
+   "gloss": "Whether the comparative marks the standard with a form that elsewhere is locational ('from/at').",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB270",
+   "name": "Can comparatives be expressed using two conjoined clauses?",
+   "gloss": "Whether comparatives can be expressed by two conjoined clauses ('X is big, Y is small').",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB273",
+   "name": "Is there a comparative construction with a standard marker that elsewhere has neither a locational meaning nor a 'surpass/exceed' meaning?",
+   "gloss": "Whether the comparative standard marker has neither a locational nor a 'surpass' source.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB275",
+   "name": "Is there a bound comparative degree marker on the property word in a comparative construction?",
+   "gloss": "Whether there is a bound comparative degree marker on the property word.",
+   "domain": "clause_and_syntax",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB276",
+   "name": "Is there a non-bound comparative degree marker modifying the property word in a comparative construction?",
+   "gloss": "Whether there is a free comparative degree marker (like 'more') modifying the property word.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB291",
+   "name": "Can polar interrogation be marked by tone?",
+   "gloss": "Whether yes/no questions can be marked by tone.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB297",
+   "name": "Can polar interrogation be indicated by a V-not-V construction?",
+   "gloss": "Whether yes/no questions can be marked by a V-not-V construction.",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB326",
+   "name": "Do (nominal) content interrogatives normally or frequently occur in situ?",
+   "gloss": "Whether content interrogatives normally stay in situ (not fronted).",
+   "domain": "clause_and_syntax",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB035",
+   "name": "Are there three or more distance contrasts in demonstratives?",
+   "gloss": "Whether demonstratives make three or more distance contrasts (e.g. near/mid/far).",
+   "domain": "demonstrative",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB036",
+   "name": "Do demonstratives show an elevation distinction?",
+   "gloss": "Whether demonstratives encode an elevation distinction (up-here vs down-there).",
+   "domain": "demonstrative",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB037",
+   "name": "Do demonstratives show a visible-nonvisible distinction?",
+   "gloss": "Whether demonstratives encode a visible-vs-nonvisible distinction.",
+   "domain": "demonstrative",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB020",
+   "name": "Are there definite or specific articles?",
+   "gloss": "Whether the language has a definite or specific article (a grammatical word like English 'the').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB021",
+   "name": "Do indefinite nominals commonly have indefinite articles?",
+   "gloss": "Whether indefinite nominals commonly take an indefinite article (like English 'a/an').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB022",
+   "name": "Are there prenominal articles?",
+   "gloss": "Whether an article, if present, comes before the noun (prenominal).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB023",
+   "name": "Are there postnominal articles?",
+   "gloss": "Whether an article, if present, comes after the noun (postnominal).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB025",
+   "name": "What is the order of adnominal demonstrative and noun?",
+   "gloss": "Order of an adnominal demonstrative ('this/that') and noun: 1=Dem-Noun, 2=Noun-Dem, 3=both.",
+   "domain": "nominal",
+   "value": "3",
+   "value_meaning": "both."
+  },
+  {
+   "id": "GB026",
+   "name": "Can adnominal property words occur discontinuously?",
+   "gloss": "Whether adjective-like property words can be separated from their noun (occur discontinuously).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB030",
+   "name": "Is there a gender distinction in independent 3rd person pronouns?",
+   "gloss": "Whether independent 3rd-person pronouns mark a gender distinction (he vs she).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB031",
+   "name": "Is there a dual or unit augmented form (in addition to plural or augmented) for all person categories in the pronoun system?",
+   "gloss": "Whether every person category has a dual (or unit-augmented) form in addition to plural.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB038",
+   "name": "Are there demonstrative classifiers?",
+   "gloss": "Whether the language has demonstrative classifiers.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB043",
+   "name": "Is there productive morphological dual marking on nouns?",
+   "gloss": "Whether there is productive morphological dual marking on nouns.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB044",
+   "name": "Is there productive morphological plural marking on nouns?",
+   "gloss": "Whether there is productive morphological plural marking on nouns.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB046",
+   "name": "Is there an associative plural marker for nouns?",
+   "gloss": "Whether there is an associative plural marker ('X and those associated with X').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB047",
+   "name": "Is there a productive morphological pattern for deriving an action/state noun from a verb?",
+   "gloss": "Whether an action/state noun can be productively derived from a verb (e.g. 'run' -> 'running').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB048",
+   "name": "Is there a productive morphological pattern for deriving an agent noun from a verb?",
+   "gloss": "Whether an agent noun can be productively derived from a verb (e.g. 'teach' -> 'teacher').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB049",
+   "name": "Is there a productive morphological pattern for deriving an object noun from a verb?",
+   "gloss": "Whether an object/result noun can be productively derived from a verb.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB051",
+   "name": "Is there a gender/noun class system where sex is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses biological sex as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB052",
+   "name": "Is there a gender/noun class system where shape is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses shape as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB053",
+   "name": "Is there a gender/noun class system where animacy is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses animacy as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB054",
+   "name": "Is there a gender/noun class system where plant status is a factor in class assignment?",
+   "gloss": "Whether the gender/noun-class system uses plant status as a class-assignment factor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB057",
+   "name": "Are there numeral classifiers?",
+   "gloss": "Whether the language has numeral classifiers (a sortal element required when counting).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB058",
+   "name": "Are there possessive classifiers?",
+   "gloss": "Whether the language has possessive classifiers.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB059",
+   "name": "Is the adnominal possessive construction different for alienable and inalienable nouns?",
+   "gloss": "Whether the possessive construction differs for alienable vs inalienable nouns (e.g. 'my dog' vs 'my hand').",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB065",
+   "name": "What is the pragmatically unmarked order of adnominal possessor noun and possessed noun?",
+   "gloss": "Unmarked order of possessor noun and possessed noun: 1=Possessor-Possessed, 2=Possessed-Possessor, 3=both.",
+   "domain": "nominal",
+   "value": "3",
+   "value_meaning": "both"
+  },
+  {
+   "id": "GB158",
+   "name": "Are verbs reduplicated?",
+   "gloss": "Whether verbs undergo reduplication.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB159",
+   "name": "Are nouns reduplicated?",
+   "gloss": "Whether nouns undergo reduplication.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB160",
+   "name": "Are elements apart from verbs or nouns reduplicated?",
+   "gloss": "Whether words other than verbs or nouns undergo reduplication.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB165",
+   "name": "Is there productive morphological trial marking on nouns?",
+   "gloss": "Whether there is productive morphological trial marking on nouns.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB166",
+   "name": "Is there productive morphological paucal marking on nouns?",
+   "gloss": "Whether there is productive morphological paucal marking on nouns ('a few').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB170",
+   "name": "Can an adnominal property word agree with the noun in gender/noun class?",
+   "gloss": "Whether an adjective-like property word can agree with its noun in gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB171",
+   "name": "Can an adnominal demonstrative agree with the noun in gender/noun class?",
+   "gloss": "Whether an adnominal demonstrative can agree with its noun in gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB172",
+   "name": "Can an article agree with the noun in gender/noun class?",
+   "gloss": "Whether an article can agree with its noun in gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB177",
+   "name": "Can the verb carry a marker of animacy of argument, unrelated to any gender/noun class of the argument visible in the NP domain?",
+   "gloss": "Whether the verb marks the animacy of an argument (independent of NP-level gender/class).",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB184",
+   "name": "Can an adnominal property word agree with the noun in number?",
+   "gloss": "Whether an adjective-like property word can agree with its noun in number.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB185",
+   "name": "Can an adnominal demonstrative agree with the noun in number?",
+   "gloss": "Whether an adnominal demonstrative can agree with its noun in number.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB186",
+   "name": "Can an article agree with the noun in number?",
+   "gloss": "Whether an article can agree with its noun in number.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB192",
+   "name": "Is there a gender system where a noun's phonological properties are a factor in class assignment?",
+   "gloss": "Whether a noun's phonological shape is a factor in gender/class assignment.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB193",
+   "name": "What is the order of adnominal property word and noun?",
+   "gloss": "Order of adjective-like property word and noun: 0=not used attributively, 1=Adj-N, 2=N-Adj, 3=both.",
+   "domain": "nominal",
+   "value": "2",
+   "value_meaning": "N - ANM"
+  },
+  {
+   "id": "GB198",
+   "name": "Can an adnominal numeral agree with the noun in gender/noun class?",
+   "gloss": "Whether an adnominal numeral can agree with its noun in gender/noun class.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB203",
+   "name": "What is the order of the adnominal collective universal quantifier ('all') and the noun?",
+   "gloss": "Order of the collective 'all' quantifier and noun: 0=no such quantifier, 1=Q-N, 2=N-Q, 3=both.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "no UQ"
+  },
+  {
+   "id": "GB250",
+   "name": "Can predicative possession be expressed with a transitive 'habeo' verb?",
+   "gloss": "Whether predicative possession can use a transitive 'have' (habeo) verb.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB252",
+   "name": "Can predicative possession be expressed with an S-like possessum and a locative-coded possessor?",
+   "gloss": "Whether predicative possession can use a locative-coded possessor ('at me is a dog').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB253",
+   "name": "Can predicative possession be expressed with an S-like possessum and a dative-coded possessor?",
+   "gloss": "Whether predicative possession can use a dative-coded possessor ('to me is a dog').",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB254",
+   "name": "Can predicative possession be expressed with an S-like possessum and a possessor that is coded like an adnominal possessor?",
+   "gloss": "Whether predicative possession can use a possessor coded like an adnominal possessor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB256",
+   "name": "Can predicative possession be expressed with an S-like possessor and a possessum that is coded like a comitative argument?",
+   "gloss": "Whether predicative possession can use a comitative-coded possessum ('I am with a dog').",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB262",
+   "name": "Is there a clause-initial polar interrogative particle?",
+   "gloss": "Whether there is a clause-initial yes/no question particle.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB263",
+   "name": "Is there a clause-final polar interrogative particle?",
+   "gloss": "Whether there is a clause-final yes/no question particle.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB264",
+   "name": "Is there a polar interrogative particle that most commonly occurs neither clause-initially nor clause-finally?",
+   "gloss": "Whether there is a yes/no question particle sitting neither clause-initially nor clause-finally.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB285",
+   "name": "Can polar interrogation be marked by a question particle and verbal morphology?",
+   "gloss": "Whether yes/no questions can be marked by a question particle plus verbal morphology.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB299",
+   "name": "Can standard negation be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether standard negation can be marked by a non-inflecting negative particle.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB302",
+   "name": "Is there a phonologically free passive marker (\"particle\" or \"auxiliary\")?",
+   "gloss": "Whether there is a free (particle/auxiliary) passive marker.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB303",
+   "name": "Is there a phonologically free antipassive marker (\"particle\" or \"auxiliary\")?",
+   "gloss": "Whether there is a free (particle/auxiliary) antipassive marker.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB313",
+   "name": "Are there special adnominal possessive pronouns that are not formed by an otherwise regular process?",
+   "gloss": "Whether there are special adnominal possessive pronouns not formed by a regular process.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB317",
+   "name": "Is dual number regularly marked in the noun phrase by a dedicated phonologically free element?",
+   "gloss": "Whether dual number is marked in the NP by a dedicated free (unbound) element.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB318",
+   "name": "Is plural number regularly marked in the noun phrase by a dedicated phonologically free element?",
+   "gloss": "Whether plural number is marked in the NP by a dedicated free (unbound) element.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB319",
+   "name": "Is trial number regularly marked in the noun phrase by a dedicated phonologically free element?",
+   "gloss": "Whether trial number is marked in the NP by a dedicated free (unbound) element.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB320",
+   "name": "Is paucal number regularly marked in the noun phrase by a dedicated phonologically free element?",
+   "gloss": "Whether paucal number is marked in the NP by a dedicated free (unbound) element.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB321",
+   "name": "Is there a large class of nouns whose gender/noun class is not phonologically or semantically predictable?",
+   "gloss": "Whether there is a large class of nouns whose gender/class is not phonologically or semantically predictable.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB430",
+   "name": "Can adnominal possession be marked by a prefix on the possessor?",
+   "gloss": "Whether adnominal possession can be marked by a prefix on the possessor.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB431",
+   "name": "Can adnominal possession be marked by a prefix on the possessed noun?",
+   "gloss": "Whether adnominal possession can be marked by a prefix on the possessed noun.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB432",
+   "name": "Can adnominal possession be marked by a suffix on the possessor?",
+   "gloss": "Whether adnominal possession can be marked by a suffix on the possessor.",
+   "domain": "nominal",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB433",
+   "name": "Can adnominal possession be marked by a suffix on the possessed noun?",
+   "gloss": "Whether adnominal possession can be marked by a suffix on the possessed noun.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB519",
+   "name": "Can mood be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether mood can be marked by a non-inflecting particle.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB520",
+   "name": "Can aspect be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether aspect can be marked by a non-inflecting particle.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB521",
+   "name": "Can tense be marked by a non-inflecting word (\"auxiliary particle\")?",
+   "gloss": "Whether tense can be marked by a non-inflecting particle.",
+   "domain": "nominal",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB333",
+   "name": "Is there a decimal numeral system?",
+   "gloss": "Whether the numeral system is decimal (base 10).",
+   "domain": "numerals",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB334",
+   "name": "Is there synchronic evidence for any element of a quinary numeral system?",
+   "gloss": "Whether there is any synchronic evidence of a quinary (base 5) element.",
+   "domain": "numerals",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB335",
+   "name": "Is there synchronic evidence for any element of a vigesimal numeral system?",
+   "gloss": "Whether there is any synchronic evidence of a vigesimal (base 20) element.",
+   "domain": "numerals",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB336",
+   "name": "Is there a body-part tallying system?",
+   "gloss": "Whether there is a body-part tallying counting system.",
+   "domain": "numerals",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB027",
+   "name": "Are nominal conjunction and comitative expressed by different elements?",
+   "gloss": "Whether noun-conjoining ('X and Y') and comitative ('X with Y') use different markers.",
+   "domain": "other",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB039",
+   "name": "Is there nonphonological allomorphy of noun number markers?",
+   "gloss": "Whether noun number markers show nonphonological (lexically/grammatically conditioned) allomorphy.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB041",
+   "name": "Are there several nouns (more than three) which are suppletive for number?",
+   "gloss": "Whether more than three nouns are suppletive for number (a different root for singular vs plural).",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB042",
+   "name": "Is there productive overt morphological singular marking on nouns?",
+   "gloss": "Whether there is productive overt singular marking on nouns.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB072",
+   "name": "Are there morphological cases for oblique non-pronominal NPs (i.e. not S/A/P)?",
+   "gloss": "Whether oblique (non-core) non-pronominal NPs carry morphological case.",
+   "domain": "other",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB074",
+   "name": "Are there prepositions?",
+   "gloss": "Whether the language has prepositions.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB075",
+   "name": "Are there postpositions?",
+   "gloss": "Whether the language has postpositions.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB095",
+   "name": "Are variations in marking strategies of core participants based on TAM distinctions?",
+   "gloss": "Whether core-argument marking varies by TAM (tense/aspect/mood) — e.g. split by tense.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB098",
+   "name": "Are variations in marking strategies of core participants based on person distinctions?",
+   "gloss": "Whether core-argument marking varies by person (e.g. a person-based split in ergativity).",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB105",
+   "name": "Can the recipient in a ditransitive construction be marked like the monotransitive patient?",
+   "gloss": "Whether the recipient of a ditransitive ('give') can be marked like a monotransitive object.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB135",
+   "name": "Do clausal objects usually occur in the same position as nominal objects?",
+   "gloss": "Whether clausal objects sit in the same position as nominal objects.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB146",
+   "name": "Is there a morpho-syntactic distinction between predicates expressing controlled versus uncontrolled events or states?",
+   "gloss": "Whether there is a morphosyntactic distinction between controlled and uncontrolled events/states.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB296",
+   "name": "Is there a phonologically or morphosyntactically definable class of ideophones that includes ideophones depicting imagery beyond sound?",
+   "gloss": "Whether there is a definable class of ideophones depicting imagery beyond sound.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB301",
+   "name": "Is there an inclusory construction?",
+   "gloss": "Whether the language has an inclusory construction ('we with John' = 'John and I').",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB316",
+   "name": "Is singular number regularly marked in the noun phrase by a dedicated phonologically free element?",
+   "gloss": "Whether singular number is marked in the NP by a dedicated free (unbound) element.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB322",
+   "name": "Is there grammatical marking of direct evidence (perceived with the senses)?",
+   "gloss": "Whether there is grammatical marking of direct (sensory) evidence.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB323",
+   "name": "Is there grammatical marking of indirect evidence (hearsay, inference, etc.)?",
+   "gloss": "Whether there is grammatical marking of indirect evidence (hearsay, inference).",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB408",
+   "name": "Is there any accusative alignment of flagging?",
+   "gloss": "Whether any part of the case/adposition (flagging) system shows accusative alignment.",
+   "domain": "other",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB409",
+   "name": "Is there any ergative alignment of flagging?",
+   "gloss": "Whether any part of the case/adposition (flagging) system shows ergative alignment.",
+   "domain": "other",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB410",
+   "name": "Is there any neutral alignment of flagging?",
+   "gloss": "Whether any part of the case/adposition (flagging) system shows neutral alignment (S=A=P unmarked).",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB415",
+   "name": "Is there a politeness distinction in 2nd person forms?",
+   "gloss": "Whether there is a politeness (T/V) distinction in 2nd-person forms.",
+   "domain": "other",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB028",
+   "name": "Is there a distinction between inclusive and exclusive?",
+   "gloss": "Whether the pronoun system distinguishes inclusive ('we incl. you') from exclusive ('we excl. you').",
+   "domain": "pronoun",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB167",
+   "name": "Is there a logophoric pronoun?",
+   "gloss": "Whether the language has a logophoric pronoun.",
+   "domain": "pronoun",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB196",
+   "name": "Is there a male/female distinction in 2nd person independent pronouns?",
+   "gloss": "Whether 2nd-person independent pronouns mark a male/female distinction.",
+   "domain": "pronoun",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB197",
+   "name": "Is there a male/female distinction in 1st person independent pronouns?",
+   "gloss": "Whether 1st-person independent pronouns mark a male/female distinction.",
+   "domain": "pronoun",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB305",
+   "name": "Is there a phonologically independent reflexive pronoun?",
+   "gloss": "Whether there is a phonologically independent reflexive pronoun.",
+   "domain": "pronoun",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB306",
+   "name": "Is there a phonologically independent non-bipartite reciprocal pronoun?",
+   "gloss": "Whether there is a phonologically independent (non-bipartite) reciprocal pronoun.",
+   "domain": "pronoun",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB068",
+   "name": "Do core adjectives (defined semantically as property concepts such as value, shape, age, dimension) act like verbs in predicative position?",
+   "gloss": "Whether core adjectives behave like verbs when used as a predicate ('the dog is big' patterns like 'the dog runs').",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB069",
+   "name": "Do core adjectives (defined semantically as property concepts; value, shape, age, dimension) used attributively require the same morphological treatment as verbs?",
+   "gloss": "Whether attributive adjectives require the same morphology as verbs.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB070",
+   "name": "Are there morphological cases for non-pronominal core arguments (i.e. S/A/P)?",
+   "gloss": "Whether non-pronominal core arguments (S/A/P) carry morphological case.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB071",
+   "name": "Are there morphological cases for pronominal core arguments (i.e. S/A/P)?",
+   "gloss": "Whether pronominal core arguments (S/A/P) carry morphological case.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB073",
+   "name": "Are there morphological cases for independent oblique personal pronominal arguments (i.e. not S/A/P)?",
+   "gloss": "Whether independent oblique personal pronouns carry morphological case.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB079",
+   "name": "Do verbs have prefixes/proclitics, other than those that only mark A, S or P (do include portmanteau: A & S + TAM)?",
+   "gloss": "Whether verbs take prefixes/proclitics beyond pure S/A/P agreement (incl. portmanteau agreement+TAM).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB080",
+   "name": "Do verbs have suffixes/enclitics, other than those that only mark A, S or P (do include portmanteau: A & S + TAM)?",
+   "gloss": "Whether verbs take suffixes/enclitics beyond pure S/A/P agreement (incl. portmanteau agreement+TAM).",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB081",
+   "name": "Is there productive infixation in verbs?",
+   "gloss": "Whether verbs show productive infixation (a morpheme inserted inside the root).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB082",
+   "name": "Is there overt morphological marking of present tense on verbs?",
+   "gloss": "Whether present tense is overtly marked on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB083",
+   "name": "Is there overt morphological marking on the verb dedicated to past tense?",
+   "gloss": "Whether there is a dedicated overt past-tense marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB084",
+   "name": "Is there overt morphological marking on the verb dedicated to future tense?",
+   "gloss": "Whether there is a dedicated overt future-tense marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB086",
+   "name": "Is a morphological distinction between perfective and imperfective aspect available on verbs?",
+   "gloss": "Whether verbs make a perfective-vs-imperfective aspect distinction morphologically.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB089",
+   "name": "Can the S argument be indexed by a suffix/enclitic on the verb in the simple main clause?",
+   "gloss": "Whether the S (intransitive subject) can be indexed by a suffix/enclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB090",
+   "name": "Can the S argument be indexed by a prefix/proclitic on the verb in the simple main clause?",
+   "gloss": "Whether the S (intransitive subject) can be indexed by a prefix/proclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB091",
+   "name": "Can the A argument be indexed by a suffix/enclitic on the verb in the simple main clause?",
+   "gloss": "Whether the A (transitive subject) can be indexed by a suffix/enclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB092",
+   "name": "Can the A argument be indexed by a prefix/proclitic on the verb in the simple main clause?",
+   "gloss": "Whether the A (transitive subject) can be indexed by a prefix/proclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB093",
+   "name": "Can the P argument be indexed by a suffix/enclitic on the verb in the simple main clause?",
+   "gloss": "Whether the P (transitive object) can be indexed by a suffix/enclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB094",
+   "name": "Can the P argument be indexed by a prefix/proclitic on the verb in the simple main clause?",
+   "gloss": "Whether the P (transitive object) can be indexed by a prefix/proclitic on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB096",
+   "name": "Are variations in marking strategies of core participants based on verb classes?",
+   "gloss": "Whether core-argument marking varies by verb class.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB099",
+   "name": "Can verb stems alter according to the person of a core participant?",
+   "gloss": "Whether verb stems change according to the person of a core participant.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB103",
+   "name": "Is there a benefactive applicative marker on the verb (including indexing)?",
+   "gloss": "Whether there is a benefactive applicative marker on the verb ('do X for someone').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB104",
+   "name": "Is there an instrumental applicative marker on the verb (including indexing)?",
+   "gloss": "Whether there is an instrumental applicative marker on the verb ('do X with an instrument').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB107",
+   "name": "Can standard negation be marked by an affix, clitic or modification of the verb?",
+   "gloss": "Whether standard negation can be marked by an affix, clitic, or verb modification.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB108",
+   "name": "Is there directional or locative morphological marking on verbs?",
+   "gloss": "Whether verbs carry directional or locative morphology (associated-motion-type marking).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB109",
+   "name": "Is there verb suppletion for participant number?",
+   "gloss": "Whether verbs are suppletive for participant number (different root for singular vs plural participant).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB110",
+   "name": "Is there verb suppletion for tense or aspect?",
+   "gloss": "Whether verbs are suppletive for tense or aspect.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB111",
+   "name": "Are there conjugation classes?",
+   "gloss": "Whether verbs fall into conjugation classes.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB113",
+   "name": "Are there verbal affixes or clitics that turn intransitive verbs into transitive ones?",
+   "gloss": "Whether there are verbal affixes/clitics that transitivize intransitive verbs (causative-like).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB114",
+   "name": "Is there a phonologically bound reflexive marker on the verb?",
+   "gloss": "Whether there is a bound (affixal) reflexive marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB115",
+   "name": "Is there a phonologically bound reciprocal marker on the verb?",
+   "gloss": "Whether there is a bound (affixal) reciprocal marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB116",
+   "name": "Do verbs classify the shape, size or consistency of absolutive arguments by means of incorporated nouns, verbal affixes or suppletive verb stems?",
+   "gloss": "Whether verbs classify the shape/size/consistency of absolutive arguments (e.g. via incorporated nouns or suppletion).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB117",
+   "name": "Is there a copula for predicate nominals?",
+   "gloss": "Whether there is a copula for predicate nominals ('X is a Y').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB118",
+   "name": "Are there serial verb constructions?",
+   "gloss": "Whether there are serial verb constructions (two+ verbs in one clause without a linker).",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB119",
+   "name": "Can mood be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether mood can be marked by an inflecting auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB120",
+   "name": "Can aspect be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether aspect can be marked by an inflecting auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB121",
+   "name": "Can tense be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether tense can be marked by an inflecting auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB122",
+   "name": "Is verb compounding a regular process?",
+   "gloss": "Whether verb compounding is a regular process.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB123",
+   "name": "Are there verb-adjunct (aka light-verb) constructions?",
+   "gloss": "Whether there are verb-adjunct (light-verb / coverb) constructions.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB124",
+   "name": "Is incorporation of nouns into verbs a productive intransitivizing process?",
+   "gloss": "Whether noun incorporation into the verb is a productive intransitivizing process.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB126",
+   "name": "Is there an existential verb?",
+   "gloss": "Whether the language has a dedicated existential verb ('there is').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB127",
+   "name": "Are different posture verbs used obligatorily depending on an inanimate locatum's shape or position (e.g. 'to lie' vs. 'to stand')?",
+   "gloss": "Whether posture verbs ('lie' vs 'stand' vs 'sit') are obligatorily chosen by an inanimate's shape/position.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB129",
+   "name": "Is there a notably small number, i.e. about 100 or less, of verb roots in the language?",
+   "gloss": "Whether the language has a small closed set of verb roots (about 100 or fewer).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB131",
+   "name": "Is a pragmatically unmarked constituent order verb-initial for transitive clauses?",
+   "gloss": "Whether the unmarked transitive constituent order is verb-initial.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB132",
+   "name": "Is a pragmatically unmarked constituent order verb-medial for transitive clauses?",
+   "gloss": "Whether the unmarked transitive constituent order is verb-medial.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB133",
+   "name": "Is a pragmatically unmarked constituent order verb-final for transitive clauses?",
+   "gloss": "Whether the unmarked transitive constituent order is verb-final.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB136",
+   "name": "Is the order of core argument (i.e. S/A/P) constituents fixed?",
+   "gloss": "Whether the order of core (S/A/P) constituents is fixed.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB137",
+   "name": "Can standard negation be marked clause-finally?",
+   "gloss": "Whether standard negation can be marked clause-finally.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB138",
+   "name": "Can standard negation be marked clause-initially?",
+   "gloss": "Whether standard negation can be marked clause-initially.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB139",
+   "name": "Is there a difference between imperative (prohibitive) and declarative negation constructions?",
+   "gloss": "Whether prohibitive (negative imperative) negation differs from declarative negation.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB147",
+   "name": "Is there a morphological passive marked on the lexical verb?",
+   "gloss": "Whether there is a morphological passive marked on the lexical verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB148",
+   "name": "Is there a morphological antipassive marked on the lexical verb?",
+   "gloss": "Whether there is a morphological antipassive marked on the lexical verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB149",
+   "name": "Is there a morphologically marked inverse on verbs?",
+   "gloss": "Whether there is a morphological inverse marker on the verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB151",
+   "name": "Is there an overt verb marker dedicated to signalling coreference or noncoreference between the subject of one clause and an argument of an adjacent clause (\"switch reference\")?",
+   "gloss": "Whether there is a switch-reference marker (signals same/different subject across clauses).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB155",
+   "name": "Are causatives formed by affixes or clitics on verbs?",
+   "gloss": "Whether causatives are formed by affixes/clitics on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB156",
+   "name": "Is there a causative construction involving an element that is unmistakably grammaticalized from a verb for 'to say'?",
+   "gloss": "Whether there is a causative built from a grammaticalized verb 'to say'.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB286",
+   "name": "Can polar interrogation be indicated by overt verbal morphology only?",
+   "gloss": "Whether yes/no questions can be marked by verbal morphology alone.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB298",
+   "name": "Can standard negation be marked by an inflecting word (\"auxiliary verb\")?",
+   "gloss": "Whether standard negation can be marked by an inflecting negative auxiliary verb.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB300",
+   "name": "Does the verb for 'give' have suppletive verb forms?",
+   "gloss": "Whether the verb for 'give' has suppletive forms.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB304",
+   "name": "Can the agent be expressed overtly in a passive clause?",
+   "gloss": "Whether the agent can be expressed overtly in a passive clause ('by ...').",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB309",
+   "name": "Are there multiple past or multiple future tenses, distinguishing distance from Time of Reference?",
+   "gloss": "Whether there are multiple past or future tenses distinguishing distance in time (e.g. recent vs remote past).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB312",
+   "name": "Is there overt morphological marking on the verb dedicated to mood?",
+   "gloss": "Whether there is dedicated overt mood marking on the verb.",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  },
+  {
+   "id": "GB324",
+   "name": "Is there an interrogative verb for content interrogatives (who?, what?, etc.)?",
+   "gloss": "Whether there is a dedicated interrogative verb for content questions ('do-what?').",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB400",
+   "name": "Are all person categories neutralized in some voice, tense, aspect, mood and/or negation?",
+   "gloss": "Whether all person categories are neutralized in some voice/TAM/negation context.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB401",
+   "name": "Is there a class of patient-labile verbs?",
+   "gloss": "Whether there is a class of patient-labile verbs (same verb form used transitively and intransitively with the patient as subject).",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB402",
+   "name": "Does the verb for 'see' have suppletive verb forms?",
+   "gloss": "Whether the verb for 'see' has suppletive forms.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB403",
+   "name": "Does the verb for 'come' have suppletive verb forms?",
+   "gloss": "Whether the verb for 'come' has suppletive forms.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB421",
+   "name": "Is there a preposed complementizer in complements of verbs of thinking and/or knowing?",
+   "gloss": "Whether there is a preposed complementizer for complements of 'think/know' verbs.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB422",
+   "name": "Is there a postposed complementizer in complements of verbs of thinking and/or knowing?",
+   "gloss": "Whether there is a postposed complementizer for complements of 'think/know' verbs.",
+   "domain": "verb_and_valency",
+   "value": "0",
+   "value_meaning": "absent"
+  },
+  {
+   "id": "GB522",
+   "name": "Can the S or A argument be omitted from a pragmatically unmarked clause when the referent is inferrable from context (\"pro-drop\" or \"null anaphora\")?",
+   "gloss": "Whether the S or A argument can be dropped when inferrable from context (pro-drop / null anaphora).",
+   "domain": "verb_and_valency",
+   "value": "1",
+   "value_meaning": "present"
+  }
+ ],
+ "aus_extension": [
+  {
+   "id": "AUX007",
+   "name": "Position of case affixes",
+   "gloss": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+   "domain": "case",
+   "value": "suffix",
+   "derivation": "WALS 51A=51A-1"
+  },
+  {
+   "id": "AUX008",
+   "name": "Case marked separately on pronouns vs nouns",
+   "gloss": "Whether both non-pronominal core arguments and pronominal core arguments carry case (so case can differ by word class).",
+   "domain": "case",
+   "value": "both",
+   "derivation": "derived: GB070=1,GB071=1"
+  },
+  {
+   "id": "AUX012",
+   "name": "A argument indexed on the verb",
+   "gloss": "Whether the transitive subject (A) is cross-referenced by a bound marker on the verb.",
+   "domain": "pronoun-marking",
+   "value": "no",
+   "derivation": "derived: GB091/GB092"
+  },
+  {
+   "id": "AUX013",
+   "name": "P argument indexed on the verb",
+   "gloss": "Whether the transitive object (P) is cross-referenced by a bound marker on the verb.",
+   "domain": "pronoun-marking",
+   "value": "no",
+   "derivation": "derived: GB093/GB094"
+  },
+  {
+   "id": "AUX014",
+   "name": "Nominal dual number",
+   "gloss": "Productive morphological dual on nouns.",
+   "domain": "number",
+   "value": "yes",
+   "derivation": "Grambank GB043=1"
+  },
+  {
+   "id": "AUX015",
+   "name": "Nominal paucal number",
+   "gloss": "Productive morphological paucal ('a few') on nouns.",
+   "domain": "number",
+   "value": "no",
+   "derivation": "Grambank GB166=0"
+  },
+  {
+   "id": "AUX016",
+   "name": "Nominal trial number",
+   "gloss": "Productive morphological trial (exactly three) on nouns.",
+   "domain": "number",
+   "value": "no",
+   "derivation": "Grambank GB165=0"
+  },
+  {
+   "id": "AUX017",
+   "name": "Coding of nominal plurality",
+   "gloss": "How nominal plural is coded: suffix, prefix, reduplication, plural word, clitic, none.",
+   "domain": "number",
+   "value": "reduplication",
+   "derivation": "WALS 33A=33A-5"
+  },
+  {
+   "id": "AUX023",
+   "name": "Distance contrasts in demonstratives",
+   "gloss": "Number of distance contrasts (2, 3+ deictic terms).",
+   "domain": "demonstrative",
+   "value": "two",
+   "derivation": "Grambank GB035=0"
+  },
+  {
+   "id": "AUX024",
+   "name": "Gender in independent 3rd-person pronouns",
+   "gloss": "Whether independent 3rd-person pronouns mark gender (he/she).",
+   "domain": "pronoun",
+   "value": "no",
+   "derivation": "Grambank GB030=0"
+  },
+  {
+   "id": "AUX025",
+   "name": "Verb conjugation classes",
+   "gloss": "Whether verbs fall into conjugation classes (as in most Pama-Nyungan languages).",
+   "domain": "verb",
+   "value": "yes",
+   "derivation": "Grambank GB111=1"
+  },
+  {
+   "id": "AUX026",
+   "name": "Position of tense-aspect affixes",
+   "gloss": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+   "domain": "verb",
+   "value": "suffix",
+   "derivation": "WALS 69A=69A-2"
+  },
+  {
+   "id": "AUX027",
+   "name": "Multiple (distance) past/future tenses",
+   "gloss": "Whether there are multiple past or future tenses distinguishing temporal distance (e.g. recent vs remote past) — common in Australian languages.",
+   "domain": "verb",
+   "value": "no",
+   "derivation": "Grambank GB309=0"
+  },
+  {
+   "id": "AUX028",
+   "name": "Associated motion / verbal directional marking",
+   "gloss": "Directional or locative morphology on the verb. NOTE: true associated-motion systems (coming/going while V-ing) are a fine Australianist category that open datasets do not isolate; this uses Grambank's broader directional/locative-on-verb feature as a proxy.",
+   "domain": "verb",
+   "value": "no",
+   "derivation": "Grambank GB108=0"
+  },
+  {
+   "id": "AUX029",
+   "name": "Verb suppletion for participant number",
+   "gloss": "Whether a verb uses a different root for singular vs plural participant (e.g. 'go.sg' vs 'go.pl').",
+   "domain": "verb",
+   "value": "no",
+   "derivation": "Grambank GB109=0"
+  },
+  {
+   "id": "AUX030",
+   "name": "Reduplication productivity",
+   "gloss": "Whether reduplication is productive and of what kind (full/partial).",
+   "domain": "verb",
+   "value": "full-and-partial",
+   "derivation": "WALS 27A=27A-1"
+  },
+  {
+   "id": "AUX031",
+   "name": "Bound reflexive marker on verb",
+   "gloss": "A phonologically bound reflexive marker on the verb (e.g. Kuku Yalanji -ji-).",
+   "domain": "valency",
+   "value": "yes",
+   "derivation": "Grambank GB114=1"
+  },
+  {
+   "id": "AUX032",
+   "name": "Bound reciprocal marker on verb",
+   "gloss": "A phonologically bound reciprocal marker on the verb (e.g. Kuku Yalanji -wa-).",
+   "domain": "valency",
+   "value": "yes",
+   "derivation": "Grambank GB115=1"
+  },
+  {
+   "id": "AUX034",
+   "name": "Morphological antipassive",
+   "gloss": "A morphological antipassive on the lexical verb (demotes P; salient in ergative languages).",
+   "domain": "valency",
+   "value": "yes",
+   "derivation": "Grambank GB148=1"
+  },
+  {
+   "id": "AUX035",
+   "name": "Causative by affix/clitic",
+   "gloss": "Whether causatives are formed by an affix/clitic on the verb.",
+   "domain": "valency",
+   "value": "yes",
+   "derivation": "Grambank GB155=1"
+  },
+  {
+   "id": "AUX037",
+   "name": "Prohibitive vs declarative negation",
+   "gloss": "Whether the prohibitive (negative imperative) uses a different construction from declarative negation.",
+   "domain": "negation",
+   "value": "no",
+   "derivation": "Grambank GB139=0"
+  },
+  {
+   "id": "AUX038",
+   "name": "Dominant constituent order",
+   "gloss": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+   "domain": "syntax",
+   "value": "SOV",
+   "derivation": "WALS 81A=81A-1"
+  },
+  {
+   "id": "AUX039",
+   "name": "Adposition type",
+   "gloss": "Prepositions vs postpositions vs no dominant adpositions.",
+   "domain": "syntax",
+   "value": "prepositions",
+   "derivation": "WALS 85A=85A-2"
+  },
+  {
+   "id": "AUX040",
+   "name": "Switch-reference",
+   "gloss": "A verb marker signalling same/different subject across clauses.",
+   "domain": "syntax",
+   "value": "no",
+   "derivation": "Grambank GB151=0"
+  },
+  {
+   "id": "AUX041",
+   "name": "Clause chaining",
+   "gloss": "Chains of dependent (medial) clauses closed by one finite verb.",
+   "domain": "syntax",
+   "value": "no",
+   "derivation": "Grambank GB150=0"
+  },
+  {
+   "id": "AUX042",
+   "name": "Pro-drop (null core arguments)",
+   "gloss": "Whether S/A can be omitted when inferrable — pervasive in bound-pronoun Australian languages.",
+   "domain": "syntax",
+   "value": "yes",
+   "derivation": "Grambank GB522=1"
+  },
+  {
+   "id": "AUX043",
+   "name": "Numeral base system",
+   "gloss": "Base of the numeral system: decimal, quinary, vigesimal, body-part tally, or restricted (many Australian languages have very small numeral systems).",
+   "domain": "numerals",
+   "value": "restricted/none",
+   "derivation": "derived: GB333-336 all 0"
+  },
+  {
+   "id": "AUX052",
+   "name": "Verb–adjunct (coverb / light-verb) constructions",
+   "gloss": "Whether predicates are built from an uninflecting coverb + a small closed class of inflecting light verbs (widespread in non-Pama-Nyungan Australia).",
+   "domain": "verb",
+   "value": "no",
+   "derivation": "Grambank GB123=0"
+  },
+  {
+   "id": "AUX053",
+   "name": "Noun incorporation (intransitivizing)",
+   "gloss": "Whether noun incorporation into the verb is a productive intransitivizing process.",
+   "domain": "verb",
+   "value": "no",
+   "derivation": "Grambank GB124=0"
+  }
+ ],
+ "neighbours": [
+  {
+   "glottocode": "biri1256",
+   "name": "Biri",
+   "grambank_recorded_agreement": 0.8667,
+   "n_joint": 135
+  },
+  {
+   "glottocode": "nyan1301",
+   "name": "Nyangumarta",
+   "grambank_recorded_agreement": 0.8615,
+   "n_joint": 65
+  },
+  {
+   "glottocode": "warr1255",
+   "name": "Warrgamay",
+   "grambank_recorded_agreement": 0.8533,
+   "n_joint": 75
+  },
+  {
+   "glottocode": "gure1255",
+   "name": "Gureng Gureng",
+   "grambank_recorded_agreement": 0.8527,
+   "n_joint": 129
+  },
+  {
+   "glottocode": "gana1278",
+   "name": "Ganai",
+   "grambank_recorded_agreement": 0.8491,
+   "n_joint": 53
+  },
+  {
+   "glottocode": "nhan1238",
+   "name": "Nhanda",
+   "grambank_recorded_agreement": 0.8431,
+   "n_joint": 153
+  },
+  {
+   "glottocode": "yort1237",
+   "name": "Yorta Yorta",
+   "grambank_recorded_agreement": 0.8421,
+   "n_joint": 57
+  },
+  {
+   "glottocode": "pint1250",
+   "name": "Pintupi-Luritja",
+   "grambank_recorded_agreement": 0.8346,
+   "n_joint": 127
+  },
+  {
+   "glottocode": "koka1244",
+   "name": "Kokata",
+   "grambank_recorded_agreement": 0.8333,
+   "n_joint": 138
+  },
+  {
+   "glottocode": "thur1254",
+   "name": "Thurawal",
+   "grambank_recorded_agreement": 0.8333,
+   "n_joint": 84
+  }
+ ],
+ "constructions": [
+  {
+   "id": "KY001",
+   "language": "kuku1273",
+   "domain": "phonology",
+   "construction_name": "Consonant/vowel inventory",
+   "description": "13 consonants (b d j k m n ny ng l rr r w y; digraphs only ny ng rr; no voicing contrast, velar stop always k) and 3 vowels (a i u); no long vowels or diphthongs.",
+   "example": {
+    "form": "bubu / bana / kuku",
+    "gloss": "place / water / word",
+    "translation": "(minimal lexemes illustrating the inventory)"
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§2.1-2.2",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY002",
+   "language": "kuku1273",
+   "domain": "phonology",
+   "construction_name": "Root shape & phonotactic constraints",
+   "description": "Roots are minimally disyllabic C(VC)^nV(C). Word-initial only b d j k m n ny ng w y (never l rr r except loans); word-final only a vowel or n ny l rr r y (never a stop, m, ng or w).",
+   "example": {
+    "form": "maral / marral",
+    "gloss": "girl / dry",
+    "translation": "Illustrates a legal CVCVC root and a rr-cluster minimal pair."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§2.1-2.2",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY003",
+   "language": "kuku1273",
+   "domain": "morphophonology",
+   "construction_name": "Vowel harmony in suffixes",
+   "description": "Every suffix written with harmony vowel V takes u after a u-final stem, else a after an a/i-final stem (i never yields an i-vowel suffix).",
+   "example": {
+    "form": "jalbu-ngku / bama-ngka / mayi-ka",
+    "gloss": "woman-ERG / person-ERG / food-DAT",
+    "translation": "ERG/DAT harmony vowel is set by the stem's last vowel."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§2.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY004",
+   "language": "kuku1273",
+   "domain": "morphophonology",
+   "construction_name": "Catalytic -mun- insertion",
+   "description": "-mun- is inserted between the stem and any non-zero inflection on trisyllabic-plus stems and English loans.",
+   "example": {
+    "form": "bulkiji-mun-ku / school-mun-bu",
+    "gloss": "pipi-DAT / school-INST",
+    "translation": "Long native stems and loans take catalytic -mun- before case."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY005",
+   "language": "kuku1273",
+   "domain": "morphophonology",
+   "construction_name": "Word-final /y/ deletion after i",
+   "description": "After i, a word-final or preconsonantal y is not written or pronounced, so y-conjugation verbs in -i surface bare.",
+   "example": {
+    "form": "badiy -> badi",
+    "gloss": "cry.NONPAST -> cries",
+    "translation": "The underlying -y is kept in analysis but dropped on the surface."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§2.5.2",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY006",
+   "language": "kuku1273",
+   "domain": "morphophonology",
+   "construction_name": "Lexicalised partial reduplication (frequent verbs)",
+   "description": "Six frequent verbs use a fixed partial reduplication (surface solid), not full-root reduplication.",
+   "example": {
+    "form": "bundanday / wunanay / wanarriy",
+    "gloss": "keep sitting/stay / keep lying/sleep / keep running",
+    "translation": "Fixed partial-redup forms for high-frequency motion/posture verbs."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§2.5.3",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY010",
+   "language": "kuku1273",
+   "domain": "alignment",
+   "construction_name": "Split alignment: ergative nouns, nominative-accusative pronouns",
+   "description": "Nouns follow an ergative/absolutive pattern (A=ERG, S=O=ABS); pronouns follow a nominative/accusative pattern (S=A=NOM, O=ACC). This word-class-conditioned split is the #1 correctness rule.",
+   "example": {
+    "form": "Dingkarangka kadar kunin. / Ngayu nganya ...",
+    "gloss": "man-ERG wallaby(ABS) killed / I(NOM) me(ACC)",
+    "translation": "A transitive noun subject is ERG while the wallaby object is ABS; pronouns instead use NOM/ACC."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2, §3.5, §4.1.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY011",
+   "language": "kuku1273",
+   "domain": "alignment",
+   "construction_name": "Mixed clause (pronoun A + noun O, and vice versa)",
+   "description": "A clause may freely combine a pronoun subject in NOM with a noun object in ABS, or a noun subject in ERG with a pronoun object in ACC.",
+   "example": {
+    "form": "Dubungku nyunguny makunyajin.",
+    "gloss": "ghost-ERG him-ACC met",
+    "translation": "Noun-ERG agent with pronoun-ACC object in one clause."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.1.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY012",
+   "language": "kuku1273",
+   "domain": "alignment",
+   "construction_name": "Potent vs neutral case allomorphy",
+   "description": "ERG/DAT/LOC/ABL each have a NEUTRAL allomorph set (plants, food, tools, places, body parts, abstracts, quantifiers) and a POTENT set (humans, names, most kin, dogs, spirits, threatening animals, police). Mid-animacy animals may take either, meaningfully.",
+   "example": {
+    "form": "Dingkar-angka vs Dingkar-abu",
+    "gloss": "man-ERG.potent vs man-ERG.neutral",
+    "translation": "Potent ERG credits agency ('a man, I saw him'); neutral ERG downgrades it ('some man, I suppose')."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.1-3.2.2, Table 3.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY013",
+   "language": "kuku1273",
+   "domain": "alignment",
+   "construction_name": "Reflexive/reciprocal subject is absolutive",
+   "description": "Because the reflexive -ji- and reciprocal -wa- intransitivise the verb, their subject takes ABSOLUTIVE (zero), never ERG — the classic learner error.",
+   "example": {
+    "form": "Dingkar jambul nyaji-way.",
+    "gloss": "man two see-RECIP.NONPAST",
+    "translation": "The two men see each other: subject is bare ABS, not ERG."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8.5.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY020",
+   "language": "kuku1273",
+   "domain": "case",
+   "construction_name": "Ergative allomorphy (neutral set)",
+   "description": "Neutral ERG/INST: -bu after a vowel, -Vbu after retroflex r, -njV after y, -dV elsewhere.",
+   "example": {
+    "form": "juku-bu / wungar-abu / jalun-du",
+    "gloss": "stick-ERG / sun-ERG / sea-ERG",
+    "translation": "Neutral ergative allomorphs conditioned by the stem's final segment."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.1-3.2.2, Table 3.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY021",
+   "language": "kuku1273",
+   "domain": "case",
+   "construction_name": "Ergative allomorphy (potent set)",
+   "description": "Potent ERG: -ngkV after a vowel, -VngkV after a consonant, with harmony vowel.",
+   "example": {
+    "form": "jalbu-ngku / dingkar-angka",
+    "gloss": "woman-ERG / man-ERG",
+    "translation": "Potent ergative on a vowel-final vs consonant-final human noun."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.1-3.2.2, Table 3.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY022",
+   "language": "kuku1273",
+   "domain": "case",
+   "construction_name": "Locative allomorphy — trill vs retroflex rhotic split",
+   "description": "Trill /rr/ stems take -ba/-bu (the 'elsewhere' allomorph); single retroflex /r/ stems take the long-vowel allomorph -a/-u. The two rhotics behave OPPOSITELY.",
+   "example": {
+    "form": "wujurr-bu vs wungar-a",
+    "gloss": "dark-LOC vs sun-LOC",
+    "translation": "Trill-final wujurr -> -bu; retroflex-r-final wungar -> -a."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§2.5.1, §3.2.3.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY023",
+   "language": "kuku1273",
+   "domain": "case",
+   "construction_name": "Ablative -muny (uniform)",
+   "description": "The ablative 'from' is -muny on all neutral stems; potent stems build it on the potent LOC (-ndVmuny).",
+   "example": {
+    "form": "bayan-muny / buliman-andamuny",
+    "gloss": "camp-ABL / police-ABL.potent",
+    "translation": "'from the camp' (neutral) vs 'from the police' (potent)."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.1-3.2.2",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY024",
+   "language": "kuku1273",
+   "domain": "case",
+   "construction_name": "Abessive -mundu ('from a fixed vantage, not leaving')",
+   "description": "The abessive -mundu marks a locational source acted from without leaving the place; uniform across stems.",
+   "example": {
+    "form": "Mabel yirrkay bayan-mundu.",
+    "gloss": "Mabel calls.out house-ABESS",
+    "translation": "Mabel calls out from the house (while staying in it)."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.1-3.2.2, l.1550",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY030",
+   "language": "kuku1273",
+   "domain": "case",
+   "construction_name": "Instrumental = neutral ergative form",
+   "description": "The instrumental (implement/body part, or an inanimate uncontrolled cause) is marked identically to the neutral ergative.",
+   "example": {
+    "form": "Dingkarangka yawu daman yinbabu.",
+    "gloss": "man-ERG stingray speared spear-INST",
+    "translation": "'The man speared the stingray with a three-pronged spear.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.1.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY031",
+   "language": "kuku1273",
+   "domain": "case",
+   "construction_name": "Dative for purpose, want, fear, cause, standard of comparison",
+   "description": "The dative marks purpose/beneficiary, the object of wawu 'want', yinil 'fear', binal 'know', the topic of ask/tell, and the standard of comparison.",
+   "example": {
+    "form": "Karrkay yinil kijunku.",
+    "gloss": "child afraid crab-DAT",
+    "translation": "'The child is afraid of crabs' — object of fear is DAT."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.1.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY032",
+   "language": "kuku1273",
+   "domain": "case",
+   "construction_name": "Locative as goal-of-motion and as recipient/addressee",
+   "description": "The locative marks place, the GOAL of motion (there is no separate allative), and the recipient/addressee of give/show/tell/send.",
+   "example": {
+    "form": "Nyulu marrkin dajin yabanda.",
+    "gloss": "he gun gave elder.brother-LOC.potent",
+    "translation": "'He gave the gun to his elder brother' — recipient is potent LOC."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.1.4, §3.3",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY033",
+   "language": "kuku1273",
+   "domain": "case",
+   "construction_name": "Comitative vs privative contrast",
+   "description": "Comitative -ji/-iji/-nji 'with, having' contrasts with privative -kari 'without, lacking'; both are productive on any nominal.",
+   "example": {
+    "form": "bubu bana-ji vs bubu bana-kari",
+    "gloss": "country water-COMIT vs country water-PRIV",
+    "translation": "'a country with water' vs 'a country without water'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3.3-4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY040",
+   "language": "kuku1273",
+   "domain": "np",
+   "construction_name": "Case agreement across the noun phrase",
+   "description": "All NP constituents (demonstrative, noun, adjective) agree in case; possessives are exempt within a continuous NP.",
+   "example": {
+    "form": "Yinya-ngka kubarr-angka yalbay-ngka maral baykan.",
+    "gloss": "that-ERG eel-ERG big-ERG girl bit",
+    "translation": "'That big eel bit the girl' — ERG marked on demonstrative + noun + adjective."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.1.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY041",
+   "language": "kuku1273",
+   "domain": "np",
+   "construction_name": "Modifier order (adjective follows, quantifier precedes)",
+   "description": "The unmarked modifier follows its head; a quantifier precedes and an adjective follows when both occur; demonstratives may precede or follow; pronoun precedes noun.",
+   "example": {
+    "form": "jambul kaya kuliji",
+    "gloss": "two dog vicious",
+    "translation": "'two vicious dogs' — quantifier before, adjective after the head."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§4.1.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY042",
+   "language": "kuku1273",
+   "domain": "np",
+   "construction_name": "Generic + specific (classifier) apposition",
+   "description": "A generic classifier noun (mayi 'veg food', minya 'meat', juku 'tree/wood') is apposed to the specific noun.",
+   "example": {
+    "form": "minya ngangkin",
+    "gloss": "meat porcupine",
+    "translation": "'porcupine (as meat)' — generic minya classifies the specific."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§4.1.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY050",
+   "language": "kuku1273",
+   "domain": "nominal-derivation",
+   "construction_name": "Alienable possessive -mu",
+   "description": "Alienable adnominal possession is -mu / -Vmu; before a further case suffix the possessor takes -ndVmun- and always neutral onward inflection.",
+   "example": {
+    "form": "dingkar-amu / dingkar-andamun-du",
+    "gloss": "man-POSS / man-POSS-ERG",
+    "translation": "'the man's' and 'the man's (ERG-agreeing head)'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY051",
+   "language": "kuku1273",
+   "domain": "nominal-derivation",
+   "construction_name": "Plural by reduplication; kin plural -karra",
+   "description": "General nominal plural is reduplication; kin terms instead take the derivational plural -karra (excluding kangkal 'own child').",
+   "example": {
+    "form": "maral-maral / jawun-karra",
+    "gloss": "girl-PL / relative-KPL",
+    "translation": "'girls' (reduplication) vs 'relatives/family' (kin plural)."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY052",
+   "language": "kuku1273",
+   "domain": "nominal-derivation",
+   "construction_name": "Dual/pair -bulal",
+   "description": "-bulal derives 'a pair who belong together', distinct from the plain quantifier jambul 'two'.",
+   "example": {
+    "form": "jalbu-bulal",
+    "gloss": "woman-PAIR",
+    "translation": "'the two women (as a pair)'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY053",
+   "language": "kuku1273",
+   "domain": "nominal-derivation",
+   "construction_name": "Comitative derivation -ji/-iji/-nji",
+   "description": "Comitative 'with/having' is -ji after a vowel, -iji after a rhotic, potent -nji; +rr before a further suffix.",
+   "example": {
+    "form": "walarr-iji / kaya-nji",
+    "gloss": "beard-COMIT / dog-COMIT.potent",
+    "translation": "'bearded' and 'with a dog'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3.3",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY054",
+   "language": "kuku1273",
+   "domain": "nominal-derivation",
+   "construction_name": "Privative -kari",
+   "description": "Privative 'without' is a uniform -kari on any stem.",
+   "example": {
+    "form": "bayan-kari",
+    "gloss": "house-PRIV",
+    "translation": "'homeless'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY055",
+   "language": "kuku1273",
+   "domain": "nominal-derivation",
+   "construction_name": "'People of' -(w)arra",
+   "description": "-(w)arra derives a group/ethnonym 'people of X'.",
+   "example": {
+    "form": "jalunji-warra",
+    "gloss": "seaside-people",
+    "translation": "'seaside people'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY056",
+   "language": "kuku1273",
+   "domain": "nominal-derivation",
+   "construction_name": "Degree: jarra- 'rather' and -baja-ku 'very'",
+   "description": "Degree is expressed by prefix jarra- 'rather/more' or the suffix chain -baja-ku 'very' (case goes before -ku).",
+   "example": {
+    "form": "jarra-yalbay / yalbay-bajaku",
+    "gloss": "rather-big / big-very",
+    "translation": "'rather big' vs 'very big'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3.8",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY060",
+   "language": "kuku1273",
+   "domain": "pronoun",
+   "construction_name": "Personal pronoun case paradigm",
+   "description": "Pronouns inflect for NOM/ACC/DAT/LOC/ABL/COMIT/POSS across singular, dual (incl/excl), plural (incl/excl) persons.",
+   "example": {
+    "form": "ngayu / nganya / ngayku",
+    "gloss": "I(NOM) / me(ACC) / my(POSS)",
+    "translation": "1sg NOM vs ACC vs POSS forms."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.5, Tables 3.6-3.8",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY061",
+   "language": "kuku1273",
+   "domain": "pronoun",
+   "construction_name": "Inclusive/exclusive dual & plural",
+   "description": "1st non-singular distinguishes exclusive (me + him/her) from inclusive (me + you); the distinction is weakening, default exclusive.",
+   "example": {
+    "form": "ngali vs ngaliny",
+    "gloss": "1du.EXC vs 1du.INC",
+    "translation": "'the two of us (not you)' vs 'you and I'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY062",
+   "language": "kuku1273",
+   "domain": "pronoun",
+   "construction_name": "Possessive stem agreeing with a case-marked head",
+   "description": "A possessive pronoun agrees with a case-marked head via -wun- (sg) / -ndamun- (non-sg).",
+   "example": {
+    "form": "ngayku-wun-du kaya-ngka",
+    "gloss": "my-POSS-ERG dog-ERG",
+    "translation": "'my dog (ERG)' — possessive agrees with the ergative head."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.1.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY070",
+   "language": "kuku1273",
+   "domain": "demonstrative",
+   "construction_name": "Demonstrative system (this/that/here/there)",
+   "description": "yanyu 'this', yinya 'that', yaluy 'here', yinyay 'there'; case forms of 'this' built on yalu-; human plural -rriny.",
+   "example": {
+    "form": "Yalungku jalbungku nganya binal-bungan.",
+    "gloss": "this-ERG woman-ERG me taught",
+    "translation": "'This woman taught me' — demonstrative + noun both ERG."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.6-3.7",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY071",
+   "language": "kuku1273",
+   "domain": "interrogative",
+   "construction_name": "Content interrogatives (uninflected, clause-heading)",
+   "description": "Interrogative pronouns head the clause: wanya 'who', wanyu 'what', wanja 'where', wanjarrinya 'how many', wanja-wanja 'when', wanyurringku 'why'; 'why'/'when' are clause-initial.",
+   "example": {
+    "form": "Wanyangka ngayku dambal wundin?",
+    "gloss": "who-ERG my shoes took",
+    "translation": "'Who took my shoes?' — interrogative in the ERG A slot."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.6-3.7",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY080",
+   "language": "kuku1273",
+   "domain": "verb",
+   "construction_name": "Two conjugation classes (l vs y)",
+   "description": "Verbs fall into an l-conjugation (NONPAST -l, ~92% transitive) and a y-conjugation (NONPAST -y, all intransitive); membership is lexically fixed.",
+   "example": {
+    "form": "nukal (eat) vs dungay (go)",
+    "gloss": "eat.NONPAST vs go.NONPAST",
+    "translation": "l-class transitive vs y-class intransitive."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY081",
+   "language": "kuku1273",
+   "domain": "verb",
+   "construction_name": "Verb inflection paradigm",
+   "description": "Each stem inflects for NONPAST, PAST (surface -n), IMP, PURP -nkV, PRECAUT -nyji, SUCC -nyjiku, IRR -nyaku, SUB -nyV.",
+   "example": {
+    "form": "kunil / kunin / kuni / kuninka",
+    "gloss": "hit.NONPAST/PAST/IMP/PURP",
+    "translation": "One l-conjugation paradigm across the core inflections."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8, Tables 3.16-3.17",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY082",
+   "language": "kuku1273",
+   "domain": "verb",
+   "construction_name": "Surface past -n (analysis -ny)",
+   "description": "The past tense is analysed -ny but surfaces as -n in the elder/DB orthography; both fields are stored.",
+   "example": {
+    "form": "kada-ny -> kadan",
+    "gloss": "come-PAST -> came",
+    "translation": "Analysis keeps -ny; the surface written form is -n."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8, §0",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY083",
+   "language": "kuku1273",
+   "domain": "verb",
+   "construction_name": "Imperative: zero on disyllabic l-roots, -ka on longer/derived stems",
+   "description": "The imperative is zero on disyllabic l-conjugation roots and -ka on longer or derived stems (incl. -ji- stems); some imperatives are suppletive.",
+   "example": {
+    "form": "nuka! vs julurri-ji-ka!",
+    "gloss": "eat! vs wash.oneself-IMP",
+    "translation": "Zero-IMP on a short root vs -ka on a derived reflexive stem."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY084",
+   "language": "kuku1273",
+   "domain": "verb",
+   "construction_name": "Suppletive imperatives",
+   "description": "A few frequent verbs have suppletive imperatives that must be memorised.",
+   "example": {
+    "form": "dajil -> daya! ; nyajil -> nyaka!",
+    "gloss": "give -> give! ; see -> look!",
+    "translation": "Suppletive command forms for 'give' and 'see'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY090",
+   "language": "kuku1273",
+   "domain": "verb-derivation",
+   "construction_name": "State-causative -bunga-l 'make X'",
+   "description": "-bunga-l derives a transitive 'make/cause X' from an adjective/noun base; variant -kanga-l 'stir up' for emotion.",
+   "example": {
+    "form": "binal-bungal",
+    "gloss": "knowledge-CAUS",
+    "translation": "'teach' (lit. make-know)."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY091",
+   "language": "kuku1273",
+   "domain": "verb-derivation",
+   "construction_name": "Action-causative -(y)-mani-l",
+   "description": "-(y)-mani-l turns an intransitive verb into a transitive causative.",
+   "example": {
+    "form": "dara-y-manil",
+    "gloss": "fall-CAUS",
+    "translation": "'drop' (make fall)."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY092",
+   "language": "kuku1273",
+   "domain": "verb-derivation",
+   "construction_name": "Inchoative -ma-l 'become X'",
+   "description": "-ma-l derives an intransitive 'become X' (IMP -ka).",
+   "example": {
+    "form": "binal-mal",
+    "gloss": "knowledge-INCHO",
+    "translation": "'learn' (become-knowing)."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY093",
+   "language": "kuku1273",
+   "domain": "verb-derivation",
+   "construction_name": "Reflexive/middle & passive/antipassive -ji-",
+   "description": "-ji- intransitivises a transitive verb (y-conjugation): reflexive 'V oneself', passive (agent -> optional LOC), and antipassive (O -> LOC, verb often reduplicated).",
+   "example": {
+    "form": "Warru (yaburrundu) bayka-ji-n.",
+    "gloss": "young.man (shark-LOC) bite-MID-PAST",
+    "translation": "'The young man was bitten (by a shark)' — passive use of -ji-."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.8.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY094",
+   "language": "kuku1273",
+   "domain": "verb-derivation",
+   "construction_name": "Reciprocal -wa-y",
+   "description": "-wa-y derives a reciprocal 'V each other' (intransitive, ABS subject).",
+   "example": {
+    "form": "kuni-wa-y",
+    "gloss": "hit-RECIP-NONPAST",
+    "translation": "'fight (hit each other)'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8.5.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY095",
+   "language": "kuku1273",
+   "domain": "verb-derivation",
+   "construction_name": "Plural-subject -ri-",
+   "description": "Optional -ri- marks a plural subject; it needs an overtly plural subject (plural pronoun or reduplication), not merely a quantifier.",
+   "example": {
+    "form": "Jana bama wandi-ri-ny.",
+    "gloss": "they person rise-PL-PAST",
+    "translation": "'The people got up' — plural-subject -ri- licensed by a plural subject."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.8.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY096",
+   "language": "kuku1273",
+   "domain": "verb-derivation",
+   "construction_name": "Reduplication 'keep V-ing'",
+   "description": "Verb reduplication (link -l- for l-conjugation, -n- for y-conjugation) gives 'keep V-ing'; derived stems reduplicate the root only.",
+   "example": {
+    "form": "dungan-dungay",
+    "gloss": "go.REDUP-go.NONPAST",
+    "translation": "'keep going'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.8.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY100",
+   "language": "kuku1273",
+   "domain": "clause",
+   "construction_name": "Verbless (no copula) predication",
+   "description": "There is no copula; nominal, adjectival, locational, comitative, privative and numeral predicates are all juxtaposed with the subject.",
+   "example": {
+    "form": "Nyungu kalka dudu.",
+    "gloss": "his spear blunt",
+    "translation": "'His spear is blunt' — adjectival predicate, no verb."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.1.5-4.1.6",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY101",
+   "language": "kuku1273",
+   "domain": "clause",
+   "construction_name": "Possession by juxtaposition + numeral / comitative predicate",
+   "description": "'Have' is expressed by a verbless clause: numeral predicate ('X three') or comitative predicate ('X having Y').",
+   "example": {
+    "form": "Ngayku kangkal kulur.",
+    "gloss": "my child three",
+    "translation": "'I have three children' (lit. my children three)."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.1.5-4.1.6",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY102",
+   "language": "kuku1273",
+   "domain": "clause",
+   "construction_name": "Unmarked constituent order (S V; A O V)",
+   "description": "Word order is free (case does the work) but the unmarked order is S V and A O V; peripheral NPs follow the verb; pronouns come early; temporals and 'why' are clause-initial.",
+   "example": {
+    "form": "Warrungku ngawuya daman.",
+    "gloss": "young.man-ERG sea.turtle speared",
+    "translation": "'The young man speared a sea turtle' — unmarked A O V."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.1.5",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY103",
+   "language": "kuku1273",
+   "domain": "clause",
+   "construction_name": "Adjectival particle + DAT/PURP complement",
+   "description": "Adjectival particles binal 'know', wawu 'want', yinil 'fear', juburr, balu govern a DAT or PURP complement.",
+   "example": {
+    "form": "Jalbu binal balji wukurrinka.",
+    "gloss": "woman know dillybag weave.PURP",
+    "translation": "'The woman knows how to weave dillybags.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.9.1, §4.1.6",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY110",
+   "language": "kuku1273",
+   "domain": "negation",
+   "construction_name": "Standard negation with kari 'not'",
+   "description": "kari 'not' precedes the negated element; kari + NONPAST is declarative negation ('does not V').",
+   "example": {
+    "form": "Ngayu jungkalu kari dumbarrin.",
+    "gloss": "I billycan not broke",
+    "translation": "'I did not break the billycan.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.9.2",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY111",
+   "language": "kuku1273",
+   "domain": "negation",
+   "construction_name": "Prohibitive = kari + imperative",
+   "description": "A prohibition uses kari + the IMPERATIVE form, distinct from declarative kari + NONPAST.",
+   "example": {
+    "form": "Mayi kari waju!",
+    "gloss": "food not cook.IMP",
+    "translation": "'Don't cook the food!' — kari + IMP prohibitive."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.8.4.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY112",
+   "language": "kuku1273",
+   "domain": "clause",
+   "construction_name": "Desiderative-negative balu 'desist'",
+   "description": "balu 'desist/let be' governs a DAT/PURP complement.",
+   "example": {
+    "form": "Ngayu balu kuniwanka.",
+    "gloss": "I desist fight.PURP",
+    "translation": "'I don't want to fight.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.9.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY113",
+   "language": "kuku1273",
+   "domain": "interrogative",
+   "construction_name": "Polar question by intonation",
+   "description": "A yes/no question is a statement with rising intonation (written with '?'); no particle or word-order change.",
+   "example": {
+    "form": "Nyulu kadanbaja?",
+    "gloss": "he came.back",
+    "translation": "'Did he come back?' — polar question by intonation only."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.8",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY120",
+   "language": "kuku1273",
+   "domain": "subordination",
+   "construction_name": "Purposive -nkV ('in order to / must / want to')",
+   "description": "The purposive -nkV marks a purpose clause, a want-complement, or main-clause obligation.",
+   "example": {
+    "form": "Warru dungan wawubajanga, kuyu damanka.",
+    "gloss": "young.man went river-LOC fish spear.PURP",
+    "translation": "'The young man went to the river to spear fish.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY121",
+   "language": "kuku1273",
+   "domain": "subordination",
+   "construction_name": "Precautionary -nyji ('lest')",
+   "description": "The precautionary -nyji marks an undesirable event to be avoided, subordinate to a clause stating the precaution.",
+   "example": {
+    "form": "Kari kaya kuliji karrba, baykanyji.",
+    "gloss": "not dog vicious touch bite.PRECAUT",
+    "translation": "'Don't touch the vicious dog lest it bite.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.8.4.5, §4.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY122",
+   "language": "kuku1273",
+   "domain": "subordination",
+   "construction_name": "Successive -nyjiku ('just before / and then')",
+   "description": "The successive -nyjiku marks the later of two events with no causal link, in a subordinate clause.",
+   "example": {
+    "form": "Jalbu mara julurrijiy, mayi damba dingkanyjiku.",
+    "gloss": "woman hand wash.MID food damper knead.SUCC",
+    "translation": "'The woman washes her hands before kneading damper.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY123",
+   "language": "kuku1273",
+   "domain": "subordination",
+   "construction_name": "Simultaneous/causal -nyV ('while / from ...ing')",
+   "description": "The subordinator -nyV marks a simultaneous 'while ...ing' clause (verb often reduplicated) or a causal 'from ...ing' clause.",
+   "example": {
+    "form": "Janjinya, nyulu bajaburray.",
+    "gloss": "bathe.SUB he tired",
+    "translation": "'He is tired from bathing.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY124",
+   "language": "kuku1273",
+   "domain": "subordination",
+   "construction_name": "Prior wawu-...-nyV-muny ('after ...ing')",
+   "description": "The proclitic wawu- + a -nyV clause in the ablative marks a prior 'after ...ing' event.",
+   "example": {
+    "form": "Wawu-janjinyamuny, jana wunanay.",
+    "gloss": "after-bathe.SUB.ABL they rest",
+    "translation": "'After bathing, they rest.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY125",
+   "language": "kuku1273",
+   "domain": "subordination",
+   "construction_name": "Conditional particle kaki ('if / when') + NONPAST",
+   "description": "The clause-initial particle kaki marks a real conditional with a NONPAST condition clause; kari inside gives a negative conditional.",
+   "example": {
+    "form": "Kaki yundu yinya kaya jukubu kunil, yununy baykal.",
+    "gloss": "if you that dog stick-INST hit, you.ACC bite",
+    "translation": "'If you hit that dog with a stick, it will bite you.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§4.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY126",
+   "language": "kuku1273",
+   "domain": "verb",
+   "construction_name": "Irrealis -nyaku (counterfactual 'should/would have')",
+   "description": "The irrealis -nyaku attaches to the verb stem and marks an action that should/could/would have happened but did not; carries no tense; canonical regret frame.",
+   "example": {
+    "form": "Ngayu nganjan wukurri-nyaku ...",
+    "gloss": "I father follow-IRR",
+    "translation": "'I should have followed my father ...' (but did not)."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.8.4.1(iv)",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY130",
+   "language": "kuku1273",
+   "domain": "discourse",
+   "construction_name": "Sequential narrative: final verb + TEMP1 -da 'and then'",
+   "description": "A connected event-chain is a string of plain PAST verbs whose FINAL verb carries the clitic -da 'and then' (surface V-n-da).",
+   "example": {
+    "form": "Jana kadan, kuyu manin, wajun, nuka-ny-da.",
+    "gloss": "they came, fish caught, cooked, eat-PAST-TEMP1",
+    "translation": "'They came, caught a fish, cooked it, and then ate it.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.8.4.1(vii), §4.4.3",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY131",
+   "language": "kuku1273",
+   "domain": "discourse",
+   "construction_name": "TEMP3 'first of all' -(ng)Vrr",
+   "description": "The clitic -(ng)Vrr 'first of all' marks the first in a sequence; attaches to vowel-final verbs/nouns/pronouns (harmony -ngarr/-ngurr; -arr after past -ny).",
+   "example": {
+    "form": "Nyulu kuyu-ngurr manin, ngawuya damanda.",
+    "gloss": "he fish-first caught, turtle speared.then",
+    "translation": "'He caught a fish first, then speared a turtle.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.10.1",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY132",
+   "language": "kuku1273",
+   "domain": "discourse",
+   "construction_name": "Totality/only clitic -rrku ('all / whole / only')",
+   "description": "The emphatic clitic -rrku (on verbs, pronouns, kari, yala) expresses 'all/whole/only'.",
+   "example": {
+    "form": "Bayan kidarrku!",
+    "gloss": "house sweep.all",
+    "translation": "'Sweep the whole house!'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.10",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY133",
+   "language": "kuku1273",
+   "domain": "discourse",
+   "construction_name": "-baja: 'quite' on state verbs, 'again' on motion verbs",
+   "description": "The clitic -baja means 'quite' on a state verb and 'again/back' on an action/motion verb; surfaces as a separate word baja in the elder orthography.",
+   "example": {
+    "form": "Ngayu wawu kadankabaja.",
+    "gloss": "I want come.back.again",
+    "translation": "'I want to come back.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.10",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY134",
+   "language": "kuku1273",
+   "domain": "discourse",
+   "construction_name": "Urgency clitics -da 'now' / -ngVrr 'straight away' on imperatives",
+   "description": "Imperatives take urgency clitics -da 'now' and -ngVrr 'straight away, first'.",
+   "example": {
+    "form": "Nukangarr!",
+    "gloss": "eat.first",
+    "translation": "'Eat up first!'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.10, §4.7",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY140",
+   "language": "kuku1273",
+   "domain": "kinship",
+   "construction_name": "Seven neutral-inflecting kin terms",
+   "description": "Seven kin terms (kangkal, manyarr, babarr, jinkurr, biwul, ngalayan, kujiway) take NEUTRAL case despite being human; all other kin are potent-only.",
+   "example": {
+    "form": "kangkal-da (vs *kangkal-angka)",
+    "gloss": "own.child-ERG.neutral",
+    "translation": "'own child' takes neutral ERG -da, not potent -angka."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.2.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY141",
+   "language": "kuku1273",
+   "domain": "kinship",
+   "construction_name": "Kin dyad -manda ('X and paired relative')",
+   "description": "The dyadic suffix -manda derives 'X and their paired relative'.",
+   "example": {
+    "form": "ngamu-manda",
+    "gloss": "mother-DYAD",
+    "translation": "'a mother and child (as a pair)'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.4",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY142",
+   "language": "kuku1273",
+   "domain": "numerals",
+   "construction_name": "Restricted numeral system",
+   "description": "Cardinals are nyubun 1, jambul 2, kulur 3, and wubul 'many' (no higher cardinals); the 'one/two' set has a special case series (nyubuninja ERG, etc.).",
+   "example": {
+    "form": "nyubun / jambul / kulur / wubul",
+    "gloss": "one / two / three / many",
+    "translation": "The full cardinal inventory: 1, 2, 3, 'many'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3.5, §3.9.2",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY143",
+   "language": "kuku1273",
+   "domain": "comparison",
+   "construction_name": "Comparative = ablative standard + degree -baja",
+   "description": "Comparison of inequality has no 'than' verb: the standard takes ablative -muny and the property word takes the degree suffix -baja.",
+   "example": {
+    "form": "ngaya-muny yalbay-baja",
+    "gloss": "me-ABL big-more",
+    "translation": "'bigger than me'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3.8, §3.9.2",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY144",
+   "language": "kuku1273",
+   "domain": "comparison",
+   "construction_name": "Superlative = property + bajaku 'most'",
+   "description": "The superlative uses the property word + bajaku 'most', often with wubulmuny 'of all'.",
+   "example": {
+    "form": "yalbay bajaku",
+    "gloss": "big most",
+    "translation": "'biggest'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.2.3.8",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY145",
+   "language": "kuku1273",
+   "domain": "comparison",
+   "construction_name": "Equality particle yala 'like/as'",
+   "description": "The particle yala expresses similarity/equality 'like, as'.",
+   "example": {
+    "form": "Nyulu yala nyungu nganjan.",
+    "gloss": "he like his father",
+    "translation": "'He is just like his father.'"
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.9.2",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY150",
+   "language": "kuku1273",
+   "domain": "loans",
+   "construction_name": "English-loan integration",
+   "description": "Loan nouns optionally take catalytic -mun- before suffixes; many loans are already lexicalised in the dictionary. Loan verbs: intransitive -> -ma-l, transitive -> -im-bunga-l.",
+   "example": {
+    "form": "car-mun-ji / fix-im-bungal",
+    "gloss": "car-INST / fix-CAUS",
+    "translation": "A loan noun with instrumental and a transitive loan verb."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§2.3, §3.12",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY151",
+   "language": "kuku1273",
+   "domain": "directional",
+   "construction_name": "Locative doubles as allative (goal of motion)",
+   "description": "There is no dedicated 'to' case; the locative marks the goal of motion, contrasting with ablative -muny 'from'.",
+   "example": {
+    "form": "wawubaja-nga dunga-y",
+    "gloss": "river-LOC go-NONPAST",
+    "translation": "'go to the river' — LOC as allative goal."
+   },
+   "source": {
+    "work": "attested",
+    "section": "§3.3",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  },
+  {
+   "id": "KY152",
+   "language": "kuku1273",
+   "domain": "directional",
+   "construction_name": "Geographic cardinal + inchoative -ma-l",
+   "description": "Coastal cardinals kungkarr 'north', kuwa 'west', naka 'seaward/east' take the directional inchoative -ma-l 'move in X direction'.",
+   "example": {
+    "form": "kuwa-ma-l",
+    "gloss": "west-INCHO",
+    "translation": "'move westward'."
+   },
+   "source": {
+    "work": "Patz (1982) A Grammar of the Kuku Yalanji Language of North Queensland",
+    "section": "§3.3",
+    "via": "mobtranslate KY mega grammar cheat-sheet 2026-07-02 (transcription of Patz with §/example citations)"
+   },
+   "analyst_confidence": "attested",
+   "community_terminology": null,
+   "license": "Analytical facts + cited example from Patz 1982 (copyrighted grammar); facts not copyrightable, short example cited for research/education."
+  }
+ ],
+ "dictionary": {
+  "code": "kuku_yalanji",
+  "href": "/dictionaries/kuku_yalanji"
+ },
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

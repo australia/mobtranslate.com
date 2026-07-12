@@ -1,0 +1,66 @@
+{
+ "glottocode": "dhur1239",
+ "name": "Dhurga",
+ "iso639_3": "dhu",
+ "family": "Pama-Nyungan",
+ "subgroup": "Southeastern Pama-Nyungan",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "sout3135",
+   "name": "Southeastern Pama-Nyungan"
+  },
+  {
+   "glottocode": "news1235",
+   "name": "New South Wales Pama-Nyungan"
+  },
+  {
+   "glottocode": "yuin1243",
+   "name": "Yuin-Kuri"
+  },
+  {
+   "glottocode": "yuin1242",
+   "name": "Yuin"
+  },
+  {
+   "glottocode": "nort2761",
+   "name": "Northern Costal Yuin"
+  }
+ ],
+ "latitude": -35.412,
+ "longitude": 150.134,
+ "austlang_codes": [
+  "S51",
+  "S52",
+  "S53",
+  "S54",
+  "S55",
+  "S56",
+  "S67"
+ ],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 4,
+  "aus_extension_coded": 0,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

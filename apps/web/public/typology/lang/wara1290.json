@@ -1,0 +1,121 @@
+{
+ "glottocode": "wara1290",
+ "name": "Warray",
+ "iso639_3": "wrz",
+ "family": "Gunwinyguan",
+ "subgroup": "Western Gunwinyguan",
+ "family_chain": [
+  {
+   "glottocode": "gunw1250",
+   "name": "Gunwinyguan"
+  },
+  {
+   "glottocode": "west2432",
+   "name": "Western Gunwinyguan"
+  },
+  {
+   "glottocode": "warr1259",
+   "name": "Warrayic"
+  }
+ ],
+ "latitude": -13.0941,
+ "longitude": 131.236,
+ "austlang_codes": [
+  "N25"
+ ],
+ "endangerment": "extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 32,
+  "aus_extension_coded": 9,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX007",
+   "name": "Position of case affixes",
+   "gloss": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+   "domain": "case",
+   "value": "postpositional-clitic",
+   "derivation": "WALS 51A=51A-6"
+  },
+  {
+   "id": "AUX010",
+   "name": "Bound-pronoun / pronominal-subject host",
+   "gloss": "How pronominal subjects are expressed: obligatory free pronoun, subject affix on the verb, clitic on a variable host (e.g. second position / auxiliary), etc.",
+   "domain": "pronoun-marking",
+   "value": "subject-affix-on-verb",
+   "derivation": "WALS 101A=101A-2"
+  },
+  {
+   "id": "AUX011",
+   "name": "Second-position pronominal clitic cluster",
+   "gloss": "Whether bound pronouns form a clitic cluster on a variable (typically second-position/auxiliary) host rather than being fixed to the verb.",
+   "domain": "pronoun-marking",
+   "value": "no",
+   "derivation": "derived: WALS 101A=101A-2"
+  },
+  {
+   "id": "AUX026",
+   "name": "Position of tense-aspect affixes",
+   "gloss": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+   "domain": "verb",
+   "value": "prefix",
+   "derivation": "WALS 69A=69A-1"
+  },
+  {
+   "id": "AUX030",
+   "name": "Reduplication productivity",
+   "gloss": "Whether reduplication is productive and of what kind (full/partial).",
+   "domain": "verb",
+   "value": "full-and-partial",
+   "derivation": "WALS 27A=27A-1"
+  },
+  {
+   "id": "AUX036",
+   "name": "Standard negation strategy",
+   "gloss": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+   "domain": "negation",
+   "value": "particle",
+   "derivation": "WALS 112A=112A-2"
+  },
+  {
+   "id": "AUX038",
+   "name": "Dominant constituent order",
+   "gloss": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+   "domain": "syntax",
+   "value": "SVO",
+   "derivation": "WALS 81A=81A-2"
+  },
+  {
+   "id": "AUX039",
+   "name": "Adposition type",
+   "gloss": "Prepositions vs postpositions vs no dominant adpositions.",
+   "domain": "syntax",
+   "value": "postpositions",
+   "derivation": "WALS 85A=85A-1"
+  },
+  {
+   "id": "AUX051",
+   "name": "Ignorative / interrogative-indefinite syncretism",
+   "gloss": "Whether interrogatives ('who/what') double as indefinites ('someone/something') — an 'ignorative' series. Partially derivable from WALS Indefinite Pronouns (interrogative-based).",
+   "domain": "pronoun",
+   "value": "yes",
+   "derivation": "WALS 46A=46A-1"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

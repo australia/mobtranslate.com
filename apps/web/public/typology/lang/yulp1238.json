@@ -1,0 +1,75 @@
+{
+ "glottocode": "yulp1238",
+ "name": "Yulparitja",
+ "iso639_3": null,
+ "family": "Pama-Nyungan",
+ "subgroup": "Desert Nyungic",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "dese1234",
+   "name": "Desert Nyungic"
+  },
+  {
+   "glottocode": "wati1241",
+   "name": "Wati"
+  },
+  {
+   "glottocode": "mart1257",
+   "name": "Martuwangkic"
+  },
+  {
+   "glottocode": "warn1245",
+   "name": "Warnman-Wangka"
+  },
+  {
+   "glottocode": "mart1256",
+   "name": "Martu Wangka"
+  }
+ ],
+ "latitude": -23.350911655789,
+ "longitude": 123.66842240336,
+ "austlang_codes": [],
+ "endangerment": null,
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 5,
+  "aus_extension_coded": 2,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX021",
+   "name": "Number of genders / noun classes",
+   "gloss": "Count of gender / noun-class categories.",
+   "domain": "gender",
+   "value": "none",
+   "derivation": "WALS 30A=30A-1"
+  },
+  {
+   "id": "AUX022",
+   "name": "Sex-based vs non-sex-based gender",
+   "gloss": "Whether the gender system is sex-based or non-sex-based (or absent).",
+   "domain": "gender",
+   "value": "none",
+   "derivation": "WALS 31A=31A-1"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

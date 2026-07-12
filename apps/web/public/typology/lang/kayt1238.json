@@ -1,0 +1,48 @@
+{
+ "glottocode": "kayt1238",
+ "name": "Kaytetye",
+ "iso639_3": "gbb",
+ "family": "Pama-Nyungan",
+ "subgroup": "Arandic-Thura-Yura",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "aran1266",
+   "name": "Arandic-Thura-Yura"
+  },
+  {
+   "glottocode": "aran1267",
+   "name": "Arandic"
+  }
+ ],
+ "latitude": -21.5844,
+ "longitude": 133.602,
+ "austlang_codes": [
+  "C13"
+ ],
+ "endangerment": "shifting",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 1,
+  "aus_extension_coded": 0,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

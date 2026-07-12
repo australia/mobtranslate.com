@@ -1,0 +1,59 @@
+{
+ "glottocode": "mudb1240",
+ "name": "Mudburra",
+ "iso639_3": "dmw",
+ "family": "Pama-Nyungan",
+ "subgroup": "Desert Nyungic",
+ "family_chain": [
+  {
+   "glottocode": "pama1250",
+   "name": "Pama-Nyungan"
+  },
+  {
+   "glottocode": "dese1234",
+   "name": "Desert Nyungic"
+  },
+  {
+   "glottocode": "ngum1251",
+   "name": "Ngumpin-Yapa"
+  },
+  {
+   "glottocode": "ngum1256",
+   "name": "Ngumpin"
+  },
+  {
+   "glottocode": "guri1250",
+   "name": "Eastern Ngumpin"
+  }
+ ],
+ "latitude": -16.7694,
+ "longitude": 132.329,
+ "austlang_codes": [
+  "C21",
+  "C25",
+  "C33",
+  "C36"
+ ],
+ "endangerment": "nearly extinct",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 2,
+  "aus_extension_coded": 0,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}

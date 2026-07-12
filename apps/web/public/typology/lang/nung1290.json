@@ -1,0 +1,249 @@
+{
+ "glottocode": "nung1290",
+ "name": "Wubuy",
+ "iso639_3": "nuy",
+ "family": "Gunwinyguan",
+ "subgroup": "Eastern Gunwinyguan",
+ "family_chain": [
+  {
+   "glottocode": "gunw1250",
+   "name": "Gunwinyguan"
+  },
+  {
+   "glottocode": "east2701",
+   "name": "Eastern Gunwinyguan"
+  },
+  {
+   "glottocode": "wubu1239",
+   "name": "Wubuy-Anindilyakwa"
+  }
+ ],
+ "latitude": -14.2623,
+ "longitude": 135.753,
+ "austlang_codes": [
+  "N128"
+ ],
+ "endangerment": "shifting",
+ "coverage": {
+  "grambank_coded": 0,
+  "grambank_unknown": 0,
+  "grambank_total": 195,
+  "grambank_pct": 0,
+  "wals_coded": 118,
+  "aus_extension_coded": 25,
+  "aus_extension_total": 53
+ },
+ "cluster": null,
+ "cluster_meta": null,
+ "grambank_features": [],
+ "aus_extension": [
+  {
+   "id": "AUX001",
+   "name": "Nominal case alignment",
+   "gloss": "Case-marking alignment of full (non-pronominal) noun phrases.",
+   "domain": "alignment",
+   "value": "neutral",
+   "derivation": "WALS 98A=98A-1"
+  },
+  {
+   "id": "AUX002",
+   "name": "Pronominal case alignment",
+   "gloss": "Case-marking alignment of independent personal pronouns.",
+   "domain": "alignment",
+   "value": "neutral",
+   "derivation": "WALS 99A=99A-1"
+  },
+  {
+   "id": "AUX003",
+   "name": "Verbal person-marking alignment",
+   "gloss": "Alignment of person marking (agreement/bound pronouns) on the verb.",
+   "domain": "alignment",
+   "value": "hierarchical",
+   "derivation": "WALS 100A=100A-5"
+  },
+  {
+   "id": "AUX004",
+   "name": "Case-marking split between nouns and pronouns",
+   "gloss": "Whether full nouns and pronouns use DIFFERENT case alignments (e.g. nouns ergative but pronouns nominative-accusative) — the classic Australian split.",
+   "domain": "alignment",
+   "value": "no",
+   "derivation": "derived: WALS 98A=98A-1 vs 99A=99A-1"
+  },
+  {
+   "id": "AUX005",
+   "name": "Person/NP-type conditioned split ergativity",
+   "gloss": "Whether ergativity is conditioned by the person/NP-type hierarchy (ergative on nouns/3rd, accusative on speech-act pronouns) — a hierarchy-based split.",
+   "domain": "alignment",
+   "value": "no",
+   "derivation": "derived: WALS 98A=98A-1,99A=99A-1"
+  },
+  {
+   "id": "AUX006",
+   "name": "Number of morphological cases",
+   "gloss": "Size of the morphological case inventory on nouns.",
+   "domain": "case",
+   "value": "10+",
+   "derivation": "WALS 49A=49A-8"
+  },
+  {
+   "id": "AUX007",
+   "name": "Position of case affixes",
+   "gloss": "Where case marking sits: suffix, prefix, clitic, tone, stem change.",
+   "domain": "case",
+   "value": "suffix",
+   "derivation": "WALS 51A=51A-1"
+  },
+  {
+   "id": "AUX010",
+   "name": "Bound-pronoun / pronominal-subject host",
+   "gloss": "How pronominal subjects are expressed: obligatory free pronoun, subject affix on the verb, clitic on a variable host (e.g. second position / auxiliary), etc.",
+   "domain": "pronoun-marking",
+   "value": "subject-affix-on-verb",
+   "derivation": "WALS 101A=101A-2"
+  },
+  {
+   "id": "AUX011",
+   "name": "Second-position pronominal clitic cluster",
+   "gloss": "Whether bound pronouns form a clitic cluster on a variable (typically second-position/auxiliary) host rather than being fixed to the verb.",
+   "domain": "pronoun-marking",
+   "value": "no",
+   "derivation": "derived: WALS 101A=101A-2"
+  },
+  {
+   "id": "AUX017",
+   "name": "Coding of nominal plurality",
+   "gloss": "How nominal plural is coded: suffix, prefix, reduplication, plural word, clitic, none.",
+   "domain": "number",
+   "value": "prefix",
+   "derivation": "WALS 33A=33A-1"
+  },
+  {
+   "id": "AUX018",
+   "name": "Plurality in independent pronouns",
+   "gloss": "How number is built into independent personal pronouns.",
+   "domain": "number",
+   "value": "person-number-stem+pron-plural",
+   "derivation": "WALS 35A=35A-5"
+  },
+  {
+   "id": "AUX019",
+   "name": "Inclusive/exclusive distinction",
+   "gloss": "Whether 1st-person non-singular distinguishes inclusive ('we incl. you') from exclusive.",
+   "domain": "pronoun",
+   "value": "yes",
+   "derivation": "WALS 39A=39A-5"
+  },
+  {
+   "id": "AUX020",
+   "name": "Inclusive/exclusive in verbal inflection",
+   "gloss": "Whether the inclusive/exclusive distinction also appears in verbal person marking.",
+   "domain": "pronoun",
+   "value": "yes",
+   "derivation": "WALS 40A=40A-5"
+  },
+  {
+   "id": "AUX021",
+   "name": "Number of genders / noun classes",
+   "gloss": "Count of gender / noun-class categories.",
+   "domain": "gender",
+   "value": "five+",
+   "derivation": "WALS 30A=30A-5"
+  },
+  {
+   "id": "AUX022",
+   "name": "Sex-based vs non-sex-based gender",
+   "gloss": "Whether the gender system is sex-based or non-sex-based (or absent).",
+   "domain": "gender",
+   "value": "sex-based",
+   "derivation": "WALS 31A=31A-2"
+  },
+  {
+   "id": "AUX026",
+   "name": "Position of tense-aspect affixes",
+   "gloss": "Where TAM inflection sits on the verb: prefix, suffix, tone, mixed, none.",
+   "domain": "verb",
+   "value": "suffix",
+   "derivation": "WALS 69A=69A-2"
+  },
+  {
+   "id": "AUX030",
+   "name": "Reduplication productivity",
+   "gloss": "Whether reduplication is productive and of what kind (full/partial).",
+   "domain": "verb",
+   "value": "full-and-partial",
+   "derivation": "WALS 27A=27A-1"
+  },
+  {
+   "id": "AUX033",
+   "name": "Reflexive/reciprocal identity",
+   "gloss": "Whether reciprocal marking is identical to, or distinct from, reflexive marking.",
+   "domain": "valency",
+   "value": "distinct",
+   "derivation": "WALS 106A=106A-2"
+  },
+  {
+   "id": "AUX036",
+   "name": "Standard negation strategy",
+   "gloss": "How declarative clauses are negated: affix, particle, negative auxiliary, etc.",
+   "domain": "negation",
+   "value": "particle",
+   "derivation": "WALS 112A=112A-2"
+  },
+  {
+   "id": "AUX038",
+   "name": "Dominant constituent order",
+   "gloss": "Dominant order of subject, object and verb (often 'no dominant order' in free-word-order Australian languages).",
+   "domain": "syntax",
+   "value": "no-dominant-order",
+   "derivation": "WALS 81A=81A-7"
+  },
+  {
+   "id": "AUX039",
+   "name": "Adposition type",
+   "gloss": "Prepositions vs postpositions vs no dominant adpositions.",
+   "domain": "syntax",
+   "value": "no-adpositions",
+   "derivation": "WALS 85A=85A-5"
+  },
+  {
+   "id": "AUX044",
+   "name": "Numeral classifiers",
+   "gloss": "Whether counting requires a sortal numeral classifier.",
+   "domain": "numerals",
+   "value": "absent",
+   "derivation": "WALS 55A=55A-1"
+  },
+  {
+   "id": "AUX046",
+   "name": "Comparative construction type",
+   "gloss": "How comparison of inequality is expressed: locational standard, 'exceed', conjoined, particle.",
+   "domain": "clause",
+   "value": "conjoined",
+   "derivation": "WALS 121A=121A-3"
+  },
+  {
+   "id": "AUX047",
+   "name": "Evidentiality coding",
+   "gloss": "Whether grammatical evidentiality is marked, and its scope (direct/indirect).",
+   "domain": "verb",
+   "value": "none",
+   "derivation": "WALS 77A=77A-1"
+  },
+  {
+   "id": "AUX051",
+   "name": "Ignorative / interrogative-indefinite syncretism",
+   "gloss": "Whether interrogatives ('who/what') double as indefinites ('someone/something') — an 'ignorative' series. Partially derivable from WALS Indefinite Pronouns (interrogative-based).",
+   "domain": "pronoun",
+   "value": "yes",
+   "derivation": "WALS 46A=46A-1"
+  }
+ ],
+ "neighbours": [],
+ "constructions": [],
+ "dictionary": null,
+ "_provenance": {
+  "grambank": "Grambank v1.0.3 CLDF (CC-BY-4.0)",
+  "wals": "WALS v2020.4 CLDF (CC-BY-4.0)",
+  "registry": "AIATSIS AUSTLANG + Glottolog 5.3 (CC-BY-4.0)"
+ }
+}
