@@ -62,6 +62,17 @@ export default function RootLayout() {
                 headerTitleStyle: { fontFamily: F.display, color: C.ink },
               }}
             />
+            <Stack.Screen
+              name="elder-studio"
+              options={{
+                headerShown: true,
+                title: 'Record with an Elder',
+                headerTintColor: C.forest,
+                headerStyle: { backgroundColor: C.bg },
+                headerShadowVisible: false,
+                headerTitleStyle: { fontFamily: F.display, color: C.ink },
+              }}
+            />
           </Stack>
           </LanguageProvider>
         </AuthProvider>

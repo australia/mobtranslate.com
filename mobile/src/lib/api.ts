@@ -347,6 +347,116 @@ export async function addSentenceTarget(languageId: string, text: string, gloss:
   } catch { return false; }
 }
 
+// ---- Elder sentence-recording studio (curator/admin only) ------------------
+// In-person studio where a curator/admin drives the tablet and an Elder records
+// synthetic Kuku Yalanji sentences, corrects the text, skips, or marks bad.
+// Hits the SAME W1 sentence-corpus routes as the web studio (role-gated server-
+// side). recordedVia is stamped 'app' so each clip's provenance is honest.
+const STUDIO_BASE = `${API_BASE}/api/v2/recordings/sentence-corpus`;
+
+export interface StudioSpeaker {
+  id: string; name: string; community?: string | null; dialect?: string | null;
+  gender?: string | null; age?: number | null; bio?: string | null;
+  cultural_consent: boolean; training_consent: boolean;
+  clips: number; minutes: number;
+}
+export interface StudioSentence {
+  id: string; corpus_sentence_id: number | null;
+  kuku_text: string; english_text: string; original_kuku: string;
+  analysis?: string | null; frame?: string | null; tier?: number | null;
+  confidence?: string | null; status: string; priority: number;
+  batch_label?: string | null; times_skipped: number; already_fixed: boolean;
+}
+export interface StudioProgress {
+  total: number; done: number; pending: number; skipped: number;
+  recorded: number; markedBad: number; position: number;
+}
+export type StudioAccess = 'ok' | 'unauthenticated' | 'forbidden' | 'error';
+export type ReviewAction = 'fixed' | 'marked_bad' | 'skipped' | 'approved_as_is';
+
+/** Probe whether the signed-in user may operate the studio (curator/admin). The
+ *  server enforces the role on every studio route; this just mirrors it for the UI. */
+export async function getStudioAccess(): Promise<StudioAccess> {
+  try {
+    const res = await fetch(`${STUDIO_BASE}/speakers`, { headers: authHeaders() });
+    if (res.ok) return 'ok';
+    if (res.status === 401) return 'unauthenticated';
+    if (res.status === 403) return 'forbidden';
+    return 'error';
+  } catch { return 'error'; }
+}
+
+export async function getStudioSpeakers(): Promise<StudioSpeaker[]> {
+  const res = await fetch(`${STUDIO_BASE}/speakers`, { headers: authHeaders() });
+  const d = await json<any>(res);
+  if (!res.ok) throw new Error(d?.error || `Could not load speakers (${res.status})`);
+  return Array.isArray(d) ? d : [];
+}
+
+export async function createStudioSpeaker(body: {
+  name: string; community?: string | null; dialect?: string | null;
+  gender?: string | null; age?: number | null; bio?: string | null;
+  culturalConsent: boolean; trainingConsent?: boolean; consentNote?: string | null;
+}): Promise<StudioSpeaker> {
+  const res = await fetch(`${STUDIO_BASE}/speakers`, {
+    method: 'POST', headers: jsonHeaders(), body: JSON.stringify(body),
+  });
+  const d = await json<any>(res);
+  if (!res.ok) throw new Error(d?.error || `Could not add speaker (${res.status})`);
+  return d as StudioSpeaker;
+}
+
+export async function getNextSentence(
+  speakerId?: string | null, batch = 'tts-priority-v1',
+): Promise<{ sentence: StudioSentence | null; progress: StudioProgress }> {
+  const p = new URLSearchParams({ batch });
+  if (speakerId) p.set('speakerId', speakerId);
+  const res = await fetch(`${STUDIO_BASE}/next?${p.toString()}`, { headers: authHeaders() });
+  const d = await json<any>(res);
+  if (!res.ok) throw new Error(d?.error || `Could not load the next sentence (${res.status})`);
+  return { sentence: d.sentence ?? null, progress: d.progress };
+}
+
+/** Append an Elder judgment to the review ledger (fix / skip / mark bad / approve). */
+export async function reviewSentence(body: {
+  sentenceId: string; speakerId?: string | null; action: ReviewAction;
+  newKuku?: string | null; reason?: string | null;
+}): Promise<void> {
+  const res = await fetch(`${STUDIO_BASE}/review`, {
+    method: 'POST', headers: jsonHeaders(), body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const d = await res.json().catch(() => ({}));
+    throw new Error(d?.error || `Could not save your review (${res.status})`);
+  }
+}
+
+export interface SentenceTakeMeta {
+  clientId: string; sentenceId: string; speakerId: string; spokenKuku: string;
+  durationMs?: number; channels?: number; clipped?: boolean;
+  culturalConsent?: boolean; trainingConsent?: boolean;
+}
+/** Upload one captured take to the W1 sentence-corpus upload contract
+ *  (multipart: `master` audio file + JSON `meta`). Stamps recordedVia='app'.
+ *  clientId is the server-side idempotency key, so a retry never double-stores.
+ *  Throws on failure so the caller can queue the take for later (offline-tolerant). */
+export async function uploadSentenceTake(meta: SentenceTakeMeta, fileUri: string): Promise<void> {
+  const result = await uploadAsync(`${STUDIO_BASE}/upload`, fileUri, {
+    httpMethod: 'POST',
+    uploadType: FileSystemUploadType.MULTIPART,
+    fieldName: 'master',
+    mimeType: 'audio/m4a',
+    parameters: { meta: JSON.stringify({ ...meta, recordedVia: 'app' }) },
+    headers: authHeaders(),
+  });
+  if (result.status < 200 || result.status >= 300) {
+    let msg = `Upload failed (${result.status})`;
+    try { msg = JSON.parse(result.body)?.error || msg; } catch { /* keep */ }
+    if (result.status === 401) msg = 'Please sign in again to save recordings.';
+    throw new Error(msg);
+  }
+}
+
 // ---- Auth (better-auth) ----------------------------------------------------
 export interface SessionUser { id: string; email: string; name?: string | null }
 

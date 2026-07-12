@@ -9,6 +9,7 @@ import { Button, Card, Screen, ScreenTitle } from '../../components/kit';
 import {
   addSentenceTarget, browseWords, getVoiceTotals, getWorklist, selfEnroll,
   getWordRecordings, getExampleRecordings, uploadWordRecording, uploadExampleRecording,
+  getStudioAccess,
   type VoiceTotals, type WorklistItem, type ExistingRecording,
 } from '../../lib/api';
 import { useAuth } from '../../lib/auth';
@@ -32,6 +33,19 @@ export default function RecordScreen() {
   const [loading, setLoading] = useState(false);
   const [active, setActive] = useState<{ item: WorklistItem; kind: Kind } | null>(null);
   const [addOpen, setAddOpen] = useState(false);
+  const [canStudio, setCanStudio] = useState(false);
+
+  // The in-person Elder studio is curator/admin only and Kuku Yalanji only.
+  // Probe the role so the entry appears only for authorized operators.
+  useEffect(() => {
+    let on = true;
+    if (user && code === 'kuku_yalanji') {
+      getStudioAccess().then((a) => { if (on) setCanStudio(a === 'ok'); }).catch(() => {});
+    } else {
+      setCanStudio(false);
+    }
+    return () => { on = false; };
+  }, [user, code]);
 
   const load = useCallback(async () => {
     if (!languageId) return;
@@ -89,6 +103,19 @@ export default function RecordScreen() {
         <View style={styles.vline} />
         <Stat n={totals?.minutes ?? 0} label="minutes" />
       </Card>
+
+      {/* Curator/admin only: the in-person Elder recording studio. */}
+      {canStudio && (
+        <Pressable onPress={() => router.push('/elder-studio')}
+          style={({ pressed }) => [styles.studioCard, pressed && { transform: [{ scale: 0.99 }] }]}>
+          <View style={styles.studioIcon}><Ionicons name="people" size={24} color={C.white} /></View>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.studioTitle}>Record with an Elder</Text>
+            <Text style={styles.studioSub}>In-person studio: record, fix, skip or verify sentences.</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={22} color={C.forest} />
+        </Pressable>
+      )}
 
       {/* word / sentence tabs */}
       <View style={styles.tabs}>
@@ -311,6 +338,11 @@ const styles = StyleSheet.create({
   statN: { fontFamily: F.displayBold, fontSize: S.title + 3, color: C.forest },
   statL: { fontFamily: F.medium, fontSize: S.small, color: C.muted, marginTop: 2 },
   vline: { width: 1, backgroundColor: C.hair },
+
+  studioCard: { flexDirection: 'row', alignItems: 'center', gap: 14, backgroundColor: C.sageSoft, borderRadius: radius.md, borderWidth: 1, borderColor: C.sageLine, padding: 16 },
+  studioIcon: { width: 46, height: 46, borderRadius: radius.pill, backgroundColor: C.forest, alignItems: 'center', justifyContent: 'center' },
+  studioTitle: { fontFamily: F.display, fontSize: S.heading, color: C.ink },
+  studioSub: { fontFamily: F.body, fontSize: S.small, color: C.muted, marginTop: 2, lineHeight: 18 },
 
   tabs: { flexDirection: 'row', backgroundColor: C.surfaceAlt, borderRadius: radius.md, padding: 4, gap: 4 },
   tab: { flex: 1, alignItems: 'center', justifyContent: 'center', height: 42, borderRadius: radius.sm },
