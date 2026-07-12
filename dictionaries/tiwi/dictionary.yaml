@@ -1,0 +1,231 @@
+meta:
+  name: Tiwi
+  description: Tiwi is a (isolate) language of Northern Territory. Lexicon sourced from English Wiktionary
+    (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Tiwi_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Tiwi lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 39
+  family: (isolate)
+  glottocode: tiwi1244
+  iso639_3: tiw
+  austlang_codes:
+  - N20
+  region: Northern Territory
+  coordinates:
+    lat: -11.6308
+    lon: 130.949
+words:
+- word: Kritjmatj
+  type: proper-noun
+  definitions: &id001
+  - Christmas
+  translations: *id001
+- word: Kurrinjakayi
+  type: noun
+  definitions: &id002
+  - a Japanese man
+  translations: *id002
+- word: Kurrinjakayinga
+  type: noun
+  definitions: &id003
+  - a Japanese woman
+  translations: *id003
+- word: Kurrinjakayuwi
+  type: noun
+  definitions: &id004
+  - Japanese people
+  translations: *id004
+- word: Manilamani
+  type: noun
+  definitions: &id005
+  - a Filipino
+  - the Tagalog language
+  translations: *id005
+- word: Tarruwula
+  type: proper-noun
+  definitions: &id006
+  - the Iwaidja people
+  translations: *id006
+- word: Tiwi
+  type: proper-noun
+  definitions: &id007
+  - a Tiwi person
+  - the Tiwi language
+  translations: *id007
+- word: Yitja
+  type: proper-noun
+  definitions: &id008
+  - Easter
+  translations: *id008
+- word: Yiwaja
+  type: proper-noun
+  definitions: &id009
+  - an Iwaidja person
+  - the Iwaidja language
+  translations: *id009
+- word: anjikuwu
+  type: noun
+  definitions: &id010
+  - loincloth
+  - material
+  translations: *id010
+- word: arawunga
+  type: noun
+  definitions: &id011
+  - early morning before dawn
+  - a morning star (usually the planet Venus)
+  translations: *id011
+- word: jaliwarra
+  type: noun
+  definitions: &id012
+  - pants, trousers
+  translations: *id012
+- word: jurra
+  type: noun
+  definitions: &id013
+  - book, paper, letter
+  - church, mass
+  - week
+  translations: *id013
+- word: kanja
+  type: noun
+  definitions: &id014
+  - cannabis, marijuana
+  translations: *id014
+- word: karaliki
+  type: noun
+  definitions: &id015
+  - tongue
+  - language
+  translations: *id015
+- word: kukuni
+  type: noun
+  definitions: &id016
+  - fresh water
+  translations: *id016
+- word: langwiji
+  type: noun
+  definitions: &id017
+  - language
+  translations: *id017
+- word: martapani
+  type: noun
+  definitions: &id018
+  - seagull
+  translations: *id018
+- word: murrakupupunga
+  type: noun
+  definitions: &id019
+  - butcherbird
+  translations: *id019
+- word: murrintaka
+  type: noun
+  definitions: &id020
+  - a white woman
+  translations: *id020
+- word: murrintani
+  type: noun
+  definitions: &id021
+  - a white man
+  translations: *id021
+- word: murrintawi
+  type: noun
+  definitions: &id022
+  - white people
+  translations: *id022
+- word: pantirra
+  type: noun
+  definitions: &id023
+  - flag
+  translations: *id023
+- word: pirraja
+  type: noun
+  definitions: &id024
+  - rice
+  translations: *id024
+- word: pitarika
+  type: noun
+  definitions: &id025
+  - grass
+  translations: *id025
+- word: purinjiti
+  type: noun
+  definitions: &id026
+  - A message stick used by news-bearers for safety when travelling into the territories of other peoples.
+  translations: *id026
+- word: tirriwunga
+  type: noun
+  definitions: &id027
+  - tall grass
+  translations: *id027
+- word: tokwampari
+  type: noun
+  definitions: &id028
+  - early morning, when the birds sing
+  translations: *id028
+- word: tuniwunga
+  type: noun
+  definitions: &id029
+  - a black woman
+  translations: *id029
+- word: tuniwuni
+  type: noun
+  definitions: &id030
+  - a black man
+  translations: *id030
+- word: tuniwuwi
+  type: noun
+  definitions: &id031
+  - black people
+  translations: *id031
+- word: wujakari
+  type: noun
+  definitions: &id032
+  - dawn, first light before sunrise
+  translations: *id032
+- word: wujirrini
+  type: noun
+  definitions: &id033
+  - silver gull
+  - crested tern
+  translations: *id033
+- word: wupunga
+  type: noun
+  definitions: &id034
+  - grass
+  - cannabis, marijuana
+  translations: *id034
+- word: wupuni
+  type: noun
+  definitions: &id035
+  - blade of grass
+  translations: *id035
+- word: wurrupiya
+  type: noun
+  definitions: &id036
+  - money
+  - the rupiah (the official currency of Indonesia)
+  translations: *id036
+- word: yimitarla
+  type: noun
+  definitions: &id037
+  - tongue
+  translations: *id037
+- word: yimiyuwu
+  type: noun
+  definitions: &id038
+  - emu
+  translations: *id038
+- word: yungunki
+  type: noun
+  definitions: &id039
+  - formal language
+  - language
+  translations: *id039

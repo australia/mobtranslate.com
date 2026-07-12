@@ -1,0 +1,300 @@
+meta:
+  name: Gunwinggu
+  description: Gunwinggu is a Gunwinyguan language of Northern Territory. Lexicon sourced from English
+    Wiktionary (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Gunwinggu_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Gunwinggu lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 49
+  family: Gunwinyguan
+  glottocode: gunw1252
+  iso639_3: gup
+  austlang_codes:
+  - N173
+  - N201
+  - N59
+  - N65
+  - N71
+  region: Northern Territory
+  coordinates:
+    lat: -12.3398
+    lon: 133.358
+words:
+- word: Duwa
+  type: proper-noun
+  definitions: &id001
+  - a patrilineal moiety, the opposite of Yirridjdja.
+  translations: *id001
+- word: Kunwinjku
+  type: proper-noun
+  definitions: &id002
+  - the Gunwinggu language, the Kunwinjku dialect of Bininj Kunwok.
+  translations: *id002
+- word: Mardku
+  type: proper-noun
+  definitions: &id003
+  - a matrilineal moiety, the opposite of Ngarradjku.
+  translations: *id003
+- word: Nabangardi
+  type: proper-noun
+  definitions: &id004
+  - a male Duwa and Mardku skin name whose mother is Ngalwakadj.
+  translations: *id004
+- word: Nabulanj
+  type: proper-noun
+  definitions: &id005
+  - a male Duwa and Ngarradjku skin name whose mother is Ngalkamarrang.
+  translations: *id005
+- word: Nakamarrang
+  type: proper-noun
+  definitions: &id006
+  - a male Yirridjdja and Ngarradjku skin name whose mother is Ngalngarridj.
+  translations: *id006
+- word: Nakangila
+  type: proper-noun
+  definitions: &id007
+  - a male Yirridjdja and Mardku skin name whose mother is Ngalbangardi.
+  translations: *id007
+- word: Nakodjok
+  type: proper-noun
+  definitions: &id008
+  - a male Duwa and Mardku skin name whose mother is Ngalkangila.
+  translations: *id008
+- word: Nangarridj
+  type: proper-noun
+  definitions: &id009
+  - a male Duwa and Ngarradjku skin name whose mother is Ngalwamud.
+  translations: *id009
+- word: Nawakadj
+  type: proper-noun
+  definitions: &id010
+  - a male Yirridjdja and Mardku skin name whose mother is Ngalkodjok.
+  translations: *id010
+- word: Nawamud
+  type: proper-noun
+  definitions: &id011
+  - a male Yirridjdja and Ngarradjku skin name whose mother is Ngalbulanj.
+  translations: *id011
+- word: Ngalbangardi
+  type: proper-noun
+  definitions: &id012
+  - a female Duwa and Mardku skin name whose mother is Ngalwakadj.
+  translations: *id012
+- word: Ngalbulanj
+  type: proper-noun
+  definitions: &id013
+  - a female Duwa and Ngarradjku skin name whose mother is Ngalkamarrang.
+  translations: *id013
+- word: Ngalkamarrang
+  type: proper-noun
+  definitions: &id014
+  - a female Yirridjdja and Ngarradjku skin name whose mother is Ngalngarridj.
+  translations: *id014
+- word: Ngalkangila
+  type: proper-noun
+  definitions: &id015
+  - a female Yirridjdja and Mardku skin name whose mother is Ngalbangardi.
+  translations: *id015
+- word: Ngalkodjok
+  type: proper-noun
+  definitions: &id016
+  - a female Duwa and Mardku skin name whose mother is Ngalkangila.
+  translations: *id016
+- word: Ngalngarridj
+  type: proper-noun
+  definitions: &id017
+  - a female Duwa and Ngarradjku skin name whose mother is Ngalwamud.
+  translations: *id017
+- word: Ngalwakadj
+  type: proper-noun
+  definitions: &id018
+  - a female Yirridjdja and Mardku skin name whose mother is Ngalkodjok.
+  translations: *id018
+- word: banjdji
+  type: noun
+  definitions: &id019
+  - spouse's brother or sister, spouse's siblings.
+  - eligible marriage partner.
+  translations: *id019
+- word: berluh
+  type: noun
+  definitions: &id020
+  - A term used by both men and women to address their father's sister, who would reply with korlonj.
+  translations: *id020
+- word: bininj
+  type: noun
+  definitions: &id021
+  - An Aboriginal Australian male.
+  - A black male of any race.
+  translations: *id021
+- word: birradjdja
+  type: noun
+  definitions: &id022
+  - rice
+  translations: *id022
+- word: bo
+  type: noun
+  definitions: &id023
+  - water
+  - liquid
+  translations: *id023
+- word: budjdjulung
+  type: noun
+  definitions: &id024
+  - bottle
+  translations: *id024
+- word: djalwarra
+  type: noun
+  definitions: &id025
+  - pants, trousers
+  translations: *id025
+- word: djedje
+  type: noun
+  definitions: &id026
+  - A term used by women to address their children, who would reply with karrang.
+  - A term used by women to address their older sister's children, who would reply with karrang.
+  translations: *id026
+- word: doydoy
+  type: noun
+  definitions: &id027
+  - A term used by both men and women to address their mother's mother's mother
+  - A term used by women to address their daughter's daughter's children
+  translations: *id027
+- word: kakkak
+  type: noun
+  definitions: &id028
+  - mother's mother, maternal grandmother.
+  - mother's mother's brother or sister.
+  - woman's daughter's children.
+  - sister's daughter's children.
+  translations: *id028
+- word: kakkali
+  type: noun
+  definitions: &id029
+  - spouse, husband or wife.
+  - spouse's brother or sister, spouse's siblings.
+  - eligible marriage partner.
+  translations: *id029
+- word: kanjok
+  type: noun
+  definitions: &id030
+  - spouse's brother or sister, spouse's siblings.
+  - eligible marriage partner.
+  translations: *id030
+- word: kankinj
+  type: noun
+  definitions: &id031
+  - A term used by men to address their sister's children, who would reply with ngadjadj.
+  translations: *id031
+- word: karrang
+  type: noun
+  definitions: &id032
+  - A term used by both men and women to address their mother, who would reply with djedje.
+  - A term used by both men and women to address their mother's younger sister, who would reply with djedje.
+  translations: *id032
+- word: kokok
+  type: noun
+  definitions: &id033
+  - A term used by men to address their older brother, who would reply with rdarda.
+  translations: *id033
+- word: korlonj
+  type: noun
+  definitions: &id034
+  - A term used by men to address their children, who would reply with ngabba.
+  - A term used by both men and women to address their brother's children, who would reply to the men
+    with ngabba and to the women with berluh.
+  translations: *id034
+- word: kunwok
+  type: noun
+  definitions: &id035
+  - language
+  translations: *id035
+- word: makkah
+  type: noun
+  definitions: &id036
+  - father's mother, paternal grandmother.
+  - father's mother's brother or sister.
+  - woman's son's children.
+  - sister's son's children.
+  translations: *id036
+- word: mamam
+  type: noun
+  definitions: &id037
+  - mother's father, maternal grandfather.
+  - mother's father's brother or sister.
+  - man's daughter's children.
+  - brother's daughter's children.
+  translations: *id037
+- word: mawah
+  type: noun
+  definitions: &id038
+  - father's father, paternal grandfather.
+  - father's father's brother or sister.
+  - man's son's children.
+  - brother's son's children.
+  translations: *id038
+- word: morlah
+  type: noun
+  definitions: &id039
+  - mother's older sister.
+  translations: *id039
+- word: na-
+  type: prefix
+  definitions: &id040
+  - male prefix added onto human words.
+  translations: *id040
+- word: ngabba
+  type: noun
+  definitions: &id041
+  - A term used by both men and women to address their father, who would reply with korlonj.
+  - A term used by both men and women to address their father's brother, who would reply with korlonj.
+  translations: *id041
+- word: ngadburrung
+  type: noun
+  definitions: &id042
+  - A term used by both men and women to address their siblings.
+  translations: *id042
+- word: ngadjadj
+  type: noun
+  definitions: &id043
+  - A term used by both men and women to address their mother's brother, who would reply with kankinj.
+  translations: *id043
+- word: ngal-
+  type: prefix
+  definitions: &id044
+  - female prefix added onto human words.
+  translations: *id044
+- word: Ngalwamud
+  type: proper-noun
+  definitions: &id045
+  - a female Yirridjdja and Ngarradjku skin name whose mother is Ngalbulanj.
+  translations: *id045
+- word: Ngarradjku
+  type: proper-noun
+  definitions: &id046
+  - a matrilineal moiety, the opposite of Mardku.
+  translations: *id046
+- word: Yirridjdja
+  type: proper-noun
+  definitions: &id047
+  - a patrilineal moiety, the opposite of Duwa.
+  translations: *id047
+- word: rdarda
+  type: noun
+  definitions: &id048
+  - A term used by men to address their younger brother, who would reply with kokok.
+  - A term used by women to address their younger sister, who would reply with yabok.
+  - A term used by women to address their brother, who would reply with yabok.
+  translations: *id048
+- word: yabok
+  type: noun
+  definitions: &id049
+  - A term used by men to address their sister, who would reply with rdarda.
+  - A term used by women to address their older sister, who would reply with rdarda.
+  translations: *id049

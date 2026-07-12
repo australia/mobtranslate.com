@@ -1,0 +1,145 @@
+meta:
+  name: Adnyamathanha
+  description: Adnyamathanha is a Pama-Nyungan language of South Australia. Lexicon sourced from English
+    Wiktionary (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Adnyamathanha_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Adnyamathanha lemmas”, English Wiktionary, retrieved
+    2026-07-12. Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 24
+  family: Pama-Nyungan
+  glottocode: adny1235
+  iso639_3: adt
+  austlang_codes:
+  - L10
+  - L55
+  region: South Australia
+  coordinates:
+    lat: -30.1451
+    lon: 138.671
+words:
+- word: Arkurra
+  type: noun
+  definitions: &id001
+  - mythical snake, the Rainbow Serpent of the Dreamtime
+  translations: *id001
+- word: andu
+  type: noun
+  definitions: &id002
+  - wallaby, yellow-footed rock wallaby
+  translations: *id002
+- word: awi
+  type: noun
+  definitions: &id003
+  - water
+  translations: *id003
+- word: euro
+  type: noun
+  definitions: &id004
+  - wallaroo, euro
+  translations: *id004
+- word: mandya
+  type: noun
+  definitions: &id005
+  - kangaroo (grey)
+  translations: *id005
+- word: miru
+  type: noun
+  definitions: &id006
+  - man
+  translations: *id006
+- word: mudlu
+  type: noun
+  definitions: &id007
+  - snake, in particular the carpet snake
+  translations: *id007
+- word: ngundi
+  type: noun
+  definitions: &id008
+  - back of the head
+  translations: *id008
+- word: udikanda
+  type: verb
+  definitions: &id009
+  - to think
+  translations: *id009
+- word: udnyu miru
+  type: noun
+  definitions: &id010
+  - white person, European
+  translations: *id010
+- word: undhi
+  type: noun
+  definitions: &id011
+  - mosquito
+  translations: *id011
+- word: urdlu
+  type: noun
+  definitions: &id012
+  - red kangaroo
+  translations: *id012
+- word: urdlu vapa
+  type: noun
+  definitions: &id013
+  - joey, young kangaroo
+  translations: *id013
+- word: urdlu warrpa
+  type: noun
+  definitions: &id014
+  - half-grown kangaroo
+  translations: *id014
+- word: urrakurli
+  type: noun
+  definitions: &id015
+  - magpie
+  translations: *id015
+- word: vapa
+  type: noun
+  definitions: &id016
+  - baby
+  translations: *id016
+- word: vapa
+  type: adjective
+  definitions: &id017
+  - young, little
+  translations: *id017
+- word: vapardla
+  type: noun
+  definitions: &id018
+  - head
+  translations: *id018
+- word: vardna
+  type: noun
+  definitions: &id019
+  - goanna
+  translations: *id019
+- word: vurruka
+  type: noun
+  definitions: &id020
+  - butterfly (generic term)
+  translations: *id020
+- word: wabma
+  type: noun
+  definitions: &id021
+  - snake (generic term)
+  translations: *id021
+- word: wadna
+  type: noun
+  definitions: &id022
+  - boomerang
+  translations: *id022
+- word: wartu
+  type: noun
+  definitions: &id023
+  - wombat
+  translations: *id023
+- word: yapu
+  type: noun
+  definitions: &id024
+  - the common Australian fly (musca vetustissima)
+  translations: *id024

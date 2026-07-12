@@ -1,0 +1,745 @@
+meta:
+  name: Kaurna
+  description: Kaurna is a Pama-Nyungan language of South Australia. Lexicon sourced from English Wiktionary
+    (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Kaurna_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Kaurna lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 136
+  family: Pama-Nyungan
+  glottocode: kaur1267
+  iso639_3: zku
+  austlang_codes:
+  - L3
+  region: South Australia
+  coordinates:
+    lat: -34.34966141
+    lon: 138.4800794
+words:
+- word: idla
+  type: noun
+  definitions: &id001
+  - joey (baby kangaroo)
+  - young of any animal; whelp, puppy
+  - pubic hair (area of males)
+  translations: *id001
+- word: ilya
+  type: noun
+  definitions: &id002
+  - snake, particularly red-bellied black snake (Pseudechis porphyriacus)
+  translations: *id002
+- word: itya
+  type: noun
+  definitions: &id003
+  - flesh (body tissue)
+  - lean meat
+  translations: *id003
+- word: kaintyirrinthi
+  type: verb
+  definitions: &id004
+  - to be infected/affected by
+  - to suffer from
+  translations: *id004
+- word: kaityanthi
+  type: verb
+  definitions: &id005
+  - to send, to send out
+  - to put down, to set down
+  - to lay eggs in a nest
+  - to put teeth in a spear
+  translations: *id005
+- word: kaityita
+  type: noun
+  definitions: &id006
+  - goanna
+  translations: *id006
+- word: kalta
+  type: noun
+  definitions: &id007
+  - small edible goanna, probably the sleepy lizard
+  translations: *id007
+- word: kanthi
+  type: noun
+  definitions: &id008
+  - leg, thigh
+  translations: *id008
+- word: kardi
+  type: noun
+  definitions: &id009
+  - male emu
+  translations: *id009
+- word: kardiwapa
+  type: noun
+  definitions: &id010
+  - a tuft made of emu feathers
+  translations: *id010
+- word: kardlumuka
+  type: noun
+  definitions: &id011
+  - the scrotum, the testes
+  translations: *id011
+- word: kari
+  type: noun
+  definitions: &id012
+  - emu ()
+  translations: *id012
+- word: karntu
+  type: noun
+  definitions: &id013
+  - lightning
+  translations: *id013
+- word: kauwi
+  type: noun
+  definitions: &id014
+  - water
+  translations: *id014
+- word: kukatka
+  type: noun
+  definitions: &id015
+  - kookaburra
+  translations: *id015
+- word: kuma
+  type: noun
+  definitions: &id016
+  - another
+  translations: *id016
+- word: kuma
+  type: numeral
+  definitions: &id017
+  - one
+  translations: *id017
+- word: kumirrka
+  type: numeral
+  definitions: &id018
+  - ten
+  translations: *id018
+- word: kunadna
+  type: noun
+  definitions: &id019
+  - female wallaby
+  translations: *id019
+- word: kunti
+  type: noun
+  definitions: &id020
+  - a red bitter root roasted and eaten by Kaurna Aborigines
+  translations: *id020
+- word: kuntipaitya
+  type: noun
+  definitions: &id021
+  - mosquito
+  translations: *id021
+- word: kuntu
+  type: noun
+  definitions: &id022
+  - the chest (anatomy)
+  translations: *id022
+- word: kuntumuka
+  type: noun
+  definitions: &id023
+  - the male breast
+  translations: *id023
+- word: kuntuwarpu
+  type: noun
+  definitions: &id024
+  - sternum, breastbone
+  translations: *id024
+- word: kurdikurdi
+  type: noun
+  definitions: &id025
+  - emu (young)
+  translations: *id025
+- word: kurlu
+  type: noun
+  definitions: &id026
+  - kangaroo (red, female)
+  translations: *id026
+- word: kurnta
+  type: noun
+  definitions: &id027
+  - wallaby
+  translations: *id027
+- word: kurraka
+  type: noun
+  definitions: &id028
+  - magpie
+  translations: *id028
+- word: kuula
+  type: noun
+  definitions: &id029
+  - koala ()
+  translations: *id029
+- word: mai
+  type: noun
+  definitions: &id030
+  - vegetable food, bush tucker
+  translations: *id030
+- word: maltawarta
+  type: noun
+  definitions: &id031
+  - cheek (part of the face)
+  translations: *id031
+- word: mami
+  type: noun
+  definitions: &id032
+  - species of possum
+  translations: *id032
+- word: manarntu
+  type: noun
+  definitions: &id033
+  - lower arm, forearm
+  translations: *id033
+- word: mara
+  type: noun
+  definitions: &id034
+  - hand
+  translations: *id034
+- word: mardlarri-apinthi
+  type: verb
+  definitions: &id035
+  - to make cease; to finish, complete
+  translations: *id035
+- word: marlta
+  type: noun
+  definitions: &id036
+  - beard
+  - cheekbone
+  translations: *id036
+- word: marltaitya
+  type: noun
+  definitions: &id037
+  - cheek
+  translations: *id037
+- word: marltawarpu
+  type: noun
+  definitions: &id038
+  - cheekbone
+  translations: *id038
+- word: marltawarta
+  type: noun
+  definitions: &id039
+  - cheek
+  translations: *id039
+- word: marnkutyi
+  type: numeral
+  definitions: &id040
+  - three
+  translations: *id040
+- word: marru
+  type: numeral
+  definitions: &id041
+  - six
+  translations: *id041
+- word: mila
+  type: numeral
+  definitions: &id042
+  - five
+  translations: *id042
+- word: miti
+  type: noun
+  definitions: &id043
+  - hip (joint)
+  translations: *id043
+- word: miti warpu
+  type: noun
+  definitions: &id044
+  - hip bone
+  translations: *id044
+- word: miyu
+  type: noun
+  definitions: &id045
+  - man, human
+  translations: *id045
+- word: mudlha
+  type: noun
+  definitions: &id046
+  - nose
+  translations: *id046
+- word: mudlhakanthi
+  type: noun
+  definitions: &id047
+  - ala, side of the nose (lateral surface of the external nose)
+  translations: *id047
+- word: mudlharta
+  type: noun
+  definitions: &id048
+  - nose piercing (ornamental piercing through the nasal septum)
+  translations: *id048
+- word: mudlhayala
+  type: noun
+  definitions: &id049
+  - nasal septum, septum (partition in the nose)
+  - hole or piercing in the nasal septum, where a bone, stick or reed could be worn
+  translations: *id049
+- word: mudlhayapa
+  type: noun
+  definitions: &id050
+  - nostril (either of the two orifices located on the nose)
+  translations: *id050
+- word: muka
+  type: noun
+  definitions: &id051
+  - egg
+  - anything round or elliptical in shape
+  translations: *id051
+- word: muka-muka
+  type: noun
+  definitions: &id052
+  - alternative form of mukamuka
+  translations: *id052
+- word: mukamuka
+  type: noun
+  definitions: &id053
+  - brain
+  translations: *id053
+- word: mukapapanthi
+  type: verb
+  definitions: &id054
+  - to think deeply, to meditate, to ponder
+  translations: *id054
+- word: mukarntu
+  type: noun
+  definitions: &id055
+  - computer
+  translations: *id055
+- word: mukarta
+  type: noun
+  definitions: &id056
+  - head
+  translations: *id056
+- word: murdu
+  type: noun
+  definitions: &id057
+  - dust
+  - cold ashes
+  translations: *id057
+- word: nantu
+  type: noun
+  definitions: &id058
+  - kangaroo (grey, male)
+  translations: *id058
+- word: ngarla
+  type: numeral
+  definitions: &id059
+  - eight
+  translations: *id059
+- word: ngarri
+  type: noun
+  definitions: &id060
+  - string, rope
+  translations: *id060
+- word: ngarritya
+  type: noun
+  definitions: &id061
+  - a hanged person, a person executed by hanging
+  translations: *id061
+- word: ngarrumuka
+  type: noun
+  definitions: &id062
+  - testes
+  - scrotum
+  - brain
+  translations: *id062
+- word: ngungana
+  type: noun
+  definitions: &id063
+  - kookaburra
+  translations: *id063
+- word: ngungulirdu
+  type: verb
+  definitions: &id064
+  - to belch
+  - to hiccup
+  translations: *id064
+- word: nii
+  type: particle
+  definitions: &id065
+  - 'yes'
+  translations: *id065
+- word: nuki
+  type: noun
+  definitions: &id066
+  - snot, mucus (slippery secretion)
+  - cold (illness)
+  translations: *id066
+- word: nuki-ana
+  type: noun
+  definitions: &id067
+  - alternative form of nukiana
+  translations: *id067
+- word: nuki winturrinthi
+  type: verb
+  definitions: &id068
+  - to sniff or snort mucus back up into the nose
+  translations: *id068
+- word: nuki wirrkati
+  type: noun
+  definitions: &id069
+  - alternative form of nuki wirrkiti
+  translations: *id069
+- word: nuki wirrkiti
+  type: noun
+  definitions: &id070
+  - handkerchief, tissue
+  translations: *id070
+- word: nukiana
+  type: noun
+  definitions: &id071
+  - handkerchief, tissue
+  translations: *id071
+- word: paintyi
+  type: noun
+  definitions: &id072
+  - side
+  translations: *id072
+- word: paintyi warpu
+  type: noun
+  definitions: &id073
+  - rib, region of the ribs
+  translations: *id073
+- word: paitya
+  type: noun
+  definitions: &id074
+  - vermin
+  - reptile
+  - monster
+  - any dangerous or disliked animal
+  translations: *id074
+- word: paitya
+  type: interjection
+  definitions: &id075
+  - an expression of surprise or wonderment
+  translations: *id075
+- word: paityabulti
+  type: noun
+  definitions: &id076
+  - old woman
+  translations: *id076
+- word: paityawaatti
+  type: noun
+  definitions: &id077
+  - a bone used among Kaurna Aborigines which when attached to quartz is purported to render a person
+    blind
+  translations: *id077
+- word: pardu
+  type: noun
+  definitions: &id078
+  - animal, meat, game
+  translations: *id078
+- word: parkana
+  type: adjective
+  definitions: &id079
+  - white
+  translations: *id079
+- word: patinthi
+  type: verb
+  definitions: &id080
+  - to throw
+  translations: *id080
+- word: pauwa
+  type: numeral
+  definitions: &id081
+  - nine
+  translations: *id081
+- word: payinthi
+  type: verb
+  definitions: &id082
+  - to think
+  - to search for (in one's mind)
+  - to examine (in one's mind)
+  translations: *id082
+- word: payirrinthi
+  type: verb
+  definitions: &id083
+  - alternative for payinthi
+  translations: *id083
+- word: pilyapilya
+  type: noun
+  definitions: &id084
+  - butterfly
+  - moth
+  translations: *id084
+- word: pindi
+  type: noun
+  definitions: &id085
+  - den
+  - pit, ditch
+  - grave
+  - the realm of the non-living, both before and after birth
+  - European (due to their pallid colour, and perhaps for having arrived from the sea, traditional direction
+    of the realm of the dead (i.e. Kangaroo Island)
+  translations: *id085
+- word: pindimai
+  type: noun
+  definitions: &id086
+  - European food (as distinct from traditional Kaurna and other indigenous food).
+  translations: *id086
+- word: pindimeyu
+  type: noun
+  definitions: &id087
+  - European person
+  - artifact or activity of Europeans (see pindinantu, pindimai)
+  translations: *id087
+- word: pindinantu
+  type: noun
+  definitions: &id088
+  - horse, pony
+  translations: *id088
+- word: pinti
+  type: noun
+  definitions: &id089
+  - pit
+  - den
+  - ditch
+  - grave
+  translations: *id089
+- word: pinti miyu
+  type: noun
+  definitions: &id090
+  - white person, European
+  translations: *id090
+- word: pulyuna
+  type: adjective
+  definitions: &id091
+  - black
+  translations: *id091
+- word: puntunya
+  type: noun
+  definitions: &id092
+  - goanna
+  translations: *id092
+- word: purlaityi
+  type: numeral
+  definitions: &id093
+  - two
+  translations: *id093
+- word: purruna
+  type: adjective
+  definitions: &id094
+  - alive, living
+  - healthy, well, sound
+  - whole
+  translations: *id094
+- word: tadlanya
+  type: noun
+  definitions: &id095
+  - tongue
+  translations: *id095
+- word: tadli
+  type: noun
+  definitions: &id096
+  - spit, spittle; froth; foam.
+  translations: *id096
+- word: tadli-patinthi
+  type: verb
+  definitions: &id097
+  - to spit, spit out
+  translations: *id097
+- word: tadlipanthi
+  type: verb
+  definitions: &id098
+  - to spit (at someone)
+  translations: *id098
+- word: taitya
+  type: noun
+  definitions: &id099
+  - emu (female)
+  translations: *id099
+- word: tapu
+  type: noun
+  definitions: &id100
+  - the common Australian fly (musca vetustissima)
+  - one of two men at either side of the line at the beginning of the Kaurna circumcision ceremony
+  translations: *id100
+- word: tarnta
+  type: noun
+  definitions: &id101
+  - kangaroo (red, male)
+  translations: *id101
+- word: tirritpa
+  type: noun
+  definitions: &id102
+  - a species of lark, probably the magpie-lark
+  translations: *id102
+- word: tupurra
+  type: noun
+  definitions: &id103
+  - a fly, in particular a blowfly
+  translations: *id103
+- word: waa
+  type: adverb
+  definitions: &id104
+  - where
+  translations: *id104
+- word: wadlha
+  type: noun
+  definitions: &id105
+  - wallaby
+  translations: *id105
+- word: wadna
+  type: noun
+  definitions: &id106
+  - boomerang
+  translations: *id106
+- word: waku
+  type: noun
+  definitions: &id107
+  - spider
+  translations: *id107
+- word: wakuinya
+  type: noun
+  definitions: &id108
+  - barter, exchange
+  translations: *id108
+- word: wakungarri
+  type: noun
+  definitions: &id109
+  - spiderweb
+  translations: *id109
+- word: wangu
+  type: numeral
+  definitions: &id110
+  - seven
+  translations: *id110
+- word: wapinthi
+  type: verb
+  definitions: &id111
+  - to make, to do
+  - to perform
+  translations: *id111
+- word: wardni-apinthi
+  type: verb
+  definitions: &id112
+  - to make fall; to drop
+  translations: *id112
+- word: warpu
+  type: noun
+  definitions: &id113
+  - bone
+  translations: *id113
+- word: wartanthi
+  type: verb
+  definitions: &id114
+  - to draw, to drag, to pull
+  translations: *id114
+- word: wartaturti
+  type: noun
+  definitions: &id115
+  - upper arm
+  translations: *id115
+- word: wartu
+  type: noun
+  definitions: &id116
+  - wombat
+  translations: *id116
+- word: wauwi
+  type: noun
+  definitions: &id117
+  - kangaroo (grey, female)
+  translations: *id117
+- word: wintunthi
+  type: verb
+  definitions: &id118
+  - to shave a spear by making long pulls along it with a stone
+  - to shave
+  - to draw (a cart, etc), to drag, to pull
+  translations: *id118
+- word: winturrinthi
+  type: verb
+  definitions: &id119
+  - to draw back, to pull back (oneself)
+  translations: *id119
+- word: wirrapi
+  type: noun
+  definitions: &id120
+  - possum, sugar glider
+  translations: *id120
+- word: wirrkanthi
+  type: verb
+  definitions: &id121
+  - to wipe, rub, scratch, wash, clean, brush
+  - to prepare a skin (possum, kangaroo, et al) for wearing by scraping and rubbing it with a stone.
+  translations: *id121
+- word: wirrkarrinthi
+  type: verb
+  definitions: &id122
+  - to wash, clean oneself
+  translations: *id122
+- word: wirrkati
+  type: noun
+  definitions: &id123
+  - alternative form of wirrkiti
+  translations: *id123
+- word: wirrkiti
+  type: noun
+  definitions: &id124
+  - wiper, cloth used for wiping.
+  translations: *id124
+- word: yailtyanthi
+  type: verb
+  definitions: &id125
+  - to think (that)
+  - to suppose, to believe (that)
+  - to have the opinion (that)
+  translations: *id125
+- word: yapa
+  type: noun
+  definitions: &id126
+  - hole, den
+  translations: *id126
+- word: yapa-yaparri
+  type: noun
+  definitions: &id127
+  - a cluster of holes made by animals, a warren
+  translations: *id127
+- word: yaparra
+  type: noun
+  definitions: &id128
+  - light (not heavy)
+  translations: *id128
+- word: yarapurla
+  type: numeral
+  definitions: &id129
+  - four
+  translations: *id129
+- word: yarapurla kuma
+  type: numeral
+  definitions: &id130
+  - five
+  translations: *id130
+- word: yarapurla purlaityi
+  type: numeral
+  definitions: &id131
+  - six
+  translations: *id131
+- word: yarku
+  type: noun
+  definitions: &id132
+  - leg, lower leg
+  translations: *id132
+- word: yarla
+  type: noun
+  definitions: &id133
+  - calf (lower leg)
+  translations: *id133
+- word: yarla-muka
+  type: noun
+  definitions: &id134
+  - calf (muscle of the lower leg)
+  translations: *id134
+- word: yarra
+  type: noun
+  definitions: &id135
+  - posterior part of the knee, the popliteal space
+  translations: *id135
+- word: yartapirriti
+  type: noun
+  definitions: &id136
+  - cricket (insect)
+  - cricket (game)
+  translations: *id136

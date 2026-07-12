@@ -1,0 +1,412 @@
+meta:
+  name: Bandjalang
+  description: Bandjalang is a Pama-Nyungan language of Queensland. Lexicon sourced from English Wiktionary
+    (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Bandjalang_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Bandjalang lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 77
+  family: Pama-Nyungan
+  glottocode: band1358
+  region: Queensland
+  coordinates:
+    lat: -28.937029
+    lon: 153.48612
+words:
+- word: bahy
+  type: noun
+  definitions: &id001
+  - kangaroo rat
+  translations: *id001
+- word: baran-barahn
+  type: noun
+  definitions: &id002
+  - spider
+  translations: *id002
+- word: bilin-bilin
+  type: noun
+  definitions: &id003
+  - parrot
+  translations: *id003
+- word: binaŋ
+  type: noun
+  definitions: &id004
+  - ear
+  translations: *id004
+- word: bira-
+  type: verb
+  definitions: &id005
+  - to throw
+  translations: *id005
+- word: bube
+  type: noun
+  definitions: &id006
+  - dust
+  translations: *id006
+- word: budhabuyeh
+  type: noun
+  definitions: &id007
+  - a kind of bird
+  translations: *id007
+- word: budharbiyn
+  type: noun
+  definitions: &id008
+  - a flower
+  translations: *id008
+- word: bujȧrebin
+  type: noun
+  definitions: &id009
+  - alternative spelling of budharbiyn
+  translations: *id009
+- word: bullen-bullen
+  type: noun
+  definitions: &id010
+  - fight
+  translations: *id010
+- word: bullenah
+  type: noun
+  definitions: &id011
+  - blood seeping from a wound
+  - place of dying
+  - place of the wounded after a fight
+  translations: *id011
+- word: bulun
+  type: noun
+  definitions: &id012
+  - river
+  translations: *id012
+- word: bun-bun
+  type: noun
+  definitions: &id013
+  - pheasant coucal
+  translations: *id013
+- word: bunihyn
+  type: noun
+  definitions: &id014
+  - echidna
+  translations: *id014
+- word: buŋgu-buŋgu
+  type: noun
+  definitions: &id015
+  - soldier crab
+  translations: *id015
+- word: dagay
+  type: noun
+  definitions: &id016
+  - white man, European man
+  - corpse, dead man
+  translations: *id016
+- word: danar
+  type: noun
+  definitions: &id017
+  - rib
+  translations: *id017
+- word: darigan
+  type: noun
+  definitions: &id018
+  - bone
+  translations: *id018
+- word: dirrang
+  type: noun
+  definitions: &id019
+  - tooth
+  translations: *id019
+- word: gaguhŋ
+  type: noun
+  definitions: &id020
+  - elder brother of a male
+  - other male relations
+  translations: *id020
+- word: gahrbayn
+  type: noun
+  definitions: &id021
+  - hawk
+  translations: *id021
+- word: gajari
+  type: noun
+  definitions: &id022
+  - tree
+  translations: *id022
+- word: gamay
+  type: adjective
+  definitions: &id023
+  - big
+  translations: *id023
+- word: gaŋgil
+  type: noun
+  definitions: &id024
+  - arm
+  translations: *id024
+- word: gehr
+  type: noun
+  definitions: &id025
+  - sulfur-crested cockatoo
+  translations: *id025
+- word: gidhuhm
+  type: noun
+  definitions: &id026
+  - old man
+  translations: *id026
+- word: gihyan
+  type: noun
+  definitions: &id027
+  - swamp hen
+  translations: *id027
+- word: gindil
+  type: noun
+  definitions: &id028
+  - knee
+  translations: *id028
+- word: ginibi
+  type: noun
+  definitions: &id029
+  - black swan
+  translations: *id029
+- word: ginyin
+  type: noun
+  definitions: &id030
+  - mosquito
+  translations: *id030
+- word: guhgagan
+  type: noun
+  definitions: &id031
+  - dove, pigeon
+  translations: *id031
+- word: gumar
+  type: noun
+  definitions: &id032
+  - blood
+  translations: *id032
+- word: gunaŋ
+  type: noun
+  definitions: &id033
+  - excrement, faeces, shit
+  translations: *id033
+- word: gunya
+  type: noun
+  definitions: &id034
+  - a traditional native home, made from wood or bark
+  translations: *id034
+- word: guralnigahr
+  type: noun
+  definitions: &id035
+  - seagull
+  translations: *id035
+- word: gurin
+  type: noun
+  definitions: &id036
+  - elbow
+  translations: *id036
+- word: guruman
+  type: noun
+  definitions: &id037
+  - a male eastern grey kangaroo, .
+  - any kangaroo
+  translations: *id037
+- word: jabuh
+  type: noun
+  definitions: &id038
+  - boy
+  translations: *id038
+- word: jagun
+  type: noun
+  definitions: &id039
+  - country, land
+  translations: *id039
+- word: jali
+  type: noun
+  definitions: &id040
+  - tree
+  translations: *id040
+- word: junahr
+  type: noun
+  definitions: &id041
+  - ibis, pelican
+  translations: *id041
+- word: junru-junur
+  type: noun
+  definitions: &id042
+  - owl
+  translations: *id042
+- word: kagoġ
+  type: noun
+  definitions: &id043
+  - alternative spelling of gaguhŋ
+  translations: *id043
+- word: kićom
+  type: noun
+  definitions: &id044
+  - alternative spelling of gidhuhm
+  translations: *id044
+- word: kumai
+  type: adjective
+  definitions: &id045
+  - alternative spelling of gamay
+  translations: *id045
+- word: kuŋ
+  type: noun
+  definitions: &id046
+  - water
+  translations: *id046
+- word: magil
+  type: noun
+  definitions: &id047
+  - Australian water dragon (Physignathus lesueurii)
+  translations: *id047
+- word: mahr-mahr
+  type: noun
+  definitions: &id048
+  - duck
+  translations: *id048
+- word: merruġ
+  type: noun
+  definitions: &id049
+  - alternative spelling of miruhŋ
+  translations: *id049
+- word: mibayn
+  type: noun
+  definitions: &id050
+  - wedge-tailed eagle
+  translations: *id050
+- word: minyaŋ
+  type: pronoun
+  definitions: &id051
+  - what
+  translations: *id051
+- word: minyuġ
+  type: noun
+  definitions: &id052
+  - alternative spelling of minyaŋ
+  translations: *id052
+- word: miruhŋ
+  type: noun
+  definitions: &id053
+  - old woman
+  translations: *id053
+- word: miyi
+  type: noun
+  definitions: &id054
+  - eye
+  translations: *id054
+- word: mulanyin
+  type: noun
+  definitions: &id055
+  - crane
+  translations: *id055
+- word: mumbir-mumbir
+  type: noun
+  definitions: &id056
+  - tawny frog-mouth
+  translations: *id056
+- word: ngali
+  type: noun
+  definitions: &id057
+  - we
+  translations: *id057
+- word: ngayu
+  type: pronoun
+  definitions: &id058
+  - I (first person singular nominative pronoun)
+  translations: *id058
+- word: nyaŋ
+  type: pronoun
+  definitions: &id059
+  - what
+  translations: *id059
+- word: nyuġ
+  type: noun
+  definitions: &id060
+  - alternative spelling of nyaŋ
+  translations: *id060
+- word: wagahn
+  type: noun
+  definitions: &id061
+  - crow
+  translations: *id061
+- word: wayilahr
+  type: noun
+  definitions: &id062
+  - yellow-tailed black cockatoo
+  translations: *id062
+- word: wayilayn
+  type: noun
+  definitions: &id063
+  - glossy black cockatoo
+  translations: *id063
+- word: wuhrbiyn gayn
+  type: noun
+  definitions: &id064
+  - curlew
+  translations: *id064
+- word: wulu
+  type: noun
+  definitions: &id065
+  - ankle
+  translations: *id065
+- word: wululuyn
+  type: noun
+  definitions: &id066
+  - wonga pigeon
+  translations: *id066
+- word: yaguy
+  type: noun
+  definitions: &id067
+  - bandicoot
+  translations: *id067
+- word: yahdh
+  type: noun
+  definitions: &id068
+  - nighthawk
+  translations: *id068
+- word: yaraman
+  type: noun
+  definitions: &id069
+  - horse
+  translations: *id069
+- word: yarayn
+  type: noun
+  definitions: &id070
+  - beard
+  translations: *id070
+- word: yirahli
+  type: noun
+  definitions: &id071
+  - a white man, a European man
+  translations: *id071
+- word: ćubbo
+  type: noun
+  definitions: &id072
+  - alternative spelling of jabuh
+  translations: *id072
+- word: ćulle
+  type: noun
+  definitions: &id073
+  - alternative spelling of jali
+  translations: *id073
+- word: ŋadhaŋ
+  type: noun
+  definitions: &id074
+  - grandfather
+  translations: *id074
+- word: ŋamah
+  type: noun
+  definitions: &id075
+  - breast
+  - milk
+  translations: *id075
+- word: ŋay
+  type: pronoun
+  definitions: &id076
+  - I (first person nominative singular)
+  translations: *id076
+- word: ŋuruyn
+  type: noun
+  definitions: &id077
+  - emu
+  translations: *id077

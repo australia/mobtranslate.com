@@ -1,0 +1,164 @@
+meta:
+  name: Yindjibarndi
+  description: Yindjibarndi is a Pama-Nyungan language of Western Australia. Lexicon sourced from English
+    Wiktionary (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Yindjibarndi_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Yindjibarndi lemmas”, English Wiktionary, retrieved
+    2026-07-12. Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 26
+  family: Pama-Nyungan
+  glottocode: yind1247
+  iso639_3: yij
+  austlang_codes:
+  - W37
+  - W70
+  region: Western Australia
+  coordinates:
+    lat: -21.5379
+    lon: 117.001
+words:
+- word: babu
+  type: noun
+  definitions: &id001
+  - father
+  translations: *id001
+- word: babui
+  type: noun
+  definitions: &id002
+  - The child of a woman’s brother.
+  - The spouse of a woman’s child; son-in-law or daughter-in-law.
+  - The child of one’s husband's sister.
+  translations: *id002
+- word: bankirdi
+  type: noun
+  definitions: &id003
+  - a type of spear
+  translations: *id003
+- word: barbarrnyungu
+  type: noun
+  definitions: &id004
+  - bird
+  - aeroplane
+  translations: *id004
+- word: batharra
+  type: noun
+  definitions: &id005
+  - budgerigar
+  translations: *id005
+- word: bidbagurra
+  type: noun
+  definitions: &id006
+  - a type of spear
+  translations: *id006
+- word: binthi
+  type: noun
+  definitions: &id007
+  - husband's sister (sister in law)
+  - brother's wife
+  - father's sister's daughter
+  - mother's brother's daughter
+  translations: *id007
+- word: buthi
+  type: noun
+  definitions: &id008
+  - cat (domesticated animal)
+  translations: *id008
+- word: ganbarr
+  type: noun
+  definitions: &id009
+  - spider
+  translations: *id009
+- word: gayii
+  type: noun
+  definitions: &id010
+  - a blunt spear for training with
+  translations: *id010
+- word: gugurnjayi
+  type: noun
+  definitions: &id011
+  - sheep
+  translations: *id011
+- word: gumirn
+  type: noun
+  definitions: &id012
+  - mosquito
+  translations: *id012
+- word: gurriyarda
+  type: noun
+  definitions: &id013
+  - a type of spear
+  translations: *id013
+- word: jami
+  type: noun
+  definitions: &id014
+  - medicine
+  translations: *id014
+- word: jarburrungu
+  type: noun
+  definitions: &id015
+  - wedge-tailed eagle
+  translations: *id015
+- word: jawi
+  type: noun
+  definitions: &id016
+  - song
+  translations: *id016
+- word: jirrijirri
+  type: noun
+  definitions: &id017
+  - Willie wagtail, Rhipidura leucophrys
+  translations: *id017
+- word: juna
+  type: noun
+  definitions: &id018
+  - kurdaitcha man
+  translations: *id018
+- word: maurndu
+  type: noun
+  definitions: &id019
+  - a spear for fighting or administering punishment
+  translations: *id019
+- word: pawa
+  type: noun
+  definitions: &id020
+  - water
+  translations: *id020
+- word: wanggarrwanarra
+  type: noun
+  definitions: &id021
+  - camel
+  translations: *id021
+- word: warbarra
+  type: noun
+  definitions: &id022
+  - a woomera, spearthrower
+  translations: *id022
+- word: wilgurdu
+  type: noun
+  definitions: &id023
+  - a type of spear
+  translations: *id023
+- word: yarnkarra
+  type: noun
+  definitions: &id024
+  - brolga
+  translations: *id024
+- word: yarungu
+  type: noun
+  definitions: &id025
+  - wife's sister, sister-in-law
+  - brother's wife
+  - husband's brother, brother-in-law
+  - sister's husband
+  translations: *id025
+- word: yirratharnangga
+  type: noun
+  definitions: &id026
+  - shark
+  translations: *id026

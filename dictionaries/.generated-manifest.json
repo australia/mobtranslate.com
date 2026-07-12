@@ -1,0 +1,186 @@
+{
+ "generated": "2026-07-12",
+ "wiktionary_dicts_written": 0,
+ "wiktionary_existing_skipped": 31,
+ "wiktionary_below_threshold": 0,
+ "curr_dicts_written": 195,
+ "curr_mapped_to_language": 4,
+ "curr_below_threshold": 4,
+ "detail": {
+  "wikt_existing_skipped": [
+   {
+    "slug": "adnyamathanha",
+    "words": 24
+   },
+   {
+    "slug": "anguthimri",
+    "words": 494
+   },
+   {
+    "slug": "awabakal",
+    "words": 45
+   },
+   {
+    "slug": "bandjalang",
+    "words": 77
+   },
+   {
+    "slug": "barngarla",
+    "words": 138
+   },
+   {
+    "slug": "darkinjung",
+    "words": 90
+   },
+   {
+    "slug": "dharug",
+    "words": 43
+   },
+   {
+    "slug": "dhuwal",
+    "words": 28
+   },
+   {
+    "slug": "eastern_arrernte",
+    "words": 411
+   },
+   {
+    "slug": "gamilaraay",
+    "words": 616
+   },
+   {
+    "slug": "gooniyandi",
+    "words": 63
+   },
+   {
+    "slug": "gunwinggu",
+    "words": 49
+   },
+   {
+    "slug": "gurindji",
+    "words": 60
+   },
+   {
+    "slug": "guugu_yimidhirr",
+    "words": 110
+   },
+   {
+    "slug": "kaurna",
+    "words": 136
+   },
+   {
+    "slug": "martuthunira",
+    "words": 110
+   },
+   {
+    "slug": "maung",
+    "words": 30
+   },
+   {
+    "slug": "mudburra",
+    "words": 38
+   },
+   {
+    "slug": "ngarla",
+    "words": 39
+   },
+   {
+    "slug": "ngarrindjeri",
+    "words": 177
+   },
+   {
+    "slug": "ngiyambaa",
+    "words": 38
+   },
+   {
+    "slug": "nyunga",
+    "words": 220
+   },
+   {
+    "slug": "pitjantjatjara",
+    "words": 333
+   },
+   {
+    "slug": "tiwi",
+    "words": 39
+   },
+   {
+    "slug": "wajarri",
+    "words": 32
+   },
+   {
+    "slug": "warlpiri",
+    "words": 122
+   },
+   {
+    "slug": "wathaurong",
+    "words": 37
+   },
+   {
+    "slug": "wiradjuri",
+    "words": 213
+   },
+   {
+    "slug": "woiwurrung",
+    "words": 1681
+   },
+   {
+    "slug": "yagara",
+    "words": 262
+   },
+   {
+    "slug": "yindjibarndi",
+    "words": 26
+   }
+  ],
+  "curr_below_threshold": [
+   {
+    "number": 55,
+    "clean": 4
+   },
+   {
+    "number": 162,
+    "clean": 6
+   },
+   {
+    "number": 198,
+    "clean": 3
+   },
+   {
+    "number": 205,
+    "clean": 4
+   }
+  ],
+  "curr_mapped": [
+   {
+    "number": 61,
+    "locality": "Wonoka",
+    "language": "Yardliyawarra",
+    "glottocode": "yard1234",
+    "ratio": 1.0
+   },
+   {
+    "number": 22,
+    "locality": "Pinjarra",
+    "language": "Pinjarup",
+    "glottocode": "pinj1244",
+    "ratio": 1.0
+   },
+   {
+    "number": 172,
+    "locality": "Nerang Creek",
+    "language": "Nerang Creek",
+    "glottocode": null,
+    "ratio": 1.0
+   },
+   {
+    "number": 201,
+    "locality": "Piangil",
+    "language": "Wadi Wadi",
+    "glottocode": "wadi1260",
+    "ratio": 1.0
+   }
+  ],
+  "wikt_below_threshold": []
+ }
+}

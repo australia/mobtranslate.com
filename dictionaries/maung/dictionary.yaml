@@ -1,0 +1,179 @@
+meta:
+  name: Maung
+  description: Maung is a Pama-Nyungan language of South Australia. Lexicon sourced from English Wiktionary
+    (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Maung_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Maung lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 30
+  family: Pama-Nyungan
+  glottocode: anta1253
+  iso639_3: ant
+  austlang_codes:
+  - C5
+  region: South Australia
+  coordinates:
+    lat: -27.1152
+    lon: 134.838
+words:
+- word: ayang
+  type: noun
+  definitions: &id001
+  - kangaroo
+  translations: *id001
+- word: jalngarr
+  type: noun
+  definitions: &id002
+  - lookout in a tree
+  - pilot's seat (in a plane)
+  translations: *id002
+- word: jalwarra
+  type: noun
+  definitions: &id003
+  - pants, trousers
+  translations: *id003
+- word: jawok
+  type: noun
+  definitions: &id004
+  - eastern koel ()
+  - Asian koel ()
+  translations: *id004
+- word: juka
+  type: determiner
+  definitions: &id005
+  - this
+  translations: *id005
+- word: kakurlkakurl
+  type: noun
+  definitions: &id006
+  - emu berry (Grewia latifolia)
+  translations: *id006
+- word: kalannyun
+  type: noun
+  definitions: &id007
+  - windowpane oyster
+  - shoulder blade
+  - money, cash
+  translations: *id007
+- word: ngulam
+  type: noun
+  definitions: &id008
+  - tomorrow
+  translations: *id008
+- word: ngulamngulam
+  type: noun
+  definitions: &id009
+  - morning
+  translations: *id009
+- word: ngutirrk
+  type: noun
+  definitions: &id010
+  - banded fruit dove (), pied imperial pigeon ()
+  translations: *id010
+- word: nuka
+  type: determiner
+  definitions: &id011
+  - this
+  translations: *id011
+- word: nuna
+  type: noun
+  definitions: &id012
+  - non-Aboriginal woman
+  translations: *id012
+- word: nyalegen
+  type: noun
+  definitions: &id013
+  - taro ()
+  translations: *id013
+- word: pantirrang
+  type: noun
+  definitions: &id014
+  - flag
+  - rag
+  translations: *id014
+- word: pirraja
+  type: noun
+  definitions: &id015
+  - rice
+  translations: *id015
+- word: pujurlung
+  type: noun
+  definitions: &id016
+  - bottle
+  translations: *id016
+- word: puka
+  type: determiner
+  definitions: &id017
+  - these
+  translations: *id017
+- word: rlanjirrang
+  type: noun
+  definitions: &id018
+  - lantern, lamp
+  translations: *id018
+- word: rrupiya
+  type: noun
+  definitions: &id019
+  - money
+  translations: *id019
+- word: warwuluj
+  type: noun
+  definitions: &id020
+  - cocky apple (Planchonia careya)
+  translations: *id020
+- word: waryatparyat
+  type: noun
+  definitions: &id021
+  - stone field
+  translations: *id021
+- word: wubadj
+  type: noun
+  definitions: &id022
+  - alternative spelling of wupaj
+  translations: *id022
+- word: wupaj
+  type: noun
+  definitions: &id023
+  - water
+  translations: *id023
+- word: yawak
+  type: noun
+  definitions: &id024
+  - leech (aquatic blood-sucking annelid)
+  translations: *id024
+- word: yunyi
+  type: particle
+  definitions: &id025
+  - don't (negates verbs and occasionally nouns)
+  translations: *id025
+- word: yurk
+  type: noun
+  definitions: &id026
+  - grave (burial place)
+  translations: *id026
+- word: yurtujurtu
+  type: noun
+  definitions: &id027
+  - cowrie () shell
+  translations: *id027
+- word: yuryur
+  type: noun
+  definitions: &id028
+  - small goanna
+  translations: *id028
+- word: yuwak
+  type: noun
+  definitions: &id029
+  - zombi pea (Vigna vexillata)
+  translations: *id029
+- word: yuwti
+  type: noun
+  definitions: &id030
+  - Mertens' water monitor (Varanus mertensi)
+  translations: *id030

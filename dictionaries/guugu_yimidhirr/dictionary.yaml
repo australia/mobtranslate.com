@@ -1,0 +1,603 @@
+meta:
+  name: Guugu Yimidhirr
+  description: Guugu Yimidhirr is a Pama-Nyungan language of Queensland. Lexicon sourced from English
+    Wiktionary (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Guugu_Yimidhirr_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Guugu Yimidhirr lemmas”, English Wiktionary, retrieved
+    2026-07-12. Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 110
+  family: Pama-Nyungan
+  glottocode: gugu1255
+  iso639_3: kky
+  austlang_codes:
+  - Y228
+  - Y79
+  - Y82
+  - Y89
+  region: Queensland
+  coordinates:
+    lat: -14.9424
+    lon: 144.831
+words:
+- word: baaru
+  type: noun
+  definitions: &id001
+  - loins, crotch
+  translations: *id001
+- word: badhibay
+  type: noun
+  definitions: &id002
+  - bone
+  translations: *id002
+- word: balin.ga
+  type: noun
+  definitions: &id003
+  - echidna
+  translations: *id003
+- word: bambu
+  type: noun
+  definitions: &id004
+  - bamboo (plant)
+  - bamboo (wood)
+  translations: *id004
+- word: bandiin
+  type: noun
+  definitions: &id005
+  - hip, waist
+  translations: *id005
+- word: bidi
+  type: noun
+  definitions: &id006
+  - forehead
+  translations: *id006
+- word: biidyirr
+  type: noun
+  definitions: &id007
+  - son-in-law (of a female)
+  translations: *id007
+- word: biigaarr
+  type: noun
+  definitions: &id008
+  - taipan, Oxyuranus scutellatus
+  translations: *id008
+- word: bilu
+  type: noun
+  definitions: &id009
+  - hip
+  translations: *id009
+- word: birra
+  type: noun
+  definitions: &id010
+  - leaf
+  translations: *id010
+- word: birri
+  type: noun
+  definitions: &id011
+  - river
+  translations: *id011
+- word: bubu
+  type: noun
+  definitions: &id012
+  - land, dirt, place
+  translations: *id012
+- word: bunggu
+  type: noun
+  definitions: &id013
+  - knee
+  translations: *id013
+- word: burriway
+  type: noun
+  definitions: &id014
+  - emu
+  translations: *id014
+- word: daamal
+  type: verb
+  definitions: &id015
+  - to spear
+  translations: *id015
+- word: dani
+  type: adjective
+  definitions: &id016
+  - slow
+  translations: *id016
+- word: dhama
+  type: noun
+  definitions: &id017
+  - 'various snakes:'
+  translations: *id017
+- word: dhamal
+  type: noun
+  definitions: &id018
+  - Foot.
+  - Footprint.
+  translations: *id018
+- word: dhana
+  type: pronoun
+  definitions: &id019
+  - they (3rd person plural nominative pronoun)
+  translations: *id019
+- word: dhiba
+  type: noun
+  definitions: &id020
+  - liver
+  translations: *id020
+- word: dhigul
+  type: noun
+  definitions: &id021
+  - quoll, native cat
+  translations: *id021
+- word: dhinbaar
+  type: noun
+  definitions: &id022
+  - elbow, forearm
+  translations: *id022
+- word: dhunggan
+  type: noun
+  definitions: &id023
+  - heelbone, anklebone
+  - shin
+  translations: *id023
+- word: dinggi
+  type: noun
+  definitions: &id024
+  - boat
+  translations: *id024
+- word: dumu
+  type: noun
+  definitions: &id025
+  - chest
+  translations: *id025
+- word: dunguuyngga
+  type: noun
+  definitions: &id026
+  - duck
+  translations: *id026
+- word: dyidyirr
+  type: noun
+  definitions: &id027
+  - bird
+  translations: *id027
+- word: dyiiral
+  type: noun
+  definitions: &id028
+  - wife or wife's sister
+  translations: *id028
+- word: dyiirraaynggurr
+  type: noun
+  definitions: &id029
+  - old man
+  translations: *id029
+- word: dyinu
+  type: noun
+  definitions: &id030
+  - 'Avoidance word for:'
+  - '# baari: chin'
+  - '# bandiin: hip, waist'
+  - '# bunggu: knee'
+  - '# dhinbaar: elbow, forearm'
+  - '# dhunggan: anklebone, shin, heelbone'
+  - '# gaamurr: armpit'
+  - '# gala: crotch, loins'
+  - '# marda: wrist'
+  - '# nuurnul: flank, side'
+  - '# nhuru: heel'
+  - '# waara: hipbone'
+  - '# guugulu: pelvis'
+  - '# dhigul: quoll, native cat'
+  translations: *id030
+- word: gaamurr
+  type: noun
+  definitions: &id031
+  - armpit
+  translations: *id031
+- word: gabiirr
+  type: noun
+  definitions: &id032
+  - girl, unmarried woman
+  translations: *id032
+- word: gadhal
+  type: verb
+  definitions: &id033
+  - to tie up
+  translations: *id033
+- word: galga
+  type: noun
+  definitions: &id034
+  - spear
+  translations: *id034
+- word: galmba
+  type: particle
+  definitions: &id035
+  - also
+  translations: *id035
+- word: gaman
+  type: noun
+  definitions: &id036
+  - 'parts of the face:'
+  translations: *id036
+- word: gami
+  type: noun
+  definitions: &id037
+  - paternal grandfather, maternal grandmother; a parallel grandparent
+  translations: *id037
+- word: gaminhdharr
+  type: noun
+  definitions: &id038
+  - son of one's son; daughter of one's daughter; parallel grandchild
+  translations: *id038
+- word: ganaa
+  type: particle
+  definitions: &id039
+  - Alright, okay.
+  translations: *id039
+- word: ganbi
+  type: noun
+  definitions: &id040
+  - blood
+  translations: *id040
+- word: gangurru
+  type: noun
+  definitions: &id041
+  - large grey or black kangaroo
+  translations: *id041
+- word: garrbal
+  type: verb
+  definitions: &id042
+  - hold
+  translations: *id042
+- word: garu
+  type: noun
+  definitions: &id043
+  - brain
+  translations: *id043
+- word: gilaadha
+  type: noun
+  definitions: &id044
+  - glass
+  translations: *id044
+- word: goyo
+  type: noun
+  definitions: &id045
+  - alternative spelling of guyu
+  translations: *id045
+- word: gudaa
+  type: noun
+  definitions: &id046
+  - tame dog
+  translations: *id046
+- word: guguur
+  type: noun
+  definitions: &id047
+  - mouse, rat
+  translations: *id047
+- word: gulgul
+  type: noun
+  definitions: &id048
+  - blue-tongue lizard
+  translations: *id048
+- word: guli
+  type: noun
+  definitions: &id049
+  - anger
+  translations: *id049
+- word: guman
+  type: noun
+  definitions: &id050
+  - leg, thigh
+  - root
+  translations: *id050
+- word: guman.ga
+  type: noun
+  definitions: &id051
+  - brother's wife (sister in law)
+  translations: *id051
+- word: gumbu
+  type: noun
+  definitions: &id052
+  - urine
+  translations: *id052
+- word: gundil
+  type: noun
+  definitions: &id053
+  - egg
+  - testicle
+  translations: *id053
+- word: gurrbal
+  type: noun
+  definitions: &id054
+  - The brolga or native companion, Grus rubicunda.
+  translations: *id054
+- word: gurruulga
+  type: noun
+  definitions: &id055
+  - kookaburra
+  translations: *id055
+- word: guudyu
+  type: noun
+  definitions: &id056
+  - fish
+  translations: *id056
+- word: guugu
+  type: noun
+  definitions: &id057
+  - talk, language, word
+  translations: *id057
+- word: guugu dyibanunganh
+  type: noun
+  definitions: &id058
+  - black swan
+  translations: *id058
+- word: guugulu
+  type: noun
+  definitions: &id059
+  - pelvis
+  translations: *id059
+- word: guyu
+  type: noun
+  definitions: &id060
+  - fish
+  translations: *id060
+- word: kalka
+  type: noun
+  definitions: &id061
+  - alternative spelling of galga
+  translations: *id061
+- word: kooly
+  type: noun
+  definitions: &id062
+  - alternative spelling of guli
+  translations: *id062
+- word: mangal
+  type: noun
+  definitions: &id063
+  - hand
+  translations: *id063
+- word: marda
+  type: noun
+  definitions: &id064
+  - wrist
+  translations: *id064
+- word: marrgin
+  type: noun
+  definitions: &id065
+  - gun
+  translations: *id065
+- word: mayi
+  type: noun
+  definitions: &id066
+  - vegetable-based food
+  translations: *id066
+- word: miil
+  type: noun
+  definitions: &id067
+  - eye
+  translations: *id067
+- word: milbiir
+  type: noun
+  definitions: &id068
+  - woomera
+  translations: *id068
+- word: milgaandurr
+  type: noun
+  definitions: &id069
+  - seagull
+  translations: *id069
+- word: minha
+  type: noun
+  definitions: &id070
+  - meat
+  - edible animal
+  translations: *id070
+- word: mugu
+  type: noun
+  definitions: &id071
+  - back
+  - seed, shell
+  translations: *id071
+- word: murrabal
+  type: noun
+  definitions: &id072
+  - freshwater barramundi ()
+  translations: *id072
+- word: muuri
+  type: noun
+  definitions: &id073
+  - hair
+  translations: *id073
+- word: naaybu
+  type: noun
+  definitions: &id074
+  - knife
+  translations: *id074
+- word: nambal
+  type: noun
+  definitions: &id075
+  - stone
+  - money
+  translations: *id075
+- word: ngaabaay
+  type: noun
+  definitions: &id076
+  - head
+  translations: *id076
+- word: ngaadharr
+  type: noun
+  definitions: &id077
+  - dingo (wild dog)
+  translations: *id077
+- word: ngadhi
+  type: noun
+  definitions: &id078
+  - Maternal grandfather, mother's father.
+  translations: *id078
+- word: ngagu
+  type: noun
+  definitions: &id079
+  - shoulder
+  translations: *id079
+- word: ngalaadhin
+  type: noun
+  definitions: &id080
+  - son-in-law (of a male)
+  translations: *id080
+- word: ngali
+  type: pronoun
+  definitions: &id081
+  - We two, you and I (first person dual inclusive pronoun)
+  translations: *id081
+- word: ngamu
+  type: noun
+  definitions: &id082
+  - mother
+  translations: *id082
+- word: ngana
+  type: pronoun
+  definitions: &id083
+  - 'we: first person plural nominative pronoun'
+  translations: *id083
+- word: nganhdhaar
+  type: noun
+  definitions: &id084
+  - tongue
+  translations: *id084
+- word: nganhi
+  type: pronoun
+  definitions: &id085
+  - 'me: first person singular accusative pronoun'
+  translations: *id085
+- word: nganydya
+  type: noun
+  definitions: &id086
+  - a grandparent of a spouse, or a spouse of a grandchild
+  translations: *id086
+- word: ngayu
+  type: pronoun
+  definitions: &id087
+  - I (first person singular nominative pronoun)
+  translations: *id087
+- word: nhumbul
+  type: noun
+  definitions: &id088
+  - cheek
+  translations: *id088
+- word: nhuru
+  type: noun
+  definitions: &id089
+  - heel
+  translations: *id089
+- word: nugal
+  type: noun
+  definitions: &id090
+  - ankle
+  translations: *id090
+- word: nuurnul
+  type: noun
+  definitions: &id091
+  - flank, side
+  translations: *id091
+- word: nyuumal
+  type: verb
+  definitions: &id092
+  - to smell
+  translations: *id092
+- word: poorai
+  type: noun
+  definitions: &id093
+  - water
+  translations: *id093
+- word: tamal
+  type: noun
+  definitions: &id094
+  - alternative spelling of dhamal
+  translations: *id094
+- word: waadha
+  type: noun
+  definitions: &id095
+  - crow
+  translations: *id095
+- word: waara
+  type: noun
+  definitions: &id096
+  - hipbone
+  translations: *id096
+- word: walu
+  type: noun
+  definitions: &id097
+  - temple (of head)
+  translations: *id097
+- word: wambu
+  type: noun
+  definitions: &id098
+  - ash
+  translations: *id098
+- word: wangga
+  type: noun
+  definitions: &id099
+  - canoe
+  translations: *id099
+- word: wangi
+  type: noun
+  definitions: &id100
+  - boomerang
+  translations: *id100
+- word: warra
+  type: adjective
+  definitions: &id101
+  - bad
+  translations: *id101
+- word: warra
+  type: particle
+  definitions: &id102
+  - resident of
+  translations: *id102
+- word: wawu
+  type: noun
+  definitions: &id103
+  - breath
+  - soul
+  - inside
+  - grandfather
+  translations: *id103
+- word: yaba
+  type: noun
+  definitions: &id104
+  - older brother
+  translations: *id104
+- word: yarraman
+  type: noun
+  definitions: &id105
+  - horse
+  translations: *id105
+- word: yidi
+  type: noun
+  definitions: &id106
+  - stingray
+  translations: *id106
+- word: yuba
+  type: adjective
+  definitions: &id107
+  - near
+  translations: *id107
+- word: yugu
+  type: noun
+  definitions: &id108
+  - tree
+  - wood
+  - fire
+  translations: *id108
+- word: yuu
+  type: interjection
+  definitions: &id109
+  - 'yes'
+  translations: *id109
+- word: yuwaal
+  type: noun
+  definitions: &id110
+  - beach
+  translations: *id110

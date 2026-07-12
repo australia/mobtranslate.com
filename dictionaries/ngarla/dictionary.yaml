@@ -1,0 +1,229 @@
+meta:
+  name: Ngarla
+  description: Ngarla is a Bookkeeping language of Western Australia. Lexicon sourced from English Wiktionary
+    (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Ngarla_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Ngarla lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 39
+  family: Bookkeeping
+  glottocode: ngar1286
+  iso639_3: nlr
+  austlang_codes:
+  - A40
+  - A79
+  - W40
+  region: Western Australia
+  coordinates:
+    lat: -20.37356
+    lon: 118.82594
+words:
+- word: ja
+  type: verb
+  definitions: &id001
+  - A causative verbaliser
+  translations: *id001
+- word: julya
+  type: adjective
+  definitions: &id002
+  - buried
+  translations: *id002
+- word: julya ja
+  type: verb
+  definitions: &id003
+  - bury
+  translations: *id003
+- word: julya jarri
+  type: verb
+  definitions: &id004
+  - bury
+  translations: *id004
+- word: ka
+  type: verb
+  definitions: &id005
+  - A verbaliser
+  translations: *id005
+- word: kama
+  type: verb
+  definitions: &id006
+  - cook
+  translations: *id006
+- word: karri
+  type: verb
+  definitions: &id007
+  - carry
+  translations: *id007
+- word: karri
+  type: verb
+  definitions: &id008
+  - A verbaliser
+  translations: *id008
+- word: kartarrapuka
+  type: noun
+  definitions: &id009
+  - humpback whale
+  translations: *id009
+- word: kulu
+  type: noun
+  definitions: &id010
+  - louse
+  translations: *id010
+- word: kunaran
+  type: noun
+  definitions: &id011
+  - winter
+  translations: *id011
+- word: kunyjarta
+  type: noun
+  definitions: &id012
+  - woman
+  translations: *id012
+- word: kurlku
+  type: adjective
+  definitions: &id013
+  - cropped close
+  translations: *id013
+- word: kurlku ja
+  type: verb
+  definitions: &id014
+  - shear
+  - crop close
+  translations: *id014
+- word: ma
+  type: verb
+  definitions: &id015
+  - A verbaliser, creating multi-word verbs from nouns and adjectives
+  translations: *id015
+- word: malukurrukurru
+  type: noun
+  definitions: &id016
+  - big, shady tree
+  translations: *id016
+- word: mani
+  type: verb
+  definitions: &id017
+  - climb
+  translations: *id017
+- word: mara
+  type: noun
+  definitions: &id018
+  - hand
+  translations: *id018
+- word: marlajangu
+  type: noun
+  definitions: &id019
+  - bull
+  translations: *id019
+- word: marlirri
+  type: adjective
+  definitions: &id020
+  - flat
+  - smooth
+  translations: *id020
+- word: murrilyi
+  type: noun
+  definitions: &id021
+  - emu tailfeathers
+  translations: *id021
+- word: nyayi
+  type: determiner
+  definitions: &id022
+  - this
+  - here
+  translations: *id022
+- word: nyini
+  type: verb
+  definitions: &id023
+  - sit
+  - stay
+  - be
+  translations: *id023
+- word: nyuka
+  type: verb
+  definitions: &id024
+  - mate
+  translations: *id024
+- word: paji
+  type: verb
+  definitions: &id025
+  - eat
+  - bite
+  translations: *id025
+- word: pakarli
+  type: noun
+  definitions: &id026
+  - teenage boy
+  translations: *id026
+- word: parru-parru
+  type: noun
+  definitions: &id027
+  - net
+  translations: *id027
+- word: pinurru
+  type: noun
+  definitions: &id028
+  - fire
+  translations: *id028
+- word: taya
+  type: noun
+  definitions: &id029
+  - tyre
+  translations: *id029
+- word: warrumurntu
+  type: noun
+  definitions: &id030
+  - morning
+  translations: *id030
+- word: wiiny
+  type: adjective
+  definitions: &id031
+  - free
+  - unrestrained
+  translations: *id031
+- word: wiiny ja
+  type: verb
+  definitions: &id032
+  - free
+  - release
+  translations: *id032
+- word: wula
+  type: noun
+  definitions: &id033
+  - water
+  translations: *id033
+- word: yarti
+  type: adverb
+  definitions: &id034
+  - later
+  translations: *id034
+- word: yawarta
+  type: noun
+  definitions: &id035
+  - horse
+  translations: *id035
+- word: yirnta
+  type: adjective
+  definitions: &id036
+  - cold/chilly
+  translations: *id036
+- word: yukun
+  type: noun
+  definitions: &id037
+  - smoke
+  translations: *id037
+- word: yukurrulu
+  type: noun
+  definitions: &id038
+  - tame dog
+  translations: *id038
+- word: yurta
+  type: noun
+  definitions: &id039
+  - fish
+  translations: *id039

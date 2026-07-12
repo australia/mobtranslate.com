@@ -1,0 +1,660 @@
+meta:
+  name: Warlpiri
+  description: Warlpiri is a Pama-Nyungan language of Northern Territory. Lexicon sourced from English
+    Wiktionary (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Warlpiri_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Warlpiri lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 122
+  family: Pama-Nyungan
+  glottocode: warl1254
+  iso639_3: wbp
+  austlang_codes:
+  - C15
+  - C15.1
+  - C2
+  - C38
+  - C40
+  - C42
+  - C43
+  region: Northern Territory
+  coordinates:
+    lat: -20.1008
+    lon: 131.05
+words:
+- word: -jarra
+  type: suffix
+  definitions: &id001
+  - two, the two of
+  translations: *id001
+- word: -kari
+  type: suffix
+  definitions: &id002
+  - another, other
+  - one of a pair
+  - in the direction of
+  translations: *id002
+- word: -karrikarri
+  type: suffix
+  definitions: &id003
+  - further
+  translations: *id003
+- word: -ma
+  type: suffix
+  definitions: &id004
+  - to cause to do (the resulting verb is a -ni-class verb)
+  translations: *id004
+- word: jamalya
+  type: noun
+  definitions: &id005
+  - log, tree trunk
+  translations: *id005
+- word: jarnpa
+  type: noun
+  definitions: &id006
+  - sorcerer
+  translations: *id006
+- word: jarukutu
+  type: numeral
+  definitions: &id007
+  - nine
+  translations: *id007
+- word: jika
+  type: noun
+  definitions: &id008
+  - wallaby
+  translations: *id008
+- word: jilkarla
+  type: numeral
+  definitions: &id009
+  - six
+  translations: *id009
+- word: jilkarla
+  type: noun
+  definitions: &id010
+  - thorn
+  translations: *id010
+- word: jilypirrpa
+  type: noun
+  definitions: &id011
+  - boomerang
+  translations: *id011
+- word: jinirrpa
+  type: noun
+  definitions: &id012
+  - diarrhea
+  translations: *id012
+- word: jinta
+  type: numeral
+  definitions: &id013
+  - one
+  translations: *id013
+- word: jinta-kurra-mani
+  type: verb
+  definitions: &id014
+  - to assemble, put together, gather
+  translations: *id014
+- word: jirrama
+  type: numeral
+  definitions: &id015
+  - two
+  translations: *id015
+- word: jirrama-jinta
+  type: numeral
+  definitions: &id016
+  - three
+  translations: *id016
+- word: jirramakari-jirramakari
+  type: numeral
+  definitions: &id017
+  - four
+  translations: *id017
+- word: jurlpu
+  type: noun
+  definitions: &id018
+  - bird
+  translations: *id018
+- word: jurluparli
+  type: noun
+  definitions: &id019
+  - boomerang
+  translations: *id019
+- word: jurrka-panji
+  type: noun
+  definitions: &id020
+  - kangaroo
+  translations: *id020
+- word: kalypa
+  type: noun
+  definitions: &id021
+  - joey
+  translations: *id021
+- word: kalyu
+  type: noun
+  definitions: &id022
+  - water
+  translations: *id022
+- word: kana
+  type: noun
+  definitions: &id023
+  - digging stick
+  translations: *id023
+- word: kana-parnta
+  type: noun
+  definitions: &id024
+  - scorpion
+  translations: *id024
+- word: karaly-karalypa
+  type: adjective
+  definitions: &id025
+  - slippery, smooth (as wet ground)
+  translations: *id025
+- word: karalyarr-karrimi
+  type: verb
+  definitions: &id026
+  - to slip, lose one's foot
+  - to err, make a mistake
+  translations: *id026
+- word: karalyarr-ngarni
+  type: verb
+  definitions: &id027
+  - to slip, lose one's foot
+  - to err, make a mistake
+  translations: *id027
+- word: karalypa
+  type: adjective
+  definitions: &id028
+  - smooth
+  translations: *id028
+- word: karlami
+  type: verb
+  definitions: &id029
+  - to dig, excavate
+  translations: *id029
+- word: karlangu
+  type: noun
+  definitions: &id030
+  - digging stick
+  translations: *id030
+- word: karlangu-jarra-parnta
+  type: noun
+  definitions: &id031
+  - scorpion
+  translations: *id031
+- word: karlarla
+  type: numeral
+  definitions: &id032
+  - ten
+  translations: *id032
+- word: karlarla
+  type: adverb
+  definitions: &id033
+  - noon (10 AM)
+  - lunchtime
+  translations: *id033
+- word: karlaya
+  type: noun
+  definitions: &id034
+  - emu
+  translations: *id034
+- word: karli
+  type: noun
+  definitions: &id035
+  - boomerang
+  translations: *id035
+- word: karnta
+  type: noun
+  definitions: &id036
+  - woman
+  translations: *id036
+- word: karrimi
+  type: verb
+  definitions: &id037
+  - to stand
+  translations: *id037
+- word: kartaku
+  type: numeral
+  definitions: &id038
+  - nine
+  translations: *id038
+- word: kartaku
+  type: noun
+  definitions: &id039
+  - sheet metal
+  translations: *id039
+- word: katarlpi
+  type: noun
+  definitions: &id040
+  - pillow
+  translations: *id040
+- word: kuju
+  type: numeral
+  definitions: &id041
+  - one
+  translations: *id041
+- word: kuna
+  type: noun
+  definitions: &id042
+  - excrement, dung
+  translations: *id042
+- word: kurlarda
+  type: noun
+  definitions: &id043
+  - a long wooden hunting spear
+  translations: *id043
+- word: kurrngalypa
+  type: noun
+  definitions: &id044
+  - water
+  translations: *id044
+- word: kurrupardu
+  type: noun
+  definitions: &id045
+  - boomerang
+  translations: *id045
+- word: lirra
+  type: noun
+  definitions: &id046
+  - mouth
+  translations: *id046
+- word: maju
+  type: adjective
+  definitions: &id047
+  - bad
+  translations: *id047
+- word: -mparra
+  type: suffix
+  definitions: &id048
+  - along the side, across
+  translations: *id048
+- word: -mpayi
+  type: suffix
+  definitions: &id049
+  - far, into the distance
+  translations: *id049
+- word: -nginti
+  type: suffix
+  definitions: &id050
+  - in the side of
+  translations: *id050
+- word: -parnta
+  type: suffix
+  definitions: &id051
+  - the one which has something
+  - having, possessing
+  translations: *id051
+- word: -patu
+  type: suffix
+  definitions: &id052
+  - several, a lot of, many
+  translations: *id052
+- word: -purda
+  type: suffix
+  definitions: &id053
+  - in the direction of
+  translations: *id053
+- word: makiti
+  type: noun
+  definitions: &id054
+  - gun, rifle
+  translations: *id054
+- word: maliki
+  type: noun
+  definitions: &id055
+  - dog
+  translations: *id055
+- word: manja
+  type: noun
+  definitions: &id056
+  - mulga tree
+  translations: *id056
+- word: marlu
+  type: noun
+  definitions: &id057
+  - kangaroo
+  translations: *id057
+- word: marnkurrpa
+  type: numeral
+  definitions: &id058
+  - three
+  - several, a few
+  translations: *id058
+- word: marnkurrpakari-marnkurrpakari
+  type: numeral
+  definitions: &id059
+  - six
+  translations: *id059
+- word: milpa
+  type: noun
+  definitions: &id060
+  - eye
+  translations: *id060
+- word: milpa-mirli-mirli
+  type: noun
+  definitions: &id061
+  - watery eyes
+  translations: *id061
+- word: milpa-ngapa
+  type: noun
+  definitions: &id062
+  - Petrogale lateralis (black-flanked rock wallaby, black-footed rock wallaby).
+  translations: *id062
+- word: milpirri
+  type: noun
+  definitions: &id063
+  - cloud
+  translations: *id063
+- word: mina
+  type: noun
+  definitions: &id064
+  - nest
+  translations: *id064
+- word: mirdi
+  type: numeral
+  definitions: &id065
+  - four
+  translations: *id065
+- word: mirdi
+  type: noun
+  definitions: &id066
+  - knee
+  translations: *id066
+- word: mula
+  type: noun
+  definitions: &id067
+  - egg
+  translations: *id067
+- word: munga
+  type: noun
+  definitions: &id068
+  - night
+  translations: *id068
+- word: murntu
+  type: numeral
+  definitions: &id069
+  - four
+  translations: *id069
+- word: murntu
+  type: adjective
+  definitions: &id070
+  - cooked (ready to eat)
+  - cross-legged
+  translations: *id070
+- word: nantuwu
+  type: noun
+  definitions: &id071
+  - horse
+  translations: *id071
+- word: narntirnki
+  type: numeral
+  definitions: &id072
+  - nine
+  translations: *id072
+- word: narntirnki
+  type: adjective
+  definitions: &id073
+  - curved, bent
+  translations: *id073
+- word: ngapa
+  type: noun
+  definitions: &id074
+  - water
+  - rain
+  - grog (alcohol)
+  translations: *id074
+- word: ngapiri
+  type: noun
+  definitions: &id075
+  - river red gum ()
+  translations: *id075
+- word: ngarntaly-karrimi
+  type: verb
+  definitions: &id076
+  - to slip
+  - to err, make a mistake
+  translations: *id076
+- word: nguku
+  type: noun
+  definitions: &id077
+  - water
+  translations: *id077
+- word: ngumparna
+  type: noun
+  definitions: &id078
+  - One's wife's brother.
+  translations: *id078
+- word: nyanyi
+  type: verb
+  definitions: &id079
+  - to see
+  - to perceive
+  translations: *id079
+- word: pampa
+  type: adjective
+  definitions: &id080
+  - blind
+  translations: *id080
+- word: paniya
+  type: noun
+  definitions: &id081
+  - eye
+  translations: *id081
+- word: paniya-jarra
+  type: numeral
+  definitions: &id082
+  - eight
+  translations: *id082
+- word: panu
+  type: adjective
+  definitions: &id083
+  - a lot of, several, many
+  translations: *id083
+- word: parnti-nyanja-kurlangu
+  type: noun
+  definitions: &id084
+  - instrument for smelling
+  - nose
+  translations: *id084
+- word: pina
+  type: adjective
+  definitions: &id085
+  - wise
+  translations: *id085
+- word: pingka
+  type: adverb
+  definitions: &id086
+  - softly
+  translations: *id086
+- word: pira
+  type: noun
+  definitions: &id087
+  - moon
+  translations: *id087
+- word: puka
+  type: adjective
+  definitions: &id088
+  - rotten
+  translations: *id088
+- word: puna
+  type: noun
+  definitions: &id089
+  - ash
+  translations: *id089
+- word: purlka
+  type: noun
+  definitions: &id090
+  - old man
+  translations: *id090
+- word: purtulu
+  type: noun
+  definitions: &id091
+  - spine
+  translations: *id091
+- word: -rni
+  type: suffix
+  definitions: &id092
+  - here
+  translations: *id092
+- word: -rra
+  type: suffix
+  definitions: &id093
+  - many
+  - towards, there
+  translations: *id093
+- word: rdaka
+  type: numeral
+  definitions: &id094
+  - five
+  translations: *id094
+- word: rdaka
+  type: noun
+  definitions: &id095
+  - finger, hand
+  - foreleg, forefoot
+  translations: *id095
+- word: rdaku
+  type: noun
+  definitions: &id096
+  - hole
+  translations: *id096
+- word: tari
+  type: noun
+  definitions: &id097
+  - ankle
+  translations: *id097
+- word: wakulyarri
+  type: noun
+  definitions: &id098
+  - rock-wallaby
+  translations: *id098
+- word: walu
+  type: noun
+  definitions: &id099
+  - head
+  translations: *id099
+- word: wangka
+  type: verb
+  definitions: &id100
+  - to talk
+  translations: *id100
+- word: wangkami
+  type: verb
+  definitions: &id101
+  - to talk, speak
+  translations: *id101
+- word: wanka
+  type: adjective
+  definitions: &id102
+  - raw
+  translations: *id102
+- word: wanta
+  type: noun
+  definitions: &id103
+  - sun
+  - summer
+  - year
+  translations: *id103
+- word: wanyja
+  type: adjective
+  definitions: &id104
+  - numb
+  translations: *id104
+- word: warlu
+  type: noun
+  definitions: &id105
+  - fire
+  translations: *id105
+- word: warna
+  type: noun
+  definitions: &id106
+  - snake
+  translations: *id106
+- word: wati
+  type: noun
+  definitions: &id107
+  - man
+  translations: *id107
+- word: wawirri
+  type: noun
+  definitions: &id108
+  - kangaroo
+  translations: *id108
+- word: wijipitirli
+  type: noun
+  definitions: &id109
+  - hospital
+  translations: *id109
+- word: wirli
+  type: noun
+  definitions: &id110
+  - track, footprint
+  - ligament, tendon, sinew
+  - artery, vein
+  translations: *id110
+- word: wirli-parnta
+  type: noun
+  definitions: &id111
+  - red kangaroo, in species Megaleia rufa.
+  translations: *id111
+- word: wirlki
+  type: numeral
+  definitions: &id112
+  - seven
+  translations: *id112
+- word: wirlki
+  type: noun
+  definitions: &id113
+  - seven-shaped boomerang
+  - cheek, jawbone
+  translations: *id113
+- word: wunguwarnu
+  type: noun
+  definitions: &id114
+  - company
+  translations: *id114
+- word: yangarlu
+  type: numeral
+  definitions: &id115
+  - one
+  translations: *id115
+- word: yapa
+  type: noun
+  definitions: &id116
+  - person
+  translations: *id116
+- word: yaripirrki
+  type: noun
+  definitions: &id117
+  - old, fully grown kangaroo
+  translations: *id117
+- word: yiin-kijirni
+  type: verb
+  definitions: &id118
+  - to count
+  translations: *id118
+- word: yiin-purami
+  type: verb
+  definitions: &id119
+  - to count
+  translations: *id119
+- word: yinka
+  type: noun
+  definitions: &id120
+  - laughter
+  translations: *id120
+- word: yirdi-yirdi-mani
+  type: verb
+  definitions: &id121
+  - to count
+  translations: *id121
+- word: yungalpa
+  type: noun
+  definitions: &id122
+  - joey (baby kangaroo)
+  translations: *id122

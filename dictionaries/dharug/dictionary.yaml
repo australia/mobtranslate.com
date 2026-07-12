@@ -1,0 +1,244 @@
+meta:
+  name: Dharug
+  description: Dharug is a Pama-Nyungan language of New South Wales. Lexicon sourced from English Wiktionary
+    (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Dharug_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Dharug lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 43
+  family: Pama-Nyungan
+  glottocode: sydn1236
+  iso639_3: xdk
+  austlang_codes:
+  - S61
+  - S64
+  region: New South Wales
+  coordinates:
+    lat: -33.52925837
+    lon: 150.3490464
+words:
+- word: badagarang
+  type: noun
+  definitions: &id001
+  - eastern grey kangaroo ()
+  translations: *id001
+- word: baragarang
+  type: noun
+  definitions: &id002
+  - alternative form of badagarang
+  translations: *id002
+- word: barrabugu
+  type: adverb
+  definitions: &id003
+  - tomorrow
+  translations: *id003
+- word: burrudyara
+  type: noun
+  definitions: &id004
+  - alternative form of burudyara
+  translations: *id004
+- word: burudyara
+  type: noun
+  definitions: &id005
+  - butterfly
+  translations: *id005
+- word: dalang
+  type: noun
+  definitions: &id006
+  - tongue
+  translations: *id006
+- word: dara
+  type: noun
+  definitions: &id007
+  - tooth
+  translations: *id007
+- word: darra
+  type: noun
+  definitions: &id008
+  - leg
+  - thigh
+  translations: *id008
+- word: dingu
+  type: noun
+  definitions: &id009
+  - dingo (tame or domesticated; Canis familiaris dingo)
+  translations: *id009
+- word: dura
+  type: noun
+  definitions: &id010
+  - mosquito (insects of the family )
+  translations: *id010
+- word: dyin
+  type: noun
+  definitions: &id011
+  - woman
+  - wife
+  translations: *id011
+- word: dyinuragang
+  type: noun
+  definitions: &id012
+  - old woman
+  translations: *id012
+- word: dyuralya
+  type: noun
+  definitions: &id013
+  - brolga (Antigone rubicunda, syn. )
+  translations: *id013
+- word: gabara
+  type: noun
+  definitions: &id014
+  - head
+  translations: *id014
+- word: gan
+  type: noun
+  definitions: &id015
+  - reptile
+  - goanna
+  translations: *id015
+- word: garabara
+  type: noun
+  definitions: &id016
+  - dance, dancing (rhythmic movement)
+  - corroboree
+  translations: *id016
+- word: gawi
+  type: interjection
+  definitions: &id017
+  - come here!
+  translations: *id017
+- word: gawulgung
+  type: noun
+  definitions: &id018
+  - kangaroo
+  translations: *id018
+- word: gula
+  type: noun
+  definitions: &id019
+  - koala ()
+  translations: *id019
+- word: guni
+  type: noun
+  definitions: &id020
+  - excrement, feces, shit
+  translations: *id020
+- word: gunin bada
+  type: noun
+  definitions: &id021
+  - shit-eater (an insult)
+  translations: *id021
+- word: guri
+  type: noun
+  definitions: &id022
+  - ear
+  translations: *id022
+- word: mai
+  type: noun
+  definitions: &id023
+  - alternative form of may
+  translations: *id023
+- word: may
+  type: noun
+  definitions: &id024
+  - eye
+  translations: *id024
+- word: mayal
+  type: noun
+  definitions: &id025
+  - stranger, foreigner
+  translations: *id025
+- word: miyanung
+  type: noun
+  definitions: &id026
+  - fly, specifically Australian bush fly (Musca vetustissima)
+  translations: *id026
+- word: mugu
+  type: noun
+  definitions: &id027
+  - stone hatchet, tomahawk
+  translations: *id027
+- word: mula
+  type: noun
+  definitions: &id028
+  - man, male
+  translations: *id028
+- word: muru
+  type: noun
+  definitions: &id029
+  - path, road, way
+  translations: *id029
+- word: nangyila
+  type: noun
+  definitions: &id030
+  - telescope
+  translations: *id030
+- word: ngulun
+  type: noun
+  definitions: &id031
+  - forehead
+  translations: *id031
+- word: walaru
+  type: noun
+  definitions: &id032
+  - alternative form of wularu
+  translations: *id032
+- word: wamara
+  type: noun
+  definitions: &id033
+  - alternative form of wumara
+  translations: *id033
+- word: warada
+  type: noun
+  definitions: &id034
+  - waratah
+  translations: *id034
+- word: warrigal
+  type: noun
+  definitions: &id035
+  - alternative form of wuragal
+  translations: *id035
+- word: wiling
+  type: noun
+  definitions: &id036
+  - lips
+  translations: *id036
+- word: wirriga
+  type: noun
+  definitions: &id037
+  - goanna
+  translations: *id037
+- word: wollabi
+  type: noun
+  definitions: &id038
+  - wallaby, rock-wallaby
+  translations: *id038
+- word: wularu
+  type: noun
+  definitions: &id039
+  - wallaroo (Macropus robustus)
+  translations: *id039
+- word: wumara
+  type: noun
+  definitions: &id040
+  - woomera
+  translations: *id040
+- word: wumbat
+  type: noun
+  definitions: &id041
+  - wombat ()
+  translations: *id041
+- word: wuragal
+  type: noun
+  definitions: &id042
+  - dingo (wild and undomesticated; Canis familiaris dingo)
+  translations: *id042
+- word: yarring
+  type: noun
+  definitions: &id043
+  - beard
+  translations: *id043

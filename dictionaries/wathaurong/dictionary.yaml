@@ -1,0 +1,212 @@
+meta:
+  name: Wathaurong
+  description: Wathaurong is a Pama-Nyungan language of Victoria. Lexicon sourced from English Wiktionary
+    (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Wathaurong_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Wathaurong lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 37
+  family: Pama-Nyungan
+  glottocode: wath1238
+  iso639_3: wth
+  austlang_codes:
+  - S29
+  - S31
+  - S92
+  region: Victoria
+  coordinates:
+    lat: -37.68777565
+    lon: 144.1013148
+words:
+- word: Barrwang-Yaluk
+  type: proper-noun
+  definitions: &id001
+  - Barwon (river)
+  translations: *id001
+- word: Kunawarr-Keelingk
+  type: proper-noun
+  definitions: &id002
+  - Connewarre (lake)
+  translations: *id002
+- word: Nellemengobidj
+  type: proper-noun
+  definitions: &id003
+  - Barwon (river)
+  translations: *id003
+- word: Wirribi-Yaluk
+  type: proper-noun
+  definitions: &id004
+  - Werribee (river)
+  translations: *id004
+- word: Wurdi-Baluk
+  type: proper-noun
+  definitions: &id005
+  - Wurdiboluc (town)
+  translations: *id005
+- word: Wurdi-Yaluk
+  type: proper-noun
+  definitions: &id006
+  - Woady Yaloak (river)
+  translations: *id006
+- word: Wurdi-Yuwang
+  type: proper-noun
+  definitions: &id007
+  - You Yangs (mountain range)
+  translations: *id007
+- word: ba-gurrk
+  type: noun
+  definitions: &id008
+  - woman
+  translations: *id008
+- word: babarrang
+  type: noun
+  definitions: &id009
+  - aunt
+  translations: *id009
+- word: baluk
+  type: noun
+  definitions: &id010
+  - clan, family group
+  translations: *id010
+- word: barrmbarra
+  type: noun
+  definitions: &id011
+  - older sister
+  translations: *id011
+- word: barrwang
+  type: noun
+  definitions: &id012
+  - Australian magpie
+  translations: *id012
+- word: burrumbidj
+  type: noun
+  definitions: &id013
+  - muddy water
+  translations: *id013
+- word: dji-dji
+  type: noun
+  definitions: &id014
+  - younger brother
+  translations: *id014
+- word: djilong
+  type: noun
+  definitions: &id015
+  - tongue
+  translations: *id015
+- word: gabadj
+  type: noun
+  definitions: &id016
+  - red-tailed black cockatoo
+  translations: *id016
+- word: grugidj
+  type: noun
+  definitions: &id017
+  - sulphur-crested cockatoo
+  translations: *id017
+- word: gurrau
+  type: noun
+  definitions: &id018
+  - father
+  translations: *id018
+- word: kawirr
+  type: noun
+  definitions: &id019
+  - emu
+  translations: *id019
+- word: keelingk
+  type: noun
+  definitions: &id020
+  - lake
+  translations: *id020
+- word: kunawarr
+  type: noun
+  definitions: &id021
+  - black swan
+  translations: *id021
+- word: mirr
+  type: noun
+  definitions: &id022
+  - eye
+  translations: *id022
+- word: murrnong
+  type: noun
+  definitions: &id023
+  - yam daisy, murnong
+  translations: *id023
+- word: ngarrdang
+  type: noun
+  definitions: &id024
+  - mother
+  translations: *id024
+- word: ngarrm
+  type: noun
+  definitions: &id025
+  - tendon
+  translations: *id025
+- word: ngarrwabil
+  type: noun
+  definitions: &id026
+  - grandparent
+  translations: *id026
+- word: ngubidj
+  type: noun
+  definitions: &id027
+  - water
+  translations: *id027
+- word: tandop
+  type: noun
+  definitions: &id028
+  - uncle
+  translations: *id028
+- word: tjatjarrang
+  type: noun
+  definitions: &id029
+  - younger sister
+  translations: *id029
+- word: waa
+  type: noun
+  definitions: &id030
+  - raven
+  translations: *id030
+- word: wirribi
+  type: noun
+  definitions: &id031
+  - spine, backbone
+  translations: *id031
+- word: wirrng
+  type: noun
+  definitions: &id032
+  - ear
+  translations: *id032
+- word: wurdi
+  type: adjective
+  definitions: &id033
+  - big
+  translations: *id033
+- word: wurrung
+  type: noun
+  definitions: &id034
+  - lip
+  - speech, language
+  translations: *id034
+- word: yaluk
+  type: noun
+  definitions: &id035
+  - river, creek
+  translations: *id035
+- word: yandang
+  type: noun
+  definitions: &id036
+  - older brother
+  translations: *id036
+- word: yuwang
+  type: noun
+  definitions: &id037
+  - mountain, hill
+  translations: *id037

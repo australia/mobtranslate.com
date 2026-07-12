@@ -1,0 +1,937 @@
+meta:
+  name: Ngarrindjeri
+  description: Ngarrindjeri is a Pama-Nyungan language of South Australia. Lexicon sourced from English
+    Wiktionary (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Ngarrindjeri_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Ngarrindjeri lemmas”, English Wiktionary, retrieved
+    2026-07-12. Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 177
+  family: Pama-Nyungan
+  glottocode: narr1259
+  iso639_3: nay
+  austlang_codes:
+  - S1
+  - S11
+  - S14
+  - S19
+  - S3
+  - S69
+  - S8
+  region: South Australia
+  coordinates:
+    lat: -36.2301
+    lon: 140.158
+words:
+- word: -kald
+  type: suffix
+  definitions: &id001
+  - Suffix denoting "belonging to".
+  translations: *id001
+- word: anu nginti
+  type: interjection
+  definitions: &id002
+  - thank you
+  translations: *id002
+- word: barno
+  type: noun
+  definitions: &id003
+  - aunt (specifically paternal aunt)
+  translations: *id003
+- word: blewalawun
+  type: verb
+  definitions: &id004
+  - the act of painting.
+  translations: *id004
+- word: breki
+  type: noun
+  definitions: &id005
+  - female emu
+  translations: *id005
+- word: drekurmi
+  type: noun
+  definitions: &id006
+  - A tomahawk-like axe.
+  translations: *id006
+- word: gauwel
+  type: noun
+  definitions: &id007
+  - noon, midday.
+  translations: *id007
+- word: jammelai
+  type: numeral
+  definitions: &id008
+  - one
+  translations: *id008
+- word: kaiki
+  type: noun
+  definitions: &id009
+  - alternative spelling of kykie
+  translations: *id009
+- word: kainggaipari
+  type: noun
+  definitions: &id010
+  - policeman
+  translations: *id010
+- word: kandari
+  type: noun
+  definitions: &id011
+  - A fishing net made with chewed fibre.
+  translations: *id011
+- word: kar
+  type: pronoun
+  definitions: &id012
+  - they
+  translations: *id012
+- word: karumapuli
+  type: noun
+  definitions: &id013
+  - boobook owl
+  translations: *id013
+- word: kay hey
+  type: noun
+  definitions: &id014
+  - hurrah, encore. A shout of support.
+  translations: *id014
+- word: keni
+  type: noun
+  definitions: &id015
+  - fire
+  translations: *id015
+- word: kin
+  type: pronoun
+  definitions: &id016
+  - him
+  translations: *id016
+- word: kinauwe
+  type: pronoun
+  definitions: &id017
+  - his
+  translations: *id017
+- word: kingung
+  type: adverb
+  definitions: &id018
+  - separately, standing opposite to each other.
+  translations: *id018
+- word: kinpin
+  type: adjective
+  definitions: &id019
+  - sweet
+  translations: *id019
+- word: klapuli
+  type: noun
+  definitions: &id020
+  - bread made from wattle seeds.
+  translations: *id020
+- word: kombo
+  type: noun
+  definitions: &id021
+  - A rainbow
+  translations: *id021
+- word: kondoli
+  type: noun
+  definitions: &id022
+  - whale
+  translations: *id022
+- word: konlarru
+  type: noun
+  definitions: &id023
+  - magpie
+  translations: *id023
+- word: kopi
+  type: noun
+  definitions: &id024
+  - nose.
+  translations: *id024
+- word: korni
+  type: noun
+  definitions: &id025
+  - man
+  translations: *id025
+- word: koyi
+  type: noun
+  definitions: &id026
+  - basket
+  translations: *id026
+- word: krayi
+  type: noun
+  definitions: &id027
+  - snake
+  translations: *id027
+- word: krink
+  type: noun
+  definitions: &id028
+  - clipping of krinkari
+  translations: *id028
+- word: krinkari
+  type: noun
+  definitions: &id029
+  - ghost
+  - white man
+  - corpse
+  - underlayer of skin
+  translations: *id029
+- word: krowali
+  type: noun
+  definitions: &id030
+  - heron, specifically the white-faced heron
+  translations: *id030
+- word: kruwi
+  type: noun
+  definitions: &id031
+  - blood
+  translations: *id031
+- word: kula
+  type: noun
+  definitions: &id032
+  - male she oak tree.
+  translations: *id032
+- word: kuli
+  type: noun
+  definitions: &id033
+  - head
+  translations: *id033
+- word: kunar
+  type: noun
+  definitions: &id034
+  - excrement
+  translations: *id034
+- word: kungun
+  type: verb
+  definitions: &id035
+  - to listen.
+  translations: *id035
+- word: kuri
+  type: noun
+  definitions: &id036
+  - neck
+  - river
+  - voice
+  translations: *id036
+- word: kurlinyeri
+  type: noun
+  definitions: &id037
+  - hat
+  translations: *id037
+- word: kykie
+  type: noun
+  definitions: &id038
+  - A spear of between 150 and 180 centimetres length and one and one and a half centimetres diameter,
+    made from the reeds that grow on the banks of rivers, lakes and billabongs of southern Australia.
+    Usually used in conjunction with a thyrallghie.
+  translations: *id038
+- word: kykulan
+  type: noun
+  definitions: &id039
+  - choir
+  translations: *id039
+- word: laialdurar
+  type: noun
+  definitions: &id040
+  - a loaf of bread.
+  - a large piece of gum composed of a number of drops stuck together.
+  translations: *id040
+- word: laklinyeri
+  type: noun
+  definitions: &id041
+  - clan
+  translations: *id041
+- word: lauwari
+  type: noun
+  definitions: &id042
+  - goose, specifically Cape Barren Goose.
+  translations: *id042
+- word: lewun
+  type: verb
+  definitions: &id043
+  - to sit
+  - residing (in a particular place).
+  translations: *id043
+- word: lompalampi
+  type: noun
+  definitions: &id044
+  - butterfly
+  translations: *id044
+- word: Markeri
+  type: proper-noun
+  definitions: &id045
+  - The Moon.
+  translations: *id045
+- word: Nebalee
+  type: proper-noun
+  definitions: &id046
+  - Ruler of Wyerriewarr, Great man of the stars.
+  translations: *id046
+- word: Ngarrindjeri
+  type: proper-noun
+  definitions: &id047
+  - people, the people
+  translations: *id047
+- word: maikari
+  type: noun
+  definitions: &id048
+  - The eastern hare-wallaby, †Lagorchestes leporides, now extinct.
+  translations: *id048
+- word: mame
+  type: noun
+  definitions: &id049
+  - Food derived from an animal, meat.
+  translations: *id049
+- word: marangani
+  type: noun
+  definitions: &id050
+  - crow
+  translations: *id050
+- word: markuldi
+  type: adjective
+  definitions: &id051
+  - alive
+  translations: *id051
+- word: mayinggar
+  type: noun
+  definitions: &id052
+  - clothes
+  translations: *id052
+- word: mayoo kombo
+  type: noun
+  definitions: &id053
+  - the outer, male section of a rainbow.
+  translations: *id053
+- word: meinangi
+  type: noun
+  definitions: &id054
+  - the place of mudflats
+  translations: *id054
+- word: mengye
+  type: adverb
+  definitions: &id055
+  - how
+  translations: *id055
+- word: meyokkey
+  type: noun
+  definitions: &id056
+  - lobster
+  translations: *id056
+- word: miluri
+  type: noun
+  definitions: &id057
+  - possum
+  translations: *id057
+- word: miluriwatitji
+  type: noun
+  definitions: &id058
+  - koala
+  translations: *id058
+- word: mimini
+  type: noun
+  definitions: &id059
+  - woman
+  translations: *id059
+- word: minye
+  type: pronoun
+  definitions: &id060
+  - what
+  translations: *id060
+- word: mitji
+  type: noun
+  definitions: &id061
+  - name
+  translations: *id061
+- word: moimoiri
+  type: noun
+  definitions: &id062
+  - wombat
+  translations: *id062
+- word: molotulun
+  type: verb
+  definitions: &id063
+  - The ebbing and flowing of the waves on Lake Alexandrina, South Australia.
+  translations: *id063
+- word: mooncumbulli
+  type: noun
+  definitions: &id064
+  - wise old man, sage.
+  translations: *id064
+- word: muldarpi
+  type: noun
+  definitions: &id065
+  - demon
+  translations: *id065
+- word: muldhari
+  type: noun
+  definitions: &id066
+  - (whitebacked) magpie (Gymnorhina hypoleuca)
+  translations: *id066
+- word: muldjewangk
+  type: noun
+  definitions: &id067
+  - bunyip
+  translations: *id067
+- word: muni
+  type: noun
+  definitions: &id068
+  - mosquito
+  translations: *id068
+- word: munthari
+  type: noun
+  definitions: &id069
+  - a fruit with a taste similar to that of an apple.
+  translations: *id069
+- word: munti
+  type: noun
+  definitions: &id070
+  - thunder
+  translations: *id070
+- word: muruli
+  type: noun
+  definitions: &id071
+  - mosquito
+  translations: *id071
+- word: muthanu
+  type: noun
+  definitions: &id072
+  - paternal grandmother
+  translations: *id072
+- word: nakan
+  type: noun
+  definitions: &id073
+  - see you later. The future tense of nakun.
+  translations: *id073
+- word: nakun
+  type: verb
+  definitions: &id074
+  - seeing, looking at.
+  translations: *id074
+- word: nam
+  type: pronoun
+  definitions: &id075
+  - us
+  translations: *id075
+- word: ngadhungi
+  type: noun
+  definitions: &id076
+  - sorcery, specifically when disease is inflicted upon the victim.
+  translations: *id076
+- word: nganhari
+  type: noun
+  definitions: &id077
+  - money
+  translations: *id077
+- word: ngapi
+  type: pronoun
+  definitions: &id078
+  - I; the first person singular emphatic personal pronoun.
+  translations: *id078
+- word: ngaratta
+  type: noun
+  definitions: &id079
+  - bier
+  translations: *id079
+- word: ngarrarrar
+  type: noun
+  definitions: &id080
+  - a place of sheoak trees
+  translations: *id080
+- word: ngartari
+  type: noun
+  definitions: &id081
+  - butterfly
+  - moth
+  translations: *id081
+- word: ngartjie
+  type: noun
+  definitions: &id082
+  - totem.
+  translations: *id082
+- word: ngatat
+  type: noun
+  definitions: &id083
+  - egg
+  translations: *id083
+- word: ngatjagha
+  type: pronoun
+  definitions: &id084
+  - us
+  translations: *id084
+- word: ngatjurtul
+  type: noun
+  definitions: &id085
+  - place of birth, hometown.
+  translations: *id085
+- word: ngrilkulun
+  type: verb
+  definitions: &id086
+  - ceremonial singing and dancing.
+  translations: *id086
+- word: ngrilkulun
+  type: noun
+  definitions: &id087
+  - corroboree
+  translations: *id087
+- word: nguk
+  type: noun
+  definitions: &id088
+  - water
+  translations: *id088
+- word: nguldi arndu
+  type: interjection
+  definitions: &id089
+  - welcome (greeting upon arrival).
+  translations: *id089
+- word: Nungge
+  type: proper-noun
+  definitions: &id090
+  - The Sun.
+  translations: *id090
+- word: ngumperi
+  type: noun
+  definitions: &id091
+  - milk
+  translations: *id091
+- word: ngurn
+  type: pronoun
+  definitions: &id092
+  - we, by us.
+  translations: *id092
+- word: ngurtun
+  type: verb
+  definitions: &id093
+  - searching for or seeking something.
+  translations: *id093
+- word: noppun
+  type: verb
+  definitions: &id094
+  - to walk.
+  translations: *id094
+- word: nori
+  type: noun
+  definitions: &id095
+  - pelican, specifically the Australian pelican (), a large water bird with the largest bill in the avian
+    world.
+  translations: *id095
+- word: nragi
+  type: adjective
+  definitions: &id096
+  - very good, exceptional
+  translations: *id096
+- word: nripun
+  type: verb
+  definitions: &id097
+  - wipe
+  translations: *id097
+- word: nrugi
+  type: noun
+  definitions: &id098
+  - mucous
+  translations: *id098
+- word: nukkin
+  type: noun
+  definitions: &id099
+  - alternative spelling of nakan
+  translations: *id099
+- word: nunggi
+  type: noun
+  definitions: &id100
+  - day, the period between dawn and dusk.
+  translations: *id100
+- word: pakanu
+  type: noun
+  definitions: &id101
+  - maternal grandmother
+  translations: *id101
+- word: palpi
+  type: adjective
+  definitions: &id102
+  - white
+  translations: *id102
+- word: panketyi
+  type: noun
+  definitions: &id103
+  - boomerang
+  translations: *id103
+- word: pargi
+  type: noun
+  definitions: &id104
+  - wallaby
+  translations: *id104
+- word: parni
+  type: noun
+  definitions: &id105
+  - rain
+  translations: *id105
+- word: peewingie
+  type: noun
+  definitions: &id106
+  - wedge-tailed eagle, eaglehawk, (), the largest raptor in Australia.
+  translations: *id106
+- word: pida
+  type: noun
+  definitions: &id107
+  - toe
+  translations: *id107
+- word: pillulkie
+  type: noun
+  definitions: &id108
+  - perch, specifically, the golden perch of the order found throughout the Murray/Darling river system
+    in Australia.
+  translations: *id108
+- word: pininggi
+  type: noun
+  definitions: &id109
+  - anus, bottom
+  translations: *id109
+- word: pinyali
+  type: noun
+  definitions: &id110
+  - emu
+  translations: *id110
+- word: plebi
+  type: noun
+  definitions: &id111
+  - the western black wattle (Acacia hakeoides).
+  translations: *id111
+- word: plombatji
+  type: adjective
+  definitions: &id112
+  - deaf
+  translations: *id112
+- word: plombi
+  type: noun
+  definitions: &id113
+  - ear
+  translations: *id113
+- word: pondi
+  type: noun
+  definitions: &id114
+  - Murray cod (Maccullochella peelii), a large freshwater fish found in the Murray-Darling river system.
+  translations: *id114
+- word: porli
+  type: noun
+  definitions: &id115
+  - child
+  translations: *id115
+- word: porun
+  type: verb
+  definitions: &id116
+  - to remember
+  translations: *id116
+- word: pu:thi
+  type: noun
+  definitions: &id117
+  - banknote
+  translations: *id117
+- word: pulanggi
+  type: noun
+  definitions: &id118
+  - navel
+  translations: *id118
+- word: pulpulumi
+  type: noun
+  definitions: &id119
+  - outcast
+  translations: *id119
+- word: pummerrie
+  type: noun
+  definitions: &id120
+  - catfish, specifically that found in the lakes and rivers of the Ngarrindjeri's traditional lands in
+    southern Australia.
+  translations: *id120
+- word: putari
+  type: noun
+  definitions: &id121
+  - doctor
+  - midwife
+  translations: *id121
+- word: ringballin
+  type: verb
+  definitions: &id122
+  - the act of singing.
+  translations: *id122
+- word: ringballin
+  type: noun
+  definitions: &id123
+  - a corroboree.
+  translations: *id123
+- word: ritjuruki
+  type: noun
+  definitions: &id124
+  - the willie wagtail (Rhipidura leucophrys), a common passerine native to Australia, New Guinea, the
+    Solomon Islands, the Bismarck Archipelago, and eastern Indonesia.
+  translations: *id124
+- word: rtulatji
+  type: noun
+  definitions: &id125
+  - A toolache wallaby, of the extinct species †Notamacropus greyi.
+  translations: *id125
+- word: rupelli
+  type: noun
+  definitions: &id126
+  - elected leader of the Ngarrindjeri nation.
+  - chief.
+  - landowner.
+  translations: *id126
+- word: ruwe
+  type: noun
+  definitions: &id127
+  - land
+  - country
+  translations: *id127
+- word: ruwi
+  type: noun
+  definitions: &id128
+  - alternative spelling of ruwe
+  translations: *id128
+- word: tagalang
+  type: noun
+  definitions: &id129
+  - bend (of a river)
+  translations: *id129
+- word: tallanggi
+  type: noun
+  definitions: &id130
+  - tongue
+  translations: *id130
+- word: tambarangal
+  type: verb
+  definitions: &id131
+  - travelled over
+  translations: *id131
+- word: tampali
+  type: noun
+  definitions: &id132
+  - fly, in particular the March fly or horse fly
+  translations: *id132
+- word: tcherie
+  type: noun
+  definitions: &id133
+  - freshwater bream, found in the lakes and rivers of the Ngarrindjeri's traditional lands in southern
+    Australia.
+  translations: *id133
+- word: -un
+  type: suffix
+  definitions: &id134
+  - Suffix denoting present tense.
+  translations: *id134
+- word: Wyerriewarr
+  type: proper-noun
+  definitions: &id135
+  - home of the spirits; heaven.
+  translations: *id135
+- word: tendi
+  type: noun
+  definitions: &id136
+  - parliament
+  - judgement
+  translations: *id136
+- word: tenkendeli
+  type: noun
+  definitions: &id137
+  - green bottle fly
+  translations: *id137
+- word: throkeri
+  type: noun
+  definitions: &id138
+  - seagull, specifically the silver gull ().
+  translations: *id138
+- word: thukeri
+  type: noun
+  definitions: &id139
+  - bony bream (Nematalosa erebi); a common, small to medium sized freshwater fish found throughout much
+    of Australia. Under Ngarrindjeri custom, women were forbidden to eat thukeri.
+  translations: *id139
+- word: thumpamarldi
+  type: noun
+  definitions: &id140
+  - sorcerer
+  translations: *id140
+- word: thuyuni
+  type: noun
+  definitions: &id141
+  - large goanna
+  translations: *id141
+- word: thyrallghie
+  type: noun
+  definitions: &id142
+  - A spearthrower consisting of a long, thin piece of wood with a hooked end to hold the kykie (spear).
+  translations: *id142
+- word: tilitili
+  type: noun
+  definitions: &id143
+  - magpie lark, piwi, Murray magpie
+  translations: *id143
+- word: tirkuri
+  type: noun
+  definitions: &id144
+  - budgerigar
+  translations: *id144
+- word: tiyungi
+  type: noun
+  definitions: &id145
+  - goanna, iguana, snake
+  translations: *id145
+- word: tjilhi
+  type: noun
+  definitions: &id146
+  - the common Australian fly (musca vetustissima)
+  translations: *id146
+- word: tjiwa
+  type: noun
+  definitions: &id147
+  - the shore or shoreline
+  translations: *id147
+- word: tloperi
+  type: noun
+  definitions: &id148
+  - ibis, particularly the glossy ibis ().
+  translations: *id148
+- word: tore
+  type: noun
+  definitions: &id149
+  - mouth
+  translations: *id149
+- word: tulanggi
+  type: noun
+  definitions: &id150
+  - (play) boomerang (for children)
+  translations: *id150
+- word: tuldi
+  type: noun
+  definitions: &id151
+  - a star
+  translations: *id151
+- word: tune
+  type: noun
+  definitions: &id152
+  - sand
+  translations: *id152
+- word: tungari
+  type: noun
+  definitions: &id153
+  - gum from the wattle tree.
+  - secret language
+  translations: *id153
+- word: tungi
+  type: noun
+  definitions: &id154
+  - female she oak tree.
+  translations: *id154
+- word: ummaiche kombo
+  type: noun
+  definitions: &id155
+  - The inner, female section of a rainbow.
+  translations: *id155
+- word: walakari
+  type: noun
+  definitions: &id156
+  - grass (specifically ) with edible seeds.
+  translations: *id156
+- word: waldi
+  type: noun
+  definitions: &id157
+  - hot
+  translations: *id157
+- word: wanar
+  type: noun
+  definitions: &id158
+  - boomerang
+  translations: *id158
+- word: wargi
+  type: noun
+  definitions: &id159
+  - wallaby
+  translations: *id159
+- word: whalie
+  type: noun
+  definitions: &id160
+  - A camp made of boughs and rushes or reeds.
+  translations: *id160
+- word: wi:kwai
+  type: noun
+  definitions: &id161
+  - pig-footed bandicoot (Chaeropus ecaudatus).
+  translations: *id161
+- word: wrukun
+  type: verb
+  definitions: &id162
+  - The act of swimming.
+  translations: *id162
+- word: wurangi
+  type: noun
+  definitions: &id163
+  - crazy, mad.
+  translations: *id163
+- word: wurri
+  type: noun
+  definitions: &id164
+  - the seed from a wattle bush.
+  translations: *id164
+- word: wurruldi
+  type: noun
+  definitions: &id165
+  - An acacia or wattle tree.
+  translations: *id165
+- word: wururi
+  type: noun
+  definitions: &id166
+  - huntsman spider
+  translations: *id166
+- word: yali
+  type: noun
+  definitions: &id167
+  - a small young kangaroo, a joey
+  translations: *id167
+- word: yalkari
+  type: noun
+  definitions: &id168
+  - reed, specifically the common reed ().
+  translations: *id168
+- word: yandiorn
+  type: noun
+  definitions: &id169
+  - old man
+  translations: *id169
+- word: yanun
+  type: verb
+  definitions: &id170
+  - speaking
+  translations: *id170
+- word: yarli
+  type: noun
+  definitions: &id171
+  - male emu
+  translations: *id171
+- word: yarluke
+  type: noun
+  definitions: &id172
+  - road
+  translations: *id172
+- word: yarluki
+  type: noun
+  definitions: &id173
+  - footprint
+  translations: *id173
+- word: yarluwar
+  type: noun
+  definitions: &id174
+  - the ocean or sea.
+  translations: *id174
+- word: yarteki
+  type: noun
+  definitions: &id175
+  - teenage girl
+  translations: *id175
+- word: yayun
+  type: verb
+  definitions: &id176
+  - I am eating.
+  translations: *id176
+- word: yerungi
+  type: noun
+  definitions: &id177
+  - a hammer stone used to smash seeds.
+  translations: *id177

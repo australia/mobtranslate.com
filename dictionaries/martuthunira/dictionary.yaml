@@ -1,0 +1,585 @@
+meta:
+  name: Martuthunira
+  description: Martuthunira is a Pama-Nyungan language of Western Australia. Lexicon sourced from English
+    Wiktionary (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Martuthunira_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Martuthunira lemmas”, English Wiktionary, retrieved
+    2026-07-12. Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 110
+  family: Pama-Nyungan
+  glottocode: mart1255
+  iso639_3: vma
+  austlang_codes:
+  - W35
+  region: Western Australia
+  coordinates:
+    lat: -20.9294
+    lon: 116.607
+words:
+- word: jaat
+  type: noun
+  definitions: &id001
+  - shirt
+  translations: *id001
+- word: jal.yu
+  type: noun
+  definitions: &id002
+  - occiput
+  translations: *id002
+- word: jalya
+  type: adjective
+  definitions: &id003
+  - no good, useless, rubbish
+  - bereaved, bereft, grieving
+  translations: *id003
+- word: jamanu
+  type: noun
+  definitions: &id004
+  - foot
+  translations: *id004
+- word: jami
+  type: noun
+  definitions: &id005
+  - bush medicine
+  translations: *id005
+- word: jampajampa
+  type: adjective
+  definitions: &id006
+  - near death
+  translations: *id006
+- word: jamulu
+  type: noun
+  definitions: &id007
+  - mouth
+  translations: *id007
+- word: jamulungkura
+  type: noun
+  definitions: &id008
+  - moustache
+  translations: *id008
+- word: jankalwayara
+  type: noun
+  definitions: &id009
+  - policeman
+  translations: *id009
+- word: jankurna
+  type: noun
+  definitions: &id010
+  - emu
+  translations: *id010
+- word: janta
+  type: noun
+  definitions: &id011
+  - crippled, lame
+  translations: *id011
+- word: jantira
+  type: noun
+  definitions: &id012
+  - old woman
+  translations: *id012
+- word: jarra
+  type: noun
+  definitions: &id013
+  - whistling kite ()
+  translations: *id013
+- word: jarrkurti
+  type: noun
+  definitions: &id014
+  - three
+  translations: *id014
+- word: jarru
+  type: noun
+  definitions: &id015
+  - march fly
+  translations: *id015
+- word: jiinngu
+  type: noun
+  definitions: &id016
+  - a type of grevillea, Grevillea pyramidalis
+  translations: *id016
+- word: jilimpilyura
+  type: noun
+  definitions: &id017
+  - peewee, mudlark, magpie-lark
+  translations: *id017
+- word: jilingka
+  type: noun
+  definitions: &id018
+  - on horseback
+  translations: *id018
+- word: jimpu
+  type: noun
+  definitions: &id019
+  - egg
+  translations: *id019
+- word: jina
+  type: noun
+  definitions: &id020
+  - Track, footprint.
+  - Foot.
+  translations: *id020
+- word: jinamirtali
+  type: noun
+  definitions: &id021
+  - camel
+  translations: *id021
+- word: jinpi
+  type: noun
+  definitions: &id022
+  - plate
+  translations: *id022
+- word: jintijinti
+  type: noun
+  definitions: &id023
+  - Willie wagtail
+  translations: *id023
+- word: jiri
+  type: noun
+  definitions: &id024
+  - spine, thorn
+  translations: *id024
+- word: jirli
+  type: noun
+  definitions: &id025
+  - upper arm
+  - fin of a turtle or fish
+  translations: *id025
+- word: jirti
+  type: noun
+  definitions: &id026
+  - spark
+  translations: *id026
+- word: jiruna
+  type: noun
+  definitions: &id027
+  - Australian pelican
+  translations: *id027
+- word: jiwa
+  type: adjective
+  definitions: &id028
+  - surprised
+  translations: *id028
+- word: julyu
+  type: noun
+  definitions: &id029
+  - old man
+  translations: *id029
+- word: jurlu
+  type: noun
+  definitions: &id030
+  - all
+  translations: *id030
+- word: juwayu
+  type: noun
+  definitions: &id031
+  - hand
+  translations: *id031
+- word: juwayumarta
+  type: noun
+  definitions: &id032
+  - doctor
+  translations: *id032
+- word: kaara
+  type: noun
+  definitions: &id033
+  - hip
+  translations: *id033
+- word: kaju
+  type: noun
+  definitions: &id034
+  - axe
+  translations: *id034
+- word: kalika
+  type: numeral
+  definitions: &id035
+  - one
+  translations: *id035
+- word: kaparli
+  type: noun
+  definitions: &id036
+  - The sister of one's maternal grandfather.
+  translations: *id036
+- word: kartu
+  type: pronoun
+  definitions: &id037
+  - thou, you (2nd person singular nominative pronoun)
+  translations: *id037
+- word: kawarli
+  type: noun
+  definitions: &id038
+  - paternal grandmother, father's mother
+  translations: *id038
+- word: kayarra
+  type: numeral
+  definitions: &id039
+  - two
+  translations: *id039
+- word: kayulu
+  type: noun
+  definitions: &id040
+  - water
+  translations: *id040
+- word: kukunyjayi
+  type: noun
+  definitions: &id041
+  - sheep
+  translations: *id041
+- word: kulhampa
+  type: noun
+  definitions: &id042
+  - fish
+  translations: *id042
+- word: kuna
+  type: noun
+  definitions: &id043
+  - dung, poo, excrement, shit
+  translations: *id043
+- word: kunhan
+  type: noun
+  definitions: &id044
+  - nipple
+  translations: *id044
+- word: kunthamarta
+  type: noun
+  definitions: &id045
+  - a Chinese man, Chinaman
+  translations: *id045
+- word: Martuthunira
+  type: noun
+  definitions: &id046
+  - Martuthunira.
+  translations: *id046
+- word: kurilkura
+  type: noun
+  definitions: &id047
+  - pacific gull
+  translations: *id047
+- word: malumalu
+  type: noun
+  definitions: &id048
+  - darkness
+  translations: *id048
+- word: mama
+  type: noun
+  definitions: &id049
+  - paternal uncle (one’s father’s brother)
+  translations: *id049
+- word: manpurr
+  type: noun
+  definitions: &id050
+  - knee
+  translations: *id050
+- word: mara
+  type: noun
+  definitions: &id051
+  - hand
+  translations: *id051
+- word: mari
+  type: noun
+  definitions: &id052
+  - younger sister
+  translations: *id052
+- word: marra
+  type: noun
+  definitions: &id053
+  - wing
+  - flipper
+  translations: *id053
+- word: martiju
+  type: noun
+  definitions: &id054
+  - paternal aunt, one's father's sister
+  translations: *id054
+- word: mayili
+  type: noun
+  definitions: &id055
+  - paternal grandfather, father's father.
+  translations: *id055
+- word: miyu
+  type: noun
+  definitions: &id056
+  - cat
+  translations: *id056
+- word: mulha
+  type: noun
+  definitions: &id057
+  - Nose.
+  translations: *id057
+- word: mulhajurirri
+  type: noun
+  definitions: &id058
+  - red fox
+  translations: *id058
+- word: mulyira
+  type: noun
+  definitions: &id059
+  - dingo
+  translations: *id059
+- word: mungka-
+  type: verb
+  definitions: &id060
+  - to eat
+  translations: *id060
+- word: mungkannguntharri
+  type: noun
+  definitions: &id061
+  - edible animal
+  translations: *id061
+- word: muyi
+  type: noun
+  definitions: &id062
+  - dog
+  translations: *id062
+- word: ngali
+  type: pronoun
+  definitions: &id063
+  - We two, you and I (first person dual inclusive pronoun)
+  translations: *id063
+- word: ngaliwa
+  type: pronoun
+  definitions: &id064
+  - we (including you) (first person plural inclusive pronoun)
+  translations: *id064
+- word: ngaliya
+  type: pronoun
+  definitions: &id065
+  - we two (not including you), he/she and I (first person dual exclusive pronoun)
+  translations: *id065
+- word: nganarna
+  type: pronoun
+  definitions: &id066
+  - We (not including you) (first person plural exclusive pronoun)
+  translations: *id066
+- word: nganthari
+  type: noun
+  definitions: &id067
+  - tooth
+  - sharp
+  translations: *id067
+- word: ngarnngarn
+  type: noun
+  definitions: &id068
+  - chin
+  translations: *id068
+- word: ngayu
+  type: pronoun
+  definitions: &id069
+  - I (first person singular nominative pronoun)
+  translations: *id069
+- word: nguu
+  type: noun
+  definitions: &id070
+  - face
+  translations: *id070
+- word: nhawu-
+  type: verb
+  definitions: &id071
+  - to see
+  translations: *id071
+- word: nhunawa
+  type: pronoun
+  definitions: &id072
+  - you (second person plural pronoun)
+  translations: *id072
+- word: nhuwala
+  type: pronoun
+  definitions: &id073
+  - you two (second person singular dual pronoun)
+  translations: *id073
+- word: nyina-
+  type: verb
+  definitions: &id074
+  - to sit
+  translations: *id074
+- word: nyingkurluwinparri
+  type: noun
+  definitions: &id075
+  - horse
+  translations: *id075
+- word: palalyi
+  type: pronoun
+  definitions: &id076
+  - Before; earlier.
+  translations: *id076
+- word: paniya
+  type: noun
+  definitions: &id077
+  - eye
+  translations: *id077
+- word: parla
+  type: noun
+  definitions: &id078
+  - money
+  - rock, stone
+  - hill
+  translations: *id078
+- word: parna
+  type: noun
+  definitions: &id079
+  - head
+  translations: *id079
+- word: patha-
+  type: verb
+  definitions: &id080
+  - to hit with a missile
+  translations: *id080
+- word: pirlu
+  type: noun
+  definitions: &id081
+  - Upper buttocks.
+  translations: *id081
+- word: purnijikarta
+  type: noun
+  definitions: &id082
+  - The shell of a tortoise or turtle.
+  translations: *id082
+- word: puwa
+  type: adjective
+  definitions: &id083
+  - rotten
+  translations: *id083
+- word: thal.ya
+  type: noun
+  definitions: &id084
+  - footprint
+  translations: *id084
+- word: thaliman
+  type: noun
+  definitions: &id085
+  - horseman
+  translations: *id085
+- word: thanuwa
+  type: noun
+  definitions: &id086
+  - vegetable food, tucker
+  - bread
+  translations: *id086
+- word: thawi
+  type: noun
+  definitions: &id087
+  - A type of song.
+  translations: *id087
+- word: thuli
+  type: noun
+  definitions: &id088
+  - tawny frogmouth
+  translations: *id088
+- word: thurla
+  type: noun
+  definitions: &id089
+  - Eye.
+  translations: *id089
+- word: waari
+  type: noun
+  definitions: &id090
+  - fish
+  translations: *id090
+- word: wangka-
+  type: verb
+  definitions: &id091
+  - speak; make a sound (of both humans and animals)
+  translations: *id091
+- word: warla
+  type: noun
+  definitions: &id092
+  - heel
+  translations: *id092
+- word: warli
+  type: noun
+  definitions: &id093
+  - bottom lip
+  translations: *id093
+- word: warlu
+  type: noun
+  definitions: &id094
+  - snake
+  translations: *id094
+- word: warruwa
+  type: noun
+  definitions: &id095
+  - Ghost, devil.
+  - White man, European.
+  translations: *id095
+- word: warta
+  type: noun
+  definitions: &id096
+  - forehead
+  translations: *id096
+- word: wirlu
+  type: noun
+  definitions: &id097
+  - the blackheart tree (probably an acacia such as Acacia coriacea, or some other species native to the
+    Pilbara region of Western Australia, or Acacia melanoxylon, known as blackwood, but native to eastern
+    Australia)
+  translations: *id097
+- word: wirti
+  type: noun
+  definitions: &id098
+  - pearl shell
+  translations: *id098
+- word: wiyaa
+  type: particle
+  definitions: &id099
+  - maybe
+  translations: *id099
+- word: wuyu
+  type: noun
+  definitions: &id100
+  - river
+  translations: *id100
+- word: yaji
+  type: noun
+  definitions: &id101
+  - The father of one's wife; father-in-law.
+  translations: *id101
+- word: yalhuru
+  type: noun
+  definitions: &id102
+  - Tongue.
+  translations: *id102
+- word: yinyjin
+  type: noun
+  definitions: &id103
+  - engine
+  translations: *id103
+- word: yiri
+  type: noun
+  definitions: &id104
+  - the point of a spear
+  translations: *id104
+- word: yiriny
+  type: noun
+  definitions: &id105
+  - Mosquito.
+  translations: *id105
+- word: yirra
+  type: noun
+  definitions: &id106
+  - tooth
+  translations: *id106
+- word: yumini
+  type: noun
+  definitions: &id107
+  - The elder brother of one's father.
+  translations: *id107
+- word: yungkartanyu
+  type: noun
+  definitions: &id108
+  - blood
+  translations: *id108
+- word: yuru
+  type: noun
+  definitions: &id109
+  - milk
+  translations: *id109
+- word: yuya
+  type: noun
+  definitions: &id110
+  - quail
+  translations: *id110

@@ -1,0 +1,226 @@
+meta:
+  name: Mudburra
+  description: Mudburra is a Pama-Nyungan language of Northern Territory. Lexicon sourced from English
+    Wiktionary (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Mudburra_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Mudburra lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 38
+  family: Pama-Nyungan
+  glottocode: mudb1240
+  iso639_3: dmw
+  austlang_codes:
+  - C21
+  - C25
+  - C33
+  - C36
+  region: Northern Territory
+  coordinates:
+    lat: -16.7694
+    lon: 132.329
+words:
+- word: Arrarnda
+  type: noun
+  definitions: &id001
+  - The Arrernte people
+  translations: *id001
+- word: Ngurrkbana
+  type: noun
+  definitions: &id002
+  - Rainbow Serpent
+  translations: *id002
+- word: abaaba
+  type: noun
+  definitions: &id003
+  - clothes
+  translations: *id003
+- word: babalu
+  type: noun
+  definitions: &id004
+  - buffalo
+  translations: *id004
+- word: bakuru
+  type: noun
+  definitions: &id005
+  - golden bandicoot
+  translations: *id005
+- word: bala
+  type: noun
+  definitions: &id006
+  - inland snake-eyed skink, a small tree-dwelling lizard in inland Australia.
+  translations: *id006
+- word: bama
+  type: noun
+  definitions: &id007
+  - adze
+  translations: *id007
+- word: bambu
+  type: noun
+  definitions: &id008
+  - didgeridoo
+  translations: *id008
+- word: bukbukbini
+  type: noun
+  definitions: &id009
+  - pheasant coucal
+  translations: *id009
+- word: burrunjawurni
+  type: noun
+  definitions: &id010
+  - quail
+  translations: *id010
+- word: dalmurrana
+  type: noun
+  definitions: &id011
+  - blue-winged kookaburra
+  translations: *id011
+- word: damburrngarna
+  type: noun
+  definitions: &id012
+  - spoonbill
+  translations: *id012
+- word: didiyija
+  type: noun
+  definitions: &id013
+  - magpie-lark
+  translations: *id013
+- word: dimana
+  type: noun
+  definitions: &id014
+  - horse
+  translations: *id014
+- word: dirdila
+  type: noun
+  definitions: &id015
+  - kestrel
+  translations: *id015
+- word: dirrakin
+  type: noun
+  definitions: &id016
+  - red-tailed black cockatoo
+  translations: *id016
+- word: dirridirrija
+  type: noun
+  definitions: &id017
+  - magpie-lark
+  translations: *id017
+- word: dirrjirrirna
+  type: noun
+  definitions: &id018
+  - masked lapwing
+  translations: *id018
+- word: diyi
+  type: noun
+  definitions: &id019
+  - tea
+  translations: *id019
+- word: kayini
+  type: verb
+  definitions: &id020
+  - to be
+  - to sit
+  translations: *id020
+- word: kujarra
+  type: numeral
+  definitions: &id021
+  - two
+  translations: *id021
+- word: kula
+  type: particle
+  definitions: &id022
+  - not (negative particle)
+  translations: *id022
+- word: lirra
+  type: noun
+  definitions: &id023
+  - mouth
+  - lip
+  - tooth
+  translations: *id023
+- word: murdika
+  type: noun
+  definitions: &id024
+  - car
+  - vehicle
+  translations: *id024
+- word: murrkuna
+  type: numeral
+  definitions: &id025
+  - three
+  translations: *id025
+- word: ngajala
+  type: noun
+  definitions: &id026
+  - sister-in-law
+  translations: *id026
+- word: ngayi
+  type: pronoun
+  definitions: &id027
+  - I
+  translations: *id027
+- word: ngujku
+  type: noun
+  definitions: &id028
+  - voice
+  translations: *id028
+- word: nguknguk
+  type: noun
+  definitions: &id029
+  - magpie-goose
+  translations: *id029
+- word: nguku
+  type: noun
+  definitions: &id030
+  - water
+  - drinking water or any other drink (except milk), especially beer
+  - rain
+  - a body of water; a lake, a river
+  translations: *id030
+- word: ngurrngurrngarna
+  type: noun
+  definitions: &id031
+  - pig
+  translations: *id031
+- word: nguruwaji
+  type: noun
+  definitions: &id032
+  - budgie
+  translations: *id032
+- word: nirrungarda
+  type: noun
+  definitions: &id033
+  - cicada
+  translations: *id033
+- word: wurruburdkarra
+  type: noun
+  definitions: &id034
+  - pheasant coucal
+  translations: *id034
+- word: yirribudbudba
+  type: noun
+  definitions: &id035
+  - pheasant coucal
+  translations: *id035
+- word: yuu
+  type: interjection
+  definitions: &id036
+  - 'yes'
+  translations: *id036
+- word: yuwayi
+  type: interjection
+  definitions: &id037
+  - 'yes'
+  translations: *id037
+- word: yuwulu
+  type: noun
+  definitions: &id038
+  - ground
+  - earth
+  - dust
+  translations: *id038

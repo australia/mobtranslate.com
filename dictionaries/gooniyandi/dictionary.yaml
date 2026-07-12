@@ -1,0 +1,345 @@
+meta:
+  name: Gooniyandi
+  description: Gooniyandi is a Bunaban language of Western Australia. Lexicon sourced from English Wiktionary
+    (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Gooniyandi_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Gooniyandi lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 63
+  family: Bunaban
+  glottocode: goon1238
+  iso639_3: gni
+  austlang_codes:
+  - K6
+  region: Western Australia
+  coordinates:
+    lat: -18.4073
+    lon: 126.351
+words:
+- word: baarndi
+  type: noun
+  definitions: &id001
+  - spider
+  translations: *id001
+- word: baga
+  type: noun
+  definitions: &id002
+  - bindi-eye, bindii, bindies
+  translations: *id002
+- word: balga
+  type: noun
+  definitions: &id003
+  - barramundi ()
+  translations: *id003
+- word: balnganyja
+  type: noun
+  definitions: &id004
+  - sulphur-crested cockatoo
+  translations: *id004
+- word: bamboo
+  type: noun
+  definitions: &id005
+  - didgeridoo
+  translations: *id005
+- word: banda
+  type: noun
+  definitions: &id006
+  - the ground
+  - dirt
+  translations: *id006
+- word: barawoo
+  type: noun
+  definitions: &id007
+  - female kangaroo
+  translations: *id007
+- word: barndi
+  type: noun
+  definitions: &id008
+  - arm
+  translations: *id008
+- word: bilinyi
+  type: noun
+  definitions: &id009
+  - tick
+  translations: *id009
+- word: birdi
+  type: noun
+  definitions: &id010
+  - thigh
+  translations: *id010
+- word: birrinyooloo
+  type: noun
+  definitions: &id011
+  - wasp
+  translations: *id011
+- word: booloomani
+  type: noun
+  definitions: &id012
+  - cow, cattle
+  translations: *id012
+- word: burnduwarli
+  type: noun
+  definitions: &id013
+  - headband
+  translations: *id013
+- word: dimana
+  type: noun
+  definitions: &id014
+  - horse
+  translations: *id014
+- word: diyadiya
+  type: noun
+  definitions: &id015
+  - peewee, magpie-lark
+  translations: *id015
+- word: doo
+  type: noun
+  definitions: &id016
+  - cave
+  translations: *id016
+- word: dooloo
+  type: noun
+  definitions: &id017
+  - heart
+  translations: *id017
+- word: galwaya
+  type: noun
+  definitions: &id018
+  - canoe
+  translations: *id018
+- word: gamba
+  type: noun
+  definitions: &id019
+  - water
+  - wet season
+  - year (because years are measured from one wet season to the next)
+  translations: *id019
+- word: garanyi
+  type: noun
+  definitions: &id020
+  - heated stones for cooking
+  - bullet
+  - rifle
+  translations: *id020
+- word: garingi
+  type: noun
+  definitions: &id021
+  - wife or wife's sister
+  translations: *id021
+- word: garingilangi
+  type: noun
+  definitions: &id022
+  - husband and wife, a couple
+  translations: *id022
+- word: garnanganyja
+  type: noun
+  definitions: &id023
+  - emu
+  translations: *id023
+- word: garnbag
+  type: noun
+  definitions: &id024
+  - clapsticks
+  translations: *id024
+- word: gilagi
+  type: noun
+  definitions: &id025
+  - paternal grandfather, father's father
+  translations: *id025
+- word: gilyjirrjgi
+  type: noun
+  definitions: &id026
+  - tadpole
+  translations: *id026
+- word: googoonyjarri
+  type: noun
+  definitions: &id027
+  - sheep
+  translations: *id027
+- word: gooji
+  type: noun
+  definitions: &id028
+  - bone
+  translations: *id028
+- word: goornboo
+  type: noun
+  definitions: &id029
+  - woman
+  translations: *id029
+- word: goorralga
+  type: noun
+  definitions: &id030
+  - brolga (Antigone rubicunda, syn. )
+  translations: *id030
+- word: goorroomba
+  type: noun
+  definitions: &id031
+  - paperbark
+  translations: *id031
+- word: jaja
+  type: noun
+  definitions: &id032
+  - maternal grandmother, mother's mother
+  translations: *id032
+- word: jaminyi
+  type: noun
+  definitions: &id033
+  - maternal grandfather, mother's father
+  translations: *id033
+- word: jiga
+  type: noun
+  definitions: &id034
+  - flower
+  translations: *id034
+- word: jindiwirrinyi
+  type: noun
+  definitions: &id035
+  - Willie wagtail, Rhipidura leucophrys
+  translations: *id035
+- word: jirragi
+  type: noun
+  definitions: &id036
+  - frog
+  translations: *id036
+- word: lambadi
+  type: noun
+  definitions: &id037
+  - father-in-law, wife's father
+  translations: *id037
+- word: langa
+  type: noun
+  definitions: &id038
+  - salt
+  translations: *id038
+- word: loomoogoo
+  type: noun
+  definitions: &id039
+  - blue-tongue lizard
+  translations: *id039
+- word: marna
+  type: noun
+  definitions: &id040
+  - older brother
+  translations: *id040
+- word: marni
+  type: noun
+  definitions: &id041
+  - older sister
+  translations: *id041
+- word: maroowa
+  type: noun
+  definitions: &id042
+  - murderer
+  translations: *id042
+- word: marriyali
+  type: noun
+  definitions: &id043
+  - mother-in-law, wife's mother
+  translations: *id043
+- word: milaloowa
+  type: noun
+  definitions: &id044
+  - scorpion
+  translations: *id044
+- word: minaji
+  type: noun
+  definitions: &id045
+  - echidna
+  translations: *id045
+- word: minyawoo
+  type: noun
+  definitions: &id046
+  - cat
+  translations: *id046
+- word: mirnmirdgali
+  type: noun
+  definitions: &id047
+  - policeman
+  translations: *id047
+- word: ngaboo
+  type: noun
+  definitions: &id048
+  - father or paternal uncle (father's brother)
+  translations: *id048
+- word: ngaja
+  type: noun
+  definitions: &id049
+  - younger sibling
+  translations: *id049
+- word: ngaliganyi
+  type: noun
+  definitions: &id050
+  - daughter
+  translations: *id050
+- word: ngawali
+  type: noun
+  definitions: &id051
+  - woomera
+  translations: *id051
+- word: nyamani
+  type: adjective
+  definitions: &id052
+  - big
+  translations: *id052
+- word: nyarlangarri
+  type: noun
+  definitions: &id053
+  - king brown snake, Pseudechis australis
+  translations: *id053
+- word: nyirraji
+  type: noun
+  definitions: &id054
+  - bull
+  translations: *id054
+- word: nyirri
+  type: noun
+  definitions: &id055
+  - spinifex
+  translations: *id055
+- word: roo
+  type: noun
+  definitions: &id056
+  - excrement, faeces, shit
+  translations: *id056
+- word: thiligi
+  type: noun
+  definitions: &id057
+  - tawny frogmouth owl, Podargus strigoides
+  translations: *id057
+- word: wan.gi
+  type: noun
+  definitions: &id058
+  - smoke
+  translations: *id058
+- word: wawooloo
+  type: noun
+  definitions: &id059
+  - frill-necked lizard (Chlamydosaurus kingii)
+  translations: *id059
+- word: woob
+  type: verb
+  definitions: &id060
+  - cook
+  translations: *id060
+- word: woogoo
+  type: noun
+  definitions: &id061
+  - frog
+  translations: *id061
+- word: yawarda
+  type: noun
+  definitions: &id062
+  - horse
+  translations: *id062
+- word: yoorroo
+  type: noun
+  definitions: &id063
+  - spiderweb, a spider's web
+  - a telephone
+  translations: *id063

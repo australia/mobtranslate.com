@@ -1,0 +1,1135 @@
+meta:
+  name: Nyunga
+  description: Nyunga is a Pama-Nyungan language of Western Australia. Lexicon sourced from English Wiktionary
+    (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Nyunga_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Nyunga lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 220
+  family: Pama-Nyungan
+  glottocode: kani1276
+  austlang_codes:
+  - A92
+  - W4
+  - W7
+  region: Western Australia
+  coordinates:
+    lat: -33.4956
+    lon: 116.35448
+words:
+- word: abba
+  type: interjection
+  definitions: &id001
+  - g'day
+  translations: *id001
+- word: abbin
+  type: verb
+  definitions: &id002
+  - becoming, getting
+  translations: *id002
+- word: alla
+  type: preposition
+  definitions: &id003
+  - alternative spelling of alle
+  translations: *id003
+- word: alle
+  type: preposition
+  definitions: &id004
+  - that
+  translations: *id004
+- word: arda
+  type: adverb
+  definitions: &id005
+  - merely, only
+  translations: *id005
+- word: ardinung
+  type: adjective
+  definitions: &id006
+  - within, beneath
+  translations: *id006
+- word: arduc
+  type: adjective
+  definitions: &id007
+  - low down; a corruption of the word narduk
+  translations: *id007
+- word: arlingul
+  type: noun
+  definitions: &id008
+  - we
+  translations: *id008
+- word: arndin
+  type: adjective
+  definitions: &id009
+  - sick, ill, sore
+  translations: *id009
+- word: babanginy
+  type: noun
+  definitions: &id010
+  - lightning
+  translations: *id010
+- word: babba
+  type: adjective
+  definitions: &id011
+  - bad, foolish, childish, weak
+  translations: *id011
+- word: babitj
+  type: noun
+  definitions: &id012
+  - bat (animal)
+  translations: *id012
+- word: baddoeen
+  type: adjective
+  definitions: &id013
+  - thin, small, wasted
+  translations: *id013
+- word: badjang
+  type: noun
+  definitions: &id014
+  - matter from a bile or sore
+  translations: *id014
+- word: bakadju
+  type: verb
+  definitions: &id015
+  - To fight, to quarrel
+  translations: *id015
+- word: balga
+  type: noun
+  definitions: &id016
+  - grass tree (Xanthorrhoeaceae spp.)
+  translations: *id016
+- word: balgang
+  type: verb
+  definitions: &id017
+  - to track
+  translations: *id017
+- word: balgore
+  type: noun
+  definitions: &id018
+  - leaf, gum leaf
+  translations: *id018
+- word: ballajin
+  type: verb
+  definitions: &id019
+  - to attack, assault, slay
+  translations: *id019
+- word: ballajineen
+  type: noun
+  definitions: &id020
+  - fighting contest
+  translations: *id020
+- word: balyan
+  type: adjective
+  definitions: &id021
+  - damp, wet
+  translations: *id021
+- word: balyan
+  type: noun
+  definitions: &id022
+  - dew, water resting on any thing in drops
+  translations: *id022
+- word: balyoongar
+  type: noun
+  definitions: &id023
+  - eucalyptus (glaucus leaf)
+  translations: *id023
+- word: bambala
+  type: noun
+  definitions: &id024
+  - cataract (of the eye)
+  translations: *id024
+- word: banya
+  type: verb
+  definitions: &id025
+  - to sweat, perspire, drop water
+  translations: *id025
+- word: barnap
+  type: noun
+  definitions: &id026
+  - orphan
+  translations: *id026
+- word: barndi
+  type: noun
+  definitions: &id027
+  - bream (fish)
+  translations: *id027
+- word: barp
+  type: noun
+  definitions: &id028
+  - forehead
+  translations: *id028
+- word: bay
+  type: noun
+  definitions: &id029
+  - buttock
+  translations: *id029
+- word: bedik-bedik
+  type: adverb
+  definitions: &id030
+  - gently
+  translations: *id030
+- word: beena
+  type: adverb
+  definitions: &id031
+  - down
+  translations: *id031
+- word: beyirni
+  type: noun
+  definitions: &id032
+  - vagina
+  translations: *id032
+- word: bib
+  type: noun
+  definitions: &id033
+  - breast
+  translations: *id033
+- word: bibdjool
+  type: noun
+  definitions: &id034
+  - gecko (lizard)
+  translations: *id034
+- word: bibool
+  type: noun
+  definitions: &id035
+  - paper
+  translations: *id035
+- word: bidi
+  type: noun
+  definitions: &id036
+  - path
+  translations: *id036
+- word: bidik-bidik
+  type: adverb
+  definitions: &id037
+  - quietly
+  translations: *id037
+- word: bily
+  type: noun
+  definitions: &id038
+  - navel, umbilicus
+  translations: *id038
+- word: binar
+  type: noun
+  definitions: &id039
+  - meteor
+  translations: *id039
+- word: birayit
+  type: noun
+  definitions: &id040
+  - daylight
+  translations: *id040
+- word: birdiya
+  type: noun
+  definitions: &id041
+  - elder, elders
+  translations: *id041
+- word: birit
+  type: noun
+  definitions: &id042
+  - sinew
+  translations: *id042
+- word: birka
+  type: adjective
+  definitions: &id043
+  - badly wounded, bruised, sore
+  translations: *id043
+- word: birrkan
+  type: noun
+  definitions: &id044
+  - a sore
+  translations: *id044
+- word: bobun
+  type: verb
+  definitions: &id045
+  - to blow with the mouth
+  translations: *id045
+- word: bonoo
+  type: noun
+  definitions: &id046
+  - stick
+  translations: *id046
+- word: boodja
+  type: noun
+  definitions: &id047
+  - country, land, earth
+  translations: *id047
+- word: boodjar
+  type: noun
+  definitions: &id048
+  - country, land, earth
+  translations: *id048
+- word: boodjari
+  type: adjective
+  definitions: &id049
+  - pregnant
+  translations: *id049
+- word: boodjoor
+  type: noun
+  definitions: &id050
+  - the earth, ground
+  translations: *id050
+- word: bookal
+  type: noun
+  definitions: &id051
+  - lower back (body)
+  translations: *id051
+- word: booliyak
+  type: noun
+  definitions: &id052
+  - cow, cattle
+  translations: *id052
+- word: boolkoo
+  type: noun
+  definitions: &id053
+  - tobacco
+  translations: *id053
+- word: boongalla
+  type: noun
+  definitions: &id054
+  - the part of the body immediately above the hip, the short ribs
+  translations: *id054
+- word: boonitj
+  type: noun
+  definitions: &id055
+  - knee
+  translations: *id055
+- word: boonjar
+  type: noun
+  definitions: &id056
+  - a patient
+  translations: *id056
+- word: booye
+  type: noun
+  definitions: &id057
+  - turtle, tortoise
+  translations: *id057
+- word: booyoo
+  type: noun
+  definitions: &id058
+  - smoke
+  translations: *id058
+- word: bordunyuk
+  type: adjective
+  definitions: &id059
+  - hungry
+  translations: *id059
+- word: borp
+  type: verb
+  definitions: &id060
+  - to fart, break wind
+  translations: *id060
+- word: boyar
+  type: adjective
+  definitions: &id061
+  - amorous, full of love
+  translations: *id061
+- word: boye
+  type: noun
+  definitions: &id062
+  - a stone
+  translations: *id062
+- word: boyebillanak
+  type: adjective
+  definitions: &id063
+  - rocky, covered with stones
+  translations: *id063
+- word: boyung
+  type: adjective
+  definitions: &id064
+  - far off, distant
+  translations: *id064
+- word: bula
+  type: adjective
+  definitions: &id065
+  - abundant, plentiful
+  - many
+  translations: *id065
+- word: burdang
+  type: verb
+  definitions: &id066
+  - to fly, to run away
+  translations: *id066
+- word: burn
+  type: noun
+  definitions: &id067
+  - wood
+  translations: *id067
+- word: burnap
+  type: noun
+  definitions: &id068
+  - orphan
+  translations: *id068
+- word: burran
+  type: noun
+  definitions: &id069
+  - scar, the mark of a wound
+  translations: *id069
+- word: burrang
+  type: verb
+  definitions: &id070
+  - to abduct
+  translations: *id070
+- word: canoni
+  type: noun
+  definitions: &id071
+  - uncle
+  translations: *id071
+- word: carcup
+  type: noun
+  definitions: &id072
+  - Spirit from the mating of land and sea eagles.
+  translations: *id072
+- word: cobbleup
+  type: noun
+  definitions: &id073
+  - stomach
+  translations: *id073
+- word: currans
+  type: noun
+  definitions: &id074
+  - red meat ants
+  translations: *id074
+- word: da
+  type: noun
+  definitions: &id075
+  - mouth
+  translations: *id075
+- word: daban
+  type: verb
+  definitions: &id076
+  - to yawn
+  translations: *id076
+- word: dabbut
+  type: verb
+  definitions: &id077
+  - to fall, to set
+  translations: *id077
+- word: dadja
+  type: noun
+  definitions: &id078
+  - the flesh of any animal fit to eat
+  translations: *id078
+- word: dakalluk
+  type: verb
+  definitions: &id079
+  - to burn the mouth by eating anything hot
+  translations: *id079
+- word: dakondail
+  type: noun
+  definitions: &id080
+  - tongue (organ)
+  translations: *id080
+- word: dalba
+  type: noun
+  definitions: &id081
+  - ashes, dust
+  translations: *id081
+- word: dalbeet
+  type: verb
+  definitions: &id082
+  - to lie, to tell untruths
+  translations: *id082
+- word: dalya
+  type: noun
+  definitions: &id083
+  - body hair
+  translations: *id083
+- word: dalyie
+  type: noun
+  definitions: &id084
+  - spittle, froth, foam (of the mouth)
+  translations: *id084
+- word: dandeedeen
+  type: verb
+  definitions: &id085
+  - to close, to stop up
+  translations: *id085
+- word: danjal
+  type: adjective
+  definitions: &id086
+  - shallow, not deep
+  translations: *id086
+- word: daran
+  type: noun
+  definitions: &id087
+  - the part of the body immediately below the boongalla
+  translations: *id087
+- word: darangenoo
+  type: verb
+  definitions: &id088
+  - to spill, to let water fall
+  translations: *id088
+- word: dardoon
+  type: adjective
+  definitions: &id089
+  - uneven
+  translations: *id089
+- word: darrgat
+  type: noun
+  definitions: &id090
+  - the windpipe, the forepart of the throat
+  translations: *id090
+- word: Derbal Yaragan
+  type: proper-noun
+  definitions: &id091
+  - The Swan River, running through Western Australia to the Indian Ocean.
+  translations: *id091
+- word: deman
+  type: noun
+  definitions: &id092
+  - cousin
+  translations: *id092
+- word: derbal
+  type: noun
+  definitions: &id093
+  - an estuary
+  translations: *id093
+- word: derbow
+  type: verb
+  definitions: &id094
+  - to swim, to dive, to stoop
+  translations: *id094
+- word: djari
+  type: noun
+  definitions: &id095
+  - flour
+  translations: *id095
+- word: djeedal
+  type: adjective
+  definitions: &id096
+  - white or grey
+  translations: *id096
+- word: djeedara
+  type: adjective
+  definitions: &id097
+  - browned; sufficiently cooked
+  translations: *id097
+- word: djen
+  type: noun
+  definitions: &id098
+  - foot
+  translations: *id098
+- word: djidily
+  type: noun
+  definitions: &id099
+  - grasshopper
+  translations: *id099
+- word: djidong
+  type: noun
+  definitions: &id100
+  - limestone
+  translations: *id100
+- word: djinnung
+  type: verb
+  definitions: &id101
+  - to see
+  translations: *id101
+- word: djitting
+  type: adjective
+  definitions: &id102
+  - fair, light colored
+  translations: *id102
+- word: djoobo
+  type: noun
+  definitions: &id103
+  - kidney
+  translations: *id103
+- word: djooboburrang
+  type: verb
+  definitions: &id104
+  - to amuse, to bring a kidney (see djoobo)
+  translations: *id104
+- word: djook
+  type: noun
+  definitions: &id105
+  - sister
+  - cousin
+  translations: *id105
+- word: djookin
+  type: noun
+  definitions: &id106
+  - sister
+  - cousin
+  translations: *id106
+- word: djookinyan
+  type: noun
+  definitions: &id107
+  - sister
+  - cousin
+  translations: *id107
+- word: djooly
+  type: noun
+  definitions: &id108
+  - misty rain
+  translations: *id108
+- word: djoro
+  type: noun
+  definitions: &id109
+  - the fur of an animal
+  translations: *id109
+- word: djubodtan
+  type: verb
+  definitions: &id110
+  - to tickle, to pierce the kidney (see djoobo)
+  translations: *id110
+- word: djukone
+  type: noun
+  definitions: &id111
+  - sister
+  translations: *id111
+- word: djule
+  type: adjective
+  definitions: &id112
+  - bad
+  translations: *id112
+- word: dooda
+  type: noun
+  definitions: &id113
+  - tame dog
+  translations: *id113
+- word: dookkoon
+  type: verb
+  definitions: &id114
+  - to arrange a fire for the purpose of burning or cooking
+  translations: *id114
+- word: dooloore
+  type: noun
+  definitions: &id115
+  - knee
+  translations: *id115
+- word: doolya
+  type: noun
+  definitions: &id116
+  - fog, mist
+  translations: *id116
+- word: doolyine
+  type: noun
+  definitions: &id117
+  - hip joint
+  translations: *id117
+- word: doorda
+  type: noun
+  definitions: &id118
+  - dog
+  translations: *id118
+- word: dtan
+  type: verb
+  definitions: &id119
+  - to pierce, penetrate, to make an opening
+  translations: *id119
+- word: dtowal
+  type: noun
+  definitions: &id120
+  - thigh
+  translations: *id120
+- word: dwert
+  type: noun
+  definitions: &id121
+  - dog
+  translations: *id121
+- word: dyundo
+  type: noun
+  definitions: &id122
+  - the nut of the zamia palm (Macrozamia riedlei), a species of cycad
+  translations: *id122
+- word: engallang
+  type: verb
+  definitions: &id123
+  - to surround, to enclose
+  translations: *id123
+- word: gabanong
+  type: verb
+  definitions: &id124
+  - drink
+  translations: *id124
+- word: gabbie didup yen
+  type: verb
+  definitions: &id125
+  - ripple; rippling
+  translations: *id125
+- word: gnamarillup
+  type: noun
+  definitions: &id126
+  - a lot of holes in a flat rock
+  translations: *id126
+- word: gnampup
+  type: noun
+  definitions: &id127
+  - edible white substance on mallee leaves
+  translations: *id127
+- word: kaia
+  type: interjection
+  definitions: &id128
+  - hello
+  translations: *id128
+- word: kaia
+  type: particle
+  definitions: &id129
+  - 'yes'
+  translations: *id129
+- word: kalaeenak
+  type: noun
+  definitions: &id130
+  - charcoal
+  translations: *id130
+- word: kattige
+  type: verb
+  definitions: &id131
+  - to understand
+  translations: *id131
+- word: kawart
+  type: noun
+  definitions: &id132
+  - daughter
+  translations: *id132
+- word: kaya
+  type: interjection
+  definitions: &id133
+  - hello
+  translations: *id133
+- word: kaya
+  type: particle
+  definitions: &id134
+  - 'yes'
+  translations: *id134
+- word: kayan
+  type: noun
+  definitions: &id135
+  - aunt
+  translations: *id135
+- word: koort
+  type: noun
+  definitions: &id136
+  - heart
+  - spouse
+  translations: *id136
+- word: kyk
+  type: noun
+  definitions: &id137
+  - spear
+  translations: *id137
+- word: Kāāt
+  type: noun
+  definitions: &id138
+  - head
+  translations: *id138
+- word: kylee
+  type: noun
+  definitions: &id139
+  - alternative form of kylie
+  translations: *id139
+- word: kylegut
+  type: noun
+  definitions: &id140
+  - the part under the ear
+  translations: *id140
+- word: kyli
+  type: noun
+  definitions: &id141
+  - alternative form of kylie
+  translations: *id141
+- word: kylie
+  type: noun
+  definitions: &id142
+  - boomerang; usually of the non-returning, hooked (beaked) form
+  translations: *id142
+- word: lilgie
+  type: noun
+  definitions: &id143
+  - spirit, land
+  translations: *id143
+- word: maambart
+  type: noun
+  definitions: &id144
+  - father
+  translations: *id144
+- word: mamal
+  type: noun
+  definitions: &id145
+  - son
+  translations: *id145
+- word: mamang
+  type: noun
+  definitions: &id146
+  - whale
+  translations: *id146
+- word: mara
+  type: noun
+  definitions: &id147
+  - hand
+  translations: *id147
+- word: marran
+  type: noun
+  definitions: &id148
+  - A type of freshwater crayfish from Western Australia, Cherax tenuimanus
+  translations: *id148
+- word: moort
+  type: noun
+  definitions: &id149
+  - family
+  - relation
+  translations: *id149
+- word: murra
+  type: noun
+  definitions: &id150
+  - hand
+  translations: *id150
+- word: ngaangk
+  type: noun
+  definitions: &id151
+  - mother
+  translations: *id151
+- word: ngadite
+  type: adjective
+  definitions: &id152
+  - shallow
+  translations: *id152
+- word: ngalba
+  type: noun
+  definitions: &id153
+  - pieces of string projecting from the ends of the bags carried by women, and to which the strap with
+    which to support it is attached
+  translations: *id153
+- word: ngalbo
+  type: noun
+  definitions: &id154
+  - an ornamental tuft of emu feathers worn on various parts of the body
+  translations: *id154
+- word: ngalleen
+  type: adjective
+  definitions: &id155
+  - crooked, awry
+  translations: *id155
+- word: ngallun
+  type: noun
+  definitions: &id156
+  - hole
+  translations: *id156
+- word: ngalya
+  type: noun
+  definitions: &id157
+  - armpit
+  translations: *id157
+- word: ngandyne
+  type: adjective
+  definitions: &id158
+  - unwell
+  translations: *id158
+- word: nganga
+  type: noun
+  definitions: &id159
+  - the sun
+  translations: *id159
+- word: ngangan
+  type: noun
+  definitions: &id160
+  - mother
+  translations: *id160
+- word: ngank
+  type: noun
+  definitions: &id161
+  - son
+  translations: *id161
+- word: ngannow
+  type: verb
+  definitions: &id162
+  - to eat, to swallow
+  translations: *id162
+- word: nganya
+  type: noun
+  definitions: &id163
+  - I
+  translations: *id163
+- word: ngardul
+  type: adjective
+  definitions: &id164
+  - low in position, lying low, below
+  translations: *id164
+- word: ngardung
+  type: verb
+  definitions: &id165
+  - to creep, to steal on anything
+  translations: *id165
+- word: ngarra
+  type: verb
+  definitions: &id166
+  - to burn
+  translations: *id166
+- word: ngattung
+  type: verb
+  definitions: &id167
+  - to wound, to injure
+  translations: *id167
+- word: nginnow
+  type: verb
+  definitions: &id168
+  - to sit, to remain for a time in any place
+  translations: *id168
+- word: ngobar
+  type: noun
+  definitions: &id169
+  - open sandy downs near the sea
+  translations: *id169
+- word: ngobborne
+  type: adjective
+  definitions: &id170
+  - very large, big
+  translations: *id170
+- word: ngolak
+  type: noun
+  definitions: &id171
+  - a white-tailed species of black cockatoo
+  translations: *id171
+- word: ngooboo
+  type: noun
+  definitions: &id172
+  - blood
+  translations: *id172
+- word: ngoobooyer
+  type: adjective
+  definitions: &id173
+  - red, blood (as colour)
+  translations: *id173
+- word: ngoomoon
+  type: adjective
+  definitions: &id174
+  - large, big, fat
+  translations: *id174
+- word: ngoonman
+  type: noun
+  definitions: &id175
+  - the right arm or right side of the body
+  translations: *id175
+- word: ngoonun
+  type: noun
+  definitions: &id176
+  - duck
+  translations: *id176
+- word: ngoora
+  type: noun
+  definitions: &id177
+  - a small lake or basin of water
+  translations: *id177
+- word: ngoro
+  type: noun
+  definitions: &id178
+  - what falls from the nose, the mucus of the nose
+  translations: *id178
+- word: ngower
+  type: noun
+  definitions: &id179
+  - a tuft of cockatoo feathers worn in the hair
+  translations: *id179
+- word: ngowo
+  type: noun
+  definitions: &id180
+  - a species of pheasant
+  translations: *id180
+- word: nguk
+  type: noun
+  definitions: &id181
+  - honey
+  translations: *id181
+- word: ngwoondow
+  type: verb
+  definitions: &id182
+  - to lie down
+  translations: *id182
+- word: noorgo
+  type: noun
+  definitions: &id183
+  - egg
+  translations: *id183
+- word: noorgoimba
+  type: noun
+  definitions: &id184
+  - the shell of an egg, eggshell
+  translations: *id184
+- word: noorgomammungo
+  type: noun
+  definitions: &id185
+  - albumen, the white of an egg
+  translations: *id185
+- word: noorgonatdjing
+  type: noun
+  definitions: &id186
+  - egg yolk, the yolk of an egg
+  translations: *id186
+- word: nop
+  type: noun
+  definitions: &id187
+  - boy
+  - child (just walking)
+  translations: *id187
+- word: nopine
+  type: noun
+  definitions: &id188
+  - the young of animals
+  translations: *id188
+- word: nugga
+  type: adjective
+  definitions: &id189
+  - cold
+  translations: *id189
+- word: nujee
+  type: noun
+  definitions: &id190
+  - a large species of mouse which burrows in the earth
+  translations: *id190
+- word: numap
+  type: adjective
+  definitions: &id191
+  - small, little, diminutive
+  translations: *id191
+- word: nungar
+  type: noun
+  definitions: &id192
+  - the nape of the neck
+  translations: *id192
+- word: nyelingur
+  type: adjective
+  definitions: &id193
+  - stringy
+  translations: *id193
+- word: nyetting
+  type: adjective
+  definitions: &id194
+  - cold
+  translations: *id194
+- word: oorrar
+  type: adjective
+  definitions: &id195
+  - far away, distant
+  translations: *id195
+- word: orree
+  type: adjective
+  definitions: &id196
+  - tall, slender, long
+  translations: *id196
+- word: quailup
+  type: noun
+  definitions: &id197
+  - mons veneris
+  translations: *id197
+- word: ra
+  type: noun
+  definitions: &id198
+  - clear plain
+  translations: *id198
+- word: taan
+  type: verb
+  definitions: &id199
+  - to pierce, to penetrate, to make an opening
+  translations: *id199
+- word: tandaban
+  type: verb
+  definitions: &id200
+  - jump
+  translations: *id200
+- word: tandanatiaculo
+  type: verb
+  definitions: &id201
+  - climb
+  translations: *id201
+- word: tando
+  type: noun
+  definitions: &id202
+  - a species of hawk
+  translations: *id202
+- word: tanetauara
+  type: verb
+  definitions: &id203
+  - to palpitate, beat
+  translations: *id203
+- word: tanin
+  type: noun
+  definitions: &id204
+  - buttock
+  translations: *id204
+- word: tanjil
+  type: noun
+  definitions: &id205
+  - bulrush
+  translations: *id205
+- word: targat
+  type: noun
+  definitions: &id206
+  - windpipe
+  translations: *id206
+- word: teeluk
+  type: noun
+  definitions: &id207
+  - a species of bird, commonly called the magpie
+  translations: *id207
+- word: tookoon
+  type: verb
+  definitions: &id208
+  - to cook, to lay anything on the fire for the purpose of roasting
+  translations: *id208
+- word: toorduck
+  type: adjective
+  definitions: &id209
+  - convalescent, a little ill
+  translations: *id209
+- word: tupput
+  type: adjective
+  definitions: &id210
+  - slow, lazy, inagile, tired
+  translations: *id210
+- word: tynro
+  type: noun
+  definitions: &id211
+  - the left arm, or left side of the body
+  translations: *id211
+- word: varon
+  type: noun
+  definitions: &id212
+  - name given to people living east-ward
+  translations: *id212
+- word: wadjela
+  type: noun
+  definitions: &id213
+  - white person
+  translations: *id213
+- word: wadjela
+  type: adjective
+  definitions: &id214
+  - white (relating to white people)
+  translations: *id214
+- word: werra
+  type: adjective
+  definitions: &id215
+  - no good
+  translations: *id215
+- word: yaga
+  type: noun
+  definitions: &id216
+  - a woman
+  - merely; only; nonsense; no such thing; simply
+  translations: *id216
+- word: yok
+  type: noun
+  definitions: &id217
+  - woman
+  - girl
+  translations: *id217
+- word: yoka
+  type: noun
+  definitions: &id218
+  - woman
+  translations: *id218
+- word: yonga
+  type: noun
+  definitions: &id219
+  - grey kangaroo
+  translations: *id219
+- word: yugow
+  type: verb
+  definitions: &id220
+  - To stand
+  translations: *id220

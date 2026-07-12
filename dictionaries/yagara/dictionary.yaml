@@ -1,0 +1,1350 @@
+meta:
+  name: Yagara
+  description: Yagara is a Pama-Nyungan language of Queensland. Lexicon sourced from English Wiktionary
+    (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Yagara_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Yagara lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 262
+  family: Pama-Nyungan
+  glottocode: yaga1262
+  iso639_3: yxg
+  austlang_codes:
+  - E23
+  - E25
+  - E26
+  - E86
+  region: Queensland
+  coordinates:
+    lat: -27.87648
+    lon: 152.46028
+words:
+- word: ammoo
+  type: noun
+  definitions: &id001
+  - breast
+  - milk
+  translations: *id001
+- word: andeikal
+  type: noun
+  definitions: &id002
+  - mullet (fish)
+  translations: *id002
+- word: ariba
+  type: determiner
+  definitions: &id003
+  - my
+  translations: *id003
+- word: atta
+  type: pronoun
+  definitions: &id004
+  - I
+  translations: *id004
+- word: awang
+  type: noun
+  definitions: &id005
+  - brother
+  translations: *id005
+- word: babun
+  type: noun
+  definitions: &id006
+  - father
+  translations: *id006
+- word: bagooroo
+  type: noun
+  definitions: &id007
+  - stick
+  - tree
+  translations: *id007
+- word: balkali
+  type: verb
+  definitions: &id008
+  - come
+  translations: *id008
+- word: ban
+  type: adjective
+  definitions: &id009
+  - dirty
+  - nasty
+  - very angry
+  translations: *id009
+- word: barbang
+  type: noun
+  definitions: &id010
+  - grandmother
+  translations: *id010
+- word: barrar
+  type: noun
+  definitions: &id011
+  - kangaroo
+  translations: *id011
+- word: barter
+  type: verb
+  definitions: &id012
+  - bite
+  translations: *id012
+- word: beeké
+  type: noun
+  definitions: &id013
+  - alternative form of bigi
+  translations: *id013
+- word: bibu
+  type: noun
+  definitions: &id014
+  - mountain
+  translations: *id014
+- word: bigi
+  type: noun
+  definitions: &id015
+  - sun
+  translations: *id015
+- word: billa
+  type: noun
+  definitions: &id016
+  - alternative form of pilla
+  translations: *id016
+- word: billar
+  type: noun
+  definitions: &id017
+  - spear
+  translations: *id017
+- word: billi
+  type: noun
+  definitions: &id018
+  - alternative form of pilla
+  translations: *id018
+- word: binay
+  type: verb
+  definitions: &id019
+  - listen; hear
+  - know; understand
+  translations: *id019
+- word: binay
+  type: noun
+  definitions: &id020
+  - ear
+  translations: *id020
+- word: binempta
+  type: noun
+  definitions: &id021
+  - red gum
+  translations: *id021
+- word: bing
+  type: noun
+  definitions: &id022
+  - father
+  translations: *id022
+- word: binung
+  type: noun
+  definitions: &id023
+  - ear
+  translations: *id023
+- word: biro
+  type: noun
+  definitions: &id024
+  - sir (term of address)
+  translations: *id024
+- word: bogan
+  type: verb
+  definitions: &id025
+  - sleep
+  translations: *id025
+- word: boguru
+  type: noun
+  definitions: &id026
+  - string
+  translations: *id026
+- word: bogué
+  type: verb
+  definitions: &id027
+  - swim
+  translations: *id027
+- word: boona
+  type: noun
+  definitions: &id028
+  - bloodwood
+  translations: *id028
+- word: borru
+  type: noun
+  definitions: &id029
+  - westerly wind
+  translations: *id029
+- word: boruda
+  type: noun
+  definitions: &id030
+  - rose she-oak
+  translations: *id030
+- word: bouwaia
+  type: verb
+  definitions: &id031
+  - dive
+  translations: *id031
+- word: boygun
+  type: noun
+  definitions: &id032
+  - whiting
+  translations: *id032
+- word: bud dair
+  type: noun
+  definitions: &id033
+  - old man (male with grey hair)
+  translations: *id033
+- word: budang
+  type: noun
+  definitions: &id034
+  - mother
+  translations: *id034
+- word: budela
+  type: numeral
+  definitions: &id035
+  - two
+  translations: *id035
+- word: budela-budela
+  type: numeral
+  definitions: &id036
+  - four
+  translations: *id036
+- word: budgera
+  type: noun
+  definitions: &id037
+  - boy
+  translations: *id037
+- word: buhn
+  type: noun
+  definitions: &id038
+  - knee
+  translations: *id038
+- word: bui
+  type: noun
+  definitions: &id039
+  - black snake
+  translations: *id039
+- word: bulualum
+  type: noun
+  definitions: &id040
+  - pelican
+  translations: *id040
+- word: buran
+  type: noun
+  definitions: &id041
+  - wind
+  translations: *id041
+- word: burla
+  type: numeral
+  definitions: &id042
+  - two
+  translations: *id042
+- word: burla burla
+  type: numeral
+  definitions: &id043
+  - four
+  translations: *id043
+- word: burla ganar
+  type: numeral
+  definitions: &id044
+  - three
+  translations: *id044
+- word: burrima
+  type: adjective
+  definitions: &id045
+  - quick
+  translations: *id045
+- word: butang
+  type: noun
+  definitions: &id046
+  - alternative form of budang
+  translations: *id046
+- word: Churrabool
+  type: proper-noun
+  definitions: &id047
+  - alternative form of Turrbal
+  translations: *id047
+- word: buyu
+  type: noun
+  definitions: &id048
+  - shin
+  translations: *id048
+- word: byng
+  type: noun
+  definitions: &id049
+  - alternative form of bing
+  translations: *id049
+- word: car-ming-gin
+  type: noun
+  definitions: &id050
+  - paternal grandmother
+  translations: *id050
+- word: chibur
+  type: noun
+  definitions: &id051
+  - sugar glider
+  translations: *id051
+- word: dabil
+  type: noun
+  definitions: &id052
+  - water
+  translations: *id052
+- word: dabil ban
+  type: noun
+  definitions: &id053
+  - salt water
+  translations: *id053
+- word: dabilbello
+  type: noun
+  definitions: &id054
+  - box tree
+  translations: *id054
+- word: dabilco
+  type: verb
+  definitions: &id055
+  - fetch water
+  translations: *id055
+- word: dabira
+  type: noun
+  definitions: &id056
+  - shield
+  translations: *id056
+- word: dad jeen
+  type: noun
+  definitions: &id057
+  - sister
+  translations: *id057
+- word: dagan
+  type: noun
+  definitions: &id058
+  - catfish
+  translations: *id058
+- word: dalo
+  type: noun
+  definitions: &id059
+  - fire
+  translations: *id059
+- word: dalto
+  type: verb
+  definitions: &id060
+  - eat
+  translations: *id060
+- word: danduru
+  type: noun
+  definitions: &id061
+  - ironbark
+  translations: *id061
+- word: danton
+  type: adjective
+  definitions: &id062
+  - cold
+  translations: *id062
+- word: dar
+  type: noun
+  definitions: &id063
+  - earth
+  translations: *id063
+- word: darco
+  type: verb
+  definitions: &id064
+  - work the earth
+  translations: *id064
+- word: darkanbean
+  type: noun
+  definitions: &id065
+  - cane
+  translations: *id065
+- word: deea
+  type: noun
+  definitions: &id066
+  - teeth
+  - edge
+  translations: *id066
+- word: deear
+  type: noun
+  definitions: &id067
+  - alternative form of deea
+  translations: *id067
+- word: dhagun
+  type: noun
+  definitions: &id068
+  - ground
+  translations: *id068
+- word: dhambur
+  type: noun
+  definitions: &id069
+  - mouth
+  translations: *id069
+- word: dhamburu
+  type: noun
+  definitions: &id070
+  - alternative form of dhambur
+  translations: *id070
+- word: dhan
+  type: noun
+  definitions: &id071
+  - man
+  translations: *id071
+- word: dharang
+  type: noun
+  definitions: &id072
+  - leg
+  translations: *id072
+- word: dhiggeri
+  type: noun
+  definitions: &id073
+  - stomach
+  translations: *id073
+- word: dhungal
+  type: noun
+  definitions: &id074
+  - woman
+  translations: *id074
+- word: dibbil
+  type: noun
+  definitions: &id075
+  - eagle
+  translations: *id075
+- word: dingal
+  type: adjective
+  definitions: &id076
+  - fat
+  translations: *id076
+- word: dinna
+  type: noun
+  definitions: &id077
+  - foot
+  translations: *id077
+- word: dinung
+  type: noun
+  definitions: &id078
+  - alternative form of dinna
+  translations: *id078
+- word: doogai
+  type: noun
+  definitions: &id079
+  - tail
+  translations: *id079
+- word: dourour
+  type: noun
+  definitions: &id080
+  - net
+  translations: *id080
+- word: dumbirrbi
+  type: noun
+  definitions: &id081
+  - koala
+  translations: *id081
+- word: dunkay
+  type: noun
+  definitions: &id082
+  - easterly wind
+  translations: *id082
+- word: durdur
+  type: noun
+  definitions: &id083
+  - neck
+  translations: *id083
+- word: dyrrbin
+  type: noun
+  definitions: &id084
+  - bone
+  translations: *id084
+- word: enuba
+  type: determiner
+  definitions: &id085
+  - your
+  translations: *id085
+- word: gadam
+  type: noun
+  definitions: &id086
+  - rain
+  translations: *id086
+- word: gahm
+  type: noun
+  definitions: &id087
+  - head
+  translations: *id087
+- word: galang nguruindhau
+  type: interjection
+  definitions: &id088
+  - good day
+  translations: *id088
+- word: gambarto
+  type: noun
+  definitions: &id089
+  - fir
+  translations: *id089
+- word: ganar
+  type: numeral
+  definitions: &id090
+  - alternative form of kunnar
+  translations: *id090
+- word: Jagara
+  type: proper-noun
+  definitions: &id091
+  - alternative form of Yagara
+  translations: *id091
+- word: Jagarabal
+  type: proper-noun
+  definitions: &id092
+  - alternative form of Yagara
+  translations: *id092
+- word: Jagera
+  type: proper-noun
+  definitions: &id093
+  - alternative form of Yagara
+  translations: *id093
+- word: Jergarbal
+  type: proper-noun
+  definitions: &id094
+  - alternative form of Yagara
+  translations: *id094
+- word: gandanti
+  type: adjective
+  definitions: &id095
+  - slow
+  translations: *id095
+- word: garba
+  type: determiner
+  definitions: &id096
+  - another
+  translations: *id096
+- word: gardin
+  type: noun
+  definitions: &id097
+  - blood
+  translations: *id097
+- word: gargar
+  type: noun
+  definitions: &id098
+  - gum tree
+  translations: *id098
+- word: garril
+  type: noun
+  definitions: &id099
+  - wallaby
+  translations: *id099
+- word: gibarr
+  type: noun
+  definitions: &id100
+  - boy
+  translations: *id100
+- word: giga
+  type: noun
+  definitions: &id101
+  - shoulder
+  translations: *id101
+- word: gillen
+  type: noun
+  definitions: &id102
+  - moon
+  - finger
+  translations: *id102
+- word: ginn
+  type: noun
+  definitions: &id103
+  - girl
+  translations: *id103
+- word: gondol
+  type: noun
+  definitions: &id104
+  - bark
+  - boat made of bark
+  translations: *id104
+- word: gorun
+  type: adjective
+  definitions: &id105
+  - black
+  translations: *id105
+- word: goyum
+  type: noun
+  definitions: &id106
+  - fire
+  translations: *id106
+- word: greeba
+  type: noun
+  definitions: &id107
+  - ebb tide
+  translations: *id107
+- word: gurooman
+  type: noun
+  definitions: &id108
+  - kangaroo
+  translations: *id108
+- word: gurumba bigi
+  type: interjection
+  definitions: &id109
+  - good day
+  translations: *id109
+- word: gurwaliko
+  type: noun
+  definitions: &id110
+  - yesterday
+  - the past
+  translations: *id110
+- word: inta
+  type: pronoun
+  definitions: &id111
+  - alternative form of nginda
+  translations: *id111
+- word: inter
+  type: pronoun
+  definitions: &id112
+  - alternative form of nginda
+  translations: *id112
+- word: jagara
+  type: particle
+  definitions: &id113
+  - alternative form of yagara
+  translations: *id113
+- word: jagera
+  type: particle
+  definitions: &id114
+  - alternative form of yagara
+  translations: *id114
+- word: jaw ang
+  type: noun
+  definitions: &id115
+  - younger brother
+  translations: *id115
+- word: jawan
+  type: noun
+  definitions: &id116
+  - fish
+  translations: *id116
+- word: jundal
+  type: noun
+  definitions: &id117
+  - young woman
+  translations: *id117
+- word: juwahnduwan
+  type: noun
+  definitions: &id118
+  - bird
+  translations: *id118
+- word: juwanbin
+  type: noun
+  definitions: &id119
+  - alternative form of juwahnduwan
+  translations: *id119
+- word: juwehrr
+  type: noun
+  definitions: &id120
+  - eagle
+  translations: *id120
+- word: kabui
+  type: noun
+  definitions: &id121
+  - hair
+  translations: *id121
+- word: kabul
+  type: noun
+  definitions: &id122
+  - carpet snake
+  translations: *id122
+- word: kaggur
+  type: noun
+  definitions: &id123
+  - echidna
+  translations: *id123
+- word: kapui
+  type: noun
+  definitions: &id124
+  - alternative form of kabui
+  translations: *id124
+- word: kibbom
+  type: noun
+  definitions: &id125
+  - moon
+  translations: *id125
+- word: killen
+  type: noun
+  definitions: &id126
+  - alternative form of gillen
+  translations: *id126
+- word: kin
+  type: noun
+  definitions: &id127
+  - alternative form of ginn
+  translations: *id127
+- word: kindänné
+  type: verb
+  definitions: &id128
+  - laugh
+  translations: *id128
+- word: kippa
+  type: noun
+  definitions: &id129
+  - boy on the cusp of being a man
+  translations: *id129
+- word: koola
+  type: adjective
+  definitions: &id130
+  - angry; displeased
+  translations: *id130
+- word: korumba
+  type: determiner
+  definitions: &id131
+  - many
+  translations: *id131
+- word: krung num
+  type: noun
+  definitions: &id132
+  - people
+  translations: *id132
+- word: kubbi
+  type: noun
+  definitions: &id133
+  - possum
+  translations: *id133
+- word: kunnar
+  type: numeral
+  definitions: &id134
+  - one
+  translations: *id134
+- word: kurr nung
+  type: noun
+  definitions: &id135
+  - people
+  translations: *id135
+- word: Maiwar
+  type: proper-noun
+  definitions: &id136
+  - The Brisbane River.
+  translations: *id136
+- word: Meanjin
+  type: proper-noun
+  definitions: &id137
+  - The spike of land on which central Brisbane is located.
+  translations: *id137
+- word: Meeaan-jin
+  type: proper-noun
+  definitions: &id138
+  - alternative form of Meanjin
+  translations: *id138
+- word: Meean-jin
+  type: proper-noun
+  definitions: &id139
+  - alternative form of Meanjin
+  translations: *id139
+- word: Mian-jin
+  type: proper-noun
+  definitions: &id140
+  - alternative form of Meanjin
+  translations: *id140
+- word: Mianjin
+  type: proper-noun
+  definitions: &id141
+  - alternative form of Meanjin
+  translations: *id141
+- word: kuttee
+  type: verb
+  definitions: &id142
+  - blacken oneself with grease and charcoal
+  translations: *id142
+- word: kuyur
+  type: noun
+  definitions: &id143
+  - fish
+  translations: *id143
+- word: magul
+  type: noun
+  definitions: &id144
+  - head
+  translations: *id144
+- word: malar
+  type: noun
+  definitions: &id145
+  - man
+  translations: *id145
+- word: marra
+  type: noun
+  definitions: &id146
+  - hand
+  - five
+  translations: *id146
+- word: marumba
+  type: adjective
+  definitions: &id147
+  - good
+  translations: *id147
+- word: menango
+  type: interjection
+  definitions: &id148
+  - what's the matter?
+  translations: *id148
+- word: meniünti
+  type: adverb
+  definitions: &id149
+  - why
+  translations: *id149
+- word: menüh
+  type: adverb
+  definitions: &id150
+  - what
+  translations: *id150
+- word: midgeree
+  type: noun
+  definitions: &id151
+  - forehead
+  translations: *id151
+- word: mil
+  type: noun
+  definitions: &id152
+  - eye
+  translations: *id152
+- word: mill
+  type: noun
+  definitions: &id153
+  - alternative form of mil
+  translations: *id153
+- word: mill mill
+  type: verb
+  definitions: &id154
+  - see
+  translations: *id154
+- word: millen
+  type: determiner
+  definitions: &id155
+  - many
+  translations: *id155
+- word: mirragin
+  type: noun
+  definitions: &id156
+  - stars
+  translations: *id156
+- word: mirri
+  type: noun
+  definitions: &id157
+  - dingo or wild dog
+  translations: *id157
+- word: mogara
+  type: noun
+  definitions: &id158
+  - thunder
+  translations: *id158
+- word: molum
+  type: noun
+  definitions: &id159
+  - child
+  translations: *id159
+- word: moolum
+  type: noun
+  definitions: &id160
+  - alternative form of molum
+  translations: *id160
+- word: moyum
+  type: noun
+  definitions: &id161
+  - paper
+  - book
+  translations: *id161
+- word: mudden
+  type: numeral
+  definitions: &id162
+  - three
+  translations: *id162
+- word: mudden-budela
+  type: numeral
+  definitions: &id163
+  - five
+  translations: *id163
+- word: mudlo
+  type: noun
+  definitions: &id164
+  - stone
+  translations: *id164
+- word: mugil
+  type: noun
+  definitions: &id165
+  - alternative form of magul
+  translations: *id165
+- word: mullago
+  type: noun
+  definitions: &id166
+  - tomorrow
+  translations: *id166
+- word: mullera
+  type: noun
+  definitions: &id167
+  - man
+  translations: *id167
+- word: mulroo
+  type: noun
+  definitions: &id168
+  - nose
+  translations: *id168
+- word: mungarra
+  type: noun
+  definitions: &id169
+  - leg
+  translations: *id169
+- word: muro
+  type: noun
+  definitions: &id170
+  - nose
+  translations: *id170
+- word: murri
+  type: noun
+  definitions: &id171
+  - kangaroo
+  translations: *id171
+- word: muru
+  type: noun
+  definitions: &id172
+  - alternative form of muro
+  translations: *id172
+- word: nangka
+  type: adjective
+  definitions: &id173
+  - hot
+  translations: *id173
+- word: nem mul
+  type: noun
+  definitions: &id174
+  - young children
+  translations: *id174
+- word: ner bung
+  type: noun
+  definitions: &id175
+  - brother
+  translations: *id175
+- word: nginda
+  type: pronoun
+  definitions: &id176
+  - you
+  translations: *id176
+- word: ngullun
+  type: noun
+  definitions: &id177
+  - neck
+  translations: *id177
+- word: ngumbi
+  type: noun
+  definitions: &id178
+  - house or home
+  translations: *id178
+- word: ngurun
+  type: noun
+  definitions: &id179
+  - emu
+  translations: *id179
+- word: nguyi
+  type: noun
+  definitions: &id180
+  - emu
+  translations: *id180
+- word: Tarabul
+  type: proper-noun
+  definitions: &id181
+  - alternative form of Turrbal
+  translations: *id181
+- word: Terabul
+  type: proper-noun
+  definitions: &id182
+  - alternative form of Turrbal
+  translations: *id182
+- word: Toorbal
+  type: proper-noun
+  definitions: &id183
+  - alternative form of Turrbal
+  translations: *id183
+- word: Tor-bul
+  type: proper-noun
+  definitions: &id184
+  - alternative form of Turrbal
+  translations: *id184
+- word: Turibul
+  type: proper-noun
+  definitions: &id185
+  - alternative form of Turrbal
+  translations: *id185
+- word: Turrabul
+  type: proper-noun
+  definitions: &id186
+  - alternative form of Turrbal
+  translations: *id186
+- word: Turrbal
+  type: proper-noun
+  definitions: &id187
+  - Turrbal (both senses)
+  translations: *id187
+- word: Turrbul
+  type: proper-noun
+  definitions: &id188
+  - alternative form of Turrbal
+  translations: *id188
+- word: Turrubal
+  type: proper-noun
+  definitions: &id189
+  - alternative form of Turrbal
+  translations: *id189
+- word: Turrubul
+  type: proper-noun
+  definitions: &id190
+  - alternative form of Turrbal
+  translations: *id190
+- word: Turubul
+  type: proper-noun
+  definitions: &id191
+  - alternative form of Turrbal
+  translations: *id191
+- word: Ugarapul
+  type: proper-noun
+  definitions: &id192
+  - alternative form of Yagara
+  translations: *id192
+- word: nokum
+  type: noun
+  definitions: &id193
+  - vessel
+  translations: *id193
+- word: nyinderu
+  type: noun
+  definitions: &id194
+  - leech
+  translations: *id194
+- word: nyinduru
+  type: noun
+  definitions: &id195
+  - alternative form of nyinderu
+  translations: *id195
+- word: palmañ
+  type: noun
+  definitions: &id196
+  - forehead
+  translations: *id196
+- word: pilla
+  type: noun
+  definitions: &id197
+  - creek or gully
+  translations: *id197
+- word: pilli
+  type: noun
+  definitions: &id198
+  - alternative form of pilla
+  translations: *id198
+- word: pilly
+  type: noun
+  definitions: &id199
+  - alternative form of pilla
+  translations: *id199
+- word: pitney
+  type: verb
+  definitions: &id200
+  - alternative form of binay
+  translations: *id200
+- word: pitney
+  type: noun
+  definitions: &id201
+  - alternative form of binay
+  translations: *id201
+- word: powai
+  type: noun
+  definitions: &id202
+  - shark
+  translations: *id202
+- word: sidney
+  type: noun
+  definitions: &id203
+  - foot
+  translations: *id203
+- word: tading
+  type: noun
+  definitions: &id204
+  - sister
+  translations: *id204
+- word: tumgu
+  type: noun
+  definitions: &id205
+  - black snake
+  translations: *id205
+- word: turumturum
+  type: noun
+  definitions: &id206
+  - rain
+  translations: *id206
+- word: umpie
+  type: noun
+  definitions: &id207
+  - alternative form of ngumbi
+  translations: *id207
+- word: unungabo
+  type: noun
+  definitions: &id208
+  - tomorrow
+  translations: *id208
+- word: virenna
+  type: verb
+  definitions: &id209
+  - arrive
+  translations: *id209
+- word: waiaroo
+  type: adjective
+  definitions: &id210
+  - hungry
+  translations: *id210
+- word: warlee
+  type: adjective
+  definitions: &id211
+  - bad
+  translations: *id211
+- word: warril
+  type: noun
+  definitions: &id212
+  - creek or river
+  translations: *id212
+- word: wawal
+  type: noun
+  definitions: &id213
+  - crow
+  translations: *id213
+- word: werlinga
+  type: noun
+  definitions: &id214
+  - old woman
+  translations: *id214
+- word: wolumgan
+  type: noun
+  definitions: &id215
+  - shell
+  translations: *id215
+- word: woolloon-capemm
+  type: noun
+  definitions: &id216
+  - whirling water
+  translations: *id216
+- word: wooppa
+  type: adjective
+  definitions: &id217
+  - white
+  translations: *id217
+- word: woora
+  type: verb
+  definitions: &id218
+  - put down (literal)
+  - lie down
+  translations: *id218
+- word: woulan
+  type: noun
+  definitions: &id219
+  - bream
+  translations: *id219
+- word: woulanco
+  type: verb
+  definitions: &id220
+  - fish
+  translations: *id220
+- word: wowa
+  type: noun
+  definitions: &id221
+  - alternative form of wawal
+  translations: *id221
+- word: wud-ung
+  type: noun
+  definitions: &id222
+  - mother
+  translations: *id222
+- word: wun-nair
+  type: adverb
+  definitions: &id223
+  - alternative form of wunna
+  translations: *id223
+- word: wun-nair yen mino
+  type: phrase
+  definitions: &id224
+  - where are you going?
+  translations: *id224
+- word: wunna
+  type: adverb
+  definitions: &id225
+  - where
+  translations: *id225
+- word: wunya
+  type: interjection
+  definitions: &id226
+  - welcome or greetings
+  translations: *id226
+- word: Yackarabul
+  type: proper-noun
+  definitions: &id227
+  - alternative form of Yagara
+  translations: *id227
+- word: Yagar
+  type: proper-noun
+  definitions: &id228
+  - alternative form of Yagara
+  translations: *id228
+- word: Yagara
+  type: proper-noun
+  definitions: &id229
+  - Yagara (both senses)
+  translations: *id229
+- word: Yagarr
+  type: proper-noun
+  definitions: &id230
+  - alternative form of Yagara
+  translations: *id230
+- word: Yaggera
+  type: proper-noun
+  definitions: &id231
+  - alternative form of Yagara
+  translations: *id231
+- word: Yugaapul
+  type: proper-noun
+  definitions: &id232
+  - alternative form of Yagara
+  translations: *id232
+- word: Yugara
+  type: proper-noun
+  definitions: &id233
+  - alternative form of Yagara
+  translations: *id233
+- word: Yugarabul
+  type: proper-noun
+  definitions: &id234
+  - alternative form of Yagara
+  translations: *id234
+- word: Yugg-ari
+  type: proper-noun
+  definitions: &id235
+  - alternative form of Yagara
+  translations: *id235
+- word: Yuggara
+  type: proper-noun
+  definitions: &id236
+  - alternative form of Yagara
+  translations: *id236
+- word: Yuggarabul
+  type: proper-noun
+  definitions: &id237
+  - alternative form of Yagara
+  translations: *id237
+- word: Yuggarapul
+  type: proper-noun
+  definitions: &id238
+  - alternative form of Yagara
+  translations: *id238
+- word: Yuggera
+  type: proper-noun
+  definitions: &id239
+  - alternative form of Yagara
+  translations: *id239
+- word: yaga
+  type: noun
+  definitions: &id240
+  - work
+  translations: *id240
+- word: yaga
+  type: verb
+  definitions: &id241
+  - work
+  translations: *id241
+- word: yagar
+  type: particle
+  definitions: &id242
+  - alternative form of yagara
+  translations: *id242
+- word: yagara
+  type: particle
+  definitions: &id243
+  - 'no'
+  translations: *id243
+- word: yagarr
+  type: particle
+  definitions: &id244
+  - alternative form of yagara
+  translations: *id244
+- word: yaggera
+  type: particle
+  definitions: &id245
+  - alternative form of yagara
+  translations: *id245
+- word: yakka
+  type: noun
+  definitions: &id246
+  - alternative form of yaga
+  translations: *id246
+- word: yakka
+  type: verb
+  definitions: &id247
+  - alternative form of yaga
+  translations: *id247
+- word: yamma
+  type: noun
+  definitions: &id248
+  - arm
+  translations: *id248
+- word: yarraman
+  type: noun
+  definitions: &id249
+  - horse
+  translations: *id249
+- word: yarto
+  type: verb
+  definitions: &id250
+  - go
+  translations: *id250
+- word: yarun
+  type: noun
+  definitions: &id251
+  - hunting ground
+  - district
+  translations: *id251
+- word: yawoi
+  type: particle
+  definitions: &id252
+  - 'yes'
+  translations: *id252
+- word: yilim
+  type: noun
+  definitions: &id253
+  - forehead
+  translations: *id253
+- word: younggurba
+  type: noun
+  definitions: &id254
+  - flood tide
+  translations: *id254
+- word: yugara
+  type: particle
+  definitions: &id255
+  - alternative form of yagara
+  translations: *id255
+- word: yugg-ari
+  type: particle
+  definitions: &id256
+  - alternative form of yagara
+  translations: *id256
+- word: yuggara
+  type: particle
+  definitions: &id257
+  - alternative form of yagara
+  translations: *id257
+- word: yuggera
+  type: particle
+  definitions: &id258
+  - alternative form of yagara
+  translations: *id258
+- word: yuguinpin
+  type: noun
+  definitions: &id259
+  - grandfather
+  translations: *id259
+- word: yuingin
+  type: noun
+  definitions: &id260
+  - friend
+  translations: *id260
+- word: yur-on-ner
+  type: verb
+  definitions: &id261
+  - go to; approach
+  translations: *id261
+- word: yurumkin
+  type: noun
+  definitions: &id262
+  - girl
+  translations: *id262

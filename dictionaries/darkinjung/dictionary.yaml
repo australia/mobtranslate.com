@@ -1,0 +1,475 @@
+meta:
+  name: Darkinjung
+  description: Darkinjung is a Pama-Nyungan language of New South Wales. Lexicon sourced from English
+    Wiktionary (CC-BY-SA 4.0).
+  tier: community-sourced (Wiktionary, CC-BY-SA-4.0)
+  tier_id: wiktionary
+  source: English Wiktionary (en.wiktionary.org)
+  source_url: https://en.wiktionary.org/wiki/Category:Darkinjung_lemmas
+  license: CC-BY-SA-4.0
+  license_url: https://creativecommons.org/licenses/by-sa/4.0/
+  attribution: Wiktionary contributors, “Category:Darkinjung lemmas”, English Wiktionary, retrieved 2026-07-12.
+    Text is available under CC-BY-SA 4.0.
+  extracted: '2026-07-12'
+  word_count: 90
+  family: Pama-Nyungan
+  glottocode: hawk1239
+  iso639_3: xda
+  austlang_codes:
+  - S65
+  region: New South Wales
+  coordinates:
+    lat: -33.11470744
+    lon: 150.4952383
+words:
+- word: balga
+  type: noun
+  definitions: &id001
+  - brolga ()
+  translations: *id001
+- word: barkan
+  type: noun
+  definitions: &id002
+  - boomerang
+  translations: *id002
+- word: biambai
+  type: noun
+  definitions: &id003
+  - father
+  translations: *id003
+- word: binbuñ
+  type: noun
+  definitions: &id004
+  - long-nosed bandicoot
+  translations: *id004
+- word: birril
+  type: noun
+  definitions: &id005
+  - hand
+  translations: *id005
+- word: buddhung
+  type: noun
+  definitions: &id006
+  - ghost
+  translations: *id006
+- word: bulla
+  type: numeral
+  definitions: &id007
+  - two
+  translations: *id007
+- word: bullabun
+  type: pronoun
+  definitions: &id008
+  - you two (2nd person dual nominative)
+  translations: *id008
+- word: bulloara
+  type: pronoun
+  definitions: &id009
+  - they two (3rd person dual nominative)
+  translations: *id009
+- word: bunnal
+  type: noun
+  definitions: &id010
+  - sun
+  translations: *id010
+- word: burka
+  type: noun
+  definitions: &id011
+  - long-nosed bandicoot
+  translations: *id011
+- word: burragung
+  type: noun
+  definitions: &id012
+  - edible grub
+  translations: *id012
+- word: burrak
+  type: noun
+  definitions: &id013
+  - white paint
+  translations: *id013
+- word: burrudir
+  type: noun
+  definitions: &id014
+  - butterfly
+  translations: *id014
+- word: búrranburran
+  type: noun
+  definitions: &id015
+  - centipede
+  translations: *id015
+- word: bûllu
+  type: noun
+  definitions: &id016
+  - the shadow of a tree
+  translations: *id016
+- word: dhallung
+  type: noun
+  definitions: &id017
+  - tongue
+  translations: *id017
+- word: dharra
+  type: noun
+  definitions: &id018
+  - tooth
+  translations: *id018
+- word: dharrumbai
+  type: noun
+  definitions: &id019
+  - kangaroo rat
+  translations: *id019
+- word: dhunna
+  type: noun
+  definitions: &id020
+  - foot
+  translations: *id020
+- word: dhurauiñ
+  type: noun
+  definitions: &id021
+  - scorpion
+  translations: *id021
+- word: dutung
+  type: adjective
+  definitions: &id022
+  - dead
+  translations: *id022
+- word: dyipping
+  type: noun
+  definitions: &id023
+  - bird
+  translations: *id023
+- word: dyulinggir
+  type: noun
+  definitions: &id024
+  - peewee, magpie-lark
+  translations: *id024
+- word: dyuping
+  type: noun
+  definitions: &id025
+  - mosquito
+  translations: *id025
+- word: gindang
+  type: noun
+  definitions: &id026
+  - ringtail possum
+  translations: *id026
+- word: girribil
+  type: noun
+  definitions: &id027
+  - possum
+  translations: *id027
+- word: girrâchi
+  type: noun
+  definitions: &id028
+  - a clever man
+  translations: *id028
+- word: goona
+  type: noun
+  definitions: &id029
+  - faeces, excrement
+  translations: *id029
+- word: gungurung
+  type: noun
+  definitions: &id030
+  - emu
+  translations: *id030
+- word: guraindya
+  type: adverb
+  definitions: &id031
+  - often
+  translations: *id031
+- word: gurigalgang
+  type: pronoun
+  definitions: &id032
+  - they (3rd person plural nominative)
+  translations: *id032
+- word: gurpang
+  type: noun
+  definitions: &id033
+  - fog
+  translations: *id033
+- word: gurumin
+  type: noun
+  definitions: &id034
+  - A person's shadow.
+  translations: *id034
+- word: gutat
+  type: noun
+  definitions: &id035
+  - frog
+  translations: *id035
+- word: gûndong
+  type: noun
+  definitions: &id036
+  - moon
+  translations: *id036
+- word: gŭndang
+  type: noun
+  definitions: &id037
+  - shoulder
+  translations: *id037
+- word: irrumburri
+  type: noun
+  definitions: &id038
+  - fish hawk
+  translations: *id038
+- word: janna
+  type: pronoun
+  definitions: &id039
+  - me (1st person singular accusative)
+  translations: *id039
+- word: jannunggai
+  type: pronoun
+  definitions: &id040
+  - my, mine (1st person singular genitive)
+  translations: *id040
+- word: jarra
+  type: noun
+  definitions: &id041
+  - shin
+  - bone
+  translations: *id041
+- word: jilpir
+  type: noun
+  definitions: &id042
+  - grasshopper
+  translations: *id042
+- word: kamburung
+  type: noun
+  definitions: &id043
+  - head
+  translations: *id043
+- word: kudyal
+  type: noun
+  definitions: &id044
+  - smoke
+  translations: *id044
+- word: kuluwañ
+  type: noun
+  definitions: &id045
+  - koala
+  translations: *id045
+- word: kunyi
+  type: noun
+  definitions: &id046
+  - echidna
+  translations: *id046
+- word: kuri
+  type: noun
+  definitions: &id047
+  - man
+  translations: *id047
+- word: kutumung
+  type: noun
+  definitions: &id048
+  - turtle
+  translations: *id048
+- word: kûdyung
+  type: noun
+  definitions: &id049
+  - honey
+  translations: *id049
+- word: mikkang
+  type: noun
+  definitions: &id050
+  - eye
+  translations: *id050
+- word: mirkan
+  type: noun
+  definitions: &id051
+  - girl
+  translations: *id051
+- word: mirri
+  type: noun
+  definitions: &id052
+  - dog
+  translations: *id052
+- word: mitthingin
+  type: noun
+  definitions: &id053
+  - quoll
+  translations: *id053
+- word: mullamang
+  type: noun
+  definitions: &id054
+  - husband
+  translations: *id054
+- word: mullian
+  type: noun
+  definitions: &id055
+  - wedge-tailed eagle, eaglehawk, ()
+  translations: *id055
+- word: mupa
+  type: adjective
+  definitions: &id056
+  - blunt
+  translations: *id056
+- word: murku
+  type: noun
+  definitions: &id057
+  - rain
+  translations: *id057
+- word: murri
+  type: noun
+  definitions: &id058
+  - scrub wallaby
+  translations: *id058
+- word: muru
+  type: noun
+  definitions: &id059
+  - pathway
+  translations: *id059
+- word: murulgang
+  type: noun
+  definitions: &id060
+  - wasp
+  translations: *id060
+- word: mutung
+  type: adjective
+  definitions: &id061
+  - alive
+  translations: *id061
+- word: nana
+  type: pronoun
+  definitions: &id062
+  - him (3rd person singular accusative)
+  translations: *id062
+- word: ngaia
+  type: pronoun
+  definitions: &id063
+  - I (1st person singular nominative)
+  translations: *id063
+- word: ngarrombai
+  type: noun
+  definitions: &id064
+  - old man
+  translations: *id064
+- word: ngeang
+  type: pronoun
+  definitions: &id065
+  - we (1st person plural inclusive)
+  translations: *id065
+- word: ngeangwai
+  type: pronoun
+  definitions: &id066
+  - we (1st person plural exclusive)
+  translations: *id066
+- word: nginda
+  type: pronoun
+  definitions: &id067
+  - you, thou (second person singular nominative)
+  translations: *id067
+- word: nginna
+  type: pronoun
+  definitions: &id068
+  - you, thee (2nd person singular accusative)
+  translations: *id068
+- word: nginnunggai
+  type: pronoun
+  definitions: &id069
+  - your, yours, thy, thine (2nd person singular genitive)
+  translations: *id069
+- word: ngullia
+  type: pronoun
+  definitions: &id070
+  - we two, you and I (1st person dual inclusive nominative)
+  translations: *id070
+- word: ngungullia
+  type: pronoun
+  definitions: &id071
+  - we two (1st person dual exclusive nominative)
+  translations: *id071
+- word: ngunnuñ
+  type: noun
+  definitions: &id072
+  - food
+  translations: *id072
+- word: ngurran
+  type: noun
+  definitions: &id073
+  - forehead
+  translations: *id073
+- word: noanggai
+  type: pronoun
+  definitions: &id074
+  - his (3rd person singular genitive)
+  translations: *id074
+- word: nonanggai
+  type: pronoun
+  definitions: &id075
+  - her, hers (3rd person singular genitive)
+  translations: *id075
+- word: nondwa
+  type: pronoun
+  definitions: &id076
+  - she (3rd person singular nominative)
+  translations: *id076
+- word: nonoan
+  type: pronoun
+  definitions: &id077
+  - her (3rd person singular accusative)
+  translations: *id077
+- word: nyittik
+  type: noun
+  definitions: &id078
+  - bee
+  translations: *id078
+- word: nyua
+  type: pronoun
+  definitions: &id079
+  - he (3rd person singular nominative)
+  translations: *id079
+- word: nyurabiñ
+  type: pronoun
+  definitions: &id080
+  - you (2nd person plural nominative)
+  translations: *id080
+- word: wakul
+  type: numeral
+  definitions: &id081
+  - one
+  translations: *id081
+- word: wallumbang
+  type: noun
+  definitions: &id082
+  - kangaroo
+  translations: *id082
+- word: wannagan
+  type: noun
+  definitions: &id083
+  - flying fox
+  translations: *id083
+- word: wirrañ
+  type: noun
+  definitions: &id084
+  - rock wallaby
+  translations: *id084
+- word: wirruk
+  type: noun
+  definitions: &id085
+  - red paint
+  translations: *id085
+- word: wommur
+  type: noun
+  definitions: &id086
+  - woomera, spearthrower
+  translations: *id086
+- word: wungara
+  type: noun
+  definitions: &id087
+  - boy
+  translations: *id087
+- word: yura
+  type: noun
+  definitions: &id088
+  - cloud
+  translations: *id088
+- word: ñukung
+  type: noun
+  definitions: &id089
+  - woman
+  translations: *id089
+- word: ôlbunga
+  type: verb
+  definitions: &id090
+  - hold
+  translations: *id090
