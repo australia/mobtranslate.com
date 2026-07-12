@@ -34,7 +34,8 @@ function LanguageCard({
 }) {
   const src = SOURCE[lang.tierId];
   const fillPercent = maxWords > 0 ? (lang.wordCount / maxWords) * 100 : 0;
-  const subtitle = lang.locality || lang.region;
+  // Curr entries carry the place in the name itself; avoid a redundant locality subtitle.
+  const subtitle = lang.tierId === 'curr' ? lang.region : lang.locality || lang.region;
   // Curr entries carry auto-generated boilerplate descriptions — skip them.
   const showDescription = lang.description && lang.tierId !== 'curr';
 
