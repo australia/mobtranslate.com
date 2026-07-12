@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { MAPLIBRE_JS, MAPLIBRE_CSS, AU_BOUNDS } from '../map/mapConfig';
+import { MAPLIBRE_JS, MAPLIBRE_CSS } from '../map/mapConfig';
 import {
   DATA_URL,
   SPREAD_BASEMAP,
@@ -23,8 +23,11 @@ interface Particle {
   speed: number;
 }
 
-const PARTICLE_COUNT = 780; // capped for the shared 8-core box
-const TRAIL_FADE = 0.085; // how fast luminous tails dissolve (lower = longer comets)
+// A dense field of FINE particles reads as wind/light flowing across Country
+// (finer heads are cheaper to stamp than the old thick brush-strokes, so this
+// is more particles at similar cost on the shared 8-core box).
+const PARTICLE_COUNT = 2100;
+const TRAIL_FADE = 0.1; // how fast luminous tails dissolve (lower = longer comets)
 const SPEED_STEPS = [0.25, 0.5, 1, 2, 4];
 
 const FOCALS = [
@@ -39,13 +42,20 @@ const FOCAL_REGION: Record<string, string> = Object.fromEntries(
 const FOCAL_NAME: Record<string, string> = Object.fromEntries(
   FOCALS.map((f) => [f.key, f.short]),
 );
+// Tight fit on MAINLAND Australia (+ Tasmania) — trims the empty ocean and
+// keeps New Zealand out of frame. Deliberately snugger than the shared
+// AU_BOUNDS used by /map, so the continent fills the showpiece.
+const SPREAD_BOUNDS: [[number, number], [number, number]] = [
+  [113.2, -39.6],
+  [153.8, -10.2],
+];
 // keep the continent in the clear band between the top banner and bottom controls
-const FIT_PADDING = { top: 150, bottom: 120, left: 56, right: 56 };
+const FIT_PADDING = { top: 148, bottom: 118, left: 40, right: 40 };
 
 /** A soft additive glow sprite, rendered once and stamped per particle head. */
 function makeGlowSprite(): HTMLCanvasElement | null {
   if (typeof document === 'undefined') return null;
-  const size = 32;
+  const size = 24;
   const c = document.createElement('canvas');
   c.width = size;
   c.height = size;
@@ -213,7 +223,17 @@ export default function SpreadClient() {
           id: 'basemap',
           type: 'raster',
           source: 'carto',
-          paint: { 'raster-opacity': 0.5 },
+          paint: {
+            // Lift the CARTO land silhouette out of near-black so the continent
+            // reads. `raster-brightness-min` raises the darkest tones (land is a
+            // dark grey on dark_nolabels, ocean is near-black); `raster-contrast`
+            // keeps the ocean quiet while the land warms up via the CSS tint.
+            'raster-opacity': 0.72,
+            'raster-brightness-min': 0.16,
+            'raster-brightness-max': 1,
+            'raster-contrast': 0.12,
+            'raster-saturation': 0.15,
+          },
         },
       ],
     };
@@ -229,8 +249,8 @@ export default function SpreadClient() {
     const map = new maplibregl.Map({
       container: mapWrapRef.current,
       style: buildStyle(),
-      center: [136, -22],
-      zoom: 3.35,
+      center: [134, -25],
+      zoom: 3.5,
       minZoom: 2.6,
       maxZoom: 9,
       attributionControl: false,
@@ -249,7 +269,7 @@ export default function SpreadClient() {
 
     map.on('load', () => {
       map.resize();
-      map.fitBounds(AU_BOUNDS, { padding: FIT_PADDING, duration: 0 });
+      map.fitBounds(SPREAD_BOUNDS, { padding: FIT_PADDING, duration: 0 });
       setMapReady(true);
     });
     // any camera change means screen-space trails are stale -> clear them
@@ -618,7 +638,15 @@ export default function SpreadClient() {
         if (progress < 0.999) frontier.push(i);
       }
       if (!reached.length) return;
-      const spawnPool = frontier.length ? frontier : reached;
+      // Emit along EVERY currently-active riverbed so the whole spread breathes,
+      // not only the growing frontier. A gentle frontier bias keeps the leading
+      // edge livelier without starving the settled interior.
+      const drawFrom = (): number => {
+        if (frontier.length && Math.random() < 0.32) {
+          return frontier[(Math.random() * frontier.length) | 0];
+        }
+        return reached[(Math.random() * reached.length) | 0];
+      };
 
       wctx.globalCompositeOperation = 'lighter';
       const glow = glowRef.current;
@@ -627,9 +655,9 @@ export default function SpreadClient() {
         const pt = parts[i];
         let e = edges[pt.edge];
         if (!e || e.fromAge < T) {
-          pt.edge = spawnPool[(Math.random() * spawnPool.length) | 0] ?? reached[0] ?? 0;
-          pt.u = 0;
-          pt.pu = 0;
+          pt.edge = drawFrom();
+          pt.u = Math.random(); // scatter re-entry so the field never pulses in lockstep
+          pt.pu = pt.u;
           e = edges[pt.edge];
         }
         if (!e) continue;
@@ -640,9 +668,7 @@ export default function SpreadClient() {
         // wind breathes even when time is paused (ambient flow of language)
         pt.u += pt.speed * (dtSec > 0 ? dtSec * 12 : 0.12) * (0.5 + speedRef.current * 0.3);
         if (pt.u >= 1) {
-          const useFrontier = Math.random() < 0.72 && frontier.length;
-          const pool = useFrontier ? frontier : spawnPool;
-          pt.edge = pool[(Math.random() * pool.length) | 0] ?? reached[0] ?? 0;
+          pt.edge = drawFrom();
           pt.u = 0;
           pt.pu = 0;
           continue;
@@ -656,22 +682,23 @@ export default function SpreadClient() {
         const px = c.ax + (c.bx - c.ax) * cpu;
         const py = c.ay + (c.by - c.ay) * cpu;
 
-        const fade = 1 - pt.u; // brighter near the frontier head
-        const support = Math.min(1, e.posterior * 1.4 + 0.25);
+        // gently varied brightness — near the head of its run each mote flares
+        const fade = 1 - pt.u;
+        const support = Math.min(1, e.posterior * 1.4 + 0.28);
 
-        // streak (drawn additively; fade-persist leaves the comet tail)
-        wctx.strokeStyle = `rgba(${SKY.windMid}, ${(0.22 + 0.4 * fade) * support})`;
-        wctx.lineWidth = 1.2;
+        // fine streak (drawn additively; fade-persist leaves the luminous tail)
+        wctx.strokeStyle = `rgba(${SKY.windMid}, ${(0.14 + 0.34 * fade) * support})`;
+        wctx.lineWidth = 0.7;
         wctx.lineCap = 'round';
         wctx.beginPath();
         wctx.moveTo(px, py);
         wctx.lineTo(x, y);
         wctx.stroke();
 
-        // luminous head
+        // small luminous head
         if (glow) {
-          const s = 5.5 + 7 * fade;
-          wctx.globalAlpha = 0.48 * support;
+          const s = 2.4 + 3.4 * fade;
+          wctx.globalAlpha = 0.34 * support;
           wctx.drawImage(glow, x - s / 2, y - s / 2, s, s);
           wctx.globalAlpha = 1;
         }

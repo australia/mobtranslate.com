@@ -15,13 +15,19 @@ import type { DictionaryLanguage, DictionaryTierId } from '@/lib/db/queries';
 // 1886-87 = public domain) and because knowing where a lexicon came from is
 // simply good scholarship. Attribution is not demotion.
 //
-// Two presentations, chosen by the shape of the data (not by rank):
-//   • Community + Wiktionary dictionaries carry a description, a region and a
-//     family — they get a full card.
+// THREE presentations, chosen by the shape of the data (not by rank):
+//   • Community dictionaries carry a genuine, hand-written description — a
+//     living lexicon someone maintains. They get the full, tall card.
+//   • Wiktionary vocabularies share one templated one-liner ("X is a
+//     Pama-Nyungan language of <State>. Lexicon sourced from Wiktionary…").
+//     Thirty near-identical sentences read as boilerplate, so we DROP the
+//     description on the card entirely — the region, family and Wiktionary
+//     source chip already say everything the sentence did. A compact card,
+//     visibly lighter than the Community ones.
 //   • The 187 Curr vocabularies are single-locality comparative wordlists with
-//     no description; forcing them into the same tall card leaves a broken-
-//     looking void. They read as what they are: a dense, scannable INDEX of
-//     Edward Curr's 1886-87 survey, one dignified row per locality.
+//     no description; forcing them into a tall card leaves a broken-looking
+//     void. They read as what they are: a dense, scannable INDEX of Edward
+//     Curr's 1886-87 survey, one dignified row per locality.
 // ---------------------------------------------------------------------------
 
 const SOURCE: Record<DictionaryTierId, string> = {
@@ -83,6 +89,52 @@ function LanguageCard({ lang }: { lang: DictionaryLanguage }) {
       )}
 
       <div className="mt-auto flex items-center justify-between gap-3 border-t border-border/60 pt-3.5">
+        <span className="text-sm text-muted-foreground">
+          <span className="font-semibold tabular-nums text-[var(--lang-accent)]">
+            {lang.wordCount.toLocaleString()}
+          </span>{' '}
+          {lang.wordCount === 1 ? 'word' : 'words'}
+        </span>
+        <div className="flex flex-wrap items-center justify-end gap-1.5">
+          {lang.family && (
+            <span className="inline-flex items-center rounded-md border border-border px-2 py-0.5 text-xs font-medium text-muted-foreground">
+              {lang.family}
+            </span>
+          )}
+          <SourceChip tierId={lang.tierId} />
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+// -- Compact card (Wiktionary) ----------------------------------------------
+// No description: 30 of them share one templated sentence, so the boilerplate
+// is dropped. Region + family + Wiktionary chip carry the provenance.
+
+function WiktionaryCard({ lang }: { lang: DictionaryLanguage }) {
+  return (
+    <Link
+      href={`/dictionaries/${lang.code}`}
+      data-language={lang.code}
+      className="group relative flex flex-col justify-between gap-3.5 rounded-xl border border-border bg-card p-4 no-underline transition-[border-color,box-shadow] duration-200 hover:border-[var(--lang-accent)] hover:shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_-12px_var(--lang-accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none"
+    >
+      <div className="flex items-start justify-between gap-2.5">
+        <div className="min-w-0">
+          <h3 className="truncate font-display text-lg font-semibold leading-tight transition-colors group-hover:text-[var(--lang-accent)]">
+            {lang.name}
+          </h3>
+          {lang.region && (
+            <p className="mt-0.5 truncate text-[0.8125rem] text-muted-foreground">{lang.region}</p>
+          )}
+        </div>
+        <ArrowUpRight
+          className="mt-0.5 h-[1.15rem] w-[1.15rem] shrink-0 text-[var(--lang-accent)] opacity-0 transition-all duration-200 group-hover:opacity-100 motion-reduce:transition-none"
+          aria-hidden
+        />
+      </div>
+
+      <div className="flex items-center justify-between gap-2">
         <span className="text-sm text-muted-foreground">
           <span className="font-semibold tabular-nums text-[var(--lang-accent)]">
             {lang.wordCount.toLocaleString()}
@@ -209,16 +261,9 @@ export default function DictionariesBrowser({
     });
   }, [sorted, query, sourceFilter, familyFilter]);
 
-  const rich = useMemo(() => filtered.filter((l) => l.tierId !== 'curr'), [filtered]);
+  const community = useMemo(() => filtered.filter((l) => l.tierId === 'curated'), [filtered]);
+  const wiktionary = useMemo(() => filtered.filter((l) => l.tierId === 'wiktionary'), [filtered]);
   const curr = useMemo(() => filtered.filter((l) => l.tierId === 'curr'), [filtered]);
-
-  const richTitle = useMemo(() => {
-    const hasCommunity = rich.some((l) => l.tierId === 'curated');
-    const hasWiktionary = rich.some((l) => l.tierId === 'wiktionary');
-    if (hasCommunity && hasWiktionary) return 'Community & Wiktionary dictionaries';
-    if (hasWiktionary) return 'Wiktionary vocabularies';
-    return 'Community dictionaries';
-  }, [rich]);
 
   const hasFilters = query.trim() !== '' || sourceFilter !== 'all' || familyFilter !== 'all';
 
@@ -357,16 +402,31 @@ export default function DictionariesBrowser({
         </div>
       ) : (
         <div className="space-y-12">
-          {rich.length > 0 && (
+          {community.length > 0 && (
             <section>
               <SectionHeader
-                title={richTitle}
-                hint="Living community lexicons and openly-licensed vocabularies, each with region and family."
-                count={rich.length}
+                title="Community dictionaries"
+                hint="Living lexicons built and maintained with language communities."
+                count={community.length}
               />
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {rich.map((lang) => (
+                {community.map((lang) => (
                   <LanguageCard key={lang.code} lang={lang} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {wiktionary.length > 0 && (
+            <section>
+              <SectionHeader
+                title="Wiktionary vocabularies"
+                hint="Openly-licensed wordlists drawn from English Wiktionary (CC-BY-SA 4.0), by region and family."
+                count={wiktionary.length}
+              />
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {wiktionary.map((lang) => (
+                  <WiktionaryCard key={lang.code} lang={lang} />
                 ))}
               </div>
             </section>
