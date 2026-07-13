@@ -109,7 +109,7 @@ export default function GrammarPage() {
               Colour the whole map by any single grammatical feature, or set two languages side by side
               and read exactly where they agree and differ. Grammar is coded for{' '}
               <span className="font-medium text-foreground">{cov.profiled_languages}</span> of the{' '}
-              {cov.genuine_languoids.toLocaleString()} languages — the rest stay on the map, honestly
+              {cov.genuine_languoids.toLocaleString()}{' '}languages — the rest stay on the map, honestly
               greyed as &ldquo;not grammatically profiled&rdquo;.
             </p>
           </div>
@@ -179,8 +179,8 @@ export default function GrammarPage() {
               </p>
               <p>
                 <span className="font-semibold text-foreground">It is not relatedness.</span> Recorded
-                agreement is <em>not</em> overall grammatical similarity and <em>not</em> genetic
-                relatedness — unrelated languages can share many baseline values. Unknown and not-coded
+                agreement is <em>not</em> overall grammatical similarity and <em>not</em>{' '}
+                genetic relatedness — unrelated languages can share many baseline values. Unknown and not-coded
                 cells render an explicit grey, never conflated with &ldquo;absent&rdquo;.
               </p>
             </div>

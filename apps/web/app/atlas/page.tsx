@@ -137,7 +137,7 @@ export default function AtlasPage() {
       icon: List,
       title: 'Directory',
       desc: 'Filter and sort every language — including the unlocated and lexically-empty. No language left off.',
-      status: 'Coming soon',
+      status: 'Live',
     },
     {
       href: '/atlas/spread',
@@ -182,8 +182,8 @@ export default function AtlasPage() {
             </h1>
             <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
               A living, citable atlas of{' '}
-              <span className="font-medium text-foreground">{total.toLocaleString()}</span> Aboriginal
-              and Torres Strait Islander languages and dialects — their Country, family and deep-time
+              <span className="font-medium text-foreground">{total.toLocaleString()}</span>{' '}
+              Aboriginal and Torres Strait Islander languages and dialects — their Country, family and deep-time
               position, drawn from open scholarly data. Where something isn&rsquo;t known, we say so
               rather than fill the gap.{' '}
               <Link href="/atlas/methods" className="font-medium text-primary underline underline-offset-2">

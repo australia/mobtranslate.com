@@ -420,7 +420,7 @@ export default function MethodsPage() {
             </p>
             <p>
               <strong className="text-foreground">What &ldquo;genuine languoid&rdquo; excludes.</strong>{' '}
-              {cov.non_language_nodes_appendixed ?? 49} Sign-language, Pidgin, Bookkeeping and
+              {cov.non_language_nodes_appendixed ?? 49}{' '}Sign-language, Pidgin, Bookkeeping and
               mixed/artificial nodes are moved to a clearly-labelled appendix rather than counted as
               languages; Mi&apos;gmaq is excluded as non-Australian; the Curr 1886-87 OCR wordlists are
               kept as a historical appendix, not as modern language identities.
