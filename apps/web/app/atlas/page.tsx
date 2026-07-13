@@ -157,8 +157,8 @@ export default function AtlasPage() {
       href: '/atlas/methods',
       icon: FileText,
       title: 'Methods & sources',
-      desc: 'How the atlas is joined, every upstream dataset and licence, and the uncertainty policy.',
-      status: 'Coming soon',
+      desc: 'How the atlas is joined, every upstream dataset and licence, downloadable open data, and how to cite it.',
+      status: 'Live',
     },
   ];
 

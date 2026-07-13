@@ -1,0 +1,82 @@
+cff-version: 1.2.0
+message: >-
+  If you use the Atlas of Australian Languages, please cite it as below AND cite
+  the upstream datasets it aggregates (Glottolog, Grambank, WALS, AIATSIS
+  AUSTLANG, and Bouckaert, Bowern & Atkinson 2018 via Phlorest). See sources.bib.
+title: "The Atlas of Australian Languages"
+abstract: >-
+  A historian-grade, contradiction-preserving web atlas of the ~980 genuine
+  Australian Aboriginal and Torres Strait Islander languoids: classification,
+  Country and coordinates (with provenance), endangerment, grammatical
+  (Grambank/WALS) profiles, lexical coverage, and dated Pama-Nyungan deep-time
+  position, joined at build time from open scholarly datasets with per-datum
+  provenance and honest uncertainty flags.
+type: dataset
+version: "1.1.0"
+date-released: "2026-07-12"
+license: CC-BY-4.0
+license-url: "https://creativecommons.org/licenses/by/4.0/"
+url: "https://mobtranslate.com/atlas"
+repository-code: "https://github.com/australia/mobtranslate.com"
+authors:
+  - name: "Mob Translate project"
+    website: "https://mobtranslate.com"
+  - name: "Claude (Anthropic)"
+keywords:
+  - Australian languages
+  - Pama-Nyungan
+  - historical linguistics
+  - language atlas
+  - Indigenous languages
+  - Glottolog
+  - Grambank
+  - AUSTLANG
+references:
+  - type: article
+    title: "The origin and expansion of Pama-Nyungan languages across Australia"
+    authors:
+      - family-names: Bouckaert
+        given-names: Remco R.
+      - family-names: Bowern
+        given-names: Claire
+      - family-names: Atkinson
+        given-names: Quentin D.
+    year: 2018
+    journal: "Nature Ecology & Evolution"
+    volume: 2
+    start: 741
+    end: 749
+    doi: "10.1038/s41559-018-0489-3"
+  - type: database
+    title: "Glottolog 5.3"
+    authors:
+      - name: "Max Planck Institute for Evolutionary Anthropology"
+    year: 2025
+    url: "https://glottolog.org"
+    notes: "CC-BY-4.0. Versioned DOI on the Glottolog Zenodo record."
+  - type: database
+    title: "Grambank v1.0.3"
+    authors:
+      - name: "Grambank Consortium"
+    year: 2023
+    url: "https://grambank.clld.org"
+    notes: "CC-BY-4.0. See Skirgård et al. 2023, Science Advances, DOI 10.1126/sciadv.adg6175."
+  - type: database
+    title: "WALS Online v2020.4"
+    authors:
+      - name: "Max Planck Institute for Evolutionary Anthropology"
+    year: 2013
+    url: "https://wals.info"
+    notes: "CC-BY-4.0."
+  - type: database
+    title: "AUSTLANG — Australian Indigenous Languages Database"
+    authors:
+      - name: "AIATSIS"
+    url: "https://collection.aiatsis.gov.au/austlang"
+    notes: "CC-BY-4.0 via data.gov.au."
+  - type: database
+    title: "Phlorest: a CLDF collection of phylogenetic trees"
+    authors:
+      - name: "Phlorest"
+    url: "https://phlorest.clld.org"
+    notes: "CC-BY-4.0. CLDF-standardised Bouckaert et al. 2018 tree; also on D-PLACE (partly CC-BY-NC)."

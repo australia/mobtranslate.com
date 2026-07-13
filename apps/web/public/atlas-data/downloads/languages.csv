@@ -1,0 +1,981 @@
+slug,name,family,macroarea,glottocode,iso639_3,austlang,lat,lon,coord_provenance,coord_approximate,tier,endangerment,grammar_profiled,grammar_feature_count,lexicon_state,word_count,deep_time_divergence_bp,classification_chain
+a101,Naaguja,unclassified,Australia,,,A101,-28.135541101863,114.76447121893,austlang,true,listed,unknown,false,,pointer_only,,,
+a108,Nankilakuthu,unclassified,Australia,,,A108,,,none,,listed,unknown,false,,pointer_only,,,
+a109,Martuyitha,unclassified,Australia,,,A109,,,none,,listed,unknown,false,,pointer_only,,,
+a111,Windaga,unclassified,Australia,,,A111,,,none,,listed,unknown,false,,pointer_only,,,
+a112,Ngoonooru,unclassified,Australia,,,A112,,,none,,listed,unknown,false,,pointer_only,,,
+a113,Byro Wajarri,unclassified,Australia,,,A113,,,none,,listed,unknown,false,,pointer_only,,,
+a114,Mileura Wajarri,unclassified,Australia,,,A114,,,none,,listed,unknown,false,,pointer_only,,,
+a115,Nharnu,unclassified,Australia,,,A115,,,none,,listed,unknown,false,,pointer_only,,,
+a116,Nyiyaparli Padupadu,unclassified,Australia,,,A116,,,none,,listed,unknown,false,,pointer_only,,,
+a117,Banyjima Padupadu,unclassified,Australia,,,A117,,,none,,listed,unknown,false,,pointer_only,,,
+a118,Ngarrka,unclassified,Australia,,,A118,,,none,,listed,unknown,false,,pointer_only,,,
+a119,Kurdun,unclassified,Australia,,,A119,,,none,,listed,unknown,false,,pointer_only,,,
+a120,Yirrakalan,unclassified,Australia,,,A120,,,none,,listed,unknown,false,,pointer_only,,,
+a122,Kakutu / Kakurtu,unclassified,Australia,,,A122,,,none,,listed,unknown,false,,pointer_only,,,
+a123,Ngulatu / Ngulartu,unclassified,Australia,,,A123,,,none,,listed,unknown,false,,pointer_only,,,
+a16,Kuwarra,unclassified,Australia,,,A16,-28.182031703639,120.34536446621,austlang,true,listed,unknown,false,,pointer_only,,,
+a20,Wilyara,unclassified,Australia,,,A20,-26.799611608385,120.41568813065,austlang,true,listed,unknown,false,,pointer_only,,,
+a21,Gula,unclassified,Australia,,,A21,-27.99046024825,122.70200834255,austlang,true,listed,unknown,false,,pointer_only,,,
+a22,Marawa,unclassified,Australia,,,A22,-28.771514280889,125.34638789354,austlang,true,listed,unknown,false,,pointer_only,,,
+a27,Mudalga,unclassified,Australia,,,A27,-27.752210323925,123.65487413983,austlang,true,listed,unknown,false,,pointer_only,,,
+a28,Bunggura,unclassified,Australia,,,A28,-27.28614140549,130.46337106064,austlang,true,listed,unknown,false,,pointer_only,,,
+a44,Djungurdja,unclassified,Australia,,,A44,,,none,,listed,unknown,false,,pointer_only,,,
+a5,Nungara,unclassified,Australia,,,A5,-30.288736633741,120.59501258947,austlang,true,listed,unknown,false,,pointer_only,,,
+a70,Wadjiba,unclassified,Australia,,,A70,,,none,,listed,unknown,false,,pointer_only,,,
+a71,Nhugarn,unclassified,Australia,,,A71,-25.804998816598,115.47622416926,austlang,true,listed,unknown,false,,pointer_only,,,
+a74,Frazer Range,unclassified,Australia,,,A74,-32.175364004514,123.47446545531,austlang,true,listed,unknown,false,,pointer_only,,,
+a75,Bundjuwanga,unclassified,Australia,,,A75,-21.087596240294,119.39719913486,austlang,true,listed,unknown,false,,pointer_only,,,
+a78,Ju'una,unclassified,Australia,,,A78,-22.000762956078,119.45541305778,austlang,true,listed,unknown,false,,pointer_only,,,
+a82,Wirdjaragandja,unclassified,Australia,,,A82,-26.304879382631,131.91107607403,austlang,true,listed,unknown,false,,pointer_only,,,
+a84,Tarpuntjari,unclassified,Australia,,,A84,,,none,,listed,unknown,false,,pointer_only,,,
+a85,Kurajarra,unclassified,Australia,,,A85,-22.909591398018,122.3629167104,austlang,true,listed,unknown,false,,pointer_only,,,
+a90,Nyanyany,unclassified,Australia,,,A90,,,none,,listed,unknown,false,,pointer_only,,,
+a91,Nyardi,unclassified,Australia,,,A91,-18.622991623929,125.27550390484,austlang,true,listed,unknown,false,,pointer_only,,,
+a95,Natingero,unclassified,Australia,,,A95,-29.373824151559,118.3669992509,austlang,true,listed,unknown,false,,pointer_only,,,
+a97,Cheangwa language,unclassified,Australia,,,A97,-27.49908684106,116.4015534839,austlang,true,listed,unknown,false,,pointer_only,,,
+adja1238,Adjabdurah,Pama-Nyungan,Australia,adja1238,,,-34.69,137.535,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura > Core Thura Yura > Southern Thura-Yura > Narungga
+adny1235,Adnyamathanha,Pama-Nyungan,Australia,adny1235,adt,L10;L55,-30.1451,138.671,glottolog,false,comprehensive,shifting,true,168,live,24,1460.7,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura > Core Thura Yura > Northern Thura-Yura
+aghu1254,Aghu Tharnggalu,Pama-Nyungan,Australia,aghu1254,ggr,Y198;Y65;Y94,-13.735,142.426,glottolog,false,documented,extinct,true,81,pointer_only,,1821.5,Pama-Nyungan > Paman > Alaya-Athima > Thaypanic
+akar1244,Akarre,Pama-Nyungan,Australia,akar1244,,C28,-23.3583,135.046,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Central-Eastern Arrernte > Eastern Arrernte
+aker1238,Akerre,Pama-Nyungan,Australia,aker1238,,,-24.05052,133.24621,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Western Arrarnta
+alaw1244,Alawa,Mangarrayi-Maran,Australia,alaw1244,alh,N92;N99,-15.5458,134.282,glottolog,false,comprehensive,nearly extinct,true,56,open_resource,20,,Mangarrayi-Maran > Maran
+alng1239,Alngith,Pama-Nyungan,Australia,alng1239,aid,Y24;Y28;Y32;Y39;Y40,-12.5324,141.938,glottolog,false,documented,extinct,false,,pointer_only,,613.6,Pama-Nyungan > Paman > Northern Pama > Linngithigh-Alngith
+alya1239,Alyawarr,Pama-Nyungan,Australia,alya1239,aly,C14;C29,-21.0427,136.835,glottolog,false,comprehensive,threatened,true,142,open_resource,4,748.5,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte
+amar1271,Amurdak,Iwaidjan Proper,Australia,amar1271,amg,N47,-11.9876,132.878,glottolog,false,documented,nearly extinct,false,,open_resource,3,,Iwaidjan Proper
+amii1238,Ami,Western Daly,Australia,amii1238,amy,N15,-13.5573,130.04,glottolog,false,documented,nearly extinct,true,212,pointer_only,,,Western Daly > Maranunggu-Ame-Manda > Ame-Manda
+anda1282,Andadjin,Worrorran,Australia,anda1282,ajn,K64,-16.531222,127.693718,glottolog,false,documented,extinct,false,,pointer_only,,,Worrorran > Ngarinyin
+ande1247,Andegerebinha,Pama-Nyungan,Australia,ande1247,adg,C12,-22.51278,137.3515,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Central-Eastern Arrernte
+angg1238,Angkamuthi,Pama-Nyungan,Australia,angg1238,avm,Y7,-11.443,142.242,glottolog,false,documented,extinct,false,,pointer_only,,661.7,Pama-Nyungan > Paman > Northern Pama > Gudang-Northeast Paman > Northeast Paman > Uradhic > Yadhaykenu-Angkamuthi
+angu1242,Anguthimri,Pama-Nyungan,Australia,angu1242,awg,Y20,-12.395,141.755,glottolog,false,comprehensive,extinct,true,32,live,495,499.2,Pama-Nyungan > Paman > Northern Pama > Albatross Bay > Anguthimri-Yangathimri-Yuputhimri > Anguthimri-Yangathimri
+anin1240,Anindilyakwa,Gunwinyguan,Australia,anin1240,aoi,N151,-13.99904,136.6415,glottolog,false,comprehensive,shifting,true,153,live,591,,Gunwinyguan > Eastern Gunwinyguan > Wubuy-Anindilyakwa
+anma1239,Anmatyerre,Pama-Nyungan,Australia,anma1239,amx,C8.1,-22.2853,133.286,glottolog,false,documented,shifting,false,,open_resource,2,684.6,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte
+anta1253,Antakarinya,Pama-Nyungan,Australia,anta1253,ant,C5,-27.1152,134.838,glottolog,false,documented,nearly extinct,false,,live,30,,Pama-Nyungan > Desert Nyungic > Wati > Unclassified Wati
+arab1267,Arabana,Pama-Nyungan,Australia,arab1267,ard,L13,-28.705,135.449,glottolog,false,documented,extinct,true,122,pointer_only,,31,Pama-Nyungan > Karnic > Palku > Arabana-Wangganguru
+areb1238,Areba,Pama-Nyungan,Australia,areb1238,aea,Y107,-16.63548,142.63107,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Norman Pama > Kuthant-Gurdjar > Rib-Gurdjar
+arit1239,Arritinngithigh,Pama-Nyungan,Australia,arit1239,rrt,Y229;Y34,-12.96,141.95,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Northern Pama
+atam1239,Atampaya,Pama-Nyungan,Australia,atam1239,amz,Y183,-11.0018,142.273,glottolog,false,comprehensive,extinct,true,167,open_resource,1,,Pama-Nyungan > Paman > Northern Pama > Gudang-Northeast Paman > Northeast Paman > Uradhic
+athi1234,Athima,Pama-Nyungan,Australia,athi1234,,,-17.2,142.4,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Paman > Alaya-Athima > Southwestern Alaya-Athima
+awab1243,Awabakal,Pama-Nyungan,Australia,awab1243,awk,D63;E1;S62;S66;S99,-33.12847,151.43555,glottolog,false,comprehensive,extinct,true,80,live,45,936.2,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Kuri > Hunter-Hastings
+awab1244,Awabagal,Pama-Nyungan,Australia,awab1244,,,-33.12847,151.43555,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Kuri > Hunter-Hastings > Awabakal
+awng1245,Awngtim,Pama-Nyungan,Australia,awng1245,gwm,Y185;Y23;Y31,-12.544,141.984,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Northern Pama > Albatross Bay > Tyanngayt-Mamngayt-Ntrwangayt-Ntrangit
+ayab1239,Yintyinka-Ayabadhu,Pama-Nyungan,Australia,ayab1239,ayd,Y60,-14.6652,142.893,glottolog,false,documented,extinct,false,,pointer_only,,1059.5,Pama-Nyungan > Paman > Compromise Middle Pama > Northeastern Pama > Umbindhamuic
+ayer1246,Ayerrerenge,Pama-Nyungan,Australia,ayer1246,axe,G12;G12.1,-23.699,133.88,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Central-Eastern Arrernte > Andegerebinha
+badi1246,Badimaya,Pama-Nyungan,Australia,badi1246,bia,A13;A14;A29;A41;A42;A49;A93,-29.0647,117.246,glottolog,false,documented,extinct,true,34,pointer_only,,1438.3,Pama-Nyungan > South-West Pama-Nyungan > Kartu-Nhanda > Kartu
+badj1244,Badjirri,Pama-Nyungan,Australia,badj1244,jbi,D31,-28.79,145.47,glottolog,false,documented,extinct,false,,pointer_only,,2425.1,Pama-Nyungan > Karnic > Badjiri-Eastern Karnic
+bagu1250,Bagundji,Pama-Nyungan,Australia,bagu1250,,,-32.7021,142.695,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yarli-Baagandji > Paakantyi
+balu1254,Balurbi,Pama-Nyungan,Australia,balu1254,,,-12.462,134.82,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Western-Inland Yolngu > Djinang
+band1358,Bandjalang,Pama-Nyungan,Australia,band1358,,,-28.937029,153.48612,glottolog,false,documented,unknown,false,,live,77,344.7,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Coastal Bandjalang > Lower Richmond
+bang1339,Banggarla,Pama-Nyungan,Australia,bang1339,bjb,L6,-33.3036,136.079,glottolog,false,comprehensive,extinct,true,3,live,138,1460.7,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura > Core Thura Yura > Northern Thura-Yura
+bara1404,Barababaraba,Pama-Nyungan,Australia,bara1404,rbp,D5;D68,-34.13829932,143.6694397,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria > Wembawembic
+bard1255,Bardi,Nyulnyulan,Australia,bard1255,bcj,K15;K69,-16.6274,122.906,glottolog,false,comprehensive,nearly extinct,true,125,open_resource,4,,Nyulnyulan > Western Nyulnyulan > Bardic
+barr1247,Barrow Point,Pama-Nyungan,Australia,barr1247,bpt,Y63.1,-14.1219,144.531,glottolog,false,documented,extinct,false,,pointer_only,,1741.7,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Flinders-Barrow
+barr1252,Barranbinya,Pama-Nyungan,Australia,barr1252,,D26,-30.1,145.93,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Muruwaric
+bary1234,Baryulgil,Pama-Nyungan,Australia,bary1234,,E71;E80,-29.042737,152.780249,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Inland Bandjalang > Middle Clarence Bandjalang
+baty1234,Butchulla,Pama-Nyungan,Australia,baty1234,xby,E30,-25.44486,153.15399,glottolog,false,documented,extinct,false,,pointer_only,,1440.2,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Waka-Kabic > Eastern Waka-Kabic > Kabikabi
+baya1257,Bayali,Pama-Nyungan,Australia,baya1257,bjy,E42;E46;E63,-23.72933,150.86616,glottolog,false,documented,extinct,false,,pointer_only,,1507.9,Pama-Nyungan > Rockhampton-Gladstone
+bayu1240,Bayungu,Pama-Nyungan,Australia,bayu1240,bxj,W23,-23.3809,114.108,glottolog,false,comprehensive,extinct,true,1,open_resource,1,809.7,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Kanyara
+benl1235,Ben-Lomond-Cape-Portland,North-Eastern Tasmanian,Australia,benl1235,xpb,,-41.326418,147.787122,glottolog,false,classified,extinct,false,,none,,,North-Eastern Tasmanian
+bibb1234,Bibbulman,Pama-Nyungan,Australia,bibb1234,xbp,W1,-34.90831,117.17375,glottolog,false,documented,extinct,false,,pointer_only,,582.3,Pama-Nyungan > South-West Pama-Nyungan > Nyunga
+bidj1245,Pitjara,Pama-Nyungan,Australia,bidj1245,,,-28.136,143.929,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Karnic > Badjiri-Eastern Karnic > Eastern Karnic > Bulloo River
+bidy1243,Bidyara,Pama-Nyungan,Australia,bidy1243,bym,D13;E37;L43;L57,-25.192664,147.273359,glottolog,false,documented,extinct,false,,open_resource,1,710.9,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric > Bidyaric
+biga1237,Bigambal,Pama-Nyungan,Australia,biga1237,xbe,D34,-28.266,149.515,glottolog,false,documented,extinct,false,,pointer_only,,1515.4,Pama-Nyungan > East Queensland Border Pama Nyungan > Yugambalic > Yugambal-Bigambal
+bign1237,Big Nykina,Nyulnyulan,Australia,bign1237,,,-17.9594,124.348,glottolog,false,classified,unknown,false,,none,,,Nyulnyulan > Eastern Nyulnyulan > Nyikinic > Nyigina
+bili1250,Bilinarra,Pama-Nyungan,Australia,bili1250,,N36,-16.868771,130.533991,glottolog,false,documented,nearly extinct,true,197,pointer_only,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin > Ngumpit > Ngarinman
+binb1242,Binbinka,Mirndi,Australia,binb1242,,N138,-16.55208,134.78661,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Mirndi > Ngurlun > Wambayan
+bind1234,Bindal-Cunningham,Pama-Nyungan,Australia,bind1234,,,-19.503533,147.276395,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Greater Maric > Unclassified Greater Maric > Bindalic
+bind1235,Bindal-Gorton,Pama-Nyungan,Australia,bind1235,,,-19.678195,147.269528,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Greater Maric > Unclassified Greater Maric > Bindalic
+bind1236,Bindal-Mount Elliot,Pama-Nyungan,Australia,bind1236,,,-19.409007,147.002766,glottolog,false,documented,extinct,false,,none,,1587.9,Pama-Nyungan > Greater Maric > Unclassified Greater Maric > Bindalic
+biri1256,Biri,Pama-Nyungan,Australia,biri1256,bzr,D60;E38;E47;E54;E56;E57,-20.1494,146.67,glottolog,false,comprehensive,extinct,true,211,open_resource,2,1042.5,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Eastern Maric
+biri1260,Biriin,Pama-Nyungan,Australia,biri1260,,,-29.042737,152.780249,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Inland Bandjalang > Middle Clarence Bandjalang
+birr1241,Birrpayi,Pama-Nyungan,Australia,birr1241,xbj,,-32.4806,152.107,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Kuri > Hunter-Hastings > Worimi
+boon1243,Boonwurrung,Pama-Nyungan,Australia,boon1243,,S35,-38.44632,145.83699,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Woiwurrung-Thagungwurrung
+brun1235,Bruny Island,South-Eastern Tasmanian,Australia,brun1235,xpz,,-43.373112,147.247925,glottolog,false,classified,extinct,false,,none,,,South-Eastern Tasmanian
+bula1255,Bularnu,Pama-Nyungan,Australia,bula1255,,,-21.02656922,138.1566659,glottolog,false,documented,extinct,true,153,none,,1242.7,Pama-Nyungan > Ngarna > Southern Ngarna > Thawa
+buna1275,Bunaba,Bunaban,Australia,buna1275,bck,K5,-17.8297,125.631,glottolog,false,comprehensive,nearly extinct,true,23,open_resource,1,,Bunaban
+bung1264,Bunganditj,Pama-Nyungan,Australia,bung1264,xbg,S13,-36.5,140.5,glottolog,false,documented,extinct,false,,pointer_only,,1989.5,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Warrnambool-Bunganditj
+bura1267,Burarra,Maningrida,Australia,bura1267,bvr,N135;N191;N82;N86,-12.3061,134.365,glottolog,false,documented,shifting,true,147,pointer_only,,,Maningrida > Bureran
+burd1238,Burduna,Pama-Nyungan,Australia,burd1238,bxn,W24,-22.9646,114.658,glottolog,false,documented,extinct,false,,open_resource,1,533.3,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Kanyara > Thalanyji-Burduna
+c45,Nyiwanawu,unclassified,Australia,,,C45,-16.339209303677,129.68231936841,austlang,true,listed,unknown,false,,pointer_only,,,
+came1251,Cameeragal,Pama-Nyungan,Australia,came1251,,,-33.12847,151.43555,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Kuri > Hunter-Hastings > Awabakal
+casi1237,Casino,Pama-Nyungan,Australia,casi1237,,,-29.042737,152.780249,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Inland Bandjalang > Middle Clarence Bandjalang
+cent2015,Central-northern Warlpiri,Pama-Nyungan,Australia,cent2015,,,-20.1008,131.05,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Yapa > Warlpiri
+circ1241,Circular Head,Western Tasmanian,Australia,circ1241,,T3,-40.76592,144.74362,glottolog,false,documented,unknown,false,,pointer_only,,,Western Tasmanian > Western Coastal Tasmanian > Northwestern Tasmanian
+cola1237,Colac,Pama-Nyungan,Australia,cola1237,,S30;S73,-38.471266,143.422444,glottolog,false,documented,extinct,true,2,pointer_only,,1803.1,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin
+cond1242,Condamine-Upper Clarence Bandjalang,Pama-Nyungan,Australia,cond1242,gih,E14,-28.289642,152.151281,glottolog,false,documented,extinct,true,26,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Inland Bandjalang
+d36,Geynyan,unclassified,Australia,,,D36,-28.183476133671,152.1836091392,austlang,true,listed,unknown,false,,pointer_only,,,
+d41,Giabal,unclassified,Australia,,,D41,-27.690382408466,151.75553008535,austlang,true,listed,unknown,false,,pointer_only,,,
+d45,Wadjalang / Dharawala,unclassified,Australia,,,D45,-25.63531758302,145.27186654615,austlang,true,listed,unknown,false,,pointer_only,,,
+d46,Nguri,unclassified,Australia,,,D46,-25.60232388078,147.80237722303,austlang,true,listed,unknown,false,,pointer_only,,,
+d49,Kungakuri,unclassified,Australia,,,D49,-29.105452818179,146.39520769076,austlang,true,listed,unknown,false,,pointer_only,,,
+d50,Nuntukuri,unclassified,Australia,,,D50,-29.871731092888,145.95244183475,austlang,true,listed,unknown,false,,pointer_only,,,
+d51,Purukuri,unclassified,Australia,,,D51,-29.720394875821,144.26646237685,austlang,true,listed,unknown,false,,pointer_only,,,
+d52,Thinuntu,unclassified,Australia,,,D52,-29.839282822512,146.32568318367,austlang,true,listed,unknown,false,,pointer_only,,,
+d53,Kuntakuri,unclassified,Australia,,,D53,-29.29726956936,146.90787753214,austlang,true,listed,unknown,false,,pointer_only,,,
+d62,Canberra language,unclassified,Australia,,,D62,-35.47495743535,148.99849573155,austlang,true,listed,unknown,false,,pointer_only,,,
+d64,Northern Anaiwan,unclassified,Australia,,,D64,-30.127552320636,151.47627148348,austlang,true,listed,unknown,false,,pointer_only,,,
+d67,Wadi Wadi (piangil),unclassified,Australia,,,D67,,,none,,listed,unknown,false,,pointer_only,,,
+dabi1239,Dabi,Pama-Nyungan,Australia,dabi1239,,N209,-12.93,134.967,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Western-Inland Yolngu > Djinba
+dadi1251,Dadi Dadi,Pama-Nyungan,Australia,dadi1251,dda,S28,-33.9470874,141.5854211,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Yaraldi-Keramin-Yitha > Lower Darling-Lower Lachlan
+dago1245,Dagoman,Yangmanic,Australia,dago1245,dgn,N205;N38,-15.764,132.379,glottolog,false,documented,extinct,false,,pointer_only,,,Yangmanic
+dang1262,Dangedl,Pama-Nyungan,Australia,dang1262,yrm,Y214,-15.1117,141.767,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Southwest Pama > Coastal Southwest Paman > Yir-Yoront
+darl1243,Paakantyi,Pama-Nyungan,Australia,darl1243,drl,D12;D16;D19;D25;D47;D48;D61,-32.7021,142.695,glottolog,false,comprehensive,nearly extinct,true,105,open_resource,15,41,Pama-Nyungan > Yarli-Baagandji
+dati1238,Datiwuy,Pama-Nyungan,Australia,dati1238,,N116.F,-12.7825,136.008,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala > Dhuwal > Nuclear Dhuwal
+daun1234,Daungwurrung,Pama-Nyungan,Australia,daun1234,dgw,S37;S90,-36.96691,145.42066,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Woiwurrung-Thagungwurrung
+dayi1244,Dayi,Pama-Nyungan,Australia,dayi1244,dax,N117;N118;N143.1,-13.1806,136.22,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu
+dhab1234,Dhäbitjin,Pama-Nyungan,Australia,dhab1234,,,-12.0853,134.877,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Nhangu
+dhal1245,Dhalandji,Pama-Nyungan,Australia,dhal1245,dhl,W26,-22.196,114.937,glottolog,false,comprehensive,nearly extinct,true,1,open_resource,1,533.3,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Kanyara > Thalanyji-Burduna
+dhal1246,Dhalwangu,Pama-Nyungan,Australia,dhal1246,,,-13.1806,136.22,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dayi
+dhan1270,Dhangu,Pama-Nyungan,Australia,dhan1270,dhg,N116.N;N131;N132;N139;N147;N192;N202,-11.9493,135.752,glottolog,false,comprehensive,shifting,true,4,open_resource,8,677.7,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu
+dhan1271,Dhangu-Djangu,Pama-Nyungan,Australia,dhan1271,,,-11.9493,135.752,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhangu
+dhar1247,Dhargari,Pama-Nyungan,Australia,dhar1247,dhr,W21,-24.0601,114.847,glottolog,false,documented,extinct,true,117,pointer_only,,616.9,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Mantharta > Wariyangga-Dhargari
+dhar1248,Dharumbal,Pama-Nyungan,Australia,dhar1248,xgm,E49,-23.307,150.593,glottolog,false,documented,extinct,true,101,pointer_only,,2657.9,Pama-Nyungan > Rockhampton-Gladstone
+dhud1236,Dhudhuroa,Pama-Nyungan,Australia,dhud1236,ddr,S43;S44,-36.95881441,147.0450379,glottolog,false,documented,extinct,false,,open_resource,10,1213.4,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Eastern Victoria > Dhudhuroa-Pallanganmiddang
+dhun1239,Dhungaloo,Pama-Nyungan,Australia,dhun1239,dhx,,-25.3893,151.175,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Waka-Kabic > Eastern Waka-Kabic > Gureng Gureng
+dhur1239,Dhurga,Pama-Nyungan,Australia,dhur1239,dhu,S51;S52;S53;S54;S55;S56;S67,-35.412,150.134,glottolog,false,documented,extinct,true,4,pointer_only,,1900.2,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Yuin > Northern Costal Yuin
+dhuw1249,Dhuwal,Pama-Nyungan,Australia,dhuw1249,duj,N116.E;N117.1;N122;N145;N149.1;N198;N199;N230,-12.7825,136.008,glottolog,false,comprehensive,shifting,true,1,live,28,232.4,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala
+dhuw1250,Dhuwaya,Pama-Nyungan,Australia,dhuw1250,dwy,N116,-12.7825,136.008,glottolog,false,documented,not endangered,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala > Dhuwal
+dier1241,Dieri,Pama-Nyungan,Australia,dier1241,dif,L17;L33;L35,-28.1667,138,glottolog,false,documented,moribund,true,162,pointer_only,,775,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Pirlatapa-Dieric > Dieric
+ding1241,Dinggabal,Pama-Nyungan,Australia,ding1241,,,-28.289642,152.151281,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Inland Bandjalang > Condamine-Upper Clarence Bandjalang
+dira1238,Dirari,Pama-Nyungan,Australia,dira1238,dit,L14,-28.7992,138.078,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Pirlatapa-Dieric > Dieric > Dieri
+diye1234,Diyeri,Pama-Nyungan,Australia,diye1234,,,-28.1667,138,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Pirlatapa-Dieric > Dieric > Dieri
+djab1234,Djabwurrung,Pama-Nyungan,Australia,djab1234,tjw,S26;S26.1;S27;S31.1;S32,-34.13829932,143.6694397,glottolog,false,documented,extinct,false,,open_resource,5,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria > Djadjawurrungic
+djad1244,Djadiwitjibi,Pama-Nyungan,Australia,djad1244,,N206,-12.462,134.82,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Western-Inland Yolngu > Djinang
+djad1246,Djadjawurrungic,Pama-Nyungan,Australia,djad1246,,,-34.13829932,143.6694397,glottolog,false,documented,unknown,false,,open_resource,15,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria
+djam1255,Jaminjung-Ngaliwurru,Mirndi,Australia,djam1255,djd,N18;N2;N5,-15.0558,130.06,glottolog,false,comprehensive,moribund,true,235,open_resource,2,,Mirndi > Yirram
+djam1256,Djambarrpuyngu,Pama-Nyungan,Australia,djam1256,djr,N109;N113.1;N115,-12.021,135.59,glottolog,false,comprehensive,shifting,true,135,open_resource,5,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Eastern Dhuwal-Dhuwala
+djan1238,Djangun,Pama-Nyungan,Australia,djan1238,djf,Y109,-16.91051,144.93245,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yalandyic
+djap1238,Djapu,Pama-Nyungan,Australia,djap1238,,,-12.879764,136.417978,glottolog,false,documented,unknown,true,248,none,,329.5,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala > Dhuwal > Nuclear Dhuwal
+djar1244,Wawarl,Pama-Nyungan,Australia,djar1244,,K51,-18.3288,128.262,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Western Ngumpin > Jaru
+djar1245,Djarrwark,Pama-Nyungan,Australia,djar1245,,,-13.1806,136.22,glottolog,false,documented,unknown,false,,none,,926,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dayi
+djau1244,Jawoyn,Gunwinyguan,Australia,djau1244,djn,N57;Y71;Y74,-14.1361,133.002,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Gunwinyguan > Western Gunwinyguan
+djaw1238,Djawi,Nyulnyulan,Australia,djaw1238,djw,K16,-16.4163,123.186,glottolog,false,documented,extinct,false,,pointer_only,,,Nyulnyulan > Western Nyulnyulan > Bardic
+djee1236,Djeebbana,Maningrida,Australia,djee1236,djj,N74,-12.0133,134.097,glottolog,false,documented,shifting,true,247,pointer_only,,,Maningrida > Nakkara-Ndjebbana
+djin1251,Jingulu,Mirndi,Australia,djin1251,jig,C22,-17.165,133.659,glottolog,false,comprehensive,moribund,true,246,open_resource,3,,Mirndi
+djin1252,Djinba,Pama-Nyungan,Australia,djin1252,djb,N106;N116.O;N116.R;N219;N83;N97,-12.93,134.967,glottolog,false,documented,moribund,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Western-Inland Yolngu
+djin1253,Djinang,Pama-Nyungan,Australia,djin1253,dji,N94;N94.1;N95,-12.462,134.82,glottolog,false,documented,shifting,true,95,pointer_only,,1823.7,Pama-Nyungan > Yuulngu > Western-Inland Yolngu
+djiw1241,Djiwarli,Pama-Nyungan,Australia,djiw1241,dze,,-24.10724,116.98858,glottolog,false,documented,extinct,false,,none,,440.7,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Mantharta > Djiwarli-Thiin
+djuw1238,Juwaliny,Pama-Nyungan,Australia,djuw1238,,,-20.34239,122.28179,glottolog,false,classified,nearly extinct,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Western Ngumpin > Walmajarri-Juwaliny
+duun1241,Duungidjawu,Pama-Nyungan,Australia,duun1241,,,-25.3987,152.345,glottolog,false,documented,extinct,true,91,none,,955.6,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Waka-Kabic > Western Waka-Kabic > Wakawaka
+dyaa1242,Dyaabugay,Pama-Nyungan,Australia,dyaa1242,dyy,Y106;Y110;Y111;Y112;Y160;Y162,-16.596,145.388,glottolog,false,comprehensive,nearly extinct,true,31,open_resource,4,1155.2,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yidinic
+dyab1238,Dyaberdyaber,Nyulnyulan,Australia,dyab1238,dyb,K8,-17.18653,122.52306,glottolog,false,documented,extinct,false,,pointer_only,,,Nyulnyulan > Western Nyulnyulan > Nyulnyulic
+dyan1250,Dyangadi,Pama-Nyungan,Australia,dyan1250,dyn,D14;D59;D69;E4;E6;E69;E70,-30.8469,152.602,glottolog,false,comprehensive,extinct,true,213,open_resource,3,1537.1,Pama-Nyungan > Macleay-New England
+dyir1250,Dyirbal,Pama-Nyungan,Australia,dyir1250,dbl,Y118;Y120;Y123;Y149;Y151,-17.4516,145.544,glottolog,false,documented,nearly extinct,true,191,pointer_only,,1733.4,Pama-Nyungan
+dyir1251,Dyiru,Pama-Nyungan,Australia,dyir1251,,Y124,-17.4516,145.544,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Dyirbal
+dyug1238,Dyugun,Nyulnyulan,Australia,dyug1238,dyd,K2,-17.906,122.408,glottolog,false,documented,extinct,false,,pointer_only,,,Nyulnyulan > Eastern Nyulnyulan > Yawuric
+e12,Bundjalung,unclassified,Australia,,,E12,-29.251261354257,153.07515373674,austlang,true,listed,unknown,false,,pointer_only,,,
+e13,Arakwal,unclassified,Australia,,,E13,,,none,,listed,unknown,false,,pointer_only,,,
+e15.1,Wiyabal,unclassified,Australia,,,E15.1,-28.732615276778,153.23610975968,austlang,true,listed,unknown,false,,pointer_only,,,
+e16,Wiyabal,unclassified,Australia,,,E16,-29.308028778101,152.22822492229,austlang,true,listed,unknown,false,,pointer_only,,,
+e16.1,Dinggabal,unclassified,Australia,,,E16.1,-28.737752812117,152.28443782047,austlang,true,listed,unknown,false,,pointer_only,,,
+e16.2,Wahlubal,unclassified,Australia,,,E16.2,-28.88761183938,152.50792193364,austlang,true,listed,unknown,false,,pointer_only,,,
+e21,Moondjan,unclassified,Australia,,,E21,-27.472157289981,153.46907862431,austlang,true,listed,unknown,false,,pointer_only,,,
+e27,Djagunda,unclassified,Australia,,,E27,-26.050348414157,150.83513689549,austlang,true,listed,unknown,false,,pointer_only,,,
+e31,Yiman,unclassified,Australia,,,E31,-25.589029372401,149.57709835433,austlang,true,listed,unknown,false,,pointer_only,,,
+e43,Yagalingu,unclassified,Australia,,,E43,-23.156857996936,146.63293864742,austlang,true,listed,unknown,false,,pointer_only,,,
+e48,Baradha,unclassified,Australia,,,E48,-21.982383872787,148.92525723398,austlang,true,listed,unknown,false,,pointer_only,,,
+e50,Miyan,unclassified,Australia,,,E50,-21.812523000063,146.18381639052,austlang,true,listed,unknown,false,,pointer_only,,,
+e51,Yambina,unclassified,Australia,,,E51,-22.314022581716,147.47527316572,austlang,true,listed,unknown,false,,pointer_only,,,
+e53,Baranha,unclassified,Australia,,,E53,-22.080577003398,148.19852895163,austlang,true,listed,unknown,false,,pointer_only,,,
+e65,Mandalgu,unclassified,Australia,,,E65,-24.465985009487,149.38243380624,austlang,true,listed,unknown,false,,pointer_only,,,
+e72,Birihn,unclassified,Australia,,,E72,-29.047958904817,152.8588680872,austlang,true,listed,unknown,false,,pointer_only,,,
+e73,Casino language,unclassified,Australia,,,E73,-28.85403055779,152.98737438499,austlang,true,listed,unknown,false,,pointer_only,,,
+e74,Warwick Dialect,unclassified,Australia,,,E74,,,none,,listed,unknown,false,,pointer_only,,,
+e75,Nyangbal,unclassified,Australia,,,E75,-28.921504855909,153.4217925987,austlang,true,listed,unknown,false,,pointer_only,,,
+e77,Nerang Creek,unclassified,Australia,,,E77,-28.08259432458,153.24077249507,austlang,true,listed,unknown,false,,pointer_only,,,
+e79,Ngarahgwal,unclassified,Australia,,,E79,-27.886144546326,153.32790697545,austlang,true,listed,unknown,false,,pointer_only,,,
+e81,Jarowair,unclassified,Australia,,,E81,-27.211689594786,151.6777653685,austlang,true,listed,unknown,false,,pointer_only,,,
+e82,Wapabara,unclassified,Australia,,,E82,-23.191386570134,150.96684726462,austlang,true,listed,unknown,false,,pointer_only,,,
+e83,Rakiwara,unclassified,Australia,,,E83,-23.069162229856,150.78068591657,austlang,true,listed,unknown,false,,pointer_only,,,
+e84,Karunbara,unclassified,Australia,,,E84,-23.532073338976,150.10003232711,austlang,true,listed,unknown,false,,pointer_only,,,
+e91,Marbal,unclassified,Australia,,,E91,-29.113504787123,151.87409720364,austlang,true,listed,unknown,false,,pointer_only,,,
+e93,Baddala,unclassified,Australia,,,E93,,,none,,listed,unknown,false,,pointer_only,,,
+e96,Wudjebal,unclassified,Australia,,,E96,,,none,,listed,unknown,false,,pointer_only,,,
+e98,Nymboidan,unclassified,Australia,,,E98,,,none,,listed,unknown,false,,pointer_only,,,
+e99,Yirraygirr,unclassified,Australia,,,E99,,,none,,listed,unknown,false,,pointer_only,,,
+east2375,East Ngarluma,Pama-Nyungan,Australia,east2375,,W57,-20.9235,117.203,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Ngarluma-Kariyarra > Ngarluma
+east2376,Eastern Ngarinman,Pama-Nyungan,Australia,east2376,,,-15.4661,130.651,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin > Ngumpit > Ngarinman
+east2379,Eastern Arrernte,Pama-Nyungan,Australia,east2379,aer,C30;C31;C32;C8;L21,-23.3583,135.046,glottolog,false,comprehensive,shifting,true,201,live,411,748.5,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Central-Eastern Arrernte
+east2380,Eastern Anmatyerre,Pama-Nyungan,Australia,east2380,,,-22.2853,133.286,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Anmatyerre
+east2382,Eastern Inland Yawuru,Nyulnyulan,Australia,east2382,,K54,-18.004,122.693,glottolog,false,documented,unknown,false,,pointer_only,,,Nyulnyulan > Eastern Nyulnyulan > Yawuric > Yawuru
+east2863,Eastern Mudbura,Pama-Nyungan,Australia,east2863,,,-16.7694,132.329,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin > Mudburra
+east2873,Eastern Wangganguru,Pama-Nyungan,Australia,east2873,,,-25.8148,135.941,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Karnic > Palku > Arabana-Wangganguru > Wangganguru
+erre1238,Erre,Giimbiyu,Australia,erre1238,err,N55,-12.2839,132.868,glottolog,false,documented,extinct,false,,pointer_only,,,Giimbiyu > Urninganggic
+flin1247,Flinders Island,Pama-Nyungan,Australia,flin1247,fln,Y147;Y61;Y62,-14.1812,144.259,glottolog,false,documented,extinct,false,,pointer_only,,2004.1,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Flinders-Barrow
+g3,Kunkalanya,unclassified,Australia,,,G3,-23.637670302004,139.28798561184,austlang,true,listed,unknown,false,,pointer_only,,,
+g39,Ogerliga,unclassified,Australia,,,G39,,,none,,listed,unknown,false,,pointer_only,,,
+g40,Ngulupulu,unclassified,Australia,,,G40,-24.056369749215,139.81757189273,austlang,true,listed,unknown,false,,pointer_only,,,
+g46,Bundjil,unclassified,Australia,,,G46,-20.047997212829,146.31342470685,austlang,true,listed,unknown,false,,pointer_only,,,
+g47,Jangrala,unclassified,Australia,,,G47,-17.851445841547,138.68273702882,austlang,true,listed,unknown,false,,pointer_only,,,
+g48,Rangwa,unclassified,Australia,,,G48,,,none,,listed,unknown,false,,pointer_only,,,
+g51,Baringkirri,unclassified,Australia,,,G51,,,none,,listed,unknown,false,,pointer_only,,,
+gaal1238,Gaalpu,Pama-Nyungan,Australia,gaal1238,,,-11.9493,135.752,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhangu
+gabi1248,Gubbi Gubbi,Pama-Nyungan,Australia,gabi1248,,,-25.44486229,153.1539929,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Waka-Kabic > Eastern Waka-Kabic > Kabikabi
+gadj1243,Gajirrabeng,Jarrakan,Australia,gadj1243,gdh,K37.1,-15.4786,129.156,glottolog,false,documented,extinct,false,,pointer_only,,,Jarrakan > Miriwunic
+gaga1251,Gaagudju,(isolate),Australia,gaga1251,gbu,N40;N50,-12.5176,132.643,glottolog,false,listed,extinct,true,219,pointer_only,,,
+gali1267,Galibal,Pama-Nyungan,Australia,gali1267,,E15,-28.289642,152.151281,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Inland Bandjalang > Condamine-Upper Clarence Bandjalang
+gamb1251,Gambera,Worrorran,Australia,gamb1251,gma,K39,-14.29546,126.27131,glottolog,false,documented,extinct,true,150,pointer_only,,,Worrorran > Northern Worrorran > Forrest River
+gami1243,Yuwaalaraay-Gamilaraay,Pama-Nyungan,Australia,gami1243,kld,D15;D23;D27;D28;D39;D54;D55;D65;D66,-29.9037,149.543,glottolog,false,comprehensive,nearly extinct,true,55,open_resource,608,466.5,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric
+gana1268,Birrdhawal,Pama-Nyungan,Australia,gana1268,ihw,S49,-37.05,148.93,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Ganaic
+gana1269,Ganalbingu,Pama-Nyungan,Australia,gana1269,,,-12.93,134.967,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Western-Inland Yolngu > Djinba
+gana1278,Ganai,Pama-Nyungan,Australia,gana1278,unn,S39;S41;S42;S45;S48;S68,-38.58,146.5,glottolog,false,comprehensive,extinct,true,63,open_resource,2,,Pama-Nyungan > Ganaic
+gang1267,Ganggalida,Tangkic,Australia,gang1267,gcd,G30;G34;N85,-17.5446,139.426,glottolog,false,documented,extinct,true,183,pointer_only,,473.5,Tangkic > Southern Tangkic
+gang1268,Gangulu,Pama-Nyungan,Australia,gang1268,gnl,E40,-22.7637,149.416,glottolog,false,documented,extinct,false,,pointer_only,,951.9,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Eastern Maric
+ganu1234,Ganulu,Pama-Nyungan,Australia,ganu1234,,E64,-23.8029,147.421,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric > Wadjigu
+gara1269,Garrwa,Garrwan,Australia,gara1269,wrk,N155,-17.4504,137.72014,glottolog,false,documented,moribund,true,169,pointer_only,,,Garrwan
+gari1253,Garig-Ilgar,Iwaidjan Proper,Australia,gari1253,ilg,N184,-11.412,132.182,glottolog,false,documented,extinct,false,,open_resource,3,,Iwaidjan Proper > Central Iwaidjic
+gari1254,Garig,Iwaidjan Proper,Australia,gari1254,,,-11.412,132.182,glottolog,false,classified,nearly extinct,false,,none,,,Iwaidjan Proper > Central Iwaidjic > Garig-Ilgar
+garm1242,Gamalangga,Pama-Nyungan,Australia,garm1242,,N100,-12.0853,134.877,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Nhangu
+gath1234,Gathang,Pama-Nyungan,Australia,gath1234,,E95,-32.4806,152.107,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Kuri > Hunter-Hastings > Worimi
+gawa1249,Gawambaraay,Pama-Nyungan,Australia,gawa1249,,,-29.9037,149.543,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric > Yuwaalaraay-Gamilaraay
+gayi1238,Gayiri,Pama-Nyungan,Australia,gayi1238,,E44,-23.90399,148.08148,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric > Wadjigu
+gida1240,Gidabal,Pama-Nyungan,Australia,gida1240,,,-28.289642,152.151281,glottolog,false,documented,extinct,false,,none,,344.7,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Inland Bandjalang > Condamine-Upper Clarence Bandjalang
+girr1240,Girramy,Pama-Nyungan,Australia,girr1240,,Y127,-17.4516,145.544,glottolog,false,documented,moribund,false,,pointer_only,,,Pama-Nyungan > Dyirbal
+giya1234,Giya,Pama-Nyungan,Australia,giya1234,,E58;E59,-20.40181798643,148.46292086792,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Eastern Maric
+giyu1238,Giyug,Unattested,Australia,giyu1238,giy,N226,-13.2001,130.092,glottolog,false,documented,extinct,false,,pointer_only,,,Unattested
+golp1234,Golpa,Pama-Nyungan,Australia,golp1234,lja,N130,-12.03482,135.56592,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Nhangu
+golu1238,Golumala,Pama-Nyungan,Australia,golu1238,,N116.T;N193,-11.9493,135.752,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhangu
+goon1238,Gooniyandi,Bunaban,Australia,goon1238,gni,K6,-18.4073,126.351,glottolog,false,comprehensive,moribund,true,270,live,63,,Bunaban
+gore1235,Goreng,Pama-Nyungan,Australia,gore1235,xgg,W10;W5,-33.79639,119.01226,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Nyunga
+gorm1238,Gorminang,Pama-Nyungan,Australia,gorm1238,,,-15.1117,141.767,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Paman > Southwest Pama > Coastal Southwest Paman > Yir-Yoront
+guda1242,Wambaya-Gudanji,Mirndi,Australia,guda1242,,C26;N121,-17.42,134.73,glottolog,false,documented,unknown,false,,pointer_only,,,Mirndi > Ngurlun > Wambayan
+guda1243,Gudanji,Mirndi,Australia,guda1243,,,-17.496,135.683,glottolog,false,classified,unknown,false,,none,,,Mirndi > Ngurlun > Wambayan > Wambaya-Gudanji
+guda1244,Gudang,Pama-Nyungan,Australia,guda1244,xgd,,-10.91613599,142.5768928,glottolog,false,documented,extinct,false,,none,,1482.6,Pama-Nyungan > Paman > Northern Pama > Gudang-Northeast Paman
+gudj1237,Gudjal,Pama-Nyungan,Australia,gudj1237,,,-19.44157406,144.6482584,glottolog,false,documented,extinct,false,,none,,1150.2,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Northern Maric
+guga1239,Gugadj,Pama-Nyungan,Australia,guga1239,ggd,C7;G27;G28,-17.8372,141.168,glottolog,false,documented,extinct,true,1,pointer_only,,3317.3,Pama-Nyungan > Paman
+gugu1253,Gugu Badhun,Pama-Nyungan,Australia,gugu1253,gdc,Y128,-18.4921,144.46,glottolog,false,comprehensive,extinct,true,172,open_resource,1,1150.2,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Northern Maric > Warungu-Gugu Badhun
+gugu1254,Gugubera,Pama-Nyungan,Australia,gugu1254,kkp,Y85;Y91,-15.4296,141.635,glottolog,false,documented,moribund,false,,pointer_only,,1864.8,Pama-Nyungan > Paman > Southwest Pama > Coastal Southwest Paman > Dhawa-Kaber
+gugu1255,Guugu Yimidhirr,Pama-Nyungan,Australia,gugu1255,kky,Y228;Y79;Y82;Y89,-14.9424,144.831,glottolog,false,comprehensive,moribund,true,159,live,110,1441.3,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic
+gugu1256,Roth's Gugu Warra,Pama-Nyungan,Australia,gugu1256,wrw,Y80,-12.713,142.569,glottolog,false,documented,extinct,false,,pointer_only,,1741.7,Pama-Nyungan > Unclassified Pama-Nyungan
+gula1264,Gulay (Dyaabugay),Pama-Nyungan,Australia,gula1264,,,-16.596,145.388,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yidinic > Dyaabugay
+guln1239,Gulnguy,Pama-Nyungan,Australia,guln1239,,Y126,-17.4516,145.544,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Dyirbal
+gulu1236,Gulunggulu,Unattested,Australia,gulu1236,,K59,-12.8686,134.2393,derived_centroid,true,documented,extinct,false,,pointer_only,,,Unattested > Worrorran (Unattested)
+guma1252,Kunwinjku,Gunwinyguan,Australia,guma1252,,,-12.3398,133.358,glottolog,false,documented,unknown,false,,pointer_only,,,Gunwinyguan > Bininj Kun-Wok
+guma1253,Gumatj,Pama-Nyungan,Australia,guma1253,gnn,N141,-12.25254,136.83042,glottolog,false,comprehensive,shifting,true,2,open_resource,2,665.8,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala
+gund1246,Kundjeyhmi,Gunwinyguan,Australia,gund1246,,,-12.3398,133.358,glottolog,false,classified,unknown,false,,none,,,Gunwinyguan > Bininj Kun-Wok
+gund1248,Gundungurra,Pama-Nyungan,Australia,gund1248,xrd,S60,-33.7,150.3,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Yuin > Northern Inland Yuin
+gund1249,Kurnkopanut,Pama-Nyungan,Australia,gund1249,wkr,,-38.155612905976,141.53965852318,glottolog,false,classified,nearly extinct,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Warrnambool-Bunganditj > Warrnambool
+gune1238,Kune,Gunwinyguan,Australia,gune1238,,N70,-12.3398,133.358,glottolog,false,documented,unknown,false,,pointer_only,,,Gunwinyguan > Bininj Kun-Wok
+gung1248,Gungabula,Pama-Nyungan,Australia,gung1248,gyf,E35,-25.6896,148.604,glottolog,false,documented,extinct,true,54,pointer_only,,1156,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric
+gung1249,Gunggay,Pama-Nyungan,Australia,gung1249,,Y114,-17.1332,145.876,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yidinic > Yidiñ
+gunn1247,Gun-narta,Maningrida,Australia,gunn1247,,,-12.3061,134.365,glottolog,false,classified,unknown,false,,none,,,Maningrida > Bureran > Burarra
+gunn1248,Gun-narda,Maningrida,Australia,gunn1248,,N190,-12.3061,134.365,glottolog,false,documented,unknown,false,,pointer_only,,,Maningrida > Bureran > Burarra
+gunn1249,Gun-nartpa,Maningrida,Australia,gunn1249,,N81,-12.3061,134.365,glottolog,false,documented,unknown,false,,pointer_only,,,Maningrida > Bureran > Burarra
+gunw1252,Bininj Kun-Wok,Gunwinyguan,Australia,gunw1252,gup,N173;N201;N59;N65;N71,-12.3398,133.358,glottolog,false,comprehensive,shifting,true,275,live,49,,Gunwinyguan
+guny1241,Gunya,Pama-Nyungan,Australia,guny1241,gyy,D43,-27.0642,145.862,glottolog,false,comprehensive,extinct,true,204,open_resource,1,535.9,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric > Margany-Gunya
+gupa1247,Gupapuyngu,Pama-Nyungan,Australia,gupa1247,guf,N122.1;N96,-12.2868,135.337,glottolog,false,comprehensive,shifting,true,1,open_resource,1,69.1,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Eastern Dhuwal-Dhuwala
+gura1252,Guragone,Maningrida,Australia,gura1252,gge,N75,-12.66855,134.09501,glottolog,false,documented,nearly extinct,true,21,pointer_only,,,Maningrida > Bureran
+gurd1238,Gurdjar,Pama-Nyungan,Australia,gurd1238,gdj,G33,-17.1653,141.145,glottolog,false,documented,extinct,false,,pointer_only,,917.4,Pama-Nyungan > Paman > Norman Pama > Kuthant-Gurdjar > Rib-Gurdjar
+gure1255,Gureng Gureng,Pama-Nyungan,Australia,gure1255,gnr,E32;E33;E36;E41,-25.3893,151.175,glottolog,false,comprehensive,extinct,true,177,open_resource,1,1507.9,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Waka-Kabic > Eastern Waka-Kabic
+guri1247,Gurindji,Pama-Nyungan,Australia,guri1247,gue,C20;C24;C34;C35;C37;K21;K30;K34,-17.0329,130.379,glottolog,false,comprehensive,shifting,true,2,live,60,878.3,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin > Ngumpit
+gurj1238,Gurrindi,Pama-Nyungan,Australia,gurj1238,,N212,-12.0853,134.877,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Nhangu
+guwa1242,Guwa,Pama-Nyungan,Australia,guwa1242,xgw,G9.1,-21.35147706,142.5243782,glottolog,false,documented,extinct,false,,pointer_only,,1224.8,Pama-Nyungan > Greater Maric > Guwa-Maric > Guwa-Yanda
+guwa1243,Guwamu,Pama-Nyungan,Australia,guwa1243,gwu,D29;D33,-27.8289,148.867,glottolog,false,documented,extinct,false,,pointer_only,,755.7,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric
+guwa1244,Guwar,Pama-Nyungan,Australia,guwa1244,,,-27.16698973,153.3998245,glottolog,false,documented,extinct,false,,open_resource,3,998,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic
+guwi1238,Guwidj,Worrorran,Australia,guwi1238,,,-15.1,126.5,glottolog,false,documented,unknown,true,104,none,,,Worrorran > Ngarinyin
+guya1249,Guyani,Pama-Nyungan,Australia,guya1249,gvy,L9,-29.7663,137.3943,glottolog,false,documented,extinct,false,,pointer_only,,1683.2,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura > Core Thura Yura > Northern Thura-Yura
+guya1250,Guyambal,Pama-Nyungan,Australia,guya1250,,,-29.1,151,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > East Queensland Border Pama Nyungan > Yugambalic
+guyi1237,Guyinbaraay,Pama-Nyungan,Australia,guyi1237,,,-29.9037,149.543,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric > Yuwaalaraay-Gamilaraay
+hans1242,Hansen River Warlpiri,Pama-Nyungan,Australia,hans1242,,,-20.1008,131.05,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Yapa > Warlpiri
+hawk1239,Hawkesbury,Pama-Nyungan,Australia,hawk1239,xda,S65,-33.11470744,150.4952383,glottolog,false,documented,extinct,false,,live,90,1506.7,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Kuri > Sydney-Hawkesbury
+ikar1243,Ikaranggal,Pama-Nyungan,Australia,ikar1243,ikr,,-15.538,143.349,glottolog,false,documented,extinct,false,,open_resource,3,1081,Pama-Nyungan > Paman > Alaya-Athima > Central Alaya-Athima
+ikng1238,Ikngerripenhe,Pama-Nyungan,Australia,ikng1238,,,-23.3583,135.046,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Central-Eastern Arrernte > Eastern Arrernte
+ilga1238,Ilgar,Iwaidjan Proper,Australia,ilga1238,,,-11.412,132.182,glottolog,false,classified,unknown,false,,none,,,Iwaidjan Proper > Central Iwaidjic > Garig-Ilgar
+iwai1244,Iwaidja,Iwaidjan Proper,Australia,iwai1244,ibd,N188;N39;N46;N58,-11.3379,132.453,glottolog,false,comprehensive,shifting,true,94,open_resource,20,,Iwaidjan Proper > Central Iwaidjic
+iway1238,Iwaydja,Iwaidjan Proper,Australia,iway1238,,,-11.3379,132.453,glottolog,false,classified,unknown,false,,none,,,Iwaidjan Proper > Central Iwaidjic > Iwaidja
+jabu1247,Jaburarra,Pama-Nyungan,Australia,jabu1247,,,-20.9235,117.203,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Ngarluma-Kariyarra > Ngarluma
+jait1239,Jaitmatang,Pama-Nyungan,Australia,jait1239,xjt,,-36.30008261,148.7238073,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Yuin > Southern Inland Yuin
+jami1236,Jaminjung,Mirndi,Australia,jami1236,,,-15.0558,130.06,glottolog,false,classified,unknown,false,,none,,,Mirndi > Yirram > Jaminjung-Ngaliwurru
+jand1248,Jandai,Pama-Nyungan,Australia,jand1248,jan,E19,-27.56865,153.46239,glottolog,false,documented,extinct,false,,open_resource,1,524.8,Pama-Nyungan > East Queensland Border Pama Nyungan > Yagara-Jandai
+jaru1254,Jaru,Pama-Nyungan,Australia,jaru1254,ddj,K12;K7,-18.3288,128.262,glottolog,false,comprehensive,shifting,true,116,open_resource,1,622.5,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Western Ngumpin
+jawi1238,Jawi,Nyulnyulan,Australia,jawi1238,,,-16.6274,122.906,glottolog,false,classified,unknown,false,,none,,,Nyulnyulan > Western Nyulnyulan > Bardic > Bardi
+jirj1239,Jir'jorond,Pama-Nyungan,Australia,jirj1239,yyr,,-14.83,141.83,glottolog,false,documented,extinct,true,14,none,,,Pama-Nyungan > Paman > Southwest Pama > Coastal Southwest Paman > Yir-Yoront
+k27,Bemba,unclassified,Australia,,,K27,,,none,,listed,unknown,false,,pointer_only,,,
+k31,Wenambal,unclassified,Australia,,,K31,,,none,,listed,unknown,false,,pointer_only,,,
+k40,Gingara,unclassified,Australia,,,K40,,,none,,listed,unknown,false,,pointer_only,,,
+k41,Galamburu,unclassified,Australia,,,K41,,,none,,listed,unknown,false,,pointer_only,,,
+k50,Doolboong,unclassified,Australia,,,K50,-15.036415688175,128.45716561639,austlang,true,listed,unknown,false,,pointer_only,,,
+k58,Barunjin,unclassified,Australia,,,K58,,,none,,listed,unknown,false,,pointer_only,,,
+k60,Mailnga,unclassified,Australia,,,K60,,,none,,listed,unknown,false,,pointer_only,,,
+k61,Wulamban,unclassified,Australia,,,K61,,,none,,listed,unknown,false,,pointer_only,,,
+k62,Bayimbarr,unclassified,Australia,,,K62,-15.632671120357,127.97391654335,austlang,true,listed,unknown,false,,pointer_only,,,
+k63,Giwajbem,unclassified,Australia,,,K63,-16.309513288172,128.25136757338,austlang,true,listed,unknown,false,,pointer_only,,,
+k67,Eastern Bunuba,unclassified,Australia,,,K67,,,none,,listed,unknown,false,,pointer_only,,,
+k68,Western Bunuba,unclassified,Australia,,,K68,,,none,,listed,unknown,false,,pointer_only,,,
+kabi1260,Kabikabi,Pama-Nyungan,Australia,kabi1260,gbw,E29;E90;E94,-25.44486229,153.1539929,glottolog,false,documented,extinct,false,,open_resource,2,1031.7,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Waka-Kabic > Eastern Waka-Kabic
+kala1377,Kala Lagaw Ya,Pama-Nyungan,Australia;Papunesia,kala1377,mwp,Y1;Y2,-10.6748,142.196,glottolog,false,comprehensive,moribund,true,133,open_resource,4,53.2,Pama-Nyungan
+kala1378,Kalaw Kawaw Ya,Pama-Nyungan,Australia,kala1378,,,-10.6748,142.196,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Kala Lagaw Ya
+kala1379,Kalarko-Mirniny,Pama-Nyungan,Australia,kala1379,kba,A110;A2;A4;W11;W9,-31.7154,118.911,glottolog,false,documented,extinct,false,,open_resource,1,790.6,Pama-Nyungan > South-West Pama-Nyungan > Mirning
+kala1380,Bulloo River,Pama-Nyungan,Australia,kala1380,gll,D30;D71,-28.136,143.929,glottolog,false,documented,extinct,false,,pointer_only,,1743.6,Pama-Nyungan > Karnic > Badjiri-Eastern Karnic > Eastern Karnic
+kala1401,Kalaamaya,Pama-Nyungan,Australia,kala1401,lkm,,-30.245,120.223,glottolog,false,documented,extinct,false,,none,,1830.3,Pama-Nyungan > South-West Pama-Nyungan > Mirning
+kala1414,Kalali,Pama-Nyungan,Australia,kala1414,,,-28.136,143.929,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Karnic > Badjiri-Eastern Karnic > Eastern Karnic > Bulloo River
+kala1416,Kalarko,Pama-Nyungan,Australia,kala1416,,,-31.7154,118.911,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > South-West Pama-Nyungan > Mirning > Kalarko-Mirniny
+kalk1246,Kalkatungu,Pama-Nyungan,Australia,kalk1246,ktg,G13;G15,-21,139.5,glottolog,false,comprehensive,extinct,true,226,open_resource,2,41,Pama-Nyungan > Kalkatungic
+kamu1258,Kamu,Eastern Daly,Australia,kamu1258,xmu,N33,-13.5393,131.098,glottolog,false,documented,extinct,true,20,pointer_only,,,Eastern Daly
+kang1283,Kangkalita,Tangkic,Australia,kang1283,,,-17.5446,139.426,glottolog,false,classified,unknown,false,,none,,,Tangkic > Southern Tangkic > Ganggalida
+kani1276,Kaniyang,Pama-Nyungan,Australia,kani1276,,A92;W4;W7,-33.4956,116.35448,glottolog,false,documented,extinct,false,,live,220,731.3,Pama-Nyungan > South-West Pama-Nyungan > Nyunga
+kanj1260,Kanju,Pama-Nyungan,Australia,kanj1260,kbe,Y42;Y44,-13.3243,142.893,glottolog,false,documented,extinct,false,,open_resource,1,788.8,Pama-Nyungan > Paman > Compromise Middle Pama > Northeastern Pama > Umpilaic
+kara1476,Karadjeri,Pama-Nyungan,Australia,kara1476,gbd,A105;A107;A64,-18.6771,122.334,glottolog,false,documented,nearly extinct,true,96,pointer_only,,517.4,Pama-Nyungan > Desert Nyungic > Marrngu
+kara1508,Karangura,Pama-Nyungan,Australia,kara1508,,,-27.1797,138.701,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Pirlatapa-Dieric > Dieric > Ngamini-Yarluyandi-Karangura
+kari1304,Kariyarra,Pama-Nyungan,Australia,kari1304,vka,W39,-20.445,118.613,glottolog,false,documented,extinct,true,1,pointer_only,,583.2,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Ngarluma-Kariyarra
+karr1236,Karruwali,Pama-Nyungan,Australia,karr1236,rxw,,-25.833018,140.026291,glottolog,false,documented,extinct,false,,none,,916.5,Pama-Nyungan > Karnic > Central Karnic > Mithaka-Karuwali
+karr1239,Karrangpurru,Pama-Nyungan,Australia,karr1239,,,-16.7694,132.329,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin > Mudburra
+kart1247,Kartujarra,Pama-Nyungan,Australia,kart1247,,A51,-23.27912,121.73213,glottolog,false,documented,nearly extinct,false,,pointer_only,,869.8,Pama-Nyungan > Desert Nyungic > Wati > Martuwangkic > Warnman-Wangka > Martu Wangka
+kart1251,Kartangarurru,Pama-Nyungan,Australia,kart1251,,,-18.3288,128.262,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Western Ngumpin > Jaru
+kaur1267,Kaurna,Pama-Nyungan,Australia,kaur1267,zku,L3,-34.34966141,138.4800794,glottolog,false,comprehensive,extinct,true,61,live,136,1411.8,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura > Core Thura Yura > Southern Thura-Yura
+kawa1290,Kawarrang-Ogh Undjan,Pama-Nyungan,Australia,kawa1290,,,-16.1,142.5,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Paman > Alaya-Athima > Southwestern Alaya-Athima
+kawr1234,Kawrareg,Pama-Nyungan,Australia,kawr1234,,,-10.6748,142.196,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Kala Lagaw Ya
+kaya1319,Kayardild,Tangkic,Australia,kaya1319,gyd,G35,-17.0695,139.489,glottolog,false,comprehensive,nearly extinct,true,271,open_resource,4,320.6,Tangkic > Southern Tangkic > Kayardild-Yangkaal
+kayt1238,Kaytetye,Pama-Nyungan,Australia,kayt1238,gbb,C13,-21.5844,133.602,glottolog,false,comprehensive,shifting,true,1,open_resource,3,1076.1,Pama-Nyungan > Arandic-Thura-Yura > Arandic
+kera1256,Keramin,Pama-Nyungan,Australia,kera1256,,,-34.190056,142.273631,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Yaraldi-Keramin-Yitha > Northern Sunraysia
+kitj1240,Kitja,Jarrakan,Australia,kitj1240,gia,K11;K20;K47,-17.5758,127.392,glottolog,false,documented,nearly extinct,true,1,pointer_only,,,Jarrakan
+koka1244,Kokata,Pama-Nyungan,Australia,koka1244,ktd,C3,-29.94,135.55,glottolog,false,documented,nearly extinct,true,190,pointer_only,,,Pama-Nyungan > Desert Nyungic > Wati > Unclassified Wati
+kokn1236,Kok-Nar,Pama-Nyungan,Australia,kokn1236,gko,G29;G49;G50;Y101;Y93,-16.181,141.608,glottolog,false,documented,extinct,false,,pointer_only,,1864.8,Pama-Nyungan > Paman > Norman Pama
+koko1272,Koko Dhawa,Pama-Nyungan,Australia,koko1272,,,-16.050900536399,141.80615325644,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Paman > Southwest Pama > Coastal Southwest Paman > Dhawa-Kaber
+koor1240,Koorinyji,Pama-Nyungan,Australia,koor1240,,,-17.0329,130.379,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin > Ngumpit > Gurindji
+krio1252,Kriol,Indo-European,Australia,krio1252,rop,P1,-18.135,137.669,glottolog,false,documented,not endangered,true,9,pointer_only,,,Indo-European > Classical Indo-European > Germanic > Northwest Germanic > West Germanic > North Sea Germanic > Anglo-Frisian > Anglic > Later Anglic > Middle-Modern English > Macro-English > Pacific Creole English
+kuka1246,Kukatja,Pama-Nyungan,Australia,kuka1246,kux,A68;C11;C7.1,-20.3321,127.666,glottolog,false,documented,threatened,false,,pointer_only,,2055.8,Pama-Nyungan > Desert Nyungic > Wati > Pintupic
+kuku1273,Kuku-Yalanji,Pama-Nyungan,Australia,kuku1273,gvn,Y103;Y163;Y78;Y81;Y99,-16.0036,145.188,glottolog,false,comprehensive,shifting,true,273,live,2688,1441.3,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yalandyic
+kuku1274,Kuku-Nyungkul,Pama-Nyungan,Australia,kuku1274,,Y90,-16.0036,145.188,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yalandyic > Kuku-Yalanji
+kuku1275,Kuku-Biraji,Pama-Nyungan,Australia,kuku1275,,,-16.0036,145.188,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yalandyic > Kuku-Yalanji
+kuku1280,Kuku-Uwanh,Pama-Nyungan,Australia,kuku1280,uwa,Y176,-14.0756,141.724,glottolog,false,documented,extinct,true,223,pointer_only,,,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Kuku-Wik-Ep > Kuku-Wik > Paman Kuku
+kuku1281,Kuku-Ugbanh,Pama-Nyungan,Australia,kuku1281,ugb,Y175,-13.9882,141.569,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Kuku-Wik-Ep > Kuku-Wik > Paman Kuku
+kuku1282,Kuku-Mu'inh,Pama-Nyungan,Australia,kuku1282,xmp,Y224,-14.201,141.709,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Kuku-Wik-Ep > Kuku-Wik > Paman Kuku
+kuku1283,Kuku-Muminh,Pama-Nyungan,Australia,kuku1283,xmh,Y43,-14.0959,141.625,glottolog,false,documented,extinct,false,,pointer_only,,518.9,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Kuku-Wik-Ep > Kuku-Wik > Paman Kuku
+kula1275,Kula (Australia),Pama-Nyungan,Australia,kula1275,,,-32.7021,142.695,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yarli-Baagandji > Paakantyi
+kulk1234,Kulkalgau Ya,Pama-Nyungan,Australia,kulk1234,,,-10.6748,142.196,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Kala Lagaw Ya
+kumb1268,Kumbainggar,Pama-Nyungan,Australia,kumb1268,kgs,E7;E8;E85;E9,-29.8189,152.913,glottolog,false,comprehensive,moribund,true,267,open_resource,1,31,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Gumbaynggiric
+kunb1251,Kunbarlang,Gunwinyguan,Australia,kunb1251,wlg,N221;N69,-11.9133,133.723,glottolog,false,documented,extinct,true,250,pointer_only,,,Gunwinyguan
+kund1258,Kundedjnjenghmi,Gunwinyguan,Australia,kund1258,,N171,-12.3398,133.358,glottolog,false,documented,unknown,false,,pointer_only,,,Gunwinyguan > Bininj Kun-Wok
+kune1235,Kune Dulerayek,Gunwinyguan,Australia,kune1235,,,-12.3398,133.358,glottolog,false,classified,unknown,false,,none,,,Gunwinyguan > Bininj Kun-Wok > Kune
+kune1236,Kune Narayek,Gunwinyguan,Australia,kune1236,,,-12.3398,133.358,glottolog,false,classified,unknown,false,,none,,,Gunwinyguan > Bininj Kun-Wok > Kune
+kung1258,Kunggari,Pama-Nyungan,Australia,kung1258,kgl,D37;D38;L38;L44,-24.2182,143.222,glottolog,false,documented,extinct,false,,pointer_only,,755.7,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric
+kung1259,Kungarakany,(isolate),Australia,kung1259,ggk,N14,-12.7,130.881,glottolog,false,listed,extinct,true,91,pointer_only,,,
+kuni1269,Kunindirri,Garrwan,Australia,kuni1269,,C23,-17.4504,137.72014,glottolog,false,documented,unknown,false,,pointer_only,,,Garrwan > Garrwa
+kunj1245,Kunjen,Pama-Nyungan,Australia,kunj1245,kjn,Y230;Y83;Y95,-16.6807,143.53,glottolog,false,documented,nearly extinct,true,192,pointer_only,,1081,Pama-Nyungan > Paman > Alaya-Athima > Southwestern Alaya-Athima
+kure1240,Kureinji,Pama-Nyungan,Australia,kure1240,,D6.1,-34.190056,142.273631,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Yaraldi-Keramin-Yitha > Northern Sunraysia
+kurr1243,Kurrama,Pama-Nyungan,Australia,kurr1243,vku,W31;W36;W60;W61;W62;W63,-22.2134,117.51,glottolog,false,documented,nearly extinct,true,180,pointer_only,,658.8,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Yindjibarndi-Kurrama
+kuth1240,Kuthant,Pama-Nyungan,Australia,kuth1240,xut,G31;G32,-17.4566,140.958,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Norman Pama > Kuthant-Gurdjar
+kuuk1238,Kuuku-Ya'u,Pama-Nyungan,Australia,kuuk1238,kuy,Y22,-12.4947,143.165,glottolog,false,documented,moribund,true,17,pointer_only,,434.7,Pama-Nyungan > Paman > Compromise Middle Pama > Northeastern Pama > Umpilaic
+kuuk1243,Kuuk-Yak,Pama-Nyungan,Australia,kuuk1243,uky,Y200,-14.810589,141.788992,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Southwest Pama > Upper Southwest Paman
+kuun1236,Kuungkari of Barcoo River,Pama-Nyungan,Australia,kuun1236,lku,,-24.75108713,143.5365228,glottolog,false,documented,extinct,false,,none,,1251.7,Pama-Nyungan > Karnic > Pirriya-Kungkari
+kuwi1234,Kuwirrinji,Pama-Nyungan,Australia,kuwi1234,,,-16.7694,132.329,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin > Mudburra
+kwin1241,Kwini,Worrorran,Australia,kwin1241,gww,A35;A36;K36;K42;K45;K57,-14.2515,126.562,glottolog,false,comprehensive,extinct,true,210,open_resource,2,,Worrorran > Northern Worrorran > Forrest River
+l3.1,Nanduwara,unclassified,Australia,,,L3.1,,,none,,listed,unknown,false,,pointer_only,,,
+l39,Wadjabangai,unclassified,Australia,,,L39,-24.105589592666,145.81081019447,austlang,true,listed,unknown,false,,pointer_only,,,
+l41,Iningai,unclassified,Australia,,,L41,-23.085631875349,144.87468021695,austlang,true,listed,unknown,false,,pointer_only,,,
+l45,Parlpamardramardra,unclassified,Australia,,,L45,-27.513283331203,141.24400867415,austlang,true,listed,unknown,false,,pointer_only,,,
+l47,Matja,unclassified,Australia,,,L47,-27.322753246487,139.96254058225,austlang,true,listed,unknown,false,,pointer_only,,,
+l48,Ngananhina,unclassified,Australia,,,L48,-26.339163329724,140.96008300781,austlang,true,listed,unknown,false,,pointer_only,,,
+l59,Mundanbara,unclassified,Australia,,,L59,,,none,,listed,unknown,false,,pointer_only,,,
+l60,Ngura Wota,unclassified,Australia,,,L60,,,none,,listed,unknown,false,,pointer_only,,,
+l61,Kadli,unclassified,Australia,,,L61,,,none,,listed,unknown,false,,pointer_only,,,
+l62,Malintji,unclassified,Australia,,,L62,-23.534458167719,142.95289682085,austlang,true,listed,unknown,false,,pointer_only,,,
+l63,Jura,unclassified,Australia,,,L63,,,none,,listed,unknown,false,,pointer_only,,,
+l64,Parpagunu,unclassified,Australia,,,L64,,,none,,listed,unknown,false,,pointer_only,,,
+l66,Parlpakurnu,unclassified,Australia,,,L66,-26.257241095865,143.03989335638,austlang,true,listed,unknown,false,,pointer_only,,,
+l67,Eastern Wangkangurru,unclassified,Australia,,,L67,,,none,,listed,unknown,false,,pointer_only,,,
+l69,Northern Dhirari,unclassified,Australia,,,L69,,,none,,listed,unknown,false,,pointer_only,,,
+l70,Southern Dhirari,unclassified,Australia,,,L70,,,none,,listed,unknown,false,,pointer_only,,,
+ladj1234,Ladji Ladji,Pama-Nyungan,Australia,ladj1234,llj,S23,-34.13829932,143.6694397,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria
+lamu1254,Lamalama,Pama-Nyungan,Australia,lamu1254,lby,Y136;Y88,-14.559,143.977,glottolog,false,documented,nearly extinct,true,3,pointer_only,,,Pama-Nyungan > Paman > Lamalamic > Coastal Lamalamic
+land1255,Lander River Warlpiri,Pama-Nyungan,Australia,land1255,,C41,-20.1008,131.05,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Yapa > Warlpiri
+lara1258,Laragia,(isolate),Australia,lara1258,lrg,N21,-12.4111,130.922,glottolog,false,listed,nearly extinct,true,161,pointer_only,,,
+lard1243,Lardil,Tangkic,Australia,lard1243,lbz,G38,-16.56152,139.4343,glottolog,false,comprehensive,nearly extinct,true,116,open_resource,1,320.6,Tangkic
+leni1238,Linngithigh,Pama-Nyungan,Australia,leni1238,lnj,Y26;Y27;Y30,-12.771375,141.962,glottolog,false,documented,extinct,true,1,pointer_only,,613.6,Pama-Nyungan > Paman > Northern Pama > Linngithigh-Alngith
+liya1241,Liyagalawumirr,Pama-Nyungan,Australia,liya1241,,,-12.7825,136.008,glottolog,false,classified,moribund,false,,none,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala > Dhuwal > Nuclear Dhuwal
+liya1242,Liyagawumirr,Pama-Nyungan,Australia,liya1242,,N101;N108,-12.7825,136.008,glottolog,false,documented,moribund,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala > Dhuwal > Nuclear Dhuwal
+lock1234,Lockhart River Creole,Indo-European,Australia,lock1234,,,-11.066,142.692,glottolog,false,classified,unknown,false,,none,,,Indo-European > Classical Indo-European > Germanic > Northwest Germanic > West Germanic > North Sea Germanic > Anglo-Frisian > Anglic > Later Anglic > Middle-Modern English > Macro-English > Pacific Creole English > Early Melanesian Pidgin > Torres Strait-Lockhart River Creole
+lowe1402,Lower Riverland,Pama-Nyungan,Australia,lowe1402,,,-34.6,140.5,glottolog,false,documented,extinct,false,,none,,1118.8,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray
+lowe1403,Lower Darling-Lower Lachlan,Pama-Nyungan,Australia,lowe1403,,,-33.9470874,141.5854211,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Yaraldi-Keramin-Yitha
+lowe1436,Lower Southern Aranda,Pama-Nyungan,Australia,lowe1436,axl,,-26.3,135.4,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic
+lowe1444,Lower Richmond,Pama-Nyungan,Australia,lowe1444,,,-28.937029,153.48612,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Coastal Bandjalang
+luth1234,Luthigh,Pama-Nyungan,Australia,luth1234,,Y12;Y21;Y37,-12.16733589,142.4853284,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Paman > Northern Pama > Mpalityanh-Luthigh
+mabu1248,Mabuyag,Pama-Nyungan,Australia,mabu1248,,Y239,-10.6748,142.196,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Kala Lagaw Ya
+macq1234,Macquarie Harbour,Western Tasmanian,Australia,macq1234,,,-40.76592,144.74362,glottolog,false,classified,unknown,false,,none,,,Western Tasmanian > Western Coastal Tasmanian > Northwestern Tasmanian
+mada1281,Madarrpa,Pama-Nyungan,Australia,mada1281,,N111,-12.2868,135.337,glottolog,false,documented,unknown,false,,pointer_only,,69.1,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Eastern Dhuwal-Dhuwala > Gupapuyngu
+madh1244,Madhi Madhi,Pama-Nyungan,Australia,madh1244,dmd,D8,-34.5,143.5,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria
+madn1237,Madngele,Eastern Daly,Australia,madn1237,zml,N12;N126;N26,-13.9479,130.6,glottolog,false,documented,extinct,true,196,pointer_only,,,Eastern Daly
+mady1238,Madyay,Pama-Nyungan,Australia,mady1238,,Y119,-17.1332,145.876,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yidinic > Yidiñ
+mala1552,Mälarra,Pama-Nyungan,Australia,mala1552,,,-12.0853,134.877,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Nhangu
+malg1242,Malgana,Pama-Nyungan,Australia,malg1242,vml,W18;W20,-26.211,114.245,glottolog,false,documented,extinct,false,,pointer_only,,1575.9,Pama-Nyungan > South-West Pama-Nyungan > Kartu-Nhanda > Kartu
+maln1239,Malngin,Pama-Nyungan,Australia,maln1239,,,-17.0329,130.379,glottolog,false,documented,unknown,false,,none,,1281,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin > Ngumpit > Gurindji
+maly1234,Malyangapa,Pama-Nyungan,Australia,maly1234,yga,D11;L8,-29.43,142,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Yarli-Baagandji > Yarli
+mamb1292,Mambangura,Pama-Nyungan,Australia,mamb1292,,L19,-27.58,142.45,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Karnic > Badjiri-Eastern Karnic > Eastern Karnic > Wilson River (Grey Range)
+mamn1244,Mamangathi,Pama-Nyungan,Australia,mamn1244,,,-12.544,141.984,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Paman > Northern Pama > Albatross Bay > Tyanngayt-Mamngayt-Ntrwangayt-Ntrangit > Awngtim
+mamu1253,Mamu,Pama-Nyungan,Australia,mamu1253,,Y122,-17.4516,145.544,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Dyirbal
+mana1248,Manangkari,Unattested,Australia,mana1248,znk,N183,-11.361,132.352,glottolog,false,documented,extinct,false,,pointer_only,,,Unattested > Iwaidjan Proper (Unattested)
+mand1416,Manda (Australia),Western Daly,Australia,mand1416,zma,N214;N6,-13.6481,129.885,glottolog,false,documented,extinct,false,,pointer_only,,,Western Daly > Maranunggu-Ame-Manda > Ame-Manda
+mand1417,Mandandanyi,Pama-Nyungan,Australia,mand1417,zmk,D40;D44;D56,-26.573,148.978,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric
+mand1418,Mandjalpingu,Pama-Nyungan,Australia,mand1418,,,-12.93,134.967,glottolog,false,classified,moribund,false,,none,,,Pama-Nyungan > Yuulngu > Western-Inland Yolngu > Djinba
+mang1381,Mangarrayi,Mangarrayi-Maran,Australia,mang1381,mpc,N78,-14.8,133.5,glottolog,false,documented,nearly extinct,true,375,pointer_only,,,Mangarrayi-Maran
+mang1382,Mangerr,Giimbiyu,Australia,mang1382,zme,N53,-12.2391,132.973,glottolog,false,documented,extinct,false,,pointer_only,,,Giimbiyu
+mang1383,Mangala,Pama-Nyungan,Australia,mang1383,mem,A23;A65,-18.6597,123.769,glottolog,false,documented,moribund,false,,pointer_only,,634.4,Pama-Nyungan > Desert Nyungic > Marrngu
+mang1384,Mangalili,Pama-Nyungan,Australia,mang1384,,,-12.25254,136.83042,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala > Gumatj
+mang1385,Manggalili,Pama-Nyungan,Australia,mang1385,,N137,-12.2868,135.337,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Eastern Dhuwal-Dhuwala > Gupapuyngu
+many1256,Manyjilyjara,Pama-Nyungan,Australia,many1256,,A34,-22.51763,123.84021,glottolog,false,documented,shifting,true,4,pointer_only,,1086.3,Pama-Nyungan > Desert Nyungic > Wati > Martuwangkic > Warnman-Wangka > Martu Wangka
+many1257,Manyarring,Pama-Nyungan,Australia,many1257,,N203;N87,-12.462,134.82,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Western-Inland Yolngu > Djinang
+mara1385,Marra,Mangarrayi-Maran,Australia,mara1385,mec,N112,-14.7927,134.865,glottolog,false,documented,nearly extinct,true,156,pointer_only,,,Mangarrayi-Maran > Maran
+mara1386,Maranunggu,Western Daly,Australia,mara1386,zmr,N13,-13.6754,130.12,glottolog,false,documented,nearly extinct,true,310,pointer_only,,,Western Daly > Maranunggu-Ame-Manda
+mare1239,Mare-Ammu,Western Daly,Australia,mare1239,,N162,-13.8818,130.237,glottolog,false,documented,unknown,false,,pointer_only,,,Western Daly > Bringen > Marithielic > Marithiel
+marg1251,Margu,Marrku-Wurrugu,Australia,marg1251,mhg,N45,-11.1823,132.587,glottolog,false,documented,extinct,false,,pointer_only,,,Marrku-Wurrugu
+marg1253,Margany,Pama-Nyungan,Australia,marg1253,zmc,D42,-26.789,144.892,glottolog,false,comprehensive,extinct,true,217,open_resource,1,535.9,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric > Margany-Gunya
+mari1417,Marimanindji,Western Daly,Australia,mari1417,zmm,N16,-14.1788,130.561,glottolog,false,documented,extinct,false,,pointer_only,,,Western Daly > Bringen
+mari1419,Maringarr,Western Daly,Australia,mari1419,zmt,N102,-14.3819,130.25,glottolog,false,documented,nearly extinct,true,18,pointer_only,,,Western Daly > Bringen > Maringarr-Matige
+mari1421,Maridjabin,Western Daly,Australia,mari1421,zmj,N161,-13.8754,129.844,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Western Daly > Bringen > Marithielic
+mari1422,Maridan,Western Daly,Australia,mari1422,zmd,N9,-14.0542,130.079,glottolog,false,documented,extinct,false,,pointer_only,,,Western Daly > Bringen > Marithielic
+mari1423,Mariyedi,Western Daly,Australia,mari1423,zmy,N164,-13.7687,129.876,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Western Daly > Bringen > Marithielic
+mari1424,Marithiel,Western Daly,Australia,mari1424,mfr,N163;N7,-13.8818,130.237,glottolog,false,documented,nearly extinct,true,202,pointer_only,,,Western Daly > Bringen > Marithielic
+marl1234,Marlu-papu-nganha,Pama-Nyungan,Australia,marl1234,,L54,-25.8148,135.941,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Karnic > Palku > Arabana-Wangganguru > Wangganguru
+marr1240,Marritjabin,Western Daly,Australia,marr1240,,,-13.8818,130.237,glottolog,false,classified,unknown,false,,none,,,Western Daly > Bringen > Marithielic > Marithiel
+marr1241,Marri Yedi,Western Daly,Australia,marr1241,,,-13.8818,130.237,glottolog,false,classified,unknown,false,,none,,,Western Daly > Bringen > Marithielic > Marithiel
+marr1256,Marriammu,Western Daly,Australia,marr1256,xru,,-12.28,130.5,glottolog,false,classified,nearly extinct,false,,none,,,Western Daly > Bringen > Marithielic
+marr1258,Marrakulu,Pama-Nyungan,Australia,marr1258,,N142,-12.7825,136.008,glottolog,false,documented,unknown,false,,pointer_only,,232.4,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala > Dhuwal > Nuclear Dhuwal
+marr1259,Marrangu,Pama-Nyungan,Australia,marr1259,,N116.Q,-12.7825,136.008,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala > Dhuwal > Nuclear Dhuwal
+mart1254,Marti Ke,Western Daly,Australia,mart1254,zmg,,-14.0058,129.837,glottolog,false,classified,extinct,false,,none,,,Western Daly > Bringen > Maringarr-Matige
+mart1255,Martuthunira,Pama-Nyungan,Australia,mart1255,vma,W35,-20.9294,116.607,glottolog,false,comprehensive,extinct,true,368,live,110,1618,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda
+mart1256,Martu Wangka,Pama-Nyungan,Australia,mart1256,mpj,A100;A33;A51.1;A52;A56;A6;A86,-23.350911655789,123.66842240336,glottolog,false,comprehensive,shifting,true,4,open_resource,2,1626.9,Pama-Nyungan > Desert Nyungic > Wati > Martuwangkic > Warnman-Wangka
+maun1240,Mawng,Iwaidjan Proper,Australia,maun1240,mph,N64,-11.66,133.376,glottolog,false,documented,threatened,true,366,pointer_only,,,Iwaidjan Proper
+maya1280,Mayaguduna,Pama-Nyungan,Australia,maya1280,xmy,G24;G44;G45,-18.1147,140.337,glottolog,false,documented,extinct,false,,pointer_only,,1324.1,Pama-Nyungan > Paman > Mayabic
+mayi1234,Mayi-Thakurti,Pama-Nyungan,Australia,mayi1234,xyt,G16;L49,-20,140.63,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Mayabic > Nuclear Mayabic > Maykulan
+mayi1235,Mayi-Yapi,Pama-Nyungan,Australia,mayi1235,xyj,G20,-19.25,140.61,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Mayabic > Nuclear Mayabic > Maykulan
+mayi1236,Mayi-Kulan,Pama-Nyungan,Australia,mayi1236,xyk,,-18.56,141.46,glottolog,false,documented,extinct,false,,open_resource,1,,Pama-Nyungan > Paman > Mayabic > Nuclear Mayabic > Maykulan
+mayk1239,Maykulan,Pama-Nyungan,Australia,mayk1239,mnt,G25,-20.4352,140.481,glottolog,false,documented,extinct,true,175,pointer_only,,511.1,Pama-Nyungan > Paman > Mayabic > Nuclear Mayabic
+mbab1239,Mbabaram,Pama-Nyungan,Australia,mbab1239,vmb,Y115;Y204,-17.41547,145.37661,glottolog,false,comprehensive,extinct,true,21,open_resource,2,2657.9,Pama-Nyungan > Paman > Finasleigh Pama
+mbar1253,Rimanggudhinma,Pama-Nyungan,Australia,mbar1253,zmv,Y195,-14.529,143.789,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Lamalamic
+mbar1254,Mbara-Yanga,Pama-Nyungan,Australia,mbar1254,mvl,G18;G21;G22,-19.29,142.475904,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman
+mbar1261,Mbara (Australia),Pama-Nyungan,Australia,mbar1261,,,-19.29,142.475904,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Paman > Mbara-Yanga
+mbiy1238,Mbiywom,Pama-Nyungan,Australia,mbiy1238,,Y41,-12.89620501,142.2710997,glottolog,false,documented,extinct,false,,pointer_only,,507.8,Pama-Nyungan > Paman > Northern Pama
+meri1244,Meriam,Eastern Trans-Fly,Papunesia,meri1244,ulk,Y3,-9.59575,143.773,glottolog,false,documented,shifting,true,148,pointer_only,,,Eastern Trans-Fly > Binaturi > Kura
+midd1357,Middle Clarence Bandjalang,Pama-Nyungan,Australia,midd1357,bdy,,-29.042737,152.780249,glottolog,false,documented,moribund,true,114,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Inland Bandjalang
+midl1244,Midlaliri,Pama-Nyungan,Australia,midl1244,,L50,-28.705,135.449,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Karnic > Palku > Arabana-Wangganguru > Arabana
+mija1241,Mijaranypa,Pama-Nyungan,Australia,mija1241,,A77,-22.7816,118.723,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Panytyima-Yinhawangka > Panytyima
+miki1244,Mikiri-nganha,Pama-Nyungan,Australia,miki1244,,L51,-25.8148,135.941,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Karnic > Palku > Arabana-Wangganguru > Wangganguru
+mild1238,Mildjingi,Pama-Nyungan,Australia,mild1238,,N204,-12.462,134.82,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Western-Inland Yolngu > Djinang
+ming1253,Mingbari,Pama-Nyungan,Australia,ming1253,,,-28.136,143.929,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Karnic > Badjiri-Eastern Karnic > Eastern Karnic > Bulloo River
+minj1242,Minjangbal,Pama-Nyungan,Australia,minj1242,,,-28.028726,153.286993,glottolog,false,documented,extinct,false,,none,,249.3,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Coastal Bandjalang > Tweed-Albert
+mink1237,Minkin,(isolate),Australia,mink1237,xxm,G26,-17.736653,139.541931,glottolog,false,listed,extinct,false,,pointer_only,,926.8,
+miri1266,Miriwung,Jarrakan,Australia,miri1266,mep,K29;K38,-16.3596,128.889,glottolog,false,documented,nearly extinct,true,175,pointer_only,,,Jarrakan > Miriwunic
+mirn1245,Mirniny,Pama-Nyungan,Australia,mirn1245,gmr,A9,-31.29733,130.05272,glottolog,false,documented,nearly extinct,false,,pointer_only,,790.6,Pama-Nyungan > South-West Pama-Nyungan > Mirning > Kalarko-Mirniny
+mith1236,Mithaka,Pama-Nyungan,Australia,mith1236,,L34,-25.13606725,139.598447,glottolog,false,documented,extinct,false,,pointer_only,,916.5,Pama-Nyungan > Karnic > Central Karnic > Mithaka-Karuwali
+miwa1242,Miwa,Worrorran,Australia,miwa1242,vmi,K44;K46,-14.3484,126.921,glottolog,false,documented,extinct,true,150,pointer_only,,,Worrorran > Northern Worrorran > Forrest River
+mpal1237,Mpalityanh-Luthigh,Pama-Nyungan,Australia,mpal1237,,,-12.16733589,142.4853284,glottolog,false,documented,extinct,false,,none,,1290.9,Pama-Nyungan > Paman > Northern Pama
+mpal1238,Mpalitjanh,Pama-Nyungan,Australia,mpal1238,xpj,Y17;Y25,-12.16733589,142.4853284,glottolog,false,documented,extinct,false,,open_resource,2,,Pama-Nyungan > Paman > Northern Pama > Mpalityanh-Luthigh
+mpar1238,Mparntwe Arrernte,Pama-Nyungan,Australia,mpar1238,,,-23.3583,135.046,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Central-Eastern Arrernte > Eastern Arrernte
+mudb1240,Mudburra,Pama-Nyungan,Australia,mudb1240,dmw,C21;C25;C33;C36,-16.7694,132.329,glottolog,false,comprehensive,nearly extinct,true,2,live,38,332.5,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin
+mull1237,Mullukmulluk,Northern Daly,Australia,mull1237,mpb,N22,-13.427,130.664,glottolog,false,documented,nearly extinct,true,259,pointer_only,,,Northern Daly
+mulu1243,Muluridyi,Pama-Nyungan,Australia,mulu1243,vmu,Y104;Y97,-17.0601,145.329,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yalandyic
+munu1238,Munumburru,Worrorran,Australia,munu1238,,,-14.700834,126.754387,glottolog,false,documented,unknown,true,103,none,,,Worrorran > Ngarinyin
+muny1238,Munyuku,Pama-Nyungan,Australia,muny1238,,N139.1;N200,-12.2868,135.337,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Eastern Dhuwal-Dhuwala > Gupapuyngu
+mura1269,Kuninjku,Gunwinyguan,Australia,mura1269,,,-12.3398,133.358,glottolog,false,classified,unknown,false,,none,,,Gunwinyguan > Bininj Kun-Wok
+murr1257,Murrungun,Pama-Nyungan,Australia,murr1257,,,-12.462,134.82,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Western-Inland Yolngu > Djinang
+murr1258,Murriny Patha,Southern Daly,Australia,murr1258,mwf,N1;N227;N3;N34,-14.74852,129.70152,glottolog,false,documented,shifting,true,174,pointer_only,,,Southern Daly
+murr1259,Murrinhpatha,Southern Daly,Australia,murr1259,,,-14.74852,129.70152,glottolog,false,classified,unknown,false,,none,,,Southern Daly > Murriny Patha
+murr1260,Murrinhdiminin,Southern Daly,Australia,murr1260,,N159,-14.74852,129.70152,glottolog,false,documented,unknown,false,,pointer_only,,,Southern Daly > Murriny Patha
+murr1261,Murrinhkura,Southern Daly,Australia,murr1261,,N158,-14.74852,129.70152,glottolog,false,documented,unknown,false,,pointer_only,,,Southern Daly > Murriny Patha
+muru1266,Muruwari,Pama-Nyungan,Australia,muru1266,zmu,D32,-28.9618,146.546,glottolog,false,comprehensive,extinct,true,214,open_resource,2,2081.9,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Muruwaric
+n105,Gulunggurr,unclassified,Australia,,,N105,,,none,,listed,unknown,false,,pointer_only,,,
+n110,Lurlmarangu,unclassified,Australia,,,N110,,,none,,listed,unknown,false,,pointer_only,,,
+n113,Galwanuk,unclassified,Australia,,,N113,,,none,,listed,unknown,false,,pointer_only,,,
+n116.a,Bilin,unclassified,Australia,,,N116.A,,,none,,listed,unknown,false,,pointer_only,,,
+n116.b,Birdingal,unclassified,Australia,,,N116.B,,,none,,listed,unknown,false,,pointer_only,,,
+n116.c,Birrkili,unclassified,Australia,,,N116.C,,,none,,listed,unknown,false,,pointer_only,,,
+n116.d,Dholpuyngu,unclassified,Australia,,,N116.D,,,none,,listed,unknown,false,,pointer_only,,,
+n116.g,Ding Ding,unclassified,Australia,,,N116.G,,,none,,listed,unknown,false,,pointer_only,,,
+n116.h,Djamundja,unclassified,Australia,,,N116.H,,,none,,listed,unknown,false,,pointer_only,,,
+n116.j,Djirin,unclassified,Australia,,,N116.J,,,none,,listed,unknown,false,,pointer_only,,,
+n116.l,Maydyara / Maidjara,unclassified,Australia,,,N116.L,,,none,,listed,unknown,false,,pointer_only,,,
+n116.m,Malardordo,unclassified,Australia,,,N116.M,,,none,,listed,unknown,false,,pointer_only,,,
+n116.p,Mandjikai,unclassified,Australia,,,N116.P,,,none,,listed,unknown,false,,pointer_only,,,
+n116.s,Miliwuru,unclassified,Australia,,,N116.S,,,none,,listed,unknown,false,,pointer_only,,,
+n116.u,Narrkala,unclassified,Australia,,,N116.U,,,none,,listed,unknown,false,,pointer_only,,,
+n116.v,Raijang,unclassified,Australia,,,N116.V,,,none,,listed,unknown,false,,pointer_only,,,
+n116.w,Ralwia,unclassified,Australia,,,N116.W,,,none,,listed,unknown,false,,pointer_only,,,
+n116.y,Nungudulbuy,unclassified,Australia,,,N116.Y,,,none,,listed,unknown,false,,pointer_only,,,
+n123,Bunanatjini,unclassified,Australia,,,N123,,,none,,listed,unknown,false,,pointer_only,,,
+n124,Dhämalamirr,unclassified,Australia,,,N124,,,none,,listed,unknown,false,,pointer_only,,,
+n125,Gigi,unclassified,Australia,,,N125,,,none,,listed,unknown,false,,pointer_only,,,
+n133,Wurunggugu,unclassified,Australia,,,N133,,,none,,listed,unknown,false,,pointer_only,,,
+n136,Yithuwa,unclassified,Australia,,,N136,,,none,,listed,unknown,false,,pointer_only,,,
+n143,Djarn,unclassified,Australia,,,N143,,,none,,listed,unknown,false,,pointer_only,,,
+n144,Bilamandyi,unclassified,Australia,,,N144,,,none,,listed,unknown,false,,pointer_only,,,
+n146,Marradhanggimirr,unclassified,Australia,,,N146,,,none,,listed,unknown,false,,pointer_only,,,
+n148,Gobadeindamirr,unclassified,Australia,,,N148,,,none,,listed,unknown,false,,pointer_only,,,
+n150,Galawlwan,unclassified,Australia,,,N150,,,none,,listed,unknown,false,,pointer_only,,,
+n156,Nalawgi,unclassified,Australia,,,N156,,,none,,listed,unknown,false,,pointer_only,,,
+n165,Marrabanggu,unclassified,Australia,,,N165,,,none,,listed,unknown,false,,pointer_only,,,
+n166,Marranumbu,unclassified,Australia,,,N166,,,none,,listed,unknown,false,,pointer_only,,,
+n167,Ngan-wirlang,unclassified,Australia,,,N167,,,none,,listed,unknown,false,,pointer_only,,,
+n168,Djimbilirri,unclassified,Australia,,,N168,,,none,,listed,unknown,false,,pointer_only,,,
+n169,Kerniyn'mi,unclassified,Australia,,,N169,-13.653748798659,133.58505062055,austlang,true,listed,unknown,false,,pointer_only,,,
+n170,Gumunggurdu,unclassified,Australia,,,N170,,,none,,listed,unknown,false,,pointer_only,,,
+n172,Gunguluwala,unclassified,Australia,,,N172,,,none,,listed,unknown,false,,pointer_only,,,
+n174,Gurrigurri,unclassified,Australia,,,N174,,,none,,listed,unknown,false,,pointer_only,,,
+n176,Letpurrirt,unclassified,Australia,,,N176,-14.155314254155,132.25380753215,austlang,true,listed,unknown,false,,pointer_only,,,
+n177,Ngarlahmi,unclassified,Australia,,,N177,-14.088364788678,132.35995922452,austlang,true,listed,unknown,false,,pointer_only,,,
+n178,Ngorrkgowo,unclassified,Australia,,,N178,-13.451842280087,131.67795069298,austlang,true,listed,unknown,false,,pointer_only,,,
+n179,Ngardawuli,unclassified,Australia,,,N179,-11.289816506622,131.932295025,austlang,true,listed,unknown,false,,pointer_only,,,
+n180,Urrirrk,unclassified,Australia,,,N180,-11.917680427487,132.64868498288,austlang,true,listed,unknown,false,,pointer_only,,,
+n181,Wurdang,unclassified,Australia,,,N181,-11.287065943632,131.92353745375,austlang,true,listed,unknown,false,,pointer_only,,,
+n182,Gidjurra,unclassified,Australia,,,N182,-12.132752733411,132.93719448067,austlang,true,listed,unknown,false,,pointer_only,,,
+n185,Burdinmanduwij,unclassified,Australia,,,N185,-11.310284499821,131.92911837038,austlang,true,listed,unknown,false,,pointer_only,,,
+n186,Bininj Gun-wok / Bininj Kunwok,unclassified,Australia,,,N186,-12.577995865423,133.55663593801,austlang,true,listed,unknown,false,,pointer_only,,,
+n189,Mukngirru,unclassified,Australia,,,N189,-12.927609963479,130.53746686425,austlang,true,listed,unknown,false,,pointer_only,,,
+n194,Buralka,unclassified,Australia,,,N194,,,none,,listed,unknown,false,,pointer_only,,,
+n195,Dhamarrangdji,unclassified,Australia,,,N195,,,none,,listed,unknown,false,,pointer_only,,,
+n196,Nyekuymirri,unclassified,Australia,,,N196,,,none,,listed,unknown,false,,pointer_only,,,
+n197,Wutjara,unclassified,Australia,,,N197,,,none,,listed,unknown,false,,pointer_only,,,
+n207,Wora,unclassified,Australia,,,N207,,,none,,listed,unknown,false,,pointer_only,,,
+n208,Munggurrpi,unclassified,Australia,,,N208,,,none,,listed,unknown,false,,pointer_only,,,
+n210,Walmapuy,unclassified,Australia,,,N210,,,none,,listed,unknown,false,,pointer_only,,,
+n213,Bindararr,unclassified,Australia,,,N213,,,none,,listed,unknown,false,,pointer_only,,,
+n215,Marranj,unclassified,Australia,,,N215,-13.65277213493,130.0736750837,austlang,true,listed,unknown,false,,pointer_only,,,
+n216,Ngurruwula,unclassified,Australia,,,N216,,,none,,listed,unknown,false,,pointer_only,,,
+n217,Buwarrpuwarr,unclassified,Australia,,,N217,,,none,,listed,unknown,false,,pointer_only,,,
+n218,Mininggiri,unclassified,Australia,,,N218,,,none,,listed,unknown,false,,pointer_only,,,
+n220,Giimbiyu,unclassified,Australia,,,N220,-12.480824015895,133.05641173628,austlang,true,listed,unknown,false,,pointer_only,,,
+n222,Ngunbudj,unclassified,Australia,,,N222,,,none,,listed,unknown,false,,pointer_only,,,
+n223,Wandangbag,unclassified,Australia,,,N223,-12.312678455805,132.9782491961,austlang,true,listed,unknown,false,,pointer_only,,,
+n225,Meritjamui,unclassified,Australia,,,N225,,,none,,listed,unknown,false,,pointer_only,,,
+n228,Bararrpararr,unclassified,Australia,,,N228,,,none,,listed,unknown,false,,pointer_only,,,
+n229,Ngalarrunga,unclassified,Australia,,,N229,-15.900873682573,133.19732154296,austlang,true,listed,unknown,false,,pointer_only,,,
+n24,Nangiblerbi,unclassified,Australia,,,N24,,,none,,listed,unknown,false,,pointer_only,,,
+n52,Widjilg / Widyilg,unclassified,Australia,,,N52,,,none,,listed,unknown,false,,pointer_only,,,
+n56,Gundudj,unclassified,Australia,,,N56,,,none,,listed,unknown,false,,pointer_only,,,
+n84,Djarawala,unclassified,Australia,,,N84,,,none,,listed,unknown,false,,pointer_only,,,
+n91,Galwa,unclassified,Australia,,,N91,,,none,,listed,unknown,false,,pointer_only,,,
+n93, Wulkara,unclassified,Australia,,,N93,,,none,,listed,unknown,false,,pointer_only,,,
+n98,Malarbardjuradj,unclassified,Australia,,,N98,,,none,,listed,unknown,false,,pointer_only,,,
+naia1238,Manyallaluk Mayali,Gunwinyguan,Australia,naia1238,,,-12.3398,133.358,glottolog,false,classified,unknown,false,,none,,,Gunwinyguan > Bininj Kun-Wok
+naja1241,Najanaja,Pama-Nyungan,Australia,naja1241,,A106,-18.6771,122.334,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Desert Nyungic > Marrngu > Karadjeri
+naka1260,Nakara,Maningrida,Australia,naka1260,nck,N80,-12.07653,134.32729,glottolog,false,documented,moribund,true,16,pointer_only,,,Maningrida > Nakkara-Ndjebbana
+nang1258,Nangu,Pama-Nyungan,Australia,nang1258,,,-18.6771,122.334,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Marrngu > Karadjeri
+nang1259,Nangikurrunggurr,Southern Daly,Australia,nang1259,nam,N157;N160;N17;N8,-14.268,131.237,glottolog,false,documented,shifting,true,49,pointer_only,,,Southern Daly
+nari1241,Nari Nari,Pama-Nyungan,Australia,nari1241,rnr,D9,-34.53088,144.34507,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria
+narr1259,Narrinyeri,Pama-Nyungan,Australia,narr1259,nay,S1;S11;S14;S19;S3;S69;S8,-36.2301,140.158,glottolog,false,comprehensive,extinct,true,90,live,177,764.5,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Yaraldi-Keramin-Yitha
+naru1238,Narungga,Pama-Nyungan,Australia,naru1238,nnr,L1,-34.69,137.535,glottolog,false,comprehensive,moribund,true,120,open_resource,24,1159.1,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura > Core Thura Yura > Southern Thura-Yura
+nauo1235,Nauo,Pama-Nyungan,Australia,nauo1235,nwo,,-33.79661078,135.828014,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura > Core Thura Yura > Unclassified Core Thura-Yura
+nawu1241,Nawurtu,Pama-Nyungan,Australia,nawu1241,,,-18.6771,122.334,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Marrngu > Karadjeri
+ndra1239,Ndra'ngith,Pama-Nyungan,Australia,ndra1239,dgt,,-12.544,141.984,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Paman > Northern Pama > Albatross Bay > Tyanngayt-Mamngayt-Ntrwangayt-Ntrangit
+neta1235,North Midlands Tasmanian,North-Eastern Tasmanian,Australia,neta1235,xph,T4,-41.55781,147.20848,glottolog,false,documented,extinct,false,,pointer_only,,,North-Eastern Tasmanian
+ngaa1240,Ngaanyatjarra,Pama-Nyungan,Australia,ngaa1240,ntj,A17;A30;A37;A38;A38.1;A43;A7;A8;A80,-25.7514,127.602,glottolog,false,comprehensive,shifting,true,218,open_resource,9,1055.8,Pama-Nyungan > Desert Nyungic > Wati > Pintupic > Nuclear Pintupic > Wangkatja-Tjarra > Tjarra
+ngad1257,Ngadjuri,Pama-Nyungan,Australia,ngad1257,jui,L5,-32.930160660336,139.08123163651,glottolog,false,documented,extinct,false,,open_resource,5,1674.9,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura > Core Thura Yura > Unclassified Core Thura-Yura
+ngad1258,Ngadjunmaya,Pama-Nyungan,Australia,ngad1258,nju,A3;A99,-32.02447,124.46601,glottolog,false,documented,extinct,true,27,pointer_only,,1705.5,Pama-Nyungan > South-West Pama-Nyungan > Mirning
+ngad1259,Ngadanja,Pama-Nyungan,Australia,ngad1259,,,-13.6835,141.557,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Ngatharra-Ngathana-Iinychanya > Wikalkan
+ngad1260,Ngadjan,Pama-Nyungan,Australia,ngad1260,,Y121,-17.4516,145.544,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Dyirbal
+ngal1292,Ngalkbun,Gunwinyguan,Australia,ngal1292,ngk,N60;N76;N89,-13.9783,133.936,glottolog,false,comprehensive,nearly extinct,true,231,open_resource,1,,Gunwinyguan
+ngal1293,Ngalakgan,Gunwinyguan,Australia,ngal1293,nig,N77,-14.4281,134.716,glottolog,false,documented,extinct,true,68,pointer_only,,,Gunwinyguan > Jala
+ngal1294,Ngaliwurru,Mirndi,Australia,ngal1294,,N19,-15.78944,130.8759,glottolog,false,documented,shifting,false,,pointer_only,,,Mirndi > Yirram > Jaminjung-Ngaliwurru
+ngam1265,Ngamini-Yarluyandi-Karangura,Pama-Nyungan,Australia,ngam1265,nmv,L22;L28;L31,-27.1797,138.701,glottolog,false,documented,extinct,false,,pointer_only,,898.4,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Pirlatapa-Dieric > Dieric
+ngam1284,Ngamini,Pama-Nyungan,Australia,ngam1284,,,-27.1797,138.701,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Pirlatapa-Dieric > Dieric > Ngamini-Yarluyandi-Karangura
+ngan1295,Ngandi,Gunwinyguan,Australia,ngan1295,nid,N90,-12.8448,134.649,glottolog,false,documented,nearly extinct,true,146,pointer_only,,,Gunwinyguan > Eastern Gunwinyguan
+ngan1296,Nganyaywana,Pama-Nyungan,Australia,ngan1296,nyx,D24;D70,-29.581,151.313,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Macleay-New England
+ngan1297,Ngangi-Wumeri,Southern Daly,Australia,ngan1297,,,-14.268,131.237,glottolog,false,classified,unknown,false,,none,,,Southern Daly > Nangikurrunggurr
+ngan1298,Ngangi-Tjemerri,Southern Daly,Australia,ngan1298,,,-14.268,131.237,glottolog,false,classified,unknown,false,,none,,,Southern Daly > Nangikurrunggurr
+ngan1309,Nganduwal,Pama-Nyungan,Australia,ngan1309,,E78,-28.028726,153.286993,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Coastal Bandjalang > Tweed-Albert
+ngar1235,Ngarinman,Pama-Nyungan,Australia,ngar1235,nbj,C27,-15.4661,130.651,glottolog,false,documented,shifting,true,2,pointer_only,,688.2,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin > Ngumpit
+ngar1283,Ngarnka,Mirndi,Australia,ngar1283,nji,,-17.42,134.73,glottolog,false,documented,extinct,true,182,none,,,Mirndi > Ngurlun
+ngar1284,Ngarinyin,Worrorran,Australia,ngar1284,ung,K18;K23;K26;K28;K33;K37,-16.4006,126.433,glottolog,false,comprehensive,nearly extinct,true,324,open_resource,1,,Worrorran
+ngar1285,Ngarnawu,Worrorran,Australia,ngar1285,,,-15.700055,127.452018,glottolog,false,documented,unknown,true,103,none,,,Worrorran > Ngarinyin
+ngar1287,Ngarluma,Pama-Nyungan,Australia,ngar1287,nrl,W38;W47,-20.9235,117.203,glottolog,false,comprehensive,moribund,true,3,open_resource,1,583.2,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Ngarluma-Kariyarra
+ngar1288,Ngardi,Pama-Nyungan,Australia,ngar1288,rxd,A121;A63;A69,-21.0231,129.0308,glottolog,false,documented,moribund,false,,pointer_only,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Western Ngumpin
+ngar1296,Ngarla,Pama-Nyungan,Australia,ngar1296,nrk,,-20.20748,119.30579,glottolog,false,documented,extinct,true,1,none,,1075.7,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Northern Ngayarda
+ngar1297,Ngarigu,Pama-Nyungan,Australia,ngar1297,xni,S46;S47,-36.23,149.13,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Yuin > Southern Inland Yuin
+ngar1298,Ngaraangbal,Pama-Nyungan,Australia,ngar1298,,,-28.028726,153.286993,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Coastal Bandjalang > Tweed-Albert
+ngaw1240,Ngawun,Pama-Nyungan,Australia,ngaw1240,nxn,G17;G19,-19.4484,141.471,glottolog,false,comprehensive,extinct,true,31,open_resource,2,511.1,Pama-Nyungan > Paman > Mayabic > Nuclear Mayabic
+ngay1242,Ngaymil,Pama-Nyungan,Australia,ngay1242,,N116.X,-11.9493,135.752,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhangu
+ngin1247,Ngindadj,Pama-Nyungan,Australia,ngin1247,,S18,-34.098823177692,140.99932761004,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Upper Riverland
+ngko1236,Ngkoth,Pama-Nyungan,Australia,ngko1236,,Y36,-12.740575,141.886762,glottolog,false,documented,extinct,false,,pointer_only,,743.6,Pama-Nyungan > Paman > Northern Pama
+ngub1238,Nguburindi,Tangkic,Australia,ngub1238,,,-17.5446,139.426,glottolog,false,documented,unknown,false,,none,,690.9,Tangkic > Southern Tangkic > Ganggalida
+ngum1253,Ngumbarl,Nyulnyulan,Australia,ngum1253,xnm,K4,-17.491239,122.230025,glottolog,false,documented,extinct,false,,pointer_only,,,Nyulnyulan > Eastern Nyulnyulan > Unclassified Eastern Nyulnyulan
+ngun1277,Ngunawal,Pama-Nyungan,Australia,ngun1277,xul,D3;S57,-36.25,148.77,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Yuin > Northern Inland Yuin
+ngur1260,Ngurmbur,Unattested,Australia,ngur1260,nrx,N224;N40.1;N49,-12.6483,132.508,glottolog,false,documented,extinct,false,,pointer_only,,,Unattested > Umbugarla (Unattested)
+ngur1261,Wilson River (Grey Range),Pama-Nyungan,Australia,ngur1261,nbx,L15;L20;L24;L25;L29;L56;L68,-27.58,142.45,glottolog,false,comprehensive,extinct,true,55,open_resource,1,936,Pama-Nyungan > Karnic > Badjiri-Eastern Karnic > Eastern Karnic
+nhan1238,Nhanda,Pama-Nyungan,Australia,nhan1238,nha,W12;W13;W14;W15;W16;W17,-27.42523643,114.2680442,glottolog,false,comprehensive,nearly extinct,true,215,open_resource,11,1007,Pama-Nyungan > South-West Pama-Nyungan > Kartu-Nhanda
+nhir1234,Nhirrpi,Pama-Nyungan,Australia,nhir1234,hrp,L46,-28.62911,141.27596,glottolog,false,documented,extinct,false,,pointer_only,,869.9,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Yandruwandhic > Yandruwandha
+nhuw1239,Nhuwala,Pama-Nyungan,Australia,nhuw1239,nhf,W30,-21.38154,115.74542,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda
+nija1241,Nyiyaparli-Palyku,Pama-Nyungan,Australia,nija1241,xny,,-22.8558,120.831,glottolog,false,documented,moribund,true,1,none,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda
+nima1245,Nimanbur,Nyulnyulan,Australia,nima1245,nmp,K9,-17.374,123.228,glottolog,false,documented,extinct,false,,pointer_only,,,Nyulnyulan > Western Nyulnyulan
+njak1238,Njakali,Pama-Nyungan,Australia,njak1238,,,-16.596,145.388,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yidinic > Dyaabugay
+njan1241,Njangbal,Pama-Nyungan,Australia,njan1241,,,-28.937029,153.48612,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Coastal Bandjalang > Lower Richmond
+nort2753,North-western Warlpiri,Pama-Nyungan,Australia,nort2753,,,-20.1008,131.05,glottolog,false,documented,unknown,false,,none,,1368.7,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Yapa > Warlpiri
+nort2754,Northern Coastal Nyangumarta,Pama-Nyungan,Australia,nort2754,,,-20.6271,121.391,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Marrngu > Nyangumarta
+nort2755,Northern Inggarda,Pama-Nyungan,Australia,nort2755,,,-25.4446,115.58,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > South-West Pama-Nyungan > Yinggarda
+nort2756,Northern Sunraysia,Pama-Nyungan,Australia,nort2756,,,-34.190056,142.273631,glottolog,false,documented,extinct,false,,none,,1757.9,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Yaraldi-Keramin-Yitha
+nort2760,Northern Inland Yuin,Pama-Nyungan,Australia,nort2760,,,-34.85,149.1,glottolog,false,documented,extinct,false,,none,,1423.3,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Yuin
+nort2762,Northern Yawuru,Nyulnyulan,Australia,nort2762,,,-18.004,122.693,glottolog,false,classified,unknown,false,,none,,,Nyulnyulan > Eastern Nyulnyulan > Yawuric > Yawuru
+nort3403,Northern Arrernte,Pama-Nyungan,Australia,nort3403,,,-23.3583,135.046,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Central-Eastern Arrernte > Eastern Arrernte
+nort3415,Northwestern Tasmanian,Western Tasmanian,Australia,nort3415,xpw,,-40.76592,144.74362,glottolog,false,classified,extinct,false,,none,,,Western Tasmanian > Western Coastal Tasmanian
+ntrw1234,Ndrwa'angathi,Pama-Nyungan,Australia,ntrw1234,,,-12.544,141.984,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Paman > Northern Pama > Albatross Bay > Tyanngayt-Mamngayt-Ntrwangayt-Ntrangit > Awngtim
+nucl1242,Nuclear Marithiel,Western Daly,Australia,nucl1242,,,-13.8818,130.237,glottolog,false,classified,unknown,false,,none,,,Western Daly > Bringen > Marithielic > Marithiel
+nucl1327,Limilngan,Limilngan-Wulna,Australia,nucl1327,lmc,N30;N37.1;N42;N42.1;N51,-12.4294,131.845,glottolog,false,documented,extinct,true,213,pointer_only,,,Limilngan-Wulna
+nucl1328,Wambaya,Mirndi,Australia,nucl1328,,,-17.496,135.683,glottolog,false,documented,unknown,false,,open_resource,1,,Mirndi > Ngurlun > Wambayan > Wambaya-Gudanji
+nucl1333,Nuclear Dhuwal,Pama-Nyungan,Australia,nucl1333,dwu,,-12.67,136.75,glottolog,false,classified,not endangered,false,,none,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Western Dhuwal-Dhuwala > Dhuwal
+nucl1334,Nuclear Gupapuyngu,Pama-Nyungan,Australia,nucl1334,,,-12.2868,135.337,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Eastern Dhuwal-Dhuwala > Gupapuyngu
+nucl1336,Nuclear Dyaabugay,Pama-Nyungan,Australia,nucl1336,,,-16.596,145.388,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yidinic > Dyaabugay
+nucl1337,Nuclear Yidiny,Pama-Nyungan,Australia,nucl1337,,,-17.1332,145.876,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yidinic > Yidiñ
+nucl1338,Nuclear Bardi,Nyulnyulan,Australia,nucl1338,,,-16.6274,122.906,glottolog,false,classified,unknown,false,,none,,,Nyulnyulan > Western Nyulnyulan > Bardic > Bardi
+nugu1241,Nugunu (Australia),Pama-Nyungan,Australia,nugu1241,nnv,L4,-32.6655,138.0567,glottolog,false,documented,extinct,false,,pointer_only,,1159.1,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura > Core Thura Yura > Unclassified Core Thura-Yura
+nung1290,Wubuy,Gunwinyguan,Australia,nung1290,nuy,N128,-14.2623,135.753,glottolog,false,documented,shifting,true,143,pointer_only,,,Gunwinyguan > Eastern Gunwinyguan > Wubuy-Anindilyakwa
+nung1291,Nungali,Mirndi,Australia,nung1291,nug,N28,-14.9109,131.641,glottolog,false,documented,extinct,false,,pointer_only,,,Mirndi > Yirram
+nyam1271,Nyamal,Pama-Nyungan,Australia,nyam1271,nly,A58;A60,-21.6092,119.693,glottolog,false,documented,nearly extinct,true,1,pointer_only,,1075.7,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Northern Ngayarda
+nyan1300,Yangkaal,Tangkic,Australia,nyan1300,nny,E52;G37;N154;Y131,-16.74,138.023,glottolog,false,documented,extinct,false,,open_resource,5,347.7,Tangkic > Southern Tangkic > Kayardild-Yangkaal
+nyan1301,Nyangumarta,Pama-Nyungan,Australia,nyan1301,nna,A104;A59;A61;A72;A73;A98,-20.6271,121.391,glottolog,false,documented,shifting,true,89,pointer_only,,507.2,Pama-Nyungan > Desert Nyungic > Marrngu
+nyaw1247,Nyawaygi,Pama-Nyungan,Australia,nyaw1247,nyt,E61;Y129;Y218,-18.8743,146.216,glottolog,false,documented,extinct,true,129,pointer_only,,1323.8,Pama-Nyungan > Nyawaygic
+nyig1240,Nyigina,Nyulnyulan,Australia,nyig1240,nyh,K3,-17.9594,124.348,glottolog,false,documented,moribund,true,172,pointer_only,,,Nyulnyulan > Eastern Nyulnyulan > Nyikinic
+nyin1247,Nyininy,Pama-Nyungan,Australia,nyin1247,,,-18.3288,128.262,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Western Ngumpin > Jaru
+nyul1247,Nyulnyul,Nyulnyulan,Australia,nyul1247,nyv,K13,-16.9129,122.851,glottolog,false,comprehensive,extinct,true,217,open_resource,14,,Nyulnyulan > Western Nyulnyulan > Nyulnyulic
+nyun1247,Nyunga,Pama-Nyungan,Australia,nyun1247,nys,A1;W2;W41;W8,-33.1199,118.151,glottolog,false,documented,extinct,true,35,pointer_only,,582.3,Pama-Nyungan > South-West Pama-Nyungan
+ogha1238,Ogh Awarrangg,Pama-Nyungan,Australia,ogha1238,,Y201,-16.6807,143.53,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Paman > Alaya-Athima > Southwestern Alaya-Athima > Kunjen
+oyka1239,Oykangand,Pama-Nyungan,Australia,oyka1239,,Y206,-16.6807,143.53,glottolog,false,documented,unknown,false,,pointer_only,,70.7,Pama-Nyungan > Paman > Alaya-Athima > Southwestern Alaya-Athima > Kunjen
+oyst1235,Oyster Bay-Big River-Little Swanport,(isolate),Australia,oyst1235,xpd,,-42.307378,147.50061,glottolog,false,listed,extinct,true,2,none,,,
+p4,Aboriginal English,unclassified,Australia,,,P4,,,none,,listed,unknown,false,,pointer_only,,,
+paka1251,Pakanha,Pama-Nyungan,Australia,paka1251,pkn,Y64;Y96,-15.0908,142.74,glottolog,false,documented,extinct,true,1,pointer_only,,867.6,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Kuku-Wik-Ep > Kuku-Wik > Mungkanic
+pall1243,Pallanganmiddang,Pama-Nyungan,Australia,pall1243,pmd,,-36.08,146.91,glottolog,false,documented,extinct,false,,none,,1213.4,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Eastern Victoria > Dhudhuroa-Pallanganmiddang
+pant1254,Pantikura,Pama-Nyungan,Australia,pant1254,,A76,-22.7816,118.723,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Panytyima-Yinhawangka > Panytyima
+pany1241,Panytyima,Pama-Nyungan,Australia,pany1241,pnw,A53;A96,-22.7816,118.723,glottolog,false,comprehensive,moribund,true,226,open_resource,15,608.3,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Panytyima-Yinhawangka
+pert1234,Pertame,Pama-Nyungan,Australia,pert1234,,C46,-24.05052,133.24621,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Western Arrarnta
+pikw1234,Pikwurrung,Pama-Nyungan,Australia,pikw1234,,,-38.155612905976,141.53965852318,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Warrnambool-Bunganditj > Warrnambool
+pilt1234,Piltapalta,Pama-Nyungan,Australia,pilt1234,,L53,-28.705,135.449,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Karnic > Palku > Arabana-Wangganguru > Arabana
+pimp1234,Pimpama,Pama-Nyungan,Australia,pimp1234,,,-27.821692,153.304503,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic
+pini1244,Pinigura,Pama-Nyungan,Australia,pini1244,pnv,W34,-22.4729,116.538,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Kanyara
+pini1245,Lake Carnegie Western Desert,Pama-Nyungan,Australia,pini1245,tjp,A25;A26;A54,-27.11796,120.56642,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Pama-Nyungan > Desert Nyungic > Wati > Unclassified Wati
+pini1248,Pini,Pama-Nyungan,Australia,pini1248,pii,,-26.80165,121.99466,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Desert Nyungic > Wati > Unclassified Wati > Lake Carnegie Western Desert
+pinj1244,Pinjarup,Pama-Nyungan,Australia,pinj1244,pnj,W6,-32.7,115.7,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Nyunga
+pint1250,Pintupi-Luritja,Pama-Nyungan,Australia,pint1250,piu,C10;C44,-23.2963,130.643,glottolog,false,documented,shifting,true,158,pointer_only,,1318.8,Pama-Nyungan > Desert Nyungic > Wati > Pintupic > Nuclear Pintupic
+pint1251,Pintiini,Pama-Nyungan,Australia,pint1251,pti,A10;A102;A103;A12;A81,-29.806,127.632,glottolog,false,documented,shifting,false,,open_resource,1,240,Pama-Nyungan > Desert Nyungic > Wati > Pintupic > Nuclear Pintupic > Wangkatja-Tjarra
+pirl1238,Pirlatapa,Pama-Nyungan,Australia,pirl1238,bxi,L11,-29.524,139.77,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Pirlatapa-Dieric
+pirr1240,Pirriya,Pama-Nyungan,Australia,pirr1240,xpa,L36;L37,-25.48006595,142.5485119,glottolog,false,documented,extinct,false,,pointer_only,,1251.7,Pama-Nyungan > Karnic > Pirriya-Kungkari
+pitj1243,Pitjantjatjara,Pama-Nyungan,Australia,pitj1243,pjt,A32;A83;C6,-26.9704,131.357,glottolog,false,comprehensive,threatened,true,112,open_resource,326,905.1,Pama-Nyungan > Desert Nyungic > Wati > Pintupic > Nuclear Pintupic > Wangkatja-Tjarra > Tjarra
+pitt1247,Pitta Pitta,Pama-Nyungan,Australia,pitt1247,pit,G2;G4;G5;G53;G6;G7;L32;S2;S7,-22.7952,139.983,glottolog,false,documented,extinct,true,234,pointer_only,,994,Pama-Nyungan > Karnic > Palku > Pitta-Pitta
+port1278,Port Sorell,Western Tasmanian,Australia,port1278,xpl,,-41.188369,146.559906,glottolog,false,classified,extinct,false,,none,,,Western Tasmanian
+pudi1238,Puditara,Pama-Nyungan,Australia,pudi1238,,,-24.16283,121.275,glottolog,false,classified,nearly extinct,false,,none,,,Pama-Nyungan > Desert Nyungic > Wati > Martuwangkic > Warnman-Wangka > Martu Wangka
+pung1239,Pungupungu,Wadjiginy,Australia,pung1239,,,-12.8596,130.737,glottolog,false,classified,unknown,false,,none,,,Wadjiginy
+punt1240,Punthamara,Pama-Nyungan,Australia,punt1240,xpt,L16;L26,-27.33,143,glottolog,false,documented,extinct,false,,pointer_only,,507.1,Pama-Nyungan > Karnic > Badjiri-Eastern Karnic > Eastern Karnic > Wilson River (Grey Range)
+remb1249,Rembarrnga,Gunwinyguan,Australia,remb1249,rmb,L40;N175;N44;N73,-12.9608,134.308,glottolog,false,comprehensive,moribund,true,11,open_resource,1,,Gunwinyguan > Jala
+rirr1238,Rirratjingu,Pama-Nyungan,Australia,rirr1238,,N140,-11.9493,135.752,glottolog,false,documented,unknown,false,,pointer_only,,677.7,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhangu
+rita1239,Ritharrngu,Pama-Nyungan,Australia,rita1239,rit,N104;N149,-13.4559,135.259,glottolog,false,comprehensive,shifting,true,144,open_resource,1,865.4,Pama-Nyungan > Yuulngu > Southern Yolngu
+robb1234,Robbins Island,Western Tasmanian,Australia,robb1234,,,-40.76592,144.74362,glottolog,false,classified,unknown,false,,none,,,Western Tasmanian > Western Coastal Tasmanian > Northwestern Tasmanian
+s10,Ngawadj,unclassified,Australia,,,S10,-34.224469830423,140.22562948312,austlang,true,listed,unknown,false,,pointer_only,,,
+s16,Mardidjali,unclassified,Australia,,,S16,-36.967794207335,141.64314094744,austlang,true,listed,unknown,false,,pointer_only,,,
+s21,Warga Warga,unclassified,Australia,,,S21,,,none,,listed,unknown,false,,pointer_only,,,
+s21.1,Kulin,unclassified,Australia,,,S21.1,,,none,,listed,unknown,false,,pointer_only,,,
+s4,Ngaralda,unclassified,Australia,,,S4,-35.01894863785,139.22841134723,austlang,true,listed,unknown,false,,pointer_only,,,
+s5,Peramangk,unclassified,Australia,,,S5,-34.862567140121,138.89220035508,austlang,true,listed,unknown,false,,pointer_only,,,
+s6,Ngangaruku,unclassified,Australia,,,S6,-34.831537401429,139.45140032475,austlang,true,listed,unknown,false,,pointer_only,,,
+s71,Gadubanud,unclassified,Australia,,,S71,-38.618242636271,143.6440107312,austlang,true,listed,unknown,false,,pointer_only,,,
+s72,Wichintunga,unclassified,Australia,,,S72,,,none,,listed,unknown,false,,pointer_only,,,
+s74,Gaiwurrung,unclassified,Australia,,,S74,-38.024063872674,142.34830506135,austlang,true,listed,unknown,false,,pointer_only,,,
+s76,Moatatunga,unclassified,Australia,,,S76,,,none,,listed,unknown,false,,pointer_only,,,
+s77,Bi:gwurrung,unclassified,Australia,,,S77,-38.293845345763,142.27430709162,austlang,true,listed,unknown,false,,pointer_only,,,
+s78,Pinejunga,unclassified,Australia,,,S78,,,none,,listed,unknown,false,,pointer_only,,,
+s79,Taloinjunga,unclassified,Australia,,,S79,,,none,,listed,unknown,false,,pointer_only,,,
+s80,Wirngilgnad Dhalinanong,unclassified,Australia,,,S80,-38.488177395757,143.02113799013,austlang,true,listed,unknown,false,,pointer_only,,,
+s81,Wulluwurrung,unclassified,Australia,,,S81,-37.843211116013,141.63423301855,austlang,true,listed,unknown,false,,pointer_only,,,
+s82,Koort-kirrup,unclassified,Australia,,,S82,,,none,,listed,unknown,false,,pointer_only,,,
+s83,Ngurai-illamwurrung,unclassified,Australia,,,S83,-36.472809655538,145.08169255656,austlang,true,listed,unknown,false,,pointer_only,,,
+s84,Jagwadjali,unclassified,Australia,,,S84,-36.321625541817,142.68466209577,austlang,true,listed,unknown,false,,pointer_only,,,
+s85,Biwadjali,unclassified,Australia,,,S85,-36.305861371785,141.78568318654,austlang,true,listed,unknown,false,,pointer_only,,,
+s86,Pirtpirtwurrung,unclassified,Australia,,,S86,-37.413948711457,142.79881459185,austlang,true,listed,unknown,false,,pointer_only,,,
+s87,Nundadjali,unclassified,Australia,,,S87,-37.389334201401,141.80048331135,austlang,true,listed,unknown,false,,pointer_only,,,
+s89,Waywurru / Pallanganmiddang,unclassified,Australia,,,S89,,,none,,listed,unknown,false,,pointer_only,,,
+s9,Ngarkat,unclassified,Australia,,,S9,-35.361135554837,140.35224473013,austlang,true,listed,unknown,false,,pointer_only,,,
+s91,Nulit,unclassified,Australia,,,S91,,,none,,listed,unknown,false,,pointer_only,,,
+s93,Ngarad,unclassified,Australia,,,S93,,,none,,listed,unknown,false,,pointer_only,,,
+s95,Djilamatang,unclassified,Australia,,,S95,,,none,,listed,unknown,false,,pointer_only,,,
+s96,Hawkesbury River - Broken Bay language,unclassified,Australia,,,S96,-33.505703582057,151.21903580242,austlang,true,listed,unknown,false,,pointer_only,,,
+s97,Bangerang / Kwat Kwat / Waveroo,unclassified,Australia,,,S97,,,none,,listed,unknown,false,,pointer_only,,,
+s98,Southern Ngarigu,unclassified,Australia,,,S98,,,none,,listed,unknown,false,,pointer_only,,,
+smal1240,Small Nyikina,Nyulnyulan,Australia,smal1240,,,-17.9594,124.348,glottolog,false,classified,unknown,false,,none,,,Nyulnyulan > Eastern Nyulnyulan > Nyikinic > Nyigina
+sout1439,South-Eastern-Tasmanian-Hinterland,South-Eastern Tasmanian,Australia,sout1439,xpf,,-42.988576,146.885376,glottolog,false,classified,extinct,false,,none,,,South-Eastern Tasmanian
+sout2761,South-western Warlpiri,Pama-Nyungan,Australia,sout2761,,C39,-20.1008,131.05,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Yapa > Warlpiri
+sout2762,Southern Warlpiri,Pama-Nyungan,Australia,sout2762,,,-20.1008,131.05,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Yapa > Warlpiri
+sout2763,Southern inland Nyangumarta,Pama-Nyungan,Australia,sout2763,,,-20.6271,121.391,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Marrngu > Nyangumarta
+sout2764,Southern Inggarda,Pama-Nyungan,Australia,sout2764,,,-25.4446,115.58,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > South-West Pama-Nyungan > Yinggarda
+sout2770,Southern Inland Yuin,Pama-Nyungan,Australia,sout2770,,,-36.30008261,148.7238073,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Yuin
+sout2771,Southern Coastal Yuin,Pama-Nyungan,Australia,sout2771,xtv,,-37.06227181,149.7169306,glottolog,false,documented,extinct,false,,none,,1048.1,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Yuin
+sout2773,Southern Coastal Yawuru,Nyulnyulan,Australia,sout2773,,K48,-18.004,122.693,glottolog,false,documented,unknown,false,,pointer_only,,,Nyulnyulan > Eastern Nyulnyulan > Yawuric > Yawuru
+sout3391,Southwestern Tasmanian,Western Tasmanian,Australia,sout3391,xpx,,-43.41297,146.06197,glottolog,false,classified,extinct,false,,none,,,Western Tasmanian > Western Coastal Tasmanian
+sydn1236,Sydney,Pama-Nyungan,Australia,sydn1236,xdk,S61;S64,-33.52925837,150.3490464,glottolog,false,documented,extinct,false,,live,43,702.7,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Kuri > Sydney-Hawkesbury
+t1,Northern Tasmanian,unclassified,Australia,,,T1,-41.325050301738,146.03358210659,austlang,true,listed,unknown,false,,pointer_only,,,
+t10,South-western Tasmanian,unclassified,Australia,,,T10,-43.400361179481,146.07128719242,austlang,true,listed,unknown,false,,pointer_only,,,
+t11,Robbins Island Tasmanian,unclassified,Australia,,,T11,-40.66698250636,144.95572693284,austlang,true,listed,unknown,false,,pointer_only,,,
+t12,Circular Head Tasmanian,unclassified,Australia,,,T12,-40.856776077497,145.37373332699,austlang,true,listed,unknown,false,,pointer_only,,,
+t13,Port Sorell Tasmanian,unclassified,Australia,,,T13,-41.275548660291,146.56807260033,austlang,true,listed,unknown,false,,pointer_only,,,
+t14,Piper River Tasmanian,unclassified,Australia,,,T14,-41.13581008719,147.40242949845,austlang,true,listed,unknown,false,,pointer_only,,,
+t15,Little Swanport Tasmanian,unclassified,Australia,,,T15,-42.440638080356,147.95647320923,austlang,true,listed,unknown,false,,pointer_only,,,
+t2,Oyster Bay Tasmanian,unclassified,Australia,,,T2,-42.503566832078,147.76871481565,austlang,true,listed,unknown,false,,pointer_only,,,
+t5,South-eastern Tasmanian,unclassified,Australia,,,T5,-43.225544401928,146.99773612688,austlang,true,listed,unknown,false,,pointer_only,,,
+t6,Macquarie Harbour Tasmanian,unclassified,Australia,,,T6,,,none,,listed,unknown,false,,pointer_only,,,
+t7,Ben Lomond,unclassified,Australia,,,T7,,,none,,listed,unknown,false,,pointer_only,,,
+t8,Big River Tasmanian,unclassified,Australia,,,T8,-42.425061457076,146.75888026301,austlang,true,listed,unknown,false,,pointer_only,,,
+t9,Cape Portland Tasmanian,unclassified,Australia,,,T9,-41.082510683171,148.05932283459,austlang,true,listed,unknown,false,,pointer_only,,,
+taga1279,Tagalaka,Pama-Nyungan,Australia,taga1279,tgz,Y125,-18.1973276258,142.96122717197,glottolog,false,documented,extinct,false,,pointer_only,,1321.2,Pama-Nyungan > Paman > Alaya-Athima > Central Alaya-Athima
+tang1381,Tangani,Pama-Nyungan,Australia,tang1381,,,-36.2301,140.158,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Yaraldi-Keramin-Yitha > Narrinyeri
+thay1248,Thaypan,Pama-Nyungan,Australia,thay1248,typ,Y66;Y84,-14.8292,143.324,glottolog,false,documented,extinct,true,3,pointer_only,,,Pama-Nyungan > Paman > Alaya-Athima > Thaypanic
+thay1249,Thayore,Pama-Nyungan,Australia,thay1249,thd,Y69,-14.8159,142.034,glottolog,false,documented,shifting,true,163,pointer_only,,1083.2,Pama-Nyungan > Paman > Southwest Pama > Upper Southwest Paman
+thii1234,Thiin,Pama-Nyungan,Australia,thii1234,iin,W25,-23.71156576435,116.68011572516,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Mantharta > Djiwarli-Thiin
+thur1254,Thurawal,Pama-Nyungan,Australia,thur1254,tbh,S50;S58;S59,-34.634,150.721,glottolog,false,documented,extinct,true,116,pointer_only,,666.6,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Yuin > Northern Costal Yuin
+tiwi1244,Tiwi,(isolate),Australia,tiwi1244,tiw,N20,-11.6308,130.949,glottolog,false,listed,shifting,true,282,live,39,,
+tjak1234,Tjakut,Pama-Nyungan,Australia,tjak1234,,,-38.155612905976,141.53965852318,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Warrnambool-Bunganditj > Warrnambool
+tjup1235,Tjupan,Pama-Nyungan,Australia,tjup1235,,A31,-27.11796,120.56642,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Pama-Nyungan > Desert Nyungic > Wati > Unclassified Wati > Lake Carnegie Western Desert
+tjur1240,Tjurruru,Pama-Nyungan,Australia,tjur1240,tju,W33,-22.842,118.267,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda
+torr1261,Torres Strait-Lockhart River Creole,Indo-European,Australia,torr1261,tcs,P2,-11.066,142.692,glottolog,false,documented,threatened,true,220,pointer_only,,,Indo-European > Classical Indo-European > Germanic > Northwest Germanic > West Germanic > North Sea Germanic > Anglo-Frisian > Anglic > Later Anglic > Middle-Modern English > Macro-English > Pacific Creole English > Early Melanesian Pidgin
+torr1263,Torres Strait Creole,Indo-European,Australia,torr1263,,,-11.066,142.692,glottolog,false,classified,unknown,false,,none,,,Indo-European > Classical Indo-European > Germanic > Northwest Germanic > West Germanic > North Sea Germanic > Anglo-Frisian > Anglic > Later Anglic > Middle-Modern English > Macro-English > Pacific Creole English > Early Melanesian Pidgin > Torres Strait-Lockhart River Creole
+turr1239,Turra,Pama-Nyungan,Australia,turr1239,,,-34.69,137.535,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura > Core Thura Yura > Southern Thura-Yura > Narungga
+twee1234,Tweed-Albert,Pama-Nyungan,Australia,twee1234,xjb,E18,-28.028726,153.286993,glottolog,false,documented,extinct,false,,open_resource,2,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Coastal Bandjalang
+tyan1235,Tyanngayt-Mamngayt-Ntrwangayt-Ntrangit,Pama-Nyungan,Australia,tyan1235,,,-12.544,141.984,glottolog,false,documented,extinct,false,,none,,797.4,Pama-Nyungan > Paman > Northern Pama > Albatross Bay
+tyan1236,Thanikwithi,Pama-Nyungan,Australia,tyan1236,,,-12.544,141.984,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Paman > Northern Pama > Albatross Bay > Tyanngayt-Mamngayt-Ntrwangayt-Ntrangit > Awngtim
+tyar1236,Tyaraity,Northern Daly,Australia,tyar1236,woa,N10,-12.4868,130.676,glottolog,false,documented,extinct,true,19,pointer_only,,,Northern Daly
+tyur1234,Tyuretye Arrernte,Pama-Nyungan,Australia,tyur1234,,,-24.05052,133.24621,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Western Arrarnta
+ulku1238,Ulkulu,Pama-Nyungan,Australia,ulku1238,,,-16.6807,143.53,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Paman > Alaya-Athima > Southwestern Alaya-Athima > Kunjen
+umbi1243,Umbindhamu,Pama-Nyungan,Australia,umbi1243,umd,Y138;Y50,-13.921,143.328,glottolog,false,documented,extinct,false,,pointer_only,,1379.3,Pama-Nyungan > Paman > Compromise Middle Pama > Northeastern Pama > Umbindhamuic
+umbu1235,Umbugarla,(isolate),Australia,umbu1235,umr,N43,-12.9325,131.825,glottolog,false,listed,extinct,true,139,pointer_only,,,
+umbu1256,Umbuygamu,Pama-Nyungan,Australia,umbu1256,umg,Y170;Y55,-14.25876,143.6305,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Lamalamic > Coastal Lamalamic
+umii1235,Umiida-Unggarangu,Worrorran,Australia,umii1235,,,-16.559333,124.5,glottolog,false,documented,extinct,true,101,none,,,Worrorran > Western Worrorran
+umii1236,Umiida,Worrorran,Australia,umii1236,xud,K49,-16.615461,124.079216,glottolog,false,documented,extinct,false,,pointer_only,,,Worrorran > Western Worrorran > Umiida-Unggarangu
+umpi1239,Umpila,Pama-Nyungan,Australia,umpi1239,ump,Y45,-13.1528,143.467,glottolog,false,documented,nearly extinct,true,1,pointer_only,,434.7,Pama-Nyungan > Paman > Compromise Middle Pama > Northeastern Pama > Umpilaic
+unam1243,Unambal,Worrorran,Australia,unam1243,,,-14.8347,125.72,glottolog,false,classified,unknown,false,,none,,,Worrorran > Northern Worrorran > Wunambal
+ungg1243,Unggumi,Worrorran,Australia,ungg1243,xgu,K14,-15.65,124.67,glottolog,false,documented,extinct,false,,pointer_only,,,Worrorran > Western Worrorran
+ungg1244,Unggaranggu,Worrorran,Australia,ungg1244,xun,K55,-16.91,124.156,glottolog,false,documented,extinct,false,,pointer_only,,,Worrorran > Western Worrorran > Umiida-Unggarangu
+uppe1415,Upper Riverland,Pama-Nyungan,Australia,uppe1415,,,-34.098823177692,140.99932761004,glottolog,false,documented,extinct,false,,none,,2385,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray
+urni1239,Urningangg,Giimbiyu,Australia,urni1239,urc,N66,-13.4766,133.023,glottolog,false,documented,extinct,true,175,pointer_only,,,Giimbiyu > Urninganggic
+uwin1234,Uwinymil,Gunwinyguan,Australia,uwin1234,,,-12.8,131.7,glottolog,false,classified,extinct,false,,none,,,Gunwinyguan > Western Gunwinyguan > Warrayic
+w28,Jiwarli,unclassified,Australia,,,W28,-23.497306025591,115.90091904253,austlang,true,listed,unknown,false,,pointer_only,,,
+w44,Janadjina,unclassified,Australia,,,W44,-24.735537440284,118.26741923302,austlang,true,listed,unknown,false,,pointer_only,,,
+w45,Watjanmay,unclassified,Australia,,,W45,-30.429310013267,119.98744376942,austlang,true,listed,unknown,false,,pointer_only,,,
+w48,Djungundja,unclassified,Australia,,,W48,,,none,,listed,unknown,false,,pointer_only,,,
+w49,Jadira,unclassified,Australia,,,W49,-21.845529866535,116.18847829586,austlang,true,listed,unknown,false,,pointer_only,,,
+w50,Jindijind,unclassified,Australia,,,W50,,,none,,listed,unknown,false,,pointer_only,,,
+w53,Wirlu,unclassified,Australia,,,W53,,,none,,listed,unknown,false,,pointer_only,,,
+w54,Yinigudira,unclassified,Australia,,,W54,,,none,,listed,unknown,false,,pointer_only,,,
+w58,Yindjibarndi Padupadu,unclassified,Australia,,,W58,,,none,,listed,unknown,false,,pointer_only,,,
+w59,Ngarluma Padupadu,unclassified,Australia,,,W59,,,none,,listed,unknown,false,,pointer_only,,,
+w65,Djiraly,unclassified,Australia,,,W65,,,none,,listed,unknown,false,,pointer_only,,,
+w66,Kongal-marawar,unclassified,Australia,,,W66,,,none,,listed,unknown,false,,pointer_only,,,
+w67,Kongal-boyal,unclassified,Australia,,,W67,,,none,,listed,unknown,false,,pointer_only,,,
+w68,Purnukundi,unclassified,Australia,,,W68,,,none,,listed,unknown,false,,pointer_only,,,
+w69,Marndanjingu,unclassified,Australia,,,W69,,,none,,listed,unknown,false,,pointer_only,,,
+waal1237,Waalaraay,Pama-Nyungan,Australia,waal1237,,,-29.9037,149.543,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric > Yuwaalaraay-Gamilaraay
+waal1238,Waalubal,Pama-Nyungan,Australia,waal1238,,,-29.042737,152.780249,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Inland Bandjalang > Middle Clarence Bandjalang
+wadi1249,Wadiwadi,Pama-Nyungan,Australia,wadi1249,,,-34.634,150.721,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Yuin > Northern Costal Yuin > Thurawal
+wadi1260,Wadi Wadi,Pama-Nyungan,Australia,wadi1260,xwd,D4;S33,-34.13829932,143.6694397,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria
+wadi1261,Wadikali,Pama-Nyungan,Australia,wadi1261,wdk,L12,-29.49049805,140.9591946,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Yarli-Baagandji > Yarli
+wadj1254,Wadjiginy,(isolate),Australia,wadj1254,wdj,N11;N31,-12.8596,130.737,glottolog,false,listed,moribund,true,187,pointer_only,,,
+wadj1255,Wadjigu,Pama-Nyungan,Australia,wadj1255,wdu,E39,-23.8029,147.421,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric
+wadj1256,Wadja,Pama-Nyungan,Australia,wadj1256,,,-23.8029,147.421,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric > Wadjigu
+waga1260,Wagaya,Pama-Nyungan,Australia,waga1260,wga,C16,-20.329,137.623,glottolog,false,comprehensive,extinct,true,152,open_resource,1,1118.3,Pama-Nyungan > Ngarna > Southern Ngarna > Ngarru
+waga1261,Wagawaga (Australia),Pama-Nyungan,Australia,waga1261,,,-26.248,151.868,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Waka-Kabic > Western Waka-Kabic > Wakawaka
+wage1238,Wageman,(isolate),Australia,wage1238,waq,N27,-13.8627,131.893,glottolog,false,listed,moribund,true,220,open_resource,10,,
+waja1257,Wajarri,Pama-Nyungan,Australia,waja1257,wbv,A18;A19;A24;A39;W52,-28.1761,117.153,glottolog,false,comprehensive,moribund,true,118,live,3368,846.9,Pama-Nyungan > South-West Pama-Nyungan > Kartu-Nhanda > Kartu
+waju1234,Wajuk,Pama-Nyungan,Australia,waju1234,xwj,A94,-31.80756,116.2514,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Nyunga
+waka1274,Wakawaka,Pama-Nyungan,Australia,waka1274,wkw,E20;E22;E24;E28;E45;E87;E88,-26.248,151.868,glottolog,false,documented,nearly extinct,true,1,pointer_only,,1031.7,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Waka-Kabic > Western Waka-Kabic
+wala1263,Walangama,Pama-Nyungan,Australia,wala1263,nlw,G36,-17.60243295,142.4891266,glottolog,false,documented,extinct,false,,pointer_only,,917.4,Pama-Nyungan > Paman > Norman Pama
+wala1264,Walangu,Pama-Nyungan,Australia,wala1264,,,-12.2868,135.337,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Eastern Dhuwal-Dhuwala > Gupapuyngu
+wala1272,Waladja,Worrorran,Australia,wala1272,,,-15.697411,127.616813,glottolog,false,classified,unknown,false,,none,,,Worrorran > Ngarinyin
+wala1273,Walamangu,Pama-Nyungan,Australia,wala1273,,N79,-12.0853,134.877,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Nhangu
+walm1241,Walmajarri-Juwaliny,Pama-Nyungan,Australia,walm1241,wmt,A66;A88;A89,-19.7229,126.113,glottolog,false,comprehensive,shifting,true,81,open_resource,2,742.5,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Western Ngumpin
+walm1242,Walmajarri,Pama-Nyungan,Australia,walm1242,,,-19.7229,126.113,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Western Ngumpin > Walmajarri-Juwaliny
+wamb1258,Wambayan,Mirndi,Australia,wamb1258,wmb,C19,-17.496,135.683,glottolog,false,documented,nearly extinct,true,227,pointer_only,,,Mirndi > Ngurlun
+wami1239,Wamin,Pama-Nyungan,Australia,wami1239,wmi,Y102;Y108;Y132;Y132.1;Y233,-18.3727,143.943,glottolog,false,documented,extinct,false,,pointer_only,,1940.7,Pama-Nyungan > Paman > Finasleigh Pama
+wand1263,Wandarang,Mangarrayi-Maran,Australia,wand1263,wnd,N120,-14.2996,135.705,glottolog,false,documented,extinct,true,47,pointer_only,,,Mangarrayi-Maran > Maran
+wang1288,Wangkajunga,Pama-Nyungan,Australia,wang1288,,A87,-20.26868,126.53434,glottolog,false,documented,moribund,false,,pointer_only,,240,Pama-Nyungan > Desert Nyungic > Wati > Martuwangkic > Warnman-Wangka > Martu Wangka
+wang1289,Wanggamala,Pama-Nyungan,Australia,wang1289,wnm,C9;G1,-24.7022,137.433,glottolog,false,documented,extinct,false,,pointer_only,,823.9,Pama-Nyungan > Karnic > Palku > Pitta-Pitta
+wang1290,Wangganguru,Pama-Nyungan,Australia,wang1290,wgg,L27,-25.8148,135.941,glottolog,false,documented,nearly extinct,true,1,pointer_only,,31,Pama-Nyungan > Karnic > Palku > Arabana-Wangganguru
+wang1291,Ngiyambaa,Pama-Nyungan,Australia,wang1291,wyb,D18;D22;E5,-30.6481,146.18,glottolog,false,comprehensive,extinct,true,349,live,38,1480.4,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric
+wang1292,Wangaaybuwan,Pama-Nyungan,Australia,wang1292,,,-30.6481,146.18,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric > Ngiyambaa
+wang1293,Wangurri,Pama-Nyungan,Australia,wang1293,,N134,-11.9493,135.752,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhangu
+wang1303,Wangkakupa,Pama-Nyungan,Australia,wang1303,,L52,-28.705,135.449,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Karnic > Palku > Arabana-Wangganguru > Arabana
+wanm1242,Wanman,Pama-Nyungan,Australia,wanm1242,wbt,A62,-22.7078,122.325,glottolog,false,documented,moribund,true,150,pointer_only,,869.8,Pama-Nyungan > Desert Nyungic > Wati > Martuwangkic > Warnman-Wangka
+wany1244,Wanyjirra,Pama-Nyungan,Australia,wany1244,,,-18.3288,128.262,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Western Ngumpin > Jaru
+wany1247,Wanyi,Garrwan,Australia,wany1247,wny,G23,-18.6529,137.608,glottolog,false,documented,extinct,false,,pointer_only,,,Garrwan
+wara1290,Warray,Gunwinyguan,Australia,wara1290,wrz,N25,-13.0941,131.236,glottolog,false,documented,extinct,true,41,pointer_only,,,Gunwinyguan > Western Gunwinyguan > Warrayic
+ward1246,Wardaman,Yangmanic,Australia,ward1246,wrr,N35,-15.4155,132.604,glottolog,false,documented,moribund,true,307,pointer_only,,,Yangmanic
+ward1248,Wardandi,Pama-Nyungan,Australia,ward1248,wxw,W3,-33.92109,115.26929,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Nyunga
+wari1262,Wariyangga,Pama-Nyungan,Australia,wari1262,wri,A39.1;W22;W51,-24.353,116.927,glottolog,false,documented,extinct,false,,pointer_only,,440.7,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Mantharta > Wariyangga-Dhargari
+warl1254,Warlpiri,Pama-Nyungan,Australia,warl1254,wbp,C15;C15.1;C2;C38;C40;C42;C43,-20.1008,131.05,glottolog,false,comprehensive,shifting,true,169,live,122,1106,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Yapa
+warl1255,Warlmanpa,Pama-Nyungan,Australia,warl1255,wrl,C17,-18.949,133.862,glottolog,false,comprehensive,moribund,true,43,open_resource,3,1106,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Yapa
+warl1256,Warluwara,Pama-Nyungan,Australia,warl1256,wrb,G10;G41;G43,-22.2909,138.738,glottolog,false,comprehensive,extinct,true,129,open_resource,1,1242.7,Pama-Nyungan > Ngarna > Southern Ngarna > Thawa
+warr1255,Warrgamay,Pama-Nyungan,Australia,warr1255,wgy,Y130;Y134;Y220,-18.5468,146.179,glottolog,false,comprehensive,extinct,true,140,open_resource,2,1323.8,Pama-Nyungan
+warr1257,Warrnambool,Pama-Nyungan,Australia,warr1257,gjm,S20;S25;S75,-38.155612905976,141.53965852318,glottolog,false,documented,extinct,true,24,pointer_only,,272.4,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Warrnambool-Bunganditj
+warr1258,Warrwa,Nyulnyulan,Australia,warr1258,wwr,K10,-17.0965,123.971,glottolog,false,documented,extinct,true,183,pointer_only,,,Nyulnyulan > Eastern Nyulnyulan > Nyikinic
+waru1264,Warrongo,Pama-Nyungan,Australia,waru1264,wrg,E60;L42;Y133;Y216,-18.2496,144.37,glottolog,false,comprehensive,extinct,true,93,open_resource,14,1596.9,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Northern Maric > Warungu-Gugu Badhun
+waru1265,Warumungu,Pama-Nyungan,Australia,waru1265,wrm,C18,-20.6479,134.375,glottolog,false,comprehensive,moribund,true,196,open_resource,1,1454.8,Pama-Nyungan > Desert Nyungic
+warw1234,Warwick,Pama-Nyungan,Australia,warw1234,,,-28.289642,152.151281,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Inland Bandjalang > Condamine-Upper Clarence Bandjalang
+wath1238,Wathawurrung,Pama-Nyungan,Australia,wath1238,wth,S29;S31;S92,-37.68777565,144.1013148,glottolog,false,comprehensive,extinct,true,83,live,37,1803.1,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin
+wayi1238,Wayilwan,Pama-Nyungan,Australia,wayi1238,,A11;D20,-30.6481,146.18,glottolog,false,documented,unknown,false,,pointer_only,,1676.5,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric > Ngiyambaa
+wemb1241,Wemba Wemba,Pama-Nyungan,Australia,wemb1241,xww,D1;S94,-35.445,144.09,glottolog,false,documented,extinct,false,,open_resource,4,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria > Wembawembic
+wemb1242,Wembawembic,Pama-Nyungan,Australia,wemb1242,,,-34.13829932,143.6694397,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria
+werg1234,Wergaia,Pama-Nyungan,Australia,werg1234,weg,S15;S22,-34.13829932,143.6694397,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria > Djadjawurrungic
+west2436,West Ngarluma,Pama-Nyungan,Australia,west2436,,W56,-20.9235,117.203,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Ngarluma-Kariyarra > Ngarluma
+west2437,Western Warlpiri,Pama-Nyungan,Australia,west2437,,,-20.1008,131.05,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Yapa > Warlpiri
+west2441,Western Arrarnta,Pama-Nyungan,Australia,west2441,are,C47,-24.05052,133.24621,glottolog,false,comprehensive,shifting,true,206,open_resource,18,684.6,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte
+west2442,Western Anmatyerre,Pama-Nyungan,Australia,west2442,,,-22.2853,133.286,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Arandic-Thura-Yura > Arandic > South Arandic > Upper Arrernte > Anmatyerre
+west2443,Western Victoria,Pama-Nyungan,Australia,west2443,,,-34.13829932,143.6694397,glottolog,false,documented,extinct,true,58,none,,862.8,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin
+west2904,Western Garrwa,Garrwan,Australia,west2904,,,-17.4504,137.72014,glottolog,false,classified,unknown,false,,none,,,Garrwan > Garrwa
+west3002,Western Northwestern Tasmanian,Western Tasmanian,Australia,west3002,,,-40.76592,144.74362,glottolog,false,classified,unknown,false,,none,,,Western Tasmanian > Western Coastal Tasmanian > Northwestern Tasmanian
+wika1238,Wikalkan,Pama-Nyungan,Australia,wika1238,wik,Y46;Y48;Y49;Y51,-13.6835,141.557,glottolog,false,documented,moribund,false,,pointer_only,,1239,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Ngatharra-Ngathana-Iinychanya
+wike1239,Wik-Epa,Pama-Nyungan,Australia,wike1239,wie,Y52,-13.846,141.858,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Kuku-Wik-Ep > Ep-Meanha-Keyenganh
+wiki1239,Wik-Iiyanh,Pama-Nyungan,Australia,wiki1239,wij,Y172,-14.1273,142.781,glottolog,false,documented,moribund,false,,pointer_only,,,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Kuku-Wik-Ep > Kuku-Wik > Mungkanic > Mungkan-Mungkanhu
+wikk1239,Wik-Keyangan,Unattested,Australia,wikk1239,wif,Y173,-14.2649,142.005,glottolog,false,documented,extinct,false,,pointer_only,,,Unattested > Pama-Nyungan (Unattested)
+wikm1246,Wik-Me'anha,Pama-Nyungan,Australia,wikm1246,wih,Y53,-14.058,141.925,glottolog,false,documented,moribund,false,,pointer_only,,,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Kuku-Wik-Ep > Ep-Meanha-Keyenganh
+wikm1247,Wik-Mungkan,Pama-Nyungan,Australia,wikm1247,wim,Y57,-13.98051,141.81611,glottolog,false,documented,shifting,true,197,pointer_only,,966,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Kuku-Wik-Ep > Kuku-Wik > Mungkanic > Mungkan-Mungkanhu
+wikn1244,Wik-Ngandjara,Pama-Nyungan,Australia,wikn1244,,,-13.6835,141.557,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Ngatharra-Ngathana-Iinychanya > Wikalkan
+wikn1245,Wik-Ngathana,Pama-Nyungan,Australia,wikn1245,wig,Y54;Y56,-13.8691,141.532,glottolog,false,documented,shifting,true,11,pointer_only,,,Pama-Nyungan > Paman > Compromise Middle Pama > Wik > Ngatharra-Ngathana-Iinychanya
+wikn1246,Wikngenchera,Pama-Nyungan,Australia,wikn1246,wua,Y59,-13.4957,141.599,glottolog,false,documented,moribund,false,,pointer_only,,518.9,Pama-Nyungan > Paman > Compromise Middle Pama
+wila1240,Wilawila,Worrorran,Australia,wila1240,wil,K19;K25;K35;K52,-14.9105,126.6,glottolog,false,documented,extinct,true,146,pointer_only,,,Worrorran > Northern Worrorran
+wilj1239,Wiljakali,Pama-Nyungan,Australia,wilj1239,,,-32.7021,142.695,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yarli-Baagandji > Paakantyi
+winj1235,Winjarumi,Worrorran,Australia,winj1235,,K56,-15.355178,124.539184,glottolog,false,documented,extinct,true,146,pointer_only,,,Worrorran > Western Worrorran
+wira1262,Wiradhuri,Pama-Nyungan,Australia,wira1262,wrh,D10;D58,-34.0742,145.994,glottolog,false,comprehensive,nearly extinct,true,19,open_resource,212,1480.4,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric
+wira1265,Wirangu,Pama-Nyungan,Australia,wira1265,wgu,,-32,134,glottolog,false,documented,extinct,true,97,none,,2163.3,Pama-Nyungan > Arandic-Thura-Yura > Thura-Yura
+wirr1237,Wirriyaraay,Pama-Nyungan,Australia,wirr1237,,,-29.9037,149.543,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric > Yuwaalaraay-Gamilaraay
+wiya1239,Wiyabal,Pama-Nyungan,Australia,wiya1239,,,-28.937029,153.48612,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Coastal Bandjalang > Lower Richmond
+woiw1237,Woiwurrung-Thagungwurrung,Pama-Nyungan,Australia,woiw1237,wyi,S36,-37.64264501,145.5879962,glottolog,false,comprehensive,extinct,true,118,live,500,2201.2,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin
+woiw1238,Woiwurrung,Pama-Nyungan,Australia,woiw1238,,,-37.64264501,145.5879962,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Woiwurrung-Thagungwurrung
+woly1239,Wolyamidi,Worrorran,Australia,woly1239,,,-15.557223,126.22155,glottolog,false,documented,unknown,true,103,none,,,Worrorran > Ngarinyin
+wona1238,Wonarua,Pama-Nyungan,Australia,wona1238,,S63,-33.12847,151.43555,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Kuri > Hunter-Hastings > Awabakal
+wong1246,Wangkumara,Pama-Nyungan,Australia,wong1246,xwk,,-27.10149,143.19619,glottolog,false,documented,extinct,false,,none,,325.3,Pama-Nyungan > Karnic > Badjiri-Eastern Karnic > Eastern Karnic > Wilson River (Grey Range)
+wori1245,Worimi,Pama-Nyungan,Australia,wori1245,kda,E2;E3;E67,-32.4806,152.107,glottolog,false,documented,extinct,false,,open_resource,1,763.8,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Yuin-Kuri > Kuri > Hunter-Hastings
+woro1258,Worora,Worrorran,Australia,woro1258,,,-15.82429,125.155876,glottolog,false,documented,unknown,false,,open_resource,2,,Worrorran > Western Worrorran > Worrorra
+worr1237,Worrorra,Worrorran,Australia,worr1237,wro,K17,-15.612781,124.881218,glottolog,false,documented,extinct,true,190,pointer_only,,,Worrorran > Western Worrorran
+wotj1234,Wotjobaluk,Pama-Nyungan,Australia,wotj1234,xwt,S17;S70;S88,-35.82105,141.41791,glottolog,false,documented,extinct,false,,pointer_only,,905.6,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Kulin > Nuclear Kulin > Western Victoria
+wubu1238,Wubulkarra,Pama-Nyungan,Australia,wubu1238,,N88,-12.2868,135.337,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Yuulngu > Southern Yolngu > Southern-Eastern Yolngu > Dhuwal-Dhuwala > Eastern Dhuwal-Dhuwala > Gupapuyngu
+wula1244,Wulaki,Pama-Nyungan,Australia,wula1244,,,-12.462,134.82,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Western-Inland Yolngu > Djinang
+wulg1239,Wulguru,Pama-Nyungan,Australia,wulg1239,qgu,Y135,-19.85103121,146.3453957,glottolog,false,documented,extinct,false,,pointer_only,,899.3,Pama-Nyungan > Nyawaygic
+wuli1242,Wuliwuli,Pama-Nyungan,Australia,wuli1242,wlu,E89,-24.415,149.843,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Waka-Kabic > Western Waka-Kabic
+wuln1239,Wulna,Limilngan-Wulna,Australia,wuln1239,wux,N29;N32,-12.3022,131.261,glottolog,false,documented,extinct,false,,pointer_only,,,Limilngan-Wulna
+wulu1244,Wuluwurrung,Pama-Nyungan,Australia,wulu1244,,,-38.155612905976,141.53965852318,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Kulin-Bunganditj > Warrnambool-Bunganditj > Warrnambool
+wulw1234,Wulwulam,Gunwinyguan,Australia,wulw1234,,,-13.817802,131.830997,glottolog,false,classified,extinct,false,,none,,,Gunwinyguan > Western Gunwinyguan > Warrayic > Unclassified Warrayic
+wuna1249,Wunambal,Worrorran,Australia,wuna1249,wub,K22,-14.8347,125.72,glottolog,false,documented,moribund,true,148,pointer_only,,,Worrorran > Northern Worrorran
+wunu1234,Wunumara,Pama-Nyungan,Australia,wunu1234,wnn,G16.1,-20.4352,140.481,glottolog,false,documented,extinct,false,,pointer_only,,939.8,Pama-Nyungan > Paman > Mayabic > Nuclear Mayabic > Maykulan
+wurl1240,Wurla,Worrorran,Australia,wurl1240,,K24;K43,-16.15,127.52,glottolog,false,documented,nearly extinct,true,103,pointer_only,,,Worrorran > Ngarinyin
+wurl1241,Wurlayi,Pama-Nyungan,Australia,wurl1241,,,-15.4661,130.651,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Desert Nyungic > Ngumpin-Yapa > Ngumpin > Eastern Ngumpin > Ngumpit > Ngarinman
+wurr1238,Wurrugu,Marrku-Wurrugu,Australia,wurr1238,wur,N37;N48,-11.364,132.303,glottolog,false,documented,extinct,false,,pointer_only,,,Marrku-Wurrugu
+wuth1237,Wuthathi,Pama-Nyungan,Australia,wuth1237,,,-11.971,143.0879,glottolog,false,documented,extinct,false,,none,,851.4,Pama-Nyungan > Paman > Northern Pama > Gudang-Northeast Paman > Northeast Paman
+y100,Koko Kai-kai,unclassified,Australia,,,Y100,-16.247314300433,145.4505725642,austlang,true,listed,unknown,false,,pointer_only,,,
+y113,Narkali,unclassified,Australia,,,Y113,,,none,,listed,unknown,false,,pointer_only,,,
+y116,Djandjandji,unclassified,Australia,,,Y116,,,none,,listed,unknown,false,,pointer_only,,,
+y13,Unjadi,unclassified,Australia,,,Y13,,,none,,listed,unknown,false,,pointer_only,,,
+y137,Bindaga,unclassified,Australia,,,Y137,,,none,,listed,unknown,false,,pointer_only,,,
+y139,Gunggarbara,unclassified,Australia,,,Y139,,,none,,listed,unknown,false,,pointer_only,,,
+y141,Madhirdirl,unclassified,Australia,,,Y141,,,none,,listed,unknown,false,,pointer_only,,,
+y142,Mbo'aru,unclassified,Australia,,,Y142,,,none,,listed,unknown,false,,pointer_only,,,
+y144,Ug Windjila,unclassified,Australia,,,Y144,,,none,,listed,unknown,false,,pointer_only,,,
+y145,Waigur,unclassified,Australia,,,Y145,,,none,,listed,unknown,false,,pointer_only,,,
+y146,Walboram,unclassified,Australia,,,Y146,,,none,,listed,unknown,false,,pointer_only,,,
+y148,Wulbudjibur,unclassified,Australia,,,Y148,,,none,,listed,unknown,false,,pointer_only,,,
+y15,Teppathiggi,unclassified,Australia,,,Y15,-12.076686624177,142.07270874374,austlang,true,listed,unknown,false,,pointer_only,,,
+y150,Walmalbarra,unclassified,Australia,,,Y150,-18.058996067778,145.99557921134,austlang,true,listed,unknown,false,,pointer_only,,,
+y152,Gambilbarra Jirrbal,unclassified,Australia,,,Y152,-17.680534902205,145.38980732494,austlang,true,listed,unknown,false,,pointer_only,,,
+y153,Buluguyban,unclassified,Australia,,,Y153,-18.708380642602,146.56242311527,austlang,true,listed,unknown,false,,pointer_only,,,
+y154,Mulgu,unclassified,Australia,,,Y154,-18.734102168312,146.62250127891,austlang,true,listed,unknown,false,,pointer_only,,,
+y155,Coonambella,unclassified,Australia,,,Y155,-19.265119283437,146.81786611084,austlang,true,listed,unknown,false,,pointer_only,,,
+y156,Marrett River language,unclassified,Australia,,,Y156,-14.393619792306,144.17419635006,austlang,true,listed,unknown,false,,pointer_only,,,
+y157,Mbarmburmu,unclassified,Australia,,,Y157,,,none,,listed,unknown,false,,pointer_only,,,
+y158,China Camp,unclassified,Australia,,,Y158,-16.047492802368,145.29945831264,austlang,true,listed,unknown,false,,pointer_only,,,
+y159,Gugu Dyilin,unclassified,Australia,,,Y159,,,none,,listed,unknown,false,,pointer_only,,,
+y16,Ngadhugudi,unclassified,Australia,,,Y16,-12.07837677618,142.348611954,austlang,true,listed,unknown,false,,pointer_only,,,
+y161,Kuku Jakandji,unclassified,Australia,,,Y161,-16.649676048725,145.21066410009,austlang,true,listed,unknown,false,,pointer_only,,,
+y164,Wulbura,unclassified,Australia,,,Y164,,,none,,listed,unknown,false,,pointer_only,,,
+y165,Wanyurr,unclassified,Australia,,,Y165,,,none,,listed,unknown,false,,pointer_only,,,
+y167,Dhalundhirr,unclassified,Australia,,,Y167,-15.253827577513,145.28010348882,austlang,true,listed,unknown,false,,pointer_only,,,
+y168,Waguurrga,unclassified,Australia,,,Y168,-15.113273970809,144.92456314953,austlang,true,listed,unknown,false,,pointer_only,,,
+y169,Kuuku I'yu,unclassified,Australia,,,Y169,-12.188160810057,142.87967121538,austlang,true,listed,unknown,false,,pointer_only,,,
+y171,Ogh Igadj,unclassified,Australia,,,Y171,-16.402550903482,142.15742094916,austlang,true,listed,unknown,false,,pointer_only,,,
+y178,Kugu Yi'anh,unclassified,Australia,,,Y178,-14.486698904758,141.65491206044,austlang,true,listed,unknown,false,,pointer_only,,,
+y179,Wantjika,unclassified,Australia,,,Y179,,,none,,listed,unknown,false,,pointer_only,,,
+y18,Ulwawadjana,unclassified,Australia,,,Y18,,,none,,listed,unknown,false,,pointer_only,,,
+y180,Nhawalgaba,unclassified,Australia,,,Y180,-19.235267707586,146.78905128908,austlang,true,listed,unknown,false,,pointer_only,,,
+y181,Western Ayapathu,unclassified,Australia,,,Y181,,,none,,listed,unknown,false,,pointer_only,,,
+y186,Mpakwithi,unclassified,Australia,,,Y186,-12.284022164349,141.93317052293,austlang,true,listed,unknown,false,,pointer_only,,,
+y187,Mutyanthi,unclassified,Australia,,,Y187,-11.916541529331,142.78673373187,austlang,true,listed,unknown,false,,pointer_only,,,
+y188,Kokiny,unclassified,Australia,,,Y188,-16.475660562145,141.58593652979,austlang,true,listed,unknown,false,,pointer_only,,,
+y190,Yumukuntyi,unclassified,Australia,,,Y190,-10.914941191676,142.46475840009,austlang,true,listed,unknown,false,,pointer_only,,,
+y192,Andooyomo,unclassified,Australia,,,Y192,-10.938013975988,142.60727846333,austlang,true,listed,unknown,false,,pointer_only,,,
+y193,Uyungkuthi,unclassified,Australia,,,Y193,-12.083564115808,142.65569841319,austlang,true,listed,unknown,false,,pointer_only,,,
+y194,Utyangikwathiya,unclassified,Australia,,,Y194,-11.892225785948,142.47211045581,austlang,true,listed,unknown,false,,pointer_only,,,
+y197,Ogh Angkula,unclassified,Australia,,,Y197,,,none,,listed,unknown,false,,pointer_only,,,
+y199,Ogh Alungul,unclassified,Australia,,,Y199,-14.680814632363,144.07633134193,austlang,true,listed,unknown,false,,pointer_only,,,
+y202,Ndrangith,unclassified,Australia,,,Y202,,,none,,listed,unknown,false,,pointer_only,,,
+y205,Ndwa'ngith,unclassified,Australia,,,Y205,,,none,,listed,unknown,false,,pointer_only,,,
+y207,Uw El,unclassified,Australia,,,Y207,-15.145513895239,141.82820776779,austlang,true,listed,unknown,false,,pointer_only,,,
+y208,Uw Olem,unclassified,Australia,,,Y208,,,none,,listed,unknown,false,,pointer_only,,,
+y209,Kok Wap,unclassified,Australia,,,Y209,-15.395141978462,141.72354174417,austlang,true,listed,unknown,false,,pointer_only,,,
+y210,Kirka,unclassified,Australia,,,Y210,-14.931001240529,141.66574729059,austlang,true,listed,unknown,false,,pointer_only,,,
+y211,Uutaalnganu,unclassified,Australia,,,Y211,-13.099027810554,143.34060530771,austlang,true,listed,unknown,false,,pointer_only,,,
+y212,Thayem,unclassified,Australia,,,Y212,,,none,,listed,unknown,false,,pointer_only,,,
+y213,Ungan,unclassified,Australia,,,Y213,,,none,,listed,unknown,false,,pointer_only,,,
+y215,Kuuk Thaayunth,unclassified,Australia,,,Y215,-14.952619015444,141.64616667751,austlang,true,listed,unknown,false,,pointer_only,,,
+y217,Koko-koko,unclassified,Australia,,,Y217,,,none,,listed,unknown,false,,pointer_only,,,
+y219,Alodja,unclassified,Australia,,,Y219,-15.678742062756,144.82557537442,austlang,true,listed,unknown,false,,pointer_only,,,
+y221,Di:ru,unclassified,Australia,,,Y221,,,none,,listed,unknown,false,,pointer_only,,,
+y223,Kokoberrin,unclassified,Australia,,,Y223,,,none,,listed,unknown,false,,pointer_only,,,
+y225,Wik Totjan,unclassified,Australia,,,Y225,,,none,,listed,unknown,false,,pointer_only,,,
+y227,Daru,unclassified,Australia,,,Y227,,,none,,listed,unknown,false,,pointer_only,,,
+y231,Yaraytyana,unclassified,Australia,,,Y231,-11.09182069869,142.70568505621,austlang,true,listed,unknown,false,,pointer_only,,,
+y232,Yatay,unclassified,Australia,,,Y232,-10.683089390777,142.62409194796,austlang,true,listed,unknown,false,,pointer_only,,,
+y235,Dulgubarra Mamu,unclassified,Australia,,,Y235,,,none,,listed,unknown,false,,pointer_only,,,
+y236,Yintyingka,unclassified,Australia,,,Y236,,,none,,listed,unknown,false,,pointer_only,,,
+y237,Athina,unclassified,Australia,,,Y237,,,none,,listed,unknown,false,,pointer_only,,,
+y238,Injinoo Ikya,unclassified,Australia,,,Y238,,,none,,listed,unknown,false,,pointer_only,,,
+y33,Gudjandju,unclassified,Australia,,,Y33,,,none,,listed,unknown,false,,pointer_only,,,
+y38,Yanganyu,unclassified,Australia,,,Y38,,,none,,listed,unknown,false,,pointer_only,,,
+y4,Kulkalgaw Ya,unclassified,Australia,,,Y4,-9.941779926779,143.03943992251,austlang,true,listed,unknown,false,,pointer_only,,,
+y47,Wik Paach,unclassified,Australia,,,Y47,-13.345567028973,141.67326858011,austlang,true,listed,unknown,false,,pointer_only,,,
+y5,Kawalgaw Ya,unclassified,Australia,,,Y5,-10.643285260301,142.21428553311,austlang,true,listed,unknown,false,,pointer_only,,,
+y63,Jugaiwadha,unclassified,Australia,,,Y63,,,none,,listed,unknown,false,,pointer_only,,,
+y67,Flinders Island language,unclassified,Australia,,,Y67,,,none,,listed,unknown,false,,pointer_only,,,
+y68,Baraban,unclassified,Australia,,,Y68,,,none,,listed,unknown,false,,pointer_only,,,
+y70,Yuwula,unclassified,Australia,,,Y70,,,none,,listed,unknown,false,,pointer_only,,,
+y75,A'ragu,unclassified,Australia,,,Y75,,,none,,listed,unknown,false,,pointer_only,,,
+y86,Kuku Bididji,unclassified,Australia,,,Y86,-15.748810427134,144.99732971191,austlang,true,listed,unknown,false,,pointer_only,,,
+y87,Kuku Buyunji,unclassified,Australia,,,Y87,-16.219343481309,145.34247994329,austlang,true,listed,unknown,false,,pointer_only,,,
+y92,Kuku Yanyu,unclassified,Australia,,,Y92,,,none,,listed,unknown,false,,pointer_only,,,
+y98,Kuku Waldja / Wulpura,unclassified,Australia,,,Y98,-16.226318647741,145.07671164431,austlang,true,listed,unknown,false,,pointer_only,,,
+yabu1234,Yabula Yabula,Pama-Nyungan,Australia,yabu1234,yxy,S38;S40,-35.76116,145.23209,glottolog,false,documented,extinct,false,,open_resource,1,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Eastern Victoria > Yorta Yorta
+yadh1237,Yadhaykenu,Pama-Nyungan,Australia,yadh1237,,Y8,-11.314,142.725,glottolog,false,documented,extinct,false,,pointer_only,,661.7,Pama-Nyungan > Paman > Northern Pama > Gudang-Northeast Paman > Northeast Paman > Uradhic > Yadhaykenu-Angkamuthi
+yaga1256,Yagara-Jandai,Pama-Nyungan,Australia,yaga1256,,,-27.87647555,152.4602773,glottolog,false,documented,extinct,false,,none,,781.2,Pama-Nyungan > East Queensland Border Pama Nyungan
+yaga1262,Yagara,Pama-Nyungan,Australia,yaga1262,yxg,E23;E25;E26;E86,-27.87648,152.46028,glottolog,false,documented,extinct,false,,live,262,,Pama-Nyungan > East Queensland Border Pama Nyungan > Yagara-Jandai
+yala1262,Yalarnnga,Pama-Nyungan,Australia,yala1262,ylr,G11;G8,-21.731,139.511,glottolog,false,comprehensive,extinct,true,177,open_resource,1,41,Pama-Nyungan > Kalkatungic
+yand1251,Yanda,Pama-Nyungan,Australia,yand1251,yda,G9,-21.23270508,140.5134756,glottolog,false,documented,extinct,false,,pointer_only,,1224.8,Pama-Nyungan > Greater Maric > Guwa-Maric > Guwa-Yanda
+yand1253,Yandruwandha,Pama-Nyungan,Australia,yand1253,ynd,L18;L65,-28.4744,140.583,glottolog,false,documented,extinct,true,115,pointer_only,,649.6,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Yandruwandhic
+yand1261,Yandjibara,Pama-Nyungan,Australia,yand1261,xyb,,-24.746981,145.647382,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric > Southern Maric > Bidyaric
+yang1288,Yangman,Yangmanic,Australia,yang1288,jng,N68,-14.4964,132.52,glottolog,false,documented,extinct,false,,pointer_only,,,Yangmanic
+yang1305,Yangathimri,Pama-Nyungan,Australia,yang1305,tjj,Y11;Y14,-12.032,141.846,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Northern Pama > Albatross Bay > Anguthimri-Yangathimri-Yuputhimri > Anguthimri-Yangathimri
+yang1308,Yanga (Australia),Pama-Nyungan,Australia,yang1308,,,-19.29,142.475904,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Paman > Mbara-Yanga
+yank1247,Yankunytjatjara,Pama-Nyungan,Australia,yank1247,kdd,C4,-26.4064,133.577,glottolog,false,comprehensive,nearly extinct,true,163,open_resource,10,,Pama-Nyungan > Desert Nyungic > Wati > Pintupic > Nuclear Pintupic > Wangkatja-Tjarra > Tjarra
+yann1237,Nhangu,Pama-Nyungan,Australia,yann1237,jay,N103;N107;N114;N119;N129;N211;N72,-12.0853,134.877,glottolog,false,documented,shifting,false,,pointer_only,,1548.3,Pama-Nyungan > Yuulngu
+yann1238,Yan-nhangu,Pama-Nyungan,Australia,yann1238,,,-12.0853,134.877,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Yuulngu > Nhangu
+yany1243,Yanyuwa,Pama-Nyungan,Australia,yany1243,jao,N152;N153,-15.7621,136.055,glottolog,false,documented,moribund,true,136,pointer_only,,2078.5,Pama-Nyungan > Ngarna
+yara1254,Yaraldi,Pama-Nyungan,Australia,yara1254,,,-35.5756,139.20543,glottolog,false,documented,extinct,false,,none,,764.5,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Yaraldi-Keramin-Yitha > Narrinyeri
+yard1234,Yardliyawarra,Pama-Nyungan,Australia,yard1234,yxl,L7,-29.79543,141.77353,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Yarli-Baagandji > Yarli
+yari1243,Yari-Yari,Pama-Nyungan,Australia,yari1243,,S24,-34.190056,142.273631,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Yaraldi-Keramin-Yitha > Northern Sunraysia
+yarl1236,Yarli,Pama-Nyungan,Australia,yarl1236,,,-29.49049805,140.9591946,glottolog,false,documented,extinct,false,,open_resource,1,553.3,Pama-Nyungan > Yarli-Baagandji
+yarl1238,Yarluyandi,Pama-Nyungan,Australia,yarl1238,yry,,-25.83705,139.58436,glottolog,false,documented,extinct,false,,none,,898.4,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Pirlatapa-Dieric > Dieric > Ngamini-Yarluyandi-Karangura
+yaru1254,Ngandangara,Pama-Nyungan,Australia,yaru1254,,L30,-27.58,142.45,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Karnic > Badjiri-Eastern Karnic > Eastern Karnic > Wilson River (Grey Range)
+yawa1258,Yawarawarga,Pama-Nyungan,Australia,yawa1258,yww,L23,-26.7334,140.871,glottolog,false,documented,extinct,false,,pointer_only,,1136.9,Pama-Nyungan > Karnic > Central Karnic > Western Central Karnic > Yandruwandhic
+yawi1239,Yawijibaya,Worrorran,Australia,yawi1239,jbw,K53,-15.348087,124.529665,glottolog,false,documented,extinct,true,152,pointer_only,,,Worrorran > Western Worrorran > Worrorra
+yawu1244,Yawuru,Nyulnyulan,Australia,yawu1244,ywr,K1,-18.004,122.693,glottolog,false,comprehensive,extinct,true,228,open_resource,10,,Nyulnyulan > Eastern Nyulnyulan > Yawuric
+yayg1236,Yaygir,Pama-Nyungan,Australia,yayg1236,xya,E10,-29.686722970453,153.18784362556,glottolog,false,documented,extinct,true,184,pointer_only,,31,Pama-Nyungan > Southeastern Pama-Nyungan > North Coast Pama-Nyungan > Gumbaynggiric
+yidi1250,Yidiñ,Pama-Nyungan,Australia,yidi1250,yii,E55;Y117;Y226,-17.1332,145.876,glottolog,false,comprehensive,moribund,true,315,open_resource,11,1155.2,Pama-Nyungan > Yimidhirr-Yalanji-Yidinic > Yidinic
+yiij1234,Yiiji,Worrorran,Australia,yiij1234,,K32,-14.8347,125.72,glottolog,false,documented,moribund,false,,pointer_only,,,Worrorran > Northern Worrorran > Wunambal
+yind1247,Yindjibarndi,Pama-Nyungan,Australia,yind1247,yij,W37;W70,-21.5379,117.001,glottolog,false,comprehensive,moribund,true,249,live,26,658.8,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Yindjibarndi-Kurrama
+yind1248,Yindjilandji,Pama-Nyungan,Australia,yind1248,yil,G14;G42;G52,-19.24252,137.5894,glottolog,false,comprehensive,extinct,true,90,open_resource,2,1118.3,Pama-Nyungan > Ngarna > Southern Ngarna > Ngarru
+ying1247,Yinggarda,Pama-Nyungan,Australia,ying1247,yia,W19;W42;W43;W46;W55,-25.4446,115.58,glottolog,false,comprehensive,extinct,true,119,open_resource,1,1325.8,Pama-Nyungan > South-West Pama-Nyungan
+yinh1234,Yinhawangka,Pama-Nyungan,Australia,yinh1234,ywg,A48,-22.9178,117.5628,glottolog,false,documented,nearly extinct,false,,pointer_only,,,Pama-Nyungan > South-West Pama-Nyungan > Pilbara > Ngayarda > Central Ngayarda > Panytyima-Yinhawangka
+yinw1236,Yinwum,Pama-Nyungan,Australia,yinw1236,yxm,,-12.52068956,142.7036225,glottolog,false,documented,extinct,false,,none,,507.8,Pama-Nyungan > Paman > Northern Pama
+yira1239,Yirandhali,Pama-Nyungan,Australia,yira1239,ljw,,-20.65810118,143.9625916,glottolog,false,documented,extinct,false,,none,,2106.8,Pama-Nyungan > Greater Maric > Guwa-Maric > Maric
+yira1241,Yirawirung,Pama-Nyungan,Australia,yira1241,,S12,-34.098823177692,140.99932761004,glottolog,false,documented,unknown,false,,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Upper Riverland
+yiry1245,Yir-Yoront,Pama-Nyungan,Australia,yiry1245,yiy,Y72;Y76,-15.1117,141.767,glottolog,false,documented,moribund,false,,pointer_only,,1083.2,Pama-Nyungan > Paman > Southwest Pama > Coastal Southwest Paman
+yith1234,Yitha Yitha,Pama-Nyungan,Australia,yith1234,xth,D7,-33.89,144.22,glottolog,false,documented,extinct,false,,pointer_only,,1757.9,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Yaraldi-Keramin-Yitha > Lower Darling-Lower Lachlan
+yort1237,Yorta Yorta,Pama-Nyungan,Australia,yort1237,xyy,D2,-35.9,145.01,glottolog,false,comprehensive,extinct,true,71,open_resource,3,1246.2,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Eastern Victoria
+yuga1244,Yugambal,Pama-Nyungan,Australia,yuga1244,yub,D35;E11;E17;E66;E68;E76;E92,-29.54832,151.08455,glottolog,false,documented,extinct,false,,pointer_only,,249.3,Pama-Nyungan > East Queensland Border Pama Nyungan > Yugambalic > Yugambal-Bigambal
+yugu1249,Yugumbir,Pama-Nyungan,Australia,yugu1249,,,-28.028726,153.286993,glottolog,false,documented,unknown,false,,none,,815,Pama-Nyungan > Southeastern Pama-Nyungan > New South Wales Pama-Nyungan > Greater Bandjalangic > Bandjalangic > Coastal Bandjalang > Tweed-Albert
+yugu1250,Yugul,Unattested,Australia,yugu1250,ygu,,-12.8686,134.2393,derived_centroid,true,classified,extinct,false,,none,,,Unattested > Mangarrayi-Maran (Unattested)
+yulp1238,Yulparitja,Pama-Nyungan,Australia,yulp1238,,,-23.350911655789,123.66842240336,glottolog,false,documented,unknown,true,7,none,,1389.4,Pama-Nyungan > Desert Nyungic > Wati > Martuwangkic > Warnman-Wangka > Martu Wangka
+yulp1239,Yulparija,Pama-Nyungan,Australia,yulp1239,,A67,-18.923519,122.370316,glottolog,false,documented,moribund,true,177,pointer_only,,,Pama-Nyungan > Desert Nyungic > Wati > Martuwangkic
+yupu1235,Yuputhimri,Pama-Nyungan,Australia,yupu1235,,Y19,-12.004,141.847,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Paman > Northern Pama > Albatross Bay > Anguthimri-Yangathimri-Yuputhimri
+yuru1264,Yuru,Pama-Nyungan,Australia,yuru1264,ljx,E62,-19.836,147.361,glottolog,false,documented,extinct,false,,pointer_only,,,Pama-Nyungan > Nyawaygic
+yuuy1234,Yuu-Yuu,Pama-Nyungan,Australia,yuuy1234,yxu,,-34.098823177692,140.99932761004,glottolog,false,classified,extinct,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Victorian Pama-Nyungan > Lower Murray > Upper Riverland
+yuwa1242,Yuwaalaraay,Pama-Nyungan,Australia,yuwa1242,,D57,-29.758184,147.923684,glottolog,false,documented,nearly extinct,true,195,pointer_only,,,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric > Yuwaalaraay-Gamilaraay
+yuwa1243,Yuwaalayaay,Pama-Nyungan,Australia,yuwa1243,,,-29.9037,149.543,glottolog,false,classified,unknown,false,,none,,,Pama-Nyungan > Southeastern Pama-Nyungan > Wiradhuric > Yuwaalaraay-Gamilaraay

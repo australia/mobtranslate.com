@@ -1,0 +1,942 @@
+{
+  "schema": "atlas-movement-theses/v1",
+  "generated_from": "atlas-p3-thesis-research",
+  "count": 8,
+  "cards": [
+    {
+      "id": "bayesian-gulf-expansion",
+      "title": "The Bayesian Gulf expansion (Bouckaert, Bowern & Atkinson 2018)",
+      "one_line": "A Bayesian time-calibrated phylogeographic reconstruction places the Pama-Nyungan homeland near the Gulf of Carpentaria about 5,600 years ago and infers a relaxed-random-walk radial spread of the language family across an already-populated continent.",
+      "mechanism": "Basic-vocabulary cognate data for 306 Pama-Nyungan languages are fit to a time-calibrated BEAST tree, and a relaxed-random-walk (RRW) phylogeographic model reconstructs ancestral node locations and ages, so the family's geographic history is inferred jointly with its genealogy. The best-supported reconstruction roots the family in the Gulf Plains and spreads it radially and rapidly across ~90% of the continent during the mid-Holocene. Crucially this is a spread of a LANGUAGE lineage through communities already resident for tens of millennia — via contact, language shift and social transmission of a cultural package — not a migration or population replacement. The model finds movement was ~2x slower near major water (coast, Murray-Darling) and faster through poorer country.",
+      "proponents": [
+        "Remco Bouckaert (Univ. of Auckland) — phylogeographic modelling / BEAST",
+        "Claire Bowern (Yale) — Pama-Nyungan comparative linguistics & the cognate dataset",
+        "Quentin D. Atkinson (Univ. of Auckland) — computational phylogenetics",
+        "Core paper: Bouckaert, Bowern & Atkinson 2018, Nature Ecology & Evolution 2:741-749",
+        "Methodological antecedent: Bowern & Atkinson 2012, Language 88(4):817-845 (PN internal phylogeny)"
+      ],
+      "hard_facts": [
+        {
+          "fact": "Reconstructed root (Pama-Nyungan homeland) age = 5,578 years BP, 95% HPD 4,456-6,967 BP (median from the BEAST time-calibrated summary tree); the paper frames the origin as mid-Holocene, ~4,500-7,000 BP.",
+          "source": "Bouckaert, Bowern & Atkinson 2018, Nat Ecol Evol 2:741-749, DOI 10.1038/s41559-018-0489-3; root age parsed from the Phlorest CLDF summary tree (local METHOD.md)"
+        },
+        {
+          "fact": "Reconstructed root location = [-20.688, 139.788] (lat, lon), i.e. the Gulf Plains / Gulf of Carpentaria region of NW Queensland.",
+          "source": "Bouckaert et al. 2018 (location-median of summary-tree root), parsed via Phlorest CLDF; local phylogeography/METHOD.md §2, §7"
+        },
+        {
+          "fact": "Dataset = basic-vocabulary cognate characters for 306 Pama-Nyungan languages (18,438 cognate characters in the underlying alignment); family covers ~90% of the Australian continent and is the world's largest hunter-gatherer language family.",
+          "source": "Bouckaert et al. 2018 abstract (306 languages, ~90%); character count from CLDF data.nex, local SOURCES.md §1"
+        },
+        {
+          "fact": "Inferred average dispersal rate ~0.14 km/year, with movement modelled ~2x slower near major water (coast and the Murray-Darling system) than through interior country.",
+          "source": "Bouckaert et al. 2018 (relaxed-random-walk founder-dispersal model); Nature.com article s41559-018-0489-3"
+        },
+        {
+          "fact": "Posterior support at the deepest / earliest branchings of the tree is very low (~0.06-0.09 on the earliest splits in the focal lineages), while shallow subgroup nodes are strongly supported (0.87-1.0) — the deep spread structure is genuinely uncertain.",
+          "source": "Parsed BEAST node posteriors, local phylogeography/METHOD.md §5 (from Bouckaert et al. 2018 summary tree)"
+        },
+        {
+          "fact": "Publication: Nature Ecology & Evolution, volume 2, issue 4, pages 741-749 (April 2018); PubMed 29531347; the derived phylogeny is deposited via D-PLACE / Phlorest CLDF (cognate data on Zenodo record 1320471).",
+          "source": "PubMed 29531347; nature.com/articles/s41559-018-0489-3; local SOURCES.md"
+        }
+      ],
+      "evidence_for": [
+        "The reconstruction recovers a coherent, spatially-structured signal (a single Gulf origin + radial mid-Holocene spread) out of independent cognate data — hard to produce by chance or by pure areal diffusion.",
+        "The mid-Holocene expansion window (~4,500-7,000 BP) overlaps datable, independent archaeological reorganisation: Australian Small Tool Tradition ~4,000-5,000 BP, backed-artefact proliferation peaking c. 3,500 BP, and the dingo (oldest firm date 3,348-3,081 cal BP, Madura Cave).",
+        "The RRW's fitted diffusion is internally consistent and ecologically sensible (faster through poor country, ~2x slower near water), matching a stress-driven fission/expansion signature.",
+        "The comparative method independently supports Pama-Nyungan as a valid genetic family (Hale's >50 regular cognate correspondences over ~3,000 km; Alpher 2004 paradigmatic morphology), so a datable phylogeny of it is a legitimate object.",
+        "Genetics (Malaspinas 2016) detect a Holocene population signal specifically in NE Australia near the inferred origin region, spatially consistent with the reconstruction (though see against)."
+      ],
+      "evidence_against": [
+        "Deep-node posteriors are very weak (~0.06-0.09): the earliest branchings that define WHERE and WHEN the radiation began are the least supported part of the tree, so the precise Gulf point and rooting carry wide uncertainty — the 95% HPD on the root alone spans ~2,500 years (4,456-6,967 BP).",
+        "R.M.W. Dixon (1997, 2002) rejects Pama-Nyungan as a genetic family altogether, modelling Australian languages as an ancient equilibrium/Sprachbund where features diffuse areally; on his view a tree-and-time reconstruction is category-inappropriate and the signal reflects tens of millennia of contact, not descent.",
+        "Archaeogenetics show deep in-situ population continuity for ~50 ka with NO strong Holocene population sweep (Tobler et al. 2017, 111 mitogenomes; Malaspinas et al. 2016, 83 genomes) — so if the language spread, it moved largely by SHIFT through resident groups, and the paper's own 'expanding package' is admittedly under-specified ('the precise mechanisms remain a mystery').",
+        "The 'cultural package' that supposedly carried the language (Small Tool Tradition, backed artefacts, dingo) is pan-Australian and mostly POSTDATES the ~5.6 kya root (dingo ~3.1-3.3 kya; backed-artefact peak ~3.5 kya), so none of it can have initiated the spread and none is shown to travel with the PN lineage specifically.",
+        "Phylogeographic RRW reconstructions are model-dependent: a continent-scale hunter-gatherer dialect continuum with dense borrowing can bias both the root location and the tempo, and results are sensitive to taxon sampling and calibration priors (a general critique of Bayesian language phylogeography).",
+        "The abstract itself notes competing origin scenarios (post-glacial refugia; initial colonisation) that the analysis argues against but does not decisively eliminate given the weak deep support."
+      ],
+      "consensus": {
+        "level": "mainstream",
+        "note": "That Pama-Nyungan is a real genetic family and expanded across the continent in the mid-Holocene (~4,500-7,000 BP, vastly younger than ~50-65 ka human presence) is the mainstream Australianist position, and the Gulf-Plains origin is the current best-supported QUANTITATIVE hypothesis. But it is mainstream-with-wide-posteriors: the exact origin point, the rooting, and the tempo carry weak deep-node support; the demic-vs-language-shift mechanism is genuinely open; and Dixon's family-rejecting equilibrium model is a serious, cited minority dissent. Best read as one strong model, not settled fact."
+      },
+      "contestation": "Three distinct layers are contested and must not be collapsed. (1) The FAMILY: mainstream accepts Pama-Nyungan as genetic (Hale, O'Grady, Bowern, Alpher, Koch, Evans); Dixon (1997, 2002) rejects it as a Sprachbund — a minority but serious, still-cited position. (2) The RECONSTRUCTION: the Gulf origin and ~5.6 kya date are the best quantitative estimate, but deep-node posteriors (~0.06-0.09) and a ~2,500-year root HPD mean the where/when is loosely fixed; RRW model assumptions and sampling could shift the origin. (3) The MECHANISM: whether people moved (demic) or only language did (shift) is the single biggest open question — genetics (Tobler 2017, Malaspinas 2016) favour language shift with at most a limited demic component from NE Australia, which the paper accommodates via an under-specified 'cultural package.' Gap: I could not independently verify an exact published point-estimate of dispersal SPEED beyond the ~0.14 km/yr figure surfaced in secondary summaries; treat that rate as approximate pending the paper's supplementary tables.",
+      "citations": [
+        {
+          "ref": "Bouckaert, R. R., Bowern, C. & Atkinson, Q. D. (2018). The origin and expansion of Pama-Nyungan languages across Australia. Nature Ecology & Evolution, 2(4), 741-749.",
+          "doi": "10.1038/s41559-018-0489-3",
+          "year": 2018,
+          "open_access": false
+        },
+        {
+          "ref": "Bowern, C. & Atkinson, Q. D. (2012). Computational phylogenetics and the internal structure of Pama-Nyungan. Language, 88(4), 817-845.",
+          "doi": "10.1353/lan.2012.0081",
+          "year": 2012,
+          "open_access": false
+        },
+        {
+          "ref": "Malaspinas, A.-S., Westaway, M. C., Muller, C., et al. (2016). A genomic history of Aboriginal Australia. Nature, 538(7624), 207-214.",
+          "doi": "10.1038/nature18299",
+          "year": 2016,
+          "open_access": false
+        },
+        {
+          "ref": "Tobler, R., Rohrlach, A., Soubrier, J., et al. (2017). Aboriginal mitogenomes reveal 50,000 years of regionalism in Australia. Nature, 544(7649), 180-184.",
+          "doi": "10.1038/nature21416",
+          "year": 2017,
+          "open_access": false
+        },
+        {
+          "ref": "Dixon, R. M. W. (2002). Australian Languages: Their Nature and Development. Cambridge University Press. (See also Dixon 1997, The Rise and Fall of Languages.)",
+          "year": 2002,
+          "open_access": false
+        }
+      ],
+      "map_expression": "This thesis IS the animated 'wind' backbone of /atlas/spread: particles flow along the Bouckaert relaxed-random-walk edges in real calendar time from the Gulf-Plains root [-20.69, 139.79] at 5,578 BP outward to present-day leaf coordinates, with the root's 95% HPD (4,456-6,967 BP) shown as an interval on the timeline, not a single date. Honesty rules baked into the render: (1) opacity is modulated by posterior — the deep/early arrows near the root (~0.06-0.09) are drawn FAINT and explicitly flagged uncertain, while well-supported shallow subgroups (0.87-1.0) are solid; (2) only Pama-Nyungan nodes are dated — the ~25 non-Pama-Nyungan northern families (Arnhem Land, Top End, Kimberley) are shown as STATIC classification context with centroid placement, never faked as dated arrows; (3) a standing caveat is pinned throughout: 'this dates the LANGUAGE lineage moving through already-resident communities, NOT people arriving — Aboriginal presence is ~65,000 years'; (4) the accompanying card states plainly that the tree and its rooting are contested (Dixon's dissent linked), so the animation is presented as ONE model with visible uncertainty, not as fact."
+    },
+    {
+      "id": "enso-climate-driver",
+      "title": "Mid-Holocene climate (ENSO intensification) as the demographic trigger of the Pama-Nyungan spread",
+      "one_line": "The claim that the mid-to-late-Holocene shift to a drier, ENSO-dominated climate (~5,000-4,000 BP) reorganised resources and drove the demographic change that carried the Pama-Nyungan language spread — well-dated as climate, but contested as cause, because ENSO onset postdates the ~5,578 BP linguistic root and, on the very population curve invoked for it, coincides with contraction rather than expansion.",
+      "mechanism": "Around 5,000-4,000 BP the Australian climate shifted from a humid, predictable early-mid-Holocene monsoon regime to a drier, more variable, ENSO-dominated one, reorganising water, plant-food and territory. Proponents argue this resource stress and unpredictability drove community fission and out-migration into new country — a demographic engine that carried the Pama-Nyungan (PN) language lineage — while resource-rich zones (coasts, major rivers) held denser populations through which the lineage moved more slowly. Bouckaert et al.'s spatial model is invoked as the linguistic signature: a founder-dispersal process running ~2x slower near water. The thesis reads mid-to-late-Holocene climate variability as the ultimate cause of the reorganisation the language spread rode — though most scholars hold the spread was largely language shift through resident populations, not a migrating people.",
+      "proponents": [
+        "Alan N. Williams, Sean Ulm, Chris S. M. Turney, David Rohde & Gentry White (2015, PLOS ONE) — continental radiocarbon population curve tying Holocene demographic pulses to ENSO onset (4.5-2 ka)",
+        "Mark Quigley, Travis Horton, John Hellstrom, Matthew Cupper & Mike Sandiford (2010, The Holocene) — arid-Australia speleothem/alluvial record dating near-modern aridity and ENSO onset to ~5 ka",
+        "Remco Bouckaert, Claire Bowern & Quentin Atkinson (2018, Nature Ecology & Evolution) — the '~2x slower near water' founder-dispersal spatial model and the mid-Holocene environmental framing of the spread",
+        "Brit Asmussen (2012, Journal of Archaeological Science) — 5,000-year eastern-Australian Macrozamia toxic-seed-use record read as an economic response to mid-to-late-Holocene ENSO variability",
+        "Peter Hiscock (backed-artefact 'risk-reduction' chronology) — invoked for the archaeological correlate, though Hiscock is simultaneously a leading CRITIC of the population-proxy method the thesis rests on"
+      ],
+      "hard_facts": [
+        {
+          "fact": "Pama-Nyungan linguistic root age: median 5,578 years BP; 95% HPD 4,456-6,967 BP; origin reconstructed at the Gulf Plains ~[-20.69 S, 139.79 E]. The ENSO transition (below) postdates this median.",
+          "source": "Bouckaert, Bowern & Atkinson 2018, Nature Ecology & Evolution 2:741-749, DOI 10.1038/s41559-018-0489-3"
+        },
+        {
+          "fact": "Bouckaert et al.'s best founder-dispersal model runs language-spread rates ~2x slower near water — along the coast and adjacent to the Murray-Darling river system — i.e. faster through drier inland country; an internally-consistent, resource-structured diffusion signal.",
+          "source": "Bouckaert, Bowern & Atkinson 2018, Nature Ecology & Evolution 2:741-749, DOI 10.1038/s41559-018-0489-3"
+        },
+        {
+          "fact": "Arid south-central Australia speleothem/alluvial record: peak effective moisture 7-6 ka, then onset of near-modern aridity by ~5 ka; ENSO established in southern Australia from ~5,000 BP, associated with reduced rainfall and enhanced variability (droughts).",
+          "source": "Quigley, Horton, Hellstrom, Cupper & Sandiford 2010, The Holocene 20(7):1093-1104, DOI 10.1177/0959683610369508"
+        },
+        {
+          "fact": "Continental radiocarbon population model: rapid expansion across ~75% of Australia during the 9-6 ka climatic optimum; ENSO onset (dated 4.5-2 ka) then caused population FRAGMENTATION, abandonment of marginal areas and a ~26% reduction in ranging territory; full-continent occupation returned only post-2 ka under La Nina amelioration. Founding population 2,000-3,000; late-Holocene 0.5-1.5 million.",
+          "source": "Williams, Ulm, Turney, Rohde & White 2015, PLOS ONE 10(6):e0128661, DOI 10.1371/journal.pone.0128661"
+        },
+        {
+          "fact": "A 5,000-year eastern-Australian record of toxic Macrozamia (cycad) seed detoxification-use shows intensified exploitation the authors tie to mid-to-late-Holocene ENSO-driven climate variability — an independent economic correlate of the reorganisation.",
+          "source": "Asmussen 2012, 'Assessing the impact of mid-to-late Holocene ENSO-driven climate change on toxic Macrozamia seed use', Journal of Archaeological Science (ScienceDirect pii S0305440312002440)"
+        },
+        {
+          "fact": "Backed artefacts (a risk-reduction technology) present from ~9,500 BP but peaking in abundance c. 3,500 BP and declining after ~2,000 BP — a datable techno-behavioural pulse ~2,000 yr AFTER the median linguistic root, read by Hiscock as a response to ENSO-driven economic risk.",
+          "source": "Hiscock 2002, 'Pattern and Context in the Holocene Proliferation of Backed Artifacts in Australia', Archeological Papers of the American Anthropological Association 12:163-177 (per atlas corpus; not independently re-verified this session)"
+        }
+      ],
+      "evidence_for": [
+        "Well-dated, independent proxies converge on a real mid-Holocene climate shift: near-modern aridity by ~5 ka and an ENSO-dominated, drier, more variable regime established from ~5,000 BP (Quigley et al. 2010) — the environmental change is not in doubt.",
+        "Bouckaert et al.'s spatial phylogeographic model independently recovers an ecologically-structured spread (~2x slower near water, faster through drier interior), the expected signature of a resource/stress-structured diffusion process rather than random drift.",
+        "The Williams/Ulm/Turney continental radiocarbon curve shows genuine, dated Holocene demographic reorganisation temporally bracketing the spread — a large hunter-gatherer population responding measurably to climate pulses (~26% territory change; 0.5-1.5 million late-Holocene).",
+        "Independent economic correlates cluster in the same window: intensified toxic-seed (Macrozamia) processing tied to ENSO variability (Asmussen 2012), the backed-artefact risk-reduction peak c. 3,500 BP (Hiscock 2002), and seed-grinding intensification in the arid zone within the last ~3,500 yr — a coherent picture of climate-driven economic change."
+      ],
+      "evidence_against": [
+        "TIMING: ENSO onset (~5,000-4,000 BP, and dated 4.5-2 ka by Williams et al. themselves) POSTDATES the median linguistic root (~5,578 BP). Climate variability cannot be the sole INITIATING trigger of an expansion whose central estimate is already underway; the causal direction is inferential, and the wide root HPD (4,456-6,967 BP) is what allows any overlap at all.",
+        "DIRECTION PARADOX (the strongest counter): on the very population curve invoked for this thesis, the ENSO window (4.5-2 ka) is a period of demographic CONTRACTION — fragmentation, abandonment of marginal country, ~26% territory REDUCTION (Williams et al. 2015). The dated demographic EXPANSIONS sit in the 9-6 ka optimum (before the root) and the post-2 ka La Nina recovery (after it), NOT during peak ENSO. So 'ENSO drove the expansion' runs opposite to the demographic evidence cited for it.",
+        "METHOD: the population curve rests on summed-probability distributions of radiocarbon dates, whose validity as a demographic proxy is sharply contested — taphonomic loss, sampling/research bias, and calibration-curve noise can manufacture or erase 'demographic' signals (Attenbrow & Hiscock 2015; Hiscock 2016; Smith 2016). Notably Hiscock, whose backed-artefact data are invoked FOR the thesis, is a lead critic of its demographic foundation.",
+        "SPECIFICITY: the climate correlation is continent-scale and coarse; it cannot explain why ONE language family (rather than several) expanded, nor identify which mechanism actually conferred the replacement advantage.",
+        "The 'intensification' framework the thesis sits within is a decades-old unresolved debate (Lourandos's demographic-intensification model vs Hiscock's taphonomy/visibility critique).",
+        "LANGUAGE-NOT-PEOPLE: even granting a climate-driven demographic pulse, genome evidence (Tobler et al. 2017; Malaspinas et al. 2016) shows deep in-situ regional continuity (~50 ka), so the spread was predominantly language shift — a climatic-demographic trigger need not have tracked, or caused, the linguistic spread at all."
+      ],
+      "consensus": {
+        "level": "contested",
+        "note": "The mid-to-late-Holocene climate shift itself (near-modern aridity by ~5 ka, ENSO onset ~5,000-4,000 BP) is mainstream and well-dated. ENSO-intensification as the SPECIFIC driver of the Pama-Nyungan spread is a plausible-but-unproven correlation, actively disputed: it is undercut by ENSO onset postdating the median root, by the invoked population curve showing the ENSO interval as contraction not expansion, and by sustained methodological critique of radiocarbon-date population proxies. Held as a suggestive framing, not an established cause."
+      },
+      "contestation": "Disputed on three fronts. (1) Timing/direction — critics note ENSO onset (~4.5-4 ka) is younger than the ~5,578 BP median root, and that Williams, Ulm & Turney's (2015) own curve makes the ENSO window (4.5-2 ka) a demographic BUST (~26% territory loss, marginal-zone abandonment), placing the real population booms in the 9-6 ka optimum and the post-2 ka La Nina recovery instead; so the climate 'driver' and the demographic 'response' are misaligned. (2) Method — the population signal derives from summed-probability distributions of radiocarbon dates, whose demographic validity is contested by Attenbrow & Hiscock (2015), Hiscock (2016) and M. A. Smith (2016) on taphonomic, sampling and calibration grounds; Hiscock supplies the backed-artefact correlate used FOR the thesis while rejecting its demographic foundation. (3) Scope/mechanism — sits inside the unresolved Lourandos-vs-Hiscock 'intensification' debate and cannot by itself explain why a single family expanded, and is further loosened by the genetic finding (Tobler 2017; Malaspinas 2016) that the spread was mostly language shift, not population movement. GAP: I could not this session independently re-verify the Asmussen 2012 DOI or the exact Hiscock 2002 page range (both cited from the atlas corpus / ScienceDirect landing page); the Williams 2015, Quigley 2010 and Bouckaert 2018 figures were verified against the primary sources.",
+      "citations": [
+        {
+          "ref": "Williams, A. N., Ulm, S., Turney, C. S. M., Rohde, D. & White, G. (2015). Holocene Demographic Changes and the Emergence of Complex Societies in Prehistoric Australia. PLOS ONE 10(6): e0128661.",
+          "doi": "10.1371/journal.pone.0128661",
+          "year": 2015,
+          "open_access": true
+        },
+        {
+          "ref": "Quigley, M. C., Horton, T., Hellstrom, J. C., Cupper, M. L. & Sandiford, M. (2010). Holocene climate change in arid Australia from speleothem and alluvial records. The Holocene 20(7): 1093-1104.",
+          "doi": "10.1177/0959683610369508",
+          "year": 2010,
+          "open_access": false
+        },
+        {
+          "ref": "Bouckaert, R. R., Bowern, C. & Atkinson, Q. D. (2018). The origin and expansion of Pama-Nyungan languages across Australia. Nature Ecology & Evolution 2: 741-749.",
+          "doi": "10.1038/s41559-018-0489-3",
+          "year": 2018,
+          "open_access": false
+        },
+        {
+          "ref": "Hiscock, P. (2016). Dates and demography? The need for caution in using radiometric dates as a robust proxy for prehistoric population change. Archaeology in Oceania 51(S1): 35-45.",
+          "doi": "10.1002/arco.5096",
+          "year": 2016,
+          "open_access": false
+        },
+        {
+          "ref": "Williams, A. N. (2013). A new population curve for prehistoric Australia. Proceedings of the Royal Society B 280(1761): 20130486.",
+          "doi": "10.1098/rspb.2013.0486",
+          "year": 2013,
+          "open_access": false
+        },
+        {
+          "ref": "Asmussen, B. (2012). Assessing the impact of mid-to-late Holocene ENSO-driven climate change on toxic Macrozamia seed use: a 5000 year record from eastern Australia. Journal of Archaeological Science (ScienceDirect pii S0305440312002440). DOI not verified this session.",
+          "year": 2012,
+          "open_access": false
+        }
+      ],
+      "map_expression": "The Bouckaert phylogeographic backbone is the only DATED layer ('the wind'): the PN root radiates from the Gulf Plains at a median 5,578 BP with its 95% HPD (4,456-6,967 BP) drawn as a fuzzy band, and deep-node posteriors (~0.06-0.09) rendered faint. The ENSO card adds NO dated tracks of its own — it overlays a STATIC, undated climate-context shading: the arid interior tinted as the modelled 'faster/stress' zone and the coasts + Murray-Darling as the '~2x slower near water' zone (a model result, explicitly labelled inference, not observed movement). The climate/economic dates are pinned on the timeline at their years — drying/aridity by ~5,000 BP, ENSO onset ~4,500-4,000 BP, backed-artefact peak ~3,500 BP — positioned so the reader SEES that they largely POSTDATE the 5,578 BP root. A Williams/Ulm demographic sparkline can run beneath the timeline showing expansion at 9-6 ka, contraction across the 4.5-2 ka ENSO window, and recovery post-2 ka, making the direction paradox visible rather than narrated away. Non-PN northern families remain static undated context, never animated as dated. A standing flag reads: 'Climate context is NOT time-calibrated to the tree; ENSO onset postdates the median root — shown as correlation, not demonstrated cause,' beside the pinned 'language lineage != population movement' banner."
+    },
+    {
+      "id": "spread-without-farming",
+      "title": "Spread WITHOUT farming — Pama-Nyungan as the global counterexample to the farming/language-dispersal hypothesis",
+      "one_line": "Pama-Nyungan is the largest language family the world knows to have spread among hunter-gatherers — a continent-wide expansion with no agriculture — so whatever powered it was something other than farming, and that \"something\" is still unidentified.",
+      "mechanism": "The Bellwood-Renfrew farming/language-dispersal hypothesis explains the world's biggest families (Indo-European, Austronesian, Bantu, Sino-Tibetan) as demographic expansions powered by agriculture: farming raises population density and lets farmer-speakers absorb or displace foragers, carrying their language. Pama-Nyungan spread across ~90% of a continent whose inhabitants never farmed, so this thesis holds it up as the flagship counterexample and asks what replaced farming as the \"advantage\" — a proposed non-agricultural package of new stone tools (Australian Small Tool Tradition, backed artefacts), seed-grinding/food-processing, fire-and-land management, exchange networks, and new kinship/subsection social systems that could drive rapid language shift. Because the genetics (Tobler 2017; Malaspinas 2016) show deep in-situ population continuity, the \"engine\" may be social-cultural transmission and language shift through resident communities rather than any demographic wave — which is why \"what replaced farming as the demographic engine?\" may itself be the wrong framing.",
+      "proponents": [
+        "Remco Bouckaert, Claire Bowern & Quentin Atkinson (2018, Nature Ecology & Evolution) — frame Pama-Nyungan as 'the world's largest hunter-gatherer language family' and spread without agriculture",
+        "Nicholas Evans & Patrick McConvell (1998, 'The enigma of Pama-Nyungan expansion in Australia', in Archaeology and Language II) — the enduring statement of the puzzle",
+        "Claire Bowern (2020, 'Small Language Survival and Large Language Expansion on a Hunter-Gatherer Continent', ch. 14 in The Language of Hunter-Gatherers, Cambridge; and popular framing in The Conversation 2018)",
+        "Contrast / target of the argument: Peter Bellwood & Colin Renfrew (eds, 2002, Examining the Farming/Language Dispersal Hypothesis) — whose framework PN is claimed to counter"
+      ],
+      "hard_facts": [
+        {
+          "fact": "Pama-Nyungan analysed as 306 languages; the family covers ~90% of the Australian continent and ~75%+ of its ~400 languages — the largest language family that spread among non-agricultural hunter-gatherers.",
+          "source": "Bouckaert, Bowern & Atkinson 2018, Nat. Ecol. Evol. 2:741-749, DOI 10.1038/s41559-018-0489-3"
+        },
+        {
+          "fact": "Linguistic root age median ~5,578 BP (95% HPD ~4,456-6,967 BP) — the expansion window in which the family spread with no agriculture present.",
+          "source": "Bouckaert, Bowern & Atkinson 2018, Nat. Ecol. Evol. 2:741-749, DOI 10.1038/s41559-018-0489-3"
+        },
+        {
+          "fact": "Australia is the only permanently inhabited continent on which agriculture did not independently develop; pre-1788 Aboriginal economies had no domesticated food crops or livestock (the dingo is the sole domesticate, and it is not a food species).",
+          "source": "Bellwood & Renfrew (eds) 2002, Examining the Farming/Language Dispersal Hypothesis, McDonald Institute (framing); standard archaeology"
+        },
+        {
+          "fact": "The dingo — the only pre-colonial domesticate — has an oldest firm direct AMS date of 3,348-3,081 cal BP (Madura Cave), i.e. it POSTDATES the ~5,578 BP linguistic root by roughly two millennia.",
+          "source": "Balme, O'Connor & Fallon 2018, Scientific Reports 8:9933, DOI 10.1038/s41598-018-28324-x"
+        },
+        {
+          "fact": "Bouckaert et al.'s spatial model finds the language lineage spread FASTER under poorer environmental conditions and ~2x SLOWER near major water — the opposite of the density/population-growth advantage that drives farming-based dispersals.",
+          "source": "Bouckaert, Bowern & Atkinson 2018, Nat. Ecol. Evol. 2:741-749, DOI 10.1038/s41559-018-0489-3"
+        },
+        {
+          "fact": "The proposed non-farming 'package' elements all overlap or postdate the root, not precede it: Australian Small Tool Tradition ~4,000-5,000 BP; backed artefacts present from ~9,500 BP but peaking c. 3,500 BP.",
+          "source": "Hiscock 2002, 'Pattern and Context in the Holocene Proliferation of Backed Artifacts in Australia', Archaeological Papers of the AAA 12:163"
+        }
+      ],
+      "evidence_for": [
+        "Empirically watertight core fact: every Pama-Nyungan speaker at contact was a hunter-gatherer, so a continent-scale family demonstrably CAN spread without agriculture — forcing the dispersal 'advantage' to be something other than farming (Bouckaert, Bowern & Atkinson 2018; the authors' own Nature/Springer framing calls it 'the world's largest hunter-gatherer language family').",
+        "The ~4,500-7,000 BP expansion window coincides with real, datable mid-Holocene changes — Australian Small Tool Tradition, backed-artefact proliferation, seed-grinding intensification, later subsection (skin) systems, and (later still) the dingo — a candidate non-agricultural 'package' of technological and social innovations.",
+        "Comparative linguistics shows shared social, ceremonial and kinship vocabulary spreading with the family, consistent with a transmissible SOCIAL/cultural package rather than a farming economy (Evans & McConvell 1998; McConvell's kinship/subsection work).",
+        "It is a rare, well-quantified n=1 test case that broadens language-dispersal theory beyond agriculture and shows Bellwood-Renfrew is not a universal law of large families."
+      ],
+      "evidence_against": [
+        "SCOPE OBJECTION (Bellwood-aligned): the farming/language-dispersal hypothesis only ever claimed to explain the dispersals CAUSED by agriculture; it never asserted that all large families spread by farming, and Bellwood himself treats hunter-gatherer spreads as a separate category. On this reading PN is OUTSIDE the hypothesis's scope, not a refutation of it — the 'counterexample' claim is a semantic/scope dispute (Bellwood & Renfrew 2002).",
+        "The MECHANISM is unexplained by the proponents' own admission: with farming's density and population-growth advantage removed, how a small hunter-gatherer group's language replaced others over 90% of a continent is under-explained; the authors call the precise mechanism a 'mystery' and identify no demographic engine.",
+        "The 'package' is a bundle of CORRELATES, not a demonstrated cause: the Small Tool Tradition and backed artefacts are PAN-Australian (they reached non-PN speakers too, so they cannot uniquely confer a PN advantage), and the strongest candidates POSTDATE the ~5.6 ka root (backed-artefact peak ~3.5 ka; dingo 3.1-3.3 ka) — none is shown to travel with the language lineage, and none predates the spread.",
+        "The clean 'hunter-gatherer / no agriculture' binary is itself softened by the fire-stick-farming and land-management literature (Gammage 2011, The Biggest Estate on Earth) and by the contested 'Dark Emu' cultivation/aquaculture claims (Pascoe 2014, strongly rebutted by Sutton & Walshe 2021, Farmers or Hunter-Gatherers?) — some argue Aboriginal economies involved intensive resource management that blurs the forager/farmer line, complicating a sharp contrast with Bellwood-Renfrew.",
+        "GENETICS undercut the 'demographic engine' framing: deep regional population continuity (~50 ka) with only a weak Holocene gene-flow signal from NE Australia (Tobler et al. 2017; Malaspinas et al. 2016) implies the spread was predominantly LANGUAGE SHIFT, not a demic expansion — so there may have been no population-growth engine to 'replace farming' at all.",
+        "n=1: a single case cannot establish a general non-agricultural dispersal mechanism; it disproves universality but does not by itself supply the positive alternative theory."
+      ],
+      "consensus": {
+        "level": "mainstream",
+        "note": "The core datum — that Pama-Nyungan is a continent-scale language family that spread among hunter-gatherers with no agriculture — is uncontested and important. What is contested is its THEORETICAL significance: whether it 'refutes' the Bellwood-Renfrew farming/language-dispersal hypothesis (Bellwood camp: no, PN is out of scope) is a scope/semantic dispute, and the identity of the replacing 'advantage' / demographic engine is genuinely OPEN (the authors call it a mystery). So: mainstream fact, contested interpretation, open mechanism."
+      },
+      "contestation": "Three distinct things are disputed and must not be collapsed. (1) The refutation claim: Bellwood-aligned scholars argue the farming/language hypothesis only addresses agriculture-driven dispersals, so PN is a case it never claimed to cover — not a counterexample to it (Bellwood & Renfrew 2002). (2) The mechanism / 'what is the advantage': no element of the proposed non-farming package (Small Tool Tradition, backed artefacts, seed-grinding, subsection systems, dingo) has been shown to be the cause; they are pan-Australian correlates and mostly postdate the root — the authors themselves call the precise driver a 'mystery'. (3) The premise itself: the fire-stick-farming/land-management literature (Gammage 2011) and the contested Dark Emu debate (Pascoe 2014 vs Sutton & Walshe 2021) complicate a clean 'no agriculture' binary. GAP: I could not locate a single peer-reviewed paper by a Bellwood-camp author explicitly rebutting the PN 'counterexample' framing in print; the scope objection is reconstructed from Bellwood & Renfrew (2002) and general framing rather than a named published rejoinder to Bouckaert et al. 2018 — treat that specific attribution as inferred, not directly cited.",
+      "citations": [
+        {
+          "ref": "Bouckaert, R. R., Bowern, C. & Atkinson, Q. D. (2018). The origin and expansion of Pama-Nyungan languages across Australia. Nature Ecology & Evolution 2, 741-749. (PubMed 29531347)",
+          "doi": "10.1038/s41559-018-0489-3",
+          "year": 2018,
+          "open_access": false
+        },
+        {
+          "ref": "Evans, N. & McConvell, P. (1998). The enigma of Pama-Nyungan expansion in Australia. In R. Blench & M. Spriggs (eds), Archaeology and Language II: Correlating Archaeological and Linguistic Hypotheses, pp. 174-191. London: Routledge.",
+          "doi": "10.4324/9780203202913",
+          "year": 1998,
+          "open_access": false
+        },
+        {
+          "ref": "Bellwood, P. & Renfrew, C. (eds) (2002). Examining the Farming/Language Dispersal Hypothesis. McDonald Institute Monographs. Cambridge: McDonald Institute for Archaeological Research. ISBN 9781902937205.",
+          "year": 2002,
+          "open_access": false
+        },
+        {
+          "ref": "Balme, J., O'Connor, S. & Fallon, S. (2018). New dates on dingo bones from Madura Cave provide oldest firm evidence for arrival of the species in Australia. Scientific Reports 8, 9933. (PMC6053400)",
+          "doi": "10.1038/s41598-018-28324-x",
+          "year": 2018,
+          "open_access": true
+        },
+        {
+          "ref": "Bowern, C. (2020). Small Language Survival and Large Language Expansion on a Hunter-Gatherer Continent. In T. Guldemann, P. McConvell & R. Rhodes (eds), The Language of Hunter-Gatherers, ch. 14. Cambridge: Cambridge University Press.",
+          "year": 2020,
+          "open_access": false
+        },
+        {
+          "ref": "Hiscock, P. (2002). Pattern and Context in the Holocene Proliferation of Backed Artifacts in Australia. Archaeological Papers of the American Anthropological Association 12, 163-177.",
+          "doi": "10.1525/ap3a.2002.12.1.163",
+          "year": 2002,
+          "open_access": false
+        },
+        {
+          "ref": "Gammage, B. (2011). The Biggest Estate on Earth: How Aborigines Made Australia. Sydney: Allen & Unwin. (land-management nuance on the 'no agriculture' premise)",
+          "year": 2011,
+          "open_access": false
+        },
+        {
+          "ref": "Sutton, P. & Walshe, K. (2021). Farmers or Hunter-Gatherers? The Dark Emu Debate. Melbourne University Press. (rebuts Pascoe 2014 cultivation claims)",
+          "year": 2021,
+          "open_access": false
+        }
+      ],
+      "map_expression": "This thesis has NO distinct animated layer of its own — and being honest about that is the point. Unlike a genuine farming dispersal (Anatolia into Europe, or Taiwan out into the Pacific), there is no advancing agricultural/Neolithic frontier to draw here: the animation is the same Bouckaert Gulf-of-Carpentaria radiation used by the origin card, and this card's contribution is a standing CAPTION on it — 'no farming front: this is a hunter-gatherer spread' — plus, if anything, the deliberate ABSENCE of any cropping-zone or demic-wave overlay. The arrows must be labelled as language-lineage vectors, never people, because the genetics point to language shift over resident populations. The deep-node posteriors (~0.06-0.09) stay faint as on every PN layer. Optionally, the 'package' correlates (Small Tool Tradition ~4-5 ka, backed-artefact peak ~3.5 ka, dingo 3.1-3.3 ka) can be pinned on the timeline at their own dated years to show visually that they OVERLAP or POSTDATE the ~5.6 ka root rather than driving it — the map should make the timing mismatch legible, not smooth it over."
+    },
+    {
+      "id": "mcconvell-kinship-loanword-wave",
+      "title": "Linguistic stratigraphy: kinship/subsection and loanword-wave spread (McConvell)",
+      "one_line": "Patrick McConvell argues that social institutions and vocabulary — section/subsection ('skin') systems, affinal kinship terms and technology words — spread as datable late-Holocene WAVES across (and out of) the Pama-Nyungan family by contact and marriage networks, a layer of areal diffusion that overprints, but does not replace, the family tree.",
+      "mechanism": "McConvell's \"linguistic stratigraphy\" reconstructs prehistory by dating successive layers of loanwords and tracing how whole social institutions — four-class section and eight-class subsection ('skin') systems, affinal (in-law/spouse) kinship terms, and technological vocabulary such as seed-grinding words — diffused as areal WAVES across and beyond the Pama-Nyungan family through contact and intermarriage, largely in the late Holocene. On this view a family does not only split tree-like from a proto-language; socially salient vocabulary and the institutions behind it (new marriage rules, new technologies) spread laterally between already-diverged languages, crossing family boundaries and leaving stratified, orderable layers. Because these waves postdate and overprint the family's earlier radiation, they explain the continent's later social reorganisation and are meant to complement, not overthrow, the phylogenetic account; measured loan rates are low enough that inheritance (the tree) and the wave-layers can be separated.",
+      "proponents": [
+        "Patrick McConvell — primary proponent: the 'linguistic stratigraphy' method, the origin and spread of subsection ('skin') systems, and kinship-loanword diffusion (McConvell 1985, Oceania; McConvell & Smith 2003; McConvell 2015; ed. Skin, Kin and Clan 2018)",
+        "Michael A. Smith — archaeologist co-author of the seed-grinding archaeo-linguistic stratigraphy ('Millers and mullers', 2003)",
+        "Claire Bowern — co-author of the 2011 prehistory review (McConvell & Bowern 2011) and lead of the PLoS ONE loan-rate study (Bowern et al. 2011) that underwrites the 'tree + wave are separable' position",
+        "Nicholas Evans — co-editor with McConvell of Archaeology and Linguistics: Aboriginal Australia in Global Perspective (1997)",
+        "Piers Kelly & Sébastien Lacrampe — co-editors of Skin, Kin and Clan (ANU Press, 2018)"
+      ],
+      "hard_facts": [
+        {
+          "fact": "Subsection ('skin') systems comprise 8 named social categories (two four-section systems combined into four intermarrying 'patricouples'), versus 4 in a section system; McConvell argues the subsection system originated in the Katherine / Lower Daly–Victoria River district (NT) as a merger of two section systems — the western-half subsection roots deriving from western (Pilbara) section terms and the eastern-half roots from northern section terms south of Darwin.",
+          "source": "McConvell 1985, 'The origin of subsections in northern Australia', Oceania 56(1):1–25"
+        },
+        {
+          "fact": "A 'Queensland General' (QG) section system is found across a vast area of interior Queensland with closely similar terms, which McConvell reads as evidence of a rapid, relatively recent areal spread — probably within the last one to two millennia (late Holocene).",
+          "source": "McConvell 2018, 'The Birds and the Bees: The Origins of Sections in Queensland', ch. 8 in McConvell, Kelly & Lacrampe (eds), Skin, Kin and Clan, ANU Press"
+        },
+        {
+          "fact": "In a systematic sample of 122 hunter-gatherer/small-scale languages (204 basic-vocabulary items each; incl. northern Australia), measured borrowing was low — mean 5.06%, median 2.49%, SD 7.56 — i.e. within the range where the comparative method still recovers inheritance, so descent and later wave-layers are separable rather than one swamping the other.",
+          "source": "Bowern, Epps, Gray, Hill, Hunley, McConvell & Zentz 2011, PLoS ONE 6(9):e25195, DOI 10.1371/journal.pone.0025195"
+        },
+        {
+          "fact": "Affinal (in-law and spouse) kinship terms are disproportionately represented among long-distance loanwords/Wanderwörter, while consanguineal terms are borrowed widely mainly when a whole kinship-system type shifts (e.g. Kariera→Aranda) — a stratified signature McConvell dates to late-Holocene change in marriage systems.",
+          "source": "McConvell 2015, 'Long-distance diffusion of affinal kinship terms…', in Toner (ed.), Strings of Connectedness, ANU Press, ch. 13"
+        },
+        {
+          "fact": "A datable loanword layer for seed-grinding / millstone vocabulary in central Australia is argued to correlate with the archaeological intensification of seed-grinding in the arid zone in the mid-to-late Holocene (commonly placed within roughly the last ~1,500–4,000 years; the precise intensification date is debated among archaeologists).",
+          "source": "McConvell & Smith 2003, 'Millers and mullers…', in Andersen (ed.), Language Contacts in Prehistory, Benjamins CILT 239, DOI 10.1075/cilt.239.14mcc"
+        },
+        {
+          "fact": "McConvell & Bowern's synthesis frames Australian prehistory as tree (descent) PLUS datable diffusion layers, explicitly using loanword stratigraphy alongside comparative reconstruction rather than choosing one.",
+          "source": "McConvell & Bowern 2011, 'The prehistory and internal relationships of Australian languages', Language and Linguistics Compass 5(1):19–32, DOI 10.1111/j.1749-818X.2010.00257.x"
+        }
+      ],
+      "evidence_for": [
+        "Subsection ('skin') 8-class systems demonstrably diffused across language-family boundaries — including into non-Pama-Nyungan languages of the north — a documented case of a social institution spreading independently of language descent (McConvell 1985; Skin, Kin and Clan 2018).",
+        "Kinship loanwords show a regular, interpretable pattern: affinal terms travel farthest as Wanderwörter and consanguineal terms shift when the whole kinship-system type changes — consistent with marriage practices, not just words, diffusing (McConvell 2015).",
+        "The seed-grinding vocabulary layer ties linguistic stratigraphy to an independent archaeological horizon (grindstone/seed-processing intensification in central Australia), giving one of the few loanword strata with a loose absolute anchor (McConvell & Smith 2003).",
+        "Measured loan rates in northern Australian basic vocabulary are low (mean ~5%), so the tree and the wave-layers are statistically separable — a direct empirical rebuttal to the claim that Australian diffusion is so pervasive it destroys the family signal (Bowern et al. 2011).",
+        "Specific mapped cases (e.g. the spread of the subsection term ramparr/lamparr(a), and the near-identical 'Queensland General' section terms across interior Queensland) show concrete directional areal waves, not just abstract convergence (McConvell 1985; 2018)."
+      ],
+      "evidence_against": [
+        "These waves date SOCIAL/CULTURAL reorganisation, not the family's original spread: subsections and the QG sections are late-Holocene (~last 1–2 millennia), millennia younger than the ~5.6 kya Pama-Nyungan root — so the thesis explains later reorganisation, not why Pama-Nyungan itself expanded. It is a complement to, not a rival of, the demic/phylogenetic account.",
+        "Distinguishing inherited from borrowed forms in a family with long, dense contact is methodologically hard and can inflate perceived diffusion — the same hazard R.M.W. Dixon pushes to the opposite conclusion, reading pervasive borrowing (including of kinship/grammar) as undermining the family tree altogether. McConvell's own low-loan-rate evidence (Bowern et al. 2011) is the counter, but the layer-vs-descent boundary is genuinely contestable case by case.",
+        "Linguistic-stratigraphy dates are mostly RELATIVE: loanword 'layers' are ordered by internal linguistic argument (nativisation via sound change, distribution), and absolute dates come only from loose correlation with dated archaeology — so most of McConvell's strata carry no calendar date at all.",
+        "The one hard archaeological anchor, seed-grinding intensification, is itself debated: some grinding/seed-processing evidence is much older, and the 'mid-late Holocene intensification' reading (Smith) is contested, weakening the absolute date on that stratum.",
+        "The single-origin-and-spread story for subsections is not settled — there are competing accounts of subsection origins (e.g. debates over one diffusion event vs. multiple/convergent developments), so the specific homeland and route remain actively researched rather than established."
+      ],
+      "consensus": {
+        "level": "mainstream",
+        "note": "Within Australian historical linguistics the core empirical claims are broadly accepted: subsection ('skin') systems and affinal kinship terms demonstrably diffused as late-Holocene areal waves across and beyond Pama-Nyungan, loanword strata are a legitimate datable record, and measured loan rates (Bowern et al. 2011) are low enough that inheritance and diffusion are separable. The thesis is treated as COMPLEMENTARY to the Bouckaert phylogeographic account, not a competitor. What is genuinely open/contested: (a) the absolute dating and single-origin story of subsections (actively researched); (b) the archaeological date of seed-grinding intensification (debated among archaeologists); and (c) the broader tree-vs-wave WEIGHTING, where Dixon's camp reads pervasive diffusion as dissolving the family tree while McConvell and Bowern hold the two layers coexist and are distinguishable."
+      },
+      "contestation": "The dispute is over WEIGHTING and datability, not over whether diffusion happened. R.M.W. Dixon (Rise and Fall of Languages 1997; Australian Languages 2002) uses pervasive Australian borrowing — including of kinship and grammatical material — to argue Pama-Nyungan is a diffusion area/Sprachbund rather than a genetic family; McConvell and Bowern reject that family-killing reading, holding that a descent tree and datable late-Holocene wave-layers coexist and are separable, and cite the low measured loan rates (mean ~5%; Bowern et al. 2011) as evidence. Separately, archaeologists debate the absolute date of the seed-grinding intensification that anchors McConvell & Smith's one dated stratum, and the origin/dating of subsection systems (single Katherine–Victoria River origin vs. alternative accounts) is still an open research question. GAPS/CAVEATS: I could not verify an exact DOI for McConvell 1985 (Oceania 56(1):1–25) or precise page numbers for the McConvell 2015 chapter, so those are cited by volume/venue only; and the '~3,500 BP' seed-grinding figure carried in the atlas plan is one archaeological reading (Smith), presented here as a debated range rather than a fixed date. Note the atlas draft's attribution of the loan-rate result to 'Bowern & Atkinson 2012' is a mis-citation — the loan-rate finding is Bowern et al. 2011, PLoS ONE (with McConvell a co-author).",
+      "citations": [
+        {
+          "ref": "McConvell, P. (1985). The origin of subsections in northern Australia. Oceania 56(1): 1–25.",
+          "year": 1985,
+          "open_access": false
+        },
+        {
+          "ref": "McConvell, P. & Smith, M. A. (2003). Millers and mullers: the archaeo-linguistic stratigraphy of technological change in Holocene Australia. In H. Andersen (ed.), Language Contacts in Prehistory: Studies in Stratigraphy (Current Issues in Linguistic Theory 239), 177–200. Amsterdam: John Benjamins.",
+          "doi": "10.1075/cilt.239.14mcc",
+          "year": 2003,
+          "open_access": false
+        },
+        {
+          "ref": "McConvell, P. & Bowern, C. (2011). The prehistory and internal relationships of Australian languages. Language and Linguistics Compass 5(1): 19–32.",
+          "doi": "10.1111/j.1749-818X.2010.00257.x",
+          "year": 2011,
+          "open_access": false
+        },
+        {
+          "ref": "Bowern, C., Epps, P., Gray, R., Hill, J., Hunley, K., McConvell, P. & Zentz, J. (2011). Does lateral transmission obscure inheritance in hunter-gatherer languages? PLoS ONE 6(9): e25195.",
+          "doi": "10.1371/journal.pone.0025195",
+          "year": 2011,
+          "open_access": true
+        },
+        {
+          "ref": "McConvell, P. (2015). Long-distance diffusion of affinal kinship terms as evidence of late Holocene change in marriage systems in Aboriginal Australia. In P. G. Toner (ed.), Strings of Connectedness: Essays in Honour of Ian Keen, ch. 13. Canberra: ANU Press.",
+          "year": 2015,
+          "open_access": true
+        },
+        {
+          "ref": "McConvell, P., Kelly, P. & Lacrampe, S. (eds) (2018). Skin, Kin and Clan: The Dynamics of Social Categories in Indigenous Australia. Canberra: ANU Press (incl. McConvell, 'The Birds and the Bees: The Origins of Sections in Queensland', ch. 8).",
+          "doi": "10.22459/SKC.04.2018",
+          "year": 2018,
+          "open_access": true
+        },
+        {
+          "ref": "McConvell, P. & Evans, N. (eds) (1997). Archaeology and Linguistics: Aboriginal Australia in Global Perspective. Melbourne: Oxford University Press.",
+          "year": 1997,
+          "open_access": false
+        }
+      ],
+      "map_expression": "On the deep-time animation McConvell's waves are NOT part of the dated Bouckaert 'wind' and must never be animated as the language-family origin. They are a SEPARATE, later overlay: directional arrows of social-category and loanword spread — subsections radiating out of the Katherine / Lower Daly–Victoria River homeland, the 'Queensland General' section terms fanning across interior Queensland, and the seed-grinding lexicon spreading through the arid zone — drawn only in the shallow late-Holocene band (roughly the last ~1–2 kyr), explicitly labelled 'areal wave; relative/loose dates, NOT the Bouckaert phylogeographic backbone'. These arrows should be allowed to CROSS language-family boundaries (including into non-Pama-Nyungan languages of the north) to make the contact-diffusion point visually, unlike the tree-descent backbone. Honesty requirements: pin a caveat that these strata POST-DATE the ~5.6 kya Pama-Nyungan root and explain later reorganisation, not the original spread; draw them fainter/dashed to signal that most layers carry only relative (stratigraphic) ordering, with the single seed-grinding stratum flagged as the only one loosely tied to a (debated) absolute archaeological date; and render the whole overlay as ONE scholar's model that complements — not competes with — the phylogeographic animation, with Dixon's card reminding the reader that how much of Australian structure is descent vs. diffusion is itself contested."
+    },
+    {
+      "citations": [
+        {
+          "ref": "Bouckaert, R. R., Bowern, C., & Atkinson, Q. D. (2018). The origin and expansion of Pama–Nyungan languages across Australia. Nature Ecology & Evolution, 2, 741–749.",
+          "doi": "10.1038/s41559-018-0489-3",
+          "open_access": false,
+          "year": 2018
+        },
+        {
+          "ref": "Bowern, C., & Atkinson, Q. D. (2012). Computational phylogenetics and the internal structure of Pama-Nyungan. Language, 88(4), 817–845.",
+          "doi": "10.1353/lan.2012.0081",
+          "open_access": false,
+          "year": 2012
+        },
+        {
+          "ref": "Malaspinas, A.-S., Westaway, M. C., Muller, C., et al. (2016). A genomic history of Aboriginal Australia. Nature, 538, 207–214.",
+          "doi": "10.1038/nature18299",
+          "open_access": false,
+          "year": 2016
+        },
+        {
+          "ref": "Tobler, R., Rohrlach, A., Soubrier, J., et al. (2017). Aboriginal mitogenomes reveal 50,000 years of regionalism in Australia. Nature, 544, 180–184.",
+          "doi": "10.1038/nature21416",
+          "open_access": false,
+          "year": 2017
+        },
+        {
+          "ref": "Dixon, R. M. W. (1997). The Rise and Fall of Languages. Cambridge: Cambridge University Press. (Also Dixon, R. M. W. 2002, Australian Languages: Their Nature and Development, CUP.)",
+          "open_access": false,
+          "year": 1997
+        },
+        {
+          "ref": "Balme, J., O'Connor, S., & Fallon, S. (2018). New dates on dingo bones from Madura Cave provide the oldest firm evidence for arrival of the species in Australia. Scientific Reports, 8, 9933.",
+          "doi": "10.1038/s41598-018-28324-x",
+          "open_access": true,
+          "year": 2018
+        }
+      ],
+      "consensus": {
+        "level": "contested",
+        "note": "Two-layer honesty. (1) That SOME mid-Holocene expansion of Pama-Nyungan happened, out of northeastern Australia, is mainstream — but with wide Bayesian posteriors on both age (~4,500–7,000 BP window) and homeland location. (2) The mechanism — did people MOVE (demic diffusion) or did resident populations SHIFT language? — is genuinely contested. The prevailing reconciliation among most linguists and geneticists is 'mostly language shift with at most a limited demic component from NE Australia', because deep genetic continuity (~50 ka) cannot be squared with a continental population replacement in the last ~6 kya. The 'punctuated cladogenesis' / rapid-radiation reading of the tree shape is itself uncertain because the deepest nodes have weak posterior support. Dixon's total rejection of the tree is a minority (but serious, cited) position."
+      },
+      "contestation": "The core dispute is proportion and mechanism, not whether an expansion occurred. Bouckaert/Bowern/Atkinson read the phylogeography as a rapid mid-Holocene spread 'implying rapid replacement of non-Pama-Nyungan languages' carried with a cultural package; Dixon (1997, 2002) rejects Pama-Nyungan as a genealogical unit altogether, reading the same non-binary structure as areal diffusion/Sprachbund over tens of millennia, so that no 'expansion date' is meaningful. Geneticists (Tobler 2017; Malaspinas 2016) document deep in-situ regional continuity, which most authors take to mean the language spread predominantly by SHIFT through already-resident groups, with only a weak NE demic signal — but the SIZE of that demic component is unquantified and the sampling is sparse, so it is under-determined. Two gaps I could not close from open sources: (a) the exact median root age and 95% HPD are reported in Bouckaert et al. 2018 as an origin 'between 4,500 and 7,000 years ago' but I could not verify a single median figure (often cited ~5.6 kya) against an open full text; (b) the precise 'near-water is ~2× slower' diffusion-rate multiplier is a qualitative relaxed-random-walk result I could not confirm as a verbatim number, so it is stated qualitatively, not as a hard datum.\"",
+      "evidence_against": [
+        "Deep genetic continuity contradicts mass migration: Tobler et al. 2017 (111 historical-hair mitogenomes) find marked geographic structuring and deep haplogroup splits implying continuous occupation of the same regions back toward ~50 ka, with NO signal of a Holocene population sweep overwriting the continent — the expected signature of demic replacement is absent.",
+        "Malaspinas et al. 2016 show all 83 sampled Aboriginal genomes descend from a single founding population that differentiated ~10–32 kya (structuring by ~31 kya) — i.e. the population geography predates the linguistic spread by tens of millennia; the Holocene NE-Australia expansion they detect is real but has only LIMITED outward gene flow, small enough to be consistent with but not to require a demic spread.",
+        "The rapid-radiation ('punctuated cladogenesis') tree shape is itself uncertain: posterior support at the deepest internodes is low, so the 'burst of near-simultaneous splitting' signature that demic expansion predicts is weakly resolved at the root.",
+        "Dixon (1997, 2002) argues the non-binary branching is exactly what areal DIFFUSION/equilibrium produces, not a radiation — the comparative-method tree may be inapplicable and the same data under-determine demic vs areal readings.",
+        "The cultural markers used to argue for a moving 'package' (Australian Small Tool Tradition ~5,000–3,000 BP, the dingo ~3,250 cal BP, subsection/marriage systems) can diffuse WITHOUT people or a language moving; loanword and subsection stratigraphy (McConvell) date later social reorganisation, so they date cultural contact, not necessarily the original language spread.",
+        "Bellwood–Renfrew farming/language dispersal logic does not transfer: Pama-Nyungan spread continent-wide with NO agriculture, so the demographic 'engine' that powers demic models elsewhere is absent, weakening the demic prior."
+      ],
+      "evidence_for": [
+        "Bayesian phylogeography of 306 Pama-Nyungan languages (Bouckaert, Bowern & Atkinson 2018) gives strong, robust support for a single origin in the Gulf Plains of NE Australia in the mid-Holocene and a spatially-structured spread — the internally-consistent signature of an expansion from a point source rather than slow in-situ drift everywhere.",
+        "Bowern & Atkinson 2012 recover discernible internal subgrouping (four major divisions) with short deep internodes — a rake-like / punctuated shape consistent with a rapid radiation.",
+        "Malaspinas et al. 2016 detect a Holocene population expansion in northeast Australia with limited outward gene flow, spatially and temporally coincident with the inferred linguistic origin region — a demographic pulse in the right place at roughly the right time to seed the spread.",
+        "The spread's timing brackets a real mid-Holocene cultural transition: the Australian Small Tool Tradition (~5,000–3,000 BP), the dingo (oldest firm date ~3,250 cal BP, Madura Cave), plant-processing/seed-grinding, expanded exchange networks and new social/ceremonial systems — a plausible advantage 'package' enabling either demic advance or rapid shift.",
+        "The relaxed-random-walk model fits a spatially heterogeneous diffusion (slower through resource-rich riverine/coastal corridors, faster into marginal arid country), an internally coherent demic-diffusion pattern rather than uniform noise."
+      ],
+      "hard_facts": [
+        {
+          "fact": "Bouckaert, Bowern & Atkinson (2018) analysed basic vocabulary from 306 Pama-Nyungan languages with Bayesian phylogeographic methods and inferred an origin in the Gulf Plains region of NE Australia during the mid-Holocene, estimated between ~4,500 and 7,000 years ago, 'implying rapid replacement of non-Pama-Nyungan languages.'",
+          "source": "Bouckaert, Bowern & Atkinson 2018, Nature Ecology & Evolution 2:741–749, DOI 10.1038/s41559-018-0489-3"
+        },
+        {
+          "fact": "Malaspinas et al. (2016) generated high-coverage genomes for 83 Aboriginal Australians and 25 New Guinea Highlanders; all sampled Aboriginal Australians descend from a single founding population that differentiated ~10–32 kya (population structuring by ~31 kya; Australian–Papuan divergence ~25–40 kya), with a Holocene population expansion in NE Australia and only LIMITED gene flow outward 'consistent with the spread of the Pama-Nyungan languages.'",
+          "source": "Malaspinas et al. 2016, Nature 538:207–214, DOI 10.1038/nature18299"
+        },
+        {
+          "fact": "Tobler et al. (2017) sequenced 111 mitogenomes from historical Aboriginal hair samples (1928–1970s expeditions); deep haplogroup splits and geographic patterning imply continuous regional occupation, with initial settlement reaching southern Australia by ~49–45 ka and regional structure persisting ~50,000 years despite Pleistocene/Holocene change.",
+          "source": "Tobler et al. 2017, Nature 544:180–184, DOI 10.1038/nature21416"
+        },
+        {
+          "fact": "The oldest firm directly-dated dingo remains in Australia are ~3,348–3,081 cal BP (≈3,250 cal BP) from Madura Cave, which the authors argue is close to the species' first arrival — placing this element of the mid-Holocene 'package' well AFTER the inferred linguistic root.",
+          "source": "Balme, O'Connor & Fallon 2018, Scientific Reports 8:9933, DOI 10.1038/s41598-018-28324-x"
+        },
+        {
+          "fact": "The Australian Small Tool Tradition (backed artefacts, points) and associated plant-processing intensification appear across the continent between roughly 5,000 and 3,000 BP, overlapping the inferred Pama-Nyungan spread window.",
+          "source": "Balme et al. 2018 (Sci. Rep. 8:9933) and Prehistory-of-Australia synthesis; timing per Balme/O'Connor and archaeological review literature"
+        },
+        {
+          "fact": "Bowern & Atkinson (2012) produced the first Bayesian internal classification of Pama-Nyungan, resolving four major divisions and short deep internodes — the tree-shape basis for the 'punctuated cladogenesis' reading (whose deepest nodes carry low posterior support).",
+          "source": "Bowern & Atkinson 2012, Language 88(4):817–845, DOI 10.1353/lan.2012.0081"
+        }
+      ],
+      "id": "demic-vs-shift-punctuated",
+      "map_expression": "On the deep-time animation this thesis is the BACKBONE 'wind': the Bouckaert–Bowern–Atkinson relaxed-random-walk phylogeography is the only dated layer, radiating Pama-Nyungan lineages out of the Gulf Plains from the mid-Holocene (~4,500–7,000 BP window) to present as the timeline scrubs. It must be drawn as ONE model, not fact: the origin blob carries a wide 95% HPD halo, and the deepest ancestral nodes are rendered FAINT to signal their weak posterior support (the punctuated-radiation shape is uncertain at the root — the atlas flags these deep posteriors as low, roughly ~0.06–0.09). Non-Pama-Nyungan northern families are shown as STATIC, undated context (grey), never animated with fake dates, honouring that they are outside the dated tree. A pinned standing caveat reads: 'this dates the LANGUAGE lineage, not necessarily a population' — and a toggle overlays the genetic evidence (Tobler 2017 / Malaspinas 2016) as deep, ~50 ka in-situ regional continuity beneath the moving language front, making the demic-vs-shift tension VISIBLE: the language front sweeps while the population substrate stays put. Selecting Dixon's dissent card greys the animation entirely with the label 'tree contested — this spread is one hypothesis, not established fact.'",
+      "mechanism": "Two rival processes are proposed for the same mid-Holocene event in which Pama-Nyungan came to cover ~7/8 of the continent. Demic diffusion: an expanding population physically moved out from a homeland (the Gulf Plains of NE Australia), carrying its language and a cultural package (new stone tools, food-processing, exchange and social systems) and demographically absorbing or displacing prior groups. Language shift: resident populations who had occupied their Country for tens of millennia ADOPTED the incoming language through prestige, intermarriage and social advantage, so the lineage spread while the people largely stayed put. The phylogeny's rake-like shape (many near-simultaneous deep splits = 'punctuated cladogenesis') is read as the signature of a rapid radiation from an expansion; the crux is whether that radiation rode on moving bodies or on shifting tongues, and in what proportion.",
+      "one_line": "Pama-Nyungan clearly spread across most of Australia in the mid-Holocene from a northeastern homeland, but whether people migrated (demic diffusion) or resident populations adopted the language (language shift) is genuinely contested — with genetics favouring mostly shift over a deeply continuous population.",
+      "proponents": [
+        "Remco Bouckaert, Claire Bowern & Quentin Atkinson (2018, Nature Ecology & Evolution) — Bayesian phylogeography, Gulf Plains mid-Holocene origin, 'rapid replacement'",
+        "Claire Bowern & Quentin Atkinson (2012, Language) — Bayesian internal subgrouping / punctuated tree shape",
+        "Peter Bellwood & Colin Renfrew — farming/language-dispersal demic framework (the general demic prior PN is tested against, and which PN partly breaks because it lacks agriculture)",
+        "Patrick McConvell — subsection-system and loanword stratigraphy (dates later social diffusion; used against a purely demic reading)",
+        "R. M. W. Dixon (1997, 2002) — the major DISSENT: punctuated-equilibrium / Sprachbund, rejecting the Pama-Nyungan tree entirely",
+        "Anna-Sapfo Malaspinas et al. (2016) and Ray Tobler et al. (2017) — the genetic evidence marshalled by the language-shift reading"
+      ],
+      "title": "Demic diffusion vs language shift (punctuated cladogenesis): did people move, or did the language?"
+    },
+    {
+      "id": "small-tool-backed-artefact-dingo",
+      "title": "The Small-Tool / backed-artefact / dingo package",
+      "one_line": "A bundle of mid-to-late Holocene material-culture changes — the Australian Small Tool Tradition, proliferating backed artefacts, and the arriving dingo — is proposed as the practical \"advantage\" or at least a correlated marker that accompanied the Pama-Nyungan language expansion, but the dates mostly POSTDATE the linguistic root and the technologies are pan-Australian, so the causal link is weak and widely doubted.",
+      "mechanism": "A suite of Holocene innovations — backed blades/microliths, unifacial and bifacial points and tula adzes (the \"Australian Small Tool Tradition\"), a mid-Holocene proliferation of backed artefacts, and the dingo (a new hunting and social asset) — is argued to have travelled with, or at least paralleled, the spread of Pama-Nyungan. In the strong reading, greater hunting/processing efficiency, risk-reduction technology and the dingo conferred an organisational or adaptive advantage that let one language lineage be adopted across ~90% of the continent. In the weak (and more defensible) reading, these are simply independent, datable signals that a real behavioural reorganisation occurred inside the linguistic-expansion window — correlates, not a demonstrated cause. Bouckaert, Bowern & Atkinson (2018) invoke it only cautiously, as \"possible associations.\"",
+      "proponents": [
+        "Bouckaert, Bowern & Atkinson (2018, Nature Ecology & Evolution) — invoke the package CAUTIOUSLY: languages 'carried as part of an expanding package of cultural innovations' with 'possible associations with the introduction of the dingo, new lithic technologies and social institutions'; they do not claim to identify which element mattered",
+        "Mulvaney & Kamminga (1999, Prehistory of Australia) — the classic articulation of the Australian Small Tool Tradition as a mid-Holocene continent-wide horizon (the older synchrony that first bundled small tools + dingo + microliths, sometimes with an Indian-diffusion idea)",
+        "Balme, O'Connor & Fallon (2018, Scientific Reports) — direct-dated the dingo and argue it 'transformed Indigenous societies across mainland Australia' after arrival (the dingo-as-social-asset strand)",
+        "NOTE: Peter Hiscock is usually cited here as a SOURCE for the backed-artefact chronology but is a CRITIC of the migration reading — he interprets the proliferation as a local climate-risk response, not a migration marker"
+      ],
+      "hard_facts": [
+        {
+          "fact": "Dingo — oldest firm direct AMS date: 3,348–3,081 cal BP (95.3%), on bone SANU-54821, 3069 ± 27 14C BP, from Madura Cave, Nullarbor; 'dingoes were in southern Australia by between 3348 and 3081 years ago' (the oldest reliable date).",
+          "source": "Balme, O'Connor & Fallon 2018, Scientific Reports 8:9933, DOI 10.1038/s41598-018-28324-x (PMC6053400)"
+        },
+        {
+          "fact": "A second Madura Cave dingo dated 2,143–1,932 cal BP (SANU-54820, 2105 ± 25 14C BP) — confirming continued presence, and showing the direct record is late Holocene, not mid-Holocene.",
+          "source": "Balme, O'Connor & Fallon 2018, Scientific Reports 8:9933, DOI 10.1038/s41598-018-28324-x"
+        },
+        {
+          "fact": "Older DNA-based dingo arrival estimates range widely — some mtDNA work up to ~18,000 yr ago, other genetic work ~5,000 yr — but rest on indirect estimates; the commonly cited ~4,000–5,000 BP figure was never anchored to a direct date on dingo remains.",
+          "source": "Balme, O'Connor & Fallon 2018, Scientific Reports 8:9933, DOI 10.1038/s41598-018-28324-x"
+        },
+        {
+          "fact": "Backed artefacts proliferate to become the dominant retouched form in SE Australia only in the mid-Holocene, c. 3,500–4,000 cal BP, with production dropping to lesser quantities after c. 1,400–1,500 cal BP.",
+          "source": "Hiscock 2002, Archaeological Papers of the AAA 12:163, DOI 10.1525/ap3a.2002.12.1.163"
+        },
+        {
+          "fact": "The tight 'small tools + dingo + microliths arrive together ~4,000 BP' synchrony is empirically refuted: backed artefacts date to 6,200–9,500 BP at Upper Mangrove Creek (NSW Central Coast) and to >15,000 BP at Cape York / the Gulf of Carpentaria — long predating both the supposed package horizon and the dingo.",
+          "source": "Hiscock & Attenbrow, reported via Australian Museum 'When did dingoes first come to Australia?' and Museum of Stone Tools"
+        },
+        {
+          "fact": "The tula adze (a core Small Tool Tradition element) proliferated only after ca. 5,000 BP — i.e. later than, and separable from, the microlith record, so the 'tradition' is not a single dated pulse.",
+          "source": "Museum of Stone Tools (stonetoolsmuseum.com/artefact/australia/tula-adze); Holdaway & Stern 2004"
+        },
+        {
+          "fact": "The Pama-Nyungan linguistic root the package is meant to accompany has median age 5,578 BP (95% HPD 4,456–6,967 BP), origin ~[-20.69 S, 139.79 E] (Gulf Plains) — so the dingo (~3.1–3.3 ka) and the backed-artefact peak (~3.5–4 ka) both POSTDATE the median root by ~1,600–2,500 yr.",
+          "source": "Bouckaert, Bowern & Atkinson 2018, Nature Ecology & Evolution 2:741-749, DOI 10.1038/s41559-018-0489-3"
+        }
+      ],
+      "evidence_for": [
+        "The proponents themselves invoke it: Bouckaert, Bowern & Atkinson (2018) state PN was 'carried as part of an expanding package of cultural innovations that probably facilitated the absorption and assimilation of existing hunter-gatherer groups,' explicitly naming 'possible associations with the introduction of the dingo, new lithic technologies and social institutions.'",
+        "There is a real, datable, mappable mid-to-late Holocene behavioural pulse in the relevant region and window: backed artefacts proliferate to dominance in SE Australia c. 3,500–4,000 cal BP (Hiscock 2002) and the tula adze proliferates after ~5,000 BP — independent archaeological evidence that a genuine reorganisation happened.",
+        "The dingo is firmly present by ~3.1–3.3 ka (Balme et al. 2018) — a genuine new hunting companion and social/economic asset introduced during the later stages of the linguistic spread, whose late-Holocene arrival demonstrably 'transformed Indigenous societies'.",
+        "The upper end of the linguistic root's 95% HPD (to ~4,456 BP) and the ongoing spread overlap the tail of the Small Tool Tradition window (~4,000–5,000 BP), so a LATE-stage accompaniment of language + technology is at least chronologically possible.",
+        "PN spread with NO agriculture, so if any 'advantage' drove the replacement it must be technological/social — which motivates looking at exactly this material-culture package (even if it ultimately fails to single out a cause)."
+      ],
+      "evidence_against": [
+        "TIMING MISMATCH (the decisive objection): the dingo's oldest firm date (3,348–3,081 cal BP; Balme et al. 2018) postdates the median PN root (~5,578 BP; Bouckaert et al. 2018) by ~2,000+ years and even the mid-point of the spread — it cannot have initiated or carried the expansion, at most a late accompaniment.",
+        "PAN-AUSTRALIAN, NOT PN-SPECIFIC: the Small Tool Tradition and backed artefacts occur across ALL Australians including non-Pama-Nyungan speakers (e.g. Arnhem Land, the Kimberley), so they cannot uniquely explain a Pama-Nyungan linguistic advantage (Hiscock, Archaeology of Ancient Australia 2008).",
+        "THE CLASSIC SYNCHRONY IS REFUTED: the 1960s–70s Mulvaney-style model of a synchronous ~4,000 BP small-tool + microlith + dingo package (sometimes with Indian-origin diffusion) collapsed once Hiscock & Attenbrow dated backed artefacts to 6,200–9,500 BP at Upper Mangrove Creek and >15,000 BP at Cape York — the components are neither synchronous with each other nor with 4,000 BP.",
+        "COMPETING LOCAL EXPLANATION: Hiscock (2002, 2006) interprets the backed-artefact proliferation as a RISK-REDUCTION response to ENSO-driven climatic variability, i.e. an in-situ economic strategy — not a migration or language-spread marker at all.",
+        "CORRELATION ≠ CAUSATION and no positive PN-tracking test exists: no artefact type has ever been shown to travel with the Pama-Nyungan language LINEAGE specifically; the 'package' is a bundle of temporally loose correlates, and Bouckaert et al. concede 'it remains a mystery' which (if any) element conferred advantage.",
+        "GENETIC DECOUPLING: deep regional population continuity for ~50 ka (Tobler et al. 2017; Malaspinas et al. 2016) implies the spread was mostly LANGUAGE SHIFT, so even a genuinely spreading technology need not have been carried by a moving, dingo-owning population."
+      ],
+      "consensus": {
+        "level": "contested",
+        "note": "Split verdict: the ARCHAEOLOGICAL DATES are consensus-grade and solid (dingo ~3.1–3.3 ka firm; backed-artefact SE peak ~3.5–4 ka; tula after ~5 ka). The CAUSAL claim — that this package carried, enabled, or specifically tracks the Pama-Nyungan spread — is only weakly and cautiously held (a minority, suggestive-correlation position even among its proponents), and is undermined by the dingo/backed-artefact peak postdating the ~5.6 ka linguistic root and by these technologies being pan-Australian rather than PN-specific. Bouckaert et al. flag it as 'possible associations' and call the mechanism 'a mystery'; Hiscock offers a competing climate-risk reading."
+      },
+      "contestation": "What is disputed is NOT the dates but the causal/associative link. (1) Whether the package spread WITH Pama-Nyungan: the proponents (Bouckaert, Bowern & Atkinson 2018) claim only 'possible associations,' never a demonstrated linkage; there is, honestly, NO paper that establishes that any small-tool type or the dingo tracks the PN lineage specifically — the thesis lives as suggestive correlation, and this card should not overstate it. (2) The interpretation of backed artefacts: Hiscock (a primary source for the chronology) reads their proliferation as a local ENSO-risk economic response, explicitly NOT a migration marker — an internal dissent from within the evidence base. (3) The older 'synchronous ~4,000 BP package from India' model (Mulvaney and 1970s diffusionism) is now regarded as refuted by early backed-artefact dates (Hiscock & Attenbrow), so the 'package' cannot be a single dated horizon. (4) Even granting a spread, genetics (Tobler 2017; Malaspinas 2016) favour language shift over demic movement, weakening any 'dingo-owning migrants carried the language' story. GAP: I could not verify a peer-reviewed source that positively demonstrates the package travelled with PN — because the literature treats it as an open correlation, not an established finding.",
+      "citations": [
+        {
+          "ref": "Bouckaert, R. R., Bowern, C. & Atkinson, Q. D. (2018). The origin and expansion of Pama-Nyungan languages across Australia. Nature Ecology & Evolution 2, 741-749.",
+          "doi": "10.1038/s41559-018-0489-3",
+          "year": 2018,
+          "open_access": false
+        },
+        {
+          "ref": "Balme, J., O'Connor, S. & Fallon, S. (2018). New dates on dingo bones from Madura Cave provide oldest firm evidence for arrival of the species in Australia. Scientific Reports 8, 9933.",
+          "doi": "10.1038/s41598-018-28324-x",
+          "year": 2018,
+          "open_access": true
+        },
+        {
+          "ref": "Hiscock, P. (2002). Pattern and Context in the Holocene Proliferation of Backed Artifacts in Australia. Archaeological Papers of the American Anthropological Association 12, 163-177.",
+          "doi": "10.1525/ap3a.2002.12.1.163",
+          "year": 2002,
+          "open_access": false
+        },
+        {
+          "ref": "Mulvaney, D. J. & Kamminga, J. (1999). Prehistory of Australia. Allen & Unwin, Sydney. [The classic statement of the Australian Small Tool Tradition]",
+          "year": 1999,
+          "open_access": false
+        },
+        {
+          "ref": "Hiscock, P. (2008). Archaeology of Ancient Australia. Routledge, London. [On the pan-Australian, non-PN-specific distribution of small-tool technologies and the risk-reduction interpretation]",
+          "year": 2008,
+          "open_access": false
+        }
+      ],
+      "map_expression": "On the deep-time animation the Bouckaert dated phylogeographic backbone is the only real 'wind' — the particle flow radiating from the Gulf Plains origin (~5,578 BP median, 95% HPD 4,456–6,967 BP). This package thesis does NOT get its own dated migration arrows, because that would be dishonest twice over: (a) the dingo and backed artefacts are pan-Australian, spread among BOTH PN and non-PN speakers, so they are not a PN-lineage signal; (b) their dates postdate the root. Instead it renders as EVENT CHIPS pinned to the shared timeline at their OWN calibrated years — dingo firm date ~3.2 ka, SE backed-artefact peak ~3.5–4 ka, tula proliferation ~5 ka — deliberately positioned so the reader SEES them fall to the right of (later than) the 5.6 ka root, making the timing-mismatch objection legible rather than hidden. The dingo/backed-artefact distributions, if shown at all, are drawn as STATIC, undated context shading (a 'behavioural reorganisation happened here' band), never as animated dated fronts. The consensus meter for the causal claim is drawn faint/low; a hover note carries the honest caption: 'material-culture correlates in the same window — NOT shown to travel with the language; dates mostly postdate the linguistic root.' The standing 'a spreading language lineage is not a moving population' banner applies here with extra force."
+    },
+    {
+      "id": "dixon-family-tree-rejection",
+      "title": "Dixon's rejection of the family tree — Pama-Nyungan as a Sprachbund, not a genetic family (the dissent)",
+      "one_line": "R.M.W. Dixon argues that after tens of millennia of contact-driven convergence, most Australian languages form a diffusion area rather than a branching genetic tree, so 'Pama-Nyungan' is not a valid genetic subgroup and a dated Bayesian migration map misapplies the comparative method.",
+      "mechanism": "Dixon adapts Gould & Eldredge's punctuated-equilibrium model to language: for most of Australia's ~50,000–65,000-year linguistic history languages sat in long 'equilibrium' periods during which grammatical and lexical features diffused areally across a dialect continuum until neighbouring languages converged on shared regional prototypes, punctuated only rarely by expansion/split 'events'. On this reading the striking typological uniformity and the ~50% shared basic vocabulary between neighbours are products of deep convergence, not descent from a single Proto-Pama-Nyungan. Because the comparative method assumes a bifurcating tree diverging from a common ancestor, Dixon holds it cannot validly be applied to most of the continent, so 'Pama-Nyungan' is a Sprachbund (a diffusion/contact area) and any single dated, radiating migration map is an artefact of forcing tree logic onto areal data.",
+      "proponents": [
+        "R.M.W. Dixon, The Rise and Fall of Languages (Cambridge UP, 1997) — imports Gould & Eldredge's punctuated-equilibrium model into linguistics and argues most language history is equilibrium-phase areal diffusion",
+        "R.M.W. Dixon, Australian Languages: Their Nature and Development (Cambridge UP, 2002) — the full recasting of 'Australian'/'Pama-Nyungan' as a Sprachbund and the ~50% equilibrium basic-vocabulary claim",
+        "Dixon's earlier work (The Languages of Australia, 1980) had accepted broader grouping; he explicitly abandoned the Pama-Nyungan/Australian family concept by 1997–2002",
+        "Stephen J. Gould & Niles Eldredge — the punctuated-equilibrium concept Dixon borrows from evolutionary biology"
+      ],
+      "hard_facts": [
+        {
+          "fact": "Dixon states he was 'unable to find anything that reliably set Pama-Nyungan apart as a valid genetic group', and, ~15 years after his 1980 book, 'abandoned the idea that Australian or Pama-Nyungan were families', treating Australian instead as a Sprachbund.",
+          "source": "Dixon 1997 The Rise and Fall of Languages; Dixon 2002 Australian Languages (Cambridge UP); summarised in Wikipedia 'Pama–Nyungan languages' and Evans 2005 review"
+        },
+        {
+          "fact": "Dixon's equilibrium claim: neighbouring Australian languages tend to share on the order of ~50% of basic vocabulary as a diffusion-driven 'equilibrium level', which he reads as convergence rather than shared inheritance.",
+          "source": "Dixon 2002 Australian Languages: Their Nature and Development; characterised in Evans 2005, Oceanic Linguistics 44(1):242–286"
+        },
+        {
+          "fact": "Ken Hale's riposte cites >50 basic-vocabulary cognates showing REGULAR sound correspondences between Proto-Northern-and-Middle Pamic (Cape York Peninsula) and Proto-Ngayarta (Western Australia coast) ~3,000 km apart, plus shared pronominal/grammatical paradigms — classic comparative-method evidence of common descent.",
+          "source": "Ken Hale, quoted in Bowern 2010, Phil. Trans. R. Soc. B 365(1559):3845–3854, DOI 10.1098/rstb.2010.0013; also Wikipedia 'Pama–Nyungan languages'"
+        },
+        {
+          "fact": "Measured borrowing does not obscure descent for all but a few languages: Alpher & Nash (1999) find lexical-replacement/loan rates low enough that vertical transmission remains recoverable, and Bowern & Atkinson (2012) recover 25+ primary subgroups with a resolvable internal tree from basic vocabulary.",
+          "source": "Alpher & Nash 1999, Australian Journal of Linguistics 19(1):5–56; Bowern & Atkinson 2012, Language 88(4):817–845"
+        },
+        {
+          "fact": "A concrete high-borrowing datum that supports Dixon's diffusion emphasis: >50% of animal terms are loans in the Pama-Nyungan language Gurindji (McConvell), i.e. some domains do diffuse heavily even if core vocabulary does not.",
+          "source": "McConvell, cited in Bowern 2010, Phil. Trans. R. Soc. B 365(1559):3845–3854"
+        },
+        {
+          "fact": "Barry Alpher (2004) gives a first-principles phonological reconstruction defending Pama-Nyungan's status as a genuine phylogenetic group, pp. 93–126 of Bowern & Koch (eds), Australian Languages: Classification and the Comparative Method (CILT 249, John Benjamins).",
+          "source": "Alpher 2004, in Bowern & Koch (eds) 2004, John Benjamins; DOI 10.1075/cilt.249.09alp"
+        },
+        {
+          "fact": "The dated model Dixon says is misapplied yields a Pama-Nyungan root age of median 5,578 BP (95% HPD 4,456–6,967 BP) from 306 languages — but its DEEPEST branchings carry very low posterior support (~0.06–0.09), the one quantitative point where Dixon's 'weakly tree-like at the root' reading is corroborated.",
+          "source": "Bouckaert, Bowern & Atkinson 2018, Nature Ecology & Evolution 2:741–749, DOI 10.1038/s41559-018-0489-3"
+        }
+      ],
+      "evidence_for": [
+        "Australian languages are strikingly typologically uniform and largely lack the clean nested binary branching the comparative method expects — a pattern Dixon reads as areal convergence rather than radiation.",
+        "Very long occupation (~50,000–65,000 years) provides ample time for deep areal diffusion to blur family boundaries, unlike the shallow (~6 kya) time-depth the phylogenetic model assumes.",
+        "Dense, well-documented borrowing is genuinely pervasive across Australia — of vocabulary, and also of grammar, kinship terms and section/subsection ('skin') systems — so the diffusion Dixon foregrounds demonstrably exists (e.g. >50% of Gurindji animal terms are loans; subsection systems spread areally across language boundaries).",
+        "The deepest Pama-Nyungan splits in the state-of-the-art Bayesian tree have very low posterior support (~0.06–0.09), so the exact rooting and earliest branching order — precisely the part Dixon disputes — are in fact weakly resolved even by the quantitative model.",
+        "Dixon correctly flags a real methodological hazard: applying a bifurcating-tree model and treating a long-settled dialect continuum as a set of discrete branching taxa can manufacture apparent structure and dates from areal data."
+      ],
+      "evidence_against": [
+        "Ken Hale's decisive rebuttal: >50 basic-vocabulary cognates with REGULAR (rule-governed) sound correspondences between Proto-Northern-and-Middle Pamic and Proto-Ngayarta ~3,000 km apart, plus shared pronominal paradigms — the signature of common descent, not the sporadic, irregular resemblances that diffusion produces. Hale called Dixon's scepticism 'so bizarrely faulted... it positively demands a decisive riposte.'",
+        "Barry Alpher (2004) demonstrates Pama-Nyungan as a valid phylogenetic group from first-principles phonological reconstruction and reconstructed paradigmatic morphology — bound morphology and paradigms are borrowing-resistant, so their shared regularity cannot be waved off as a Sprachbund effect.",
+        "Bowern & Atkinson (2012) show measured loan rates are NOT atypically high and vertical transmission is recoverable (building on Alpher & Nash 1999); standard phylogenetic methods return a resolvable internal tree, so 'borrowing has erased the tree' is empirically false for all but a few languages.",
+        "Bouckaert et al. (2018) recover a coherent, spatially structured time-and-space signal (Gulf-Plains origin, ~5.6 kya, ecologically patterned diffusion) from the data — a pattern that pure long-term equilibrium/diffusion should not generate.",
+        "The equilibrium model requires a single stable linguistic area to persist over ~90% of a continent for tens of thousands of years — a magnitude of areal stasis unattested anywhere else in the world, whereas a mid-Holocene family expansion is an ordinary, cross-linguistically familiar process.",
+        "Nicholas Evans' book-length review (2005) grants Dixon's marshalling of data but rejects the core claims — that Australia needs a different method, that a ~50% equilibrium vocabulary level holds, and that Pama-Nyungan should be discarded — concluding the majority of Australianists disagree with Dixon on classification."
+      ],
+      "consensus": {
+        "level": "minority",
+        "note": "A serious, fully-cited minority position, not a fringe one: Dixon is an eminent Australianist and his emphasis on diffusion is widely respected and partly absorbed (network/dialect-geography models, McConvell's loanword stratigraphy). But on the specific claim that Pama-Nyungan is NOT a genetic family and the comparative method does not apply, the mainstream Australianist consensus (Hale, O'Grady, Bowern, Atkinson, Alpher, Koch, McConvell, Evans) rejects it as overstated and empirically rebutted; Bowern (2010) records that punctuated equilibrium is regarded as 'problematic and premature' relative to the comparative method."
+      },
+      "contestation": "What is disputed: (1) whether Pama-Nyungan is a genetic family at all (Dixon: no, a Sprachbund; mainstream: yes, demonstrated by regular sound correspondences, pronominal paradigms and reconstructible morphology) — this is the load-bearing disagreement; (2) whether the comparative method and a bifurcating tree can validly be applied to a long-settled dialect-continuum landscape (Dixon: no; Bowern: yes, with a network/dialect-geography refinement rather than a strict binary tree); (3) how much of the observed structure is descent vs. later areal diffusion — everyone agrees diffusion is real and pervasive (subsection systems, kinship, seed-grinding vocabulary), the fight is over WEIGHTING. Not resolvable here by us: the deepest-node rooting remains genuinely under-supported (posteriors ~0.06–0.09), so at the very root the quantitative evidence is too weak to fully adjudicate Dixon's strongest sub-claim, even though his family-level rejection is rejected. Gap: Dixon's own 1997/2002 books are not open-access and are cited via their scholarly reviews (Evans 2005; Bowern 2010) and reference summaries rather than the primary text directly.",
+      "citations": [
+        {
+          "ref": "Dixon, R. M. W. (1997). The Rise and Fall of Languages. Cambridge: Cambridge University Press.",
+          "year": 1997,
+          "open_access": false
+        },
+        {
+          "ref": "Dixon, R. M. W. (2002). Australian Languages: Their Nature and Development. Cambridge: Cambridge University Press.",
+          "year": 2002,
+          "open_access": false
+        },
+        {
+          "ref": "Bowern, C. (2010). Historical linguistics in Australia: trees, networks and their implications. Philosophical Transactions of the Royal Society B 365(1559): 3845–3854 (records Hale's >50-cognate / ~3,000 km riposte and the 'punctuated equilibrium is problematic and premature' consensus).",
+          "doi": "10.1098/rstb.2010.0013",
+          "year": 2010,
+          "open_access": true
+        },
+        {
+          "ref": "Bowern, C. & Atkinson, Q. (2012). Computational phylogenetics and the internal structure of Pama-Nyungan. Language 88(4): 817–845 (25+ subgroups recovered; loan rates within normal phylogenetic range).",
+          "doi": "10.1353/lan.2012.0081",
+          "year": 2012,
+          "open_access": false
+        },
+        {
+          "ref": "Evans, N. (2005). Australian languages reconsidered: A review of Dixon (2002). Oceanic Linguistics 44(1): 242–286.",
+          "doi": "10.1353/ol.2005.0020",
+          "year": 2005,
+          "open_access": false
+        },
+        {
+          "ref": "Alpher, B. (2004). Pama-Nyungan: Phonological reconstruction and status as a phylogenetic group. In C. Bowern & H. Koch (eds), Australian Languages: Classification and the Comparative Method (CILT 249), pp. 93–126. Amsterdam: John Benjamins.",
+          "doi": "10.1075/cilt.249.09alp",
+          "year": 2004,
+          "open_access": false
+        },
+        {
+          "ref": "Alpher, B. & Nash, D. (1999). Lexical replacement and cognate equilibrium in Australia. Australian Journal of Linguistics 19(1): 5–56 (loan/replacement rates low enough to preserve recoverable descent).",
+          "doi": "10.1080/07268609908599573",
+          "year": 1999,
+          "open_access": false
+        },
+        {
+          "ref": "Bouckaert, R. R., Bowern, C. & Atkinson, Q. D. (2018). The origin and expansion of Pama-Nyungan languages across Australia. Nature Ecology & Evolution 2: 741–749 (the dated model Dixon says is misapplied; deep-node posteriors ~0.06–0.09).",
+          "doi": "10.1038/s41559-018-0489-3",
+          "year": 2018,
+          "open_access": false
+        }
+      ],
+      "map_expression": "Dixon's card is the atlas's meta-caveat made into a first-class thesis: selecting it should DISABLE the dated 'wind', not add another arrow. Honestly rendered, it (1) freezes/greys the Bouckaert particle-flow and pins a banner — 'The tree itself is contested. This animation is ONE model (Bouckaert et al. 2018), not established fact; on Dixon's view Pama-Nyungan is a diffusion area, not a dated migration.' (2) Re-skins Pama-Nyungan not as a point-source radiating from the Gulf but as a continent-wide static convergence/Sprachbund SHADING with no origin node and no dated arrows — visually asserting 'areal, not genealogical.' (3) Uses the model's own weakness as Dixon's strongest visual ally: the deepest-node posteriors (~0.06–0.09) are drawn faintest/most transparent, and the card explicitly labels them as the one place the quantitative evidence concedes the root is weakly tree-like. (4) Leaves the non-Pama-Nyungan northern families exactly as they already are — static, undated context — since Dixon's dissent is about PN's genealogical status, not those older families; nothing here is ever animated as 'people arriving.' The consensus meter must read this as a respected MINORITY position: present with full weight, but paired with Hale's regular-correspondence rebuttal and the standing 'a spreading language lineage is not a moving population' caveat so a historian sees both the dissent and why the field mostly does not follow it."
+    },
+    {
+      "id": "archaeogenetics-people-stayed",
+      "title": "Archaeogenetics: the people were continuous — the language moved, the population (largely) did not",
+      "one_line": "Historical-hair and modern Aboriginal genomes show deep in-situ regional population continuity for tens of millennia, so the mid-Holocene Pama-Nyungan language spread was overwhelmingly language shift among resident communities, not a continental population replacement.",
+      "mechanism": "Whole-genome (Malaspinas et al. 2016) and historical-hair mitogenome (Tobler et al. 2017) datasets test whether the ~5.6 kya linguistic expansion was accompanied by a matching movement of people. The dominant reading: mitochondrial haplogroups show strong geographic patterning and deep splits implying continuous occupation of discrete regions back to ~50 ka, while nuclear genomes trace all sampled Pama-Nyungan speakers to a single founding population that differentiated ~10–32 kya — structure far older than, and not overwritten by, the Holocene spread. Because deep genetic continuity (~50 ka) vastly outdates the shallow linguistic spread (~5.6 ka), the two signals decoupled: the language propagated through existing groups via contact, marriage networks and social transmission, with at most a limited demic pulse out of northeast Australia. Hence \"continuity of people, movement of language.\"",
+      "proponents": [
+        "Ray Tobler, Alan Cooper & colleagues — Tobler et al. 2017, Nature (111 historical-hair mitogenomes; Aboriginal Heritage Project, Univ. of Adelaide)",
+        "Anna-Sapfo Malaspinas, Michael Westaway, Eske Willerslev & colleagues — Malaspinas et al. 2016, Nature (83 high-coverage Aboriginal nuclear genomes)",
+        "Claire Bowern — integrates the genetic result into the Pama-Nyungan Origins reconciliation: languages spread as a 'cultural package' that 'probably facilitated the absorption and assimilation of existing hunter-gatherer groups'",
+        "Silcocks et al. 2023, Nature (National Centre for Indigenous Genomics) — reinforces deep population structure and rich novel variation"
+      ],
+      "hard_facts": [
+        {
+          "fact": "Tobler et al. 2017 analysed 111 mitochondrial genomes from historical Aboriginal hair samples (collected 1920s–1970s); marked geographic patterning and deep haplogroup splits imply continuous regional occupation persisting ~50,000 years despite Pleistocene/Holocene climatic and cultural change.",
+          "source": "Tobler et al. 2017, Nature 544:180–184; DOI 10.1038/nature21416"
+        },
+        {
+          "fact": "Tobler et al. infer a single rapid coastal migration that reached southern Australia by ~49–45 ka, after which strong regional mtDNA structure formed and survived to the present — i.e. no Holocene population sweep overwriting the continent.",
+          "source": "Tobler et al. 2017, Nature 544:180–184; DOI 10.1038/nature21416"
+        },
+        {
+          "fact": "Malaspinas et al. 2016 generated 83 high-coverage Aboriginal Australian genomes (+25 Papuan); all descend from a single founding population that differentiated ~10–32 kya; Aboriginal/Papuan divergence ~25–40 kya; out-of-Africa divergence from Eurasians ~51–72 kya.",
+          "source": "Malaspinas et al. 2016, Nature 538:207–214; DOI 10.1038/nature18299"
+        },
+        {
+          "fact": "Malaspinas et al. detected a Holocene population expansion in NE Australia associated with LIMITED gene flow from that region to the rest of the continent, described as 'consistent with the spread of the Pama-Nyungan languages' — a small demic signal, not a mass migration.",
+          "source": "Malaspinas et al. 2016, Nature 538:207–214; DOI 10.1038/nature18299"
+        },
+        {
+          "fact": "Order-of-magnitude mismatch: human presence in Australia is ~50–65 ka whereas the Pama-Nyungan linguistic root is median ~5,578 BP (95% HPD ~4,456–6,967 BP) — genetic continuity outdates the language spread by roughly ten-fold, the load-bearing quantitative basis for 'language moved, people did not.'",
+          "source": "Tobler et al. 2017 (Nature 544:180–184) & Bouckaert, Bowern & Atkinson 2018 (Nat. Ecol. Evol. 2:741–749, DOI 10.1038/s41559-018-0489-3)"
+        }
+      ],
+      "evidence_for": [
+        "Tobler 2017: 111 historical-hair mitogenomes show deep, geographically stable haplogroup structure back to ~50 ka — no signature of a Holocene population replacement coinciding with the ~5.6 kya language spread.",
+        "Malaspinas 2016: 83 nuclear genomes trace to one founding population differentiating ~10–32 kya with strong internal structure predating the Holocene — resident populations, not incomers, carried the language.",
+        "The temporal mismatch itself (continuity ~50 ka vs spread ~5.6 ka) is positive evidence that language and genes decoupled, i.e. language shift dominated over demic replacement.",
+        "The only detectable Holocene demographic signal (Malaspinas) sits in NE Australia, near the linguistically reconstructed Gulf origin region — so what movement there was is small-scale and localised to the origin zone, not continental.",
+        "Bowern and the Pama-Nyungan Origins project read the combined data as a spread of language and a 'cultural package' absorbing existing groups — the mainstream reconciliation of the linguistic and genetic evidence.",
+        "Silcocks et al. 2023 (Nature, National Centre for Indigenous Genomics) independently reports deep population structure and rich novel variation, further supporting long in-situ regionalism."
+      ],
+      "evidence_against": [
+        "The same paper cited FOR continuity (Malaspinas 2016) also reports a genuine NE-Australia Holocene expansion with limited outward gene flow 'consistent with the spread of Pama-Nyungan' — i.e. a real (if small) demic component exists; 'people did not move' is too strong, the honest claim is 'people largely did not move.' (Malaspinas et al., Eske Willerslev group)",
+        "Genetic sampling is sparse and geographically incomplete (83 nuclear genomes; 111 mitogenomes); a modest demic movement could be under-detected, especially if language was carried by small, mobile founder groups whose genetic trace is diluted into resident populations.",
+        "Australia has almost no ancient-DNA time-transect (few sequenced ancient genomes, partly due to ICIP/repatriation constraints), so 'no population sweep' is inferred largely from modern/historical DNA rather than directly observed through time — a weaker inference than a dated aDNA series would give.",
+        "mtDNA (maternal) and even nuclear continuity do not preclude language shift being FACILITATED by demographically minor but socially influential incoming groups; genetic continuity constrains but does not fully resolve the demic-vs-shift proportion.",
+        "The size of the NE demic component is unquantified — how much of the continental spread it accounts for is genuinely open; critics note the reconciliation ('mostly shift, limited demic') is a qualitative consensus, not a measured split.",
+        "This card depends on accepting the Bouckaert ~5.6 kya linguistic date as the comparison anchor; if Dixon's tree-rejection or a different rooting were right, the 'mismatch' framing that powers the argument would itself be contested."
+      ],
+      "consensus": {
+        "level": "mainstream",
+        "note": "Broad Australianist and archaeogenetic consensus that genomes show deep regional continuity (~50 ka) and that the mid-Holocene spread was PREDOMINANTLY language shift with at most a limited demic component from NE Australia (endorsed by Bowern and the Pama-Nyungan Origins group, and by the source geneticists). What remains genuinely open/contested is the SIZE of the demic component — Malaspinas's own NE-expansion signal shows it is non-zero — so 'people did not move at all' is a minority overstatement of a mainstream 'people largely did not move.'"
+      },
+      "contestation": "The qualitative claim (deep continuity, spread by shift) is not seriously disputed; the contested cell is the DEMIC PROPORTION. Malaspinas et al. 2016 themselves report a Holocene NE-Australia expansion with limited gene flow 'consistent with the spread of Pama-Nyungan' — the strongest evidence FOR a demic component — while Tobler et al. 2017 emphasise 50 ka of unbroken regionalism. Reconciling a ~6 kya language date with 30,000+ years of genetic continuity is explicitly flagged by the field as unresolved. Two verification gaps to flag honestly: (1) I could not fully fetch Silcocks et al. 2023 (Nature s41586-023-06831-w; PMC10733150) — cited from search abstracts only, numbers not independently verified here, so it is used as corroboration not as a hard_fact source; (2) the absence of an Australian ancient-DNA time-series means 'no population sweep' is an inference from present-day structure, not a directly dated observation.",
+      "citations": [
+        {
+          "ref": "Tobler, R., Rohrlach, A., Soubrier, J. et al. (2017). Aboriginal mitogenomes reveal 50,000 years of regionalism in Australia. Nature 544, 180–184.",
+          "doi": "10.1038/nature21416",
+          "year": 2017,
+          "open_access": false
+        },
+        {
+          "ref": "Malaspinas, A.-S., Westaway, M.C., Muller, C. et al. (2016). A genomic history of Aboriginal Australia. Nature 538, 207–214.",
+          "doi": "10.1038/nature18299",
+          "year": 2016,
+          "open_access": false
+        },
+        {
+          "ref": "Bouckaert, R.R., Bowern, C. & Atkinson, Q.D. (2018). The origin and expansion of Pama–Nyungan languages across Australia. Nature Ecology & Evolution 2, 741–749. (Provides the ~5,578 BP linguistic root the continuity argument is measured against, and discusses the genetic reconciliation.)",
+          "doi": "10.1038/s41559-018-0489-3",
+          "year": 2018,
+          "open_access": false
+        },
+        {
+          "ref": "Silcocks, M., Farlow, A., Hermes, A. et al. (2023). Indigenous Australian genomes show deep structure and rich novel variation. Nature 624, 593–601. (Corroborating deep structure; cited from abstract, figures not independently verified in this card.)",
+          "doi": "10.1038/s41586-023-06831-w",
+          "year": 2023,
+          "open_access": true
+        }
+      ],
+      "map_expression": "This thesis is the deep-time map's STANDING CAVEAT, not a dated 'wind.' The animated Bouckaert phylogeographic spread depicts a LANGUAGE lineage radiating from the Gulf Plains origin; this card is the reason that animation must never be narrated as people arriving or a population front advancing. Honest rendering: (1) a permanent, always-visible banner — 'This dates the movement of a language lineage reconstructed from vocabulary, not the movement of people; populations show deep regional continuity for ~50,000 years.' (2) The ~50 ka mtDNA regionalism (Tobler) is drawn as STATIC deep-time substrate that predates and underlies the whole spread animation — background context, never animated as movement. (3) The one genuine demographic signal — Malaspinas's limited NE-Australia Holocene gene flow — may be shown as a faint, explicitly UNDATED glow near the Gulf origin, drawn weak to reflect its small, uncertain magnitude, and never as a migrating arrow. (4) A consensus meter marks the qualitative claim (continuity + shift) as broad-consensus while flagging the demic proportion as unresolved, so the reader sees that genetics constrains but does not fully resolve whether — and how much — people moved."
+    }
+  ],
+  "synthesis": {
+    "intro": "One language family, Pama-Nyungan, came to cover roughly seven-eighths of the Australian continent — and it did so among hunter-gatherers who never farmed, on Country that had been continuously inhabited for tens of millennia. That single sentence contains the whole puzzle. Everywhere else on Earth, the largest language families (Indo-European, Austronesian, Bantu, Sino-Tibetan) are usually explained as demographic surges powered by agriculture: farming raises population density and lets farmer-speakers absorb or displace foragers, carrying their language with their bodies. Australia had no agriculture, no domesticated food crops, no livestock — the dingo is the only pre-colonial domesticate and it is not a food species and arrives late. So the ordinary engine is simply absent, and the question \"why did the languages move?\" has no off-the-shelf answer.\n\nThe honest state of the field is that the WHEN is fairly well fixed, the WHERE is loosely fixed, and the WHY is genuinely open. There is a mainstream quantitative reconstruction — a Bayesian phylogeography rooting the family near the Gulf of Carpentaria in the mid-Holocene (~5,578 BP median; ~4,500–7,000 BP window) — but its deepest branchings, the very nodes that fix the origin point and the rooting, carry weak posterior support (~0.06–0.09). Layered on top is a hard genetic constraint: genomes show deep in-situ regional continuity for ~50,000 years with no Holocene population sweep, so whatever moved, it was overwhelmingly the LANGUAGE, not the people. That reframing is load-bearing for the entire section: a spreading language lineage is not a migrating population, and the atlas must never narrate the animated spread as \"people arriving.\"\n\nThis section is built as a contradiction-preserving matrix rather than a verdict. The eight theses are not eight rival answers to one question; they operate on different layers (a dated tree, a mechanism, an ecological trigger, a material-culture package, a later social-diffusion overlay, a genetic constraint, and a root-and-branch denial that any tree exists at all). Some can be true together; some genuinely cannot; a few barely touch. We hold them side by side, anchored to their sources, with the strongest dissent — Dixon's rejection of Pama-Nyungan as a genetic family — preserved as first-class rather than filed under \"settled against.\" The reader should leave able to see exactly where the evidence is solid, where it is weak, and where two respected readings simply point in opposite directions.",
+    "how_they_relate": [
+      {
+        "pair": [
+          "bayesian-gulf-expansion",
+          "archaeogenetics-people-stayed"
+        ],
+        "relation": "complementary (and mutually constraining): the phylogeography dates a LANGUAGE lineage radiating from the Gulf ~5.6 ka; the genetics show the PEOPLE stayed put with ~50 ka regional continuity. Both can be — and in the mainstream reconciliation both are — true at once, precisely because language and genes decoupled. Archaeogenetics is the standing caveat that keeps the Gulf animation honest (language, not migration)."
+      },
+      {
+        "pair": [
+          "bayesian-gulf-expansion",
+          "spread-without-farming"
+        ],
+        "relation": "complementary: 'no farming' is a property of the same event the Bayesian model dates. Together they are consistent (a real mid-Holocene family expansion with no agricultural engine). Their combination is what makes the case globally significant and what forces the 'advantage' question."
+      },
+      {
+        "pair": [
+          "bayesian-gulf-expansion",
+          "demic-vs-shift-punctuated"
+        ],
+        "relation": "nested: demic-vs-shift is not a rival reconstruction but the MECHANISM layer of the very same Gulf expansion — it asks whether the dated radiation rode on moving bodies or shifting tongues. It inherits the Bayesian tree (including its weak deep-node support) as its object of study."
+      },
+      {
+        "pair": [
+          "demic-vs-shift-punctuated",
+          "archaeogenetics-people-stayed"
+        ],
+        "relation": "nested/adjudicating: archaeogenetics supplies the evidence that tips the demic-vs-shift debate toward SHIFT — deep continuity plus only a limited NE-Australia gene-flow signal. They agree the honest answer is 'mostly shift, limited demic,' and jointly flag the unresolved cell as the SIZE of the demic component."
+      },
+      {
+        "pair": [
+          "spread-without-farming",
+          "small-tool-backed-artefact-dingo"
+        ],
+        "relation": "complementary: 'if not farming, then what?' is answered (tentatively) by the material-culture package. The package card is the candidate 'advantage' that the no-farming card says must exist — and both are held cautiously, since the proponents themselves call the mechanism 'a mystery.'"
+      },
+      {
+        "pair": [
+          "enso-climate-driver",
+          "small-tool-backed-artefact-dingo"
+        ],
+        "relation": "complementary but co-vulnerable: both are mid-to-late-Holocene correlates in the same window, both largely POSTDATE the ~5.6 ka root, and both lean on the same archaeologist (Hiscock) for chronology while he rejects the causal reading. They rise and fall together as 'real dated signals, weak causal link.'"
+      },
+      {
+        "pair": [
+          "mcconvell-kinship-loanword-wave",
+          "bayesian-gulf-expansion"
+        ],
+        "relation": "complementary and later-in-time: McConvell's kinship/subsection/loanword WAVES overprint the tree in the shallow late Holocene (~last 1–2 kyr) and are explicitly presented as complementing, not competing with, the phylogeographic backbone. They date social reorganisation, not the original spread."
+      },
+      {
+        "pair": [
+          "enso-climate-driver",
+          "bayesian-gulf-expansion"
+        ],
+        "relation": "nested-with-tension: ENSO is offered as the ultimate CAUSE of the reorganisation the Gulf spread rode, but ENSO onset (~5,000–4,000 BP) postdates the median root, so it cannot be the sole initiating trigger — a candidate cause in productive tension with the thing it would explain."
+      },
+      {
+        "pair": [
+          "dixon-family-tree-rejection",
+          "bayesian-gulf-expansion"
+        ],
+        "relation": "directly competing (the load-bearing conflict): Dixon denies there is a valid genetic tree to date at all, reading the same data as a Sprachbund produced by tens of millennia of areal convergence. If Dixon is right, the entire dated migration map is a category error; if the mainstream is right, his equilibrium model over-reads real diffusion."
+      },
+      {
+        "pair": [
+          "dixon-family-tree-rejection",
+          "mcconvell-kinship-loanword-wave"
+        ],
+        "relation": "competing on WEIGHTING, not on facts: both foreground diffusion, but McConvell holds that a descent tree and datable wave-layers coexist and are separable (citing low ~5% loan rates), whereas Dixon reads pervasive borrowing as dissolving the family altogether. McConvell's own low-loan-rate evidence is a direct counter to Dixon."
+      },
+      {
+        "pair": [
+          "mcconvell-kinship-loanword-wave",
+          "enso-climate-driver"
+        ],
+        "relation": "largely independent: one tracks late-Holocene SOCIAL diffusion (skin systems, kinship terms), the other a mid-Holocene CLIMATE trigger; they address different layers and different questions and neither strongly depends on the other."
+      },
+      {
+        "pair": [
+          "spread-without-farming",
+          "archaeogenetics-people-stayed"
+        ],
+        "relation": "independent axes that reinforce each other: 'no farming' removes the demographic engine, and 'people largely stayed' removes the migrating population — both independently push the explanation toward social transmission / language shift rather than a demic wave."
+      }
+    ],
+    "conflicts": [
+      "Is Pama-Nyungan a genetic family at all? Dixon (1997, 2002) says no — it is a diffusion area / Sprachbund produced by tens of millennia of areal convergence, so a bifurcating tree and the comparative method do not apply and no 'expansion date' is meaningful. The mainstream (Hale, Alpher, Bowern, Atkinson, O'Grady, Koch, Evans) says yes — >50 regular sound correspondences over ~3,000 km, shared pronominal paradigms and reconstructible bound morphology are the signature of common descent, not diffusion.",
+      "Did people move or did the language move? Demic diffusion (an expanding population physically carried the language and a cultural package) versus language shift (resident populations adopted the incoming language). The prevailing reconciliation is 'mostly shift with a limited NE-Australia demic component,' but the SIZE of that demic component is unquantified and genuinely open — Malaspinas's own NE-expansion signal shows it is non-zero, so 'people did not move' is an overstatement of a mainstream 'people largely did not move.'",
+      "Was mid-Holocene climate (ENSO intensification) the CAUSE of the spread? Two neutral facts sit in tension: ENSO onset (~5,000–4,000 BP, dated 4.5–2 ka by Williams et al.) postdates the ~5,578 BP median root, and on the very continental radiocarbon population curve invoked for the thesis, the ENSO window is a period of demographic CONTRACTION (~26% territory loss), with the booms falling in the 9–6 ka optimum (before the root) and the post-2 ka recovery (after it). So the proposed 'driver' and the proposed demographic 'response' are misaligned.",
+      "Does Pama-Nyungan REFUTE the farming/language-dispersal hypothesis? One camp treats it as the flagship counterexample (a continent-scale family that spread with no agriculture). The Bellwood-aligned reading counters that the hypothesis only ever claimed to explain agriculture-driven dispersals, so PN is out of scope, not a refutation — a scope/semantic dispute rather than an empirical one.",
+      "Did the material-culture 'package' (Australian Small Tool Tradition, backed artefacts, dingo) carry or enable the spread? The dates are consensus-grade but mostly POSTDATE the median root (dingo firm date 3.3–3.1 ka; backed-artefact peak ~3.5–4 ka), and the technologies are pan-Australian (reaching non-PN speakers too), so no artefact type has been shown to track the PN lineage specifically. Proponents claim only 'possible associations'; Hiscock reads the same backed-artefact record as a local ENSO risk-reduction response, not a migration marker.",
+      "Tree versus wave — how much of the observed structure is descent versus later areal diffusion? Everyone agrees diffusion is real and pervasive (subsection systems, kinship terms, seed-grinding vocabulary crossing family boundaries); the fight is over weighting. At the very deepest nodes the quantitative evidence is genuinely too weak (posteriors ~0.06–0.09) to fully adjudicate, which is the one place Dixon's 'weakly tree-like at the root' reading is corroborated even though his family-level rejection is not."
+    ],
+    "conflicts_note": "placeholder",
+    "shared_hard_facts": [
+      {
+        "fact": "Deep, continuous human presence in Australia on the order of ~50–65 ka; initial settlement reached southern Australia by ~49–45 ka and strong regional mtDNA structure then persisted ~50,000 years.",
+        "source": "Tobler et al. 2017, Nature 544:180–184, DOI 10.1038/nature21416"
+      },
+      {
+        "fact": "Pama-Nyungan covers ~90% (roughly seven-eighths) of the Australian continent; the analysis rests on 306 languages, and it is the world's largest language family to have spread among hunter-gatherers.",
+        "source": "Bouckaert, Bowern & Atkinson 2018, Nature Ecology & Evolution 2:741–749, DOI 10.1038/s41559-018-0489-3"
+      },
+      {
+        "fact": "The Pama-Nyungan expansion is mid-to-late Holocene: root age median ~5,578 BP, 95% HPD ~4,456–6,967 BP (the paper frames the origin as between ~4,500 and 7,000 years ago) — an order of magnitude younger than human presence.",
+        "source": "Bouckaert, Bowern & Atkinson 2018, Nat. Ecol. Evol. 2:741–749, DOI 10.1038/s41559-018-0489-3"
+      },
+      {
+        "fact": "Australia is the only permanently inhabited continent on which agriculture did not independently develop; pre-1788 Aboriginal economies had no domesticated food crops or livestock, so the family spread with no farming.",
+        "source": "Bellwood & Renfrew (eds) 2002, Examining the Farming/Language Dispersal Hypothesis, McDonald Institute (framing)"
+      },
+      {
+        "fact": "The deepest / earliest branchings of the Bayesian tree carry very low posterior support (~0.06–0.09), while shallow subgroup nodes are strongly supported (0.87–1.0) — the precise where/when of the origin is genuinely uncertain.",
+        "source": "Bouckaert, Bowern & Atkinson 2018, Nat. Ecol. Evol. 2:741–749 (parsed BEAST node posteriors)"
+      },
+      {
+        "fact": "Genomes trace all sampled Aboriginal Australians to a single founding population that differentiated ~10–32 kya, with a Holocene population expansion in NE Australia associated with only LIMITED outward gene flow 'consistent with the spread of the Pama-Nyungan languages' — a small demic signal, not a mass migration.",
+        "source": "Malaspinas et al. 2016, Nature 538:207–214, DOI 10.1038/nature18299"
+      },
+      {
+        "fact": "The dingo's oldest firm directly-dated remains are 3,348–3,081 cal BP (Madura Cave), and the SE-Australian backed-artefact proliferation peaks c. 3,500–4,000 cal BP — both POSTDATE the ~5,578 BP median linguistic root.",
+        "source": "Balme, O'Connor & Fallon 2018, Scientific Reports 8:9933, DOI 10.1038/s41598-018-28324-x; Hiscock 2002, Archaeological Papers of the AAA 12:163, DOI 10.1525/ap3a.2002.12.1.163"
+      },
+      {
+        "fact": "A real, well-dated mid-Holocene climate shift occurred: peak effective moisture 7–6 ka, then near-modern aridity by ~5 ka and an ENSO-dominated, drier, more variable regime established from ~5,000 BP.",
+        "source": "Quigley, Horton, Hellstrom, Cupper & Sandiford 2010, The Holocene 20(7):1093–1104, DOI 10.1177/0959683610369508"
+      },
+      {
+        "fact": "Measured borrowing in northern Australian / hunter-gatherer basic vocabulary is low (mean 5.06%, median 2.49%) — within the range where the comparative method still recovers inheritance, so descent and later diffusion-layers are statistically separable.",
+        "source": "Bowern, Epps, Gray, Hill, Hunley, McConvell & Zentz 2011, PLoS ONE 6(9):e25195, DOI 10.1371/journal.pone.0025195"
+      },
+      {
+        "fact": "Diffusion is demonstrably real and pervasive: subsection ('skin') 8-class systems and affinal kinship terms spread as areal waves ACROSS and beyond Pama-Nyungan, including into non-PN languages of the north — social institutions that travelled independently of language descent.",
+        "source": "McConvell 1985, Oceania 56(1):1–25; McConvell, Kelly & Lacrampe (eds) 2018, Skin, Kin and Clan, ANU Press, DOI 10.22459/SKC.04.2018"
+      }
+    ],
+    "reading_order": [
+      "bayesian-gulf-expansion — start here: it is the dated backbone ('the wind') and the object every other card reacts to. Learn the Gulf origin, the ~5.6 ka root, and immediately the weak deep-node posteriors, so uncertainty is baked in from the first read.",
+      "archaeogenetics-people-stayed — read second, because it instantly reframes the animation: ~50 ka population continuity means the language moved, not the people. This is the standing caveat that governs how every later card must be read.",
+      "demic-vs-shift-punctuated — the mechanism crux that bridges the first two: given the tree and given genetic continuity, did bodies or tongues move? Establishes 'mostly shift, limited demic' and names the unresolved cell (the demic proportion).",
+      "spread-without-farming — zoom out to why this case matters globally: no agricultural engine, so what was the 'advantage'? Sets up the search for a non-farming mechanism and shows the question may itself be mis-framed if the spread was shift.",
+      "small-tool-backed-artefact-dingo — the leading candidate answer to 'what advantage?': a real, dated material-culture pulse — but read carefully, most of it postdates the root and is pan-Australian, so it is correlation, not demonstrated cause.",
+      "enso-climate-driver — the candidate ULTIMATE cause (climate reorganised resources). Read with the timing/direction paradox in full view: ENSO onset postdates the root and the invoked population curve shows contraction, not expansion, in the ENSO window.",
+      "mcconvell-kinship-loanword-wave — the later overprinting layer: social institutions and vocabulary diffusing as late-Holocene waves. Explicitly complementary to the backbone; shows the continent kept reorganising long after the original spread.",
+      "dixon-family-tree-rejection — read LAST, deliberately: the meta-dissent that would dissolve the entire frame (no genetic family, no dated migration). Placed at the end so the reader can weigh it against everything already seen — the tree's own weak root corroborates part of it, while Hale's regular correspondences and the low loan rates are why the field mostly does not follow it."
+    ],
+    "caveats": [
+      "The exact origin point and rooting are weakly resolved: deep-node posteriors are ~0.06–0.09 and the 95% HPD on the root alone spans ~2,500 years (4,456–6,967 BP). Treat the Gulf point and the ~5,578 BP median as a best estimate with visible uncertainty, not a fixed fact.",
+      "The demic-vs-shift PROPORTION is unquantified. 'Mostly language shift with a limited NE-Australia demic component' is a qualitative consensus, not a measured split; Malaspinas's NE-expansion signal shows the demic component is non-zero, so 'the people did not move' overstates a mainstream 'the people largely did not move.'",
+      "There is essentially no Australian ancient-DNA time-transect, so 'no Holocene population sweep' is inferred from modern and historical-hair DNA rather than directly observed through time — a weaker inference than a dated aDNA series would provide (and partly constrained by ICIP/repatriation ethics).",
+      "The dispersal-rate figures are approximate: the ~0.14 km/yr average and the '~2× slower near water' multiplier are surfaced qualitatively / from secondary summaries and were not verified verbatim against the paper's supplementary tables. Present them as approximate.",
+      "Citation hygiene: the low basic-vocabulary loan-rate result is Bowern et al. 2011 (PLoS ONE, with McConvell a co-author), NOT 'Bowern & Atkinson 2012' as one atlas draft states — do not propagate that mis-citation.",
+      "Several attributions are inferred rather than directly sourced and are flagged as such in the cards: no named Bellwood-camp paper explicitly rebuts the PN 'counterexample' framing in print (the scope objection is reconstructed from Bellwood & Renfrew 2002); the Asmussen 2012 DOI and exact Hiscock 2002 page range were not independently re-verified this session; Silcocks et al. 2023 is used as corroboration from its abstract only; and Dixon's 1997/2002 books are cited via reviews (Evans 2005; Bowern 2010) rather than the primary text.",
+      "Preserve the dissent as first-class. Dixon's rejection of Pama-Nyungan as a genetic family is a serious, fully-cited minority position, not a fringe one; the map must be able to DISABLE the dated animation and re-skin PN as an areal Sprachbund, paired with Hale's regular-correspondence rebuttal so the reader sees both the dissent and why the field mostly does not follow it.",
+      "Cross-cutting honesty rule for every card: the animation dates a LANGUAGE lineage reconstructed from vocabulary, never the arrival of people. Non-Pama-Nyungan northern families are static, undated classification context and must never be rendered as dated migration arrows."
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "data_release_version": "1.1.0",
+  "build_stamp": "2026-07-12T00:00:00Z",
+  "build_date": "2026-07-12",
+  "derived_license": "CC-BY-4.0",
+  "files": [
+    {
+      "file": "languages.csv",
+      "description": "One row per genuine languoid: identity, family, coordinates + provenance, tier, endangerment, grammar/lexicon coverage, deep-time divergence and full classification chain.",
+      "rows": 980,
+      "bytes": 170019
+    },
+    {
+      "file": "languages.geojson",
+      "description": "GeoJSON FeatureCollection of the 809 located languages (Point geometry); the 171 unlocated languoids are honestly omitted, never given a fake point.",
+      "rows": 809,
+      "bytes": 478686
+    },
+    {
+      "file": "grammar-values.csv",
+      "description": "Long-format grammatical feature codings (one row per language × feature). value/present/absent/unknown(?) states kept distinct — read the state column; unknown = not recorded.",
+      "rows": 30351,
+      "bytes": 4471640
+    },
+    {
+      "file": "theses.json",
+      "description": "The 8 \"why did the languages move?\" scholarly theses, contradiction-preserving — each with mechanism, proponents, evidence for AND against, hard facts, contestation level and full citations (with DOIs).",
+      "rows": 8,
+      "bytes": 129099
+    },
+    {
+      "file": "sources.bib",
+      "description": "BibTeX for the upstream datasets and the 48 scholarly references behind the movement theses (DOIs as published). Includes an entry for citing the atlas itself.",
+      "rows": 56,
+      "bytes": 27221
+    },
+    {
+      "file": "CITATION.cff",
+      "description": "Citation File Format metadata for the atlas itself (title, authors, version, licence, release date, upstream references) — machine-readable \"cite this\".",
+      "rows": null,
+      "bytes": 2877
+    },
+    {
+      "file": "README.md",
+      "description": "Data dictionary: every file + column, the per-source licences, how to cite, and the honesty/uncertainty notes.",
+      "rows": null,
+      "bytes": 8388
+    }
+  ]
+}
