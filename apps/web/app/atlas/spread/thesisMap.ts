@@ -2,7 +2,7 @@
 //
 // This is authored, per-thesis framing content (each card in data/atlas/theses.json
 // carries a `map_expression` describing exactly what its map should do). It is NOT a
-// classifier or a brittle synonym table — it is the map-side rendering of eight
+// classifier or a brittle synonym table — it is the map-side rendering of nine
 // specific, sourced scholarly cards. The contract, per the atlas honesty rules:
 //   - only Pama-Nyungan is DATED ("the wind"); no thesis fabricates a second animation;
 //   - Dixon's dissent DISABLES the wind (freeze) rather than adding an arrow;
@@ -48,6 +48,11 @@ export const THESIS_MAP: Record<string, ThesisMapConfig> = {
     mode: 'wind',
     overlayNote:
       'Kinship and “skin”-system waves are a LATER late-Holocene overlay (~last 1–2 kyr) that crosses family boundaries — social diffusion overprinting the tree, explicitly NOT the Bouckaert dated backbone.',
+  },
+  'analogy-morphological-change': {
+    mode: 'wind',
+    overlayNote:
+      'A different KIND of answer: analogy is HOW the word-forms and paradigms were reshaped as the family diversified — a change in the grammar, not a line on the map. The wind shows where the family spread; analogy is the form-change carried along it, and leaves no dated geographic signal.',
   },
   'dixon-family-tree-rejection': {
     mode: 'freeze',

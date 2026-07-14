@@ -23,6 +23,7 @@ const CHIP_LABEL: Record<string, string> = {
   'small-tool-backed-artefact-dingo': 'Small-tool / dingo package',
   'enso-climate-driver': 'ENSO climate trigger',
   'mcconvell-kinship-loanword-wave': 'Kinship / loanword waves',
+  'analogy-morphological-change': 'Analogy (how forms changed)',
   'dixon-family-tree-rejection': 'Dixon’s dissent',
 };
 

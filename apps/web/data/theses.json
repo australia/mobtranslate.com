@@ -1,7 +1,7 @@
 {
  "schema": "atlas-movement-theses/v1",
  "generated_from": "atlas-p3-thesis-research",
- "count": 8,
+ "count": 9,
  "cards": [
   {
    "id": "bayesian-gulf-expansion",
@@ -777,6 +777,102 @@
     }
    ],
    "map_expression": "This thesis is the deep-time map's STANDING CAVEAT, not a dated 'wind.' The animated Bouckaert phylogeographic spread depicts a LANGUAGE lineage radiating from the Gulf Plains origin; this card is the reason that animation must never be narrated as people arriving or a population front advancing. Honest rendering: (1) a permanent, always-visible banner — 'This dates the movement of a language lineage reconstructed from vocabulary, not the movement of people; populations show deep regional continuity for ~50,000 years.' (2) The ~50 ka mtDNA regionalism (Tobler) is drawn as STATIC deep-time substrate that predates and underlies the whole spread animation — background context, never animated as movement. (3) The one genuine demographic signal — Malaspinas's limited NE-Australia Holocene gene flow — may be shown as a faint, explicitly UNDATED glow near the Gulf origin, drawn weak to reflect its small, uncertain magnitude, and never as a migrating arrow. (4) A consensus meter marks the qualitative claim (continuity + shift) as broad-consensus while flagging the demic proportion as unresolved, so the reader sees that genetics constrains but does not fully resolve whether — and how much — people moved."
+  },
+  {
+   "id": "analogy-morphological-change",
+   "title": "Analogy: how the word-forms were reshaped as the family spread",
+   "one_line": "As Pama-Nyungan spread and split into daughter languages, its word-forms and paradigms were continually reshaped by analogy — the pull toward proportional pattern (A:B :: C:D), levelling, and extension — a primary and increasingly quantifiable engine of how morphology changes, though not of the migration itself.",
+   "mechanism": "Analogy is change by proportion and pattern rather than by sound law: given a felt relation A:B :: C:D, speakers extend an existing pattern to a form that never historically carried it (extension) or erase an inherited alternation so a paradigm becomes uniform (levelling). It is paradigmatic, morphological and psychological — it operates over the stored network of word-forms and the implicative structure between paradigm cells, not over the phonetic string. In a diversifying family, regular sound change repeatedly fractures paradigms into allomorphy and inflection classes while analogy repeatedly pulls them back toward predictability; the tension between the two is a leading account of HOW a spreading morphology splits into distinct daughter systems. Recent Surrey Morphology Group work reframes analogy as partly PREDICTABLE: given a paradigm's frequency, similarity and implicative structure, the space of possible changes can be defined and its members ranked by probability.",
+   "proponents": [
+    "Hermann Paul (Junggrammatiker; proportional analogy)",
+    "Jerzy Kuryłowicz & Witold Mańczak (mid-20th-c. 'laws'/tendencies of analogy)",
+    "James P. Blevins & Juliette Blevins (eds., Analogy in Grammar, 2009)",
+    "Surrey Morphology Group: Matthew Baerman, Helen Sims-Williams, Sacha Beniamine, Oliver Bond, Erich Round",
+    "Royal Skousen (Analogical Modeling) & Esa Itkonen (analogy-central / usage-based tradition)"
+   ],
+   "hard_facts": [
+    {
+     "fact": "The Surrey Morphology Group (University of Surrey) runs a Leverhulme Trust project, 'Predicting language evolution: Analogy in morphological change' (Oct 2022–Jan 2028; PIs Helen Sims-Williams, Matthew Baerman, Oliver Bond, Martin Alldrick), whose explicit aim is 'a computationally-implemented model of analogical change capable of defining a set of possible changes and ranking their probabilities,' tested against historical data from six languages (Italian, Occitan, Greek, Aramaic, Tibetan, Estonian).",
+     "source": "Surrey Morphology Group project page, 'Predicting language evolution: Analogy in morphological change', smg.surrey.ac.uk/projects/predicting-language-evolution/"
+    },
+    {
+     "fact": "Sturtevant's paradox (Sturtevant 1947): 'Phonetic laws are regular but produce irregularities; analogic creation is irregular but produces regularity' — the canonical statement that sound change and analogy are opposed forces, one fracturing paradigms and the other restoring order.",
+     "source": "E. H. Sturtevant, An Introduction to Linguistic Science (Yale Univ. Press, 1947); summarised in Oxford Reference / Diccionari de lingüística entries on 'Sturtevant's paradox'"
+    },
+    {
+     "fact": "A computational forward-reconstruction study quantified the paradox on Latin→French verbs (310 verbs, 11,593 forms): sound change drove inflection classes from 107 to 239 (+123%) and allomorphy from 62.3% to 85.5%, while analogical change reversed this, cutting classes back to 65 and allomorphy to 60.3% — direct measurement of analogy as the simplifying counter-force to sound change.",
+     "source": "Borja Herce & Clayton Marr (2026), 'The effects of sound change vs. analogy on paradigm complexity', Language 102(1):120–155, DOI 10.1017/S0097850726000068 (open access, CC-BY-NC)"
+    },
+    {
+     "fact": "The state-of-the-art review 'Analogy in Inflection' is co-authored by the Surrey group together with Pama-Nyungan specialist Erich R. Round (Lindsay-Smith, Baerman, Beniamine, Sims-Williams & Round 2024, Annual Review of Linguistics 10:211–231) — tying the formal analogy programme directly to Australian-languages morphology and to the goal of an evolutionary, predictive theory of inflection.",
+     "source": "Emily Lindsay-Smith, Matthew Baerman, Sacha Beniamine, Helen Sims-Williams & Erich R. Round (2024), 'Analogy in Inflection', Annual Review of Linguistics 10:211–231, DOI 10.1146/annurev-linguistics-030521-040935"
+    },
+    {
+     "fact": "Erich Round's British Academy project 'Accelerating our discovery of the linguistic past' (Jan 2021–Jul 2024) develops an evolutionary theory of inflectional systems and computational models to 'turn the clock backwards' on morphology; Round's Pama-Nyungan phylogenetic work (with Macklin-Cordes & Bowern) extracted data from ~112 Pama-Nyungan vocabularies, showing Australian morphology is a live testbed for modelling analogically-driven change.",
+     "source": "SMG project page 'Accelerating our discovery of the linguistic past'; J. L. Macklin-Cordes, C. Bowern & E. R. Round (2021), 'Phylogenetic signal in phonotactics', Diachronica, DOI 10.1075/dia.20004.mac"
+    },
+    {
+     "fact": "Documented paradigm-shape divergence within Pama-Nyungan: many daughter languages split alignment by word class — full nouns pattern ergative–absolutive while personal pronouns pattern nominative–accusative (e.g. Pitjantjatjara), and pronoun/nominal paradigms have been levelled and reshaped independently across the family, the kind of paradigm reorganisation analogy is invoked to explain.",
+     "source": "Typological surveys of Pama-Nyungan case: WALS Online ch. 50 'Asymmetrical Case-Marking'; Bowern & Koch (eds.) Australian Languages: Classification and the Comparative Method (2004)"
+    }
+   ],
+   "evidence_for": [
+    "Analogy is measurable, not just descriptive: forward-reconstruction on Latin→French isolates it as the force that reverses the complexity (inflection classes, allomorphy) that sound change creates (Herce & Marr 2026).",
+    "It is being formalised and made predictive: the Surrey/Leverhulme programme builds a computational model that defines the set of possible analogical changes and ranks them by probability using frequency, similarity and scope/implicative effects.",
+    "It has classical cross-linguistic regularities: Kuryłowicz's and Mańczak's tendencies (e.g. more-marked forms and more-frequent forms behave predictably under levelling) recur across families, showing analogy is patterned, not random.",
+    "It is domain-relevant to Australia: the same researchers who formalise analogy (Round et al.) work directly on Pama-Nyungan inflection and phylogenetics, and Australian languages show exactly the paradigm splits and reshapings analogy accounts for.",
+    "It connects to cognition honestly: analogy in grammar is continuous with analogy as a general learning mechanism — extending a known pattern to a new case — which is why usage-based linguists treat it as a core, embodied process of how speakers generalise."
+   ],
+   "evidence_against": [
+    "Sturtevant's paradox cuts both ways: analogy is 'irregular' — it does not apply exceptionlessly like sound change, so a specific analogical change is notoriously hard to PREDICT in advance; predictability is the open research question, not a settled result (and Herce & Marr find neither force robustly moves conditional-entropy complexity).",
+    "The strong 'everything is analogy' claim is a minority/contested position: most historical linguists hold that sound change, reanalysis, borrowing/contact and analogy are DISTINCT mechanisms, not all reducible to analogy (Hock, Trask, Joseph & Janda's Handbook take this modular view).",
+    "Analogy risks being an unfalsifiable post-hoc label: unless formalised (proportions, implicative structure, computational models), 'it changed by analogy' can be applied after the fact to almost any irregular development — the very charge the Surrey formalisation programme exists to answer.",
+    "For Pama-Nyungan specifically, clean, individually-documented analogical levellings with airtight reconstructions are still comparatively thin; alignment splits and paradigm reshapings are well described typologically but assigning each unambiguously to analogy (vs. inheritance, sound change or contact) is contested.",
+    "The embodied 'thinking is like running' framing and 'everything is analogy' are philosophically motivated readings within the usage-based/analogy-first camp (Paul, Itkonen, Skousen, Blevins); they are a stance on cognition, not an empirically forced conclusion, and formalists and generativists reject the totalising version."
+   ],
+   "consensus": {
+    "level": "contested",
+    "note": "Split honestly: that analogy (levelling, extension, proportional/four-part analogy) is a REAL and MAJOR mechanism of morphological change is MAINSTREAM and uncontroversial. That analogical change is PREDICTABLE — that one can define and rank the probabilities of future paradigm changes — is an active, contested research frontier (the Surrey/Leverhulme programme). That 'everything is analogy' / that all of grammar and change reduces to analogy is a MINORITY, usage-based position that most historical linguists reject in favour of multiple distinct mechanisms."
+   },
+   "contestation": "The card deliberately separates three claims of decreasing consensus. Uncontested: analogy reshapes paradigms. Contested: it is predictable — Sturtevant's paradox says analogy is irregular in application, and even the best current models rank probabilities rather than forecast specific changes. Minority: the user's animating idea that 'everything is analogy' (thought/concepts extended the way a physical pattern is extended — the loom→computing 'thread/warp/net' metaphor, and 'thinking is like running, something the body does') is a real and coherent stance in the usage-based/analogy-first tradition (Hermann Paul, Esa Itkonen's Analogy as Structure and Process, Royal Skousen's Analogical Modeling, the Blevins & Blevins volume), but it is NOT the field consensus and should be presented as a viewpoint, not a finding. HONESTY GAP: the user paraphrases a 'Warren' as the source of 'everything is analogy' / 'thinking is like running'; I could not verify a specific linguist named Warren behind those exact phrasings, so I do NOT attribute them to a named author — the sentiment is attributed carefully to the analogy-first tradition rather than to an invented citation. A second gap: a single, airtight, individually-documented Pama-Nyungan analogical levelling (with reconstruction) is the weakest evidential link; the Australian material here is strong on typological paradigm-divergence and on the fact that the same researchers formalise analogy AND work on Pama-Nyungan, rather than on one canonical worked example.\"",
+   "citations": [
+    {
+     "ref": "Emily Lindsay-Smith, Matthew Baerman, Sacha Beniamine, Helen Sims-Williams & Erich R. Round (2024). 'Analogy in Inflection.' Annual Review of Linguistics 10:211–231.",
+     "year": 2024,
+     "doi": "10.1146/annurev-linguistics-030521-040935",
+     "open_access": false
+    },
+    {
+     "ref": "Borja Herce & Clayton Marr (2026). 'The effects of sound change vs. analogy on paradigm complexity.' Language 102(1):120–155.",
+     "year": 2026,
+     "doi": "10.1017/S0097850726000068",
+     "open_access": true
+    },
+    {
+     "ref": "James P. Blevins & Juliette Blevins (eds.) (2009). Analogy in Grammar: Form and Acquisition. Oxford: Oxford University Press.",
+     "year": 2009,
+     "doi": "10.1093/acprof:oso/9780199547548.001.0001",
+     "open_access": false
+    },
+    {
+     "ref": "E. H. Sturtevant (1947). An Introduction to Linguistic Science. New Haven: Yale University Press. (Locus classicus of 'Sturtevant's paradox'.)",
+     "year": 1947,
+     "open_access": false
+    },
+    {
+     "ref": "Jayden L. Macklin-Cordes, Claire Bowern & Erich R. Round (2021). 'Phylogenetic signal in phonotactics.' Diachronica 38(2):210–258.",
+     "year": 2021,
+     "doi": "10.1075/dia.20004.mac",
+     "open_access": false
+    },
+    {
+     "ref": "Jerzy Kuryłowicz (1947). 'La nature des procès dits «analogiques».' Acta Linguistica 5:15–37. (The classical 'laws' of analogy; cf. Witold Mańczak's tendencies.)",
+     "year": 1947,
+     "doi": "10.1080/03740463.1945.10410808",
+     "open_access": false
+    }
+   ],
+   "map_expression": "Honest note, not an animation. Analogy has NO dated geographic signal on the Bouckaert deep-time tree — it is not a migration and leaves no line on the map. Selecting this lens should PIN a note over the diversifying tree rather than spawn a second spread animation: 'The map shows WHERE the family spread and split; analogy is HOW its word-forms were reshaped along the way — levelling and extension pulling fractured paradigms back toward pattern as each daughter language formed. It is a change in the grammar, not a path across the country.' Optionally highlight the branch-points (where the tree splits into daughters) as the moments where paradigms diverged, with the caveat that the reshaping is inferred from comparative morphology, not read off any dated coordinate."
   }
  ],
  "synthesis": {
@@ -865,6 +961,13 @@
      "archaeogenetics-people-stayed"
     ],
     "relation": "independent axes that reinforce each other: 'no farming' removes the demographic engine, and 'people largely stayed' removes the migrating population — both independently push the explanation toward social transmission / language shift rather than a demic wave."
+   },
+   {
+    "pair": [
+     "analogy-morphological-change",
+     "bayesian-gulf-expansion"
+    ],
+    "relation": "independent — different axes of one history: the Gulf-expansion card is WHERE/WHEN the family spread; the analogy card is HOW the morphology carried along it was reshaped. Both can be fully true; neither answers the other."
    }
   ],
   "conflicts": [
@@ -926,6 +1029,7 @@
    "small-tool-backed-artefact-dingo — the leading candidate answer to 'what advantage?': a real, dated material-culture pulse — but read carefully, most of it postdates the root and is pan-Australian, so it is correlation, not demonstrated cause.",
    "enso-climate-driver — the candidate ULTIMATE cause (climate reorganised resources). Read with the timing/direction paradox in full view: ENSO onset postdates the root and the invoked population curve shows contraction, not expansion, in the ENSO window.",
    "mcconvell-kinship-loanword-wave — the later overprinting layer: social institutions and vocabulary diffusing as late-Holocene waves. Explicitly complementary to the backbone; shows the continent kept reorganising long after the original spread.",
+   "analogy-morphological-change — a different KIND of card: not WHY the family spread but HOW its word-forms were reshaped as it split. Analogy — the pull toward proportional pattern (A:B :: C:D), levelling and extension — is the increasingly quantifiable counter-force to sound change (Surrey/Leverhulme; Herce & Marr 2026), and it leaves no line on the map. Read it alongside the spread cards, not instead of them.",
    "dixon-family-tree-rejection — read LAST, deliberately: the meta-dissent that would dissolve the entire frame (no genetic family, no dated migration). Placed at the end so the reader can weigh it against everything already seen — the tree's own weak root corroborates part of it, while Hale's regular correspondences and the low loan rates are why the field mostly does not follow it."
   ],
   "caveats": [
