@@ -46,7 +46,12 @@ function mapLanguage(l: LangRow): Language {
     family: l.family ?? undefined,
     writing_system: l.writingSystem ?? undefined,
     is_active: l.isActive ?? false,
+    metadata: (l.metadata as Record<string, unknown> | null) ?? undefined,
   };
+}
+
+function isVisibleInDictionaryBrowse() {
+  return sql<boolean>`NOT (coalesce(${wordsT.metadata}, '{}'::jsonb) ? 'browseSupersededBy')`;
 }
 
 function mapWordClass(wc: WordClassRow): WordClass {
@@ -178,13 +183,33 @@ export async function getLanguageByCode(code: string): Promise<Language> {
   return mapLanguage(rows[0]);
 }
 
+// TEMP curation gate. While the newly-added Curr (1886-87) and Wiktionary
+// wordlists are still having their functionality polished, the homepage, the
+// language selector and the /dictionaries listing surface ONLY the curated
+// community dictionaries (Kuku Yalanji, Mi'gmaq, Anindilyakwa). The underlying
+// rows stay isActive=true on purpose, so the atlas's per-language "browse the
+// dictionary" links keep resolving and no data is hidden at the record level.
+// Flip this to false to re-list every dictionary once they are ready.
+const CURATED_DICTIONARIES_ONLY = true;
+// Provenance tiers that are NOT hand-curated community dictionaries. These are
+// the closed DictionaryTierId values, not a free-text language allow-list.
+const NON_CURATED_TIERS = new Set(['curr', 'wiktionary']);
+
+function isCuratedTier(metadata: unknown): boolean {
+  const tier = (metadata as Record<string, unknown> | null)?.tier_id;
+  return typeof tier !== 'string' || !NON_CURATED_TIERS.has(tier);
+}
+
 export async function getActiveLanguages(): Promise<Language[]> {
   const rows = await db
     .select()
     .from(languagesT)
     .where(eq(languagesT.isActive, true))
     .orderBy(asc(languagesT.name));
-  return rows.map(mapLanguage);
+  const visible = CURATED_DICTIONARIES_ONLY
+    ? rows.filter((r) => isCuratedTier(r.metadata))
+    : rows;
+  return visible.map(mapLanguage);
 }
 
 // ---------------------------------------------------------------------------
@@ -242,13 +267,14 @@ export async function getDictionaryLanguages(): Promise<DictionaryLanguage[]> {
   const counts = await db
     .select({ languageId: wordsT.languageId, n: count() })
     .from(wordsT)
+    .where(isVisibleInDictionaryBrowse())
     .groupBy(wordsT.languageId);
   const countMap = new Map<string, number>();
   for (const c of counts) {
     if (c.languageId) countMap.set(c.languageId as string, Number(c.n));
   }
 
-  return rows.map((r) => {
+  const dicts = rows.map((r) => {
     const md = (r.metadata as Record<string, any> | null) ?? {};
     const rawTierId = typeof md.tier_id === 'string' ? md.tier_id : '';
     const tierId: DictionaryTierId =
@@ -268,6 +294,9 @@ export async function getDictionaryLanguages(): Promise<DictionaryLanguage[]> {
       locality: typeof md.locality === 'string' && md.locality ? md.locality : undefined,
     };
   });
+  return CURATED_DICTIONARIES_ONLY
+    ? dicts.filter((d) => d.tierId === 'curated')
+    : dicts;
 }
 
 export async function getWordsForLanguage({
@@ -283,7 +312,10 @@ export async function getWordsForLanguage({
   const languageData = await getLanguageByCode(language!);
 
   // Build filters
-  const filters = [eq(wordsT.languageId, languageData.id)];
+  const filters = [
+    eq(wordsT.languageId, languageData.id),
+    isVisibleInDictionaryBrowse(),
+  ];
 
   if (search) {
     const like = `%${search}%`;
@@ -511,6 +543,7 @@ export async function searchWords(
   const like = `%${searchTerm}%`;
   const filters = [
     or(ilike(wordsT.word, like), ilike(wordsT.normalizedWord, like))!,
+    isVisibleInDictionaryBrowse(),
   ];
 
   if (languageCode) {
@@ -545,21 +578,24 @@ export async function searchWords(
 }
 
 export async function getLanguageStats() {
-  const langs = await db
-    .select({ id: languagesT.id, name: languagesT.name, code: languagesT.code })
+  const rows = await db
+    .select({ id: languagesT.id, name: languagesT.name, code: languagesT.code, metadata: languagesT.metadata })
     .from(languagesT)
     .where(eq(languagesT.isActive, true));
-
-  const totalRows = await db.select({ value: count() }).from(wordsT);
-  const totalWords = totalRows[0]?.value ?? 0;
+  // Respect the same curation gate as getActiveLanguages so the homepage's
+  // "N languages / M entries" figures match the languages actually shown.
+  const langs = CURATED_DICTIONARIES_ONLY ? rows.filter((r) => isCuratedTier(r.metadata)) : rows;
 
   const languageCounts: Record<string, number> = {};
+  let totalWords = 0;
   for (const lang of langs) {
     const c = await db
       .select({ value: count() })
       .from(wordsT)
-      .where(eq(wordsT.languageId, lang.id));
-    languageCounts[lang.code] = c[0]?.value ?? 0;
+      .where(and(eq(wordsT.languageId, lang.id), isVisibleInDictionaryBrowse()));
+    const n = c[0]?.value ?? 0;
+    languageCounts[lang.code] = n;
+    totalWords += n;
   }
 
   return {
@@ -579,6 +615,7 @@ export async function getLocationWordsForLanguage(languageCode: string) {
     .where(
       and(
         eq(wordsT.languageId, languageData.id),
+        isVisibleInDictionaryBrowse(),
         eq(wordsT.isLocation, true),
         isNotNull(wordsT.latitude),
         isNotNull(wordsT.longitude)

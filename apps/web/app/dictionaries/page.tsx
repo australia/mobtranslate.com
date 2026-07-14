@@ -19,9 +19,8 @@ export default async function DictionariesPage() {
           Dictionaries
         </h1>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-pretty">
-          Official dictionaries for hundreds of Australian and Indigenous languages — community-built
-          collections alongside openly-licensed and public-domain vocabularies, each with its source
-          shown.
+          Official community-built dictionaries for Australian and Indigenous languages, curated with
+          speakers and linguists — each with its source shown. More collections are on the way.
         </p>
         <p className="mt-3 text-sm text-muted-foreground">
           <span className="font-medium text-foreground tabular-nums">

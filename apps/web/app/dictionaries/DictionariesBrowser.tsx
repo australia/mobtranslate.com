@@ -279,6 +279,13 @@ export default function DictionariesBrowser({
     { id: 'wiktionary', label: 'Wiktionary' },
     { id: 'curr', label: 'Curr 1886–87' },
   ];
+  // Only show a source chip that actually has data, and hide the whole facet row
+  // when there is just one source present (e.g. while only the curated community
+  // dictionaries are listed) — an all-vs-one toggle is noise.
+  const visibleSourceChips = sourceChips.filter(
+    (c) => c.id === 'all' || (sourceCounts[c.id] ?? 0) > 0,
+  );
+  const showSourceFacet = visibleSourceChips.filter((c) => c.id !== 'all').length > 1;
 
   return (
     <div className="pb-16">
@@ -325,8 +332,8 @@ export default function DictionariesBrowser({
           </select>
         </div>
 
-        <div className="mt-3 flex flex-wrap items-center gap-2">
-          {sourceChips.map((chip) => {
+        <div className={`mt-3 flex flex-wrap items-center gap-2${showSourceFacet ? '' : ' hidden'}`}>
+          {visibleSourceChips.map((chip) => {
             const active = sourceFilter === chip.id;
             const n = sourceCounts[chip.id] ?? 0;
             return (
