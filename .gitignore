@@ -39,6 +39,12 @@ yarn-error.log*
 .DS_Store
 *.pem
 
+# Local Android release bundles and signing credentials
+/mobtranslate-app/
+*.aab
+*.jks
+*.keystore
+
 experiments/pdftomd/extract/tts/out_audio/
 
 .venv

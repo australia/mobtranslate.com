@@ -1,14 +1,21 @@
 import { useState } from 'react';
-import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Linking, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Button, Card, Screen, ScreenTitle } from '../../components/kit';
 import { useAuth } from '../../lib/auth';
 import { C, F, S, radius } from '../../lib/theme';
 
+const PRIVACY_URL = 'https://mobtranslate.com/privacy';
+const DELETION_URL = 'https://mobtranslate.com/account-deletion';
+
+function openExternal(url: string) {
+  Linking.openURL(url).catch(() => {});
+}
+
 function LinkRow({ icon, label, sub, onPress }: { icon: keyof typeof Ionicons.glyphMap; label: string; sub?: string; onPress: () => void }) {
   return (
-    <Pressable onPress={onPress} style={({ pressed }) => [styles.linkRow, pressed && { backgroundColor: C.surfaceAlt }]}>
+    <Pressable accessibilityRole="button" onPress={onPress} style={({ pressed }) => [styles.linkRow, pressed && { backgroundColor: C.surfaceAlt }]}>
       <View style={styles.linkIcon}><Ionicons name={icon} size={20} color={C.forest} /></View>
       <View style={{ flex: 1 }}>
         <Text style={styles.linkLabel}>{label}</Text>
@@ -49,7 +56,12 @@ export default function AccountScreen() {
           <View style={styles.sep} />
           <LinkRow icon="language" label="Language keyboard" sub="Type your language anywhere" onPress={() => router.push('/keyboard')} />
         </Card>
-        <Text style={styles.body}>Recordings you upload are contributed to the public domain in perpetuity.</Text>
+        <Card padded={false} style={{ overflow: 'hidden' }}>
+          <LinkRow icon="shield-checkmark-outline" label="Privacy policy" sub="How Mob Translate handles your data" onPress={() => openExternal(PRIVACY_URL)} />
+          <View style={styles.sep} />
+          <LinkRow icon="trash-outline" label="Delete account and data" sub="Open the deletion request page" onPress={() => openExternal(DELETION_URL)} />
+        </Card>
+        <Text style={styles.body}>Recordings you upload may be shared as community language resources. You can request removal at any time.</Text>
         <Button label="Sign out" icon="log-out-outline" variant="ghost" onPress={signOut} full />
       </Screen>
     );
@@ -79,6 +91,11 @@ export default function AccountScreen() {
       </Card>
       <Button label={mode === 'up' ? 'I already have an account' : 'Create a new account'} variant="ghost"
         onPress={() => { setMode(mode === 'up' ? 'in' : 'up'); setError(null); }} full />
+      <Card padded={false} style={{ overflow: 'hidden' }}>
+        <LinkRow icon="shield-checkmark-outline" label="Privacy policy" onPress={() => openExternal(PRIVACY_URL)} />
+        <View style={styles.sep} />
+        <LinkRow icon="trash-outline" label="Account and data deletion" onPress={() => openExternal(DELETION_URL)} />
+      </Card>
     </Screen>
   );
 }

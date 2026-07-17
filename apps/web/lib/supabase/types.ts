@@ -10,6 +10,7 @@ export interface Language {
   family?: string;
   writing_system?: string;
   is_active: boolean;
+  metadata?: Record<string, unknown>;
 }
 
 export interface WordClass {

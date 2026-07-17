@@ -393,6 +393,16 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                     Privacy
                   </Link>
                 </li>
+                <li>
+                  <Link href="/support" className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-0.5 transition-all duration-200 inline-block">
+                    Support
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/account-deletion" className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-0.5 transition-all duration-200 inline-block">
+                    Delete account &amp; data
+                  </Link>
+                </li>
               </ul>
             </div>
 
