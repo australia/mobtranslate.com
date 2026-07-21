@@ -22,8 +22,10 @@ import type {
  */
 
 export const REVERSE_TRANSLATION_MODEL = 'gpt-5.4-mini-2026-03-17';
-export const REVERSE_TRANSLATION_CONTRACT = 'reverse-translation-v1';
-export const REVERSE_EVIDENCE_CONTRACT = 'reverse-evidence-v1';
+// Bump these when the prompt or retrieval output changes, so cached results
+// from the older contract are not served.
+export const REVERSE_TRANSLATION_CONTRACT = 'reverse-translation-v2';
+export const REVERSE_EVIDENCE_CONTRACT = 'reverse-evidence-v2';
 
 /** Minimum headword length eligible for prefix matching. */
 const MIN_PREFIX_LENGTH = 3;
@@ -74,16 +76,23 @@ function bigramSimilarity(left: string, right: string): number {
   return (2 * shared) / (leftGrams.size + rightGrams.size);
 }
 
+export type ReverseMatchKind = 'exact' | 'stem' | 'clipped' | 'variant';
+
+export interface HeadwordTokenMatch {
+  score: number;
+  kind: ReverseMatchKind | null;
+}
+
 /**
  * Score one headword against one source token.
- * Returns 0 when the headword is not plausibly the token's stem.
+ * Returns score 0 / kind null when the headword is not plausibly related.
  */
-export function scoreHeadwordAgainstToken(
+export function matchHeadwordToToken(
   headword: string,
   token: string,
-): number {
-  if (!headword || !token) return 0;
-  if (headword === token) return 12;
+): HeadwordTokenMatch {
+  if (!headword || !token) return { score: 0, kind: null };
+  if (headword === token) return { score: 12, kind: 'exact' };
 
   // Headword as the stem of an inflected token: "ngayku" in "ngaykuwunbu".
   if (
@@ -91,7 +100,7 @@ export function scoreHeadwordAgainstToken(
     token.startsWith(headword) &&
     headword.length / token.length >= MIN_PREFIX_COVERAGE
   ) {
-    return 6 + (headword.length / token.length) * 4;
+    return { score: 6 + (headword.length / token.length) * 4, kind: 'stem' };
   }
 
   // Token as a shortened/clipped form of the headword.
@@ -100,18 +109,34 @@ export function scoreHeadwordAgainstToken(
     headword.startsWith(token) &&
     token.length / headword.length >= MIN_PREFIX_COVERAGE
   ) {
-    return 4 + (token.length / headword.length) * 2;
+    return { score: 4 + (token.length / headword.length) * 2, kind: 'clipped' };
   }
 
   // Spelling variation across orthographies and transcription eras.
   const similarity = bigramSimilarity(headword, token);
-  return similarity >= 0.55 ? similarity * 4 : 0;
+  return similarity >= 0.55
+    ? { score: similarity * 4, kind: 'variant' }
+    : { score: 0, kind: null };
+}
+
+export function scoreHeadwordAgainstToken(
+  headword: string,
+  token: string,
+): number {
+  return matchHeadwordToToken(headword, token).score;
+}
+
+export interface ScoredReverseEntry extends ReverseDictionaryEntry {
+  score: number;
+  /** The source word this entry best explains, and how it relates to it. */
+  matchedSourceWord: string | null;
+  matchKind: ReverseMatchKind | null;
 }
 
 export function scoreReverseDictionaryEntries(
   source: string,
   entries: ReverseDictionaryEntry[],
-): (ReverseDictionaryEntry & { score: number })[] {
+): ScoredReverseEntry[] {
   const sourceTokenList = surfaceTokens(source);
   if (sourceTokenList.length === 0) return [];
 
@@ -119,16 +144,42 @@ export function scoreReverseDictionaryEntries(
     .map((entry) => {
       const headword = normalizeSurface(entry.word);
       let score = 0;
+      let bestScore = 0;
+      let matchedSourceWord: string | null = null;
+      let matchKind: ReverseMatchKind | null = null;
       for (const token of sourceTokenList) {
-        score += scoreHeadwordAgainstToken(headword, token);
+        const match = matchHeadwordToToken(headword, token);
+        score += match.score;
+        if (match.score > bestScore) {
+          bestScore = match.score;
+          matchedSourceWord = token;
+          matchKind = match.kind;
+        }
       }
-      return { ...entry, score };
+      return { ...entry, score, matchedSourceWord, matchKind };
     })
     .filter((entry) => entry.score > 0)
     .sort(
       (left, right) =>
         right.score - left.score || left.word.localeCompare(right.word),
     );
+}
+
+function matchLabel(
+  kind: ReverseMatchKind | null,
+  sourceWord: string | null,
+): string {
+  if (!kind || !sourceWord) return 'Relevant MobTranslate dictionary entry';
+  switch (kind) {
+    case 'exact':
+      return `Exact dictionary word for “${sourceWord}”`;
+    case 'stem':
+      return `Base word inside “${sourceWord}”`;
+    case 'clipped':
+      return `Dictionary word starting with “${sourceWord}”`;
+    case 'variant':
+      return `Close spelling to “${sourceWord}”`;
+  }
 }
 
 export function retrieveReverseDictionaryEvidence(
@@ -144,10 +195,9 @@ export function retrieveReverseDictionaryEvidence(
       kind: 'dictionary' as const,
       title: entry.word,
       detail: entry.gloss,
-      sourceLabel:
-        normalizeSurface(entry.word) === normalizeSurface(source)
-          ? 'Exact headword in the MobTranslate dictionary'
-          : 'Relevant MobTranslate dictionary entry',
+      matchedSourceWord: entry.matchedSourceWord ?? undefined,
+      matchKind: entry.matchKind ?? undefined,
+      sourceLabel: matchLabel(entry.matchKind, entry.matchedSourceWord),
       sourceUrl: `https://mobtranslate.com/dictionaries/${encodeURIComponent(languageCode)}/words/${encodeURIComponent(entry.word)}`,
     }));
 }
@@ -172,6 +222,8 @@ export const ReverseTranslationEvidenceSchema = z.object({
   kind: z.literal('dictionary'),
   title: z.string().min(1),
   detail: z.string(),
+  matchedSourceWord: z.string().optional(),
+  matchKind: z.enum(['exact', 'stem', 'clipped', 'variant']).optional(),
   sourceLabel: z.string().min(1),
   sourceUrl: z.string().url(),
 });
@@ -233,11 +285,17 @@ export function createReverseTranslationPrompt(
   const evidencePayload = {
     sourceLanguage: input.languageName,
     sourceText: input.source,
+    sourceWords: surfaceTokens(input.source),
     dictionaryEvidence: evidence.map((entry) => ({
       id: entry.id,
       headword: entry.title,
       englishGloss: entry.detail,
-      sourceLabel: entry.sourceLabel,
+      // Pre-computed alignment: which source word this entry explains, and how.
+      // "exact" = the same word. "stem" = this headword IS the base of that
+      // source word, with the remaining letters being an ending. "clipped" and
+      // "variant" are weaker: a longer headword or a near spelling.
+      matchesSourceWord: entry.matchedSourceWord ?? null,
+      matchType: entry.matchKind ?? null,
     })),
   };
 
@@ -249,8 +307,11 @@ ${JSON.stringify(evidencePayload, null, 2)}
 
 Translation contract:
 1. Build the English meaning from the supplied dictionary evidence. Do not invent a meaning for a word that the evidence does not support.
-2. The dictionary lists base words. A word in the source text may carry extra endings that change it (for example marking who did what, or where something happened). Read those endings only when the evidence supports it, and say so in caveats when you cannot.
-3. When a word is not in the evidence at all, keep it as-is inside the English translation and add a caveat naming it. Never guess a meaning to make the sentence flow.
+2. matchType tells you how each entry relates to a source word, and it has already been checked for you — trust it:
+   - "exact": that source word IS this headword. Use this meaning.
+   - "stem": this headword is the base word inside that longer source word; the leftover letters are an ending. USE THIS MEANING — a source word with a stem match is NOT missing from the dictionary. Note in caveats that the ending itself could not be checked.
+   - "clipped" or "variant": a possible but unconfirmed relation. Use it only tentatively and say so.
+3. Treat a source word as unknown ONLY when no entry lists it in matchesSourceWord. Then keep it as-is inside the English translation and add a caveat naming it. Never guess a meaning to make the sentence flow, and never call a word missing when a stem match was supplied.
 4. Prefer a faithful, slightly awkward English rendering over a fluent one that adds meaning the source does not carry.
 5. wordBreakdown must list the source words in the order they appear, each with the meaning you used. Use "not in the dictionary" for a word you could not resolve.
 6. evidenceIds may contain only IDs present in the supplied JSON.

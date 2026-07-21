@@ -680,6 +680,9 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                                         <p className="mt-0.5 text-xs text-[#faf8f5]/55">
                                           {evidence.detail}
                                         </p>
+                                        <p className="mt-0.5 text-xs text-[#faf8f5]/40">
+                                          {evidence.sourceLabel}
+                                        </p>
                                       </div>
                                       <a
                                         href={evidence.sourceUrl}

@@ -2,11 +2,16 @@ import type { TranslationCacheState } from './kuku-yalanji-hybrid-types';
 
 export type ReverseTranslationConfidence = 'low' | 'medium' | 'high';
 
+export type ReverseMatchKind = 'exact' | 'stem' | 'clipped' | 'variant';
+
 export interface ReverseTranslationEvidence {
   id: string;
   kind: 'dictionary';
   title: string;
   detail: string;
+  /** Which source word this entry explains, and how it relates to it. */
+  matchedSourceWord?: string;
+  matchKind?: ReverseMatchKind;
   sourceLabel: string;
   sourceUrl: string;
 }

@@ -4,6 +4,7 @@ import {
   createReverseTranslationPrompt,
   createReverseUnavailableResult,
   findExactHeadwordEntries,
+  matchHeadwordToToken,
   normalizeSurface,
   resolveReverseTranslation,
   retrieveReverseDictionaryEvidence,
@@ -88,7 +89,59 @@ describe('scoreReverseDictionaryEntries', () => {
   });
 });
 
+describe('matchHeadwordToToken', () => {
+  it('classifies an identical word as exact', () => {
+    expect(matchHeadwordToToken('bana', 'bana').kind).toBe('exact');
+  });
+
+  it('classifies a stem of an inflected word', () => {
+    expect(matchHeadwordToToken('ngayku', 'ngaykuwunbu').kind).toBe('stem');
+  });
+
+  it('classifies a clipped source word', () => {
+    expect(matchHeadwordToToken('bayankuku', 'bayan').kind).toBe('clipped');
+  });
+
+  it('reports no kind when unrelated', () => {
+    expect(matchHeadwordToToken('jarba', 'bana').kind).toBeNull();
+  });
+});
+
 describe('retrieveReverseDictionaryEvidence', () => {
+  it('annotates which source word each entry explains, and how', () => {
+    const evidence = retrieveReverseDictionaryEvidence(
+      'wanju ngaykuwunbu',
+      DICTIONARY,
+      'kuku_yalanji',
+    );
+    const stem = evidence.find((entry) => entry.title === 'ngayku');
+    expect(stem?.matchKind).toBe('stem');
+    expect(stem?.matchedSourceWord).toBe('ngaykuwunbu');
+    expect(stem?.sourceLabel).toBe('Base word inside “ngaykuwunbu”');
+
+    const exact = evidence.find((entry) => entry.title === 'wanju');
+    expect(exact?.matchKind).toBe('exact');
+    expect(exact?.sourceLabel).toBe('Exact dictionary word for “wanju”');
+  });
+
+  it('carries the alignment into the prompt so the model need not re-derive it', () => {
+    const evidence = retrieveReverseDictionaryEvidence(
+      'ngaykuwunbu',
+      DICTIONARY,
+      'kuku_yalanji',
+    );
+    const prompt = createReverseTranslationPrompt(
+      {
+        source: 'ngaykuwunbu',
+        languageName: 'Kuku Yalanji',
+        languageCode: 'kuku_yalanji',
+      },
+      evidence,
+    );
+    expect(prompt).toContain('"matchType": "stem"');
+    expect(prompt).toContain('"matchesSourceWord": "ngaykuwunbu"');
+  });
+
   it('caps results and builds source-linked evidence', () => {
     const evidence = retrieveReverseDictionaryEvidence(
       'wanju ngaykuwunbu bayanba',
