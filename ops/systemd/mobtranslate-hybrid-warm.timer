@@ -1,5 +1,5 @@
 [Unit]
-Description=Keep enabled MobTranslate research models warm every 15 minutes
+Description=Verify and warm enabled MobTranslate adapters every 15 minutes
 
 [Timer]
 OnBootSec=3min

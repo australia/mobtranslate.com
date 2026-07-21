@@ -18,6 +18,13 @@ PRUNE_SERVICE_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-operational-prune.serv
 PRUNE_SERVICE_TARGET="/etc/systemd/system/mobtranslate-operational-prune.service"
 PRUNE_TIMER_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-operational-prune.timer"
 PRUNE_TIMER_TARGET="/etc/systemd/system/mobtranslate-operational-prune.timer"
+HYBRID_WARM_SCRIPT_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-hybrid-warm.sh"
+HYBRID_WARM_SCRIPT_TARGET="/usr/local/bin/mobtranslate-hybrid-warm.sh"
+HYBRID_WARM_SERVICE_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-hybrid-warm.service"
+HYBRID_WARM_SERVICE_TARGET="/etc/systemd/system/mobtranslate-hybrid-warm.service"
+HYBRID_WARM_TIMER_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-hybrid-warm.timer"
+HYBRID_WARM_TIMER_TARGET="/etc/systemd/system/mobtranslate-hybrid-warm.timer"
+HYBRID_WARM_TEST="$REPO_ROOT/ops/systemd/test-mobtranslate-hybrid-warm.sh"
 RELEASE_PRUNE_SCRIPT="$REPO_ROOT/ops/prune-web-releases.sh"
 RELEASE_PRUNE_TEST="$REPO_ROOT/ops/test-prune-web-releases.sh"
 RELEASE_VERIFY_SCRIPT="$REPO_ROOT/ops/verify-web-release.sh"
@@ -59,6 +66,11 @@ done
 [[ -x "$RELEASE_PRUNE_SCRIPT" && -x "$RELEASE_PRUNE_TEST" \
   && -x "$RELEASE_VERIFY_SCRIPT" && -x "$RELEASE_VERIFY_TEST" ]] || {
   echo "Release integrity/retention scripts are missing or not executable." >&2
+  exit 1
+}
+[[ -x "$HYBRID_WARM_SCRIPT_SOURCE" && -x "$HYBRID_WARM_TEST" \
+  && -f "$HYBRID_WARM_SERVICE_SOURCE" && -f "$HYBRID_WARM_TIMER_SOURCE" ]] || {
+  echo "Hybrid model warm-check files are missing or not executable." >&2
   exit 1
 }
 [[ ! -e "$FINAL_RELEASE" && ! -e "$STAGING" ]] || {
@@ -116,6 +128,7 @@ cp "$STAGING/metadata/source-before/untracked.sha256" "$STAGING/metadata/untrack
 cd "$REPO_ROOT"
 "$RELEASE_PRUNE_TEST"
 "$RELEASE_VERIFY_TEST"
+"$HYBRID_WARM_TEST"
 pnpm --filter web db:migrate
 pnpm --filter web db:migrate:check
 NODE_ENV=test pnpm --filter web test
@@ -287,8 +300,18 @@ atomic_link "$FINAL_RELEASE" "$CURRENT"
 sudo install -o root -g root -m 0644 "$UNIT_SOURCE" "$UNIT_TARGET"
 sudo install -o root -g root -m 0644 "$PRUNE_SERVICE_SOURCE" "$PRUNE_SERVICE_TARGET"
 sudo install -o root -g root -m 0644 "$PRUNE_TIMER_SOURCE" "$PRUNE_TIMER_TARGET"
+sudo install -o root -g root -m 0755 "$HYBRID_WARM_SCRIPT_SOURCE" "$HYBRID_WARM_SCRIPT_TARGET"
+sudo install -o root -g root -m 0644 "$HYBRID_WARM_SERVICE_SOURCE" "$HYBRID_WARM_SERVICE_TARGET"
+sudo install -o root -g root -m 0644 "$HYBRID_WARM_TIMER_SOURCE" "$HYBRID_WARM_TIMER_TARGET"
+sudo systemctl disable --now mobtranslate-kuku-warm.timer >/dev/null 2>&1 || true
+sudo systemctl stop mobtranslate-kuku-warm.service >/dev/null 2>&1 || true
+sudo rm -f \
+  /etc/systemd/system/mobtranslate-kuku-warm.service \
+  /etc/systemd/system/mobtranslate-kuku-warm.timer \
+  /usr/local/bin/mobtranslate-kuku-warm.sh
 sudo systemctl daemon-reload
 sudo systemctl enable --now mobtranslate-operational-prune.timer
+sudo systemctl enable --now mobtranslate-hybrid-warm.timer
 
 production_ready=0
 if sudo systemctl restart "$SERVICE"; then
