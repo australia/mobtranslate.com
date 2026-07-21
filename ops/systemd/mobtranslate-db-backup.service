@@ -1,0 +1,39 @@
+[Unit]
+Description=Verified daily MobTranslate PostgreSQL backup
+After=network-online.target docker.service
+Wants=network-online.target
+RequiresMountsFor=/mnt/donto-data/backups
+
+[Service]
+Type=oneshot
+User=ajax
+Group=ajax
+EnvironmentFile=/opt/mobtranslate/web.env
+Environment=MOBTRANSLATE_BACKUP_DIR=/mnt/donto-data/backups
+Environment=MOBTRANSLATE_BACKUP_KEEP=14
+ExecStart=/mnt/donto-data/workspace/mobtranslate.com/ops/mobtranslate-db-backup.sh
+UMask=0077
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectProc=invisible
+ProtectSystem=strict
+ReadWritePaths=/mnt/donto-data/backups
+RemoveIPC=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+SystemCallArchitectures=native
+CapabilityBoundingSet=
+MemoryMax=1G
+MemorySwapMax=0
+CPUQuota=100%

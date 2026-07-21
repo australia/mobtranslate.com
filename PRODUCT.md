@@ -6,7 +6,7 @@ product
 
 ## Users
 
-**Primary: Indigenous language learners and community members.** A Wajarri grandchild looking up the word for "grandmother" on their phone between bus stops. A Kuku Yalanji young adult building a daily vocab habit on the train. A Mi'gmaq teacher pulling up a definition mid-lesson on a classroom laptop. Connection bandwidth varies; English literacy is universal but never the user's full identity; the mood ranges from idle curiosity to deeply personal reconnection.
+**Primary: Indigenous language learners and community members.** A Wajarri grandchild looking up the word for "grandmother" on their phone between bus stops. A Kuku Yalanji young adult building a daily vocab habit on the train. A Mi'gmaq teacher pulling up a definition mid-lesson on a classroom laptop. Connection bandwidth varies; English may be the interface language but is never the user's full identity; the mood ranges from idle curiosity to deeply personal reconnection.
 
 **Secondary: language custodians, linguists, and curators.** Knowledge-holders reviewing pending entries in `/curator`. Researchers cross-referencing dialects. Admins moderating contributions and watching analytics in `/admin`. They're in workflow, not browsing — they need density, keyboard speed, and unambiguous status.
 
@@ -16,16 +16,16 @@ The job: **look up a word, learn a word, remember a word — with the language t
 
 ## Product Purpose
 
-MobTranslate is the community-built dictionary, translator, and learning surface for Indigenous languages. It exists because most languages on the platform are listed as vulnerable, endangered, or severely endangered, and the existing reference materials are scattered across PDFs, academic archives, and lost notebooks. Putting them in one fast, open, AI-augmented place — and letting communities own the entries — is how a digital generation keeps the languages living.
+MobTranslate is an independent, source-attributed dictionary, translator, and learning research surface for Indigenous languages. Existing reference materials are scattered across dictionaries, grammars, archives, recordings, and contributed records. The product makes that evidence searchable while keeping source, terms, review state, and machine uncertainty visible. Publication does not imply that a collection is official, community-owned, or community-certified.
 
 Success looks like:
 - A learner returns daily because lookup is instant and the learn flow is satisfying enough to repeat.
 - A custodian trusts the curator queue enough to approve in batches without auditing every field.
-- A community can clone, fork, and self-host their own dictionary without our involvement.
+- The MIT-licensed application can be cloned and self-hosted while each language dataset and model retains its own terms.
 
 ## Brand Personality
 
-**Respectful, grounded, warm.** Custodial rather than performative. The interface is built *with* language communities, never *for* them as an external audience. We are infrastructure, not the protagonist.
+**Respectful, grounded, warm.** Custodial rather than performative. The interface welcomes documented participation from language custodians, speakers, linguists, and learners without implying approval that has not occurred. We are infrastructure, not the protagonist.
 
 Voice: plain English, second-person where helpful, never academic, never patronising. Cultural notes are sourced and credited. We don't translate a word without showing where the entry came from.
 

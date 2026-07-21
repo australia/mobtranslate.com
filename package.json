@@ -22,12 +22,22 @@
     "@testing-library/user-event": "^14.6.1",
     "@typescript-eslint/eslint-plugin": "^8.62.0",
     "@typescript-eslint/parser": "^8.62.0",
-    "@vitejs/plugin-react": "^6.0.2",
+    "@vitejs/plugin-react": "^6.0.3",
     "eslint": "^10.5.0",
     "jsdom": "^29.1.1",
     "prettier": "^3.8.4",
     "turbo": "^2.9.18",
-    "vitest": "^4.1.9"
+    "vite": "8.0.16",
+    "vitest": "^4.1.10"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild@<=0.24.2": "0.25.0",
+      "postcss@<8.5.10": "8.5.15",
+      "vite@>=8.0.0 <=8.0.15": "8.0.16",
+      "ws@>=8.0.0 <8.21.0": "8.21.0",
+      "yaml@>=2.0.0 <2.8.3": "2.8.3"
+    }
   },
   "packageManager": "pnpm@9.15.0",
   "engines": {

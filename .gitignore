@@ -24,6 +24,7 @@ coverage
 
 # Build Outputs
 .next/
+.next.*/
 out/
 build
 dist
@@ -49,3 +50,7 @@ experiments/pdftomd/extract/tts/out_audio/
 
 .venv
 .env*.local
+
+# Python
+__pycache__/
+*.py[cod]

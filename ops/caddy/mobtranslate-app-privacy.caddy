@@ -1,0 +1,12 @@
+# Use this as the final Next.js handle in the mobtranslate.com site block.
+# Static docs, datasets, model artifacts and generated files keep their earlier
+# dedicated handles. Existing Next cache directives are preserved as separate
+# fields; APIs therefore retain no-store while static pages retain their TTL.
+# no-transform suppresses Cloudflare's automatic Web Analytics injection; the
+# CSP also prevents the account-level Zaraz bundle from executing.
+handle {
+	reverse_proxy 127.0.0.1:3300 {
+		header_down +Cache-Control "no-transform"
+		header_down Content-Security-Policy "script-src-elem 'unsafe-inline' https://mobtranslate.com/_next/ https://www.mobtranslate.com/_next/; object-src 'none'; base-uri 'self'"
+	}
+}

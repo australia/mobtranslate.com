@@ -1,0 +1,11 @@
+[Unit]
+Description=Run MobTranslate operational retention daily
+
+[Timer]
+OnCalendar=*-*-* 03:35:00 UTC
+Persistent=true
+RandomizedDelaySec=15m
+Unit=mobtranslate-operational-prune.service
+
+[Install]
+WantedBy=timers.target

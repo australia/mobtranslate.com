@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-07-16T00:00:00Z",
+  "gate_type": "operator_research_preview",
+  "status": "PASS",
+  "decision": "OPERATOR_RESEARCH_PREVIEW_ALLOWED",
+  "checks": {
+    "operator_requested_homepage_preview": true,
+    "runtime_cpu_smoke_passed": true,
+    "closed_set_lexical_gate_passed": true,
+    "endpoint_model_identity_checked": true,
+    "prompt_fallback_disabled_for_kuku_yalanji": true,
+    "adjacent_unverified_research_warning_required": true
+  },
+  "model": {
+    "id": "v24.3-joint-lexeme-dose29-s3598-20260715",
+    "artifacts": {
+      "base_model": {
+        "sha256": "7f9d0fe325e9e4568e45f13179adb336b93bbd53e83ddab2826e999eba3c76f7"
+      },
+      "adapter_model": {
+        "sha256": "dd61583a60df2d538989e963e104cb626d78965d300e4e473e9a82ef59c04502"
+      },
+      "adapter_config": {
+        "sha256": "a8a423baf16fed5269e1c8390dfe82669b38a8ca6c957afeceb379c7347e8d85"
+      },
+      "adapter_tokenizer": {
+        "sha256": "e78a1959568aeaf5f72abac76f6e5dd63c72157d991ef11e4bb34e474c3f54be"
+      }
+    }
+  },
+  "evidence": {
+    "runtime_report": "/model-artifacts/kuku-yalanji-nllb-lora/v24.3-joint-lexeme-dose29-s3598-20260715/CPU-RUNTIME-VERIFICATION.json",
+    "model_guide": "/docs/kuku-v24-3-model-guide.html",
+    "closed_set_lexical_exact": "2696/2724",
+    "closed_set_lexical_percent": 98.9721
+  },
+  "limitations": {
+    "sentence_translation_validated": false,
+    "speaker_or_community_certified": false,
+    "authoritative_translation": false,
+    "high_stakes_use_authorized": false,
+    "experiment_authorized_unrestricted_deployment": false,
+    "scope": "Operator-requested, visibly labelled homepage research preview with no silent prompt-model fallback. This operational exception does not change the scientific sentence-generation gate."
+  }
+}

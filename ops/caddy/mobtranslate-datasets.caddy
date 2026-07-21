@@ -1,0 +1,8 @@
+# Place inside the mobtranslate.com site block before the default reverse proxy.
+# The release builder writes only to this narrow research-dataset tree.
+redir /datasets /datasets/ permanent
+handle_path /datasets/* {
+	root * /mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-datasets
+	header Cache-Control "public, max-age=300, must-revalidate"
+	file_server browse
+}

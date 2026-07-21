@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the verified MobTranslate PostgreSQL backup daily
+
+[Timer]
+OnCalendar=*-*-* 02:30:00 UTC
+RandomizedDelaySec=15m
+Persistent=true
+Unit=mobtranslate-db-backup.service
+
+[Install]
+WantedBy=timers.target

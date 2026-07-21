@@ -40,6 +40,9 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
+      - name: Validate operational shell scripts
+        run: bash -n ops/deploy-web.sh ops/rollback-web.sh
+
       - name: Fast checks (affected)
         run: pnpm check
 
@@ -80,6 +83,8 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Test
+        env:
+          NODE_ENV: test
         run: pnpm test
 
       - name: Upload coverage

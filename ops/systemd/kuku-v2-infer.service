@@ -1,7 +1,7 @@
 [Unit]
-# Kuku Yalanji v21.2 research-preview translator (English -> gvn).
-# Backs the mobtranslate.com /labs/v2 page. Loopback-only, no secrets.
-Description=Kuku Yalanji v21.2 research-preview translation inference (/labs/v2)
+# Kuku Yalanji v24.3 operator-requested research preview (English -> gvn).
+# Backs the homepage Translate pane and /labs/v2. Loopback-only, no secrets.
+Description=Kuku Yalanji v24.3 unverified research-preview inference
 After=network-online.target
 Wants=network-online.target
 
@@ -22,27 +22,32 @@ Environment=MALLOC_ARENA_MAX=2
 ExecStart=/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/venvs/v14-cpu-py312/bin/python \
     /mnt/donto-data/workspace/mobtranslate.com/training/translation/serve_v2_infer.py \
     --model-dir /mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/v21.2-claude-balanced-replay-20260711T050900Z/models/v21.2-claude-balanced-replay-gvn-3epoch-lr2e-5/merged \
-    --model-id v21.2-claude-balanced-replay \
+    --adapter-dir /mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/v24.3-joint-lexeme-dose29-rerun1-20260715/selected-adapter \
+    --adapter-sha256 dd61583a60df2d538989e963e104cb626d78965d300e4e473e9a82ef59c04502 \
+    --model-id v24.3-joint-lexeme-dose29-s3598-20260715 \
     --host 127.0.0.1 --port 7955 \
     --dtype float32 --threads 4 \
     --max-chars 400 --max-new-tokens 208 --num-beams 1 \
-    --max-waiting 8 --max-time 45
+    --no-repeat-ngram-size 4 --repetition-penalty 1.10 --length-penalty 1.0 \
+    --max-waiting 2 --max-time 45
 # /health only answers once the model has loaded AND warmed up.
-ExecStartPost=/bin/bash -c 'for attempt in {1..180}; do /usr/bin/curl -fsS http://127.0.0.1:7955/health >/dev/null && exit 0; sleep 2; done; exit 1'
+# Match TimeoutStartSec: allow 450 two-second probes when the mounted drive is busy.
+ExecStartPost=/bin/bash -c 'for attempt in {1..450}; do /usr/bin/curl -fsS http://127.0.0.1:7955/health >/dev/null 2>&1 && exit 0; sleep 2; done; exit 1'
 Restart=always
 RestartSec=10
-TimeoutStartSec=420
+# Loading 2.7 GB of weights is normally quick, but shared-drive research scans can
+# saturate /mnt/donto-data. Preserve forward progress instead of restart-looping.
+TimeoutStartSec=900
 TimeoutStopSec=30
 # User-facing latency path -> normal scheduling priority (NOT deprioritized).
 # The merged model is ~1.37B params (larger than the assumed 600M base): fp32 is
-# ~5.3G resident with an ~8G transient 2x load peak, so the cap matches the proven
-# sibling (mobtranslate-translate-v2 = 8G). MemorySwapMax=0 + MALLOC_ARENA_MAX=2
-# keep memory bounded and non-swapping per the citer-leak scar.
-MemoryHigh=7G
-MemoryMax=8G
+# The dynamic v24.3 adapter measured 7.1G settled RSS and 8.003G peak cgroup
+# memory. Leave explicit startup headroom while preventing host-wide growth.
+MemoryHigh=8G
+MemoryMax=9G
 MemorySwapMax=0
 # Loose CPU backstop so a burst can't monopolize the shared box.
-CPUQuota=600%
+CPUQuota=400%
 NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=full

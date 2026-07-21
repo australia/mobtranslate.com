@@ -1,0 +1,18 @@
+[Unit]
+Description=MobTranslate privacy and operational-cache retention
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ajax
+Group=ajax
+WorkingDirectory=/mnt/donto-data/workspace/mobtranslate.com
+EnvironmentFile=/opt/mobtranslate/web.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/pnpm --filter web operational:prune
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+NoNewPrivileges=true
+PrivateTmp=true

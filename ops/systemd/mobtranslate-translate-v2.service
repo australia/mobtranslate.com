@@ -1,0 +1,37 @@
+[Unit]
+Description=MobTranslate Kuku Yalanji v21.1 translation inference
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ajax
+Group=ajax
+WorkingDirectory=/mnt/donto-data/workspace/mobtranslate.com
+Environment=PYTHONUNBUFFERED=1
+Environment=OMP_NUM_THREADS=6
+Environment=MKL_NUM_THREADS=6
+Environment=HF_HOME=/tmp/huggingface
+Environment=HF_HUB_OFFLINE=1
+Environment=TRANSFORMERS_OFFLINE=1
+Environment=TOKENIZERS_PARALLELISM=false
+ExecStart=/mnt/donto-data/workspace/mobtranslate.com/training/translation/.venv-serve/bin/python /mnt/donto-data/workspace/mobtranslate.com/training/translation/serve_nllb_lora.py --model-dir /mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/v21.1-codex-synthetic-direct-20260710T171317Z/models/v21.1-codex-synthetic-direct-gvn-3epoch-lr2e-5/merged --host 127.0.0.1 --port 8765 --device cpu --dtype float32 --max-source-length 192
+ExecStartPost=/bin/bash -c 'for attempt in {1..300}; do /usr/bin/curl -fsS http://127.0.0.1:8765/health >/dev/null && exit 0; sleep 2; done; exit 1'
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=620
+TimeoutStopSec=30
+Nice=5
+IOSchedulingClass=best-effort
+IOSchedulingPriority=4
+CPUQuota=600%
+MemoryHigh=7G
+MemoryMax=8G
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

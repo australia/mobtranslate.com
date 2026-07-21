@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-07-15T00:00:00+00:00",
+  "gate_type": "model_sentence_generation",
+  "status": "FAIL",
+  "decision": "SENTENCE_GENERATION_PROHIBITED",
+  "model": {
+    "id": "v21.1-codex-synthetic-direct-gvn-3epoch-lr2e-5",
+    "merged_model_sha256": "9cc55520f541bf3f93db0126f733aafd91966b225e4406a2e4115c444dfb9a90"
+  },
+  "checks": {
+    "multi_cluster_natural_evaluation_passed": false,
+    "fluent_speaker_review_passed": false,
+    "critical_semantic_and_grammatical_errors_zero": false,
+    "community_release_authority_documented": false
+  },
+  "policy": {
+    "scope": "Public free-form Kuku Yalanji sentence generation",
+    "reason": "Current evidence is automatic, small, clustered, and not speaker-reviewed. Lexical reconstruction cannot satisfy this gate.",
+    "failed_gate_action": "Keep the custom sentence service stopped, disabled, and absent from live routing."
+  }
+}

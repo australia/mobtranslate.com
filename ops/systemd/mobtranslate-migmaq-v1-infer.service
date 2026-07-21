@@ -1,0 +1,46 @@
+[Unit]
+Description=MobTranslate Mi'gmaq 1.0.0-rc1 research inference
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ajax
+Group=ajax
+WorkingDirectory=/mnt/donto-data/workspace/mobtranslate.com
+Environment=PYTHONUNBUFFERED=1
+Environment=OMP_NUM_THREADS=4
+Environment=MKL_NUM_THREADS=4
+Environment=HF_HOME=/tmp/huggingface
+Environment=HF_HUB_OFFLINE=1
+Environment=TRANSFORMERS_OFFLINE=1
+Environment=TOKENIZERS_PARALLELISM=false
+Environment=MALLOC_ARENA_MAX=2
+ExecStart=/mnt/donto-data/workspace/mobtranslate.com/training/translation/.venv-serve/bin/python \
+    /mnt/donto-data/workspace/mobtranslate.com/training/translation/serve_v2_infer.py \
+    --model-dir /mnt/donto-data/donto-resources/research/translation-training/migmaq-runpod-2026-07-12/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/merged \
+    --model-id migmaq-nllb-lora-1.0.0-rc1 \
+    --source-lang eng_Latn --target-lang mic_Latn --prefix= \
+    --warmup-text "The wind is blowing from the South." \
+    --host 127.0.0.1 --port 8766 \
+    --dtype float32 --threads 4 --max-chars 400 \
+    --max-source-length 192 --max-new-tokens 128 --num-beams 4 \
+    --no-repeat-ngram-size 3 --repetition-penalty 1.1 --length-penalty 1.0 \
+    --max-waiting 4 --max-time 45
+ExecStartPost=/bin/bash -c 'for attempt in {1..240}; do /usr/bin/curl -fsS http://127.0.0.1:8766/health >/dev/null && exit 0; sleep 2; done; exit 1'
+Restart=always
+RestartSec=10
+TimeoutStartSec=520
+TimeoutStopSec=30
+MemoryHigh=5G
+MemoryMax=6G
+MemorySwapMax=0
+CPUQuota=400%
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

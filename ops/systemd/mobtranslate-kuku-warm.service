@@ -1,6 +1,6 @@
 [Unit]
-Description=MobTranslate — keep the Kuku Yalanji research-model Space warm
-Documentation=https://huggingface.co/ajaxdavis/mobtranslate-kuku-yalanji-v24-3
+Description=MobTranslate - keep enabled Hugging Face model adapters warm
+Documentation=https://huggingface.co/spaces/ajaxdavis/alpha-v0-historic
 After=network-online.target
 Wants=network-online.target
 

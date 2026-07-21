@@ -1,6 +1,6 @@
 # Design
 
-A full design system for MobTranslate — a community-built dictionary, translator, and learning platform for Indigenous languages.
+A full design system for MobTranslate, an independent source-attributed dictionary, translator, and learning research platform for Indigenous languages.
 
 The system is **product-first**: dictionary search, learn quizzes, curator queue, and admin tools are the primary surfaces. Marketing pages (`/`, `/about`) inherit the same tokens but earn editorial liberties. Per-language identity is a first-class concern: every dictionary surface declares a `data-language` and pulls a small accent palette mapped to that language's country.
 
@@ -345,7 +345,7 @@ Implementing this system on the current codebase. Numbered by priority.
 
 2. **Refactor home page "How It Works" section.** Currently three identical icon-headline-paragraph cards — that's the SaaS template. Replace with a single editorial-typography block: numbered (01, 02, 03 in Playfair display size) with prose paragraphs in 65ch column.
 
-3. **Refactor home page stat counter ("4 Languages, 20,862+ Words, 100% Open Source").** Currently reads as SaaS metric brag. Reframe as a sentence: "4 languages, 20,862 entries, every line of code and every dictionary entry open." Same numbers, different posture.
+3. **Refactor home page stat counter ("4 Languages, 20,862+ Words, 100% Open Source").** Currently reads as SaaS metric brag and overstates the data licence. Reframe as a sentence that reports the current counts and says provenance and terms are shown per collection. The application code licence must remain distinct from language-data and model terms.
 
 4. **Replace existing translator error state.** "Translation error occurred. Please try again." is a fail message, not a UX. Use the translation result component (5.7) with an error-flavored variant: explain what failed (rate limit? language not supported? network?) with a recovery action.
 
