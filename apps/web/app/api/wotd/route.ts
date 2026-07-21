@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import crypto from 'crypto'
 import { promises as fs } from 'fs'
-import path from 'path'
 import { and, asc, countDistinct, eq, sql } from 'drizzle-orm'
 import { db } from '@/lib/db/index'
 import {
@@ -10,7 +9,8 @@ import {
   usageExamples as usageExamplesT,
   words as wordsT,
 } from '@/lib/db/schema'
-import { cacheKey, SITE, WOTD_DIR } from '@/lib/word-image'
+import { cacheKey, cachePath, SITE, WOTD_DIR } from '@/lib/word-image-cache'
+import { enforceImageProviderBudget } from '@/lib/api-rate-limit.server'
 import { requestImage } from '@/lib/image-queue'
 
 // Return the public URL of an already-cached image for (lang, word), or null.
@@ -19,7 +19,7 @@ async function peekCachedImage(lang: string, word: string): Promise<string | nul
   const key = cacheKey(lang, word)
   for (const ext of ['jpg', 'png']) {
     try {
-      await fs.access(path.join(WOTD_DIR, `${key}.${ext}`))
+      await fs.access(cachePath(WOTD_DIR, `${key}.${ext}`))
       return `${SITE}/wotd/${key}.${ext}`
     } catch {
       /* not present */
@@ -256,8 +256,14 @@ export async function GET(request: NextRequest) {
     wotd.imageUrl = cached
   } else {
     wotd.imageUrl = null
-    void requestImage(lang, wotd.word, wotd.meaning ?? null, WOTD_DIR, '/wotd')
-      .catch((err: any) => console.error('[wotd] background image gen failed', err?.message || err))
+    try {
+      await enforceImageProviderBudget(request, null)
+      void requestImage(lang, wotd.word, wotd.meaning ?? null, WOTD_DIR, '/wotd')
+        .catch((err: any) => console.error('[wotd] background image gen failed', err?.message || err))
+    } catch {
+      // The word remains useful without artwork; budget exhaustion is an
+      // expected degraded state, not a failed word-of-the-day response.
+    }
   }
 
   return NextResponse.json(wotd, {

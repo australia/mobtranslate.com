@@ -130,7 +130,7 @@ export function WordCard({
           <div className="flex items-center gap-2">
             {languageCode && (
               <span data-language={languageCode}>
-                <SpeakButton text={word} lang={languageCode} size="md" className="border border-border bg-card shadow-sm" />
+                <SpeakButton text={word} englishText={translation} lang={languageCode} size="md" className="border border-border bg-card shadow-sm" />
               </span>
             )}
             

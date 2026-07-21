@@ -73,7 +73,12 @@ const DictionaryTableWithLikes: React.FC<DictionaryTableWithLikesProps> = ({
                   ) : (
                     <span className="font-display text-base font-semibold text-foreground" lang={langCode}>{word.word}</span>
                   )}
-                  <SpeakButton text={word.word} lang={langCode} size="sm" />
+                  <SpeakButton
+                    text={word.word}
+                    englishText={getTranslationsText(word) || getDefinitionText(word)}
+                    lang={langCode}
+                    size="sm"
+                  />
                 </div>
               </TableCell>
               <TableCell>

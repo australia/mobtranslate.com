@@ -163,7 +163,7 @@ export function ModernNav() {
                 variant="ghost"
                 size="md"
                 className={cn(
-                  "gap-2 px-3.5 py-2 rounded-lg transition-all duration-200",
+                  "min-h-11 gap-2 px-3.5 py-2 rounded-lg transition-all duration-200",
                   "hover:bg-primary/10 hover:text-primary",
                   "active:scale-[0.97]"
                 )}
@@ -178,12 +178,12 @@ export function ModernNav() {
         {/* Mobile Primary Nav */}
         <nav className="flex md:hidden items-center gap-0.5">
           <Link href="/learn">
-            <Button variant="ghost" size="sm" className="p-2 rounded-lg hover:bg-primary/10">
+            <Button variant="ghost" size="sm" className="min-h-11 min-w-11 p-2 rounded-lg hover:bg-primary/10">
               <Brain className="h-4 w-4" />
             </Button>
           </Link>
           <Link href="/dashboard">
-            <Button variant="ghost" size="sm" className="p-2 rounded-lg hover:bg-primary/10">
+            <Button variant="ghost" size="sm" className="min-h-11 min-w-11 p-2 rounded-lg hover:bg-primary/10">
               <Home className="h-4 w-4" />
             </Button>
           </Link>
@@ -196,7 +196,7 @@ export function ModernNav() {
             size="sm"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className={cn(
-              "gap-2 transition-all duration-200 rounded-full pl-1.5 pr-2.5 py-1.5",
+              "min-h-11 gap-2 transition-all duration-200 rounded-full pl-1.5 pr-2.5 py-1.5",
               "hover:bg-muted",
               isDropdownOpen && "bg-muted ring-2 ring-primary/20"
             )}
@@ -284,28 +284,26 @@ export function ModernNav() {
 
   return (
     <div className="flex items-center gap-2.5">
-      <Link href="/auth/signin">
-        <Button
-          variant="ghost"
-          size="sm"
-          className="text-sm font-medium hover:bg-muted transition-colors duration-200 rounded-lg"
-        >
-          Sign in
-        </Button>
-      </Link>
-      <Link href="/auth/signup">
-        <Button
-          size="sm"
-          className={cn(
-            "hidden sm:inline-flex text-sm font-medium rounded-lg",
-            "bg-primary hover:bg-primary/90 text-primary-foreground",
-            "shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/25",
-            "transition-all duration-200 active:scale-[0.97]"
-          )}
-        >
-          Get Started
-        </Button>
-      </Link>
+      <Button
+        asChild
+        variant="ghost"
+        size="sm"
+        className="min-h-11 text-sm font-medium hover:bg-muted transition-colors duration-200 rounded-lg"
+      >
+        <Link href="/auth/signin">Sign in</Link>
+      </Button>
+      <Button
+        asChild
+        size="sm"
+        className={cn(
+          "hidden min-h-11 sm:inline-flex text-sm font-medium rounded-lg",
+          "bg-primary hover:bg-primary/90 text-primary-foreground",
+          "shadow-sm shadow-primary/20 hover:shadow-md hover:shadow-primary/25",
+          "transition-all duration-200 active:scale-[0.97]"
+        )}
+      >
+        <Link href="/auth/signup">Get Started</Link>
+      </Button>
     </div>
   );
 }

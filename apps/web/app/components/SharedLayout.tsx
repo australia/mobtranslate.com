@@ -7,6 +7,7 @@ import { Menu, X, Sun, Moon, Code, Heart, Globe, BookOpen, Users, ExternalLink }
 import { cn, Button } from '@mobtranslate/ui';
 import { ModernNav } from '@/components/navigation/ModernNav';
 import { BrandMark } from '@/components/brand/BrandMark';
+import { ContactEmailLink } from './ContactEmailLink';
 
 interface NavLink {
   title: string;
@@ -90,7 +91,8 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
     { title: 'Dictionaries', href: '/dictionaries' },
     { title: 'Map', href: '/map' },
     { title: 'Spread', href: '/atlas/spread' },
-    { title: 'Translate', href: '/translate/v2' },
+    { title: 'Translate', href: '/#translate' },
+    { title: 'Talk', href: '/talk/kuku-yalanji' },
     { title: 'Models', href: '/models' },
     { title: 'Learn', href: '/education' },
     { title: 'Community', href: '/leaderboard' }
@@ -118,7 +120,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             {/* Logo with decorative dot */}
             <Link
               href="/"
-              className="flex items-center gap-2.5 group shrink-0"
+              className="flex min-h-11 items-center gap-2.5 group shrink-0"
             >
               <BrandMark size={30} className="rounded-[7px] shrink-0 group-hover:scale-105 transition-transform duration-300" />
               <span className="text-xl sm:text-2xl font-bold text-foreground whitespace-nowrap">
@@ -127,7 +129,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             </Link>
 
             {/* Desktop Navigation with underline animation */}
-            <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Main navigation">
+            <nav className="hidden min-[1360px]:flex items-center gap-6 lg:gap-8" aria-label="Main navigation">
               {navLinks.map((link) => {
                 const isActive = !link.external && pathname.startsWith(link.href);
                 return (
@@ -155,7 +157,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                 <Button
                   variant="ghost"
                   onClick={toggleDarkMode}
-                  className="relative p-2 h-9 w-9 rounded-full hover:bg-muted transition-colors"
+                  className="relative h-11 w-11 rounded-full p-2 hover:bg-muted transition-colors"
                   aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
                 >
                   <Sun
@@ -182,12 +184,12 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
             </nav>
 
             {/* Mobile Menu Controls */}
-            <div className="flex md:hidden items-center gap-1.5">
+            <div className="flex min-[1360px]:hidden items-center gap-1.5">
               <ModernNav />
               <Button
                 variant="ghost"
                 onClick={toggleDarkMode}
-                className="relative p-2 h-9 w-9 rounded-full hover:bg-muted transition-colors"
+                className="relative h-11 w-11 rounded-full p-2 hover:bg-muted transition-colors"
                 aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 <Sun
@@ -212,7 +214,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               <Button
                 variant="ghost"
                 onClick={toggleMenu}
-                className="p-2 h-9 w-9 rounded-full hover:bg-muted transition-colors"
+                className="h-11 w-11 rounded-full p-2 hover:bg-muted transition-colors"
                 aria-label="Toggle menu"
               >
                 <span className={cn(
@@ -229,8 +231,8 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
         {/* Mobile Menu with slide-down transition */}
         <div
           className={cn(
-            "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-            isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+            "min-[1360px]:hidden overflow-hidden transition-all duration-300 ease-in-out",
+            isMenuOpen ? "max-h-[36rem] opacity-100" : "max-h-0 opacity-0"
           )}
           aria-hidden={!isMenuOpen}
         >
@@ -286,7 +288,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                   href="https://github.com/australia/mobtranslate.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:scale-110 transition-all duration-200"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-muted text-muted-foreground transition-all duration-200 hover:scale-110 hover:bg-primary/10 hover:text-foreground"
                   aria-label="GitHub Repository"
                 >
                   <Code size={16} />
@@ -295,14 +297,14 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                   href="https://twitter.com/ajaxdavis"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:scale-110 transition-all duration-200"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-muted text-muted-foreground transition-all duration-200 hover:scale-110 hover:bg-primary/10 hover:text-foreground"
                   aria-label="Twitter"
                 >
                   <Heart size={16} />
                 </a>
                 <a
                   href="/about"
-                  className="w-9 h-9 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:scale-110 transition-all duration-200"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-muted text-muted-foreground transition-all duration-200 hover:scale-110 hover:bg-primary/10 hover:text-foreground"
                   aria-label="About Us"
                 >
                   <Globe size={16} />
@@ -426,9 +428,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               </a>
               <p className="text-sm text-muted-foreground leading-relaxed mt-4">
                 Get in touch:{' '}
-                <a href="mailto:ajax@mobtranslate.com" className="text-primary font-medium hover:text-primary/80">
-                  ajax@mobtranslate.com
-                </a>
+                <ContactEmailLink className="text-primary font-medium hover:text-primary/80" />
               </p>
             </div>
           </div>
@@ -436,8 +436,8 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
           {/* Bottom bar */}
           <div className="py-6 border-t border-border/40">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-muted-foreground">
-              <p>&copy; {new Date().getFullYear()} Mob Translate. Open source under MIT License.</p>
-              <p>Open source · Community-built</p>
+              <p>&copy; {new Date().getFullYear()} Mob Translate. Application code: MIT License.</p>
+              <p>Source terms vary · Research translations unverified</p>
             </div>
           </div>
         </div>

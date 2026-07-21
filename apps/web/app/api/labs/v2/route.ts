@@ -2,16 +2,21 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { logTranslationRequest } from '@/lib/usage-log';
 import { getSessionUser } from '@/lib/auth-helpers';
+import { discordTranslate } from '@/lib/discord';
+import {
+  apiGuardResponse,
+  enforceCustomModelProviderBudget,
+  enforceTranslationRequestLimit,
+} from '@/lib/api-rate-limit.server';
 
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
 // Server-side only. The inference service listens on loopback and is never
 // exposed to the browser; this route is the single proxy in front of it.
-const ENDPOINT =
-  process.env.MOBTRANSLATE_LABS_V2_ENDPOINT || 'http://127.0.0.1:7955/translate';
+const ENDPOINT = process.env.MOBTRANSLATE_LABS_V2_ENDPOINT?.trim();
 const TIMEOUT_MS = Number(process.env.MOBTRANSLATE_LABS_V2_TIMEOUT_MS ?? 55000);
-const MODEL_FALLBACK = 'v21.2-claude-balanced-replay';
+const MODEL_FALLBACK = 'v21.2-claude-balanced-replay-guarded-20260714';
 const MAX_CHARS = 400;
 
 const RequestSchema = z.object({
@@ -47,6 +52,26 @@ export async function POST(request: NextRequest) {
   const text = parsed.data.text;
 
   try {
+    await enforceTranslationRequestLimit(request, userId);
+  } catch (error) {
+    return apiGuardResponse(error) ?? NextResponse.json(
+      { success: false, error: 'Request guard failed.' } satisfies LabsV2Response,
+      { status: 503 },
+    );
+  }
+
+  if (!ENDPOINT) {
+    return NextResponse.json(
+      {
+        success: false,
+        error: 'Custom model inference is paused while a stronger Kuku Yalanji candidate is evaluated. Use the dictionary-guided translator on the homepage for now.',
+      } satisfies LabsV2Response,
+      { status: 503 },
+    );
+  }
+
+  try {
+    await enforceCustomModelProviderBudget(request, userId);
     const upstream = await fetch(ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -89,6 +114,13 @@ export async function POST(request: NextRequest) {
       model,
       durationMs: Date.now() - startedAt,
     });
+    void discordTranslate({
+      language: 'Kuku Yalanji (gvn)',
+      englishText: text,
+      indigenousText: translation,
+      mode: 'model-v21.2-guarded',
+      user: sessionUser,
+    });
 
     return NextResponse.json({
       success: true,
@@ -97,6 +129,8 @@ export async function POST(request: NextRequest) {
       model,
     } satisfies LabsV2Response);
   } catch (error) {
+    const guardResponse = apiGuardResponse(error);
+    if (guardResponse) return guardResponse;
     const message =
       error instanceof Error && error.name === 'TimeoutError'
         ? 'The translator took too long to respond. Please try again.'

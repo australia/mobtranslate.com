@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config';
+import { configDefaults, defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
@@ -9,6 +9,15 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
     include: ['**/__tests__/**/*.test.{ts,tsx}'],
+    exclude: [...configDefaults.exclude, '**/.next*/**'],
+    // This shared host runs several production services and sustained research
+    // downloads. One long-lived thread avoids the fork pool's fixed worker
+    // startup timeout when the mounted drive is under sustained I/O pressure.
+    pool: 'threads',
+    fileParallelism: false,
+    isolate: false,
+    minWorkers: 1,
+    maxWorkers: 1,
     // Render/interaction tests use userEvent + waitFor; under parallel CPU
     // contention the default 5s can be exceeded, causing flaky timeouts.
     testTimeout: 20000,

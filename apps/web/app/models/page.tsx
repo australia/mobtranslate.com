@@ -51,6 +51,7 @@ type ModelEntry = {
   name: string;
   family: string;
   task: string;
+  labUrl?: string;
   language: {
     name: string;
     appCode: string;
@@ -75,7 +76,9 @@ function loadRegistry(): Registry {
 function statusStyle(status: string): string {
   if (status === 'published') return 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300';
   if (status === 'internal-proof') return 'bg-blue-500/10 text-blue-700 dark:text-blue-300';
+  if (status === 'research-only') return 'bg-amber-500/20 text-foreground';
   if (status === 'training-ready') return 'bg-amber-500/10 text-amber-700 dark:text-amber-300';
+  if (status === 'negative-result') return 'bg-muted text-foreground';
   return 'bg-muted text-muted-foreground';
 }
 
@@ -118,6 +121,26 @@ export default function ModelsPage() {
             Every public model gets a version, model card, dataset record, rights note, and evaluation report.
             Training-ready entries appear here before artifacts are published so the release path stays visible.
           </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link
+              href="/api/v1/models"
+              className="inline-flex h-11 items-center gap-2 rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+            >
+              <Database className="h-4 w-4" /> Model API
+            </Link>
+            <Link
+              href="/docs/kuku-v21-2-model-guide.html"
+              className="inline-flex h-11 items-center gap-2 rounded-lg border border-border px-4 text-sm font-medium hover:bg-muted"
+            >
+              <Cpu className="h-4 w-4" /> Hosting guide
+            </Link>
+            <Link
+              href="/api/v1/models/openapi.json"
+              className="inline-flex h-11 items-center gap-2 rounded-lg border border-border px-4 text-sm font-medium hover:bg-muted"
+            >
+              <FileText className="h-4 w-4" /> OpenAPI
+            </Link>
+          </div>
         </div>
 
         <section className="mt-8 grid gap-4 md:grid-cols-3" aria-label="Registry guarantees">
@@ -205,6 +228,17 @@ export default function ModelsPage() {
                         <span className="inline-flex h-9 items-center gap-2 rounded-lg bg-emerald-500/10 px-3 text-sm font-medium text-emerald-700 dark:text-emerald-300">
                           <CheckCircle2 className="h-4 w-4" /> Published
                         </span>
+                      ) : release.status === 'research-only' && model.labUrl ? (
+                        <Link
+                          href={model.labUrl}
+                          className="inline-flex h-9 items-center gap-2 rounded-lg bg-amber-500/15 px-3 text-sm font-medium text-amber-900 hover:bg-amber-500/25 dark:text-amber-100"
+                        >
+                          <Cpu className="h-4 w-4" /> Research preview
+                        </Link>
+                      ) : release.status === 'research-only' ? (
+                        <span className="inline-flex h-9 items-center gap-2 rounded-lg bg-amber-500/15 px-3 text-sm font-medium text-amber-900 dark:text-amber-100">
+                          <ShieldCheck className="h-4 w-4" /> Archived research
+                        </span>
                       ) : release.status === 'internal-proof' ? (
                         <Link
                           href={versionLabPath(model.id, release.version)}
@@ -212,9 +246,21 @@ export default function ModelsPage() {
                         >
                           <Cpu className="h-4 w-4" /> Test in v2
                         </Link>
-                      ) : (
+                      ) : release.status === 'negative-result' ? (
+                        <span className="inline-flex h-9 items-center gap-2 rounded-lg bg-muted px-3 text-sm font-medium text-foreground">
+                          <CheckCircle2 className="h-4 w-4" /> Completed: not promoted
+                        </span>
+                      ) : release.status === 'route-candidate' ? (
+                        <span className="inline-flex h-9 items-center gap-2 rounded-lg bg-muted px-3 text-sm font-medium text-muted-foreground">
+                          <ShieldCheck className="h-4 w-4" /> Archived route candidate
+                        </span>
+                      ) : release.status === 'training-ready' ? (
                         <span className="inline-flex h-9 items-center gap-2 rounded-lg bg-amber-500/10 px-3 text-sm font-medium text-amber-700 dark:text-amber-300">
                           <Clock3 className="h-4 w-4" /> Awaiting training run
+                        </span>
+                      ) : (
+                        <span className="inline-flex h-9 items-center gap-2 rounded-lg bg-muted px-3 text-sm font-medium text-muted-foreground">
+                          <ShieldCheck className="h-4 w-4" /> Not published
                         </span>
                       )}
                     </div>

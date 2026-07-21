@@ -19,6 +19,7 @@ const EXAMPLE_PHRASES = [
   { label: 'Thank you', text: 'Thank you' },
   { label: 'Water', text: 'Water' },
 ];
+const MAX_CHAT_CHARS = 400;
 
 const Translator = ({ availableLanguages, showExamples = false }: TranslatorProps = {}) => {
   const [inputText, setInputText] = useState<string>('');
@@ -181,11 +182,12 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
             placeholder="Enter English text to translate..."
             aria-label="Translation input"
             aria-describedby="char-counter"
+            maxLength={MAX_CHAT_CHARS}
             className="w-full p-4 pr-10 resize-none min-h-[100px] sm:min-h-[120px] text-sm leading-relaxed transition-all duration-200 rounded-xl text-white placeholder:text-[rgba(255,255,255,0.4)]"
             style={{ background: 'rgba(255,255,255,0.08)', borderColor: 'rgba(255,255,255,0.1)' }}
           />
           <div id="char-counter" className="absolute bottom-2 right-2 text-xs text-[rgba(255,255,255,0.5)]">
-            {inputText.length} characters
+            {inputText.length} / {MAX_CHAT_CHARS}
           </div>
         </div>
         <div className="mt-4 flex items-center justify-end">
@@ -307,6 +309,7 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
                       .replace(/[#>*_`~|]/g, ' ')
                       .replace(/\s+/g, ' ')
                       .trim()}
+                    englishText={inputText}
                     lang={selectedLanguage}
                     variant="labeled"
                     size="sm"

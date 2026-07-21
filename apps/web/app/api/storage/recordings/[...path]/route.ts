@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { contentTypeFor, readRecording } from '@/lib/storage';
+import { resolveSentenceAudioAccess } from '@/lib/recording/speech-access.server';
 
 export const runtime = 'nodejs';
 
@@ -13,6 +14,18 @@ export async function GET(
   const storagePath = (segments || []).join('/');
   if (!storagePath) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  }
+
+  let sentenceAccess: 'public' | 'private' | null = null;
+  if (storagePath.startsWith('sentences/')) {
+    const access = await resolveSentenceAudioAccess(storagePath).catch(() => 'denied' as const);
+    if (access === 'denied') {
+      return NextResponse.json(
+        { error: 'Not found' },
+        { status: 404, headers: { 'Cache-Control': 'no-store' } },
+      );
+    }
+    sentenceAccess = access;
   }
 
   let data: Buffer | null;
@@ -30,7 +43,13 @@ export async function GET(
     headers: {
       'Content-Type': contentTypeFor(storagePath),
       'Content-Length': String(data.length),
-      'Cache-Control': 'public, max-age=31536000, immutable',
+      'Cache-Control':
+        sentenceAccess === 'public'
+          ? 'public, max-age=60, must-revalidate'
+          : sentenceAccess === 'private'
+            ? 'private, no-store'
+            : 'public, max-age=31536000, immutable',
+      ...(sentenceAccess ? { Vary: 'Cookie' } : {}),
     },
   });
 }

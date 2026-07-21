@@ -110,7 +110,7 @@ export function WordDetailContent({ word, languageCode }: WordDetailContentProps
         </section>
       )}
 
-      {/* Community pronunciations — real speakers */}
+      {/* Attributed source and community pronunciations */}
       <Recordings
         endpointBase={`/api/v2/words/${word.id}`}
         target={{ kind: 'word', label: word.word, gloss: word.gloss ?? null, wordId: word.id }}
@@ -130,7 +130,13 @@ export function WordDetailContent({ word, languageCode }: WordDetailContentProps
                   <p className="flex-1 text-lg leading-relaxed font-medium" lang={languageCode}>
                     {example.example_text}
                   </p>
-                  <SpeakButton text={example.example_text} lang={languageCode} size="sm" label="Hear example" />
+                  <SpeakButton
+                    text={example.example_text}
+                    englishText={example.translation}
+                    lang={languageCode}
+                    size="sm"
+                    label="Hear example"
+                  />
                 </div>
                 {example.transliteration && (
                   <p className="text-sm text-muted-foreground/80 mt-1 font-mono">{example.transliteration}</p>

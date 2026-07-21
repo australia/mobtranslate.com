@@ -37,11 +37,18 @@ function asNumber(value: unknown): number | undefined {
 }
 
 function evaluationArtifacts(release: ModelRelease): ModelArtifact[] {
-  return release.artifacts.filter((artifact) => artifact.kind === 'evaluation' && artifact.localPath);
+  return release.artifacts.filter(
+    (artifact) =>
+      artifact.kind === 'evaluation'
+      && artifact.format.toLowerCase() === 'json'
+      && artifact.localPath,
+  );
 }
 
 function resolveArtifactPath(file: string): string {
-  return path.isAbsolute(file) ? file : path.join(process.cwd(), file);
+  return path.isAbsolute(file)
+    ? file
+    : path.join(/*turbopackIgnore: true*/ process.cwd(), file);
 }
 
 function sourceFamily(item: EvaluationPrediction, artifact: ModelArtifact): string | undefined {

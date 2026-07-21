@@ -10,6 +10,13 @@ export type SessionUser = {
   name?: string | null;
 };
 
+function authError(message: string, status: 401 | 403): NextResponse {
+  return NextResponse.json(
+    { error: message },
+    { status, headers: { 'Cache-Control': 'no-store' } },
+  );
+}
+
 /**
  * Server-side current user from the better-auth session cookie.
  * Replaces `(await createClient()).auth.getUser()`. `user.id` is the UUID
@@ -32,14 +39,14 @@ export async function getSessionUser(): Promise<SessionUser | null> {
 export async function userHasRole(
   userId: string,
   roleNames: string[],
-  langId?: string | null
+  langId?: string | null,
 ): Promise<boolean> {
   const roleArray = sql`ARRAY[${sql.join(
     roleNames.map((r) => sql`${r}`),
-    sql`, `
+    sql`, `,
   )}]::text[]`;
   const res: any = await db.execute(
-    sql`select public.user_has_role(${userId}::uuid, ${roleArray}, ${langId ?? null}::uuid) as has_role`
+    sql`select public.user_has_role(${userId}::uuid, ${roleArray}, ${langId ?? null}::uuid) as has_role`,
   );
   const row = Array.isArray(res) ? res[0] : res?.rows?.[0];
   return row?.has_role === true;
@@ -53,15 +60,15 @@ export async function userHasRole(
  */
 export async function requireRole(
   roleNames: string[],
-  langId?: string | null
+  langId?: string | null,
 ): Promise<{ user: SessionUser | null; response: NextResponse | null }> {
   const user = await getSessionUser();
   if (!user) {
-    return { user: null, response: NextResponse.json({ error: 'Unauthorized' }, { status: 401 }) };
+    return { user: null, response: authError('Unauthorized', 401) };
   }
   const ok = await userHasRole(user.id, roleNames, langId);
   if (!ok) {
-    return { user, response: NextResponse.json({ error: 'Forbidden' }, { status: 403 }) };
+    return { user, response: authError('Forbidden', 403) };
   }
   return { user, response: null };
 }
@@ -73,7 +80,7 @@ export async function requireUser(): Promise<{
 }> {
   const user = await getSessionUser();
   if (!user) {
-    return { user: null, response: NextResponse.json({ error: 'Unauthorized' }, { status: 401 }) };
+    return { user: null, response: authError('Unauthorized', 401) };
   }
   return { user, response: null };
 }

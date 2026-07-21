@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 // Versioned filename so a new release is never served from a stale browser /
 // CDN cache (and the installer always sees the newer build). Bump on each release.
-const APP_VERSION = '1.0.2';
+const APP_VERSION = '1.0.8';
 const APP_APK = `/downloads/mobtranslate-app-${APP_VERSION}.apk`;
 const KEYBOARD_APK = '/downloads/mobtranslate-keyboard.apk';
 

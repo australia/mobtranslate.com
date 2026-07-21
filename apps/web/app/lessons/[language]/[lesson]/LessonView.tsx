@@ -45,7 +45,7 @@ export function LessonView({ lesson }: { lesson: Lesson }) {
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           {lesson.vocab.map((v) => (
             <div key={v.term} className="flex items-center gap-3 rounded-xl border border-border bg-card p-3">
-              <SpeakButton text={v.term} lang={lesson.languageCode} size="md" />
+              <SpeakButton text={v.term} englishText={v.gloss} lang={lesson.languageCode} size="md" />
               <div className="min-w-0 flex-1">
                 <p className="font-display text-lg font-semibold text-foreground">
                   {v.term} {v.confirm && <ToConfirm />}
@@ -65,7 +65,12 @@ export function LessonView({ lesson }: { lesson: Lesson }) {
           {lesson.phrases.map((p) => (
             <div key={p.term} className="rounded-2xl border border-border bg-card p-4">
               <div className="flex items-start gap-3">
-                <SpeakButton text={p.term.replace(/…/g, '')} lang={lesson.languageCode} size="lg" />
+                <SpeakButton
+                  text={p.term.replace(/…/g, '')}
+                  englishText={p.gloss}
+                  lang={lesson.languageCode}
+                  size="lg"
+                />
                 <div className="min-w-0 flex-1">
                   <p className="font-display text-2xl font-bold text-foreground">
                     {p.term} {p.confirm && <ToConfirm />}
@@ -142,7 +147,12 @@ function IntroBuilder({ lesson }: { lesson: Lesson }) {
           const text = fill(line.template);
           return (
             <div key={i} className="flex items-center gap-3 rounded-xl bg-muted/50 p-3">
-              <SpeakButton text={text.replace(/…/g, '').replace(/-mun/g, 'mun')} lang={lesson.languageCode} size="md" />
+              <SpeakButton
+                text={text.replace(/…/g, '').replace(/-mun/g, 'mun')}
+                englishText={fill(line.gloss)}
+                lang={lesson.languageCode}
+                size="md"
+              />
               <div className="min-w-0 flex-1">
                 <p className="font-display text-lg font-semibold text-foreground">
                   {text} {line.confirm && <ToConfirm />}

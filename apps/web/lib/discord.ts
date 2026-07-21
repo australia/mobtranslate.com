@@ -11,6 +11,8 @@
  * never bundled into client code. If the var is unset, every helper is a no-op.
  */
 
+import { createHmac } from 'node:crypto';
+
 export interface DiscordField {
   name: string;
   value: string;
@@ -95,41 +97,56 @@ export async function sendDiscordEvent(event: DiscordEvent): Promise<void> {
 // passwords or full audio.
 // ---------------------------------------------------------------------------
 
-function actorFields(user?: { email?: string | null; name?: string | null } | null): DiscordField[] {
-  const fields: DiscordField[] = [];
-  if (user?.email) fields.push({ name: 'User', value: truncate(user.email, 120) });
-  else if (user?.name) fields.push({ name: 'User', value: truncate(user.name, 120) });
-  else fields.push({ name: 'User', value: 'anonymous' });
-  return fields;
+interface DiscordActor {
+  id?: string | null;
+  email?: string | null;
+  name?: string | null;
 }
 
-export function discordSignup(user: { email?: string | null; name?: string | null }): Promise<void> {
+function actorLabel(user?: DiscordActor | null): string {
+  if (!user) return 'anonymous';
+  const identifier = user.id || user.email || user.name;
+  if (!identifier) return 'signed-in user';
+  const secret =
+    process.env.MOBTRANSLATE_MONITORING_SECRET?.trim() ||
+    process.env.MOBTRANSLATE_RATE_LIMIT_SECRET?.trim() ||
+    process.env.BETTER_AUTH_SECRET?.trim();
+  if (!secret) return 'signed-in user';
+  const pseudonym = createHmac('sha256', secret)
+    .update(identifier)
+    .digest('hex')
+    .slice(0, 12);
+  return `account:${pseudonym}`;
+}
+
+function actorFields(user?: DiscordActor | null): DiscordField[] {
+  return [{ name: 'User', value: actorLabel(user) }];
+}
+
+export function discordSignup(user: DiscordActor): Promise<void> {
   return sendDiscordEvent({
     title: '🎉 New signup',
     color: DISCORD_COLORS.signup,
-    fields: [
-      { name: 'Email', value: truncate(user.email, 120) || '—' },
-      { name: 'Name', value: truncate(user.name, 120) || '—' },
-    ],
+    fields: actorFields(user),
   });
 }
 
-export function discordSignin(user: { email?: string | null; name?: string | null }): Promise<void> {
+export function discordSignin(user: DiscordActor): Promise<void> {
   return sendDiscordEvent({
     title: '🔑 Sign in',
     color: DISCORD_COLORS.signin,
-    fields: [
-      { name: 'Email', value: truncate(user.email, 120) || '—' },
-      { name: 'Name', value: truncate(user.name, 120) || '—' },
-    ],
+    fields: actorFields(user),
   });
 }
 
 export function discordTranslate(args: {
   language?: string | null;
-  text?: string | null;
+  englishText?: string | null;
+  indigenousText?: string | null;
+  gloss?: string | null;
+  model?: string | null;
   mode?: string | null;
-  user?: { email?: string | null; name?: string | null } | null;
+  user?: DiscordActor | null;
 }): Promise<void> {
   return sendDiscordEvent({
     title: '🌐 Translation',
@@ -137,22 +154,39 @@ export function discordTranslate(args: {
     fields: [
       { name: 'Language', value: truncate(args.language, 60) || '—' },
       { name: 'Mode', value: truncate(args.mode, 30) || 'chat' },
+      ...(args.model ? [{ name: 'Model', value: truncate(args.model, 120) }] : []),
       ...actorFields(args.user),
-      { name: 'Text', value: truncate(args.text, 120) || '—', inline: false },
+      { name: 'English / source', value: truncate(args.englishText, 1024) || '—', inline: false },
+      {
+        name: `Indigenous-language output${args.language ? ` (${truncate(args.language, 40)})` : ''}`,
+        value: truncate(args.indigenousText, 1024) || '—',
+        inline: false,
+      },
+      ...(args.gloss
+        ? [{ name: 'English back-translation', value: truncate(args.gloss, 1024), inline: false }]
+        : []),
     ],
   });
 }
 
 export function discordTts(args: {
   language?: string | null;
-  text?: string | null;
+  englishText?: string | null;
+  indigenousText?: string | null;
+  engine?: string | null;
 }): Promise<void> {
   return sendDiscordEvent({
     title: '🔊 TTS play',
     color: DISCORD_COLORS.tts,
     fields: [
       { name: 'Language', value: truncate(args.language, 60) || '—' },
-      { name: 'Text', value: truncate(args.text, 120) || '—', inline: false },
+      ...(args.engine ? [{ name: 'Engine', value: truncate(args.engine, 60) }] : []),
+      { name: 'English / context', value: truncate(args.englishText, 1024) || '—', inline: false },
+      {
+        name: `Indigenous-language audio text${args.language ? ` (${truncate(args.language, 40)})` : ''}`,
+        value: truncate(args.indigenousText, 1024) || '—',
+        inline: false,
+      },
     ],
   });
 }
@@ -163,7 +197,7 @@ export function discordRecording(args: {
   gloss?: string | null;
   kind?: string | null;
   durationMs?: number | null;
-  user?: { email?: string | null; name?: string | null } | null;
+  user?: DiscordActor | null;
 }): Promise<void> {
   const duration = args.durationMs != null ? `${(args.durationMs / 1000).toFixed(1)}s` : '—';
   return sendDiscordEvent({
@@ -174,8 +208,8 @@ export function discordRecording(args: {
       { name: 'Kind', value: truncate(args.kind, 30) || 'word' },
       { name: 'Duration', value: duration },
       ...actorFields(args.user),
-      { name: 'Label', value: truncate(args.label, 120) || '—', inline: false },
-      ...(args.gloss ? [{ name: 'Gloss', value: truncate(args.gloss, 120), inline: false }] : []),
+      { name: 'Indigenous-language text', value: truncate(args.label, 1024) || '—', inline: false },
+      { name: 'English / gloss', value: truncate(args.gloss, 1024) || '—', inline: false },
     ],
   });
 }

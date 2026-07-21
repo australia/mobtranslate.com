@@ -9,16 +9,16 @@ export const revalidate = 3600;
 
 const HOW_IT_WORKS = [
   {
-    title: 'Community dictionaries',
-    body: 'Word lists are curated with Indigenous language speakers and linguists, capturing authentic pronunciation, meaning, and the story behind each entry.',
+    title: 'Source-attributed dictionaries',
+    body: 'Entries are assembled from named dictionaries, grammars, archives, recordings, and contributions. Source and review state are shown where the record supports them.',
   },
   {
-    title: 'AI translation, flagged honestly',
-    body: 'Language models trained on those dictionaries offer contextual translations. Where the machine is guessing, we say so, every time.',
+    title: 'Translation, flagged honestly',
+    body: 'Dictionary evidence can guide contextual translation, but generated text remains an unverified research draft. Machine output is never presented as an authoritative source.',
   },
   {
-    title: 'Open, forever',
-    body: 'Every line of code and every dictionary entry is open. A community can clone, fork, and self-host its own dictionary without us in the loop.',
+    title: 'Open code, visible terms',
+    body: 'The application code is MIT-licensed and can be self-hosted. Language data and model weights retain their own source-specific and upstream terms.',
   },
 ];
 
@@ -57,7 +57,7 @@ export default async function Page() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12 sm:mb-14">
               <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#ecb485] mb-7">
-                Open source · community built
+                Open code · attributed sources
               </p>
               <h1 className="font-display font-bold text-[#faf8f5] mb-6 tracking-[-0.025em] leading-[0.95] text-5xl sm:text-6xl lg:text-7xl">
                 Translate into
@@ -65,8 +65,8 @@ export default async function Page() {
                 <span className="text-[#ecb485]">Indigenous languages</span>
               </h1>
               <p className="text-lg sm:text-xl text-[#faf8f5]/70 max-w-2xl mx-auto leading-relaxed">
-                A community dictionary, translator, and learning surface for First Nations
-                languages. Built with the people who speak them.
+                An independent dictionary, translator, and learning project built from attributed
+                language resources and contributions. Machine translations are unverified drafts.
               </p>
             </div>
 
@@ -93,7 +93,7 @@ export default async function Page() {
             {/* Scope, stated as a sentence — not a SaaS metric counter */}
             <p className="mt-16 sm:mt-20 pt-8 border-t border-[#faf8f5]/10 text-center text-sm sm:text-base text-[#faf8f5]/55 leading-relaxed max-w-2xl mx-auto">
               {stats.totalLanguages} languages, {stats.totalWords.toLocaleString()} entries, and
-              every line of code and every dictionary entry open to the communities they belong to.
+              source and review information shown wherever the underlying record provides it.
             </p>
           </div>
         </div>
@@ -166,7 +166,7 @@ export default async function Page() {
               How it works
             </h2>
             <p className="text-muted-foreground text-lg">
-              Built on open data and AI, with deep respect for language custodians.
+              Built from attributed language resources, with terms and uncertainty kept visible.
             </p>
           </div>
 

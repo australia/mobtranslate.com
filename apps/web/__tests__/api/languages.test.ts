@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 const mockGetActiveLanguages = vi.fn();
 
-vi.mock('@/lib/supabase/queries', () => ({
+vi.mock('@/lib/db/queries', () => ({
   getActiveLanguages: (...args: any[]) => mockGetActiveLanguages(...args),
 }));
 

@@ -10,6 +10,8 @@ type Status = 'idle' | 'loading' | 'playing' | 'error';
 interface SpeakButtonProps {
   /** The Indigenous-language text to pronounce. */
   text: string;
+  /** English source, definition, or gloss shown beside the Indigenous text in audit events. */
+  englishText?: string;
   /** Dictionary/language code, selects the donor voice (e.g. "kuku_yalanji"). */
   lang?: string;
   /** "icon" = round icon button; "labeled" = icon + text. */
@@ -20,7 +22,7 @@ interface SpeakButtonProps {
 }
 
 const ICON_SIZE = { sm: 14, md: 16, lg: 20 } as const;
-const BOX = { sm: 'h-8 w-8', md: 'h-9 w-9', lg: 'h-11 w-11' } as const;
+const BOX = { sm: 'h-11 w-11', md: 'h-11 w-11', lg: 'h-11 w-11' } as const;
 
 /**
  * Plays synthesized pronunciation from /api/tts (Edge TTS donor voice).
@@ -29,6 +31,7 @@ const BOX = { sm: 'h-8 w-8', md: 'h-9 w-9', lg: 'h-11 w-11' } as const;
  */
 export function SpeakButton({
   text,
+  englishText,
   lang,
   variant = 'icon',
   size = 'md',
@@ -49,7 +52,10 @@ export function SpeakButton({
     track('tts_play', { lang: lang ?? 'unknown', text_length: text.length });
     setStatus('loading');
     try {
-      const url = `/api/tts?text=${encodeURIComponent(text)}${lang ? `&lang=${encodeURIComponent(lang)}` : ''}`;
+      const params = new URLSearchParams({ text });
+      if (lang) params.set('lang', lang);
+      if (englishText?.trim()) params.set('english', englishText.trim().slice(0, 600));
+      const url = `/api/tts?${params.toString()}`;
       const audio = new Audio(url);
       audioRef.current = audio;
       audio.onplaying = () => setStatus('playing');
@@ -59,7 +65,7 @@ export function SpeakButton({
     } catch {
       setStatus('error');
     }
-  }, [text, lang, status]);
+  }, [text, englishText, lang, status]);
 
   const iconSize = ICON_SIZE[size];
   const icon =
@@ -86,7 +92,7 @@ export function SpeakButton({
         aria-label={aria}
         title={aria}
         className={cn(
-          'inline-flex items-center gap-2 rounded-lg border border-border px-3 h-9 text-sm font-medium',
+          'inline-flex min-h-11 items-center gap-2 rounded-lg border border-border px-3 text-sm font-medium',
           'text-foreground hover:bg-muted transition-colors',
           status === 'error' && 'text-destructive border-destructive/40',
           status === 'playing' && 'text-[var(--lang-accent,var(--color-primary))] border-[var(--lang-accent,var(--color-primary))]',

@@ -1,5 +1,6 @@
 import { Code, AtSign, Globe, BookOpen, Users, Sparkles, Check } from 'lucide-react';
 import SharedLayout from '../components/SharedLayout';
+import { ContactEmailLink } from '../components/ContactEmailLink';
 import { getLanguageStats } from '@/lib/db/queries';
 
 export const revalidate = 3600;
@@ -9,25 +10,25 @@ const BUILDING = [
     icon: Globe,
     title: 'Translation for everyone',
     description:
-      'A community translator for Indigenous languages: free, open, and accessible, with the machine’s guesses always flagged as guesses.',
+      'A public research translator for Indigenous languages: accessible, source-aware, and explicit that machine output is an unverified draft.',
   },
   {
     icon: BookOpen,
     title: 'Living dictionaries',
     description:
-      'Community-curated word lists that grow and evolve, holding authentic meaning, pronunciation, and the story behind each entry.',
+      'Source-traced word lists that can grow through documented corrections and contributions without hiding provenance or review state.',
   },
   {
     icon: Sparkles,
     title: 'AI that knows its place',
     description:
-      'Language models trained on real dictionary data, offering contextual translations without ever pretending to be the last word.',
+      'Research models and dictionary-grounded prompts that can assist exploration without pretending to be speaker-certified translation.',
   },
   {
     icon: Users,
-    title: 'Community first',
+    title: 'Accountability first',
     description:
-      'Built with and for Indigenous communities, linguists, and language learners. Infrastructure, not protagonist.',
+      'Language custodians, speakers, linguists, and learners can contribute or correct records; participation and approval are never implied.',
   },
 ];
 
@@ -53,15 +54,15 @@ export default async function About() {
             Learning Indigenous languages, in the open
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Mob Translate is a community-built dictionary, translator, and learning surface for
-            First Nations languages. It exists because the records for many of these languages are
-            scattered across PDFs, archives, and old notebooks. We&apos;re putting them in one fast,
-            open place, owned by the communities they belong to.
+            Mob Translate is an independent open research project for exploring First Nations
+            languages. It brings attributed records from dictionaries, grammars, archives,
+            recordings, and contributions into one searchable place. Publication here does not
+            make a resource official, community-owned, or community-certified.
           </p>
           <p className="mt-6 text-base text-muted-foreground leading-relaxed">
             Today that&apos;s {stats.totalLanguages} languages and{' '}
-            {stats.totalWords.toLocaleString()} entries, with every line of code and every entry
-            released under an open licence.
+            {stats.totalWords.toLocaleString()} entries. The application code is MIT-licensed;
+            language data and model artifacts retain their own source and upstream terms.
           </p>
         </div>
       </div>
@@ -136,9 +137,7 @@ export default async function About() {
         <h2 className="text-2xl sm:text-3xl font-display font-bold mb-2">Get in touch</h2>
         <p className="text-muted-foreground leading-relaxed">
           Questions, corrections, or want your community&apos;s language added? Email{' '}
-          <a href="mailto:ajax@mobtranslate.com" className="text-primary font-medium underline underline-offset-2">
-            ajax@mobtranslate.com
-          </a>{' '}
+          <ContactEmailLink className="text-primary font-medium underline underline-offset-2" />{' '}
           and we&apos;ll get back to you.
         </p>
       </section>
@@ -150,6 +149,6 @@ export default async function About() {
 export async function generateMetadata() {
   return {
     title: 'About Mob Translate | Indigenous Language Translation',
-    description: 'Learn about our open-source tools for learning and exploring Indigenous languages, built with community collaboration.',
+    description: 'Learn about Mob Translate’s source-attributed research tools for exploring Indigenous languages.',
   };
 }

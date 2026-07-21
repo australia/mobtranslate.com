@@ -1,20 +1,2122 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-15T00:00:00.000Z",
   "models": [
     {
       "id": "kuku-yalanji-nllb-lora",
       "name": "Kuku Yalanji Translation",
       "family": "NLLB LoRA",
       "task": "machine_translation",
+      "labUrl": "/labs/v2",
       "language": {
         "name": "Kuku Yalanji",
         "appCode": "kuku_yalanji",
         "iso6393": "gvn",
         "region": "Far North Queensland, Australia"
       },
-      "summary": "A versioned English -> Kuku Yalanji translation model line trained from approved MobTranslate parallel corpora.",
+      "summary": "A versioned English -> Kuku Yalanji model line. v24.3 is a runtime-verified two-task research candidate: lookup remains first for known dictionary facts, while lexical reconstruction and sentence generation retain separate evidence and claims.",
       "releases": [
+        {
+          "version": "v24.3-joint-lexeme-dose29-s3598-20260715",
+          "status": "runtime-verified-research-candidate",
+          "date": "2026-07-15",
+          "baseModel": "Exact v21.2 balanced-replay merged NLLB-1.3B project base plus v24.3 rank-32 LoRA and trainable <lexeme> token",
+          "dataset": "115,136 materialized rows: 2,724 governed lexemes x29 plus 18,070 non-Bible sentence rows x2; one-seed development screen",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "CC-BY-NC-4.0 upstream NLLB base plus source-specific project data terms. Noncommercial research and explicitly labelled drafts only; not speaker-certified, community-approved, or authoritative.",
+          "role": "Current runtime-verified Kuku Yalanji research candidate for closed-set lexical reconstruction and separately labelled sentence drafts",
+          "verdict": "The governed training-overlapping lexical gate and every frozen development retention check passed. ADVANCE authorizes further research, not unrestricted deployment: the model remains 0/43 exact on the elder diagnostic and lacks speaker-diverse human evaluation.",
+          "runId": "v24.3-joint-lexeme-dose29-rerun1",
+          "metrics": {
+            "optimizer_steps": 3598,
+            "train_loss": 0.9481710318,
+            "closed_set_lexical_rows": 2724,
+            "closed_set_lexical_accepted_exact": 2696,
+            "closed_set_lexical_accepted_exact_percent": 98.9721,
+            "closed_set_lexical_wilson_95_low_percent": 98.5184,
+            "closed_set_lexical_failures": 28,
+            "historical_lexicon_rows": 297,
+            "historical_lexicon_exact": 91,
+            "historical_lexicon_exact_percent": 30.6397,
+            "synthetic_dev_rows": 1609,
+            "synthetic_dev_chrf": 58.1852,
+            "synthetic_dev_exact": 857,
+            "natural_dev_rows": 53,
+            "natural_dev_chrf": 36.2295,
+            "natural_dev_exact": 0,
+            "usage_diagnostic_rows": 84,
+            "usage_diagnostic_chrf": 53.1698,
+            "usage_diagnostic_exact": 6,
+            "elder_diagnostic_rows": 43,
+            "elder_diagnostic_chrf": 25.2817,
+            "elder_diagnostic_exact": 0,
+            "elder_mean_token_length_ratio": 0.5925,
+            "empty_outputs_selected_suites": 0,
+            "adapter_sha256": "dd61583a60df2d538989e963e104cb626d78965d300e4e473e9a82ef59c04502",
+            "base_model_sha256": "7f9d0fe325e9e4568e45f13179adb336b93bbd53e83ddab2826e999eba3c76f7"
+          },
+          "scorecard": {
+            "usageChrf": 53.17,
+            "communitySentenceChrf": 25.28,
+            "communitySentenceExact": "0/43",
+            "heldoutAllChrf": 58.19,
+            "exactKnownResources": "lookup-first; neural closed-set reconstruction 2696/2724"
+          },
+          "training": {
+            "trainRows": 115136,
+            "validationRows": 128,
+            "epochs": 1,
+            "batchSize": 32,
+            "gradientAccumulationSteps": 1,
+            "trainRuntimeSeconds": 3863.3048,
+            "trainSamplesPerSecond": 29.802
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX A6000 48GB",
+            "sampleIntervalSeconds": 5,
+            "maxVramMiB": 36586
+          },
+          "notes": [
+            "The headline 98.9721% score is accepted-reference reconstruction on 2,724 governed dictionary records shown 29 times each during training. It is not unseen-word generalisation or sentence accuracy.",
+            "The selected step improved every reported development sentence corpus-chrF endpoint over untouched v21.2, but the run used one seed and development data; elder exact remained 0/43.",
+            "The older 297-prompt benchmark scored 91 exact because only 208 prompts overlap and the two resources have different accepted surfaces; 206/208 overlapping predictions were supported by the governed census.",
+            "All 28 remaining governed-census failures are published with token, part-of-speech, semantic-domain, closest-reference, and checkpoint-trajectory evidence.",
+            "Dynamic CPU loading was verified with both task prefixes. It peaked at 8.00 GiB cgroup memory, settled around 7.0-7.2 GiB RSS, and produced 4.9-23.2 second requests under variable shared-disk pressure.",
+            "The adapter is large because PEFT persisted full embedding and output matrices for the trainable <lexeme> row. Repacking or merging requires full adapter-parity evaluation before release.",
+            "Known dictionary queries should continue to use deterministic lookup. Every generated sentence must be visibly labelled as an unverified research draft."
+          ],
+          "artifacts": [
+            {
+              "label": "Comprehensive v24.3 model, training, evaluation, and hosting guide",
+              "kind": "documentation",
+              "format": "html",
+              "url": "/docs/kuku-v24-3-model-guide.html",
+              "available": true,
+              "note": "Complete lineage, downloads, two-task API, RunPod recipe, all lexical failures, sentence limits, resource measurements, multi-adapter design, rights, and host acceptance checks."
+            },
+            {
+              "label": "Comprehensive v24.3 guide source",
+              "kind": "documentation",
+              "format": "markdown",
+              "url": "/docs/kuku-v24-3-model-guide.md",
+              "available": true
+            },
+            {
+              "label": "Complete v24.3 dynamic hosting bundle",
+              "kind": "bundle",
+              "format": "tar.gz",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v24.3-joint-lexeme-dose29-s3598-20260715/kuku-yalanji-v24.3-complete-dynamic-bundle.tar.gz",
+              "available": true,
+              "sizeBytes": 3221768311,
+              "sha256": "59180518ba29865a7be54968f9710b723c726237ba441036c82cd9c6a3ffe920",
+              "note": "Exact v21.2 merged base, v24.3 adapter and tokenizer, task-aware HTTP server, hosting manifest, CPU smoke evidence, and compact evaluation record."
+            },
+            {
+              "label": "v24.3 adapter-only hosting bundle",
+              "kind": "adapter",
+              "format": "tar.gz",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v24.3-joint-lexeme-dose29-s3598-20260715/kuku-yalanji-v24.3-adapter-bundle.tar.gz",
+              "available": true,
+              "sizeBytes": 1024897164,
+              "sha256": "290d5b4edc0c59001691b2537a98574a596267bf06617ce9afbd7df7396df7f4",
+              "note": "Requires the exact project v21.2 merged base SHA-256 documented in the hosting manifest; stock NLLB is incompatible."
+            },
+            {
+              "label": "v24.3 hosting manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v24.3-joint-lexeme-dose29-s3598-20260715/HOSTING-MANIFEST.json",
+              "available": true,
+              "sizeBytes": 6489,
+              "sha256": "7366544e1c1e75c8f2c6c9e7e293acf17796e9e0244c8cecc29501185de54139"
+            },
+            {
+              "label": "v24.3 CPU runtime verification",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v24.3-joint-lexeme-dose29-s3598-20260715/CPU-RUNTIME-VERIFICATION.json",
+              "available": true,
+              "sizeBytes": 1560,
+              "sha256": "95ef5561b6435bfa1a4058f2375998dfeeaf0ac5c7259988b1cdebf8c39d574a"
+            },
+            {
+              "label": "All 2,724 selected-checkpoint lexical predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v24.3-joint-lexeme-dose29-s3598-20260715/evaluation/J69_s3598.curated.json",
+              "available": true,
+              "sizeBytes": 3853868,
+              "sha256": "a9ea6b9cc1e3576d0cb9ffe6eb7f8325a0778e0c652f739cf62848d76239c5b4"
+            },
+            {
+              "label": "Complete 28-row v24.3 lexical failure ledger",
+              "kind": "evaluation",
+              "format": "jsonl",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v24.3-joint-lexeme-dose29-s3598-20260715/evaluation/J69_s3598.failures.jsonl",
+              "available": true,
+              "sizeBytes": 58481,
+              "sha256": "1c1d619db31a2ee24ee2ebe04d0fbe8616c40e590efd7dc12496eda0ebf654fd"
+            },
+            {
+              "label": "v24.3 final research decision",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v24.3-joint-lexeme-dose29-s3598-20260715/evaluation/final-decision.json",
+              "available": true,
+              "sizeBytes": 33790,
+              "sha256": "b7e7aa7bc58eb7f216b26faa9f5b50c98d8f13495678f88129d7c9096c18f71d"
+            },
+            {
+              "label": "Exact v24.3 training and evaluation data",
+              "kind": "dataset",
+              "format": "tar.gz",
+              "url": "/datasets/kuku-yalanji-v24.3-training-20260715.tar.gz",
+              "available": true,
+              "sizeBytes": 8405933,
+              "sha256": "c4990802e23d299c2f764c978b315a55cf6d39d488fb4423d73c32b7db5249b2",
+              "note": "Exact 115,136-row materialized train schedule, optimization monitor, governed lexical census, development suite, manifests, and checksums."
+            },
+            {
+              "label": "v24.3 release metadata",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v24.3-joint-lexeme-dose29-s3598-20260715/release.json",
+              "available": true,
+              "sizeBytes": 1616,
+              "sha256": "92130760e9b830435b053f1b7d8e2c1bab91b49888d1c46c78e81e111f1d7de7"
+            },
+            {
+              "label": "v24.3 release checksums",
+              "kind": "metadata",
+              "format": "sha256",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v24.3-joint-lexeme-dose29-s3598-20260715/SHA256SUMS",
+              "available": true,
+              "sizeBytes": 1602,
+              "sha256": "197befed0e5784bc89c97a21c6a6ebd805d7cb0f7a5b88c6f0d9f8c31a6946d4"
+            }
+          ]
+        },
+        {
+          "version": "v21.2-claude-balanced-replay-guarded-20260714",
+          "status": "research-only",
+          "date": "2026-07-14",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + frozen v12.0 merged continuation with gvn_Latn tokenizer extension",
+          "dataset": "Byte-identical v21.2 balanced-replay weights trained on 22,164 rows per epoch; this release changes decoding only after a separately frozen transfer protocol",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "CC-BY-NC-4.0 base; project-approved synthetic and governed replay data for noncommercial research. The model is not speaker-certified and is not approved for authoritative or unrestricted translation.",
+          "role": "Current Kuku Yalanji research model of record: frozen v21.2 weights with validated guarded decoding; CPU inference is intentionally unloaded",
+          "verdict": "Retain the exact published v21.2 weights and guarded decoder as reproducible research artifacts, but do not load them for public CPU inference while natural elder-register transfer remains unsolved. The homepage uses separately labelled dictionary-context prompting until a stronger RunPod candidate clears the frozen linguistic and safety gates and receives appropriate speaker review.",
+          "runId": "v21.2-claude-balanced-replay-gvn-3epoch-lr2e-5+decoder-v21.2-nr4-rp110-20260714",
+          "metrics": {
+            "weights_train_loss": 1.199454,
+            "synthetic_dev_chrf": 55.1631,
+            "synthetic_dev_exact": 394,
+            "synthetic_dev_segment_loop_rows": 1,
+            "synthetic_test_tagged_chrf": 55.7097,
+            "synthetic_test_tagged_exact": 426,
+            "synthetic_test_tagged_segment_loop_rows": 2,
+            "synthetic_test_untagged_chrf": 55.7278,
+            "synthetic_test_untagged_exact": 422,
+            "synthetic_test_untagged_segment_loop_rows": 2,
+            "elder_shared_chrf": 29.3565,
+            "elder_shared_exact": 0,
+            "heldout_usage_chrf": 47.9648,
+            "heldout_usage_exact": 1,
+            "bible_direct_chrf": 43.7197,
+            "bible_ref_chrf": 43.8353,
+            "empty_outputs_all_sets": 0,
+            "isolated_lexicon_probe_rows": 297,
+            "isolated_lexicon_probe_normalized_exact": 48,
+            "isolated_lexicon_probe_normalized_exact_percent": 16.1616,
+            "isolated_lexicon_probe_mean_sentence_chrf": 30.3783,
+            "isolated_lexicon_probe_seen_target_exact_percent": 23.9583,
+            "isolated_lexicon_probe_unseen_target_exact_percent": 1.9048,
+            "elder_version_probe_chrf": 29.4328,
+            "elder_version_probe_exact": 0,
+            "runpod_a40_benchmark_rows": 340,
+            "runpod_a40_predictions_evaluated": 1020,
+            "runpod_a40_gpu_local_identical_predictions": 1020,
+            "runpod_a40_repeat_identical_predictions": 1020,
+            "runpod_a40_empty_outputs": 0,
+            "runpod_a40_total_inference_seconds": 210.79,
+            "runpod_a40_max_gpu_memory_mib": 6079,
+            "num_beams": 1,
+            "no_repeat_ngram_size": 4,
+            "repetition_penalty": 1.1,
+            "length_penalty": 1,
+            "merged_model_sha256": "7f9d0fe325e9e4568e45f13179adb336b93bbd53e83ddab2826e999eba3c76f7"
+          },
+          "scorecard": {
+            "bibleDirectChrf": 43.72,
+            "bibleRefChrf": 43.84,
+            "usageChrf": 47.96,
+            "communitySentenceChrf": 29.36,
+            "communitySentenceExact": "0/43",
+            "heldoutAllChrf": 55.71,
+            "exactKnownResources": "lookup-first"
+          },
+          "resources": {
+            "gpu": "NVIDIA A40 (v22 experiment and decoder-transfer validation)",
+            "costPerHourUsd": 0.44,
+            "estimatedCostUsd": 0.8008,
+            "versionBenchmarkEstimatedCostUsd": 0.3033
+          },
+          "notes": [
+            "The merged model SHA-256 is exactly the published v21.2 identity; this is a decoding-policy release, not a renamed checkpoint.",
+            "The decoder was selected on the v22 development set and locked before v22 test/control inference and before any v21.2 transfer inference.",
+            "A first transfer attempt reconstructed non-identical float32 bytes and was rejected before evaluation; only the exact published v21.2 merged model was scored.",
+            "Guarded versus greedy tagged synthetic corpus chrF changed by +1.8723 while repeated-segment rows fell from 37 to 2; all seven frozen sets had zero empty outputs.",
+            "Exact match fell on some sets and Bible chrF changed slightly downward; these outcomes are reported in the experiment book rather than hidden.",
+            "A post-training 297-prompt canonical-headword probe scored this release at 48/297 normalized accepted-reference exact matches (16.16%); the result was 46/192 for target forms seen as training tokens and 2/105 for unseen targets.",
+            "Under the same fixed decoder, step 4,155 exceeded step 3,120 by 1.68 exact-match percentage points on the lexicon probe (paired 95% interval +0.34 to +3.37), while the 43-row elder difference remained inconclusive and every checkpoint was 0/43 exact.",
+            "An exact NVIDIA A40 reproduction evaluated all 340 frozen rows for steps 2,770, 3,120, and 4,155. All 1,020 GPU predictions matched the frozen local baselines, and a second A40 run reproduced all 1,020 predictions exactly.",
+            "The portable evaluator fail-closes on input, model-file, runtime, decoder, determinism, GPU-use, empty-output, baseline-parity, and output-checksum violations. Its compressed kit is 100,526 bytes and excludes model weights.",
+            "A first complete A40 attempt was rejected when a post-seal log append invalidated its checksum inventory. The failed attempt and repair evidence remain in the private research archive; only the clean from-scratch rerun is published.",
+            "On 2026-07-14 the Kuku Yalanji and Mi'gmaq CPU inference workers were stopped and disabled, their web-service dependencies were removed, and custom-model endpoints were cleared. This release remains downloadable and reproducible but is not currently loaded for live translation.",
+            "Automatic metrics are regression evidence, not community validation. Lookup-first routing and explicit research-draft labelling remain required."
+          ],
+          "artifacts": [
+            {
+              "label": "Comprehensive model, training, and hosting guide",
+              "kind": "documentation",
+              "format": "html",
+              "url": "/docs/kuku-v21-2-model-guide.html",
+              "available": true,
+              "note": "Model selection, API use, data lineage, RunPod reproduction, Atlas loading, rights, and smoke tests."
+            },
+            {
+              "label": "v22 step-matched replay and decoder-transfer experiment",
+              "kind": "documentation",
+              "format": "html",
+              "url": "/docs/kuku-v22-experiment.html",
+              "available": true,
+              "note": "Preregistered checkpoint rejection, paired audits, guarded-decoder transfer, costs, limitations, and exact hashes."
+            },
+            {
+              "label": "RunPod evaluation and fast feedback loop",
+              "kind": "documentation",
+              "format": "html",
+              "url": "/docs/kuku-runpod-evaluation-loop.html",
+              "available": true,
+              "note": "Complete one-command A40 benchmark method, frozen linguistic protocol, parity proof, resource evidence, failure ledger, and faster candidate loop."
+            },
+            {
+              "label": "RunPod evaluation and fast-loop source",
+              "kind": "documentation",
+              "format": "markdown",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/RUNPOD-EVALUATION-AND-FAST-LOOP.md",
+              "available": true,
+              "sizeBytes": 13259,
+              "sha256": "3834716c5630e57c9944dc9f7a39caec41f92bc9ad4159b87f35c3241b256497",
+              "note": "Public copy of the comprehensive reproducibility and handoff record."
+            },
+            {
+              "label": "Portable RunPod evaluation kit",
+              "kind": "evaluation",
+              "format": "tar.gz",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/runpod-evaluation-kit-v1.tar.gz",
+              "available": true,
+              "sizeBytes": 100526,
+              "sha256": "96b2a2dc0817ec20245ce0401c34c011fc0d1528a1a5cac8ec2a99ea77b8e526",
+              "note": "One-command benchmark code, frozen 340-row input, preregistration, manifests, pinned requirements, and three local baselines; model weights are intentionally separate."
+            },
+            {
+              "label": "Portable RunPod kit instructions",
+              "kind": "documentation",
+              "format": "markdown",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/runpod-evaluation-kit-v1/README.md",
+              "available": true,
+              "sizeBytes": 4127,
+              "sha256": "76c1229faff82514226b98b38785538c2782cc0fd9ca6ad06f7d42b19776847c",
+              "note": "Exact paths, runtime contract, execution command, outputs, and interpretation rules."
+            },
+            {
+              "label": "Sealed A40 benchmark result bundle",
+              "kind": "evaluation",
+              "format": "tar.gz",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/kuku-yalanji-runpod-a40-benchmark-results-20260714.tar.gz",
+              "available": true,
+              "sizeBytes": 74362,
+              "sha256": "515a6bbd9d0e17efa208bd48f1e23dcb0da3b2b9172f0204df49afddc9d04f55",
+              "note": "Deterministic archive of the complete checksummed A40 run: predictions, analysis, preflight, runtime, logs, and resource measurements."
+            },
+            {
+              "label": "Sealed A40 output checksums",
+              "kind": "metadata",
+              "format": "sha256",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/runpod-a40-20260714/OUTPUT_SHA256SUMS",
+              "available": true,
+              "sizeBytes": 2867,
+              "sha256": "e2d0fbf46c4f185a7d836700c577c380b1bfa484703793f62c6b495ac81efc28",
+              "note": "Verified remotely before completion and again after download."
+            },
+            {
+              "label": "A40 version-probe analysis",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/runpod-a40-20260714/version_probe_analysis.json",
+              "available": true,
+              "sizeBytes": 13581,
+              "sha256": "fe4c187795d7cdd89977d8ecb6faec0cf484596f5c84c90b2582f4cbc147e950",
+              "note": "GPU-native results and 10,000-resample paired intervals for the three frozen checkpoints."
+            },
+            {
+              "label": "A40 versus local prediction parity",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/runpod-a40-20260714/gpu-local-parity.json",
+              "available": true,
+              "sizeBytes": 2529,
+              "sha256": "1434135a386825dd523e27a36ed426a612d539be16880dadb0a5199056c955aa",
+              "note": "All 1,020 row-level predictions were identical across the A40 and frozen local runs."
+            },
+            {
+              "label": "A40 repeatability comparison",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/gpu-repeatability.json",
+              "available": true,
+              "sizeBytes": 3507,
+              "sha256": "363812ecbddee4b2433dab2f86bde7d66187946abdf8677757c5d9b5ff7f35c4",
+              "note": "Independent A40 rerun comparison: all 1,020 predictions were identical."
+            },
+            {
+              "label": "A40 resource summary",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/runpod-a40-20260714/resource_summary.json",
+              "available": true,
+              "sizeBytes": 440,
+              "sha256": "0317d22c1940bf54f7cc5c2742257dc37ede7a8474a93c2c6028caeddd206e3a",
+              "note": "Sampled utilization, GPU memory, power, and temperature over the sealed run."
+            },
+            {
+              "label": "Lexicon and elder version-probe results",
+              "kind": "evaluation",
+              "format": "markdown",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/VERSION-PROBE-RESULTS.md",
+              "available": true,
+              "sizeBytes": 1488,
+              "sha256": "206c08ae78b554972d332657b90442f9ee1af6fd9d9bd3e3189d5a14b8558a58",
+              "note": "Multi-reference canonical-headword percentages and separately scored 43-row elder results for steps 2,770, 3,120, and 4,155."
+            },
+            {
+              "label": "Lexicon and elder version-probe analysis",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/version_probe_analysis.json",
+              "available": true,
+              "sizeBytes": 13879,
+              "sha256": "7d79101c6d7eadc4bcee339a24372f4f169731692f39a51b77b2bf8e88e121ea",
+              "note": "Complete metrics, exposure strata, decoder contract, and 10,000-resample paired intervals."
+            },
+            {
+              "label": "Frozen lexicon and elder benchmark input",
+              "kind": "dataset",
+              "format": "jsonl",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/combined_lexicon_elder_probe.eng-gvn.jsonl",
+              "available": true,
+              "sizeBytes": 205437,
+              "sha256": "6e525f16eb7475c6bc5450b978d70db0fbf1a0d71f2af9f143fb80c4bf60c01f",
+              "note": "297 isolated English dictionary glosses plus the unchanged 43 rights-cleared elder sentence pairs; metrics are split by pair_kind, never pooled."
+            },
+            {
+              "label": "Lexicon-probe manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/probe_manifest.json",
+              "available": true,
+              "sizeBytes": 3103,
+              "sha256": "20244639b3050131e02a4a35ef8713b377e469c6a501ffb9314f0f8a614aa5bd",
+              "note": "Mechanical row-selection rules, source hashes, exposure counts, and frozen input identity."
+            },
+            {
+              "label": "Lexicon and elder benchmark preregistration",
+              "kind": "evaluation",
+              "format": "markdown",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/PREREGISTRATION.md",
+              "available": true,
+              "sizeBytes": 2520,
+              "sha256": "6d6a5d8d113e1790f4a08cb33d54afd9a0c05d030d3d3fac61d8b5d6a856829e"
+            },
+            {
+              "label": "Lexicon and elder benchmark run contract",
+              "kind": "evaluation",
+              "format": "markdown",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/RUN-CONTRACT.md",
+              "available": true,
+              "sizeBytes": 2534,
+              "sha256": "35b6cc8e6b52a7abc9ba061f704584140098a3f92c2a45d6402d49a2fd4e9839"
+            },
+            {
+              "label": "Lexicon and elder benchmark package checksums",
+              "kind": "metadata",
+              "format": "sha256",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/SHA256SUMS",
+              "available": true,
+              "sizeBytes": 7486,
+              "sha256": "569e74db3be48df736b56072f070869ae54e01b38367498def450ce804b1913f",
+              "note": "Covers every frozen input, prediction file, resource log, protocol, and result in the public benchmark directory."
+            },
+            {
+              "label": "Step 2,770 row-level lexicon and elder predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/step2770.predictions.json",
+              "available": true,
+              "sizeBytes": 287730,
+              "sha256": "a44564bc150a391089c106df2b9f63d2d47ab26c94fcbc19f62de593286c77f3"
+            },
+            {
+              "label": "Step 3,120 row-level lexicon and elder predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/step3120.predictions.json",
+              "available": true,
+              "sizeBytes": 287717,
+              "sha256": "21fbb7d8f83b2eca5bce3155b28ea0ab17ea9cf7faff550efe7d50d95ff8b911"
+            },
+            {
+              "label": "Step 4,155 guarded row-level lexicon and elder predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/lexicon-elder-benchmark-20260714/step4155_guarded.predictions.json",
+              "available": true,
+              "sizeBytes": 287715,
+              "sha256": "73a074b778d9538c94677283b0f234db1ab9b875987dbb859332391ae23a0d8e"
+            },
+            {
+              "label": "Atlas dynamic LoRA guarded hosting bundle",
+              "kind": "bundle",
+              "format": "tar.gz",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/kuku-yalanji-v21.2-guarded-atlas-lora-bundle.tar.gz",
+              "available": true,
+              "sizeBytes": 2530623924,
+              "sha256": "012335cfb393ca386c7817bd3850dd52f1a751e0e1a58e80e9e5bc9bae9c89d5",
+              "note": "Exact frozen v12 base, v21.2 PEFT adapter, tokenizer, guarded decoding policy, hosting manifest, and smoke tests."
+            },
+            {
+              "label": "Standalone guarded merged-model bundle",
+              "kind": "model",
+              "format": "tar.gz",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/kuku-yalanji-v21.2-guarded-merged.tar.gz",
+              "available": true,
+              "sizeBytes": 2200740249,
+              "sha256": "920e179d8b4fe45ce75bdd1e9cc2784be51ff8d55d1a190cd45e19cf01a5f490",
+              "note": "Complete Transformers-compatible merged model; archive bytes are identical to the historical v21.2 merged bundle and the guarded policy is documented alongside it."
+            },
+            {
+              "label": "Guarded hosting manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/HOSTING-MANIFEST.json",
+              "available": true,
+              "sizeBytes": 3487,
+              "sha256": "e40fd2586a3d4eabfdf6052bd65e4f3a92532b1141ea446bc81feb03a7a01c95"
+            },
+            {
+              "label": "Release metadata",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/release.json",
+              "available": true,
+              "sizeBytes": 1915,
+              "sha256": "a5ded1fba823e2596bfaa966298961d81c91087c6a424fd1abd8744a371b33df"
+            },
+            {
+              "label": "Bundle README",
+              "kind": "documentation",
+              "format": "markdown",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/README.md",
+              "available": true,
+              "sizeBytes": 3805,
+              "sha256": "505f80f879259d6cdb405f1f03587064c0ce6305d9339b5b92ce05beca009904"
+            },
+            {
+              "label": "Release checksums",
+              "kind": "metadata",
+              "format": "sha256",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/SHA256SUMS",
+              "available": true,
+              "sizeBytes": 1302,
+              "sha256": "81e992b0e07ca37d99422ddcf65449fca88bf831a18d4ab1cfec08b1d37c15a1"
+            },
+            {
+              "label": "Local release verification",
+              "kind": "evaluation",
+              "format": "text",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/LOCAL-VERIFICATION.log",
+              "available": true,
+              "sizeBytes": 434,
+              "sha256": "f629b12812405f8f7c04e9dfa978a6a745bba9afae86e779e3c4e38abdda8f6b"
+            },
+            {
+              "label": "Frozen decoder-transfer protocol",
+              "kind": "evaluation",
+              "format": "markdown",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/DECODER-TRANSFER-PROTOCOL.md",
+              "available": true,
+              "sizeBytes": 3272,
+              "sha256": "23cc078b0d2a3a8cf681684d3af3086841feed0a819b033b46154f2dc8872989"
+            },
+            {
+              "label": "Decoder-transfer promotion gate",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/DECODER-TRANSFER-GATE.json",
+              "available": true,
+              "sizeBytes": 4035,
+              "sha256": "66661a0e9bee71f81467ce41bf04c696fce82cf966acb6033b0e8bcf41f5bb23",
+              "note": "PASS: all 14 frozen checks passed on the exact published v21.2 model."
+            },
+            {
+              "label": "Exact v21.2 training splits",
+              "kind": "dataset",
+              "format": "tar.gz",
+              "url": "/datasets/kuku-yalanji-v21.2-training-20260711.tar.gz",
+              "available": true,
+              "sizeBytes": 5969287,
+              "sha256": "91fc18f539b863f9a0e87ed3c372b5f040f359e9bcd427dc506875e1b4f6a467",
+              "note": "Final train, validation, synthetic test, gate, manifest, and leakage-quarantine files; locked elder evaluation rows excluded."
+            },
+            {
+              "label": "Complete synthetic process corpus v2",
+              "kind": "dataset",
+              "format": "zip",
+              "url": "/datasets/kuku-yalanji-synthetic-research-corpus-v2.0.0-20260711.zip",
+              "available": true,
+              "sizeBytes": 22069344,
+              "sha256": "5db11f1f10f60b1c6df0ea00f0bd4b2f8a313dfc487ae11145c495c96d880e73",
+              "note": "20,047 synthetic sentences plus dictionary, reviews, revisions, audits, process logs, and canonical splits."
+            }
+          ]
+        },
+        {
+          "version": "v23.0-attested-narrative-adaptation-failed",
+          "status": "negative-result",
+          "date": "2026-07-14",
+          "baseModel": "Exact v21.2 merged weights, independently adapted under seeds 17, 42, and 73",
+          "dataset": "2,360-row attested-narrative treatment: 624 replayed Patz training clauses, 712 dictionary-usage task rows, and 1,024 synthetic-retention rows; Bible and held-out speakers excluded",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "Noncommercial research result. Source materials retain their own terms. The candidate was not speaker-reviewed, community-approved, published as weights, or authorized for sentence generation.",
+          "role": "Rejected three-seed attested-narrative adaptation retained as compact negative evidence",
+          "verdict": "Do not promote. Seed 73 improved the held-out Text 3 corpus chrF++ point estimate by 0.6414, below the preregistered +1.0 floor; its paired interval crossed zero, untagged synthetic repetition worsened, and isolated lexical reconstruction fell to 46/297.",
+          "runId": "v23.0-attested-narrative-adaptation",
+          "metrics": {
+            "selected_seed": 73,
+            "optimizer_steps_per_seed": 882,
+            "text3_natural_test_rows": 56,
+            "text3_baseline_corpus_chrf": 31.6512,
+            "text3_candidate_corpus_chrf": 32.2926,
+            "text3_corpus_chrf_delta": 0.6414,
+            "text3_mean_sentence_chrf_delta": 0.4494,
+            "text3_paired_ci95_low": -0.2448,
+            "text3_paired_ci95_high": 1.1397,
+            "isolated_lexicon_probe_rows": 297,
+            "isolated_lexicon_probe_normalized_exact": 46,
+            "isolated_lexicon_probe_normalized_exact_percent": 15.4882,
+            "isolated_lexicon_probe_wilson95_low": 0.1182,
+            "isolated_lexicon_probe_wilson95_high": 0.2004,
+            "empty_outputs_all_sets": 0,
+            "research_promotion_gate": "FAIL",
+            "model_lexical_reconstruction_gate": "FAIL",
+            "model_sentence_generation_gate": "FAIL"
+          },
+          "training": {
+            "trainRows": 2360,
+            "validationRows": 53,
+            "testRows": 56,
+            "epochs": 6,
+            "batchSize": 8,
+            "gradientAccumulationSteps": 2
+          },
+          "resources": {
+            "gpu": "NVIDIA A40",
+            "costPerHourUsd": 0.44,
+            "estimatedCostUsd": 0.9693,
+            "maxVramMiB": 21477
+          },
+          "notes": [
+            "The speaker-disjoint held-out natural test was opened only after development selection, but all texts share one published grammar and editorial tradition.",
+            "No fluent speaker reviewed model outputs; automatic character overlap cannot establish semantic, grammatical, dialectal, or cultural validity.",
+            "All three seeds, checkpoints, adapters, merged weights, optimizer states, and trainer caches were deleted after compact evidence and checksums were verified.",
+            "This registry row records a completed negative result. It is not a downloadable model edition and cannot become the latest serving alias."
+          ],
+          "artifacts": [
+            {
+              "label": "Complete v23 negative-result report",
+              "kind": "documentation",
+              "format": "html",
+              "url": "/docs/kuku-v23-attested-adaptation.html",
+              "available": true
+            },
+            {
+              "label": "Preregistered v23 protocol",
+              "kind": "evaluation",
+              "format": "html",
+              "url": "/docs/kuku-v23-preregistration.html",
+              "available": true
+            }
+          ]
+        },
+        {
+          "version": "v22.0-step-matched-replay-3120-failed",
+          "status": "negative-result",
+          "date": "2026-07-14",
+          "baseModel": "Exact v21.2 training checkpoint at step 2,770, continued under the original 4,155-step learning-rate schedule",
+          "dataset": "The same v21.2 balanced replay stream for exactly 350 additional optimizer steps; no test data was available to training or decoder selection",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "Noncommercial research artifact only. Rejected by the preregistered promotion gate; not speaker-certified, production-approved, or offered as a model download.",
+          "role": "Rejected one-variable replay-exposure experiment retained as negative evidence",
+          "verdict": "Do not promote. Step 3,120 failed the frozen greedy checkpoint gate because tagged synthetic repeated-segment rows were 37 against a maximum of 25, and paired comparison showed lower tagged synthetic, untagged synthetic, and dictionary-usage agreement than the final v21.2 step 4,155 checkpoint.",
+          "runId": "v22.0-step-matched-replay-step3120",
+          "metrics": {
+            "global_step": 3120,
+            "additional_optimizer_steps": 350,
+            "greedy_synthetic_dev_chrf": 52.8583,
+            "greedy_synthetic_test_tagged_chrf": 53.1613,
+            "greedy_synthetic_test_tagged_exact": 417,
+            "greedy_synthetic_test_tagged_segment_loop_rows": 37,
+            "greedy_synthetic_test_untagged_chrf": 53.3007,
+            "greedy_synthetic_test_untagged_exact": 419,
+            "greedy_synthetic_test_untagged_segment_loop_rows": 33,
+            "greedy_elder_shared_chrf": 28.951,
+            "greedy_heldout_usage_chrf": 46.1959,
+            "greedy_bible_direct_chrf": 43.8572,
+            "greedy_bible_ref_chrf": 43.7605,
+            "selected_decoder_synthetic_test_tagged_chrf": 54.886,
+            "selected_decoder_synthetic_test_tagged_segment_loop_rows": 2,
+            "selected_decoder_synthetic_test_untagged_chrf": 54.9264,
+            "selected_decoder_synthetic_test_untagged_segment_loop_rows": 1,
+            "primary_checkpoint_gate": "FAIL",
+            "merged_model_sha256": "8ce31236b051195fbbd01df8d7149ce729249a30959592e9762b2dabf404c2aa"
+          },
+          "resources": {
+            "gpu": "NVIDIA A40",
+            "costPerHourUsd": 0.44,
+            "estimatedCostUsd": 0.8008,
+            "maxVramMiB": 30383
+          },
+          "notes": [
+            "The hypothesis, exact stop, hashes, promotion floors, and analysis rules were frozen before the locked test and control sets were opened.",
+            "The development-only guarded decoder controlled degeneration but could not rescue a checkpoint that failed the primary training-exposure gate.",
+            "The final v21.2 step 4,155 checkpoint remained better on tagged synthetic, untagged synthetic, and dictionary-usage paired comparisons.",
+            "All 182 remote-manifest files were verified after pullback with zero failures; the RunPod pod was then deleted and an empty post-deletion pod list was saved.",
+            "The rejected weights remain in the internal research archive but are intentionally not presented as a public model download."
+          ],
+          "artifacts": [
+            {
+              "label": "Complete v22 experiment report",
+              "kind": "documentation",
+              "format": "html",
+              "url": "/docs/kuku-v22-experiment.html",
+              "available": true
+            },
+            {
+              "label": "Preregistered v22 protocol",
+              "kind": "evaluation",
+              "format": "markdown",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/V22-PREREGISTRATION.md",
+              "available": true,
+              "sizeBytes": 6140,
+              "sha256": "46c5581e80511679b715d504980297868805e6d35bf46c3cb2fbb4f26846dad4"
+            },
+            {
+              "label": "v22 promotion gate",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/V22-PROMOTION-GATE.json",
+              "available": true,
+              "sizeBytes": 3115,
+              "sha256": "231a456871e7003207cb841867c93de8744bd909edaace11f032fcf32d1592a1",
+              "note": "FAIL: the tagged synthetic repeated-segment gate failed."
+            },
+            {
+              "label": "RunPod cost and deletion record",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/RUNPOD-COST-AND-DELETION.json",
+              "available": true,
+              "sizeBytes": 356,
+              "sha256": "80f86876dc65d92dad3d6c6f39806f24f75f5dae2bbf35f08bd45af6b1ceac18"
+            },
+            {
+              "label": "RunPod post-deletion pod list",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/RUNPOD-PODS-AFTER-DELETE.json",
+              "available": true,
+              "sizeBytes": 3,
+              "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+            },
+            {
+              "label": "Remote output checksum inventory",
+              "kind": "metadata",
+              "format": "sha256",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/V22-OUTPUT-SHA256SUMS",
+              "available": true,
+              "sizeBytes": 28507,
+              "sha256": "4a561128774f5b554788febac8ce160aea2b2a43ed96b83f8ad8aa9e7a16a5ab"
+            },
+            {
+              "label": "Local 182-file pullback verification",
+              "kind": "evaluation",
+              "format": "text",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-guarded-20260714/V22-LOCAL-SHA256-VERIFICATION.log",
+              "available": true,
+              "sizeBytes": 17223,
+              "sha256": "52ef91e6880726d12ba2533437054bc31d4b0190d1de925fa78e6470debb3533"
+            }
+          ]
+        },
+        {
+          "version": "v21.2-claude-balanced-replay-v2-candidate",
+          "status": "research-only",
+          "date": "2026-07-11",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + frozen v12.0 merged continuation with gvn_Latn tokenizer extension",
+          "dataset": "22,164-row balanced treatment per epoch: 16,642 leakage-audited synthetic rows, 2,047 Bible-direct replay rows, 2,047 Bible-reference replay rows, and 1,428 dictionary-usage replay rows; elder rows excluded",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "CC-BY-NC-4.0 base; project-approved synthetic and governed replay data for noncommercial research. The model is not speaker-certified and is not approved for authoritative or unrestricted translation.",
+          "role": "Historical v21.2 weights release; superseded for serving by the guarded-policy release without changing weights",
+          "verdict": "Balanced replay preserves synthetic performance while materially recovering dictionary-usage and Bible retention relative to v21.1. Natural elder-register transfer remains unsolved, and synthetic morpheme loops remain a hard safety failure; serve only as a clearly labelled research draft pending speaker review.",
+          "runId": "v21.2-claude-balanced-replay-gvn-3epoch-lr2e-5",
+          "metrics": {
+            "train_loss": 1.199454,
+            "synthetic_dev_bleu": 26.2049,
+            "synthetic_dev_chrf": 52.8471,
+            "synthetic_test_tagged_bleu": 26.8424,
+            "synthetic_test_tagged_chrf": 53.8374,
+            "synthetic_test_tagged_exact": 426,
+            "synthetic_test_untagged_bleu": 26.7659,
+            "synthetic_test_untagged_chrf": 53.8142,
+            "synthetic_test_untagged_exact": 429,
+            "elder_shared_bleu": 6.5211,
+            "elder_shared_chrf": 29.3558,
+            "elder_shared_exact": 0,
+            "heldout_usage_bleu": 11.5832,
+            "heldout_usage_chrf": 47.1391,
+            "heldout_usage_exact": 3,
+            "bible_direct_bleu": 12.3612,
+            "bible_direct_chrf": 43.7751,
+            "bible_ref_bleu": 12.4091,
+            "bible_ref_chrf": 43.9093,
+            "empty_outputs_all_sets": 0,
+            "synthetic_tagged_segment_loop_rows": 37
+          },
+          "scorecard": {
+            "bibleDirectChrf": 43.78,
+            "bibleRefChrf": 43.91,
+            "usageChrf": 47.14,
+            "communitySentenceChrf": 29.36,
+            "communitySentenceExact": "0/43",
+            "heldoutAllChrf": 53.84,
+            "exactKnownResources": "lookup-first"
+          },
+          "training": {
+            "trainRows": 22164,
+            "validationRows": 1609,
+            "testRows": 1606,
+            "epochs": 3,
+            "batchSize": 8,
+            "gradientAccumulationSteps": 2,
+            "trainRuntimeSeconds": 3431.87,
+            "trainSamplesPerSecond": 19.375
+          },
+          "resources": {
+            "gpu": "NVIDIA A40",
+            "maxVramMiB": 30383
+          },
+          "notes": [
+            "The independent comparison revalidated ordered IDs, inputs, references, decoder settings, and archive checksums before scoring.",
+            "Compared with v21.1, corpus chrF changed by -0.87 on tagged synthetic test, +12.74 on dictionary usage, +15.23 on Bible direct, and +15.15 on Bible reference.",
+            "The 43-row elder control remains 0 exact with severe under-translation; its paired confidence interval versus v21.1 includes zero.",
+            "Thirty-seven tagged synthetic rows contain a segment repeated at least ten times, so generation guards and a frozen-battery rerun are mandatory before broader routing.",
+            "The original release record preserves its greedy evaluation; current serving uses the separately validated guarded-policy release and remains visibly labelled as a research draft."
+          ],
+          "artifacts": [
+            {
+              "label": "Comprehensive model, training, and hosting guide",
+              "kind": "documentation",
+              "format": "html",
+              "url": "/docs/kuku-v21-2-model-guide.html",
+              "available": true,
+              "note": "Start here for model selection, API use, training data, RunPod reproduction, Atlas LoRA loading, evaluation, rights, and smoke tests."
+            },
+            {
+              "label": "Atlas dynamic LoRA hosting bundle",
+              "kind": "bundle",
+              "format": "tar.gz",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-v2-candidate/kuku-yalanji-v21.2-atlas-lora-bundle.tar.gz",
+              "available": true,
+              "sizeBytes": 2560623821,
+              "sha256": "f09853eb8fb84901dcd522258d762ee4edc0c42db07f20ab928cf77447962436",
+              "note": "One-download bundle containing the exact frozen v12 base, portable v21.2 PEFT adapter, tokenizer/configuration files, hosting manifest, and smoke-test instructions."
+            },
+            {
+              "label": "Standalone merged-model bundle",
+              "kind": "model",
+              "format": "tar.gz",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-v2-candidate/kuku-yalanji-v21.2-merged.tar.gz",
+              "available": true,
+              "sizeBytes": 2200740249,
+              "sha256": "920e179d8b4fe45ce75bdd1e9cc2784be51ff8d55d1a190cd45e19cf01a5f490",
+              "note": "Complete Transformers-compatible merged model for hosts without dynamic encoder-decoder LoRA support."
+            },
+            {
+              "label": "Hosting manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-v2-candidate/HOSTING-MANIFEST.json",
+              "available": true,
+              "sha256": "26ac10ad397d73b2a5672987e3a98ed0f4bf36bc3d5c5c24c00890812472adf5"
+            },
+            {
+              "label": "Release checksums",
+              "kind": "metadata",
+              "format": "sha256",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v21.2-claude-balanced-replay-v2-candidate/SHA256SUMS",
+              "available": true
+            },
+            {
+              "label": "Exact v21.2 training splits",
+              "kind": "dataset",
+              "format": "tar.gz",
+              "url": "/datasets/kuku-yalanji-v21.2-training-20260711.tar.gz",
+              "available": true,
+              "sizeBytes": 5969287,
+              "sha256": "91fc18f539b863f9a0e87ed3c372b5f040f359e9bcd427dc506875e1b4f6a467",
+              "note": "Final train, validation, synthetic test, gate, manifest, and leakage-quarantine files; locked elder evaluation rows excluded."
+            },
+            {
+              "label": "Complete synthetic process corpus v2",
+              "kind": "dataset",
+              "format": "zip",
+              "url": "/datasets/kuku-yalanji-synthetic-research-corpus-v2.0.0-20260711.zip",
+              "available": true,
+              "sizeBytes": 22069344,
+              "sha256": "5db11f1f10f60b1c6df0ea00f0bd4b2f8a313dfc487ae11145c495c96d880e73",
+              "note": "20,047 synthetic sentences plus dictionary, reviews, revisions, audits, process logs, and canonical splits."
+            },
+            {
+              "label": "Merged v2 candidate",
+              "kind": "model",
+              "format": "safetensors",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/v21.2-claude-balanced-replay-20260711T050900Z/models/v21.2-claude-balanced-replay-gvn-3epoch-lr2e-5/merged/model.safetensors",
+              "sizeBytes": 2741395552,
+              "sha256": "7f9d0fe325e9e4568e45f13179adb336b93bbd53e83ddab2826e999eba3c76f7",
+              "note": "Hash-verified local research artifact; served only by the guarded loopback preview."
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "safetensors",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/v21.2-claude-balanced-replay-20260711T050900Z/models/v21.2-claude-balanced-replay-gvn-3epoch-lr2e-5/adapter/adapter_model.safetensors",
+              "sizeBytes": 377596296,
+              "sha256": "aaf155997d3c7b9ccea53d477a59a93f0460dd8d26226b50831233a42db9e5e6"
+            },
+            {
+              "label": "Independent v21 comparison",
+              "kind": "evaluation",
+              "format": "html",
+              "url": "/docs/model-comparison.html",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/reports/KUKU-YALANJI-V21-INDEPENDENT-MODEL-COMPARISON-2026-07-12.md"
+            }
+          ]
+        },
+        {
+          "version": "v21.1-codex-synthetic-direct-v2-candidate",
+          "status": "research-only",
+          "date": "2026-07-10",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + frozen v12.0 merged continuation with gvn_Latn tokenizer extension",
+          "dataset": "20,047-row governed synthetic corpus; leakage-audited v21.1 treatment with 16,642 train, 1,609 validation, 1,606 test, and 190 quarantined rows",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "Project-approved synthetic research data pending elder verification. The model is not speaker-certified and is not approved for public translation routing.",
+          "role": "Kuku Yalanji translation model v2 candidate",
+          "verdict": "The model learned the synthetic treatment and remained stable without the task tag, but elder-shared, dictionary-usage, and Bible controls regressed severely. Preserve as a research artifact; keep retrieval-first routing and require balanced replay plus speaker review before promotion.",
+          "runId": "v21.1-codex-synthetic-direct-gvn-3epoch-lr2e-5",
+          "metrics": {
+            "train_loss": 1.69096,
+            "validation_bleu": 26.2458,
+            "validation_chrf": 53.9,
+            "synthetic_test_tagged_bleu": 26.0796,
+            "synthetic_test_tagged_chrf": 54.7041,
+            "synthetic_test_untagged_bleu": 26.3005,
+            "synthetic_test_untagged_chrf": 54.3966,
+            "elder_shared_chrf": 28.7954,
+            "elder_shared_exact": 0,
+            "heldout_usage_chrf": 34.3978,
+            "heldout_usage_exact": 0,
+            "bible_direct_chrf": 28.5455,
+            "bible_ref_chrf": 28.7616,
+            "empty_outputs_all_sets": 0
+          },
+          "scorecard": {
+            "bibleDirectChrf": 28.55,
+            "bibleRefChrf": 28.76,
+            "usageChrf": 34.4,
+            "communitySentenceChrf": 28.8,
+            "communitySentenceExact": "0/43",
+            "heldoutAllChrf": 54.7,
+            "exactKnownResources": "lookup-first"
+          },
+          "training": {
+            "trainRows": 16642,
+            "validationRows": 1609,
+            "testRows": 1606,
+            "epochs": 3,
+            "batchSize": 8,
+            "gradientAccumulationSteps": 2,
+            "trainRuntimeSeconds": 1170.18,
+            "trainSamplesPerSecond": 42.665
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX 4090",
+            "costPerHourUsd": 0.69,
+            "estimatedCostUsd": 5.46,
+            "sampleIntervalSeconds": 5,
+            "samples": 416,
+            "avgGpuUtilPct": 54.56,
+            "maxGpuUtilPct": 97,
+            "meanVramMiB": 18028,
+            "maxVramMiB": 23932,
+            "meanPowerW": 175.59,
+            "maxPowerW": 287.82
+          },
+          "notes": [
+            "The mandatory 30-epoch gate failed and correctly blocked full training; its complete model is retained as negative evidence.",
+            "A documented 100-epoch gate amendment passed 128/128 exact before the full treatment unlocked.",
+            "All eight frozen evaluation sets completed at exact row counts with zero empty outputs.",
+            "All 192 model files matched the RunPod SHA-256 inventory; local CPU and remote CUDA smoke outputs were identical; the pod was deleted.",
+            "Compare with Claude's independent v21.2 balanced-replay lane before any release decision."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged v2 candidate",
+              "kind": "model",
+              "format": "safetensors",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/v21.1-codex-synthetic-direct-20260710T171317Z/models/v21.1-codex-synthetic-direct-gvn-3epoch-lr2e-5/merged/model.safetensors",
+              "sizeBytes": 2741395552,
+              "sha256": "9cc55520f541bf3f93db0126f733aafd91966b225e4406a2e4115c444dfb9a90",
+              "note": "Local, hash-verified research artifact. Not served to public translation traffic."
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "safetensors",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/v21.1-codex-synthetic-direct-20260710T171317Z/models/v21.1-codex-synthetic-direct-gvn-3epoch-lr2e-5/adapter/adapter_model.safetensors",
+              "sha256": "0d90b2790beb5c3a32f093e178a762164757aaf9d5e409a8bbb71409a45a735d"
+            },
+            {
+              "label": "Comprehensive v2 handoff",
+              "kind": "documentation",
+              "format": "markdown",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/docs/KUKU-YALANJI-V2-MODEL-TRAINING-HANDOFF-2026-07-10.md"
+            },
+            {
+              "label": "Archive audit",
+              "kind": "evaluation",
+              "format": "json",
+              "url": null,
+              "available": false,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/v21.1-codex-synthetic-direct-20260710T171317Z/reports/v21.1-archive-audit.json"
+            }
+          ]
+        },
+        {
+          "version": "v20.0-full-candidate-corpus-gvn",
+          "status": "internal-proof",
+          "date": "2026-07-02",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + v12.0 merged continuation",
+          "dataset": "v20.0 full candidate corpus: tagged Bible direct/reference tasks + DB usage replay + elder-shared sentence-pair replay",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "Rights granted for elder-shared/DB examples; Bible-derived rows used as research diagnostics. Known approved resources remain lookup-first.",
+          "role": "Full-candidate-corpus diagnostic artifact",
+          "verdict": "Full-corpus v20 fixed the length-compression failure and completed the 35k-row diagnostic, but it is not a faithful general model: Bible heldout stays near 39 chrF, heldout usage is 43.26 chrF, and elder-shared sentence pairs regressed to 0/43 exact.",
+          "runId": "v20.0-full-candidate-corpus-gvn-3epoch-lr2e-5",
+          "metrics": {
+            "train_loss": 1.4851,
+            "trainer_validation_bleu": 13.41,
+            "trainer_validation_chrf": 39.88,
+            "trainer_test_bleu": 13.16,
+            "trainer_test_chrf": 40.25,
+            "validation_bible_direct_chrf": 39.3,
+            "validation_bible_direct_exact": 52,
+            "validation_bible_ref_chrf": 39.09,
+            "validation_bible_ref_exact": 46,
+            "test_bible_direct_chrf": 39.41,
+            "test_bible_direct_exact": 65,
+            "test_bible_ref_chrf": 39.39,
+            "test_bible_ref_exact": 67,
+            "heldout_usage_chrf": 43.26,
+            "heldout_usage_exact": 3,
+            "heldout_usage_headword_hit_rate": 0.7024,
+            "elder_sentence_pair_chrf": 36.24,
+            "elder_sentence_pair_exact": 0,
+            "test_all_chrf": 39.39,
+            "test_all_exact": 135,
+            "length_ratio_mean_test_all": 1.023
+          },
+          "scorecard": {
+            "bibleDirectChrf": 39.41,
+            "bibleRefChrf": 39.39,
+            "usageChrf": 43.26,
+            "communitySentenceChrf": 36.24,
+            "communitySentenceExact": "0/43",
+            "heldoutAllChrf": 39.39,
+            "exactKnownResources": "lookup-first"
+          },
+          "training": {
+            "trainRows": 35394,
+            "validationRows": 4433,
+            "testRows": 4397,
+            "epochs": 3,
+            "batchSize": 8,
+            "gradientAccumulationSteps": 2,
+            "trainRuntimeSeconds": 6767.69,
+            "trainSamplesPerSecond": 15.69
+          },
+          "resources": {
+            "gpu": "NVIDIA L40S",
+            "costPerHourUsd": 0.99,
+            "estimatedCostUsd": 3.51,
+            "sampleIntervalSeconds": 5,
+            "samples": 2174,
+            "avgGpuUtilPct": 42.9,
+            "maxGpuUtilPct": 100,
+            "meanVramMiB": 17287,
+            "maxVramMiB": 21914,
+            "meanPowerW": 191.5,
+            "maxPowerW": 290.49,
+            "powerLimitW": 350
+          },
+          "notes": [
+            "This was the first full-candidate-corpus run after the smaller v18/v19 replay runs.",
+            "The corpus was expanded into tagged direct/reference Bible tasks plus DB usage and elder-shared sentence-pair replay.",
+            "The result shows full-corpus scale alone is not enough; route-specific lookup and mixture control remain necessary before another expensive run.",
+            "Use v20 as a diagnostic artifact, not as the product default for faithful output."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/merged/"
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/adapter/"
+            },
+            {
+              "label": "Run report",
+              "kind": "report",
+              "format": "markdown",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/RUN_REPORT.md",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/RUN_REPORT.md",
+              "sizeBytes": 36135
+            },
+            {
+              "label": "Live run note",
+              "kind": "report",
+              "format": "markdown",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/LIVE_RUN_NOTE.md",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/LIVE_RUN_NOTE.md",
+              "sizeBytes": 5606
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/model_manifest.json",
+              "sizeBytes": 2745
+            },
+            {
+              "label": "Post-eval analysis",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/post_eval_analysis.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/post_eval_analysis.json",
+              "sizeBytes": 9200
+            },
+            {
+              "label": "Resource summary",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/resource_summary.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/resource_summary.json",
+              "sizeBytes": 610
+            },
+            {
+              "label": "Source length preflight",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/source_length_preflight.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/source_length_preflight.json",
+              "sizeBytes": 15711
+            },
+            {
+              "label": "Test all predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_test_all_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_test_all_predictions_greedy.json",
+              "sizeBytes": 10550535
+            },
+            {
+              "label": "Test Bible direct predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_test_bible_direct_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_test_bible_direct_predictions_greedy.json",
+              "sizeBytes": 5090805
+            },
+            {
+              "label": "Test Bible reference predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_test_bible_ref_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_test_bible_ref_predictions_greedy.json",
+              "sizeBytes": 5263969
+            },
+            {
+              "label": "Validation Bible direct predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_validation_bible_direct_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_validation_bible_direct_predictions_greedy.json",
+              "sizeBytes": 5121743
+            },
+            {
+              "label": "Validation Bible reference predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_validation_bible_ref_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_validation_bible_ref_predictions_greedy.json",
+              "sizeBytes": 5304232
+            },
+            {
+              "label": "Heldout usage predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_heldout_usage_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_heldout_usage_predictions_greedy.json",
+              "sizeBytes": 123501
+            },
+            {
+              "label": "Elder-shared sentence-pair predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_elder_sentence_pair_all_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_elder_sentence_pair_all_predictions_greedy.json",
+              "sizeBytes": 72958
+            },
+            {
+              "label": "Train sample predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_train_sample_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v20.0-full-candidate-corpus-gvn/eval_train_sample_predictions_greedy.json",
+              "sizeBytes": 5637621
+            }
+          ]
+        },
+        {
+          "version": "v19.0-balanced-replay-from-v12-gvn",
+          "status": "internal-proof",
+          "date": "2026-07-02",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + v12.0 merged continuation",
+          "dataset": "v19.0 balanced Bible replay + DB usage + elder-shared sentence pairs",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "Rights granted for elder-shared/DB examples; Bible-derived rows used as research diagnostics. Known approved resources remain lookup-first.",
+          "role": "Balanced replay artifact",
+          "verdict": "Restores near-v12 Bible heldout while adding elder sentence-pair/usage signal, but does not replace v10 usage or v12 Bible routing.",
+          "runId": "v19.0-balanced-replay-from-v12-gvn-8epoch-lr3e-5",
+          "metrics": {
+            "train_loss": 0.2129,
+            "validation_bleu": 95.75,
+            "validation_chrf": 97.18,
+            "heldout_usage_chrf": 53.03,
+            "heldout_usage_exact": 6,
+            "heldout_bible_direct_chrf": 44.16,
+            "heldout_bible_ref_chrf": 44.29,
+            "heldout_all_chrf": 44.46,
+            "heldout_all_plus_elder_sentence_pair_chrf": 47.47,
+            "elder_sentence_pair_chrf": 93.86,
+            "elder_sentence_pair_exact": 29,
+            "length_ratio_mean_heldout_all": 0.976
+          },
+          "scorecard": {
+            "bibleDirectChrf": 44.16,
+            "bibleRefChrf": 44.29,
+            "usageChrf": 53.03,
+            "communitySentenceChrf": 93.86,
+            "communitySentenceExact": "29/43",
+            "heldoutAllChrf": 44.46,
+            "exactKnownResources": "lookup-first"
+          },
+          "training": {
+            "trainRows": 5900,
+            "validationRows": 235,
+            "epochs": 8,
+            "batchSize": 16,
+            "gradientAccumulationSteps": 1,
+            "trainRuntimeSeconds": 1035.55,
+            "trainSamplesPerSecond": 45.58
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX PRO 4500 Blackwell",
+            "costPerHourUsd": 0.74,
+            "estimatedCostUsd": 0.68,
+            "sampleIntervalSeconds": 5,
+            "samples": 369,
+            "avgGpuUtilPct": 41.6,
+            "maxGpuUtilPct": 86,
+            "meanVramMiB": 13508,
+            "maxVramMiB": 19714,
+            "meanPowerW": 128.45,
+            "maxPowerW": 184.89,
+            "powerLimitW": 200
+          },
+          "notes": [
+            "Next move after v18: balanced replay continuation from v12, not another single-domain continuation.",
+            "Best broad heldout score after elder sentence-pair ingestion, but not a universal replacement.",
+            "Use for current research state; keep exact Bible/DB/elder sentence-pair resources lookup-first."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/merged"
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/adapter"
+            },
+            {
+              "label": "Release manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/release_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/release_manifest.json"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/model_manifest.json"
+            },
+            {
+              "label": "Post-eval analysis",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/post_eval_analysis.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/post_eval_analysis.json"
+            },
+            {
+              "label": "Heldout Bible reference predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/eval_heldout_bible_ref325_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/eval_heldout_bible_ref325_predictions_greedy.json"
+            },
+            {
+              "label": "Heldout usage predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/eval_heldout_usage_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/eval_heldout_usage_predictions_greedy.json"
+            },
+            {
+              "label": "Elder-shared sentence-pair predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/eval_elder_sentence_pair_all_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v19.0-balanced-replay-from-v12-gvn/eval_elder_sentence_pair_all_predictions_greedy.json"
+            }
+          ]
+        },
+        {
+          "version": "v18.0-usage-elder-sentence-continuation-from-v10",
+          "status": "internal-proof",
+          "date": "2026-07-02",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + v10.0 merged continuation",
+          "dataset": "v18.0 DB usage + 43 elder-shared sentence pairs, oversampled",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "tpi_Latn"
+          },
+          "rights": "Elder-shared sentence pairs and DB examples are approved for training; exact known rows remain lookup-first.",
+          "role": "Elder sentence-pair memorization proof artifact",
+          "verdict": "Exactly memorized all elder-shared sentence pairs, but regressed Bible and did not beat v10 on heldout usage.",
+          "runId": "v18.0-usage-elder-sentence-continuation-from-v10-tpi-10epoch-lr5e-5",
+          "metrics": {
+            "train_loss": 0.2773,
+            "train_usage_elder_sentence_pair_chrf": 100,
+            "train_usage_elder_sentence_pair_exact": 408,
+            "elder_sentence_pair_chrf": 100,
+            "elder_sentence_pair_exact": 43,
+            "heldout_usage_chrf": 54.52,
+            "heldout_usage_exact": 3,
+            "heldout_bible_direct_chrf": 41.42,
+            "heldout_bible_ref_chrf": 41.25,
+            "heldout_all_chrf": 41.67
+          },
+          "scorecard": {
+            "bibleDirectChrf": 41.42,
+            "bibleRefChrf": 41.25,
+            "usageChrf": 54.52,
+            "communitySentenceChrf": 100,
+            "communitySentenceExact": "43/43",
+            "heldoutAllChrf": 41.67,
+            "exactKnownResources": "lookup-first"
+          },
+          "training": {
+            "trainRows": 1976,
+            "validationRows": 408,
+            "epochs": 10,
+            "batchSize": 16,
+            "gradientAccumulationSteps": 1,
+            "trainRuntimeSeconds": 431.5
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX PRO 4500 Blackwell",
+            "costPerHourUsd": 0.74,
+            "samples": 164,
+            "avgGpuUtilPct": 36.4,
+            "maxGpuUtilPct": 83,
+            "meanVramMiB": 9975,
+            "maxVramMiB": 13928,
+            "meanPowerW": 114.93,
+            "maxPowerW": 178.37
+          },
+          "notes": [
+            "Proved the 16 uploaded source pages could be transcribed into 43 useful supervised sentence-pair rows.",
+            "Route-specific artifact: good proof for elder sentence-pair data ingestion, not a general model winner."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/merged"
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/adapter"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/model_manifest.json"
+            },
+            {
+              "label": "Post-eval analysis",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/post_eval_analysis.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/post_eval_analysis.json"
+            },
+            {
+              "label": "Elder-shared sentence-pair predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/eval_elder_sentence_pair_all_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/eval_elder_sentence_pair_all_predictions_greedy.json"
+            },
+            {
+              "label": "Heldout usage predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/eval_heldout_usage_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v18.0-usage-elder-sentence-continuation-from-v10/eval_heldout_usage_predictions_greedy.json"
+            }
+          ]
+        },
+        {
+          "version": "v15.0-soft-lexical-hint-bible-gvn-token",
+          "status": "negative-result",
+          "date": "2026-07-02",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + v12.0 continuation",
+          "dataset": "v15.0 oracle lexical-hint Bible diagnostic",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "Research diagnostic; not an approved translation source.",
+          "role": "Lexical-hint diagnostic",
+          "verdict": "Reproduced train rows strongly, but did not beat v12 on heldout Bible.",
+          "runId": "v15.0-soft-lexical-hint-bible-gvn-token-2048row-15epoch-batch16",
+          "metrics": {
+            "heldout_bible_direct_chrf": 44.15,
+            "heldout_bible_ref_chrf": 43.72
+          },
+          "scorecard": {
+            "bibleDirectChrf": 44.15,
+            "bibleRefChrf": 43.72,
+            "exactKnownResources": "lookup-first"
+          },
+          "training": {
+            "trainRows": 2048,
+            "epochs": 15,
+            "batchSize": 16
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX PRO 4500 Blackwell"
+          },
+          "notes": [
+            "Soft lexical hints were not the missing ingredient; do not scale this branch."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v15.0-soft-lexical-hint-bible-gvn-token/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v15.0-soft-lexical-hint-bible-gvn-token/merged"
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v15.0-soft-lexical-hint-bible-gvn-token/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v15.0-soft-lexical-hint-bible-gvn-token/adapter"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v15.0-soft-lexical-hint-bible-gvn-token/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v15.0-soft-lexical-hint-bible-gvn-token/model_manifest.json"
+            },
+            {
+              "label": "Post-eval analysis",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v15.0-soft-lexical-hint-bible-gvn-token/post_eval_analysis.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v15.0-soft-lexical-hint-bible-gvn-token/post_eval_analysis.json"
+            },
+            {
+              "label": "Heldout Bible reference predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v15.0-soft-lexical-hint-bible-gvn-token/eval_heldout_ref325_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v15.0-soft-lexical-hint-bible-gvn-token/eval_heldout_ref325_predictions_greedy.json"
+            }
+          ]
+        },
+        {
+          "version": "v13.0-retrieval-context-bible-gvn-token",
+          "status": "negative-result",
+          "date": "2026-07-02",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + v12.0 continuation",
+          "dataset": "v13.0 retrieved Bible context prefix diagnostic",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "Research diagnostic; not an approved translation source.",
+          "role": "Retrieval-prefix diagnostic",
+          "verdict": "Retrieval context as an NLLB source prefix was harmful; heldout Bible dropped sharply.",
+          "runId": "v13.0-retrieval-context-bible-gvn-token-512row-20epoch-batch8",
+          "metrics": {
+            "heldout_bible_direct_chrf": 29.49,
+            "heldout_bible_ref_chrf": 29.71
+          },
+          "scorecard": {
+            "bibleDirectChrf": 29.49,
+            "bibleRefChrf": 29.71,
+            "exactKnownResources": "lookup-first"
+          },
+          "training": {
+            "trainRows": 512,
+            "epochs": 20,
+            "batchSize": 8
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX PRO 4500 Blackwell"
+          },
+          "notes": [
+            "Retrieval remains useful for lookup/evidence display, not as this NLLB prefix format."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v13.0-retrieval-context-bible-gvn-token/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v13.0-retrieval-context-bible-gvn-token/merged"
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v13.0-retrieval-context-bible-gvn-token/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v13.0-retrieval-context-bible-gvn-token/adapter"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v13.0-retrieval-context-bible-gvn-token/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v13.0-retrieval-context-bible-gvn-token/model_manifest.json"
+            },
+            {
+              "label": "Post-eval analysis",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v13.0-retrieval-context-bible-gvn-token/post_eval_analysis.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v13.0-retrieval-context-bible-gvn-token/post_eval_analysis.json"
+            },
+            {
+              "label": "Heldout Bible reference predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v13.0-retrieval-context-bible-gvn-token/eval_heldout_ref325_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v13.0-retrieval-context-bible-gvn-token/eval_heldout_ref325_predictions_greedy.json"
+            }
+          ]
+        },
+        {
+          "version": "v12.0-tagged-direct-plus-reference-bible-gvn-token",
+          "status": "route-candidate",
+          "date": "2026-07-02",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + custom gvn_Latn token",
+          "dataset": "v12.0 tagged direct/reference Bible, 4096 rows",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "Research diagnostic; exact Bible references should be served from approved lookup.",
+          "role": "Current Bible draft fallback",
+          "verdict": "Best Bible draft heldout score before v19, but still zero exact heldout reproduction.",
+          "runId": "v12.0-tagged-direct-plus-reference-bible-gvn-token-4096row-25epoch-batch16",
+          "metrics": {
+            "heldout_bible_direct_chrf": 44.37,
+            "heldout_bible_ref_chrf": 44.36,
+            "heldout_exact": 0
+          },
+          "scorecard": {
+            "bibleDirectChrf": 44.37,
+            "bibleRefChrf": 44.36,
+            "exactKnownResources": "lookup-first"
+          },
+          "training": {
+            "trainRows": 4096,
+            "epochs": 25,
+            "batchSize": 16
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX PRO 4500 Blackwell"
+          },
+          "notes": [
+            "Useful as Bible draft fallback only; not faithful canonical reproduction."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v12.0-tagged-direct-plus-reference-bible-gvn-token/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v12.0-tagged-direct-plus-reference-bible-gvn-token/merged"
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v12.0-tagged-direct-plus-reference-bible-gvn-token/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v12.0-tagged-direct-plus-reference-bible-gvn-token/adapter"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v12.0-tagged-direct-plus-reference-bible-gvn-token/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v12.0-tagged-direct-plus-reference-bible-gvn-token/model_manifest.json"
+            },
+            {
+              "label": "Post-eval analysis",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v12.0-tagged-direct-plus-reference-bible-gvn-token/post_eval_analysis.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v12.0-tagged-direct-plus-reference-bible-gvn-token/post_eval_analysis.json"
+            },
+            {
+              "label": "Heldout Bible reference predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v12.0-tagged-direct-plus-reference-bible-gvn-token/eval_heldout_ref325_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v12.0-tagged-direct-plus-reference-bible-gvn-token/eval_heldout_ref325_predictions_greedy.json"
+            }
+          ]
+        },
+        {
+          "version": "v11.0-byt5-bible-control-32row",
+          "status": "negative-result",
+          "date": "2026-07-02",
+          "baseModel": "google/byt5-small",
+          "dataset": "v11.0 ByT5 32-row Bible control",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "gvn_Latn"
+          },
+          "rights": "Research diagnostic only.",
+          "role": "Byte-model control",
+          "verdict": "Failed the tiny overfit/control path; NLLB/LoRA remains the proven memorizing path for now.",
+          "runId": "v11.0-byt5-bible-control-32row-byt5-small-fullfinetune",
+          "metrics": {
+            "heldout_bible_direct_chrf": 6.09,
+            "heldout_bible_ref_chrf": 5.71,
+            "heldout_all_chrf": 5.9
+          },
+          "scorecard": {
+            "bibleDirectChrf": 6.09,
+            "bibleRefChrf": 5.71,
+            "heldoutAllChrf": 5.9
+          },
+          "training": {
+            "trainRows": 32
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX PRO 4500 Blackwell"
+          },
+          "notes": [
+            "Kept as a control result, not a candidate model."
+          ],
+          "artifacts": []
+        },
+        {
+          "version": "v10.0-tagged-bible-plus-glossary-usage-tpi",
+          "status": "route-candidate",
+          "date": "2026-07-02",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + tpi_Latn proxy token",
+          "dataset": "v10.0 Bible + glossary/DB usage multitask",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "tpi_Latn"
+          },
+          "rights": "DB usage examples are approved; exact known DB rows remain lookup-first.",
+          "role": "Current usage/general draft fallback",
+          "verdict": "Best heldout usage signal so far; weaker Bible than v12/v19.",
+          "runId": "v10.0-tagged-bible-plus-glossary-usage-tpi-20epoch-batch16",
+          "metrics": {
+            "heldout_usage_chrf": 56.18,
+            "heldout_usage_exact": 3,
+            "heldout_bible_direct_chrf": 43.2,
+            "heldout_bible_ref_chrf": 43.29,
+            "heldout_all_chrf": 43.6
+          },
+          "scorecard": {
+            "bibleDirectChrf": 43.2,
+            "bibleRefChrf": 43.29,
+            "usageChrf": 56.18,
+            "heldoutAllChrf": 43.6,
+            "exactKnownResources": "lookup-first"
+          },
+          "training": {
+            "trainRows": 5556,
+            "epochs": 20,
+            "batchSize": 16
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX PRO 4500 Blackwell"
+          },
+          "notes": [
+            "Keep as usage/general draft fallback until a later run clearly beats it on word-id heldout usage."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/merged"
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/adapter"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/model_manifest.json"
+            },
+            {
+              "label": "Post-eval analysis",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/post_eval_analysis.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/post_eval_analysis.json"
+            },
+            {
+              "label": "Heldout usage predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/eval_heldout_usage_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/eval_heldout_usage_predictions_greedy.json"
+            },
+            {
+              "label": "Heldout Bible reference predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/eval_heldout_bible_ref325_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v10.0-tagged-bible-plus-glossary-usage-tpi/eval_heldout_bible_ref325_predictions_greedy.json"
+            }
+          ]
+        },
+        {
+          "version": "v9.8-tagged-bible-plus-db-usage-tpi",
+          "status": "internal-proof",
+          "date": "2026-07-02",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + tpi_Latn proxy token",
+          "dataset": "v9.8 tagged Bible plus DB usage examples",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "tpi_Latn"
+          },
+          "rights": "Research diagnostic with approved DB usage examples.",
+          "role": "First DB-usage multitask diagnostic",
+          "verdict": "Memorized DB train examples but did not generalize well to word-id heldout usage.",
+          "runId": "v9.8-tagged-bible-plus-db-usage-tpi-20epoch-batch16",
+          "metrics": {
+            "heldout_usage_chrf": 39.47,
+            "heldout_bible_ref_chrf": 44.04,
+            "heldout_all_chrf": 43.89
+          },
+          "scorecard": {
+            "bibleDirectChrf": 44,
+            "bibleRefChrf": 44.04,
+            "usageChrf": 39.47,
+            "heldoutAllChrf": 43.89
+          },
+          "training": {
+            "epochs": 20,
+            "batchSize": 16
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX PRO 4500 Blackwell"
+          },
+          "notes": [
+            "Important because it proved DB examples can be learned, but not enough to route as usage fallback."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/merged"
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/adapter"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/model_manifest.json"
+            },
+            {
+              "label": "Post-eval analysis",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/post_eval_analysis.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/post_eval_analysis.json"
+            },
+            {
+              "label": "Heldout usage predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/eval_heldout_usage_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/eval_heldout_usage_predictions_greedy.json"
+            },
+            {
+              "label": "Heldout Bible reference predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/eval_heldout_bible_ref325_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.8-tagged-bible-plus-db-usage-tpi/eval_heldout_bible_ref325_predictions_greedy.json"
+            }
+          ]
+        },
+        {
+          "version": "v9.7-tagged-direct-plus-reference-bible-tpi",
+          "status": "internal-proof",
+          "date": "2026-07-02",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + tpi_Latn proxy token",
+          "dataset": "v9.7 tagged direct/reference Bible, 4096 rows",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "tpi_Latn"
+          },
+          "rights": "Research diagnostic; exact Bible references remain lookup-first.",
+          "role": "Reference-conditioning baseline",
+          "verdict": "Established tagged Bible direct/reference training as viable, but still zero exact heldout reproduction.",
+          "runId": "v9.7-tagged-direct-plus-reference-bible-tpi-4096row-25epoch-batch16",
+          "metrics": {
+            "heldout_bible_direct_chrf": 44.13,
+            "heldout_bible_ref_chrf": 44.34,
+            "heldout_exact": 0
+          },
+          "scorecard": {
+            "bibleDirectChrf": 44.13,
+            "bibleRefChrf": 44.34,
+            "exactKnownResources": "lookup-first"
+          },
+          "training": {
+            "trainRows": 4096,
+            "epochs": 25,
+            "batchSize": 16
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX PRO 4500 Blackwell"
+          },
+          "notes": [
+            "Reference-conditioned input helped; exact canonical Bible output still belongs to retrieval/lookup."
+          ],
+          "artifacts": [
+            {
+              "label": "Merged model",
+              "kind": "model",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.7-tagged-direct-plus-reference-bible-tpi/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.7-tagged-direct-plus-reference-bible-tpi/merged"
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "directory",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.7-tagged-direct-plus-reference-bible-tpi/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.7-tagged-direct-plus-reference-bible-tpi/adapter"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.7-tagged-direct-plus-reference-bible-tpi/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.7-tagged-direct-plus-reference-bible-tpi/model_manifest.json"
+            },
+            {
+              "label": "Post-eval analysis",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.7-tagged-direct-plus-reference-bible-tpi/post_eval_analysis.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.7-tagged-direct-plus-reference-bible-tpi/post_eval_analysis.json"
+            },
+            {
+              "label": "Heldout Bible reference predictions",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/kuku-yalanji-nllb-lora/v9.7-tagged-direct-plus-reference-bible-tpi/eval_heldout_ref325_predictions_greedy.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/public-model-artifacts/kuku-yalanji-nllb-lora/v9.7-tagged-direct-plus-reference-bible-tpi/eval_heldout_ref325_predictions_greedy.json"
+            }
+          ]
+        },
+        {
+          "version": "v8.0-diagnostic-gates-summary",
+          "status": "internal-proof",
+          "date": "2026-07-01",
+          "baseModel": "facebook/nllb-200-distilled-1.3B + LoRA gates",
+          "dataset": "v8 gated overfit diagnostics, 1->8->32->256 rows",
+          "directions": [
+            "eng-gvn"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "tpi_Latn"
+          },
+          "rights": "Research diagnostic only.",
+          "role": "Pipeline proof gate",
+          "verdict": "Proved tokenizer/LoRA/training/merge path could memorize; shifted problem from plumbing to data/task/generalization.",
+          "runId": "v8-diagnostic-suite",
+          "metrics": {
+            "overfit_gate": 1,
+            "pipeline_alive": 1
+          },
+          "scorecard": {
+            "exactKnownResources": "not applicable"
+          },
+          "training": {
+            "trainRows": 256
+          },
+          "resources": {
+            "gpu": "NVIDIA RTX PRO 4500 Blackwell"
+          },
+          "notes": [
+            "Not a product model; it is the reason later runs are meaningful."
+          ],
+          "artifacts": []
+        },
         {
           "version": "0.7.0-full-tpi-proxy-1.3b",
           "status": "internal-proof",
@@ -447,6 +2549,164 @@
               "format": "JSON",
               "url": null,
               "available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "migmaq-nllb-lora",
+      "name": "Mi'gmaq Translation",
+      "family": "NLLB LoRA",
+      "task": "machine_translation",
+      "labUrl": "/labs/migmaq",
+      "language": {
+        "name": "Mi'gmaq",
+        "appCode": "migmaq",
+        "iso6393": "mic",
+        "region": "Listuguj and Mi'kma'ki, eastern Canada"
+      },
+      "summary": "A noncommercial English-to-Mi'gmaq research model trained on source-attested dictionary examples. It is not speaker-reviewed and is exposed only as a guarded research preview.",
+      "releases": [
+        {
+          "version": "1.0.0-rc1",
+          "status": "research-only",
+          "date": "2026-07-12",
+          "baseModel": "facebook/nllb-200-distilled-600M@f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+          "dataset": "Mi'gmaq Online example parallel v1.0.0: 5,798 train, 686 validation, 742 frozen test; headword-disjoint and leakage-audited",
+          "directions": [
+            "eng-mic"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "mic_Latn"
+          },
+          "rights": "Noncommercial research only. Mi'gmaq/Mi'kmaq Online Talking Dictionary data and NLLB base are CC BY-NC 4.0. Output is not speaker-reviewed or community-endorsed.",
+          "role": "First leakage-controlled Mi'gmaq dictionary-example research candidate",
+          "verdict": "Machine-integrity gates pass, but linguistic-quality promotion does not: frozen-test chrF++ is 21.43 with 0/742 exact matches and material lexical/content failures. Permit only a visibly warned research preview pending qualified Mi'gmaq review.",
+          "runId": "migmaq-v1-rc1",
+          "metrics": {
+            "validation_bleu": 1.3867,
+            "validation_chrf": 21.0434,
+            "validation_chrf_ci95_low": 20.4083,
+            "validation_chrf_ci95_high": 21.6518,
+            "test_bleu": 1.7795,
+            "test_chrf": 21.4298,
+            "test_chrf_ci95_low": 20.8128,
+            "test_chrf_ci95_high": 22.0332,
+            "test_exact": 0,
+            "test_empty_outputs": 0,
+            "test_source_copies": 0,
+            "test_repeated_trigrams": 0,
+            "test_mean_length_ratio": 0.9063
+          },
+          "training": {
+            "trainRows": 5798,
+            "validationRows": 686,
+            "testRows": 742,
+            "epochs": 8,
+            "batchSize": 8,
+            "gradientAccumulationSteps": 4,
+            "trainRuntimeSeconds": 1623.2654,
+            "trainSamplesPerSecond": 28.575
+          },
+          "resources": {
+            "gpu": "NVIDIA A40",
+            "costPerHourUsd": 0.44,
+            "sampleIntervalSeconds": 5,
+            "samples": 401,
+            "avgGpuUtilPct": 30.06,
+            "maxGpuUtilPct": 56,
+            "meanVramMiB": 8172,
+            "maxVramMiB": 10011,
+            "meanPowerW": 144.46,
+            "maxPowerW": 172.49,
+            "powerLimitW": 300,
+            "elapsedPodSeconds": 8186,
+            "estimatedCostUsd": 1.0005
+          },
+          "notes": [
+            "The first plumbing gate exposed a PEFT/NLLB embedding-alias serialization defect and correctly blocked full training.",
+            "The corrected gate reproduced merged-model predictions and reached 128/128 exact on a training-only memorization control.",
+            "The full trainer received no test file. Decoding was selected on validation before the frozen test was accessed once under an exclusive hash ledger.",
+            "All validation and test examples belong to source-headword groups absent from training.",
+            "The written-data scope is the source collection's contemporary Listuguj spelling; audio was not used for this text model."
+          ],
+          "artifacts": [
+            {
+              "label": "Complete merged-model download",
+              "kind": "model",
+              "format": "tar.gz",
+              "url": "/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/migmaq-nllb-lora-1.0.0-rc1-merged.tar.gz",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/migmaq-runpod-2026-07-12/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/migmaq-nllb-lora-1.0.0-rc1-merged.tar.gz",
+              "sizeBytes": 2247094395,
+              "sha256": "2abe9602ee2b47cee8037b6839ce8faa052f867280591d0d917b2eea4260d591"
+            },
+            {
+              "label": "Merged standalone model",
+              "kind": "model",
+              "format": "safetensors",
+              "url": "/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/merged/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/migmaq-runpod-2026-07-12/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/merged",
+              "sizeBytes": 2804330488,
+              "sha256": "8df8467e96ba480e790951f86cdc30919cd1d441faf7d1c5c5521cef1c78eb01"
+            },
+            {
+              "label": "LoRA adapter",
+              "kind": "adapter",
+              "format": "safetensors",
+              "url": "/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/adapter/",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/migmaq-runpod-2026-07-12/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/adapter",
+              "sizeBytes": 3217507488,
+              "sha256": "d85184d614f614815910442cbc5324f440c4030cdebd6b5cff2d3d7046381c67"
+            },
+            {
+              "label": "Training manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/model_manifest.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/migmaq-runpod-2026-07-12/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/model_manifest.json",
+              "sizeBytes": 20301,
+              "sha256": "3d22c22718db939aa1d6af69d0a5705368afe83421385cc5a825ee33d05fbaa0"
+            },
+            {
+              "label": "Frozen-test evaluation",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/test-final.json",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/migmaq-runpod-2026-07-12/model-artifacts/migmaq-nllb-lora/1.0.0-rc1/test-final.json",
+              "sizeBytes": 1526439,
+              "sha256": "5d294244e21e160a8d9e8ae35eb385a93b3608cd51df534505088778767c7566"
+            },
+            {
+              "label": "Model card",
+              "kind": "documentation",
+              "format": "markdown",
+              "url": "/docs/migmaq-model-card.html",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/migmaq-runpod-2026-07-12/docs/MIGMAQ-NLLB-LORA-1.0.0-RC1-MODEL-CARD.md"
+            },
+            {
+              "label": "Evaluation and promotion report",
+              "kind": "documentation",
+              "format": "html",
+              "url": "/docs/migmaq-evaluation.html",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/migmaq-runpod-2026-07-12/reports/MIGMAQ-V1-EVALUATION-REPORT.md"
+            },
+            {
+              "label": "Frozen dataset",
+              "kind": "dataset",
+              "format": "tar.gz",
+              "url": "/datasets/migmaq/migmaq-online-example-parallel-v1.0.0-20260712.tar.gz",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/translation-training/migmaq-runpod-2026-07-12/datasets/migmaq-online-example-parallel-v1.0.0-20260712.tar.gz",
+              "sha256": "805c225aeebf0596fa4f892d89cf930a23a395e2b58c1c059cb47a7092f86368"
             }
           ]
         }

@@ -5,7 +5,7 @@ import DictionarySearch from './components/DictionarySearch';
 import { Badge } from '@mobtranslate/ui';
 
 import Link from 'next/link';
-import { ChevronRight, MapPin, BookOpen, ArrowLeft, Type } from 'lucide-react';
+import { ChevronRight, MapPin, BookOpen, ArrowLeft, Type, FlaskConical } from 'lucide-react';
 
 const Breadcrumbs = ({ items, className }: { items: { href: string; label: string }[]; className?: string }) => (
   <nav aria-label="Breadcrumb" className={`flex items-center gap-2 text-sm ${className || ''}`}>
@@ -139,6 +139,14 @@ export default async function DictionaryPage(
                 >
                   <MapPin className="w-4 h-4" /> View place names on map
                 </Link>
+                {language === 'kuku_yalanji' && (
+                  <Link
+                    href={`/dictionaries/${language}/research`}
+                    className="inline-flex items-center gap-1.5 font-medium text-[var(--lang-accent)] hover:underline underline-offset-4"
+                  >
+                    <FlaskConical className="w-4 h-4" /> Open corpus workbench
+                  </Link>
+                )}
               </div>
 
               {/* Subtle attribution: the people & work behind this dictionary. */}

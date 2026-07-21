@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Mic, Play, Pause, Trash2, Plus, LogIn, Users, X, Loader2, CheckCircle2 } from 'lucide-react';
+import { Mic, Play, Pause, Trash2, Plus, LogIn, Users, X, CheckCircle2, BookOpen, ExternalLink } from 'lucide-react';
 import { Button, cn } from '@mobtranslate/ui';
 import { useAuth } from '@/contexts/AuthContext';
 import { Recorder, type RecorderTarget } from '@/app/admin/recordings/studio/Recorder';
@@ -17,6 +17,14 @@ interface RecordingItem {
   speaker_name: string;
   speaker_community: string | null;
   speaker_dialect: string | null;
+  source_speaker_code: string | null;
+  source_name: string | null;
+  source_url: string | null;
+  source_entry_url: string | null;
+  source_license_name: string | null;
+  source_license_url: string | null;
+  source_commercial_use_allowed: boolean | null;
+  source_attribution: string | null;
   created_at: string;
   is_mine: boolean;
 }
@@ -29,8 +37,14 @@ function formatDate(iso: string): string {
   }
 }
 
+function speakerLabel(item: RecordingItem): string {
+  if (!item.source_name) return item.speaker_name;
+  const sourceCode = item.source_speaker_code?.trim() ?? '';
+  return /[\p{L}\p{N}]/u.test(sourceCode) ? `Speaker ${sourceCode}` : 'Source speaker';
+}
+
 /**
- * Community pronunciations for a word OR a usage example.
+ * Community and attributed source pronunciations for a word OR usage example.
  * `endpointBase` is e.g. `/api/v2/words/<id>` or `/api/v2/examples/<id>`;
  * the component appends `/recordings`. `variant="compact"` is the tight inline
  * version shown under example sentences.
@@ -155,11 +169,12 @@ export function Recordings({
 
   // ---------- FULL (the word's section) ----------
   const count = items?.length ?? 0;
+  const archiveSource = items?.find((item) => item.source_name) ?? null;
   return (
-    <section aria-labelledby="community-pronunciations">
+    <section aria-labelledby="pronunciations">
       <div className="mb-3 flex items-center justify-between gap-3">
-        <h3 id="community-pronunciations" className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--lang-accent)]">
-          Community pronunciations
+        <h3 id="pronunciations" className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--lang-accent)]">
+          Pronunciations
         </h3>
         {count > 0 && (
           <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -169,8 +184,16 @@ export function Recordings({
       </div>
 
       {items === null ? (
-        <div className="flex justify-center py-6">
-          <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+        <div className="space-y-2.5" aria-label="Loading pronunciations">
+          {[0, 1].map((index) => (
+            <div key={index} className="flex h-[74px] items-center gap-3 rounded-xl bg-muted/45 px-3 animate-pulse">
+              <span className="h-12 w-12 shrink-0 rounded-full bg-muted" />
+              <span className="space-y-2">
+                <span className="block h-4 w-28 rounded bg-muted" />
+                <span className="block h-3 w-44 max-w-[50vw] rounded bg-muted" />
+              </span>
+            </div>
+          ))}
         </div>
       ) : items.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-border bg-muted/30 px-5 py-7 text-center">
@@ -184,6 +207,39 @@ export function Recordings({
         <ul className="space-y-2.5">
           {items.map((r) => <PlayRow key={r.id} item={r} onDelete={r.is_mine ? () => onDelete(r.id) : undefined} />)}
         </ul>
+      )}
+
+      {archiveSource && (
+        <div className="mt-3 flex items-start gap-2 border-t border-border pt-3 text-sm leading-relaxed text-muted-foreground">
+          <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-[var(--lang-accent)]" aria-hidden="true" />
+          <p>
+            Archive recordings from{' '}
+            <a
+              href={archiveSource.source_url ?? archiveSource.source_entry_url ?? '#'}
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-foreground underline decoration-border underline-offset-4 hover:text-[var(--lang-accent)]"
+            >
+              {archiveSource.source_name}
+            </a>
+            {archiveSource.source_license_url && (
+              <>
+                {' '}under the{' '}
+                <a
+                  href={archiveSource.source_license_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-foreground underline decoration-border underline-offset-4 hover:text-[var(--lang-accent)]"
+                >
+                  {archiveSource.source_commercial_use_allowed === false
+                    ? 'CC BY-NC 4.0 noncommercial license'
+                    : 'source license'}
+                </a>
+              </>
+            )}
+            .
+          </p>
+        </div>
       )}
 
       <div className="mt-4">
@@ -237,18 +293,32 @@ function useAudioToggle(url: string | null) {
 
 function CompactChip({ item, onDelete }: { item: RecordingItem; onDelete?: () => void }) {
   const { playing, toggle } = useAudioToggle(item.url);
+  const label = speakerLabel(item);
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card py-1 pl-1 pr-2.5">
       <button
         type="button"
         onClick={toggle}
         disabled={!item.url}
-        aria-label={playing ? `Pause ${item.speaker_name}` : `Play ${item.speaker_name}`}
+        aria-label={playing ? `Pause ${label}` : `Play ${label}`}
         className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--lang-accent)] text-white disabled:opacity-40"
       >
         {playing ? <Pause className="h-3.5 w-3.5" fill="currentColor" /> : <Play className="h-3.5 w-3.5" fill="currentColor" />}
       </button>
-      <span className="text-sm text-foreground">{item.speaker_name}</span>
+      <span className="text-sm text-foreground">{label}</span>
+      {item.source_entry_url && (
+        <a
+          href={item.source_entry_url}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Open ${item.source_name ?? 'recording'} source entry${item.source_license_name ? ` (${item.source_license_name})` : ''}`}
+          title={`${item.source_name ?? 'Source recording'}${item.source_license_name ? ` · ${item.source_license_name}` : ''}`}
+          className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-[var(--lang-accent)]"
+        >
+          <BookOpen className="h-3.5 w-3.5" />
+          <span>{item.source_commercial_use_allowed === false ? 'Source · noncommercial' : 'Source'}</span>
+        </a>
+      )}
       {onDelete && (
         <button type="button" onClick={onDelete} aria-label="Delete your recording" className="text-muted-foreground hover:text-[var(--color-destructive)]">
           <Trash2 className="h-3.5 w-3.5" />
@@ -261,26 +331,39 @@ function CompactChip({ item, onDelete }: { item: RecordingItem; onDelete?: () =>
 function PlayRow({ item, onDelete }: { item: RecordingItem; onDelete?: () => void }) {
   const { playing, toggle } = useAudioToggle(item.url);
   const meta = [item.speaker_community, item.speaker_dialect].filter(Boolean).join(' · ');
+  const label = speakerLabel(item);
   return (
     <li className={cn('flex items-center gap-3 rounded-2xl border bg-card px-3 py-3 transition-colors', item.is_mine ? 'border-[var(--lang-accent)]/50' : 'border-border')}>
       <button
         type="button"
         onClick={toggle}
         disabled={!item.url}
-        aria-label={playing ? `Pause ${item.speaker_name}` : `Play ${item.speaker_name}`}
+        aria-label={playing ? `Pause ${label}` : `Play ${label}`}
         className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[var(--lang-accent)] text-white shadow-sm transition-transform active:scale-95 disabled:opacity-40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ring)]"
       >
         {playing ? <Pause className="h-5 w-5" fill="currentColor" /> : <Play className="h-5 w-5" fill="currentColor" />}
       </button>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <span className="truncate text-base font-medium text-foreground">{item.speaker_name}</span>
+          <span className="truncate text-base font-medium text-foreground">{label}</span>
           {item.is_mine && <span className="rounded-full bg-[var(--lang-accent-soft,var(--color-muted))] px-2 py-0.5 text-xs font-semibold text-[var(--lang-accent)]">You</span>}
         </div>
-        <p className="truncate text-sm text-muted-foreground">
-          {meta && <span>{meta} · </span>}
-          {formatDate(item.created_at)}
-        </p>
+        {item.source_entry_url ? (
+          <a
+            href={item.source_entry_url}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex max-w-full items-center gap-1 text-sm text-muted-foreground hover:text-[var(--lang-accent)]"
+          >
+            <span className="truncate">{item.source_name}</span>
+            <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+          </a>
+        ) : (
+          <p className="truncate text-sm text-muted-foreground">
+            {meta && <span>{meta} · </span>}
+            {formatDate(item.created_at)}
+          </p>
+        )}
       </div>
       {item.duration_ms != null && <span className="flex-shrink-0 text-sm tabular-nums text-muted-foreground">{(item.duration_ms / 1000).toFixed(1)}s</span>}
       {onDelete && (

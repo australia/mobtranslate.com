@@ -5,6 +5,12 @@ import Link from 'next/link';
 import { cn } from '@mobtranslate/ui';
 import { useStudioMic } from '@/app/admin/recordings/studio/useStudioMic';
 import type { CapturedRecording } from '@/lib/recording/types';
+import {
+  EMPTY_SPEECH_RIGHTS,
+  SPEECH_CONSENT_FORM_VERSION,
+  type SpeechConsentGrant,
+  type SpeechRights,
+} from '@/lib/recording/speech-consent';
 
 const API = '/api/v2/recordings/sentence-corpus';
 
@@ -17,6 +23,24 @@ type Speaker = {
   age: number | null;
   cultural_consent: boolean;
   training_consent: boolean;
+  consent_record_id: string | null;
+  consent_version: number | null;
+  consent_event_type: 'grant' | 'replace' | 'withdraw' | null;
+  withdrawal_process: string | null;
+  recording_allowed: boolean | null;
+  asr_evaluation_allowed: boolean | null;
+  asr_training_allowed: boolean | null;
+  hosted_provider_transfer_allowed: boolean | null;
+  public_metrics_allowed: boolean | null;
+  public_audio_allowed: boolean | null;
+  public_transcript_allowed: boolean | null;
+  asr_derived_weights_allowed: boolean | null;
+  asr_weight_distribution_allowed: boolean | null;
+  tts_training_allowed: boolean | null;
+  speaker_voice_replication_allowed: boolean | null;
+  tts_derived_weights_allowed: boolean | null;
+  tts_weight_distribution_allowed: boolean | null;
+  commercial_use_allowed: boolean | null;
   clips: number;
   minutes: number;
 };
@@ -33,6 +57,38 @@ type Sentence = {
 };
 
 type Progress = { total: number; done: number; pending: number; skipped: number; recorded: number; position: number };
+
+function consentFromSpeaker(speaker?: Speaker | null): SpeechConsentGrant {
+  const rights: SpeechRights = speaker
+    ? {
+        recordingAllowed: speaker.recording_allowed === true,
+        asrEvaluationAllowed: speaker.asr_evaluation_allowed === true,
+        asrTrainingAllowed: speaker.asr_training_allowed === true,
+        hostedProviderTransferAllowed: speaker.hosted_provider_transfer_allowed === true,
+        publicMetricsAllowed: speaker.public_metrics_allowed === true,
+        publicAudioAllowed: speaker.public_audio_allowed === true,
+        publicTranscriptAllowed: speaker.public_transcript_allowed === true,
+        asrDerivedWeightsAllowed: speaker.asr_derived_weights_allowed === true,
+        asrWeightDistributionAllowed: speaker.asr_weight_distribution_allowed === true,
+        ttsTrainingAllowed: speaker.tts_training_allowed === true,
+        speakerVoiceReplicationAllowed: speaker.speaker_voice_replication_allowed === true,
+        ttsDerivedWeightsAllowed: speaker.tts_derived_weights_allowed === true,
+        ttsWeightDistributionAllowed: speaker.tts_weight_distribution_allowed === true,
+        commercialUseAllowed: speaker.commercial_use_allowed === true,
+      }
+    : { ...EMPTY_SPEECH_RIGHTS };
+  return {
+    consentFormVersion: SPEECH_CONSENT_FORM_VERSION,
+    withdrawalProcess:
+      speaker?.withdrawal_process ??
+      'Contact the MobTranslate project operator to stop use and withdraw future permission.',
+    authorizingBody: null,
+    consentArtifactRef: null,
+    consentArtifactSha256: null,
+    notes: null,
+    rights,
+  };
+}
 
 async function jget<T>(url: string): Promise<T> {
   const r = await fetch(url, { cache: 'no-store' });
@@ -73,11 +129,12 @@ export default function SentenceStudio({ operatorName }: { operatorName: string 
 
 /* ------------------------------- Speaker picker ------------------------------- */
 
-function SpeakerPicker({ operatorName, onStart }: { operatorName: string; onStart: (s: Speaker) => void }) {
+function SpeakerPicker({ operatorName, onStart }: { operatorName: string; onStart: (_speaker: Speaker) => void }) {
   const [speakers, setSpeakers] = useState<Speaker[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [adding, setAdding] = useState(false);
   const [confirm, setConfirm] = useState<Speaker | null>(null);
+  const [consentSpeaker, setConsentSpeaker] = useState<Speaker | null>(null);
   const [consentChecked, setConsentChecked] = useState(false);
 
   const load = useCallback(() => {
@@ -104,6 +161,10 @@ function SpeakerPicker({ operatorName, onStart }: { operatorName: string; onStar
           <button
             key={s.id}
             onClick={() => {
+              if (!s.consent_record_id || s.recording_allowed !== true) {
+                setConsentSpeaker(s);
+                return;
+              }
               setConfirm(s);
               setConsentChecked(false);
             }}
@@ -114,6 +175,9 @@ function SpeakerPicker({ operatorName, onStart }: { operatorName: string; onStar
             <div className="mt-3 text-sm text-stone-400">
               {s.clips} clips · {s.minutes} min recorded
             </div>
+            {(!s.consent_record_id || s.recording_allowed !== true) && (
+              <div className="mt-2 text-sm font-medium text-amber-700">Record permissions before recording</div>
+            )}
           </button>
         ))}
         {speakers && (
@@ -128,6 +192,16 @@ function SpeakerPicker({ operatorName, onStart }: { operatorName: string; onStar
       </div>
 
       {adding && <NewSpeakerModal onClose={() => setAdding(false)} onCreated={() => { setAdding(false); load(); }} />}
+      {consentSpeaker && (
+        <SpeechConsentModal
+          speaker={consentSpeaker}
+          onClose={() => setConsentSpeaker(null)}
+          onSaved={() => {
+            setConsentSpeaker(null);
+            load();
+          }}
+        />
+      )}
 
       {confirm && (
         <div className="fixed inset-0 z-20 flex items-center justify-center bg-black/40 p-6">
@@ -135,8 +209,8 @@ function SpeakerPicker({ operatorName, onStart }: { operatorName: string; onStar
             <h2 className="text-2xl font-bold">Start recording with {confirm.name}</h2>
             <p className="mt-3 text-stone-600">
               Please confirm that <strong>{confirm.name}</strong> is here in person and agrees to have their voice
-              recorded today for the Kuku Yalanji language project, and for these recordings to help build a
-              community speech and translation resource.
+              recorded today under consent record version {confirm.consent_version}. They can stop at any time and
+              use the recorded withdrawal process later.
             </p>
             <label className="mt-5 flex items-start gap-3 rounded-xl bg-stone-50 p-4">
               <input
@@ -150,6 +224,15 @@ function SpeakerPicker({ operatorName, onStart }: { operatorName: string; onStar
               </span>
             </label>
             <div className="mt-6 flex justify-end gap-3">
+              <button
+                onClick={() => {
+                  setConfirm(null);
+                  setConsentSpeaker(confirm);
+                }}
+                className="mr-auto rounded-xl px-4 py-3 text-sm font-semibold text-stone-600 hover:bg-stone-100"
+              >
+                Review permissions
+              </button>
               <button onClick={() => setConfirm(null)} className="rounded-xl px-5 py-3 text-lg font-semibold text-stone-500 hover:bg-stone-100">
                 Cancel
               </button>
@@ -172,8 +255,7 @@ function NewSpeakerModal({ onClose, onCreated }: { onClose: () => void; onCreate
   const [name, setName] = useState('');
   const [community, setCommunity] = useState('');
   const [dialect, setDialect] = useState('');
-  const [culturalConsent, setCulturalConsent] = useState(false);
-  const [trainingConsent, setTrainingConsent] = useState(false);
+  const [consent, setConsent] = useState<SpeechConsentGrant>(() => consentFromSpeaker());
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -181,7 +263,12 @@ function NewSpeakerModal({ onClose, onCreated }: { onClose: () => void; onCreate
     setBusy(true);
     setError(null);
     try {
-      await jpost(`${API}/speakers`, { name: name.trim(), community: community.trim() || null, dialect: dialect.trim() || null, culturalConsent, trainingConsent });
+      await jpost(`${API}/speakers`, {
+        name: name.trim(),
+        community: community.trim() || null,
+        dialect: dialect.trim() || null,
+        consent,
+      });
       onCreated();
     } catch (e) {
       setError((e as Error).message);
@@ -190,26 +277,22 @@ function NewSpeakerModal({ onClose, onCreated }: { onClose: () => void; onCreate
   };
 
   return (
-    <div className="fixed inset-0 z-20 flex items-center justify-center bg-black/40 p-6">
-      <div className="w-full max-w-lg rounded-2xl bg-white p-8 shadow-xl">
-        <h2 className="text-2xl font-bold mb-4">New speaker</h2>
+    <div className="fixed inset-0 z-20 flex items-center justify-center bg-black/40 p-4 sm:p-6">
+      <div className="max-h-[94vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-5 shadow-xl sm:p-8">
+        <h2 className="mb-1 text-2xl font-bold">New speaker and permissions</h2>
+        <p className="mb-5 text-sm leading-relaxed text-stone-600">
+          Record each permitted use separately with the speaker present. Nothing is selected for model work by default.
+        </p>
         {error && <p className="mb-3 rounded-lg bg-rose-50 px-4 py-2 text-rose-700">{error}</p>}
         <div className="space-y-3">
           <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" className="w-full rounded-xl border border-stone-300 px-4 py-3 text-lg" />
           <input value={community} onChange={(e) => setCommunity(e.target.value)} placeholder="Community (e.g. Mossman Gorge)" className="w-full rounded-xl border border-stone-300 px-4 py-3 text-lg" />
           <input value={dialect} onChange={(e) => setDialect(e.target.value)} placeholder="Dialect (optional)" className="w-full rounded-xl border border-stone-300 px-4 py-3 text-lg" />
-          <label className="flex items-start gap-3 rounded-xl bg-stone-50 p-3">
-            <input type="checkbox" checked={culturalConsent} onChange={(e) => setCulturalConsent(e.target.checked)} className="mt-1 h-5 w-5" />
-            <span className="text-stone-700">Consents to record their voice and publish recordings for the language project.</span>
-          </label>
-          <label className="flex items-start gap-3 rounded-xl bg-stone-50 p-3">
-            <input type="checkbox" checked={trainingConsent} onChange={(e) => setTrainingConsent(e.target.checked)} className="mt-1 h-5 w-5" />
-            <span className="text-stone-700">Consents to their recordings being used to train a Kuku Yalanji voice/model (optional).</span>
-          </label>
+          <SpeechConsentFields value={consent} onChange={setConsent} />
         </div>
         <div className="mt-6 flex justify-end gap-3">
           <button onClick={onClose} className="rounded-xl px-5 py-3 font-semibold text-stone-500 hover:bg-stone-100">Cancel</button>
-          <button disabled={!name.trim() || !culturalConsent || busy} onClick={save} className="rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white hover:bg-emerald-700 disabled:opacity-40">
+          <button disabled={!name.trim() || !consent.rights.recordingAllowed || busy} onClick={save} className="rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white hover:bg-emerald-700 disabled:opacity-40">
             {busy ? 'Saving…' : 'Add speaker'}
           </button>
         </div>
@@ -218,10 +301,243 @@ function NewSpeakerModal({ onClose, onCreated }: { onClose: () => void; onCreate
   );
 }
 
+function SpeechConsentModal({
+  speaker,
+  onClose,
+  onSaved,
+}: {
+  speaker: Speaker;
+  onClose: () => void;
+  onSaved: () => void;
+}) {
+  const [consent, setConsent] = useState<SpeechConsentGrant>(() => consentFromSpeaker(speaker));
+  const [busy, setBusy] = useState(false);
+  const [withdrawing, setWithdrawing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const save = async () => {
+    setBusy(true);
+    setError(null);
+    try {
+      await jpost(`${API}/speakers/${speaker.id}/consent`, {
+        eventType: speaker.consent_record_id ? 'replace' : 'grant',
+        consent,
+      });
+      onSaved();
+    } catch (caught) {
+      setError((caught as Error).message);
+      setBusy(false);
+    }
+  };
+
+  const withdraw = async () => {
+    setBusy(true);
+    setError(null);
+    try {
+      await jpost(`${API}/speakers/${speaker.id}/consent`, {
+        eventType: 'withdraw',
+        reason: 'Speaker withdrew all current speech permissions in person.',
+      });
+      onSaved();
+    } catch (caught) {
+      setError((caught as Error).message);
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/40 p-4 sm:p-6">
+      <div className="max-h-[94vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-5 shadow-xl sm:p-8">
+        <h2 className="text-2xl font-bold">Speech permissions for {speaker.name}</h2>
+        <p className="mt-2 text-sm leading-relaxed text-stone-600">
+          The speaker must be present. Saving creates a new immutable version; it never changes the earlier record.
+        </p>
+        {error && <p className="mt-4 rounded-lg bg-rose-50 px-4 py-3 text-rose-700">{error}</p>}
+        <div className="mt-5">
+          <SpeechConsentFields value={consent} onChange={setConsent} />
+        </div>
+        {withdrawing && (
+          <div className="mt-5 border border-rose-300 bg-rose-50 p-4 text-sm text-rose-900">
+            This records a withdrawal event and immediately blocks future capture, public sentence audio, and model
+            exports for this consent lineage. Existing evidence is retained for audit.
+            <div className="mt-3 flex flex-wrap gap-3">
+              <button type="button" onClick={() => setWithdrawing(false)} className="rounded-xl px-4 py-2 font-semibold hover:bg-white">
+                Keep permissions
+              </button>
+              <button type="button" onClick={() => void withdraw()} disabled={busy} className="rounded-xl bg-rose-700 px-4 py-2 font-semibold text-white disabled:opacity-40">
+                Confirm withdrawal
+              </button>
+            </div>
+          </div>
+        )}
+        <div className="mt-6 flex flex-wrap justify-end gap-3 border-t border-stone-200 pt-5">
+          {speaker.consent_record_id && !withdrawing && (
+            <button type="button" onClick={() => setWithdrawing(true)} className="mr-auto rounded-xl px-4 py-3 text-sm font-semibold text-rose-700 hover:bg-rose-50">
+              Withdraw all permissions
+            </button>
+          )}
+          <button type="button" onClick={onClose} className="rounded-xl px-5 py-3 font-semibold text-stone-500 hover:bg-stone-100">Cancel</button>
+          <button type="button" disabled={!consent.rights.recordingAllowed || busy} onClick={() => void save()} className="rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white hover:bg-emerald-700 disabled:opacity-40">
+            {busy ? 'Saving…' : 'Save new version'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ConsentOption({
+  checked,
+  onChange,
+  title,
+  description,
+  disabled = false,
+}: {
+  checked: boolean;
+  onChange: (_checked: boolean) => void;
+  title: string;
+  description: string;
+  disabled?: boolean;
+}) {
+  return (
+    <label className="flex min-h-12 items-start gap-3 border-b border-stone-200 py-3 last:border-b-0">
+      <input
+        type="checkbox"
+        checked={checked}
+        disabled={disabled}
+        onChange={(event) => onChange(event.target.checked)}
+        className="mt-0.5 h-5 w-5 shrink-0"
+      />
+      <span>
+        <span className="block font-medium text-stone-900">{title}</span>
+        <span className="mt-0.5 block text-sm leading-relaxed text-stone-600">{description}</span>
+      </span>
+    </label>
+  );
+}
+
+function SpeechConsentFields({
+  value,
+  onChange,
+}: {
+  value: SpeechConsentGrant;
+  onChange: (_value: SpeechConsentGrant) => void;
+}) {
+  const setRight = (key: keyof SpeechRights, checked: boolean) => {
+    const rights = { ...value.rights, [key]: checked };
+    if (key === 'asrTrainingAllowed' && !checked) {
+      rights.asrDerivedWeightsAllowed = false;
+      rights.asrWeightDistributionAllowed = false;
+    }
+    if (key === 'asrDerivedWeightsAllowed') {
+      if (checked) rights.asrTrainingAllowed = true;
+      else rights.asrWeightDistributionAllowed = false;
+    }
+    if (key === 'asrWeightDistributionAllowed' && checked) {
+      rights.asrTrainingAllowed = true;
+      rights.asrDerivedWeightsAllowed = true;
+    }
+    if (key === 'ttsTrainingAllowed' && !checked) {
+      rights.speakerVoiceReplicationAllowed = false;
+      rights.ttsDerivedWeightsAllowed = false;
+      rights.ttsWeightDistributionAllowed = false;
+    }
+    if (key === 'ttsDerivedWeightsAllowed') {
+      if (checked) rights.ttsTrainingAllowed = true;
+      else rights.ttsWeightDistributionAllowed = false;
+    }
+    if (key === 'ttsWeightDistributionAllowed' && checked) {
+      rights.ttsTrainingAllowed = true;
+      rights.ttsDerivedWeightsAllowed = true;
+    }
+    if (key === 'speakerVoiceReplicationAllowed' && checked) rights.ttsTrainingAllowed = true;
+    if (
+      key !== 'hostedProviderTransferAllowed' &&
+      !rights.asrEvaluationAllowed &&
+      !rights.asrTrainingAllowed &&
+      !rights.ttsTrainingAllowed
+    ) {
+      rights.hostedProviderTransferAllowed = false;
+    }
+    onChange({ ...value, rights });
+  };
+
+  const hostedPurpose =
+    value.rights.asrEvaluationAllowed ||
+    value.rights.asrTrainingAllowed ||
+    value.rights.ttsTrainingAllowed;
+
+  return (
+    <div className="space-y-4">
+      <div className="border border-stone-300 px-4">
+        <ConsentOption
+          checked={value.rights.recordingAllowed}
+          onChange={(checked) => setRight('recordingAllowed', checked)}
+          title="Make and keep these recordings"
+          description="Required for this recording session. This does not permit training, publication, or a computer voice."
+        />
+      </div>
+
+      <details open className="border border-stone-300 px-4">
+        <summary className="min-h-12 cursor-pointer py-3 font-semibold text-stone-900">Speech recognition</summary>
+        <ConsentOption checked={value.rights.asrEvaluationAllowed} onChange={(checked) => setRight('asrEvaluationAllowed', checked)} title="Test speech recognition" description="Compare automatic transcripts with reviewed Kuku Yalanji transcripts." />
+        <ConsentOption checked={value.rights.asrTrainingAllowed} onChange={(checked) => setRight('asrTrainingAllowed', checked)} title="Train speech recognition" description="Use the recordings and transcripts to improve a model that listens to Kuku Yalanji." />
+        <ConsentOption checked={value.rights.asrDerivedWeightsAllowed} onChange={(checked) => setRight('asrDerivedWeightsAllowed', checked)} title="Create ASR model weights" description="Keep a trained model derived from these recordings." />
+        <ConsentOption checked={value.rights.asrWeightDistributionAllowed} onChange={(checked) => setRight('asrWeightDistributionAllowed', checked)} title="Share ASR model weights" description="Allow the derived listening model to be downloaded or hosted by others." />
+      </details>
+
+      <details className="border border-stone-300 px-4">
+        <summary className="min-h-12 cursor-pointer py-3 font-semibold text-stone-900">Computer speech</summary>
+        <ConsentOption checked={value.rights.ttsTrainingAllowed} onChange={(checked) => setRight('ttsTrainingAllowed', checked)} title="Train Kuku Yalanji computer speech" description="Use the recordings to teach a computer to pronounce Kuku Yalanji text." />
+        <ConsentOption checked={value.rights.speakerVoiceReplicationAllowed} onChange={(checked) => setRight('speakerVoiceReplicationAllowed', checked)} title="Allow a voice recognizably like this speaker" description="Separate permission for voice replication. Leave this off for a non-identifying shared computer voice." />
+        <ConsentOption checked={value.rights.ttsDerivedWeightsAllowed} onChange={(checked) => setRight('ttsDerivedWeightsAllowed', checked)} title="Create speech-model weights" description="Keep a trained speaking model derived from these recordings." />
+        <ConsentOption checked={value.rights.ttsWeightDistributionAllowed} onChange={(checked) => setRight('ttsWeightDistributionAllowed', checked)} title="Share speech-model weights" description="Allow the derived speaking model to be downloaded or hosted by others." />
+      </details>
+
+      <details className="border border-stone-300 px-4">
+        <summary className="min-h-12 cursor-pointer py-3 font-semibold text-stone-900">Transfer and publication</summary>
+        <ConsentOption checked={value.rights.hostedProviderTransferAllowed} disabled={!hostedPurpose} onChange={(checked) => setRight('hostedProviderTransferAllowed', checked)} title="Send audio to a hosted GPU provider" description="Needed for RunPod or another outside compute provider. Not needed for work kept on this box." />
+        <ConsentOption checked={value.rights.publicMetricsAllowed} onChange={(checked) => setRight('publicMetricsAllowed', checked)} title="Publish combined benchmark results" description="Share aggregate accuracy results without publishing this speaker's audio or transcript." />
+        <ConsentOption checked={value.rights.publicAudioAllowed} onChange={(checked) => setRight('publicAudioAllowed', checked)} title="Publish the recordings" description="Allow anyone with the public site to hear these sentence recordings." />
+        <ConsentOption checked={value.rights.publicTranscriptAllowed} onChange={(checked) => setRight('publicTranscriptAllowed', checked)} title="Publish the transcripts" description="Allow the written Kuku Yalanji transcripts to appear in a public dataset." />
+        <ConsentOption checked={value.rights.commercialUseAllowed} onChange={(checked) => setRight('commercialUseAllowed', checked)} title="Allow commercial use" description="Optional and separate. Leave off for research and non-commercial use only." />
+      </details>
+
+      <label className="block">
+        <span className="mb-1 block text-sm font-semibold text-stone-900">How to withdraw permission</span>
+        <textarea
+          value={value.withdrawalProcess}
+          onChange={(event) => onChange({ ...value, withdrawalProcess: event.target.value.slice(0, 2000) })}
+          rows={3}
+          className="w-full resize-y rounded-xl border border-stone-300 px-4 py-3 text-base"
+        />
+      </label>
+      <label className="block">
+        <span className="mb-1 block text-sm font-semibold text-stone-900">Authorizing body or family (optional)</span>
+        <input
+          value={value.authorizingBody ?? ''}
+          onChange={(event) => onChange({ ...value, authorizingBody: event.target.value.slice(0, 500) || null })}
+          className="w-full rounded-xl border border-stone-300 px-4 py-3 text-base"
+        />
+      </label>
+      <label className="block">
+        <span className="mb-1 block text-sm font-semibold text-stone-900">Consent note (optional)</span>
+        <textarea
+          value={value.notes ?? ''}
+          onChange={(event) => onChange({ ...value, notes: event.target.value.slice(0, 4000) || null })}
+          rows={2}
+          className="w-full resize-y rounded-xl border border-stone-300 px-4 py-3 text-base"
+        />
+      </label>
+    </div>
+  );
+}
+
 /* ------------------------------- Record flow ------------------------------- */
 
 function RecordFlow({ speaker, onExit }: { speaker: Speaker; onExit: () => void }) {
   const mic = useStudioMic({ autoOpen: true });
+  const sessionIdRef = useRef(crypto.randomUUID());
   const [sentence, setSentence] = useState<Sentence | null>(null);
   const [progress, setProgress] = useState<Progress | null>(null);
   const [loading, setLoading] = useState(true);
@@ -319,6 +635,10 @@ function RecordFlow({ speaker, onExit }: { speaker: Speaker; onExit: () => void 
 
   const save = async () => {
     if (!captured || !sentence || !clientIdRef.current) return;
+    if (!speaker.consent_record_id || speaker.recording_allowed !== true) {
+      setError('Current speech-recording permission is required. Change speaker and record consent again.');
+      return;
+    }
     setSaving(true);
     setError(null);
     try {
@@ -327,6 +647,7 @@ function RecordFlow({ speaker, onExit }: { speaker: Speaker; onExit: () => void 
         'meta',
         JSON.stringify({
           clientId: clientIdRef.current,
+          sessionId: sessionIdRef.current,
           sentenceId: sentence.id,
           speakerId: speaker.id,
           spokenKuku: sentence.kuku_text,
@@ -337,8 +658,8 @@ function RecordFlow({ speaker, onExit }: { speaker: Speaker; onExit: () => void 
           peakAmplitude: captured.peakAmplitude,
           clipped: captured.clipped,
           recordedVia: 'web',
-          culturalConsent: speaker.cultural_consent,
-          trainingConsent: speaker.training_consent,
+          condition: 'in_person_studio',
+          consentRecordId: speaker.consent_record_id,
         }),
       );
       fd.append('master', captured.wavBlob, 'master.wav');

@@ -10,6 +10,34 @@ export const usersInAuth = users;
 
 const tsvector = customType<{ data: string }>({ dataType() { return "tsvector"; } });
 
+export const translationPipelineCache = pgTable("translation_pipeline_cache", {
+	cacheKey: varchar("cache_key", { length: 64 }).primaryKey().notNull(),
+	stage: varchar({ length: 40 }).notNull(),
+	languageCode: varchar("language_code", { length: 50 }).notNull(),
+	sourceFingerprint: varchar("source_fingerprint", { length: 64 }).notNull(),
+	sourceLength: integer("source_length").notNull(),
+	dictionaryFingerprint: varchar("dictionary_fingerprint", { length: 64 }),
+	modelId: text("model_id").notNull(),
+	modelVersion: text("model_version").notNull(),
+	contractVersion: text("contract_version").notNull(),
+	status: varchar({ length: 16 }).notNull(),
+	payload: jsonb(),
+	errorMessage: text("error_message"),
+	errorStatus: integer("error_status"),
+	expiresAt: timestamp("expires_at", { withTimezone: true, mode: 'string' }).notNull(),
+	hitCount: bigint("hit_count", { mode: "number" }).default(0).notNull(),
+	lastHitAt: timestamp("last_hit_at", { withTimezone: true, mode: 'string' }),
+	createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).default(sql`CURRENT_TIMESTAMP`).notNull(),
+	updatedAt: timestamp("updated_at", { withTimezone: true, mode: 'string' }).default(sql`CURRENT_TIMESTAMP`).notNull(),
+}, (table) => [
+	index("translation_pipeline_cache_lookup_idx").using("btree", table.languageCode.asc().nullsLast().op("text_ops"), table.stage.asc().nullsLast().op("text_ops"), table.sourceFingerprint.asc().nullsLast().op("text_ops")),
+	index("translation_pipeline_cache_expiry_idx").using("btree", table.expiresAt.asc().nullsLast().op("timestamptz_ops")),
+	index("translation_pipeline_cache_contract_idx").using("btree", table.stage.asc().nullsLast().op("text_ops"), table.modelId.asc().nullsLast().op("text_ops"), table.modelVersion.asc().nullsLast().op("text_ops"), table.contractVersion.asc().nullsLast().op("text_ops")),
+	check("translation_pipeline_cache_source_length_check", sql`source_length >= 0`),
+	check("translation_pipeline_cache_status_check", sql`status::text = ANY (ARRAY['ready'::character varying, 'error'::character varying]::text[])`),
+	check("translation_pipeline_cache_payload_check", sql`status::text = 'ready'::text AND payload IS NOT NULL AND error_message IS NULL OR status::text = 'error'::text AND payload IS NULL AND error_message IS NOT NULL`),
+]);
+
 
 
 export const antonyms = pgTable("antonyms", {
@@ -696,6 +724,141 @@ export const recordings = pgTable("recordings", {
 	pgPolicy("Admins view all recordings", { as: "permissive", for: "select", to: ["public"] }),
 	check("recordings_kind_check", sql`kind = ANY (ARRAY['word'::text, 'phrase'::text, 'sentence'::text])`),
 	check("recordings_status_check", sql`status = ANY (ARRAY['active'::text, 'superseded'::text, 'rejected'::text, 'pending_upload'::text])`),
+]);
+
+export const recordingSources = pgTable("recording_sources", {
+	id: uuid().defaultRandom().primaryKey().notNull(),
+	slug: text().notNull(),
+	name: text().notNull(),
+	sourceUrl: text("source_url").notNull(),
+	attributionText: text("attribution_text").notNull(),
+	licenseName: text("license_name").notNull(),
+	licenseUrl: text("license_url").notNull(),
+	commercialUseAllowed: boolean("commercial_use_allowed").default(false).notNull(),
+	termsCheckedAt: timestamp("terms_checked_at", { withTimezone: true, mode: 'string' }).notNull(),
+	metadata: jsonb().default({}).notNull(),
+	createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),
+	updatedAt: timestamp("updated_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),
+}, (table) => [
+	unique("recording_sources_slug_key").on(table.slug),
+	pgPolicy("Recording sources are viewable by everyone", { as: "permissive", for: "select", to: ["public"], using: sql`true` }),
+]);
+
+export const recordingImportEntries = pgTable("recording_import_entries", {
+	id: uuid().defaultRandom().primaryKey().notNull(),
+	sourceId: uuid("source_id").notNull(),
+	externalEntryId: text("external_entry_id").notNull(),
+	sourceHeadword: text("source_headword").notNull(),
+	normalizedHeadword: text("normalized_headword").notNull(),
+	sourceEntryUrl: text("source_entry_url").notNull(),
+	mappingStatus: text("mapping_status").notNull(),
+	mappingReason: text("mapping_reason").notNull(),
+	wordId: uuid("word_id"),
+	candidateWordIds: uuid("candidate_word_ids").array().default(sql`'{}'::uuid[]`).notNull(),
+	sourcePayload: jsonb("source_payload").default({}).notNull(),
+	firstSeenAt: timestamp("first_seen_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),
+	lastSeenAt: timestamp("last_seen_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),
+	importedAt: timestamp("imported_at", { withTimezone: true, mode: 'string' }),
+}, (table) => [
+	index("recording_import_entries_status_idx").using("btree", table.sourceId, table.mappingStatus),
+	index("recording_import_entries_word_idx").using("btree", table.wordId).where(sql`(word_id IS NOT NULL)`),
+	index("recording_import_entries_normalized_idx").using("btree", table.sourceId, table.normalizedHeadword),
+	foreignKey({
+		columns: [table.sourceId],
+		foreignColumns: [recordingSources.id],
+		name: "recording_import_entries_source_id_fkey"
+	}).onDelete("restrict"),
+	foreignKey({
+		columns: [table.wordId],
+		foreignColumns: [words.id],
+		name: "recording_import_entries_word_id_fkey"
+	}).onDelete("set null"),
+	unique("recording_import_entries_source_id_external_entry_id_key").on(table.sourceId, table.externalEntryId),
+	pgPolicy("Imported recording mappings are viewable by everyone", { as: "permissive", for: "select", to: ["public"], using: sql`true` }),
+	check("recording_import_entries_mapping_status_check", sql`mapping_status = ANY (ARRAY['exact_existing'::text, 'created_from_source'::text, 'review_required'::text, 'error'::text])`),
+]);
+
+export const recordingExternalRefs = pgTable("recording_external_refs", {
+	recordingId: uuid("recording_id").primaryKey().notNull(),
+	sourceId: uuid("source_id").notNull(),
+	importEntryId: uuid("import_entry_id"),
+	externalRecordingId: text("external_recording_id").notNull(),
+	sourceEntryUrl: text("source_entry_url").notNull(),
+	sourceAudioUrl: text("source_audio_url").notNull(),
+	speakerCode: text("speaker_code"),
+	contentSha256: text("content_sha256").notNull(),
+	fetchedAt: timestamp("fetched_at", { withTimezone: true, mode: 'string' }).notNull(),
+	metadata: jsonb().default({}).notNull(),
+	createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),
+}, (table) => [
+	index("recording_external_refs_source_idx").using("btree", table.sourceId),
+	index("recording_external_refs_import_entry_idx").using("btree", table.importEntryId).where(sql`(import_entry_id IS NOT NULL)`),
+	index("recording_external_refs_audio_url_idx").using("btree", table.sourceAudioUrl),
+	foreignKey({
+		columns: [table.recordingId],
+		foreignColumns: [recordings.id],
+		name: "recording_external_refs_recording_id_fkey"
+	}).onDelete("cascade"),
+	foreignKey({
+		columns: [table.sourceId],
+		foreignColumns: [recordingSources.id],
+		name: "recording_external_refs_source_id_fkey"
+	}).onDelete("restrict"),
+	foreignKey({
+		columns: [table.importEntryId],
+		foreignColumns: [recordingImportEntries.id],
+		name: "recording_external_refs_import_entry_id_fkey"
+	}).onDelete("set null"),
+	unique("recording_external_refs_source_id_external_recording_id_key").on(table.sourceId, table.externalRecordingId),
+	pgPolicy("External recording references are viewable by everyone", { as: "permissive", for: "select", to: ["public"], using: sql`true` }),
+	check("recording_external_refs_sha256_check", sql`content_sha256 ~ '^[0-9a-f]{64}$'::text`),
+]);
+
+export const recordingImportRuns = pgTable("recording_import_runs", {
+	id: uuid().defaultRandom().primaryKey().notNull(),
+	sourceId: uuid("source_id").notNull(),
+	operation: text().notNull(),
+	status: text().default('running').notNull(),
+	entryManifestSha256: text("entry_manifest_sha256").notNull(),
+	audioManifestSha256: text("audio_manifest_sha256").notNull(),
+	configuration: jsonb().default({}).notNull(),
+	summary: jsonb().default({}).notNull(),
+	startedAt: timestamp("started_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),
+	finishedAt: timestamp("finished_at", { withTimezone: true, mode: 'string' }),
+}, (table) => [
+	index("recording_import_runs_source_idx").using("btree", table.sourceId, table.startedAt.desc()),
+	foreignKey({
+		columns: [table.sourceId],
+		foreignColumns: [recordingSources.id],
+		name: "recording_import_runs_source_id_fkey"
+	}).onDelete("restrict"),
+	check("recording_import_runs_operation_check", sql`operation = ANY (ARRAY['import'::text, 'verify'::text])`),
+	check("recording_import_runs_status_check", sql`status = ANY (ARRAY['running'::text, 'completed'::text, 'failed'::text])`),
+	check("recording_import_runs_entry_sha256_check", sql`entry_manifest_sha256 ~ '^[0-9a-f]{64}$'::text`),
+	check("recording_import_runs_audio_sha256_check", sql`audio_manifest_sha256 ~ '^[0-9a-f]{64}$'::text`),
+]);
+
+export const recordingImportEvents = pgTable("recording_import_events", {
+	id: uuid().defaultRandom().primaryKey().notNull(),
+	runId: uuid("run_id").notNull(),
+	importEntryId: uuid("import_entry_id"),
+	externalEntryId: text("external_entry_id"),
+	eventType: text("event_type").notNull(),
+	detail: jsonb().default({}).notNull(),
+	createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),
+}, (table) => [
+	index("recording_import_events_run_idx").using("btree", table.runId, table.createdAt),
+	index("recording_import_events_entry_idx").using("btree", table.importEntryId).where(sql`(import_entry_id IS NOT NULL)`),
+	foreignKey({
+		columns: [table.runId],
+		foreignColumns: [recordingImportRuns.id],
+		name: "recording_import_events_run_id_fkey"
+	}).onDelete("restrict"),
+	foreignKey({
+		columns: [table.importEntryId],
+		foreignColumns: [recordingImportEntries.id],
+		name: "recording_import_events_import_entry_id_fkey"
+	}).onDelete("set null"),
 ]);
 
 export const documentProcessingLogs = pgTable("document_processing_logs", {
@@ -1533,3 +1696,14 @@ export const userQuizProgress = pgView("user_quiz_progress", {	userId: uuid("use
 	avgEasiness: doublePrecision("avg_easiness"),
 	bestStreak: integer("best_streak"),
 }).with({"securityInvoker":true}).as(sql`SELECT s.user_id, l.code AS language_code, l.name AS language_name, count(*) AS total_words, count(*) FILTER (WHERE s.bucket = 0) AS new_words, count(*) FILTER (WHERE s.bucket = ANY (ARRAY[1, 2])) AS learning_words, count(*) FILTER (WHERE s.bucket = ANY (ARRAY[3, 4])) AS review_words, count(*) FILTER (WHERE s.bucket = 5) AS mastered_words, count(*) FILTER (WHERE s.due_date <= now()) AS due_for_review, avg(s.ef) AS avg_easiness, max(s.streak) AS best_streak FROM spaced_repetition_states s JOIN words w ON s.word_id = w.id JOIN languages l ON w.language_id = l.id GROUP BY s.user_id, l.id, l.code, l.name`);
+
+export const recordingSkips = pgTable("recording_skips", {
+	id: uuid().default(sql`uuid_generate_v4()`).primaryKey().notNull(),
+	targetType: text("target_type").notNull(),
+	targetId: uuid("target_id").notNull(),
+	languageId: uuid("language_id"),
+	reason: text(),
+	note: text(),
+	skippedBy: uuid("skipped_by"),
+	createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).defaultNow(),
+});

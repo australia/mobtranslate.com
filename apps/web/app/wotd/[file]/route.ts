@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server'
 import { promises as fs } from 'fs'
 import path from 'path'
-import { WOTD_DIR } from '@/lib/word-image'
+import { cachePath, WOTD_DIR } from '@/lib/word-image-cache'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -32,7 +32,7 @@ export async function GET(_req: NextRequest, props: { params: Promise<{ file: st
     return new Response('Not found', { status: 404 })
   }
 
-  const filePath = path.join(WOTD_DIR, file)
+  const filePath = cachePath(WOTD_DIR, file)
   // Ensure the resolved path stays inside WOTD_DIR.
   if (!filePath.startsWith(WOTD_DIR + path.sep)) {
     return new Response('Not found', { status: 404 })

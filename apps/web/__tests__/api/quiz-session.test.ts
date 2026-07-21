@@ -1,59 +1,55 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-// ---- Supabase mock setup ----
+type QueuedResult = unknown[] | Error;
 
-// We build a chainable mock that records calls and returns configurable data.
-let mockAuthUser: { data: { user: any }; error: any };
-let mockQueryResults: Record<string, any>;
+const mocks = vi.hoisted(() => ({
+  requireUser: vi.fn(),
+  select: vi.fn(),
+  insert: vi.fn(),
+  selectQueue: [] as QueuedResult[],
+  insertQueue: [] as QueuedResult[],
+}));
 
-function createChainableMock(tableName: string) {
-  const chain: any = {
-    _table: tableName,
-    select: vi.fn().mockReturnThis(),
-    eq: vi.fn().mockReturnThis(),
-    neq: vi.fn().mockReturnThis(),
-    not: vi.fn().mockReturnThis(),
-    lte: vi.fn().mockReturnThis(),
-    in: vi.fn().mockReturnThis(),
-    order: vi.fn().mockReturnThis(),
-    limit: vi.fn().mockReturnThis(),
-    insert: vi.fn().mockReturnThis(),
-    single: vi.fn().mockImplementation(() => {
-      return mockQueryResults[tableName + ':single'] || { data: null, error: null };
-    }),
-  };
+function chainFor(result: QueuedResult | undefined) {
+  const settle = () =>
+    result instanceof Error ? Promise.reject(result) : Promise.resolve(result ?? []);
+  const chain: any = {};
 
-  // Make select, eq, etc. return chain. Also intercept terminal calls.
-  // When awaited (then), resolve with table's configured result.
-  chain.then = function (resolve: any, reject: any) {
-    const result = mockQueryResults[tableName] || { data: [], error: null };
-    return Promise.resolve(result).then(resolve, reject);
-  };
+  for (const method of ['from', 'leftJoin', 'innerJoin', 'where']) {
+    chain[method] = vi.fn(() => chain);
+  }
+  chain.limit = vi.fn(settle);
+  chain.values = vi.fn(() => chain);
+  chain.returning = vi.fn(settle);
+  chain.then = (resolve: (value: unknown) => unknown, reject: (error: unknown) => unknown) =>
+    settle().then(resolve, reject);
 
   return chain;
 }
 
-vi.mock('@/lib/supabase/server', () => ({
-  createClient: vi.fn(() => ({
-    from: vi.fn((table: string) => createChainableMock(table)),
-    auth: {
-      getUser: vi.fn(() => Promise.resolve(mockAuthUser)),
-    },
-  })),
+vi.mock('@/lib/auth-helpers', () => ({
+  requireUser: (...args: unknown[]) => mocks.requireUser(...args),
+}));
+
+vi.mock('@/lib/db/index', () => ({
+  db: {
+    select: (...args: unknown[]) => mocks.select(...args),
+    insert: (...args: unknown[]) => mocks.insert(...args),
+  },
 }));
 
 vi.mock('@/lib/quiz/spacedRepetition', () => ({
   SpacedRepetitionEngine: {
     selectWordsForSession: vi.fn((states: any[], size: number) =>
-      states.slice(0, size).map((s: any) => s.wordId)
+      states.slice(0, size).map((state: any) => state.wordId)
     ),
-    shuffleArray: vi.fn((arr: any[]) => [...arr]),
+    shuffleArray: vi.fn((items: any[]) => [...items]),
   },
 }));
 
 import { POST } from '@/app/api/v2/quiz/session/route';
 
-function makeRequest(body: Record<string, any>) {
+function makeRequest(body: Record<string, unknown>) {
   return new Request('http://localhost/api/v2/quiz/session', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -61,199 +57,114 @@ function makeRequest(body: Record<string, any>) {
   }) as any;
 }
 
+function authenticate() {
+  mocks.requireUser.mockResolvedValue({
+    user: { id: 'user-1', email: 'learner@example.com' },
+    response: null,
+  });
+}
+
+function queueSuccessfulSession() {
+  authenticate();
+  mocks.selectQueue.push(
+    [{ id: 'lang-1', code: 'wrl', name: 'Wajarri' }],
+    [],
+    [{ id: 'word-1' }],
+    [{
+      word: { id: 'word-1', word: 'guli', languageId: 'lang-1' },
+      wordClassName: 'noun',
+    }],
+    [{ id: 'def-1', wordId: 'word-1', definition: 'water' }],
+    []
+  );
+  mocks.insertQueue.push([], [{ id: 'session-123' }]);
+}
+
 describe('POST /api/v2/quiz/session', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-
-    // Default: unauthenticated
-    mockAuthUser = { data: { user: null }, error: { message: 'No session' } };
-    mockQueryResults = {};
+    mocks.selectQueue.length = 0;
+    mocks.insertQueue.length = 0;
+    mocks.select.mockImplementation(() => chainFor(mocks.selectQueue.shift()));
+    mocks.insert.mockImplementation(() => chainFor(mocks.insertQueue.shift()));
+    mocks.requireUser.mockResolvedValue({ user: null, response: {} });
   });
 
-  // ---- Authentication ----
-
-  it('should return 401 when user is not authenticated', async () => {
+  it('returns 401 when user is not authenticated', async () => {
     const response = await POST(makeRequest({ languageCode: 'wrl' }));
     expect(response.status).toBe(401);
-
-    const data = await response.json();
-    expect(data.error).toBe('Authentication required');
+    await expect(response.json()).resolves.toEqual({ error: 'Authentication required' });
   });
 
-  it('should return 401 when auth returns an error', async () => {
-    mockAuthUser = { data: { user: null }, error: { message: 'Token expired' } };
-
+  it('returns 401 when authentication fails', async () => {
+    mocks.requireUser.mockResolvedValue({ user: null, response: { status: 401 } });
     const response = await POST(makeRequest({ languageCode: 'wrl' }));
     expect(response.status).toBe(401);
   });
 
-  // ---- Language not found ----
-
-  it('should return 404 when language code is invalid', async () => {
-    mockAuthUser = {
-      data: { user: { id: 'user-1' } },
-      error: null,
-    };
-
-    // Language lookup returns null
-    mockQueryResults['languages:single'] = {
-      data: null,
-      error: { message: 'not found' },
-    };
-
+  it('returns 404 when language code is invalid', async () => {
+    authenticate();
+    mocks.selectQueue.push([]);
     const response = await POST(makeRequest({ languageCode: 'nonexistent' }));
     expect(response.status).toBe(404);
-
-    const data = await response.json();
-    expect(data.error).toBe('Language not found or not active');
+    await expect(response.json()).resolves.toEqual({
+      error: 'Language not found or not active',
+    });
   });
 
-  it('should return 404 when language is inactive', async () => {
-    mockAuthUser = {
-      data: { user: { id: 'user-1' } },
-      error: null,
-    };
-
-    // Even though we query with eq('is_active', true), if it returns null that means inactive
-    mockQueryResults['languages:single'] = {
-      data: null,
-      error: null,
-    };
-
+  it('returns 404 when language is inactive', async () => {
+    authenticate();
+    mocks.selectQueue.push([]);
     const response = await POST(makeRequest({ languageCode: 'wrl' }));
     expect(response.status).toBe(404);
   });
 
-  // ---- Successful session creation ----
-
-  function setupSuccessfulSession() {
-    mockAuthUser = {
-      data: { user: { id: 'user-1' } },
-      error: null,
-    };
-
-    mockQueryResults['languages:single'] = {
-      data: { id: 'lang-1', code: 'wrl', name: 'Wajarri' },
-      error: null,
-    };
-
-    // No existing spaced repetition states (new user)
-    mockQueryResults['spaced_repetition_states'] = {
-      data: [],
-      error: null,
-    };
-
-    // New words from the database
-    mockQueryResults['words'] = {
-      data: [
-        {
-          id: 'word-1',
-          word: 'guli',
-          definitions: [{ id: 'def-1', definition: 'water' }],
-          word_class: { name: 'noun' },
-        },
-        {
-          id: 'word-2',
-          word: 'malu',
-          definitions: [{ id: 'def-2', definition: 'kangaroo' }],
-          word_class: { name: 'noun' },
-        },
-      ],
-      error: null,
-    };
-
-    // Insert spaced_repetition_states succeeds
-    mockQueryResults['spaced_repetition_states:insert'] = { error: null };
-
-    // Quiz session creation
-    mockQueryResults['quiz_sessions:single'] = {
-      data: { id: 'session-123' },
-      error: null,
-    };
-  }
-
-  it('should return 200 with session data for valid request', async () => {
-    setupSuccessfulSession();
-
+  it('returns 200 with session data for a valid request', async () => {
+    queueSuccessfulSession();
     const response = await POST(makeRequest({ languageCode: 'wrl' }));
-
-    // The route uses default NextResponse.json which is 200
     expect(response.status).toBe(200);
   });
 
-  it('should include sessionId in the response', async () => {
-    setupSuccessfulSession();
-
-    const response = await POST(makeRequest({ languageCode: 'wrl' }));
-    const data = await response.json();
-
-    // sessionId comes from the quiz_sessions insert
-    expect(data).toHaveProperty('sessionId');
+  it('includes the persisted session ID', async () => {
+    queueSuccessfulSession();
+    const data = await (await POST(makeRequest({ languageCode: 'wrl' }))).json();
+    expect(data.sessionId).toBe('session-123');
   });
 
-  it('should include language info in the response', async () => {
-    setupSuccessfulSession();
-
-    const response = await POST(makeRequest({ languageCode: 'wrl' }));
-    const data = await response.json();
-
-    expect(data).toHaveProperty('language');
+  it('includes language information', async () => {
+    queueSuccessfulSession();
+    const data = await (await POST(makeRequest({ languageCode: 'wrl' }))).json();
     expect(data.language).toEqual({ code: 'wrl', name: 'Wajarri' });
   });
 
-  it('should include settings in the response', async () => {
-    setupSuccessfulSession();
-
-    const response = await POST(
-      makeRequest({ languageCode: 'wrl', sessionSize: 10, timeLimit: 5000 })
-    );
-    const data = await response.json();
-
-    expect(data).toHaveProperty('settings');
-    expect(data.settings).toHaveProperty('sessionSize');
-    expect(data.settings).toHaveProperty('timeLimit');
+  it('includes requested settings', async () => {
+    queueSuccessfulSession();
+    const data = await (
+      await POST(makeRequest({ languageCode: 'wrl', sessionSize: 10, timeLimit: 5000 }))
+    ).json();
+    expect(data.settings).toEqual({ sessionSize: 1, timeLimit: 5000 });
   });
 
-  // ---- Error handling ----
-
-  it('should return 500 when spaced repetition states query fails', async () => {
-    mockAuthUser = {
-      data: { user: { id: 'user-1' } },
-      error: null,
-    };
-
-    mockQueryResults['languages:single'] = {
-      data: { id: 'lang-1', code: 'wrl', name: 'Wajarri' },
-      error: null,
-    };
-
-    mockQueryResults['spaced_repetition_states'] = {
-      data: null,
-      error: { message: 'Database connection lost' },
-    };
-
+  it('returns 500 when the progress query fails', async () => {
+    authenticate();
+    mocks.selectQueue.push(
+      [{ id: 'lang-1', code: 'wrl', name: 'Wajarri' }],
+      new Error('Database connection lost')
+    );
     const response = await POST(makeRequest({ languageCode: 'wrl' }));
     expect(response.status).toBe(500);
-
-    const data = await response.json();
-    expect(data.error).toBe('Failed to fetch user progress');
+    await expect(response.json()).resolves.toEqual({ error: 'Internal server error' });
   });
 
-  it('should use default sessionSize of 20 when not provided', async () => {
-    setupSuccessfulSession();
-
-    // We can verify indirectly: the route uses sessionSize default of 20
-    const response = await POST(makeRequest({ languageCode: 'wrl' }));
-    // Should not error out
-    expect(response.status).toBe(200);
+  it('uses the default session size when omitted', async () => {
+    queueSuccessfulSession();
+    const data = await (await POST(makeRequest({ languageCode: 'wrl' }))).json();
+    expect(data.settings.sessionSize).toBe(1);
   });
 
-  it('should use default timeLimit of 3000 when not provided', async () => {
-    setupSuccessfulSession();
-
-    const response = await POST(makeRequest({ languageCode: 'wrl' }));
-    const data = await response.json();
-
+  it('uses the default time limit when omitted', async () => {
+    queueSuccessfulSession();
+    const data = await (await POST(makeRequest({ languageCode: 'wrl' }))).json();
     expect(data.settings.timeLimit).toBe(3000);
   });
 });

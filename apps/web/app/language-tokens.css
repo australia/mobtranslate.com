@@ -5,8 +5,9 @@
    (Far North QLD rainforest). One block per language; the rest of the
    system reads --lang-accent / --lang-accent-soft / --lang-region-label.
 
-   Selectors match BOTH the route slug (data-language="kuku_yalanji") and the
-   ISO 639-3 code (data-language="zku"), so either identifier works.
+   Selectors match the route slug (data-language="kuku_yalanji") and the
+   ISO 639-3 code (data-language="gvn"). The historical app code "zku" remains
+   as a styling alias only.
    Default falls back to the ochre primary.
    ============================================= */
 
@@ -18,6 +19,7 @@
 
 /* Kuku Yalanji — Far North Queensland rainforest */
 [data-language="kuku_yalanji"],
+[data-language="gvn"],
 [data-language="zku"] {
   --lang-accent: var(--color-eucalyptus-600);
   --lang-accent-soft: var(--color-eucalyptus-100);
@@ -50,6 +52,7 @@
 
 /* Dark mode: lift soft tints off the deep background so they stay legible */
 .dark [data-language="kuku_yalanji"],
+.dark [data-language="gvn"],
 .dark [data-language="zku"] { --lang-accent: var(--color-eucalyptus-400); --lang-accent-soft: var(--color-eucalyptus-900); }
 .dark [data-language="wbv"],
 .dark [data-language="wajarri"] { --lang-accent: var(--color-ochre-400); --lang-accent-soft: var(--color-ochre-900); }

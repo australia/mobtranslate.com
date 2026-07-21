@@ -1,20 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
-import { createHash } from 'crypto';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
 import { recordTtsPlay } from '@/lib/usage-log';
 import { discordTts } from '@/lib/discord';
+import { getSessionUser } from '@/lib/auth-helpers';
+import {
+  ApiBudgetUnavailableError,
+  ApiRateLimitError,
+  apiGuardResponse,
+  enforceTtsProviderBudget,
+  enforceTtsRequestLimit,
+} from '@/lib/api-rate-limit.server';
+import { ttsInputFingerprint } from '@/lib/tts-cache.server';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 export const maxDuration = 30;
 
 // ---- Neural TTS (the default for Kuku Yalanji) -------------------------------
-// For these languages we synthesize with the local MMS-TTS Pitjantjatjara service
-// (a real Aboriginal Pama-Nyungan voice + a Patz-grounded orthography bridge),
-// STORE every generation (box FS + tts_generations provenance row), and serve it.
+// For these languages we synthesize with an experimental local MMS-TTS
+// Pitjantjatjara donor model plus an orthographic bridge. This is synthetic and
+// is not a Kuku Yalanji speaker recording. We persist each generated clip so a
+// cache hit never spends another provider call.
 // Anything not neural-supported, or any service error, falls back to the Google
 // donor below — so pronunciation never breaks.
 const NEURAL_LANGS = new Set(['kuku_yalanji', 'zku', 'anindilyakwa', 'aoi']);
@@ -22,48 +31,219 @@ const NEURAL_MODEL = 'facebook/mms-tts-pjt';
 const TTS_SERVICE_URL = process.env.TTS_SERVICE_URL || 'http://127.0.0.1:7820';
 const TTS_DIR = process.env.MOBTRANSLATE_TTS_DIR || '/mnt/donto-data/mobtranslate-storage/tts';
 
-async function neuralTts(text: string, lang: string): Promise<{ buf: Buffer; contentType: string } | null> {
-  try {
-    // Already generated? Serve the stored copy (synthesize once, serve forever).
-    const found: any = await db.execute(
-      sql`select storage_path, format from public.tts_generations
-          where language_code = ${lang} and text = ${text} and model = ${NEURAL_MODEL} limit 1`,
-    );
-    const row = (Array.isArray(found) ? found : found?.rows ?? [])[0];
-    if (row?.storage_path) {
-      const buf = await fs.readFile(path.join(TTS_DIR, row.storage_path)).catch(() => null);
-      if (buf) return { buf, contentType: row.format === 'wav' ? 'audio/wav' : 'audio/mpeg' };
+type CacheState = 'hit' | 'miss' | 'coalesced';
+
+interface StoredAudio {
+  buf: Buffer;
+  contentType: string;
+  format: 'mp3' | 'wav';
+  cache: CacheState;
+}
+
+interface GeneratedAudio {
+  buf: Buffer;
+  contentType: string;
+  format: 'mp3' | 'wav';
+  normalizedInput?: string | null;
+  durationMs?: number | null;
+  sampleRate?: number | null;
+  seed?: number | null;
+}
+
+const generationInFlight = new Map<string, Promise<StoredAudio | null>>();
+
+function isApiGuardError(error: unknown): boolean {
+  return (
+    error instanceof ApiRateLimitError ||
+    error instanceof ApiBudgetUnavailableError
+  );
+}
+
+async function loadStoredAudio(
+  languageCode: string,
+  text: string,
+  model: string,
+): Promise<StoredAudio | null> {
+  const inputFingerprint = ttsInputFingerprint(languageCode, text, model);
+  const found: any = await db.execute(sql`
+    select storage_path, format, input_fingerprint
+      from public.tts_generations
+     where language_code = ${languageCode}
+       and model = ${model}
+       and (
+         input_fingerprint = ${inputFingerprint}
+         or (input_fingerprint is null and text = ${text})
+       )
+     order by (input_fingerprint = ${inputFingerprint}) desc
+     limit 1
+  `);
+  const row = (Array.isArray(found) ? found : found?.rows ?? [])[0];
+  if (!row?.storage_path) return null;
+
+  const root = path.resolve(/*turbopackIgnore: true*/ TTS_DIR);
+  const absolute = path.resolve(
+    /*turbopackIgnore: true*/ root,
+    String(row.storage_path),
+  );
+  if (absolute !== root && !absolute.startsWith(`${root}${path.sep}`)) {
+    console.error('Refusing TTS cache path outside the configured storage root.');
+    return null;
+  }
+
+  const buf = await fs.readFile(/*turbopackIgnore: true*/ absolute).catch(() => null);
+  if (!buf?.length) return null;
+  if (!row.input_fingerprint) {
+    void db
+      .execute(sql`
+        update public.tts_generations
+           set input_fingerprint = ${inputFingerprint}
+         where language_code = ${languageCode}
+           and text = ${text}
+           and model = ${model}
+           and input_fingerprint is null
+      `)
+      .catch((error) => console.error('Could not upgrade legacy TTS cache key:', error));
+  }
+  const format = row.format === 'wav' ? 'wav' : 'mp3';
+  return {
+    buf,
+    format,
+    contentType: format === 'wav' ? 'audio/wav' : 'audio/mpeg',
+    cache: 'hit',
+  };
+}
+
+async function persistAudio(
+  languageCode: string,
+  text: string,
+  model: string,
+  engine: string,
+  audio: GeneratedAudio,
+): Promise<void> {
+  const inputFingerprint = ttsInputFingerprint(languageCode, text, model);
+  const relative = `${languageCode}/${inputFingerprint}.${audio.format}`;
+  const absolute = path.join(/*turbopackIgnore: true*/ TTS_DIR, relative);
+  const temporary = `${absolute}.${process.pid}.${Date.now()}.tmp`;
+  await fs.mkdir(/*turbopackIgnore: true*/ path.dirname(absolute), {
+    recursive: true,
+  });
+  await fs.writeFile(/*turbopackIgnore: true*/ temporary, audio.buf);
+  await fs.rename(/*turbopackIgnore: true*/ temporary, absolute);
+
+  await db.execute(sql`
+    insert into public.tts_generations
+      (language_code, text, normalized_input, input_fingerprint, model, engine,
+       storage_path, format, duration_ms, sample_rate, seed, byte_size)
+    values (
+      ${languageCode}, ${text}, ${audio.normalizedInput ?? null},
+      ${inputFingerprint}, ${model}, ${engine}, ${relative}, ${audio.format},
+      ${audio.durationMs ?? null}, ${audio.sampleRate ?? null},
+      ${audio.seed ?? null}, ${audio.buf.length}
+    )
+    on conflict do nothing
+  `);
+  await db.execute(sql`
+    update public.tts_generations
+       set input_fingerprint = ${inputFingerprint},
+           normalized_input = ${audio.normalizedInput ?? null},
+           engine = ${engine},
+           storage_path = ${relative},
+           format = ${audio.format},
+           duration_ms = ${audio.durationMs ?? null},
+           sample_rate = ${audio.sampleRate ?? null},
+           seed = ${audio.seed ?? null},
+           byte_size = ${audio.buf.length}
+     where language_code = ${languageCode}
+       and model = ${model}
+       and (
+         input_fingerprint = ${inputFingerprint}
+         or (input_fingerprint is null and text = ${text})
+       )
+  `);
+}
+
+async function cachedSynthesis(
+  languageCode: string,
+  text: string,
+  model: string,
+  engine: string,
+  beforeSynthesize: () => Promise<void>,
+  generate: () => Promise<GeneratedAudio | null>,
+): Promise<StoredAudio | null> {
+  const cached = await loadStoredAudio(languageCode, text, model);
+  if (cached) return cached;
+
+  const key = ttsInputFingerprint(languageCode, text, model);
+  const running = generationInFlight.get(key);
+  if (running) {
+    const result = await running;
+    return result ? { ...result, cache: 'coalesced' } : null;
+  }
+
+  const task = (async () => {
+    const secondLook = await loadStoredAudio(languageCode, text, model);
+    if (secondLook) return secondLook;
+    await beforeSynthesize();
+    const generated = await generate();
+    if (!generated?.buf.length) return null;
+    try {
+      await persistAudio(languageCode, text, model, engine, generated);
+    } catch (error) {
+      console.error('Could not persist TTS cache entry:', error);
     }
+    return {
+      buf: generated.buf,
+      contentType: generated.contentType,
+      format: generated.format,
+      cache: 'miss' as const,
+    };
+  })();
+  generationInFlight.set(key, task);
+  try {
+    return await task;
+  } finally {
+    generationInFlight.delete(key);
+  }
+}
 
-    // Synthesize via the local service.
-    const res = await fetch(`${TTS_SERVICE_URL}/tts`, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ text, lang, format: 'mp3' }),
-      signal: AbortSignal.timeout(25000),
-    });
-    if (!res.ok) return null;
-    const contentType = res.headers.get('content-type') || 'audio/mpeg';
-    const fmt = contentType.includes('mpeg') ? 'mp3' : 'wav';
-    const buf = Buffer.from(await res.arrayBuffer());
-    if (!buf.length) return null;
-
-    // Persist: box FS + provenance row (idempotent).
-    const sha = createHash('sha256').update(`${NEURAL_MODEL}|${text}`).digest('hex');
-    const rel = `${lang}/${sha}.${fmt}`;
-    const abs = path.join(TTS_DIR, rel);
-    await fs.mkdir(path.dirname(abs), { recursive: true });
-    await fs.writeFile(abs, buf);
-    const mapped = res.headers.get('x-tts-mapped');
-    const durationMs = parseInt(res.headers.get('x-tts-duration-ms') || '', 10) || null;
-    await db.execute(sql`
-      insert into public.tts_generations
-        (language_code, text, normalized_input, model, engine, storage_path, format, duration_ms, sample_rate, seed, byte_size)
-      values (${lang}, ${text}, ${mapped}, ${NEURAL_MODEL}, 'mms-tts', ${rel}, ${fmt}, ${durationMs}, 16000, 1234, ${buf.length})
-      on conflict (language_code, text, model) do nothing
-    `);
-    return { buf, contentType };
+async function neuralTts(
+  text: string,
+  lang: string,
+  beforeSynthesize: () => Promise<void>,
+): Promise<StoredAudio | null> {
+  try {
+    return await cachedSynthesis(
+      lang,
+      text,
+      NEURAL_MODEL,
+      'mms-tts',
+      beforeSynthesize,
+      async () => {
+        const res = await fetch(`${TTS_SERVICE_URL}/tts`, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ text, lang, format: 'mp3' }),
+          signal: AbortSignal.timeout(25000),
+        });
+        if (!res.ok) return null;
+        const contentType = res.headers.get('content-type') || 'audio/mpeg';
+        const format = contentType.includes('mpeg') ? 'mp3' : 'wav';
+        const buf = Buffer.from(await res.arrayBuffer());
+        if (!buf.length) return null;
+        return {
+          buf,
+          contentType,
+          format,
+          normalizedInput: res.headers.get('x-tts-mapped'),
+          durationMs:
+            parseInt(res.headers.get('x-tts-duration-ms') || '', 10) || null,
+          sampleRate: 16000,
+          seed: 1234,
+        };
+      },
+    );
   } catch (err) {
+    if (isApiGuardError(err)) throw err;
     console.error('neural TTS error (falling back to donor):', err);
     return null;
   }
@@ -94,6 +274,7 @@ const DONOR_TL: Record<string, string> = {
 const DEFAULT_TL = 'id';
 
 const MAX_TEXT_LENGTH = 600;
+const MAX_BODY_BYTES = 4096;
 const CHUNK_LIMIT = 180; // Google translate_tts caps each request near ~200 chars.
 
 const UA =
@@ -170,8 +351,14 @@ async function synthesize(text: string, tl: string): Promise<Buffer> {
   return Buffer.concat(buffers); // MP3 frames concatenate cleanly for playback.
 }
 
-async function handle(text: string | null, lang: string | null) {
+async function handle(
+  text: string | null,
+  lang: string | null,
+  englishText: string | null,
+  beforeSynthesize: () => Promise<void>,
+) {
   const clean = (text ?? '').trim();
+  const cleanEnglish = (englishText ?? '').trim().slice(0, MAX_TEXT_LENGTH);
   if (!clean) return NextResponse.json({ error: 'No text provided' }, { status: 400 });
   if (clean.length > MAX_TEXT_LENGTH) {
     return NextResponse.json(
@@ -182,17 +369,27 @@ async function handle(text: string | null, lang: string | null) {
 
   // Neural voice for supported languages (Kuku Yalanji); donor fallback otherwise.
   if (lang && NEURAL_LANGS.has(lang.toLowerCase())) {
-    const neural = await neuralTts(clean, lang.toLowerCase());
+    const neural = await neuralTts(
+      clean,
+      lang.toLowerCase(),
+      beforeSynthesize,
+    );
     if (neural) {
       // Count this as a play of the stored clip (admin "Explore" voice metrics).
       void recordTtsPlay(lang.toLowerCase(), clean, NEURAL_MODEL);
-      void discordTts({ language: lang, text: clean });
+      void discordTts({
+        language: lang,
+        englishText: cleanEnglish,
+        indigenousText: clean,
+        engine: 'mms-tts-pjt',
+      });
       return new NextResponse(neural.buf as unknown as BodyInit, {
         status: 200,
         headers: {
           'Content-Type': neural.contentType,
           'Content-Length': String(neural.buf.length),
           'X-TTS-Engine': 'mms-tts-pjt',
+          'X-TTS-Cache': neural.cache,
           'Cache-Control': 'public, max-age=31536000, immutable',
         },
       });
@@ -201,22 +398,48 @@ async function handle(text: string | null, lang: string | null) {
   }
 
   try {
-    const audio = await synthesize(clean, resolveTl(lang));
-    if (!audio.length) {
+    const languageCode = lang?.toLowerCase() || 'und';
+    const donorLanguage = resolveTl(lang);
+    const donorModel = `google-translate-tts:${donorLanguage}`;
+    const donor = await cachedSynthesis(
+      languageCode,
+      clean,
+      donorModel,
+      'google-donor',
+      beforeSynthesize,
+      async () => {
+        const buf = await synthesize(clean, donorLanguage);
+        return buf.length
+          ? {
+              buf,
+              contentType: 'audio/mpeg',
+              format: 'mp3',
+            }
+          : null;
+      },
+    );
+    if (!donor) {
       return NextResponse.json({ error: 'Synthesis returned no audio' }, { status: 502 });
     }
-    void discordTts({ language: lang, text: clean });
-    return new NextResponse(audio as unknown as BodyInit, {
+    void recordTtsPlay(languageCode, clean, donorModel);
+    void discordTts({
+      language: lang,
+      englishText: cleanEnglish,
+      indigenousText: clean,
+      engine: 'google-donor',
+    });
+    return new NextResponse(donor.buf as unknown as BodyInit, {
       status: 200,
       headers: {
-        'Content-Type': 'audio/mpeg',
-        'Content-Length': String(audio.length),
+        'Content-Type': donor.contentType,
+        'Content-Length': String(donor.buf.length),
         'X-TTS-Engine': 'google-donor',
-        // Deterministic per (text, donor) → cache hard at the browser/CDN.
+        'X-TTS-Cache': donor.cache,
         'Cache-Control': 'public, max-age=31536000, immutable',
       },
     });
   } catch (err) {
+    if (isApiGuardError(err)) throw err;
     console.error('TTS error:', err);
     return NextResponse.json(
       { error: 'Pronunciation audio is unavailable right now. Please try again.' },
@@ -225,12 +448,55 @@ async function handle(text: string | null, lang: string | null) {
   }
 }
 
+async function guarded(
+  request: NextRequest,
+  run: (_userId: string | null) => Promise<NextResponse>,
+): Promise<NextResponse> {
+  const sessionUser = await getSessionUser().catch(() => null);
+  const userId = sessionUser?.id ?? null;
+  try {
+    await enforceTtsRequestLimit(request, userId);
+    return await run(userId);
+  } catch (error) {
+    const guardedResponse = apiGuardResponse(error);
+    if (guardedResponse) return guardedResponse as NextResponse;
+    console.error('TTS route error:', error);
+    return NextResponse.json(
+      { error: 'Pronunciation audio is unavailable right now. Please try again.' },
+      { status: 502 },
+    );
+  }
+}
+
 export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  return handle(searchParams.get('text'), searchParams.get('lang'));
+  return guarded(request, async (userId) => {
+    const { searchParams } = new URL(request.url);
+    return handle(
+      searchParams.get('text'),
+      searchParams.get('lang'),
+      searchParams.get('english'),
+      () => enforceTtsProviderBudget(request, userId),
+    );
+  });
 }
 
 export async function POST(request: NextRequest) {
-  const body = await request.json().catch(() => ({}));
-  return handle(body?.text ?? null, body?.lang ?? null);
+  return guarded(request, async (userId) => {
+    const raw = await request.text();
+    if (Buffer.byteLength(raw, 'utf8') > MAX_BODY_BYTES) {
+      return NextResponse.json({ error: 'Payload too large' }, { status: 413 });
+    }
+    let body: { text?: unknown; lang?: unknown; english?: unknown };
+    try {
+      body = JSON.parse(raw || '{}');
+    } catch {
+      return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
+    }
+    return handle(
+      typeof body.text === 'string' ? body.text : null,
+      typeof body.lang === 'string' ? body.lang : null,
+      typeof body.english === 'string' ? body.english : null,
+      () => enforceTtsProviderBudget(request, userId),
+    );
+  });
 }

@@ -36,7 +36,7 @@ export async function generateMetadata(
 
   return {
     title: `${model.name} ${release.version} | Translate v2`,
-    description: `Test ${model.name} ${release.version}, trained from ${release.dataset}.`,
+    description: `Review saved evals for ${model.name} ${release.version}, trained from ${release.dataset}.`,
     alternates: { canonical: `/translate/v2/${model.id}/${release.version}` },
   };
 }

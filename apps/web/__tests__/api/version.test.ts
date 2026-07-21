@@ -12,6 +12,9 @@ describe('GET /api/version', () => {
     delete process.env.VERCEL_GIT_COMMIT_REF;
     delete process.env.VERCEL_ENV;
     delete process.env.VERCEL_GIT_COMMIT_AUTHOR_DATE;
+    delete process.env.MOBTRANSLATE_RELEASE_ID;
+    delete process.env.MOBTRANSLATE_SOURCE_SHA256;
+    delete process.env.MOBTRANSLATE_DEPLOYED_AT;
   });
 
   afterEach(() => {
@@ -39,6 +42,8 @@ describe('GET /api/version', () => {
     const data = await response.json();
 
     expect(data).toHaveProperty('version');
+    expect(data).toHaveProperty('release');
+    expect(data).toHaveProperty('sourceSha256');
     expect(data).toHaveProperty('sha');
     expect(data).toHaveProperty('message');
     expect(data).toHaveProperty('branch');
@@ -51,19 +56,19 @@ describe('GET /api/version', () => {
     const data = await response.json();
 
     expect(data.version).toBe('dev');
+    expect(data.release).toBeNull();
+    expect(data.sourceSha256).toBeNull();
     expect(data.sha).toBe('local');
     expect(data.message).toBe('');
     expect(data.branch).toBe('local');
-    expect(data.environment).toBe('development');
+    expect(data.environment).toBe(process.env.NODE_ENV || 'development');
   });
 
-  it('should return an ISO date string for deployedAt when env var is not set', async () => {
+  it('should not invent a deployment date when no deployment metadata exists', async () => {
     const response = await callGET();
     const data = await response.json();
 
-    // Should be a valid ISO date string
-    const parsed = new Date(data.deployedAt);
-    expect(parsed.getTime()).not.toBeNaN();
+    expect(data.deployedAt).toBeNull();
   });
 
   it('should use VERCEL_GIT_COMMIT_SHA for version (first 7 chars) and sha', async () => {
@@ -112,6 +117,21 @@ describe('GET /api/version', () => {
     expect(data.deployedAt).toBe('2025-01-15T10:30:00Z');
   });
 
+  it('should prefer immutable release metadata and disable caching', async () => {
+    process.env.MOBTRANSLATE_RELEASE_ID = '20260719T120000Z-abc1234';
+    process.env.MOBTRANSLATE_SOURCE_SHA256 = 'a'.repeat(64);
+    process.env.MOBTRANSLATE_DEPLOYED_AT = '2026-07-19T12:00:00Z';
+
+    const response = await callGET();
+    const data = await response.json();
+
+    expect(response.headers.get('cache-control')).toBe('no-store');
+    expect(data.version).toBe('20260719T120000Z-abc1234');
+    expect(data.release).toBe('20260719T120000Z-abc1234');
+    expect(data.sourceSha256).toBe('a'.repeat(64));
+    expect(data.deployedAt).toBe('2026-07-19T12:00:00Z');
+  });
+
   it('should return all env values when all are set', async () => {
     process.env.VERCEL_GIT_COMMIT_SHA = 'deadbeef12345678';
     process.env.VERCEL_GIT_COMMIT_MESSAGE = 'deploy: release v2';
@@ -124,6 +144,8 @@ describe('GET /api/version', () => {
 
     expect(data).toEqual({
       version: 'deadbee',
+      release: null,
+      sourceSha256: null,
       sha: 'deadbeef12345678',
       message: 'deploy: release v2',
       branch: 'main',

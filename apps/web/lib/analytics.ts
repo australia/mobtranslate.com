@@ -6,9 +6,12 @@
  * site. The GA tag itself is injected once by <GoogleAnalytics/> in the root
  * layout, which also fires page_view on client-side route changes (gtag does not
  * do that on its own in a SPA).
+ *
+ * Analytics is deliberately opt-in. Self-hosted or cloned deployments must set
+ * NEXT_PUBLIC_GA_ID at build time; there is no project-wide fallback tracker.
  */
 
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-RTRR10NJNV';
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim() || '';
 
 export type GtagParams = Record<string, string | number | boolean | undefined | null>;
 

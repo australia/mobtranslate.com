@@ -8,6 +8,10 @@ vi.mock('react-markdown', () => ({
   default: ({ children }: { children: string }) => <div data-testid="markdown-output">{children}</div>,
 }));
 
+vi.mock('@/components/improvements/TranslationCorrectionDialog', () => ({
+  TranslationCorrectionDialog: () => <button type="button">Suggest a better translation</button>,
+}));
+
 // Mock @mobtranslate/ui
 vi.mock('@mobtranslate/ui', () => {
   const Textarea = React.forwardRef(({ ...props }: any, ref: any) => <textarea ref={ref} {...props} />);
@@ -15,6 +19,7 @@ vi.mock('@mobtranslate/ui', () => {
   return {
     Button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
     Textarea,
+    cn: (...classes: unknown[]) => classes.filter(Boolean).join(' '),
   };
 });
 
@@ -24,6 +29,7 @@ vi.mock('lucide-react', () => ({
   Globe: (props: any) => <span data-icon="Globe" {...props} />,
   Loader2: (props: any) => <span data-icon="Loader2" {...props} />,
   AlertTriangle: (props: any) => <span data-icon="AlertTriangle" {...props} />,
+  Volume2: (props: any) => <span data-icon="Volume2" {...props} />,
 }));
 
 import Translator from '@/app/components/Translator';
@@ -93,7 +99,7 @@ describe('Translator', () => {
   it('shows character count as 0 initially', () => {
     render(<Translator availableLanguages={mockLanguages} />);
 
-    expect(screen.getByText('0 characters')).toBeInTheDocument();
+    expect(screen.getByText('0 / 400')).toBeInTheDocument();
   });
 
   it('updates character count when typing', async () => {
@@ -103,7 +109,7 @@ describe('Translator', () => {
     const textarea = screen.getByPlaceholderText('Enter English text to translate...');
     await user.type(textarea, 'hello');
 
-    expect(screen.getByText('5 characters')).toBeInTheDocument();
+    expect(screen.getByText('5 / 400')).toBeInTheDocument();
   });
 
   it('has translate button disabled when input is empty', () => {

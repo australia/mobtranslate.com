@@ -83,7 +83,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </div>
           <Toaster />
         </AuthProvider>
-        <Analytics />
+        {process.env.VERCEL ? <Analytics /> : null}
         <GoogleAnalytics />
       </body>
     </html>

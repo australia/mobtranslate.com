@@ -64,9 +64,7 @@ describe('Project Structure - Page files', () => {
 
 describe('Project Structure - API routes', () => {
   const expectedApiRoutes = [
-    'auth/signin',
-    'auth/signup',
-    'auth/signout',
+    'auth/[...all]',
     'chat',
     'dictionaries',
     'v2/languages',
@@ -132,7 +130,7 @@ describe('Package configuration', () => {
 
   it('web package.json has test script', () => {
     const pkg = JSON.parse(readWebFile('package.json'));
-    expect(pkg.scripts.test).toBe('vitest run');
+    expect(pkg.scripts.test).toBe('NODE_ENV=test vitest run');
   });
 
   it('web package.json has @mobtranslate/ui workspace dependency', () => {

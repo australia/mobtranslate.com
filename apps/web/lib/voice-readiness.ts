@@ -89,8 +89,11 @@ export function ipaPhonemes(ipa: string): string[] {
   if (!ipa) return [];
   // Strip delimiters and suprasegmentals (stress, length, ties, syllable breaks).
   const cleaned = ipa
-    .replace(/[/\[\]]/g, '')
-    .replace(/[ˈˌːˑ.|‿͡ ]/g, '')
+    .replaceAll('/', '')
+    .replaceAll('[', '')
+    .replaceAll(']', '')
+    .replace(/[ˈˌːˑ.|‿ ]/g, '')
+    .replace(/\u0361/g, '')
     .toLowerCase();
   // Grapheme clusters keep a base IPA letter + any combining diacritic together.
   // (Intl.Segmenter is available in the Node 18+ runtime.)

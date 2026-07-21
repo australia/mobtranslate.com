@@ -244,16 +244,11 @@ function cleanArray(values: unknown): string[] {
 }
 
 function resolveDictionaryRoot(): string {
-  const candidates = [
-    path.resolve(process.cwd(), '../../dictionaries'),
-    path.resolve(process.cwd(), '../dictionaries'),
-    path.resolve(process.cwd(), 'dictionaries')
-  ];
-
-  for (const candidate of candidates) {
-    if (fs.existsSync(candidate) && fs.statSync(candidate).isDirectory()) {
-      return candidate;
-    }
+  const root = process.env.MOBTRANSLATE_DICTIONARIES_ROOT
+    ? path.resolve(process.env.MOBTRANSLATE_DICTIONARIES_ROOT)
+    : path.resolve(process.cwd(), '../../dictionaries');
+  if (fs.existsSync(root) && fs.statSync(root).isDirectory()) {
+    return root;
   }
 
   throw new Error('Unable to locate dictionaries folder');
@@ -263,7 +258,7 @@ function findDictionaryFile(languageCode: string, languageName?: string): string
   const root = resolveDictionaryRoot();
   const candidates = [languageCode, languageName ? slugify(languageName) : null]
     .filter((entry): entry is string => !!entry)
-    .map((entry) => path.join(root, entry, 'dictionary.yaml'));
+    .map((entry) => path.join(/*turbopackIgnore: true*/ root, entry, 'dictionary.yaml'));
 
   for (const candidate of candidates) {
     if (fs.existsSync(candidate)) {
@@ -280,7 +275,7 @@ function discoverDictionaries(): Array<{ languageCode: string; filePath: string;
   const dictionaries: Array<{ languageCode: string; filePath: string; sourceFile: string }> = [];
 
   for (const dir of subdirs) {
-    const filePath = path.join(root, dir.name, 'dictionary.yaml');
+    const filePath = path.join(/*turbopackIgnore: true*/ root, dir.name, 'dictionary.yaml');
     if (!fs.existsSync(filePath)) {
       continue;
     }
@@ -386,6 +381,88 @@ async function ensureLanguage(
   return inserted;
 }
 
+const WIKTIONARY_TIER = 'community-sourced (Wiktionary, CC-BY-SA-4.0)';
+
+/**
+ * Derive the source tier for a dictionary from its meta block. An explicit
+ * `tier_id` wins; otherwise a CC-BY-SA + Wiktionary source is inferred as the
+ * Wiktionary tier (so the 5 already-committed Wiktionary dicts light up without
+ * being regenerated). Everything else is untiered (the hand-built rich dicts).
+ */
+export function inferTier(
+  meta: Record<string, unknown> | undefined | null
+): { tier?: string; tier_id?: string } {
+  if (!meta) return {};
+  if (typeof meta.tier_id === 'string' && meta.tier_id.trim()) {
+    return {
+      tier_id: meta.tier_id.trim(),
+      tier: typeof meta.tier === 'string' ? meta.tier : undefined,
+    };
+  }
+  const license = String(meta.license ?? '');
+  const source = String(meta.source ?? '');
+  if (/CC-BY-SA/i.test(license) && /wiktionary/i.test(source)) {
+    return { tier: WIKTIONARY_TIER, tier_id: 'wiktionary' };
+  }
+  return {};
+}
+
+// Meta keys that belong in languages.metadata (jsonb) — the provenance/tier bag
+// the UI reads to render tier badges, historical banners, and attribution.
+const LANGUAGE_METADATA_KEYS = [
+  'tier', 'tier_id', 'source', 'source_url', 'license', 'license_url',
+  'attribution', 'austlang_codes', 'extracted', 'word_count', 'curr_number',
+  'curr_volume', 'locality', 'locality_raw', 'language_link', 'candidates',
+  'coordinates', 'other_sources',
+];
+
+/**
+ * Persist a dictionary's meta block into the `languages` row: promote structured
+ * fields to their columns (family, glottocode, iso, region…) and merge the
+ * provenance/tier bag into languages.metadata. Only fields the meta actually
+ * provides are written, so re-syncing a source never nulls out existing data.
+ */
+async function applyLanguageMeta(
+  language: LanguageRow,
+  meta?: ParsedDictionaryFile['meta']
+): Promise<void> {
+  if (!meta) return;
+  const m = meta as Record<string, unknown>;
+  const str = (v: unknown): string | undefined =>
+    typeof v === 'string' && v.trim() ? v.trim() : undefined;
+
+  const set: Record<string, unknown> = {};
+  const desc = str(m.description); if (desc) set.description = desc;
+  const region = str(m.region); if (region) set.region = region;
+  const country = str(m.country); if (country) set.country = country;
+  const family = str(m.family); if (family) set.family = family;
+  const glotto = str(m.glottocode); if (glotto) set.glottocode = glotto;
+  const iso = str(m.iso639_3) ?? str(m.iso6393); if (iso) set.iso6393 = iso;
+  const ws = str(m.writing_system) ?? str(m.writingSystem); if (ws) set.writingSystem = ws;
+
+  const tier = inferTier(m);
+  const payload: Record<string, unknown> = {};
+  for (const k of LANGUAGE_METADATA_KEYS) {
+    if (m[k] !== undefined && m[k] !== null) payload[k] = m[k];
+  }
+  if (tier.tier_id) {
+    payload.tier_id = tier.tier_id;
+    if (tier.tier && payload.tier === undefined) payload.tier = tier.tier;
+  }
+
+  // Nothing to write? (a bare {name} meta) — skip the round-trip.
+  if (Object.keys(set).length === 0 && Object.keys(payload).length === 0) return;
+
+  set.updatedAt = new Date().toISOString();
+  await db
+    .update(languagesT)
+    .set({
+      ...set,
+      metadata: sql`coalesce(${languagesT.metadata}, '{}'::jsonb) || ${JSON.stringify(payload)}::jsonb`,
+    })
+    .where(eq(languagesT.id, language.id));
+}
+
 async function loadWordClassMap(): Promise<Map<string, string>> {
   const rows = await db
     .select({ id: wordClassesT.id, code: wordClassesT.code })
@@ -458,7 +535,12 @@ function normalizeWordRow(
     return null;
   }
 
-  const word = row.word.trim();
+  // words.word / translations.translation / synonyms.synonym_text are varchar(500);
+  // Wiktionary glosses can exceed that, so cap the varchar-bound fields (definitions
+  // land in a TEXT column and stay full-length).
+  const cap500 = (s: string) => (s.length > 500 ? s.slice(0, 499).trimEnd() : s);
+
+  const word = cap500(row.word.trim());
   if (!word) {
     return null;
   }
@@ -468,8 +550,8 @@ function normalizeWordRow(
     definitions.push(row.definition.trim());
   }
 
-  const translations = cleanArray(row.translations);
-  const synonyms = cleanArray(row.synonyms);
+  const translations = cleanArray(row.translations).map(cap500);
+  const synonyms = cleanArray(row.synonyms).map(cap500);
 
   const usages: Array<{ example: string; translation: string | null }> = [];
   const usageNotes: string[] = [];
@@ -941,6 +1023,7 @@ export async function runYamlSyncForLanguage(
   const sourceFile = `dictionaries/${relativeSource}`;
   const parsed = parseDictionaryYaml(sourceFilePath);
   const language = await ensureLanguage(languageCode, parsed.meta);
+  await applyLanguageMeta(language, parsed.meta);
   const wordClassMap = await loadWordClassMap();
 
   const allRows = parsed.words.slice(0, cfg.max_words_per_run);
@@ -1667,6 +1750,48 @@ async function runTask(task: any, triggeredBy: TriggerType): Promise<{ runId: st
     await finalizeRun(taskRecord, runId, startedAt, 'failed', failedStats, message);
     return { runId, status: 'failed', stats: failedStats, error: message };
   }
+}
+
+/**
+ * Bulk, idempotent YAML sync over EVERY dictionary discovered on disk. Runs the
+ * yaml_sync path directly (no task rows, no OpenAI location enrichment). By default
+ * only tiered sources (Wiktionary / Curr, i.e. meta with an explicit or inferable
+ * tier) are synced, so the hand-built rich dictionaries (kuku_yalanji, migmaq,
+ * anindilyakwa, wajarri) — already imported by their own scripts — are left exactly
+ * as they are. Content-hash upserts make re-runs a no-op.
+ */
+export async function runYamlSyncForAllDictionaries(
+  opts: { onlyTiered?: boolean; includeCodes?: string[]; excludeCodes?: string[] } = {}
+): Promise<Array<{ code: string; words?: number; skipped?: string; error?: string }>> {
+  const onlyTiered = opts.onlyTiered !== false;
+  const include = opts.includeCodes ? new Set(opts.includeCodes) : null;
+  const exclude = new Set(opts.excludeCodes ?? []);
+  const dictionaries = discoverDictionaries();
+  const results: Array<{ code: string; words?: number; skipped?: string; error?: string }> = [];
+
+  for (const dictionary of dictionaries) {
+    const code = dictionary.languageCode;
+    if (exclude.has(code) || (include && !include.has(code))) {
+      results.push({ code, skipped: 'filtered' });
+      continue;
+    }
+    try {
+      const parsed = parseDictionaryYaml(dictionary.filePath);
+      const tier = inferTier((parsed.meta ?? undefined) as Record<string, unknown> | undefined);
+      if (onlyTiered && !tier.tier_id) {
+        results.push({ code, skipped: 'untiered' });
+        continue;
+      }
+      const stats = await runYamlSyncForLanguage(null, code, dictionary.filePath, {
+        prune_removed: true,
+      });
+      results.push({ code, words: stats.words_upserted });
+    } catch (error) {
+      results.push({ code, error: error instanceof Error ? error.message : String(error) });
+    }
+  }
+
+  return results;
 }
 
 export async function ensureSyncTasksForAllDictionaries(_supabase?: IgnoredClient) {

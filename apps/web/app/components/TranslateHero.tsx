@@ -21,14 +21,15 @@ import { TranslationCorrectionDialog } from '@/components/improvements/Translati
 import { track } from '@/lib/analytics';
 import type { Language } from '@/lib/supabase/types';
 import type {
-  KukuYalanjiDraftInference,
-  KukuYalanjiHybridInference,
+  HybridDraftInference,
+  HybridTranslationInference,
   TranslationCacheState,
-} from '@/lib/kuku-yalanji-hybrid-types';
+} from '@/lib/hybrid-translation-types';
 import type {
   ReverseDictionaryExactInference,
   ReverseTranslationInference,
 } from '@/lib/reverse-translation-types';
+import { getHybridLanguageIdentity } from '@/lib/hybrid-language-identities';
 
 interface TranslateHeroProps {
   languages: Language[];
@@ -44,8 +45,8 @@ interface TranslationResult {
   translation: string;
   gloss?: string;
   inference?:
-    | KukuYalanjiHybridInference
-    | KukuYalanjiDraftInference
+    | HybridTranslationInference
+    | HybridDraftInference
     | ReverseTranslationInference
     | ReverseDictionaryExactInference
     | {
@@ -71,7 +72,7 @@ interface TranslationResult {
 }
 
 const REVIEW_DECISION_LABELS: Record<
-  KukuYalanjiHybridInference['review']['decision'],
+  HybridTranslationInference['review']['decision'],
   string
 > = {
   dictionary_exact: 'Found in the dictionary',
@@ -82,7 +83,7 @@ const REVIEW_DECISION_LABELS: Record<
 };
 
 const REVIEW_SUPPORT_LABELS: Record<
-  KukuYalanjiHybridInference['review']['confidence'],
+  HybridTranslationInference['review']['confidence'],
   string
 > = {
   low: 'Limited support',
@@ -111,14 +112,16 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
 
   const targetName =
     languages.find((l) => l.code === target)?.name || 'Indigenous';
-  const languageTag = target === 'kuku_yalanji' ? 'gvn' : target;
+  const selectedLanguage = languages.find(
+    (language) => language.code === target,
+  );
+  const metadataLanguageTag = selectedLanguage?.metadata?.languageTag;
+  const registeredLanguageTag = getHybridLanguageIdentity(target)?.languageTag;
   const reversed = direction === 'to_english';
   // The left pane is always the source, the right pane always the output —
   // swapping changes which language sits on each side, not which pane you type in.
   const sourceName = reversed ? targetName : 'English';
   const outputName = reversed ? 'English' : targetName;
-  const sourceLanguageTag = reversed ? languageTag : 'en';
-  const outputLanguageTag = reversed ? 'en' : languageTag;
   const reverseInference =
     result?.inference?.route === 'dictionary_reverse_review'
       ? result.inference
@@ -131,13 +134,21 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
     result?.inference?.route === 'huggingface_grammar_review'
       ? result.inference
       : null;
+  const draftInference =
+    result?.inference?.route === 'huggingface_draft' ? result.inference : null;
+  const languageTag =
+    hybridInference?.language.tag ||
+    draftInference?.language.tag ||
+    (typeof metadataLanguageTag === 'string'
+      ? metadataLanguageTag
+      : registeredLanguageTag || target.replaceAll('_', '-'));
+  const sourceLanguageTag = reversed ? languageTag : 'en';
+  const outputLanguageTag = reversed ? 'en' : languageTag;
   const exactDictionaryInference =
     result?.inference?.route === 'dictionary_exact' ? result.inference : null;
   const dictionaryExact =
     Boolean(exactDictionaryInference) ||
     hybridInference?.review.decision === 'dictionary_exact';
-  const draftInference =
-    result?.inference?.route === 'huggingface_draft' ? result.inference : null;
 
   // Reverse mode asks the reader to type in a language they may not know, so
   // the example chips have to come from that language's own dictionary rather
@@ -198,8 +209,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
     setResult(null);
     try {
       // Reverse has no fine-tuned model to draft with, so it is a single call.
-      const draftStage =
-        targetLanguage === 'kuku_yalanji' && requestDirection === 'to_language';
+      const draftStage = requestDirection === 'to_language';
       const res = await fetch(`/api/translate/${targetLanguage}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -483,9 +493,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                       <div className="h-4 w-1/2 rounded bg-[rgba(255,255,255,0.07)] animate-pulse" />
                     </div>
                     <p className="text-xs leading-relaxed text-[#faf8f5]/55">
-                      {reversed || target !== 'kuku_yalanji'
-                        ? 'Translating with dictionary evidence…'
-                        : 'Translating…'}
+                      Translating…
                     </p>
                   </div>
                 ) : error ? (
@@ -603,7 +611,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                                     ? 'First translation · checks still running'
                                     : 'First translation · checks could not be completed'
                                   : result.inference?.route === 'custom_model'
-                                    ? 'MobTranslate v24.3 research model · unverified draft'
+                                    ? 'Research model · unverified draft'
                                     : 'Dictionary-guided AI · needs community verification'}
                       {(exactDictionaryInference || reverseExactInference) && (
                         <a
@@ -776,7 +784,10 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                           <h3 className="mb-2 font-sans text-sm font-semibold text-[#faf8f5]">
                             First translation
                           </h3>
-                          <p className="text-base text-[#faf8f5]" lang="gvn">
+                          <p
+                            className="text-base text-[#faf8f5]"
+                            lang={hybridInference.language.tag}
+                          >
                             {hybridInference.draft.translation}
                           </p>
                         </section>
@@ -800,7 +811,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                                           className="font-medium text-[#faf8f5]/85"
                                           lang={
                                             evidence.kind === 'dictionary'
-                                              ? 'gvn'
+                                              ? hybridInference.language.tag
                                               : undefined
                                           }
                                         >
@@ -843,7 +854,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
 
                         <section className="border-t border-[rgba(255,255,255,0.08)] py-4 text-xs text-[#faf8f5]/55">
                           This is an AI-generated suggestion. It has not been
-                          checked by a fluent Kuku Yalanji speaker.
+                          checked by a fluent {targetName} speaker.
                         </section>
 
                         <details className="group/technical border-t border-[rgba(255,255,255,0.08)]">
@@ -860,7 +871,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-1 text-[#ecb485] hover:text-[#f4d2b5]"
                               >
-                                MobTranslate v24.3{' '}
+                                {hybridInference.draft.label}{' '}
                                 <ExternalLink className="h-3 w-3" />
                               </a>{' '}
                               on Hugging Face ·{' '}

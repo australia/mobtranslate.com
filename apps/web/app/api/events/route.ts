@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { discordClientEvent } from '@/lib/discord';
+import { getSessionUser } from '@/lib/auth-helpers';
+import {
+  apiGuardResponse,
+  enforceEventRequestLimit,
+} from '@/lib/api-rate-limit.server';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -18,6 +23,15 @@ function clip(s: string, max: number): string {
 }
 
 export async function POST(request: NextRequest) {
+  const sessionUser = await getSessionUser().catch(() => null);
+  try {
+    await enforceEventRequestLimit(request, sessionUser?.id ?? null);
+  } catch (error) {
+    const response = apiGuardResponse(error);
+    if (response) return response;
+    throw error;
+  }
+
   try {
     const raw = await request.text();
     // Ignore oversized payloads outright.

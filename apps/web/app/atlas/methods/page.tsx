@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
-import fs from 'node:fs';
-import path from 'node:path';
 import Link from 'next/link';
 import {
   ArrowLeft,
@@ -17,6 +15,9 @@ import {
 } from 'lucide-react';
 import SharedLayout from '../../components/SharedLayout';
 import CopyBlock from './CopyBlock';
+import manifestData from '../../../data/atlas/manifest.json';
+import coverageData from '../../../data/atlas/coverage-report.json';
+import downloadsData from '../../../public/atlas-data/downloads/downloads.json';
 
 export const metadata: Metadata = {
   title: 'Methods, sources & open data — Atlas of Australian Languages',
@@ -27,14 +28,6 @@ export const metadata: Metadata = {
 export const dynamic = 'force-static';
 
 const DL_DIR = '/atlas-data/downloads';
-
-function loadJSON(rel: string): any {
-  try {
-    return JSON.parse(fs.readFileSync(path.join(process.cwd(), rel), 'utf8'));
-  } catch {
-    return null;
-  }
-}
 
 function fmtBytes(n: number): string {
   if (!n) return '—';
@@ -107,9 +100,9 @@ const FILE_ICON: Record<string, ComponentType<{ size?: number; className?: strin
 };
 
 export default function MethodsPage() {
-  const manifest = loadJSON('data/atlas/manifest.json');
-  const coverage = loadJSON('data/atlas/coverage-report.json');
-  const downloads = loadJSON('public/atlas-data/downloads/downloads.json');
+  const manifest: any = manifestData;
+  const coverage: any = coverageData;
+  const downloads: any = downloadsData;
 
   const sources: any[] = manifest?.source_datasets ?? [];
   const release: string = manifest?.data_release_version ?? '1.1.0';

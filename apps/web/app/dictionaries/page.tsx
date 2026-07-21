@@ -19,8 +19,8 @@ export default async function DictionariesPage() {
           Dictionaries
         </h1>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-pretty">
-          Official community-built dictionaries for Australian and Indigenous languages, curated with
-          speakers and linguists — each with its source shown. More collections are on the way.
+          Source-attributed dictionaries for Australian and other Indigenous languages. Publication
+          here does not imply official status or community certification. More collections are on the way.
         </p>
         <p className="mt-3 text-sm text-muted-foreground">
           <span className="font-medium text-foreground tabular-nums">
@@ -42,17 +42,17 @@ export default async function DictionariesPage() {
       <section className="marketing border-t border-border py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 max-w-4xl">
           <div>
-            <h3 className="text-xl font-display font-semibold mb-3">Built with community</h3>
+            <h3 className="text-xl font-display font-semibold mb-3">Provenance first</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Each dictionary is built with community input, making it easy to explore and learn
-              Indigenous languages online, with the language treated as the subject, not the artifact.
+              Collections retain their named sources, terms, and available review state so a learner
+              can distinguish an attributed record from an unverified machine output.
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-display font-semibold mb-3">Owned by the community</h3>
+            <h3 className="text-xl font-display font-semibold mb-3">Contributions and review</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Dictionaries are created in collaboration with Indigenous communities and linguists.
-              We welcome contributors who want to help these resources grow.
+              Speakers, language custodians, linguists, and learners can propose corrections and new
+              evidence. A contribution is credited; review or approval is recorded only when it occurs.
             </p>
           </div>
         </div>

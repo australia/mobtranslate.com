@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <article className="max-w-2xl mx-auto py-10 md:py-14 prose-mt">
         <h1 className="text-3xl font-bold">Privacy Policy</h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Last updated: 17 July 2026
+          Last updated: 19 July 2026
         </p>
 
         <p className="mt-6 leading-relaxed">
@@ -115,8 +115,26 @@ export default function PrivacyPage() {
             restricted. Account data is kept while your account is active.
             Contributions are kept while they remain part of the community
             resource, unless you or the relevant custodians request removal.
-            Security logs and operational records are kept only as long as
-            reasonably needed to operate and protect the service.
+            Raw translation and chat request records are normally kept for no
+            more than 30 days, then replaced by text-free daily usage totals.
+            Cached synthesized-audio files and their technical provenance may
+            be kept longer so the same text does not need to be sent to a speech
+            provider again; after 30 days, the input text in that cache index is
+            replaced by an opaque fingerprint. Security records may be kept
+            longer when needed to investigate abuse or an incident.
+          </p>
+          <p className="mt-3">
+            Translation, chat and pronunciation text may appear for a limited
+            time in private operational monitoring, including a private Discord
+            channel. Signed-in accounts are represented there by a pseudonymous
+            identifier rather than an email address. Do not submit confidential,
+            legal, health, ceremonial or culturally restricted material.
+          </p>
+          <p className="mt-3">
+            Ordinary requests and operational logs are not reused as model
+            training data. Material is considered for training only when it is
+            deliberately submitted as a language contribution with the required
+            consent, source rights and governance approval.
           </p>
         </Section>
 

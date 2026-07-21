@@ -26,13 +26,26 @@ export type ModelTrainingSummary = {
 export type ModelResourceSummary = {
   gpu?: string;
   costPerHourUsd?: number;
+  estimatedCostUsd?: number;
   sampleIntervalSeconds?: number;
   samples?: number;
   avgGpuUtilPct?: number;
   maxGpuUtilPct?: number;
+  meanVramMiB?: number;
   maxVramMiB?: number;
+  meanPowerW?: number;
   maxPowerW?: number;
   powerLimitW?: number;
+};
+
+export type ModelReleaseScorecard = {
+  bibleDirectChrf?: number;
+  bibleRefChrf?: number;
+  usageChrf?: number;
+  communitySentenceChrf?: number;
+  communitySentenceExact?: string;
+  heldoutAllChrf?: number;
+  exactKnownResources?: string;
 };
 
 export type ModelRelease = {
@@ -47,6 +60,10 @@ export type ModelRelease = {
     targetLang?: string;
   };
   rights: string;
+  role?: string;
+  verdict?: string;
+  runId?: string;
+  scorecard?: ModelReleaseScorecard;
   metrics: null | ModelMetrics;
   notes: string[];
   artifacts: ModelArtifact[];
@@ -59,6 +76,7 @@ export type ModelEntry = {
   name: string;
   family: string;
   task: string;
+  labUrl?: string;
   language: {
     name: string;
     appCode: string;

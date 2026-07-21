@@ -57,6 +57,27 @@ function csvRow(cells: unknown[]): string {
   return cells.map(csvCell).join(',');
 }
 
+function uniqueBibKey(
+  author: string,
+  year: string | number,
+  usedKeys: Set<string>,
+): string {
+  const surname =
+    (author.match(/^([A-Za-zÀ-ÿ'’-]+)/)?.[1] ?? 'ref')
+      .replace(/[^A-Za-z]/g, '')
+      .toLowerCase() || 'ref';
+  const base = `${surname}${year || 'nd'}`;
+  let key = base;
+  let index = 0;
+  while (usedKeys.has(key)) key = base + String.fromCharCode(97 + index++);
+  usedKeys.add(key);
+  return key;
+}
+
+function bibEscape(value: string): string {
+  return value.replace(/([&%#_$])/g, '\\$1');
+}
+
 function main() {
   const manifest = readJSON(path.join(ATLAS_DIR, 'manifest.json'));
   const coverage = readJSON(path.join(ATLAS_DIR, 'coverage-report.json'));
@@ -233,21 +254,6 @@ function main() {
       }
     }
     const usedKeys = new Set<string>();
-    function keyFor(author: string, year: string | number): string {
-      const surname =
-        (author.match(/^([A-Za-zÀ-ÿ'’-]+)/)?.[1] ?? 'ref')
-          .replace(/[^A-Za-z]/g, '')
-          .toLowerCase() || 'ref';
-      let base = `${surname}${year || 'nd'}`;
-      let key = base;
-      let i = 0;
-      while (usedKeys.has(key)) key = base + String.fromCharCode(97 + i++);
-      usedKeys.add(key);
-      return key;
-    }
-    function bibEscape(s: string): string {
-      return s.replace(/([&%#_$])/g, '\\$1');
-    }
 
     const entries: string[] = [];
     entries.push(
@@ -333,7 +339,7 @@ function main() {
         const author = m[1].trim();
         const title = m[3].trim();
         const venue = m[4].trim().replace(/\s+$/, '');
-        const key = keyFor(author, year);
+        const key = uniqueBibKey(author, year, usedKeys);
         const isBook = /Cambridge|Routledge|Allen|Press|\(eds?\)|Government Printer/.test(venue);
         const lines = [
           `@${isBook ? 'book' : 'article'}{${key},`,
@@ -348,7 +354,7 @@ function main() {
         entries.push(lines.join('\n'), '');
       } else {
         // Fallback: lossless note-only entry (never fabricate parsed fields).
-        const key = keyFor(String(cit.ref), year);
+        const key = uniqueBibKey(String(cit.ref), year, usedKeys);
         const lines = [`@misc{${key},`, `  note = {${bibEscape(String(cit.ref))}},`];
         if (year) lines.push(`  year = {${year}},`);
         if (cit.doi) lines.push(`  doi  = {${cit.doi}},`);

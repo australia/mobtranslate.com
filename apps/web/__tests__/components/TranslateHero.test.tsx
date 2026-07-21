@@ -25,6 +25,17 @@ const languages: Language[] = [
   },
 ];
 
+const multiModelLanguages: Language[] = [
+  ...languages,
+  {
+    id: 'migmaq',
+    code: 'migmaq',
+    name: "Mi'kmaq",
+    native_name: "Mi'kmaq",
+    is_active: true,
+  },
+];
+
 const draftResponse = {
   success: true,
   translation: 'jalbu-ngku',
@@ -33,6 +44,11 @@ const draftResponse = {
     route: 'huggingface_draft',
     validation: 'unverified_research_preview',
     latencyMs: 3900,
+    language: {
+      code: 'kuku_yalanji',
+      name: 'Kuku Yalanji',
+      tag: 'gvn',
+    },
     draft: {
       provider: 'huggingface_space',
       translation: 'jalbu-ngku',
@@ -55,6 +71,11 @@ const reviewResponse = {
     route: 'huggingface_grammar_review',
     validation: 'unverified_research_preview',
     latencyMs: 6120,
+    language: {
+      code: 'kuku_yalanji',
+      name: 'Kuku Yalanji',
+      tag: 'gvn',
+    },
     draft: {
       provider: 'huggingface_space',
       translation: 'jalbu-ngku',
@@ -105,6 +126,61 @@ const exactDictionaryResponse = {
     modelId: 'mobtranslate-dictionary',
     dictionaryRevision: 'dictionary-revision',
     sourceUrl: 'https://mobtranslate.com/dictionaries/kuku_yalanji/words/jalbu',
+  },
+};
+
+const migmaqDraftResponse = {
+  success: true,
+  translation: "Goqwei na'te'l?",
+  reviewPending: true,
+  inference: {
+    route: 'huggingface_draft',
+    validation: 'unverified_research_preview',
+    latencyMs: 3200,
+    language: { code: 'migmaq', name: "Mi'kmaq", tag: 'mic' },
+    draft: {
+      provider: 'huggingface_space',
+      translation: "Goqwei na'te'l?",
+      modelId: 'migmaq-listuguj-nllb-lora',
+      version: 'v3.3.0',
+      label: "MobTranslate Mi'kmaq Listuguj v3.3",
+      latencyMs: 3100,
+      queueMs: 0,
+      sourceUrl:
+        'https://huggingface.co/ajaxdavis/mobtranslate-migmaq-listuguj-v3-3',
+    },
+    cache: { draft: 'miss' },
+  },
+};
+
+const migmaqReviewResponse = {
+  success: true,
+  translation: "Goqwei na'te'l?",
+  gloss: 'How are you?',
+  inference: {
+    route: 'huggingface_grammar_review',
+    validation: 'unverified_research_preview',
+    latencyMs: 5900,
+    language: { code: 'migmaq', name: "Mi'kmaq", tag: 'mic' },
+    draft: migmaqDraftResponse.inference.draft,
+    review: {
+      provider: 'openai',
+      modelId: 'gpt-5.4-mini-2026-03-17',
+      decision: 'kept_draft',
+      confidence: 'medium',
+      latencyMs: 2400,
+      summary:
+        'The available dictionary and language notes did not support a change.',
+      changes: [],
+      caveats: ['This has not been checked by a fluent speaker.'],
+      evidence: [],
+    },
+    cache: {
+      draft: 'hit',
+      evidence: 'miss',
+      review: 'miss',
+      resolved: 'miss',
+    },
   },
 };
 
@@ -261,6 +337,59 @@ describe('TranslateHero hybrid Kuku Yalanji result', () => {
       await screen.findByText(
         'We could not finish checking this translation. The first translation is still shown.',
       ),
+    ).toBeVisible();
+  });
+
+  it("uses the Mi'kmaq adapter through the same progressive flow", async () => {
+    fetchMock
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => migmaqDraftResponse,
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => migmaqReviewResponse,
+      });
+    const user = userEvent.setup();
+    render(<TranslateHero languages={multiModelLanguages} />);
+
+    await user.selectOptions(
+      screen.getByLabelText('Target language'),
+      'migmaq',
+    );
+    const input = screen.getByLabelText('English text to translate');
+    await user.type(input, 'How are you?');
+    await user.click(
+      within(input.closest('div')!).getByRole('button', { name: 'Translate' }),
+    );
+
+    await waitFor(() =>
+      expect(
+        document.querySelector('p.font-display[lang="mic"]'),
+      ).toHaveTextContent("Goqwei na'te'l?"),
+    );
+    expect(fetchMock).toHaveBeenNthCalledWith(1, '/api/translate/migmaq', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text: 'How are you?',
+        mode: 'translate',
+        direction: 'to_language',
+        stage: 'draft',
+      }),
+    });
+    expect(fetchMock).toHaveBeenNthCalledWith(2, '/api/translate/migmaq', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text: 'How are you?',
+        mode: 'translate',
+        direction: 'to_language',
+        stage: 'review',
+      }),
+    });
+    expect(
+      screen.getByText('AI suggestion · not checked by a fluent speaker'),
     ).toBeVisible();
   });
 });

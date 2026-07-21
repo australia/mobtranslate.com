@@ -10,8 +10,8 @@ import { getSessionUser } from '@/lib/auth-helpers';
 
 export const runtime = 'nodejs';
 
-// Community pronunciations for a single dictionary word.
-//   GET  — public: list the active recordings (with speaker attribution + playable URLs).
+// Pronunciations for a single dictionary word.
+//   GET  — public: list active community and attributed source recordings.
 //   POST — any signed-in user adds their own pronunciation (NOT invite-gated, unlike the
 //          speaker studio). A user's previous take for the word is superseded.
 
@@ -35,12 +35,33 @@ export async function GET(_request: NextRequest, context: { params: Promise<{ id
              r.recorded_by, r.created_at,
              coalesce(sp.name, up.display_name, up.username) as speaker_name,
              sp.community as speaker_community,
-             sp.dialect   as speaker_dialect
+             sp.dialect   as speaker_dialect,
+             rer.speaker_code as source_speaker_code,
+             rs.name as source_name,
+             rs.source_url,
+             rs.license_name,
+             rs.license_url,
+             rs.commercial_use_allowed,
+             rs.attribution_text,
+             rer.source_entry_url
       from public.recordings r
+      join public.words recorded_word on recorded_word.id = r.word_id
+      join public.words requested_word on requested_word.id = ${wordId}::uuid
       left join public.speaker_profiles sp on sp.id = r.speaker_id
       left join public.user_profiles    up on up.user_id = r.recorded_by
-      where r.word_id = ${wordId}::uuid and r.status = 'active'
-      order by r.is_primary desc, r.created_at asc
+      left join public.recording_external_refs rer on rer.recording_id = r.id
+      left join public.recording_sources rs on rs.id = rer.source_id
+      where r.status = 'active'
+        and r.kind = 'word'
+        and (
+          r.word_id = ${wordId}::uuid
+          or (
+            rer.recording_id is not null
+            and recorded_word.language_id = requested_word.language_id
+            and recorded_word.word = requested_word.word
+          )
+        )
+      order by (rer.recording_id is not null) desc, r.is_primary desc, r.created_at asc
     `);
     const rows = (Array.isArray(res) ? res : res?.rows ?? []) as any[];
     const recordings = rows.map((r) => ({
@@ -49,9 +70,17 @@ export async function GET(_request: NextRequest, context: { params: Promise<{ id
       master_url: recordingPublicUrl(r.storage_path),
       duration_ms: r.duration_ms,
       is_primary: r.is_primary,
-      speaker_name: r.speaker_name || 'Community speaker',
+      speaker_name: r.speaker_name || (r.source_name ? 'Source speaker' : 'Community speaker'),
       speaker_community: r.speaker_community || null,
       speaker_dialect: r.speaker_dialect || null,
+      source_speaker_code: r.source_speaker_code || null,
+      source_name: r.source_name || null,
+      source_url: r.source_url || null,
+      source_entry_url: r.source_entry_url || null,
+      source_license_name: r.license_name || null,
+      source_license_url: r.license_url || null,
+      source_commercial_use_allowed: r.commercial_use_allowed ?? null,
+      source_attribution: r.attribution_text || null,
       created_at: r.created_at,
       is_mine: !!(me && r.recorded_by && r.recorded_by === me.id),
     }));

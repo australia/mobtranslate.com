@@ -1,5 +1,6 @@
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
+import { ttsInputFingerprint } from '@/lib/tts-cache.server';
 
 /**
  * Best-effort usage logging for the admin "Explore" console.
@@ -56,11 +57,17 @@ export async function logTranslationRequest(input: LogRequestInput): Promise<voi
 /** Bump the play counter for a stored TTS clip. Never throws. */
 export async function recordTtsPlay(languageCode: string, text: string, model: string): Promise<void> {
   try {
+    const inputFingerprint = ttsInputFingerprint(languageCode, text, model);
     await db.execute(sql`
       update public.tts_generations
          set play_count = play_count + 1,
              last_played_at = now()
-       where language_code = ${languageCode} and text = ${text} and model = ${model}
+       where language_code = ${languageCode}
+         and model = ${model}
+         and (
+           input_fingerprint = ${inputFingerprint}
+           or (input_fingerprint is null and text = ${text})
+         )
     `);
   } catch (err) {
     console.error('recordTtsPlay failed (non-fatal):', err);

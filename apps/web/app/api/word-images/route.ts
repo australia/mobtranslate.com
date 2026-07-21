@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { promises as fs } from 'fs'
-import path from 'path'
-import { WORD_IMG_DIR, SITE, cacheKey } from '@/lib/word-image'
+import { WORD_IMG_DIR, SITE, cacheKey, cachePath } from '@/lib/word-image-cache'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -25,7 +24,7 @@ export async function GET(request: NextRequest) {
     const key = cacheKey(lang, word)
     for (const ext of ['jpg', 'png']) {
       try {
-        const st = await fs.stat(path.join(WORD_IMG_DIR, `${key}.${ext}`))
+        const st = await fs.stat(cachePath(WORD_IMG_DIR, `${key}.${ext}`))
         images[word] = `${SITE}/word-img/${key}.${ext}?v=${Math.round(st.mtimeMs)}`
         return
       } catch { /* miss */ }

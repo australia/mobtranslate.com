@@ -5,10 +5,21 @@
 // (lib/storage) and are served same-origin via /api/storage/recordings/*.
 import { NextResponse } from 'next/server';
 import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
-import { recordingPublicUrl, saveRecording, deleteRecording } from '@/lib/storage';
+import {
+  recordingPublicUrl,
+  saveRecording,
+  deleteRecording,
+} from '@/lib/storage';
 
 export const ADMIN_ROLES = ['super_admin', 'dictionary_admin'];
 export const BUCKET = 'recordings';
+
+function authError(message: string, status: 401 | 403): NextResponse {
+  return NextResponse.json(
+    { error: message },
+    { status, headers: { 'Cache-Control': 'no-store' } },
+  );
+}
 
 interface AdminOk {
   user: { id: string };
@@ -23,11 +34,11 @@ interface AdminErr {
 export async function requireAdmin(): Promise<AdminOk | AdminErr> {
   const user = await getSessionUser();
   if (!user) {
-    return { error: NextResponse.json({ error: 'Unauthorized' }, { status: 401 }) };
+    return { error: authError('Unauthorized', 401) };
   }
   const isAdmin = await userHasRole(user.id, ADMIN_ROLES);
   if (!isAdmin) {
-    return { error: NextResponse.json({ error: 'Forbidden' }, { status: 403 }) };
+    return { error: authError('Forbidden', 403) };
   }
   return { user: { id: user.id } };
 }
@@ -35,7 +46,7 @@ export async function requireAdmin(): Promise<AdminOk | AdminErr> {
 /** Require any signed-in user (not necessarily an admin) — for the contribute portal. */
 export async function requireUser(): Promise<AdminOk | AdminErr> {
   const user = await getSessionUser();
-  if (!user) return { error: NextResponse.json({ error: 'Please sign in.' }, { status: 401 }) };
+  if (!user) return { error: authError('Please sign in.', 401) };
   return { user: { id: user.id } };
 }
 

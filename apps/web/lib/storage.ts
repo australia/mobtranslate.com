@@ -22,8 +22,9 @@ export function recordingPublicUrl(storagePath: string | null | undefined): stri
 /** Resolve a storage path to an absolute on-disk path, guarding against traversal. */
 export function resolveStoragePath(storagePath: string): string {
   const clean = storagePath.replace(/^\/+/, '');
-  const abs = path.normalize(path.join(STORAGE_ROOT, clean));
-  if (!abs.startsWith(path.normalize(STORAGE_ROOT))) {
+  const root = path.resolve(/*turbopackIgnore: true*/ STORAGE_ROOT);
+  const abs = path.resolve(/*turbopackIgnore: true*/ root, clean);
+  if (abs !== root && !abs.startsWith(`${root}${path.sep}`)) {
     throw new Error('Invalid storage path');
   }
   return abs;

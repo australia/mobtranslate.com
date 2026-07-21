@@ -28,12 +28,23 @@ export async function GET(request: NextRequest) {
   const row = (Array.isArray(res) ? res : res?.rows ?? [])[0];
   if (!row?.storage_path) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
-  // Guard against path traversal: the stored path must resolve under TTS_DIR.
-  const abs = path.resolve(TTS_DIR, row.storage_path);
-  if (!abs.startsWith(path.resolve(TTS_DIR))) {
+  // Guard against traversal before resolving the path under TTS_DIR.
+  const relativePath = path.normalize(row.storage_path);
+  if (
+    path.isAbsolute(relativePath)
+    || relativePath === '..'
+    || relativePath.startsWith(`..${path.sep}`)
+  ) {
     return NextResponse.json({ error: 'Invalid path' }, { status: 400 });
   }
-  const buf = await fs.readFile(abs).catch(() => null);
+  const buf = await fs
+    .readFile(
+      /*turbopackIgnore: true*/ path.join(
+        /*turbopackIgnore: true*/ TTS_DIR,
+        relativePath,
+      ),
+    )
+    .catch(() => null);
   if (!buf) return NextResponse.json({ error: 'Audio file missing' }, { status: 404 });
 
   return new NextResponse(buf as unknown as BodyInit, {

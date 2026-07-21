@@ -9,8 +9,8 @@
 // worker persists across requests. The disk cache survives restarts; only the
 // in-memory queue is lost on restart (jobs simply re-enqueue on next access).
 import { promises as fs } from 'fs'
-import path from 'path'
-import { ensureWordImage, cacheKey, SITE } from './word-image'
+import { ensureWordImage } from './word-image'
+import { cacheKey, cachePath, SITE } from './word-image-cache'
 
 interface Job { lang: string; word: string; meaning: string | null; dir: string; urlPrefix: string }
 
@@ -27,7 +27,7 @@ export async function peekCached(lang: string, word: string, dir: string, urlPre
   const key = cacheKey(lang, word)
   for (const ext of ['jpg', 'png']) {
     try {
-      const st = await fs.stat(path.join(dir, `${key}.${ext}`))
+      const st = await fs.stat(cachePath(dir, `${key}.${ext}`))
       return `${SITE}${urlPrefix}/${key}.${ext}?v=${Math.round(st.mtimeMs)}`
     } catch { /* miss */ }
   }

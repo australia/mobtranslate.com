@@ -36,14 +36,42 @@ async function getWordBySlug(languageCode: string, wordSlug: string) {
   const { words, language } = await getWordsForLanguage({
     language: languageCode,
     search: decodedWord,
-    limit: 1
+    limit: 50
   });
   
-  // Find exact match
-  const exactMatch = words.find(w => 
-    w.word.toLowerCase() === decodedWord.toLowerCase() ||
-    w.normalized_word?.toLowerCase() === decodedWord.toLowerCase()
-  );
+  // Historical Mi'gmaq imports contain duplicate headwords. Prefer the row
+  // with the most attached dictionary content; keep the other rows intact.
+  const orthographicKey = (value: string) => value
+    .normalize('NFKC')
+    .replace(/[\u2018\u2019\u02bc]/g, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+  const requestedOrthography = orthographicKey(decodedWord);
+  const caseExactMatches = words.filter(w => orthographicKey(w.word) === requestedOrthography);
+  const exactMatches = caseExactMatches.length > 0
+    ? caseExactMatches
+    : words.filter(w =>
+        orthographicKey(w.word).toLocaleLowerCase('en-CA') === requestedOrthography.toLocaleLowerCase('en-CA') ||
+        (w.normalized_word
+          ? orthographicKey(w.normalized_word).toLocaleLowerCase('en-CA') === requestedOrthography.toLocaleLowerCase('en-CA')
+          : false)
+      );
+  exactMatches.sort((left, right) => {
+    const childRows = (candidate: typeof left) =>
+      (candidate.definitions?.length ?? 0) +
+      (candidate.definitions?.reduce((sum, definition) => sum + (definition.translations?.length ?? 0), 0) ?? 0) +
+      (candidate.usage_examples?.length ?? 0);
+    const enrichment = (candidate: typeof left) =>
+      [candidate.phonemic, candidate.gloss, candidate.semantic_domain, candidate.verb_class,
+        candidate.dialect, candidate.entry_source, candidate.notes].filter(Boolean).length;
+    return (
+      childRows(right) - childRows(left) ||
+      enrichment(right) - enrichment(left) ||
+      String(right.created_at ?? '').localeCompare(String(left.created_at ?? '')) ||
+      left.id.localeCompare(right.id)
+    );
+  });
+  const exactMatch = exactMatches[0];
   
   if (!exactMatch) {
     return { word: null, language, relatedWords: words.slice(0, 6) };
@@ -125,7 +153,12 @@ export default async function WordDetailPage(
               <h1 className="headword text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.015em] leading-none" lang={language.code}>
                 {word.word}
               </h1>
-              <SpeakButton text={word.word} lang={language.code} size="lg" />
+              <SpeakButton
+                text={word.word}
+                englishText={word.gloss || word.definitions?.[0]?.definition}
+                lang={language.code}
+                size="lg"
+              />
             </div>
             <div className="flex items-center gap-2 flex-wrap">
               {word.word_class && <Badge variant="secondary">{word.word_class.name}</Badge>}
@@ -156,7 +189,12 @@ export default async function WordDetailPage(
                         <h3 className="font-display font-semibold text-lg transition-colors group-hover:text-[var(--lang-accent)]" lang={language.code}>
                           {related.word}
                         </h3>
-                        <SpeakButton text={related.word} lang={language.code} size="sm" />
+                        <SpeakButton
+                          text={related.word}
+                          englishText={related.gloss || related.definitions?.[0]?.definition}
+                          lang={language.code}
+                          size="sm"
+                        />
                       </div>
                       <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
                         {related.definitions?.[0]?.definition || 'No definition available'}
