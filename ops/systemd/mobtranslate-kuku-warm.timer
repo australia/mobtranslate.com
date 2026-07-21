@@ -1,0 +1,11 @@
+[Unit]
+Description=Keep the Kuku Yalanji research-model Space warm every 15 minutes
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=15min
+AccuracySec=1min
+Persistent=false
+
+[Install]
+WantedBy=timers.target

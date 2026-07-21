@@ -1,0 +1,15 @@
+[Unit]
+Description=MobTranslate — keep the Kuku Yalanji research-model Space warm
+Documentation=https://huggingface.co/ajaxdavis/mobtranslate-kuku-yalanji-v24-3
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ajax
+ExecStart=/usr/local/bin/mobtranslate-kuku-warm.sh
+TimeoutStartSec=600
+Nice=19
+CPUSchedulingPolicy=idle
+IOSchedulingClass=idle
+MemoryMax=256M
