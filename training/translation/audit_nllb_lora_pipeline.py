@@ -21,6 +21,7 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-model", default="facebook/nllb-200-distilled-1.3B")
+    parser.add_argument("--base-model-revision", default="")
     parser.add_argument("--merged-model-dir")
     parser.add_argument("--adapter-dir")
     parser.add_argument("--data-file", required=True)
@@ -126,8 +127,10 @@ def matched_lora_modules(model: Any, targets: list[str]) -> dict[str, list[str]]
 
 def load_model_and_tokenizer(args: argparse.Namespace) -> tuple[Any, Any, str]:
     model_source = args.merged_model_dir or args.base_model
-    tokenizer = AutoTokenizer.from_pretrained(model_source, src_lang=args.source_lang, tgt_lang=args.target_lang)
-    model = AutoModelForSeq2SeqLM.from_pretrained(model_source)
+    revision = None if args.merged_model_dir else (args.base_model_revision or None)
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_source, revision=revision, src_lang=args.source_lang, tgt_lang=args.target_lang)
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_source, revision=revision)
     source = "merged" if args.merged_model_dir else "base"
 
     if args.adapter_dir:
@@ -223,6 +226,7 @@ def main() -> None:
         },
         "model_source": model_source,
         "base_model": args.base_model,
+        "base_model_revision": args.base_model_revision or None,
         "merged_model_dir": args.merged_model_dir,
         "adapter_dir": args.adapter_dir,
         "direction": args.direction,

@@ -1,0 +1,26 @@
+FROM docker.io/runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404@sha256:0a360022e8de4375af99430f84e8b38951acc397252163a37ceac7204d01be35
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    MOBTRANSLATE_ASR_MODEL_CARD=omniASR_LLM_7B_ZS \
+    MOBTRANSLATE_ASR_BEAM_SIZE=5 \
+    MOBTRANSLATE_ASR_HOME=/runpod-volume/omnilingual-asr/home
+
+WORKDIR /app
+COPY requirements-serverless.lock ./
+RUN python -c 'import sys; assert sys.version_info[:2] == (3, 12), sys.version' \
+    && python -m venv --system-site-packages /opt/mobtranslate-asr-venv \
+    && /opt/mobtranslate-asr-venv/bin/python -m pip install \
+        --no-cache-dir \
+        --require-hashes \
+        --extra-index-url https://download.pytorch.org/whl/cu128 \
+        --requirement requirements-serverless.lock \
+    && /opt/mobtranslate-asr-venv/bin/python -c \
+        'from importlib.metadata import version; assert version("omnilingual-asr") == "0.1.0"; assert version("runpod") == "1.10.1"; assert version("torch") == "2.8.0+cu128"; assert version("torchaudio") == "2.8.0+cu128"'
+
+ENV PATH="/opt/mobtranslate-asr-venv/bin:${PATH}"
+
+COPY speech_contract.py runpod_handler.py ./
+CMD ["python", "-u", "runpod_handler.py"]

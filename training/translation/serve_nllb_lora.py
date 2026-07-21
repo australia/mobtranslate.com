@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
@@ -62,6 +63,10 @@ def tokenizer_knows_lang_code(tokenizer: Any, lang_code: str) -> bool:
     return tokenizer.convert_tokens_to_ids(lang_code) != tokenizer.unk_token_id
 
 
+class ModelBusyError(RuntimeError):
+    """Raised when another request is already using the shared model."""
+
+
 class TranslationService:
     def __init__(self, args: argparse.Namespace) -> None:
         self.args = args
@@ -77,6 +82,7 @@ class TranslationService:
         self.model.config.forced_bos_token_id = self.target_id
         self.model.to(torch.device(args.device))
         self.model.eval()
+        self.inference_lock = threading.Lock()
 
     @property
     def device(self) -> torch.device:
@@ -87,6 +93,21 @@ class TranslationService:
         text = normalize_text(str(body.get("text", "")))
         if not text:
             raise ValueError("Request text must be non-empty.")
+
+        if not self.inference_lock.acquire(blocking=False):
+            raise ModelBusyError("The translation model is busy. Please try again in a moment.")
+
+        try:
+            return self._translate_locked(body, text, started)
+        finally:
+            self.inference_lock.release()
+
+    def _translate_locked(
+        self,
+        body: dict[str, Any],
+        text: str,
+        started: float,
+    ) -> dict[str, Any]:
 
         source_lang = str(body.get("sourceLang") or self.source_lang)
         requested_target_lang = str(body.get("targetLang") or self.target_lang)
@@ -160,6 +181,8 @@ def make_handler(service: TranslationService):
                 length = int(self.headers.get("content-length", "0"))
                 body = json.loads(self.rfile.read(length).decode("utf-8") or "{}")
                 self.send_json(service.translate(body))
+            except ModelBusyError as exc:
+                self.send_json({"success": False, "error": str(exc)}, status=429)
             except Exception as exc:
                 self.send_json({"success": False, "error": str(exc)}, status=400)
 

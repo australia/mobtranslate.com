@@ -2,7 +2,7 @@
 set -euo pipefail
 
 WORKDIR="${WORKDIR:-/workspace/mobtranslate-training}"
-VENV="${VENV:-/workspace/venvs/mobtranslate-mt}"
+VENV="${VENV:-/opt/mobtranslate-mt-venv}"
 
 mkdir -p "$WORKDIR" "$(dirname "$VENV")"
 cd "$WORKDIR"

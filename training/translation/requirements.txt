@@ -1,6 +1,7 @@
 accelerate>=1.1,<2
 datasets>=3.1,<5
 evaluate>=0.4,<1
+numpy>=1.26,<3
 peft>=0.18,<1
 sacrebleu>=2.4,<3
 sentencepiece>=0.2,<1

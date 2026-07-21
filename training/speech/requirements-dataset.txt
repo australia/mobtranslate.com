@@ -1,0 +1,3 @@
+# Governed Omnilingual CTC parquet builder only. Runtime training dependencies
+# are installed from the pinned upstream Omnilingual ASR checkout.
+pyarrow>=20,<24

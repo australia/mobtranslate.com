@@ -16,9 +16,14 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model-dir", required=True)
+    parser.add_argument("--base-model")
+    parser.add_argument("--adapter-dir")
+    parser.add_argument("--task-token", action="append", default=[])
     parser.add_argument("--data-file", required=True)
     parser.add_argument("--output-file", required=True)
     parser.add_argument("--direction", default="eng-gvn")
+    parser.add_argument("--source-lang", default="eng_Latn")
+    parser.add_argument("--target-lang", default="mic_Latn")
     parser.add_argument("--max-source-length", type=int, default=384)
     parser.add_argument("--max-new-tokens", type=int, default=384)
     parser.add_argument("--batch-size", type=int, default=8)
@@ -27,6 +32,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--repetition-penalty", type=float, default=1.0)
     parser.add_argument("--length-penalty", type=float, default=1.0)
     parser.add_argument("--max-rows", type=int)
+    parser.add_argument("--dtype", choices=("float32", "float16", "bfloat16"), default="bfloat16")
     return parser.parse_args()
 
 
@@ -51,8 +57,28 @@ def normalize_text(text: Any) -> str:
 
 def main() -> None:
     args = parse_args()
-    tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
-    model = AutoModelForSeq2SeqLM.from_pretrained(args.model_dir)
+    if bool(args.base_model) != bool(args.adapter_dir):
+        raise SystemExit("--base-model and --adapter-dir must be supplied together")
+    dtype = {
+        "float32": torch.float32,
+        "float16": torch.float16,
+        "bfloat16": torch.bfloat16,
+    }[args.dtype]
+    if args.adapter_dir:
+        from nllb_peft_artifact import load_compact_nllb_adapter
+
+        tokenizer, model, _task_tokens = load_compact_nllb_adapter(
+            args.base_model,
+            args.adapter_dir,
+            source_lang=args.source_lang,
+            target_lang=args.target_lang,
+            task_tokens=args.task_token,
+            torch_dtype=dtype,
+            local_files_only=True,
+        )
+    else:
+        tokenizer = AutoTokenizer.from_pretrained(args.model_dir)
+        model = AutoModelForSeq2SeqLM.from_pretrained(args.model_dir, torch_dtype=dtype)
     model.generation_config.no_repeat_ngram_size = args.no_repeat_ngram_size
     model.generation_config.repetition_penalty = args.repetition_penalty
     model.generation_config.length_penalty = args.length_penalty
@@ -100,6 +126,8 @@ def main() -> None:
         "no_repeat_ngram_size": args.no_repeat_ngram_size,
         "repetition_penalty": args.repetition_penalty,
         "length_penalty": args.length_penalty,
+        "dtype": args.dtype,
+        "artifact_kind": "compact_peft_adapter" if args.adapter_dir else "merged_model",
     }
     out = {"metrics": metrics, "predictions": predictions}
     Path(args.output_file).write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

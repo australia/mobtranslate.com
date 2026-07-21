@@ -27,6 +27,9 @@ EVAL_STEPS="${EVAL_STEPS:-1280}"
 SAVE_STEPS="${SAVE_STEPS:-1280}"
 LOGGING_STEPS="${LOGGING_STEPS:-256}"
 SEED="${SEED:-42}"
+MAX_TRAIN_SAMPLES="${MAX_TRAIN_SAMPLES:-}"
+MAX_VALIDATION_SAMPLES="${MAX_VALIDATION_SAMPLES:-128}"
+MAX_TEST_SAMPLES="${MAX_TEST_SAMPLES:-}"
 
 TRAIN_FILE="$DATA_ROOT/v8_2048row/train.eng-gvn.jsonl"
 EVAL_TRAIN_FILE="$DATA_ROOT/v8_2048row/eval_train.eng-gvn.jsonl"
@@ -39,6 +42,13 @@ OUT_DIR="$OUT_ROOT/$RUN_ID"
 LOG_FILE="$LOG_ROOT/$RUN_ID.driver.log"
 MONITOR_FILE="$LOG_ROOT/$RUN_ID.resource.csv"
 REPORT_FILE="$REPORT_ROOT/$RUN_ID.md"
+DATASET_MANIFEST="$DATA_ROOT/tagged_multitask_manifest.json"
+if [[ ! -f "$DATASET_MANIFEST" && -f "$DATA_ROOT/retrieval_context_manifest.json" ]]; then
+  DATASET_MANIFEST="$DATA_ROOT/retrieval_context_manifest.json"
+fi
+if [[ ! -f "$DATASET_MANIFEST" && -f "$DATA_ROOT/lexical_hint_manifest.json" ]]; then
+  DATASET_MANIFEST="$DATA_ROOT/lexical_hint_manifest.json"
+fi
 
 mkdir -p "$OUT_DIR" "$LOG_ROOT" "$REPORT_ROOT"
 
@@ -120,7 +130,7 @@ PY
   echo "## Dataset Manifest"
   echo
   echo '```json'
-  cat "$DATA_ROOT/tagged_multitask_manifest.json"
+  cat "$DATASET_MANIFEST"
   echo '```'
   echo
   echo "## Source-Length Preflight"
@@ -148,6 +158,9 @@ PY
   echo "LEARNING_RATE=$LEARNING_RATE"
   echo "MAX_SOURCE_LENGTH=$MAX_SOURCE_LENGTH"
   echo "MAX_TARGET_LENGTH=$MAX_TARGET_LENGTH"
+  echo "MAX_TRAIN_SAMPLES=$MAX_TRAIN_SAMPLES"
+  echo "MAX_VALIDATION_SAMPLES=$MAX_VALIDATION_SAMPLES"
+  echo "MAX_TEST_SAMPLES=$MAX_TEST_SAMPLES"
   echo "LORA_R=$LORA_R"
   echo "LORA_ALPHA=$LORA_ALPHA"
   echo "LORA_DROPOUT=$LORA_DROPOUT"
@@ -164,6 +177,15 @@ fi
 if [[ -n "$MODULES_TO_SAVE" ]]; then
   train_extra_args+=(--modules-to-save "$MODULES_TO_SAVE")
 fi
+if [[ -n "$MAX_TRAIN_SAMPLES" ]]; then
+  train_extra_args+=(--max-train-samples "$MAX_TRAIN_SAMPLES")
+fi
+if [[ -n "$MAX_VALIDATION_SAMPLES" ]]; then
+  train_extra_args+=(--max-validation-samples "$MAX_VALIDATION_SAMPLES")
+fi
+if [[ -n "$MAX_TEST_SAMPLES" ]]; then
+  train_extra_args+=(--max-test-samples "$MAX_TEST_SAMPLES")
+fi
 
 "$PYTHON" train_nllb_lora.py \
   --base-model "$BASE_MODEL" \
@@ -179,7 +201,6 @@ fi
   --gradient-accumulation-steps "$GRADIENT_ACCUMULATION_STEPS" \
   --max-source-length "$MAX_SOURCE_LENGTH" \
   --max-target-length "$MAX_TARGET_LENGTH" \
-  --max-validation-samples 128 \
   --learning-rate "$LEARNING_RATE" \
   --warmup-ratio 0.0 \
   --weight-decay 0.0 \

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Serve the Kuku Yalanji v21.2 research-preview translator over a tiny JSON HTTP API.
+"""Serve a merged or base-plus-PEFT Kuku Yalanji model over a tiny JSON HTTP API.
 
-This is a deliberately small, dependency-light service (stdlib ``http.server`` only,
-same pattern as ``serve_nllb_lora.py``). It loads the merged NLLB-600M+LoRA model
-ONCE at start-up on CPU (fp32) and answers:
+This is a deliberately small service (stdlib ``http.server`` plus the model stack,
+same pattern as ``serve_nllb_lora.py``). It loads one NLLB model ONCE at start-up
+on CPU and answers:
 
     GET  /health           -> {"ok": true, "model": "...", "ready": true, ...}
-    POST /translate {text} -> {"kuku": "...", "ms": <int>, "model": "..."}
+    POST /translate {text, task?} -> {"kuku": "...", "ms": <int>, "model": "..."}
 
 Design constraints (research preview, user-facing, single shared box):
   * Inference is SERIALIZED behind a lock (one generate at a time on CPU).
@@ -18,9 +18,10 @@ Design constraints (research preview, user-facing, single shared box):
     pathological input can never run away.
   * Binds 127.0.0.1 only; holds no secrets.
 
-Inference recipe (frozen for v21.2-claude-balanced-replay, matches the training smoke
-test): tokenizer src_lang=eng_Latn / tgt_lang=gvn_Latn, input text is prefixed with
-``<translate> ``, greedy decode (num_beams=1), forced_bos_token_id = gvn_Latn.
+Inference recipe (validated for v21.2-claude-balanced-replay by the frozen v22
+decoder-transfer experiment): tokenizer src_lang=eng_Latn / tgt_lang=gvn_Latn,
+input text is prefixed with ``<translate> ``, beams=1, no-repeat n-gram=4,
+repetition penalty=1.10, length penalty=1.0, and forced_bos_token_id=gvn_Latn.
 """
 
 from __future__ import annotations
@@ -29,10 +30,12 @@ import argparse
 import ctypes
 import ctypes.util
 import gc
+import hashlib
 import json
 import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
 from typing import Any
 
 import torch
@@ -65,18 +68,33 @@ DEFAULT_MODEL_DIR = (
     "v21.2-claude-balanced-replay-20260711T050900Z/models/"
     "v21.2-claude-balanced-replay-gvn-3epoch-lr2e-5/merged"
 )
-DEFAULT_MODEL_ID = "v21.2-claude-balanced-replay"
+DEFAULT_MODEL_ID = "v21.2-claude-balanced-replay-guarded-20260714"
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--model-dir", default=DEFAULT_MODEL_DIR)
+    parser.add_argument(
+        "--model-dir",
+        default=DEFAULT_MODEL_DIR,
+        help="Standalone merged model, or the exact base model when --adapter-dir is set.",
+    )
+    parser.add_argument(
+        "--adapter-dir",
+        default="",
+        help="Optional PEFT adapter and tokenizer directory loaded over --model-dir.",
+    )
+    parser.add_argument(
+        "--adapter-sha256",
+        default="",
+        help="Optional expected SHA-256 for adapter_model.safetensors; mismatch fails closed.",
+    )
     parser.add_argument("--model-id", default=DEFAULT_MODEL_ID)
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=7955)
     parser.add_argument("--source-lang", default="eng_Latn")
     parser.add_argument("--target-lang", default="gvn_Latn")
     parser.add_argument("--prefix", default="<translate> ")
+    parser.add_argument("--warmup-text", default="The woman went down to the river.")
     # The merged model is ~1.37B params (stored fp16 on disk, 2.7GB). fp32 is the
     # right dtype on this box: this CPU is AVX2-only (no avx512_bf16), so bf16
     # matmul JIT-rebuilds oneDNN primitives per input shape at ~70-95s each — an
@@ -90,7 +108,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-chars", type=int, default=400)
     parser.add_argument("--max-source-length", type=int, default=200)
     parser.add_argument("--max-new-tokens", type=int, default=208)
+    parser.add_argument("--lexeme-max-new-tokens", type=int, default=32)
     parser.add_argument("--num-beams", type=int, default=1)
+    parser.add_argument("--no-repeat-ngram-size", type=int, default=4)
+    parser.add_argument("--repetition-penalty", type=float, default=1.1)
+    parser.add_argument("--length-penalty", type=float, default=1.0)
     # one request runs; this many may wait behind it before we shed load with 429.
     parser.add_argument("--max-waiting", type=int, default=8)
     # wall-clock guard for a single generate() call.
@@ -101,6 +123,14 @@ def parse_args() -> argparse.Namespace:
 def normalize_text(text: str) -> str:
     """Strip and collapse internal whitespace runs into single spaces."""
     return " ".join(text.split())
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as reader:
+        for chunk in iter(lambda: reader.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 class InputTooLargeError(ValueError):
@@ -121,12 +151,45 @@ class TranslationService:
             "float32": torch.float32,
             "float16": torch.float16,
         }[args.dtype]
+        tokenizer_dir = args.adapter_dir or args.model_dir
         self.tokenizer = AutoTokenizer.from_pretrained(
-            args.model_dir, src_lang=args.source_lang, tgt_lang=args.target_lang
+            tokenizer_dir, src_lang=args.source_lang, tgt_lang=args.target_lang
         )
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(
+        base_model = AutoModelForSeq2SeqLM.from_pretrained(
             args.model_dir, torch_dtype=dtype
         )
+        self.adapter_sha256 = ""
+        if args.adapter_dir:
+            adapter_file = Path(args.adapter_dir) / "adapter_model.safetensors"
+            if not adapter_file.is_file():
+                raise FileNotFoundError(f"Missing PEFT weights: {adapter_file}")
+            self.adapter_sha256 = sha256_file(adapter_file)
+            if args.adapter_sha256 and self.adapter_sha256 != args.adapter_sha256.lower():
+                raise RuntimeError(
+                    "Adapter SHA-256 mismatch: "
+                    f"expected {args.adapter_sha256.lower()}, observed {self.adapter_sha256}"
+                )
+
+            # The adapter tokenizer may add task tokens. The base must have the
+            # same vocabulary shape before PEFT restores selective token rows.
+            if base_model.get_input_embeddings().num_embeddings != len(self.tokenizer):
+                base_model.resize_token_embeddings(len(self.tokenizer))
+            try:
+                from peft import PeftModel
+            except ImportError as exc:  # pragma: no cover - deployment preflight
+                raise RuntimeError("PEFT is required when --adapter-dir is set") from exc
+            self.model = PeftModel.from_pretrained(
+                base_model,
+                args.adapter_dir,
+                is_trainable=False,
+                low_cpu_mem_usage=True,
+            )
+            # Saved selective-token rows may retain their training dtype even
+            # when the base was loaded as fp32. Normalize the complete runtime
+            # after PEFT restoration or generation can fail in lm_head matmul.
+            self.model.to(dtype=dtype)
+        else:
+            self.model = base_model
         self.model.eval()
         gc.collect()
         _malloc_trim()
@@ -146,17 +209,18 @@ class TranslationService:
     def _warmup(self) -> None:
         started = time.time()
         try:
-            self._run("The woman went down to the river.")
+            self._run(self.args.warmup_text, task="translate")
             print(
                 json.dumps(
                     {"event": "warmup_done", "ms": round((time.time() - started) * 1000)}
                 ),
                 flush=True,
             )
-        except Exception as exc:  # pragma: no cover - warmup must not block startup
+        except Exception as exc:  # pragma: no cover - integration failure path
             print(
                 json.dumps({"event": "warmup_failed", "error": str(exc)}), flush=True
             )
+            raise RuntimeError("Model warmup failed; refusing to become ready") from exc
 
     # ---- request handling -------------------------------------------------
     def translate(self, body: dict[str, Any]) -> dict[str, Any]:
@@ -170,6 +234,9 @@ class TranslationService:
         text = normalize_text(raw)
         if not text:
             raise ValueError("Please enter an English sentence to translate.")
+        task = body.get("task", "translate")
+        if task not in ("translate", "lexeme"):
+            raise ValueError("'task' must be either 'translate' or 'lexeme'.")
 
         # Shed load early if the queue is already full.
         if not self._gate.acquire(blocking=False):
@@ -178,13 +245,13 @@ class TranslationService:
             )
         try:
             with self._inference_lock:
-                return self._run(text)
+                return self._run(text, task=task)
         finally:
             self._gate.release()
 
-    def _run(self, text: str) -> dict[str, Any]:
+    def _run(self, text: str, *, task: str) -> dict[str, Any]:
         started = time.time()
-        source = self.args.prefix + text
+        source = ("<lexeme> " if task == "lexeme" else self.args.prefix) + text
         inputs = self.tokenizer(
             [source],
             max_length=self.args.max_source_length,
@@ -197,10 +264,23 @@ class TranslationService:
                     **inputs,
                     forced_bos_token_id=self.target_id,
                     num_beams=self.args.num_beams,
-                    max_new_tokens=self.args.max_new_tokens,
+                    max_new_tokens=(
+                        self.args.lexeme_max_new_tokens
+                        if task == "lexeme"
+                        else self.args.max_new_tokens
+                    ),
+                    no_repeat_ngram_size=(
+                        0 if task == "lexeme" else self.args.no_repeat_ngram_size
+                    ),
+                    repetition_penalty=(
+                        1.0 if task == "lexeme" else self.args.repetition_penalty
+                    ),
+                    length_penalty=(
+                        1.0 if task == "lexeme" else self.args.length_penalty
+                    ),
                     max_time=self.args.max_time,
                 )
-            kuku = normalize_text(
+            translation = normalize_text(
                 self.tokenizer.batch_decode(generated, skip_special_tokens=True)[0]
             )
         finally:
@@ -210,9 +290,13 @@ class TranslationService:
             gc.collect()
             _malloc_trim()
         return {
-            "kuku": kuku,
+            "translation": translation,
+            "kuku": translation,
             "ms": round((time.time() - started) * 1000),
             "model": self.args.model_id,
+            "task": task,
+            "sourceLang": self.args.source_lang,
+            "targetLang": self.args.target_lang,
         }
 
     def health(self) -> dict[str, Any]:
@@ -223,6 +307,26 @@ class TranslationService:
             "sourceLang": self.args.source_lang,
             "targetLang": self.args.target_lang,
             "device": "cpu",
+            "runtime": "base_plus_adapter" if self.args.adapter_dir else "merged",
+            "adapterSha256": self.adapter_sha256 or None,
+            "tasks": {
+                "lexeme": {
+                    "inputPrefix": "<lexeme> ",
+                    "maxNewTokens": self.args.lexeme_max_new_tokens,
+                    "numBeams": self.args.num_beams,
+                    "noRepeatNgramSize": 0,
+                    "repetitionPenalty": 1.0,
+                    "lengthPenalty": 1.0,
+                },
+                "translate": {
+                    "inputPrefix": self.args.prefix,
+                    "maxNewTokens": self.args.max_new_tokens,
+                    "numBeams": self.args.num_beams,
+                    "noRepeatNgramSize": self.args.no_repeat_ngram_size,
+                    "repetitionPenalty": self.args.repetition_penalty,
+                    "lengthPenalty": self.args.length_penalty,
+                },
+            },
         }
 
 

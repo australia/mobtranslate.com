@@ -1,0 +1,4 @@
+omnilingual-asr==0.1.0
+runpod==1.10.1
+torch==2.8.0
+torchaudio==2.8.0

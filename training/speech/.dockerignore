@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.wav
+*.audio
+*.json
+asr.env
