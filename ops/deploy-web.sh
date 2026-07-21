@@ -10,6 +10,8 @@ RELEASES="$RELEASE_ROOT/releases"
 CURRENT="$RELEASE_ROOT/current"
 PREVIOUS="$RELEASE_ROOT/previous"
 SERVICE="mobtranslate-web.service"
+SERVICE_USER="${MOBTRANSLATE_SERVICE_USER:-ajax}"
+SERVICE_GROUP="${MOBTRANSLATE_SERVICE_GROUP:-ajax}"
 UNIT_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-web.service"
 UNIT_TARGET="/etc/systemd/system/mobtranslate-web.service"
 PRUNE_SERVICE_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-operational-prune.service"
@@ -242,6 +244,15 @@ CANDIDATE_PID=""
 if ! "$RELEASE_VERIFY_SCRIPT" "$STAGING" \
   > "$STAGING/metadata/runtime-integrity-after-candidate.txt"; then
   echo "Candidate smoke test mutated its immutable runtime." >&2
+  exit 1
+fi
+
+# The deploy may be launched through sudo, but the production service is
+# intentionally unprivileged. Make the release root traversable by that account
+# and prove it can read the entry point before changing the live symlink.
+sudo chown "$SERVICE_USER:$SERVICE_GROUP" "$STAGING"
+if ! sudo -u "$SERVICE_USER" test -r "$APP_RUNTIME/server.js"; then
+  echo "Candidate runtime is not readable by service user $SERVICE_USER." >&2
   exit 1
 fi
 
