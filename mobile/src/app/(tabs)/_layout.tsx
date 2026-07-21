@@ -2,14 +2,16 @@ import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { C, F } from '../../lib/theme';
+import { useAccent } from '../../lib/accent';
 
 export default function TabsLayout() {
   const insets = useSafeAreaInsets();
+  const accent = useAccent();
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: C.forest,
+        tabBarActiveTintColor: accent.accent,
         tabBarInactiveTintColor: C.faint,
         // Add the system navigation-bar inset so the bar clears the home gesture pill.
         tabBarStyle: {

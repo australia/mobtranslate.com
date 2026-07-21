@@ -5,10 +5,13 @@ import {
 import { SafeAreaView, type Edge } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming, withSpring } from 'react-native-reanimated';
 import { createAudioPlayer, type AudioPlayer } from 'expo-audio';
 import { C, F, S, radius, shadow, LANG_ART } from '../lib/theme';
 import { ttsUrl, type Language } from '../lib/api';
 import { langMeta } from '../lib/langMeta';
+import { useAccent } from '../lib/accent';
+import { Ripple, Waveform } from './audioviz';
 import { BrandLockup } from './brand';
 
 const tap = () => { Haptics.selectionAsync().catch(() => {}); };
@@ -166,28 +169,62 @@ export function Button({
   );
 }
 
+/** Tap to hear a word: the button breathes, soft Country-tinted rings bloom, and
+ *  a live waveform runs while it plays (#3). Uses real playback status, not a timer. */
 export function SpeakerButton({ code, text, size = 'md' }: { code: string; text: string; size?: 'sm' | 'md' | 'lg' }) {
   const ref = useRef<AudioPlayer | null>(null);
-  const [busy, setBusy] = useState(false);
+  const subRef = useRef<{ remove: () => void } | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const accent = useAccent();
   const box = size === 'lg' ? 52 : size === 'sm' ? 36 : 44;
   const icon = size === 'lg' ? 24 : size === 'sm' ? 17 : 20;
+
+  const breathe = useSharedValue(1);
+  useEffect(() => {
+    if (playing) {
+      breathe.value = withRepeat(withTiming(1.08, { duration: 620, easing: Easing.inOut(Easing.sin) }), -1, true);
+    } else {
+      breathe.value = withSpring(1, { damping: 14, stiffness: 220 });
+    }
+  }, [playing]);
+  const breatheStyle = useAnimatedStyle(() => ({ transform: [{ scale: breathe.value }] }));
+
+  const cleanup = useCallback(() => {
+    subRef.current?.remove(); subRef.current = null;
+    ref.current?.remove(); ref.current = null;
+  }, []);
+
   const play = useCallback(() => {
     if (!text?.trim() || !code) return;
     tap();
+    cleanup();
     try {
-      ref.current?.remove();
       const p = createAudioPlayer({ uri: ttsUrl(code, text) });
-      ref.current = p; setBusy(true); p.play();
-      setTimeout(() => setBusy(false), 5000);
-    } catch { setBusy(false); }
-  }, [code, text]);
-  useEffect(() => () => { ref.current?.remove(); }, []);
+      ref.current = p;
+      setLoading(true);
+      subRef.current = p.addListener('playbackStatusUpdate', (st) => {
+        if (st.isLoaded) setLoading((l) => (st.playing ? false : l));
+        setPlaying(st.playing);
+        if (st.didJustFinish) { setPlaying(false); setLoading(false); }
+      });
+      p.play();
+    } catch { setLoading(false); setPlaying(false); }
+  }, [code, text, cleanup]);
+
+  useEffect(() => () => cleanup(), [cleanup]);
+
   return (
-    <Pressable onPress={play} hitSlop={8}
-      style={({ pressed }) => [styles.speaker, { width: box, height: box, transform: [{ scale: pressed ? 0.9 : 1 }] }]}
-      accessibilityLabel="Hear it">
-      {busy ? <ActivityIndicator color={C.clay} size="small" /> : <Ionicons name="volume-medium" size={icon} color={C.clay} />}
-    </Pressable>
+    <View style={{ width: box, height: box, alignItems: 'center', justifyContent: 'center' }}>
+      <Ripple active={playing} color={accent.accent} size={box + 16} rings={2} />
+      <Pressable onPress={play} hitSlop={8} accessibilityLabel="Hear it">
+        <Animated.View style={[styles.speaker, { width: box, height: box }, playing && { backgroundColor: accent.accentSoft }, breatheStyle]}>
+          {loading ? <ActivityIndicator color={C.clay} size="small" />
+            : playing ? <Waveform active color={accent.accentDeep} bars={4} height={icon} width={2.5} />
+            : <Ionicons name="volume-medium" size={icon} color={C.clay} />}
+        </Animated.View>
+      </Pressable>
+    </View>
   );
 }
 

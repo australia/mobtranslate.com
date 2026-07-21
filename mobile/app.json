@@ -18,7 +18,7 @@
       "package": "com.mobtranslate.app",
       "versionCode": 9,
       "adaptiveIcon": {
-        "backgroundColor": "#324E3B",
+        "backgroundColor": "#FFFFFF",
         "foregroundImage": "./assets/images/adaptive-foreground.png"
       },
       "permissions": [

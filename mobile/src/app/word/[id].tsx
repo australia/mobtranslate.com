@@ -3,8 +3,11 @@ import { ActivityIndicator, Image, Modal, Pressable, ScrollView, StyleSheet, Tex
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
 import { createAudioPlayer, type AudioPlayer } from 'expo-audio';
 import { Button, Card, Chip, SpeakerButton } from '../../components/kit';
+import { Skeleton, SkeletonLines } from '../../components/Skeleton';
+import { AnimatedMark } from '../../components/AnimatedMark';
 import { CorrectionModal } from '../../components/CorrectionModal';
 import { RecorderModal } from '../../components/RecorderModal';
 import {
@@ -20,12 +23,14 @@ type RecTarget =
   | { kind: 'example'; id: string; label: string; sub?: string | null };
 
 export default function WordScreen() {
-  const { id, code, word } = useLocalSearchParams<{ id: string; code?: string; word?: string }>();
+  const { id, code, word, thumb } = useLocalSearchParams<{ id: string; code?: string; word?: string; thumb?: string }>();
   const { user } = useAuth();
   const [detail, setDetail] = useState<WordDetail | null>(null);
   const [loading, setLoading] = useState(true);
-  const [img, setImg] = useState<string | null>(null);
-  const [imgLoading, setImgLoading] = useState(true);
+  // Land showing the card's own thumbnail (visual continuity from the list),
+  // then upgrade to the full artwork when it resolves (#5).
+  const [img, setImg] = useState<string | null>(thumb ? String(thumb) : null);
+  const [imgLoading, setImgLoading] = useState(!thumb);
   const [correct, setCorrect] = useState(false);
   const [fullImage, setFullImage] = useState(false);
 
@@ -90,21 +95,31 @@ export default function WordScreen() {
       <ScrollView contentContainerStyle={{ paddingBottom: 48 }} showsVerticalScrollIndicator={false}>
         {/* Artwork hero */}
         <Pressable style={styles.hero} onPress={() => img && setFullImage(true)} disabled={!img}>
-          {img ? <Image source={{ uri: img }} style={StyleSheet.absoluteFill as any} resizeMode="cover" /> : null}
+          {img ? <Animated.Image key={img} entering={FadeIn.duration(450)} source={{ uri: img }} style={StyleSheet.absoluteFill as any} resizeMode="cover" /> : null}
           <LinearGradient colors={img ? ['rgba(34,56,42,0.05)', 'rgba(34,56,42,0.72)'] : [C.sageSoft, C.sageSoft]} style={StyleSheet.absoluteFill} />
-          {imgLoading && !img && <ActivityIndicator color={C.forest} style={{ position: 'absolute', top: 24, right: 24 }} />}
+          {imgLoading && !img && (
+            <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center' }}>
+              <AnimatedMark size={64} mode="loop" />
+            </View>
+          )}
           {!!img && <View style={styles.expandHint}><Ionicons name="expand" size={16} color={C.white} /></View>}
           <View style={styles.heroBody}>
-            <View style={{ flex: 1 }}>
+            <Animated.View entering={FadeInDown.duration(400).springify().damping(20)} style={{ flex: 1 }}>
               <Text style={[styles.headword, { color: img ? C.white : C.forestDeep }]} selectable>{headword}</Text>
               {!!detail?.pronunciation && <Text style={[styles.pron, { color: img ? 'rgba(255,255,255,0.85)' : C.muted }]}>{detail.pronunciation}</Text>}
-            </View>
+            </Animated.View>
             {!!langCode && <SpeakerButton code={langCode} text={headword} size="lg" />}
           </View>
         </Pressable>
 
         <View style={{ padding: 20, gap: 16 }}>
-          {loading && <ActivityIndicator color={C.forest} size="large" style={{ marginTop: 12 }} />}
+          {loading && (
+            <View style={{ gap: 16 }}>
+              <Skeleton width={90} height={30} radius={radius.pill} />
+              <Card><Skeleton width="35%" height={12} style={{ marginBottom: 12 }} /><SkeletonLines count={3} /></Card>
+              <Card><Skeleton width="45%" height={12} style={{ marginBottom: 12 }} /><SkeletonLines count={2} /></Card>
+            </View>
+          )}
 
           {!loading && detail && (
             <>

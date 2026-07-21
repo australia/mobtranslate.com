@@ -1,19 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import Animated, { FadeInDown } from 'react-native-reanimated';
+import { createAudioPlayer, type AudioPlayer } from 'expo-audio';
 import { LanguageSelector, SpeakerButton } from '../../components/kit';
+import { Skeleton } from '../../components/Skeleton';
 import { InteractiveMap, type MapMarker, type InteractiveMapHandle } from '../../components/InteractiveMap';
 import { LocationPickerModal } from '../../components/LocationPickerModal';
-import { getPlaces, suggestPlaceLocation, type Place } from '../../lib/api';
+import { getPlaces, suggestPlaceLocation, ttsUrl, type Place } from '../../lib/api';
 import { useLang } from '../../lib/langContext';
+import { useAccent } from '../../lib/accent';
 import { langMeta } from '../../lib/langMeta';
 import { TILE_KEY, LANG_POINTS, TOWNS } from '../../lib/mapConfig';
 import { C, F, S, radius, shadow, LANG_ART } from '../../lib/theme';
 
 export default function MapScreen() {
   const { code, setCode, languages, lang } = useLang();
+  const accent = useAccent();
   const [places, setPlaces] = useState<Place[]>([]);
   const [withCoords, setWithCoords] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -21,8 +26,42 @@ export default function MapScreen() {
   const [active, setActive] = useState<string | null>(null);
   const [pinTarget, setPinTarget] = useState<Place | null>(null);
   const [toast, setToast] = useState<string | null>(null);
+  const [walking, setWalking] = useState(false);
   const mapRef = useRef<InteractiveMapHandle>(null);
   const listRef = useRef<FlatList<Place>>(null);
+  const walkPlayer = useRef<AudioPlayer | null>(null);
+
+  const placed = places.filter((p) => p.longitude != null && p.latitude != null);
+
+  function playWord(word: string) {
+    try { walkPlayer.current?.remove(); const p = createAudioPlayer({ uri: ttsUrl(code, word) }); walkPlayer.current = p; p.play(); } catch {}
+  }
+
+  // "Walk Country": step gently from place to place, flying, pulsing the pin,
+  // scrolling the card into view, and speaking the name (#8).
+  useEffect(() => {
+    if (!walking) return;
+    if (placed.length < 2) { setWalking(false); return; }
+    let i = 0, cancelled = false;
+    let timer: ReturnType<typeof setTimeout>;
+    const step = () => {
+      if (cancelled) return;
+      if (i >= placed.length) { setWalking(false); return; }
+      const p = placed[i];
+      setActive(p.id);
+      mapRef.current?.flyTo(p.longitude!, p.latitude!, 11);
+      mapRef.current?.pulse(p.word);
+      const idx = places.findIndex((x) => x.id === p.id);
+      if (idx >= 0) { try { listRef.current?.scrollToIndex({ index: idx, viewPosition: 0.35, animated: true }); } catch {} }
+      playWord(p.word);
+      i += 1;
+      timer = setTimeout(step, 5000);
+    };
+    timer = setTimeout(step, 450);
+    return () => { cancelled = true; clearTimeout(timer); mapRef.current?.pulse(null); walkPlayer.current?.remove(); };
+  }, [walking]);
+
+  useEffect(() => () => { walkPlayer.current?.remove(); }, []);
 
   function focusFromMap(label: string) {
     const idx = places.findIndex((p) => p.word === label);
@@ -32,7 +71,7 @@ export default function MapScreen() {
   }
 
   useEffect(() => {
-    let on = true; setLoading(true); setPlaces([]); setActive(null);
+    let on = true; setLoading(true); setPlaces([]); setActive(null); setWalking(false);
     getPlaces(code).then((r) => { if (on) { setPlaces(r.places); setWithCoords(r.withCoords); setLoading(false); } });
     return () => { on = false; };
   }, [code]);
@@ -73,22 +112,29 @@ export default function MapScreen() {
           <Text style={styles.title}>Country</Text>
           <Text style={styles.sub}>Where {langName} is spoken</Text>
         </View>
-        <Pressable style={styles.langChip} onPress={() => setPicker(true)}>
-          <Text style={styles.langChipText} numberOfLines={1}>{langName}</Text>
-          <Ionicons name="chevron-down" size={14} color={C.forest} />
+        <Pressable style={[styles.langChip, { backgroundColor: accent.accentSoft }]} onPress={() => setPicker(true)}>
+          <Text style={[styles.langChipText, { color: accent.accentDeep }]} numberOfLines={1}>{langName}</Text>
+          <Ionicons name="chevron-down" size={14} color={accent.accent} />
         </Pressable>
       </View>
 
       {/* ever-present map */}
       <View style={styles.mapBox}>
         {TILE_KEY ? (
-          <InteractiveMap ref={mapRef} key={code} markers={markers} onSelect={focusFromMap}
+          <InteractiveMap ref={mapRef} key={code} markers={markers} onSelect={focusFromMap} accent={accent.accent}
             center={point ? [point.lng, point.lat] : undefined} zoom={point ? 6.5 : 3} fit={markers.length > 1} />
         ) : (
           <>
             {art?.map && <Image source={art.map} style={StyleSheet.absoluteFill as any} resizeMode="cover" />}
             <LinearGradient colors={['rgba(34,56,42,0)', 'rgba(34,56,42,0.5)']} style={StyleSheet.absoluteFill} />
           </>
+        )}
+        {placed.length >= 2 && (
+          <Pressable onPress={() => setWalking((w) => !w)}
+            style={({ pressed }) => [styles.walkBtn, { backgroundColor: walking ? C.danger : accent.accent }, pressed && { transform: [{ scale: 0.97 }] }]}>
+            <Ionicons name={walking ? 'stop' : 'walk'} size={17} color={C.white} />
+            <Text style={styles.walkText}>{walking ? 'Stop walk' : 'Walk Country'}</Text>
+          </Pressable>
         )}
       </View>
 
@@ -98,36 +144,51 @@ export default function MapScreen() {
         style={{ flex: 1 }}
         data={places}
         keyExtractor={(p) => p.id}
+        refreshControl={
+          <RefreshControl refreshing={loading && places.length > 0} tintColor={accent.accent} colors={[accent.accent]}
+            onRefresh={() => { setWalking(false); setPlaces([]); getPlaces(code).then((r) => { setPlaces(r.places); setWithCoords(r.withCoords); }); }} />
+        }
         onScrollToIndexFailed={({ index }) => { setTimeout(() => { try { listRef.current?.scrollToIndex({ index, animated: true, viewPosition: 0.3 }); } catch {} }, 300); }}
         contentContainerStyle={{ paddingHorizontal: 20, paddingTop: 14, paddingBottom: 36, gap: 10 }}
         ListHeaderComponent={
           <View style={{ marginBottom: 6 }}>
             <Text style={styles.region}>{meta.region || langName}</Text>
             <Text style={styles.section}>PLACE NAMES{places.length ? ` · ${places.length}` : ''}{withCoords ? `  ·  ${withCoords} on map` : ''}</Text>
-            {loading && <ActivityIndicator color={C.forest} style={{ marginTop: 14 }} />}
+            {loading && (
+              <View style={{ gap: 10, marginTop: 14 }}>
+                {[0, 1, 2, 3].map((i) => (
+                  <View key={i} style={[styles.row, { gap: 12 }]}>
+                    <Skeleton width={30} height={30} radius={radius.pill} />
+                    <View style={{ flex: 1, gap: 8 }}><Skeleton width="50%" height={18} /><Skeleton width="80%" height={12} /></View>
+                  </View>
+                ))}
+              </View>
+            )}
             {!loading && places.length === 0 && <Text style={styles.empty}>No place names recorded for {langName} yet.</Text>}
           </View>
         }
-        renderItem={({ item: p }) => {
+        renderItem={({ item: p, index }) => {
           const hasCoords = p.longitude != null && p.latitude != null;
           const on = active === p.id;
           return (
-            <Pressable onPress={() => tapPlace(p)}
-              style={({ pressed }) => [styles.row, on && { borderColor: C.sage, borderWidth: 2 }, pressed && { transform: [{ scale: 0.99 }] }]}>
-              <View style={[styles.pinDot, !hasCoords && { backgroundColor: C.hair }]}>
-                <Ionicons name={hasCoords ? 'location' : 'help'} size={14} color={hasCoords ? C.clay : C.faint} />
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={styles.placeName}>{p.word}</Text>
-                {!!p.meaning && <Text style={styles.placeMeaning} numberOfLines={2}>{p.meaning}</Text>}
-                {!hasCoords && <Text style={styles.unplaced}>Not on the map yet · suggest where it is</Text>}
-              </View>
-              <SpeakerButton code={code} text={p.word} size="sm" />
-              <Pressable onPress={() => setPinTarget(p)} hitSlop={8}
-                style={[styles.suggestBtn, !hasCoords && { backgroundColor: C.claySoft }]}>
-                <Ionicons name={hasCoords ? 'create-outline' : 'add'} size={18} color={C.clay} />
+            <Animated.View entering={FadeInDown.delay(Math.min(index, 8) * 45).springify().damping(20).mass(0.7)}>
+              <Pressable onPress={() => tapPlace(p)}
+                style={({ pressed }) => [styles.row, on && { borderColor: accent.accent, borderWidth: 2 }, pressed && { transform: [{ scale: 0.99 }] }]}>
+                <View style={[styles.pinDot, !hasCoords && { backgroundColor: C.hair }]}>
+                  <Ionicons name={hasCoords ? 'location' : 'help'} size={14} color={hasCoords ? C.clay : C.faint} />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.placeName}>{p.word}</Text>
+                  {!!p.meaning && <Text style={styles.placeMeaning} numberOfLines={2}>{p.meaning}</Text>}
+                  {!hasCoords && <Text style={styles.unplaced}>Not on the map yet · suggest where it is</Text>}
+                </View>
+                <SpeakerButton code={code} text={p.word} size="sm" />
+                <Pressable onPress={() => setPinTarget(p)} hitSlop={8}
+                  style={[styles.suggestBtn, !hasCoords && { backgroundColor: C.claySoft }]}>
+                  <Ionicons name={hasCoords ? 'create-outline' : 'add'} size={18} color={C.clay} />
+                </Pressable>
               </Pressable>
-            </Pressable>
+            </Animated.View>
           );
         }}
         ListFooterComponent={
@@ -166,6 +227,8 @@ const styles = StyleSheet.create({
   langChipText: { fontFamily: F.semibold, fontSize: S.label, color: C.forest },
 
   mapBox: { height: 320, marginHorizontal: 20, borderRadius: radius.lg, overflow: 'hidden', backgroundColor: C.sageSoft, ...shadow },
+  walkBtn: { position: 'absolute', bottom: 12, alignSelf: 'center', left: '50%', marginLeft: -74, width: 148, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 7, height: 42, borderRadius: radius.pill, ...shadow },
+  walkText: { fontFamily: F.bold, fontSize: S.small + 1, color: C.white },
 
   region: { fontFamily: F.display, fontSize: S.title, color: C.ink },
   section: { fontFamily: F.bold, fontSize: S.eyebrow, letterSpacing: 1.5, color: C.sage, marginTop: 4 },

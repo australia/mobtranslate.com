@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ActivityIndicator, Linking, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import Animated, { FadeIn } from 'react-native-reanimated';
 import { Button, Card, Screen, ScreenTitle } from '../../components/kit';
+import { ContributionWeave } from '../../components/ContributionWeave';
+import { getVoiceTotals, type VoiceTotals } from '../../lib/api';
 import { useAuth } from '../../lib/auth';
+import { useAccent } from '../../lib/accent';
 import { C, F, S, radius } from '../../lib/theme';
 
 const PRIVACY_URL = 'https://mobtranslate.com/privacy';
@@ -11,6 +15,15 @@ const DELETION_URL = 'https://mobtranslate.com/account-deletion';
 
 function openExternal(url: string) {
   Linking.openURL(url).catch(() => {});
+}
+
+function Thread({ n, label, accent }: { n: number; label: string; accent: string }) {
+  return (
+    <View style={styles.thread}>
+      <Text style={[styles.threadN, { color: accent }]}>{n}</Text>
+      <Text style={styles.threadL}>{label}</Text>
+    </View>
+  );
 }
 
 function LinkRow({ icon, label, sub, onPress }: { icon: keyof typeof Ionicons.glyphMap; label: string; sub?: string; onPress: () => void }) {
@@ -28,13 +41,22 @@ function LinkRow({ icon, label, sub, onPress }: { icon: keyof typeof Ionicons.gl
 
 export default function AccountScreen() {
   const { user, loading, signIn, signUp, signOut } = useAuth();
+  const accent = useAccent();
   const router = useRouter();
+  const [totals, setTotals] = useState<VoiceTotals | null>(null);
   const [mode, setMode] = useState<'in' | 'up'>('in');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!user) { setTotals(null); return; }
+    let on = true;
+    getVoiceTotals().then((t) => { if (on) setTotals(t); }).catch(() => {});
+    return () => { on = false; };
+  }, [user]);
 
   if (loading) return <Screen><ScreenTitle title="Your account" /><ActivityIndicator color={C.forest} size="large" style={{ marginTop: 20 }} /></Screen>;
 
@@ -44,13 +66,29 @@ export default function AccountScreen() {
         <ScreenTitle title="Your account" />
         <Card>
           <View style={styles.userRow}>
-            <View style={styles.avatar}><Ionicons name="person" size={26} color={C.forest} /></View>
+            <View style={[styles.avatar, { backgroundColor: accent.accentSoft }]}><Ionicons name="person" size={26} color={accent.accent} /></View>
             <View style={{ flex: 1 }}>
               <Text style={styles.name}>{user.name || 'Signed in'}</Text>
               <Text style={styles.email}>{user.email}</Text>
             </View>
           </View>
         </Card>
+
+        {/* Contribution, visualised — a woven river that grows as you record (#9) */}
+        <Animated.View entering={FadeIn.duration(400)}>
+          <ContributionWeave
+            progress={totals ? 1 - Math.exp(-((totals.words + totals.sentences)) / 12) : 0}
+            accent={accent}
+          />
+          {!!totals && (totals.words + totals.sentences) > 0 && (
+            <View style={styles.threads}>
+              <Thread label={totals.words === 1 ? 'word' : 'words'} n={totals.words} accent={accent.accent} />
+              <Thread label={totals.sentences === 1 ? 'sentence' : 'sentences'} n={totals.sentences} accent={accent.accent} />
+              <Thread label={totals.minutes === 1 ? 'minute' : 'minutes'} n={totals.minutes} accent={accent.accent} />
+            </View>
+          )}
+        </Animated.View>
+
         <Card padded={false} style={{ overflow: 'hidden' }}>
           <LinkRow icon="mic-outline" label="Record your voice" sub="Add words and sentences" onPress={() => router.push('/record')} />
           <View style={styles.sep} />
@@ -113,4 +151,8 @@ const styles = StyleSheet.create({
   linkLabel: { fontFamily: F.semibold, fontSize: S.body, color: C.ink },
   linkSub: { fontFamily: F.body, fontSize: S.small, color: C.muted, marginTop: 1 },
   sep: { height: 1, backgroundColor: C.hair, marginLeft: 72 },
+  threads: { flexDirection: 'row', justifyContent: 'space-around', marginTop: 12 },
+  thread: { alignItems: 'center' },
+  threadN: { fontFamily: F.displayBold, fontSize: S.title },
+  threadL: { fontFamily: F.medium, fontSize: S.small, color: C.muted, marginTop: 1 },
 });

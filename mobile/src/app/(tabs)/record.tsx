@@ -2,15 +2,22 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import Animated, { FadeIn, FadeInDown, useSharedValue, withTiming } from 'react-native-reanimated';
 import {
-  AudioModule, RecordingPresets, createAudioPlayer, setAudioModeAsync, useAudioRecorder, type AudioPlayer,
+  AudioModule, RecordingPresets, createAudioPlayer, setAudioModeAsync, useAudioRecorder, useAudioRecorderState, type AudioPlayer,
 } from 'expo-audio';
+import * as Haptics from 'expo-haptics';
 import { Button, Card, Screen, ScreenTitle } from '../../components/kit';
+import { RecordOrb, ReviewBar } from '../../components/RecordPad';
+import { RecordDeck } from '../../components/RecordDeck';
+import { Skeleton } from '../../components/Skeleton';
+import { SkipSheet } from '../../components/SkipSheet';
+import { useAccent } from '../../lib/accent';
 import {
   addSentenceTarget, browseWords, getVoiceTotals, getWorklist, selfEnroll,
   getWordRecordings, getExampleRecordings, uploadWordRecording, uploadExampleRecording,
-  getStudioAccess,
-  type VoiceTotals, type WorklistItem, type ExistingRecording,
+  getStudioAccess, skipRecording,
+  type VoiceTotals, type WorklistItem, type ExistingRecording, type SkipReason,
 } from '../../lib/api';
 import { useAuth } from '../../lib/auth';
 import { useLang } from '../../lib/langContext';
@@ -32,8 +39,11 @@ export default function RecordScreen() {
   const [totals, setTotals] = useState<VoiceTotals | null>(null);
   const [loading, setLoading] = useState(false);
   const [active, setActive] = useState<{ item: WorklistItem; kind: Kind } | null>(null);
+  const [skipItem, setSkipItem] = useState<{ item: WorklistItem; kind: Kind } | null>(null);
+  const [savedToday, setSavedToday] = useState(0);
   const [addOpen, setAddOpen] = useState(false);
   const [canStudio, setCanStudio] = useState(false);
+  const accent = useAccent();
 
   // The in-person Elder studio is curator/admin only and Kuku Yalanji only.
   // Probe the role so the entry appears only for authorized operators.
@@ -71,7 +81,14 @@ export default function RecordScreen() {
     const mark = (xs: WorklistItem[]) => xs.map((i) => i.key === key ? { ...i, has_active: true, recording_count: i.recording_count + 1 } : i);
     if (kind === 'word') setWords((xs) => filter === 'pending' ? xs.filter((i) => i.key !== key) : mark(xs));
     else setSentences((xs) => filter === 'pending' ? xs.filter((i) => i.key !== key) : mark(xs));
+    setSavedToday((n) => n + 1);
     getVoiceTotals().then((t) => t && setTotals(t));
+  }
+
+  function afterSkip(kind: Kind, key: string) {
+    // passed on it — take it off the "to record" list so the next one is ready
+    if (kind === 'word') setWords((xs) => xs.filter((i) => i.key !== key));
+    else setSentences((xs) => xs.filter((i) => i.key !== key));
   }
 
   if (authLoading) return <Screen><ScreenTitle title="Add your voice" /><ActivityIndicator color={C.forest} size="large" style={{ marginTop: 20 }} /></Screen>;
@@ -139,38 +156,72 @@ export default function RecordScreen() {
         <Button label="Add a sentence for everyone" icon="add" variant="soft" onPress={() => setAddOpen(true)} full />
       )}
 
-      {loading && <ActivityIndicator color={C.forest} style={{ marginTop: 16 }} />}
-
-      {!loading && list.length === 0 && (
+      {loading ? (
+        <View style={{ gap: 10 }}>
+          {[0, 1, 2].map((i) => (
+            <View key={i} style={[styles.row, { gap: 8 }]}>
+              <View style={{ flex: 1, gap: 8 }}>
+                <Skeleton width="60%" height={20} />
+                <Skeleton width="40%" height={13} />
+              </View>
+              <Skeleton width={44} height={44} radius={22} />
+            </View>
+          ))}
+        </View>
+      ) : filter === 'pending' ? (
+        /* Focused, calm swipe deck (#7) */
+        <RecordDeck
+          items={list} kind={tab} accent={accent} done={savedToday}
+          onRecord={(item) => setActive({ item, kind: tab })}
+          onSkip={(item) => setSkipItem({ item, kind: tab })}
+        />
+      ) : list.length === 0 ? (
         <Card><Text style={styles.empty}>
-          {filter === 'pending'
-            ? (tab === 'word' ? 'No words waiting — you’ve recorded them all. Thank you!' : 'No sentences waiting. Add one above to share with everyone.')
-            : filter === 'recorded' ? 'Nothing recorded yet here.' : 'Nothing here yet.'}
+          {filter === 'recorded' ? 'Nothing recorded yet here.' : 'Nothing here yet.'}
         </Text></Card>
+      ) : (
+        <View style={{ gap: 10 }}>
+          {list.map((item) => (
+            <Pressable key={item.key} onPress={() => setActive({ item, kind: tab })}
+              style={({ pressed }) => [styles.row, pressed && { transform: [{ scale: 0.99 }] }]}>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.rowLabel} numberOfLines={2}>{item.label}</Text>
+                {!!item.gloss && <Text style={styles.rowGloss} numberOfLines={1}>{item.gloss}</Text>}
+              </View>
+              {item.has_active
+                ? <View style={styles.doneBadge}><Ionicons name="checkmark" size={16} color={C.white} /></View>
+                : <View style={styles.recBtn}><Ionicons name="mic" size={20} color={C.white} /></View>}
+            </Pressable>
+          ))}
+        </View>
       )}
 
-      <View style={{ gap: 10 }}>
-        {list.map((item) => (
-          <Pressable key={item.key} onPress={() => setActive({ item, kind: tab })}
-            style={({ pressed }) => [styles.row, pressed && { transform: [{ scale: 0.99 }] }]}>
-            <View style={{ flex: 1 }}>
-              <Text style={styles.rowLabel} numberOfLines={2}>{item.label}</Text>
-              {!!item.gloss && <Text style={styles.rowGloss} numberOfLines={1}>{item.gloss}</Text>}
-            </View>
-            {item.has_active
-              ? <View style={styles.doneBadge}><Ionicons name="checkmark" size={16} color={C.white} /></View>
-              : <View style={styles.recBtn}><Ionicons name="mic" size={20} color={C.white} /></View>}
-          </Pressable>
-        ))}
-      </View>
-
-      <Text style={styles.pd}>Tap any card to listen to recordings or add your own. Recordings are public domain in perpetuity.</Text>
+      <Text style={styles.pd}>
+        {filter === 'pending' ? 'Swipe up to record · swipe aside to pass. Recordings are public domain in perpetuity.'
+          : 'Tap any card to listen to recordings or add your own. Recordings are public domain in perpetuity.'}
+      </Text>
 
       {active && languageId && (
         <ItemSheet
-          item={active.item} kind={active.kind} languageId={languageId}
+          item={active.item} kind={active.kind} languageId={languageId} languageCode={code}
           onClose={() => setActive(null)}
           onSaved={() => { afterSave(active.kind, active.item.key); }}
+          onSkip={(reason, note) => {
+            skipRecording(active.kind, active.item.key, reason, note, code);
+            afterSkip(active.kind, active.item.key);
+          }}
+        />
+      )}
+      {skipItem && (
+        <SkipSheet
+          kind={skipItem.kind}
+          label={skipItem.item.label}
+          onSkip={(reason, note) => {
+            skipRecording(skipItem.kind, skipItem.item.key, reason, note, code);
+            afterSkip(skipItem.kind, skipItem.item.key);
+            setSkipItem(null);
+          }}
+          onClose={() => setSkipItem(null)}
         />
       )}
       {addOpen && languageId && (
@@ -191,17 +242,30 @@ function Stat({ n, label }: { n: number; label: string }) {
 
 /* ── Card detail: existing recordings (playback) + record ── */
 function ItemSheet({
-  item, kind, languageId, onClose, onSaved,
-}: { item: WorklistItem; kind: Kind; languageId: string; onClose: () => void; onSaved: () => void }) {
-  const recorder = useAudioRecorder(RecordingPresets.HIGH_QUALITY);
+  item, kind, languageId, languageCode, onClose, onSaved, onSkip,
+}: { item: WorklistItem; kind: Kind; languageId: string; languageCode?: string; onClose: () => void; onSaved: () => void; onSkip?: (reason: SkipReason | null, note: string) => void }) {
+  const recorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY, isMeteringEnabled: true });
+  const recState = useAudioRecorderState(recorder, 80);
+  const accent = useAccent();
+  const level = useSharedValue(0);
   const [phase, setPhase] = useState<'idle' | 'recording' | 'recorded' | 'saving'>('idle');
   const [uri, setUri] = useState<string | null>(null);
   const [seconds, setSeconds] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [existing, setExisting] = useState<ExistingRecording[] | null>(null);
+  const [skipOpen, setSkipOpen] = useState(false);
   const tick = useRef<ReturnType<typeof setInterval> | null>(null);
   const player = useRef<AudioPlayer | null>(null);
-  const fmt = (s: number) => `${Math.floor(s / 60)}:${(s % 60).toString().padStart(2, '0')}`;
+
+  // Map live mic metering (dBFS, ~-55→0) to a smoothed 0→1 amplitude for the orb.
+  useEffect(() => {
+    if (phase === 'recording') {
+      const db = recState.metering ?? -55;
+      level.value = withTiming(Math.max(0, Math.min(1, (db + 55) / 55)), { duration: 90 });
+    } else {
+      level.value = withTiming(0, { duration: 200 });
+    }
+  }, [recState.metering, phase]);
 
   useEffect(() => {
     let on = true;
@@ -218,11 +282,12 @@ function ItemSheet({
       if (!perm.granted) { setError('Please allow microphone access.'); return; }
       await setAudioModeAsync({ playsInSilentMode: true, allowsRecording: true });
       await recorder.prepareToRecordAsync(); recorder.record();
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).catch(() => {});
       setUri(null); setSeconds(0); setPhase('recording');
       tick.current = setInterval(() => setSeconds((s) => s + 1), 1000);
     } catch (e: any) { setError(e?.message || 'Could not start recording.'); }
   }
-  async function stop() { try { if (tick.current) clearInterval(tick.current); await recorder.stop(); setUri(recorder.uri ?? null); setPhase('recorded'); } catch (e: any) { setError(e?.message || 'Could not stop.'); } }
+  async function stop() { try { if (tick.current) clearInterval(tick.current); await recorder.stop(); Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {}); setUri(recorder.uri ?? null); setPhase('recorded'); } catch (e: any) { setError(e?.message || 'Could not stop.'); } }
   async function save() {
     if (!uri) return;
     setPhase('saving'); setError(null);
@@ -235,7 +300,8 @@ function ItemSheet({
 
   const recording = phase === 'recording';
   return (
-    <Modal visible transparent animationType="slide" onRequestClose={onClose}>
+    <>
+    <Modal visible={!skipOpen} transparent animationType="slide" onRequestClose={onClose}>
       <Pressable style={styles.backdrop} onPress={onClose}>
         <Pressable style={styles.sheet} onPress={() => {}}>
           <View style={styles.grip} />
@@ -257,25 +323,45 @@ function ItemSheet({
             </View>
           )}
 
-          {/* record */}
-          <View style={{ alignItems: 'center', gap: 12, paddingVertical: 16 }}>
-            <Pressable onPress={recording ? stop : start}
-              style={({ pressed }) => [styles.mic, shadow, { backgroundColor: recording ? C.danger : C.forest, transform: [{ scale: pressed ? 0.94 : 1 }] }]}>
-              <Ionicons name={recording ? 'stop' : 'mic'} size={44} color={C.white} />
-            </Pressable>
-            <Text style={styles.micLabel}>{recording ? `Recording…  ${fmt(seconds)}  ·  tap to stop` : uri ? 'Tap to record again' : (existing && existing.length ? 'Add your recording' : 'Tap to record')}</Text>
+          {/* record — the breathing orb (#4) */}
+          <View style={{ paddingVertical: 12 }}>
+            <RecordOrb
+              recording={recording} level={level} seconds={recording ? Math.floor(recState.durationMillis / 1000) : seconds}
+              onToggle={recording ? stop : start} accent={accent}
+              hint={uri ? 'Tap to record again' : (existing && existing.length ? 'Add your recording' : 'Tap to record')}
+            />
           </View>
 
           {uri && !recording && (
-            <View style={{ flexDirection: 'row', gap: 12 }}>
-              <Button label="Play" icon="play" variant="ghost" onPress={() => playUri(uri)} style={{ flex: 1 }} />
-              <Button label="Save" icon="cloud-upload-outline" onPress={save} loading={phase === 'saving'} style={{ flex: 1 }} />
-            </View>
+            <Animated.View entering={FadeInDown.springify().damping(18).mass(0.7)} style={{ gap: 12 }}>
+              <ReviewBar key={uri} uri={uri} accent={accent} />
+              <View style={{ flexDirection: 'row', gap: 12 }}>
+                <Button label="Record again" icon="refresh" variant="ghost" onPress={start} style={{ flex: 1 }} />
+                <Button label="Save" icon="cloud-upload-outline" onPress={save} loading={phase === 'saving'} style={{ flex: 1.4 }} />
+              </View>
+            </Animated.View>
           )}
           {error && <Text style={styles.err}>{error}</Text>}
+
+          {onSkip && !recording && phase !== 'saving' && (
+            <Pressable onPress={() => setSkipOpen(true)} hitSlop={10} style={styles.skipLink}>
+              <Ionicons name="play-skip-forward-outline" size={15} color={C.muted} />
+              <Text style={styles.skipLinkText}>Skip / pass on this one</Text>
+            </Pressable>
+          )}
         </Pressable>
       </Pressable>
     </Modal>
+
+    {skipOpen && (
+      <SkipSheet
+        kind={kind}
+        label={item.label}
+        onSkip={(reason, note) => { onSkip?.(reason, note); onClose(); }}
+        onClose={() => setSkipOpen(false)}
+      />
+    )}
+    </>
   );
 }
 
@@ -379,4 +465,6 @@ const styles = StyleSheet.create({
   input: { backgroundColor: C.surface, borderRadius: radius.md, borderWidth: 1, borderColor: C.border, padding: 15, fontFamily: F.body, fontSize: S.body, color: C.ink, minHeight: 80, textAlignVertical: 'top' },
   hint: { fontFamily: F.body, fontSize: S.small, color: C.muted, textAlign: 'center', marginTop: 8 },
   err: { fontFamily: F.medium, fontSize: S.label, color: C.danger, textAlign: 'center', marginTop: 10 },
+  skipLink: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, paddingVertical: 12, marginTop: 4 },
+  skipLinkText: { fontFamily: F.semibold, fontSize: S.label, color: C.muted },
 });

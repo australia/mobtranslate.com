@@ -3,18 +3,22 @@ import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
 import {
   Button, Card, Chip, CTABanner, LangCard, LanguageSelector, Screen, SectionHeader, SpeakerButton, TopBar,
 } from '../../components/kit';
+import { Skeleton, SkeletonLines } from '../../components/Skeleton';
 import { CorrectionModal } from '../../components/CorrectionModal';
 import { translate } from '../../lib/api';
 import { useLang } from '../../lib/langContext';
+import { useAccent, AccentWash } from '../../lib/accent';
 import { langMeta } from '../../lib/langMeta';
 import { getWordOfDay, type WordOfDay } from '../../lib/wotd';
 import { C, F, S, radius, LANG_ART } from '../../lib/theme';
 
 export default function HomeScreen() {
   const { code, setCode, languages, lang } = useLang();
+  const accent = useAccent();
   const router = useRouter();
   const [picker, setPicker] = useState(false);
   const [input, setInput] = useState('');
@@ -38,6 +42,7 @@ export default function HomeScreen() {
 
   return (
     <Screen>
+      <AccentWash height={360} />
       <TopBar onSearch={() => router.push('/dictionary')} onProfile={() => router.push('/account')} />
 
       {/* ── Hero (tap the name to change language) ── */}
@@ -71,28 +76,28 @@ export default function HomeScreen() {
         />
         <View style={styles.dirRow}>
           <View style={styles.dirPill}><Text style={styles.dirText}>English</Text></View>
-          <View style={styles.swap}><Ionicons name="arrow-forward" size={16} color={C.sage} /></View>
-          <Pressable style={styles.dirPillBtn} onPress={() => setPicker(true)}>
-            <Text style={styles.dirText} numberOfLines={1}>{langName}</Text>
-            <Ionicons name="chevron-down" size={15} color={C.muted} />
+          <View style={[styles.swap, { backgroundColor: accent.accentSoft }]}><Ionicons name="arrow-forward" size={16} color={accent.accent} /></View>
+          <Pressable style={[styles.dirPillBtn, { backgroundColor: accent.accentSoft, borderColor: accent.accentLine }]} onPress={() => setPicker(true)}>
+            <Text style={[styles.dirText, { color: accent.accentDeep }]} numberOfLines={1}>{langName}</Text>
+            <Ionicons name="chevron-down" size={15} color={accent.accent} />
           </Pressable>
         </View>
         <Button label="Translate" icon="arrow-forward" onPress={onTranslate} loading={loading} disabled={!input.trim()} full />
 
         {result && (
-          <>
-            <View style={styles.resultBox}>
+          <Animated.View entering={FadeInDown.springify().damping(18).mass(0.7)} style={{ gap: 12 }}>
+            <View style={[styles.resultBox, { backgroundColor: accent.accentSoft }]}>
               <View style={{ flex: 1 }}>
-                <Text style={styles.resultText} selectable>{result.translation}</Text>
+                <Text style={[styles.resultText, { color: accent.accentDeep }]} selectable>{result.translation}</Text>
                 {!!result.gloss && <Text style={styles.resultGloss}>{result.gloss}</Text>}
               </View>
               <SpeakerButton code={code} text={result.translation} size="md" />
             </View>
             <Pressable onPress={() => setCorrect(true)} style={styles.suggestRow} hitSlop={6}>
-              <Ionicons name="create-outline" size={15} color={C.sage} />
-              <Text style={styles.suggestText}>Suggest a better translation</Text>
+              <Ionicons name="create-outline" size={15} color={accent.accent} />
+              <Text style={[styles.suggestText, { color: accent.accent }]}>Suggest a better translation</Text>
             </Pressable>
-          </>
+          </Animated.View>
         )}
       </Card>
 
@@ -112,26 +117,38 @@ export default function HomeScreen() {
       </View>
 
       {/* ── Word of the day (per tribe) ── */}
-      {wotd && (
-        <View style={{ gap: 10 }}>
-          <Text style={styles.eyebrow}>WORD OF THE DAY</Text>
-          <Pressable onPress={() => router.push('/dictionary')}>
-            <Card padded={false} style={{ overflow: 'hidden' }}>
-              <View style={styles.wotdRow}>
-                <View style={styles.wotdText}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-                    <Text style={styles.wotdWord} numberOfLines={1}>{wotd.word}</Text>
-                    <SpeakerButton code={code} text={wotd.word} size="sm" />
+      <View style={{ gap: 10 }}>
+        <Text style={styles.eyebrow}>WORD OF THE DAY</Text>
+        {wotd ? (
+          <Animated.View entering={FadeIn.duration(360)}>
+            <Pressable onPress={() => router.push('/dictionary')}>
+              <Card padded={false} style={{ overflow: 'hidden' }}>
+                <View style={styles.wotdRow}>
+                  <View style={styles.wotdText}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                      <Text style={styles.wotdWord} numberOfLines={1}>{wotd.word}</Text>
+                      <SpeakerButton code={code} text={wotd.word} size="sm" />
+                    </View>
+                    {!!wotd.meaning && <Text style={styles.wotdMeaning} numberOfLines={2}>{wotd.meaning}</Text>}
+                    {!!wotd.example && <Text style={styles.wotdExample} numberOfLines={2}>{wotd.example}</Text>}
                   </View>
-                  {!!wotd.meaning && <Text style={styles.wotdMeaning} numberOfLines={2}>{wotd.meaning}</Text>}
-                  {!!wotd.example && <Text style={styles.wotdExample} numberOfLines={2}>{wotd.example}</Text>}
+                  {!!wotd.image && <Image source={wotd.image} style={styles.wotdImg} resizeMode="cover" />}
                 </View>
-                {!!wotd.image && <Image source={wotd.image} style={styles.wotdImg} resizeMode="cover" />}
+              </Card>
+            </Pressable>
+          </Animated.View>
+        ) : (
+          <Card padded={false} style={{ overflow: 'hidden' }}>
+            <View style={styles.wotdRow}>
+              <View style={[styles.wotdText, { gap: 10 }]}>
+                <Skeleton width="55%" height={22} radius={8} />
+                <SkeletonLines count={2} height={12} />
               </View>
-            </Card>
-          </Pressable>
-        </View>
-      )}
+              <Skeleton width={116} height={132} radius={0} />
+            </View>
+          </Card>
+        )}
+      </View>
 
       {/* ── CTA ── */}
       <CTABanner

@@ -315,6 +315,22 @@ export async function suggestPlaceLocation(wordId: string, latitude: number, lon
   }
 }
 
+// ---- Skip / pass on a word or sentence in the recording worklist -----------
+export type SkipReason = 'unsure' | 'bad_sentence' | 'wrong_spelling' | 'inappropriate' | 'too_hard' | 'other';
+/** Best-effort: records why a recorder passed (never throws — the user always
+ *  gets to move on even if the network hiccups). */
+export async function skipRecording(
+  targetType: 'word' | 'sentence', targetId: string,
+  reason?: SkipReason | null, note?: string, languageCode?: string,
+): Promise<void> {
+  try {
+    await fetch(`${API_BASE}/api/v2/recording-skips`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json', Origin: ORIGIN, ...authHeaders() },
+      body: JSON.stringify({ targetType, targetId, reason: reason || null, note: note || null, languageCode: languageCode || null }),
+    });
+  } catch { /* skipping must never be blocked by the network */ }
+}
+
 // ---- Existing recordings (playback) ----------------------------------------
 export interface ExistingRecording { id: string; url: string; durationMs?: number | null; speaker?: string; isMine?: boolean }
 
