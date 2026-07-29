@@ -45,7 +45,7 @@ export const EMPTY_SPEECH_RIGHTS: SpeechRights = Object.freeze({
 });
 
 export const STUDIO_WITHDRAWAL_PROCESS =
-  'Tell the recording operator or email hello@mobtranslate.com to record a withdrawal. Mob Translate will stop future capture, publication, training, and project export under this permission. Copies or model artefacts already distributed may be outside Mob Translate’s control.';
+  'Tell the recording operator or email ajax@mobtranslate.com to record a withdrawal. Mob Translate will stop future capture, publication, training, and project export under this permission. Copies or model artefacts already distributed may be outside Mob Translate’s control.';
 
 export function emptyStudioConsent(): SpeechConsentGrant {
   return {
