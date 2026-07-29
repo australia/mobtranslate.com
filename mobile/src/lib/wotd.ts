@@ -1,6 +1,7 @@
 import { API_BASE } from './api';
 
 export interface WordOfDay {
+  id?: string;
   word: string;
   pronunciation?: string;
   meaning?: string;
@@ -35,6 +36,7 @@ export async function getWordOfDay(code: string): Promise<WordOfDay> {
       const d = await res.json();
       if (d && d.word) {
         return {
+          id: d.id ?? undefined,
           word: d.word,
           pronunciation: d.pronunciation ?? undefined,
           meaning: d.meaning ?? undefined,

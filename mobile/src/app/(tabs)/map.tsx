@@ -194,7 +194,7 @@ export default function MapScreen() {
                   {!hasCoords && <Text style={styles.unplaced}>Not on the map yet · suggest where it is</Text>}
                 </View>
               </Pressable>
-                <SpeakerButton code={code} text={p.word} size="sm" />
+                <SpeakerButton code={code} text={p.word} wordId={p.id} size="sm" />
                 <Pressable
                   onPress={() => setPinTarget(p)}
                   hitSlop={8}

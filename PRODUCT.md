@@ -51,7 +51,9 @@ Emotional goals: trust (this is the real dictionary, not a curiosity), pride (th
 
    On mobile, this appears as a **Knowledge trail** attached to the result itself. A direct dictionary match, an unreviewed dictionary record, and a machine suggestion are different states with icon + label + plain-language explanation. That status must remain attached when a result is shared.
 
-3. **Earth tones, not earth clichés.** The Earth palette (ochre, sand, eucalyptus, night sky) is the system; how it's applied depends on the **specific language's country**. Each dictionary carries a small per-language identity treatment (accent hue, hero photograph, geographic origin label) — Wajarri (Mid West WA) reads differently from Kuku Yalanji (Far North QLD rainforest) reads differently from Mi'gmaq (Eastern Canada).
+   Audio follows the same rule. An attributed source or contributed human recording plays before synthetic speech whenever it exists. User recordings are labelled as recorded voices, not automatically treated as reviewed or community-certified. Synthetic speech is always called a pronunciation guide and described as an approximation; it never borrows the identity of a language speaker.
+
+3. **Earth tones, not earth clichés.** The Earth palette (ochre, sand, eucalyptus, night sky) is the system; how it's applied depends on the **specific language's country**. Each dictionary carries a small per-language identity treatment (accent hue, hero photograph, geographic origin label) — Wajarri (Murchison and Gascoyne) reads differently from Kuku Yalanji (Far North Queensland rainforest) reads differently from Mi'gmaq (Mi'kma'ki, Atlantic Canada).
 
 4. **Product surfaces serve the task.** Dictionary search, learn quiz, curator queue, admin analytics — these are not marketing pages. Familiar component vocabulary (Linear / Notion / Stripe quality bar), tight loading states, keyboard-first, no decorative motion. Delight is reserved for word-level moments (a satisfying flip on a learn card), not page-level theatre.
 
@@ -66,5 +68,5 @@ Emotional goals: trust (this is the real dictionary, not a curiosity), pride (th
 - **Color blindness:** never encode state in color alone. The curator queue (approved / pending / rejected) and learn-quiz correctness must carry icon + label + color, not color alone.
 - **Variable connection:** target dictionary search to be usable on 3G. No web-font flash that hides Indigenous word for >100ms; prefer `font-display: optional` for display fonts on dictionary entry pages.
 - **Touch targets:** 44×44 minimum across all primary actions; learn-card tap zones at 56×56 for mid-game tap accuracy.
-- **Language tags:** every Indigenous word renders with `lang="zku"` / `lang="mic"` / etc. attribute. Critical for screen readers pronouncing correctly and for translation tools knowing not to "fix" the spelling.
+- **Language tags:** every Indigenous word renders with its BCP 47 language tag (`gvn`, `aoi`, `mic`, `wbv`) rather than an internal dictionary code. This helps screen readers and translation tools handle the text without "fixing" its spelling.
 - **Acknowledgement of Country:** never an afterthought footer. Where it appears, it's typeset with the same care as the headline above it.

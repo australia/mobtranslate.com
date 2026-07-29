@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
 import { createAudioPlayer, type AudioPlayer } from 'expo-audio';
-import { Button, Card, Chip, SpeakerButton } from '../../components/kit';
+import { AudioSourceBadge, Button, Card, Chip, SpeakerButton } from '../../components/kit';
 import { Skeleton, SkeletonLines } from '../../components/Skeleton';
 import { AnimatedMark } from '../../components/AnimatedMark';
 import { CorrectionModal } from '../../components/CorrectionModal';
@@ -117,11 +117,23 @@ export default function WordScreen() {
               <Text style={[styles.headword, { color: img ? C.white : C.forestDeep }]} accessibilityLanguage={meta.languageTag} selectable>{headword}</Text>
               {!!detail?.pronunciation && <Text style={[styles.pron, { color: img ? 'rgba(255,255,255,0.85)' : C.muted }]}>{detail.pronunciation}</Text>}
             </Animated.View>
-            {!!langCode && <SpeakerButton code={langCode} text={headword} size="lg" />}
+            {!!langCode && (
+              <SpeakerButton
+                code={langCode}
+                text={headword}
+                wordId={String(id)}
+                recording={wordRecs === null ? undefined : (wordRecs[0] ?? null)}
+                size="lg"
+              />
+            )}
           </View>
         </Pressable>
 
         <View style={{ padding: 20, gap: 16 }}>
+          <AudioSourceBadge
+            recording={wordRecs === null ? undefined : (wordRecs[0] ?? null)}
+            loading={wordRecs === null}
+          />
           {loading && (
             <View style={{ gap: 16 }}>
               <Skeleton width={90} height={30} radius={radius.pill} />
@@ -186,13 +198,16 @@ export default function WordScreen() {
 
               {/* Pronunciations of the word */}
               <Card>
-                <Text style={styles.section}>PRONUNCIATIONS{wordRecs && wordRecs.length ? ` · ${wordRecs.length}` : ''}</Text>
+                <Text style={styles.section}>RECORDED PRONUNCIATIONS{wordRecs && wordRecs.length ? ` · ${wordRecs.length}` : ''}</Text>
                 {wordRecs === null && <ActivityIndicator color={C.forest} style={{ marginVertical: 8 }} />}
-                {wordRecs && wordRecs.length === 0 && <Text style={styles.noneYet}>No community recordings yet. Be the first to say it.</Text>}
+                {wordRecs && wordRecs.length === 0 && <Text style={styles.noneYet}>No recorded pronunciation yet. Be the first to say it.</Text>}
                 {wordRecs?.map((r) => (
                   <Pressable key={r.id} onPress={() => playUrl(r.url)} style={styles.playRow}>
                     <Ionicons name="play-circle" size={26} color={C.forest} />
-                    <Text style={styles.playName}>{r.isMine ? 'You' : (r.speaker || 'Community')}</Text>
+                    <View style={{ flex: 1 }}>
+                      <Text style={styles.playName}>{r.isMine ? 'You' : (r.sourceName || r.speaker || 'Recorded voice')}</Text>
+                      {r.sourceName && r.speaker ? <Text style={styles.playMeta}>{r.speaker}</Text> : null}
+                    </View>
                     {!!r.durationMs && <Text style={styles.playDur}>{Math.round(r.durationMs / 1000)}s</Text>}
                   </Pressable>
                 ))}
@@ -218,12 +233,23 @@ export default function WordScreen() {
                           <Text style={styles.exText} accessibilityLanguage={meta.languageTag}>{ex.text}</Text>
                           {!!ex.translation && <Text style={styles.exTrans}>{ex.translation}</Text>}
                         </View>
-                        <SpeakerButton code={langCode} text={ex.text} size="sm" />
+                        <SpeakerButton
+                          code={langCode}
+                          text={ex.text}
+                          exampleId={ex.id}
+                          recording={ex.id ? exRecs[ex.id]?.[0] : null}
+                          size="sm"
+                        />
                       </View>
+                      <AudioSourceBadge
+                        recording={ex.id ? exRecs[ex.id]?.[0] : null}
+                        loading={!!ex.id && exRecs[ex.id] === undefined}
+                        compact
+                      />
                       {recs?.map((r) => (
                         <Pressable key={r.id} onPress={() => playUrl(r.url)} style={[styles.playRow, { marginTop: 8 }]}>
                           <Ionicons name="play-circle" size={24} color={C.forest} />
-                          <Text style={styles.playName}>{r.isMine ? 'You' : (r.speaker || 'Community')}</Text>
+                          <Text style={styles.playName}>{r.isMine ? 'You' : (r.sourceName || r.speaker || 'Recorded voice')}</Text>
                           {!!r.durationMs && <Text style={styles.playDur}>{Math.round(r.durationMs / 1000)}s</Text>}
                         </Pressable>
                       ))}
@@ -324,6 +350,7 @@ const styles = StyleSheet.create({
   noneYet: { fontFamily: F.body, fontSize: S.label, color: C.muted, lineHeight: 22 },
   playRow: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: C.surfaceAlt, borderRadius: radius.md, padding: 10, marginTop: 6 },
   playName: { flex: 1, fontFamily: F.semibold, fontSize: S.label, color: C.ink },
+  playMeta: { fontFamily: F.body, fontSize: 11, color: C.muted, marginTop: 1 },
   playDur: { fontFamily: F.body, fontSize: S.small, color: C.muted },
   exHead: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   addBtn: { flexDirection: 'row', alignItems: 'center', gap: 3, backgroundColor: C.sageSoft, paddingHorizontal: 12, height: 32, borderRadius: radius.pill, marginBottom: 10 },

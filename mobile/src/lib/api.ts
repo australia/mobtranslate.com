@@ -364,7 +364,23 @@ export async function skipRecording(
 }
 
 // ---- Existing recordings (playback) ----------------------------------------
-export interface ExistingRecording { id: string; url: string; durationMs?: number | null; speaker?: string; isMine?: boolean }
+export interface ExistingRecording {
+  id: string;
+  url: string;
+  durationMs?: number | null;
+  isPrimary?: boolean;
+  speaker?: string;
+  speakerCommunity?: string;
+  speakerDialect?: string;
+  sourceSpeakerCode?: string;
+  sourceName?: string;
+  sourceUrl?: string;
+  sourceEntryUrl?: string;
+  sourceLicenseName?: string;
+  sourceLicenseUrl?: string;
+  sourceAttribution?: string;
+  isMine?: boolean;
+}
 
 async function fetchRecordings(url: string): Promise<ExistingRecording[]> {
   try {
@@ -374,7 +390,18 @@ async function fetchRecordings(url: string): Promise<ExistingRecording[]> {
     const abs = (u?: string) => (!u ? u : u.startsWith('http') ? u : `${API_BASE}${u}`);
     return (d.recordings ?? []).map((r: any) => ({
       id: r.id, url: abs(r.url || r.master_url), durationMs: r.duration_ms,
-      speaker: r.speaker_name, isMine: r.is_mine,
+      isPrimary: !!r.is_primary,
+      speaker: r.speaker_name,
+      speakerCommunity: r.speaker_community,
+      speakerDialect: r.speaker_dialect,
+      sourceSpeakerCode: r.source_speaker_code,
+      sourceName: r.source_name,
+      sourceUrl: r.source_url,
+      sourceEntryUrl: r.source_entry_url,
+      sourceLicenseName: r.source_license_name,
+      sourceLicenseUrl: r.source_license_url,
+      sourceAttribution: r.source_attribution,
+      isMine: r.is_mine,
     })).filter((r: ExistingRecording) => r.url);
   } catch { return []; }
 }

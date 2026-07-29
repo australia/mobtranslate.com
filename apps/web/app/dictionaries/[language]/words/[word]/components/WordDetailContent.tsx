@@ -134,6 +134,7 @@ export function WordDetailContent({ word, languageCode }: WordDetailContentProps
                     text={example.example_text}
                     englishText={example.translation}
                     lang={languageCode}
+                    exampleId={example.id}
                     size="sm"
                     label="Hear example"
                   />

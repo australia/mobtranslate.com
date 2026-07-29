@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useRef, useState, useCallback } from 'react';
-import { Volume2, Loader2, AlertCircle } from 'lucide-react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { Volume2, Loader2, AlertCircle, Mic2, Sparkles } from 'lucide-react';
 import { cn } from '@mobtranslate/ui';
 import { track } from '@/lib/analytics';
 
@@ -14,6 +14,10 @@ interface SpeakButtonProps {
   englishText?: string;
   /** Dictionary/language code, selects the donor voice (e.g. "kuku_yalanji"). */
   lang?: string;
+  /** When present, a human/source recording is resolved before synthetic TTS. */
+  wordId?: string;
+  /** Sentence equivalent of wordId. */
+  exampleId?: string;
   /** "icon" = round icon button; "labeled" = icon + text. */
   variant?: 'icon' | 'labeled';
   size?: 'sm' | 'md' | 'lg';
@@ -25,21 +29,63 @@ const ICON_SIZE = { sm: 14, md: 16, lg: 20 } as const;
 const BOX = { sm: 'h-11 w-11', md: 'h-11 w-11', lg: 'h-11 w-11' } as const;
 
 /**
- * Plays synthesized pronunciation from /api/tts (Edge TTS donor voice).
- * The audio is a phonetic approximation, never a Kuku Yalanji speaker — callers
- * should surface a "needs community verification" note alongside generated text.
+ * Plays an active recorded pronunciation when one exists. Synthetic TTS is an
+ * explicitly labelled fallback, never presented as a language speaker.
  */
 export function SpeakButton({
   text,
   englishText,
   lang,
+  wordId,
+  exampleId,
   variant = 'icon',
   size = 'md',
   label = 'Hear pronunciation',
   className,
 }: SpeakButtonProps) {
   const [status, setStatus] = useState<Status>('idle');
+  const [source, setSource] = useState<'unknown' | 'recorded' | 'synthetic'>(wordId || exampleId ? 'unknown' : 'synthetic');
+  const [recordedUrl, setRecordedUrl] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const resolveAudio = useCallback(async (): Promise<{ url: string; source: 'recorded' | 'synthetic' }> => {
+    if (recordedUrl) return { url: recordedUrl, source: 'recorded' };
+    const endpoint = wordId
+      ? `/api/v2/words/${encodeURIComponent(wordId)}/recordings`
+      : exampleId
+        ? `/api/v2/examples/${encodeURIComponent(exampleId)}/recordings`
+        : null;
+    if (endpoint && source === 'unknown') {
+      try {
+        const response = await fetch(endpoint, { cache: 'no-store' });
+        const data = response.ok ? await response.json() : null;
+        const first = data?.recordings?.find((item: any) => item?.url || item?.master_url);
+        const url = first?.url || first?.master_url;
+        if (url) {
+          setRecordedUrl(url);
+          setSource('recorded');
+          return { url, source: 'recorded' };
+        }
+      } catch {
+        // A recording lookup failure must not make the pronunciation control fail.
+      }
+      setSource('synthetic');
+    }
+    const params = new URLSearchParams({ text });
+    if (lang) params.set('lang', lang);
+    if (englishText?.trim()) params.set('english', englishText.trim().slice(0, 600));
+    return { url: `/api/tts?${params.toString()}`, source: 'synthetic' };
+  }, [recordedUrl, wordId, exampleId, source, text, lang, englishText]);
+
+  useEffect(() => {
+    setRecordedUrl(null);
+    setSource(wordId || exampleId ? 'unknown' : 'synthetic');
+  }, [wordId, exampleId, text]);
+
+  // The labelled word-page control tells the user its source before they play it.
+  useEffect(() => {
+    if (variant === 'labeled' && source === 'unknown') void resolveAudio();
+  }, [variant, source, resolveAudio]);
 
   const play = useCallback(async () => {
     if (status === 'loading' || status === 'playing') {
@@ -49,13 +95,11 @@ export function SpeakButton({
     }
     if (!text.trim()) return;
 
-    track('tts_play', { lang: lang ?? 'unknown', text_length: text.length });
     setStatus('loading');
     try {
-      const params = new URLSearchParams({ text });
-      if (lang) params.set('lang', lang);
-      if (englishText?.trim()) params.set('english', englishText.trim().slice(0, 600));
-      const url = `/api/tts?${params.toString()}`;
+      const resolved = await resolveAudio();
+      track('pronunciation_play', { lang: lang ?? 'unknown', source: resolved.source, text_length: text.length });
+      const url = resolved.url;
       const audio = new Audio(url);
       audioRef.current = audio;
       audio.onplaying = () => setStatus('playing');
@@ -65,7 +109,7 @@ export function SpeakButton({
     } catch {
       setStatus('error');
     }
-  }, [text, englishText, lang, status]);
+  }, [text, lang, status, resolveAudio]);
 
   const iconSize = ICON_SIZE[size];
   const icon =
@@ -73,12 +117,29 @@ export function SpeakButton({
       <Loader2 size={iconSize} className="animate-spin" />
     ) : status === 'error' ? (
       <AlertCircle size={iconSize} />
+    ) : source === 'recorded' ? (
+      <Mic2 size={iconSize} className={cn(status === 'playing' && 'animate-pulse')} />
+    ) : source === 'synthetic' ? (
+      <Sparkles size={iconSize} className={cn(status === 'playing' && 'animate-pulse')} />
     ) : (
       <Volume2 size={iconSize} className={cn(status === 'playing' && 'animate-pulse')} />
     );
 
   const aria =
-    status === 'error' ? 'Pronunciation unavailable' : status === 'playing' ? 'Stop' : label;
+    status === 'error'
+      ? 'Pronunciation unavailable'
+      : status === 'playing'
+        ? 'Stop pronunciation'
+        : source === 'recorded'
+          ? `Hear recorded pronunciation of ${text}`
+          : source === 'synthetic'
+            ? `Hear synthetic pronunciation guide for ${text}`
+            : `Hear ${text}. Recorded audio is preferred; otherwise a synthetic guide is used`;
+  const visibleLabel = source === 'recorded'
+    ? 'Recorded voice'
+    : source === 'synthetic'
+      ? 'Synthetic guide'
+      : label;
 
   if (variant === 'labeled') {
     return (
@@ -100,7 +161,7 @@ export function SpeakButton({
         )}
       >
         {icon}
-        <span>{status === 'error' ? 'Unavailable' : label}</span>
+        <span>{status === 'error' ? 'Unavailable' : visibleLabel}</span>
       </button>
     );
   }
@@ -108,7 +169,7 @@ export function SpeakButton({
   return (
     <button
       type="button"
-      onClick={play}
+      onClick={() => void play()}
       aria-label={aria}
       title={aria}
       className={cn(

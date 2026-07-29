@@ -157,6 +157,8 @@ export default async function WordDetailPage(
                 text={word.word}
                 englishText={word.gloss || word.definitions?.[0]?.definition}
                 lang={language.code}
+                wordId={word.id}
+                variant="labeled"
                 size="lg"
               />
             </div>
@@ -193,6 +195,7 @@ export default async function WordDetailPage(
                           text={related.word}
                           englishText={related.gloss || related.definitions?.[0]?.definition}
                           lang={language.code}
+                          wordId={related.id}
                           size="sm"
                         />
                       </div>

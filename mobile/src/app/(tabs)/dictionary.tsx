@@ -194,7 +194,7 @@ export default function DictionaryScreen() {
                   </View>
                   <Ionicons name="chevron-forward" size={18} color={C.faint} />
                 </Pressable>
-                <SpeakerButton code={code} text={item.word} size="sm" />
+                <SpeakerButton code={code} text={item.word} wordId={item.id} size="sm" />
               </View>
             </Animated.View>
           )}

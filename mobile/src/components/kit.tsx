@@ -9,7 +9,7 @@ import * as Linking from 'expo-linking';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming, withSpring } from 'react-native-reanimated';
 import { createAudioPlayer, type AudioPlayer } from 'expo-audio';
 import { C, F, S, radius, shadow, LANG_ART } from '../lib/theme';
-import { ttsUrl, type Language } from '../lib/api';
+import { getExampleRecordings, getWordRecordings, ttsUrl, type ExistingRecording, type Language } from '../lib/api';
 import { langMeta } from '../lib/langMeta';
 import { useAccent } from '../lib/accent';
 import { Ripple, Waveform } from './audioviz';
@@ -176,16 +176,31 @@ export function Button({
   );
 }
 
-/** Tap to hear a word: the button breathes, soft Country-tinted rings bloom, and
- *  a live waveform runs while it plays (#3). Uses real playback status, not a timer. */
-export function SpeakerButton({ code, text, size = 'md' }: { code: string; text: string; size?: 'sm' | 'md' | 'lg' }) {
+/** Tap to hear a word. A recorded pronunciation wins whenever one is available;
+ * synthetic speech is only a fallback and is identified as such. */
+export function SpeakerButton({
+  code, text, size = 'md', wordId, exampleId, recording,
+}: {
+  code: string;
+  text: string;
+  size?: 'sm' | 'md' | 'lg';
+  wordId?: string;
+  exampleId?: string;
+  /** `undefined` = not checked, `null` = checked and none, object = recorded audio. */
+  recording?: ExistingRecording | null;
+}) {
   const ref = useRef<AudioPlayer | null>(null);
   const subRef = useRef<{ remove: () => void } | null>(null);
   const [loading, setLoading] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const [resolvedRecording, setResolvedRecording] = useState<ExistingRecording | null>(recording ?? null);
+  const audioTargetId = wordId ?? exampleId;
+  const [sourceChecked, setSourceChecked] = useState(recording !== undefined || !audioTargetId);
   const accent = useAccent();
   const box = size === 'lg' ? 52 : size === 'sm' ? 36 : 44;
   const icon = size === 'lg' ? 24 : size === 'sm' ? 17 : 20;
+  const activeRecording = recording !== undefined ? recording : resolvedRecording;
+  const source = activeRecording ? 'recorded' : sourceChecked ? 'synthetic' : 'checking';
 
   const breathe = useSharedValue(1);
   useEffect(() => {
@@ -202,14 +217,28 @@ export function SpeakerButton({ code, text, size = 'md' }: { code: string; text:
     ref.current?.remove(); ref.current = null;
   }, []);
 
-  const play = useCallback(() => {
+  useEffect(() => {
+    setResolvedRecording(recording ?? null);
+    setSourceChecked(recording !== undefined || !audioTargetId);
+  }, [audioTargetId, recording]);
+
+  const play = useCallback(async () => {
     if (!text?.trim() || !code) return;
     tap();
     cleanup();
+    setLoading(true);
     try {
-      const p = createAudioPlayer({ uri: ttsUrl(code, text) });
+      let preferred = recording !== undefined ? recording : resolvedRecording;
+      if (!preferred && audioTargetId && !sourceChecked) {
+        const candidates = wordId
+          ? await getWordRecordings(wordId)
+          : await getExampleRecordings(audioTargetId);
+        preferred = candidates[0] ?? null;
+        setResolvedRecording(preferred);
+        setSourceChecked(true);
+      }
+      const p = createAudioPlayer({ uri: preferred?.url ?? ttsUrl(code, text) });
       ref.current = p;
-      setLoading(true);
       subRef.current = p.addListener('playbackStatusUpdate', (st) => {
         if (st.isLoaded) setLoading((l) => (st.playing ? false : l));
         setPlaying(st.playing);
@@ -217,7 +246,7 @@ export function SpeakerButton({ code, text, size = 'md' }: { code: string; text:
       });
       p.play();
     } catch { setLoading(false); setPlaying(false); }
-  }, [code, text, cleanup]);
+  }, [code, text, wordId, audioTargetId, recording, resolvedRecording, sourceChecked, cleanup]);
 
   useEffect(() => () => cleanup(), [cleanup]);
 
@@ -228,7 +257,12 @@ export function SpeakerButton({ code, text, size = 'md' }: { code: string; text:
         onPress={play}
         hitSlop={8}
         accessibilityRole="button"
-        accessibilityLabel={`Hear ${text}`}
+        accessibilityLabel={source === 'recorded'
+          ? `Hear recorded pronunciation of ${text}${activeRecording?.speaker ? ` by ${activeRecording.speaker}` : ''}`
+          : source === 'synthetic'
+            ? `Hear synthetic pronunciation guide for ${text}`
+            : `Hear ${text}. Checks for a recorded pronunciation before using a synthetic guide`}
+        accessibilityHint={source === 'synthetic' ? 'Computer-generated approximation; check important use with a speaker.' : undefined}
         accessibilityState={{ busy: loading }}
       >
         <Animated.View style={[styles.speaker, { width: box, height: box }, playing && { backgroundColor: accent.accentSoft }, breatheStyle]}>
@@ -236,9 +270,64 @@ export function SpeakerButton({ code, text, size = 'md' }: { code: string; text:
             : playing ? <Waveform active color={accent.accentDeep} bars={4} height={icon} width={2.5} />
             : <Ionicons name="volume-medium" size={icon} color={C.clay} />}
         </Animated.View>
+        {source !== 'checking' ? (
+          <View style={[styles.speakerSourceMark, source === 'recorded' ? { backgroundColor: C.forest } : { backgroundColor: C.clay }]}
+            accessibilityElementsHidden>
+            <Ionicons name={source === 'recorded' ? 'mic' : 'sparkles'} size={9} color={C.white} />
+          </View>
+        ) : null}
       </Pressable>
     </View>
   );
+}
+
+/** A visible, plain-language explanation of the audio a speaker control will use. */
+export function AudioSourceBadge({
+  recording, loading = false, compact = false,
+}: { recording?: ExistingRecording | null; loading?: boolean; compact?: boolean }) {
+  const isSourceAudio = !!recording?.sourceName;
+  const icon = loading ? null : recording ? (isSourceAudio ? 'library-outline' : 'mic-outline') : 'sparkles-outline';
+  const title = loading
+    ? 'Checking for a recorded voice'
+    : isSourceAudio
+      ? 'Attributed source audio'
+      : recording
+        ? 'Recorded voice'
+        : 'Synthetic pronunciation guide';
+  const detail = loading
+    ? 'Recorded audio is preferred whenever it is available.'
+    : isSourceAudio
+      ? recording?.sourceName
+      : recording
+        ? `${recording.speaker ? `Spoken by ${recording.speaker}` : 'Human recording'} · not automatically reviewed`
+        : 'Computer-generated approximation · check important use with a speaker';
+  const sourceLink = recording?.sourceEntryUrl || recording?.sourceUrl;
+  const content = (
+    <>
+      <View style={[styles.audioSourceIcon, recording && { backgroundColor: C.sageSoft }]}>
+        {loading ? <ActivityIndicator size="small" color={C.clay} /> : <Ionicons name={icon as any} size={compact ? 13 : 15} color={recording ? C.forest : C.clay} />}
+      </View>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.audioSourceTitle}>{title.toUpperCase()}</Text>
+        <Text style={styles.audioSourceDetail} numberOfLines={compact ? 2 : undefined}>{detail}</Text>
+      </View>
+      {sourceLink ? <Ionicons name="open-outline" size={15} color={C.forest} /> : null}
+    </>
+  );
+
+  if (sourceLink) {
+    return (
+      <Pressable
+        onPress={() => Linking.openURL(sourceLink)}
+        accessibilityRole="link"
+        accessibilityLabel={`${title}. ${detail}. Open source`}
+        style={({ pressed }) => [styles.audioSource, compact && styles.audioSourceCompact, pressed && { opacity: 0.68 }]}
+      >
+        {content}
+      </Pressable>
+    );
+  }
+  return <View style={[styles.audioSource, compact && styles.audioSourceCompact]} accessibilityLabel={`${title}. ${detail}`}>{content}</View>;
 }
 
 /* ───────────────────────── composite cards ───────────────────────── */
@@ -378,6 +467,12 @@ const styles = StyleSheet.create({
   btnText: { fontFamily: F.bold, fontSize: S.button },
 
   speaker: { borderRadius: radius.pill, backgroundColor: C.claySoft, alignItems: 'center', justifyContent: 'center' },
+  speakerSourceMark: { position: 'absolute', right: -3, bottom: -3, width: 17, height: 17, borderRadius: radius.pill, borderWidth: 2, borderColor: C.surface, alignItems: 'center', justifyContent: 'center' },
+  audioSource: { flexDirection: 'row', alignItems: 'center', gap: 9, borderRadius: radius.md, borderWidth: 1, borderColor: C.border, backgroundColor: C.surfaceAlt, paddingHorizontal: 11, paddingVertical: 9 },
+  audioSourceCompact: { paddingHorizontal: 9, paddingVertical: 7 },
+  audioSourceIcon: { width: 26, height: 26, borderRadius: radius.pill, backgroundColor: C.claySoft, alignItems: 'center', justifyContent: 'center' },
+  audioSourceTitle: { fontFamily: F.bold, fontSize: 9, letterSpacing: 0.75, color: C.inkSoft },
+  audioSourceDetail: { fontFamily: F.body, fontSize: 11, lineHeight: 15, color: C.muted, marginTop: 1 },
 
   langCard: { width: 150, backgroundColor: C.surface, borderRadius: radius.lg, borderWidth: 1, borderColor: C.hair, overflow: 'hidden', ...shadow },
   langArtWrap: { height: 92, backgroundColor: C.sageSoft },

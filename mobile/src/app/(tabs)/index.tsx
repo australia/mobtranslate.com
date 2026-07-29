@@ -6,12 +6,12 @@ import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
 import {
-  Button, Card, CTABanner, LangCard, LanguageSelector, Screen, SectionHeader, SpeakerButton, TopBar,
+  AudioSourceBadge, Button, Card, CTABanner, LangCard, LanguageSelector, Screen, SectionHeader, SpeakerButton, TopBar,
 } from '../../components/kit';
 import { Skeleton, SkeletonLines } from '../../components/Skeleton';
 import { CorrectionModal } from '../../components/CorrectionModal';
 import { ProvenancePanel } from '../../components/ProvenancePanel';
-import { translate, type TranslationResult } from '../../lib/api';
+import { getWordRecordings, translate, type ExistingRecording, type TranslationResult } from '../../lib/api';
 import { useLang } from '../../lib/langContext';
 import { useAccent, AccentWash } from '../../lib/accent';
 import { langMeta } from '../../lib/langMeta';
@@ -30,12 +30,20 @@ export default function HomeScreen() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [wotd, setWotd] = useState<WordOfDay | null>(null);
+  const [wotdRecording, setWotdRecording] = useState<ExistingRecording | null | undefined>(undefined);
   const [correct, setCorrect] = useState(false);
 
   useEffect(() => {
     let active = true;
     setWotd(null);
-    getWordOfDay(code).then((word) => { if (active) setWotd(word); });
+    setWotdRecording(undefined);
+    getWordOfDay(code).then(async (word) => {
+      if (!active) return;
+      setWotd(word);
+      if (!word.id) { setWotdRecording(null); return; }
+      const recordings = await getWordRecordings(word.id);
+      if (active) setWotdRecording(recordings[0] ?? null);
+    });
     return () => { active = false; };
   }, [code]);
 
@@ -230,6 +238,7 @@ export default function HomeScreen() {
               </View>
               <SpeakerButton code={code} text={result.translation} size="lg" />
             </View>
+            <AudioSourceBadge recording={null} compact />
             {result.kind === 'dictionary' ? (
               <ProvenancePanel
                 tone="dictionary"
@@ -294,12 +303,15 @@ export default function HomeScreen() {
               <View style={styles.wotdText}>
                 <View style={styles.wotdWordRow}>
                   <Text style={styles.wotdWord} accessibilityLanguage={meta.languageTag} numberOfLines={1}>{wotd.word}</Text>
-                  <SpeakerButton code={code} text={wotd.word} size="sm" />
+                  <SpeakerButton code={code} text={wotd.word} wordId={wotd.id} recording={wotdRecording} size="sm" />
                 </View>
                 {wotd.meaning ? <Text style={styles.wotdMeaning} numberOfLines={2}>{wotd.meaning}</Text> : null}
                 {wotd.example ? <Text style={styles.wotdExample} numberOfLines={2}>{wotd.example}</Text> : null}
+                <AudioSourceBadge recording={wotdRecording} loading={wotdRecording === undefined} compact />
                 <Pressable
-                  onPress={() => router.push('/dictionary')}
+                  onPress={() => wotd.id
+                    ? router.push({ pathname: '/word/[id]', params: { id: wotd.id, code, word: wotd.word } })
+                    : router.push('/dictionary')}
                   accessibilityRole="button"
                   accessibilityLabel={`${wotd.word}, ${wotd.meaning}. Open dictionary`}
                   style={({ pressed }) => [styles.learnRow, pressed && { opacity: 0.65 }]}

@@ -77,6 +77,7 @@ const DictionaryTableWithLikes: React.FC<DictionaryTableWithLikesProps> = ({
                     text={word.word}
                     englishText={getTranslationsText(word) || getDefinitionText(word)}
                     lang={langCode}
+                    wordId={word.id}
                     size="sm"
                   />
                 </div>

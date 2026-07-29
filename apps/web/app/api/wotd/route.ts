@@ -34,6 +34,7 @@ export const dynamic = 'force-dynamic'
 export const maxDuration = 300
 
 type Wotd = {
+  id?: string
   word: string
   pronunciation?: string | null
   meaning?: string | null
@@ -198,6 +199,7 @@ async function pickFromDb(lang: string, seed: number): Promise<Wotd | null> {
     : null
 
   return {
+    id: row.id,
     word: row.word,
     pronunciation: choosePronunciation(row.phonetic, row.phonemic, row.word),
     meaning,

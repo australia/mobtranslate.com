@@ -60,22 +60,22 @@ Each dictionary declares an accent on a `data-language` attribute. This is the s
   --lang-region-label: "Far North Queensland";
 }
 
-[data-language="wbv"]  { /* Wajarri — Mid West WA, semi-arid */
+[data-language="wbv"]  { /* Wajarri — Murchison and Gascoyne, semi-arid */
   --lang-accent: var(--color-ochre-700);
   --lang-accent-soft: var(--color-ochre-100);
-  --lang-region-label: "Mid West Western Australia";
+  --lang-region-label: "Murchison and Gascoyne, Western Australia";
 }
 
-[data-language="aoi"]  { /* Anindilyakwa — Groote Eylandt, tropical coast */
+[data-language="aoi"]  { /* Anindilyakwa — Groote and Bickerton Islands, tropical coast */
   --lang-accent: var(--color-nightsky-600);
   --lang-accent-soft: var(--color-nightsky-100);
-  --lang-region-label: "Groote Eylandt, Northern Territory";
+  --lang-region-label: "Groote and Bickerton Islands, Northern Territory";
 }
 
-[data-language="mic"]  { /* Mi'gmaq — Eastern Canada, boreal */
+[data-language="mic"]  { /* Mi'gmaq — Mi'kma'ki, Atlantic Canada */
   --lang-accent: var(--color-eucalyptus-800);
   --lang-accent-soft: var(--color-eucalyptus-50);
-  --lang-region-label: "Mi'kma'ki, Eastern Canada";
+  --lang-region-label: "Mi'kma'ki, Atlantic Canada";
 }
 ```
 
@@ -130,7 +130,7 @@ Note: the base is **17px**, set in `apps/web/app/globals.css`. The scale above m
 - **Line length:** prose caps at 65–75ch (use `--container-prose: 65ch`). Definitions, descriptions, and cultural notes get this. Data and dense UI can run wider.
 - **Line-height:** body 1.6, headlines 1.15, UI 1.4, mono 1.5.
 - **Indigenous word weight:** the headword is always heavier (≥600) than its English gloss (≤500). Never the reverse.
-- **`lang` attribute:** every Indigenous word in markup gets `lang="zku"` etc. CSS hook: `[lang="zku"] { font-feature-settings: "kern" 1, "liga" 1; }` (and same for other codes — kerning and ligatures matter for proper rendering).
+- **`lang` attribute:** every Indigenous word in markup gets its BCP 47 tag (`gvn`, `aoi`, `mic`, `wbv`), which may differ from the app's internal dictionary code. Kerning and ligatures still apply through the general language-text style.
 - **Display font scope:** Playfair Display only on `h1, h2` on marketing surfaces and on the dictionary headword. Product UI uses Inter for every level (the current `globals.css` rule `h1, h2, h3, h4, h5, h6 { font-family: var(--font-display) }` should be scoped to marketing — see Section 9: Migration).
 - **No gradient text.** `background-clip: text` is banned. Emphasis is weight + scale.
 
@@ -211,6 +211,8 @@ The most important component in the system. Anatomy:
 │                                             │
 │  HEADWORD                                   │ ← Playfair 2.5rem, weight 600
 │  /ipa.pronunciation/   [part-of-speech]     │ ← Mono + tag pill
+│  [Recorded voice · source] or               │
+│  [Synthetic guide · approximation]          │ ← source is visible, not a tooltip
 │                                             │
 │  Definition in English. 65ch max line.      │ ← Inter 1.125rem, weight 400
 │  No restating the headword.                 │
@@ -226,6 +228,8 @@ The most important component in the system. Anatomy:
 ```
 
 No card chrome around the whole thing — the entry IS the page on `/dictionaries/[language]/[word]`. On a search result list, a more compact variant: headword + part-of-speech + truncated definition, with hover state revealing the example sentence.
+
+Pronunciation controls use this order: attributed source recording, contributed human recording, then synthetic fallback. A contributed recording is not called reviewed unless it has a separate review state. The synthetic fallback uses a sparkle mark plus the words **Synthetic guide**; a speaker or microphone mark is reserved for recorded audio.
 
 ### 5.4 Learn card (flip / quiz)
 
