@@ -21,36 +21,54 @@ interface Recording {
   language?: { id: string; name: string; code: string } | null;
 }
 
+interface LanguageOption {
+  id: string;
+  name: string;
+}
+
 const fmtDur = (ms: number | null) => (ms ? `${(ms / 1000).toFixed(1)}s` : '—');
 const fmtDate = (iso: string) => new Date(iso).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
 
 export default function RecordingLibraryPage() {
   const [recs, setRecs] = useState<Recording[]>([]);
+  const [languages, setLanguages] = useState<LanguageOption[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [lang, setLang] = useState('all');
+  const [lang, setLang] = useState('');
   const [speaker, setSpeaker] = useState('all');
   const [status, setStatus] = useState('active');
 
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('/api/v2/admin/recordings?status=all&limit=500');
-        if (!res.ok) throw new Error(res.status === 403 ? 'You need an admin role to view recordings.' : 'Failed to load recordings.');
-        setRecs(await res.json());
+        const res = await fetch('/api/v2/admin/languages', { cache: 'no-store' });
+        if (!res.ok) throw new Error(res.status === 403 ? 'You do not have access to a language.' : 'Failed to load your languages.');
+        const available = (await res.json()) as LanguageOption[];
+        setLanguages(available);
+        if (available.length === 0) throw new Error('No language has been assigned to this account.');
+        setLang(available[0].id);
       } catch (e) {
         setError(e instanceof Error ? e.message : 'Failed to load recordings.');
-      } finally {
         setLoading(false);
       }
     })();
   }, []);
 
-  const languages = useMemo(() => {
-    const m = new Map<string, string>();
-    recs.forEach((r) => r.language && m.set(r.language.id, r.language.name));
-    return [...m.entries()].sort((a, b) => a[1].localeCompare(b[1]));
-  }, [recs]);
+  useEffect(() => {
+    if (!lang) return;
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+    fetch(`/api/v2/admin/recordings?languageId=${encodeURIComponent(lang)}&status=all&limit=500`, { cache: 'no-store' })
+      .then(async (res) => {
+        if (!res.ok) throw new Error(res.status === 403 ? 'You do not have access to this language.' : 'Failed to load recordings.');
+        return res.json() as Promise<Recording[]>;
+      })
+      .then((items) => { if (!cancelled) setRecs(items); })
+      .catch((e: unknown) => { if (!cancelled) setError(e instanceof Error ? e.message : 'Failed to load recordings.'); })
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
+  }, [lang]);
 
   const speakers = useMemo(() => {
     const m = new Map<string, string>();
@@ -60,11 +78,10 @@ export default function RecordingLibraryPage() {
 
   const filtered = useMemo(
     () => recs.filter((r) =>
-      (lang === 'all' || r.language_id === lang) &&
       (speaker === 'all' || r.speaker_id === speaker) &&
       (status === 'all' || r.status === status)
     ),
-    [recs, lang, speaker, status]
+    [recs, speaker, status]
   );
 
   const totalDuration = filtered.reduce((s, r) => s + (r.duration_ms ?? 0), 0);
@@ -88,14 +105,14 @@ export default function RecordingLibraryPage() {
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight flex items-center gap-2">
           <Mic className="h-6 w-6 text-primary shrink-0" /> Recording library
         </h1>
-        <p className="text-muted-foreground mt-1">Every speaker recording — filter by language or speaker and play them back.</p>
+        <p className="text-muted-foreground mt-1">Recordings for one language at a time, limited to the communities you manage.</p>
       </div>
 
       {/* Summary */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
           { icon: Mic, label: 'Recordings', value: filtered.length },
-          { icon: Globe, label: 'Languages', value: languages.length },
+          { icon: Globe, label: 'Language', value: lang ? 1 : 0 },
           { icon: Users, label: 'Speakers', value: speakers.length },
           { icon: Clock, label: 'Total audio', value: `${(totalDuration / 1000).toFixed(0)}s` },
         ].map((s) => (
@@ -114,8 +131,7 @@ export default function RecordingLibraryPage() {
         <label className="flex flex-col gap-1 text-xs font-medium text-muted-foreground">
           Language
           <select value={lang} onChange={(e) => setLang(e.target.value)} className={selectClass} aria-label="Filter by language">
-            <option value="all">All languages</option>
-            {languages.map(([id, name]) => <option key={id} value={id}>{name}</option>)}
+            {languages.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
           </select>
         </label>
         <label className="flex flex-col gap-1 text-xs font-medium text-muted-foreground">

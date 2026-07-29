@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { and, eq, desc } from 'drizzle-orm';
+import { and, desc, eq, isNull, or } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { recordings, recordingTargets, speakerProfiles, languages } from '@/lib/db/schema';
+import { recordings, recordingTargets, speakerProfiles, languages, usageExamples, words } from '@/lib/db/schema';
 import { snakeRow } from '@/lib/db/case';
 import { recordingPublicUrl } from '@/lib/storage';
 import { requireAdmin, uploadAudio, removeAudio } from '@/lib/recording/server';
@@ -32,12 +32,44 @@ const metaSchema = z.object({
   clipped: z.boolean().optional(),
 });
 
+async function referencesBelongToLanguage(meta: z.infer<typeof metaSchema>): Promise<boolean> {
+  const targetKinds = [meta.wordId, meta.targetId, meta.exampleId].filter(Boolean);
+  if (targetKinds.length > 1) return false;
+
+  if (meta.wordId) {
+    const found = await db.select({ id: words.id }).from(words)
+      .where(and(eq(words.id, meta.wordId), eq(words.languageId, meta.languageId))).limit(1);
+    if (!found[0]) return false;
+  }
+  if (meta.targetId) {
+    const found = await db.select({ id: recordingTargets.id }).from(recordingTargets)
+      .where(and(eq(recordingTargets.id, meta.targetId), eq(recordingTargets.languageId, meta.languageId))).limit(1);
+    if (!found[0]) return false;
+  }
+  if (meta.exampleId) {
+    const found = await db.select({ id: usageExamples.id }).from(usageExamples)
+      .innerJoin(words, eq(usageExamples.wordId, words.id))
+      .where(and(eq(usageExamples.id, meta.exampleId), eq(words.languageId, meta.languageId))).limit(1);
+    if (!found[0]) return false;
+  }
+  if (meta.speakerId) {
+    const found = await db.select({ id: speakerProfiles.id }).from(speakerProfiles)
+      .where(and(
+        eq(speakerProfiles.id, meta.speakerId),
+        or(eq(speakerProfiles.languageId, meta.languageId), isNull(speakerProfiles.languageId)),
+      )).limit(1);
+    if (!found[0]) return false;
+  }
+  if (meta.supersedesId) {
+    const found = await db.select({ id: recordings.id }).from(recordings)
+      .where(and(eq(recordings.id, meta.supersedesId), eq(recordings.languageId, meta.languageId))).limit(1);
+    if (!found[0]) return false;
+  }
+  return true;
+}
+
 // ---- POST: upload a recording (multipart) ------------------------------
 export async function POST(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-  const userId = auth.user.id;
-
   let form: FormData;
   try {
     form = await request.formData();
@@ -57,6 +89,12 @@ export async function POST(request: NextRequest) {
       { error: 'Invalid meta', details: err instanceof z.ZodError ? err.issues : String(err) },
       { status: 400 },
     );
+  }
+  const auth = await requireAdmin(meta.languageId);
+  if (auth.error) return auth.error;
+  const userId = auth.user.id;
+  if (!(await referencesBelongToLanguage(meta))) {
+    return NextResponse.json({ error: 'Recording references must belong to the selected language.' }, { status: 400 });
   }
 
   const master = form.get('master');
@@ -201,18 +239,18 @@ export async function POST(request: NextRequest) {
 
 // ---- GET: list recordings ---------------------------------------------
 export async function GET(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-
   const { searchParams } = new URL(request.url);
   const languageId = searchParams.get('languageId');
+  if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
+  const auth = await requireAdmin(languageId);
+  if (auth.error) return auth.error;
   const wordId = searchParams.get('wordId');
   const speakerId = searchParams.get('speakerId');
   const status = searchParams.get('status'); // active | superseded | rejected | all
   const limit = Math.min(500, Number(searchParams.get('limit') ?? 200));
 
   const conds = [];
-  if (languageId) conds.push(eq(recordings.languageId, languageId));
+  conds.push(eq(recordings.languageId, languageId));
   if (wordId) conds.push(eq(recordings.wordId, wordId));
   if (speakerId) conds.push(eq(recordings.speakerId, speakerId));
   if (status && status !== 'all') conds.push(eq(recordings.status, status));

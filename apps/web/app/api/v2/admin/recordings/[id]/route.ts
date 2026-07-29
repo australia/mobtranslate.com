@@ -19,7 +19,14 @@ const patchSchema = z.object({
 // Moderate a recording: reject, restore, set primary, or edit notes.
 export async function PATCH(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const auth = await requireAdmin();
+  const targetRows = await db
+    .select({ languageId: recordings.languageId, wordId: recordings.wordId, targetId: recordings.targetId })
+    .from(recordings)
+    .where(eq(recordings.id, params.id))
+    .limit(1);
+  const target = targetRows[0];
+  if (!target) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  const auth = await requireAdmin(target.languageId);
   if (auth.error) return auth.error;
 
   let body: z.infer<typeof patchSchema>;
@@ -37,12 +44,6 @@ export async function PATCH(request: NextRequest, props: { params: Promise<{ id:
 
   // Setting one recording primary clears the flag on its siblings.
   if (body.isPrimary === true) {
-    const targetRows = await db
-      .select({ wordId: recordings.wordId, targetId: recordings.targetId })
-      .from(recordings)
-      .where(eq(recordings.id, params.id))
-      .limit(1);
-    const target = targetRows[0];
     if (target?.wordId) {
       await db.update(recordings).set({ isPrimary: false }).where(eq(recordings.wordId, target.wordId));
     } else if (target?.targetId) {
@@ -63,15 +64,15 @@ export async function PATCH(request: NextRequest, props: { params: Promise<{ id:
 // Permanently delete a recording and its storage objects.
 export async function DELETE(_request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-
   const recRows = await db
-    .select({ storagePath: recordings.storagePath, opusPath: recordings.opusPath })
+    .select({ languageId: recordings.languageId, storagePath: recordings.storagePath, opusPath: recordings.opusPath })
     .from(recordings)
     .where(eq(recordings.id, params.id))
     .limit(1);
   const rec = recRows[0];
+  if (!rec) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  const auth = await requireAdmin(rec.languageId);
+  if (auth.error) return auth.error;
   if (rec) {
     const paths = [rec.storagePath, rec.opusPath].filter(Boolean) as string[];
     for (const p of paths) await removeAudio(p);

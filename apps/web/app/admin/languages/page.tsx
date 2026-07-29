@@ -2,31 +2,39 @@
 
 import useSWR from 'swr';
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Badge } from '@mobtranslate/ui';
-import { useToast } from '@/hooks/useToast';
-import { Plus, Edit, Users, Globe, BookOpen, Settings } from 'lucide-react';
+import { AlertCircle, Plus, Edit, Users, Globe, BookOpen, Settings } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-const fetcher = (url: string) => fetch(url).then((res) => {
-  if (!res.ok) throw new Error('Failed to fetch');
-  return res.json();
-});
+interface LanguageSummary {
+  id: string;
+  name: string;
+  code: string;
+  is_active?: boolean | null;
+  word_count?: number | null;
+  curator_count?: number | null;
+  created_at?: string | null;
+}
+
+interface LanguagesPayload { languages: LanguageSummary[]; canCreate: boolean }
+
+const fetcher = async (url: string): Promise<LanguagesPayload> => {
+  const response = await fetch(url);
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error || 'Could not load managed languages.');
+  return {
+    languages: Array.isArray(data) ? data : [],
+    canCreate: response.headers.get('X-MobTranslate-Can-Create-Language') === 'true',
+  };
+};
 
 export default function LanguagesPage() {
   const router = useRouter();
-  const { toast } = useToast();
 
-  const { data: languages = [], error, isLoading } = useSWR(
+  const { data, error, isLoading } = useSWR(
     '/api/v2/admin/languages',
     fetcher
   );
-
-  if (error) {
-    toast({
-      title: 'Error',
-      description: 'Failed to load languages',
-      variant: 'error'
-    });
-  }
+  const languages = data?.languages ?? [];
 
 
   return (
@@ -38,11 +46,13 @@ export default function LanguagesPage() {
             Manage languages and their curation settings
           </p>
         </div>
-        <Button onClick={() => router.push('/admin/languages/new')}>
+        {data?.canCreate ? <Button onClick={() => router.push('/admin/languages/new')}>
           <Plus className="h-4 w-4 mr-2" />
           Add Language
-        </Button>
+        </Button> : null}
       </div>
+
+      {error ? <Card><CardContent className="flex items-start gap-3 py-5"><AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-error" /><div><p className="font-medium">Managed languages did not load</p><p className="mt-1 text-sm text-muted-foreground">{error.message}</p></div></CardContent></Card> : isLoading ? <div className="space-y-4" aria-label="Loading managed languages"><div className="grid gap-4 md:grid-cols-3">{[1, 2, 3].map((item) => <div key={item} className="h-28 animate-pulse rounded-xl bg-muted" aria-hidden="true" />)}</div><div className="h-64 animate-pulse rounded-xl bg-muted" aria-hidden="true" /></div> : <>
 
       {/* Stats Cards */}
       <div className="grid gap-4 md:grid-cols-3">
@@ -55,7 +65,7 @@ export default function LanguagesPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {languages.filter((l: any) => l.is_active).length}
+              {languages.filter((language) => language.is_active).length}
             </div>
             <p className="text-xs text-muted-foreground">
               Available for curation
@@ -72,7 +82,7 @@ export default function LanguagesPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {languages.reduce((sum: number, l: any) => sum + (l.word_count || 0), 0).toLocaleString()}
+              {languages.reduce((sum, language) => sum + (language.word_count || 0), 0).toLocaleString()}
             </div>
             <p className="text-xs text-muted-foreground">
               Across all languages
@@ -89,7 +99,7 @@ export default function LanguagesPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {languages.reduce((sum: number, l: any) => sum + (l.curator_count || 0), 0)}
+              {languages.reduce((sum, language) => sum + (language.curator_count || 0), 0)}
             </div>
             <p className="text-xs text-muted-foreground">
               Active curators
@@ -120,20 +130,14 @@ export default function LanguagesPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {isLoading ? (
-                <TableRow>
-                  <TableCell colSpan={7} className="text-center">
-                    Loading languages...
-                  </TableCell>
-                </TableRow>
-              ) : languages.length === 0 ? (
+              {languages.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={7} className="text-center">
                     No languages found
                   </TableCell>
                 </TableRow>
               ) : (
-                languages.map((language: any) => (
+                languages.map((language) => (
                   <TableRow key={language.id}>
                     <TableCell className="font-medium">{language.name}</TableCell>
                     <TableCell>
@@ -149,7 +153,7 @@ export default function LanguagesPage() {
                     <TableCell>{language.word_count || 0}</TableCell>
                     <TableCell>{language.curator_count || 0}</TableCell>
                     <TableCell>
-                      {new Date(language.created_at).toLocaleDateString()}
+                      {language.created_at ? new Date(language.created_at).toLocaleDateString() : 'Not recorded'}
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center justify-end gap-2">
@@ -175,6 +179,7 @@ export default function LanguagesPage() {
           </Table>
         </CardContent>
       </Card>
+      </>}
 
     </div>
   );

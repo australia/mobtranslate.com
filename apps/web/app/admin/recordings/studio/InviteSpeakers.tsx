@@ -6,21 +6,21 @@ import { Button, Input, cn } from '@mobtranslate/ui';
 import { Modal } from './Modal';
 import { createInvite, fetchInvites, searchUsers, setInviteStatus, type SpeakerInvite, type UserSearchResult } from './api';
 
-export function InviteSpeakers({ languageId }: { languageId: string }) {
+export function InviteSpeakers({ languageId, canSearchUsers }: { languageId: string; canSearchUsers: boolean }) {
   const [open, setOpen] = useState(false);
   return (
     <>
       <Button variant="outline" size="md" leftIcon={<Link2 className="h-4 w-4" />} onClick={() => setOpen(true)}>
         Invite speakers
       </Button>
-      <InviteModal open={open} languageId={languageId} onClose={() => setOpen(false)} />
+      <InviteModal open={open} languageId={languageId} canSearchUsers={canSearchUsers} onClose={() => setOpen(false)} />
     </>
   );
 }
 
 type Mode = 'anonymous' | 'registered';
 
-function InviteModal({ open, languageId, onClose }: { open: boolean; languageId: string; onClose: () => void }) {
+function InviteModal({ open, languageId, canSearchUsers, onClose }: { open: boolean; languageId: string; canSearchUsers: boolean; onClose: () => void }) {
   const [invites, setInvites] = useState<SpeakerInvite[]>([]);
   const [loading, setLoading] = useState(false);
   const [mode, setMode] = useState<Mode>('anonymous');
@@ -82,12 +82,12 @@ function InviteModal({ open, languageId, onClose }: { open: boolean; languageId:
       open={open}
       onClose={onClose}
       title="Invite speakers"
-      description="Invite a registered user, or create a private link for someone without an account — no login needed for the link."
+      description={canSearchUsers ? 'Invite a registered user, or create a private link for someone without an account.' : 'Create a private, revocable link for a speaker. They do not need an account.'}
       className="max-w-xl"
     >
       <div className="mb-4 flex gap-1 rounded-lg bg-muted p-1">
         <ModeTab active={mode === 'anonymous'} onClick={() => setMode('anonymous')} icon={Link2} label="Private link" />
-        <ModeTab active={mode === 'registered'} onClick={() => setMode('registered')} icon={User} label="Registered user" />
+        {canSearchUsers && <ModeTab active={mode === 'registered'} onClick={() => setMode('registered')} icon={User} label="Registered user" />}
       </div>
 
       {mode === 'anonymous' ? (
@@ -133,7 +133,7 @@ function ModeTab({ active, onClick, icon: Icon, label }: { active: boolean; onCl
   );
 }
 
-function UserPicker({ onPick, disabled }: { onPick: (u: UserSearchResult) => void; disabled: boolean }) {
+function UserPicker({ onPick, disabled }: { onPick: (_user: UserSearchResult) => void; disabled: boolean }) {
   const [q, setQ] = useState('');
   const [results, setResults] = useState<UserSearchResult[]>([]);
   const [searching, setSearching] = useState(false);

@@ -32,10 +32,15 @@ interface User {
   }>;
 }
 
-const fetcher = (url: string) => fetch(url).then((res) => {
-  if (!res.ok) throw new Error('Failed to fetch');
-  return res.json();
-});
+interface Role { id: string; name: string; display_name: string; description?: string | null }
+interface Language { id: string; name: string; code: string }
+
+const fetcher = async (url: string) => {
+  const response = await fetch(url);
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error || 'Could not load admin data.');
+  return data;
+};
 
 export default function UserManagementPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -43,34 +48,32 @@ export default function UserManagementPage() {
   const [assignRoleOpen, setAssignRoleOpen] = useState(false);
   const [selectedRole, setSelectedRole] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('');
+  const [privilegedConfirmation, setPrivilegedConfirmation] = useState('');
   const { toast } = useToast();
 
   // Fetch users with SWR
-  const { data: users = [], error: usersError, isLoading: usersLoading, mutate: mutateUsers } = useSWR(
+  const { data: users = [], error: usersError, isLoading: usersLoading, mutate: mutateUsers } = useSWR<User[]>(
     '/api/v2/admin/users',
     fetcher
   );
 
   // Fetch roles with SWR
-  const { data: roles = [], error: rolesError } = useSWR(
+  const { data: roles = [], error: rolesError } = useSWR<Role[]>(
     '/api/v2/admin/roles',
     fetcher
   );
 
   // Fetch languages with SWR
-  const { data: languages = [], error: languagesError } = useSWR(
+  const { data: languagePayload, error: languagesError } = useSWR<{ languages: Language[] }>(
     '/api/v2/admin/languages',
-    fetcher
+    async (url: string) => {
+      const result = await fetcher(url);
+      return { languages: Array.isArray(result) ? result : [] };
+    }
   );
-
-  // Handle errors
-  if (usersError || rolesError || languagesError) {
-    toast({
-      title: 'Error',
-      description: 'Failed to load data',
-      variant: 'error'
-    });
-  }
+  const languages = languagePayload?.languages ?? [];
+  const selectedRoleDetails = roles.find((role) => role.id === selectedRole);
+  const languageRequired = Boolean(selectedRoleDetails && selectedRoleDetails.name !== 'super_admin');
 
   const handleAssignRole = async () => {
     if (!selectedUser || !selectedRole) return;
@@ -81,40 +84,42 @@ export default function UserManagementPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           role_id: selectedRole,
-          language_id: selectedLanguage || null
+          language_id: selectedRoleDetails?.name === 'super_admin' ? null : selectedLanguage || null
         })
       });
 
-      if (!response.ok) throw new Error('Failed to assign role');
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || 'Failed to assign role');
 
       toast({
-        title: 'Success',
-        description: 'Role assigned successfully'
+        title: 'Role granted',
+        description: 'The scoped assignment and audit entry were saved.'
       });
 
       setAssignRoleOpen(false);
       setSelectedUser(null);
       setSelectedRole('');
       setSelectedLanguage('');
+      setPrivilegedConfirmation('');
       // Refresh users data
       await mutateUsers();
     } catch (error) {
       console.error('Error assigning role:', error);
       toast({
-        title: 'Error',
-        description: 'Failed to assign role',
+        title: 'Role not granted',
+        description: error instanceof Error ? error.message : 'Failed to assign role',
         variant: 'error'
       });
     }
   };
 
-  const filteredUsers = users.filter((user: any) =>
+  const filteredUsers = users.filter((user) =>
     user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
     user.display_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
     user.username?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const getRoleBadgeColor = (roleName: string) => {
+  const getRoleBadgeColor = (roleName: string): 'error' | 'primary' | 'secondary' | 'outline' => {
     switch (roleName) {
       case 'super_admin': return 'error';
       case 'dictionary_admin': return 'primary';
@@ -149,6 +154,12 @@ export default function UserManagementPage() {
                 <Button size="sm" variant="secondary" onClick={() => mutateUsers()}>Retry</Button>
               </div>
             )}
+            {(rolesError || languagesError) && (
+              <div className="mb-6 rounded-lg border border-error/30 bg-error/5 p-4 text-sm" role="alert">
+                <p className="font-medium text-error">Role controls are unavailable</p>
+                <p className="mt-1 text-muted-foreground">{rolesError?.message || languagesError?.message || 'Could not load roles or languages.'}</p>
+              </div>
+            )}
             <div className="mb-6">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -175,7 +186,7 @@ export default function UserManagementPage() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {filteredUsers.map((user: any) => (
+                  {filteredUsers.map((user) => (
                     <TableRow key={user.id}>
                       <TableCell>
                         <div>
@@ -190,7 +201,7 @@ export default function UserManagementPage() {
                               User
                             </Badge>
                           )}
-                          {user.roles?.map((assignment: any, idx: number) => (
+                          {user.roles?.map((assignment, idx) => (
                             <Badge
                               key={idx}
                               variant={getRoleBadgeColor(assignment.role.name)}
@@ -213,6 +224,7 @@ export default function UserManagementPage() {
                             setSelectedUser(null);
                             setSelectedRole('');
                             setSelectedLanguage('');
+                            setPrivilegedConfirmation('');
                           }
                           setAssignRoleOpen(open);
                         }}>
@@ -239,7 +251,7 @@ export default function UserManagementPage() {
                                     <SelectPortal>
                                       <SelectPositioner>
                                         <SelectPopup>
-                                          {roles.map((role: any) => (
+                                          {roles.map((role) => (
                                             <SelectItem key={role.id} value={role.id}>
                                               {role.display_name}
                                             </SelectItem>
@@ -250,8 +262,8 @@ export default function UserManagementPage() {
                                   </Select>
                                 </div>
 
-                                <div className="space-y-2">
-                                  <label className="text-sm font-medium" htmlFor="language">Language (optional)</label>
+                                {languageRequired ? <div className="space-y-2">
+                                  <label className="text-sm font-medium" htmlFor="language">Language</label>
                                   <Select value={selectedLanguage} onValueChange={(v) => v != null && setSelectedLanguage(v)}>
                                     <SelectTrigger id="language">
                                       <SelectValue />
@@ -259,8 +271,7 @@ export default function UserManagementPage() {
                                     <SelectPortal>
                                       <SelectPositioner>
                                         <SelectPopup>
-                                          <SelectItem value="">Global (all languages)</SelectItem>
-                                          {languages.map((lang: any) => (
+                                          {languages.map((lang) => (
                                             <SelectItem key={lang.id} value={lang.id}>
                                               {lang.name} ({lang.code})
                                             </SelectItem>
@@ -269,14 +280,15 @@ export default function UserManagementPage() {
                                       </SelectPositioner>
                                     </SelectPortal>
                                   </Select>
-                                </div>
+                                  <p className="text-xs text-muted-foreground">This role will apply only to the selected language.</p>
+                                </div> : selectedRoleDetails?.name === 'super_admin' ? <div className="space-y-3 rounded-lg border border-error/25 bg-error/5 p-3 text-sm"><div><p className="font-medium text-error">Platform-wide access</p><p className="mt-1 text-muted-foreground">Super admins can view personal account data and change roles across every language.</p></div><div><label htmlFor={`confirm-super-${user.id}`} className="text-xs font-medium">Type {user.email} to confirm</label><Input id={`confirm-super-${user.id}`} className="mt-1 bg-card" value={privilegedConfirmation} onChange={(event) => setPrivilegedConfirmation(event.target.value)} autoComplete="off" /></div></div> : null}
 
                                 <Button
                                   className="w-full"
                                   onClick={handleAssignRole}
-                                  disabled={!selectedRole}
+                                  disabled={!selectedRole || (languageRequired && !selectedLanguage) || (selectedRoleDetails?.name === 'super_admin' && privilegedConfirmation.trim().toLowerCase() !== user.email.toLowerCase()) || Boolean(rolesError || languagesError)}
                                 >
-                                  Assign Role
+                                  Grant role
                                 </Button>
                               </div>
                             </DialogPopup>

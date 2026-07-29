@@ -17,9 +17,6 @@ const ADMIN_ROLES = ['super_admin', 'dictionary_admin'];
 // and any pending edit suggestions.
 export async function GET(_request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const { response } = await requireRole(ADMIN_ROLES);
-  if (response) return response;
-
   const wordRows = await db
     .select({
       id: wordsT.id,
@@ -34,6 +31,8 @@ export async function GET(_request: NextRequest, props: { params: Promise<{ id: 
     .limit(1);
   const word = wordRows[0];
   if (!word) return NextResponse.json({ error: 'Word not found' }, { status: 404 });
+  const { response } = await requireRole(ADMIN_ROLES, word.language_id);
+  if (response) return response;
 
   const [defs, trans, suggestions] = await Promise.all([
     db

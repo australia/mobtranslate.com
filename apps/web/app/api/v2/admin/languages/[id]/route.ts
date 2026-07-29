@@ -9,7 +9,7 @@ export async function PUT(request: NextRequest, props: { params: Promise<{ id: s
   const params = await props.params;
   try {
     // Authz in code (RLS is gone): admin role required.
-    const { response } = await requireRole(['super_admin', 'dictionary_admin']);
+    const { response } = await requireRole(['super_admin', 'dictionary_admin'], params.id);
     if (response) return response;
 
     const body = await request.json();

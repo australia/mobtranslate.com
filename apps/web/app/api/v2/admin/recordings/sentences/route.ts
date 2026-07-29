@@ -7,12 +7,11 @@ export const runtime = 'nodejs';
 
 // Worklist of dictionary example sentences + their recording status.
 export async function GET(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-
   const { searchParams } = new URL(request.url);
   const languageId = searchParams.get('languageId');
   if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
+  const auth = await requireAdmin(languageId);
+  if (auth.error) return auth.error;
 
   const filter = (searchParams.get('filter') ?? 'pending') as 'pending' | 'recorded' | 'all';
   const q = searchParams.get('q') ?? '';

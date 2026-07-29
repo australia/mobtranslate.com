@@ -2,14 +2,16 @@ import { NextRequest, NextResponse } from 'next/server';
 import { or, ilike } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
 import { userProfiles } from '@/lib/db/schema';
-import { requireAdmin } from '@/lib/recording/server';
+import { requireRole } from '@/lib/auth-helpers';
 
 export const runtime = 'nodejs';
 
 // Search registered users (by email / username / display name) to invite as speakers.
 export async function GET(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
+  // Email-address discovery is a platform-level privilege. Language managers
+  // can still create a named invite link without searching every account.
+  const { response } = await requireRole(['super_admin']);
+  if (response) return response;
 
   const { searchParams } = new URL(request.url);
   const raw = (searchParams.get('q') ?? '').trim();

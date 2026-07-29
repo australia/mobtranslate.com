@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { and, eq, isNull } from 'drizzle-orm';
 import { z } from 'zod';
 import { db } from '@/lib/db/index';
-import { requireRole, userHasRole } from '@/lib/auth-helpers';
+import { requireRole } from '@/lib/auth-helpers';
 import { snakeRow } from '@/lib/db/case';
-import { userRoleAssignments as uraT, userRoles as userRolesT } from '@/lib/db/schema';
+import { curatorActivities as activitiesT, userRoleAssignments as uraT, userRoles as userRolesT } from '@/lib/db/schema';
 
 const assignRoleSchema = z.object({
   role_id: z.string().uuid(),
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest, props: { params: Promise<{ user
 
   try {
     // Authz in code (RLS is gone): admin role required.
-    const { user, response } = await requireRole(['super_admin', 'dictionary_admin']);
+    const { user, response } = await requireRole(['super_admin']);
     if (response) {
       if (response.status === 403) {
         return NextResponse.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
@@ -45,13 +45,17 @@ export async function POST(request: NextRequest, props: { params: Promise<{ user
       );
     }
 
-    // Dictionary admins can't assign super_admin or dictionary_admin roles
-    const isDictionaryAdmin = await userHasRole(user!.id, ['dictionary_admin']);
-
-    if (isDictionaryAdmin && ['super_admin', 'dictionary_admin'].includes(role.name)) {
+    if (role.name === 'super_admin' && language_id) {
       return NextResponse.json(
-        { error: 'Forbidden: Cannot assign admin roles' },
-        { status: 403 }
+        { error: 'Super admin is a platform-wide role and cannot be language-scoped' },
+        { status: 400 }
+      );
+    }
+
+    if (role.name !== 'super_admin' && !language_id) {
+      return NextResponse.json(
+        { error: 'A language is required for this role' },
+        { status: 400 }
       );
     }
 
@@ -82,6 +86,14 @@ export async function POST(request: NextRequest, props: { params: Promise<{ user
         .where(eq(uraT.id, existingAssignment.id))
         .returning();
 
+      await db.insert(activitiesT).values({
+        userId: user!.id,
+        languageId: language_id ?? null,
+        activityType: 'user_role_assigned',
+        targetType: 'role_assignment',
+        targetId: updated.id,
+        activityData: { assigned_user_id: userId, role: role.name, restored: true },
+      });
       return NextResponse.json(snakeRow(updated));
     } else {
       // Create new assignment
@@ -96,6 +108,14 @@ export async function POST(request: NextRequest, props: { params: Promise<{ user
         })
         .returning();
 
+      await db.insert(activitiesT).values({
+        userId: user!.id,
+        languageId: language_id ?? null,
+        activityType: 'user_role_assigned',
+        targetType: 'role_assignment',
+        targetId: assignment.id,
+        activityData: { assigned_user_id: userId, role: role.name, restored: false },
+      });
       return NextResponse.json(snakeRow(assignment), { status: 201 });
     }
   } catch (error) {

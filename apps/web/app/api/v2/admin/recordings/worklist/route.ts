@@ -7,12 +7,11 @@ export const runtime = 'nodejs';
 
 // Dictionary words + their recording status, plus a progress summary.
 export async function GET(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-
   const { searchParams } = new URL(request.url);
   const languageId = searchParams.get('languageId');
   if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
+  const auth = await requireAdmin(languageId);
+  if (auth.error) return auth.error;
 
   const filter = (searchParams.get('filter') ?? 'pending') as 'pending' | 'recorded' | 'all';
   const q = searchParams.get('q') ?? '';

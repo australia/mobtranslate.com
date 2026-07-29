@@ -33,8 +33,9 @@ export async function getSessionUser(): Promise<SessionUser | null> {
 }
 
 /**
- * App-level authz (RLS is gone). Mirrors the SQL `user_has_role(uuid, text[], uuid)`
- * that the admin/curator routes used via `.rpc('user_has_role', ...)`.
+ * App-level authz (RLS is gone). Check assignments directly rather than the
+ * legacy database helper: an older version of that function treated every
+ * dictionary_admin assignment as global, even when it named one language.
  */
 export async function userHasRole(
   userId: string,
@@ -45,9 +46,21 @@ export async function userHasRole(
     roleNames.map((r) => sql`${r}`),
     sql`, `,
   )}]::text[]`;
-  const res: any = await db.execute(
-    sql`select public.user_has_role(${userId}::uuid, ${roleArray}, ${langId ?? null}::uuid) as has_role`,
-  );
+  const scope = langId
+    ? sql`and (ur.name = 'super_admin' or ura.language_id is null or ura.language_id = ${langId}::uuid)`
+    : sql``;
+  const res: any = await db.execute(sql`
+    select exists (
+      select 1
+      from public.user_role_assignments ura
+      join public.user_roles ur on ur.id = ura.role_id
+      where ura.user_id = ${userId}::uuid
+        and ura.is_active = true
+        and (ura.expires_at is null or ura.expires_at > now())
+        and ur.name = any(${roleArray})
+        ${scope}
+    ) as has_role
+  `);
   const row = Array.isArray(res) ? res[0] : res?.rows?.[0];
   return row?.has_role === true;
 }

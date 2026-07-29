@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { randomBytes } from 'crypto';
 import { z } from 'zod';
-import { eq, desc } from 'drizzle-orm';
+import { and, desc, eq, isNull, or } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
 import { speakerInvites, speakerProfiles, userProfiles } from '@/lib/db/schema';
 import { requireAdmin } from '@/lib/recording/server';
+import { userHasRole } from '@/lib/auth-helpers';
 
 export const runtime = 'nodejs';
 
@@ -15,12 +16,11 @@ function inviteUrl(request: NextRequest, token: string): string {
 
 // ---- GET: list invites for a language ----------------------------------
 export async function GET(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-
   const { searchParams } = new URL(request.url);
   const languageId = searchParams.get('languageId');
   if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
+  const auth = await requireAdmin(languageId);
+  if (auth.error) return auth.error;
 
   const rows = await db
     .select({
@@ -61,15 +61,17 @@ const createSchema = z.object({
 const NINETY_DAYS_MS = 90 * 24 * 60 * 60 * 1000;
 
 export async function POST(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-  const userId = auth.user.id;
-
   let body: z.infer<typeof createSchema>;
   try {
     body = createSchema.parse(await request.json());
   } catch (err) {
     return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
+  }
+  const auth = await requireAdmin(body.languageId);
+  if (auth.error) return auth.error;
+  const userId = auth.user.id;
+  if (body.invitedUserId && !(await userHasRole(userId, ['super_admin']))) {
+    return NextResponse.json({ error: 'Only a super admin can search for and invite registered accounts.' }, { status: 403 });
   }
   const targets = [body.speakerId, body.speakerName, body.invitedUserId].filter(Boolean);
   if (targets.length !== 1) {
@@ -148,9 +150,15 @@ export async function POST(request: NextRequest) {
     const rows = await db
       .select({ id: speakerProfiles.id, name: speakerProfiles.name })
       .from(speakerProfiles)
-      .where(eq(speakerProfiles.id, speakerId))
+      .where(and(
+        eq(speakerProfiles.id, speakerId),
+        or(eq(speakerProfiles.languageId, body.languageId), isNull(speakerProfiles.languageId)),
+      ))
       .limit(1);
     speaker = rows[0] ?? null;
+    if (!speaker) {
+      return NextResponse.json({ error: 'The selected speaker does not belong to this language.' }, { status: 400 });
+    }
   }
 
   let data;

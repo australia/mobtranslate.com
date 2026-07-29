@@ -21,10 +21,12 @@ export default async function AdminDashboard() {
     redirect('/auth/signin?redirect=/admin');
   }
 
-  // Check if user is admin
-  const isAdmin = await userHasRole(user.id, ['super_admin', 'dictionary_admin']);
-  if (!isAdmin) {
-    redirect('/');
+  // The overview contains platform-wide user and activity data. Language-scoped
+  // managers go directly to their language workspace instead.
+  const isSuperAdmin = await userHasRole(user.id, ['super_admin']);
+  if (!isSuperAdmin) {
+    const isLanguageManager = await userHasRole(user.id, ['dictionary_admin']);
+    redirect(isLanguageManager ? '/admin/languages' : '/');
   }
 
   const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();

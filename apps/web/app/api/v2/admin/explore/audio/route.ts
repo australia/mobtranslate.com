@@ -8,7 +8,6 @@ import { requireRole } from '@/lib/auth-helpers';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-const ADMIN_ROLES = ['super_admin', 'dictionary_admin'];
 const TTS_DIR = process.env.MOBTRANSLATE_TTS_DIR || '/mnt/donto-data/mobtranslate-storage/tts';
 
 /**
@@ -16,7 +15,7 @@ const TTS_DIR = process.env.MOBTRANSLATE_TTS_DIR || '/mnt/donto-data/mobtranslat
  * Deliberately does NOT touch play_count — an admin audition is not a user play.
  */
 export async function GET(request: NextRequest) {
-  const { response } = await requireRole(ADMIN_ROLES);
+  const { response } = await requireRole(['super_admin']);
   if (response) return response;
 
   const id = new URL(request.url).searchParams.get('id');

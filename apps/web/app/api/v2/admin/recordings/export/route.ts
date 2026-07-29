@@ -10,13 +10,12 @@ export const runtime = 'nodejs';
 // Build a training-ready manifest (LJSpeech-style) of active recordings.
 // The client turns this into metadata.csv + a download script for the WAVs.
 export async function GET(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-
   const { searchParams } = new URL(request.url);
   const languageId = searchParams.get('languageId');
   const speakerId = searchParams.get('speakerId');
   if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
+  const auth = await requireAdmin(languageId);
+  if (auth.error) return auth.error;
 
   const conds = [eq(recordings.languageId, languageId), eq(recordings.status, 'active')];
   if (speakerId) conds.push(eq(recordings.speakerId, speakerId));

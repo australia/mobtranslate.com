@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { and, eq, inArray, asc, desc } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { recordingTargets, recordings } from '@/lib/db/schema';
+import { recordingTargets, recordings, words } from '@/lib/db/schema';
 import { snakeRow } from '@/lib/db/case';
 import { requireAdmin } from '@/lib/recording/server';
 
@@ -10,13 +10,12 @@ export const runtime = 'nodejs';
 
 // ---- GET: list custom recording targets (phrases / new words) ----------
 export async function GET(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-
   const { searchParams } = new URL(request.url);
   const languageId = searchParams.get('languageId');
   const status = searchParams.get('status') ?? 'pending';
   if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
+  const auth = await requireAdmin(languageId);
+  if (auth.error) return auth.error;
 
   const conds = [eq(recordingTargets.languageId, languageId)];
   if (status !== 'all') conds.push(eq(recordingTargets.status, status));
@@ -59,15 +58,21 @@ const createSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-  const userId = auth.user.id;
-
   let body: z.infer<typeof createSchema>;
   try {
     body = createSchema.parse(await request.json());
   } catch (err) {
     return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
+  }
+  const auth = await requireAdmin(body.languageId);
+  if (auth.error) return auth.error;
+  const userId = auth.user.id;
+  if (body.wordId) {
+    const word = await db.select({ id: words.id }).from(words)
+      .where(and(eq(words.id, body.wordId), eq(words.languageId, body.languageId))).limit(1);
+    if (!word[0]) {
+      return NextResponse.json({ error: 'The selected word does not belong to this language.' }, { status: 400 });
+    }
   }
 
   let data;

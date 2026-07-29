@@ -7,13 +7,12 @@ export const runtime = 'nodejs';
 
 // Corpus statistics for the TTS dashboard (optionally scoped to one speaker).
 export async function GET(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-
   const { searchParams } = new URL(request.url);
   const languageId = searchParams.get('languageId');
   const speakerId = searchParams.get('speakerId');
   if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
+  const auth = await requireAdmin(languageId);
+  if (auth.error) return auth.error;
 
   let res: any;
   try {

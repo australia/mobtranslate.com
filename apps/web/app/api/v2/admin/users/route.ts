@@ -12,7 +12,7 @@ import {
 export async function GET(_request: NextRequest) {
   try {
     // Authz in code (RLS is gone): admin role required.
-    const { response } = await requireRole(['super_admin', 'dictionary_admin']);
+    const { response } = await requireRole(['super_admin']);
     if (response) return response;
 
     // Fetch all user profiles

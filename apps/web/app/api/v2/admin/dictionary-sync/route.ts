@@ -22,7 +22,7 @@ async function isAdminAuthenticated() {
     return { ok: false, status: 401, userId: null as string | null };
   }
 
-  const hasRole = await userHasRole(user.id, ['super_admin', 'dictionary_admin']);
+  const hasRole = await userHasRole(user.id, ['super_admin']);
 
   if (!hasRole) {
     return { ok: false, status: 403, userId: user.id };

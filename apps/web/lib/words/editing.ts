@@ -5,7 +5,7 @@
 // On apply we snapshot the prior word state into `word_revisions` for a full
 // audit trail, then mutate the underlying words/definitions/translations rows.
 
-import { desc, eq } from 'drizzle-orm';
+import { and, desc, eq } from 'drizzle-orm';
 import { db as drizzle } from '@/lib/db/index';
 import {
   definitions as definitionsT,
@@ -99,14 +99,14 @@ export async function applyWordSuggestion(
 
   if (improvement_type === 'definition') {
     const v = asRow(suggested_value);
-    if (v.id) await drizzle.update(definitionsT).set({ definition: v.text }).where(eq(definitionsT.id, v.id));
+    if (v.id) await drizzle.update(definitionsT).set({ definition: v.text }).where(and(eq(definitionsT.id, v.id), eq(definitionsT.wordId, word_id)));
     else await drizzle.insert(definitionsT).values({ wordId: word_id, definition: v.text, isPrimary: true, definitionNumber: 1 });
     return;
   }
 
   if (improvement_type === 'translation') {
     const v = asRow(suggested_value);
-    if (v.id) await drizzle.update(translationsT).set({ translation: v.text }).where(eq(translationsT.id, v.id));
+    if (v.id) await drizzle.update(translationsT).set({ translation: v.text }).where(and(eq(translationsT.id, v.id), eq(translationsT.wordId, word_id)));
     else await drizzle.insert(translationsT).values({ wordId: word_id, translation: v.text, isPrimary: true, targetLanguage: 'en' });
     return;
   }

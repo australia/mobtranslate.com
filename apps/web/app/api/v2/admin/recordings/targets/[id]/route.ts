@@ -18,7 +18,10 @@ const patchSchema = z.object({
 
 export async function PATCH(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const auth = await requireAdmin();
+  const targetRows = await db.select({ languageId: recordingTargets.languageId }).from(recordingTargets).where(eq(recordingTargets.id, params.id)).limit(1);
+  const target = targetRows[0];
+  if (!target) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  const auth = await requireAdmin(target.languageId);
   if (auth.error) return auth.error;
 
   let body: z.infer<typeof patchSchema>;
@@ -43,7 +46,10 @@ export async function PATCH(request: NextRequest, props: { params: Promise<{ id:
 
 export async function DELETE(_request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const auth = await requireAdmin();
+  const targetRows = await db.select({ languageId: recordingTargets.languageId }).from(recordingTargets).where(eq(recordingTargets.id, params.id)).limit(1);
+  const target = targetRows[0];
+  if (!target) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  const auth = await requireAdmin(target.languageId);
   if (auth.error) return auth.error;
 
   await db.delete(recordingTargets).where(eq(recordingTargets.id, params.id));

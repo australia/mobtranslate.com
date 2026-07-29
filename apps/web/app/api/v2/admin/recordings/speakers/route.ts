@@ -5,22 +5,21 @@ import { db } from '@/lib/db/index';
 import { speakerProfiles } from '@/lib/db/schema';
 import { snakeRow, snakeRows } from '@/lib/db/case';
 import { requireAdmin } from '@/lib/recording/server';
+import { requireRole } from '@/lib/auth-helpers';
 
 export const runtime = 'nodejs';
 
 // ---- GET: speaker profiles (optionally scoped to a language) -----------
 export async function GET(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-
   const { searchParams } = new URL(request.url);
   const languageId = searchParams.get('languageId');
+  if (!languageId) return NextResponse.json({ error: 'languageId required' }, { status: 400 });
+  const auth = await requireAdmin(languageId);
+  if (auth.error) return auth.error;
 
   // Show language-specific speakers plus any global ones.
   const conds = [eq(speakerProfiles.isActive, true)];
-  if (languageId) {
-    conds.push(or(eq(speakerProfiles.languageId, languageId), isNull(speakerProfiles.languageId))!);
-  }
+  conds.push(or(eq(speakerProfiles.languageId, languageId), isNull(speakerProfiles.languageId))!);
 
   const rows = await db
     .select()
@@ -45,15 +44,21 @@ const createSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const auth = await requireAdmin();
-  if (auth.error) return auth.error;
-  const userId = auth.user.id;
-
   let body: z.infer<typeof createSchema>;
   try {
     body = createSchema.parse(await request.json());
   } catch (err) {
     return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
+  }
+  let userId: string;
+  if (body.languageId) {
+    const auth = await requireAdmin(body.languageId);
+    if (auth.error) return auth.error;
+    userId = auth.user.id;
+  } else {
+    const { user, response } = await requireRole(['super_admin']);
+    if (response) return response;
+    userId = user!.id;
   }
 
   let data;

@@ -30,13 +30,13 @@ interface AdminErr {
   user?: undefined;
 }
 
-/** Verify the caller is signed in and holds an admin role. */
-export async function requireAdmin(): Promise<AdminOk | AdminErr> {
+/** Verify the caller can administer the requested language. */
+export async function requireAdmin(languageId: string): Promise<AdminOk | AdminErr> {
   const user = await getSessionUser();
   if (!user) {
     return { error: authError('Unauthorized', 401) };
   }
-  const isAdmin = await userHasRole(user.id, ADMIN_ROLES);
+  const isAdmin = await userHasRole(user.id, ADMIN_ROLES, languageId);
   if (!isAdmin) {
     return { error: authError('Forbidden', 403) };
   }

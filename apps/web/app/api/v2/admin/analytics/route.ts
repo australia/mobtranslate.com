@@ -13,7 +13,6 @@ import {
 
 export const dynamic = 'force-dynamic';
 
-const ADMIN_ROLES = ['super_admin', 'dictionary_admin'];
 const DAY = 86_400_000;
 
 function monthKey(iso: string | null): string | null {
@@ -39,7 +38,7 @@ const BUCKET_LABELS: Record<number, string> = {
 export async function GET() {
   try {
     // Gate on an admin role using the caller's own session (RLS is gone — authz in code).
-    const { response } = await requireRole(ADMIN_ROLES);
+    const { response } = await requireRole(['super_admin']);
     if (response) return response;
 
     const now = new Date();

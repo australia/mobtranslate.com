@@ -20,13 +20,14 @@ import { fetchSpeakers, fetchWorklist, fetchTargets, fetchSentences, type Langua
 interface RecordingStudioProps {
   languages: LanguageOption[];
   initialLanguageId: string;
+  canSearchUsers: boolean;
 }
 
 type Tab = 'words' | 'sentences' | 'review' | 'corpus';
 
 const SPEAKER_KEY = 'studio.speaker';
 
-export function RecordingStudio({ languages, initialLanguageId }: RecordingStudioProps) {
+export function RecordingStudio({ languages, initialLanguageId, canSearchUsers }: RecordingStudioProps) {
   const [languageId, setLanguageId] = useState(initialLanguageId);
   const language = languages.find((l) => l.id === languageId) ?? languages[0];
 
@@ -207,7 +208,7 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
             >
               <Headphones className="h-4 w-4" /> <span className="hidden lg:inline">Library</span>
             </Link>
-            <InviteSpeakers languageId={languageId} />
+            <InviteSpeakers languageId={languageId} canSearchUsers={canSearchUsers} />
             <UploadStatus />
           </div>
         </div>
@@ -251,7 +252,7 @@ export function RecordingStudio({ languages, initialLanguageId }: RecordingStudi
                 onSelect={selectSpeaker}
                 onSpeakersChange={setSpeakers}
               />
-              <InviteSpeakers languageId={languageId} />
+              <InviteSpeakers languageId={languageId} canSearchUsers={canSearchUsers} />
             </div>
             {speakers.length === 0 && (
               <p className="mt-4 text-sm text-muted-foreground">

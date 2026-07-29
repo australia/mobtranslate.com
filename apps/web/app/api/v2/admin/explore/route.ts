@@ -5,8 +5,6 @@ import { requireRole } from '@/lib/auth-helpers';
 
 export const dynamic = 'force-dynamic';
 
-const ADMIN_ROLES = ['super_admin', 'dictionary_admin'];
-
 /** postgres-js / drizzle execute() may return an array or { rows }. Normalize. */
 function rows<T = any>(res: any): T[] {
   return (Array.isArray(res) ? res : res?.rows ?? []) as T[];
@@ -15,7 +13,9 @@ function rows<T = any>(res: any): T[] {
 const PAGE_SIZE = 50;
 
 export async function GET(request: NextRequest) {
-  const { response } = await requireRole(ADMIN_ROLES);
+  // This console includes user-entered text and platform-wide generation
+  // history, so it is not a language-manager surface.
+  const { response } = await requireRole(['super_admin']);
   if (response) return response;
 
   const { searchParams } = new URL(request.url);
@@ -107,7 +107,6 @@ async function getRequests(params: URLSearchParams) {
   const lang = (params.get('lang') || '').trim();
   const offset = page * PAGE_SIZE;
 
-  const where = sql`where 1=1`;
   const conds: any[] = [];
   if (q) conds.push(sql`(input_text ilike ${'%' + q + '%'} or output_text ilike ${'%' + q + '%'})`);
   if (kind) conds.push(sql`kind = ${kind}`);

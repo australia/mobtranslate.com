@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { eq } from 'drizzle-orm';
+import { and, eq } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
 import { requireRole, userHasRole } from '@/lib/auth-helpers';
 import {
   curatorActivities as activitiesT,
+  definitions as definitionsT,
+  translations as translationsT,
   words as wordsT,
   wordImprovementSuggestions as wisT,
 } from '@/lib/db/schema';
@@ -37,8 +39,6 @@ const bodySchema = z.object({
 // suggestion + revision); other curators leave them pending for /curator.
 export async function POST(request: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const { user, response } = await requireRole(ADMIN_ROLES);
-  if (response) return response;
   const wordId = params.id;
 
   let body: z.infer<typeof bodySchema>;
@@ -48,14 +48,6 @@ export async function POST(request: NextRequest, props: { params: Promise<{ id: 
     return NextResponse.json({ error: 'Invalid body', details: err instanceof z.ZodError ? err.issues : String(err) }, { status: 400 });
   }
 
-  // Drop no-op changes.
-  const changes = body.changes.filter((c) => (c.current ?? '') !== (c.suggested ?? ''));
-  if (changes.length === 0) return NextResponse.json({ applied: 0, queued: 0, suggestions: [] });
-
-  // Self-approve only for super_admins (per policy); others queue for review.
-  const isSuper = await userHasRole(user!.id, ['super_admin']);
-  const selfApprove = !!isSuper;
-
   const wordRows = await db
     .select({ id: wordsT.id, languageId: wordsT.languageId })
     .from(wordsT)
@@ -63,6 +55,30 @@ export async function POST(request: NextRequest, props: { params: Promise<{ id: 
     .limit(1);
   const word = wordRows[0];
   if (!word) return NextResponse.json({ error: 'Word not found' }, { status: 404 });
+  const { user, response } = await requireRole(ADMIN_ROLES, word.languageId);
+  if (response) return response;
+
+  for (const change of body.changes) {
+    if (!change.rowId) continue;
+    const row = change.field === 'definition'
+      ? await db.select({ id: definitionsT.id }).from(definitionsT)
+          .where(and(eq(definitionsT.id, change.rowId), eq(definitionsT.wordId, wordId))).limit(1)
+      : change.field === 'translation'
+        ? await db.select({ id: translationsT.id }).from(translationsT)
+            .where(and(eq(translationsT.id, change.rowId), eq(translationsT.wordId, wordId))).limit(1)
+        : [];
+    if (!row[0]) {
+      return NextResponse.json({ error: 'The edited row does not belong to this word.' }, { status: 400 });
+    }
+  }
+
+  // Drop no-op changes.
+  const changes = body.changes.filter((c) => (c.current ?? '') !== (c.suggested ?? ''));
+  if (changes.length === 0) return NextResponse.json({ applied: 0, queued: 0, suggestions: [] });
+
+  // Self-approve only for super_admins (per policy); others queue for review.
+  const isSuper = await userHasRole(user!.id, ['super_admin']);
+  const selfApprove = !!isSuper;
 
   // Snapshot the current state before any mutation (only when applying now).
   if (selfApprove) {

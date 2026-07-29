@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import useSWR from 'swr';
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@mobtranslate/ui';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Dialog, DialogBackdrop, DialogDescription, DialogPopup, DialogPortal, DialogTitle, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@mobtranslate/ui';
 import { useToast } from '@/hooks/useToast';
 import { RefreshCw, Database, Clock, AlertTriangle, Sparkles, MapPinned, PlayCircle } from 'lucide-react';
 
@@ -56,15 +56,17 @@ interface SyncDashboardResponse {
 
 const fetcher = async (url: string): Promise<SyncDashboardResponse> => {
   const response = await fetch(url);
+  const data = await response.json().catch(() => ({}));
   if (!response.ok) {
-    throw new Error('Failed to load dictionary sync dashboard');
+    throw new Error(data.error || 'Failed to load dictionary sync dashboard');
   }
-  return response.json();
+  return data;
 };
 
 export default function DictionarySyncAdminPage() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [pendingAction, setPendingAction] = useState<'run_due' | 'sync_all' | 'enrich_locations' | null>(null);
 
   const { data, error, isLoading, mutate } = useSWR('/api/v2/admin/dictionary-sync', fetcher, {
     refreshInterval: 15000
@@ -88,9 +90,10 @@ export default function DictionarySyncAdminPage() {
 
       const payload = await response.json();
       toast({
-        title: 'Sync Action Started',
-        description: `${action} executed for ${payload.count || 0} task(s).`
+        title: 'Sync action finished',
+        description: `${payload.count || 0} task${payload.count === 1 ? '' : 's'} executed.`
       });
+      setPendingAction(null);
       await mutate();
     } catch (requestError) {
       toast({
@@ -101,14 +104,6 @@ export default function DictionarySyncAdminPage() {
     } finally {
       setIsSubmitting(false);
     }
-  }
-
-  if (error) {
-    toast({
-      title: 'Failed to load sync dashboard',
-      description: error.message,
-      variant: 'error'
-    });
   }
 
   return (
@@ -124,8 +119,8 @@ export default function DictionarySyncAdminPage() {
           <div className="flex flex-wrap items-center gap-2">
             <Button
               variant="secondary"
-              disabled={isSubmitting}
-              onClick={() => runAction('run_due')}
+              disabled={isSubmitting || isLoading || Boolean(error)}
+              onClick={() => setPendingAction('run_due')}
             >
               <PlayCircle className="mr-2 h-4 w-4" />
               Run Due Tasks
@@ -133,8 +128,8 @@ export default function DictionarySyncAdminPage() {
             <Button
               variant="secondary"
               className="bg-primary/20 text-foreground hover:bg-primary/30"
-              disabled={isSubmitting}
-              onClick={() => runAction('sync_all')}
+              disabled={isSubmitting || isLoading || Boolean(error)}
+              onClick={() => setPendingAction('sync_all')}
             >
               <RefreshCw className="mr-2 h-4 w-4" />
               Sync YAML
@@ -142,8 +137,8 @@ export default function DictionarySyncAdminPage() {
             <Button
               variant="secondary"
               className="bg-success/20 text-foreground hover:bg-success/30"
-              disabled={isSubmitting}
-              onClick={() => runAction('enrich_locations')}
+              disabled={isSubmitting || isLoading || Boolean(error)}
+              onClick={() => setPendingAction('enrich_locations')}
             >
               <MapPinned className="mr-2 h-4 w-4" />
               Enrich Locations
@@ -152,6 +147,9 @@ export default function DictionarySyncAdminPage() {
         </div>
       </div>
 
+      {error ? <Card><CardContent className="flex items-start gap-3 py-5"><AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-error" /><div><p className="font-medium">Dictionary sync status did not load</p><p className="mt-1 text-sm text-muted-foreground">{error.message}</p><Button className="mt-3" size="sm" variant="outline" onClick={() => void mutate()}><RefreshCw className="mr-2 h-4 w-4" />Try again</Button></div></CardContent></Card> : null}
+
+      {!error ? <>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -301,7 +299,15 @@ export default function DictionarySyncAdminPage() {
           </Table>
         </CardContent>
       </Card>
+      </> : null}
+
+      <Dialog open={Boolean(pendingAction)} onOpenChange={(open) => { if (!open && !isSubmitting) setPendingAction(null); }}>
+        <DialogPortal><DialogBackdrop /><DialogPopup>
+          <DialogTitle>{pendingAction === 'sync_all' ? 'Sync every YAML dictionary?' : pendingAction === 'enrich_locations' ? 'Run location enrichment?' : 'Run every due task?'}</DialogTitle>
+          <DialogDescription>{pendingAction === 'sync_all' ? 'This reads the configured dictionary sources and may insert, update, or remove database words to match them.' : pendingAction === 'enrich_locations' ? 'This may call the configured enrichment service and update place coordinates. Review source and cost controls before continuing.' : 'Every task whose schedule is due may run, including dictionary sync and location enrichment.'}</DialogDescription>
+          <div className="mt-6 flex justify-end gap-2"><Button variant="outline" disabled={isSubmitting} onClick={() => setPendingAction(null)}>Cancel</Button><Button disabled={isSubmitting || !pendingAction} onClick={() => pendingAction && void runAction(pendingAction)}>{isSubmitting ? 'Running…' : 'Run confirmed action'}</Button></div>
+        </DialogPopup></DialogPortal>
+      </Dialog>
     </div>
   );
 }
-

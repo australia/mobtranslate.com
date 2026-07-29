@@ -13,7 +13,7 @@ import {
 export async function GET(_request: NextRequest) {
   try {
     // Authz in code (RLS is gone): admin role required.
-    const { response } = await requireRole(['super_admin', 'dictionary_admin']);
+    const { response } = await requireRole(['super_admin']);
     if (response) return response;
 
     const cutoff30 = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
