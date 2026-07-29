@@ -4,6 +4,7 @@ import { languages as languagesT } from '@/lib/db/schema'
 import { snakeRows } from '@/lib/db/case'
 import { createSuccessResponse, createErrorResponse, corsHeaders } from '../../middleware'
 import { NextRequest } from 'next/server'
+import { governanceForLanguage } from '@/lib/language-governance'
 
 export async function OPTIONS() {
   return new Response(null, { status: 200, headers: corsHeaders() })
@@ -47,7 +48,8 @@ export async function GET(request: NextRequest) {
       glottocode: lang.glottocode,
       writing_system: lang.writing_system,
       created_at: lang.created_at,
-      updated_at: lang.updated_at
+      updated_at: lang.updated_at,
+      governance: governanceForLanguage(lang.code),
     }))
 
     const totalPages = total ? Math.ceil(total / limit) : 0

@@ -11,10 +11,10 @@ import {
 import { Skeleton, SkeletonLines } from '../../components/Skeleton';
 import { CorrectionModal } from '../../components/CorrectionModal';
 import { ProvenancePanel } from '../../components/ProvenancePanel';
-import { getWordRecordings, translate, type ExistingRecording, type TranslationResult } from '../../lib/api';
+import { API_BASE, getWordRecordings, translate, type ExistingRecording, type TranslationResult } from '../../lib/api';
 import { useLang } from '../../lib/langContext';
 import { useAccent, AccentWash } from '../../lib/accent';
-import { langMeta } from '../../lib/langMeta';
+import { fallbackGovernance, langMeta } from '../../lib/langMeta';
 import { getWordOfDay, type WordOfDay } from '../../lib/wotd';
 import { C, F, S, radius, shadowStrong, LANG_ART } from '../../lib/theme';
 
@@ -50,6 +50,7 @@ export default function HomeScreen() {
   const langName = lang?.name ?? 'Kuku Yalanji';
   const meta = langMeta(code);
   const art = LANG_ART[code];
+  const governance = lang?.governance ?? fallbackGovernance(code);
 
   function updateInput(text: string) {
     setInput(text);
@@ -130,6 +131,16 @@ export default function HomeScreen() {
           </View>
         </View>
       </Pressable>
+
+      <ProvenancePanel
+        tone={governance.sourceEvidence.status === 'documented' ? 'dictionary' : 'working'}
+        eyebrow="ABOUT THIS COLLECTION"
+        title={governance.collectionLabel}
+        body="See what this collection is based on, which publication terms are documented, and whether a community stewardship relationship has been recorded."
+        detail={`${governance.sourceEvidence.label} · ${governance.publicationBasis.label}`}
+        actionLabel="View collection status"
+        onAction={() => Linking.openURL(`${API_BASE}/dictionaries/${code}#collection-status`)}
+      />
 
       <Card style={{ ...styles.composer, borderColor: accent.accentLine }}>
         <View style={styles.composerHeading}>

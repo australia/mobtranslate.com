@@ -11,6 +11,7 @@ export interface Language {
   writing_system?: string;
   is_active: boolean;
   metadata?: Record<string, unknown>;
+  governance?: import('@/lib/language-governance').LanguageGovernance;
 }
 
 export interface WordClass {

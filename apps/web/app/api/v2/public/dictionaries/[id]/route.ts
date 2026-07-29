@@ -4,6 +4,7 @@ import { languages as languagesT, words as wordsT } from '@/lib/db/schema'
 import { snakeRow } from '@/lib/db/case'
 import { createSuccessResponse, createErrorResponse, corsHeaders } from '../../../middleware'
 import { NextRequest } from 'next/server'
+import { governanceForLanguage } from '@/lib/language-governance'
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
@@ -57,6 +58,7 @@ export async function GET(request: NextRequest, props: { params: Promise<{ id: s
       writing_system: language.writing_system,
       orthography_notes: language.orthography_notes,
       metadata: language.metadata,
+      governance: governanceForLanguage(language.code),
       created_at: language.created_at,
       updated_at: language.updated_at,
       stats: {

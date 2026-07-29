@@ -16,6 +16,7 @@ import type {
   Word,
   WordClass,
 } from '@/lib/supabase/types';
+import { governanceForLanguage, type LanguageGovernance } from '@/lib/language-governance';
 
 // ---------------------------------------------------------------------------
 // Drizzle-backed dictionary queries (replaces lib/supabase/queries.ts).
@@ -47,6 +48,7 @@ function mapLanguage(l: LangRow): Language {
     writing_system: l.writingSystem ?? undefined,
     is_active: l.isActive ?? false,
     metadata: (l.metadata as Record<string, unknown> | null) ?? undefined,
+    governance: governanceForLanguage(l.code),
   };
 }
 
@@ -189,13 +191,13 @@ export async function getLanguageByCode(code: string): Promise<Language> {
 
 // TEMP curation gate. While the newly-added Curr (1886-87) and Wiktionary
 // wordlists are still having their functionality polished, the homepage, the
-// language selector and the /dictionaries listing surface ONLY the curated
-// community dictionaries (Kuku Yalanji, Mi'gmaq, Anindilyakwa). The underlying
+// language selector and the /dictionaries listing surface ONLY the richer
+// working collections (Kuku Yalanji, Mi'gmaq, Anindilyakwa). The underlying
 // rows stay isActive=true on purpose, so the atlas's per-language "browse the
 // dictionary" links keep resolving and no data is hidden at the record level.
 // Flip this to false to re-list every dictionary once they are ready.
 const CURATED_DICTIONARIES_ONLY = true;
-// Provenance tiers that are NOT hand-curated community dictionaries. These are
+// Provenance tiers that are NOT hand-assembled working collections. These are
 // the closed DictionaryTierId values, not a free-text language allow-list.
 const NON_CURATED_TIERS = new Set(['curr', 'wiktionary']);
 
@@ -220,8 +222,8 @@ export async function getActiveLanguages(): Promise<Language[]> {
 // Dictionaries index — one efficient query that surfaces the source/provenance
 // TIER for every active language plus its word count, in a single round-trip
 // (avoids the per-language N+1 that getLanguageStats does). Used by the
-// /dictionaries list so it can honestly separate curated community
-// dictionaries, community-sourced (Wiktionary) wordlists, and the OCR'd
+// /dictionaries list so it can separate hand-assembled working collections,
+// Wiktionary wordlists, and the OCR'd
 // E.M. Curr 1886-87 historical vocabularies.
 // ---------------------------------------------------------------------------
 
@@ -246,6 +248,8 @@ export interface DictionaryLanguage {
   sourceUrl?: string;
   /** For Curr entries, the raw locality string transcribed from the source. */
   locality?: string;
+  /** Public source, rights, and stewardship status for the collection. */
+  governance: LanguageGovernance;
 }
 
 export async function getDictionaryLanguages(): Promise<DictionaryLanguage[]> {
@@ -296,6 +300,7 @@ export async function getDictionaryLanguages(): Promise<DictionaryLanguage[]> {
       source: typeof md.source === 'string' && md.source ? md.source : undefined,
       sourceUrl: typeof md.source_url === 'string' && md.source_url ? md.source_url : undefined,
       locality: typeof md.locality === 'string' && md.locality ? md.locality : undefined,
+      governance: governanceForLanguage(r.code),
     };
   });
   return CURATED_DICTIONARIES_ONLY

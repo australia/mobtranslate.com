@@ -68,7 +68,24 @@ async function json<T>(res: Response): Promise<T> {
 }
 
 // ---- Languages -------------------------------------------------------------
-export interface Language { id: string; code: string; name: string; native_name?: string | null }
+export type GovernanceStatus = 'documented' | 'partial' | 'open';
+export interface GovernanceFinding { status: GovernanceStatus; label: string; detail: string }
+export interface LanguageGovernance {
+  collectionLabel: string;
+  summary: string;
+  sourceEvidence: GovernanceFinding;
+  publicationBasis: GovernanceFinding;
+  communityRelationship: GovernanceFinding;
+  references: { label: string; url: string; kind: 'source' | 'rights' | 'language_context' }[];
+  lastAudited: string;
+}
+export interface Language {
+  id: string;
+  code: string;
+  name: string;
+  native_name?: string | null;
+  governance?: LanguageGovernance;
+}
 
 export async function getLanguages(): Promise<Language[]> {
   const res = await fetch(`${API_BASE}/api/v2/languages`);

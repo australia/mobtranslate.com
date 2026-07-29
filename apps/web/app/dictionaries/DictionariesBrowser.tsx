@@ -8,22 +8,22 @@ import type { DictionaryLanguage, DictionaryTierId } from '@/lib/db/queries';
 // ---------------------------------------------------------------------------
 // Client-side browser for the /dictionaries index.
 //
-// Every language is a first-class, official dictionary (operator directive,
-// 2026-07-12). We do NOT rank them into "real" vs "lesser" tiers. What we DO
-// keep is honest SOURCE ATTRIBUTION — a neutral provenance chip on every entry
+// Every language is treated as a first-class language. Publication is not
+// described as official or community-certified unless that relationship is
+// actually documented. We keep honest SOURCE ATTRIBUTION — a neutral chip
 // — because the open licences require it (Wiktionary = CC-BY-SA 4.0; E.M. Curr
 // 1886-87 = public domain) and because knowing where a lexicon came from is
 // simply good scholarship. Attribution is not demotion.
 //
 // THREE presentations, chosen by the shape of the data (not by rank):
-//   • Community dictionaries carry a genuine, hand-written description — a
-//     living lexicon someone maintains. They get the full, tall card.
+//   • Working collections carry a genuine, hand-written description. They get
+//     the full, tall card plus their current source-evidence status.
 //   • Wiktionary vocabularies share one templated one-liner ("X is a
 //     Pama-Nyungan language of <State>. Lexicon sourced from Wiktionary…").
 //     Thirty near-identical sentences read as boilerplate, so we DROP the
 //     description on the card entirely — the region, family and Wiktionary
 //     source chip already say everything the sentence did. A compact card,
-//     visibly lighter than the Community ones.
+//     visibly lighter than the working collections.
 //   • The 187 Curr vocabularies are single-locality comparative wordlists with
 //     no description; forcing them into a tall card leaves a broken-looking
 //     void. They read as what they are: a dense, scannable INDEX of Edward
@@ -31,17 +31,26 @@ import type { DictionaryLanguage, DictionaryTierId } from '@/lib/db/queries';
 // ---------------------------------------------------------------------------
 
 const SOURCE: Record<DictionaryTierId, string> = {
-  curated: 'Community',
+  curated: 'Working collection',
   wiktionary: 'Wiktionary',
   curr: 'Curr 1886–87',
 };
 
 /** Neutral, quiet provenance chip. Source is attribution, never a downgrade.
  *  Softly filled so it reads as provenance, distinct from the outline family tag. */
-function SourceChip({ tierId }: { tierId: DictionaryTierId }) {
+const SOURCE_STATUS = {
+  documented: 'Source documented',
+  partial: 'Source trail partial',
+  open: 'Source trail open',
+} as const;
+
+function SourceChip({ lang }: { lang: DictionaryLanguage }) {
+  const label = lang.tierId === 'curated'
+    ? SOURCE_STATUS[lang.governance.sourceEvidence.status]
+    : SOURCE[lang.tierId];
   return (
     <span className="inline-flex items-center rounded-md bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
-      {SOURCE[tierId]}
+      {label}
     </span>
   );
 }
@@ -56,7 +65,7 @@ function splitCurrName(name: string): { place: string; number: string | null } {
   return { place, number };
 }
 
-// -- Rich card (Community + Wiktionary) -------------------------------------
+// -- Rich card (working collection + Wiktionary) ----------------------------
 
 function LanguageCard({ lang }: { lang: DictionaryLanguage }) {
   const subtitle = lang.locality || lang.region;
@@ -101,7 +110,7 @@ function LanguageCard({ lang }: { lang: DictionaryLanguage }) {
               {lang.family}
             </span>
           )}
-          <SourceChip tierId={lang.tierId} />
+          <SourceChip lang={lang} />
         </div>
       </div>
     </Link>
@@ -147,7 +156,7 @@ function WiktionaryCard({ lang }: { lang: DictionaryLanguage }) {
               {lang.family}
             </span>
           )}
-          <SourceChip tierId={lang.tierId} />
+          <SourceChip lang={lang} />
         </div>
       </div>
     </Link>
@@ -227,7 +236,7 @@ export default function DictionariesBrowser({
     return Array.from(set).sort((a, b) => a.localeCompare(b));
   }, [languages]);
 
-  // Richest dictionaries first, then alphabetical — showcase the real content.
+  // Largest dictionaries first, then alphabetical.
   const sorted = useMemo(
     () =>
       [...languages].sort(
@@ -274,8 +283,8 @@ export default function DictionariesBrowser({
   };
 
   const sourceChips: { id: DictionaryTierId | 'all'; label: string }[] = [
-    { id: 'all', label: 'All sources' },
-    { id: 'curated', label: 'Community' },
+    { id: 'all', label: 'All collection types' },
+    { id: 'curated', label: 'Working collections' },
     { id: 'wiktionary', label: 'Wiktionary' },
     { id: 'curr', label: 'Curr 1886–87' },
   ];
@@ -301,7 +310,7 @@ export default function DictionariesBrowser({
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search 220 dictionaries by name, region, family or code…"
+              placeholder={`Search ${languages.length.toLocaleString()} dictionaries by name, region, family or code…`}
               aria-label="Search dictionaries"
               className="h-11 w-full rounded-lg border border-border bg-card pl-10 pr-10 text-base shadow-sm transition-[border-color,box-shadow] placeholder:text-muted-foreground focus:border-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-ring"
             />
@@ -364,7 +373,7 @@ export default function DictionariesBrowser({
               <span className="font-medium text-foreground tabular-nums">
                 {languages.length.toLocaleString()}
               </span>{' '}
-              official dictionaries
+              dictionaries
             </>
           ) : (
             <>
@@ -412,8 +421,8 @@ export default function DictionariesBrowser({
           {community.length > 0 && (
             <section>
               <SectionHeader
-                title="Community dictionaries"
-                hint="Living lexicons built and maintained with language communities."
+                title="Working collections"
+                hint="Independent, hand-assembled collections with visible source, rights, and stewardship status."
                 count={community.length}
               />
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

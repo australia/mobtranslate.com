@@ -279,6 +279,113 @@
   },
   "components": {
     "schemas": {
+      "GovernanceFinding": {
+        "type": "object",
+        "required": ["status", "label", "detail"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["documented", "partial", "open"]
+          },
+          "label": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      },
+      "GovernanceReference": {
+        "type": "object",
+        "required": ["label", "url", "kind"],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["source", "rights", "language_context"]
+          }
+        }
+      },
+      "LanguageGovernance": {
+        "type": "object",
+        "required": ["collectionLabel", "summary", "sourceEvidence", "publicationBasis", "communityRelationship", "references", "lastAudited"],
+        "properties": {
+          "collectionLabel": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "sourceEvidence": {
+            "$ref": "#/components/schemas/GovernanceFinding"
+          },
+          "publicationBasis": {
+            "$ref": "#/components/schemas/GovernanceFinding"
+          },
+          "communityRelationship": {
+            "$ref": "#/components/schemas/GovernanceFinding"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GovernanceReference"
+            }
+          },
+          "lastAudited": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "WordSource": {
+        "type": "object",
+        "required": ["id", "name", "relationship", "description", "scope"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string",
+            "enum": ["dictionary_collection", "entry_created_from_source", "linked_archive_record", "recorded_source"]
+          },
+          "description": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "entryUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "attribution": {
+            "type": "string"
+          },
+          "licenseName": {
+            "type": "string"
+          },
+          "licenseUrl": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
       "Dictionary": {
         "type": "object",
         "properties": {
@@ -335,6 +442,9 @@
           "updated_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "governance": {
+            "$ref": "#/components/schemas/LanguageGovernance"
           }
         }
       },
@@ -554,6 +664,18 @@
               },
               "community_notes": {
                 "type": "string"
+              },
+              "entry_source": {
+                "type": "string"
+              },
+              "needs_review": {
+                "type": "string"
+              },
+              "source_records": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/WordSource"
+                }
               },
               "cultural_contexts": {
                 "type": "array",

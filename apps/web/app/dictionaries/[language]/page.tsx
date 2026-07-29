@@ -27,6 +27,8 @@ import { getWordsForLanguage } from '@/lib/db/queries';
 import type { DictionaryQueryParams } from '@/lib/supabase/types';
 import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 import { creditsForLanguage } from '@/lib/credits';
+import { governanceForLanguage } from '@/lib/language-governance';
+import { LanguageGovernancePanel } from './components/LanguageGovernancePanel';
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -61,6 +63,7 @@ export default async function DictionaryPage(
 
   try {
     const { words, language: languageData, pagination } = await getWordsForLanguage(queryParams);
+    const governance = governanceForLanguage(languageData.code);
 
     // Hidden/inactive dictionaries are not browsable.
     if (languageData && languageData.is_active === false) {
@@ -149,7 +152,8 @@ export default async function DictionaryPage(
                 )}
               </div>
 
-              {/* Subtle attribution: the people & work behind this dictionary. */}
+              {/* Related work is credited without implying that every named
+                  person supplied this imported collection or endorses it. */}
               {(() => {
                 const langCredits = creditsForLanguage(languageData.code);
                 if (langCredits.length === 0) return null;
@@ -159,7 +163,7 @@ export default async function DictionaryPage(
                   <p className="mt-5 text-xs text-muted-foreground/80">
                     {makers.length > 0 && (
                       <span>
-                        Dictionary by{' '}
+                        Dictionary reference{makers.length === 1 ? '' : 's'}:{' '}
                         {makers.map((m, i) => (
                           <span key={m.slug}>
                             {i > 0 && ', '}
@@ -171,8 +175,13 @@ export default async function DictionaryPage(
                     )}
                     {voice.length > 0 && (
                       <span>
-                        voice by{' '}
-                        <Link href={`/credits/${voice[0].slug}`} className="hover:text-foreground underline-offset-2 hover:underline">{voice[0].name}</Link>
+                        synthetic guide:{' '}
+                        {voice.map((item, i) => (
+                          <span key={item.slug}>
+                            {i > 0 && ', '}
+                            <Link href={`/credits/${item.slug}`} className="hover:text-foreground underline-offset-2 hover:underline">{item.name}</Link>
+                          </span>
+                        ))}
                         {' · '}
                       </span>
                     )}
@@ -180,6 +189,11 @@ export default async function DictionaryPage(
                   </p>
                 );
               })()}
+
+              <LanguageGovernancePanel
+                languageName={languageData.name}
+                governance={governance}
+              />
             </div>
           </div>
 

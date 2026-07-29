@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getLanguages, type Language } from './api';
+import { fallbackGovernance } from './langMeta';
 
 // Module-level cache so we fetch the language list only once per app run.
 let cache: Language[] | null = null;
@@ -10,10 +11,9 @@ const PREFERRED = ['kuku_yalanji', 'anindilyakwa', 'wbv', 'migmaq'];
 
 /** Curated languages keep the app useful while the live directory is offline. */
 export const FALLBACK_LANGUAGES: Language[] = [
-  { id: 'kuku_yalanji', code: 'kuku_yalanji', name: 'Kuku Yalanji' },
-  { id: 'anindilyakwa', code: 'anindilyakwa', name: 'Anindilyakwa' },
-  { id: 'wbv', code: 'wbv', name: 'Wajarri' },
-  { id: 'migmaq', code: 'migmaq', name: "Mi'gmaq" },
+  { id: 'kuku_yalanji', code: 'kuku_yalanji', name: 'Kuku Yalanji', governance: fallbackGovernance('kuku_yalanji') },
+  { id: 'anindilyakwa', code: 'anindilyakwa', name: 'Anindilyakwa', governance: fallbackGovernance('anindilyakwa') },
+  { id: 'migmaq', code: 'migmaq', name: "Mi'gmaq", governance: fallbackGovernance('migmaq') },
 ];
 
 function order(langs: Language[]): Language[] {

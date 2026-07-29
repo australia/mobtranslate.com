@@ -9,8 +9,8 @@ import * as Linking from 'expo-linking';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming, withSpring } from 'react-native-reanimated';
 import { createAudioPlayer, type AudioPlayer } from 'expo-audio';
 import { C, F, S, radius, shadow, LANG_ART } from '../lib/theme';
-import { getExampleRecordings, getWordRecordings, ttsUrl, type ExistingRecording, type Language } from '../lib/api';
-import { langMeta } from '../lib/langMeta';
+import { API_BASE, getExampleRecordings, getWordRecordings, ttsUrl, type ExistingRecording, type Language } from '../lib/api';
+import { fallbackGovernance, langMeta } from '../lib/langMeta';
 import { useAccent } from '../lib/accent';
 import { Ripple, Waveform } from './audioviz';
 import { BrandLockup } from './brand';
@@ -383,6 +383,7 @@ export function LanguageSelector({
 }: { visible: boolean; languages: Language[]; value: string; onSelect: (c: string) => void; onClose: () => void }) {
   const selectedLanguage = languages.find((language) => language.code === value);
   const selectedMeta = langMeta(value);
+  const selectedGovernance = selectedLanguage?.governance ?? fallbackGovernance(value);
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
@@ -410,7 +411,27 @@ export function LanguageSelector({
               );
             })}
             <View style={{ height: 12 }} />
-          </ScrollView>
+          <View style={styles.collectionReference}>
+            <View style={styles.collectionReferenceIcon}>
+              <Ionicons name="shield-outline" size={19} color={C.clay} />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.collectionReferenceEyebrow}>COLLECTION STATUS</Text>
+              <Text style={styles.referenceCopy}>
+                {selectedGovernance.collectionLabel}. {selectedGovernance.sourceEvidence.label}; {selectedGovernance.publicationBasis.label.toLowerCase()}.
+              </Text>
+              <Pressable
+                onPress={() => Linking.openURL(`${API_BASE}/dictionaries/${value}#collection-status`)}
+                accessibilityRole="link"
+                accessibilityLabel={`View ${selectedLanguage?.name ?? 'language'} collection status`}
+                hitSlop={4}
+                style={({ pressed }) => [styles.referenceAction, pressed && { opacity: 0.62 }]}
+              >
+                <Text style={[styles.referenceActionText, { color: C.clay }]}>View source &amp; stewardship status</Text>
+                <Ionicons name="open-outline" size={14} color={C.clay} />
+              </Pressable>
+            </View>
+          </View>
           <View style={styles.languageReference}>
             <View style={styles.referenceIcon}>
               <Ionicons name="library-outline" size={19} color={C.forest} />
@@ -418,7 +439,7 @@ export function LanguageSelector({
             <View style={{ flex: 1 }}>
               <Text style={styles.referenceEyebrow}>LANGUAGE &amp; COUNTRY REFERENCE</Text>
               <Text style={styles.referenceCopy}>
-                Learn about {selectedLanguage?.name ?? 'this language'} from {selectedMeta.referenceLabel}.
+                Learn about {selectedLanguage?.name ?? 'this language'} from {selectedMeta.referenceLabel}. This context link does not imply endorsement of Mob Translate.
               </Text>
               <Pressable
                 onPress={() => Linking.openURL(selectedMeta.referenceUrl)}
@@ -432,6 +453,8 @@ export function LanguageSelector({
               </Pressable>
             </View>
           </View>
+          <View style={{ height: 8 }} />
+          </ScrollView>
         </Pressable>
       </Pressable>
     </Modal>
@@ -490,6 +513,9 @@ const styles = StyleSheet.create({
   sheetArt: { width: 52, height: 52, borderRadius: radius.md, backgroundColor: C.sageSoft },
   sheetName: { fontFamily: F.display, fontSize: S.heading, color: C.ink },
   sheetRegion: { fontFamily: F.medium, fontSize: S.small, color: C.muted, marginTop: 1 },
+  collectionReference: { flexDirection: 'row', alignItems: 'flex-start', gap: 11, borderTopWidth: 1, borderTopColor: C.border, paddingTop: 14, marginTop: 4 },
+  collectionReferenceIcon: { width: 38, height: 38, borderRadius: radius.pill, backgroundColor: C.claySoft, alignItems: 'center', justifyContent: 'center' },
+  collectionReferenceEyebrow: { fontFamily: F.bold, fontSize: 9, letterSpacing: 1.1, color: C.clay },
   languageReference: { flexDirection: 'row', alignItems: 'flex-start', gap: 11, borderTopWidth: 1, borderTopColor: C.border, paddingTop: 14, marginTop: 4 },
   referenceIcon: { width: 38, height: 38, borderRadius: radius.pill, backgroundColor: C.sageSoft, alignItems: 'center', justifyContent: 'center' },
   referenceEyebrow: { fontFamily: F.bold, fontSize: 9, letterSpacing: 1.1, color: C.sage },

@@ -233,6 +233,8 @@ Pronunciation controls use this order: attributed source recording, contributed 
 
 Every full entry includes a **Source trail** in the main reading flow. It shows the named work, what the evidence covers, its terms when known, and a direct record link when one exists. “Matched archive entry” is intentionally different from “entry created from source”: a word-level match may prove the audio/example trail but must not imply that the archive authored every displayed field. Review state is a separate row and explicitly distinguishes Mob Translate workflow status from community endorsement. Missing provenance is rendered as a visible documentation gap, never silently replaced with a generic badge.
 
+Every dictionary landing page includes an **About this collection** panel near the language identity—not in a legal footer. It separately shows source evidence, publication basis, and stewardship relationship using documented / partial / open states. The collection browser uses “working collection” for hand-assembled dictionaries and never uses “official” or “community dictionary” as a shortcut for missing governance evidence. Community and Country reference links explicitly say that a link is not endorsement.
+
 ### 5.4 Learn card (flip / quiz)
 
 Existing 3D flip utilities (`.preserve-3d`, `.rotate-y-180`, `.perspective-1000`) are in `globals.css`. Keep them.
