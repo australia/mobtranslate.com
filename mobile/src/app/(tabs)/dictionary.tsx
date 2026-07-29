@@ -116,7 +116,13 @@ export default function DictionaryScreen() {
       <View style={styles.head}>
         <View style={styles.titleRow}>
           <Text style={styles.title}>Dictionary</Text>
-          <Pressable style={[styles.langChip, { backgroundColor: accent.accentSoft }]} onPress={() => setPicker(true)}>
+          <Pressable
+            style={[styles.langChip, { backgroundColor: accent.accentSoft }]}
+            onPress={() => setPicker(true)}
+            hitSlop={4}
+            accessibilityRole="button"
+            accessibilityLabel={`Current language ${langName}. Change language`}
+          >
             <Text style={[styles.langChipText, { color: accent.accentDeep }]} numberOfLines={1}>{langName}</Text>
             <Ionicons name="chevron-down" size={14} color={accent.accent} />
           </Pressable>
@@ -169,19 +175,25 @@ export default function DictionaryScreen() {
           ListFooterComponent={more ? <View style={{ marginTop: 4 }}><SkeletonRows count={2} /></View> : null}
           renderItem={({ item, index }) => (
             <Animated.View entering={FadeIn.duration(200)} layout={LinearTransition.springify().damping(20)}>
-              <Pressable style={({ pressed }) => [styles.row, pressed && { transform: [{ scale: 0.99 }] }]}
-                onPress={() => router.push({ pathname: '/word/[id]', params: { id: item.id, code, word: item.word, thumb: thumbs[item.word] ?? '' } })}>
-                <WordThumb uri={thumbs[item.word]} art={art} seed={index} />
-                <View style={{ flex: 1 }}>
-                  <View style={styles.wordRow}>
-                    <Text style={styles.word}>{item.word}</Text>
-                    {!!item.pos && <Text style={styles.pos}>{item.pos}</Text>}
+              <View style={styles.row}>
+                <Pressable
+                  style={({ pressed }) => [styles.rowMain, pressed && { opacity: 0.7 }]}
+                  accessibilityRole="button"
+                  accessibilityLabel={`${item.word}${item.meaning ? `, ${item.meaning}` : ''}. Open word`}
+                  onPress={() => router.push({ pathname: '/word/[id]', params: { id: item.id, code, word: item.word, thumb: thumbs[item.word] ?? '' } })}
+                >
+                  <WordThumb uri={thumbs[item.word]} art={art} seed={index} />
+                  <View style={{ flex: 1 }}>
+                    <View style={styles.wordRow}>
+                      <Text style={styles.word}>{item.word}</Text>
+                      {!!item.pos && <Text style={styles.pos}>{item.pos}</Text>}
+                    </View>
+                    {!!item.meaning && <Text style={styles.meaning} numberOfLines={2}>{item.meaning}</Text>}
                   </View>
-                  {!!item.meaning && <Text style={styles.meaning} numberOfLines={2}>{item.meaning}</Text>}
-                </View>
+                  <Ionicons name="chevron-forward" size={18} color={C.faint} />
+                </Pressable>
                 <SpeakerButton code={code} text={item.word} size="sm" />
-                <Ionicons name="chevron-forward" size={18} color={C.faint} />
-              </Pressable>
+              </View>
             </Animated.View>
           )}
         />
@@ -218,13 +230,13 @@ const styles = StyleSheet.create({
   langChipText: { fontFamily: F.semibold, fontSize: S.label },
   searchRow: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: C.surface, borderRadius: radius.md, borderWidth: 1, borderColor: C.border, paddingHorizontal: 14, height: 52, ...shadow },
   search: { flex: 1, fontFamily: F.body, fontSize: S.body, color: C.ink },
-
   chipRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
   chip: { flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 13, height: 34, borderRadius: radius.pill, borderWidth: 1, borderColor: C.border, backgroundColor: C.surface },
   chipOn: {},
   chipText: { fontFamily: F.semibold, fontSize: S.small, textTransform: 'capitalize' },
 
-  row: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.surface, borderRadius: radius.md, borderWidth: 1, borderColor: C.hair, padding: 12, ...shadow },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: C.surface, borderRadius: radius.md, borderWidth: 1, borderColor: C.hair, padding: 8, paddingRight: 10, ...shadow },
+  rowMain: { flex: 1, minHeight: 60, flexDirection: 'row', alignItems: 'center', gap: 12 },
   thumb: { width: 52, height: 52, borderRadius: radius.md, backgroundColor: C.sageSoft, overflow: 'hidden' },
   thumbPlaceholder: { alignItems: 'center', justifyContent: 'center' },
   wordRow: { flexDirection: 'row', alignItems: 'baseline', gap: 8, flexWrap: 'wrap' },

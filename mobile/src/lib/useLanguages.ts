@@ -8,6 +8,14 @@ let inflight: Promise<Language[]> | null = null;
 // Order the languages we have the most content for first.
 const PREFERRED = ['kuku_yalanji', 'anindilyakwa', 'wbv', 'migmaq'];
 
+/** Curated languages keep the app useful while the live directory is offline. */
+export const FALLBACK_LANGUAGES: Language[] = [
+  { id: 'kuku_yalanji', code: 'kuku_yalanji', name: 'Kuku Yalanji' },
+  { id: 'anindilyakwa', code: 'anindilyakwa', name: 'Anindilyakwa' },
+  { id: 'wbv', code: 'wbv', name: 'Wajarri' },
+  { id: 'migmaq', code: 'migmaq', name: "Mi'kmaq" },
+];
+
 function order(langs: Language[]): Language[] {
   return [...langs].sort((a, b) => {
     const ia = PREFERRED.indexOf(a.code);
@@ -17,7 +25,7 @@ function order(langs: Language[]): Language[] {
 }
 
 export function useLanguages() {
-  const [languages, setLanguages] = useState<Language[]>(cache ?? []);
+  const [languages, setLanguages] = useState<Language[]>(cache ?? FALLBACK_LANGUAGES);
   const [loading, setLoading] = useState(!cache);
   const [error, setError] = useState<string | null>(null);
 
@@ -27,10 +35,13 @@ export function useLanguages() {
     inflight = inflight ?? getLanguages();
     inflight
       .then((l) => {
-        cache = order(l);
+        cache = l.length ? order(l) : FALLBACK_LANGUAGES;
         if (alive) { setLanguages(cache); setLoading(false); }
       })
-      .catch((e) => { if (alive) { setError(String(e?.message ?? e)); setLoading(false); } });
+      .catch((e) => {
+        cache = FALLBACK_LANGUAGES;
+        if (alive) { setLanguages(cache); setError(String(e?.message ?? e)); setLoading(false); }
+      });
     return () => { alive = false; };
   }, []);
 

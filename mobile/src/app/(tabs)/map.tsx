@@ -112,7 +112,13 @@ export default function MapScreen() {
           <Text style={styles.title}>Country</Text>
           <Text style={styles.sub}>Where {langName} is spoken</Text>
         </View>
-        <Pressable style={[styles.langChip, { backgroundColor: accent.accentSoft }]} onPress={() => setPicker(true)}>
+        <Pressable
+          style={[styles.langChip, { backgroundColor: accent.accentSoft }]}
+          onPress={() => setPicker(true)}
+          hitSlop={4}
+          accessibilityRole="button"
+          accessibilityLabel={`Current language ${langName}. Change language`}
+        >
           <Text style={[styles.langChipText, { color: accent.accentDeep }]} numberOfLines={1}>{langName}</Text>
           <Ionicons name="chevron-down" size={14} color={accent.accent} />
         </Pressable>
@@ -172,8 +178,13 @@ export default function MapScreen() {
           const on = active === p.id;
           return (
             <Animated.View entering={FadeInDown.delay(Math.min(index, 8) * 45).springify().damping(20).mass(0.7)}>
-              <Pressable onPress={() => tapPlace(p)}
-                style={({ pressed }) => [styles.row, on && { borderColor: accent.accent, borderWidth: 2 }, pressed && { transform: [{ scale: 0.99 }] }]}>
+              <View style={[styles.row, on && { borderColor: accent.accent, borderWidth: 2 }]}>
+              <Pressable
+                onPress={() => tapPlace(p)}
+                accessibilityRole="button"
+                accessibilityLabel={`${p.word}${p.meaning ? `, ${p.meaning}` : ''}. Show on map`}
+                style={({ pressed }) => [styles.placeMain, pressed && { opacity: 0.7 }]}
+              >
                 <View style={[styles.pinDot, !hasCoords && { backgroundColor: C.hair }]}>
                   <Ionicons name={hasCoords ? 'location' : 'help'} size={14} color={hasCoords ? C.clay : C.faint} />
                 </View>
@@ -182,12 +193,18 @@ export default function MapScreen() {
                   {!!p.meaning && <Text style={styles.placeMeaning} numberOfLines={2}>{p.meaning}</Text>}
                   {!hasCoords && <Text style={styles.unplaced}>Not on the map yet · suggest where it is</Text>}
                 </View>
+              </Pressable>
                 <SpeakerButton code={code} text={p.word} size="sm" />
-                <Pressable onPress={() => setPinTarget(p)} hitSlop={8}
-                  style={[styles.suggestBtn, !hasCoords && { backgroundColor: C.claySoft }]}>
+                <Pressable
+                  onPress={() => setPinTarget(p)}
+                  hitSlop={8}
+                  accessibilityRole="button"
+                  accessibilityLabel={`Suggest a map location for ${p.word}`}
+                  style={[styles.suggestBtn, !hasCoords && { backgroundColor: C.claySoft }]}
+                >
                   <Ionicons name={hasCoords ? 'create-outline' : 'add'} size={18} color={C.clay} />
                 </Pressable>
-              </Pressable>
+              </View>
             </Animated.View>
           );
         }}
@@ -234,7 +251,8 @@ const styles = StyleSheet.create({
   section: { fontFamily: F.bold, fontSize: S.eyebrow, letterSpacing: 1.5, color: C.sage, marginTop: 4 },
   empty: { fontFamily: F.body, fontSize: S.label, color: C.muted, marginTop: 12 },
 
-  row: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.surface, borderRadius: radius.md, borderWidth: 1, borderColor: C.hair, padding: 14, ...shadow },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: C.surface, borderRadius: radius.md, borderWidth: 1, borderColor: C.hair, padding: 10, ...shadow },
+  placeMain: { flex: 1, minHeight: 52, flexDirection: 'row', alignItems: 'center', gap: 12 },
   pinDot: { width: 30, height: 30, borderRadius: radius.pill, backgroundColor: C.claySoft, alignItems: 'center', justifyContent: 'center' },
   placeName: { fontFamily: F.display, fontSize: S.heading, color: C.ink },
   placeMeaning: { fontFamily: F.body, fontSize: S.label, color: C.muted, marginTop: 2 },

@@ -28,8 +28,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   // if the persisted/default code isn't in the list once loaded, fall back to first
   useEffect(() => {
-    if (languages.length && !languages.some((l) => l.code === code)) setCodeState(languages[0].code);
-  }, [languages]);
+    if (!loading && languages.length && !languages.some((l) => l.code === code)) setCodeState(languages[0].code);
+  }, [languages, loading, code]);
 
   const setCode = (c: string) => { setCodeState(c); SecureStore.setItemAsync(KEY, c).catch(() => {}); };
   const lang = languages.find((l) => l.code === code);

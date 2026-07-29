@@ -3,21 +3,25 @@
  *  Fraunces (soft editorial serif) for display + Inter for UI. Generous, calm, for all ages. */
 export const C = {
   bg: '#F4F1E8',        // warm paper
+  bgDeep: '#ECE6D8',    // grounded paper used behind floating surfaces
   surface: '#FFFFFF',
   surfaceAlt: '#FBF9F2', // faint warm panel
   ink: '#26302A',        // deep green-charcoal
+  inkSoft: '#3F4B43',
   muted: '#5F6B62',      // secondary text (AA on white) + placeholders
   faint: '#9AA39A',      // decorative icons / dividers only
 
   // greens — the primary identity
   forest: '#324E3B',     // deep eucalyptus — primary, CTA, active tab
   forestDeep: '#22382A', // darkest green (hero text, CTA ground top)
+  forestMid: '#456B50',
   sage: '#6F8C73',       // mid sage — secondary serif accents
   sageSoft: '#E7EEE3',   // pale green wash — chips, active pills, highlights
   sageLine: '#D2DECE',   // green hairline / selected card border
 
   // warm accents
   clay: '#B0673B',       // ochre-terracotta — "speak", small accents
+  clayBright: '#C77945',
   claySoft: '#F0E4D5',
   gold: '#C68A4A',
   sky: '#7E9DAE',        // muted blue accent
@@ -67,6 +71,15 @@ export const shadow = {
   shadowRadius: 18,
   shadowOffset: { width: 0, height: 8 },
   elevation: 2,
+};
+
+/** A deliberate lift for the one or two hero surfaces on a screen. */
+export const shadowStrong = {
+  shadowColor: '#1D2D21',
+  shadowOpacity: 0.15,
+  shadowRadius: 28,
+  shadowOffset: { width: 0, height: 14 },
+  elevation: 6,
 };
 
 /** Per-language accent + generated artwork, for cards/maps. */

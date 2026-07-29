@@ -13,23 +13,26 @@ export default function TabsLayout() {
         headerShown: false,
         tabBarActiveTintColor: accent.accent,
         tabBarInactiveTintColor: C.faint,
+        tabBarActiveBackgroundColor: C.sageSoft,
+        tabBarHideOnKeyboard: true,
         // Add the system navigation-bar inset so the bar clears the home gesture pill.
         tabBarStyle: {
-          height: 60 + insets.bottom,
-          paddingBottom: insets.bottom + 6,
+          height: 70 + insets.bottom,
+          paddingBottom: insets.bottom + 8,
           paddingTop: 8,
           backgroundColor: C.surface,
           borderTopColor: C.hair,
           borderTopWidth: 1,
         },
-        tabBarLabelStyle: { fontFamily: F.semibold, fontSize: 11 },
+        tabBarItemStyle: { borderRadius: 18, marginHorizontal: 2, marginVertical: 2 },
+        tabBarLabelStyle: { fontFamily: F.semibold, fontSize: 11, marginTop: 1 },
       }}
     >
-      <Tabs.Screen name="index" options={{ title: 'Home', tabBarIcon: ({ color, size }) => <Ionicons name="home-outline" size={size} color={color} /> }} />
-      <Tabs.Screen name="dictionary" options={{ title: 'Dictionary', tabBarIcon: ({ color, size }) => <Ionicons name="book-outline" size={size} color={color} /> }} />
-      <Tabs.Screen name="map" options={{ title: 'Map', tabBarIcon: ({ color, size }) => <Ionicons name="map-outline" size={size} color={color} /> }} />
-      <Tabs.Screen name="record" options={{ title: 'Record', tabBarIcon: ({ color, size }) => <Ionicons name="mic-outline" size={size} color={color} /> }} />
-      <Tabs.Screen name="account" options={{ title: 'Account', tabBarIcon: ({ color, size }) => <Ionicons name="person-circle-outline" size={size} color={color} /> }} />
+      <Tabs.Screen name="index" options={{ title: 'Home', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'home' : 'home-outline'} size={size} color={color} /> }} />
+      <Tabs.Screen name="dictionary" options={{ title: 'Words', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'book' : 'book-outline'} size={size} color={color} /> }} />
+      <Tabs.Screen name="map" options={{ title: 'Country', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'map' : 'map-outline'} size={size} color={color} /> }} />
+      <Tabs.Screen name="record" options={{ title: 'Record', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'mic' : 'mic-outline'} size={size} color={color} /> }} />
+      <Tabs.Screen name="account" options={{ title: 'You', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'person-circle' : 'person-circle-outline'} size={size} color={color} /> }} />
     </Tabs>
   );
 }

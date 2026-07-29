@@ -47,8 +47,10 @@ export function TopBar({ onSearch, onProfile, compact }: { onSearch?: () => void
 }
 
 function RoundIcon({ name, onPress }: { name: keyof typeof Ionicons.glyphMap; onPress: () => void }) {
+  const label = name.startsWith('person') ? 'Open account' : 'Search dictionary';
   return (
-    <Pressable onPress={() => { tap(); onPress(); }}
+    <Pressable onPress={() => { tap(); onPress(); }} hitSlop={4}
+      accessibilityRole="button" accessibilityLabel={label}
       style={({ pressed }) => [styles.roundIcon, pressed && { backgroundColor: C.sageSoft }]}>
       <Ionicons name={name} size={19} color={C.ink} />
     </Pressable>
@@ -72,7 +74,7 @@ export function SectionHeader({ title, actionLabel, onAction }: { title: string;
     <View style={styles.sectionRow}>
       <Text style={styles.sectionTitle}>{title}</Text>
       {actionLabel && (
-        <Pressable onPress={() => { tap(); onAction?.(); }} hitSlop={8} style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
+        <Pressable onPress={() => { tap(); onAction?.(); }} hitSlop={8} accessibilityRole="button" accessibilityLabel={actionLabel} style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
           <Text style={styles.sectionAction}>{actionLabel}</Text>
           <Ionicons name="chevron-forward" size={14} color={C.sage} />
         </Pressable>
@@ -119,6 +121,7 @@ export function LangPicker({ languages, value, onChange, onDark }: { languages: 
         const idleBorder = onDark ? 'rgba(255,255,255,0.2)' : C.border;
         return (
           <Pressable key={l.code} onPress={() => { tap(); onChange(l.code); }}
+            accessibilityRole="button" accessibilityLabel={`Use ${l.name}`} accessibilityState={{ selected: active }}
             style={[styles.pill, active ? { backgroundColor: C.forest, borderColor: C.forest } : { backgroundColor: idleBg, borderColor: idleBorder }]}>
             <Text style={[styles.pillText, { color: active ? C.white : idleText }]}>{l.name}</Text>
           </Pressable>
@@ -152,6 +155,9 @@ export function Button({
     <Pressable
       onPress={() => { if (!disabled && !loading) { tapHeavy(); onPress(); } }}
       disabled={disabled || loading}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      accessibilityState={{ disabled: !!disabled || !!loading, busy: !!loading }}
       style={({ pressed }) => [
         styles.btn, elevated && shadow, full && { alignSelf: 'stretch' },
         { backgroundColor: bg, transform: [{ scale: pressed ? 0.98 : 1 }],
@@ -217,7 +223,13 @@ export function SpeakerButton({ code, text, size = 'md' }: { code: string; text:
   return (
     <View style={{ width: box, height: box, alignItems: 'center', justifyContent: 'center' }}>
       <Ripple active={playing} color={accent.accent} size={box + 16} rings={2} />
-      <Pressable onPress={play} hitSlop={8} accessibilityLabel="Hear it">
+      <Pressable
+        onPress={play}
+        hitSlop={8}
+        accessibilityRole="button"
+        accessibilityLabel={`Hear ${text}`}
+        accessibilityState={{ busy: loading }}
+      >
         <Animated.View style={[styles.speaker, { width: box, height: box }, playing && { backgroundColor: accent.accentSoft }, breatheStyle]}>
           {loading ? <ActivityIndicator color={C.clay} size="small" />
             : playing ? <Waveform active color={accent.accentDeep} bars={4} height={icon} width={2.5} />
@@ -236,6 +248,7 @@ export function LangCard({
 }: { name: string; region?: string; art?: any; selected?: boolean; onPress: () => void; style?: ViewStyle }) {
   return (
     <Pressable onPress={() => { tap(); onPress(); }}
+      accessibilityRole="button" accessibilityLabel={`Explore ${name}${region ? `, ${region}` : ''}`}
       style={({ pressed }) => [
         styles.langCard, selected && { borderColor: C.sage, borderWidth: 2 },
         pressed && { transform: [{ scale: 0.98 }] }, style,
@@ -261,6 +274,7 @@ export function CTABanner({ title, sub, cta, onPress }: { title: string; sub?: s
         {!!sub && <Text style={styles.ctaSub}>{sub}</Text>}
       </View>
       <Pressable onPress={() => { tapHeavy(); onPress(); }}
+        accessibilityRole="button" accessibilityLabel={cta}
         style={({ pressed }) => [styles.ctaBtn, pressed && { opacity: 0.85 }]}>
         <Text style={styles.ctaBtnText}>{cta}</Text>
       </Pressable>
@@ -286,6 +300,7 @@ export function LanguageSelector({
               const art = LANG_ART[l.code]?.art;
               return (
                 <Pressable key={l.code} onPress={() => { tapHeavy(); onSelect(l.code); onClose(); }}
+                  accessibilityRole="button" accessibilityLabel={`Use ${l.name}`} accessibilityState={{ selected: active }}
                   style={({ pressed }) => [styles.sheetRow, active && { backgroundColor: C.sageSoft }, pressed && { opacity: 0.7 }]}>
                   {art ? <Image source={art} style={styles.sheetArt} /> : <View style={[styles.sheetArt, { backgroundColor: C.sageSoft }]} />}
                   <View style={{ flex: 1 }}>
@@ -354,6 +369,6 @@ const styles = StyleSheet.create({
   ctaLeaf: { width: 40, height: 40, borderRadius: radius.pill, backgroundColor: 'rgba(255,255,255,0.14)', alignItems: 'center', justifyContent: 'center' },
   ctaTitle: { fontFamily: F.semibold, fontSize: S.label + 1, color: C.cream },
   ctaSub: { fontFamily: F.body, fontSize: S.small, color: 'rgba(247,243,234,0.78)', marginTop: 2, lineHeight: 18 },
-  ctaBtn: { backgroundColor: C.cream, paddingHorizontal: 16, height: 40, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
+  ctaBtn: { backgroundColor: C.cream, paddingHorizontal: 16, height: 44, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
   ctaBtnText: { fontFamily: F.bold, fontSize: S.small + 1, color: C.forest },
 });

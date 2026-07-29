@@ -2,7 +2,7 @@
   "expo": {
     "name": "Mob Translate",
     "slug": "mobtranslate",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "mobtranslate",
@@ -16,7 +16,7 @@
     },
     "android": {
       "package": "com.mobtranslate.app",
-      "versionCode": 9,
+      "versionCode": 10,
       "adaptiveIcon": {
         "backgroundColor": "#FFFFFF",
         "foregroundImage": "./assets/images/adaptive-foreground.png"
@@ -47,7 +47,9 @@
         }
       ],
       "expo-font",
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-asset",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
