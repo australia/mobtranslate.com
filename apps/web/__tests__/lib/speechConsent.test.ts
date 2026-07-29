@@ -7,6 +7,10 @@ import {
   SpeechConsentGrantSchema,
   legacySpeechConsentFlags,
 } from '@/lib/recording/speech-consent';
+import {
+  PUBLIC_DICTIONARY_SPEECH_RIGHTS,
+  isNarrowPublicDictionaryConsent,
+} from '@/lib/recording/dictionary-public-consent';
 
 function consent(rights = { ...EMPTY_SPEECH_RIGHTS, recordingAllowed: true }) {
   return {
@@ -83,5 +87,25 @@ describe('speech consent contract', () => {
         ttsTrainingAllowed: true,
       }),
     ).toEqual({ culturalConsent: false, trainingConsent: true });
+  });
+
+  it('keeps ordinary dictionary sharing narrow and valid', () => {
+    const parsed = SpeechConsentGrantSchema.parse(consent(PUBLIC_DICTIONARY_SPEECH_RIGHTS));
+    expect(parsed.rights.recordingAllowed).toBe(true);
+    expect(parsed.rights.publicAudioAllowed).toBe(true);
+    expect(parsed.rights.publicTranscriptAllowed).toBe(true);
+    expect(isNarrowPublicDictionaryConsent(parsed.rights)).toBe(true);
+    expect(
+      Object.entries(parsed.rights)
+        .filter(([key]) => !['recordingAllowed', 'publicAudioAllowed', 'publicTranscriptAllowed'].includes(key))
+        .every(([, value]) => value === false),
+    ).toBe(true);
+  });
+
+  it('does not mistake broader model permission for ordinary dictionary permission', () => {
+    expect(isNarrowPublicDictionaryConsent({
+      ...PUBLIC_DICTIONARY_SPEECH_RIGHTS,
+      ttsTrainingAllowed: true,
+    })).toBe(false);
   });
 });

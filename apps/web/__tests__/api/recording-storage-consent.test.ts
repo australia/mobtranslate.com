@@ -4,12 +4,17 @@ import { NextRequest } from 'next/server';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({
-  access: vi.fn(),
+  sentenceAccess: vi.fn(),
+  dictionaryAccess: vi.fn(),
   read: vi.fn(),
 }));
 
 vi.mock('@/lib/recording/speech-access.server', () => ({
-  resolveSentenceAudioAccess: mocks.access,
+  resolveSentenceAudioAccess: mocks.sentenceAccess,
+}));
+
+vi.mock('@/lib/recording/dictionary-recording-access.server', () => ({
+  resolveDictionaryAudioAccess: mocks.dictionaryAccess,
 }));
 
 vi.mock('@/lib/storage', () => ({
@@ -33,7 +38,7 @@ describe('sentence recording storage consent', () => {
   });
 
   it('hides a sentence file when no current permission authorizes access', async () => {
-    mocks.access.mockResolvedValue('denied');
+    mocks.sentenceAccess.mockResolvedValue('denied');
     const response = await request(['sentences', 'speaker', 'clip.wav']);
     expect(response.status).toBe(404);
     expect(response.headers.get('cache-control')).toBe('no-store');
@@ -41,7 +46,7 @@ describe('sentence recording storage consent', () => {
   });
 
   it('serves explicitly public sentence audio with short revocable caching', async () => {
-    mocks.access.mockResolvedValue('public');
+    mocks.sentenceAccess.mockResolvedValue('public');
     const response = await request(['sentences', 'speaker', 'clip.wav']);
     expect(response.status).toBe(200);
     expect(response.headers.get('cache-control')).toBe('public, max-age=60, must-revalidate');
@@ -49,16 +54,25 @@ describe('sentence recording storage consent', () => {
   });
 
   it('serves authorized private review without shared caching', async () => {
-    mocks.access.mockResolvedValue('private');
+    mocks.sentenceAccess.mockResolvedValue('private');
     const response = await request(['sentences', 'speaker', 'clip.wav']);
     expect(response.status).toBe(200);
     expect(response.headers.get('cache-control')).toBe('private, no-store');
   });
 
-  it('preserves immutable public delivery for non-sentence dictionary audio', async () => {
+  it('serves consented dictionary audio with short revocable caching', async () => {
+    mocks.dictionaryAccess.mockResolvedValue('public');
     const response = await request(['words', 'clip.wav']);
     expect(response.status).toBe(200);
-    expect(response.headers.get('cache-control')).toBe('public, max-age=31536000, immutable');
-    expect(mocks.access).not.toHaveBeenCalled();
+    expect(response.headers.get('cache-control')).toBe('public, max-age=60, must-revalidate');
+    expect(mocks.sentenceAccess).not.toHaveBeenCalled();
+  });
+
+  it('hides dictionary audio when permission has been withdrawn', async () => {
+    mocks.dictionaryAccess.mockResolvedValue('denied');
+    const response = await request(['words', 'clip.wav']);
+    expect(response.status).toBe(404);
+    expect(response.headers.get('cache-control')).toBe('no-store');
+    expect(mocks.read).not.toHaveBeenCalled();
   });
 });

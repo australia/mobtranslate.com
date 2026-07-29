@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
-import { Stack, useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
@@ -27,6 +27,7 @@ type RecTarget =
 export default function WordScreen() {
   const { id, code, word, thumb } = useLocalSearchParams<{ id: string; code?: string; word?: string; thumb?: string }>();
   const { user } = useAuth();
+  const router = useRouter();
   const [detail, setDetail] = useState<WordDetail | null>(null);
   const [loading, setLoading] = useState(true);
   // Land showing the card's own thumbnail (visual continuity from the list),
@@ -81,6 +82,14 @@ export default function WordScreen() {
   useEffect(() => { if (!detail) return; loadWordRecs(); detail.examples.forEach((e) => e.id && loadExRecs(e.id)); }, [detail]);
 
   function playUrl(u: string) { try { player.current?.remove(); const p = createAudioPlayer({ uri: u }); player.current = p; p.play(); } catch {} }
+
+  function beginRecording(target: RecTarget) {
+    if (!user) {
+      router.push('/account');
+      return;
+    }
+    setRecTarget(target);
+  }
 
   async function addExample(text: string, english: string) {
     const ex = await createExample(String(id), text, english);
@@ -235,7 +244,7 @@ export default function WordScreen() {
                   </Pressable>
                 ))}
                 <Button label="Record this word" icon="mic" variant="soft" full style={{ marginTop: 12 }}
-                  onPress={() => setRecTarget({ kind: 'word', label: headword, sub: detail.definitions[0] })} />
+                  onPress={() => beginRecording({ kind: 'word', label: headword, sub: detail.definitions[0] })} />
               </Card>
 
               {/* Examples */}
@@ -278,7 +287,7 @@ export default function WordScreen() {
                       ))}
                       {ex.id && (
                         <Button label={recs && recs.length ? 'Add a recording' : 'Record this example'} icon="mic" variant="ghost" full style={{ marginTop: 10 }}
-                          onPress={() => setRecTarget({ kind: 'example', id: ex.id!, label: ex.text, sub: ex.translation })} />
+                          onPress={() => beginRecording({ kind: 'example', id: ex.id!, label: ex.text, sub: ex.translation })} />
                       )}
                     </Card>
                   );
@@ -296,13 +305,17 @@ export default function WordScreen() {
       <CorrectionModal visible={correct} target={detail ? { kind: 'word', wordId: detail.id, word: detail.word } : null} onClose={() => setCorrect(false)} />
 
       {/* Record (word or example) */}
-      {recTarget && (
+      {recTarget && detail?.languageId && (
         <RecorderModal
           kind={recTarget.kind === 'word' ? 'WORD' : 'SENTENCE'}
           label={recTarget.label}
           sub={recTarget.sub}
+          languageId={detail.languageId}
+          languageName={detail.languageName || 'this language'}
           recordings={recTarget.kind === 'word' ? wordRecs : (exRecs[recTarget.id] ?? null)}
-          onUpload={(uri, ms) => recTarget.kind === 'word' ? uploadWordRecording(String(id), uri, ms) : uploadExampleRecording(recTarget.id, uri, ms)}
+          onUpload={(uri, ms, consentRecordId) => recTarget.kind === 'word'
+            ? uploadWordRecording(String(id), uri, consentRecordId, ms)
+            : uploadExampleRecording(recTarget.id, uri, consentRecordId, ms)}
           onSaved={() => { if (recTarget.kind === 'word') loadWordRecs(); else loadExRecs(recTarget.id); }}
           onClose={() => setRecTarget(null)}
         />

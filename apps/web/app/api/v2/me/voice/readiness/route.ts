@@ -11,9 +11,10 @@ function rows<T = any>(res: any): T[] {
 }
 
 /**
- * Voice-model readiness for the signed-in user, scoped to the language they've
- * recorded most (a personal voice is fine-tuned per language). Returns the full
- * research-grounded breakdown (see lib/voice-readiness.ts).
+ * Technical corpus coverage for the signed-in user, scoped to the language
+ * with the most recordings whose exact CURRENT consent event permits TTS
+ * training and recognisable voice replication. Dictionary-public permission
+ * does not qualify. Technical coverage never substitutes for project approval.
  */
 export async function GET() {
   const user = await getSessionUser();
@@ -23,6 +24,17 @@ export async function GET() {
   const mine = sql`r.status = 'active' and (
     r.recorded_by = ${uid}::uuid
     or r.speaker_id in (select id from public.speaker_profiles where user_id = ${uid}::uuid)
+  ) and exists (
+    select 1
+      from public.current_speech_consent consent
+     where consent.id = r.speech_consent_record_id
+       and consent.speaker_id = r.speaker_id
+       and consent.language_id = r.language_id
+       and consent.event_type <> 'withdraw'
+       and consent.recording_allowed = true
+       and consent.public_transcript_allowed = true
+       and consent.tts_training_allowed = true
+       and consent.speaker_voice_replication_allowed = true
   )`;
 
   // Dominant language of this user's recordings.

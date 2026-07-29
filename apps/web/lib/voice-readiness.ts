@@ -1,5 +1,5 @@
 /**
- * Voice-model readiness model.
+ * Voice-project technical corpus coverage model.
  *
  * Quantifies how close a single speaker's recording corpus is to being able to
  * fine-tune a personal neural TTS voice (an MMS-TTS / VITS model). The thresholds
@@ -18,9 +18,10 @@
  * Sources: low-resource TTS adaptation literature (arXiv 2312.01107, 2406.08911,
  * 2110.05798) and community VITS fine-tuning guides (Plachtaa/VITS-fast-fine-tuning).
  *
- * Licensing: every recording a user uploads is contributed to the PUBLIC DOMAIN
- * in perpetuity, so there is no per-voice training-consent gate — readiness is a
- * pure function of the data.
+ * This module measures audio coverage only. Callers MUST first restrict input to
+ * clips whose exact current consent event authorises the intended TTS training
+ * and recognisable voice replication. A high score is not consent, community
+ * authority, ethics review, model-release permission, or production approval.
  *
  * One gate is HARD (no amount of data substitutes):
  *   - Audio quality floor — clipped / noisy / wrong-rate clips can't train a clean voice.
@@ -203,19 +204,19 @@ export function computeReadiness(args: {
   const nextSteps: string[] = [];
   const needMin = Math.max(0, TARGETS.minutes.good - minutes);
   const needClips = Math.max(0, TARGETS.clips.good - clips);
-  if (needMin > 0) nextSteps.push(`Record ~${Math.ceil(needMin)} more minutes of audio.`);
-  if (needClips > 0) nextSteps.push(`Add ~${needClips} more clips (short words & phrases).`);
+  if (needMin > 0) nextSteps.push(`An approved voice project would need ~${Math.ceil(needMin)} more permitted minutes of audio.`);
+  if (needClips > 0) nextSteps.push(`An approved voice project would need ~${needClips} more permitted clips (short words and phrases).`);
   if (underCovered.length > 0)
-    nextSteps.push(`Cover ${underCovered.length} under-represented sound${underCovered.length === 1 ? '' : 's'} (need ${TARGETS.phonemeOccurrences}+ examples each).`);
+    nextSteps.push(`An approved voice project would need more coverage for ${underCovered.length} under-represented sound${underCovered.length === 1 ? '' : 's'} (${TARGETS.phonemeOccurrences}+ examples each).`);
   if (sentences < TARGETS.sentences.good)
-    nextSteps.push(`Record ${TARGETS.sentences.good - sentences} more sentences for natural prosody.`);
+    nextSteps.push(`An approved voice project would need ${TARGETS.sentences.good - sentences} more permitted sentences for natural prosody.`);
 
   let verdict: string;
-  if (clips === 0) verdict = 'No recordings yet — record some words to begin building your voice.';
-  else if (tier === 'strong') verdict = 'Ready for a strong, production-quality personal voice.';
-  else if (tier === 'good') verdict = 'Ready to fine-tune a good personal voice now.';
-  else if (tier === 'adaptable') verdict = 'Enough to adapt a first rough voice — keep recording to make it good.';
-  else verdict = `Collecting — ${dataReadinessPct}% of the way to a good voice.`;
+  if (clips === 0) verdict = 'No recordings with current voice-training and voice-replication permission are eligible.';
+  else if (tier === 'strong') verdict = 'Strong technical coverage among currently permitted clips; project and release approval are still separate.';
+  else if (tier === 'good') verdict = 'Good technical coverage among currently permitted clips; this is not approval to train or release a voice.';
+  else if (tier === 'adaptable') verdict = 'Minimum technical coverage is present among permitted clips; more data and project approval would still be needed.';
+  else verdict = `Early technical coverage — ${dataReadinessPct}% of the reference corpus target among permitted clips.`;
 
   return {
     dataReadinessPct,

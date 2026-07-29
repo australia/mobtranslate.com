@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { contentTypeFor, readRecording } from '@/lib/storage';
 import { resolveSentenceAudioAccess } from '@/lib/recording/speech-access.server';
+import { resolveDictionaryAudioAccess } from '@/lib/recording/dictionary-recording-access.server';
 
 export const runtime = 'nodejs';
 
 // Serves recording audio from the box filesystem (replaces Supabase Storage
-// public URLs). Public, read-only.
+// public URLs). Access is evaluated on every request so a withdrawn permission
+// takes effect without leaving a long-lived public cache behind.
 export async function GET(
   _request: NextRequest,
   context: { params: Promise<{ path: string[] }> }
@@ -16,16 +18,14 @@ export async function GET(
     return NextResponse.json({ error: 'Not found' }, { status: 404 });
   }
 
-  let sentenceAccess: 'public' | 'private' | null = null;
-  if (storagePath.startsWith('sentences/')) {
-    const access = await resolveSentenceAudioAccess(storagePath).catch(() => 'denied' as const);
-    if (access === 'denied') {
-      return NextResponse.json(
-        { error: 'Not found' },
-        { status: 404, headers: { 'Cache-Control': 'no-store' } },
-      );
-    }
-    sentenceAccess = access;
+  const access = storagePath.startsWith('sentences/')
+    ? await resolveSentenceAudioAccess(storagePath).catch(() => 'denied' as const)
+    : await resolveDictionaryAudioAccess(storagePath).catch(() => 'denied' as const);
+  if (access === 'denied') {
+    return NextResponse.json(
+      { error: 'Not found' },
+      { status: 404, headers: { 'Cache-Control': 'no-store' } },
+    );
   }
 
   let data: Buffer | null;
@@ -44,12 +44,10 @@ export async function GET(
       'Content-Type': contentTypeFor(storagePath),
       'Content-Length': String(data.length),
       'Cache-Control':
-        sentenceAccess === 'public'
+        access === 'public'
           ? 'public, max-age=60, must-revalidate'
-          : sentenceAccess === 'private'
-            ? 'private, no-store'
-            : 'public, max-age=31536000, immutable',
-      ...(sentenceAccess ? { Vary: 'Cookie' } : {}),
+          : 'private, no-store',
+      Vary: 'Cookie',
     },
   });
 }

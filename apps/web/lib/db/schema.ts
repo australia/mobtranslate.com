@@ -672,6 +672,7 @@ export const recordings = pgTable("recordings", {
 	createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).defaultNow(),
 	updatedAt: timestamp("updated_at", { withTimezone: true, mode: 'string' }).defaultNow(),
 	exampleId: uuid("example_id"),
+	speechConsentRecordId: uuid("speech_consent_record_id"),
 }, (table) => [
 	index("idx_recordings_active_word").using("btree", table.wordId.asc().nullsLast().op("uuid_ops")).where(sql`(status = 'active'::text)`),
 	index("idx_recordings_example").using("btree", table.exampleId.asc().nullsLast().op("uuid_ops")).where(sql`(example_id IS NOT NULL)`),

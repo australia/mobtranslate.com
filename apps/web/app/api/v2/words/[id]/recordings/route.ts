@@ -7,6 +7,7 @@ import { recordingPublicUrl } from '@/lib/storage';
 import { uploadAudio } from '@/lib/recording/server';
 import { compressedAudioMeta } from '@/lib/recording/types';
 import { getSessionUser } from '@/lib/auth-helpers';
+import { requirePublicDictionaryRecordingConsent } from '@/lib/recording/dictionary-recording-access.server';
 
 export const runtime = 'nodejs';
 
@@ -24,6 +25,7 @@ const metaSchema = z.object({
   peakAmplitude: z.number().optional(),
   clipped: z.boolean().optional(),
   opusType: z.string().nullable().optional(),
+  consentRecordId: z.string().uuid(),
 });
 
 export async function GET(_request: NextRequest, context: { params: Promise<{ id: string }> }) {
@@ -33,7 +35,10 @@ export async function GET(_request: NextRequest, context: { params: Promise<{ id
     const res: any = await db.execute(sql`
       select r.id, r.storage_path, r.opus_path, r.duration_ms, r.is_primary,
              r.recorded_by, r.created_at,
-             coalesce(sp.name, up.display_name, up.username) as speaker_name,
+             case
+               when consent.consent_artifact_ref = 'app:self-service' then 'Recorded contributor'
+               else coalesce(sp.name, up.display_name, up.username)
+             end as speaker_name,
              sp.community as speaker_community,
              sp.dialect   as speaker_dialect,
              rer.speaker_code as source_speaker_code,
@@ -51,8 +56,25 @@ export async function GET(_request: NextRequest, context: { params: Promise<{ id
       left join public.user_profiles    up on up.user_id = r.recorded_by
       left join public.recording_external_refs rer on rer.recording_id = r.id
       left join public.recording_sources rs on rs.id = rer.source_id
+      left join public.current_speech_consent consent
+        on consent.id = r.speech_consent_record_id
+       and consent.speaker_id = r.speaker_id
+       and consent.language_id = r.language_id
       where r.status = 'active'
         and r.kind = 'word'
+        and (
+          (
+            rer.recording_id is not null
+            and btrim(coalesce(rs.license_name, '')) <> ''
+            and btrim(coalesce(rs.license_url, '')) <> ''
+          )
+          or (
+            consent.event_type <> 'withdraw'
+            and consent.recording_allowed = true
+            and consent.public_audio_allowed = true
+            and consent.public_transcript_allowed = true
+          )
+        )
         and (
           r.word_id = ${wordId}::uuid
           or (
@@ -70,7 +92,7 @@ export async function GET(_request: NextRequest, context: { params: Promise<{ id
       master_url: recordingPublicUrl(r.storage_path),
       duration_ms: r.duration_ms,
       is_primary: r.is_primary,
-      speaker_name: r.speaker_name || (r.source_name ? 'Source speaker' : 'Community speaker'),
+      speaker_name: r.speaker_name || (r.source_name ? 'Source speaker' : 'Recorded contributor'),
       speaker_community: r.speaker_community || null,
       speaker_dialect: r.speaker_dialect || null,
       source_speaker_code: r.source_speaker_code || null,
@@ -123,6 +145,14 @@ export async function POST(request: NextRequest, context: { params: Promise<{ id
   if (w.length === 0) return NextResponse.json({ error: 'Word not found' }, { status: 404 });
   const word = w[0];
 
+  const consent = await requirePublicDictionaryRecordingConsent(me.id, word.languageId, meta.consentRecordId);
+  if (!consent) {
+    return NextResponse.json(
+      { error: 'Current permission to publish this recording is required.' },
+      { status: 403 },
+    );
+  }
+
   // Store audio on the box filesystem (host-independent same-origin URLs).
   const base = `words/${wordId}/${me.id}-${meta.clientId}`;
   let storagePath: string;
@@ -162,6 +192,8 @@ export async function POST(request: NextRequest, context: { params: Promise<{ id
       kind: 'word',
       label: word.word,
       recordedBy: me.id,
+      speakerId: consent.speakerId,
+      speechConsentRecordId: consent.consentRecordId,
       storagePath,
       masterUrl: recordingPublicUrl(storagePath),
       masterFormat: 'wav',

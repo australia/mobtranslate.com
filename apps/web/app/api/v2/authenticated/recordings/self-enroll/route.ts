@@ -19,8 +19,9 @@ const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
  * the worklist / targets / upload endpoints work for that user.
  *
  * Mirrors the registered-invite insert path in
- * app/api/v2/admin/recordings/invites/route.ts (matches the open
- * public-domain contribution model).
+ * app/api/v2/admin/recordings/invites/route.ts. This grants access to the
+ * worklist only; it grants no recording, publication, or model rights. The
+ * upload routes require the contributor's current purpose-specific ledger id.
  */
 export async function POST(request: NextRequest) {
   const auth = await requireUser();

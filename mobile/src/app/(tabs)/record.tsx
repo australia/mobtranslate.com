@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import Animated, { FadeIn, FadeInDown, useSharedValue, withTiming } from 'react-native-reanimated';
 import {
@@ -12,6 +12,7 @@ import { RecordOrb, ReviewBar } from '../../components/RecordPad';
 import { RecordDeck } from '../../components/RecordDeck';
 import { Skeleton } from '../../components/Skeleton';
 import { SkipSheet } from '../../components/SkipSheet';
+import { VoiceSharingPermission } from '../../components/VoiceSharingPermission';
 import { useAccent } from '../../lib/accent';
 import {
   addSentenceTarget, browseWords, getVoiceTotals, getWorklist, selfEnroll,
@@ -43,7 +44,16 @@ export default function RecordScreen() {
   const [savedToday, setSavedToday] = useState(0);
   const [addOpen, setAddOpen] = useState(false);
   const [canStudio, setCanStudio] = useState(false);
+  const [voiceConsent, setVoiceConsent] = useState<{ languageId: string; recordId: string } | null>(null);
   const accent = useAccent();
+  const consentRecordId = voiceConsent && voiceConsent.languageId === languageId ? voiceConsent.recordId : null;
+
+  // Re-read the append-only ledger whenever this tab regains focus. This keeps
+  // a withdrawal made on another tab or device upstream of the microphone.
+  useFocusEffect(useCallback(() => {
+    setVoiceConsent(null);
+    setActive(null);
+  }, [languageId]));
 
   // The in-person Elder studio is curator/admin only and Kuku Yalanji only.
   // Probe the role so the entry appears only for authorized operators.
@@ -58,7 +68,7 @@ export default function RecordScreen() {
   }, [user, code]);
 
   const load = useCallback(async () => {
-    if (!languageId) return;
+    if (!languageId || !consentRecordId) return;
     setLoading(true);
     await selfEnroll(languageId);
     const [w, s, t] = await Promise.all([
@@ -72,9 +82,9 @@ export default function RecordScreen() {
       wordItems = b.words.map((x) => ({ key: x.id, label: x.word, gloss: x.meaning, recording_count: 0, has_active: false }));
     }
     setWords(wordItems); setSentences(s.items); setTotals(t); setLoading(false);
-  }, [languageId, code, filter]);
+  }, [languageId, consentRecordId, code, filter]);
 
-  useEffect(() => { if (user && languageId) load(); }, [user, languageId, load]);
+  useEffect(() => { if (user && languageId && consentRecordId) load(); }, [user, languageId, consentRecordId, load]);
 
   function afterSave(kind: Kind, key: string) {
     // mark recorded; if we're on the "to record" filter, drop it from the list
@@ -101,13 +111,39 @@ export default function RecordScreen() {
         <Card><Text style={styles.gate}>Sign in first, so your recordings are saved to you.</Text>
           <Button label="Go to Sign in" icon="person-outline" onPress={() => router.push('/account')} full style={{ marginTop: 14 }} />
         </Card>
-        <Text style={styles.pd}>All recordings are contributed to the public domain in perpetuity.</Text>
+        <Text style={styles.pd}>Before recording, you’ll choose exactly how your voice may be shared.</Text>
       </Screen>
     );
   }
 
   const list = tab === 'word' ? words : sentences;
   const langName = lang?.name ?? 'your language';
+
+  if (languageId && !consentRecordId) {
+    return (
+      <Screen>
+        <ScreenTitle title="Add your voice" sub={`Your voice can help people hear ${langName} as it is spoken.`} />
+        {canStudio && (
+          <Pressable onPress={() => router.push('/elder-studio')}
+            style={({ pressed }) => [styles.studioCard, pressed && { transform: [{ scale: 0.99 }] }]}>
+            <View style={styles.studioIcon}><Ionicons name="people" size={24} color={C.white} /></View>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.studioTitle}>Open the Elder studio</Text>
+              <Text style={styles.studioSub}>A separate, curator-led consent and recording flow.</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={22} color={C.forest} />
+          </Pressable>
+        )}
+        <VoiceSharingPermission
+          languageId={languageId}
+          languageName={langName}
+          onGranted={(consent) => {
+            if (consent.consentRecordId) setVoiceConsent({ languageId, recordId: consent.consentRecordId });
+          }}
+        />
+      </Screen>
+    );
+  }
 
   return (
     <Screen>
@@ -197,13 +233,14 @@ export default function RecordScreen() {
       )}
 
       <Text style={styles.pd}>
-        {filter === 'pending' ? 'Swipe up to record · swipe aside to pass. Recordings are public domain in perpetuity.'
-          : 'Tap any card to listen to recordings or add your own. Recordings are public domain in perpetuity.'}
+        {filter === 'pending' ? 'Swipe up to record · swipe aside to pass. Public dictionary sharing only; no AI or voice-cloning rights.'
+          : 'Tap any card to listen or add your own. You can withdraw public playback under You.'}
       </Text>
 
-      {active && languageId && (
+      {active && languageId && consentRecordId && (
         <ItemSheet
           item={active.item} kind={active.kind} languageId={languageId} languageCode={code}
+          consentRecordId={consentRecordId}
           onClose={() => setActive(null)}
           onSaved={() => { afterSave(active.kind, active.item.key); }}
           onSkip={(reason, note) => {
@@ -242,8 +279,8 @@ function Stat({ n, label }: { n: number; label: string }) {
 
 /* ── Card detail: existing recordings (playback) + record ── */
 function ItemSheet({
-  item, kind, languageId, languageCode, onClose, onSaved, onSkip,
-}: { item: WorklistItem; kind: Kind; languageId: string; languageCode?: string; onClose: () => void; onSaved: () => void; onSkip?: (reason: SkipReason | null, note: string) => void }) {
+  item, kind, languageId, languageCode, consentRecordId, onClose, onSaved, onSkip,
+}: { item: WorklistItem; kind: Kind; languageId: string; languageCode?: string; consentRecordId: string; onClose: () => void; onSaved: () => void; onSkip?: (reason: SkipReason | null, note: string) => void }) {
   const recorder = useAudioRecorder({ ...RecordingPresets.HIGH_QUALITY, isMeteringEnabled: true });
   const recState = useAudioRecorderState(recorder, 80);
   const accent = useAccent();
@@ -292,8 +329,8 @@ function ItemSheet({
     if (!uri) return;
     setPhase('saving'); setError(null);
     try {
-      if (kind === 'word') await uploadWordRecording(item.key, uri, seconds * 1000);
-      else await uploadExampleRecording(item.key, uri, seconds * 1000);
+      if (kind === 'word') await uploadWordRecording(item.key, uri, consentRecordId, seconds * 1000);
+      else await uploadExampleRecording(item.key, uri, consentRecordId, seconds * 1000);
       onSaved(); onClose();
     } catch (e: any) { setError(e?.message || 'Could not save.'); setPhase('recorded'); }
   }

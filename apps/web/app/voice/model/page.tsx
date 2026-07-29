@@ -6,7 +6,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import SharedLayout from '../../components/SharedLayout';
 import { Card, CardContent } from '@mobtranslate/ui';
 import {
-  ArrowLeft, Waypoints, Globe, AlertTriangle, CheckCircle2,
+  ArrowLeft, Waypoints, ShieldCheck, AlertTriangle, CheckCircle2,
   Clock, Mic, AudioLines, MessageSquareQuote, Volume2, Loader2, LogIn, ListChecks, Info,
 } from 'lucide-react';
 
@@ -25,11 +25,11 @@ const DIM_ICON: Record<string, any> = {
   duration: Clock, clips: Mic, phonemes: AudioLines, sentences: MessageSquareQuote, quality: Volume2,
 };
 const TIER: Record<string, { label: string; cls: string }> = {
-  none: { label: 'Not started', cls: 'bg-muted text-muted-foreground' },
-  collecting: { label: 'Collecting', cls: 'bg-amber-500/10 text-amber-600 dark:text-amber-400' },
-  adaptable: { label: 'First voice possible', cls: 'bg-blue-500/10 text-blue-600 dark:text-blue-400' },
-  good: { label: 'Ready for a good voice', cls: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' },
-  strong: { label: 'Production-ready', cls: 'bg-emerald-600/15 text-emerald-700 dark:text-emerald-300' },
+  none: { label: 'No eligible clips', cls: 'bg-muted text-muted-foreground' },
+  collecting: { label: 'Early coverage', cls: 'bg-amber-500/10 text-amber-600 dark:text-amber-400' },
+  adaptable: { label: 'Minimum coverage', cls: 'bg-blue-500/10 text-blue-600 dark:text-blue-400' },
+  good: { label: 'Good coverage', cls: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400' },
+  strong: { label: 'Strong coverage', cls: 'bg-emerald-600/15 text-emerald-700 dark:text-emerald-300' },
 };
 
 function barColor(pct: number): string {
@@ -58,8 +58,8 @@ export default function VoiceModelPage() {
       <SharedLayout>
         <div className="max-w-md mx-auto py-24 text-center">
           <Waypoints className="h-10 w-10 mx-auto text-primary mb-4" />
-          <h1 className="text-2xl font-bold mb-2">Voice model readiness</h1>
-          <p className="text-muted-foreground mb-6">Sign in to see how close your recordings are to a personal voice model.</p>
+          <h1 className="text-2xl font-bold mb-2">Approved voice-project coverage</h1>
+          <p className="text-muted-foreground mb-6">Sign in to inspect technical coverage among recordings whose current permission explicitly allows voice training and replication.</p>
           <Link href="/auth/signin" className="inline-flex items-center gap-2 rounded-lg bg-primary text-primary-foreground px-5 h-11 font-semibold">
             <LogIn className="h-4 w-4" /> Sign in
           </Link>
@@ -83,7 +83,7 @@ export default function VoiceModelPage() {
           <>
             {/* Headline */}
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary mb-2">Voice model readiness</p>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary mb-2">Eligible voice-project corpus</p>
               <div className="flex items-end gap-4 flex-wrap">
                 <h1 className="text-5xl font-bold tabular-nums tracking-tight">{data.dataReadinessPct}%</h1>
                 <span className={`text-xs font-medium px-2.5 py-1 rounded-full mb-1.5 ${tier.cls}`}>{tier.label}</span>
@@ -95,15 +95,15 @@ export default function VoiceModelPage() {
               </div>
             </div>
 
-            {/* Licensing note */}
+            {/* Consent boundary */}
             <Card>
               <CardContent className="p-5">
                 <div className="flex items-start gap-3">
-                  <Globe className="h-6 w-6 text-primary shrink-0 mt-0.5" />
+                  <ShieldCheck className="h-6 w-6 text-primary shrink-0 mt-0.5" />
                   <div className="flex-1">
-                    <h2 className="font-semibold">Public domain</h2>
+                    <h2 className="font-semibold">Permission is a hard boundary</h2>
                     <p className="text-sm text-muted-foreground mt-1">
-                      All uploaded recordings are contributed to the public domain in perpetuity, so anyone can use them to build and improve voices for the community.
+                      This page counts only clips whose exact current consent event permits both TTS training and recognisable voice replication. Ordinary public-dictionary recordings are excluded. A technical score is never community authority, project approval, or permission to release a model.
                     </p>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ export default function VoiceModelPage() {
                 <CardContent className="p-5">
                   <div className="flex items-center gap-2 mb-2 text-rose-600 dark:text-rose-400">
                     <AlertTriangle className="h-4 w-4" />
-                    <h2 className="font-semibold text-sm uppercase tracking-wider">Before training can start</h2>
+                    <h2 className="font-semibold text-sm uppercase tracking-wider">Technical gaps in the eligible corpus</h2>
                   </div>
                   <ul className="space-y-1.5">
                     {data.blockers.map((b, i) => (
@@ -190,7 +190,7 @@ export default function VoiceModelPage() {
                 <CardContent className="p-5">
                   <div className="flex items-center gap-2 mb-3">
                     <ListChecks className="h-4 w-4 text-primary" />
-                    <h2 className="font-semibold text-sm uppercase tracking-wider">What to do next</h2>
+                    <h2 className="font-semibold text-sm uppercase tracking-wider">If the voice project is approved</h2>
                   </div>
                   <ol className="space-y-2">
                     {data.nextSteps.map((s, i) => (
@@ -200,9 +200,7 @@ export default function VoiceModelPage() {
                       </li>
                     ))}
                   </ol>
-                  <Link href="/dictionaries" className="inline-flex items-center gap-2 mt-4 rounded-lg bg-primary text-primary-foreground px-4 h-10 text-sm font-semibold">
-                    <Mic className="h-4 w-4" /> Record more
-                  </Link>
+                  <p className="text-xs text-muted-foreground mt-4">Do not collect more speech for model work until the speaker, relevant community authority, intended uses, providers, model handling, distribution, commercial terms, and withdrawal process are documented.</p>
                 </CardContent>
               </Card>
             )}
@@ -210,17 +208,17 @@ export default function VoiceModelPage() {
             {/* What it takes — research grounding */}
             <details className="rounded-xl border border-border">
               <summary className="cursor-pointer px-5 py-3 text-sm font-medium flex items-center gap-2">
-                <Info className="h-4 w-4 text-muted-foreground" /> What it takes to train a voice
+                <Info className="h-4 w-4 text-muted-foreground" /> What an approved voice project would require
               </summary>
               <div className="px-5 pb-5 pt-1 text-sm text-muted-foreground space-y-2">
-                <p>Your recordings fine-tune a pre-trained multilingual neural voice model (MMS-TTS / VITS) into one that sounds like you. From published single-speaker practice:</p>
+                <p>A separately approved project could fine-tune a multilingual neural voice model (such as MMS-TTS / VITS) using explicitly permitted recordings. Technical practice suggests:</p>
                 <ul className="list-disc pl-5 space-y-1">
                   <li><b className="text-foreground">~30 minutes</b> of clean, transcribed audio is the minimum to adapt a first rough voice; <b className="text-foreground">1–2 hours</b> gives a good one, and quality keeps improving up to a few hours.</li>
                   <li>Many <b className="text-foreground">short clips</b> (2–10 s) beat a few long ones — hundreds for a usable voice, ~1,000+ for a strong one.</li>
                   <li>Every <b className="text-foreground">sound</b> in the language should appear in several clips, so the model can pronounce anything.</li>
                   <li><b className="text-foreground">Sentences</b> (not just words) teach natural rhythm and intonation.</li>
                   <li>Audio must be <b className="text-foreground">clean</b>: one voice, no clipping, low background noise, consistent microphone, ≥16&nbsp;kHz mono.</li>
-                  <li>All uploaded recordings are <b className="text-foreground">public domain</b> in perpetuity, so the community can freely build and improve voices.</li>
+                  <li><b className="text-foreground">Consent and governance are prerequisites</b>: dictionary playback permission does not allow training, voice replication, provider transfer, model creation, distribution, or commercial use.</li>
                 </ul>
               </div>
             </details>

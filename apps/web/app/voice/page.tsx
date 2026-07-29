@@ -31,8 +31,8 @@ function ago(iso: string | null): string {
 }
 
 const TIER_LABEL: Record<string, string> = {
-  none: 'Not started', collecting: 'Collecting', adaptable: 'First voice possible',
-  good: 'Ready for a good voice', strong: 'Production-ready',
+  none: 'No eligible clips', collecting: 'Early coverage', adaptable: 'Minimum coverage',
+  good: 'Good coverage', strong: 'Strong coverage',
 };
 
 function Stat({ icon: Icon, value, label, tone = 'text-primary' }: { icon: any; value: string | number; label: string; tone?: string }) {
@@ -72,7 +72,7 @@ export default function VoicePage() {
         <div className="max-w-md mx-auto py-24 text-center">
           <AudioLines className="h-10 w-10 mx-auto text-primary mb-4" />
           <h1 className="text-2xl font-bold mb-2">Your Voice</h1>
-          <p className="text-muted-foreground mb-6">Sign in to track the words and sentences you’ve recorded and watch your personal voice model take shape.</p>
+          <p className="text-muted-foreground mb-6">Sign in to track the words and sentences you’ve contributed and the permissions attached to them.</p>
           <Link href="/auth/signin" className="inline-flex items-center gap-2 rounded-lg bg-primary text-primary-foreground px-5 h-11 font-semibold">
             <LogIn className="h-4 w-4" /> Sign in
           </Link>
@@ -92,7 +92,7 @@ export default function VoicePage() {
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary mb-2">Your Voice</p>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Contributions</h1>
             <p className="text-muted-foreground mt-2 max-w-xl">
-              Every word and sentence you record helps build the dictionary — and brings a voice model trained on <em>your own voice</em> closer.
+              Every word and sentence you record can help people hear the dictionary. Voice-model use is separate and requires purpose-specific permission and project approval.
             </p>
           </div>
           {t?.activeDays ? (
@@ -115,7 +115,7 @@ export default function VoicePage() {
               <Stat icon={Globe} value={nf.format(t?.languages ?? 0)} label={`language${(t?.languages ?? 0) === 1 ? '' : 's'}`} tone="text-emerald-500" />
             </div>
 
-            {/* Voice model readiness teaser → the breakdown page */}
+            {/* Consent-filtered technical coverage → the breakdown page */}
             {readiness && (
               <Link href="/voice/model" className="block group">
                 <Card className="transition-all group-hover:border-primary group-hover:shadow-md">
@@ -126,7 +126,7 @@ export default function VoicePage() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <h2 className="text-lg font-semibold">Your voice model</h2>
+                          <h2 className="text-lg font-semibold">Approved voice-project coverage</h2>
                           <span className="text-xs rounded-full bg-muted px-2 py-0.5 text-muted-foreground">{TIER_LABEL[readiness.tier] ?? readiness.tier}</span>
                         </div>
                         <p className="text-sm text-muted-foreground mt-1 truncate">{readiness.verdict}</p>
@@ -194,8 +194,8 @@ export default function VoicePage() {
               <CardContent className="p-6 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
                 <Mic className="h-8 w-8 text-primary shrink-0" />
                 <div className="flex-1">
-                  <p className="font-semibold">Record more to grow your voice</p>
-                  <p className="text-sm text-muted-foreground">Open any word in a dictionary and add your pronunciation, or record example sentences.</p>
+                  <p className="font-semibold">Help people hear the dictionary</p>
+                  <p className="text-sm text-muted-foreground">Open any word and add a pronunciation or example under the public-dictionary sharing choice. That permission does not include AI training or voice cloning.</p>
                 </div>
                 <Link href="/dictionaries" className="inline-flex items-center gap-2 rounded-lg bg-primary text-primary-foreground px-4 h-10 font-semibold shrink-0">
                   Browse dictionaries <ChevronRight className="h-4 w-4" />

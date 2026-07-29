@@ -7,7 +7,7 @@
 import * as SecureStore from 'expo-secure-store';
 import { uploadAsync, FileSystemUploadType } from 'expo-file-system/legacy';
 
-export const API_BASE = 'https://mobtranslate.com';
+export const API_BASE = (process.env.EXPO_PUBLIC_API_BASE || 'https://mobtranslate.com').replace(/\/$/, '');
 const COOKIE_KEY = 'mt_session_cookie';
 
 let sessionCookie: string | null = null;
@@ -152,7 +152,7 @@ export interface WordSource {
   licenseUrl?: string;
 }
 export interface WordDetail {
-  id: string; word: string; languageCode: string;
+  id: string; word: string; languageId?: string; languageCode: string; languageName?: string;
   pronunciation?: string; wordClass?: string; wordType?: string;
   isVerified: boolean; reviewCount: number;
   lastReviewedAt?: string; entrySource?: string; needsReview?: string;
@@ -174,7 +174,9 @@ export async function getWord(id: string): Promise<WordDetail | null> {
     return {
       id: w.id,
       word: w.word,
+      languageId: w.language?.id || w.language_id || undefined,
       languageCode: w.language?.code || w.language_code || '',
+      languageName: w.language?.name || w.language_name || undefined,
       pronunciation: w.phonetic_transcription ?? undefined,
       wordClass: w.word_class?.name ?? w.word_class?.abbreviation ?? undefined,
       wordType: w.word_type ?? undefined,
@@ -302,6 +304,47 @@ export async function getPlaces(code: string): Promise<{ places: Place[]; withCo
 // ---- Recording studio ------------------------------------------------------
 export interface WorklistItem { key: string; label: string; gloss?: string | null; recording_count: number; has_active: boolean }
 export interface VoiceTotals { clips: number; words: number; sentences: number; minutes: number }
+
+export interface PublicVoiceConsent {
+  granted: boolean;
+  consentRecordId: string | null;
+  version: number | null;
+  publicAudioAllowed: boolean;
+  publicTranscriptAllowed: boolean;
+  modelTrainingAllowed: boolean;
+  providerTransferAllowed: boolean;
+  publicMetricsAllowed: boolean;
+  voiceReplicationAllowed: boolean;
+  modelWeightsAllowed: boolean;
+  commercialUseAllowed: boolean;
+  withdrawalProcess: string;
+}
+
+export async function getPublicVoiceConsent(languageId: string): Promise<PublicVoiceConsent> {
+  const p = new URLSearchParams({ languageId });
+  const res = await fetch(`${API_BASE}/api/v2/me/voice/public-consent?${p.toString()}`, {
+    headers: authHeaders(),
+    cache: 'no-store',
+  });
+  const data = await json<PublicVoiceConsent & { error?: string }>(res);
+  if (!res.ok) throw new Error(data.error || `Could not load voice sharing permission (${res.status})`);
+  return data;
+}
+
+export async function setPublicVoiceConsent(
+  languageId: string,
+  grant: boolean,
+  confirmations: { speakerConfirmed?: boolean; sharingAuthorityConfirmed?: boolean } = {},
+): Promise<PublicVoiceConsent> {
+  const res = await fetch(`${API_BASE}/api/v2/me/voice/public-consent`, {
+    method: 'POST',
+    headers: jsonHeaders(),
+    body: JSON.stringify({ languageId, grant, ...confirmations }),
+  });
+  const data = await json<PublicVoiceConsent & { error?: string }>(res);
+  if (!res.ok) throw new Error(data.error || `Could not save voice sharing permission (${res.status})`);
+  return data;
+}
 
 export async function selfEnroll(languageId: string): Promise<void> {
   try {
@@ -661,16 +704,19 @@ export async function uploadRecording(meta: UploadMeta, fileUri: string): Promis
 }
 
 /** Add a pronunciation to a specific word — any signed-in user (no invite needed). */
-export async function uploadWordRecording(wordId: string, fileUri: string, durationMs?: number): Promise<void> {
-  await uploadToEndpoint(`${API_BASE}/api/v2/words/${wordId}/recordings`, fileUri, durationMs);
+export async function uploadWordRecording(wordId: string, fileUri: string, consentRecordId: string, durationMs?: number): Promise<void> {
+  await uploadToEndpoint(`${API_BASE}/api/v2/words/${wordId}/recordings`, fileUri, consentRecordId, durationMs);
 }
 /** Add a recording to a specific example sentence — any signed-in user. */
-export async function uploadExampleRecording(exampleId: string, fileUri: string, durationMs?: number): Promise<void> {
-  await uploadToEndpoint(`${API_BASE}/api/v2/examples/${exampleId}/recordings`, fileUri, durationMs);
+export async function uploadExampleRecording(exampleId: string, fileUri: string, consentRecordId: string, durationMs?: number): Promise<void> {
+  await uploadToEndpoint(`${API_BASE}/api/v2/examples/${exampleId}/recordings`, fileUri, consentRecordId, durationMs);
 }
 
-async function uploadToEndpoint(url: string, fileUri: string, durationMs?: number): Promise<void> {
-  const meta: Record<string, any> = { clientId: `${Date.now()}-${Math.floor(Math.random() * 1e9)}` };
+async function uploadToEndpoint(url: string, fileUri: string, consentRecordId: string, durationMs?: number): Promise<void> {
+  const meta: Record<string, any> = {
+    clientId: `${Date.now()}-${Math.floor(Math.random() * 1e9)}`,
+    consentRecordId,
+  };
   if (durationMs != null) meta.durationMs = durationMs;
   const result = await uploadAsync(url, fileUri, {
     httpMethod: 'POST',

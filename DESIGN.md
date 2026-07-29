@@ -235,6 +235,18 @@ Every full entry includes a **Source trail** in the main reading flow. It shows 
 
 Every dictionary landing page includes an **About this collection** panel near the language identity—not in a legal footer. It separately shows source evidence, publication basis, and stewardship relationship using documented / partial / open states. The collection browser uses “working collection” for hand-assembled dictionaries and never uses “official” or “community dictionary” as a shortcut for missing governance evidence. Community and Country reference links explicitly say that a link is not endorsement.
 
+### 5.3.1 Voice contribution boundary
+
+The microphone is downstream of permission, never the first screen. For an ordinary dictionary contribution, show one calm, readable decision surface before recording:
+
+- **Allowed:** retain the clip and play it publicly beside the matching dictionary word or sentence until withdrawal; show the public speaker label as **Recorded contributor**.
+- **Not allowed:** AI or speech-recognition training, hosted provider transfer, voice cloning, model-weight creation or distribution, public model metrics, commercial reuse, or public-domain dedication.
+- **Two affirmative choices:** “This is my voice” and “I have permission to share this recording and the language content.” Neither may be preselected.
+- **Authority reminder:** some language, stories, words, or communities require permission from an Elder, family, language centre, or other collective authority. A personal checkbox does not erase that responsibility.
+- **Withdrawal:** the **You** surface shows the current selected-language permission and a confirmed destructive action to stop public playback. Public audio uses short revocable caching.
+
+Permission state is icon + text + color. The ordinary recorder accepts only its own narrow ledger event; it never inherits broader research permissions. A corpus-coverage score may count only clips whose exact current event permits the intended training and recognisable voice replication, and must say that technical coverage is not governance approval.
+
 ### 5.4 Learn card (flip / quiz)
 
 Existing 3D flip utilities (`.preserve-3d`, `.rotate-y-180`, `.perspective-1000`) are in `globals.css`. Keep them.

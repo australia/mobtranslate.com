@@ -2,7 +2,7 @@
   "expo": {
     "name": "Mob Translate",
     "slug": "mobtranslate",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "mobtranslate",
@@ -16,7 +16,7 @@
     },
     "android": {
       "package": "com.mobtranslate.app",
-      "versionCode": 13,
+      "versionCode": 14,
       "adaptiveIcon": {
         "backgroundColor": "#FFFFFF",
         "foregroundImage": "./assets/images/adaptive-foreground.png"

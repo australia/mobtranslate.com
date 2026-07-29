@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <article className="max-w-2xl mx-auto py-10 md:py-14 prose-mt">
         <h1 className="text-3xl font-bold">Privacy Policy</h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Last updated: 19 July 2026
+          Last updated: 30 July 2026
         </p>
 
         <p className="mt-6 leading-relaxed">
@@ -77,9 +77,27 @@ export default function PrivacyPage() {
           <p>
             Language recordings and text you deliberately contribute may be
             published in Mob Translate so speakers, learners and language
-            workers can use them. We identify this before upload where
-            practical. You can ask us to remove a contribution or its personal
-            attribution at any time.
+            workers can use them. Before an ordinary dictionary recording, the
+            app asks you to confirm that it is your voice and that you have
+            permission to share the recording and language content. The public
+            label for that self-service contribution is “Recorded contributor,”
+            not your account name or email address.
+          </p>
+          <p className="mt-3">
+            That ordinary choice allows Mob Translate to keep the clip and play
+            it beside its public word or sentence until permission is withdrawn.
+            It does not permit AI or speech-model training, third-party model
+            provider transfer, voice cloning, creation or distribution of model
+            weights, public model metrics, commercial reuse, or dedication to
+            the public domain. Those purposes require separate, explicit and
+            appropriately governed permission.
+          </p>
+          <p className="mt-3">
+            You can withdraw public dictionary playback in the app under You →
+            Voice sharing permission, or ask us to remove a contribution or its
+            personal attribution. Withdrawal stops Mob Translate from publicly
+            serving the covered recording. A copy that someone already
+            downloaded may remain outside Mob Translate’s control.
           </p>
         </Section>
 

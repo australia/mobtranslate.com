@@ -1,13 +1,17 @@
-import { useEffect, useState } from 'react';
-import { ActivityIndicator, Linking, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
-import { useRouter } from 'expo-router';
+import { useCallback, useEffect, useState } from 'react';
+import { ActivityIndicator, Alert, Linking, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import Animated, { FadeIn } from 'react-native-reanimated';
 import { Button, Card, Screen, ScreenTitle } from '../../components/kit';
 import { ContributionWeave } from '../../components/ContributionWeave';
-import { getVoiceTotals, type VoiceTotals } from '../../lib/api';
+import {
+  getPublicVoiceConsent, getVoiceTotals, setPublicVoiceConsent,
+  type PublicVoiceConsent, type VoiceTotals,
+} from '../../lib/api';
 import { useAuth } from '../../lib/auth';
 import { useAccent } from '../../lib/accent';
+import { useLang } from '../../lib/langContext';
 import { C, F, S, radius } from '../../lib/theme';
 
 const PRIVACY_URL = 'https://mobtranslate.com/privacy';
@@ -41,6 +45,7 @@ function LinkRow({ icon, label, sub, onPress }: { icon: keyof typeof Ionicons.gl
 
 export default function AccountScreen() {
   const { user, loading, signIn, signUp, signOut } = useAuth();
+  const { lang } = useLang();
   const accent = useAccent();
   const router = useRouter();
   const [totals, setTotals] = useState<VoiceTotals | null>(null);
@@ -50,6 +55,10 @@ export default function AccountScreen() {
   const [password, setPassword] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [voiceConsent, setVoiceConsent] = useState<PublicVoiceConsent | null>(null);
+  const [consentChecked, setConsentChecked] = useState(false);
+  const [withdrawing, setWithdrawing] = useState(false);
+  const [consentError, setConsentError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!user) { setTotals(null); return; }
@@ -57,6 +66,48 @@ export default function AccountScreen() {
     getVoiceTotals().then((t) => { if (on) setTotals(t); }).catch(() => {});
     return () => { on = false; };
   }, [user]);
+
+  useFocusEffect(useCallback(() => {
+    if (!user || !lang?.id) {
+      setVoiceConsent(null);
+      setConsentChecked(false);
+      return undefined;
+    }
+    let active = true;
+    setConsentChecked(false);
+    setConsentError(null);
+    getPublicVoiceConsent(lang.id)
+      .then((consent) => { if (active) setVoiceConsent(consent); })
+      .catch((reason) => { if (active) setConsentError(reason instanceof Error ? reason.message : 'Could not check permission.'); })
+      .finally(() => { if (active) setConsentChecked(true); });
+    return () => { active = false; };
+  }, [user, lang?.id]));
+
+  function confirmWithdrawal() {
+    if (!lang?.id || !voiceConsent?.granted) return;
+    Alert.alert(
+      'Stop public voice sharing?',
+      `Mob Translate will stop publicly listing and playing your ${lang.name} recordings. This does not delete your account or contribution history.`,
+      [
+        { text: 'Keep sharing', style: 'cancel' },
+        {
+          text: 'Stop sharing',
+          style: 'destructive',
+          onPress: async () => {
+            setWithdrawing(true);
+            setConsentError(null);
+            try {
+              setVoiceConsent(await setPublicVoiceConsent(lang.id, false));
+            } catch (reason) {
+              setConsentError(reason instanceof Error ? reason.message : 'Could not withdraw permission.');
+            } finally {
+              setWithdrawing(false);
+            }
+          },
+        },
+      ],
+    );
+  }
 
   if (loading) return <Screen><ScreenTitle title="Your account" /><ActivityIndicator color={C.forest} size="large" style={{ marginTop: 20 }} /></Screen>;
 
@@ -99,7 +150,31 @@ export default function AccountScreen() {
           <View style={styles.sep} />
           <LinkRow icon="trash-outline" label="Delete account and data" sub="Open the deletion request page" onPress={() => openExternal(DELETION_URL)} />
         </Card>
-        <Text style={styles.body}>Recordings you upload may be shared as community language resources. You can request removal at any time.</Text>
+        {lang?.id && (
+          <Card style={styles.permissionCard}>
+            <View style={styles.permissionHead}>
+              <View style={[styles.permissionIcon, voiceConsent?.granted ? styles.permissionIconOn : null]}>
+                <Ionicons name={voiceConsent?.granted ? 'volume-high' : 'volume-mute-outline'} size={22} color={voiceConsent?.granted ? C.white : C.forest} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.permissionEyebrow}>VOICE SHARING · {lang.name.toUpperCase()}</Text>
+                <Text style={styles.permissionTitle}>{voiceConsent?.granted ? 'Public dictionary playback is on' : 'No active public voice permission'}</Text>
+              </View>
+            </View>
+            {!consentChecked ? (
+              <ActivityIndicator color={C.forest} />
+            ) : voiceConsent?.granted ? (
+              <>
+                <Text style={styles.permissionBody}>Your recordings may be played beside public dictionary entries. AI training, provider transfer, voice cloning, model creation, public metrics, and commercial reuse are not allowed.</Text>
+                <Button label="Withdraw public playback" icon="hand-left-outline" variant="ghost" onPress={confirmWithdrawal} loading={withdrawing} full />
+              </>
+            ) : (
+              <Text style={styles.permissionBody}>Mob Translate is not authorised to publicly play your recordings for this language. You can make a new choice when you open the recorder.</Text>
+            )}
+            {consentError && <Text style={styles.permissionError}>{consentError}</Text>}
+          </Card>
+        )}
+        <Text style={styles.body}>Your voice stays attached to a clear purpose. You can withdraw public playback here or request deletion at any time.</Text>
         <Button label="Sign out" icon="log-out-outline" variant="ghost" onPress={signOut} full />
       </Screen>
     );
@@ -155,4 +230,12 @@ const styles = StyleSheet.create({
   thread: { alignItems: 'center' },
   threadN: { fontFamily: F.displayBold, fontSize: S.title },
   threadL: { fontFamily: F.medium, fontSize: S.small, color: C.muted, marginTop: 1 },
+  permissionCard: { gap: 13, borderWidth: 1.5, borderColor: C.sageLine, backgroundColor: C.surfaceAlt },
+  permissionHead: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  permissionIcon: { width: 44, height: 44, borderRadius: radius.pill, backgroundColor: C.sageSoft, alignItems: 'center', justifyContent: 'center' },
+  permissionIconOn: { backgroundColor: C.forest },
+  permissionEyebrow: { fontFamily: F.bold, fontSize: S.eyebrow, letterSpacing: 1.1, color: C.sage },
+  permissionTitle: { fontFamily: F.display, fontSize: S.body, color: C.ink, marginTop: 2 },
+  permissionBody: { fontFamily: F.body, fontSize: S.small, lineHeight: 20, color: C.muted },
+  permissionError: { fontFamily: F.medium, fontSize: S.small, lineHeight: 19, color: C.danger },
 });
