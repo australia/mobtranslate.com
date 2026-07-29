@@ -1,276 +1,176 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Button } from '@mobtranslate/ui';
-import { 
-  XCircle, 
-  Calendar,
-  User,
-  Globe,
-  AlertCircle,
-  FileX
-} from 'lucide-react';
+import { useCallback, useEffect, useState } from 'react';
+import { Badge, Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from '@mobtranslate/ui';
+import { AlertCircle, Calendar, FilePenLine, FileText, FileX, Globe, RefreshCw, User, XCircle } from 'lucide-react';
 
-interface RejectedWord {
+type TimeRange = '24h' | '7d' | '30d';
+
+interface RejectedActivity {
   id: string;
-  word: string;
-  translation: string;
-  language_name: string;
-  rejected_at: string;
-  rejected_by: string;
-  submitted_by: string;
-  rejection_reason: string;
-  can_resubmit: boolean;
+  activity_type: 'word_rejected' | 'improvement_rejected';
+  created_at: string;
+  rejectionReason?: string;
+  activity_data?: { reason?: string; notes?: string } | null;
+  languages?: { name?: string | null } | null;
+  profiles?: { display_name?: string | null; username?: string | null } | null;
+  targetDetails?: {
+    word?: string;
+    improvement_type?: string;
+    field_name?: string | null;
+    suggested_value?: unknown;
+    improvement_reason?: string | null;
+    words?: { word?: string | null } | null;
+    profiles?: { display_name?: string | null; username?: string | null } | null;
+  } | null;
+}
+
+interface RejectedResponse {
+  activities?: RejectedActivity[];
+  stats?: {
+    totalRejected?: number;
+    wordsRejected?: number;
+    improvementsRejected?: number;
+    commonRejectionReasons?: Array<{ reason: string; count: number }>;
+  };
+  error?: string;
+}
+
+function rangeStart(range: TimeRange): string {
+  const hours = range === '24h' ? 24 : range === '7d' ? 24 * 7 : 24 * 30;
+  return new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
+}
+
+function reviewer(activity: RejectedActivity) {
+  return activity.profiles?.display_name || activity.profiles?.username || 'Reviewer not named';
+}
+
+function submitter(activity: RejectedActivity) {
+  return activity.targetDetails?.profiles?.display_name || activity.targetDetails?.profiles?.username;
+}
+
+function activityTitle(activity: RejectedActivity) {
+  if (activity.activity_type === 'word_rejected') return activity.targetDetails?.word || 'Dictionary entry';
+  return activity.targetDetails?.words?.word || 'Standalone improvement';
+}
+
+function suggestionSummary(activity: RejectedActivity) {
+  if (activity.activity_type === 'word_rejected') return 'Submitted word entry';
+  const field = activity.targetDetails?.field_name || activity.targetDetails?.improvement_type || 'improvement';
+  const value = activity.targetDetails?.suggested_value;
+  const displayValue = typeof value === 'string' ? value : value ? JSON.stringify(value) : null;
+  return `${field.replaceAll(/[_-]/g, ' ')}${displayValue ? `: ${displayValue}` : ''}`;
 }
 
 export default function RejectedPage() {
-  const [rejectedWords, setRejectedWords] = useState<RejectedWord[]>([]);
+  const [activities, setActivities] = useState<RejectedActivity[]>([]);
+  const [stats, setStats] = useState({ totalRejected: 0, wordsRejected: 0, improvementsRejected: 0, commonRejectionReasons: [] as Array<{ reason: string; count: number }> });
   const [loading, setLoading] = useState(true);
-  const [timeRange, setTimeRange] = useState('7d');
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [timeRange, setTimeRange] = useState<TimeRange>('7d');
 
-  useEffect(() => {
-    fetchRejectedWords();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [timeRange]);
-
-  const fetchRejectedWords = async () => {
+  const fetchRejected = useCallback(async () => {
+    setLoading(true);
+    setLoadError(null);
     try {
-      const response = await fetch(`/api/v2/curator/rejected?range=${timeRange}`);
-      if (response.ok) {
-        const data = await response.json();
-        setRejectedWords(data);
-      }
+      const params = new URLSearchParams({ dateFrom: rangeStart(timeRange), limit: '100' });
+      const response = await fetch(`/api/v2/curator/rejected?${params}`);
+      const data = (await response.json().catch(() => ({}))) as RejectedResponse;
+      if (!response.ok) throw new Error(data.error || 'Could not load rejection history.');
+      setActivities(Array.isArray(data.activities) ? data.activities : []);
+      setStats({
+        totalRejected: data.stats?.totalRejected ?? 0,
+        wordsRejected: data.stats?.wordsRejected ?? 0,
+        improvementsRejected: data.stats?.improvementsRejected ?? 0,
+        commonRejectionReasons: Array.isArray(data.stats?.commonRejectionReasons) ? data.stats.commonRejectionReasons : [],
+      });
     } catch (error) {
-      console.error('Failed to fetch rejected words:', error);
+      setActivities([]);
+      setStats({ totalRejected: 0, wordsRejected: 0, improvementsRejected: 0, commonRejectionReasons: [] });
+      setLoadError(error instanceof Error ? error.message : 'Could not load rejection history.');
     } finally {
       setLoading(false);
     }
-  };
+  }, [timeRange]);
 
-  // Mock data
-  const mockRejectedWords: RejectedWord[] = [
-    {
-      id: '1',
-      word: 'test',
-      translation: 'testing',
-      language_name: 'Kuku Yalanji',
-      rejected_at: '2024-01-28T14:00:00Z',
-      rejected_by: 'Current User',
-      submitted_by: 'New User',
-      rejection_reason: 'Not an Indigenous word - appears to be English',
-      can_resubmit: false
-    },
-    {
-      id: '2',
-      word: 'kambu',
-      translation: 'water',
-      language_name: 'Yawuru',
-      rejected_at: '2024-01-28T13:00:00Z',
-      rejected_by: 'Current User',
-      submitted_by: 'John Doe',
-      rejection_reason: 'Incorrect translation - this word means "rain" not "water"',
-      can_resubmit: true
-    },
-    {
-      id: '3',
-      word: 'yapa',
-      translation: 'dog',
-      language_name: 'Warlpiri',
-      rejected_at: '2024-01-27T12:00:00Z',
-      rejected_by: 'Current User',
-      submitted_by: 'Anonymous',
-      rejection_reason: 'Duplicate entry - this word already exists in the dictionary',
-      can_resubmit: false
-    }
-  ];
-
-  const displayWords = rejectedWords.length > 0 ? rejectedWords : mockRejectedWords;
+  useEffect(() => {
+    void fetchRejected();
+  }, [fetchRejected]);
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Rejected Words</h1>
-          <p className="text-muted-foreground mt-2">
-            Recently rejected word submissions with feedback
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Curator workspace</p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight">Rejection history</h1>
+          <p className="mt-2 max-w-2xl text-muted-foreground">Review decisions and their recorded reasons. Rejection is an internal workflow state, not a judgment about a language or community.</p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" onClick={() => setTimeRange('24h')}
-            className={timeRange === '24h' ? 'bg-primary/10' : ''}>
-            Today
-          </Button>
-          <Button variant="outline" size="sm" onClick={() => setTimeRange('7d')}
-            className={timeRange === '7d' ? 'bg-primary/10' : ''}>
-            This Week
-          </Button>
-          <Button variant="outline" size="sm" onClick={() => setTimeRange('30d')}
-            className={timeRange === '30d' ? 'bg-primary/10' : ''}>
-            This Month
-          </Button>
+        <div className="flex flex-wrap gap-2">
+          {([['24h', 'Today'], ['7d', 'This week'], ['30d', 'This month']] as const).map(([value, label]) => (
+            <Button key={value} variant="outline" size="sm" className={timeRange === value ? 'bg-primary/10' : ''} onClick={() => setTimeRange(value)}>{label}</Button>
+          ))}
         </div>
       </div>
 
+      <div className="grid gap-4 md:grid-cols-3">
+        <Metric title="Total rejected" value={stats.totalRejected} icon={XCircle} />
+        <Metric title="Word entries" value={stats.wordsRejected} icon={FileText} />
+        <Metric title="Improvements" value={stats.improvementsRejected} icon={FilePenLine} />
+      </div>
+
       <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle>Rejection History</CardTitle>
-              <CardDescription>
-                {displayWords.length} words rejected in selected period
-              </CardDescription>
-            </div>
-            <XCircle className="h-8 w-8 text-error" />
-          </div>
-        </CardHeader>
+        <CardHeader><CardTitle>Reviewed items</CardTitle><CardDescription>{stats.totalRejected} rejection{stats.totalRejected === 1 ? '' : 's'} recorded in this period</CardDescription></CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            {loading ? (
-              <p className="text-center py-8">Loading rejected words...</p>
-            ) : displayWords.length === 0 ? (
-              <div className="text-center py-8">
-                <FileX className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                <p className="text-lg font-medium">No rejections</p>
-                <p className="text-muted-foreground">No words rejected in this time period</p>
-              </div>
-            ) : (
-              displayWords.map((word) => (
-                <div key={word.id} className="p-4 rounded-lg border hover:bg-muted">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <p className="font-medium text-lg">{word.word}</p>
-                        <span className="text-muted-foreground">→</span>
-                        <p className="text-lg line-through text-muted-foreground">{word.translation}</p>
+          {loading ? (
+            <div className="space-y-3" aria-label="Loading rejection history">{[1, 2, 3].map((item) => <div key={item} className="h-28 animate-pulse rounded-xl bg-muted" aria-hidden="true" />)}</div>
+          ) : loadError ? (
+            <HistoryError message={loadError} onRetry={() => void fetchRejected()} />
+          ) : activities.length === 0 ? (
+            <div className="py-12 text-center"><FileX className="mx-auto mb-4 h-11 w-11 text-muted-foreground" /><p className="text-lg font-medium">No rejections in this period</p><p className="mt-1 text-sm text-muted-foreground">There is no recorded history to show.</p></div>
+          ) : (
+            <div className="space-y-3">
+              {activities.map((activity) => {
+                const reason = activity.rejectionReason || activity.activity_data?.reason || 'No reason recorded';
+                return (
+                  <article key={activity.id} className="rounded-xl border border-border p-4 transition-colors hover:bg-muted/30">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2"><p className="text-lg font-semibold">{activityTitle(activity)}</p><Badge variant="secondary">{activity.activity_type === 'word_rejected' ? 'Word' : 'Improvement'}</Badge></div>
+                        <p className="mt-1 break-words text-sm text-muted-foreground">{suggestionSummary(activity)}</p>
+                        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                          <span className="flex items-center gap-1.5"><Globe className="h-3.5 w-3.5" />{activity.languages?.name || 'Language not named'}</span>
+                          <span className="flex items-center gap-1.5"><User className="h-3.5 w-3.5" />Reviewed by {reviewer(activity)}</span>
+                          <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{new Date(activity.created_at).toLocaleString()}</span>
+                        </div>
+                        {submitter(activity) ? <p className="mt-2 text-xs text-muted-foreground">Submitted by {submitter(activity)}</p> : null}
                       </div>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Globe className="h-3 w-3" />
-                          {word.language_name}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <User className="h-3 w-3" />
-                          Submitted by {word.submitted_by}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          {new Date(word.rejected_at).toLocaleDateString()}
-                        </span>
-                      </div>
+                      <Badge variant="error" className="w-fit">Rejected</Badge>
                     </div>
-                    <Badge variant="secondary" className="bg-error/10 text-error">
-                      Rejected
-                    </Badge>
-                  </div>
-                  
-                  <div className="bg-error/10 p-3 rounded-lg">
-                    <div className="flex items-start gap-2">
-                      <AlertCircle className="h-4 w-4 text-error mt-0.5 flex-shrink-0" />
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-error mb-1">
-                          Rejection Reason:
-                        </p>
-                        <p className="text-sm text-error">
-                          {word.rejection_reason}
-                        </p>
-                        {word.can_resubmit && (
-                          <p className="text-xs text-success mt-2">
-                            ✓ Can be resubmitted with corrections
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
+                    <div className="mt-4 rounded-lg border border-error/20 bg-error/5 p-3"><div className="flex items-start gap-2"><AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-error" /><div><p className="text-sm font-medium">Recorded reason</p><p className="mt-1 text-sm text-muted-foreground">{reason}</p>{activity.activity_data?.notes ? <p className="mt-2 text-sm text-muted-foreground">{activity.activity_data.notes}</p> : null}</div></div></div>
+                  </article>
+                );
+              })}
+            </div>
+          )}
         </CardContent>
       </Card>
 
-      {/* Stats */}
-      <div className="grid gap-4 md:grid-cols-3">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Total Rejected
-            </CardTitle>
-            <XCircle className="h-4 w-4 text-error" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{displayWords.length}</div>
-            <p className="text-xs text-muted-foreground">
-              In selected period
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Can Resubmit
-            </CardTitle>
-            <AlertCircle className="h-4 w-4 text-warning" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {displayWords.filter(w => w.can_resubmit).length}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              With corrections
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Rejection Rate
-            </CardTitle>
-            <XCircle className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">8%</div>
-            <p className="text-xs text-muted-foreground">
-              Of all submissions
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Common Rejection Reasons */}
       <Card>
-        <CardHeader>
-          <CardTitle>Common Rejection Reasons</CardTitle>
-          <CardDescription>
-            Help contributors improve their submissions
-          </CardDescription>
-        </CardHeader>
+        <CardHeader><CardTitle>Recorded reasons</CardTitle><CardDescription>Counts from the review history shown above</CardDescription></CardHeader>
         <CardContent>
-          <div className="space-y-2">
-            <div className="flex items-center justify-between p-2">
-              <span className="text-sm">Incorrect translation</span>
-              <Badge variant="secondary">35%</Badge>
-            </div>
-            <div className="flex items-center justify-between p-2">
-              <span className="text-sm">Duplicate entry</span>
-              <Badge variant="secondary">25%</Badge>
-            </div>
-            <div className="flex items-center justify-between p-2">
-              <span className="text-sm">Missing information</span>
-              <Badge variant="secondary">20%</Badge>
-            </div>
-            <div className="flex items-center justify-between p-2">
-              <span className="text-sm">Not Indigenous word</span>
-              <Badge variant="secondary">15%</Badge>
-            </div>
-            <div className="flex items-center justify-between p-2">
-              <span className="text-sm">Other</span>
-              <Badge variant="secondary">5%</Badge>
-            </div>
-          </div>
+          {stats.commonRejectionReasons.length === 0 ? <p className="text-sm text-muted-foreground">No rejection reasons are available for this period.</p> : (
+            <div className="space-y-2">{stats.commonRejectionReasons.map(({ reason, count }) => <div key={reason} className="flex items-center justify-between gap-4 rounded-lg bg-muted/40 px-3 py-2"><span className="text-sm">{reason}</span><Badge variant="secondary">{count}</Badge></div>)}</div>
+          )}
         </CardContent>
       </Card>
     </div>
   );
+}
+
+function Metric({ title, value, icon: Icon }: { title: string; value: number; icon: typeof XCircle }) {
+  return <Card><CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2"><CardTitle className="text-sm font-medium">{title}</CardTitle><Icon className="h-4 w-4 text-error" /></CardHeader><CardContent><div className="text-2xl font-bold">{value}</div><p className="text-xs text-muted-foreground">In the selected period</p></CardContent></Card>;
+}
+
+function HistoryError({ message, onRetry }: { message: string; onRetry: () => void }) {
+  return <div className="flex flex-col items-center py-12 text-center"><AlertCircle className="mb-4 h-11 w-11 text-error" /><p className="text-lg font-semibold">Rejection history did not load</p><p className="mt-2 max-w-xl text-sm text-muted-foreground">{message}</p><Button className="mt-5" variant="outline" onClick={onRetry}><RefreshCw className="mr-2 h-4 w-4" />Try again</Button></div>;
 }

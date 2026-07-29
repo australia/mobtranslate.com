@@ -197,21 +197,9 @@ export async function GET(request: NextRequest) {
         .map(([reason, count]) => ({ reason, count })),
     };
 
-    // Check for resubmission eligibility
-    const resubmissionEligible = enrichedActivities.filter((activity) => {
-      // Items rejected more than 7 days ago might be eligible for resubmission
-      const daysSinceRejection = Math.floor(
-        (Date.now() - new Date(activity.created_at).getTime()) / (1000 * 60 * 60 * 24)
-      );
-      return daysSinceRejection >= 7;
-    });
-
     return NextResponse.json({
       activities: enrichedActivities,
-      stats: {
-        ...stats,
-        resubmissionEligible: resubmissionEligible.length,
-      },
+      stats,
       pagination: {
         page,
         limit,

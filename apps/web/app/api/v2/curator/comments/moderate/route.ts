@@ -13,11 +13,9 @@ import {
   wordComments as commentsT,
 } from '@/lib/db/schema';
 
-// NOTE: the `word_comments` table has no `is_flagged` / `moderated_at` /
-// `moderated_by` columns in the self-hosted schema (the legacy Supabase code
-// referenced them but they never existed). "Flagged" is therefore derived from
-// downvotes only, and the `approve` action just clears review state without
-// persisting flag columns — preserving the route's response contract.
+// The schema has no separate flag record. A comment enters the review queue at
+// three downvotes; keeping it visible requires no mutation, while delete and
+// restore remain explicit, audited moderation actions.
 
 export async function GET(request: NextRequest) {
   try {
@@ -31,6 +29,9 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const languageId = searchParams.get('languageId');
     const status = searchParams.get('status') || 'flagged'; // flagged, all, deleted
+    if (!['flagged', 'all', 'deleted'].includes(status)) {
+      return NextResponse.json({ error: 'Invalid comment filter' }, { status: 400 });
+    }
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '20');
     const offset = (page - 1) * limit;
@@ -62,17 +63,30 @@ export async function GET(request: NextRequest) {
       (ra) => ra.name === 'super_admin' || ra.name === 'dictionary_admin'
     );
 
+    if (languageId && !isSuperAdmin && !curatorLanguages.includes(languageId)) {
+      return NextResponse.json({ error: 'No permission to moderate this language' }, { status: 403 });
+    }
+
+    if (!isSuperAdmin && curatorLanguages.length === 0) {
+      return NextResponse.json({
+        comments: [],
+        stats: { totalFlagged: 0, totalDeleted: 0, currentlyViewing: 0 },
+        pagination: { page, limit, total: 0, totalPages: 0 },
+      });
+    }
+
     // Build comments query filters
     const filters: any[] = [];
     if (status === 'flagged') {
-      filters.push(gte(commentsT.downvotes, 3));
+      filters.push(gte(commentsT.downvotes, 3), eq(commentsT.isDeleted, false));
     } else if (status === 'deleted') {
       filters.push(eq(commentsT.isDeleted, true));
+    } else {
+      filters.push(eq(commentsT.isDeleted, false));
     }
-    // For 'all', no additional filters
 
     // Filter by language if specified (via joined word)
-    if (languageId && !isSuperAdmin) {
+    if (languageId) {
       filters.push(eq(wordsT.languageId, languageId));
     } else if (!isSuperAdmin && curatorLanguages.length > 0) {
       filters.push(inArray(wordsT.languageId, curatorLanguages));
@@ -143,18 +157,29 @@ export async function GET(request: NextRequest) {
           totalVotes,
           ratio: totalVotes > 0 ? upvotes / totalVotes : 0.5,
           controversyScore,
-          flaggedForReview: downvotes >= 3 || controversyScore > 0.4,
+          flaggedForReview: downvotes >= 3,
         },
       };
     });
 
     // Get moderation statistics
+    const scopeFilters = [];
+    if (languageId) {
+      scopeFilters.push(eq(wordsT.languageId, languageId));
+    } else if (!isSuperAdmin) {
+      scopeFilters.push(inArray(wordsT.languageId, curatorLanguages));
+    }
     const [flaggedRows, deletedRows] = await Promise.all([
       db
         .select({ value: count() })
         .from(commentsT)
-        .where(and(gte(commentsT.downvotes, 3), eq(commentsT.isDeleted, false))),
-      db.select({ value: count() }).from(commentsT).where(eq(commentsT.isDeleted, true)),
+        .leftJoin(wordsT, eq(commentsT.wordId, wordsT.id))
+        .where(and(...scopeFilters, gte(commentsT.downvotes, 3), eq(commentsT.isDeleted, false))),
+      db
+        .select({ value: count() })
+        .from(commentsT)
+        .leftJoin(wordsT, eq(commentsT.wordId, wordsT.id))
+        .where(and(...scopeFilters, eq(commentsT.isDeleted, true))),
     ]);
 
     return NextResponse.json({
@@ -199,7 +224,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!['delete', 'restore', 'approve'].includes(action)) {
+    if (!['delete', 'restore'].includes(action)) {
       return NextResponse.json(
         { error: 'Invalid action' },
         { status: 400 }
@@ -286,25 +311,6 @@ export async function POST(request: NextRequest) {
           comment_preview: comment.commentText.substring(0, 100),
         },
       });
-    } else if (action === 'approve') {
-      // Clear any flags on the comment. The schema has no flag columns, so we
-      // just touch updated_at to record the review.
-      await db
-        .update(commentsT)
-        .set({ updatedAt: new Date().toISOString() })
-        .where(eq(commentsT.id, commentId));
-
-      // Log activity
-      await db.insert(activitiesT).values({
-        userId: user.id,
-        languageId: commentWord?.languageId,
-        activityType: 'comment_approved',
-        targetType: 'comment',
-        targetId: commentId,
-        activityData: {
-          comment_preview: comment.commentText.substring(0, 100),
-        },
-      });
     }
 
     return NextResponse.json({
@@ -321,85 +327,14 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Bulk moderation actions
-export async function PUT(request: NextRequest) {
-  try {
-    // Check authentication
-    const user = await getSessionUser();
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-
-    const body = await request.json();
-    const { commentIds, action, reason } = body;
-
-    if (!commentIds || !Array.isArray(commentIds) || commentIds.length === 0 || !action) {
-      return NextResponse.json(
-        { error: 'Invalid request data' },
-        { status: 400 }
-      );
-    }
-
-    // Check if user is a curator
-    const roleAssignments = await db
-      .select({ roleId: uraT.roleId, name: rolesT.name })
-      .from(uraT)
-      .innerJoin(rolesT, eq(uraT.roleId, rolesT.id))
-      .where(
-        and(
-          eq(uraT.userId, user.id),
-          eq(uraT.isActive, true),
-          inArray(rolesT.name, ['curator', 'dictionary_admin', 'super_admin'])
-        )
-      );
-
-    if (!roleAssignments || roleAssignments.length === 0) {
-      return NextResponse.json({ error: 'Not a curator' }, { status: 403 });
-    }
-
-    // Perform bulk action
-    let updateData: any = null;
-
-    if (action === 'delete') {
-      updateData = {
-        isDeleted: true,
-        deletedAt: new Date().toISOString(),
-        deletedBy: user.id,
-      };
-    } else if (action === 'approve') {
-      // No flag columns to clear; record the review by touching updated_at.
-      updateData = {
-        updatedAt: new Date().toISOString(),
-      };
-    }
-
-    if (updateData) {
-      await db.update(commentsT).set(updateData).where(inArray(commentsT.id, commentIds));
-    }
-
-    // Log bulk activity
-    await db.insert(activitiesT).values({
-      userId: user.id,
-      activityType: `bulk_comments_${action}d`,
-      targetType: 'comments',
-      targetId: commentIds[0], // Use first ID as reference
-      activityData: {
-        total_comments: commentIds.length,
-        action,
-        reason,
-      },
-    });
-
-    return NextResponse.json({
-      message: `${commentIds.length} comments ${action}d successfully`,
-      count: commentIds.length,
-      action,
-    });
-  } catch (error) {
-    console.error('Failed to perform bulk moderation:', error);
-    return NextResponse.json(
-      { error: 'Failed to perform bulk moderation' },
-      { status: 500 }
-    );
-  }
+// Bulk moderation stays unavailable until every comment is checked against its
+// language-scoped role and receives its own audit entry.
+export async function PUT() {
+  return NextResponse.json(
+    {
+      error: 'Bulk comment moderation is not available. Review comments individually.',
+      code: 'BULK_MODERATION_NOT_AVAILABLE',
+    },
+    { status: 501 },
+  );
 }

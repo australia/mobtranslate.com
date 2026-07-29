@@ -13,6 +13,7 @@ import {
   words as wordsT,
   wordRevisions as revisionsT,
 } from '@/lib/db/schema';
+import { parseSuggestedLocation } from '@/lib/words/location';
 
 export const WORD_COLUMN_FIELDS = ['word', 'phonetic_transcription', 'notes', 'word_type'] as const;
 export type WordColumnField = (typeof WORD_COLUMN_FIELDS)[number];
@@ -81,6 +82,15 @@ export async function applyWordSuggestion(
   },
 ): Promise<void> {
   const { word_id, improvement_type, field_name, suggested_value } = suggestion;
+
+  if (improvement_type === 'location') {
+    const { latitude, longitude } = parseSuggestedLocation(suggested_value);
+    await drizzle
+      .update(wordsT)
+      .set({ isLocation: true, latitude, longitude, locationUpdatedAt: new Date().toISOString() })
+      .where(eq(wordsT.id, word_id));
+    return;
+  }
 
   // Tolerate both shapes: `{ id, text }` (this editor) or a plain string (legacy
   // suggestions created elsewhere) for definition/translation edits.

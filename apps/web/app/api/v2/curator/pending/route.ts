@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { and, desc, eq, inArray, count } from 'drizzle-orm';
+import { and, desc, eq, inArray, count, isNull } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
 import { snakeRow } from '@/lib/db/case';
 import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
 import { applyWordSuggestion, snapshotWordRevision } from '@/lib/words/editing';
+import { parseSuggestedLocation } from '@/lib/words/location';
 import {
   curatorActivities as activitiesT,
   definitions as definitionsT,
@@ -59,13 +60,24 @@ export async function GET(request: NextRequest) {
       (ra) => ra.name === 'super_admin' || ra.name === 'dictionary_admin'
     );
 
+    if (languageId && !isSuperAdmin && !curatorLanguages.includes(languageId)) {
+      return NextResponse.json({ error: 'No permission to review this language' }, { status: 403 });
+    }
+
+    if (!isSuperAdmin && curatorLanguages.length === 0) {
+      return NextResponse.json({
+        items: [],
+        pagination: { page, limit, total: 0, totalPages: 0 },
+      });
+    }
+
     let results: any[] = [];
     let totalCount = 0;
 
     if (type === 'all' || type === 'words') {
       // Fetch pending words (with language + creator profile)
-      const wordFilters = [eq(wordsT.isVerified, false)];
-      if (languageId && !isSuperAdmin) {
+      const wordFilters = [eq(wordsT.isVerified, false), isNull(wordsT.lastReviewedAt)];
+      if (languageId) {
         wordFilters.push(eq(wordsT.languageId, languageId));
       } else if (!isSuperAdmin && curatorLanguages.length > 0) {
         wordFilters.push(inArray(wordsT.languageId, curatorLanguages));
@@ -130,7 +142,7 @@ export async function GET(request: NextRequest) {
     if (type === 'all' || type === 'improvements') {
       // Fetch pending improvements (join word + its language + submitter profile)
       const impFilters = [eq(wisT.status, 'pending')];
-      if (languageId && !isSuperAdmin) {
+      if (languageId) {
         impFilters.push(eq(wordsT.languageId, languageId));
       } else if (!isSuperAdmin && curatorLanguages.length > 0) {
         impFilters.push(inArray(wordsT.languageId, curatorLanguages));
@@ -228,7 +240,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!['approve', 'reject', 'request_changes'].includes(action)) {
+    if (!['word', 'improvement'].includes(itemType)) {
+      return NextResponse.json(
+        { error: 'Invalid item type' },
+        { status: 400 }
+      );
+    }
+
+    if (!['approve', 'reject'].includes(action)) {
       return NextResponse.json(
         { error: 'Invalid action' },
         { status: 400 }
@@ -288,7 +307,6 @@ export async function POST(request: NextRequest) {
             lastReviewedAt: now,
             lastReviewedBy: user.id,
             reviewCount: (word.reviewCount || 0) + 1,
-            communityNotes: reason || notes,
           })
           .where(eq(wordsT.id, itemId));
 
@@ -327,6 +345,10 @@ export async function POST(request: NextRequest) {
 
       if (!hasPermission) {
         return NextResponse.json({ error: 'No permission to review this improvement' }, { status: 403 });
+      }
+
+      if (action === 'approve' && improvement.improvementType === 'location') {
+        parseSuggestedLocation(improvement.suggestedValue);
       }
 
       // Update improvement status

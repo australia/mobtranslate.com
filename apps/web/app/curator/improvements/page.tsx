@@ -1,443 +1,244 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Tabs, TabsList, TabsTrigger, Dialog, DialogPortal, DialogBackdrop, DialogPopup, DialogDescription, DialogTitle, Textarea } from '@mobtranslate/ui';
+import { useCallback, useEffect, useState } from 'react';
+import {
+  Badge,
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Dialog,
+  DialogBackdrop,
+  DialogDescription,
+  DialogPopup,
+  DialogPortal,
+  DialogTitle,
+  Textarea,
+} from '@mobtranslate/ui';
+import { AlertCircle, ArrowRight, Calendar, CheckCircle, FilePenLine, Globe, RefreshCw, User, XCircle } from 'lucide-react';
 import { useToast } from '@/hooks/useToast';
-import { 
-  TrendingUp,
-  CheckCircle,
-  XCircle,
-  User,
-  Calendar,
-  MessageSquare,
-  ThumbsUp,
-  Eye
-} from 'lucide-react';
 
-interface Improvement {
+interface PendingImprovement {
   id: string;
-  word_id: string;
-  current_word: string;
-  current_translation: string;
-  suggested_word?: string;
-  suggested_translation?: string;
-  suggested_pronunciation?: string;
-  suggested_definition?: string;
-  reason: string;
-  category: 'spelling' | 'translation' | 'pronunciation' | 'definition' | 'cultural' | 'other';
-  submitted_by: string;
-  submitted_by_name: string;
-  submitted_by_reputation?: number;
-  created_at: string;
-  status: 'pending' | 'approved' | 'rejected';
-  upvotes?: number;
-  previous_suggestions?: number;
+  type: 'improvement';
+  improvement_type: string;
+  field_name?: string | null;
+  current_value?: unknown;
+  suggested_value?: unknown;
+  improvement_reason?: string | null;
+  created_at?: string | null;
+  words?: {
+    id: string;
+    word: string;
+    languages?: { id: string; name: string; code: string } | null;
+  } | null;
+  profiles?: { display_name?: string | null; username?: string | null } | null;
+}
+
+interface PendingResponse {
+  items?: PendingImprovement[];
+  pagination?: { total?: number };
+  error?: string;
+}
+
+function asObject(value: unknown): Record<string, unknown> | null {
+  return value && typeof value === 'object' && !Array.isArray(value) ? value as Record<string, unknown> : null;
+}
+
+function formatValue(value: unknown): string {
+  if (value == null || value === '') return 'Not recorded';
+  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') return String(value);
+  const object = asObject(value);
+  if (!object) return 'Structured value';
+  if (typeof object.text === 'string') return object.text;
+  if (typeof object.latitude === 'number' && typeof object.longitude === 'number') {
+    return `${object.latitude.toFixed(5)}, ${object.longitude.toFixed(5)}`;
+  }
+  if (typeof object.suggestedTranslation === 'string') return object.suggestedTranslation;
+  return Object.entries(object)
+    .filter(([, item]) => ['string', 'number', 'boolean'].includes(typeof item))
+    .map(([key, item]) => `${key.replaceAll(/[_-]/g, ' ')}: ${String(item)}`)
+    .join(' · ') || 'Structured value';
+}
+
+function targetLabel(item: PendingImprovement): string {
+  if (item.words?.word) return item.words.word;
+  const value = asObject(item.suggested_value);
+  return typeof value?.sourceText === 'string' ? `“${value.sourceText}”` : 'Standalone suggestion';
+}
+
+function languageLabel(item: PendingImprovement): string {
+  if (item.words?.languages?.name) return item.words.languages.name;
+  const value = asObject(item.suggested_value);
+  return typeof value?.languageName === 'string' ? value.languageName : typeof value?.languageCode === 'string' ? value.languageCode : 'Language not named';
+}
+
+function submitterLabel(item: PendingImprovement): string {
+  return item.profiles?.display_name || item.profiles?.username || 'Contributor not named';
+}
+
+function kindLabel(item: PendingImprovement): string {
+  return (item.field_name || item.improvement_type || 'suggestion').replaceAll(/[_-]/g, ' ');
 }
 
 export default function ImprovementsPage() {
-  const [improvements, setImprovements] = useState<Improvement[]>([]);
+  const [improvements, setImprovements] = useState<PendingImprovement[]>([]);
+  const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [selectedImprovement, setSelectedImprovement] = useState<Improvement | null>(null);
-  const [reviewDialogOpen, setReviewDialogOpen] = useState(false);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [selected, setSelected] = useState<PendingImprovement | null>(null);
   const [reviewAction, setReviewAction] = useState<'approve' | 'reject' | null>(null);
   const [reviewNotes, setReviewNotes] = useState('');
-  const [filterStatus, setFilterStatus] = useState('pending');
+  const [submitting, setSubmitting] = useState(false);
   const { toast } = useToast();
 
-  useEffect(() => {
-    fetchImprovements();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filterStatus]);
-
-  const fetchImprovements = async () => {
+  const fetchImprovements = useCallback(async () => {
+    setLoading(true);
+    setLoadError(null);
     try {
-      const response = await fetch(`/api/v2/curator/improvements?status=${filterStatus}`);
-      if (response.ok) {
-        const data = await response.json();
-        setImprovements(data);
-      }
+      const response = await fetch('/api/v2/curator/pending?type=improvements&limit=100');
+      const data = (await response.json().catch(() => ({}))) as PendingResponse;
+      if (!response.ok) throw new Error(data.error || 'Could not load improvement suggestions.');
+      const items = Array.isArray(data.items) ? data.items.filter((item) => item.type === 'improvement') : [];
+      setImprovements(items);
+      setTotal(data.pagination?.total ?? items.length);
     } catch (error) {
-      console.error('Failed to fetch improvements:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to load improvement suggestions',
-        variant: 'error'
-      });
+      setImprovements([]);
+      setTotal(0);
+      setLoadError(error instanceof Error ? error.message : 'Could not load improvement suggestions.');
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const handleReview = async () => {
-    if (!selectedImprovement || !reviewAction) return;
+  useEffect(() => {
+    void fetchImprovements();
+  }, [fetchImprovements]);
 
+  function closeReview() {
+    setSelected(null);
+    setReviewAction(null);
+    setReviewNotes('');
+  }
+
+  async function submitReview() {
+    if (!selected || !reviewAction || submitting) return;
+    if (reviewAction === 'reject' && !reviewNotes.trim()) return;
+    setSubmitting(true);
     try {
-      const response = await fetch(`/api/v2/curator/improvements/${selectedImprovement.id}/review`, {
+      const response = await fetch('/api/v2/curator/pending', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          itemId: selected.id,
+          itemType: 'improvement',
           action: reviewAction,
-          notes: reviewNotes
-        })
+          reason: reviewAction === 'reject' ? reviewNotes.trim() : undefined,
+          notes: reviewNotes.trim() || undefined,
+        }),
       });
-
-      if (response.ok) {
-        toast({
-          title: 'Success',
-          description: `Improvement ${reviewAction === 'approve' ? 'approved' : 'rejected'} successfully`
-        });
-        setReviewDialogOpen(false);
-        setSelectedImprovement(null);
-        setReviewNotes('');
-        fetchImprovements();
-      }
-    } catch (error) {
-      console.error('Failed to review improvement:', error);
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || 'Could not save this review.');
       toast({
-        title: 'Error',
-        description: 'Failed to submit review',
-        variant: 'error'
+        title: reviewAction === 'approve' ? 'Suggestion approved' : 'Suggestion rejected',
+        description: reviewAction === 'approve' ? 'The review action and audit history were saved.' : 'The reason was saved with the suggestion.',
       });
+      closeReview();
+      await fetchImprovements();
+    } catch (error) {
+      toast({
+        title: 'Review not saved',
+        description: error instanceof Error ? error.message : 'Please try again.',
+        variant: 'error',
+      });
+    } finally {
+      setSubmitting(false);
     }
-  };
-
-  const getCategoryColor = (category: Improvement['category']) => {
-    const colors = {
-      spelling: 'bg-primary/10 text-primary',
-      translation: 'bg-success/10 text-success',
-      pronunciation: 'bg-muted text-foreground',
-      definition: 'bg-warning/10 text-warning',
-      cultural: 'bg-warning/10 text-warning',
-      other: 'bg-muted text-foreground'
-    };
-    return colors[category] || colors.other;
-  };
-
-  // Mock data for demonstration
-  const mockImprovements: Improvement[] = [
-    {
-      id: '1',
-      word_id: '1',
-      current_word: 'ngamu',
-      current_translation: 'mother',
-      suggested_translation: 'mother, mom',
-      reason: 'The translation should include both formal and informal terms as both are commonly used',
-      category: 'translation',
-      submitted_by: '1',
-      submitted_by_name: 'Mike Chen',
-      submitted_by_reputation: 85,
-      created_at: '2024-01-28T10:00:00Z',
-      status: 'pending',
-      upvotes: 3
-    },
-    {
-      id: '2',
-      word_id: '2',
-      current_word: 'mayi',
-      current_translation: 'food',
-      suggested_pronunciation: 'MAH-yee',
-      reason: 'The current pronunciation guide doesn\'t emphasize the correct stress pattern',
-      category: 'pronunciation',
-      submitted_by: '2',
-      submitted_by_name: 'Emma Wilson',
-      submitted_by_reputation: 92,
-      created_at: '2024-01-28T11:00:00Z',
-      status: 'pending',
-      upvotes: 5,
-      previous_suggestions: 1
-    },
-    {
-      id: '3',
-      word_id: '3',
-      current_word: 'kari',
-      current_translation: 'now',
-      suggested_definition: 'Now, at this moment, immediately. Can also indicate urgency in certain contexts.',
-      reason: 'The definition needs more context to help learners understand usage nuances',
-      category: 'definition',
-      submitted_by: '3',
-      submitted_by_name: 'James Brown',
-      created_at: '2024-01-28T09:00:00Z',
-      status: 'pending',
-      upvotes: 2
-    }
-  ];
-
-  const displayImprovements = improvements.length > 0 ? improvements : mockImprovements;
-  const pendingCount = displayImprovements.filter(i => i.status === 'pending').length;
+  }
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Improvement Suggestions</h1>
-          <p className="text-muted-foreground mt-2">
-            Review community suggestions for word improvements
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Curator workspace</p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight">Improvement queue</h1>
+          <p className="mt-2 max-w-2xl text-muted-foreground">Compare the published value with the submitted change. Nothing shown here is silently substituted with demonstration data.</p>
         </div>
-        <Badge variant="secondary" className="text-lg px-4 py-2">
-          <TrendingUp className="h-4 w-4 mr-2" />
-          {pendingCount} pending
-        </Badge>
+        <Badge variant="secondary" className="w-fit px-4 py-2 text-base"><FilePenLine className="mr-2 h-4 w-4" />{total} pending</Badge>
       </div>
 
-      {/* Status Filter */}
-      <Tabs value={filterStatus} onValueChange={setFilterStatus}>
-        <TabsList>
-          <TabsTrigger value="pending">Pending</TabsTrigger>
-          <TabsTrigger value="approved">Approved</TabsTrigger>
-          <TabsTrigger value="rejected">Rejected</TabsTrigger>
-          <TabsTrigger value="all">All</TabsTrigger>
-        </TabsList>
-      </Tabs>
-
-      {/* Improvements List */}
-      <div className="space-y-4">
-        {loading ? (
-          <Card>
-            <CardContent className="text-center py-8">
-              Loading improvement suggestions...
-            </CardContent>
-          </Card>
-        ) : displayImprovements.length === 0 ? (
-          <Card>
-            <CardContent className="text-center py-8">
-              <TrendingUp className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <p className="text-lg font-medium">No suggestions found</p>
-              <p className="text-muted-foreground">No improvement suggestions match your filters</p>
-            </CardContent>
-          </Card>
-        ) : (
-          displayImprovements.map((improvement) => (
-            <Card key={improvement.id} className="hover:shadow-lg transition-shadow">
+      {loading ? (
+        <div className="space-y-4" aria-label="Loading improvements">
+          {[1, 2, 3].map((item) => <div key={item} className="h-40 animate-pulse rounded-xl border border-border bg-muted/60" aria-hidden="true" />)}
+        </div>
+      ) : loadError ? (
+        <Card className="border-error/30"><CardContent className="flex flex-col items-center py-12 text-center">
+          <AlertCircle className="mb-4 h-11 w-11 text-error" />
+          <p className="text-lg font-semibold">The improvement queue did not load</p>
+          <p className="mt-2 max-w-xl text-sm text-muted-foreground">{loadError}</p>
+          <Button className="mt-5" variant="outline" onClick={() => void fetchImprovements()}><RefreshCw className="mr-2 h-4 w-4" />Try again</Button>
+        </CardContent></Card>
+      ) : improvements.length === 0 ? (
+        <Card><CardContent className="flex flex-col items-center py-14 text-center">
+          <div className="mb-4 rounded-full bg-success/10 p-3"><CheckCircle className="h-8 w-8 text-success" /></div>
+          <p className="text-lg font-semibold">No improvements are waiting</p>
+          <p className="mt-2 text-sm text-muted-foreground">New correction and place-pin suggestions will appear here.</p>
+        </CardContent></Card>
+      ) : (
+        <div className="space-y-4">
+          {improvements.map((item) => (
+            <Card key={item.id} className="transition-shadow hover:shadow-lg">
               <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <CardTitle className="text-lg">
-                        Improve: {improvement.current_word}
-                      </CardTitle>
-                      <Badge className={getCategoryColor(improvement.category)}>
-                        {improvement.category}
-                      </Badge>
-                      {improvement.status !== 'pending' && (
-                        <Badge variant={improvement.status === 'approved' ? 'primary' : 'secondary'}>
-                          {improvement.status}
-                        </Badge>
-                      )}
-                    </div>
-                    <CardDescription>
-                      Current: "{improvement.current_translation}"
-                    </CardDescription>
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <CardTitle className="text-xl">{targetLabel(item)}</CardTitle>
+                    <CardDescription className="mt-1">{languageLabel(item)} · submitted by {submitterLabel(item)}</CardDescription>
                   </div>
-                  {improvement.upvotes && improvement.upvotes > 0 && (
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                      <ThumbsUp className="h-4 w-4" />
-                      {improvement.upvotes}
-                    </div>
-                  )}
+                  <Badge variant="secondary" className="capitalize">{kindLabel(item)}</Badge>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                {/* Show the suggestion based on category */}
-                <div className="bg-primary/10 p-3 rounded-lg">
-                  <p className="text-sm font-medium mb-1">Suggested Change:</p>
-                  {improvement.suggested_translation && (
-                    <p className="text-sm">Translation: <span className="font-medium">{improvement.suggested_translation}</span></p>
-                  )}
-                  {improvement.suggested_pronunciation && (
-                    <p className="text-sm">Pronunciation: <span className="font-medium">{improvement.suggested_pronunciation}</span></p>
-                  )}
-                  {improvement.suggested_definition && (
-                    <p className="text-sm">Definition: <span className="font-medium">{improvement.suggested_definition}</span></p>
-                  )}
-                  {improvement.suggested_word && (
-                    <p className="text-sm">Spelling: <span className="font-medium">{improvement.suggested_word}</span></p>
-                  )}
+                <div className="grid gap-3 md:grid-cols-[1fr_auto_1fr] md:items-center">
+                  <div className="rounded-lg border border-border bg-muted/30 p-3"><p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Current</p><p className="mt-1 break-words text-sm">{formatValue(item.current_value)}</p></div>
+                  <ArrowRight className="hidden h-5 w-5 text-muted-foreground md:block" />
+                  <div className="rounded-lg border border-primary/20 bg-primary/5 p-3"><p className="text-xs font-medium uppercase tracking-wide text-primary">Suggested</p><p className="mt-1 break-words text-sm font-medium">{formatValue(item.suggested_value)}</p></div>
                 </div>
-
-                <div>
-                  <p className="text-sm font-medium mb-1">Reason for change:</p>
-                  <p className="text-sm text-muted-foreground">{improvement.reason}</p>
+                {item.improvement_reason ? <p className="rounded-lg bg-muted/40 p-3 text-sm text-muted-foreground"><span className="font-medium text-foreground">Contributor note:</span> {item.improvement_reason}</p> : null}
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-border pt-3 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1.5"><Globe className="h-3.5 w-3.5" />{languageLabel(item)}</span>
+                  <span className="flex items-center gap-1.5"><User className="h-3.5 w-3.5" />{submitterLabel(item)}</span>
+                  {item.created_at ? <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{new Date(item.created_at).toLocaleDateString()}</span> : null}
+                  <div className="ml-auto flex gap-2">
+                    <Button size="sm" variant="outline" className="text-error" onClick={() => { setSelected(item); setReviewAction('reject'); }}><XCircle className="mr-1.5 h-4 w-4" />Reject</Button>
+                    <Button size="sm" onClick={() => { setSelected(item); setReviewAction('approve'); }}><CheckCircle className="mr-1.5 h-4 w-4" />Approve</Button>
+                  </div>
                 </div>
-
-                <div className="flex items-center gap-4 text-xs text-muted-foreground pt-2 border-t">
-                  <div className="flex items-center gap-1">
-                    <User className="h-3 w-3" />
-                    {improvement.submitted_by_name}
-                    {improvement.submitted_by_reputation && (
-                      <span className="text-success">
-                        ({improvement.submitted_by_reputation}% accuracy)
-                      </span>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Calendar className="h-3 w-3" />
-                    {new Date(improvement.created_at).toLocaleDateString()}
-                  </div>
-                  {improvement.previous_suggestions && improvement.previous_suggestions > 0 && (
-                    <div className="flex items-center gap-1 text-warning">
-                      <MessageSquare className="h-3 w-3" />
-                      {improvement.previous_suggestions} previous suggestions
-                    </div>
-                  )}
-                </div>
-
-                {improvement.status === 'pending' && (
-                  <div className="flex gap-2 pt-2">
-                    <Button 
-                      size="sm" 
-                      variant="outline"
-                      className="flex-1"
-                      onClick={() => {
-                        setSelectedImprovement(improvement);
-                        setReviewDialogOpen(true);
-                        setReviewAction(null);
-                      }}
-                    >
-                      <Eye className="h-4 w-4 mr-2" />
-                      Review Details
-                    </Button>
-                    <Button 
-                      size="sm" 
-                      variant="outline"
-                      className="flex-1 text-error hover:text-error/80"
-                      onClick={() => {
-                        setSelectedImprovement(improvement);
-                        setReviewAction('reject');
-                        setReviewDialogOpen(true);
-                      }}
-                    >
-                      <XCircle className="h-4 w-4 mr-2" />
-                      Reject
-                    </Button>
-                    <Button 
-                      size="sm"
-                      className="flex-1"
-                      onClick={() => {
-                        setSelectedImprovement(improvement);
-                        setReviewAction('approve');
-                        setReviewDialogOpen(true);
-                      }}
-                    >
-                      <CheckCircle className="h-4 w-4 mr-2" />
-                      Approve
-                    </Button>
-                  </div>
-                )}
               </CardContent>
             </Card>
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
 
-      {/* Review Dialog */}
-      <Dialog open={reviewDialogOpen} onOpenChange={setReviewDialogOpen}>
+      <Dialog open={!!selected} onOpenChange={(open) => { if (!open) closeReview(); }}>
         <DialogPortal><DialogBackdrop /><DialogPopup>
-            <DialogTitle>
-              Review Improvement Suggestion
-            </DialogTitle>
-            <DialogDescription>
-              {selectedImprovement && `Reviewing suggestion for "${selectedImprovement.current_word}"`}
-            </DialogDescription>
-
-          {selectedImprovement && (
-            <div className="space-y-4 my-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium">Current Version</label>
-                  <div className="bg-muted p-3 rounded">
-                    <p className="font-medium">{selectedImprovement.current_word}</p>
-                    <p className="text-sm text-muted-foreground">{selectedImprovement.current_translation}</p>
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium">Suggested Version</label>
-                  <div className="bg-primary/10 p-3 rounded">
-                    <p className="font-medium">
-                      {selectedImprovement.suggested_word || selectedImprovement.current_word}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {selectedImprovement.suggested_translation || 
-                       selectedImprovement.suggested_pronunciation || 
-                       selectedImprovement.suggested_definition}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <label className="text-sm font-medium">Reason for Change</label>
-                <p className="text-sm mt-1">{selectedImprovement.reason}</p>
-              </div>
-
-              <div>
-                <label className="text-sm font-medium">Submitted By</label>
-                <p className="text-sm mt-1">
-                  {selectedImprovement.submitted_by_name}
-                  {selectedImprovement.submitted_by_reputation && (
-                    <span className="text-success ml-2">
-                      ({selectedImprovement.submitted_by_reputation}% accuracy rate)
-                    </span>
-                  )}
-                </p>
-              </div>
-
-              {reviewAction && (
-                <div>
-                  <label htmlFor="notes" className="text-sm font-medium">
-                    {reviewAction === 'reject' ? 'Rejection Reason' : 'Review Notes'} (Optional)
-                  </label>
-                  <Textarea
-                    id="notes"
-                    value={reviewNotes}
-                    onChange={(e) => setReviewNotes(e.target.value)}
-                    placeholder={reviewAction === 'reject' 
-                      ? 'Please provide a reason for rejection...' 
-                      : 'Any notes about this approval...'}
-                    rows={3}
-                  />
-                </div>
-              )}
+          <DialogTitle>{reviewAction === 'approve' ? 'Approve this suggestion' : 'Reject this suggestion'}</DialogTitle>
+          <DialogDescription>{selected ? `${targetLabel(selected)} · ${kindLabel(selected)}` : 'Improvement review'}</DialogDescription>
+          {selected ? <div className="my-5 space-y-4">
+            <div className="rounded-xl border border-border bg-muted/30 p-4 text-sm">
+              <p><span className="font-medium">Current:</span> {formatValue(selected.current_value)}</p>
+              <p className="mt-2"><span className="font-medium">Suggested:</span> {formatValue(selected.suggested_value)}</p>
             </div>
-          )}
-
-          <div className="flex justify-end gap-2 mt-4">
-            {!reviewAction ? (
-              <>
-                <Button 
-                  variant="outline"
-                  onClick={() => {
-                    setReviewAction('reject');
-                  }}
-                >
-                  <XCircle className="h-4 w-4 mr-2" />
-                  Reject
-                </Button>
-                <Button 
-                  onClick={() => {
-                    setReviewAction('approve');
-                  }}
-                >
-                  <CheckCircle className="h-4 w-4 mr-2" />
-                  Approve
-                </Button>
-              </>
-            ) : (
-              <>
-                <Button 
-                  variant="outline" 
-                  onClick={() => setReviewDialogOpen(false)}
-                >
-                  Cancel
-                </Button>
-                <Button 
-                  onClick={handleReview}
-                  variant={reviewAction === 'reject' ? 'error' : 'primary'}
-                >
-                  {reviewAction === 'approve' ? 'Approve' : 'Reject'} Suggestion
-                </Button>
-              </>
-            )}
+            <div>
+              <label htmlFor="improvement-review-note" className="text-sm font-medium">{reviewAction === 'reject' ? 'Reason (required)' : 'Review note (optional)'}</label>
+              <Textarea id="improvement-review-note" className="mt-2" rows={4} value={reviewNotes} onChange={(event) => setReviewNotes(event.target.value)} placeholder={reviewAction === 'reject' ? 'Explain why this should not be applied…' : 'Record the source or verification performed…'} />
+            </div>
+            <p className="text-xs leading-relaxed text-muted-foreground">Approval applies supported word, definition, translation and location changes and records a revision. Standalone phrase suggestions are marked reviewed but are not silently published as dictionary entries.</p>
+          </div> : null}
+          <div className="flex justify-end gap-2">
+            <Button variant="outline" onClick={closeReview}>Cancel</Button>
+            <Button variant={reviewAction === 'reject' ? 'error' : 'primary'} disabled={submitting || (reviewAction === 'reject' && !reviewNotes.trim())} onClick={() => void submitReview()}>{submitting ? 'Saving…' : reviewAction === 'approve' ? 'Approve suggestion' : 'Reject with reason'}</Button>
           </div>
         </DialogPopup></DialogPortal>
       </Dialog>

@@ -1,222 +1,150 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Button } from '@mobtranslate/ui';
-import { 
-  CheckCircle,
-  Calendar,
-  User,
-  Globe,
-  FileText
-} from 'lucide-react';
+import { useCallback, useEffect, useState } from 'react';
+import { Badge, Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from '@mobtranslate/ui';
+import { AlertCircle, Calendar, CheckCircle, FilePenLine, FileText, Globe, RefreshCw, User } from 'lucide-react';
 
-interface ApprovedWord {
+type TimeRange = '24h' | '7d' | '30d';
+
+interface ApprovedActivity {
   id: string;
-  word: string;
-  translation: string;
-  language_name: string;
-  approved_at: string;
-  approved_by: string;
-  submitted_by: string;
-  review_notes?: string;
+  activity_type: 'word_approved' | 'improvement_approved';
+  created_at: string;
+  activity_data?: { notes?: string; word?: string; improvement_type?: string } | null;
+  languages?: { name?: string | null } | null;
+  profiles?: { display_name?: string | null; username?: string | null } | null;
+  targetDetails?: {
+    word?: string;
+    definitions?: Array<{ definition: string }>;
+    translations?: Array<{ translation: string }>;
+    improvement_type?: string;
+    field_name?: string | null;
+    suggested_value?: unknown;
+    words?: { word?: string | null } | null;
+  } | null;
+}
+
+interface ApprovedResponse {
+  activities?: ApprovedActivity[];
+  stats?: { totalApproved?: number; wordsApproved?: number; improvementsApproved?: number };
+  error?: string;
+}
+
+function rangeStart(range: TimeRange): string {
+  const hours = range === '24h' ? 24 : range === '7d' ? 24 * 7 : 24 * 30;
+  return new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
+}
+
+function reviewer(activity: ApprovedActivity) {
+  return activity.profiles?.display_name || activity.profiles?.username || 'Reviewer not named';
+}
+
+function activityTitle(activity: ApprovedActivity) {
+  if (activity.activity_type === 'word_approved') return activity.targetDetails?.word || activity.activity_data?.word || 'Dictionary entry';
+  return activity.targetDetails?.words?.word || activity.activity_data?.word || 'Standalone improvement';
+}
+
+function activityDetail(activity: ApprovedActivity) {
+  if (activity.activity_type === 'word_approved') {
+    return activity.targetDetails?.translations?.[0]?.translation || activity.targetDetails?.definitions?.[0]?.definition || 'Internal word review recorded';
+  }
+  const field = activity.targetDetails?.field_name || activity.targetDetails?.improvement_type || activity.activity_data?.improvement_type || 'improvement';
+  return `${field.replaceAll(/[_-]/g, ' ')} approved`;
 }
 
 export default function ApprovedPage() {
-  const [approvedWords, setApprovedWords] = useState<ApprovedWord[]>([]);
+  const [activities, setActivities] = useState<ApprovedActivity[]>([]);
+  const [stats, setStats] = useState({ totalApproved: 0, wordsApproved: 0, improvementsApproved: 0 });
   const [loading, setLoading] = useState(true);
-  const [timeRange, setTimeRange] = useState('7d');
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [timeRange, setTimeRange] = useState<TimeRange>('7d');
 
-  useEffect(() => {
-    fetchApprovedWords();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [timeRange]);
-
-  const fetchApprovedWords = async () => {
+  const fetchApproved = useCallback(async () => {
+    setLoading(true);
+    setLoadError(null);
     try {
-      const response = await fetch(`/api/v2/curator/approved?range=${timeRange}`);
-      if (response.ok) {
-        const data = await response.json();
-        setApprovedWords(data);
-      }
+      const params = new URLSearchParams({ dateFrom: rangeStart(timeRange), limit: '100' });
+      const response = await fetch(`/api/v2/curator/approved?${params}`);
+      const data = (await response.json().catch(() => ({}))) as ApprovedResponse;
+      if (!response.ok) throw new Error(data.error || 'Could not load approval history.');
+      setActivities(Array.isArray(data.activities) ? data.activities : []);
+      setStats({
+        totalApproved: data.stats?.totalApproved ?? 0,
+        wordsApproved: data.stats?.wordsApproved ?? 0,
+        improvementsApproved: data.stats?.improvementsApproved ?? 0,
+      });
     } catch (error) {
-      console.error('Failed to fetch approved words:', error);
+      setActivities([]);
+      setStats({ totalApproved: 0, wordsApproved: 0, improvementsApproved: 0 });
+      setLoadError(error instanceof Error ? error.message : 'Could not load approval history.');
     } finally {
       setLoading(false);
     }
-  };
+  }, [timeRange]);
 
-  // Mock data
-  const mockApprovedWords: ApprovedWord[] = [
-    {
-      id: '1',
-      word: 'ngamu',
-      translation: 'mother',
-      language_name: 'Kuku Yalanji',
-      approved_at: '2024-01-28T14:00:00Z',
-      approved_by: 'Current User',
-      submitted_by: 'Sarah Johnson',
-      review_notes: 'Verified with language elder'
-    },
-    {
-      id: '2',
-      word: 'mayi',
-      translation: 'food',
-      language_name: 'Yawuru',
-      approved_at: '2024-01-28T13:00:00Z',
-      approved_by: 'Current User',
-      submitted_by: 'John Smith'
-    },
-    {
-      id: '3',
-      word: 'yapa',
-      translation: 'person',
-      language_name: 'Warlpiri',
-      approved_at: '2024-01-28T12:00:00Z',
-      approved_by: 'Current User',
-      submitted_by: 'Emma Davis',
-      review_notes: 'Good cultural context provided'
-    }
-  ];
-
-  const displayWords = approvedWords.length > 0 ? approvedWords : mockApprovedWords;
+  useEffect(() => {
+    void fetchApproved();
+  }, [fetchApproved]);
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Approved Words</h1>
-          <p className="text-muted-foreground mt-2">
-            Recently approved word submissions
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Curator workspace</p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight">Approval history</h1>
+          <p className="mt-2 text-muted-foreground">A real audit trail of entries and suggestions reviewed by the signed-in curator.</p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" onClick={() => setTimeRange('24h')}
-            className={timeRange === '24h' ? 'bg-primary/10' : ''}>
-            Today
-          </Button>
-          <Button variant="outline" size="sm" onClick={() => setTimeRange('7d')}
-            className={timeRange === '7d' ? 'bg-primary/10' : ''}>
-            This Week
-          </Button>
-          <Button variant="outline" size="sm" onClick={() => setTimeRange('30d')}
-            className={timeRange === '30d' ? 'bg-primary/10' : ''}>
-            This Month
-          </Button>
+        <div className="flex flex-wrap gap-2">
+          {([['24h', 'Today'], ['7d', 'This week'], ['30d', 'This month']] as const).map(([value, label]) => (
+            <Button key={value} variant="outline" size="sm" className={timeRange === value ? 'bg-primary/10' : ''} onClick={() => setTimeRange(value)}>{label}</Button>
+          ))}
         </div>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-3">
+        <Metric title="Total approved" value={stats.totalApproved} icon={CheckCircle} />
+        <Metric title="Word entries" value={stats.wordsApproved} icon={FileText} />
+        <Metric title="Improvements" value={stats.improvementsApproved} icon={FilePenLine} />
       </div>
 
       <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle>Approval History</CardTitle>
-              <CardDescription>
-                {displayWords.length} words approved in selected period
-              </CardDescription>
-            </div>
-            <CheckCircle className="h-8 w-8 text-success" />
-          </div>
-        </CardHeader>
+        <CardHeader><CardTitle>Reviewed items</CardTitle><CardDescription>{stats.totalApproved} approval{stats.totalApproved === 1 ? '' : 's'} in this period</CardDescription></CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            {loading ? (
-              <p className="text-center py-8">Loading approved words...</p>
-            ) : displayWords.length === 0 ? (
-              <div className="text-center py-8">
-                <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                <p className="text-lg font-medium">No approvals yet</p>
-                <p className="text-muted-foreground">No words approved in this time period</p>
-              </div>
-            ) : (
-              displayWords.map((word) => (
-                <div key={word.id} className="flex items-start justify-between p-4 rounded-lg border hover:bg-muted">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <p className="font-medium text-lg">{word.word}</p>
-                      <span className="text-muted-foreground">→</span>
-                      <p className="text-lg">{word.translation}</p>
+          {loading ? (
+            <div className="space-y-3" aria-label="Loading approval history">{[1, 2, 3].map((item) => <div key={item} className="h-20 animate-pulse rounded-lg bg-muted" aria-hidden="true" />)}</div>
+          ) : loadError ? (
+            <HistoryError message={loadError} onRetry={() => void fetchApproved()} />
+          ) : activities.length === 0 ? (
+            <div className="py-12 text-center"><CheckCircle className="mx-auto mb-4 h-11 w-11 text-muted-foreground" /><p className="text-lg font-medium">No approvals in this period</p><p className="mt-1 text-sm text-muted-foreground">The audit trail is empty; no example history is shown.</p></div>
+          ) : (
+            <div className="space-y-3">
+              {activities.map((activity) => (
+                <article key={activity.id} className="flex flex-col gap-3 rounded-xl border border-border p-4 transition-colors hover:bg-muted/30 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-2"><p className="text-lg font-semibold">{activityTitle(activity)}</p><Badge variant="secondary">{activity.activity_type === 'word_approved' ? 'Word' : 'Improvement'}</Badge></div>
+                    <p className="mt-1 text-sm text-muted-foreground">{activityDetail(activity)}</p>
+                    <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1.5"><Globe className="h-3.5 w-3.5" />{activity.languages?.name || 'Language not named'}</span>
+                      <span className="flex items-center gap-1.5"><User className="h-3.5 w-3.5" />{reviewer(activity)}</span>
+                      <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{new Date(activity.created_at).toLocaleString()}</span>
                     </div>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <span className="flex items-center gap-1">
-                        <Globe className="h-3 w-3" />
-                        {word.language_name}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <User className="h-3 w-3" />
-                        Submitted by {word.submitted_by}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Calendar className="h-3 w-3" />
-                        {new Date(word.approved_at).toLocaleDateString()}
-                      </span>
-                    </div>
-                    {word.review_notes && (
-                      <p className="text-sm text-muted-foreground italic">
-                        Note: {word.review_notes}
-                      </p>
-                    )}
+                    {activity.activity_data?.notes ? <p className="mt-3 rounded-md bg-muted/60 px-3 py-2 text-sm text-muted-foreground">{activity.activity_data.notes}</p> : null}
                   </div>
-                  <Badge variant="primary" className="bg-success">
-                    Approved
-                  </Badge>
-                </div>
-              ))
-            )}
-          </div>
+                  <Badge variant="primary" className="w-fit bg-success">Approved</Badge>
+                </article>
+              ))}
+            </div>
+          )}
         </CardContent>
       </Card>
-
-      {/* Stats */}
-      <div className="grid gap-4 md:grid-cols-3">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Total Approved
-            </CardTitle>
-            <CheckCircle className="h-4 w-4 text-success" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{displayWords.length}</div>
-            <p className="text-xs text-muted-foreground">
-              In selected period
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Languages Covered
-            </CardTitle>
-            <Globe className="h-4 w-4 text-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {new Set(displayWords.map(w => w.language_name)).size}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Different languages
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              Contributors
-            </CardTitle>
-            <User className="h-4 w-4 text-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">
-              {new Set(displayWords.map(w => w.submitted_by)).size}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              Unique contributors
-            </p>
-          </CardContent>
-        </Card>
-      </div>
     </div>
   );
+}
+
+function Metric({ title, value, icon: Icon }: { title: string; value: number; icon: typeof CheckCircle }) {
+  return <Card><CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2"><CardTitle className="text-sm font-medium">{title}</CardTitle><Icon className="h-4 w-4 text-success" /></CardHeader><CardContent><div className="text-2xl font-bold">{value}</div><p className="text-xs text-muted-foreground">In the selected period</p></CardContent></Card>;
+}
+
+function HistoryError({ message, onRetry }: { message: string; onRetry: () => void }) {
+  return <div className="flex flex-col items-center py-12 text-center"><AlertCircle className="mb-4 h-11 w-11 text-error" /><p className="text-lg font-semibold">Approval history did not load</p><p className="mt-2 max-w-xl text-sm text-muted-foreground">{message}</p><Button className="mt-5" variant="outline" onClick={onRetry}><RefreshCw className="mr-2 h-4 w-4" />Try again</Button></div>;
 }

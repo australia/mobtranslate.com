@@ -8,6 +8,8 @@ import {
   documentUploads as documentUploadsT,
   languages as languagesT,
   userProfiles as userProfilesT,
+  userRoleAssignments as userRoleAssignmentsT,
+  userRoles as userRolesT,
 } from '@/lib/db/schema';
 
 export async function GET(request: NextRequest) {
@@ -18,10 +20,6 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Any active super_admin / dictionary_admin / curator assignment (any language).
-    const { response } = await requireRole(['super_admin', 'dictionary_admin', 'curator']);
-    if (response) return response;
-
     // Get query parameters
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status');
@@ -30,6 +28,24 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '20');
     const offset = (page - 1) * limit;
 
+    const assignments = await db
+      .select({ languageId: userRoleAssignmentsT.languageId, role: userRolesT.name })
+      .from(userRoleAssignmentsT)
+      .innerJoin(userRolesT, eq(userRoleAssignmentsT.roleId, userRolesT.id))
+      .where(and(
+        eq(userRoleAssignmentsT.userId, user.id),
+        eq(userRoleAssignmentsT.isActive, true),
+        inArray(userRolesT.name, ['super_admin', 'dictionary_admin', 'curator']),
+      ));
+    if (assignments.length === 0) {
+      return NextResponse.json({ error: 'Not authorized to view source documents' }, { status: 403 });
+    }
+    const hasGlobalAccess = assignments.some(({ role }) => role === 'super_admin' || role === 'dictionary_admin');
+    const curatorLanguageIds = assignments.map(({ languageId: id }) => id).filter((id): id is string => Boolean(id));
+    if (languageId && !hasGlobalAccess && !curatorLanguageIds.includes(languageId)) {
+      return NextResponse.json({ error: 'No permission to view documents for this language' }, { status: 403 });
+    }
+
     // Build filters
     const filters = [];
     if (status) {
@@ -37,6 +53,11 @@ export async function GET(request: NextRequest) {
     }
     if (languageId) {
       filters.push(eq(documentUploadsT.languageId, languageId));
+    } else if (!hasGlobalAccess) {
+      if (curatorLanguageIds.length === 0) {
+        return NextResponse.json({ documents: [], pagination: { page, limit, total: 0, totalPages: 0 } });
+      }
+      filters.push(inArray(documentUploadsT.languageId, curatorLanguageIds));
     }
     const where = filters.length ? and(...filters) : undefined;
 

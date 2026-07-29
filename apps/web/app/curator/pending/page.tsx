@@ -1,449 +1,286 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Badge, Tabs, TabsList, TabsTrigger, Dialog, DialogPortal, DialogBackdrop, DialogPopup, DialogDescription, DialogTitle, Textarea } from '@mobtranslate/ui';
+import { useCallback, useEffect, useState } from 'react';
+import {
+  Badge,
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Dialog,
+  DialogBackdrop,
+  DialogDescription,
+  DialogPopup,
+  DialogPortal,
+  DialogTitle,
+  Textarea,
+} from '@mobtranslate/ui';
+import { AlertCircle, Calendar, CheckCircle, Clock, Eye, Globe, RefreshCw, User, XCircle } from 'lucide-react';
 import { useToast } from '@/hooks/useToast';
-import { 
-  Clock,
-  CheckCircle,
-  XCircle,
-  User,
-  Calendar,
-  Globe,
-  AlertCircle,
-  Eye,
-  Volume2
-} from 'lucide-react';
 
 interface PendingWord {
   id: string;
+  type: 'word';
   word: string;
-  translation: string;
-  part_of_speech?: string;
-  pronunciation?: string;
-  audio_url?: string;
-  definition?: string;
-  example_sentence?: string;
-  cultural_notes?: string;
-  language_id: string;
-  language_name: string;
-  submitted_by: string;
-  submitted_by_name: string;
-  created_at: string;
-  previous_attempts?: number;
-  similar_words?: Array<{ word: string; translation: string }>;
+  word_type?: string | null;
+  language_id?: string | null;
+  created_at?: string | null;
+  languages?: { id: string; name: string; code: string } | null;
+  profiles?: { display_name?: string | null; username?: string | null } | null;
+  definitions?: Array<{ definition: string }>;
+  translations?: Array<{ translation: string }>;
+}
+
+interface PendingResponse {
+  items?: PendingWord[];
+  pagination?: { total?: number };
+  error?: string;
+}
+
+function firstDefinition(word: PendingWord) {
+  return word.definitions?.[0]?.definition || 'No definition supplied';
+}
+
+function firstTranslation(word: PendingWord) {
+  return word.translations?.[0]?.translation || 'No translation supplied';
+}
+
+function submitterName(word: PendingWord) {
+  return word.profiles?.display_name || word.profiles?.username || 'Contributor not named';
 }
 
 export default function PendingReviewsPage() {
   const [pendingWords, setPendingWords] = useState<PendingWord[]>([]);
+  const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [selectedWord, setSelectedWord] = useState<PendingWord | null>(null);
   const [reviewDialogOpen, setReviewDialogOpen] = useState(false);
   const [reviewAction, setReviewAction] = useState<'approve' | 'reject' | null>(null);
   const [reviewNotes, setReviewNotes] = useState('');
-  const [filterLanguage, setFilterLanguage] = useState('all');
+  const [submitting, setSubmitting] = useState(false);
   const { toast } = useToast();
 
-  useEffect(() => {
-    fetchPendingWords();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filterLanguage]);
-
-  const fetchPendingWords = async () => {
+  const fetchPendingWords = useCallback(async () => {
+    setLoading(true);
+    setLoadError(null);
     try {
-      const url = filterLanguage === 'all' 
-        ? '/api/v2/curator/pending'
-        : `/api/v2/curator/pending?language=${filterLanguage}`;
-      
-      const response = await fetch(url);
-      if (response.ok) {
-        const data = await response.json();
-        setPendingWords(data);
-      }
+      const response = await fetch('/api/v2/curator/pending?type=words&limit=100');
+      const data = (await response.json().catch(() => ({}))) as PendingResponse;
+      if (!response.ok) throw new Error(data.error || 'Could not load the word review queue.');
+      const items = Array.isArray(data.items) ? data.items.filter((item) => item.type === 'word') : [];
+      setPendingWords(items);
+      setTotal(data.pagination?.total ?? items.length);
     } catch (error) {
-      console.error('Failed to fetch pending words:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to load pending reviews',
-        variant: 'error'
-      });
+      const message = error instanceof Error ? error.message : 'Could not load the word review queue.';
+      setPendingWords([]);
+      setTotal(0);
+      setLoadError(message);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const handleReview = async () => {
-    if (!selectedWord || !reviewAction) return;
+  useEffect(() => {
+    void fetchPendingWords();
+  }, [fetchPendingWords]);
 
+  function closeDialog() {
+    setReviewDialogOpen(false);
+    setSelectedWord(null);
+    setReviewAction(null);
+    setReviewNotes('');
+  }
+
+  function openReviewDialog(word: PendingWord, action: 'approve' | 'reject' | null) {
+    setSelectedWord(word);
+    setReviewAction(action);
+    setReviewNotes('');
+    setReviewDialogOpen(true);
+  }
+
+  async function handleReview() {
+    if (!selectedWord || !reviewAction || submitting) return;
+    if (reviewAction === 'reject' && !reviewNotes.trim()) return;
+    setSubmitting(true);
     try {
-      const response = await fetch(`/api/v2/curator/words/${selectedWord.id}/review`, {
+      const response = await fetch('/api/v2/curator/pending', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          itemId: selectedWord.id,
+          itemType: 'word',
           action: reviewAction,
-          notes: reviewNotes
-        })
+          reason: reviewAction === 'reject' ? reviewNotes.trim() : undefined,
+          notes: reviewNotes.trim() || undefined,
+        }),
       });
-
-      if (response.ok) {
-        toast({
-          title: 'Success',
-          description: `Word ${reviewAction === 'approve' ? 'approved' : 'rejected'} successfully`
-        });
-        setReviewDialogOpen(false);
-        setSelectedWord(null);
-        setReviewNotes('');
-        fetchPendingWords();
-      }
-    } catch (error) {
-      console.error('Failed to review word:', error);
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || 'Could not save this review.');
       toast({
-        title: 'Error',
-        description: 'Failed to submit review',
-        variant: 'error'
+        title: reviewAction === 'approve' ? 'Entry marked as reviewed' : 'Entry rejected',
+        description: reviewAction === 'approve'
+          ? 'The internal Mob Translate review state was recorded.'
+          : 'The reason was recorded and the entry was removed from the pending queue.',
       });
+      closeDialog();
+      await fetchPendingWords();
+    } catch (error) {
+      toast({
+        title: 'Review not saved',
+        description: error instanceof Error ? error.message : 'Please try again.',
+        variant: 'error',
+      });
+    } finally {
+      setSubmitting(false);
     }
-  };
-
-  const openReviewDialog = (word: PendingWord, action: 'approve' | 'reject') => {
-    setSelectedWord(word);
-    setReviewAction(action);
-    setReviewDialogOpen(true);
-  };
-
-  // Mock data for demonstration
-  const mockPendingWords: PendingWord[] = [
-    {
-      id: '1',
-      word: 'ngamu',
-      translation: 'mother',
-      part_of_speech: 'noun',
-      pronunciation: 'nga-moo',
-      definition: 'Mother, maternal parent',
-      example_sentence: 'Ngamu yundu wunay',
-      cultural_notes: 'Term of respect also used for maternal aunts',
-      language_id: '1',
-      language_name: 'Kuku Yalanji',
-      submitted_by: '1',
-      submitted_by_name: 'Sarah Johnson',
-      created_at: '2024-01-28T10:00:00Z',
-      previous_attempts: 0,
-      similar_words: [
-        { word: 'ngamuku', translation: 'grandmother' }
-      ]
-    },
-    {
-      id: '2',
-      word: 'mayi',
-      translation: 'food',
-      part_of_speech: 'noun',
-      pronunciation: 'may-ee',
-      definition: 'Food, edible items',
-      example_sentence: 'Mayi kari nginda',
-      language_id: '2',
-      language_name: 'Yawuru',
-      submitted_by: '2',
-      submitted_by_name: 'John Smith',
-      created_at: '2024-01-28T11:00:00Z',
-      previous_attempts: 1
-    },
-    {
-      id: '3',
-      word: 'yapa',
-      translation: 'person',
-      part_of_speech: 'noun',
-      pronunciation: 'yah-pah',
-      audio_url: '/audio/yapa.mp3',
-      definition: 'Person, human being',
-      language_id: '3',
-      language_name: 'Warlpiri',
-      submitted_by: '3',
-      submitted_by_name: 'Emma Davis',
-      created_at: '2024-01-28T09:00:00Z',
-      previous_attempts: 0
-    }
-  ];
-
-  const displayWords = pendingWords.length > 0 ? pendingWords : mockPendingWords;
-  const languages = Array.from(new Set(displayWords.map(w => w.language_name)));
+  }
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Pending Reviews</h1>
-          <p className="text-muted-foreground mt-2">
-            Review and approve new word submissions
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Curator workspace</p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight">Word review queue</h1>
+          <p className="mt-2 max-w-2xl text-muted-foreground">
+            Review source-backed entries carefully. An approval records an internal Mob Translate review; it never implies community endorsement by itself.
           </p>
         </div>
-        <Badge variant="secondary" className="text-lg px-4 py-2">
-          <Clock className="h-4 w-4 mr-2" />
-          {displayWords.length} pending
+        <Badge variant="secondary" className="w-fit px-4 py-2 text-base">
+          <Clock className="mr-2 h-4 w-4" />
+          {total} pending
         </Badge>
       </div>
 
-      {/* Language Filter */}
-      <Tabs value={filterLanguage} onValueChange={setFilterLanguage}>
-        <TabsList>
-          <TabsTrigger value="all">All Languages</TabsTrigger>
-          {languages.map(lang => (
-            <TabsTrigger key={lang} value={lang}>{lang}</TabsTrigger>
+      {loading ? (
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3" aria-label="Loading word reviews">
+          {[1, 2, 3].map((item) => (
+            <div key={item} className="space-y-3 rounded-xl border border-border bg-card p-5" aria-hidden="true">
+              <div className="h-7 w-1/2 animate-pulse rounded bg-muted" />
+              <div className="h-4 w-2/3 animate-pulse rounded bg-muted" />
+              <div className="h-16 w-full animate-pulse rounded bg-muted" />
+              <div className="h-9 w-full animate-pulse rounded bg-muted" />
+            </div>
           ))}
-        </TabsList>
-      </Tabs>
-
-      {/* Pending Words Grid */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {loading ? (
-          <>
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="rounded-xl border border-border bg-card p-5 space-y-3" aria-hidden="true">
-                <div className="h-6 w-1/2 rounded bg-muted animate-pulse" />
-                <div className="h-4 w-1/3 rounded bg-muted animate-pulse" />
-                <div className="h-4 w-full rounded bg-muted animate-pulse" />
-                <div className="h-4 w-2/3 rounded bg-muted animate-pulse" />
-                <div className="flex gap-2 pt-2">
-                  <div className="h-8 flex-1 rounded bg-muted animate-pulse" />
-                  <div className="h-8 flex-1 rounded bg-muted animate-pulse" />
-                </div>
-              </div>
-            ))}
-          </>
-        ) : displayWords.length === 0 ? (
-          <Card className="col-span-full">
-            <CardContent className="text-center py-8">
-              <CheckCircle className="h-12 w-12 text-success mx-auto mb-4" />
-              <p className="text-lg font-medium">All caught up!</p>
-              <p className="text-muted-foreground">No pending reviews at the moment</p>
-            </CardContent>
-          </Card>
-        ) : (
-          displayWords.map((word) => (
-            <Card key={word.id} className="hover:shadow-lg transition-shadow">
+        </div>
+      ) : loadError ? (
+        <Card className="border-error/30">
+          <CardContent className="flex flex-col items-center py-12 text-center">
+            <AlertCircle className="mb-4 h-11 w-11 text-error" />
+            <p className="text-lg font-semibold">The review queue did not load</p>
+            <p className="mt-2 max-w-xl text-sm text-muted-foreground">{loadError}</p>
+            <Button className="mt-5" variant="outline" onClick={() => void fetchPendingWords()}>
+              <RefreshCw className="mr-2 h-4 w-4" /> Try again
+            </Button>
+          </CardContent>
+        </Card>
+      ) : pendingWords.length === 0 ? (
+        <Card>
+          <CardContent className="flex flex-col items-center py-14 text-center">
+            <div className="mb-4 rounded-full bg-success/10 p-3"><CheckCircle className="h-8 w-8 text-success" /></div>
+            <p className="text-lg font-semibold">No word entries are waiting</p>
+            <p className="mt-2 text-sm text-muted-foreground">This is a real empty queue—no sample entries are substituted.</p>
+          </CardContent>
+        </Card>
+      ) : (
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {pendingWords.map((word) => (
+            <Card key={word.id} className="transition-shadow hover:shadow-lg">
               <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <CardTitle className="text-xl">{word.word}</CardTitle>
-                    <CardDescription className="mt-1">
-                      {word.translation}
-                      {word.part_of_speech && (
-                        <span className="ml-2 text-xs bg-muted px-2 py-0.5 rounded">
-                          {word.part_of_speech}
-                        </span>
-                      )}
-                    </CardDescription>
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <CardTitle className="truncate text-2xl">{word.word}</CardTitle>
+                    <CardDescription className="mt-1">{firstTranslation(word)}</CardDescription>
                   </div>
-                  {word.audio_url && (
-                    <Button variant="ghost" size="sm">
-                      <Volume2 className="h-4 w-4" />
-                    </Button>
-                  )}
+                  {word.word_type ? <Badge variant="secondary">{word.word_type}</Badge> : null}
                 </div>
               </CardHeader>
-              <CardContent className="space-y-3">
-                {word.pronunciation && (
-                  <div>
-                    <p className="text-sm text-muted-foreground">Pronunciation</p>
-                    <p className="font-medium">{word.pronunciation}</p>
-                  </div>
-                )}
-
-                {word.definition && (
-                  <div>
-                    <p className="text-sm text-muted-foreground">Definition</p>
-                    <p className="text-sm">{word.definition}</p>
-                  </div>
-                )}
-
-                {word.example_sentence && (
-                  <div>
-                    <p className="text-sm text-muted-foreground">Example</p>
-                    <p className="text-sm italic">{word.example_sentence}</p>
-                  </div>
-                )}
-
-                <div className="flex items-center gap-4 text-xs text-muted-foreground pt-2 border-t">
-                  <div className="flex items-center gap-1">
-                    <Globe className="h-3 w-3" />
-                    {word.language_name}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <User className="h-3 w-3" />
-                    {word.submitted_by_name}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Calendar className="h-3 w-3" />
-                    {new Date(word.created_at).toLocaleDateString()}
-                  </div>
+              <CardContent className="space-y-4">
+                <p className="min-h-10 text-sm leading-relaxed text-muted-foreground">{firstDefinition(word)}</p>
+                <div className="space-y-1.5 border-t border-border pt-3 text-xs text-muted-foreground">
+                  <p className="flex items-center gap-2"><Globe className="h-3.5 w-3.5" />{word.languages?.name || 'Language not named'}</p>
+                  <p className="flex items-center gap-2"><User className="h-3.5 w-3.5" />{submitterName(word)}</p>
+                  {word.created_at ? <p className="flex items-center gap-2"><Calendar className="h-3.5 w-3.5" />{new Date(word.created_at).toLocaleDateString()}</p> : null}
                 </div>
-
-                {word.previous_attempts && word.previous_attempts > 0 && (
-                  <div className="flex items-center gap-2 text-sm text-warning">
-                    <AlertCircle className="h-4 w-4" />
-                    Previously rejected {word.previous_attempts} time{word.previous_attempts > 1 ? 's' : ''}
-                  </div>
-                )}
-
-                {word.similar_words && word.similar_words.length > 0 && (
-                  <div className="bg-muted p-2 rounded text-sm">
-                    <p className="text-xs text-muted-foreground mb-1">Similar words:</p>
-                    {word.similar_words.map((sw, i) => (
-                      <span key={i} className="text-xs">
-                        {sw.word} ({sw.translation})
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                <div className="flex gap-2 pt-2">
-                  <Button 
-                    size="sm" 
-                    variant="outline"
-                    className="flex-1"
-                    onClick={() => {
-                      setSelectedWord(word);
-                      setReviewDialogOpen(true);
-                      setReviewAction(null);
-                    }}
-                  >
-                    <Eye className="h-4 w-4 mr-2" />
-                    Details
+                <div className="grid grid-cols-3 gap-2">
+                  <Button size="sm" variant="outline" onClick={() => openReviewDialog(word, null)}>
+                    <Eye className="mr-1.5 h-4 w-4" /> Details
                   </Button>
-                  <Button 
-                    size="sm" 
-                    variant="outline"
-                    className="flex-1 text-error hover:text-error/80"
-                    onClick={() => openReviewDialog(word, 'reject')}
-                  >
-                    <XCircle className="h-4 w-4 mr-2" />
-                    Reject
+                  <Button size="sm" variant="outline" className="text-error" onClick={() => openReviewDialog(word, 'reject')}>
+                    <XCircle className="mr-1.5 h-4 w-4" /> Return
                   </Button>
-                  <Button 
-                    size="sm"
-                    className="flex-1"
-                    onClick={() => openReviewDialog(word, 'approve')}
-                  >
-                    <CheckCircle className="h-4 w-4 mr-2" />
-                    Approve
+                  <Button size="sm" onClick={() => openReviewDialog(word, 'approve')}>
+                    <CheckCircle className="mr-1.5 h-4 w-4" /> Review
                   </Button>
                 </div>
               </CardContent>
             </Card>
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
 
-      {/* Review Dialog */}
-      <Dialog open={reviewDialogOpen} onOpenChange={setReviewDialogOpen}>
-        <DialogPortal><DialogBackdrop /><DialogPopup>
-            <DialogTitle>
-              {reviewAction === 'approve' ? 'Approve' : reviewAction === 'reject' ? 'Reject' : 'Review'} Word
-            </DialogTitle>
+      <Dialog open={reviewDialogOpen} onOpenChange={(open) => { if (!open) closeDialog(); else setReviewDialogOpen(true); }}>
+        <DialogPortal>
+          <DialogBackdrop />
+          <DialogPopup>
+            <DialogTitle>{reviewAction === 'approve' ? 'Mark entry as reviewed' : reviewAction === 'reject' ? 'Return entry with a reason' : 'Review entry'}</DialogTitle>
             <DialogDescription>
-              {selectedWord && `Reviewing "${selectedWord.word}" (${selectedWord.translation})`}
+              {selectedWord ? `${selectedWord.word} · ${selectedWord.languages?.name || 'Language not named'}` : 'Dictionary entry'}
             </DialogDescription>
 
-          {selectedWord && (
-            <div className="space-y-4 my-4">
-              {/* Show all word details */}
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <label className="text-sm font-medium">Word</label>
-                  <p className="font-medium">{selectedWord.word}</p>
+            {selectedWord ? (
+              <div className="my-5 space-y-4">
+                <div className="grid gap-4 rounded-xl border border-border bg-muted/30 p-4 sm:grid-cols-2">
+                  <div><p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Word</p><p className="mt-1 font-semibold">{selectedWord.word}</p></div>
+                  <div><p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Translation</p><p className="mt-1">{firstTranslation(selectedWord)}</p></div>
+                  <div className="sm:col-span-2"><p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Definition</p><p className="mt-1 text-sm leading-relaxed">{firstDefinition(selectedWord)}</p></div>
+                  <div className="sm:col-span-2"><p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Submitted by</p><p className="mt-1 text-sm">{submitterName(selectedWord)}</p></div>
                 </div>
-                <div>
-                  <label className="text-sm font-medium">Translation</label>
-                  <p className="font-medium">{selectedWord.translation}</p>
-                </div>
-                {selectedWord.pronunciation && (
+
+                {reviewAction ? (
                   <div>
-                    <label className="text-sm font-medium">Pronunciation</label>
-                    <p className="font-medium">{selectedWord.pronunciation}</p>
+                    <label htmlFor="word-review-notes" className="text-sm font-medium">
+                      {reviewAction === 'reject' ? 'Reason for returning this entry' : 'Internal review note (optional)'}
+                    </label>
+                    <Textarea
+                      id="word-review-notes"
+                      className="mt-2"
+                      value={reviewNotes}
+                      onChange={(event) => setReviewNotes(event.target.value)}
+                      placeholder={reviewAction === 'reject' ? 'Explain what needs evidence or correction…' : 'Record the source or check you completed…'}
+                      rows={4}
+                    />
+                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                      {reviewAction === 'approve'
+                        ? 'This records an internal review state only. It does not certify the entry on behalf of a community or organisation.'
+                        : 'The entry leaves the pending queue and the reason is kept with its review history.'}
+                    </p>
                   </div>
-                )}
-                {selectedWord.part_of_speech && (
-                  <div>
-                    <label className="text-sm font-medium">Part of Speech</label>
-                    <p className="font-medium">{selectedWord.part_of_speech}</p>
-                  </div>
-                )}
+                ) : null}
               </div>
+            ) : null}
 
-              {selectedWord.definition && (
-                <div>
-                  <label className="text-sm font-medium">Definition</label>
-                  <p className="text-sm">{selectedWord.definition}</p>
-                </div>
-              )}
-
-              {selectedWord.example_sentence && (
-                <div>
-                  <label className="text-sm font-medium">Example Sentence</label>
-                  <p className="text-sm italic">{selectedWord.example_sentence}</p>
-                </div>
-              )}
-
-              {selectedWord.cultural_notes && (
-                <div>
-                  <label className="text-sm font-medium">Cultural Notes</label>
-                  <p className="text-sm">{selectedWord.cultural_notes}</p>
-                </div>
-              )}
-
-              {reviewAction && (
-                <div>
-                  <label htmlFor="notes" className="text-sm font-medium">
-                    {reviewAction === 'reject' ? 'Rejection Reason' : 'Review Notes'} (Optional)
-                  </label>
-                  <Textarea
-                    id="notes"
-                    value={reviewNotes}
-                    onChange={(e) => setReviewNotes(e.target.value)}
-                    placeholder={reviewAction === 'reject' 
-                      ? 'Please provide a reason for rejection...' 
-                      : 'Any notes about this approval...'}
-                    rows={3}
-                  />
-                </div>
-              )}
-            </div>
-          )}
-
-          <div className="flex justify-end gap-2 mt-4">
-            {!reviewAction ? (
-              <>
-                <Button 
-                  variant="outline"
-                  onClick={() => openReviewDialog(selectedWord!, 'reject')}
-                >
-                  <XCircle className="h-4 w-4 mr-2" />
-                  Reject
-                </Button>
-                <Button 
-                  onClick={() => openReviewDialog(selectedWord!, 'approve')}
-                >
-                  <CheckCircle className="h-4 w-4 mr-2" />
-                  Approve
-                </Button>
-              </>
-            ) : (
-              <>
-                <Button 
-                  variant="outline" 
-                  onClick={() => setReviewDialogOpen(false)}
-                >
-                  Cancel
-                </Button>
-                <Button 
-                  onClick={handleReview}
+            <div className="flex flex-wrap justify-end gap-2">
+              <Button variant="outline" onClick={closeDialog}>Cancel</Button>
+              {!reviewAction && selectedWord ? (
+                <>
+                  <Button variant="outline" className="text-error" onClick={() => setReviewAction('reject')}>Return entry</Button>
+                  <Button onClick={() => setReviewAction('approve')}>Mark as reviewed</Button>
+                </>
+              ) : reviewAction ? (
+                <Button
                   variant={reviewAction === 'reject' ? 'error' : 'primary'}
+                  disabled={submitting || (reviewAction === 'reject' && !reviewNotes.trim())}
+                  onClick={() => void handleReview()}
                 >
-                  {reviewAction === 'approve' ? 'Approve' : 'Reject'} Word
+                  {submitting ? 'Saving…' : reviewAction === 'approve' ? 'Mark as reviewed' : 'Return with reason'}
                 </Button>
-              </>
-            )}
-          </div>
-        </DialogPopup></DialogPortal>
+              ) : null}
+            </div>
+          </DialogPopup>
+        </DialogPortal>
       </Dialog>
     </div>
   );
