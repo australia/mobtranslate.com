@@ -20,6 +20,8 @@ MobTranslate is an independent, source-attributed dictionary and learning projec
 
 The learner-facing promise is **source-backed lookup, not generated fluency**. The home experience searches Indigenous headwords and English meanings in either direction and opens the underlying dictionary record. A missing entry stays missing. Sentence generation belongs only on a clearly labelled research surface until that exact model and language have passed linguistic evaluation, rights review, and documented community authorization for learner use. A warning label cannot substitute for those gates.
 
+Learning follows the same promise. The mobile app offers a five-word daily practice assembled deterministically from real entries in the selected working collection. It never invents a gloss, example, cultural note, or pronunciation. Each answer can be opened as a full entry with source and review state; human audio is preferred and synthetic audio stays labelled as an approximation. A streak records that a learner returned—not that a word, language, or cultural responsibility has been “mastered.” Recording remains an important contribution workflow, but it does not displace learning in the primary learner navigation.
+
 Success looks like:
 - A learner returns daily because lookup is instant and the learn flow is satisfying enough to repeat.
 - A custodian trusts the curator queue enough to approve in batches without auditing every field.

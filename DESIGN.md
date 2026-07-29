@@ -239,10 +239,13 @@ Every dictionary landing page includes an **About this collection** panel near t
 
 Existing 3D flip utilities (`.preserve-3d`, `.rotate-y-180`, `.perspective-1000`) are in `globals.css`. Keep them.
 
+On mobile, the daily practice is a source-backed five-word session rather than a generated course. The active language and “working collection” status remain visible; every prompt uses a real headword and recorded gloss, prefers recorded audio, and offers an **Open entry & source trail** action after the answer. The primary navigation reads **Home · Words · Learn · Country · You**. Recording stays reachable from Home and You, but is a secondary contribution path rather than the learner's central destination.
+
 - Front: Indigenous word, Playfair, 3rem, centered. `--color-card`. Subtle `--shadow-md`.
 - Back: English gloss + example sentence + IPA. Inter, 1.25rem.
 - Correct state: full card background flashes `--color-eucalyptus-100` for 400ms then settles, eucalyptus border, checkmark icon (top-right, animated scale-in).
 - Incorrect state: `--color-terracotta-100` flash, x icon, the correct answer revealed below with a "try saying it again" prompt — never just "wrong."
+- Completion language celebrates returning and visiting words ("five words carried forward"), not mastery. Streak and words-visited counts are local continuity aids, not authoritative learning records.
 
 ### 5.5 Curator row (queue item)
 

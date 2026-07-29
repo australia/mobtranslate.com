@@ -30,8 +30,9 @@ export default function TabsLayout() {
     >
       <Tabs.Screen name="index" options={{ title: 'Home', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'home' : 'home-outline'} size={size} color={color} /> }} />
       <Tabs.Screen name="dictionary" options={{ title: 'Words', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'book' : 'book-outline'} size={size} color={color} /> }} />
+      <Tabs.Screen name="learn" options={{ title: 'Learn', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'leaf' : 'leaf-outline'} size={size} color={color} /> }} />
       <Tabs.Screen name="map" options={{ title: 'Country', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'map' : 'map-outline'} size={size} color={color} /> }} />
-      <Tabs.Screen name="record" options={{ title: 'Record', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'mic' : 'mic-outline'} size={size} color={color} /> }} />
+      <Tabs.Screen name="record" options={{ href: null }} />
       <Tabs.Screen name="account" options={{ title: 'You', tabBarIcon: ({ color, size, focused }) => <Ionicons name={focused ? 'person-circle' : 'person-circle-outline'} size={size} color={color} /> }} />
     </Tabs>
   );

@@ -282,6 +282,29 @@ export default function HomeScreen() {
         ) : null}
       </Card>
 
+      <Pressable
+        onPress={() => router.push('/learn')}
+        accessibilityRole="button"
+        accessibilityLabel={`Start today's five-word ${langName} practice`}
+        style={({ pressed }) => [
+          styles.practiceCard,
+          { borderColor: accent.accentLine, backgroundColor: accent.accentSoft },
+          pressed && { transform: [{ scale: 0.992 }], opacity: 0.86 },
+        ]}
+      >
+        <View style={[styles.practiceIcon, { backgroundColor: accent.accent }]}>
+          <Ionicons name="leaf" size={21} color={C.white} />
+        </View>
+        <View style={styles.practiceCopy}>
+          <Text style={[styles.practiceEyebrow, { color: accent.accent }]}>YOUR DAILY FIVE</Text>
+          <Text style={styles.practiceTitle}>Carry five words forward</Text>
+          <Text style={styles.practiceBody}>Listen, match the meaning, and keep the source close.</Text>
+        </View>
+        <View style={styles.practiceArrow}>
+          <Ionicons name="arrow-forward" size={18} color={accent.accent} />
+        </View>
+      </Pressable>
+
       <View style={styles.sectionBlock}>
         <SectionHeader title="Explore languages" actionLabel="Open map" onAction={() => router.push('/map')} />
         <ScrollView
@@ -436,6 +459,14 @@ const styles = StyleSheet.create({
   emptyResultBody: { fontFamily: F.body, fontSize: S.small, lineHeight: 19, color: C.muted, textAlign: 'center' },
   browseRow: { minHeight: 40, flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 8 },
   browseText: { fontFamily: F.bold, fontSize: S.small, color: C.sage },
+
+  practiceCard: { minHeight: 126, flexDirection: 'row', alignItems: 'center', gap: 13, padding: 16, borderRadius: radius.xl, borderWidth: 1.5, ...shadowStrong },
+  practiceIcon: { width: 48, height: 48, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
+  practiceCopy: { flex: 1, gap: 3 },
+  practiceEyebrow: { fontFamily: F.bold, fontSize: 9, letterSpacing: 1.25 },
+  practiceTitle: { fontFamily: F.displayBold, fontSize: S.heading, color: C.ink },
+  practiceBody: { fontFamily: F.body, fontSize: 12, lineHeight: 17, color: C.muted },
+  practiceArrow: { width: 36, height: 36, borderRadius: radius.pill, backgroundColor: 'rgba(255,255,255,0.62)', alignItems: 'center', justifyContent: 'center' },
 
   sectionBlock: { gap: 12 },
   bleed: { marginHorizontal: -20 },

@@ -215,7 +215,15 @@ export async function getWord(id: string): Promise<WordDetail | null> {
 
 // ---- Dictionary browse (paginated, A–Z) ------------------------------------
 export interface BrowseWord { id: string; word: string; meaning: string; pos?: string }
-export interface BrowsePage { words: BrowseWord[]; letters: string[]; hasNext: boolean; page: number }
+export interface BrowsePage {
+  ok: boolean;
+  words: BrowseWord[];
+  letters: string[];
+  hasNext: boolean;
+  page: number;
+  total: number;
+  totalPages: number;
+}
 
 const POS_LABEL = (t?: string) => (t || '').replace(/[-_]/g, ' ').trim() || undefined;
 
@@ -224,6 +232,7 @@ export async function browseWords(code: string, opts: { page?: number; letter?: 
   if (opts.letter) p.set('letter', opts.letter);
   try {
     const res = await fetch(`${API_BASE}/api/dictionaries/${code}/words?${p.toString()}`);
+    if (!res.ok) throw new Error(`Dictionary request failed (${res.status})`);
     const d = await json<any>(res);
     // This endpoint returns translations/definitions as arrays of STRINGS (older
     // endpoints used objects) — handle both.
@@ -238,9 +247,17 @@ export async function browseWords(code: string, opts: { page?: number; letter?: 
       pos: POS_LABEL(w.type ?? w.word_type ?? w.word_class?.name),
     })).filter((w) => w.id && w.word);
     const pg = d.pagination ?? {};
-    return { words, letters: d.availableLetters ?? [], hasNext: !!(pg.hasNext ?? pg.has_next), page: pg.page ?? (opts.page ?? 1) };
+    return {
+      ok: true,
+      words,
+      letters: d.availableLetters ?? [],
+      hasNext: !!(pg.hasNext ?? pg.has_next),
+      page: Number(pg.page) || (opts.page ?? 1),
+      total: Number(pg.total) || words.length,
+      totalPages: Number(pg.totalPages ?? pg.total_pages) || 1,
+    };
   } catch {
-    return { words: [], letters: [], hasNext: false, page: 1 };
+    return { ok: false, words: [], letters: [], hasNext: false, page: 1, total: 0, totalPages: 0 };
   }
 }
 
