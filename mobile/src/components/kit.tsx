@@ -5,6 +5,7 @@ import {
 import { SafeAreaView, type Edge } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import * as Linking from 'expo-linking';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withTiming, withSpring } from 'react-native-reanimated';
 import { createAudioPlayer, type AudioPlayer } from 'expo-audio';
 import { C, F, S, radius, shadow, LANG_ART } from '../lib/theme';
@@ -255,6 +256,11 @@ export function LangCard({
       ]}>
       <View style={styles.langArtWrap}>
         {art ? <Image source={art} style={styles.langArt} /> : <View style={[styles.langArt, { backgroundColor: C.sageSoft }]} />}
+        {art ? (
+          <View style={styles.illustrationMark} accessibilityElementsHidden>
+            <Ionicons name="sparkles-outline" size={12} color={C.cream} />
+          </View>
+        ) : null}
       </View>
       <View style={{ padding: 12, gap: 2 }}>
         <Text style={styles.langName} numberOfLines={1}>{name}</Text>
@@ -286,6 +292,9 @@ export function CTABanner({ title, sub, cta, onPress }: { title: string; sub?: s
 export function LanguageSelector({
   visible, languages, value, onSelect, onClose,
 }: { visible: boolean; languages: Language[]; value: string; onSelect: (c: string) => void; onClose: () => void }) {
+  const selectedLanguage = languages.find((language) => language.code === value);
+  const selectedMeta = langMeta(value);
+
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <Pressable style={styles.sheetBackdrop} onPress={onClose}>
@@ -313,6 +322,27 @@ export function LanguageSelector({
             })}
             <View style={{ height: 12 }} />
           </ScrollView>
+          <View style={styles.languageReference}>
+            <View style={styles.referenceIcon}>
+              <Ionicons name="library-outline" size={19} color={C.forest} />
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.referenceEyebrow}>LANGUAGE &amp; COUNTRY REFERENCE</Text>
+              <Text style={styles.referenceCopy}>
+                Learn about {selectedLanguage?.name ?? 'this language'} from {selectedMeta.referenceLabel}.
+              </Text>
+              <Pressable
+                onPress={() => Linking.openURL(selectedMeta.referenceUrl)}
+                accessibilityRole="link"
+                accessibilityLabel={`Open ${selectedMeta.referenceLabel}`}
+                hitSlop={4}
+                style={({ pressed }) => [styles.referenceAction, pressed && { opacity: 0.62 }]}
+              >
+                <Text style={styles.referenceActionText}>Open language reference</Text>
+                <Ionicons name="open-outline" size={14} color={C.forest} />
+              </Pressable>
+            </View>
+          </View>
         </Pressable>
       </Pressable>
     </Modal>
@@ -352,6 +382,7 @@ const styles = StyleSheet.create({
   langCard: { width: 150, backgroundColor: C.surface, borderRadius: radius.lg, borderWidth: 1, borderColor: C.hair, overflow: 'hidden', ...shadow },
   langArtWrap: { height: 92, backgroundColor: C.sageSoft },
   langArt: { width: '100%', height: '100%' },
+  illustrationMark: { position: 'absolute', top: 8, right: 8, width: 26, height: 26, borderRadius: radius.pill, backgroundColor: 'rgba(34,56,42,0.72)', alignItems: 'center', justifyContent: 'center' },
   langName: { fontFamily: F.display, fontSize: S.label + 2, color: C.ink },
   langRegion: { fontFamily: F.medium, fontSize: S.small, color: C.muted },
 
@@ -364,6 +395,12 @@ const styles = StyleSheet.create({
   sheetArt: { width: 52, height: 52, borderRadius: radius.md, backgroundColor: C.sageSoft },
   sheetName: { fontFamily: F.display, fontSize: S.heading, color: C.ink },
   sheetRegion: { fontFamily: F.medium, fontSize: S.small, color: C.muted, marginTop: 1 },
+  languageReference: { flexDirection: 'row', alignItems: 'flex-start', gap: 11, borderTopWidth: 1, borderTopColor: C.border, paddingTop: 14, marginTop: 4 },
+  referenceIcon: { width: 38, height: 38, borderRadius: radius.pill, backgroundColor: C.sageSoft, alignItems: 'center', justifyContent: 'center' },
+  referenceEyebrow: { fontFamily: F.bold, fontSize: 9, letterSpacing: 1.1, color: C.sage },
+  referenceCopy: { fontFamily: F.body, fontSize: S.small, color: C.muted, lineHeight: 18, marginTop: 3 },
+  referenceAction: { minHeight: 44, flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: 5 },
+  referenceActionText: { fontFamily: F.bold, fontSize: S.small, color: C.forest },
 
   cta: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.forest, borderRadius: radius.lg, padding: 16 },
   ctaLeaf: { width: 40, height: 40, borderRadius: radius.pill, backgroundColor: 'rgba(255,255,255,0.14)', alignItems: 'center', justifyContent: 'center' },

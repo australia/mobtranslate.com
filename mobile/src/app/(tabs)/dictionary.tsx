@@ -11,6 +11,7 @@ import { AZRail } from '../../components/AZRail';
 import { browseWords, searchWords, getWordThumbs, type SearchHit } from '../../lib/api';
 import { useLang } from '../../lib/langContext';
 import { useAccent } from '../../lib/accent';
+import { langMeta } from '../../lib/langMeta';
 import { C, F, S, radius, shadow, LANG_ART } from '../../lib/theme';
 
 type Row = { id: string; word: string; meaning: string; pos?: string };
@@ -107,6 +108,7 @@ export default function DictionaryScreen() {
   }, [data, code]));
 
   const langName = lang?.name ?? 'language';
+  const meta = langMeta(code);
   const art = LANG_ART[code]?.art;
   const railActive = useMemo(() => new Set(allLetters.map((l) => l.toUpperCase())), [allLetters]);
   const showRail = !searching && railActive.size > 1;
@@ -185,7 +187,7 @@ export default function DictionaryScreen() {
                   <WordThumb uri={thumbs[item.word]} art={art} seed={index} />
                   <View style={{ flex: 1 }}>
                     <View style={styles.wordRow}>
-                      <Text style={styles.word}>{item.word}</Text>
+                      <Text style={styles.word} accessibilityLanguage={meta.languageTag}>{item.word}</Text>
                       {!!item.pos && <Text style={styles.pos}>{item.pos}</Text>}
                     </View>
                     {!!item.meaning && <Text style={styles.meaning} numberOfLines={2}>{item.meaning}</Text>}

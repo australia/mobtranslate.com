@@ -189,7 +189,7 @@ export default function MapScreen() {
                   <Ionicons name={hasCoords ? 'location' : 'help'} size={14} color={hasCoords ? C.clay : C.faint} />
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text style={styles.placeName}>{p.word}</Text>
+                  <Text style={styles.placeName} accessibilityLanguage={meta.languageTag}>{p.word}</Text>
                   {!!p.meaning && <Text style={styles.placeMeaning} numberOfLines={2}>{p.meaning}</Text>}
                   {!hasCoords && <Text style={styles.unplaced}>Not on the map yet · suggest where it is</Text>}
                 </View>

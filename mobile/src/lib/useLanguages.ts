@@ -13,7 +13,7 @@ export const FALLBACK_LANGUAGES: Language[] = [
   { id: 'kuku_yalanji', code: 'kuku_yalanji', name: 'Kuku Yalanji' },
   { id: 'anindilyakwa', code: 'anindilyakwa', name: 'Anindilyakwa' },
   { id: 'wbv', code: 'wbv', name: 'Wajarri' },
-  { id: 'migmaq', code: 'migmaq', name: "Mi'kmaq" },
+  { id: 'migmaq', code: 'migmaq', name: "Mi'gmaq" },
 ];
 
 function order(langs: Language[]): Language[] {

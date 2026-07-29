@@ -26,7 +26,7 @@ export const ACCENTS: Record<string, Accent> = {
   anindilyakwa: { accent: '#2C8AA0', accentDeep: '#1C6373', accentSoft: '#DBEEF1', accentLine: '#BCE0E6', wash: ['#E4F0F2', '#F4F1E8'], rgb: '44,138,160' },
   // Mi'kma'ki, Atlantic Canada — slate blue + birch woodland
   migmaq: { accent: '#4F6D88', accentDeep: '#384F66', accentSoft: '#E2E9EF', accentLine: '#C7D4DE', wash: ['#E9EEF2', '#F4F1E8'], rgb: '79,109,136' },
-  // Pilbara desert — red ochre + spinifex gold
+  // Murchison and Gascoyne — red earth + dryland gold
   wbv: { accent: '#B26A3C', accentDeep: '#8A4E29', accentSoft: '#F1E3D4', accentLine: '#E4CDB2', wash: ['#F3EADD', '#F4F1E8'], rgb: '178,106,60' },
   default: FOREST,
 };

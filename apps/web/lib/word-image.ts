@@ -27,7 +27,7 @@ const PALETTES: Record<string, string> = {
     'palette of turquoise sea and warm sandstone ochre (Groote Eylandt island Country)',
   migmaq:
     'palette of muted autumn sage and slate blue (Atlantic Canada coastal woodland Country)',
-  wbv: 'palette of red ochre earth and gold spinifex (Pilbara desert Country, Western Australia)',
+  wbv: 'palette of red earth, muted mulga green and dryland gold (Murchison and Gascoyne Country, Western Australia)',
 };
 const DEFAULT_PALETTE =
   'palette of eucalyptus sage-green and warm cream (open Australian Country)';

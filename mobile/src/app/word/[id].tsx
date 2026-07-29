@@ -17,6 +17,7 @@ import {
   type WordDetail, type WordExample, type ExistingRecording,
 } from '../../lib/api';
 import { useAuth } from '../../lib/auth';
+import { langMeta } from '../../lib/langMeta';
 import { C, F, S, radius } from '../../lib/theme';
 
 type RecTarget =
@@ -44,6 +45,7 @@ export default function WordScreen() {
 
   const langCode = detail?.languageCode || (code as string) || '';
   const headword = detail?.word || (word as string) || 'Word';
+  const meta = langMeta(langCode);
 
   useEffect(() => {
     let alive = true;
@@ -103,10 +105,16 @@ export default function WordScreen() {
               <AnimatedMark size={64} mode="loop" />
             </View>
           )}
+          {!!img && (
+            <View style={styles.illustrationHint}>
+              <Ionicons name="sparkles-outline" size={12} color={C.cream} />
+              <Text style={styles.illustrationText}>EDITORIAL ILLUSTRATION</Text>
+            </View>
+          )}
           {!!img && <View style={styles.expandHint}><Ionicons name="expand" size={16} color={C.white} /></View>}
           <View style={styles.heroBody}>
             <Animated.View entering={FadeInDown.duration(400).springify().damping(20)} style={{ flex: 1 }}>
-              <Text style={[styles.headword, { color: img ? C.white : C.forestDeep }]} selectable>{headword}</Text>
+              <Text style={[styles.headword, { color: img ? C.white : C.forestDeep }]} accessibilityLanguage={meta.languageTag} selectable>{headword}</Text>
               {!!detail?.pronunciation && <Text style={[styles.pron, { color: img ? 'rgba(255,255,255,0.85)' : C.muted }]}>{detail.pronunciation}</Text>}
             </Animated.View>
             {!!langCode && <SpeakerButton code={langCode} text={headword} size="lg" />}
@@ -207,7 +215,7 @@ export default function WordScreen() {
                     <Card key={ex.id ?? i}>
                       <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 12 }}>
                         <View style={{ flex: 1 }}>
-                          <Text style={styles.exText}>{ex.text}</Text>
+                          <Text style={styles.exText} accessibilityLanguage={meta.languageTag}>{ex.text}</Text>
                           {!!ex.translation && <Text style={styles.exTrans}>{ex.translation}</Text>}
                         </View>
                         <SpeakerButton code={langCode} text={ex.text} size="sm" />
@@ -301,6 +309,8 @@ function AddExampleModal({ onClose, onAdd, signedIn }: { onClose: () => void; on
 
 const styles = StyleSheet.create({
   hero: { height: 240, justifyContent: 'flex-end', backgroundColor: C.sageSoft },
+  illustrationHint: { position: 'absolute', top: 14, left: 14, height: 28, flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 9, borderRadius: radius.pill, backgroundColor: 'rgba(34,56,42,0.72)' },
+  illustrationText: { fontFamily: F.bold, fontSize: 9, letterSpacing: 0.8, color: C.cream },
   expandHint: { position: 'absolute', top: 14, right: 14, width: 32, height: 32, borderRadius: 16, backgroundColor: 'rgba(0,0,0,0.35)', alignItems: 'center', justifyContent: 'center' },
   heroBody: { flexDirection: 'row', alignItems: 'flex-end', gap: 14, padding: 20 },
   headword: { fontFamily: F.displayBold, fontSize: S.hero, lineHeight: S.hero * 1.04 },

@@ -101,7 +101,7 @@ export default function HomeScreen() {
         />
         <View style={styles.heroTopRow}>
           <View style={styles.heroPill}>
-            <Ionicons name="sparkles" size={13} color={C.cream} />
+            <Ionicons name="language-outline" size={13} color={C.cream} />
             <Text style={styles.heroPillText}>CURRENT LANGUAGE</Text>
           </View>
           <View style={styles.heroChange}>
@@ -116,6 +116,10 @@ export default function HomeScreen() {
           </View>
           <Text style={styles.heroName}>{langName}</Text>
           <Text style={styles.heroTagline}>{meta.tagline}</Text>
+          <View style={styles.heroArtNote}>
+            <Ionicons name="sparkles-outline" size={11} color="rgba(247,243,234,0.72)" />
+            <Text style={styles.heroArtNoteText}>Illustrative landscape</Text>
+          </View>
         </View>
       </Pressable>
 
@@ -221,7 +225,7 @@ export default function HomeScreen() {
             </View>
             <View style={[styles.resultBox, { backgroundColor: accent.accentSoft }]}>
               <View style={{ flex: 1, gap: 5 }}>
-                <Text style={[styles.resultText, { color: accent.accentDeep }]} selectable>{result.translation}</Text>
+                <Text style={[styles.resultText, { color: accent.accentDeep }]} accessibilityLanguage={meta.languageTag} selectable>{result.translation}</Text>
                 {result.gloss ? <Text style={styles.resultGloss}>{result.gloss}</Text> : null}
               </View>
               <SpeakerButton code={code} text={result.translation} size="lg" />
@@ -289,7 +293,7 @@ export default function HomeScreen() {
             <View style={styles.wotdRow}>
               <View style={styles.wotdText}>
                 <View style={styles.wotdWordRow}>
-                  <Text style={styles.wotdWord} numberOfLines={1}>{wotd.word}</Text>
+                  <Text style={styles.wotdWord} accessibilityLanguage={meta.languageTag} numberOfLines={1}>{wotd.word}</Text>
                   <SpeakerButton code={code} text={wotd.word} size="sm" />
                 </View>
                 {wotd.meaning ? <Text style={styles.wotdMeaning} numberOfLines={2}>{wotd.meaning}</Text> : null}
@@ -367,6 +371,8 @@ const styles = StyleSheet.create({
   heroRegion: { fontFamily: F.semibold, fontSize: S.small, color: 'rgba(247,243,234,0.82)' },
   heroName: { fontFamily: F.displayBold, fontSize: 38, color: C.white, lineHeight: 42 },
   heroTagline: { fontFamily: F.serifItalic, fontSize: S.body, color: C.cream, lineHeight: 23 },
+  heroArtNote: { flexDirection: 'row', alignItems: 'center', gap: 5, marginTop: 5 },
+  heroArtNoteText: { fontFamily: F.medium, fontSize: 10, letterSpacing: 0.6, color: 'rgba(247,243,234,0.72)', textTransform: 'uppercase' },
 
   composer: { gap: 16, padding: 18, borderColor: C.sageLine },
   composerHeading: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
