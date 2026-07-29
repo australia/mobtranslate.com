@@ -30,6 +30,8 @@ vi.mock('lucide-react', () => ({
   Loader2: (props: any) => <span data-icon="Loader2" {...props} />,
   AlertTriangle: (props: any) => <span data-icon="AlertTriangle" {...props} />,
   Volume2: (props: any) => <span data-icon="Volume2" {...props} />,
+  Mic2: (props: any) => <span data-icon="Mic2" {...props} />,
+  Sparkles: (props: any) => <span data-icon="Sparkles" {...props} />,
 }));
 
 import Translator from '@/app/components/Translator';

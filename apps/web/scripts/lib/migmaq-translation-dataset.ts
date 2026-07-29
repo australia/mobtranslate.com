@@ -55,12 +55,42 @@ export function sha256(value: string): string {
   return createHash('sha256').update(value, 'utf8').digest('hex');
 }
 
-const windows1252Decoder = new TextDecoder('windows-1252');
+const WINDOWS_1252_C1: Readonly<Record<number, string>> = {
+  0x80: '€',
+  0x82: '‚',
+  0x83: 'ƒ',
+  0x84: '„',
+  0x85: '…',
+  0x86: '†',
+  0x87: '‡',
+  0x88: 'ˆ',
+  0x89: '‰',
+  0x8a: 'Š',
+  0x8b: '‹',
+  0x8c: 'Œ',
+  0x8e: 'Ž',
+  0x91: '‘',
+  0x92: '’',
+  0x93: '“',
+  0x94: '”',
+  0x95: '•',
+  0x96: '–',
+  0x97: '—',
+  0x98: '˜',
+  0x99: '™',
+  0x9a: 'š',
+  0x9b: '›',
+  0x9c: 'œ',
+  0x9e: 'ž',
+  0x9f: 'Ÿ',
+};
 
 /** Repair C1 bytes that were decoded as controls instead of Windows-1252 punctuation. */
 export function repairWindows1252Controls(value: string): string {
-  return value.replace(/[\u0080-\u009f]/gu, (character) =>
-    windows1252Decoder.decode(Uint8Array.of(character.charCodeAt(0))));
+  return value.replace(/[\u0080-\u009f]/gu, (character) => {
+    const codePoint = character.charCodeAt(0);
+    return WINDOWS_1252_C1[codePoint] ?? character;
+  });
 }
 
 /** Preserve linguistic content while removing transport-only variation. */

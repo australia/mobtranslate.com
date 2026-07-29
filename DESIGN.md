@@ -1,6 +1,6 @@
 # Design
 
-A full design system for MobTranslate, an independent source-attributed dictionary, translator, and learning research platform for Indigenous languages.
+A full design system for MobTranslate, an independent source-attributed dictionary and learning platform for Indigenous languages, with translation models kept on separate research surfaces.
 
 The system is **product-first**: dictionary search, learn quizzes, curator queue, and admin tools are the primary surfaces. Marketing pages (`/`, `/about`) inherit the same tokens but earn editorial liberties. Per-language identity is a first-class concern: every dictionary surface declares a `data-language` and pulls a small accent palette mapped to that language's country.
 
@@ -186,7 +186,7 @@ Three variants. Don't add more without a documented reason.
 
 | Variant | Use | Visual |
 |---|---|---|
-| **primary** | Single primary action per view. "Translate", "Save", "Approve". | Ochre fill, cream text, `--shadow-sm`. Hover: ochre-hover. Focus: ring. |
+| **primary** | Single primary action per view. "Look up", "Save", "Approve". | Ochre fill, cream text, `--shadow-sm`. Hover: ochre-hover. Focus: ring. |
 | **secondary** | Secondary action paired with a primary. "Cancel", "Browse Dictionaries" next to "Start Learning". | Transparent fill, foreground text, `--color-border` border. Hover: `--color-muted` fill. |
 | **ghost** | Tertiary, inline, low-noise. Toolbar buttons, list-row actions. | No border, no fill at rest. Hover: `--color-muted` fill. |
 
@@ -199,7 +199,7 @@ Three variants. Don't add more without a documented reason.
 - Border `--color-input`, radius `--radius-md`, padding `0.625rem 0.875rem`, height 40px (matches `md` button).
 - Focus: outline removed; `--shadow-xs` + 2px ring `--color-ring` (already configured globally).
 - Error state: border `--color-error`, helper text in `--color-error`, with an icon — never color-alone.
-- **Translator textarea (the homepage hero):** larger — min-height 8rem, font-size 1.125rem, Inter, generous internal padding (`--spacing-6`). The character counter is `--color-muted-foreground` `--text-sm`, right-aligned.
+- **Dictionary lookup (the homepage hero):** one generous search field with a visible language selector and bidirectional wording. Results appear as compact headword-first rows. Empty results explicitly say that MobTranslate will not fill the gap with a machine guess.
 
 ### 5.3 Dictionary entry
 

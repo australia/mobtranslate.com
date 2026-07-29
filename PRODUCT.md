@@ -16,7 +16,9 @@ The job: **look up a word, learn a word, remember a word — with the language t
 
 ## Product Purpose
 
-MobTranslate is an independent, source-attributed dictionary, translator, and learning research surface for Indigenous languages. Existing reference materials are scattered across dictionaries, grammars, archives, recordings, and contributed records. The product makes that evidence searchable while keeping source, terms, review state, and machine uncertainty visible. Publication does not imply that a collection is official, community-owned, or community-certified.
+MobTranslate is an independent, source-attributed dictionary and learning project for Indigenous languages, with translation models published separately as research. Existing reference materials are scattered across dictionaries, grammars, archives, recordings, and contributed records. The product makes that evidence searchable while keeping source, terms, review state, and research uncertainty visible. Publication does not imply that a collection is official, community-owned, or community-certified.
+
+The learner-facing promise is **source-backed lookup, not generated fluency**. The home experience searches Indigenous headwords and English meanings in either direction and opens the underlying dictionary record. A missing entry stays missing. Sentence generation belongs only on a clearly labelled research surface until that exact model and language have passed linguistic evaluation, rights review, and documented community authorization for learner use. A warning label cannot substitute for those gates.
 
 Success looks like:
 - A learner returns daily because lookup is instant and the learn flow is satisfying enough to repeat.
@@ -47,9 +49,9 @@ Emotional goals: trust (this is the real dictionary, not a curiosity), pride (th
 
 1. **The language is the subject.** Indigenous word foregrounded; English gloss subordinate. Typography, hierarchy, and color all reinforce this — never the other way around. This is the test for every screen.
 
-2. **Custodial confidence.** Show source, contributor, and approval state for every entry. Never present AI output as authoritative without flagging it. Translation disclaimers stay visible and honest, not buried in tooltips.
+2. **Custodial confidence.** Show source, contributor, and approval state for every entry. Never route research model output into learner tools without explicit authorization. Research limitations stay visible and honest, not buried in tooltips.
 
-   On mobile, this appears as a **Knowledge trail** attached to the result itself. A direct dictionary match, an unreviewed dictionary record, and a machine suggestion are different states with icon + label + plain-language explanation. That status must remain attached when a result is shared.
+   On mobile, this appears as a **Knowledge trail** attached to source-backed results. A reviewed dictionary record, an unreviewed record, and a record with no documented source are different states with icon + label + plain-language explanation. Experimental sentence generation is not another learner-result state; it stays on a separate research surface.
 
    Audio follows the same rule. An attributed source or contributed human recording plays before synthetic speech whenever it exists. User recordings are labelled as recorded voices, not automatically treated as reviewed or community-certified. Synthetic speech is always called a pronunciation guide and described as an approximation; it never borrows the identity of a language speaker.
 

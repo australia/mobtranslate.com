@@ -91,8 +91,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
     { title: 'Dictionaries', href: '/dictionaries' },
     { title: 'Map', href: '/map' },
     { title: 'Spread', href: '/atlas/spread' },
-    { title: 'Translate', href: '/#translate' },
-    { title: 'Talk', href: '/talk/kuku-yalanji' },
+    { title: 'Look up', href: '/#translate' },
     { title: 'Models', href: '/models' },
     { title: 'Learn', href: '/education' },
     { title: 'Community', href: '/leaderboard' }
@@ -281,7 +280,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                 </span>
               </Link>
               <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-xs">
-                Open-source dictionaries and translation tools for Indigenous languages.
+                Source-attributed dictionaries and learning tools for Indigenous languages.
               </p>
               <div className="flex items-center gap-2.5 mt-5">
                 <a
@@ -344,8 +343,8 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
               <ul className="space-y-2.5">
                 <li>
                   <Link href="/labs/v2" className="text-sm text-muted-foreground hover:text-foreground hover:translate-x-0.5 transition-all duration-200 inline-flex items-center gap-1.5">
-                    Translate
-                    <span className="rounded-full bg-amber-500/20 px-1.5 py-0.5 text-[10px] font-medium text-foreground/80">v2 research preview</span>
+                    Model research
+                    <span className="rounded-full bg-amber-500/20 px-1.5 py-0.5 text-[10px] font-medium text-foreground/80">separate from learner tools</span>
                   </Link>
                 </li>
                 <li>
@@ -437,7 +436,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
           <div className="py-6 border-t border-border/40">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-muted-foreground">
               <p>&copy; {new Date().getFullYear()} Mob Translate. Application code: MIT License.</p>
-              <p>Source terms vary · Research translations unverified</p>
+              <p>Source terms vary · Research models stay separate from learner tools</p>
             </div>
           </div>
         </div>

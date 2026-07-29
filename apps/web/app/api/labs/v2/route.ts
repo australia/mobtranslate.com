@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: 'Custom model inference is paused while a stronger Kuku Yalanji candidate is evaluated. Use the dictionary-guided translator on the homepage for now.',
+        error: 'Custom model inference is paused while a stronger Kuku Yalanji candidate is evaluated. Use the source-backed dictionary lookup on the homepage for now.',
       } satisfies LabsV2Response,
       { status: 503 },
     );

@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: 'Custom model inference is paused. Use the dictionary-guided translator on the homepage for now.',
+        error: 'Custom model inference is paused. Use the source-backed dictionary lookup on the homepage for now.',
       } satisfies MigmaqResponse,
       { status: 503 },
     );

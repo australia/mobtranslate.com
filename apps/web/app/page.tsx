@@ -13,8 +13,8 @@ const HOW_IT_WORKS = [
     body: 'Entries are assembled from named dictionaries, grammars, archives, recordings, and contributions. Source and review state are shown where the record supports them.',
   },
   {
-    title: 'Translation, flagged honestly',
-    body: 'Dictionary evidence can guide contextual translation, but generated text remains an unverified research draft. Machine output is never presented as an authoritative source.',
+    title: 'Missing stays missing',
+    body: 'Learner-facing results come from dictionary records. When no source-backed entry matches, the gap stays visible instead of being filled with a plausible machine guess.',
   },
   {
     title: 'Open code, visible terms',
@@ -36,7 +36,7 @@ export default async function Page() {
     name: 'Mob Translate',
     url: 'https://mobtranslate.com',
     description:
-      'Open-source dictionaries, translation and pronunciation for Australian First Nations languages.',
+      'Source-attributed dictionaries, pronunciation and learning tools for Indigenous languages.',
     publisher: {
       '@type': 'Organization',
       name: 'Mob Translate',
@@ -60,17 +60,18 @@ export default async function Page() {
                 Open code · attributed sources
               </p>
               <h1 className="font-display font-bold text-[#faf8f5] mb-6 tracking-[-0.025em] leading-[0.95] text-5xl sm:text-6xl lg:text-7xl">
-                Translate into
+                Find words in
                 <br />
                 <span className="text-[#ecb485]">Indigenous languages</span>
               </h1>
               <p className="text-lg sm:text-xl text-[#faf8f5]/70 max-w-2xl mx-auto leading-relaxed">
-                An independent dictionary, translator, and learning project built from attributed
-                language resources and contributions. Machine translations are unverified drafts.
+                An independent dictionary and learning project built from attributed language
+                resources and contributions. Search what is recorded, hear available voices, and
+                follow each word back to its source.
               </p>
             </div>
 
-            {/* Translator — Google-Translate two-pane with a Chat toggle */}
+            {/* Source-backed lookup — the learner-facing product promise. */}
             <TranslateHero languages={languages} />
 
             {/* Quick links */}
@@ -238,11 +239,11 @@ export default async function Page() {
 
 export async function generateMetadata() {
   return {
-    title: 'Mob Translate - Indigenous Language Translation',
-    description: 'A community-driven project to create translation tools for Indigenous languages worldwide, making language learning and exploration accessible to all.',
+    title: 'Mob Translate - Indigenous Language Dictionaries',
+    description: 'Source-attributed Indigenous language dictionaries, pronunciation, and learning tools with visible source and review trails.',
     openGraph: {
-      title: 'Mob Translate - Indigenous Language Translation',
-      description: 'A community-driven project to create translation tools for Indigenous languages worldwide.',
+      title: 'Mob Translate - Indigenous Language Dictionaries',
+      description: 'Source-attributed Indigenous language dictionaries, pronunciation, and learning tools.',
       type: 'website',
     },
   };

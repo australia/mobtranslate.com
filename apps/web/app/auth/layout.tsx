@@ -54,15 +54,15 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
 
             <p className="text-lg text-[#faf8f5]/65 mb-10 leading-relaxed">
               Join the community keeping Indigenous languages living, through open dictionaries,
-              translation, and a learning habit you can build a few words at a time.
+              recordings, and a learning habit you can build a few words at a time.
             </p>
 
             {/* Feature list */}
             <ul className="space-y-4 mb-12">
               {[
-                { icon: Globe, text: 'Translation tools for Indigenous languages' },
-                { icon: BookOpen, text: 'Community-curated living dictionaries' },
-                { icon: Sparkles, text: 'AI translation, always flagged as a guide' },
+                { icon: Globe, text: 'Find words and meanings in either direction' },
+                { icon: BookOpen, text: 'Working dictionaries with visible source trails' },
+                { icon: Sparkles, text: 'Research models kept separate from learner tools' },
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3">
                   <item.icon className="w-4.5 h-4.5 text-[#ecb485] shrink-0" aria-hidden="true" />

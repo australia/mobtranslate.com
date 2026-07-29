@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Image, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import * as Linking from 'expo-linking';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,16 +9,19 @@ import {
   AudioSourceBadge, Button, Card, CTABanner, LangCard, LanguageSelector, Screen, SectionHeader, SpeakerButton, TopBar,
 } from '../../components/kit';
 import { Skeleton, SkeletonLines } from '../../components/Skeleton';
-import { CorrectionModal } from '../../components/CorrectionModal';
 import { ProvenancePanel } from '../../components/ProvenancePanel';
-import { API_BASE, getWordRecordings, translate, type ExistingRecording, type TranslationResult } from '../../lib/api';
+import { API_BASE, getWordRecordings, searchWords, type ExistingRecording, type SearchHit } from '../../lib/api';
 import { useLang } from '../../lib/langContext';
 import { useAccent, AccentWash } from '../../lib/accent';
 import { fallbackGovernance, langMeta } from '../../lib/langMeta';
 import { getWordOfDay, type WordOfDay } from '../../lib/wotd';
 import { C, F, S, radius, shadowStrong, LANG_ART } from '../../lib/theme';
 
-const QUICK_PHRASES = ['Hello', 'Thank you', 'How are you?', 'Where is water?'];
+const QUICK_LOOKUPS: Record<string, string[]> = {
+  kuku_yalanji: ['water', 'child', 'woman', 'country'],
+  anindilyakwa: ['water', 'man', 'fish'],
+  migmaq: ['water', 'child', 'woman', 'country'],
+};
 
 export default function HomeScreen() {
   const { code, setCode, languages, lang } = useLang();
@@ -26,12 +29,12 @@ export default function HomeScreen() {
   const router = useRouter();
   const [picker, setPicker] = useState(false);
   const [input, setInput] = useState('');
-  const [result, setResult] = useState<TranslationResult | null>(null);
+  const [hits, setHits] = useState<SearchHit[]>([]);
+  const [searchedQuery, setSearchedQuery] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [wotd, setWotd] = useState<WordOfDay | null>(null);
   const [wotdRecording, setWotdRecording] = useState<ExistingRecording | null | undefined>(undefined);
-  const [correct, setCorrect] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -51,44 +54,38 @@ export default function HomeScreen() {
   const meta = langMeta(code);
   const art = LANG_ART[code];
   const governance = lang?.governance ?? fallbackGovernance(code);
+  const quickLookups = QUICK_LOOKUPS[code] ?? ['water', 'family', 'country'];
 
   function updateInput(text: string) {
     setInput(text);
-    setResult(null);
+    setHits([]);
+    setSearchedQuery('');
     setError(null);
   }
 
   function chooseLanguage(nextCode: string) {
     setCode(nextCode);
-    setResult(null);
+    setHits([]);
+    setSearchedQuery('');
     setError(null);
   }
 
-  async function onTranslate() {
+  async function onLookup() {
     const text = input.trim();
     if (!text) return;
     setLoading(true);
-    setResult(null);
+    setHits([]);
+    setSearchedQuery('');
     setError(null);
     try {
-      const translated = await translate(code, text);
-      if (!translated.translation.trim()) throw new Error('Empty translation');
-      setResult(translated);
+      const matches = await searchWords(code, text);
+      setHits(matches.slice(0, 6));
+      setSearchedQuery(text);
     } catch {
-      setError("We couldn't translate that just now. Check your connection and try again.");
+      setError("We couldn't reach the dictionary just now. Check your connection and try again.");
     } finally {
       setLoading(false);
     }
-  }
-
-  async function shareTranslation() {
-    if (!result) return;
-    const status = result.kind === 'dictionary'
-      ? `Direct Mob Translate dictionary match.${result.sourceUrl ? `\n${result.sourceUrl}` : ''}`
-      : 'Machine suggestion — not community verified';
-    await Share.share({
-      message: `${input.trim()}\n${result.translation}\n\n${status}\n${langName} via Mob Translate`,
-    });
   }
 
   return (
@@ -145,62 +142,63 @@ export default function HomeScreen() {
       <Card style={{ ...styles.composer, borderColor: accent.accentLine }}>
         <View style={styles.composerHeading}>
           <View style={styles.composerTitleWrap}>
-            <Text style={[styles.composerEyebrow, { color: accent.accent }]}>TRANSLATE</Text>
-            <Text style={styles.composerTitle}>Say it in {langName}</Text>
+            <Text style={[styles.composerEyebrow, { color: accent.accent }]}>DICTIONARY LOOKUP</Text>
+            <Text style={styles.composerTitle}>Find a word in {langName}</Text>
           </View>
           <Pressable
             onPress={() => setPicker(true)}
             hitSlop={5}
             accessibilityRole="button"
-            accessibilityLabel={`Translate from English to ${langName}. Change language`}
+            accessibilityLabel={`Search the ${langName} dictionary. Change language`}
             style={({ pressed }) => [styles.languageRoute, { backgroundColor: accent.accentSoft }, pressed && { opacity: 0.7 }]}
           >
             <Text style={[styles.routeText, { color: accent.accentDeep }]}>EN</Text>
-            <Ionicons name="arrow-forward" size={13} color={accent.accent} />
+            <Ionicons name="swap-horizontal" size={13} color={accent.accent} />
             <Text style={[styles.routeText, { color: accent.accentDeep }]}>{langName.slice(0, 3).toUpperCase()}</Text>
           </Pressable>
         </View>
 
         <View style={styles.inputWrap}>
+          <Ionicons name="search" size={20} color={accent.accent} />
           <TextInput
             value={input}
             onChangeText={updateInput}
-            placeholder="What would you like to say?"
+            onSubmitEditing={onLookup}
+            placeholder="Search a word or English meaning"
             placeholderTextColor={C.faint}
-            multiline
-            maxLength={240}
+            returnKeyType="search"
+            maxLength={80}
             style={styles.input}
-            accessibilityLabel="English text to translate"
+            accessibilityLabel={`Search the ${langName} dictionary`}
           />
-          <Text style={styles.characterCount}>{input.length}/240</Text>
         </View>
 
         <View style={styles.quickBlock}>
-          <Text style={styles.quickLabel}>QUICK PHRASES</Text>
+          <Text style={styles.quickLabel}>TRY A MEANING</Text>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
             style={styles.quickScrollOuter}
             contentContainerStyle={styles.quickScroll}
           >
-            {QUICK_PHRASES.map((phrase) => (
+            {quickLookups.map((query) => (
               <Pressable
-                key={phrase}
-                onPress={() => updateInput(phrase)}
+                key={query}
+                onPress={() => updateInput(query)}
                 accessibilityRole="button"
-                accessibilityLabel={`Use phrase ${phrase}`}
-                style={({ pressed }) => [styles.quickPhrase, input === phrase && styles.quickPhraseActive, pressed && { opacity: 0.72 }]}
+                accessibilityLabel={`Look up ${query}`}
+                style={({ pressed }) => [styles.quickPhrase, input === query && styles.quickPhraseActive, pressed && { opacity: 0.72 }]}
               >
-                <Text style={[styles.quickPhraseText, input === phrase && styles.quickPhraseTextActive]}>{phrase}</Text>
+                <Text style={[styles.quickPhraseText, input === query && styles.quickPhraseTextActive]}>{query}</Text>
               </Pressable>
             ))}
           </ScrollView>
         </View>
 
         <Button
-          label={input.trim() ? `Translate to ${langName}` : 'Type something to translate'}
-          icon="sparkles"
-          onPress={onTranslate}
+          label={input.trim() ? `Search ${langName}` : 'Type a word or meaning'}
+          icon="search"
+          onPress={onLookup}
           loading={loading}
           disabled={!input.trim()}
           full
@@ -210,73 +208,76 @@ export default function HomeScreen() {
           <Animated.View entering={FadeInDown.springify().damping(18).mass(0.7)} style={styles.errorBox} accessibilityRole="alert">
             <View style={styles.errorIcon}><Ionicons name="cloud-offline-outline" size={20} color={C.clay} /></View>
             <View style={{ flex: 1, gap: 3 }}>
-              <Text style={styles.errorTitle}>Translation paused</Text>
+              <Text style={styles.errorTitle}>Dictionary unavailable</Text>
               <Text style={styles.errorText}>{error}</Text>
             </View>
-            <Pressable onPress={onTranslate} accessibilityRole="button" accessibilityLabel="Retry translation" style={styles.retryButton}>
+            <Pressable onPress={onLookup} accessibilityRole="button" accessibilityLabel="Retry dictionary search" style={styles.retryButton}>
               <Text style={styles.retryText}>Retry</Text>
             </Pressable>
           </Animated.View>
         ) : null}
 
-        {result ? (
+        {searchedQuery && !loading ? (
           <Animated.View entering={FadeInDown.springify().damping(18).mass(0.7)} style={styles.resultArea}>
             <View style={styles.resultHeader}>
               <View style={styles.resultReady}>
-                <Ionicons
-                  name={result.kind === 'dictionary' ? 'book-outline' : 'sparkles-outline'}
-                  size={16}
-                  color={result.kind === 'dictionary' ? C.forest : C.clay}
-                />
-                <Text style={[styles.resultLabel, { color: result.kind === 'dictionary' ? C.forest : C.clay }]}>
-                  {result.kind === 'dictionary' ? 'DICTIONARY MATCH' : 'MACHINE SUGGESTION'}
+                <Ionicons name="book-outline" size={16} color={C.forest} />
+                <Text style={styles.resultLabel}>
+                  {hits.length > 0 ? `${hits.length} DICTIONARY ${hits.length === 1 ? 'ENTRY' : 'ENTRIES'}` : 'NO ENTRY FOUND'}
                 </Text>
               </View>
-              <Pressable
-                onPress={shareTranslation}
-                accessibilityRole="button"
-                accessibilityLabel="Share translation"
-                style={({ pressed }) => [styles.shareButton, pressed && { opacity: 0.65 }]}
-              >
-                <Ionicons name="share-outline" size={18} color={C.forest} />
-                <Text style={styles.shareText}>Share</Text>
-              </Pressable>
+              <Text style={styles.sourceHint}>OPEN FOR SOURCES</Text>
             </View>
-            <View style={[styles.resultBox, { backgroundColor: accent.accentSoft }]}>
-              <View style={{ flex: 1, gap: 5 }}>
-                <Text style={[styles.resultText, { color: accent.accentDeep }]} accessibilityLanguage={meta.languageTag} selectable>{result.translation}</Text>
-                {result.gloss ? <Text style={styles.resultGloss}>{result.gloss}</Text> : null}
+            {hits.length > 0 ? (
+              <View style={styles.searchResults}>
+                {hits.map((hit, index) => (
+                  <Pressable
+                    key={hit.wordId}
+                    onPress={() => router.push({ pathname: '/word/[id]', params: { id: hit.wordId, code, word: hit.word } })}
+                    accessibilityRole="button"
+                    accessibilityLabel={`${hit.word}, ${hit.meaning || 'open dictionary entry'}`}
+                    style={({ pressed }) => [
+                      styles.searchResult,
+                      index > 0 && styles.searchResultBorder,
+                      pressed && { backgroundColor: accent.accentSoft },
+                    ]}
+                  >
+                    <View style={styles.searchResultCopy}>
+                      <View style={styles.searchResultTitleRow}>
+                        <Text style={styles.searchResultWord} accessibilityLanguage={meta.languageTag}>{hit.word}</Text>
+                        {hit.wordClass ? <Text style={[styles.searchResultClass, { color: accent.accent }]}>{hit.wordClass}</Text> : null}
+                      </View>
+                      <Text style={styles.searchResultMeaning} numberOfLines={2}>
+                        {hit.meaning || 'Meaning recorded on the dictionary entry'}
+                      </Text>
+                    </View>
+                    <Ionicons name="arrow-forward" size={17} color={accent.accent} />
+                  </Pressable>
+                ))}
               </View>
-              <SpeakerButton code={code} text={result.translation} size="lg" />
-            </View>
-            <AudioSourceBadge recording={null} compact />
-            {result.kind === 'dictionary' ? (
+            ) : (
+              <View style={styles.emptyResult}>
+                <View style={[styles.emptyResultIcon, { backgroundColor: accent.accentSoft }]}>
+                  <Ionicons name="book-outline" size={22} color={accent.accent} />
+                </View>
+                <Text style={styles.emptyResultTitle}>No matching entry yet</Text>
+                <Text style={styles.emptyResultBody}>
+                  Try a shorter word or browse the collection. A missing result stays missing instead of being filled with a machine guess.
+                </Text>
+                <Pressable onPress={() => router.push('/dictionary')} style={styles.browseRow} accessibilityRole="button">
+                  <Text style={[styles.browseText, { color: accent.accent }]}>Browse {langName}</Text>
+                  <Ionicons name="arrow-forward" size={15} color={accent.accent} />
+                </Pressable>
+              </View>
+            )}
+            {hits.length > 0 ? (
               <ProvenancePanel
                 tone="dictionary"
                 eyebrow="KNOWLEDGE TRAIL"
-                title="From the working dictionary"
-                body="This is a direct dictionary match, not a generated sentence. Open the entry to see its source and review status."
-                actionLabel={result.sourceUrl ? 'Open dictionary entry' : undefined}
-                onAction={result.sourceUrl ? () => Linking.openURL(result.sourceUrl!) : undefined}
+                title="Recorded entries, not generated sentences"
+                body="Open an entry to see its exact source, review status, usage notes, and whether a speaker recording is available."
               />
-            ) : (
-              <ProvenancePanel
-                tone="machine"
-                eyebrow="KNOWLEDGE TRAIL"
-                title="A suggestion, not the final word"
-                body="This suggestion was generated from dictionary evidence and has not been community verified. For important or sensitive use, check with a speaker or language keeper."
-              />
-            )}
-            <Pressable
-              onPress={() => setCorrect(true)}
-              style={styles.suggestRow}
-              hitSlop={8}
-              accessibilityRole="button"
-              accessibilityLabel="Suggest a better translation"
-            >
-              <Ionicons name="create-outline" size={15} color={accent.accent} />
-              <Text style={[styles.suggestText, { color: accent.accent }]}>Help improve this translation</Text>
-            </Pressable>
+            ) : null}
           </Animated.View>
         ) : null}
       </Card>
@@ -362,12 +363,6 @@ export default function HomeScreen() {
         onSelect={chooseLanguage}
         onClose={() => setPicker(false)}
       />
-
-      <CorrectionModal
-        visible={correct}
-        target={result ? { kind: 'translation', languageCode: code, sourceText: input, currentTranslation: result.translation } : null}
-        onClose={() => setCorrect(false)}
-      />
     </Screen>
   );
 }
@@ -404,9 +399,8 @@ const styles = StyleSheet.create({
   composerTitle: { fontFamily: F.display, fontSize: S.heading, color: C.ink },
   languageRoute: { flexDirection: 'row', alignItems: 'center', gap: 5, height: 34, borderRadius: radius.pill, backgroundColor: C.sageSoft, paddingHorizontal: 10 },
   routeText: { fontFamily: F.bold, fontSize: 11, color: C.forest },
-  inputWrap: { minHeight: 116, borderRadius: radius.lg, borderWidth: 1.5, borderColor: C.sageLine, backgroundColor: C.surfaceAlt, overflow: 'hidden' },
-  input: { minHeight: 88, paddingHorizontal: 16, paddingTop: 15, paddingBottom: 8, fontFamily: F.body, fontSize: S.body, color: C.ink, textAlignVertical: 'top' },
-  characterCount: { alignSelf: 'flex-end', paddingRight: 12, paddingBottom: 9, fontFamily: F.medium, fontSize: 10, color: C.faint },
+  inputWrap: { minHeight: 64, flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 15, borderRadius: radius.lg, borderWidth: 1.5, borderColor: C.sageLine, backgroundColor: C.surfaceAlt, overflow: 'hidden' },
+  input: { flex: 1, minHeight: 62, fontFamily: F.body, fontSize: S.body, color: C.ink },
   quickBlock: { gap: 7 },
   quickLabel: { fontFamily: F.bold, fontSize: 10, letterSpacing: 1.15, color: C.muted },
   quickScrollOuter: { marginHorizontal: -18 },
@@ -427,13 +421,21 @@ const styles = StyleSheet.create({
   resultHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   resultReady: { flexDirection: 'row', alignItems: 'center', gap: 5 },
   resultLabel: { fontFamily: F.bold, fontSize: 10, letterSpacing: 1.1, color: C.success },
-  shareButton: { minHeight: 40, flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 8 },
-  shareText: { fontFamily: F.bold, fontSize: S.small, color: C.forest },
-  resultBox: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.sageSoft, borderRadius: radius.lg, padding: 16 },
-  resultText: { fontFamily: F.display, fontSize: S.title, color: C.forestDeep, lineHeight: 31 },
-  resultGloss: { fontFamily: F.body, fontSize: S.label, color: C.muted, lineHeight: 21 },
-  suggestRow: { minHeight: 36, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 },
-  suggestText: { fontFamily: F.semibold, fontSize: S.small, color: C.sage },
+  sourceHint: { fontFamily: F.bold, fontSize: 9, letterSpacing: 0.9, color: C.faint },
+  searchResults: { borderWidth: 1, borderColor: C.sageLine, borderRadius: radius.lg, overflow: 'hidden', backgroundColor: C.surface },
+  searchResult: { minHeight: 76, flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 15, paddingVertical: 12 },
+  searchResultBorder: { borderTopWidth: 1, borderTopColor: C.hair },
+  searchResultCopy: { flex: 1, gap: 3 },
+  searchResultTitleRow: { flexDirection: 'row', alignItems: 'baseline', gap: 8 },
+  searchResultWord: { flexShrink: 1, fontFamily: F.displayBold, fontSize: S.heading, color: C.ink },
+  searchResultClass: { fontFamily: F.semibold, fontSize: 10, color: C.sage },
+  searchResultMeaning: { fontFamily: F.body, fontSize: S.small, lineHeight: 18, color: C.muted },
+  emptyResult: { alignItems: 'center', gap: 8, paddingVertical: 12, paddingHorizontal: 8 },
+  emptyResultIcon: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center', borderRadius: radius.pill, backgroundColor: C.sageSoft },
+  emptyResultTitle: { fontFamily: F.displayBold, fontSize: S.heading, color: C.ink, textAlign: 'center' },
+  emptyResultBody: { fontFamily: F.body, fontSize: S.small, lineHeight: 19, color: C.muted, textAlign: 'center' },
+  browseRow: { minHeight: 40, flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 8 },
+  browseText: { fontFamily: F.bold, fontSize: S.small, color: C.sage },
 
   sectionBlock: { gap: 12 },
   bleed: { marginHorizontal: -20 },

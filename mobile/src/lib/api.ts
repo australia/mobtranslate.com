@@ -93,42 +93,19 @@ export async function getLanguages(): Promise<Language[]> {
   return Array.isArray(data) ? data : [];
 }
 
-// ---- Translate -------------------------------------------------------------
-export interface TranslationResult {
-  translation: string;
-  gloss?: string;
-  kind: 'dictionary' | 'machine';
-  sourceUrl?: string;
-}
-
-export async function translate(code: string, text: string): Promise<TranslationResult> {
-  const res = await fetch(`${API_BASE}/api/translate/${code}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text, mode: 'translate' }),
-  });
-  const data = await json<{
-    translation?: string;
-    gloss?: string;
-    error?: string;
-    inference?: { validation?: string; sourceUrl?: string };
-  }>(res);
-  if (data.error) throw new Error(data.error);
-  return {
-    translation: data.translation ?? '',
-    gloss: data.gloss,
-    kind: data.inference?.validation === 'dictionary_record' ? 'dictionary' : 'machine',
-    sourceUrl: data.inference?.sourceUrl,
-  };
-}
-
 // ---- Pronunciation ---------------------------------------------------------
 export function ttsUrl(code: string, text: string): string {
   return `${API_BASE}/api/tts?lang=${encodeURIComponent(code)}&text=${encodeURIComponent(text)}`;
 }
 
 // ---- Dictionary search -----------------------------------------------------
-export interface SearchHit { wordId: string; word: string; meaning: string; languageCode: string }
+export interface SearchHit {
+  wordId: string;
+  word: string;
+  meaning: string;
+  languageCode: string;
+  wordClass?: string;
+}
 
 export async function searchWords(code: string, q: string): Promise<SearchHit[]> {
   if (!q.trim()) return [];
@@ -139,10 +116,23 @@ export async function searchWords(code: string, q: string): Promise<SearchHit[]>
   const seen = new Set<string>();
   const hits: SearchHit[] = [];
   for (const r of data.results ?? []) {
-    const w = r.word;
-    if (!w?.id || seen.has(w.id)) continue;
-    seen.add(w.id);
-    hits.push({ wordId: w.id, word: w.word, meaning: r.definition || r.translation || '', languageCode: w.language?.code || code });
+    const nested = r.word && typeof r.word === 'object' ? r.word : null;
+    const wordId = nested?.id || (typeof r.word === 'string' ? r.id : null);
+    const word = typeof r.word === 'string' ? r.word : nested?.word;
+    if (!wordId || !word || seen.has(wordId)) continue;
+    seen.add(wordId);
+    hits.push({
+      wordId,
+      word,
+      meaning: r.definition || r.translation || r.primary_definition || '',
+      languageCode: nested?.language?.code || r.language?.code || code,
+      wordClass:
+        nested?.word_class?.name ||
+        nested?.word_class?.abbreviation ||
+        r.word_class?.name ||
+        r.word_class?.abbreviation ||
+        undefined,
+    });
   }
   return hits;
 }

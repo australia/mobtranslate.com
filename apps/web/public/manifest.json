@@ -1,7 +1,7 @@
 {
   "name": "Mob Translate — Indigenous language dictionaries",
   "short_name": "Mob Translate",
-  "description": "Open-source dictionaries, translation and pronunciation for Australian First Nations languages.",
+  "description": "Source-attributed dictionaries, pronunciation and learning tools for Indigenous languages.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

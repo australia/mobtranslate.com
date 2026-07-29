@@ -66,6 +66,7 @@ import {
   isTranslationProviderFailure,
   safeTranslationErrorDiagnostic,
 } from '@/lib/translation-service-error.server';
+import { getLearnerLanguageCapability } from '@/lib/learner-language-capabilities';
 import {
   apiGuardResponse,
   enforceHuggingFaceProviderBudget,
@@ -121,6 +122,28 @@ interface Dictionary {
 
 const STANDARD_TRANSLATION_CONTRACT = 'complete-dictionary-structured-v2';
 const MAX_TRANSLATION_CHARS = 400;
+
+function sourceBackedLookupOnlyResponse(
+  dictionary: Dictionary,
+  direction: 'to_language' | 'to_english',
+) {
+  const capability = getLearnerLanguageCapability(dictionary.meta.code);
+  return NextResponse.json(
+    {
+      success: false,
+      code: 'source_backed_lookup_only',
+      error: `Mob Translate currently offers source-backed dictionary lookup for ${dictionary.meta.name}, not generated sentence translation. Search for a single word or meaning instead.`,
+      language: {
+        name: dictionary.meta.name,
+        code: dictionary.meta.code,
+      },
+      direction,
+      dictionaryUrl: `/dictionaries/${encodeURIComponent(dictionary.meta.code)}`,
+      capability,
+    },
+    { status: 422 },
+  );
+}
 
 const CachedReviewSchema = z.object({
   review: HybridReviewToolSchema,
@@ -726,6 +749,13 @@ export async function POST(
       );
     }
 
+    // The public learner route is evidence-first. Open-ended chat previously
+    // invited the model to invent language and cultural knowledge from a
+    // dictionary prompt, which no collection has authorized.
+    if (mode === 'chat') {
+      return sourceBackedLookupOnlyResponse(dictionary, direction);
+    }
+
     // ---- Reverse: Indigenous language -> English -------------------------
     if (direction === 'to_english') {
       const exactHeadwords = findExactHeadwordEntries(text, dictionary.words);
@@ -770,6 +800,13 @@ export async function POST(
             senses,
           },
         });
+      }
+
+      if (
+        getLearnerLanguageCapability(dictionary.meta.code).sentenceGeneration
+          .status !== 'community_authorized'
+      ) {
+        return sourceBackedLookupOnlyResponse(dictionary, direction);
       }
 
       const reverseModelId =
@@ -916,6 +953,14 @@ export async function POST(
           },
         });
       }
+    }
+
+    if (
+      mode === 'translate' &&
+      getLearnerLanguageCapability(dictionary.meta.code).sentenceGeneration
+        .status !== 'community_authorized'
+    ) {
+      return sourceBackedLookupOnlyResponse(dictionary, direction);
     }
 
     const hybridContract =
