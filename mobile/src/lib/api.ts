@@ -132,6 +132,18 @@ export async function searchWords(code: string, q: string): Promise<SearchHit[]>
 
 export interface WordExample { id?: string; text: string; translation?: string }
 export interface CulturalContext { description: string; usageNotes?: string }
+export interface WordSource {
+  id: string;
+  name: string;
+  relationship: 'dictionary_collection' | 'entry_created_from_source' | 'linked_archive_record' | 'recorded_source';
+  description: string;
+  scope: string[];
+  url?: string;
+  entryUrl?: string;
+  attribution?: string;
+  licenseName?: string;
+  licenseUrl?: string;
+}
 export interface WordDetail {
   id: string; word: string; languageCode: string;
   pronunciation?: string; wordClass?: string; wordType?: string;
@@ -141,6 +153,7 @@ export interface WordDetail {
   definitions: string[]; translations: string[];
   examples: WordExample[];
   culturalContexts: CulturalContext[];
+  sources: WordSource[];
 }
 
 export async function getWord(id: string): Promise<WordDetail | null> {
@@ -173,6 +186,20 @@ export async function getWord(id: string): Promise<WordDetail | null> {
       culturalContexts: (w.cultural_contexts ?? [])
         .map((x: any) => ({ description: x.description ?? x.context_description ?? '', usageNotes: x.usage_notes ?? x.usage_restrictions ?? undefined }))
         .filter((x: CulturalContext) => x.description || x.usageNotes),
+      sources: (w.source_records ?? [])
+        .map((x: any) => ({
+          id: String(x.id ?? ''),
+          name: String(x.name ?? ''),
+          relationship: x.relationship,
+          description: String(x.description ?? ''),
+          scope: Array.isArray(x.scope) ? x.scope.map(String) : [],
+          url: x.url ?? undefined,
+          entryUrl: x.entryUrl ?? x.entry_url ?? undefined,
+          attribution: x.attribution ?? undefined,
+          licenseName: x.licenseName ?? x.license_name ?? undefined,
+          licenseUrl: x.licenseUrl ?? x.license_url ?? undefined,
+        }))
+        .filter((x: WordSource) => x.id && x.name && x.description),
     };
   } catch {
     return null;

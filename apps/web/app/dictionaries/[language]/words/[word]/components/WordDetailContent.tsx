@@ -4,7 +4,7 @@ import React, { Suspense, lazy } from 'react';
 import Link from 'next/link';
 import { WordLikeButton } from '@/components/WordLikeButton';
 import { Badge } from '@mobtranslate/ui';
-import { MapPin, MessageSquareQuote, Info, Tag, Volume2, GitBranch, Shuffle, Link2, BookMarked, Quote } from 'lucide-react';
+import { MapPin, MessageSquareQuote, Info, Tag, Volume2, GitBranch, Shuffle, Link2, BookMarked, Quote, ExternalLink, ShieldCheck, Hourglass } from 'lucide-react';
 import type { Word } from '@/lib/supabase/types';
 import { Recordings } from './Recordings';
 import { SpeakButton } from '@/components/audio/SpeakButton';
@@ -38,6 +38,7 @@ export function WordDetailContent({ word, languageCode }: WordDetailContentProps
   ) || [];
   const wordHref = (text: string) => `/dictionaries/${languageCode}/words/${encodeURIComponent(text)}`;
   const ipa = word.phonemic || (word.phonetic_transcription ? `/${word.phonetic_transcription}/` : null);
+  const sources = word.source_records ?? [];
 
   return (
     <div className="space-y-10">
@@ -109,6 +110,90 @@ export function WordDetailContent({ word, languageCode }: WordDetailContentProps
           </div>
         </section>
       )}
+
+      {/* Trust is part of the entry, not buried in a footer. Source evidence
+          and review state remain separate so one cannot imply the other. */}
+      <section aria-labelledby="trust-trail-heading">
+        <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+          <div className="flex items-start gap-3 px-5 py-5 sm:px-6">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--lang-accent-soft)] text-[var(--lang-accent)]">
+              <BookMarked className="h-5 w-5" aria-hidden="true" />
+            </div>
+            <div>
+              <h2 id="trust-trail-heading" className="font-display text-xl font-semibold">Source trail</h2>
+              <p className="mt-1 max-w-[65ch] text-sm leading-relaxed text-muted-foreground">
+                Where this record connects to a dictionary, reference work, or matched archive entry.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-3 px-5 pb-5 sm:px-6 sm:pb-6">
+            {sources.length > 0 ? sources.map((source) => {
+              const href = source.entryUrl || source.url;
+              return (
+                <article key={source.id} className="rounded-xl border border-border/80 bg-muted/35 p-4">
+                  <div className="flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
+                    <div className="min-w-0">
+                      <p className="font-semibold leading-snug text-foreground">{source.name}</p>
+                      <p className="mt-1.5 max-w-[68ch] text-sm leading-relaxed text-muted-foreground">
+                        {source.description}
+                      </p>
+                    </div>
+                    {href && (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border border-border bg-background px-3 text-sm font-semibold text-[var(--lang-accent)] transition-colors hover:border-[var(--lang-accent)]"
+                      >
+                        {source.entryUrl ? 'Matched entry' : 'Source'}
+                        <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                      </a>
+                    )}
+                  </div>
+                  <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                    {source.scope.map((item) => (
+                      <span key={item} className="rounded-full bg-background px-2.5 py-1">{item}</span>
+                    ))}
+                    {source.licenseName && source.licenseUrl ? (
+                      <a className="underline decoration-border underline-offset-2 hover:text-foreground" href={source.licenseUrl} target="_blank" rel="noreferrer">
+                        {source.licenseName}
+                      </a>
+                    ) : source.licenseName ? <span>{source.licenseName}</span> : null}
+                  </div>
+                  {source.attribution && <p className="mt-3 text-xs leading-relaxed text-muted-foreground/80">{source.attribution}</p>}
+                </article>
+              );
+            }) : (
+              <div className="rounded-xl border border-dashed border-border bg-muted/25 p-4">
+                <p className="font-medium text-foreground">Direct source link not yet documented</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Mob Translate does not yet have a source record it can show for this entry. The gap stays visible so it can be researched and corrected rather than hidden.
+                </p>
+                {word.entry_source && <p className="mt-2 text-xs text-muted-foreground">Stored source name: {word.entry_source}</p>}
+              </div>
+            )}
+          </div>
+
+          <div className="flex items-start gap-3 border-t border-border bg-muted/25 px-5 py-4 sm:px-6">
+            <div className="mt-0.5 text-[var(--lang-accent)]">
+              {word.is_verified ? <ShieldCheck className="h-5 w-5" aria-hidden="true" /> : <Hourglass className="h-5 w-5" aria-hidden="true" />}
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-foreground">
+                {word.is_verified ? 'Marked as reviewed in Mob Translate' : 'Community review is still open'}
+              </p>
+              <p className="mt-0.5 max-w-[68ch] text-xs leading-relaxed text-muted-foreground">
+                {word.is_verified
+                  ? 'This records an internal review state. It does not claim community endorsement unless the named source evidence says so.'
+                  : 'No Mob Translate review is recorded yet. Check important or sensitive use with a speaker or language keeper.'}
+                {word.review_count ? ` ${word.review_count} review${word.review_count === 1 ? '' : 's'} recorded.` : ''}
+              </p>
+              {word.needs_review && <p className="mt-1 text-xs font-medium text-amber-700 dark:text-amber-300">Review note: {word.needs_review}</p>}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Attributed source and community pronunciations */}
       <Recordings
@@ -312,12 +397,11 @@ export function WordDetailContent({ word, languageCode }: WordDetailContentProps
         </section>
       )}
 
-      {/* Source attribution */}
-      {(word.loanword_source || word.entry_source) && (
+      {/* Loanword origin is linguistic information, distinct from the source trail. */}
+      {word.loanword_source && (
         <p className="flex items-center gap-2 text-xs text-muted-foreground/80 pt-2">
           <BookMarked className="w-3.5 h-3.5" aria-hidden="true" />
-          {word.loanword_source && <span>Loan from {word.loanword_source}.</span>}
-          {word.entry_source && <span>Source: {word.entry_source}.</span>}
+          <span>Loan from {word.loanword_source}.</span>
         </p>
       )}
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Image, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Image, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -163,11 +163,34 @@ export default function WordScreen() {
                 body={detail.isVerified
                   ? 'This working dictionary entry has been reviewed in Mob Translate. You can still suggest a correction when language knowledge changes or more context is needed.'
                   : 'This is a working dictionary entry and has not yet been marked as reviewed. Check important or sensitive use with a speaker or language keeper.'}
-                detail={[
-                  detail.entrySource ? `Source: ${detail.entrySource}` : 'Source trail: not yet listed',
-                  detail.reviewCount > 0 ? `${detail.reviewCount} review${detail.reviewCount === 1 ? '' : 's'} recorded` : null,
-                ].filter(Boolean).join(' · ')}
+                detail={detail.reviewCount > 0 ? `${detail.reviewCount} review${detail.reviewCount === 1 ? '' : 's'} recorded` : 'No Mob Translate review recorded yet'}
               />
+
+              {detail.sources.length > 0 ? detail.sources.map((source) => {
+                const sourceUrl = source.entryUrl || source.url;
+                const scope = source.scope.length > 0 ? `Covers: ${source.scope.join(', ')}` : null;
+                const license = source.licenseName ? `License: ${source.licenseName}` : null;
+                return (
+                  <ProvenancePanel
+                    key={source.id}
+                    tone="dictionary"
+                    eyebrow="SOURCE TRAIL"
+                    title={source.name}
+                    body={source.description}
+                    detail={[scope, license].filter(Boolean).join(' · ') || source.attribution}
+                    actionLabel={sourceUrl ? (source.entryUrl ? 'Open matched source entry' : 'Open source') : undefined}
+                    onAction={sourceUrl ? () => Linking.openURL(sourceUrl).catch(() => {}) : undefined}
+                  />
+                );
+              }) : (
+                <ProvenancePanel
+                  tone="working"
+                  eyebrow="SOURCE TRAIL"
+                  title="Direct source link not yet documented"
+                  body="Mob Translate does not yet have a source record it can show for this entry. That gap is visible here so it can be researched and corrected rather than hidden."
+                  detail={detail.entrySource ? `Stored source name: ${detail.entrySource}` : undefined}
+                />
+              )}
 
               {detail.communityNotes ? (
                 <Card>

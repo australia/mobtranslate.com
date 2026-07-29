@@ -17,6 +17,7 @@ import {
 } from '@/lib/db/schema'
 import { createSuccessResponse, createErrorResponse, corsHeaders } from '../../../middleware'
 import { NextRequest } from 'next/server'
+import { getPublicWordSources } from '@/lib/word-provenance.server'
 
 export async function OPTIONS() {
   return new Response(null, { status: 200, headers: corsHeaders() })
@@ -43,7 +44,7 @@ export async function GET(request: NextRequest, props: { params: Promise<{ id: s
     const wc = row.wordClass
     const lang = row.language
 
-    const [defs, trans, usages, syns, ants, etys, audios, cultural, dialects, rels] =
+    const [defs, trans, usages, syns, ants, etys, audios, cultural, dialects, rels, sourceRecords] =
       await Promise.all([
         db.select().from(definitionsT).where(eq(definitionsT.wordId, id)),
         db.select().from(translationsT).where(eq(translationsT.wordId, id)),
@@ -67,6 +68,11 @@ export async function GET(request: NextRequest, props: { params: Promise<{ id: s
           .from(wordRelationshipsT)
           .leftJoin(wordsT, eq(wordRelationshipsT.relatedWordId, wordsT.id))
           .where(eq(wordRelationshipsT.parentWordId, id)),
+        getPublicWordSources({
+          wordId: id,
+          languageCode: lang?.code,
+          entrySource: word.entrySource,
+        }),
       ])
 
     const formattedWord = {
@@ -109,6 +115,7 @@ export async function GET(request: NextRequest, props: { params: Promise<{ id: s
       review_count: word.reviewCount,
       community_notes: word.communityNotes,
       entry_source: word.entrySource,
+      source_records: sourceRecords,
       needs_review: word.needsReview,
       definitions: defs.map((d) => ({
         id: d.id,

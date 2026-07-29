@@ -25,6 +25,7 @@ const Breadcrumbs = ({ items, className }: { items: { href: string; label: strin
 );
 import { getWordsForLanguage, searchWords, getWordSynonyms } from '@/lib/db/queries';
 import { WordDetailContent } from './components/WordDetailContent';
+import { getPublicWordSources } from '@/lib/word-provenance.server';
 
 export const revalidate = 300; // Revalidate every 5 minutes
 
@@ -77,8 +78,19 @@ async function getWordBySlug(languageCode: string, wordSlug: string) {
     return { word: null, language, relatedWords: words.slice(0, 6) };
   }
 
-  // Attach synonyms (detail-page only — not fetched on list views).
-  exactMatch.synonyms = await getWordSynonyms(exactMatch.id);
+  // Attach source and relationship records only on detail pages. Recording
+  // imports can prove a linked archive record without claiming that archive
+  // authored every field in an already-existing entry.
+  const [synonyms, sourceRecords] = await Promise.all([
+    getWordSynonyms(exactMatch.id),
+    getPublicWordSources({
+      wordId: exactMatch.id,
+      languageCode,
+      entrySource: exactMatch.entry_source,
+    }),
+  ]);
+  exactMatch.synonyms = synonyms;
+  exactMatch.source_records = sourceRecords;
 
   // Get related words (same root, similar words)
   const relatedWords = await searchWords(exactMatch.stem || exactMatch.word, languageCode);

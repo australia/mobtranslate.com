@@ -3,6 +3,14 @@
 
 meta:
   name: Kuku Yalanji
+  source: Kuku-Yalanji Dictionary (1982), Henry D. and Ruth Hershberger, with major Kuku Yalanji contributors
+  source_url: https://www.sil.org/resources/archives/18038
+  attribution: Major contributors include Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker, and people who lived at Jajikal in Ayton.
+  other_sources:
+  - name: A Grammar of the Kuku Yalanji Language of North Queensland
+    author: Elisabeth Patz
+    url: https://openresearch-repository.anu.edu.au/items/c3f55c48-a0aa-461d-be7a-fd7c3902d356
+    license: CC BY 4.0
 words:
 - word: aybi
   type: noun

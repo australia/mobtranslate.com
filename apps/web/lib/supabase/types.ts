@@ -69,6 +69,11 @@ export interface Word {
   see_also?: string[];          // cross-references to other entries
   usage_notes?: string[];
   synonyms?: { text: string; word_id?: string | null }[];
+  is_verified?: boolean;
+  review_count?: number;
+  last_reviewed_at?: string;
+  needs_review?: string;
+  source_records?: import('@/lib/word-provenance').PublicWordSource[];
 }
 
 export interface Definition {

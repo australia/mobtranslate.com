@@ -231,6 +231,8 @@ No card chrome around the whole thing — the entry IS the page on `/dictionarie
 
 Pronunciation controls use this order: attributed source recording, contributed human recording, then synthetic fallback. A contributed recording is not called reviewed unless it has a separate review state. The synthetic fallback uses a sparkle mark plus the words **Synthetic guide**; a speaker or microphone mark is reserved for recorded audio.
 
+Every full entry includes a **Source trail** in the main reading flow. It shows the named work, what the evidence covers, its terms when known, and a direct record link when one exists. “Matched archive entry” is intentionally different from “entry created from source”: a word-level match may prove the audio/example trail but must not imply that the archive authored every displayed field. Review state is a separate row and explicitly distinguishes Mob Translate workflow status from community endorsement. Missing provenance is rendered as a visible documentation gap, never silently replaced with a generic badge.
+
 ### 5.4 Learn card (flip / quiz)
 
 Existing 3D flip utilities (`.preserve-3d`, `.rotate-y-180`, `.perspective-1000`) are in `globals.css`. Keep them.
