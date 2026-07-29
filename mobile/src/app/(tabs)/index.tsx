@@ -34,16 +34,19 @@ export default function HomeScreen() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [wotd, setWotd] = useState<WordOfDay | null>(null);
+  const [wotdLoading, setWotdLoading] = useState(true);
   const [wotdRecording, setWotdRecording] = useState<ExistingRecording | null | undefined>(undefined);
 
   useEffect(() => {
     let active = true;
     setWotd(null);
+    setWotdLoading(true);
     setWotdRecording(undefined);
     getWordOfDay(code).then(async (word) => {
       if (!active) return;
       setWotd(word);
-      if (!word.id) { setWotdRecording(null); return; }
+      setWotdLoading(false);
+      if (!word) { setWotdRecording(null); return; }
       const recordings = await getWordRecordings(word.id);
       if (active) setWotdRecording(recordings[0] ?? null);
     });
@@ -297,7 +300,7 @@ export default function HomeScreen() {
         </View>
         <View style={styles.practiceCopy}>
           <Text style={[styles.practiceEyebrow, { color: accent.accent }]}>YOUR DAILY FIVE</Text>
-          <Text style={styles.practiceTitle}>Carry five words forward</Text>
+          <Text style={styles.practiceTitle}>Practise five real words</Text>
           <Text style={styles.practiceBody}>Listen, match the meaning, and keep the source close.</Text>
         </View>
         <View style={styles.practiceArrow}>
@@ -344,9 +347,7 @@ export default function HomeScreen() {
                 {wotd.example ? <Text style={styles.wotdExample} numberOfLines={2}>{wotd.example}</Text> : null}
                 <AudioSourceBadge recording={wotdRecording} loading={wotdRecording === undefined} compact />
                 <Pressable
-                  onPress={() => wotd.id
-                    ? router.push({ pathname: '/word/[id]', params: { id: wotd.id, code, word: wotd.word } })
-                    : router.push('/dictionary')}
+                  onPress={() => router.push({ pathname: '/word/[id]', params: { id: wotd.id, code, word: wotd.word } })}
                   accessibilityRole="button"
                   accessibilityLabel={`${wotd.word}, ${wotd.meaning}. Open dictionary`}
                   style={({ pressed }) => [styles.learnRow, pressed && { opacity: 0.65 }]}
@@ -355,11 +356,16 @@ export default function HomeScreen() {
                   <Ionicons name="arrow-forward" size={14} color={C.forest} />
                 </Pressable>
               </View>
-              {wotd.image ? <Image source={wotd.image} style={styles.wotdImg} resizeMode="cover" /> : null}
+              {wotd.image ? (
+                <View style={styles.wotdArt}>
+                  <Image source={wotd.image} style={styles.wotdImg} resizeMode="cover" accessible={false} />
+                  <View style={styles.illustrationLabel}><Text style={styles.illustrationLabelText}>ILLUSTRATION</Text></View>
+                </View>
+              ) : null}
             </View>
           </Card>
           </Animated.View>
-        ) : (
+        ) : wotdLoading ? (
           <Card padded={false} style={styles.wotdCard}>
             <View style={styles.wotdRow}>
               <View style={[styles.wotdText, { gap: 10 }]}>
@@ -369,13 +375,27 @@ export default function HomeScreen() {
               <Skeleton width={118} height={154} radius={0} />
             </View>
           </Card>
+        ) : (
+          <Card style={styles.wotdUnavailable}>
+            <View style={[styles.wotdUnavailableIcon, { backgroundColor: accent.accentSoft }]}>
+              <Ionicons name="book-outline" size={21} color={accent.accent} />
+            </View>
+            <View style={{ flex: 1, gap: 3 }}>
+              <Text style={styles.wotdUnavailableTitle}>No source-backed daily word available</Text>
+              <Text style={styles.wotdUnavailableBody}>Mob Translate won’t substitute a word from another language or invent one. Browse the {langName} collection instead.</Text>
+              <Pressable onPress={() => router.push('/dictionary')} accessibilityRole="button" accessibilityLabel={`Browse the ${langName} dictionary`} style={styles.learnRow}>
+                <Text style={styles.learnText}>Browse real entries</Text>
+                <Ionicons name="arrow-forward" size={14} color={C.forest} />
+              </Pressable>
+            </View>
+          </Card>
         )}
       </View>
 
       <CTABanner
-        title="Your voice can carry this forward"
-        sub={`Record a word and help keep ${langName} strong.`}
-        cta="Add your voice"
+        title="Share a pronunciation"
+        sub="Only if it is yours to share. Permission stays attached to public playback."
+        cta="Review & record"
         onPress={() => router.push('/record')}
       />
 
@@ -482,7 +502,14 @@ const styles = StyleSheet.create({
   wotdWord: { fontFamily: F.displayBold, fontSize: S.title, color: C.ink, flexShrink: 1 },
   wotdMeaning: { fontFamily: F.semibold, fontSize: S.small + 1, color: C.clay },
   wotdExample: { fontFamily: F.serifItalic, fontSize: S.small + 1, color: C.muted, lineHeight: 19 },
+  wotdUnavailable: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, borderColor: C.sageLine },
+  wotdUnavailableIcon: { width: 43, height: 43, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
+  wotdUnavailableTitle: { fontFamily: F.display, fontSize: S.body, color: C.ink },
+  wotdUnavailableBody: { fontFamily: F.body, fontSize: S.small, lineHeight: 19, color: C.muted },
   learnRow: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 3 },
   learnText: { fontFamily: F.bold, fontSize: 11, color: C.forest },
+  wotdArt: { width: 118, minHeight: 154, overflow: 'hidden' },
   wotdImg: { width: 118, minHeight: 154 },
+  illustrationLabel: { position: 'absolute', right: 7, bottom: 7, borderRadius: radius.pill, backgroundColor: 'rgba(34,56,42,0.76)', paddingHorizontal: 7, paddingVertical: 4 },
+  illustrationLabelText: { fontFamily: F.bold, fontSize: 8.5, letterSpacing: 0.7, color: C.cream },
 });

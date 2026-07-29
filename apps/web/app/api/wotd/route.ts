@@ -42,34 +42,6 @@ type Wotd = {
   imageUrl?: string | null
 }
 
-// ---------------------------------------------------------------------------
-// Curated fallback content (a few words per language) — used only when the DB
-// query is unavailable or returns nothing. Editorial content is acceptable.
-// ---------------------------------------------------------------------------
-const CURATED: Record<string, Array<{ word: string; meaning: string; example?: string }>> = {
-  kuku_yalanji: [
-    { word: 'bama', meaning: 'noun · person, Aboriginal person' },
-    { word: 'minya', meaning: 'noun · meat, animal' },
-    { word: 'jarba', meaning: 'noun · snake' },
-    { word: 'wawu', meaning: 'noun · breath, spirit' },
-    { word: 'bubu', meaning: 'noun · ground, country, place' },
-  ],
-  anindilyakwa: [
-    { word: 'eka', meaning: 'noun · fire' },
-    { word: 'akwalya', meaning: 'noun · fish' },
-    { word: 'amburrkba', meaning: 'noun · star' },
-  ],
-  migmaq: [
-    { word: 'wjit', meaning: 'preposition · for, on behalf of' },
-    { word: 'nemitu', meaning: 'verb · to see it' },
-    { word: 'samqwan', meaning: 'noun · water' },
-  ],
-  wbv: [
-    { word: 'wardu', meaning: 'noun · water' },
-    { word: 'mayu', meaning: 'noun · food' },
-  ],
-}
-
 // Deterministic 32-bit hash of a string → non-negative integer.
 function hashSeed(s: string): number {
   const h = crypto.createHash('sha256').update(s).digest()
@@ -207,18 +179,6 @@ async function pickFromDb(lang: string, seed: number): Promise<Wotd | null> {
   }
 }
 
-function pickFromCurated(lang: string, seed: number): Wotd | null {
-  const list = CURATED[lang]
-  if (!list || list.length === 0) return null
-  const item = list[seed % list.length]
-  return {
-    word: item.word,
-    pronunciation: cleanSyllableHint(item.word),
-    meaning: item.meaning,
-    example: item.example ?? null,
-  }
-}
-
 // ---------------------------------------------------------------------------
 // Route
 // ---------------------------------------------------------------------------
@@ -237,8 +197,6 @@ export async function GET(request: NextRequest) {
     console.error('[wotd] db pick failed', err?.message || err)
     wotd = null
   }
-  if (!wotd) wotd = pickFromCurated(lang, seed)
-
   if (!wotd) {
     return NextResponse.json({ error: `No word available for language "${lang}"` }, { status: 404 })
   }

@@ -293,13 +293,13 @@ export async function getWordThumbs(code: string, words: string[]): Promise<Reco
 
 // ---- Place names (for the map) ---------------------------------------------
 export interface Place { id: string; word: string; meaning?: string; latitude?: number | null; longitude?: number | null }
-export async function getPlaces(code: string): Promise<{ places: Place[]; withCoords: number }> {
+export async function getPlaces(code: string): Promise<{ places: Place[]; withCoords: number; ok: boolean }> {
   try {
     const res = await fetch(`${API_BASE}/api/v2/public/places?lang=${encodeURIComponent(code)}`);
-    if (!res.ok) return { places: [], withCoords: 0 };
+    if (!res.ok) return { places: [], withCoords: 0, ok: false };
     const d = await json<any>(res);
-    return { places: d.places ?? [], withCoords: d.withCoords ?? 0 };
-  } catch { return { places: [], withCoords: 0 }; }
+    return { places: d.places ?? [], withCoords: d.withCoords ?? 0, ok: true };
+  } catch { return { places: [], withCoords: 0, ok: false }; }
 }
 
 // ---- Recording studio ------------------------------------------------------

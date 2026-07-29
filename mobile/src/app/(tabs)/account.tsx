@@ -16,6 +16,8 @@ import { C, F, S, radius } from '../../lib/theme';
 
 const PRIVACY_URL = 'https://mobtranslate.com/privacy';
 const DELETION_URL = 'https://mobtranslate.com/account-deletion';
+const ABOUT_URL = 'https://mobtranslate.com/about';
+const SUPPORT_URL = 'https://mobtranslate.com/support';
 
 function openExternal(url: string) {
   Linking.openURL(url).catch(() => {});
@@ -113,7 +115,7 @@ export default function AccountScreen() {
 
   if (user) {
     return (
-      <Screen>
+      <Screen key="account-signed-in">
         <ScreenTitle title="Your account" />
         <Card>
           <View style={styles.userRow}>
@@ -125,7 +127,7 @@ export default function AccountScreen() {
           </View>
         </Card>
 
-        {/* Contribution, visualised — a woven river that grows as you record (#9) */}
+        {/* Contribution, visualised without implying review, authority, or ownership. */}
         <Animated.View entering={FadeIn.duration(400)}>
           <ContributionWeave
             progress={totals ? 1 - Math.exp(-((totals.words + totals.sentences)) / 12) : 0}
@@ -146,6 +148,10 @@ export default function AccountScreen() {
           <LinkRow icon="language" label="Language keyboard" sub="Type your language anywhere" onPress={() => router.push('/keyboard')} />
         </Card>
         <Card padded={false} style={{ overflow: 'hidden' }}>
+          <LinkRow icon="compass-outline" label="About Mob Translate" sub="Purpose, evidence, and responsibilities" onPress={() => openExternal(ABOUT_URL)} />
+          <View style={styles.sep} />
+          <LinkRow icon="help-circle-outline" label="Help & support" sub="Get help or report a problem" onPress={() => openExternal(SUPPORT_URL)} />
+          <View style={styles.sep} />
           <LinkRow icon="shield-checkmark-outline" label="Privacy policy" sub="How Mob Translate handles your data" onPress={() => openExternal(PRIVACY_URL)} />
           <View style={styles.sep} />
           <LinkRow icon="trash-outline" label="Delete account and data" sub="Open the deletion request page" onPress={() => openExternal(DELETION_URL)} />
@@ -190,9 +196,16 @@ export default function AccountScreen() {
   }
 
   return (
-    <Screen>
+    <Screen key="account-signed-out">
       <ScreenTitle title={mode === 'up' ? 'Create account' : 'Welcome back'}
-        sub={mode === 'up' ? 'Make an account to add and record words.' : 'Sign in to record your language.'} />
+        sub={mode === 'up' ? 'Create an account when you are ready to contribute.' : 'Sign in to contribute or manage your permissions.'} />
+      <View style={styles.openLearning}>
+        <View style={styles.openLearningIcon}><Ionicons name="leaf-outline" size={22} color={C.forest} /></View>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.openLearningTitle}>Learning stays open</Text>
+          <Text style={styles.openLearningBody}>You do not need an account to search source-backed dictionary entries, practise recorded words, or explore place names. Accounts are for contributions and permission controls.</Text>
+        </View>
+      </View>
       <Card style={{ gap: 12 }}>
         {mode === 'up' && <TextInput value={name} onChangeText={setName} placeholder="Your name" placeholderTextColor={C.muted} style={styles.input} />}
         <TextInput value={email} onChangeText={setEmail} placeholder="Email" placeholderTextColor={C.muted}
@@ -205,6 +218,10 @@ export default function AccountScreen() {
       <Button label={mode === 'up' ? 'I already have an account' : 'Create a new account'} variant="ghost"
         onPress={() => { setMode(mode === 'up' ? 'in' : 'up'); setError(null); }} full />
       <Card padded={false} style={{ overflow: 'hidden' }}>
+        <LinkRow icon="compass-outline" label="About Mob Translate" onPress={() => openExternal(ABOUT_URL)} />
+        <View style={styles.sep} />
+        <LinkRow icon="help-circle-outline" label="Help & support" onPress={() => openExternal(SUPPORT_URL)} />
+        <View style={styles.sep} />
         <LinkRow icon="shield-checkmark-outline" label="Privacy policy" onPress={() => openExternal(PRIVACY_URL)} />
         <View style={styles.sep} />
         <LinkRow icon="trash-outline" label="Account and data deletion" onPress={() => openExternal(DELETION_URL)} />
@@ -238,4 +255,8 @@ const styles = StyleSheet.create({
   permissionTitle: { fontFamily: F.display, fontSize: S.body, color: C.ink, marginTop: 2 },
   permissionBody: { fontFamily: F.body, fontSize: S.small, lineHeight: 20, color: C.muted },
   permissionError: { fontFamily: F.medium, fontSize: S.small, lineHeight: 19, color: C.danger },
+  openLearning: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, borderRadius: radius.lg, borderWidth: 1, borderColor: C.sageLine, backgroundColor: C.sageSoft, padding: 16 },
+  openLearningIcon: { width: 44, height: 44, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center', backgroundColor: C.surface },
+  openLearningTitle: { fontFamily: F.display, fontSize: S.body, color: C.ink },
+  openLearningBody: { fontFamily: F.body, fontSize: S.small, lineHeight: 20, color: C.inkSoft, marginTop: 3 },
 });

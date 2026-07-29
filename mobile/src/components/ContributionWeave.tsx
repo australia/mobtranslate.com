@@ -21,15 +21,15 @@ function strandPath(w: number, baseY: number, phase: number): string {
 }
 
 function caption(progress: number): string {
-  if (progress <= 0) return 'Your thread starts here — record a word to begin the weave.';
-  if (progress < 0.34) return 'Your thread is taking shape in the weave.';
-  if (progress < 0.7) return 'Woven into the language, clip by clip.';
-  return 'A strong thread now — you are carrying Country forward.';
+  if (progress <= 0) return 'Your recording trail starts here when you choose to share a word.';
+  if (progress < 0.34) return 'Your voice trail is taking shape, one permission-bound clip at a time.';
+  if (progress < 0.7) return 'Your recording trail is growing, clip by clip.';
+  return 'A strong contribution trail — each clip keeps its purpose and permission.';
 }
 
-/** A living woven river that fills as you contribute (#9): warm, non-numeric.
+/** A quiet voice trail that fills as you contribute: warm, non-numeric.
  *  `progress` (0→1, a gentle log of your recordings) brightens more strands and
- *  the whole weave flows slowly, like water or a braid of thread. */
+ *  the acoustic lines drift slowly behind plain-language contribution totals. */
 export function ContributionWeave({ progress, accent }: { progress: number; accent: Accent }) {
   const [w, setW] = useState(320);
   const t = useSharedValue(0);

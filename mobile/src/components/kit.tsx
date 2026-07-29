@@ -363,10 +363,12 @@ export function LangCard({
 export function CTABanner({ title, sub, cta, onPress }: { title: string; sub?: string; cta: string; onPress: () => void }) {
   return (
     <View style={styles.cta}>
-      <View style={styles.ctaLeaf}><Ionicons name="leaf" size={18} color={C.cream} /></View>
-      <View style={{ flex: 1 }}>
-        <Text style={styles.ctaTitle}>{title}</Text>
-        {!!sub && <Text style={styles.ctaSub}>{sub}</Text>}
+      <View style={styles.ctaTop}>
+        <View style={styles.ctaLeaf}><Ionicons name="leaf" size={18} color={C.cream} /></View>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.ctaTitle}>{title}</Text>
+          {!!sub && <Text style={styles.ctaSub}>{sub}</Text>}
+        </View>
       </View>
       <Pressable onPress={() => { tapHeavy(); onPress(); }}
         accessibilityRole="button" accessibilityLabel={cta}
@@ -523,10 +525,11 @@ const styles = StyleSheet.create({
   referenceAction: { minHeight: 44, flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: 5 },
   referenceActionText: { fontFamily: F.bold, fontSize: S.small, color: C.forest },
 
-  cta: { flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: C.forest, borderRadius: radius.lg, padding: 16 },
+  cta: { gap: 13, backgroundColor: C.forest, borderRadius: radius.lg, padding: 16 },
+  ctaTop: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   ctaLeaf: { width: 40, height: 40, borderRadius: radius.pill, backgroundColor: 'rgba(255,255,255,0.14)', alignItems: 'center', justifyContent: 'center' },
   ctaTitle: { fontFamily: F.semibold, fontSize: S.label + 1, color: C.cream },
   ctaSub: { fontFamily: F.body, fontSize: S.small, color: 'rgba(247,243,234,0.78)', marginTop: 2, lineHeight: 18 },
-  ctaBtn: { backgroundColor: C.cream, paddingHorizontal: 16, height: 44, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
+  ctaBtn: { alignSelf: 'stretch', backgroundColor: C.cream, paddingHorizontal: 16, height: 44, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
   ctaBtnText: { fontFamily: F.bold, fontSize: S.small + 1, color: C.forest },
 });

@@ -13,6 +13,7 @@ const PREFERRED = ['kuku_yalanji', 'anindilyakwa', 'wbv', 'migmaq'];
 export const FALLBACK_LANGUAGES: Language[] = [
   { id: 'kuku_yalanji', code: 'kuku_yalanji', name: 'Kuku Yalanji', governance: fallbackGovernance('kuku_yalanji') },
   { id: 'anindilyakwa', code: 'anindilyakwa', name: 'Anindilyakwa', governance: fallbackGovernance('anindilyakwa') },
+  { id: 'wbv', code: 'wbv', name: 'Wajarri', governance: fallbackGovernance('wbv') },
   { id: 'migmaq', code: 'migmaq', name: "Mi'gmaq", governance: fallbackGovernance('migmaq') },
 ];
 

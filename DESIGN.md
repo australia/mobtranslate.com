@@ -264,7 +264,24 @@ The visual tone is calm, warm, and adult: large language text, restrained earth 
 
 Existing 3D flip utilities (`.preserve-3d`, `.rotate-y-180`, `.perspective-1000`) are in `globals.css`. Keep them.
 
-On mobile, the daily practice is a source-backed five-word session rather than a generated course. The active language and “working collection” status remain visible; every prompt uses a real headword and recorded gloss, prefers recorded audio, and offers an **Open entry & source trail** action after the answer. The primary navigation reads **Home · Words · Learn · Country · You**. Recording stays reachable from Home and You, but is a secondary contribution path rather than the learner's central destination.
+On mobile, the daily practice is a source-backed five-word session rather than a generated course. The active language and “working collection” status remain visible; every prompt uses a real headword and recorded gloss, prefers recorded audio, and offers an **Open entry & source trail** action after the answer. Home’s daily-word card follows the same rule: it requires an addressable dictionary entry, labels its artwork as illustration, and shows an honest unavailable state rather than substituting an editorial sample or a word from another language. The primary navigation reads **Home · Words · Learn · Country · You**. Recording stays reachable from Home and You, but is a secondary contribution path rather than the learner's central destination.
+
+### 5.4.1 First-run orientation and open learning
+
+The one-time welcome is a trust contract, not a feature carousel. It says **Find words. Hear voices. Follow the source.** before asking the learner to choose a starting language. Three promises remain visible together: named evidence and honest gaps; recorded human voices before labelled computer guides; and source, publication basis, and stewardship as separate states. The selected collection is described as independent wherever that is the documented state. The primary action opens the app without requiring an account.
+
+The signed-out **You** surface repeats the access boundary in plain language: lookup, source-backed practice, available recordings, and place names do not require an account. Sign-in is for contributions and permission controls. About, support, privacy, and deletion remain first-class links for signed-in and signed-out people.
+
+### 5.4.2 Place & Country
+
+Country is never reduced to a decorative map or a crisp polygon:
+
+- The page says **Place & Country** and names the language-specific region and external context reference. The reference is explicitly not an endorsement.
+- A prominent note says the map provides general orientation and contributed place pins; it does not define cultural or language boundaries and is not land-claim evidence.
+- Web uses an explicitly labelled illustrative context image until a proper interactive web map exists. Android and iOS retain the interactive map.
+- Every place-name row can open the underlying dictionary record and source trail.
+- The automatic place-name walk may play only an available human recording. An unrecorded name stays silent; any separately requested computer guide remains visibly and accessibly labelled as an approximation.
+- A location suggestion goes to review. It never moves a public pin directly.
 
 - Front: Indigenous word, Playfair, 3rem, centered. `--color-card`. Subtle `--shadow-md`.
 - Back: English gloss + example sentence + IPA. Inter, 1.25rem.

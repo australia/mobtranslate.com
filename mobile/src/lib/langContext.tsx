@@ -1,10 +1,26 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import * as SecureStore from 'expo-secure-store';
+import { Platform } from 'react-native';
 import { useLanguages } from './useLanguages';
 import { type Language } from './api';
 
 const KEY = 'mt_lang';
 const DEFAULT = 'kuku_yalanji';
+
+async function readLanguage(): Promise<string | null> {
+  if (Platform.OS === 'web') {
+    try { return globalThis.localStorage?.getItem(KEY) ?? null; } catch { return null; }
+  }
+  return SecureStore.getItemAsync(KEY);
+}
+
+async function writeLanguage(code: string): Promise<void> {
+  if (Platform.OS === 'web') {
+    try { globalThis.localStorage?.setItem(KEY, code); } catch { /* keep the in-memory choice */ }
+    return;
+  }
+  await SecureStore.setItemAsync(KEY, code);
+}
 
 interface LangCtx {
   code: string;
@@ -23,7 +39,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   // restore persisted choice
   useEffect(() => {
-    SecureStore.getItemAsync(KEY).then((v) => { if (v) setCodeState(v); setReady(true); }).catch(() => setReady(true));
+    readLanguage().then((value) => { if (value) setCodeState(value); setReady(true); }).catch(() => setReady(true));
   }, []);
 
   // if the persisted/default code isn't in the list once loaded, fall back to first
@@ -31,7 +47,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (!loading && languages.length && !languages.some((l) => l.code === code)) setCodeState(languages[0].code);
   }, [languages, loading, code]);
 
-  const setCode = (c: string) => { setCodeState(c); SecureStore.setItemAsync(KEY, c).catch(() => {}); };
+  const setCode = (c: string) => { setCodeState(c); writeLanguage(c).catch(() => {}); };
   const lang = languages.find((l) => l.code === code);
 
   return (
