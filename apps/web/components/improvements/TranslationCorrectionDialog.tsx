@@ -120,8 +120,8 @@ export function TranslationCorrectionDialog({
         <DialogPopup size="md">
           <DialogTitle>Suggest a better translation</DialogTitle>
           <DialogDescription>
-            Your suggestion is sent to the language keepers to review. Thank you for
-            helping keep the language strong.
+            Your suggestion stays pending until it is reviewed. The published result
+            does not change immediately.
           </DialogDescription>
 
           {/* Show what's being corrected */}
@@ -140,7 +140,7 @@ export function TranslationCorrectionDialog({
           {done ? (
             <div className="mt-4 space-y-4">
               <p className="text-sm text-foreground">
-                Thank you — sent to the language keepers to review.
+                Thank you — your suggestion is now pending review.
               </p>
               <div className="flex justify-end">
                 <Button onClick={() => handleOpenChange(false)}>Close</Button>

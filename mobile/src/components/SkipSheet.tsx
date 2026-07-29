@@ -20,7 +20,7 @@ const REASONS: { key: SkipReason; label: string; icon: keyof typeof Ionicons.gly
 
 /** Polished "pass on this one" sheet: pick an optional reason (staggered chips,
  *  haptics), add an optional note, and skip. Reason/note are a quality signal for
- *  keepers — but skipping is never blocked. */
+ *  later review — but skipping is never blocked. */
 export function SkipSheet({
   kind, label, onSkip, onClose,
 }: {
@@ -55,7 +55,7 @@ export function SkipSheet({
             <View style={styles.passIcon}><Ionicons name="play-skip-forward" size={18} color={C.clay} /></View>
             <View style={{ flex: 1 }}>
               <Text style={styles.title}>Pass on this one?</Text>
-              <Text style={styles.sub}>You can skip it. If something’s off, tell the keepers why — it makes the {kind === 'word' ? 'dictionary' : 'sentences'} better.</Text>
+              <Text style={styles.sub}>You can skip it. If something’s off, say why so it can be checked in the {kind === 'word' ? 'dictionary' : 'sentence'} review queue.</Text>
             </View>
           </View>
 

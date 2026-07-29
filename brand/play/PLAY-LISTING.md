@@ -6,7 +6,7 @@ Last audited: 30 July 2026
 
 App package: `com.mobtranslate.app`
 
-Release: `1.0.15` (`versionCode 16`)
+Release: `1.0.16` (`versionCode 17`)
 
 ---
 
@@ -69,7 +69,7 @@ Google requires listing text and screenshots to accurately reflect the submitted
 |---|---|---:|---|
 | App icon | `play-icon-512.png` | 512×512 PNG, opaque | Ready |
 | Feature graphic | `play-feature-graphic-v2.png` | 1024×500 PNG, no alpha | Ready |
-| Phone screenshots | Capture from `1.0.15` / vc16 | 2–8 PNG/JPG images | Capture after installing vc16 |
+| Phone screenshots | Capture from `1.0.16` / vc17 | 2–8 PNG/JPG images | Capture after installing vc17 |
 
 Use screenshots that tell the product story in this order:
 
@@ -188,7 +188,7 @@ Because the app supports account creation, Google requires both an in-app path a
 
 ## 8. Testing path to production
 
-For a personal developer account created after 13 November 2023, Google currently requires a closed test with at least **12 testers continuously opted in for 14 days** before applying for production access. Internal testing is optional and does not satisfy that requirement. Keep the closed test active while uploading vc16. See [Google’s testing requirements](https://support.google.com/googleplay/android-developer/answer/14151465) and [test-track setup](https://support.google.com/googleplay/android-developer/answer/9845334).
+For a personal developer account created after 13 November 2023, Google currently requires a closed test with at least **12 testers continuously opted in for 14 days** before applying for production access. Internal testing is optional and does not satisfy that requirement. Keep the closed test active while uploading vc17. See [Google’s testing requirements](https://support.google.com/googleplay/android-developer/answer/14151465) and [test-track setup](https://support.google.com/googleplay/android-developer/answer/9845334).
 
 Tester email addresses must be Google Accounts or Google Workspace accounts. Adding an address is not enough: each tester must open the opt-in link while signed into that address and remain opted in continuously.
 
@@ -196,20 +196,20 @@ Tester email addresses must be Google Accounts or Google Workspace accounts. Add
 
 ## 9. Android release
 
-- **Upload bundle:** `MobTranslate-1.0.15-vc16.aab`
-- **Sideload build:** `MobTranslate-1.0.15-vc16.apk`
+- **Upload bundle:** `MobTranslate-1.0.16-vc17.aab`
+- **Sideload build:** `MobTranslate-1.0.16-vc17.apk`
 - **Package:** `com.mobtranslate.app`
-- **Version name/code:** `1.0.15` / `16`
+- **Version name/code:** `1.0.16` / `17`
 - **Only declared sensitive permission:** `android.permission.RECORD_AUDIO`
 - **Minimum / target SDK:** `24` / `36`, verified from the final AAB
-- **AAB SHA-256:** `76ba43aa566a01e6dc3babff83fb760a9368ed939fb198e3313e1bbe97ae2d77`
-- **APK SHA-256:** `edd9450ac2f36cfa1dcef8ec04a4ada954dabdc411cfbee6cb5595f113c98b43`
+- **AAB SHA-256:** `a5a62b4fd67c3f53cfadc40842af6681ab7189fbc88e84ee33bbccd3308b2955`
+- **APK SHA-256:** `8388bc5c9f07cca5018e400d839a0c8a1085833d5a2d782cc43e16f4f52ca969`
 - **Upload certificate SHA-256:** `2A:08:66:02:B5:B6:34:F8:57:44:4B:D2:93:20:78:31:7D:69:BB:8D:04:C0:31:F8:9D:9C:D1:06:64:6E:8F:D0`
-- **Release note:** `A clearer first run, source-backed daily learning, a respectful Place & Country experience, and consent-led voice sharing.`
+- **Release note:** `Clearer dictionary recovery, more honest artwork labels, and contribution status that tells you exactly what happens next.`
 
 The bundle targets API 36, satisfying Google’s current target API requirement: [Target API requirements](https://support.google.com/googleplay/android-developer/answer/11926878).
 
-Never reuse an older bundle after uploading vc16; every later build must increment `versionCode`.
+Never reuse an older bundle after uploading vc17; every later build must increment `versionCode`.
 
 ---
 

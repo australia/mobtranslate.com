@@ -57,7 +57,7 @@ export function CorrectionModal({
             <View style={{ alignItems: 'center', gap: 12, paddingVertical: 22 }}>
               <View style={styles.tick}><Ionicons name="checkmark" size={30} color={C.white} /></View>
               <Text style={styles.title}>Thank you</Text>
-              <Text style={styles.sub}>Your suggestion goes to the language keepers to review.</Text>
+              <Text style={styles.sub}>Your suggestion is now pending review. The published entry has not changed yet.</Text>
             </View>
           ) : (
             <>
@@ -87,7 +87,7 @@ export function CorrectionModal({
 
               <Button label="Send suggestion" icon="send" onPress={submit} loading={busy} disabled={!value.trim()} full style={{ marginTop: 14 }} />
               {error && <Text style={styles.error}>{error}</Text>}
-              <Text style={styles.foot}>Suggestions are reviewed by the language’s keepers before anything changes.</Text>
+              <Text style={styles.foot}>Suggestions stay pending until a reviewer accepts or rejects them.</Text>
             </>
           )}
         </Pressable>

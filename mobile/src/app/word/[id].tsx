@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -30,6 +30,7 @@ export default function WordScreen() {
   const router = useRouter();
   const [detail, setDetail] = useState<WordDetail | null>(null);
   const [loading, setLoading] = useState(true);
+  const [loadAttempt, setLoadAttempt] = useState(0);
   // Land showing the card's own thumbnail (visual continuity from the list),
   // then upgrade to the full artwork when it resolves (#5).
   const [img, setImg] = useState<string | null>(thumb ? String(thumb) : null);
@@ -50,14 +51,31 @@ export default function WordScreen() {
 
   useEffect(() => {
     let alive = true;
-    getWord(String(id)).then((d) => { if (alive && d) { setDetail(d); setExamples(d.examples); setLoading(false); } else if (alive) setLoading(false); });
+    setLoading(true);
+    setDetail(null);
+    setExamples([]);
+    setWordRecs(null);
+    setExRecs({});
+    setImg(thumb ? String(thumb) : null);
+    setImgLoading(!thumb);
+    getWord(String(id)).then((d) => {
+      if (alive && d) {
+        setDetail(d);
+        setExamples(d.examples);
+        setLoading(false);
+      } else if (alive) {
+        setLoading(false);
+        setImgLoading(false);
+      }
+    });
     return () => { alive = false; player.current?.remove(); };
-  }, [id]);
+  }, [id, loadAttempt, thumb]);
 
   // artwork (AI-generated, cached)
   useEffect(() => {
-    if (!langCode || !headword) return;
+    if (!detail || !langCode || !headword) return;
     let alive = true; let tries = 0;
+    let retryTimer: ReturnType<typeof setTimeout> | undefined;
     const pos = (detail?.wordClass || detail?.wordType || '').replace(/[-_]/g, ' ');
     const meaning = [
       pos ? `part of speech: ${pos}` : '',
@@ -66,20 +84,27 @@ export default function WordScreen() {
     ].filter(Boolean).join('; ') || undefined;
     setImgLoading(true);
     const attempt = async () => {
+      if (!alive) return;
       const u = await getWordImage(langCode, headword, meaning, String(id));
       if (!alive) return;
       if (u) { setImg(u); setImgLoading(false); return; }
       tries += 1;
-      if (tries < 9) setTimeout(attempt, 12000); else setImgLoading(false);
+      if (tries < 9) retryTimer = setTimeout(attempt, 12000); else setImgLoading(false);
     };
     attempt();
-    return () => { alive = false; };
-  }, [langCode, headword, detail?.definitions?.[0]]);
+    return () => { alive = false; if (retryTimer) clearTimeout(retryTimer); };
+  }, [detail, headword, id, langCode]);
 
   // load recordings for the word + each example
-  function loadWordRecs() { getWordRecordings(String(id)).then(setWordRecs); }
-  function loadExRecs(exId: string) { getExampleRecordings(exId).then((r) => setExRecs((p) => ({ ...p, [exId]: r }))); }
-  useEffect(() => { if (!detail) return; loadWordRecs(); detail.examples.forEach((e) => e.id && loadExRecs(e.id)); }, [detail]);
+  const loadWordRecs = useCallback(() => { getWordRecordings(String(id)).then(setWordRecs); }, [id]);
+  const loadExRecs = useCallback((exId: string) => {
+    getExampleRecordings(exId).then((r) => setExRecs((p) => ({ ...p, [exId]: r })));
+  }, []);
+  useEffect(() => {
+    if (!detail) return;
+    loadWordRecs();
+    detail.examples.forEach((e) => e.id && loadExRecs(e.id));
+  }, [detail, loadExRecs, loadWordRecs]);
 
   function playUrl(u: string) { try { player.current?.remove(); const p = createAudioPlayer({ uri: u }); player.current = p; p.play(); } catch {} }
 
@@ -117,7 +142,7 @@ export default function WordScreen() {
           {!!img && (
             <View style={styles.illustrationHint}>
               <Ionicons name="sparkles-outline" size={12} color={C.cream} />
-              <Text style={styles.illustrationText}>EDITORIAL ILLUSTRATION</Text>
+              <Text style={styles.illustrationText}>GENERATED ART · NOT A SOURCE</Text>
             </View>
           )}
           {!!img && <View style={styles.expandHint}><Ionicons name="expand" size={16} color={C.white} /></View>}
@@ -126,7 +151,7 @@ export default function WordScreen() {
               <Text style={[styles.headword, { color: img ? C.white : C.forestDeep }]} accessibilityLanguage={meta.languageTag} selectable>{headword}</Text>
               {!!detail?.pronunciation && <Text style={[styles.pron, { color: img ? 'rgba(255,255,255,0.85)' : C.muted }]}>{detail.pronunciation}</Text>}
             </Animated.View>
-            {!!langCode && (
+            {!!detail && !!langCode && (
               <SpeakerButton
                 code={langCode}
                 text={headword}
@@ -139,10 +164,12 @@ export default function WordScreen() {
         </Pressable>
 
         <View style={{ padding: 20, gap: 16 }}>
-          <AudioSourceBadge
-            recording={wordRecs === null ? undefined : (wordRecs[0] ?? null)}
-            loading={wordRecs === null}
-          />
+          {detail ? (
+            <AudioSourceBadge
+              recording={wordRecs === null ? undefined : (wordRecs[0] ?? null)}
+              loading={wordRecs === null}
+            />
+          ) : null}
           {loading && (
             <View style={{ gap: 16 }}>
               <Skeleton width={90} height={30} radius={radius.pill} />
@@ -295,10 +322,22 @@ export default function WordScreen() {
               </View>
 
               <Button label="Suggest a correction" icon="create-outline" variant="ghost" full onPress={() => setCorrect(true)} />
-              <Text style={styles.help}>See something wrong? Help the keepers keep this dictionary accurate.</Text>
+              <Text style={styles.help}>See something wrong? Suggest an improvement to this working dictionary.</Text>
             </>
           )}
-          {!loading && !detail && <Text style={styles.muted}>Could not load this word.</Text>}
+          {!loading && !detail && (
+            <Animated.View entering={FadeInDown.duration(240)}>
+              <Card style={styles.loadErrorCard}>
+                <View style={styles.loadErrorIcon}>
+                  <Ionicons name="cloud-offline-outline" size={26} color={C.forest} />
+                </View>
+                <Text style={styles.loadErrorTitle}>This entry couldn’t be opened</Text>
+                <Text style={styles.loadErrorBody}>Check your connection and try again. If it keeps happening, the dictionary record may have moved.</Text>
+                <Button label="Try again" icon="refresh" onPress={() => setLoadAttempt((value) => value + 1)} />
+                <Button label="Back to words" icon="arrow-back" variant="ghost" onPress={() => router.back()} />
+              </Card>
+            </Animated.View>
+          )}
         </View>
       </ScrollView>
 
@@ -384,6 +423,10 @@ const styles = StyleSheet.create({
   trans: { fontFamily: F.serifItalic, fontSize: S.label, color: C.muted, marginTop: 8 },
   guidanceText: { fontFamily: F.body, fontSize: S.label, color: C.inkSoft, lineHeight: 23 },
   noneYet: { fontFamily: F.body, fontSize: S.label, color: C.muted, lineHeight: 22 },
+  loadErrorCard: { alignItems: 'center', gap: 11, paddingVertical: 28, paddingHorizontal: 22 },
+  loadErrorIcon: { width: 54, height: 54, borderRadius: radius.pill, backgroundColor: C.sageSoft, alignItems: 'center', justifyContent: 'center', marginBottom: 2 },
+  loadErrorTitle: { fontFamily: F.displayBold, fontSize: S.title, color: C.ink, textAlign: 'center' },
+  loadErrorBody: { maxWidth: 310, fontFamily: F.body, fontSize: S.label, color: C.muted, lineHeight: 22, textAlign: 'center' },
   playRow: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: C.surfaceAlt, borderRadius: radius.md, padding: 10, marginTop: 6 },
   playName: { flex: 1, fontFamily: F.semibold, fontSize: S.label, color: C.ink },
   playMeta: { fontFamily: F.body, fontSize: 11, color: C.muted, marginTop: 1 },
@@ -394,7 +437,6 @@ const styles = StyleSheet.create({
   exText: { fontFamily: F.body, fontSize: S.body, color: C.ink, lineHeight: 26 },
   exTrans: { fontFamily: F.body, fontSize: S.label, color: C.muted, marginTop: 3 },
   help: { fontFamily: F.body, fontSize: S.small, color: C.faint, textAlign: 'center', lineHeight: 18 },
-  muted: { fontFamily: F.body, fontSize: S.label, color: C.muted, textAlign: 'center', marginTop: 20 },
 
   sheet: { backgroundColor: C.bg, borderTopLeftRadius: radius.xl, borderTopRightRadius: radius.xl, padding: 20, paddingBottom: 30 },
   grip: { alignSelf: 'center', width: 40, height: 5, borderRadius: 3, backgroundColor: C.sageLine, marginBottom: 14 },

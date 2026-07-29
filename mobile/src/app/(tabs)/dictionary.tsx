@@ -4,7 +4,7 @@ import { useRouter, useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import Animated, { FadeIn, FadeInDown, LinearTransition } from 'react-native-reanimated';
-import { LanguageSelector, SpeakerButton } from '../../components/kit';
+import { Button, LanguageSelector, SpeakerButton } from '../../components/kit';
 import { Skeleton } from '../../components/Skeleton';
 import { KenBurns } from '../../components/KenBurns';
 import { AZRail } from '../../components/AZRail';
@@ -43,9 +43,13 @@ export default function DictionaryScreen() {
   const [hits, setHits] = useState<Row[]>([]);
   const [page, setPage] = useState(1);
   const [hasNext, setHasNext] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [browseLoading, setBrowseLoading] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
   const [more, setMore] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [browseFailed, setBrowseFailed] = useState(false);
+  const [searchFailed, setSearchFailed] = useState(false);
+  const [searchRetry, setSearchRetry] = useState(0);
   const [picker, setPicker] = useState(false);
   const [letter, setLetter] = useState<string | null>(null);
   const [allLetters, setAllLetters] = useState<string[]>([]);
@@ -53,30 +57,82 @@ export default function DictionaryScreen() {
   const [thumbs, setThumbs] = useState<Record<string, string | null>>({});
   const thumbsRef = useRef(thumbs); thumbsRef.current = thumbs;
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const browseRequest = useRef(0);
+  const searchRequest = useRef(0);
 
   const searching = q.trim().length >= 2;
+  const loading = searching ? searchLoading : browseLoading;
 
   const loadBrowse = useCallback(async (p: number, ltr?: string | null) => {
-    if (p === 1) setLoading(true); else setMore(true);
-    const res = await browseWords(code, { page: p, letter: ltr ?? undefined });
-    setBrowse((prev) => (p === 1 ? res.words : [...prev, ...res.words]));
-    setHasNext(res.hasNext); setPage(res.page);
-    if (res.letters.length) setAllLetters(res.letters);
-    setLoading(false); setMore(false);
+    const request = ++browseRequest.current;
+    if (p === 1) setBrowseLoading(true); else setMore(true);
+    if (p === 1) setBrowseFailed(false);
+    try {
+      const res = await browseWords(code, { page: p, letter: ltr ?? undefined });
+      if (request !== browseRequest.current) return;
+      if (!res.ok) {
+        setHasNext(false);
+        if (p === 1) {
+          setBrowse([]);
+          setBrowseFailed(true);
+        }
+        return;
+      }
+      setBrowse((prev) => (p === 1 ? res.words : [...prev, ...res.words]));
+      setHasNext(res.hasNext); setPage(res.page);
+      if (res.letters.length) setAllLetters(res.letters);
+    } catch {
+      if (request === browseRequest.current) {
+        setHasNext(false);
+        if (p === 1) {
+          setBrowse([]);
+          setBrowseFailed(true);
+        }
+      }
+    } finally {
+      if (request === browseRequest.current) {
+        setBrowseLoading(false);
+        setMore(false);
+      }
+    }
   }, [code]);
 
-  useEffect(() => { setBrowse([]); setThumbs({}); setLetter(null); setPosFilter(null); loadBrowse(1, null); }, [code, loadBrowse]);
+  useEffect(() => {
+    setBrowse([]);
+    setThumbs({});
+    setAllLetters([]);
+    setHasNext(false);
+    setLetter(null);
+    setPosFilter(null);
+    loadBrowse(1, null);
+    return () => { browseRequest.current += 1; };
+  }, [code, loadBrowse]);
 
   useEffect(() => {
     if (timer.current) clearTimeout(timer.current);
-    if (!searching) { setHits([]); return; }
-    setLoading(true);
+    const request = ++searchRequest.current;
+    if (!searching) { setHits([]); setSearchFailed(false); setSearchLoading(false); return; }
+    setSearchLoading(true);
+    setSearchFailed(false);
     timer.current = setTimeout(async () => {
-      try { const r = await searchWords(code, q.trim()); setHits(r.map((h: SearchHit) => ({ id: h.wordId, word: h.word, meaning: h.meaning }))); }
-      catch { setHits([]); } finally { setLoading(false); }
+      try {
+        const r = await searchWords(code, q.trim());
+        if (request !== searchRequest.current) return;
+        setHits(r.map((h: SearchHit) => ({ id: h.wordId, word: h.word, meaning: h.meaning })));
+      } catch {
+        if (request === searchRequest.current) {
+          setHits([]);
+          setSearchFailed(true);
+        }
+      } finally {
+        if (request === searchRequest.current) setSearchLoading(false);
+      }
     }, 320);
-    return () => { if (timer.current) clearTimeout(timer.current); };
-  }, [q, code, searching]);
+    return () => {
+      if (timer.current) clearTimeout(timer.current);
+      if (searchRequest.current === request) searchRequest.current += 1;
+    };
+  }, [q, code, searching, searchRetry]);
 
   function jumpToLetter(l: string) {
     setPosFilter(null);
@@ -100,7 +156,7 @@ export default function DictionaryScreen() {
   // Fetch cached thumbnails for visible words (peek-only — never generates).
   useFocusEffect(useCallback(() => {
     const words = Array.from(new Set(data.map((d) => d.word)));
-    const toCheck = words.filter((w) => !thumbsRef.current[w]);
+    const toCheck = words.filter((w) => !(w in thumbsRef.current));
     if (toCheck.length === 0) return;
     let on = true;
     getWordThumbs(code, toCheck).then((m) => { if (on) setThumbs((prev) => ({ ...prev, ...m })); });
@@ -173,7 +229,39 @@ export default function DictionaryScreen() {
           onEndReachedThreshold={0.5}
           onEndReached={() => { if (!searching && hasNext && !more && !loading) loadBrowse(page + 1, letter); }}
           ListHeaderComponent={loading && data.length === 0 ? <SkeletonRows /> : null}
-          ListEmptyComponent={!loading ? <Text style={styles.empty}>{searching ? `No words for “${q}”.` : 'No words yet.'}</Text> : null}
+          ListEmptyComponent={!loading ? (
+            searching ? (
+              searchFailed ? (
+                <DictionaryState
+                  icon="cloud-offline-outline"
+                  title="Search couldn't reach the dictionary"
+                  body={`The ${langName} collection is still here. Check your connection and try again.`}
+                  action="Try search again"
+                  onAction={() => setSearchRetry((value) => value + 1)}
+                />
+              ) : (
+                <DictionaryState
+                  icon="search-outline"
+                  title="No matching entries"
+                  body={`Nothing published in the ${langName} collection matches “${q.trim()}” yet. Try another spelling or English meaning.`}
+                />
+              )
+            ) : browseFailed ? (
+              <DictionaryState
+                icon="cloud-offline-outline"
+                title="The dictionary didn't load"
+                body={`The ${langName} collection is still here. Check your connection and try again.`}
+                action="Try again"
+                onAction={() => loadBrowse(1, letter)}
+              />
+            ) : (
+              <DictionaryState
+                icon="book-outline"
+                title="No published entries here yet"
+                body={letter ? `There are no ${langName} entries filed under ${letter}.` : `This ${langName} collection does not have published entries available to browse yet.`}
+              />
+            )
+          ) : null}
           ListFooterComponent={more ? <View style={{ marginTop: 4 }}><SkeletonRows count={2} /></View> : null}
           renderItem={({ item, index }) => (
             <Animated.View entering={FadeIn.duration(200)} layout={LinearTransition.springify().damping(20)}>
@@ -223,6 +311,31 @@ function SkeletonRows({ count = 7 }: { count?: number }) {
   );
 }
 
+function DictionaryState({
+  icon,
+  title,
+  body,
+  action,
+  onAction,
+}: {
+  icon: keyof typeof Ionicons.glyphMap;
+  title: string;
+  body: string;
+  action?: string;
+  onAction?: () => void;
+}) {
+  return (
+    <Animated.View entering={FadeInDown.duration(240)} style={styles.stateCard}>
+      <View style={styles.stateIcon}>
+        <Ionicons name={icon} size={25} color={C.forest} />
+      </View>
+      <Text style={styles.stateTitle}>{title}</Text>
+      <Text style={styles.stateBody}>{body}</Text>
+      {action && onAction ? <Button label={action} icon="refresh" variant="ghost" onPress={onAction} /> : null}
+    </Animated.View>
+  );
+}
+
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: C.bg },
   head: { paddingHorizontal: 20, paddingTop: 6, gap: 14 },
@@ -245,5 +358,8 @@ const styles = StyleSheet.create({
   word: { fontFamily: F.display, fontSize: S.heading, color: C.ink },
   pos: { fontFamily: F.serifItalic, fontSize: S.small, color: C.sage },
   meaning: { fontFamily: F.body, fontSize: S.label, color: C.muted, marginTop: 3 },
-  empty: { fontFamily: F.body, fontSize: S.label, color: C.muted, textAlign: 'center', paddingVertical: 40, paddingHorizontal: 20, lineHeight: 24 },
+  stateCard: { alignItems: 'center', gap: 10, paddingHorizontal: 22, paddingVertical: 38 },
+  stateIcon: { width: 52, height: 52, borderRadius: radius.pill, backgroundColor: C.sageSoft, alignItems: 'center', justifyContent: 'center', marginBottom: 2 },
+  stateTitle: { fontFamily: F.displayBold, fontSize: S.title, color: C.ink, textAlign: 'center' },
+  stateBody: { maxWidth: 310, fontFamily: F.body, fontSize: S.label, color: C.muted, textAlign: 'center', lineHeight: 22 },
 });

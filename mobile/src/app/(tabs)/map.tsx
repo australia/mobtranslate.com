@@ -46,6 +46,7 @@ export default function MapScreen() {
     if (!walking) return;
     if (placed.length < 2) { setWalking(false); return; }
     let i = 0, cancelled = false;
+    const activeMap = mapRef.current;
     let timer: ReturnType<typeof setTimeout>;
     const step = () => {
       if (cancelled) return;
@@ -69,7 +70,7 @@ export default function MapScreen() {
       timer = setTimeout(step, 5000);
     };
     timer = setTimeout(step, 450);
-    return () => { cancelled = true; clearTimeout(timer); mapRef.current?.pulse(null); walkPlayer.current?.remove(); };
+    return () => { cancelled = true; clearTimeout(timer); activeMap?.pulse(null); walkPlayer.current?.remove(); };
   }, [walking, placed, places]);
 
   useEffect(() => () => { walkPlayer.current?.remove(); }, []);
@@ -113,7 +114,7 @@ export default function MapScreen() {
   async function submitPin(lat: number, lng: number) {
     if (!pinTarget) return;
     await suggestPlaceLocation(pinTarget.id, lat, lng);
-    setToast(`Thanks — your suggested spot for “${pinTarget.word}” is with the keepers for review.`);
+    setToast(`Thanks — your suggested spot for “${pinTarget.word}” is pending review.`);
     setTimeout(() => setToast(null), 4000);
   }
 

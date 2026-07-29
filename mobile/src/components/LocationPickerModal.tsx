@@ -84,7 +84,7 @@ post();
             />
           </View>
 
-          <Text style={styles.hint}>Drag the pin, or tap the map, to where this place is. A language keeper reviews every suggestion before it appears.</Text>
+          <Text style={styles.hint}>Drag the pin, or tap the map, to where this place is. Every suggestion stays pending until it is reviewed.</Text>
           <Text style={styles.coords}>{pos.lat.toFixed(4)}, {pos.lng.toFixed(4)}</Text>
           {error && <Text style={styles.err}>{error}</Text>}
 

@@ -181,7 +181,7 @@ export function WordDetailContent({ word, languageCode }: WordDetailContentProps
             </div>
             <div>
               <p className="text-sm font-semibold text-foreground">
-                {word.is_verified ? 'Marked as reviewed in Mob Translate' : 'Community review is still open'}
+                {word.is_verified ? 'Marked as reviewed in Mob Translate' : 'Review is still open'}
               </p>
               <p className="mt-0.5 max-w-[68ch] text-xs leading-relaxed text-muted-foreground">
                 {word.is_verified

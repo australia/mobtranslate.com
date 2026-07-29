@@ -60,8 +60,8 @@ export function WordCorrectionAction({ wordId, word, definition, translation }: 
         <DialogPopup size="sm">
           <DialogTitle>Suggest a correction</DialogTitle>
           <DialogDescription>
-            Please sign in to suggest a correction for “{word}”. Your suggestion is
-            sent to the language keepers to review.
+            Please sign in to suggest a correction for “{word}”. Suggestions stay
+            pending until a reviewer accepts or rejects them.
           </DialogDescription>
           <div className="flex justify-end gap-2 mt-6">
             <Button variant="ghost" onClick={() => setSignInOpen(false)}>
