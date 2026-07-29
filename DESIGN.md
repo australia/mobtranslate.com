@@ -247,6 +247,19 @@ The microphone is downstream of permission, never the first screen. For an ordin
 
 Permission state is icon + text + color. The ordinary recorder accepts only its own narrow ledger event; it never inherits broader research permissions. A corpus-coverage score may count only clips whose exact current event permits the intended training and recognisable voice replication, and must say that technical coverage is not governance approval.
 
+### 5.3.2 Curator-led Elder studio
+
+The Elder studio is visually and technically separate from ordinary contribution:
+
+- The first surface is **who is present**, with current permission version and an unmistakable “permission review needed” state.
+- Creating or replacing permission asks about every purpose separately. Nothing is preselected. Dependencies are visible: recognisable voice replication requires computer-speech training; model-weight distribution requires model creation; outside-provider transfer and public metrics require a selected model purpose.
+- Starting a session shows the selected uses in plain language and requires a fresh in-person confirmation. The session UUID and exact current consent record travel with every take.
+- A sentence is labelled **machine-generated draft** and **needs speaker review**. The mic stays hidden until the Elder says the wording is right, or until their correction is saved and confirmed.
+- Capture is archival mono 16-bit PCM WAV. The UI states the measured format and consent version without pretending that technical quality is permission.
+- Transient upload failure keeps the consent-bound lossless master inside the app sandbox. The operator can retry or explicitly delete it. A withdrawn, replaced, or invalid permission is a hard server rejection, not an offline retry.
+
+The visual tone is calm, warm, and adult: large language text, restrained earth colour, explicit gates, no gamification, no celebratory “AI voice” promise. The Elder can stop at any time.
+
 ### 5.4 Learn card (flip / quiz)
 
 Existing 3D flip utilities (`.preserve-3d`, `.rotate-y-180`, `.perspective-1000`) are in `globals.css`. Keep them.

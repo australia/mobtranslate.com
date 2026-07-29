@@ -6,6 +6,7 @@
  */
 import * as SecureStore from 'expo-secure-store';
 import { uploadAsync, FileSystemUploadType } from 'expo-file-system/legacy';
+import type { SpeechConsentGrant } from './studioConsent';
 
 export const API_BASE = (process.env.EXPO_PUBLIC_API_BASE || 'https://mobtranslate.com').replace(/\/$/, '');
 const COOKIE_KEY = 'mt_session_cookie';
@@ -527,6 +528,28 @@ export interface StudioSpeaker {
   id: string; name: string; community?: string | null; dialect?: string | null;
   gender?: string | null; age?: number | null; bio?: string | null;
   cultural_consent: boolean; training_consent: boolean;
+  consent_record_id: string | null;
+  consent_version: number | null;
+  consent_event_type: 'grant' | 'replace' | 'withdraw' | null;
+  withdrawal_process: string | null;
+  authorizing_body: string | null;
+  consent_artifact_ref: string | null;
+  consent_artifact_sha256: string | null;
+  consent_notes: string | null;
+  recording_allowed: boolean | null;
+  asr_evaluation_allowed: boolean | null;
+  asr_training_allowed: boolean | null;
+  hosted_provider_transfer_allowed: boolean | null;
+  public_metrics_allowed: boolean | null;
+  public_audio_allowed: boolean | null;
+  public_transcript_allowed: boolean | null;
+  asr_derived_weights_allowed: boolean | null;
+  asr_weight_distribution_allowed: boolean | null;
+  tts_training_allowed: boolean | null;
+  speaker_voice_replication_allowed: boolean | null;
+  tts_derived_weights_allowed: boolean | null;
+  tts_weight_distribution_allowed: boolean | null;
+  commercial_use_allowed: boolean | null;
   clips: number; minutes: number;
 }
 export interface StudioSentence {
@@ -565,7 +588,7 @@ export async function getStudioSpeakers(): Promise<StudioSpeaker[]> {
 export async function createStudioSpeaker(body: {
   name: string; community?: string | null; dialect?: string | null;
   gender?: string | null; age?: number | null; bio?: string | null;
-  culturalConsent: boolean; trainingConsent?: boolean; consentNote?: string | null;
+  consent: SpeechConsentGrant;
 }): Promise<StudioSpeaker> {
   const res = await fetch(`${STUDIO_BASE}/speakers`, {
     method: 'POST', headers: jsonHeaders(), body: JSON.stringify(body),
@@ -573,6 +596,20 @@ export async function createStudioSpeaker(body: {
   const d = await json<any>(res);
   if (!res.ok) throw new Error(d?.error || `Could not add speaker (${res.status})`);
   return d as StudioSpeaker;
+}
+
+export async function setStudioSpeakerConsent(
+  speakerId: string,
+  body:
+    | { eventType: 'grant' | 'replace'; consent: SpeechConsentGrant }
+    | { eventType: 'withdraw'; reason: string },
+): Promise<Partial<StudioSpeaker>> {
+  const res = await fetch(`${STUDIO_BASE}/speakers/${speakerId}/consent`, {
+    method: 'POST', headers: jsonHeaders(), body: JSON.stringify(body),
+  });
+  const d = await json<any>(res);
+  if (!res.ok) throw new Error(d?.error || `Could not save speech permissions (${res.status})`);
+  return d as Partial<StudioSpeaker>;
 }
 
 export async function getNextSentence(
@@ -601,9 +638,26 @@ export async function reviewSentence(body: {
 }
 
 export interface SentenceTakeMeta {
-  clientId: string; sentenceId: string; speakerId: string; spokenKuku: string;
-  durationMs?: number; channels?: number; clipped?: boolean;
-  culturalConsent?: boolean; trainingConsent?: boolean;
+  clientId: string;
+  sessionId: string;
+  sentenceId: string;
+  speakerId: string;
+  spokenKuku: string;
+  consentRecordId: string;
+  sampleRate: number;
+  bitDepth: 16;
+  channels: 1;
+  durationMs: number;
+  peakAmplitude: number;
+  clipped: boolean;
+  condition: 'in_person_studio';
+}
+
+export class StudioUploadError extends Error {
+  constructor(message: string, readonly status: number, readonly retryable: boolean) {
+    super(message);
+    this.name = 'StudioUploadError';
+  }
 }
 /** Upload one captured take to the W1 sentence-corpus upload contract
  *  (multipart: `master` audio file + JSON `meta`). Stamps recordedVia='app'.
@@ -614,7 +668,7 @@ export async function uploadSentenceTake(meta: SentenceTakeMeta, fileUri: string
     httpMethod: 'POST',
     uploadType: FileSystemUploadType.MULTIPART,
     fieldName: 'master',
-    mimeType: 'audio/m4a',
+    mimeType: 'audio/wav',
     parameters: { meta: JSON.stringify({ ...meta, recordedVia: 'app' }) },
     headers: authHeaders(),
   });
@@ -622,7 +676,11 @@ export async function uploadSentenceTake(meta: SentenceTakeMeta, fileUri: string
     let msg = `Upload failed (${result.status})`;
     try { msg = JSON.parse(result.body)?.error || msg; } catch { /* keep */ }
     if (result.status === 401) msg = 'Please sign in again to save recordings.';
-    throw new Error(msg);
+    throw new StudioUploadError(
+      msg,
+      result.status,
+      result.status === 408 || result.status === 429 || result.status >= 500,
+    );
   }
 }
 

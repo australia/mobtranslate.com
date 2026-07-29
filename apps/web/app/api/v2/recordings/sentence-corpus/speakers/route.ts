@@ -26,6 +26,10 @@ export async function GET(_request: NextRequest) {
              consent.version as consent_version,
              consent.event_type as consent_event_type,
              consent.withdrawal_process,
+             consent.authorizing_body,
+             consent.consent_artifact_ref,
+             consent.consent_artifact_sha256,
+             consent.notes as consent_notes,
              consent.recording_allowed,
              consent.asr_evaluation_allowed,
              consent.asr_training_allowed,
@@ -140,6 +144,8 @@ export async function POST(request: NextRequest) {
            ${rights.ttsWeightDistributionAllowed}, ${rights.commercialUseAllowed})
         returning id as consent_record_id, version as consent_version,
           event_type as consent_event_type, withdrawal_process,
+          authorizing_body, consent_artifact_ref, consent_artifact_sha256,
+          notes as consent_notes,
           recording_allowed, asr_evaluation_allowed, asr_training_allowed,
           hosted_provider_transfer_allowed, public_metrics_allowed,
           public_audio_allowed, public_transcript_allowed,
@@ -147,7 +153,7 @@ export async function POST(request: NextRequest) {
           tts_training_allowed, speaker_voice_replication_allowed,
           tts_derived_weights_allowed, tts_weight_distribution_allowed,
           commercial_use_allowed`);
-      return { ...speaker, ...rowsOf(consentResult)[0] };
+      return { ...speaker, ...rowsOf(consentResult)[0], clips: 0, minutes: 0 };
     });
     return NextResponse.json(created, {
       status: 201,

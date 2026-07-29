@@ -133,6 +133,8 @@ export async function POST(
            ${rights.ttsWeightDistributionAllowed}, ${rights.commercialUseAllowed})
         returning id as consent_record_id, version as consent_version,
           event_type as consent_event_type, withdrawal_process,
+          authorizing_body, consent_artifact_ref, consent_artifact_sha256,
+          notes as consent_notes,
           recording_allowed, asr_evaluation_allowed, asr_training_allowed,
           hosted_provider_transfer_allowed, public_metrics_allowed,
           public_audio_allowed, public_transcript_allowed,

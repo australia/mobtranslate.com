@@ -99,6 +99,27 @@ export default function PrivacyPage() {
             serving the covered recording. A copy that someone already
             downloaded may remain outside Mob Translate’s control.
           </p>
+          <p className="mt-3">
+            A separate curator-led speech session uses a more detailed permission
+            record. With the speaker present, the operator records separate choices
+            for making and keeping recordings, public audio and transcripts,
+            speech-recognition testing or training, computer-speech training,
+            recognisable voice replication, outside compute providers, model
+            creation or distribution, public model results, and commercial use.
+            Those choices are off by default and saved as an append-only version.
+            Each recording is bound to that exact permission version and an
+            in-person session identifier. We also store the speaker profile,
+            operator, technical audio measurements, transcript review history,
+            corrections, and any recorded family, organisation, or authorizing
+            body context needed to understand the permission.
+          </p>
+          <p className="mt-3">
+            Lossless studio recordings that cannot upload because of a temporary
+            connection problem may wait inside the app’s private device storage.
+            The operator can retry or delete those local copies. The server will
+            reject a waiting recording if its attached permission is no longer
+            current.
+          </p>
         </Section>
 
         <Section title="Service providers and sharing">

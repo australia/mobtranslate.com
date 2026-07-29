@@ -2,7 +2,7 @@
  * Offline-tolerant queue for Elder recording takes.
  *
  * An Elder's take must NEVER be lost. If an upload fails (no signal, server
- * down, timeout), the captured m4a is copied into the app's document directory
+ * down, timeout), the captured WAV master is copied into the app's document directory
  * and the pending take is persisted to a small JSON manifest. `retryPending()`
  * re-uploads everything that is waiting; the server dedups on `clientId`, so a
  * double-send is harmless. The clientId is generated once at capture time and
@@ -12,7 +12,7 @@ import {
   documentDirectory, makeDirectoryAsync, copyAsync, deleteAsync,
   getInfoAsync, readAsStringAsync, writeAsStringAsync,
 } from 'expo-file-system/legacy';
-import { uploadSentenceTake, type SentenceTakeMeta } from './api';
+import { StudioUploadError, uploadSentenceTake, type SentenceTakeMeta } from './api';
 
 const DIR = `${documentDirectory}elder-takes/`;
 const MANIFEST = `${DIR}pending.json`;
@@ -26,6 +26,9 @@ export interface PendingTake {
   createdAt: number;
   attempts: number;
   lastError?: string | null;
+  /** A permanent server refusal (for example, permission was replaced). The
+   * master stays available for explicit deletion but is never retried. */
+  blocked?: boolean;
 }
 
 async function ensureDir(): Promise<void> {
@@ -58,7 +61,7 @@ export async function enqueueTake(
 ): Promise<void> {
   await ensureDir();
   let fileUri = sourceUri;
-  const dest = `${DIR}${meta.clientId.replace(/[^a-zA-Z0-9_.-]/g, '')}.m4a`;
+  const dest = `${DIR}${meta.clientId.replace(/[^a-zA-Z0-9_.-]/g, '')}.wav`;
   try {
     await copyAsync({ from: sourceUri, to: dest });
     fileUri = dest;
@@ -69,33 +72,57 @@ export async function enqueueTake(
   const list = await readManifest();
   list.push({ meta, fileUri, sentenceLabel, createdAt: Date.now(), attempts: 0, lastError: null });
   await writeManifest(list);
+  if (fileUri !== sourceUri) deleteAsync(sourceUri, { idempotent: true }).catch(() => {});
 }
 
 export async function pendingCount(): Promise<number> {
   return (await readManifest()).length;
 }
 
+export async function pendingSummary(): Promise<{ total: number; blocked: number }> {
+  const list = await readManifest();
+  return { total: list.length, blocked: list.filter((take) => take.blocked).length };
+}
+
 export async function listPending(): Promise<PendingTake[]> {
   return readManifest();
+}
+
+/** Delete every waiting local master. Used only after an explicit destructive
+ * confirmation in the curator UI. */
+export async function discardPending(): Promise<number> {
+  const list = await readManifest();
+  await Promise.all(list.map((take) => deleteAsync(take.fileUri, { idempotent: true }).catch(() => {})));
+  await writeManifest([]);
+  return list.length;
 }
 
 /**
  * Try to upload every queued take. Idempotent (server dedups on clientId).
  * Returns how many uploaded and how many remain.
  */
-export async function retryPending(): Promise<{ uploaded: number; remaining: number }> {
+export async function retryPending(): Promise<{ uploaded: number; remaining: number; blocked: number }> {
   const list = await readManifest();
   const keep: PendingTake[] = [];
   let uploaded = 0;
   for (const t of list) {
+    if (t.blocked) {
+      keep.push(t);
+      continue;
+    }
     try {
       await uploadSentenceTake(t.meta, t.fileUri);
       uploaded++;
       if (t.fileUri.startsWith(DIR)) deleteAsync(t.fileUri, { idempotent: true }).catch(() => {});
     } catch (e: any) {
-      keep.push({ ...t, attempts: t.attempts + 1, lastError: e?.message ?? 'failed' });
+      keep.push({
+        ...t,
+        attempts: t.attempts + 1,
+        lastError: e?.message ?? 'failed',
+        blocked: e instanceof StudioUploadError && !e.retryable,
+      });
     }
   }
   await writeManifest(keep);
-  return { uploaded, remaining: keep.length };
+  return { uploaded, remaining: keep.length, blocked: keep.filter((take) => take.blocked).length };
 }
