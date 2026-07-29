@@ -27,6 +27,8 @@ Success looks like:
 
 **Respectful, grounded, warm.** Custodial rather than performative. The interface welcomes documented participation from language custodians, speakers, linguists, and learners without implying approval that has not occurred. We are infrastructure, not the protagonist.
 
+The product lockup uses **“Language first. Always.”** It is a design test, not an ownership claim: MobTranslate must never imply that publication proves community ownership, endorsement, or certification.
+
 Voice: plain English, second-person where helpful, never academic, never patronising. Cultural notes are sourced and credited. We don't translate a word without showing where the entry came from.
 
 Emotional goals: trust (this is the real dictionary, not a curiosity), pride (the language is foregrounded, not flattened), competence (you can actually learn here).
@@ -46,6 +48,8 @@ Emotional goals: trust (this is the real dictionary, not a curiosity), pride (th
 1. **The language is the subject.** Indigenous word foregrounded; English gloss subordinate. Typography, hierarchy, and color all reinforce this — never the other way around. This is the test for every screen.
 
 2. **Custodial confidence.** Show source, contributor, and approval state for every entry. Never present AI output as authoritative without flagging it. Translation disclaimers stay visible and honest, not buried in tooltips.
+
+   On mobile, this appears as a **Knowledge trail** attached to the result itself. A direct dictionary match, an unreviewed dictionary record, and a machine suggestion are different states with icon + label + plain-language explanation. That status must remain attached when a result is shared.
 
 3. **Earth tones, not earth clichés.** The Earth palette (ochre, sand, eucalyptus, night sky) is the system; how it's applied depends on the **specific language's country**. Each dictionary carries a small per-language identity treatment (accent hue, hero photograph, geographic origin label) — Wajarri (Mid West WA) reads differently from Kuku Yalanji (Far North QLD rainforest) reads differently from Mi'gmaq (Eastern Canada).
 

@@ -9,6 +9,7 @@ import { Button, Card, Chip, SpeakerButton } from '../../components/kit';
 import { Skeleton, SkeletonLines } from '../../components/Skeleton';
 import { AnimatedMark } from '../../components/AnimatedMark';
 import { CorrectionModal } from '../../components/CorrectionModal';
+import { ProvenancePanel } from '../../components/ProvenancePanel';
 import { RecorderModal } from '../../components/RecorderModal';
 import {
   getWord, getWordImage, getWordRecordings, getExampleRecordings, createExample,
@@ -134,6 +135,46 @@ export default function WordScreen() {
                   {detail.translations.length > 0 && <Text style={styles.trans}>{detail.translations.join(' · ')}</Text>}
                 </Card>
               )}
+
+              <ProvenancePanel
+                tone={detail.isVerified ? 'reviewed' : 'working'}
+                eyebrow="REVIEW STATUS"
+                title={detail.isVerified ? 'Marked as reviewed' : 'Review is still open'}
+                body={detail.isVerified
+                  ? 'This working dictionary entry has been reviewed in Mob Translate. You can still suggest a correction when language knowledge changes or more context is needed.'
+                  : 'This is a working dictionary entry and has not yet been marked as reviewed. Check important or sensitive use with a speaker or language keeper.'}
+                detail={[
+                  detail.entrySource ? `Source: ${detail.entrySource}` : 'Source trail: not yet listed',
+                  detail.reviewCount > 0 ? `${detail.reviewCount} review${detail.reviewCount === 1 ? '' : 's'} recorded` : null,
+                ].filter(Boolean).join(' · ')}
+              />
+
+              {detail.communityNotes ? (
+                <Card>
+                  <Text style={styles.section}>COMMUNITY NOTES</Text>
+                  <Text style={styles.guidanceText}>{detail.communityNotes}</Text>
+                </Card>
+              ) : null}
+
+              {detail.culturalContexts.map((context, index) => (
+                <ProvenancePanel
+                  key={`${context.description}-${index}`}
+                  tone="cultural"
+                  eyebrow="CULTURAL GUIDANCE"
+                  title="Please read before using this word"
+                  body={context.description || 'This entry carries community-specific guidance.'}
+                  detail={context.usageNotes ? `Use: ${context.usageNotes}` : undefined}
+                />
+              ))}
+
+              {detail.sensitiveContent && detail.culturalContexts.length === 0 ? (
+                <ProvenancePanel
+                  tone="cultural"
+                  eyebrow="SENSITIVE CONTENT"
+                  title="Use this word with care"
+                  body="This entry is marked as culturally sensitive. Seek guidance from a speaker or language keeper before using it outside a learning context."
+                />
+              ) : null}
 
               {/* Pronunciations of the word */}
               <Card>
@@ -269,6 +310,7 @@ const styles = StyleSheet.create({
   bullet: { fontFamily: F.body, fontSize: S.body, color: C.sage, lineHeight: 28 },
   def: { flex: 1, fontFamily: F.body, fontSize: S.body, color: C.ink, lineHeight: 28 },
   trans: { fontFamily: F.serifItalic, fontSize: S.label, color: C.muted, marginTop: 8 },
+  guidanceText: { fontFamily: F.body, fontSize: S.label, color: C.inkSoft, lineHeight: 23 },
   noneYet: { fontFamily: F.body, fontSize: S.label, color: C.muted, lineHeight: 22 },
   playRow: { flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: C.surfaceAlt, borderRadius: radius.md, padding: 10, marginTop: 6 },
   playName: { flex: 1, fontFamily: F.semibold, fontSize: S.label, color: C.ink },

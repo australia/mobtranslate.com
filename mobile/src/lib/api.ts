@@ -77,15 +77,32 @@ export async function getLanguages(): Promise<Language[]> {
 }
 
 // ---- Translate -------------------------------------------------------------
-export async function translate(code: string, text: string): Promise<{ translation: string; gloss?: string }> {
+export interface TranslationResult {
+  translation: string;
+  gloss?: string;
+  kind: 'dictionary' | 'machine';
+  sourceUrl?: string;
+}
+
+export async function translate(code: string, text: string): Promise<TranslationResult> {
   const res = await fetch(`${API_BASE}/api/translate/${code}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ text, mode: 'translate' }),
   });
-  const data = await json<{ translation?: string; gloss?: string; error?: string }>(res);
+  const data = await json<{
+    translation?: string;
+    gloss?: string;
+    error?: string;
+    inference?: { validation?: string; sourceUrl?: string };
+  }>(res);
   if (data.error) throw new Error(data.error);
-  return { translation: data.translation ?? '', gloss: data.gloss };
+  return {
+    translation: data.translation ?? '',
+    gloss: data.gloss,
+    kind: data.inference?.validation === 'dictionary_record' ? 'dictionary' : 'machine',
+    sourceUrl: data.inference?.sourceUrl,
+  };
 }
 
 // ---- Pronunciation ---------------------------------------------------------
@@ -114,11 +131,16 @@ export async function searchWords(code: string, q: string): Promise<SearchHit[]>
 }
 
 export interface WordExample { id?: string; text: string; translation?: string }
+export interface CulturalContext { description: string; usageNotes?: string }
 export interface WordDetail {
   id: string; word: string; languageCode: string;
   pronunciation?: string; wordClass?: string; wordType?: string;
+  isVerified: boolean; reviewCount: number;
+  lastReviewedAt?: string; entrySource?: string; needsReview?: string;
+  communityNotes?: string; sensitiveContent: boolean;
   definitions: string[]; translations: string[];
   examples: WordExample[];
+  culturalContexts: CulturalContext[];
 }
 
 export async function getWord(id: string): Promise<WordDetail | null> {
@@ -136,11 +158,21 @@ export async function getWord(id: string): Promise<WordDetail | null> {
       pronunciation: w.phonetic_transcription ?? undefined,
       wordClass: w.word_class?.name ?? w.word_class?.abbreviation ?? undefined,
       wordType: w.word_type ?? undefined,
+      isVerified: !!w.is_verified,
+      reviewCount: Number(w.review_count) || 0,
+      lastReviewedAt: w.last_reviewed_at ?? undefined,
+      entrySource: w.entry_source ?? undefined,
+      needsReview: w.needs_review ?? undefined,
+      communityNotes: w.community_notes ?? undefined,
+      sensitiveContent: !!w.sensitive_content,
       definitions: (w.definitions ?? []).map((x: any) => x.definition).filter(Boolean),
       translations: (w.translations ?? []).map((x: any) => x.translation).filter(Boolean),
       examples: (w.usage_examples ?? w.examples ?? [])
         .map((x: any) => ({ id: x.id, text: x.example ?? x.example_text ?? x.text ?? '', translation: x.translation ?? undefined }))
         .filter((e: any) => e.text),
+      culturalContexts: (w.cultural_contexts ?? [])
+        .map((x: any) => ({ description: x.description ?? x.context_description ?? '', usageNotes: x.usage_notes ?? x.usage_restrictions ?? undefined }))
+        .filter((x: CulturalContext) => x.description || x.usageNotes),
     };
   } catch {
     return null;

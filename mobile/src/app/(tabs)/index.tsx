@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Image, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
+import * as Linking from 'expo-linking';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
@@ -9,7 +10,8 @@ import {
 } from '../../components/kit';
 import { Skeleton, SkeletonLines } from '../../components/Skeleton';
 import { CorrectionModal } from '../../components/CorrectionModal';
-import { translate } from '../../lib/api';
+import { ProvenancePanel } from '../../components/ProvenancePanel';
+import { translate, type TranslationResult } from '../../lib/api';
 import { useLang } from '../../lib/langContext';
 import { useAccent, AccentWash } from '../../lib/accent';
 import { langMeta } from '../../lib/langMeta';
@@ -24,7 +26,7 @@ export default function HomeScreen() {
   const router = useRouter();
   const [picker, setPicker] = useState(false);
   const [input, setInput] = useState('');
-  const [result, setResult] = useState<{ translation: string; gloss?: string } | null>(null);
+  const [result, setResult] = useState<TranslationResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [wotd, setWotd] = useState<WordOfDay | null>(null);
@@ -72,8 +74,11 @@ export default function HomeScreen() {
 
   async function shareTranslation() {
     if (!result) return;
+    const status = result.kind === 'dictionary'
+      ? `Direct Mob Translate dictionary match.${result.sourceUrl ? `\n${result.sourceUrl}` : ''}`
+      : 'Machine suggestion — not community verified';
     await Share.share({
-      message: `${input.trim()}\n${result.translation}\n\nTranslated to ${langName} with Mob Translate`,
+      message: `${input.trim()}\n${result.translation}\n\n${status}\n${langName} via Mob Translate`,
     });
   }
 
@@ -195,8 +200,14 @@ export default function HomeScreen() {
           <Animated.View entering={FadeInDown.springify().damping(18).mass(0.7)} style={styles.resultArea}>
             <View style={styles.resultHeader}>
               <View style={styles.resultReady}>
-                <Ionicons name="checkmark-circle" size={16} color={C.success} />
-                <Text style={styles.resultLabel}>YOUR TRANSLATION</Text>
+                <Ionicons
+                  name={result.kind === 'dictionary' ? 'book-outline' : 'sparkles-outline'}
+                  size={16}
+                  color={result.kind === 'dictionary' ? C.forest : C.clay}
+                />
+                <Text style={[styles.resultLabel, { color: result.kind === 'dictionary' ? C.forest : C.clay }]}>
+                  {result.kind === 'dictionary' ? 'DICTIONARY MATCH' : 'MACHINE SUGGESTION'}
+                </Text>
               </View>
               <Pressable
                 onPress={shareTranslation}
@@ -215,6 +226,23 @@ export default function HomeScreen() {
               </View>
               <SpeakerButton code={code} text={result.translation} size="lg" />
             </View>
+            {result.kind === 'dictionary' ? (
+              <ProvenancePanel
+                tone="dictionary"
+                eyebrow="KNOWLEDGE TRAIL"
+                title="From the working dictionary"
+                body="This is a direct dictionary match, not a generated sentence. Open the entry to see its source and review status."
+                actionLabel={result.sourceUrl ? 'Open dictionary entry' : undefined}
+                onAction={result.sourceUrl ? () => Linking.openURL(result.sourceUrl!) : undefined}
+              />
+            ) : (
+              <ProvenancePanel
+                tone="machine"
+                eyebrow="KNOWLEDGE TRAIL"
+                title="A suggestion, not the final word"
+                body="This suggestion was generated from dictionary evidence and has not been community verified. For important or sensitive use, check with a speaker or language keeper."
+              />
+            )}
             <Pressable
               onPress={() => setCorrect(true)}
               style={styles.suggestRow}

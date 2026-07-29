@@ -264,7 +264,10 @@ The home page result box. Currently shows generic error. Should:
 - Indigenous translation foregrounded, Playfair, 1.5rem, weight 600, with `lang` attribute.
 - English source small above it, `--text-sm`, muted.
 - Pronunciation guide (IPA + audio button when available) right under the headword.
-- AI disclaimer pinned below in `--color-muted-foreground`, `--text-sm`, with a "report this" link.
+- A visible **Knowledge trail** below the result distinguishes a direct dictionary match from a machine suggestion. It uses an icon, explicit label, and plain-language explanation; never a green checkmark for generated text.
+- Machine state says it is not community verified and advises checking important or sensitive use with a speaker or language keeper. Dictionary state links to the entry where source and review status are visible.
+- The trust status stays attached to shared text; sharing must not strip away machine uncertainty.
+- A correction link remains directly below the Knowledge trail.
 - Loading state: skeleton placeholder for the Indigenous word, NOT a centered spinner.
 
 ### 5.8 Empty state

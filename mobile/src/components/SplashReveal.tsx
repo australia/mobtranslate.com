@@ -20,7 +20,7 @@ export function SplashReveal({ onDone }: { onDone: () => void }) {
       <AnimatedMark size={104} mode="reveal" />
       <Animated.View style={[styles.words, wordmark]}>
         <Text style={styles.name}>Mob Translate</Text>
-        <Text style={styles.tag}>Community-built. Country-owned.</Text>
+        <Text style={styles.tag}>Language first. Always.</Text>
       </Animated.View>
     </Animated.View>
   );

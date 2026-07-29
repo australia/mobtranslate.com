@@ -108,6 +108,8 @@ export async function GET(request: NextRequest, props: { params: Promise<{ id: s
       last_reviewed_at: word.lastReviewedAt,
       review_count: word.reviewCount,
       community_notes: word.communityNotes,
+      entry_source: word.entrySource,
+      needs_review: word.needsReview,
       definitions: defs.map((d) => ({
         id: d.id,
         definition: d.definition,

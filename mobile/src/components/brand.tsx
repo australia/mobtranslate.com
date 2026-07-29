@@ -27,7 +27,7 @@ export function BrandLockup({ compact }: { compact?: boolean }) {
         </Text>
         {!compact && (
           <Text style={{ fontFamily: F.medium, fontSize: 11.5, color: C.muted, marginTop: 1 }}>
-            Community-built. Country-owned.
+            Language first. Always.
           </Text>
         )}
       </View>
