@@ -2,11 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { requireRole } from '@/lib/auth-helpers';
 import { uploadAudio, removeAudio } from '@/lib/recording/server';
 import { recordingPublicUrl } from '@/lib/storage';
 import { compressedAudioMeta } from '@/lib/recording/types';
-import { STUDIO_ROLES, sentenceAudioBase, rowsOf } from '@/lib/recording/sentence-studio';
+import { CORPUS_SOURCE, requireKukuStudioAccess, sentenceAudioBase, rowsOf } from '@/lib/recording/sentence-studio';
 import { inspectPcmWav } from '@/lib/recording/wav-inspect.server';
 
 export const runtime = 'nodejs';
@@ -44,7 +43,7 @@ const metaSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const { user, response } = await requireRole(STUDIO_ROLES);
+  const { user, response, languageId } = await requireKukuStudioAccess();
   if (response) return response;
 
   let form: FormData;
@@ -126,6 +125,7 @@ export async function POST(request: NextRequest) {
     from public.current_speech_consent
     where id = ${meta.consentRecordId}::uuid
       and speaker_id = ${meta.speakerId}::uuid
+      and language_id = ${languageId}::uuid
       and recording_allowed = true`);
   if (!rowsOf(consentCheck)[0]) {
     return NextResponse.json(
@@ -164,7 +164,7 @@ export async function POST(request: NextRequest) {
     const data = await db.transaction(async (tx) => {
       const sentRes = await tx.execute(sql`
         select id, kuku_text, original_kuku from public.recording_sentences
-        where id = ${meta.sentenceId}::uuid for update`);
+        where id = ${meta.sentenceId}::uuid and corpus_source = ${CORPUS_SOURCE} for update`);
       const sent = rowsOf<{ id: string; kuku_text: string; original_kuku: string }>(sentRes)[0];
       if (!sent) throw new Error('Sentence not found');
 
@@ -176,6 +176,7 @@ export async function POST(request: NextRequest) {
         join public.speaker_profiles speaker on speaker.id = consent.speaker_id
         where consent.id = ${meta.consentRecordId}::uuid
           and consent.speaker_id = ${meta.speakerId}::uuid
+          and consent.language_id = ${languageId}::uuid
           and consent.recording_allowed = true`);
       const consent = rowsOf<{
         id: string;

@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { requireRole } from '@/lib/auth-helpers';
-import { STUDIO_ROLES, rowsOf } from '@/lib/recording/sentence-studio';
+import { requireKukuStudioAccess, rowsOf } from '@/lib/recording/sentence-studio';
 import {
   SpeechConsentGrantSchema,
   legacySpeechConsentFlags,
@@ -45,7 +44,7 @@ export async function POST(
   request: NextRequest,
   context: { params: Promise<{ speakerId: string }> },
 ) {
-  const { user, response } = await requireRole(STUDIO_ROLES);
+  const { user, response, languageId } = await requireKukuStudioAccess();
   if (response) return response;
 
   const { speakerId } = await context.params;
@@ -67,6 +66,7 @@ export async function POST(
         select id, language_id
         from public.speaker_profiles
         where id = ${speakerId}::uuid
+          and language_id = ${languageId}::uuid
         for update`);
       const speaker = rowsOf<{ id: string; language_id: string | null }>(speakerResult)[0];
       if (!speaker?.language_id) throw new Error('speaker_not_found');

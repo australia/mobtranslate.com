@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { requireRole } from '@/lib/auth-helpers';
-import { EXPORT_ROLES, rowsOf } from '@/lib/recording/sentence-studio';
+import { EXPORT_ROLES, requireKukuStudioAccess, rowsOf } from '@/lib/recording/sentence-studio';
 
 export const runtime = 'nodejs';
 
@@ -11,7 +10,7 @@ export const runtime = 'nodejs';
 // ledger judgment (fixed / approved_as_is / marked_bad).
 //   { corpus_sentence_id, original_kuku, final_kuku, action, speaker, reviewed_at }
 export async function GET(_request: NextRequest) {
-  const { response } = await requireRole(EXPORT_ROLES);
+  const { response, languageId } = await requireKukuStudioAccess(EXPORT_ROLES);
   if (response) return response;
 
   try {
@@ -33,7 +32,7 @@ export async function GET(_request: NextRequest) {
         r.created_at as reviewed_at
       from public.sentence_reviews r
       join public.recording_sentences rs on rs.id = r.sentence_id
-      left join public.speaker_profiles sp on sp.id = r.speaker_id
+      left join public.speaker_profiles sp on sp.id = r.speaker_id and sp.language_id = ${languageId}::uuid
       where r.action in ('fixed', 'approved_as_is', 'marked_bad')
       order by r.created_at asc`);
     const rows = rowsOf(res);

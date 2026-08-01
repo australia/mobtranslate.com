@@ -1,20 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { requireRole } from '@/lib/auth-helpers';
-import { STUDIO_ROLES, CORPUS_SOURCE, rowsOf } from '@/lib/recording/sentence-studio';
+import { CORPUS_SOURCE, requireKukuStudioAccess, rowsOf } from '@/lib/recording/sentence-studio';
 
 export const runtime = 'nodejs';
 
 // GET progress stats — queue counts by status + recorded minutes, overall and
 // (optionally) for a single speaker. ?speakerId=<uuid> scopes the audio totals.
 export async function GET(request: NextRequest) {
-  const { response } = await requireRole(STUDIO_ROLES);
+  const { response, languageId } = await requireKukuStudioAccess();
   if (response) return response;
 
   const { searchParams } = new URL(request.url);
   const speakerId = searchParams.get('speakerId');
   const speakerUuid = speakerId && /^[0-9a-f-]{36}$/i.test(speakerId) ? speakerId : null;
+  if (speakerUuid) {
+    const speaker = rowsOf(await db.execute(sql`
+      select id from public.speaker_profiles
+      where id = ${speakerUuid}::uuid and language_id = ${languageId}::uuid
+      limit 1
+    `))[0];
+    if (!speaker) return NextResponse.json({ error: 'Speaker not found.' }, { status: 404 });
+  }
   const batch = searchParams.get('batch') ?? 'tts-priority-v1';
   const batchFilter = batch === 'all' ? sql`true` : sql`rs.batch_label = ${batch}`;
 
@@ -49,6 +56,7 @@ export async function GET(request: NextRequest) {
              max(sr.created_at) as last_recorded_at
       from public.speaker_profiles sp
       join public.sentence_recordings sr on sr.speaker_id = sp.id and sr.status = 'active'
+      where sp.language_id = ${languageId}::uuid
       group by sp.id, sp.name, sp.community, sp.dialect
       order by minutes desc, clips desc`);
     const perSpeaker = rowsOf(perSpeakerRes);

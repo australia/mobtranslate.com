@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { requireRole } from '@/lib/auth-helpers';
-import { STUDIO_ROLES, CORPUS_SOURCE, rowsOf } from '@/lib/recording/sentence-studio';
+import { CORPUS_SOURCE, requireKukuStudioAccess, rowsOf } from '@/lib/recording/sentence-studio';
 import { recordingPublicUrl } from '@/lib/storage';
 
 export const runtime = 'nodejs';
@@ -10,7 +9,7 @@ export const runtime = 'nodejs';
 // GET operator dashboard data: queue + audio totals, per-speaker table,
 // recent fixes (with before/after diff), and recent recordings.
 export async function GET(_request: NextRequest) {
-  const { user, response } = await requireRole(STUDIO_ROLES);
+  const { user, response, languageId } = await requireKukuStudioAccess();
   if (response) return response;
 
   try {
@@ -51,6 +50,7 @@ export async function GET(_request: NextRequest) {
         from public.sentence_recordings sr
         where sr.speaker_id = sp.id and sr.status = 'active'
       ) audio on audio.clips > 0
+      where sp.language_id = ${languageId}::uuid
       order by audio.minutes desc, audio.clips desc`);
     const perSpeaker = rowsOf(perSpeakerRes);
 
@@ -59,7 +59,7 @@ export async function GET(_request: NextRequest) {
              rs.corpus_sentence_id, rs.english_text, sp.name as speaker
       from public.sentence_reviews r
       join public.recording_sentences rs on rs.id = r.sentence_id
-      left join public.speaker_profiles sp on sp.id = r.speaker_id
+      left join public.speaker_profiles sp on sp.id = r.speaker_id and sp.language_id = ${languageId}::uuid
       where r.action = 'fixed'
       order by r.created_at desc limit 30`);
     const recentFixes = rowsOf(recentFixesRes);
@@ -68,7 +68,7 @@ export async function GET(_request: NextRequest) {
       select r.id, r.created_at, r.reason, rs.corpus_sentence_id, rs.kuku_text, rs.english_text, sp.name as speaker
       from public.sentence_reviews r
       join public.recording_sentences rs on rs.id = r.sentence_id
-      left join public.speaker_profiles sp on sp.id = r.speaker_id
+      left join public.speaker_profiles sp on sp.id = r.speaker_id and sp.language_id = ${languageId}::uuid
       where r.action = 'marked_bad'
       order by r.created_at desc limit 30`);
     const recentBad = rowsOf(recentBadRes);
@@ -82,7 +82,7 @@ export async function GET(_request: NextRequest) {
              transcript.recorded_by is distinct from ${user!.id}::uuid as can_adjudicate
       from public.sentence_recordings sr
       join public.recording_sentences rs on rs.id = sr.sentence_id
-      left join public.speaker_profiles sp on sp.id = sr.speaker_id
+      join public.speaker_profiles sp on sp.id = sr.speaker_id and sp.language_id = ${languageId}::uuid
       left join public.current_speech_transcript transcript
         on transcript.sentence_recording_id = sr.id
       where sr.status = 'active'

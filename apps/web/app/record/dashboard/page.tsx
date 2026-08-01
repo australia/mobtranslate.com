@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
-import { STUDIO_ROLES, EXPORT_ROLES } from '@/lib/recording/sentence-studio';
+import { STUDIO_ROLES, EXPORT_ROLES, kukuLanguageId } from '@/lib/recording/sentence-studio';
 import StudioDashboard from './StudioDashboard';
 
 export const dynamic = 'force-dynamic';
@@ -22,17 +22,18 @@ export default async function DashboardPage() {
       </main>
     );
   }
-  const ok = await userHasRole(user.id, STUDIO_ROLES);
+  const languageId = await kukuLanguageId();
+  const ok = languageId ? await userHasRole(user.id, STUDIO_ROLES, languageId) : false;
   if (!ok) {
     return (
       <main className="min-h-screen flex items-center justify-center bg-stone-50 p-8">
         <div className="max-w-md text-center">
-          <h1 className="text-2xl font-bold mb-3">Curator access needed</h1>
+          <h1 className="text-2xl font-bold mb-3">Kuku Yalanji curator access needed</h1>
           <Link href="/" className="text-stone-600 underline">Back to home</Link>
         </div>
       </main>
     );
   }
-  const canExport = await userHasRole(user.id, EXPORT_ROLES);
+  const canExport = await userHasRole(user.id, EXPORT_ROLES, languageId!);
   return <StudioDashboard canExport={canExport} />;
 }

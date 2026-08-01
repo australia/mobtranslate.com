@@ -59,7 +59,7 @@ export async function resolveDictionaryAudioAccess(
 ): Promise<DictionaryAudioAccess> {
   const result = await db.execute(sql`
     select
-      recording.recorded_by,
+      recording.language_id,
       speaker.user_id as speaker_user_id,
       exists (
         select 1
@@ -86,7 +86,7 @@ export async function resolveDictionaryAudioAccess(
      limit 1
   `);
   const row = rowsOf<{
-    recorded_by: string | null;
+    language_id: string;
     speaker_user_id: string | null;
     attributed_source: boolean;
     public_allowed: boolean;
@@ -96,8 +96,11 @@ export async function resolveDictionaryAudioAccess(
 
   const user = await getSessionUser().catch(() => null);
   if (!user) return 'denied';
-  if (row.recorded_by === user.id || row.speaker_user_id === user.id) return 'private';
-  return (await userHasRole(user.id, STUDIO_ROLES).catch(() => false))
+  // The speaker can always revisit their own private recording. An operator
+  // does not retain access merely because they pressed Record; their current,
+  // language-scoped role is checked below and can be revoked.
+  if (row.speaker_user_id === user.id) return 'private';
+  return (await userHasRole(user.id, STUDIO_ROLES, row.language_id).catch(() => false))
     ? 'private'
     : 'denied';
 }

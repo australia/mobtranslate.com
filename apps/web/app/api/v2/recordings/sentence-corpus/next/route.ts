@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { requireRole } from '@/lib/auth-helpers';
-import { STUDIO_ROLES, CORPUS_SOURCE, rowsOf } from '@/lib/recording/sentence-studio';
+import { CORPUS_SOURCE, requireKukuStudioAccess, rowsOf } from '@/lib/recording/sentence-studio';
 
 export const runtime = 'nodejs';
 
@@ -14,7 +13,7 @@ export const runtime = 'nodejs';
 // (least-skipped first). Sentences already marked_bad or recorded are excluded.
 // Returns the sentence + queue position (done / total) for the progress bar.
 export async function GET(request: NextRequest) {
-  const { response } = await requireRole(STUDIO_ROLES);
+  const { response, languageId } = await requireKukuStudioAccess();
   if (response) return response;
 
   const { searchParams } = new URL(request.url);
@@ -22,6 +21,14 @@ export async function GET(request: NextRequest) {
   const batch = searchParams.get('batch') ?? 'tts-priority-v1';
   const batchFilter = batch === 'all' ? sql`true` : sql`rs.batch_label = ${batch}`;
   const speakerUuid = speakerId && /^[0-9a-f-]{36}$/i.test(speakerId) ? speakerId : null;
+  if (speakerUuid) {
+    const speaker = rowsOf(await db.execute(sql`
+      select id from public.speaker_profiles
+      where id = ${speakerUuid}::uuid and language_id = ${languageId}::uuid
+      limit 1
+    `))[0];
+    if (!speaker) return NextResponse.json({ error: 'Speaker not found.' }, { status: 404 });
+  }
 
   try {
     // Aggregate progress across the batch scope.

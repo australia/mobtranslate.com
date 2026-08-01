@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { requireRole } from '@/lib/auth-helpers';
-import { STUDIO_ROLES, kukuLanguageId, rowsOf } from '@/lib/recording/sentence-studio';
+import { requireKukuStudioAccess, rowsOf } from '@/lib/recording/sentence-studio';
 import {
   SpeechConsentGrantSchema,
   legacySpeechConsentFlags,
@@ -11,13 +10,11 @@ import {
 
 export const runtime = 'nodejs';
 
-// GET active speakers (Kuku Yalanji + any global), with their sentence-studio
+// GET active Kuku Yalanji speakers, with their sentence-studio
 // clip/minute totals for the speaker picker. Reuses public.speaker_profiles.
 export async function GET(_request: NextRequest) {
-  const { response } = await requireRole(STUDIO_ROLES);
+  const { response, languageId: langId } = await requireKukuStudioAccess();
   if (response) return response;
-
-  const langId = await kukuLanguageId();
   try {
     const res = await db.execute(sql`
       select sp.id, sp.name, sp.community, sp.dialect, sp.gender, sp.age, sp.bio,
@@ -52,7 +49,7 @@ export async function GET(_request: NextRequest) {
         select count(*)::int as clips, round(sum(duration_ms) / 60000.0, 1) as minutes
         from public.sentence_recordings sr where sr.speaker_id = sp.id and sr.status = 'active'
       ) a on true
-      where sp.is_active = true and (sp.language_id = ${langId}::uuid or sp.language_id is null)
+      where sp.is_active = true and sp.language_id = ${langId}::uuid
       order by sp.created_at asc`);
     return NextResponse.json(rowsOf(res), {
       headers: { 'Cache-Control': 'no-store' },
@@ -80,7 +77,7 @@ const schema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const { user, response } = await requireRole(STUDIO_ROLES);
+  const { user, response, languageId: langId } = await requireKukuStudioAccess();
   if (response) return response;
 
   let body: z.infer<typeof schema>;
@@ -90,13 +87,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       { error: 'Invalid body', details: err instanceof z.ZodError ? err.issues : String(err) },
       { status: 400 },
-    );
-  }
-  const langId = await kukuLanguageId();
-  if (!langId) {
-    return NextResponse.json(
-      { error: 'The Kuku Yalanji recording language is not configured.' },
-      { status: 503 },
     );
   }
   const legacy = legacySpeechConsentFlags(body.consent.rights);

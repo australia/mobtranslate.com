@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sql } from 'drizzle-orm';
 import { z } from 'zod';
-import { requireRole } from '@/lib/auth-helpers';
 import { db } from '@/lib/db/index';
-import { STUDIO_ROLES, rowsOf } from '@/lib/recording/sentence-studio';
+import { requireKukuStudioAccess, rowsOf } from '@/lib/recording/sentence-studio';
 
 export const runtime = 'nodejs';
 
@@ -35,7 +34,7 @@ export async function POST(
   request: NextRequest,
   context: { params: Promise<{ recordingId: string }> },
 ) {
-  const { user, response } = await requireRole(STUDIO_ROLES);
+  const { user, response, languageId } = await requireKukuStudioAccess();
   if (response) return response;
 
   const { recordingId } = await context.params;
@@ -68,6 +67,11 @@ export async function POST(
         ) event on true
         where recording.id = ${recordingId}::uuid
           and recording.status = 'active'
+          and exists (
+            select 1 from public.speaker_profiles speaker
+            where speaker.id = recording.speaker_id
+              and speaker.language_id = ${languageId}::uuid
+          )
         for update of recording`);
       const current = rowsOf<CurrentTranscript>(currentResult)[0];
       if (!current) throw new TranscriptReviewError('not_found');

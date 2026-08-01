@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { requireRole } from '@/lib/auth-helpers';
-import { STUDIO_ROLES, rowsOf } from '@/lib/recording/sentence-studio';
+import { requireKukuStudioAccess, rowsOf } from '@/lib/recording/sentence-studio';
 
 export const runtime = 'nodejs';
 
@@ -22,7 +21,7 @@ const schema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const { user, response } = await requireRole(STUDIO_ROLES);
+  const { user, response, languageId } = await requireKukuStudioAccess();
   if (response) return response;
 
   let body: z.infer<typeof schema>;
@@ -37,6 +36,16 @@ export async function POST(request: NextRequest) {
 
   if (body.action === 'fixed' && !body.newKuku?.trim()) {
     return NextResponse.json({ error: 'newKuku is required to fix a sentence' }, { status: 400 });
+  }
+  if (body.speakerId) {
+    const speaker = rowsOf(await db.execute(sql`
+      select id from public.speaker_profiles
+      where id = ${body.speakerId}::uuid and language_id = ${languageId}::uuid
+      limit 1
+    `))[0];
+    if (!speaker) {
+      return NextResponse.json({ error: 'The selected speaker does not belong to Kuku Yalanji.' }, { status: 400 });
+    }
   }
 
   try {

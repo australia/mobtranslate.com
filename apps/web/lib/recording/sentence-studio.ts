@@ -5,7 +5,9 @@
 // box-filesystem storage under MOBTRANSLATE_STORAGE_DIR (lib/storage), and the
 // app-level authz helpers (RLS is dropped in the migrated DB).
 import { sql } from 'drizzle-orm';
+import { NextResponse } from 'next/server';
 import { db } from '@/lib/db/index';
+import { requireRole } from '@/lib/auth-helpers';
 
 // The studio is operated in person by a curator/admin driving the tablet.
 export const STUDIO_ROLES = ['super_admin', 'dictionary_admin', 'curator'];
@@ -35,4 +37,22 @@ export async function kukuLanguageId(): Promise<string | null> {
   const row = rowsOf<{ id: string }>(res)[0];
   cachedLanguageId = row?.id ?? null;
   return cachedLanguageId;
+}
+
+/** Authorize against the actual Kuku Yalanji language assignment. A curator
+ * for another community must never inherit access to this corpus. */
+export async function requireKukuStudioAccess(roleNames: string[] = STUDIO_ROLES) {
+  const languageId = await kukuLanguageId();
+  if (!languageId) {
+    return {
+      languageId: null,
+      user: null,
+      response: NextResponse.json(
+        { error: 'The Kuku Yalanji language record is unavailable.' },
+        { status: 503, headers: { 'Cache-Control': 'no-store' } },
+      ),
+    };
+  }
+  const auth = await requireRole(roleNames, languageId);
+  return { ...auth, languageId };
 }

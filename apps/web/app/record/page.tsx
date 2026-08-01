@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
-import { STUDIO_ROLES } from '@/lib/recording/sentence-studio';
+import { kukuLanguageId, STUDIO_ROLES } from '@/lib/recording/sentence-studio';
 import SentenceStudio from './SentenceStudio';
 
 export const dynamic = 'force-dynamic';
@@ -40,12 +40,13 @@ export default async function RecordPage() {
       />
     );
   }
-  const ok = await userHasRole(user.id, STUDIO_ROLES);
+  const languageId = await kukuLanguageId();
+  const ok = languageId ? await userHasRole(user.id, STUDIO_ROLES, languageId) : false;
   if (!ok) {
     return (
       <Gate
         title="Curator access needed"
-        body="Recording and verifying sentences with elders requires a curator or language-admin role. Ask an admin to grant you access."
+        body="Recording and verifying Kuku Yalanji sentences requires an active Kuku Yalanji curator or language-manager assignment. Ask a platform admin or Kuku Yalanji language manager to grant access."
         cta={
           <Link href="/" className="inline-block rounded-xl border border-stone-300 px-6 py-3 text-lg font-semibold text-stone-700 hover:bg-stone-100">
             Back to home

@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { requireRole } from '@/lib/auth-helpers';
-import { EXPORT_ROLES, rowsOf } from '@/lib/recording/sentence-studio';
+import { EXPORT_ROLES, requireKukuStudioAccess, rowsOf } from '@/lib/recording/sentence-studio';
 
 export const runtime = 'nodejs';
 
@@ -10,7 +9,7 @@ export const runtime = 'nodejs';
 // It deliberately does not assign train/development/test or context/target
 // roles: those are frozen by the separate corpus builder and split manifest.
 export async function GET(request: NextRequest) {
-  const { response } = await requireRole(EXPORT_ROLES);
+  const { response, languageId } = await requireKukuStudioAccess(EXPORT_ROLES);
   if (response) return response;
 
   const { searchParams } = new URL(request.url);
@@ -64,6 +63,7 @@ export async function GET(request: NextRequest) {
       join public.recording_sentences sentence on sentence.id = recording.sentence_id
       where recording.status = 'active'
         and sentence.status <> 'marked_bad'
+        and consent.language_id = ${languageId}::uuid
         and consent.recording_allowed = true
         and consent.asr_evaluation_allowed = true
         ${purpose === 'training' ? sql`and consent.asr_training_allowed = true` : sql``}

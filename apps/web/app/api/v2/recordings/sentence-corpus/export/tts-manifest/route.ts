@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
-import { requireRole } from '@/lib/auth-helpers';
-import { EXPORT_ROLES, rowsOf } from '@/lib/recording/sentence-studio';
+import { EXPORT_ROLES, requireKukuStudioAccess, rowsOf } from '@/lib/recording/sentence-studio';
 
 export const runtime = 'nodejs';
 
@@ -13,7 +12,7 @@ export const runtime = 'nodejs';
 // `releaseWeights=1` additionally requires model creation and distribution.
 // Private audio URLs and speaker names are deliberately absent.
 export async function GET(request: NextRequest) {
-  const { response } = await requireRole(EXPORT_ROLES);
+  const { response, languageId } = await requireKukuStudioAccess(EXPORT_ROLES);
   if (response) return response;
 
   const { searchParams } = new URL(request.url);
@@ -61,6 +60,8 @@ export async function GET(request: NextRequest) {
         on transcript.sentence_recording_id = sr.id
       where sr.status = 'active'
         and rs.status <> 'marked_bad'
+        and sp.language_id = ${languageId}::uuid
+        and consent.language_id = ${languageId}::uuid
         and consent.recording_allowed = true
         and consent.tts_training_allowed = true
         and transcript.status = 'adjudicated'

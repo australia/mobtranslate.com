@@ -9,11 +9,12 @@ const RECORDING_ID = '22222222-2222-4222-8222-222222222222';
 const mocks = vi.hoisted(() => ({
   execute: vi.fn(),
   transaction: vi.fn(),
-  requireRole: vi.fn(),
+  requireAccess: vi.fn(),
 }));
 
-vi.mock('@/lib/auth-helpers', () => ({
-  requireRole: mocks.requireRole,
+vi.mock('@/lib/recording/sentence-studio', () => ({
+  requireKukuStudioAccess: mocks.requireAccess,
+  rowsOf: (result: unknown) => Array.isArray(result) ? result : [],
 }));
 
 vi.mock('@/lib/db/index', () => ({
@@ -44,7 +45,11 @@ function request() {
 describe('speech transcript adjudication', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    mocks.requireRole.mockResolvedValue({ user: { id: USER_ID }, response: null });
+    mocks.requireAccess.mockResolvedValue({
+      languageId: '66666666-6666-4666-8666-666666666666',
+      user: { id: USER_ID },
+      response: null,
+    });
     mocks.transaction.mockImplementation(async (callback) => callback({ execute: mocks.execute }));
   });
 
