@@ -67,6 +67,10 @@ import {
   safeTranslationErrorDiagnostic,
 } from '@/lib/translation-service-error.server';
 import {
+  loadTranslationReleasePolicy,
+  type TranslationReleasePolicy,
+} from '@/lib/translation-release-policy.server';
+import {
   apiGuardResponse,
   enforceHuggingFaceProviderBudget,
   enforceOpenAiProviderBudget,
@@ -134,6 +138,42 @@ const CachedResolvedReviewSchema = z.object({
 
 function sha256(value: unknown): string {
   return createHash('sha256').update(JSON.stringify(value)).digest('hex');
+}
+
+function restrictedTranslationResponse(
+  policy: TranslationReleasePolicy,
+  dictionary: Dictionary,
+  direction: 'to_language' | 'to_english',
+) {
+  return NextResponse.json(
+    {
+      success: false,
+      code: 'capability_not_publicly_admitted',
+      error: policy.unsupportedMessage,
+      language: {
+        name: dictionary.meta.name,
+        code: dictionary.meta.code,
+      },
+      direction,
+      inference: {
+        route: 'capability_unavailable',
+        validation: 'fail_closed_release_policy',
+        policyId: policy.policyId,
+        programId: policy.programId,
+        dictionaryEdition: policy.dictionaryEdition,
+        dictionaryRevision: dictionary.revision,
+        publicDictionaryLookupEnabled: policy.publicDictionaryLookupEnabled,
+        publicModelInferenceEnabled: policy.publicModelInferenceEnabled,
+        genericModelFallbackEnabled: policy.genericModelFallbackEnabled,
+        corpusReadiness: policy.corpusReadiness,
+        sourceUrl: `https://mobtranslate.com/dictionaries/${encodeURIComponent(dictionary.meta.code)}`,
+      },
+    },
+    {
+      status: policy.unsupportedStatus,
+      headers: { 'Cache-Control': 'no-store' },
+    },
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -725,6 +765,14 @@ export async function POST(
         { status: 404 },
       );
     }
+    const releasePolicy = loadTranslationReleasePolicy(language);
+    if (releasePolicy && !releasePolicy.publicDictionaryLookupEnabled) {
+      return restrictedTranslationResponse(
+        releasePolicy,
+        dictionary,
+        direction,
+      );
+    }
 
     // ---- Reverse: Indigenous language -> English -------------------------
     if (direction === 'to_english') {
@@ -770,6 +818,14 @@ export async function POST(
             senses,
           },
         });
+      }
+
+      if (releasePolicy) {
+        return restrictedTranslationResponse(
+          releasePolicy,
+          dictionary,
+          direction,
+        );
       }
 
       const reverseModelId =
@@ -916,6 +972,14 @@ export async function POST(
           },
         });
       }
+    }
+
+    if (releasePolicy) {
+      return restrictedTranslationResponse(
+        releasePolicy,
+        dictionary,
+        direction,
+      );
     }
 
     const hybridContract =
