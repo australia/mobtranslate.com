@@ -346,7 +346,13 @@ if [[ "$production_ready" -ne 1 ]]; then
 fi
 
 public_ready=0
-DOWNLOAD_PROBE_FILE="$(find "$WEB_ROOT/public/downloads" -maxdepth 1 -type f -name '*.apk' -printf '%f\n' | LC_ALL=C sort | head -1)"
+DOWNLOAD_PROBE_ROOT="${MOBTRANSLATE_DOWNLOAD_PROBE_ROOT:-$WEB_ROOT/public/downloads}"
+if [[ ! -d "$DOWNLOAD_PROBE_ROOT" ]]; then
+  echo "Download probe root does not exist: $DOWNLOAD_PROBE_ROOT" >&2
+  restore_previous_runtime
+  exit 1
+fi
+DOWNLOAD_PROBE_FILE="$(find "$DOWNLOAD_PROBE_ROOT" -maxdepth 1 -type f -name '*.apk' -printf '%f\n' | LC_ALL=C sort | head -1)"
 for _ in $(seq 1 30); do
   download_ready=1
   if [[ -n "$DOWNLOAD_PROBE_FILE" ]] \
