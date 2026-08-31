@@ -103,12 +103,12 @@ async function importAudit(): Promise<void> {
         ${rows.length},
         ${artifactPath},
         ${artifactHash},
-        ${JSON.stringify({
+        ${transaction.json({
           artifact_mtime: artifactStat.mtime.toISOString(),
           cutoff_basis: 'maximum_request_created_at_in_artifact',
           source_row_count: allRows.length,
           translation_row_count: rows.length,
-        })}::jsonb,
+        })},
         CURRENT_TIMESTAMP
       )
       ON CONFLICT (run_key) DO NOTHING
@@ -215,8 +215,8 @@ async function importAudit(): Promise<void> {
           ${auditDecision(row)},
           ${row.evidence_tier ?? null},
           ${row.category ?? null},
-          ${JSON.stringify(evidenceRefs)}::jsonb,
-          ${JSON.stringify(row)}::jsonb,
+          ${transaction.json(evidenceRefs)},
+          ${transaction.json(row)},
           ${artifactPath},
           ${artifactHash},
           ${`${runKey}:${row.request_ref}`},
@@ -242,10 +242,10 @@ async function importAudit(): Promise<void> {
              reviewed_subject_count = ${reviewedSubjectCount},
              completed_at = CURRENT_TIMESTAMP,
              updated_at = CURRENT_TIMESTAMP,
-             metadata = metadata || ${JSON.stringify({
+             metadata = metadata || ${transaction.json({
                matched_retained_subjects: matchedRetained,
                recovered_after_raw_pruning: recoveredAfterPruning,
-             })}::jsonb
+             })}
        WHERE id = ${run.id}
     `;
 
