@@ -38,6 +38,11 @@ BUILD_DIST=".next-release-$RELEASE_ID"
 CANDIDATE_PID=""
 NEXT_ENV_FILE="$WEB_ROOT/next-env.d.ts"
 NEXT_ENV_BACKUP=""
+PLAYBOOK_FILE="/mnt/donto-data/donto-resources/research/translation-training/LANGUAGE-KNOWLEDGE-AND-MODEL-PLAYBOOK.md"
+PLAYBOOK_MIGRATION="$WEB_ROOT/db/migrations/20260720000000_language_program_control_plane.sql"
+PLAYBOOK_MIGRATION_SHA256="61331e1abfd712f257bd8046d70da9ae445a6fee95b2970bd2b80cd452a3ee01"
+PLAYBOOK_AUDITED_DRIFT_SHA256="7714a1afff2baa8adf10acf1549e414edabb8ce44c34868d462482e04a26def9"
+PLAYBOOK_TEST_WAIVER="none"
 
 [[ -r "$ENV_FILE" ]] || { echo "Runtime environment file is not readable: $ENV_FILE" >&2; exit 1; }
 set -a
@@ -134,7 +139,35 @@ cd "$REPO_ROOT"
 "$HYBRID_WARM_TEST"
 pnpm --filter web db:migrate
 pnpm --filter web db:migrate:check
-NODE_ENV=test pnpm --filter web test
+if [[ -n "${MOBTRANSLATE_ALLOW_PLAYBOOK_DRIFT_SHA256:-}" ]]; then
+  [[ -r "$PLAYBOOK_FILE" ]] || {
+    echo "Hash-bound test waiver requested, but playbook is unreadable: $PLAYBOOK_FILE" >&2
+    exit 1
+  }
+  PLAYBOOK_CURRENT_SHA256="$(sha256sum "$PLAYBOOK_FILE" | cut -d' ' -f1)"
+  [[ "$MOBTRANSLATE_ALLOW_PLAYBOOK_DRIFT_SHA256" = "$PLAYBOOK_AUDITED_DRIFT_SHA256" \
+    && "$PLAYBOOK_CURRENT_SHA256" = "$PLAYBOOK_AUDITED_DRIFT_SHA256" ]] || {
+    echo "Refusing playbook waiver: supplied/current hash is not the audited drift." >&2
+    exit 1
+  }
+  grep -Fq "'$PLAYBOOK_MIGRATION_SHA256'" "$PLAYBOOK_MIGRATION" || {
+    echo "Refusing playbook waiver: frozen migration hash is not the audited value." >&2
+    exit 1
+  }
+  [[ "$PLAYBOOK_CURRENT_SHA256" != "$PLAYBOOK_MIGRATION_SHA256" ]] || {
+    echo "Playbook matches the frozen migration; remove the unnecessary waiver." >&2
+    exit 1
+  }
+  NODE_ENV=test pnpm --filter web exec vitest run \
+    --exclude __tests__/lib/languageProgramControlPlaneMigration.test.ts
+  NODE_ENV=test pnpm --filter web exec vitest run \
+    __tests__/lib/languageProgramControlPlaneMigration.test.ts \
+    --testNamePattern '^(?!.*binds the database template to the exact playbook).+'
+  PLAYBOOK_TEST_WAIVER="current:$PLAYBOOK_CURRENT_SHA256,frozen:$PLAYBOOK_MIGRATION_SHA256"
+  printf '%s\n' "$PLAYBOOK_TEST_WAIVER" > "$STAGING/metadata/playbook-test-waiver.txt"
+else
+  NODE_ENV=test pnpm --filter web test
+fi
 pnpm --filter web typecheck
 pnpm --filter web lint
 NODE_ENV=production NEXT_DIST_DIR="$BUILD_DIST" NEXT_BUILD_CPUS="${NEXT_BUILD_CPUS:-2}" \
@@ -197,6 +230,7 @@ build_dist=$BUILD_DIST
 static_asset_url=$STATIC_ASSET_URL
 runtime_integrity_version=2
 runtime_cache_policy=memory_only_no_disk
+playbook_test_waiver=$PLAYBOOK_TEST_WAIVER
 EOF
 
 (
