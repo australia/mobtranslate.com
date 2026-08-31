@@ -20,6 +20,7 @@
     "budget:check": "tsx scripts/check-api-budget.ts",
     "operational:prune": "tsx scripts/prune-operational-data.ts",
     "translation-reviews": "tsx scripts/translation-review-ledger.ts",
+    "translation-review-cycle": "tsx scripts/translation-review-cycle.ts",
     "language-program:sync": "tsx scripts/sync-language-program.ts",
     "sync:dictionaries": "tsx scripts/run-dictionary-sync.ts run_due",
     "sync:dictionaries:all": "tsx scripts/run-dictionary-sync.ts sync_all",

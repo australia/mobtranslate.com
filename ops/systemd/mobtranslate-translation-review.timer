@@ -1,0 +1,14 @@
+[Unit]
+Description=Repeat MobTranslate translation evidence review during active audit window
+
+[Timer]
+OnBootSec=10m
+OnUnitActiveSec=4h
+AccuracySec=1m
+Persistent=true
+RandomizedDelaySec=5m
+Unit=mobtranslate-translation-review.service
+
+[Install]
+WantedBy=timers.target
+

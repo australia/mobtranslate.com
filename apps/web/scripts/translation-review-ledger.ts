@@ -188,6 +188,17 @@ async function importAudit(): Promise<void> {
         sha256: artifactHash,
         request_ref: row.request_ref,
       }];
+      const [priorCurrent] = await transaction<{ id: string }[]>`
+        SELECT current_event.id
+        FROM public.current_translation_review_events AS current_event
+        WHERE current_event.subject_id = ${subjectId}
+          AND current_event.reviewer_kind = 'automated_evidence_audit'
+          AND current_event.reviewer_identity = 'codex'
+          AND current_event.method = 'retained_request_source_evidence_audit'
+          AND current_event.method_version = ${methodVersion}
+        ORDER BY current_event.reviewed_at DESC, current_event.id DESC
+        LIMIT 1
+      `;
       const inserted = await transaction`
         INSERT INTO public.translation_review_events (
           subject_id,
@@ -203,6 +214,7 @@ async function importAudit(): Promise<void> {
           findings,
           source_artifact_path,
           source_artifact_sha256,
+          supersedes_event_id,
           idempotency_key,
           reviewed_at
         ) VALUES (
@@ -219,6 +231,7 @@ async function importAudit(): Promise<void> {
           ${transaction.json(row)},
           ${artifactPath},
           ${artifactHash},
+          ${priorCurrent?.id ?? null},
           ${`${runKey}:${row.request_ref}`},
           ${artifactStat.mtime}
         )
