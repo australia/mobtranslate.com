@@ -19,6 +19,7 @@ interface Program {
   supportingEvidenceTiers: string[];
   auditScript: string;
   sourceArgs: string[];
+  provenancePaths?: string[];
   outputFlag: '--output' | '--output-dir';
 }
 
@@ -47,6 +48,9 @@ const programs: Program[] = [
       '/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/v25.2-slq-literacy-corpus-audit-20260716/data/slq-kuku-ngujuji-final-test.eng-gvn.jsonl',
       '--named-text-jsonl',
       '/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-runpod-2026-06-30/runpod/v25.2-slq-literacy-corpus-audit-20260716/data/slq-translated-readers-training-candidate.eng-gvn.jsonl',
+    ],
+    provenancePaths: [
+      '/mnt/donto-data/donto-resources/research/translation-training/live-translation-review-program-2026-08-31/research/kuku-yalanji/WEB-LEXICON-GRAMMAR-SYNTHETIC-RECONCILIATION-2026-08-31.md',
     ],
   },
   {
@@ -79,6 +83,13 @@ const programs: Program[] = [
       '/mnt/donto-data/donto-resources/research/language-programs/wajarri-v1/releases/huggingface/mobtranslate-wajarri-synthetic-corpus-v1/data/controlled-synthetic.jsonl',
       '--v3-controlled-pairs',
       '/mnt/donto-data/donto-resources/research/translation-training/wajarri-live-translation-audit-2026-08-30/sources/web/wajarri-v3-training-declared-source.jsonl',
+    ],
+    provenancePaths: [
+      '/mnt/donto-data/donto-resources/research/translation-training/live-translation-review-program-2026-08-31/research/wajarri/WEB-LEXICON-GRAMMAR-SYNTHETIC-RECONCILIATION-2026-08-31.md',
+      '/mnt/donto-data/donto-resources/research/language-programs/wajarri-v1/dictionary/CURRENT.json',
+      '/mnt/donto-data/donto-resources/research/language-programs/wajarri-v1/dictionary/editions/wajarri-dictionary-v2-training-review-v1.4.2/EDITION.json',
+      '/mnt/donto-data/donto-resources/research/language-programs/wajarri-v1/grammar/CURRENT.json',
+      '/mnt/donto-data/donto-resources/research/language-programs/wajarri-v1/grammar/editions/wajarri-grammar-v2-training-review-v0.17.2/EDITION.json',
     ],
   },
   {
@@ -115,6 +126,10 @@ const programs: Program[] = [
       '/mnt/donto-data/donto-resources/research/language-programs/anindilyakwa-v1/training/releases/anindilyakwa-private-baseline-v0.1.0/MODEL-RELEASE.json',
       '--release-admission',
       '/mnt/donto-data/donto-resources/research/language-programs/anindilyakwa-v1/analysis/gates/anindilyakwa-release-admission-v0.1.4/report.json',
+    ],
+    provenancePaths: [
+      '/mnt/donto-data/donto-resources/research/translation-training/live-translation-review-program-2026-08-31/research/anindilyakwa/WEB-LEXICON-GRAMMAR-CORPUS-MODEL-RECONCILIATION-2026-08-31.md',
+      '/mnt/donto-data/donto-resources/research/language-programs/anindilyakwa-v1/PROGRAM-STATE.json',
     ],
   },
   {
@@ -166,21 +181,27 @@ function option(name: string): string | undefined {
 function cycleKey(): string {
   const explicit = option('cycle-key');
   if (explicit) {
-    if (!/^[0-9A-Za-z._-]+$/u.test(explicit)) throw new Error('Invalid --cycle-key.');
+    if (!/^[0-9A-Za-z._-]+$/u.test(explicit))
+      throw new Error('Invalid --cycle-key.');
     return explicit;
   }
   return new Date().toISOString().replaceAll(/[-:]/gu, '').replace('.000', '');
 }
 
 function sourcePaths(program: Program): string[] {
-  const values: string[] = [program.auditScript];
+  const values: string[] = [
+    program.auditScript,
+    ...(program.provenancePaths ?? []),
+  ];
   for (let index = 1; index < program.sourceArgs.length; index += 2) {
     values.push(program.sourceArgs[index]);
   }
   return [...new Set(values)];
 }
 
-async function fingerprint(filePath: string): Promise<{ path: string; bytes: number; sha256: string }> {
+async function fingerprint(
+  filePath: string,
+): Promise<{ path: string; bytes: number; sha256: string }> {
   const bytes = await readFile(filePath);
   return {
     path: filePath,
@@ -205,12 +226,14 @@ function run(executable: string, args: string[]): string {
 }
 
 async function main(): Promise<void> {
-  if (!process.env.DATABASE_URL?.trim()) throw new Error('DATABASE_URL is required.');
+  if (!process.env.DATABASE_URL?.trim())
+    throw new Error('DATABASE_URL is required.');
   const selectedKey = option('language');
   const selected = selectedKey
     ? programs.filter((program) => program.key === selectedKey)
     : programs;
-  if (selected.length === 0) throw new Error(`Unknown review program: ${selectedKey}`);
+  if (selected.length === 0)
+    throw new Error(`Unknown review program: ${selectedKey}`);
 
   const sourceInventory = Object.fromEntries(
     await Promise.all(
@@ -221,7 +244,9 @@ async function main(): Promise<void> {
     ),
   );
   if (checkOnly) {
-    console.log(JSON.stringify({ status: 'ready', programs: sourceInventory }, null, 2));
+    console.log(
+      JSON.stringify({ status: 'ready', programs: sourceInventory }, null, 2),
+    );
     return;
   }
 
@@ -246,7 +271,10 @@ async function main(): Promise<void> {
       program.outputFlag,
       output,
     ]);
-    const artifact = path.join(output, 'request-classifications.no-raw-text.jsonl');
+    const artifact = path.join(
+      output,
+      'request-classifications.no-raw-text.jsonl',
+    );
     const importOutput = run('/usr/bin/pnpm', [
       'exec',
       'tsx',
@@ -273,7 +301,11 @@ async function main(): Promise<void> {
   const outputFiles = await Promise.all(
     selected.flatMap((program) => {
       const output = path.join(cycleRoot, program.key, 'output');
-      return readdir(output).then((names) => Promise.all(names.sort().map((name) => fingerprint(path.join(output, name)))));
+      return readdir(output).then((names) =>
+        Promise.all(
+          names.sort().map((name) => fingerprint(path.join(output, name))),
+        ),
+      );
     }),
   );
   const manifest = {
