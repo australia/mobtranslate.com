@@ -46,6 +46,53 @@ export function normalizeDictionaryEnglish(value: string): string {
     .trim();
 }
 
+/**
+ * Join source-authored gloss records without cutting a word in half. The
+ * caller chooses the display budget; records are kept whole whenever possible
+ * and normalized duplicates from overlapping editions are removed.
+ */
+export function formatDictionaryGlossList(
+  glosses: readonly string[],
+  maxChars: number,
+): string {
+  if (!Number.isFinite(maxChars) || maxChars < 2) return '';
+
+  const unique: string[] = [];
+  const seen = new Set<string>();
+  for (const value of glosses) {
+    const gloss = value.trim();
+    const key = normalizeDictionaryEnglish(gloss);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    unique.push(gloss);
+  }
+
+  const kept: string[] = [];
+  for (const gloss of unique) {
+    const candidate = [...kept, gloss].join('; ');
+    if (candidate.length <= maxChars) {
+      kept.push(gloss);
+      continue;
+    }
+
+    if (kept.length > 0) {
+      const complete = kept.join('; ');
+      return complete.length < maxChars ? `${complete}…` : complete;
+    }
+
+    const available = Math.max(1, maxChars - 1);
+    const prefix = gloss.slice(0, available).trimEnd();
+    const wordBoundary = prefix.lastIndexOf(' ');
+    const safePrefix =
+      wordBoundary >= Math.floor(available / 2)
+        ? prefix.slice(0, wordBoundary)
+        : prefix;
+    return `${safePrefix.replace(/[\s;,:]+$/u, '')}…`;
+  }
+
+  return kept.join('; ');
+}
+
 function normalizeHeadword(value: string): string {
   return value
     .normalize('NFKC')

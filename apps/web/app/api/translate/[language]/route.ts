@@ -22,6 +22,7 @@ import {
   buildExactDictionaryIndex,
   deduplicateAtomicDictionaryGlosses,
   findUniqueExactDictionaryMatch,
+  formatDictionaryGlossList,
   type AtomicDictionaryGloss,
   type ExactDictionaryIndex,
 } from '@/lib/dictionary-exact.server';
@@ -122,6 +123,7 @@ interface GlossEntry {
 interface Dictionary {
   meta: DictionaryMeta;
   words: GlossEntry[];
+  reverseWords: GlossEntry[];
   exactIndex: ExactDictionaryIndex;
   revision: string;
 }
@@ -223,6 +225,7 @@ async function loadDictionary(language: string): Promise<Dictionary | null> {
   // legacy and YAML editions, so normalized de-duplication happens before the
   // prompt, exact index, and revision are constructed.
   const rawAtomicGlosses: AtomicDictionaryGloss[] = [];
+  const rawReverseGlosses: AtomicDictionaryGloss[] = [];
   if (wordIds.length > 0) {
     const wordById = new Map(
       wordRows.map((w) => [w.id, (w.word || '').trim()]),
@@ -265,20 +268,34 @@ async function loadDictionary(language: string): Promise<Dictionary | null> {
     for (const id of wordIds) {
       const key = wordById.get(id) || '';
       if (!key) continue;
-      transByWordId.get(id)?.forEach((translation) => {
+      const translations = transByWordId.get(id) ?? [];
+      const definitions = defsByWordId.get(id) ?? [];
+      translations.forEach((translation) => {
         const gloss = translation?.trim();
         if (!gloss) return;
         rawAtomicGlosses.push({ word: key, gloss });
       });
-      defsByWordId.get(id)?.forEach((definition) => {
+      definitions.forEach((definition) => {
         const gloss = definition?.trim();
         if (!gloss) return;
         rawAtomicGlosses.push({ word: key, gloss });
+      });
+
+      // Definitions carry the source's semantic qualifications. Prefer them
+      // for exact reverse answers, falling back to translations only for
+      // entries whose edition has no definition record.
+      const reverseGlosses =
+        definitions.length > 0 ? definitions : translations;
+      reverseGlosses.forEach((value) => {
+        const gloss = value?.trim();
+        if (gloss) rawReverseGlosses.push({ word: key, gloss });
       });
     }
   }
 
   const atomicGlosses = deduplicateAtomicDictionaryGlosses(rawAtomicGlosses);
+  const reverseAtomicGlosses =
+    deduplicateAtomicDictionaryGlosses(rawReverseGlosses);
   const byWord = new Map<string, { word: string; glosses: string[] }>();
   for (const entry of atomicGlosses) {
     const key = entry.word.normalize('NFKC').toLocaleLowerCase().trim();
@@ -290,10 +307,27 @@ async function loadDictionary(language: string): Promise<Dictionary | null> {
   const words: GlossEntry[] = [...byWord.entries()]
     .map(([, record]) => {
       // Keep the prompt compact: cap a single entry's gloss length.
-      let gloss = record.glosses.join('; ');
-      if (gloss.length > 160) gloss = gloss.slice(0, 157) + '…';
-      return { word: record.word, gloss };
+      return {
+        word: record.word,
+        gloss: formatDictionaryGlossList(record.glosses, 160),
+      };
     })
+    .sort((a, b) => a.word.localeCompare(b.word));
+  const reverseByWord = new Map<string, { word: string; glosses: string[] }>();
+  for (const entry of reverseAtomicGlosses) {
+    const key = entry.word.normalize('NFKC').toLocaleLowerCase().trim();
+    const record = reverseByWord.get(key) ?? {
+      word: entry.word,
+      glosses: [],
+    };
+    record.glosses.push(entry.gloss);
+    reverseByWord.set(key, record);
+  }
+  const reverseWords: GlossEntry[] = [...reverseByWord.values()]
+    .map((record) => ({
+      word: record.word,
+      gloss: formatDictionaryGlossList(record.glosses, MAX_TRANSLATION_CHARS),
+    }))
     .sort((a, b) => a.word.localeCompare(b.word));
   const revisionGlosses = atomicGlosses
     .map(({ word, gloss }) => [word, gloss] as const)
@@ -311,6 +345,7 @@ async function loadDictionary(language: string): Promise<Dictionary | null> {
       code: lang.code,
     },
     words,
+    reverseWords,
     exactIndex: buildExactDictionaryIndex(atomicGlosses),
     revision: sha256({ words, atomicGlosses: revisionGlosses }),
   };
@@ -793,7 +828,10 @@ export async function POST(
 
     // ---- Reverse: Indigenous language -> English -------------------------
     if (direction === 'to_english') {
-      const exactHeadwords = findExactHeadwordEntries(text, dictionary.words);
+      const exactHeadwords = findExactHeadwordEntries(
+        text,
+        dictionary.reverseWords,
+      );
       if (exactHeadwords.length > 0) {
         const senses = exactHeadwords.map((entry) => ({
           word: entry.word,
