@@ -8758,6 +8758,7 @@ words:
     translations:
       - young (not used for people)
   - word: barndi yanayi
+    source: https://50words.online/repository/A39/index.json
     definitions:
       - welcome, as a speaker-attributed fixed utterance
     translations:
@@ -8768,6 +8769,7 @@ words:
         Godfrey Simpson's recorded 50 Words Wajarri A39 collection gives this exact complete utterance for “welcome”.
         Preserve it as a fixed expression; do not infer segmentation or productive grammar from the pair.
   - word: nyinda barndi?
+    source: https://50words.online/repository/A39/index.json
     definitions:
       - hello; how are you?, as a speaker-attributed fixed utterance
     translations:
