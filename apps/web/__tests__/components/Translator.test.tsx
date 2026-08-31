@@ -296,7 +296,7 @@ describe('Translator', () => {
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByTestId('markdown-output')).toHaveTextContent('Hello World');
+      expect(screen.getByText('Hello World')).toBeInTheDocument();
     });
   });
 
@@ -505,14 +505,14 @@ describe('Translator', () => {
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByTestId('markdown-output')).toHaveTextContent('first result');
+      expect(screen.getByText('first result')).toBeInTheDocument();
     });
 
     // Start second translation
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByTestId('markdown-output')).toHaveTextContent('second result');
+      expect(screen.getByText('second result')).toBeInTheDocument();
     });
 
     expect(screen.queryByText('first result')).not.toBeInTheDocument();
