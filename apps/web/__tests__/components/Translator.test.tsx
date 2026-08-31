@@ -322,6 +322,29 @@ describe('Translator', () => {
     });
   });
 
+  it('shows the evidence-bound API explanation instead of raw JSON', async () => {
+    const user = userEvent.setup();
+    const message =
+      'MobTranslate could not verify one unambiguous source-backed answer.';
+
+    fetchSpy.mockResolvedValueOnce({
+      ok: false,
+      status: 422,
+      json: async () => ({ success: false, error: message }),
+    });
+
+    render(<Translator availableLanguages={mockLanguages} />);
+
+    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    await user.type(textarea, 'a full sentence');
+    await user.click(screen.getByText('Translate').closest('button')!);
+
+    await waitFor(() => {
+      expect(screen.getByText(message)).toBeInTheDocument();
+    });
+    expect(screen.queryByText(/"success":false/u)).not.toBeInTheDocument();
+  });
+
   it('shows error when fetch throws', async () => {
     const user = userEvent.setup();
 

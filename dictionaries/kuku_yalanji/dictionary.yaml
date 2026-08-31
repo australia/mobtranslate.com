@@ -3452,13 +3452,14 @@ words:
 - word: bubu
   type: noun
   phonemic: /ˈbubu/
-  gloss: ground
+  gloss: ground; Country
   definitions:
-  - groud, earth
-  - a person's country, where he belonds
+  - ground, earth
+  - a person's Country, where they belong
   translations:
   - ground
   - earth
+  - Country
   examples:
   - kuku_yalanji: kambi bubujida
     english: the clothes are dirty now
@@ -4125,8 +4126,18 @@ words:
   commentary:
   - Reduplicated form (burrin-burrin); breadfruit.
 - word: burrir
+  type: noun
   phonemic: /ˈburiɻ/
-  needs_review: no definition or translation in source
+  gloss: island
+  definitions:
+  - island
+  translations:
+  - island
+  semantic_domain: landform
+  commentary:
+  - Attested as the root for 'island' in Patz §3.1.1.1 and example (268), including the locative surface burrir-a.
+  - Added from the reference grammar because the original dictionary record had no definition or translation.
+  source: grammar
 - word: burrir-warra
   phonemic: /ˈburiɻ-wara/
   needs_review: no definition or translation in source
@@ -13915,12 +13926,14 @@ words:
 - word: kawku
   type: interjection
   phonemic: /ˈɡawɡu/
-  gloss: Hello
+  gloss: delight at a visitor's arrival
   definitions:
   - expression of delight on the arrival of a visitor (spoken with rising intonation on the second syllable)
   translations:
-  - Hello
+  - greeting of delight when a visitor arrives
   semantic_domain: interjection
+  commentary:
+  - The Hershberger source defines a specific arrival exclamation, not an unrestricted equivalent of English 'hello'.
 - word: kawu
   type: noun
   phonemic: /ˈɡawu/
@@ -28849,15 +28862,22 @@ words:
     translation: nyulu yalamun dungan
   semantic_domain: location-deixis
 - word: yalada
-  type: adjective
+  type: interjection
   phonemic: /ˈjalada/
   gloss: alright
   definitions:
-  - alright, okay
+  - that's all right; that's settled then, often concluding a conversation
+  - okay, alright
+  - welcome or hello as a contemporary greeting
   translations:
   - alright
   - okay
-  semantic_domain: value-quality
+  - welcome
+  - hello
+  semantic_domain: speech-communication
+  commentary:
+  - Patz §4.10 records 'that's all right, that's settled then' and notes that it typically concludes a conversation.
+  - Contemporary Kuku Yalanji community and public-institution sources also use Yalada as a greeting translated 'welcome' or 'hello'; preserve this as a pragmatic extension rather than replacing the older discourse sense.
 - word: yala-karrajikur
   type: adverb
   phonemic: /ˈjala-ɡaraɟiɡuɻ/

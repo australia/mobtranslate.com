@@ -20,6 +20,7 @@ import { getSessionUser } from '@/lib/auth-helpers';
 import { discordTranslate } from '@/lib/discord';
 import {
   buildExactDictionaryIndex,
+  deduplicateAtomicDictionaryGlosses,
   findUniqueExactDictionaryMatch,
   type AtomicDictionaryGloss,
   type ExactDictionaryIndex,
@@ -67,7 +68,9 @@ import {
   safeTranslationErrorDiagnostic,
 } from '@/lib/translation-service-error.server';
 import {
+  isDictionaryLookupAdmitted,
   loadTranslationReleasePolicy,
+  resolveTranslationDictionaryCode,
   type TranslationReleasePolicy,
 } from '@/lib/translation-release-policy.server';
 import {
@@ -165,7 +168,11 @@ function restrictedTranslationResponse(
         publicDictionaryLookupEnabled: policy.publicDictionaryLookupEnabled,
         publicModelInferenceEnabled: policy.publicModelInferenceEnabled,
         genericModelFallbackEnabled: policy.genericModelFallbackEnabled,
-        corpusReadiness: policy.corpusReadiness,
+        answerScope: policy.answerScope,
+        evidenceAudit: policy.evidenceAudit,
+        ...(policy.corpusReadiness
+          ? { corpusReadiness: policy.corpusReadiness }
+          : {}),
         sourceUrl: `https://mobtranslate.com/dictionaries/${encodeURIComponent(dictionary.meta.code)}`,
       },
     },
@@ -212,9 +219,10 @@ async function loadDictionary(language: string): Promise<Dictionary | null> {
 
   const wordIds = wordRows.map((w) => w.id);
 
-  // De-dupe by headword, merging glosses (translations + definitions) across senses.
-  const byWord = new Map<string, Set<string>>();
-  const atomicGlosses: AtomicDictionaryGloss[] = [];
+  // Gather atomic source records first. Production can contain overlapping
+  // legacy and YAML editions, so normalized de-duplication happens before the
+  // prompt, exact index, and revision are constructed.
+  const rawAtomicGlosses: AtomicDictionaryGloss[] = [];
   if (wordIds.length > 0) {
     const wordById = new Map(
       wordRows.map((w) => [w.id, (w.word || '').trim()]),
@@ -257,29 +265,34 @@ async function loadDictionary(language: string): Promise<Dictionary | null> {
     for (const id of wordIds) {
       const key = wordById.get(id) || '';
       if (!key) continue;
-      if (!byWord.has(key)) byWord.set(key, new Set());
-      const set = byWord.get(key)!;
       transByWordId.get(id)?.forEach((translation) => {
         const gloss = translation?.trim();
         if (!gloss) return;
-        set.add(gloss);
-        atomicGlosses.push({ word: key, gloss });
+        rawAtomicGlosses.push({ word: key, gloss });
       });
       defsByWordId.get(id)?.forEach((definition) => {
         const gloss = definition?.trim();
         if (!gloss) return;
-        set.add(gloss);
-        atomicGlosses.push({ word: key, gloss });
+        rawAtomicGlosses.push({ word: key, gloss });
       });
     }
   }
 
+  const atomicGlosses = deduplicateAtomicDictionaryGlosses(rawAtomicGlosses);
+  const byWord = new Map<string, { word: string; glosses: string[] }>();
+  for (const entry of atomicGlosses) {
+    const key = entry.word.normalize('NFKC').toLocaleLowerCase().trim();
+    const record = byWord.get(key) ?? { word: entry.word, glosses: [] };
+    record.glosses.push(entry.gloss);
+    byWord.set(key, record);
+  }
+
   const words: GlossEntry[] = [...byWord.entries()]
-    .map(([word, glosses]) => {
+    .map(([, record]) => {
       // Keep the prompt compact: cap a single entry's gloss length.
-      let gloss = [...glosses].join('; ');
+      let gloss = record.glosses.join('; ');
       if (gloss.length > 160) gloss = gloss.slice(0, 157) + '…';
-      return { word, gloss };
+      return { word: record.word, gloss };
     })
     .sort((a, b) => a.word.localeCompare(b.word));
   const revisionGlosses = atomicGlosses
@@ -755,7 +768,9 @@ export async function POST(
     const checkOpenAiBudget = () =>
       enforceOpenAiProviderBudget(request, userId);
 
-    const dictionary = await loadDictionary(language);
+    const releasePolicy = loadTranslationReleasePolicy(language);
+    const dictionaryCode = resolveTranslationDictionaryCode(language);
+    const dictionary = await loadDictionary(dictionaryCode);
     if (!dictionary || dictionary.words.length === 0) {
       return NextResponse.json(
         {
@@ -765,8 +780,10 @@ export async function POST(
         { status: 404 },
       );
     }
-    const releasePolicy = loadTranslationReleasePolicy(language);
-    if (releasePolicy && !releasePolicy.publicDictionaryLookupEnabled) {
+    if (
+      releasePolicy &&
+      !isDictionaryLookupAdmitted(releasePolicy, direction)
+    ) {
       return restrictedTranslationResponse(
         releasePolicy,
         dictionary,

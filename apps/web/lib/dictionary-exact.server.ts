@@ -8,6 +8,27 @@ export interface ExactDictionaryMatch {
   gloss: string;
 }
 
+/**
+ * Collapse duplicate database editions without collapsing distinct headwords
+ * or senses. Comparison is normalized, while the first source spelling is
+ * retained for display.
+ */
+export function deduplicateAtomicDictionaryGlosses(
+  entries: readonly AtomicDictionaryGloss[],
+): AtomicDictionaryGloss[] {
+  const deduplicated = new Map<string, AtomicDictionaryGloss>();
+  for (const entry of entries) {
+    const word = entry.word.trim();
+    const gloss = entry.gloss.trim();
+    const headwordKey = normalizeHeadword(word);
+    const glossKey = normalizeDictionaryEnglish(gloss);
+    if (!headwordKey || !glossKey) continue;
+    const key = `${headwordKey}\u0000${glossKey}`;
+    if (!deduplicated.has(key)) deduplicated.set(key, { word, gloss });
+  }
+  return [...deduplicated.values()];
+}
+
 export type ExactDictionaryIndex = Map<
   string,
   Map<string, ExactDictionaryMatch>

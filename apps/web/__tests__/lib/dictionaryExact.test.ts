@@ -3,9 +3,25 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildExactDictionaryIndex,
+  deduplicateAtomicDictionaryGlosses,
   findUniqueExactDictionaryMatch,
   normalizeDictionaryEnglish,
 } from '../../lib/dictionary-exact.server';
+
+describe('dictionary edition de-duplication', () => {
+  it('collapses case-equivalent duplicate rows while preserving distinct senses', () => {
+    expect(
+      deduplicateAtomicDictionaryGlosses([
+        { word: "mntua'gi", gloss: 'Hell' },
+        { word: "MNTUA'GI", gloss: 'hell' },
+        { word: "mntua'gi", gloss: 'underworld' },
+      ]),
+    ).toEqual([
+      { word: "mntua'gi", gloss: 'Hell' },
+      { word: "mntua'gi", gloss: 'underworld' },
+    ]);
+  });
+});
 
 describe('exact dictionary lookup', () => {
   it('returns one attested headword for an unambiguous atomic gloss', () => {
