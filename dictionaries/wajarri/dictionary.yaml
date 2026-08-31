@@ -8757,3 +8757,25 @@ words:
       - young (not used for people); fresh storm clouds building up for rain
     translations:
       - young (not used for people)
+  - word: barndi yanayi
+    definitions:
+      - welcome, as a speaker-attributed fixed utterance
+    translations:
+      - welcome
+    semantic_domain: speech-communication
+    commentary:
+      - >-
+        Godfrey Simpson's recorded 50 Words Wajarri A39 collection gives this exact complete utterance for “welcome”.
+        Preserve it as a fixed expression; do not infer segmentation or productive grammar from the pair.
+  - word: nyinda barndi?
+    definitions:
+      - hello; how are you?, as a speaker-attributed fixed utterance
+    translations:
+      - hello
+      - how are you?
+    semantic_domain: speech-communication
+    commentary:
+      - >-
+        Godfrey Simpson's recorded 50 Words Wajarri A39 collection gives this exact complete utterance for “hello”.
+        The community-developed WA Wajarri curriculum independently presents the same expression as “How are you?”.
+        Preserve the source punctuation and treat the expression as fixed rather than inferring productive composition.
