@@ -1,0 +1,78 @@
+{
+  "adapter_dir": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2-output/arms/T1/training/checkpoint-12",
+  "adapter_weight_sha256": "0063d2f3fbadee35f7ef6943bd77a315f7fb7b20bec1c5b04fd3ac34df6e09fc",
+  "base_dir": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2-output/work/base-release/base",
+  "claim_limit": "Development-consumed controlled synthesis; not natural-language reliability evidence.",
+  "created_at_utc": "2026-07-31T21:28:52.427126+00:00",
+  "decoder": {
+    "do_sample": false,
+    "length_penalty": 1.0,
+    "max_new_tokens": 64,
+    "no_repeat_ngram_size": 0,
+    "num_beams": 1,
+    "repetition_penalty": 1.0
+  },
+  "development_file": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2/payload/data/DEVELOPMENT.jsonl",
+  "development_sha256": "d441f08084904ca6107a7ba7a414707de248297366beedd269cdd466b63345b1",
+  "duration_seconds": 5.33332915045321,
+  "label": "T1-step-12",
+  "metrics": {
+    "both_slots_present": 1,
+    "by_predicate": {
+      "coming-towards-speaker": {
+        "both_slots_present": 0,
+        "exact": 0,
+        "rows": 3
+      },
+      "going-away": {
+        "both_slots_present": 0,
+        "exact": 0,
+        "rows": 1
+      },
+      "running": {
+        "both_slots_present": 0,
+        "exact": 0,
+        "rows": 3
+      },
+      "sitting": {
+        "both_slots_present": 0,
+        "exact": 0,
+        "rows": 3
+      },
+      "standing": {
+        "both_slots_present": 1,
+        "exact": 1,
+        "rows": 3
+      }
+    },
+    "by_subject": {
+      "child": {
+        "both_slots_present": 0,
+        "exact": 0,
+        "rows": 4
+      },
+      "dog": {
+        "both_slots_present": 1,
+        "exact": 1,
+        "rows": 4
+      },
+      "i": {
+        "both_slots_present": 0,
+        "exact": 0,
+        "rows": 5
+      }
+    },
+    "exact": 1,
+    "faults": {
+      "blank": 0,
+      "repeated_token_4gram": 0,
+      "source_copy": 0
+    },
+    "mean_chrf2": 54.72407562223148,
+    "predicate_present": 4,
+    "prediction_collapses": [],
+    "rows": 13,
+    "subject_present": 7
+  },
+  "schema_version": 1
+}

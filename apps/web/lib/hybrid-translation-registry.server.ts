@@ -1,7 +1,9 @@
 import type { HybridReviewEvidence } from './hybrid-translation-types';
+import type { ControlledTranslationSpec } from './controlled-translation.server';
 import {
   KUKU_YALANJI_HYBRID_IDENTITY,
   MIGMAQ_HYBRID_IDENTITY,
+  WAJARRI_HYBRID_IDENTITY,
 } from './hybrid-language-identities';
 
 export const HYBRID_SPACE_ENDPOINT =
@@ -26,6 +28,7 @@ interface HybridEnvironmentContract {
 
 export interface HybridLanguageDefinition {
   languageCode: string;
+  dictionaryCode: string;
   languageName: string;
   languageTag: string;
   sourceLang: 'eng_Latn';
@@ -36,6 +39,8 @@ export interface HybridLanguageDefinition {
   repository: string;
   grammarEvidence: readonly HybridReviewEvidence[];
   reviewGuidance: readonly string[];
+  controlledTranslation?: ControlledTranslationSpec;
+  ordinaryDraftEnabled?: boolean;
   contracts: HybridContractVersions;
   env: HybridEnvironmentContract;
   legacyEnv?: Partial<HybridEnvironmentContract>;
@@ -52,6 +57,10 @@ const KUKU_GRAMMAR_SOURCE =
 const MIGMAQ_GRAMMAR_SOURCE = 'https://wiki.migmaq.org/index.php/Main_Page';
 const MIGMAQ_LESSON_SOURCE =
   'https://github.com/FieldDB/migmaq-lessons/blob/c424e98c3d87c3890618fd63cdf5af7ad22b3009/data/master.xml';
+const WAJARRI_GRAMMAR_SOURCE =
+  'https://openresearch-repository.anu.edu.au/items/f1ee9d55-076a-4ee9-838e-823d480edb78';
+const WAJARRI_DATASET_SOURCE =
+  'https://huggingface.co/datasets/ajaxdavis/mobtranslate-wajarri-synthetic-corpus-v1/tree/302f3a93eb255a2fc70692b7c429ba5ee8300687';
 
 export const KUKU_YALANJI_HYBRID_DEFINITION: HybridLanguageDefinition = {
   ...KUKU_YALANJI_HYBRID_IDENTITY,
@@ -220,9 +229,133 @@ export const MIGMAQ_HYBRID_DEFINITION: HybridLanguageDefinition = {
   ],
 };
 
-const DEFINITIONS = new Map(
-  [KUKU_YALANJI_HYBRID_DEFINITION, MIGMAQ_HYBRID_DEFINITION].map(
-    (definition) => [definition.languageCode, definition],
+export const WAJARRI_HYBRID_DEFINITION: HybridLanguageDefinition = {
+  ...WAJARRI_HYBRID_IDENTITY,
+  sourceLang: 'eng_Latn',
+  targetLang: 'wbv_Latn',
+  modelId: 'mobtranslate-wajarri-v3-controlled',
+  modelVersion: 'v3.0.0-controlled-subject-slot-s17-step40-20260802',
+  modelLabel: 'MobTranslate Wajarri v3 controlled',
+  repository:
+    'https://huggingface.co/ajaxdavis/mobtranslate-wajarri-v3-controlled',
+  controlledTranslation: {
+    contractId: 'wajarri-subject-slot-v3-s17-step40-20260802',
+    task: 'subject_slot',
+    slotToken: '<copy>',
+    constructions: [
+      {
+        id: 'coming-towards-speaker',
+        sourceTemplate: 'The <copy> is coming towards the speaker.',
+        modelTemplate: '<copy> yanajimanha.',
+      },
+      {
+        id: 'going-away-from-speaker',
+        sourceTemplate: 'The <copy> is going away from the speaker.',
+        modelTemplate: '<copy> yanmanha.',
+      },
+      {
+        id: 'running',
+        sourceTemplate: 'The <copy> is running.',
+        modelTemplate: '<copy> jamarnimanha.',
+      },
+      {
+        id: 'sitting-down',
+        sourceTemplate: 'The <copy> is sitting down.',
+        modelTemplate: '<copy> nyinarangamanha.',
+      },
+      {
+        id: 'sitting',
+        sourceTemplate: 'The <copy> is sitting.',
+        modelTemplate: '<copy> nyinamanha.',
+      },
+      {
+        id: 'standing',
+        sourceTemplate: 'The <copy> is standing.',
+        modelTemplate: '<copy> garrimanha.',
+      },
+    ],
+  },
+  ordinaryDraftEnabled: false,
+  contracts: {
+    draft: 'hybrid-hf-controlled-draft-v1',
+    evidence: 'hybrid-source-draft-retrieval-v3',
+    review: 'hybrid-plain-language-review-v4',
+    resolver: 'hybrid-conservative-resolver-v3',
+  },
+  env: {
+    enabled: 'MOBTRANSLATE_HYBRID_WAJARRI_ENABLED',
+    endpoint: 'MOBTRANSLATE_HYBRID_WAJARRI_ENDPOINT',
+    modelId: 'MOBTRANSLATE_HYBRID_WAJARRI_MODEL_ID',
+    version: 'MOBTRANSLATE_HYBRID_WAJARRI_VERSION',
+    timeoutMs: 'MOBTRANSLATE_HYBRID_WAJARRI_TIMEOUT_MS',
+    reviewModel: 'MOBTRANSLATE_HYBRID_WAJARRI_REVIEW_MODEL',
+  },
+  reviewGuidance: [
+    'Preserve exact supplied spelling and variety labels; do not silently replace historical Watjarri forms with current Wajarri forms.',
+    'Do not invent case or verb endings from a dictionary stem. Require a supplied complete form or a matching attested pattern.',
+    'Treat the controlled subject-predicate examples as bounded evidence, not a rule for unrestricted lexical substitution.',
+  ],
+  grammarEvidence: [
+    {
+      id: 'grammar-participant-case',
+      kind: 'grammar',
+      title: 'Who is doing what',
+      detail:
+        'Wajarri participant marking is not a word-for-word copy of English. Check who acts, who is affected, and whether the supplied evidence supports the required complete case form.',
+      sourceLabel: 'Douglas, Watjarri, nominal and clause morphology',
+      sourceUrl: WAJARRI_GRAMMAR_SOURCE,
+    },
+    {
+      id: 'grammar-verbal-inflection',
+      kind: 'grammar',
+      title: 'Complete verb forms',
+      detail:
+        'Verb forms can encode conjugation class, tense, aspect and mood. Keep a model form unchanged unless a supplied example supports the replacement as a complete form in the same function.',
+      sourceLabel: 'Douglas, Watjarri, verb morphology',
+      sourceUrl: WAJARRI_GRAMMAR_SOURCE,
+    },
+    {
+      id: 'grammar-order',
+      kind: 'grammar',
+      title: 'Sentence order',
+      detail:
+        'Clause order can vary with emphasis and context. Do not reorder a draft merely to mirror English; require evidence that the proposed order and participant markings belong together.',
+      sourceLabel: 'Douglas, Watjarri, syntax and focus',
+      sourceUrl: WAJARRI_GRAMMAR_SOURCE,
+    },
+    {
+      id: 'grammar-bounded-constructions',
+      kind: 'grammar',
+      title: 'Supported sentence patterns',
+      detail:
+        'The model accepts only six enumerated complete predicates and one exact dictionary-bound subject slot. It does not license generating new inflections or unrestricted sentence patterns.',
+      sourceLabel: 'MobTranslate Wajarri controlled-synthetic release',
+      sourceUrl: WAJARRI_DATASET_SOURCE,
+    },
+    {
+      id: 'grammar-variety-orthography',
+      kind: 'grammar',
+      title: 'Spelling and variety',
+      detail:
+        'The evidence contains historical and current source systems and more than one variety label. Preserve the spelling actually supported by the retrieved record and report conflicts instead of normalising them away.',
+      sourceLabel: 'MobTranslate Wajarri source and model audit',
+      sourceUrl:
+        'https://huggingface.co/ajaxdavis/mobtranslate-wajarri-v3-controlled',
+    },
+  ],
+};
+
+const LANGUAGE_DEFINITIONS: readonly HybridLanguageDefinition[] = [
+  KUKU_YALANJI_HYBRID_DEFINITION,
+  MIGMAQ_HYBRID_DEFINITION,
+  WAJARRI_HYBRID_DEFINITION,
+];
+
+const DEFINITIONS = new Map<string, HybridLanguageDefinition>(
+  LANGUAGE_DEFINITIONS.flatMap((definition) =>
+    [...new Set([definition.languageCode, definition.dictionaryCode])].map(
+      (code) => [code, definition] as const,
+    ),
   ),
 );
 
@@ -282,5 +415,5 @@ export function loadHybridLanguageContract(
 }
 
 export function listHybridLanguageDefinitions(): HybridLanguageDefinition[] {
-  return [...DEFINITIONS.values()];
+  return [...LANGUAGE_DEFINITIONS];
 }

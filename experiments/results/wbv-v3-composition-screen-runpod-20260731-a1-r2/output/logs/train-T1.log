@@ -1,0 +1,1377 @@
+
+Generating train split: 0 examples [00:00, ? examples/s]
+Generating train split: 576 examples [00:00, 27671.22 examples/s]
+
+Filter:   0%|          | 0/576 [00:00<?, ? examples/s]
+Filter: 100%|██████████| 576/576 [00:00<00:00, 63940.27 examples/s]
+
+Tokenizing:   0%|          | 0/576 [00:00<?, ? examples/s]
+Tokenizing: 100%|██████████| 576/576 [00:00<00:00, 9588.31 examples/s]
+/workspace/wbv-v3-composition-screen-r1-venv/lib/python3.12/site-packages/peft/tuners/tuners_utils.py:1332: UserWarning: You have requested `ensure_weight_tying`, but no tied modules are added in either `modules_to_save` or `target_modules`
+  warnings.warn(
+/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2/code/training/translation/train_nllb_lora.py:1999: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `ExposureAccountingTrainer.__init__`. Use `processing_class` instead.
+  super().__init__(*args, **kwargs)
+{"lora_b_initial_state": {"all_finite": true, "changed_elements": 0, "changed_parameter_count": 0, "changed_parameter_names_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945", "delta_l2": 0.0, "delta_max_abs": 0.0, "element_count": 4325376, "final_nonzero_elements": 4324992, "initial_nonzero_elements": 4324992, "parameter_count": 192, "parameter_names_sha256": "4038c7554a63265b1bdf2296ac4f5b625e3dbdf54b9affd2e5c9b0ef348cd969"}, "lora_b_initialization_contract": "bound_pretrained_adapter"}
+trainable params: 8,653,824 || all params: 623,729,664 || trainable%: 1.3874
+
+  0%|          | 0/18 [00:00<?, ?it/s]
+  6%|▌         | 1/18 [00:02<00:37,  2.23s/it]
+                                              
+
+  6%|▌         | 1/18 [00:02<00:37,  2.23s/it]
+ 11%|█         | 2/18 [00:04<00:34,  2.17s/it]
+                                              
+
+ 11%|█         | 2/18 [00:04<00:34,  2.17s/it]
+ 17%|█▋        | 3/18 [00:06<00:32,  2.16s/it]
+                                              
+
+ 17%|█▋        | 3/18 [00:06<00:32,  2.16s/it]/workspace/wbv-v3-composition-screen-r1-venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in ../base - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+ 22%|██▏       | 4/18 [00:10<00:39,  2.82s/it]
+                                              
+
+ 22%|██▏       | 4/18 [00:10<00:39,  2.82s/it]
+ 28%|██▊       | 5/18 [00:12<00:32,  2.53s/it]
+                                              
+
+ 28%|██▊       | 5/18 [00:12<00:32,  2.53s/it]
+ 33%|███▎      | 6/18 [00:14<00:27,  2.33s/it]
+                                              
+
+ 33%|███▎      | 6/18 [00:14<00:27,  2.33s/it]/workspace/wbv-v3-composition-screen-r1-venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in ../base - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+ 39%|███▉      | 7/18 [00:17<00:30,  2.75s/it]
+                                              
+
+ 39%|███▉      | 7/18 [00:17<00:30,  2.75s/it]
+ 44%|████▍     | 8/18 [00:19<00:25,  2.50s/it]
+                                              
+
+ 44%|████▍     | 8/18 [00:19<00:25,  2.50s/it]
+ 50%|█████     | 9/18 [00:21<00:20,  2.31s/it]
+                                              
+
+ 50%|█████     | 9/18 [00:21<00:20,  2.31s/it]/workspace/wbv-v3-composition-screen-r1-venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in ../base - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+ 56%|█████▌    | 10/18 [00:25<00:21,  2.68s/it]
+                                               
+
+ 56%|█████▌    | 10/18 [00:25<00:21,  2.68s/it]
+ 61%|██████    | 11/18 [00:27<00:17,  2.45s/it]
+                                               
+
+ 61%|██████    | 11/18 [00:27<00:17,  2.45s/it]
+ 67%|██████▋   | 12/18 [00:29<00:13,  2.32s/it]
+                                               
+
+ 67%|██████▋   | 12/18 [00:29<00:13,  2.32s/it]/workspace/wbv-v3-composition-screen-r1-venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in ../base - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+ 72%|███████▏  | 13/18 [00:32<00:13,  2.66s/it]
+                                               
+
+ 72%|███████▏  | 13/18 [00:32<00:13,  2.66s/it]
+ 78%|███████▊  | 14/18 [00:34<00:09,  2.44s/it]
+                                               
+
+ 78%|███████▊  | 14/18 [00:34<00:09,  2.44s/it]
+ 83%|████████▎ | 15/18 [00:36<00:06,  2.27s/it]
+                                               
+
+ 83%|████████▎ | 15/18 [00:36<00:06,  2.27s/it]/workspace/wbv-v3-composition-screen-r1-venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in ../base - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+ 89%|████████▉ | 16/18 [00:39<00:05,  2.63s/it]
+                                               
+
+ 89%|████████▉ | 16/18 [00:39<00:05,  2.63s/it]
+ 94%|█████████▍| 17/18 [00:41<00:02,  2.40s/it]
+                                               
+
+ 94%|█████████▍| 17/18 [00:41<00:02,  2.40s/it]
+100%|██████████| 18/18 [00:43<00:00,  2.25s/it]
+                                               
+
+100%|██████████| 18/18 [00:43<00:00,  2.25s/it]/workspace/wbv-v3-composition-screen-r1-venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in ../base - will assume that the vocabulary was not modified.
+  warnings.warn(
+
+                                               
+
+100%|██████████| 18/18 [00:45<00:00,  2.25s/it]
+100%|██████████| 18/18 [00:45<00:00,  2.53s/it]
+/workspace/wbv-v3-composition-screen-r1-venv/lib/python3.12/site-packages/peft/utils/save_and_load.py:372: UserWarning: Could not find a config file in ../base - will assume that the vocabulary was not modified.
+  warnings.warn(
+{'loss': 1.3684, 'grad_norm': 10.70920181274414, 'learning_rate': 1e-05, 'epoch': 0.06}
+{'loss': 1.4077, 'grad_norm': 10.714107513427734, 'learning_rate': 2e-05, 'epoch': 0.11}
+{'loss': 1.4208, 'grad_norm': 10.11882209777832, 'learning_rate': 1.8750000000000002e-05, 'epoch': 0.17}
+{'loss': 1.2297, 'grad_norm': 9.048168182373047, 'learning_rate': 1.7500000000000002e-05, 'epoch': 0.22}
+{'loss': 0.8276, 'grad_norm': 7.552379608154297, 'learning_rate': 1.6250000000000002e-05, 'epoch': 0.28}
+{'loss': 1.1548, 'grad_norm': 8.908238410949707, 'learning_rate': 1.5000000000000002e-05, 'epoch': 0.33}
+{'loss': 0.8199, 'grad_norm': 7.420323848724365, 'learning_rate': 1.375e-05, 'epoch': 0.39}
+{'loss': 0.9213, 'grad_norm': 7.5822601318359375, 'learning_rate': 1.25e-05, 'epoch': 0.44}
+{'loss': 0.8073, 'grad_norm': 7.031483173370361, 'learning_rate': 1.125e-05, 'epoch': 0.5}
+{'loss': 0.7529, 'grad_norm': 6.776155471801758, 'learning_rate': 1e-05, 'epoch': 0.56}
+{'loss': 0.6762, 'grad_norm': 6.034287929534912, 'learning_rate': 8.750000000000001e-06, 'epoch': 0.61}
+{'loss': 0.6833, 'grad_norm': 6.5808491706848145, 'learning_rate': 7.500000000000001e-06, 'epoch': 0.67}
+{'loss': 0.6704, 'grad_norm': 6.500173568725586, 'learning_rate': 6.25e-06, 'epoch': 0.72}
+{'loss': 0.4353, 'grad_norm': 4.933623313903809, 'learning_rate': 5e-06, 'epoch': 0.78}
+{'loss': 0.587, 'grad_norm': 5.850825309753418, 'learning_rate': 3.7500000000000005e-06, 'epoch': 0.83}
+{'loss': 0.6244, 'grad_norm': 5.933935642242432, 'learning_rate': 2.5e-06, 'epoch': 0.89}
+{'loss': 0.6151, 'grad_norm': 6.093328475952148, 'learning_rate': 1.25e-06, 'epoch': 0.94}
+{'loss': 0.523, 'grad_norm': 5.426220417022705, 'learning_rate': 0.0, 'epoch': 1.0}
+{'train_runtime': 45.5165, 'train_samples_per_second': 12.655, 'train_steps_per_second': 0.395, 'train_loss': 0.8624952551391389, 'epoch': 1.0}
+{
+  "model_id": "mobtranslate-wajarri-v3-t1-screen",
+  "version": "v3-composition-t1-s17",
+  "run_id": "wbv-v3-composition-screen-runpod-20260731-a1-r2:T1",
+  "created_at": "2026-07-31T21:27:33.342233+00:00",
+  "base_model": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2-output/work/base-release/base",
+  "base_model_revision": null,
+  "base_model_identity": {
+    "reference": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2-output/work/base-release/base",
+    "requested_revision": null,
+    "resolved_commit": null,
+    "local_bundle": {
+      "file_count": 9,
+      "total_bytes": 2497516008,
+      "aggregate_sha256": "141002efec967e5c3cfe35aab789b0c70f8027c4b5f8032ecc6d24a183c283fc",
+      "aggregate_format": "sha256__two_spaces__bytes__two_spaces__relative_path__newline"
+    },
+    "config_sha256": "02da59852e28889f36b6184937a64ce3e62f75d988d2119901e0393e82744f6d",
+    "tokenizer": {
+      "tokenizer_class": "NllbTokenizer",
+      "tokenizer_length": 256208,
+      "vocabulary_rows": 256208,
+      "vocabulary_sha256": "79102d0cfab6b126821036f826877d07803051636b4950e7d58b9b2e4a8846ef",
+      "special_tokens_sha256": "b2b7732b1b8a5711586a23d633dddaf8d0b9323b01fc0f6b5a7e291b59c76e0a",
+      "language_maps_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contract_sha256": "1a9f2cf43a73901b01d3206099eb4b9c860362801e5fe85821f688a01900daae"
+    },
+    "contract_sha256": "1a95c05a5ee625e8358f308f2a914a6f219bd8932643e839f768c65e50097732"
+  },
+  "license": "CC-BY-NC-4.0",
+  "direction": "eng-wbv",
+  "source_lang": "eng_Latn",
+  "target_lang": "wbv_Latn",
+  "target_lang_init_from": null,
+  "source_lang_token_id": 256047,
+  "target_lang_token_id": 256204,
+  "training_mode": "lora",
+  "tokenizer_extension": null,
+  "token_adaptation": {
+    "additional_special_tokens": [],
+    "ordinary_control_strings": [],
+    "trainable_tokens": [
+      {
+        "token": "wbv_Latn",
+        "token_id": 256204,
+        "is_special": true,
+        "single_encoded_id": true,
+        "selection_source": "cli_registered_special_token"
+      },
+      {
+        "token": "<lexeme>",
+        "token_id": 256205,
+        "is_special": true,
+        "single_encoded_id": true,
+        "selection_source": "cli_registered_special_token"
+      },
+      {
+        "token": "<translate>",
+        "token_id": 256206,
+        "is_special": true,
+        "single_encoded_id": true,
+        "selection_source": "cli_registered_special_token"
+      }
+    ],
+    "trainable_token_spec": null,
+    "trainable_token_scope": "tied",
+    "trainable_token_targets": [
+      256204,
+      256205,
+      256206
+    ],
+    "trainable_token_wrapper_modules": [
+      "base_model.model.model.shared",
+      "base_model.model.model.encoder.embed_tokens",
+      "base_model.model.model.decoder.embed_tokens",
+      "base_model.model.lm_head"
+    ],
+    "selective_token_gradient_audit": {
+      "parameter_name": "base_model.model.model.shared.token_adapter.trainable_tokens_delta.default",
+      "rows": [
+        {
+          "token": "wbv_Latn",
+          "nonzero_backward_calls": 144,
+          "gradient_l2_sum": 5.158599267713726,
+          "gradient_l2_max": 0.07108385860919952,
+          "gradient_max_abs": 0.029442787170410156
+        },
+        {
+          "token": "<lexeme>",
+          "nonzero_backward_calls": 144,
+          "gradient_l2_sum": 4.5287774397273495e-07,
+          "gradient_l2_max": 1.1478254791086329e-08,
+          "gradient_max_abs": 1.877197064459324e-09
+        },
+        {
+          "token": "<translate>",
+          "nonzero_backward_calls": 144,
+          "gradient_l2_sum": 4.232481223531067,
+          "gradient_l2_max": 0.10709446668624878,
+          "gradient_max_abs": 0.056640625
+        }
+      ],
+      "all_selected_rows_received_nonzero_gradient": true
+    },
+    "embedding_row_delta_audit": [
+      {
+        "token": "</s>",
+        "selected_for_training": false,
+        "encoder_input_delta_l2": 0.0,
+        "encoder_input_delta_max_abs": 0.0,
+        "encoder_input_changed": false,
+        "decoder_input_delta_l2": 0.0,
+        "decoder_input_delta_max_abs": 0.0,
+        "decoder_input_changed": false,
+        "shared_input_delta_l2": 0.0,
+        "shared_input_delta_max_abs": 0.0,
+        "shared_input_changed": false,
+        "output_head_delta_l2": 0.0,
+        "output_head_delta_max_abs": 0.0,
+        "output_head_changed": false
+      },
+      {
+        "token": "<lexeme>",
+        "selected_for_training": true,
+        "encoder_input_delta_l2": 0.19034913182258606,
+        "encoder_input_delta_max_abs": 0.021209716796875,
+        "encoder_input_changed": true,
+        "decoder_input_delta_l2": 0.19034913182258606,
+        "decoder_input_delta_max_abs": 0.021209716796875,
+        "decoder_input_changed": true,
+        "shared_input_delta_l2": 0.19034913182258606,
+        "shared_input_delta_max_abs": 0.021209716796875,
+        "shared_input_changed": true,
+        "output_head_delta_l2": 0.19034913182258606,
+        "output_head_delta_max_abs": 0.021209716796875,
+        "output_head_changed": true
+      },
+      {
+        "token": "<pad>",
+        "selected_for_training": false,
+        "encoder_input_delta_l2": 0.0,
+        "encoder_input_delta_max_abs": 0.0,
+        "encoder_input_changed": false,
+        "decoder_input_delta_l2": 0.0,
+        "decoder_input_delta_max_abs": 0.0,
+        "decoder_input_changed": false,
+        "shared_input_delta_l2": 0.0,
+        "shared_input_delta_max_abs": 0.0,
+        "shared_input_changed": false,
+        "output_head_delta_l2": 0.0,
+        "output_head_delta_max_abs": 0.0,
+        "output_head_changed": false
+      },
+      {
+        "token": "<translate>",
+        "selected_for_training": true,
+        "encoder_input_delta_l2": 0.264900267124176,
+        "encoder_input_delta_max_abs": 0.0213623046875,
+        "encoder_input_changed": true,
+        "decoder_input_delta_l2": 0.264900267124176,
+        "decoder_input_delta_max_abs": 0.0213623046875,
+        "decoder_input_changed": true,
+        "shared_input_delta_l2": 0.264900267124176,
+        "shared_input_delta_max_abs": 0.0213623046875,
+        "shared_input_changed": true,
+        "output_head_delta_l2": 0.264900267124176,
+        "output_head_delta_max_abs": 0.0213623046875,
+        "output_head_changed": true
+      },
+      {
+        "token": "eng_Latn",
+        "selected_for_training": false,
+        "encoder_input_delta_l2": 0.0,
+        "encoder_input_delta_max_abs": 0.0,
+        "encoder_input_changed": false,
+        "decoder_input_delta_l2": 0.0,
+        "decoder_input_delta_max_abs": 0.0,
+        "decoder_input_changed": false,
+        "shared_input_delta_l2": 0.0,
+        "shared_input_delta_max_abs": 0.0,
+        "shared_input_changed": false,
+        "output_head_delta_l2": 0.0,
+        "output_head_delta_max_abs": 0.0,
+        "output_head_changed": false
+      },
+      {
+        "token": "wbv_Latn",
+        "selected_for_training": true,
+        "encoder_input_delta_l2": 0.7619274854660034,
+        "encoder_input_delta_max_abs": 0.060546875,
+        "encoder_input_changed": true,
+        "decoder_input_delta_l2": 0.7619274854660034,
+        "decoder_input_delta_max_abs": 0.060546875,
+        "decoder_input_changed": true,
+        "shared_input_delta_l2": 0.7619274854660034,
+        "shared_input_delta_max_abs": 0.060546875,
+        "shared_input_changed": true,
+        "output_head_delta_l2": 0.7619274854660034,
+        "output_head_delta_max_abs": 0.060546875,
+        "output_head_changed": true
+      }
+    ],
+    "selective_token_isolation_enforced": true,
+    "embedding_surface_contract": {
+      "full_row_modules": [],
+      "full_row_surfaces": [],
+      "selective_isolation_surfaces": [
+        "encoder_input",
+        "decoder_input",
+        "shared_input",
+        "output_head"
+      ]
+    },
+    "selected_row_change_required": true,
+    "expected_selected_surfaces": [
+      "encoder_input",
+      "decoder_input",
+      "shared_input",
+      "output_head"
+    ],
+    "all_selected_expected_surfaces_changed": true,
+    "selected_rows_missing_expected_updates": [],
+    "selected_rows_with_unexpected_updates": [],
+    "unselected_selective_surfaces_unchanged": true,
+    "lora_b_parameter_delta_audit": {
+      "parameter_count": 192,
+      "parameter_names_sha256": "4038c7554a63265b1bdf2296ac4f5b625e3dbdf54b9affd2e5c9b0ef348cd969",
+      "element_count": 4325376,
+      "initial_nonzero_elements": 4324992,
+      "final_nonzero_elements": 4324992,
+      "changed_parameter_count": 192,
+      "changed_parameter_names_sha256": "4038c7554a63265b1bdf2296ac4f5b625e3dbdf54b9affd2e5c9b0ef348cd969",
+      "changed_elements": 4324990,
+      "delta_l2": 0.22981112809570586,
+      "delta_max_abs": 0.00018409942276775837,
+      "all_finite": true
+    }
+  },
+  "dataset": {
+    "dataset_id": "wbv-v3-composition-intervention-screen-v1",
+    "release_sha256": "17e7e662e1f7e7dbfd5b3ed711c3e3dd464c1fec7ba17f70328f607ed1782f15",
+    "train_file": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2/payload/data/T1-SCHEDULE.jsonl",
+    "validation_file": null,
+    "test_file": null,
+    "file_sha256": {
+      "train": "17e7e662e1f7e7dbfd5b3ed711c3e3dd464c1fec7ba17f70328f607ed1782f15",
+      "validation": null,
+      "test": null
+    },
+    "split_rows": {
+      "train": 576
+    },
+    "row_profile_sha256": {
+      "train": "e299209bd6bb8412c4d258f74d242748b8568bac72893a9060b98c8524efb5b1"
+    },
+    "token_inventory": {
+      "train": {
+        "examples": 576,
+        "source_tokens": 5360,
+        "target_tokens": 5232,
+        "non_padding_tokens": 10592,
+        "counts_are_post_truncation": true,
+        "by_task": {
+          "translate": {
+            "examples": 576,
+            "source_tokens": 5360,
+            "target_tokens": 5232,
+            "non_padding_tokens": 10592
+          }
+        },
+        "by_pair_kind": {
+          "controlled_synthetic_composition_intervention": {
+            "examples": 576,
+            "source_tokens": 5360,
+            "target_tokens": 5232,
+            "non_padding_tokens": 10592
+          }
+        }
+      }
+    },
+    "max_train_samples": null,
+    "max_validation_samples": null,
+    "max_test_samples": null,
+    "shuffle_before_cap": false,
+    "training_order": "sequential",
+    "accounting_row_id_field": "accounting_parent_id",
+    "integrity_audit": {
+      "status": "PASS",
+      "split_rows": {
+        "train": 576
+      },
+      "globally_unique_row_ids": 576,
+      "unique_model_visible_source_keys": 36,
+      "unique_source_target_pairs": 36,
+      "duplicate_pair_groups": 36,
+      "duplicate_train_pairs_authorized": true,
+      "cross_split_source_groups": 0,
+      "cross_split_source_overlap_authorized": false,
+      "split_group_field": null,
+      "unique_split_groups": null,
+      "cross_split_family_groups": 0,
+      "normalization": "Unicode preserved; whitespace collapsed",
+      "scope": "direction-filtered pre-cap dataset"
+    },
+    "allow_duplicate_train_pairs": true,
+    "allow_cross_split_source_overlap": false,
+    "split_group_field": null
+  },
+  "training_args": {
+    "training_mode": "lora",
+    "initial_adapter": {
+      "path": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2/payload/initial-adapter",
+      "weight_sha256": "05e6c40172d93b99538b3a21a04bbbd14a6c767180f85b83d5f00064a6858fb4",
+      "config_sha256": "a02f1ae0462a9a48dcde180ec94477a429cac8b76e1ce93058b73869c160ab8e",
+      "topology": {
+        "r": 16,
+        "lora_alpha": 32,
+        "lora_dropout": 0.05,
+        "target_modules": [
+          "fc1",
+          "fc2",
+          "k_proj",
+          "out_proj",
+          "q_proj",
+          "v_proj"
+        ]
+      }
+    },
+    "epochs": 8,
+    "max_steps": 18,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 2e-05,
+    "optimizer": "adamw_torch",
+    "lr_scheduler_type": "linear",
+    "warmup_ratio": 0.08,
+    "warmup_steps": 2,
+    "weight_decay": 0.01,
+    "label_smoothing_factor": 0.0,
+    "max_grad_norm": 1.0,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "lora_target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "out_proj",
+      "fc1",
+      "fc2"
+    ],
+    "modules_to_save": [],
+    "additional_special_tokens": [],
+    "requested_use_fast_tokenizer": false,
+    "effective_use_fast_tokenizer": false,
+    "audited_control_strings": [],
+    "trainable_tokens": [
+      {
+        "token": "wbv_Latn",
+        "token_id": 256204,
+        "is_special": true,
+        "single_encoded_id": true,
+        "selection_source": "cli_registered_special_token"
+      },
+      {
+        "token": "<lexeme>",
+        "token_id": 256205,
+        "is_special": true,
+        "single_encoded_id": true,
+        "selection_source": "cli_registered_special_token"
+      },
+      {
+        "token": "<translate>",
+        "token_id": 256206,
+        "is_special": true,
+        "single_encoded_id": true,
+        "selection_source": "cli_registered_special_token"
+      }
+    ],
+    "trainable_token_spec": null,
+    "trainable_token_scope": "tied",
+    "trainable_token_targets": [
+      256204,
+      256205,
+      256206
+    ],
+    "seed": 17,
+    "training_order": "sequential",
+    "accounting_row_id_field": "accounting_parent_id",
+    "ensure_weight_tying": true,
+    "effective_ensure_weight_tying": true,
+    "generation_num_beams": 1,
+    "generation_no_repeat_ngram_size": 0,
+    "generation_repetition_penalty": 1.0,
+    "generation_length_penalty": 1.0,
+    "save_total_limit": 7,
+    "gradient_checkpointing": false,
+    "full_determinism": true,
+    "resume_from_checkpoint": null,
+    "stop_after_steps": 18,
+    "load_best_model_at_end": false
+  },
+  "metrics": {
+    "train": {
+      "train_runtime": 45.5165,
+      "train_samples_per_second": 12.655,
+      "train_steps_per_second": 0.395,
+      "total_flos": 14024150654976.0,
+      "train_loss": 0.8624952551391389,
+      "epoch": 1.0
+    }
+  },
+  "trainer_state": {
+    "best_model_checkpoint": null,
+    "best_metric": null,
+    "global_step": 18,
+    "epoch": 1.0,
+    "log_history": [
+      {
+        "loss": 1.3684,
+        "grad_norm": 10.70920181274414,
+        "learning_rate": 1e-05,
+        "epoch": 0.05555555555555555,
+        "step": 1
+      },
+      {
+        "loss": 1.4077,
+        "grad_norm": 10.714107513427734,
+        "learning_rate": 2e-05,
+        "epoch": 0.1111111111111111,
+        "step": 2
+      },
+      {
+        "loss": 1.4208,
+        "grad_norm": 10.11882209777832,
+        "learning_rate": 1.8750000000000002e-05,
+        "epoch": 0.16666666666666666,
+        "step": 3
+      },
+      {
+        "loss": 1.2297,
+        "grad_norm": 9.048168182373047,
+        "learning_rate": 1.7500000000000002e-05,
+        "epoch": 0.2222222222222222,
+        "step": 4
+      },
+      {
+        "loss": 0.8276,
+        "grad_norm": 7.552379608154297,
+        "learning_rate": 1.6250000000000002e-05,
+        "epoch": 0.2777777777777778,
+        "step": 5
+      },
+      {
+        "loss": 1.1548,
+        "grad_norm": 8.908238410949707,
+        "learning_rate": 1.5000000000000002e-05,
+        "epoch": 0.3333333333333333,
+        "step": 6
+      },
+      {
+        "loss": 0.8199,
+        "grad_norm": 7.420323848724365,
+        "learning_rate": 1.375e-05,
+        "epoch": 0.3888888888888889,
+        "step": 7
+      },
+      {
+        "loss": 0.9213,
+        "grad_norm": 7.5822601318359375,
+        "learning_rate": 1.25e-05,
+        "epoch": 0.4444444444444444,
+        "step": 8
+      },
+      {
+        "loss": 0.8073,
+        "grad_norm": 7.031483173370361,
+        "learning_rate": 1.125e-05,
+        "epoch": 0.5,
+        "step": 9
+      },
+      {
+        "loss": 0.7529,
+        "grad_norm": 6.776155471801758,
+        "learning_rate": 1e-05,
+        "epoch": 0.5555555555555556,
+        "step": 10
+      },
+      {
+        "loss": 0.6762,
+        "grad_norm": 6.034287929534912,
+        "learning_rate": 8.750000000000001e-06,
+        "epoch": 0.6111111111111112,
+        "step": 11
+      },
+      {
+        "loss": 0.6833,
+        "grad_norm": 6.5808491706848145,
+        "learning_rate": 7.500000000000001e-06,
+        "epoch": 0.6666666666666666,
+        "step": 12
+      },
+      {
+        "loss": 0.6704,
+        "grad_norm": 6.500173568725586,
+        "learning_rate": 6.25e-06,
+        "epoch": 0.7222222222222222,
+        "step": 13
+      },
+      {
+        "loss": 0.4353,
+        "grad_norm": 4.933623313903809,
+        "learning_rate": 5e-06,
+        "epoch": 0.7777777777777778,
+        "step": 14
+      },
+      {
+        "loss": 0.587,
+        "grad_norm": 5.850825309753418,
+        "learning_rate": 3.7500000000000005e-06,
+        "epoch": 0.8333333333333334,
+        "step": 15
+      },
+      {
+        "loss": 0.6244,
+        "grad_norm": 5.933935642242432,
+        "learning_rate": 2.5e-06,
+        "epoch": 0.8888888888888888,
+        "step": 16
+      },
+      {
+        "loss": 0.6151,
+        "grad_norm": 6.093328475952148,
+        "learning_rate": 1.25e-06,
+        "epoch": 0.9444444444444444,
+        "step": 17
+      },
+      {
+        "loss": 0.523,
+        "grad_norm": 5.426220417022705,
+        "learning_rate": 0.0,
+        "epoch": 1.0,
+        "step": 18
+      },
+      {
+        "train_runtime": 45.5165,
+        "train_samples_per_second": 12.655,
+        "train_steps_per_second": 0.395,
+        "total_flos": 14024150654976.0,
+        "train_loss": 0.8624952551391389,
+        "epoch": 1.0,
+        "step": 18
+      }
+    ],
+    "optimizer_learning_rate_audit": {
+      "applied_updates": [
+        {
+          "optimizer_step": 1,
+          "learning_rates": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "optimizer_step": 2,
+          "learning_rates": [
+            1e-05,
+            1e-05
+          ]
+        },
+        {
+          "optimizer_step": 3,
+          "learning_rates": [
+            2e-05,
+            2e-05
+          ]
+        },
+        {
+          "optimizer_step": 4,
+          "learning_rates": [
+            1.8750000000000002e-05,
+            1.8750000000000002e-05
+          ]
+        },
+        {
+          "optimizer_step": 5,
+          "learning_rates": [
+            1.7500000000000002e-05,
+            1.7500000000000002e-05
+          ]
+        },
+        {
+          "optimizer_step": 6,
+          "learning_rates": [
+            1.6250000000000002e-05,
+            1.6250000000000002e-05
+          ]
+        },
+        {
+          "optimizer_step": 7,
+          "learning_rates": [
+            1.5000000000000002e-05,
+            1.5000000000000002e-05
+          ]
+        },
+        {
+          "optimizer_step": 8,
+          "learning_rates": [
+            1.375e-05,
+            1.375e-05
+          ]
+        },
+        {
+          "optimizer_step": 9,
+          "learning_rates": [
+            1.25e-05,
+            1.25e-05
+          ]
+        },
+        {
+          "optimizer_step": 10,
+          "learning_rates": [
+            1.125e-05,
+            1.125e-05
+          ]
+        },
+        {
+          "optimizer_step": 11,
+          "learning_rates": [
+            1e-05,
+            1e-05
+          ]
+        },
+        {
+          "optimizer_step": 12,
+          "learning_rates": [
+            8.750000000000001e-06,
+            8.750000000000001e-06
+          ]
+        },
+        {
+          "optimizer_step": 13,
+          "learning_rates": [
+            7.500000000000001e-06,
+            7.500000000000001e-06
+          ]
+        },
+        {
+          "optimizer_step": 14,
+          "learning_rates": [
+            6.25e-06,
+            6.25e-06
+          ]
+        },
+        {
+          "optimizer_step": 15,
+          "learning_rates": [
+            5e-06,
+            5e-06
+          ]
+        },
+        {
+          "optimizer_step": 16,
+          "learning_rates": [
+            3.7500000000000005e-06,
+            3.7500000000000005e-06
+          ]
+        },
+        {
+          "optimizer_step": 17,
+          "learning_rates": [
+            2.5e-06,
+            2.5e-06
+          ]
+        },
+        {
+          "optimizer_step": 18,
+          "learning_rates": [
+            1.25e-06,
+            1.25e-06
+          ]
+        }
+      ],
+      "post_scheduler_updates": [
+        {
+          "completed_optimizer_step": 1,
+          "learning_rates": [
+            1e-05,
+            1e-05
+          ]
+        },
+        {
+          "completed_optimizer_step": 2,
+          "learning_rates": [
+            2e-05,
+            2e-05
+          ]
+        },
+        {
+          "completed_optimizer_step": 3,
+          "learning_rates": [
+            1.8750000000000002e-05,
+            1.8750000000000002e-05
+          ]
+        },
+        {
+          "completed_optimizer_step": 4,
+          "learning_rates": [
+            1.7500000000000002e-05,
+            1.7500000000000002e-05
+          ]
+        },
+        {
+          "completed_optimizer_step": 5,
+          "learning_rates": [
+            1.6250000000000002e-05,
+            1.6250000000000002e-05
+          ]
+        },
+        {
+          "completed_optimizer_step": 6,
+          "learning_rates": [
+            1.5000000000000002e-05,
+            1.5000000000000002e-05
+          ]
+        },
+        {
+          "completed_optimizer_step": 7,
+          "learning_rates": [
+            1.375e-05,
+            1.375e-05
+          ]
+        },
+        {
+          "completed_optimizer_step": 8,
+          "learning_rates": [
+            1.25e-05,
+            1.25e-05
+          ]
+        },
+        {
+          "completed_optimizer_step": 9,
+          "learning_rates": [
+            1.125e-05,
+            1.125e-05
+          ]
+        },
+        {
+          "completed_optimizer_step": 10,
+          "learning_rates": [
+            1e-05,
+            1e-05
+          ]
+        },
+        {
+          "completed_optimizer_step": 11,
+          "learning_rates": [
+            8.750000000000001e-06,
+            8.750000000000001e-06
+          ]
+        },
+        {
+          "completed_optimizer_step": 12,
+          "learning_rates": [
+            7.500000000000001e-06,
+            7.500000000000001e-06
+          ]
+        },
+        {
+          "completed_optimizer_step": 13,
+          "learning_rates": [
+            6.25e-06,
+            6.25e-06
+          ]
+        },
+        {
+          "completed_optimizer_step": 14,
+          "learning_rates": [
+            5e-06,
+            5e-06
+          ]
+        },
+        {
+          "completed_optimizer_step": 15,
+          "learning_rates": [
+            3.7500000000000005e-06,
+            3.7500000000000005e-06
+          ]
+        },
+        {
+          "completed_optimizer_step": 16,
+          "learning_rates": [
+            2.5e-06,
+            2.5e-06
+          ]
+        },
+        {
+          "completed_optimizer_step": 17,
+          "learning_rates": [
+            1.25e-06,
+            1.25e-06
+          ]
+        },
+        {
+          "completed_optimizer_step": 18,
+          "learning_rates": [
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "applied_update_count": 18,
+      "positive_learning_rate_update_count": 17,
+      "positive_learning_rate_optimizer_steps": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ]
+    },
+    "actual_training_exposure": {
+      "examples": 576,
+      "source_tokens": 5360,
+      "target_tokens": 5232,
+      "non_padding_tokens": 10592,
+      "by_task": {
+        "translate": {
+          "examples": 576,
+          "source_tokens": 5360,
+          "target_tokens": 5232,
+          "non_padding_tokens": 10592
+        }
+      },
+      "by_pair_kind": {
+        "controlled_synthetic_composition_intervention": {
+          "examples": 576,
+          "source_tokens": 5360,
+          "target_tokens": 5232,
+          "non_padding_tokens": 10592
+        }
+      },
+      "unique_rows_seen": 36,
+      "presentations_per_seen_row": {
+        "minimum": 16,
+        "maximum": 16,
+        "mean": 16.0
+      },
+      "initial_resumed_presentations": 0,
+      "accounting_scope": "cumulative_current_process_and_validated_resume_prefix",
+      "world_size": 1,
+      "binding": {
+        "schema_version": 2,
+        "code": {
+          "trainer_sha256": "cba65e4f3b0b5842be29cf123665c0d4eb92ead2996cc5057ca3d5f3e7b81ae5",
+          "tokenizer_remap_sha256": "23d487d64a8a3e8b98f6a717faecfbdc74367ee5ed91300ff9200fb622286a88"
+        },
+        "dataset": {
+          "dataset_id": "wbv-v3-composition-intervention-screen-v1",
+          "release_sha256": "17e7e662e1f7e7dbfd5b3ed711c3e3dd464c1fec7ba17f70328f607ed1782f15",
+          "direction": "eng-wbv",
+          "file_sha256": {
+            "train": "17e7e662e1f7e7dbfd5b3ed711c3e3dd464c1fec7ba17f70328f607ed1782f15",
+            "validation": null,
+            "test": null
+          },
+          "capped_rows": {
+            "train": 576
+          },
+          "row_profile_sha256": {
+            "train": "e299209bd6bb8412c4d258f74d242748b8568bac72893a9060b98c8524efb5b1"
+          },
+          "max_samples": {
+            "train": null,
+            "validation": null,
+            "test": null
+          },
+          "shuffle_before_cap": false,
+          "seed": 17,
+          "allow_duplicate_train_pairs": true,
+          "allow_cross_split_source_overlap": false,
+          "split_group_field": null,
+          "integrity_audit_sha256": "0144ae658d6a99d1fea2292c5744a751512b9163d5fba48fbe9e1878e0954fbb"
+        },
+        "base": {
+          "reference": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2-output/work/base-release/base",
+          "requested_revision": null,
+          "resolved_commit": null,
+          "local_bundle": {
+            "file_count": 9,
+            "total_bytes": 2497516008,
+            "aggregate_sha256": "141002efec967e5c3cfe35aab789b0c70f8027c4b5f8032ecc6d24a183c283fc",
+            "aggregate_format": "sha256__two_spaces__bytes__two_spaces__relative_path__newline"
+          },
+          "config_sha256": "02da59852e28889f36b6184937a64ce3e62f75d988d2119901e0393e82744f6d",
+          "tokenizer": {
+            "tokenizer_class": "NllbTokenizer",
+            "tokenizer_length": 256208,
+            "vocabulary_rows": 256208,
+            "vocabulary_sha256": "79102d0cfab6b126821036f826877d07803051636b4950e7d58b9b2e4a8846ef",
+            "special_tokens_sha256": "b2b7732b1b8a5711586a23d633dddaf8d0b9323b01fc0f6b5a7e291b59c76e0a",
+            "language_maps_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+            "contract_sha256": "1a9f2cf43a73901b01d3206099eb4b9c860362801e5fe85821f688a01900daae"
+          },
+          "contract_sha256": "1a95c05a5ee625e8358f308f2a914a6f219bd8932643e839f768c65e50097732"
+        },
+        "tokenizer_and_languages": {
+          "effective_tokenizer": {
+            "tokenizer_class": "NllbTokenizer",
+            "tokenizer_length": 256208,
+            "vocabulary_rows": 256208,
+            "vocabulary_sha256": "79102d0cfab6b126821036f826877d07803051636b4950e7d58b9b2e4a8846ef",
+            "special_tokens_sha256": "b2b7732b1b8a5711586a23d633dddaf8d0b9323b01fc0f6b5a7e291b59c76e0a",
+            "language_maps_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+            "contract_sha256": "1a9f2cf43a73901b01d3206099eb4b9c860362801e5fe85821f688a01900daae"
+          },
+          "tokenizer_source_bundle": null,
+          "tokenizer_extension_manifest_sha256": null,
+          "token_id_remap_sha256": null,
+          "new_piece_map_sha256": null,
+          "source_lang": "eng_Latn",
+          "target_lang": "wbv_Latn",
+          "target_lang_init_from": null,
+          "source_lang_token_id": 256047,
+          "target_lang_token_id": 256204,
+          "additional_special_tokens": [],
+          "audited_control_strings": [],
+          "serialization_expectations_sha256": "b09bffbf08a86326edefe895c7f332c0e306a99dabe1dde757af265154c806e3"
+        },
+        "adaptation": {
+          "training_mode": "lora",
+          "initial_adapter": {
+            "path": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2/payload/initial-adapter",
+            "weight_sha256": "05e6c40172d93b99538b3a21a04bbbd14a6c767180f85b83d5f00064a6858fb4",
+            "config_sha256": "a02f1ae0462a9a48dcde180ec94477a429cac8b76e1ce93058b73869c160ab8e",
+            "topology": {
+              "r": 16,
+              "lora_alpha": 32,
+              "lora_dropout": 0.05,
+              "target_modules": [
+                "fc1",
+                "fc2",
+                "k_proj",
+                "out_proj",
+                "q_proj",
+                "v_proj"
+              ]
+            }
+          },
+          "trainable_tokens": [
+            {
+              "token": "wbv_Latn",
+              "token_id": 256204,
+              "is_special": true,
+              "single_encoded_id": true,
+              "selection_source": "cli_registered_special_token"
+            },
+            {
+              "token": "<lexeme>",
+              "token_id": 256205,
+              "is_special": true,
+              "single_encoded_id": true,
+              "selection_source": "cli_registered_special_token"
+            },
+            {
+              "token": "<translate>",
+              "token_id": 256206,
+              "is_special": true,
+              "single_encoded_id": true,
+              "selection_source": "cli_registered_special_token"
+            }
+          ],
+          "trainable_token_spec": null,
+          "trainable_token_scope": "tied",
+          "trainable_token_targets": [
+            256204,
+            256205,
+            256206
+          ],
+          "embedding_surface_contract": {
+            "full_row_modules": [],
+            "full_row_surfaces": [],
+            "selective_isolation_surfaces": [
+              "encoder_input",
+              "decoder_input",
+              "shared_input",
+              "output_head"
+            ]
+          },
+          "lora_r": 16,
+          "lora_alpha": 32,
+          "lora_dropout": 0.05,
+          "lora_target_modules": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "out_proj",
+            "fc1",
+            "fc2"
+          ],
+          "modules_to_save": [],
+          "requested_ensure_weight_tying": true,
+          "effective_ensure_weight_tying": true
+        },
+        "optimization": {
+          "learning_rate": 2e-05,
+          "epochs": 8,
+          "max_steps": 18,
+          "batch_size": 4,
+          "gradient_accumulation_steps": 8,
+          "optimizer": "adamw_torch",
+          "lr_scheduler_type": "linear",
+          "warmup_ratio": 0.08,
+          "warmup_steps": 2,
+          "weight_decay": 0.01,
+          "label_smoothing_factor": 0.0,
+          "max_grad_norm": 1.0,
+          "gradient_checkpointing": false,
+          "full_determinism": true,
+          "fp16": false,
+          "bf16": true
+        },
+        "evaluation_and_serialization": {
+          "max_source_length": 256,
+          "max_target_length": 64,
+          "eval_steps": 3,
+          "save_steps": 3,
+          "logging_steps": 1,
+          "save_total_limit": 7,
+          "load_best_model_at_end": false,
+          "metric_for_best_model": "chrf",
+          "generation_num_beams": 1,
+          "generation_no_repeat_ngram_size": 0,
+          "generation_repetition_penalty": 1.0,
+          "generation_length_penalty": 1.0,
+          "merge_full_model": false
+        },
+        "runtime": {
+          "python": "3.12.3",
+          "platform": "Linux-6.8.0-65-generic-x86_64-with-glibc2.39",
+          "torch": "2.8.0+cu128",
+          "cuda_runtime": "12.8",
+          "gpu": "NVIDIA A40",
+          "packages": {
+            "accelerate": "1.14.0",
+            "datasets": "4.8.5",
+            "peft": "0.19.1",
+            "sacrebleu": "2.6.0",
+            "sentencepiece": "0.2.2",
+            "transformers": "4.48.3"
+          }
+        },
+        "contract_sha256": "3dd7531da69d1449c5d411e8df33b2e57e11b8b5ef028b0c745b2924543725ce"
+      },
+      "resume_prefix": null
+    }
+  },
+  "artifacts": {
+    "adapter_dir": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2-output/arms/T1/training/adapter",
+    "merged_dir": null,
+    "adapter_inventory": {
+      "root": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2-output/arms/T1/training/adapter",
+      "files": [
+        {
+          "path": "README.md",
+          "bytes": 5300,
+          "sha256": "f5977cb36a316e498b482b7255a2d067d28a7f52b6b2341537d2688123a71a33"
+        },
+        {
+          "path": "adapter_config.json",
+          "bytes": 1099,
+          "sha256": "10e3fc5eb8db963b51a5ef6074cc74d361f926a802bb27b62991bbd76fadd4cd"
+        },
+        {
+          "path": "adapter_model.safetensors",
+          "bytes": 34668992,
+          "sha256": "733b03d9e1ffb8a89082d880852d91b4f99c58b7152a03896b7450a9d1b8e710"
+        },
+        {
+          "path": "added_tokens.json",
+          "bytes": 4560,
+          "sha256": "994abb6df16a88b97190d392b92a23d7db99a8ebfdf6b2150b9437fe3bf5020c"
+        },
+        {
+          "path": "sentencepiece.bpe.model",
+          "bytes": 4852054,
+          "sha256": "14bb8dfb35c0ffdea7bc01e56cea38b9e3d5efcdcb9c251d6b40538e1aab555a"
+        },
+        {
+          "path": "special_tokens_map.json",
+          "bytes": 4317,
+          "sha256": "e4e4cfb776050ea37ca5b52c97cb50372d13f893b63ea1a3b6bd63c98dda1851"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "bytes": 40687,
+          "sha256": "8b1f5e6b5e6adf7ad5161fc9e2d8c85f8609ea8c579fe9ecfa24f45105566f5a"
+        },
+        {
+          "path": "training_args.bin",
+          "bytes": 6033,
+          "sha256": "f551368e71b6ada34c16bd3207dccf923fc6695a8ef599825cc0420799da4207"
+        }
+      ],
+      "file_count": 8,
+      "total_bytes": 39583042,
+      "aggregate_sha256": "dfec4c974e433c91beca32408a35c7e6212e520f04ce67f63605fa4d613ea5b5",
+      "aggregate_format": "sha256__two_spaces__bytes__two_spaces__relative_path__newline",
+      "excluded_relative_paths": []
+    },
+    "merged_inventory": null,
+    "adapter_tokenizer_reload_audit": {
+      "status": "PASS",
+      "path": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2-output/arms/T1/training/adapter",
+      "tokenizer_class": "NllbTokenizer",
+      "use_fast": false,
+      "tokenizer_length": 256208,
+      "tokens": [
+        {
+          "token": "wbv_Latn",
+          "token_id": 256204,
+          "encoded_ids": [
+            256204
+          ],
+          "is_special": true,
+          "status": "PASS"
+        },
+        {
+          "token": "<lexeme>",
+          "token_id": 256205,
+          "encoded_ids": [
+            256205
+          ],
+          "is_special": true,
+          "status": "PASS"
+        },
+        {
+          "token": "<translate>",
+          "token_id": 256206,
+          "encoded_ids": [
+            256206
+          ],
+          "is_special": true,
+          "status": "PASS"
+        },
+        {
+          "token": "eng_Latn",
+          "token_id": 256047,
+          "encoded_ids": [
+            256047
+          ],
+          "is_special": true,
+          "status": "PASS"
+        },
+        {
+          "token": "<pad>",
+          "token_id": 1,
+          "encoded_ids": [
+            1
+          ],
+          "is_special": true,
+          "status": "PASS"
+        },
+        {
+          "token": "</s>",
+          "token_id": 2,
+          "encoded_ids": [
+            2
+          ],
+          "is_special": true,
+          "status": "PASS"
+        }
+      ],
+      "ordinary_controls": [],
+      "language_sequence_audit": {
+        "status": "PASS",
+        "probe": "nllb language sequence audit",
+        "source_lang": "eng_Latn",
+        "source_lang_id": 256047,
+        "source_probe_ids": [
+          256047,
+          5,
+          1015,
+          248076,
+          65445,
+          116914,
+          4464,
+          89400,
+          2
+        ],
+        "target_lang": "wbv_Latn",
+        "target_lang_id": 256204,
+        "target_probe_ids": [
+          256204,
+          5,
+          1015,
+          248076,
+          65445,
+          116914,
+          4464,
+          89400,
+          2
+        ],
+        "eos_token_id": 2,
+        "layout": "language_prefix_text_eos_suffix"
+      },
+      "language_maps": {}
+    },
+    "merged_tokenizer_reload_audit": null,
+    "merge_embedding_canonicalization": null,
+    "exposure_ledger": {
+      "path": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2-output/arms/T1/training/exposure-row-presentations.jsonl",
+      "sha256": "9c3c335c4ee5b6493b32d79c078ff2fbaf05d838f046b94db377a6b4181504b3",
+      "rows": 36,
+      "presentations": 576
+    },
+    "training_mechanism_audit": {
+      "path": "/workspace/wbv-v3-composition-screen-runpod-20260731-a1-r2-output/arms/T1/training/TRAINING-MECHANISM-AUDIT.json",
+      "bytes": 11155,
+      "sha256": "708f29e2662176781220676ac9b1e578bc261595e9319aac1fba6dfe586e87f2"
+    }
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-65-generic-x86_64-with-glibc2.39",
+    "torch": "2.8.0+cu128",
+    "cuda_runtime": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA A40",
+    "packages": {
+      "accelerate": "1.14.0",
+      "datasets": "4.8.5",
+      "peft": "0.19.1",
+      "sacrebleu": "2.6.0",
+      "sentencepiece": "0.2.2",
+      "transformers": "4.48.3"
+    }
+  }
+}

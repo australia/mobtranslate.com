@@ -1,5 +1,12 @@
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync, statSync } from 'node:fs';
+import {
+  closeSync,
+  existsSync,
+  openSync,
+  readFileSync,
+  readSync,
+  statSync,
+} from 'node:fs';
 import path from 'node:path';
 import { load as loadYaml } from 'js-yaml';
 import { z } from 'zod';
@@ -269,6 +276,7 @@ export const BenchmarkSuiteSchema = z.object({
   ]),
   role: z.enum(['development', 'regression', 'sealed_final', 'operational']),
   sampling_unit: z.string().min(1),
+  row_count: z.number().int().nonnegative().optional(),
   artifact_key: z.string().min(1),
   sealed: z.boolean(),
   status: z.enum(['draft', 'active', 'opened', 'superseded', 'withdrawn']),
@@ -276,34 +284,62 @@ export const BenchmarkSuiteSchema = z.object({
   claim_limit: z.string().min(1),
 });
 
-export const ExperimentSchema = z.object({
-  experiment_key: z.string().min(1),
-  title: z.string().min(1),
-  hypothesis: z.string().min(1),
-  controlled_variable: z.string().min(1),
-  base_contract: JsonObjectSchema.default({}),
-  status: z.enum([
-    'planned',
-    'preregistered',
-    'running',
-    'evaluated',
-    'promoted',
-    'failed',
-    'stopped',
-    'superseded',
-  ]),
-  planned_max_steps: z.number().int().positive().nullable().optional(),
-  observed_global_step: z.number().int().nonnegative().nullable().optional(),
-  seeds: z.array(z.number().int()).default([]),
-  token_accounting: JsonObjectSchema.default({}),
-  paid_compute_authorized: z.boolean(),
-  provider_run_id: z.string().nullable().optional(),
-  preregistration_artifact_key: z.string().nullable().optional(),
-  run_contract_artifact_key: z.string().nullable().optional(),
-  outcome_summary: z.string().nullable().optional(),
-  started_at: z.string().nullable().optional(),
-  completed_at: z.string().nullable().optional(),
-});
+export function resolveBenchmarkSuiteRowCount(
+  suite: Infer<typeof BenchmarkSuiteSchema>,
+  artifactRowCount: number | null | undefined,
+): number {
+  return suite.row_count ?? artifactRowCount ?? 0;
+}
+
+export const ExperimentSchema = z
+  .object({
+    experiment_key: z.string().min(1),
+    title: z.string().min(1),
+    hypothesis: z.string().min(1),
+    controlled_variable: z.string().min(1),
+    base_contract: JsonObjectSchema.default({}),
+    status: z.enum([
+      'planned',
+      'preregistered',
+      'running',
+      'evaluated',
+      'promoted',
+      'failed',
+      'stopped',
+      'superseded',
+    ]),
+    planned_max_steps: z.number().int().positive().nullable().optional(),
+    observed_global_step: z.number().int().nonnegative().nullable().optional(),
+    seeds: z.array(z.number().int()).default([]),
+    token_accounting: JsonObjectSchema.default({}),
+    paid_compute_authorized: z.boolean(),
+    provider_run_id: z.string().nullable().optional(),
+    preregistration_artifact_key: z.string().nullable().optional(),
+    run_contract_artifact_key: z.string().nullable().optional(),
+    outcome_summary: z.string().nullable().optional(),
+    started_at: z.string().nullable().optional(),
+    completed_at: z.string().nullable().optional(),
+  })
+  .superRefine((experiment, context) => {
+    const terminal = new Set(['evaluated', 'promoted', 'failed', 'stopped']);
+    if (terminal.has(experiment.status) && !experiment.completed_at) {
+      context.addIssue({
+        code: 'custom',
+        path: ['completed_at'],
+        message: `completed_at is required when status is ${experiment.status}`,
+      });
+    }
+    if (
+      experiment.status === 'running' &&
+      !experiment.paid_compute_authorized
+    ) {
+      context.addIssue({
+        code: 'custom',
+        path: ['paid_compute_authorized'],
+        message: 'paid_compute_authorized must be true when status is running',
+      });
+    }
+  });
 
 export const ModelSchema = z.object({
   model_key: z.string().min(1),
@@ -390,6 +426,11 @@ export type ArtifactIdentity = {
   relativePath: string | null;
   externalUri: string | null;
   immutable: boolean;
+  stageKey: string;
+  sourceId: string | null;
+  artifactKind: string;
+  mediaType: string | null;
+  generatedBy: string | null;
 };
 
 export function assertArtifactUpdateAllowed(
@@ -410,6 +451,24 @@ export function assertArtifactUpdateAllowed(
       `artifact mutability changed for ${artifactKey}; use a migration or create a new artifact key`,
     );
   }
+  const changedIdentityFields = (
+    [
+      ['stage_key', existing.stageKey, incoming.stageKey],
+      ['source_id', existing.sourceId, incoming.sourceId],
+      ['artifact_kind', existing.artifactKind, incoming.artifactKind],
+      ['media_type', existing.mediaType, incoming.mediaType],
+      ['generated_by', existing.generatedBy, incoming.generatedBy],
+    ] as const
+  )
+    .filter(
+      ([, existingValue, incomingValue]) => existingValue !== incomingValue,
+    )
+    .map(([field]) => field);
+  if (changedIdentityFields.length > 0) {
+    throw new Error(
+      `artifact identity changed for ${artifactKey} (${changedIdentityFields.join(', ')}); create a new artifact key`,
+    );
+  }
   if (existing.immutable && existing.sha256 !== incoming.sha256) {
     throw new Error(
       `immutable artifact identity changed for ${artifactKey}; create a new artifact key`,
@@ -418,7 +477,19 @@ export function assertArtifactUpdateAllowed(
 }
 
 export function sha256File(filePath: string): string {
-  return createHash('sha256').update(readFileSync(filePath)).digest('hex');
+  const hash = createHash('sha256');
+  const descriptor = openSync(filePath, 'r');
+  const chunk = Buffer.allocUnsafe(1024 * 1024);
+  try {
+    let bytesRead = 0;
+    do {
+      bytesRead = readSync(descriptor, chunk, 0, chunk.length, null);
+      if (bytesRead > 0) hash.update(chunk.subarray(0, bytesRead));
+    } while (bytesRead > 0);
+  } finally {
+    closeSync(descriptor);
+  }
+  return hash.digest('hex');
 }
 
 function parseJson<T extends z.ZodType>(
@@ -447,7 +518,7 @@ function parseJsonl<T extends z.ZodType>(
 
 function ensureUnique<T>(
   rows: T[],
-  key: (row: T) => string,
+  key: (_row: T) => string,
   label: string,
 ): void {
   const seen = new Set<string>();

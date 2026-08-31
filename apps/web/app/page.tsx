@@ -89,6 +89,13 @@ export default async function Page() {
               >
                 Browse dictionaries <ArrowRight className="w-3.5 h-3.5" />
               </Link>
+              <span className="w-px h-4 bg-[#faf8f5]/15" />
+              <Link
+                href="/labs/kuku-possum"
+                className="inline-flex items-center gap-1.5 text-sm text-[#faf8f5]/60 hover:text-[#faf8f5] transition-colors"
+              >
+                Kuku Possum model <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
 
             {/* Scope, stated as a sentence — not a SaaS metric counter */}

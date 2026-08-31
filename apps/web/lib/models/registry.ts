@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import type { ModelEntry, ModelRegistry, ModelRelease } from './types';
+import { isPublishedReleaseStatus } from './distribution';
 
 export function registryPath(): string {
   return path.join(process.cwd(), 'public', 'models', 'registry.json');
@@ -21,7 +22,9 @@ export function findRelease(model: ModelEntry, version: string): ModelRelease | 
 export function latestTestableRelease(model: ModelEntry): ModelRelease | null {
   return (
     model.releases.find((release) => release.status === 'internal-proof') ??
-    model.releases.find((release) => release.status === 'published') ??
+    model.releases.find((release) =>
+      isPublishedReleaseStatus(release.status),
+    ) ??
     model.releases[0] ??
     null
   );

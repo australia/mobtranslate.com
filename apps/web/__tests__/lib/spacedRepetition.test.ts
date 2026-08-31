@@ -6,7 +6,9 @@ import {
 } from '@/lib/quiz/spacedRepetition';
 
 // Helper to create a default state
-function makeState(overrides: Partial<SpacedRepetitionState> = {}): SpacedRepetitionState {
+function makeState(
+  overrides: Partial<SpacedRepetitionState> = {},
+): SpacedRepetitionState {
   return {
     id: 'state-1',
     userId: 'user-1',
@@ -139,65 +141,114 @@ describe('SpacedRepetitionEngine.updateEasinessFactory', () => {
 
 describe('SpacedRepetitionEngine.calculateNextInterval', () => {
   it('goes back one bucket on incorrect answer', () => {
-    const result = SpacedRepetitionEngine.calculateNextInterval(3, 1, 2.5, false);
+    const result = SpacedRepetitionEngine.calculateNextInterval(
+      3,
+      1,
+      2.5,
+      false,
+    );
     expect(result.bucket).toBe(2);
     expect(result.interval).toBe(0);
   });
 
   it('does not go below bucket 0 on incorrect answer', () => {
-    const result = SpacedRepetitionEngine.calculateNextInterval(0, 0, 2.5, false);
+    const result = SpacedRepetitionEngine.calculateNextInterval(
+      0,
+      0,
+      2.5,
+      false,
+    );
     expect(result.bucket).toBe(0);
     expect(result.interval).toBe(0);
   });
 
   it('advances one bucket on correct answer', () => {
-    const result = SpacedRepetitionEngine.calculateNextInterval(0, 0, 2.5, true);
+    const result = SpacedRepetitionEngine.calculateNextInterval(
+      0,
+      0,
+      2.5,
+      true,
+    );
     expect(result.bucket).toBe(1);
   });
 
   it('does not go above bucket 5', () => {
-    const result = SpacedRepetitionEngine.calculateNextInterval(5, 14, 2.5, true);
+    const result = SpacedRepetitionEngine.calculateNextInterval(
+      5,
+      14,
+      2.5,
+      true,
+    );
     expect(result.bucket).toBe(5);
   });
 
   it('sets interval 0 for new bucket <= 2', () => {
     // bucket 0 -> 1 => interval 0
-    expect(SpacedRepetitionEngine.calculateNextInterval(0, 0, 2.5, true).interval).toBe(0);
+    expect(
+      SpacedRepetitionEngine.calculateNextInterval(0, 0, 2.5, true).interval,
+    ).toBe(0);
     // bucket 1 -> 2 => interval 0
-    expect(SpacedRepetitionEngine.calculateNextInterval(1, 0, 2.5, true).interval).toBe(0);
+    expect(
+      SpacedRepetitionEngine.calculateNextInterval(1, 0, 2.5, true).interval,
+    ).toBe(0);
   });
 
   it('sets interval to 1 day for bucket 3', () => {
     // bucket 2 -> 3
-    const result = SpacedRepetitionEngine.calculateNextInterval(2, 0, 2.5, true);
+    const result = SpacedRepetitionEngine.calculateNextInterval(
+      2,
+      0,
+      2.5,
+      true,
+    );
     expect(result.bucket).toBe(3);
     expect(result.interval).toBe(1);
   });
 
   it('sets interval to 4 days for bucket 4', () => {
     // bucket 3 -> 4
-    const result = SpacedRepetitionEngine.calculateNextInterval(3, 1, 2.5, true);
+    const result = SpacedRepetitionEngine.calculateNextInterval(
+      3,
+      1,
+      2.5,
+      true,
+    );
     expect(result.bucket).toBe(4);
     expect(result.interval).toBe(4);
   });
 
   it('uses SM-2 formula for mastered bucket (5) with minimum 14 days', () => {
     // bucket 4 -> 5, currentInterval=4, ef=2.5 => 4*2.5=10 => clamped to min 14
-    const result = SpacedRepetitionEngine.calculateNextInterval(4, 4, 2.5, true);
+    const result = SpacedRepetitionEngine.calculateNextInterval(
+      4,
+      4,
+      2.5,
+      true,
+    );
     expect(result.bucket).toBe(5);
     expect(result.interval).toBe(14);
   });
 
   it('uses SM-2 formula for mastered bucket when result exceeds 14', () => {
     // bucket 4 -> 5, currentInterval=10, ef=2.5 => 10*2.5=25 => 25 > 14
-    const result = SpacedRepetitionEngine.calculateNextInterval(4, 10, 2.5, true);
+    const result = SpacedRepetitionEngine.calculateNextInterval(
+      4,
+      10,
+      2.5,
+      true,
+    );
     expect(result.bucket).toBe(5);
     expect(result.interval).toBe(25);
   });
 
   it('uses SM-2 formula when staying in mastered bucket', () => {
     // bucket 5 -> 5, currentInterval=14, ef=2.5 => 14*2.5=35
-    const result = SpacedRepetitionEngine.calculateNextInterval(5, 14, 2.5, true);
+    const result = SpacedRepetitionEngine.calculateNextInterval(
+      5,
+      14,
+      2.5,
+      true,
+    );
     expect(result.bucket).toBe(5);
     expect(result.interval).toBe(35);
   });
@@ -265,43 +316,64 @@ describe('SpacedRepetitionEngine.updateState', () => {
 
   it('increments correctAttempts on correct answer', () => {
     const state = makeState({ correctAttempts: 3 });
-    const result = SpacedRepetitionEngine.updateState(state, makeAttempt({ isCorrect: true }));
+    const result = SpacedRepetitionEngine.updateState(
+      state,
+      makeAttempt({ isCorrect: true }),
+    );
     expect(result.correctAttempts).toBe(4);
   });
 
   it('does not increment correctAttempts on incorrect answer', () => {
     const state = makeState({ correctAttempts: 3 });
-    const result = SpacedRepetitionEngine.updateState(state, makeAttempt({ isCorrect: false }));
+    const result = SpacedRepetitionEngine.updateState(
+      state,
+      makeAttempt({ isCorrect: false }),
+    );
     expect(result.correctAttempts).toBe(3);
   });
 
   it('increments streak on correct answer', () => {
     const state = makeState({ streak: 3 });
-    const result = SpacedRepetitionEngine.updateState(state, makeAttempt({ isCorrect: true }));
+    const result = SpacedRepetitionEngine.updateState(
+      state,
+      makeAttempt({ isCorrect: true }),
+    );
     expect(result.streak).toBe(4);
   });
 
   it('resets streak to 0 on incorrect answer', () => {
     const state = makeState({ streak: 10 });
-    const result = SpacedRepetitionEngine.updateState(state, makeAttempt({ isCorrect: false }));
+    const result = SpacedRepetitionEngine.updateState(
+      state,
+      makeAttempt({ isCorrect: false }),
+    );
     expect(result.streak).toBe(0);
   });
 
   it('advances bucket on correct answer', () => {
     const state = makeState({ bucket: 2 });
-    const result = SpacedRepetitionEngine.updateState(state, makeAttempt({ isCorrect: true }));
+    const result = SpacedRepetitionEngine.updateState(
+      state,
+      makeAttempt({ isCorrect: true }),
+    );
     expect(result.bucket).toBe(3);
   });
 
   it('decreases bucket on incorrect answer', () => {
     const state = makeState({ bucket: 3 });
-    const result = SpacedRepetitionEngine.updateState(state, makeAttempt({ isCorrect: false }));
+    const result = SpacedRepetitionEngine.updateState(
+      state,
+      makeAttempt({ isCorrect: false }),
+    );
     expect(result.bucket).toBe(2);
   });
 
   it('sets lastSeen to approximately now', () => {
     const before = Date.now();
-    const result = SpacedRepetitionEngine.updateState(makeState(), makeAttempt());
+    const result = SpacedRepetitionEngine.updateState(
+      makeState(),
+      makeAttempt(),
+    );
     const after = Date.now();
     expect(result.lastSeen!.getTime()).toBeGreaterThanOrEqual(before);
     expect(result.lastSeen!.getTime()).toBeLessThanOrEqual(after);
@@ -310,7 +382,10 @@ describe('SpacedRepetitionEngine.updateState', () => {
   it('updates EF based on performance', () => {
     const state = makeState({ ef: 2.5 });
     // Fast correct => quality 5 => EF increases
-    const result = SpacedRepetitionEngine.updateState(state, makeAttempt({ isCorrect: true, responseTimeMs: 500 }));
+    const result = SpacedRepetitionEngine.updateState(
+      state,
+      makeAttempt({ isCorrect: true, responseTimeMs: 500 }),
+    );
     expect(result.ef).toBeGreaterThan(2.5);
   });
 });
@@ -325,7 +400,7 @@ describe('SpacedRepetitionEngine.selectWordsForSession', () => {
 
   it('returns at most sessionSize words', () => {
     const states = Array.from({ length: 30 }, (_, i) =>
-      makeState({ wordId: `word-${i}`, bucket: 0, dueDate: new Date() })
+      makeState({ wordId: `word-${i}`, bucket: 0, dueDate: new Date() }),
     );
     const result = SpacedRepetitionEngine.selectWordsForSession(states, 10);
     expect(result.length).toBeLessThanOrEqual(10);
@@ -333,7 +408,7 @@ describe('SpacedRepetitionEngine.selectWordsForSession', () => {
 
   it('returns all words if fewer than sessionSize are due', () => {
     const states = Array.from({ length: 5 }, (_, i) =>
-      makeState({ wordId: `word-${i}`, bucket: 0, dueDate: new Date() })
+      makeState({ wordId: `word-${i}`, bucket: 0, dueDate: new Date() }),
     );
     const result = SpacedRepetitionEngine.selectWordsForSession(states, 20);
     expect(result.length).toBe(5);
@@ -360,12 +435,12 @@ describe('SpacedRepetitionEngine.selectWordsForSession', () => {
   it('returns word IDs as strings', () => {
     const states = [makeState({ wordId: 'word-1', bucket: 0 })];
     const result = SpacedRepetitionEngine.selectWordsForSession(states);
-    result.forEach(id => expect(typeof id).toBe('string'));
+    result.forEach((id) => expect(typeof id).toBe('string'));
   });
 
   it('uses default session size of 20', () => {
     const states = Array.from({ length: 25 }, (_, i) =>
-      makeState({ wordId: `word-${i}`, bucket: 0, dueDate: new Date() })
+      makeState({ wordId: `word-${i}`, bucket: 0, dueDate: new Date() }),
     );
     const result = SpacedRepetitionEngine.selectWordsForSession(states);
     expect(result.length).toBeLessThanOrEqual(20);
@@ -454,11 +529,11 @@ describe('SpacedRepetitionEngine.generateInsights', () => {
   it('recommends longer sessions when >20 words due', () => {
     const pastDate = new Date(Date.now() - 86400000);
     const states = Array.from({ length: 25 }, (_, i) =>
-      makeState({ wordId: `w${i}`, dueDate: pastDate })
+      makeState({ wordId: `w${i}`, dueDate: pastDate }),
     );
     const insights = SpacedRepetitionEngine.generateInsights(states);
     expect(insights.recommendations).toContain(
-      'You have many words due for review - try a longer session'
+      'You have many words due for review - try a longer session',
     );
   });
 
@@ -470,11 +545,11 @@ describe('SpacedRepetitionEngine.generateInsights', () => {
 
   it('recommends new vocabulary when >50 new words', () => {
     const states = Array.from({ length: 55 }, (_, i) =>
-      makeState({ wordId: `w${i}`, bucket: 0 })
+      makeState({ wordId: `w${i}`, bucket: 0 }),
     );
     const insights = SpacedRepetitionEngine.generateInsights(states);
     expect(insights.recommendations).toContain(
-      'Many new words available - try learning some new vocabulary'
+      'Many new words available - try learning some new vocabulary',
     );
   });
 
@@ -591,32 +666,54 @@ describe('SpacedRepetitionEngine.getNextReviewTime', () => {
   });
 
   it('returns hours for dueDates less than 1 day away', () => {
-    const state = makeState({ dueDate: new Date(Date.now() + 5 * 60 * 60 * 1000) });
+    const state = makeState({
+      dueDate: new Date(Date.now() + 5 * 60 * 60 * 1000),
+    });
     const result = SpacedRepetitionEngine.getNextReviewTime(state);
     expect(result).toMatch(/Due in \d+ hours?/);
   });
 
   it('returns singular "hour" for 1 hour', () => {
-    const state = makeState({ dueDate: new Date(Date.now() + 60 * 60 * 1000) });
-    const result = SpacedRepetitionEngine.getNextReviewTime(state);
-    expect(result).toBe('Due in 1 hour');
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2026-01-01T00:00:00Z'));
+      const state = makeState({
+        dueDate: new Date(Date.now() + 60 * 60 * 1000),
+      });
+      const result = SpacedRepetitionEngine.getNextReviewTime(state);
+      expect(result).toBe('Due in 1 hour');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('returns days for dueDates less than 7 days away', () => {
-    const state = makeState({ dueDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000) });
+    const state = makeState({
+      dueDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+    });
     const result = SpacedRepetitionEngine.getNextReviewTime(state);
     expect(result).toMatch(/Due in \d+ days?/);
   });
 
   it('returns weeks for dueDates 7+ days away', () => {
-    const state = makeState({ dueDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000) });
+    const state = makeState({
+      dueDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
+    });
     const result = SpacedRepetitionEngine.getNextReviewTime(state);
     expect(result).toMatch(/Due in \d+ weeks?/);
   });
 
   it('returns singular "week" for ~7 days', () => {
-    const state = makeState({ dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) });
-    const result = SpacedRepetitionEngine.getNextReviewTime(state);
-    expect(result).toBe('Due in 1 week');
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(new Date('2026-01-01T00:00:00Z'));
+      const state = makeState({
+        dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      });
+      const result = SpacedRepetitionEngine.getNextReviewTime(state);
+      expect(result).toBe('Due in 1 week');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });

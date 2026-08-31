@@ -1,0 +1,16 @@
+{
+  "created_at_utc": "2026-07-31T21:30:16.429906+00:00",
+  "deleted_after_verified_compaction": [
+    "arms/C0/training",
+    "arms/T1/training"
+  ],
+  "reason": "Retain only each arm's selected compact adapter and every evaluation; discard optimizer states and unselected checkpoint weights.",
+  "retained": [
+    "selected-adapters/C0",
+    "selected-adapters/T1",
+    "development-evaluation",
+    "full-evaluation",
+    "logs"
+  ],
+  "schema_version": 1
+}

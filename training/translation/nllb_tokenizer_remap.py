@@ -138,9 +138,11 @@ def build_embedding_remap_plan(
         }
 
     controls = list(dict.fromkeys(str(token).strip() for token in control_tokens if str(token).strip()))
+    common_control_rows: list[dict[str, Any]] = []
+    initialized_control_tokens: list[str] = []
     for token in controls:
-        if token not in candidate_only:
-            raise RuntimeError(f"declared control is not a candidate-only token: {token!r}")
+        if token not in candidate_vocab:
+            raise RuntimeError(f"declared control is absent from candidate tokenizer: {token!r}")
         if token in initializer_by_token:
             raise RuntimeError(f"declared control collides with a new SentencePiece row: {token!r}")
         token_id = candidate_vocab[token]
@@ -150,6 +152,30 @@ def build_embedding_remap_plan(
                 f"declared control is not one registered candidate special token: "
                 f"{token!r} -> {encoded}"
             )
+        if token in expected_common:
+            base_token_id = base_vocab[token]
+            base_encoded = [
+                int(value) for value in base_tokenizer.encode(token, add_special_tokens=False)
+            ]
+            if (
+                base_encoded != [base_token_id]
+                or base_token_id not in base_tokenizer.all_special_ids
+            ):
+                raise RuntimeError(
+                    f"declared common control is not one registered base special token: "
+                    f"{token!r} -> {base_encoded}"
+                )
+            common_control_rows.append(
+                {
+                    "token": token,
+                    "old_id": base_token_id,
+                    "new_id": token_id,
+                    "assignment_kind": "common_identity_copy",
+                }
+            )
+            continue
+        if token not in candidate_only:
+            raise RuntimeError(f"declared control has no valid remap class: {token!r}")
         decomposition = _validated_decomposition(base_tokenizer, token)
         initializer_by_token[token] = {
             "token": token,
@@ -159,6 +185,7 @@ def build_embedding_remap_plan(
             "initialization_kind": "control_decomposition_mean",
             "surface": token,
         }
+        initialized_control_tokens.append(token)
 
     if set(initializer_by_token) != candidate_only:
         missing = sorted(candidate_only - set(initializer_by_token))
@@ -189,6 +216,11 @@ def build_embedding_remap_plan(
         "common_row_count": len(common_rows),
         "moved_common_row_count": sum(row["old_id"] != row["new_id"] for row in common_rows),
         "initialized_row_count": len(initialized_rows),
+        "declared_control_count": len(controls),
+        "common_control_count": len(common_control_rows),
+        "initialized_control_count": len(initialized_control_tokens),
+        "common_control_rows": common_control_rows,
+        "initialized_control_tokens": initialized_control_tokens,
         "control_row_count": sum(
             row["initialization_kind"] == "control_decomposition_mean"
             for row in initialized_rows
@@ -315,6 +347,11 @@ def apply_embedding_remap(model: Any, plan: dict[str, Any]) -> dict[str, Any]:
         "common_row_count": int(plan["common_row_count"]),
         "moved_common_row_count": int(plan["moved_common_row_count"]),
         "initialized_row_count": int(plan["initialized_row_count"]),
+        "declared_control_count": int(plan["declared_control_count"]),
+        "common_control_count": int(plan["common_control_count"]),
+        "initialized_control_count": int(plan["initialized_control_count"]),
+        "common_control_rows": list(plan["common_control_rows"]),
+        "initialized_control_tokens": list(plan["initialized_control_tokens"]),
         "control_row_count": int(plan["control_row_count"]),
     }
 

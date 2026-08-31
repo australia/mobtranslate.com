@@ -9,6 +9,10 @@ export type PublicModelArtifact = Omit<ModelArtifact, 'localPath'>;
 
 const HOSTABLE_MODEL_KINDS = new Set(['adapter', 'bundle', 'model']);
 
+export function isPublishedReleaseStatus(status: string): boolean {
+  return status === 'published' || status === 'published-controlled';
+}
+
 export function publicInferenceEndpointLabel(_endpoint: string): string {
   // Upstreams may be loopback or private-network services. Their locations are
   // operational metadata and must never be reflected into public responses.

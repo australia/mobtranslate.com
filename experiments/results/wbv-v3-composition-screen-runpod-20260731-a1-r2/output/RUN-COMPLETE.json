@@ -1,0 +1,7 @@
+{
+  "completed_at_utc": "2026-07-31T21:30:16.789104+00:00",
+  "result_sha256": "69c9589184e0190e8961352257a3a978afa029827aa5dc1d5b8f4c5fdfd82e07",
+  "run_id": "wbv-v3-composition-screen-runpod-20260731-a1-r2",
+  "schema_version": 1,
+  "status": "NEGATIVE_OR_INCONCLUSIVE_INTERNAL_COMPOSITION_SCREEN"
+}

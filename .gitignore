@@ -54,3 +54,4 @@ experiments/pdftomd/extract/tts/out_audio/
 # Python
 __pycache__/
 *.py[cod]
+.env*

@@ -2,12 +2,143 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 from pathlib import Path
 from typing import Any
 
 import torch
 from peft import PeftModel
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+
+try:
+    from .materialize_nllb_control_model import (
+        initialize_control_rows,
+        tokenizer_bundle_identity,
+    )
+    from .nllb_tokenizer_remap import remap_nllb_for_tokenizer_extension
+except ImportError:
+    from materialize_nllb_control_model import (
+        initialize_control_rows,
+        tokenizer_bundle_identity,
+    )
+    from nllb_tokenizer_remap import remap_nllb_for_tokenizer_extension
+
+
+def sha256_file(path: str | Path) -> str:
+    digest = hashlib.sha256()
+    with Path(path).open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _verify_control_contract_bundle(
+    raw_base_model: Path,
+    control_contract_dir: Path,
+    expected_manifest_sha256: str,
+) -> dict[str, Any]:
+    manifest_path = control_contract_dir / "MANIFEST.json"
+    observed_manifest_sha256 = sha256_file(manifest_path)
+    if observed_manifest_sha256 != expected_manifest_sha256:
+        raise RuntimeError(
+            "Control-tokenizer contract SHA-256 mismatch: "
+            f"expected={expected_manifest_sha256}, observed={observed_manifest_sha256}"
+        )
+    contract = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if contract.get("status") != "PASS":
+        raise RuntimeError("Control-tokenizer contract is not PASS")
+    for relative, expected in sorted(contract["base"]["bundle"]["files"].items()):
+        path = raw_base_model / relative
+        if not path.is_file() or sha256_file(path) != expected:
+            raise RuntimeError(f"Raw base-model bundle drift: {relative}")
+    observed_tokenizer_bundle = tokenizer_bundle_identity(control_contract_dir / "tokenizer")
+    if observed_tokenizer_bundle != contract["tokenizer_bundle"]:
+        raise RuntimeError("Control tokenizer no longer matches its frozen bundle identity")
+    return contract
+
+
+def _verify_extension_artifacts(
+    adapter_dir: Path,
+    manifest_path: Path,
+    expected_manifest_sha256: str,
+    token_id_remap_path: Path,
+    new_piece_map_path: Path,
+) -> dict[str, Any]:
+    observed_manifest_sha256 = sha256_file(manifest_path)
+    if observed_manifest_sha256 != expected_manifest_sha256:
+        raise RuntimeError(
+            "Tokenizer-extension manifest SHA-256 mismatch: "
+            f"expected={expected_manifest_sha256}, observed={observed_manifest_sha256}"
+        )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("result", {}).get("status") != "PASS":
+        raise RuntimeError("Tokenizer-extension manifest is not PASS")
+    hashes = manifest.get("artifact_sha256") or {}
+    for path, key in (
+        (token_id_remap_path, "token-id-remap.jsonl"),
+        (new_piece_map_path, "new-piece-map.jsonl"),
+    ):
+        if not path.is_file() or sha256_file(path) != hashes.get(key):
+            raise RuntimeError(f"Tokenizer-extension artifact drift: {key}")
+    for relative, expected in sorted(hashes.items()):
+        if not str(relative).startswith("tokenizer/"):
+            continue
+        source_file = manifest_path.parent / relative
+        if not source_file.is_file() or sha256_file(source_file) != expected:
+            raise RuntimeError(f"Frozen tokenizer-extension source drift: {relative}")
+        name = Path(relative).name
+        if name not in {"sentencepiece.bpe.model", "added_tokens.json"}:
+            continue
+        adapter_file = adapter_dir / name
+        if not adapter_file.is_file() or sha256_file(adapter_file) != expected:
+            raise RuntimeError(f"Serialized adapter tokenizer lexical artifact drift: {relative}")
+    return manifest
+
+
+def tokenizer_behavior_identity(
+    reference_tokenizer: Any,
+    serialized_tokenizer: Any,
+    required_special_tokens: list[str],
+) -> dict[str, Any]:
+    reference_vocab = {
+        str(token): int(token_id) for token, token_id in reference_tokenizer.get_vocab().items()
+    }
+    serialized_vocab = {
+        str(token): int(token_id) for token, token_id in serialized_tokenizer.get_vocab().items()
+    }
+    if reference_vocab != serialized_vocab:
+        raise RuntimeError("Serialized adapter tokenizer vocabulary differs from the frozen tokenizer")
+    if sorted(reference_tokenizer.all_special_ids) != sorted(serialized_tokenizer.all_special_ids):
+        raise RuntimeError("Serialized adapter tokenizer special-ID registry differs")
+    required: list[dict[str, Any]] = []
+    for token in list(dict.fromkeys(required_special_tokens)):
+        reference_id = int(reference_tokenizer.convert_tokens_to_ids(token))
+        serialized_id = int(serialized_tokenizer.convert_tokens_to_ids(token))
+        reference_encoded = [
+            int(value) for value in reference_tokenizer.encode(token, add_special_tokens=False)
+        ]
+        serialized_encoded = [
+            int(value) for value in serialized_tokenizer.encode(token, add_special_tokens=False)
+        ]
+        if (
+            reference_id != serialized_id
+            or reference_encoded != [reference_id]
+            or serialized_encoded != [serialized_id]
+            or reference_id not in reference_tokenizer.all_special_ids
+            or serialized_id not in serialized_tokenizer.all_special_ids
+        ):
+            raise RuntimeError(
+                f"Serialized adapter tokenizer changed required special-token behavior: {token!r}"
+            )
+        required.append({"token": token, "token_id": reference_id})
+    return {
+        "status": "PASS",
+        "vocabulary_size": len(reference_vocab),
+        "vocabulary_exact": True,
+        "special_id_registry_exact": True,
+        "required_special_tokens": required,
+    }
 
 
 def language_id(tokenizer: Any, language: str) -> int:
@@ -162,6 +293,200 @@ def load_compact_nllb_adapter(
     adapter_tokenizer.src_lang = source_lang
     adapter_tokenizer.tgt_lang = target_lang
     return adapter_tokenizer, model, token_records
+
+
+def load_control_contract_nllb_adapter(
+    raw_base_model: str | Path,
+    control_contract_dir: str | Path,
+    adapter_dir: str | Path,
+    *,
+    expected_control_contract_sha256: str,
+    source_lang: str,
+    target_lang: str,
+    torch_dtype: torch.dtype | None,
+    tokenizer_extension_manifest_path: str | Path | None = None,
+    expected_tokenizer_extension_manifest_sha256: str | None = None,
+    token_id_remap_path: str | Path | None = None,
+    new_piece_map_path: str | Path | None = None,
+    local_files_only: bool = True,
+) -> tuple[Any, Any, dict[str, Any]]:
+    """Rebuild a compact adapter from one immutable raw base and tokenizer contract.
+
+    The control rows are always materialized in float32, matching the standalone
+    control-model builder. A train-only tokenizer extension is then applied after
+    the requested dtype conversion, matching the trainer's load/remap order.
+    """
+    raw_base_model = Path(raw_base_model).expanduser().resolve()
+    control_contract_dir = Path(control_contract_dir).expanduser().resolve()
+    adapter_dir = Path(adapter_dir).expanduser().resolve()
+    extension_values = (
+        tokenizer_extension_manifest_path,
+        expected_tokenizer_extension_manifest_sha256,
+        token_id_remap_path,
+        new_piece_map_path,
+    )
+    if any(value is not None for value in extension_values) and not all(
+        value is not None for value in extension_values
+    ):
+        raise RuntimeError(
+            "Tokenizer-extension reload requires manifest path/hash, token-ID remap, "
+            "and new-piece map together"
+        )
+
+    contract = _verify_control_contract_bundle(
+        raw_base_model,
+        control_contract_dir,
+        expected_control_contract_sha256,
+    )
+    extension_manifest = None
+    extension_manifest_path = None
+    remap_path = None
+    piece_map_path = None
+    if all(value is not None for value in extension_values):
+        extension_manifest_path = Path(tokenizer_extension_manifest_path).resolve()
+        remap_path = Path(token_id_remap_path).resolve()
+        piece_map_path = Path(new_piece_map_path).resolve()
+        extension_manifest = _verify_extension_artifacts(
+            adapter_dir,
+            extension_manifest_path,
+            str(expected_tokenizer_extension_manifest_sha256),
+            remap_path,
+            piece_map_path,
+        )
+    base_tokenizer = AutoTokenizer.from_pretrained(
+        raw_base_model,
+        use_fast=False,
+        src_lang=source_lang,
+        local_files_only=local_files_only,
+    )
+    control_tokenizer = AutoTokenizer.from_pretrained(
+        control_contract_dir / "tokenizer",
+        use_fast=False,
+        src_lang=source_lang,
+        tgt_lang=target_lang,
+        local_files_only=local_files_only,
+    )
+    adapter_tokenizer = AutoTokenizer.from_pretrained(
+        adapter_dir,
+        use_fast=False,
+        src_lang=source_lang,
+        tgt_lang=target_lang,
+        local_files_only=local_files_only,
+    )
+    tokenizer_serialization_audit = None
+    if extension_manifest is not None:
+        reference_extension_tokenizer = AutoTokenizer.from_pretrained(
+            extension_manifest_path.parent / "tokenizer",
+            use_fast=False,
+            src_lang=source_lang,
+            tgt_lang=target_lang,
+            local_files_only=local_files_only,
+        )
+        tokenizer_serialization_audit = tokenizer_behavior_identity(
+            reference_extension_tokenizer,
+            adapter_tokenizer,
+            [
+                source_lang,
+                target_lang,
+                *list(extension_manifest.get("control_tokens") or []),
+            ],
+        )
+    model = AutoModelForSeq2SeqLM.from_pretrained(
+        raw_base_model,
+        torch_dtype=torch.float32,
+        local_files_only=local_files_only,
+    )
+    initial_alias_audit = canonicalize_nllb_input_embeddings(model)
+    control_row_audit = initialize_control_rows(
+        model,
+        base_tokenizer,
+        control_tokenizer,
+        contract["extension"],
+    )
+    if torch_dtype is not None and torch_dtype != torch.float32:
+        model.to(dtype=torch_dtype)
+    post_dtype_alias_audit = canonicalize_nllb_input_embeddings(model)
+
+    extension_plan = None
+    extension_audit = None
+    if extension_manifest is not None:
+        extension_plan, extension_audit = remap_nllb_for_tokenizer_extension(
+            model,
+            control_tokenizer,
+            adapter_tokenizer,
+            token_id_remap_path=remap_path,
+            new_piece_map_path=piece_map_path,
+            control_tokens=list(extension_manifest.get("control_tokens") or []),
+        )
+        extension_audit["manifest"] = {
+            "path": str(extension_manifest_path),
+            "sha256": str(expected_tokenizer_extension_manifest_sha256),
+        }
+    else:
+        if adapter_tokenizer.get_vocab() != control_tokenizer.get_vocab():
+            raise RuntimeError("T0 adapter tokenizer vocabulary differs from its control contract")
+        if sorted(adapter_tokenizer.all_special_ids) != sorted(control_tokenizer.all_special_ids):
+            raise RuntimeError("T0 adapter tokenizer special-token registry drifted")
+
+    model = PeftModel.from_pretrained(
+        model,
+        adapter_dir,
+        local_files_only=local_files_only,
+    )
+    source_id = language_id(adapter_tokenizer, source_lang)
+    target_id = language_id(adapter_tokenizer, target_lang)
+    adapter_tokenizer.src_lang = source_lang
+    adapter_tokenizer.tgt_lang = target_lang
+    return adapter_tokenizer, model, {
+        "schema_version": 1,
+        "status": "PASS",
+        "raw_base_model": str(raw_base_model),
+        "control_contract": {
+            "path": str(control_contract_dir / "MANIFEST.json"),
+            "sha256": expected_control_contract_sha256,
+            "contract_id": contract.get("contract_id"),
+        },
+        "initial_alias_audit": initial_alias_audit,
+        "control_row_audit": control_row_audit,
+        "post_dtype_alias_audit": post_dtype_alias_audit,
+        "tokenizer_serialization_audit": tokenizer_serialization_audit,
+        "tokenizer_extension_plan": extension_plan,
+        "tokenizer_extension_audit": extension_audit,
+        "source_language_token_id": source_id,
+        "target_language_token_id": target_id,
+        "adapter_topology": compact_adapter_topology_audit(model),
+    }
+
+
+def trainable_token_wrapper_audit(model: Any) -> dict[str, Any]:
+    wrappers: list[dict[str, Any]] = []
+    for name, module in model.named_modules(remove_duplicate=False):
+        if module.__class__.__name__ != "TrainableTokensWrapper":
+            continue
+        indices = {
+            str(adapter): [int(value) for value in values]
+            for adapter, values in module.token_adapter.token_indices.items()
+        }
+        wrappers.append(
+            {
+                "module": name,
+                "adapter_token_indices": indices,
+                "tied_to_another_token_adapter": bool(module.token_adapter.tied_adapter),
+            }
+        )
+    unique_index_sets = sorted(
+        {
+            tuple(values)
+            for wrapper in wrappers
+            for values in wrapper["adapter_token_indices"].values()
+        }
+    )
+    return {
+        "wrapper_count": len(wrappers),
+        "wrappers": wrappers,
+        "unique_token_index_sets": [list(values) for values in unique_index_sets],
+        "all_wrappers_share_one_index_set": len(unique_index_sets) == 1,
+    }
 
 
 def compact_adapter_topology_audit(model: Any) -> dict[str, Any]:

@@ -5,6 +5,7 @@ import { resolveModelApiOrigin } from '../../lib/models/apiResponse';
 import {
   latestDownloadableRelease,
   isHostableModelArtifact,
+  isPublishedReleaseStatus,
   publicCatalog,
   publicInferenceEndpointLabel,
   publicRelease,
@@ -75,6 +76,13 @@ function fixtureModel(): ModelEntry {
 }
 
 describe('public model distribution', () => {
+  it('treats controlled publication as published without broadening other statuses', () => {
+    expect(isPublishedReleaseStatus('published')).toBe(true);
+    expect(isPublishedReleaseStatus('published-controlled')).toBe(true);
+    expect(isPublishedReleaseStatus('internal-proof')).toBe(false);
+    expect(isPublishedReleaseStatus('negative-result')).toBe(false);
+  });
+
   it('uses the configured public origin behind a reverse proxy', () => {
     const request = {
       headers: new Headers({
@@ -157,5 +165,38 @@ describe('public model distribution', () => {
 
     const publicCurrent = publicRelease(model!.id, current!, 'https://mobtranslate.com');
     expect(JSON.stringify(publicCurrent)).not.toMatch(/localPath|\/mnt\//);
+  });
+
+  it('publishes Wajarri v3 only as the controlled subject-slot release', () => {
+    const model = findModel(
+      loadModelRegistry(),
+      'mobtranslate-wajarri-v3-controlled',
+    );
+    expect(model).not.toBeNull();
+
+    const current = resolvePublicRelease(model!, 'latest');
+    expect(current?.version).toBe(
+      'v3.0.0-controlled-subject-slot-s17-step40-20260802',
+    );
+    expect(current?.status).toBe('published-controlled');
+    expect(current?.metrics?.controlled_route_rendered_exact).toBe(35);
+    expect(current?.metrics?.controlled_route_rows).toBe(35);
+    expect(current?.metrics?.batch_1_16_mismatches).toBe(0);
+    expect(current?.metrics?.cpu_float32_parity).toBe('PASS');
+    expect(current?.metrics?.free_form_translation_authorized).toBe('NO');
+    expect(current?.metrics?.adapter_sha256).toBe(
+      'a4a91d4e6a6ba49509a8ab432c0674686c96b4611f58db8b63089f26707ed3d6',
+    );
+    expect(current?.artifacts.filter(isHostableModelArtifact)).toHaveLength(2);
+
+    const publicCurrent = publicRelease(
+      model!.id,
+      current!,
+      'https://mobtranslate.com',
+    );
+    expect(JSON.stringify(publicCurrent)).not.toMatch(/localPath|\/mnt\//);
+    expect(publicCurrent.downloads.models).toHaveLength(2);
+    expect(publicCurrent.downloads.datasets).toHaveLength(1);
+    expect(publicCurrent.downloads.documentation).toHaveLength(1);
   });
 });

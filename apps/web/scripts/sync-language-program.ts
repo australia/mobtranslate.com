@@ -4,6 +4,7 @@ import postgres, { type Sql } from 'postgres';
 import {
   assertArtifactUpdateAllowed,
   loadProgramBundle,
+  resolveBenchmarkSuiteRowCount,
   sha256File,
   summarizeProgramBundle,
   type ProgramBundle,
@@ -198,9 +199,16 @@ async function syncBundle(sql: Sql, bundle: ProgramBundle) {
         relative_path: string | null;
         external_uri: string | null;
         immutable: boolean;
+        stage_key: string;
+        source_id: string | null;
+        artifact_kind: string;
+        media_type: string | null;
+        generated_by: string | null;
       }[]
     >`
-      SELECT sha256, relative_path, external_uri, immutable FROM public.language_program_artifacts
+      SELECT sha256, relative_path, external_uri, immutable, stage_key,
+             source_id, artifact_kind, media_type, generated_by
+      FROM public.language_program_artifacts
       WHERE program_id = ${programId} AND artifact_key = ${artifact.artifact_key}
     `;
     if (existing.length > 0) {
@@ -211,12 +219,24 @@ async function syncBundle(sql: Sql, bundle: ProgramBundle) {
           relativePath: existing[0].relative_path,
           externalUri: existing[0].external_uri,
           immutable: existing[0].immutable,
+          stageKey: existing[0].stage_key,
+          sourceId: existing[0].source_id,
+          artifactKind: existing[0].artifact_kind,
+          mediaType: existing[0].media_type,
+          generatedBy: existing[0].generated_by,
         },
         {
           sha256: artifact.sha256,
           relativePath: location.relativePath,
           externalUri: location.externalUri,
           immutable: artifact.immutable,
+          stageKey: artifact.stage_key,
+          sourceId: artifact.source_key
+            ? (sourceIds.get(artifact.source_key) ?? null)
+            : null,
+          artifactKind: artifact.artifact_kind,
+          mediaType: artifact.media_type ?? null,
+          generatedBy: artifact.generated_by ?? null,
         },
       );
     }
@@ -328,10 +348,19 @@ async function syncBundle(sql: Sql, bundle: ProgramBundle) {
         ${experiment.outcome_summary ?? null}, ${experiment.started_at ?? null}, ${experiment.completed_at ?? null}
       )
       ON CONFLICT (program_id, experiment_key) DO UPDATE SET
-        status = EXCLUDED.status, observed_global_step = EXCLUDED.observed_global_step,
-        token_accounting = EXCLUDED.token_accounting, provider_run_id = EXCLUDED.provider_run_id,
-        outcome_summary = EXCLUDED.outcome_summary, started_at = EXCLUDED.started_at,
-        completed_at = EXCLUDED.completed_at, updated_at = CURRENT_TIMESTAMP
+        title = EXCLUDED.title, hypothesis = EXCLUDED.hypothesis,
+        controlled_variable = EXCLUDED.controlled_variable,
+        base_contract = EXCLUDED.base_contract, status = EXCLUDED.status,
+        planned_max_steps = EXCLUDED.planned_max_steps,
+        observed_global_step = EXCLUDED.observed_global_step,
+        seeds = EXCLUDED.seeds, token_accounting = EXCLUDED.token_accounting,
+        paid_compute_authorized = EXCLUDED.paid_compute_authorized,
+        provider_run_id = EXCLUDED.provider_run_id,
+        preregistration_artifact_id = EXCLUDED.preregistration_artifact_id,
+        run_contract_artifact_id = EXCLUDED.run_contract_artifact_id,
+        outcome_summary = EXCLUDED.outcome_summary,
+        started_at = EXCLUDED.started_at, completed_at = EXCLUDED.completed_at,
+        updated_at = CURRENT_TIMESTAMP
     `;
   }
 
@@ -401,12 +430,13 @@ async function syncBundle(sql: Sql, bundle: ProgramBundle) {
         artifact_id, sha256, sealed, status, metric_contract, claim_limit
       ) VALUES (
         ${programId}, ${suite.suite_key}, ${suite.capability}, ${suite.role},
-        ${suite.sampling_unit}, ${artifact.row_count ?? 0},
+        ${suite.sampling_unit}, ${resolveBenchmarkSuiteRowCount(suite, artifact.row_count)},
         ${await artifactId(sql, programId, suite.artifact_key)}, ${artifact.sha256},
         ${suite.sealed}, ${suite.status}, ${sql.json(suite.metric_contract)}, ${suite.claim_limit}
       )
       ON CONFLICT (program_id, suite_key) DO UPDATE SET
-        status = EXCLUDED.status, metric_contract = EXCLUDED.metric_contract,
+        row_count = EXCLUDED.row_count, status = EXCLUDED.status,
+        metric_contract = EXCLUDED.metric_contract,
         claim_limit = EXCLUDED.claim_limit
     `;
   }

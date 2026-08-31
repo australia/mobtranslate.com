@@ -220,6 +220,29 @@ function editionSpec(root: string, ebibleId: string, dbLanguageCode?: string): E
     };
   }
 
+  if (ebibleId === 'aoi') {
+    return {
+      ebibleId,
+      dbLanguageCode,
+      title: 'Anindilyakwa Bible',
+      shortTitle: 'Anindilyakwa Bible portions',
+      languageCode: 'aoi',
+      languageName: 'Anindilyakwa',
+      iso6393: 'aoi',
+      sourceUrl: 'https://ebible.org/Scriptures/aoi_vpl.zip',
+      detailsUrl: 'https://ebible.org/details.php?id=aoi',
+      copyrightNotice: 'Copyright © 2019 Bible Society of Australia',
+      licenseName:
+        'Creative Commons Attribution-Noncommercial-No Derivatives 4.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
+      rightsStatement:
+        'Downloaded from eBible.org. The included copyright notice permits attributed, noncommercial sharing without changing words or punctuation. MobTranslate project authorization does not itself resolve third-party permission for model training or derived-weight publication, so all imported pairs remain rights-review-needed and unexposed to training.',
+      rightsStatus: 'rights_review_needed',
+      canonicalNote:
+        'eBible Anindilyakwa portions; VPL XML canon text retained unchanged and aligned by canonical reference for research inventory and benchmark-candidate use only.',
+    };
+  }
+
   if (ebibleId === 'engwebp') {
     return {
       ebibleId,
