@@ -21,6 +21,16 @@ function option(name: string, required = true): string | undefined {
   return value;
 }
 
+function options(name: string): string[] {
+  const values: string[] = [];
+  for (let index = 0; index < process.argv.length; index += 1) {
+    if (process.argv[index] === `--${name}` && process.argv[index + 1]?.trim()) {
+      values.push(process.argv[index + 1].trim());
+    }
+  }
+  return values;
+}
+
 function sha256(value: Buffer | string): string {
   return createHash('sha256').update(value).digest('hex');
 }
@@ -52,6 +62,10 @@ async function importAudit(): Promise<void> {
   const requestRefPrefix = option('request-ref-prefix')!;
   const runKey = option('run-key')!;
   const methodVersion = option('method-version')!;
+  const configuredSupportingTiers = options('supporting-evidence-tier');
+  const supportingEvidenceTiers = new Set(
+    configuredSupportingTiers.length > 0 ? configuredSupportingTiers : ['direct_source'],
+  );
   const { bytes, rows: allRows } = await readAuditRows(artifactPath);
   const artifactHash = sha256(bytes);
   const artifactStat = await stat(artifactPath);
@@ -108,6 +122,7 @@ async function importAudit(): Promise<void> {
           cutoff_basis: 'maximum_request_created_at_in_artifact',
           source_row_count: allRows.length,
           translation_row_count: rows.length,
+          supporting_evidence_tiers: [...supportingEvidenceTiers].sort(),
         })},
         CURRENT_TIMESTAMP
       )
@@ -224,7 +239,7 @@ async function importAudit(): Promise<void> {
           'codex',
           'retained_request_source_evidence_audit',
           ${methodVersion},
-          ${auditDecision(row)},
+          ${auditDecision(row, supportingEvidenceTiers)},
           ${row.evidence_tier ?? null},
           ${row.category ?? null},
           ${transaction.json(evidenceRefs)},

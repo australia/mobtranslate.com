@@ -48,6 +48,17 @@ describe('translation review ledger helpers', () => {
     })).toBe('partially_supported');
   });
 
+  it('uses each language program supporting-tier contract without guessing from labels', () => {
+    expect(auditDecision(
+      { ...base, evidence_tier: 'speaker_recorded_dictionary' },
+      new Set(['speaker_recorded_dictionary', 'source_attested_lesson']),
+    )).toBe('supported');
+    expect(auditDecision(
+      { ...base, evidence_tier: 'local_dictionary_candidate' },
+      new Set(),
+    )).toBe('unverified');
+  });
+
   it('keeps errors, empty results, and chats out of support counts', () => {
     expect(auditDecision({ ...base, status: 'error' })).toBe('error');
     expect(auditDecision({ ...base, output_chars: 0 })).toBe('not_reviewable');

@@ -37,11 +37,16 @@ export function legacyAuditRef(prefix: string, requestId: string): string {
  * Synthetic agreement is retained in the evidence tier but never promoted to
  * linguistic support. Only direct-source coverage can produce "supported".
  */
-export function auditDecision(row: AuditRow): ReviewDecision {
+export function auditDecision(
+  row: AuditRow,
+  supportingEvidenceTiers: ReadonlySet<string> = new Set(['direct_source']),
+): ReviewDecision {
   if (row.kind !== 'translate') return 'not_translation';
   if (row.status === 'error' || row.runtime_error != null) return 'error';
   if (row.output_chars == null || row.output_chars === 0) return 'not_reviewable';
-  if (row.evidence_tier !== 'direct_source') return 'unverified';
+  if (!row.evidence_tier || !supportingEvidenceTiers.has(row.evidence_tier)) {
+    return 'unverified';
+  }
 
   const directCoverage = [
     row.direct_target_token_coverage,

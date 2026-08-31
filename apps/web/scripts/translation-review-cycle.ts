@@ -16,6 +16,7 @@ interface Program {
   languageScope: string;
   requestRefPrefix: string;
   methodVersion: string;
+  supportingEvidenceTiers: string[];
   auditScript: string;
   sourceArgs: string[];
   outputFlag: '--output' | '--output-dir';
@@ -29,6 +30,7 @@ const programs: Program[] = [
     languageScope: 'kuku_yalanji',
     requestRefPrefix: 'mobtranslate-kuku-audit-v1',
     methodVersion: 'kuku-audit-v1',
+    supportingEvidenceTiers: ['direct_source'],
     auditScript:
       '/mnt/donto-data/donto-resources/research/translation-training/kuku-yalanji-live-translation-audit-2026-08-30/audit_live_requests.py',
     outputFlag: '--output-dir',
@@ -52,6 +54,7 @@ const programs: Program[] = [
     languageScope: 'wajarri,wbv',
     requestRefPrefix: 'mobtranslate-wajarri-audit-v1',
     methodVersion: 'wajarri-audit-v1',
+    supportingEvidenceTiers: ['direct_source'],
     auditScript:
       '/mnt/donto-data/donto-resources/research/translation-training/wajarri-live-translation-audit-2026-08-30/audit_live_requests.py',
     outputFlag: '--output',
@@ -83,6 +86,7 @@ const programs: Program[] = [
     languageScope: 'anindilyakwa',
     requestRefPrefix: 'mobtranslate-anindilyakwa-audit-v1',
     methodVersion: 'anindilyakwa-audit-v1',
+    supportingEvidenceTiers: [],
     auditScript:
       '/mnt/donto-data/donto-resources/research/translation-training/anindilyakwa-live-translation-audit-2026-08-30/audit_live_requests.py',
     outputFlag: '--output',
@@ -117,7 +121,13 @@ const programs: Program[] = [
     key: 'migmaq',
     languageScope: 'migmaq',
     requestRefPrefix: 'mobtranslate-migmaq-audit-v1',
-    methodVersion: 'migmaq-audit-v1',
+    methodVersion: 'migmaq-audit-v1+source-tier-contract-v2',
+    supportingEvidenceTiers: [
+      'direct_source',
+      'speaker_recorded_dictionary',
+      'speaker_recorded_example',
+      'source_attested_lesson',
+    ],
     auditScript:
       '/mnt/donto-data/donto-resources/research/translation-training/migmaq-live-translation-audit-2026-08-30/audit_live_requests.py',
     outputFlag: '--output',
@@ -252,6 +262,10 @@ async function main(): Promise<void> {
       `${program.key}-review-cycle-${key}`,
       '--method-version',
       program.methodVersion,
+      ...program.supportingEvidenceTiers.flatMap((tier) => [
+        '--supporting-evidence-tier',
+        tier,
+      ]),
     ]);
     results.push(JSON.parse(importOutput));
   }
