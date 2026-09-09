@@ -1,4 +1,8 @@
-export type PublicTranslationRoute = 'unavailable' | 'dictionary_exact_only';
+export type PublicTranslationRoute =
+  | 'unavailable'
+  | 'dictionary_exact_only'
+  | 'hybrid_review'
+  | 'dictionary_reverse_review';
 
 export interface TranslationReleasePolicy {
   policyId: string;
@@ -9,9 +13,12 @@ export interface TranslationReleasePolicy {
   forwardRoute: PublicTranslationRoute;
   reverseRoute: PublicTranslationRoute;
   publicDictionaryLookupEnabled: boolean;
-  publicModelInferenceEnabled: false;
-  genericModelFallbackEnabled: false;
-  answerScope: 'unambiguous_atomic_dictionary_record_only' | 'unavailable';
+  publicModelInferenceEnabled: boolean;
+  genericModelFallbackEnabled: boolean;
+  answerScope:
+    | 'unambiguous_atomic_dictionary_record_only'
+    | 'dictionary_and_unverified_research_preview'
+    | 'unavailable';
   dictionaryEdition: string;
   evidenceAudit: {
     reportId: string;
@@ -27,17 +34,17 @@ export interface TranslationReleasePolicy {
 }
 
 const KUKU_YALANJI_POLICY: TranslationReleasePolicy = Object.freeze({
-  policyId: 'kuku-yalanji-live-answer-policy-v1.0.0',
+  policyId: 'kuku-yalanji-live-answer-policy-v1.1.0',
   languageCode: 'kuku_yalanji',
   dictionaryCode: 'kuku_yalanji',
   aliases: Object.freeze(['kuku_yalanji', 'kuku-yalanji']),
   programId: 'kuku-yalanji-v24',
-  forwardRoute: 'dictionary_exact_only',
-  reverseRoute: 'dictionary_exact_only',
+  forwardRoute: 'hybrid_review',
+  reverseRoute: 'dictionary_reverse_review',
   publicDictionaryLookupEnabled: true,
-  publicModelInferenceEnabled: false,
-  genericModelFallbackEnabled: false,
-  answerScope: 'unambiguous_atomic_dictionary_record_only',
+  publicModelInferenceEnabled: true,
+  genericModelFallbackEnabled: true,
+  answerScope: 'dictionary_and_unverified_research_preview',
   dictionaryEdition: 'kuku-yalanji-source-dictionary-2026-08-30',
   evidenceAudit: Object.freeze({
     reportId: 'kuku-yalanji-live-translation-audit-2026-08-30',
@@ -45,7 +52,7 @@ const KUKU_YALANJI_POLICY: TranslationReleasePolicy = Object.freeze({
   }),
   unsupportedStatus: 422,
   unsupportedMessage:
-    'MobTranslate could not verify one unambiguous source-backed Kuku Yalanji answer for this request. It currently returns exact dictionary answers only; full phrases and ambiguous senses need qualified Kuku Yalanji review.',
+    'Kuku Yalanji translation is temporarily unavailable. Please try again shortly.',
 });
 
 const WAJARRI_POLICY: TranslationReleasePolicy = Object.freeze({
@@ -158,8 +165,19 @@ export function isDictionaryLookupAdmitted(
 ): boolean {
   const route =
     direction === 'to_language' ? policy.forwardRoute : policy.reverseRoute;
+  return policy.publicDictionaryLookupEnabled && route !== 'unavailable';
+}
+
+export function isGeneratedTranslationAdmitted(
+  policy: TranslationReleasePolicy,
+  direction: 'to_language' | 'to_english',
+): boolean {
+  const route =
+    direction === 'to_language' ? policy.forwardRoute : policy.reverseRoute;
   return (
-    policy.publicDictionaryLookupEnabled && route === 'dictionary_exact_only'
+    policy.genericModelFallbackEnabled ||
+    (policy.publicModelInferenceEnabled &&
+      (route === 'hybrid_review' || route === 'dictionary_reverse_review'))
   );
 }
 

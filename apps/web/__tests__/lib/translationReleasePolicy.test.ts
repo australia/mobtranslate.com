@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   isDictionaryLookupAdmitted,
+  isGeneratedTranslationAdmitted,
   listTranslationReleasePolicies,
   loadTranslationReleasePolicy,
   resolveTranslationDictionaryCode,
@@ -10,7 +11,7 @@ import {
 describe('evidence-bound translation release policy', () => {
   it('covers every audited language and its public aliases', () => {
     expect(loadTranslationReleasePolicy('kuku_yalanji')?.policyId).toBe(
-      'kuku-yalanji-live-answer-policy-v1.0.0',
+      'kuku-yalanji-live-answer-policy-v1.1.0',
     );
     expect(loadTranslationReleasePolicy('kuku-yalanji')).toBe(
       loadTranslationReleasePolicy('kuku_yalanji'),
@@ -37,11 +38,33 @@ describe('evidence-bound translation release policy', () => {
     expect(resolveTranslationDictionaryCode('warlpiri')).toBe('warlpiri');
   });
 
-  it('permits only unambiguous exact dictionary answers for three languages', () => {
-    for (const code of ['kuku_yalanji', 'wbv', 'migmaq']) {
+  it('restores Kuku Yalanji model plus OpenAI review as an unverified preview', () => {
+    const policy = loadTranslationReleasePolicy('kuku_yalanji')!;
+    expect(isDictionaryLookupAdmitted(policy, 'to_language')).toBe(true);
+    expect(isDictionaryLookupAdmitted(policy, 'to_english')).toBe(true);
+    expect(isGeneratedTranslationAdmitted(policy, 'to_language')).toBe(true);
+    expect(isGeneratedTranslationAdmitted(policy, 'to_english')).toBe(true);
+    expect(policy).toMatchObject({
+      forwardRoute: 'hybrid_review',
+      reverseRoute: 'dictionary_reverse_review',
+      publicDictionaryLookupEnabled: true,
+      publicModelInferenceEnabled: true,
+      genericModelFallbackEnabled: true,
+      answerScope: 'dictionary_and_unverified_research_preview',
+    });
+  });
+
+  it('keeps Wajarri and Migmaq exact-dictionary-only', () => {
+    for (const code of ['wbv', 'migmaq']) {
       const policy = loadTranslationReleasePolicy(code)!;
       expect(isDictionaryLookupAdmitted(policy, 'to_language')).toBe(true);
       expect(isDictionaryLookupAdmitted(policy, 'to_english')).toBe(true);
+      expect(isGeneratedTranslationAdmitted(policy, 'to_language')).toBe(
+        false,
+      );
+      expect(isGeneratedTranslationAdmitted(policy, 'to_english')).toBe(
+        false,
+      );
       expect(policy).toMatchObject({
         forwardRoute: 'dictionary_exact_only',
         reverseRoute: 'dictionary_exact_only',
@@ -71,6 +94,8 @@ describe('evidence-bound translation release policy', () => {
     });
     expect(isDictionaryLookupAdmitted(policy, 'to_language')).toBe(false);
     expect(isDictionaryLookupAdmitted(policy, 'to_english')).toBe(false);
+    expect(isGeneratedTranslationAdmitted(policy, 'to_language')).toBe(false);
+    expect(isGeneratedTranslationAdmitted(policy, 'to_english')).toBe(false);
     expect(policy.corpusReadiness).toEqual({
       reportId: 'anindilyakwa-corpus-readiness-v0.3.0',
       sha256:
@@ -78,8 +103,9 @@ describe('evidence-bound translation release policy', () => {
     });
   });
 
-  it('never admits a model or generic fallback for an audited language', () => {
-    for (const policy of listTranslationReleasePolicies()) {
+  it('does not admit generated output for restricted language programs', () => {
+    for (const code of ['wbv', 'anindilyakwa', 'migmaq']) {
+      const policy = loadTranslationReleasePolicy(code)!;
       expect(policy.publicModelInferenceEnabled).toBe(false);
       expect(policy.genericModelFallbackEnabled).toBe(false);
     }

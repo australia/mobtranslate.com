@@ -70,6 +70,7 @@ import {
 } from '@/lib/translation-service-error.server';
 import {
   isDictionaryLookupAdmitted,
+  isGeneratedTranslationAdmitted,
   loadTranslationReleasePolicy,
   resolveTranslationDictionaryCode,
   type TranslationReleasePolicy,
@@ -875,7 +876,10 @@ export async function POST(
         });
       }
 
-      if (releasePolicy) {
+      if (
+        releasePolicy &&
+        !isGeneratedTranslationAdmitted(releasePolicy, direction)
+      ) {
         return restrictedTranslationResponse(
           releasePolicy,
           dictionary,
@@ -1029,7 +1033,10 @@ export async function POST(
       }
     }
 
-    if (releasePolicy) {
+    if (
+      releasePolicy &&
+      !isGeneratedTranslationAdmitted(releasePolicy, direction)
+    ) {
       return restrictedTranslationResponse(
         releasePolicy,
         dictionary,
