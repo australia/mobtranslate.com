@@ -1,6 +1,6 @@
 export type PublicTranslationRoute =
   | 'unavailable'
-  | 'dictionary_exact_only'
+  | 'dictionary_prompt'
   | 'hybrid_review'
   | 'dictionary_reverse_review';
 
@@ -15,10 +15,7 @@ export interface TranslationReleasePolicy {
   publicDictionaryLookupEnabled: boolean;
   publicModelInferenceEnabled: boolean;
   genericModelFallbackEnabled: boolean;
-  answerScope:
-    | 'unambiguous_atomic_dictionary_record_only'
-    | 'dictionary_and_unverified_research_preview'
-    | 'unavailable';
+  answerScope: 'dictionary_and_unverified_research_preview' | 'unavailable';
   dictionaryEdition: string;
   evidenceAudit: {
     reportId: string;
@@ -56,17 +53,17 @@ const KUKU_YALANJI_POLICY: TranslationReleasePolicy = Object.freeze({
 });
 
 const WAJARRI_POLICY: TranslationReleasePolicy = Object.freeze({
-  policyId: 'wajarri-live-answer-policy-v1.0.0',
+  policyId: 'wajarri-live-answer-policy-v1.1.0',
   languageCode: 'wajarri',
   dictionaryCode: 'wbv',
   aliases: Object.freeze(['wajarri', 'wbv']),
   programId: 'wajarri-v3',
-  forwardRoute: 'dictionary_exact_only',
-  reverseRoute: 'dictionary_exact_only',
+  forwardRoute: 'dictionary_prompt',
+  reverseRoute: 'dictionary_reverse_review',
   publicDictionaryLookupEnabled: true,
-  publicModelInferenceEnabled: false,
-  genericModelFallbackEnabled: false,
-  answerScope: 'unambiguous_atomic_dictionary_record_only',
+  publicModelInferenceEnabled: true,
+  genericModelFallbackEnabled: true,
+  answerScope: 'dictionary_and_unverified_research_preview',
   dictionaryEdition: 'wajarri-source-backed-lexical-layer-2026-08-30',
   evidenceAudit: Object.freeze({
     reportId: 'wajarri-live-translation-audit-2026-08-30',
@@ -74,7 +71,7 @@ const WAJARRI_POLICY: TranslationReleasePolicy = Object.freeze({
   }),
   unsupportedStatus: 422,
   unsupportedMessage:
-    'MobTranslate could not verify one unambiguous source-backed Wajarri answer for this request. It currently returns exact dictionary answers only; unrestricted generated sentences are not admitted.',
+    'Wajarri translation is temporarily unavailable. Please try again shortly.',
 });
 
 const ANINDILYAKWA_POLICY: TranslationReleasePolicy = Object.freeze({
@@ -106,17 +103,17 @@ const ANINDILYAKWA_POLICY: TranslationReleasePolicy = Object.freeze({
 });
 
 const MIGMAQ_POLICY: TranslationReleasePolicy = Object.freeze({
-  policyId: 'listuguj-migmaq-live-answer-policy-v1.0.0',
+  policyId: 'listuguj-migmaq-live-answer-policy-v1.1.0',
   languageCode: 'migmaq',
   dictionaryCode: 'migmaq',
   aliases: Object.freeze(['migmaq', 'mic']),
   programId: 'listuguj-migmaq-v3.3',
-  forwardRoute: 'dictionary_exact_only',
-  reverseRoute: 'dictionary_exact_only',
+  forwardRoute: 'hybrid_review',
+  reverseRoute: 'dictionary_reverse_review',
   publicDictionaryLookupEnabled: true,
-  publicModelInferenceEnabled: false,
-  genericModelFallbackEnabled: false,
-  answerScope: 'unambiguous_atomic_dictionary_record_only',
+  publicModelInferenceEnabled: true,
+  genericModelFallbackEnabled: true,
+  answerScope: 'dictionary_and_unverified_research_preview',
   dictionaryEdition: 'listuguj-migmaq-source-attested-v3.3',
   evidenceAudit: Object.freeze({
     reportId: 'migmaq-live-translation-audit-2026-08-30',
@@ -124,7 +121,7 @@ const MIGMAQ_POLICY: TranslationReleasePolicy = Object.freeze({
   }),
   unsupportedStatus: 422,
   unsupportedMessage:
-    "MobTranslate could not verify one unambiguous source-backed Listuguj Mi'gmaq answer for this request. It currently returns exact dictionary answers only; the v3.3 sentence model is not admitted for public translation.",
+    "Listuguj Mi'gmaq translation is temporarily unavailable. Please try again shortly.",
 });
 
 const POLICIES = Object.freeze([
@@ -175,9 +172,8 @@ export function isGeneratedTranslationAdmitted(
   const route =
     direction === 'to_language' ? policy.forwardRoute : policy.reverseRoute;
   return (
-    policy.genericModelFallbackEnabled ||
-    (policy.publicModelInferenceEnabled &&
-      (route === 'hybrid_review' || route === 'dictionary_reverse_review'))
+    route !== 'unavailable' &&
+    (policy.publicModelInferenceEnabled || policy.genericModelFallbackEnabled)
   );
 }
 

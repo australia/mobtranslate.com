@@ -1294,6 +1294,7 @@ export async function POST(
         language: { name: dictionary.meta.name, code: dictionary.meta.code },
         inference: {
           route: 'dictionary_prompt',
+          validation: 'unverified_research_preview',
           modelId: 'gpt-5.4-mini',
           cache: { translation: translationResult.state },
         },

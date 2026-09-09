@@ -54,28 +54,40 @@ describe('evidence-bound translation release policy', () => {
     });
   });
 
-  it('keeps Wajarri and Migmaq exact-dictionary-only', () => {
-    for (const code of ['wbv', 'migmaq']) {
-      const policy = loadTranslationReleasePolicy(code)!;
-      expect(isDictionaryLookupAdmitted(policy, 'to_language')).toBe(true);
-      expect(isDictionaryLookupAdmitted(policy, 'to_english')).toBe(true);
-      expect(isGeneratedTranslationAdmitted(policy, 'to_language')).toBe(
-        false,
-      );
-      expect(isGeneratedTranslationAdmitted(policy, 'to_english')).toBe(
-        false,
-      );
-      expect(policy).toMatchObject({
-        forwardRoute: 'dictionary_exact_only',
-        reverseRoute: 'dictionary_exact_only',
-        publicDictionaryLookupEnabled: true,
-        publicModelInferenceEnabled: false,
-        genericModelFallbackEnabled: false,
-        answerScope: 'unambiguous_atomic_dictionary_record_only',
-        unsupportedStatus: 422,
-      });
-      expect(policy.evidenceAudit.sha256).toMatch(/^[0-9a-f]{64}$/u);
-    }
+  it('routes Wajarri through dictionary-guided generation in both directions', () => {
+    const policy = loadTranslationReleasePolicy('wbv')!;
+    expect(isDictionaryLookupAdmitted(policy, 'to_language')).toBe(true);
+    expect(isDictionaryLookupAdmitted(policy, 'to_english')).toBe(true);
+    expect(isGeneratedTranslationAdmitted(policy, 'to_language')).toBe(true);
+    expect(isGeneratedTranslationAdmitted(policy, 'to_english')).toBe(true);
+    expect(policy).toMatchObject({
+      policyId: 'wajarri-live-answer-policy-v1.1.0',
+      forwardRoute: 'dictionary_prompt',
+      reverseRoute: 'dictionary_reverse_review',
+      publicDictionaryLookupEnabled: true,
+      publicModelInferenceEnabled: true,
+      genericModelFallbackEnabled: true,
+      answerScope: 'dictionary_and_unverified_research_preview',
+    });
+    expect(policy.evidenceAudit.sha256).toMatch(/^[0-9a-f]{64}$/u);
+  });
+
+  it("routes Listuguj Mi'gmaq through its model plus review pipeline", () => {
+    const policy = loadTranslationReleasePolicy('migmaq')!;
+    expect(isDictionaryLookupAdmitted(policy, 'to_language')).toBe(true);
+    expect(isDictionaryLookupAdmitted(policy, 'to_english')).toBe(true);
+    expect(isGeneratedTranslationAdmitted(policy, 'to_language')).toBe(true);
+    expect(isGeneratedTranslationAdmitted(policy, 'to_english')).toBe(true);
+    expect(policy).toMatchObject({
+      policyId: 'listuguj-migmaq-live-answer-policy-v1.1.0',
+      forwardRoute: 'hybrid_review',
+      reverseRoute: 'dictionary_reverse_review',
+      publicDictionaryLookupEnabled: true,
+      publicModelInferenceEnabled: true,
+      genericModelFallbackEnabled: true,
+      answerScope: 'dictionary_and_unverified_research_preview',
+    });
+    expect(policy.evidenceAudit.sha256).toMatch(/^[0-9a-f]{64}$/u);
   });
 
   it('keeps every Anindilyakwa public route unavailable until promotion', () => {
@@ -103,11 +115,20 @@ describe('evidence-bound translation release policy', () => {
     });
   });
 
-  it('does not admit generated output for restricted language programs', () => {
-    for (const code of ['wbv', 'anindilyakwa', 'migmaq']) {
-      const policy = loadTranslationReleasePolicy(code)!;
-      expect(policy.publicModelInferenceEnabled).toBe(false);
-      expect(policy.genericModelFallbackEnabled).toBe(false);
+  it('keeps the unreleased Anindilyakwa program out of public inference', () => {
+    const policy = loadTranslationReleasePolicy('anindilyakwa')!;
+    expect(policy.publicModelInferenceEnabled).toBe(false);
+    expect(policy.genericModelFallbackEnabled).toBe(false);
+  });
+
+  it('admits full generated attempts for every available language program', () => {
+    for (const policy of listTranslationReleasePolicies()) {
+      if (policy.forwardRoute === 'unavailable') continue;
+      expect(isGeneratedTranslationAdmitted(policy, 'to_language')).toBe(true);
+      expect(isGeneratedTranslationAdmitted(policy, 'to_english')).toBe(true);
+      expect(policy.answerScope).toBe(
+        'dictionary_and_unverified_research_preview',
+      );
     }
   });
 

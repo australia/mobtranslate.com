@@ -59,6 +59,7 @@ interface TranslationResult {
       }
     | {
         route: 'dictionary_prompt';
+        validation: 'unverified_research_preview';
         modelId: string;
         cache: { translation: TranslationCacheState };
       }
