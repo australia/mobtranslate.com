@@ -67,7 +67,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-for command in git pnpm node rsync curl sha256sum tar find flock sort xargs ss; do
+for command in git pnpm node rg rsync curl sha256sum tar find flock sort xargs ss; do
   command -v "$command" >/dev/null || { echo "Missing required command: $command" >&2; exit 1; }
 done
 
@@ -131,6 +131,32 @@ capture_source() {
 
 capture_source "$STAGING/metadata/source-before"
 SOURCE_SHA256="$(cat "$STAGING/metadata/source-before/source.sha256")"
+
+# Vitest creates a new worker when it crosses from the file-annotated Node
+# environment into the default JSDOM environment. On this I/O-constrained host,
+# that in-process handoff can exceed Vitest's fixed worker-start deadline even
+# though both groups pass. Give each environment its own process instead.
+run_web_tests_by_environment() (
+  cd "$WEB_ROOT"
+  local -a node_tests=()
+  local -a jsdom_tests=()
+  local file
+  while IFS= read -r -d '' file; do
+    if rg -q '@vitest-environment node' "$file"; then
+      node_tests+=("$file")
+    else
+      jsdom_tests+=("$file")
+    fi
+  done < <(rg --files -0 __tests__ -g '*.test.ts' -g '*.test.tsx')
+  [[ "${#node_tests[@]}" -gt 0 && "${#jsdom_tests[@]}" -gt 0 ]] || {
+    echo "Could not partition web tests by Vitest environment." >&2
+    exit 1
+  }
+  NODE_ENV=test pnpm exec vitest run --pool="$DEPLOY_VITEST_POOL" \
+    "${node_tests[@]}" "$@"
+  NODE_ENV=test pnpm exec vitest run --pool="$DEPLOY_VITEST_POOL" \
+    "${jsdom_tests[@]}" "$@"
+)
 [[ -f "$NEXT_ENV_FILE" ]] || { echo "Missing generated Next.js type reference: $NEXT_ENV_FILE" >&2; exit 1; }
 NEXT_ENV_BACKUP="$STAGING/metadata/next-env.d.ts.before"
 cp -p "$NEXT_ENV_FILE" "$NEXT_ENV_BACKUP"
@@ -170,15 +196,18 @@ if [[ -n "${MOBTRANSLATE_ALLOW_PLAYBOOK_DRIFT_SHA256:-}" ]]; then
     echo "Playbook matches the frozen migration; remove the unnecessary waiver." >&2
     exit 1
   }
-  NODE_ENV=test pnpm --filter web exec vitest run --pool="$DEPLOY_VITEST_POOL" \
+  run_web_tests_by_environment \
     --exclude __tests__/lib/languageProgramControlPlaneMigration.test.ts
-  NODE_ENV=test pnpm --filter web exec vitest run --pool="$DEPLOY_VITEST_POOL" \
-    __tests__/lib/languageProgramControlPlaneMigration.test.ts \
-    --testNamePattern '^(?!.*binds the database template to the exact playbook).+'
+  (
+    cd "$WEB_ROOT"
+    NODE_ENV=test pnpm exec vitest run --pool="$DEPLOY_VITEST_POOL" \
+      __tests__/lib/languageProgramControlPlaneMigration.test.ts \
+      --testNamePattern '^(?!.*binds the database template to the exact playbook).+'
+  )
   PLAYBOOK_TEST_WAIVER="current:$PLAYBOOK_CURRENT_SHA256,frozen:$PLAYBOOK_MIGRATION_SHA256"
   printf '%s\n' "$PLAYBOOK_TEST_WAIVER" > "$STAGING/metadata/playbook-test-waiver.txt"
 else
-  NODE_ENV=test pnpm --filter web exec vitest run --pool="$DEPLOY_VITEST_POOL"
+  run_web_tests_by_environment
 fi
 pnpm --filter web typecheck
 pnpm --filter web lint
