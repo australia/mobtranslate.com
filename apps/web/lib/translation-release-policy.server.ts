@@ -53,12 +53,12 @@ const KUKU_YALANJI_POLICY: TranslationReleasePolicy = Object.freeze({
 });
 
 const WAJARRI_POLICY: TranslationReleasePolicy = Object.freeze({
-  policyId: 'wajarri-live-answer-policy-v1.1.0',
+  policyId: 'wajarri-live-answer-policy-v1.2.0',
   languageCode: 'wajarri',
   dictionaryCode: 'wbv',
   aliases: Object.freeze(['wajarri', 'wbv']),
-  programId: 'wajarri-v3',
-  forwardRoute: 'dictionary_prompt',
+  programId: 'wajarri-v2',
+  forwardRoute: 'hybrid_review',
   reverseRoute: 'dictionary_reverse_review',
   publicDictionaryLookupEnabled: true,
   publicModelInferenceEnabled: true,
@@ -75,17 +75,17 @@ const WAJARRI_POLICY: TranslationReleasePolicy = Object.freeze({
 });
 
 const ANINDILYAKWA_POLICY: TranslationReleasePolicy = Object.freeze({
-  policyId: 'anindilyakwa-homepage-release-policy-v0.1.0',
+  policyId: 'anindilyakwa-homepage-release-policy-v0.2.0',
   languageCode: 'anindilyakwa',
   dictionaryCode: 'anindilyakwa',
   aliases: Object.freeze(['anindilyakwa', 'aoi']),
   programId: 'anindilyakwa-v1',
-  forwardRoute: 'unavailable',
-  reverseRoute: 'unavailable',
-  publicDictionaryLookupEnabled: false,
-  publicModelInferenceEnabled: false,
-  genericModelFallbackEnabled: false,
-  answerScope: 'unavailable',
+  forwardRoute: 'hybrid_review',
+  reverseRoute: 'dictionary_reverse_review',
+  publicDictionaryLookupEnabled: true,
+  publicModelInferenceEnabled: true,
+  genericModelFallbackEnabled: true,
+  answerScope: 'dictionary_and_unverified_research_preview',
   dictionaryEdition: 'anindilyakwa-local-source-v0.1.0',
   evidenceAudit: Object.freeze({
     reportId: 'anindilyakwa-live-translation-audit-2026-08-30',
@@ -99,7 +99,7 @@ const ANINDILYAKWA_POLICY: TranslationReleasePolicy = Object.freeze({
     '040067e98afea96281df7bbf38966546a8d36102d74fffaa2da0c77ab6836c31',
   unsupportedStatus: 422,
   unsupportedMessage:
-    'Anindilyakwa dictionary lookup and model translation are not publicly admitted yet, so MobTranslate cannot complete this request safely.',
+    'Anindilyakwa translation is temporarily unavailable. Please try again shortly.',
 });
 
 const MIGMAQ_POLICY: TranslationReleasePolicy = Object.freeze({

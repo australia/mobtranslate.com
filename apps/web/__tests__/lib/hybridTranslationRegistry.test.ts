@@ -6,7 +6,10 @@ import {
   translateWithHybridModel,
 } from '../../lib/hybrid-model-inference.server';
 import {
+  ANINDILYAKWA_HYBRID_DEFINITION,
   MIGMAQ_HYBRID_DEFINITION,
+  WAJARRI_HYBRID_DEFINITION,
+  listHybridLanguageDefinitions,
   loadHybridLanguageContract,
 } from '../../lib/hybrid-translation-registry.server';
 import {
@@ -34,6 +37,22 @@ describe('hybrid translation language registry', () => {
     expect(getHybridLanguageIdentity('migmaq')).toMatchObject({
       languageTag: 'mic',
     });
+    expect(getHybridLanguageIdentity('wbv')).toMatchObject({
+      languageCode: 'wajarri',
+      languageTag: 'wbv',
+    });
+    expect(getHybridLanguageIdentity('aoi')).toMatchObject({
+      languageCode: 'anindilyakwa',
+      languageTag: 'aoi',
+    });
+  });
+
+  it('registers four unique model-backed language definitions', () => {
+    expect(
+      listHybridLanguageDefinitions().map(
+        (definition) => definition.languageCode,
+      ),
+    ).toEqual(['kuku_yalanji', 'migmaq', 'wajarri', 'anindilyakwa']);
   });
 
   it("loads Mi'kmaq from the shared Space contract", () => {
@@ -51,6 +70,33 @@ describe('hybrid translation language registry', () => {
       endpoint: 'https://space.example/v1/translate',
       timeoutMs: 160000,
     });
+  });
+
+  it('loads Wajarri and Anindilyakwa aliases from pinned Space contracts', () => {
+    const wajarri = loadHybridLanguageContract('wbv', {
+      MOBTRANSLATE_HYBRID_WAJARRI_ENABLED: '1',
+    });
+    const anindilyakwa = loadHybridLanguageContract('aoi', {
+      MOBTRANSLATE_HYBRID_ANINDILYAKWA_ENABLED: '1',
+    });
+
+    expect(wajarri).toMatchObject({
+      languageCode: 'wajarri',
+      dictionaryCode: 'wbv',
+      targetLang: 'wbv_Latn',
+      modelId: 'mobtranslate-wajarri-v2',
+      modelVersion:
+        'v2.0-context-guarded-nr4-s17-context-recovery-r16-s20-20260731',
+    });
+    expect(anindilyakwa).toMatchObject({
+      languageCode: 'anindilyakwa',
+      dictionaryCode: 'anindilyakwa',
+      targetLang: 'aoi_Latn',
+      modelId: 'anindilyakwa-nllb-scripture-baseline',
+      modelVersion: 'v0.2.0-traditional-owner-authorized-experimental',
+    });
+    expect(WAJARRI_HYBRID_DEFINITION.grammarEvidence).toEqual([]);
+    expect(ANINDILYAKWA_HYBRID_DEFINITION.grammarEvidence).toEqual([]);
   });
 
   it('sends the stable language code and verifies the full model identity', async () => {

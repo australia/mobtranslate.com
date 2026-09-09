@@ -54,15 +54,15 @@ describe('evidence-bound translation release policy', () => {
     });
   });
 
-  it('routes Wajarri through dictionary-guided generation in both directions', () => {
+  it('routes Wajarri through its model plus review in the forward direction', () => {
     const policy = loadTranslationReleasePolicy('wbv')!;
     expect(isDictionaryLookupAdmitted(policy, 'to_language')).toBe(true);
     expect(isDictionaryLookupAdmitted(policy, 'to_english')).toBe(true);
     expect(isGeneratedTranslationAdmitted(policy, 'to_language')).toBe(true);
     expect(isGeneratedTranslationAdmitted(policy, 'to_english')).toBe(true);
     expect(policy).toMatchObject({
-      policyId: 'wajarri-live-answer-policy-v1.1.0',
-      forwardRoute: 'dictionary_prompt',
+      policyId: 'wajarri-live-answer-policy-v1.2.0',
+      forwardRoute: 'hybrid_review',
       reverseRoute: 'dictionary_reverse_review',
       publicDictionaryLookupEnabled: true,
       publicModelInferenceEnabled: true,
@@ -90,24 +90,24 @@ describe('evidence-bound translation release policy', () => {
     expect(policy.evidenceAudit.sha256).toMatch(/^[0-9a-f]{64}$/u);
   });
 
-  it('keeps every Anindilyakwa public route unavailable until promotion', () => {
+  it('routes Anindilyakwa through its experimental model plus review pipeline', () => {
     const policy = loadTranslationReleasePolicy('anindilyakwa')!;
 
     expect(policy).toMatchObject({
-      policyId: 'anindilyakwa-homepage-release-policy-v0.1.0',
+      policyId: 'anindilyakwa-homepage-release-policy-v0.2.0',
       programId: 'anindilyakwa-v1',
-      forwardRoute: 'unavailable',
-      reverseRoute: 'unavailable',
-      publicDictionaryLookupEnabled: false,
-      publicModelInferenceEnabled: false,
-      genericModelFallbackEnabled: false,
-      answerScope: 'unavailable',
+      forwardRoute: 'hybrid_review',
+      reverseRoute: 'dictionary_reverse_review',
+      publicDictionaryLookupEnabled: true,
+      publicModelInferenceEnabled: true,
+      genericModelFallbackEnabled: true,
+      answerScope: 'dictionary_and_unverified_research_preview',
       unsupportedStatus: 422,
     });
-    expect(isDictionaryLookupAdmitted(policy, 'to_language')).toBe(false);
-    expect(isDictionaryLookupAdmitted(policy, 'to_english')).toBe(false);
-    expect(isGeneratedTranslationAdmitted(policy, 'to_language')).toBe(false);
-    expect(isGeneratedTranslationAdmitted(policy, 'to_english')).toBe(false);
+    expect(isDictionaryLookupAdmitted(policy, 'to_language')).toBe(true);
+    expect(isDictionaryLookupAdmitted(policy, 'to_english')).toBe(true);
+    expect(isGeneratedTranslationAdmitted(policy, 'to_language')).toBe(true);
+    expect(isGeneratedTranslationAdmitted(policy, 'to_english')).toBe(true);
     expect(policy.corpusReadiness).toEqual({
       reportId: 'anindilyakwa-corpus-readiness-v0.3.0',
       sha256:
@@ -115,10 +115,13 @@ describe('evidence-bound translation release policy', () => {
     });
   });
 
-  it('keeps the unreleased Anindilyakwa program out of public inference', () => {
+  it('keeps Anindilyakwa output explicitly inside the unverified preview scope', () => {
     const policy = loadTranslationReleasePolicy('anindilyakwa')!;
-    expect(policy.publicModelInferenceEnabled).toBe(false);
-    expect(policy.genericModelFallbackEnabled).toBe(false);
+    expect(policy.publicModelInferenceEnabled).toBe(true);
+    expect(policy.genericModelFallbackEnabled).toBe(true);
+    expect(policy.answerScope).toBe(
+      'dictionary_and_unverified_research_preview',
+    );
   });
 
   it('admits full generated attempts for every available language program', () => {

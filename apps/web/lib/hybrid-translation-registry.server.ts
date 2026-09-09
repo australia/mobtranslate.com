@@ -1,7 +1,9 @@
 import type { HybridReviewEvidence } from './hybrid-translation-types';
 import {
+  ANINDILYAKWA_HYBRID_IDENTITY,
   KUKU_YALANJI_HYBRID_IDENTITY,
   MIGMAQ_HYBRID_IDENTITY,
+  WAJARRI_HYBRID_IDENTITY,
 } from './hybrid-language-identities';
 
 export const HYBRID_SPACE_ENDPOINT =
@@ -26,6 +28,8 @@ interface HybridEnvironmentContract {
 
 export interface HybridLanguageDefinition {
   languageCode: string;
+  aliases: readonly string[];
+  dictionaryCode: string;
   languageName: string;
   languageTag: string;
   sourceLang: 'eng_Latn';
@@ -55,6 +59,8 @@ const MIGMAQ_LESSON_SOURCE =
 
 export const KUKU_YALANJI_HYBRID_DEFINITION: HybridLanguageDefinition = {
   ...KUKU_YALANJI_HYBRID_IDENTITY,
+  aliases: ['kuku_yalanji', 'kuku-yalanji'],
+  dictionaryCode: 'kuku_yalanji',
   sourceLang: 'eng_Latn',
   targetLang: 'gvn_Latn',
   modelId: 'kuku-yalanji-nllb-lora',
@@ -139,6 +145,8 @@ export const KUKU_YALANJI_HYBRID_DEFINITION: HybridLanguageDefinition = {
 
 export const MIGMAQ_HYBRID_DEFINITION: HybridLanguageDefinition = {
   ...MIGMAQ_HYBRID_IDENTITY,
+  aliases: ['migmaq', 'mic'],
+  dictionaryCode: 'migmaq',
   sourceLang: 'eng_Latn',
   targetLang: 'mic_Latn',
   modelId: 'migmaq-listuguj-nllb-lora',
@@ -220,9 +228,79 @@ export const MIGMAQ_HYBRID_DEFINITION: HybridLanguageDefinition = {
   ],
 };
 
+export const WAJARRI_HYBRID_DEFINITION: HybridLanguageDefinition = {
+  ...WAJARRI_HYBRID_IDENTITY,
+  aliases: ['wajarri', 'wbv'],
+  dictionaryCode: 'wbv',
+  sourceLang: 'eng_Latn',
+  targetLang: 'wbv_Latn',
+  modelId: 'mobtranslate-wajarri-v2',
+  modelVersion:
+    'v2.0-context-guarded-nr4-s17-context-recovery-r16-s20-20260731',
+  modelLabel: 'MobTranslate Wajarri v2 research model',
+  repository: 'https://huggingface.co/ajaxdavis/mobtranslate-wajarri-v2',
+  contracts: {
+    draft: 'hybrid-hf-draft-v2',
+    evidence: 'hybrid-source-draft-retrieval-v3',
+    review: 'hybrid-complete-best-effort-review-v5',
+    resolver: 'hybrid-complete-best-effort-resolver-v4',
+  },
+  env: {
+    enabled: 'MOBTRANSLATE_HYBRID_WAJARRI_ENABLED',
+    endpoint: 'MOBTRANSLATE_HYBRID_WAJARRI_ENDPOINT',
+    modelId: 'MOBTRANSLATE_HYBRID_WAJARRI_MODEL_ID',
+    version: 'MOBTRANSLATE_HYBRID_WAJARRI_VERSION',
+    timeoutMs: 'MOBTRANSLATE_HYBRID_WAJARRI_TIMEOUT_MS',
+    reviewModel: 'MOBTRANSLATE_HYBRID_WAJARRI_REVIEW_MODEL',
+  },
+  reviewGuidance: [
+    'Treat the first translation as an unverified research draft, not as fluent-speaker evidence.',
+    'Use supplied dictionary records as primary evidence and do not treat a controlled synthetic example as natural-sentence validation.',
+    'Keep confidence low when the supplied records do not support the complete sentence.',
+  ],
+  grammarEvidence: [],
+};
+
+export const ANINDILYAKWA_HYBRID_DEFINITION: HybridLanguageDefinition = {
+  ...ANINDILYAKWA_HYBRID_IDENTITY,
+  aliases: ['anindilyakwa', 'aoi'],
+  dictionaryCode: 'anindilyakwa',
+  sourceLang: 'eng_Latn',
+  targetLang: 'aoi_Latn',
+  modelId: 'anindilyakwa-nllb-scripture-baseline',
+  modelVersion: 'v0.2.0-traditional-owner-authorized-experimental',
+  modelLabel: 'MobTranslate Anindilyakwa v0.2 failed-quality baseline',
+  repository: 'https://huggingface.co/ajaxdavis/mobtranslate-anindilyakwa-v1',
+  contracts: {
+    draft: 'hybrid-hf-draft-v2',
+    evidence: 'hybrid-source-draft-retrieval-v3',
+    review: 'hybrid-complete-best-effort-review-v5',
+    resolver: 'hybrid-complete-best-effort-resolver-v4',
+  },
+  env: {
+    enabled: 'MOBTRANSLATE_HYBRID_ANINDILYAKWA_ENABLED',
+    endpoint: 'MOBTRANSLATE_HYBRID_ANINDILYAKWA_ENDPOINT',
+    modelId: 'MOBTRANSLATE_HYBRID_ANINDILYAKWA_MODEL_ID',
+    version: 'MOBTRANSLATE_HYBRID_ANINDILYAKWA_VERSION',
+    timeoutMs: 'MOBTRANSLATE_HYBRID_ANINDILYAKWA_TIMEOUT_MS',
+    reviewModel: 'MOBTRANSLATE_HYBRID_ANINDILYAKWA_REVIEW_MODEL',
+  },
+  reviewGuidance: [
+    'The first model failed its automatic quality diagnostic, so never treat repetition or fluent-looking text as proof of correctness.',
+    'Use supplied dictionary records as primary evidence and describe all unsupported choices as unchecked.',
+    'No qualified fluent-language review has validated this model; keep confidence low unless a unique exact dictionary record decides the answer.',
+  ],
+  grammarEvidence: [],
+};
+
 const DEFINITIONS = new Map(
-  [KUKU_YALANJI_HYBRID_DEFINITION, MIGMAQ_HYBRID_DEFINITION].map(
-    (definition) => [definition.languageCode, definition],
+  [
+    KUKU_YALANJI_HYBRID_DEFINITION,
+    MIGMAQ_HYBRID_DEFINITION,
+    WAJARRI_HYBRID_DEFINITION,
+    ANINDILYAKWA_HYBRID_DEFINITION,
+  ].flatMap((definition) =>
+    definition.aliases.map((alias) => [alias, definition] as const),
   ),
 );
 
@@ -282,5 +360,5 @@ export function loadHybridLanguageContract(
 }
 
 export function listHybridLanguageDefinitions(): HybridLanguageDefinition[] {
-  return [...DEFINITIONS.values()];
+  return [...new Set(DEFINITIONS.values())];
 }

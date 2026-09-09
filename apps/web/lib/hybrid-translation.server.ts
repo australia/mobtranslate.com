@@ -265,7 +265,7 @@ export function retrieveHybridDictionaryEvidence(
       sourceLabel: entry.exactSourceMatch
         ? 'Exact source phrase in the MobTranslate dictionary gloss'
         : 'Relevant MobTranslate dictionary entry',
-      sourceUrl: `https://mobtranslate.com/dictionaries/${encodeURIComponent(contract.languageCode)}/words/${encodeURIComponent(entry.word)}`,
+      sourceUrl: `https://mobtranslate.com/dictionaries/${encodeURIComponent(contract.dictionaryCode)}/words/${encodeURIComponent(entry.word)}`,
     }));
 }
 
