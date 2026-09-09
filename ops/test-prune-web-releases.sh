@@ -62,9 +62,9 @@ for removed in "${ids[1]}" "${ids[2]}" "${ids[3]}"; do
     cd "$fixture/release-archive"
     sha256sum --quiet -c "$(basename "$archive.sha256")"
   )
-  tar -tzf "$archive" | grep -Fxq 'metadata/runtime.sha256'
-  tar -tzf "$archive" | grep -Fxq 'metadata/prune-integrity.txt'
-  tar -xOzf "$archive" metadata/release.txt | grep -Fxq "release_id=$removed"
+  tar -tzf "$archive" | grep -Fx 'metadata/runtime.sha256' >/dev/null
+  tar -tzf "$archive" | grep -Fx 'metadata/prune-integrity.txt' >/dev/null
+  tar -xOzf "$archive" metadata/release.txt | grep -Fx "release_id=$removed" >/dev/null
 done
 
 idempotent="$($PRUNER --release-root "$fixture" --keep 3 --apply)"
@@ -97,6 +97,6 @@ grep -Fq $'summary\tmode=apply\ttotal=4\tprotected=2\tarchived=2\tremoved=2' <<<
 tar -xOzf \
   "$cache_drift/release-archive/${ids[0]}.metadata.tar.gz" \
   metadata/prune-integrity.txt \
-  | grep -Fxq 'legacy_cache_changed_files=1'
+  | grep -Fx 'legacy_cache_changed_files=1' >/dev/null
 
 printf 'release-pruner tests passed\n'
