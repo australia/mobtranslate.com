@@ -14,6 +14,9 @@ SERVICE_USER="${MOBTRANSLATE_SERVICE_USER:-ajax}"
 SERVICE_GROUP="${MOBTRANSLATE_SERVICE_GROUP:-ajax}"
 UNIT_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-web.service"
 UNIT_TARGET="/etc/systemd/system/mobtranslate-web.service"
+TRANSLATE_CONF_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-web-translate-v2.conf"
+TRANSLATE_CONF_DIR="/etc/systemd/system/mobtranslate-web.service.d"
+TRANSLATE_CONF_TARGET="$TRANSLATE_CONF_DIR/translate-v2.conf"
 PRUNE_SERVICE_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-operational-prune.service"
 PRUNE_SERVICE_TARGET="/etc/systemd/system/mobtranslate-operational-prune.service"
 PRUNE_TIMER_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-operational-prune.timer"
@@ -77,7 +80,8 @@ git -C "$REPO_ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
   exit 1
 }
 [[ -x "$HYBRID_WARM_SCRIPT_SOURCE" && -x "$HYBRID_WARM_TEST" \
-  && -f "$HYBRID_WARM_SERVICE_SOURCE" && -f "$HYBRID_WARM_TIMER_SOURCE" ]] || {
+  && -f "$HYBRID_WARM_SERVICE_SOURCE" && -f "$HYBRID_WARM_TIMER_SOURCE" \
+  && -f "$TRANSLATE_CONF_SOURCE" ]] || {
   echo "Hybrid model warm-check files are missing or not executable." >&2
   exit 1
 }
@@ -324,6 +328,12 @@ EXISTING_PREVIOUS=""
 if [[ -L "$PREVIOUS" ]]; then EXISTING_PREVIOUS="$(readlink -f "$PREVIOUS" || true)"; fi
 LEGACY_UNIT_BACKUP="$FINAL_RELEASE/metadata/previous-systemd-unit.service"
 if [[ -f "$UNIT_TARGET" ]]; then sudo cat "$UNIT_TARGET" > "$LEGACY_UNIT_BACKUP"; fi
+TRANSLATE_CONF_BACKUP="$FINAL_RELEASE/metadata/previous-translate-v2.conf"
+TRANSLATE_CONF_EXISTED=0
+if [[ -f "$TRANSLATE_CONF_TARGET" ]]; then
+  sudo cat "$TRANSLATE_CONF_TARGET" > "$TRANSLATE_CONF_BACKUP"
+  TRANSLATE_CONF_EXISTED=1
+fi
 
 atomic_link() {
   local target="$1"
@@ -335,6 +345,8 @@ atomic_link() {
 
 atomic_link "$FINAL_RELEASE" "$CURRENT"
 sudo install -o root -g root -m 0644 "$UNIT_SOURCE" "$UNIT_TARGET"
+sudo install -d -o root -g root -m 0755 "$TRANSLATE_CONF_DIR"
+sudo install -o root -g root -m 0644 "$TRANSLATE_CONF_SOURCE" "$TRANSLATE_CONF_TARGET"
 sudo install -o root -g root -m 0644 "$PRUNE_SERVICE_SOURCE" "$PRUNE_SERVICE_TARGET"
 sudo install -o root -g root -m 0644 "$PRUNE_TIMER_SOURCE" "$PRUNE_TIMER_TARGET"
 sudo install -o root -g root -m 0755 "$HYBRID_WARM_SCRIPT_SOURCE" "$HYBRID_WARM_SCRIPT_TARGET"
@@ -366,10 +378,17 @@ fi
 restore_previous_runtime() {
   if [[ -n "$OLD_RELEASE" && -d "$OLD_RELEASE" ]]; then
     atomic_link "$OLD_RELEASE" "$CURRENT"
-  elif [[ -s "$LEGACY_UNIT_BACKUP" ]]; then
-    sudo install -o root -g root -m 0644 "$LEGACY_UNIT_BACKUP" "$UNIT_TARGET"
-    sudo systemctl daemon-reload
   fi
+  if [[ -s "$LEGACY_UNIT_BACKUP" ]]; then
+    sudo install -o root -g root -m 0644 "$LEGACY_UNIT_BACKUP" "$UNIT_TARGET"
+  fi
+  if [[ "$TRANSLATE_CONF_EXISTED" -eq 1 && -s "$TRANSLATE_CONF_BACKUP" ]]; then
+    sudo install -d -o root -g root -m 0755 "$TRANSLATE_CONF_DIR"
+    sudo install -o root -g root -m 0644 "$TRANSLATE_CONF_BACKUP" "$TRANSLATE_CONF_TARGET"
+  else
+    sudo rm -f "$TRANSLATE_CONF_TARGET"
+  fi
+  sudo systemctl daemon-reload
   sudo systemctl restart "$SERVICE" || true
 }
 
@@ -380,7 +399,8 @@ if [[ "$production_ready" -ne 1 ]]; then
 fi
 
 public_ready=0
-DOWNLOAD_PROBE_ROOT="${MOBTRANSLATE_DOWNLOAD_PROBE_ROOT:-$WEB_ROOT/public/downloads}"
+RUNTIME_PUBLIC_ROOT="${MOBTRANSLATE_RUNTIME_PUBLIC_DIR:-/mnt/donto-data/workspace/mobtranslate.com/apps/web/public}"
+DOWNLOAD_PROBE_ROOT="${MOBTRANSLATE_DOWNLOAD_PROBE_ROOT:-$RUNTIME_PUBLIC_ROOT/downloads}"
 if [[ ! -d "$DOWNLOAD_PROBE_ROOT" ]]; then
   echo "Download probe root does not exist: $DOWNLOAD_PROBE_ROOT" >&2
   restore_previous_runtime
