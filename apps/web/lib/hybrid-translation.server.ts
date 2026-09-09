@@ -319,14 +319,14 @@ ${languageGuidance}
 
 Review contract:
 1. Preserve every source proposition, participant role, polarity, tense/aspect and clause relationship.
-2. Apply only evidence-supported changes. Never invent a ${contract.languageName} form because it looks plausible.
-3. Prefer kept_draft when the evidence does not justify a change. Use insufficient_evidence when the draft cannot be adequately checked; still return the least-unsupported draft text.
+2. Treat the supplied records as primary evidence. When they do not cover every source proposition, still use your translation knowledge to produce a complete best-effort research draft. Never cite a model-only choice as source-backed; name the unchecked part in caveats and lower confidence.
+3. Prefer kept_draft only when it covers the whole source. Use revised_draft when a more complete translation can be produced. Use insufficient_evidence when a material part cannot be verified, but still return the most complete best-effort translation rather than an incomplete draft, an English insertion or a placeholder.
 4. A unique exact dictionary match is strong lexical evidence, but dictionary headwords alone do not establish sentence grammar.
 5. Do not add English or markdown to translation.
 6. A grammar item supports only claims explicitly written in its rule. A general rule does not verify a particular suffix, stem or surface form.
 7. evidenceIds may contain only IDs present in the supplied JSON.
 8. Write reviewSummary, changes, caveats and literalBackTranslation in short, everyday English for someone with no AI or linguistics background. Do not mention models, drafts, evidence IDs, source/target language, morphology, TAM, ergative, absolutive, case, role marking, stems, suffixes, prefixes or conjugation. Say "word" or "word ending" when needed.
-9. literalBackTranslation is a plain-English approximate meaning. Do not use linguistic abbreviations or labels; mark an unchecked part with ordinary wording such as "[word not confirmed]".
+9. literalBackTranslation is a plain-English approximate meaning of the complete proposed translation. Do not use linguistic abbreviations or labels; describe unchecked choices in caveats instead of omitting their intended meaning.
 10. reviewSummary is a user-facing audit explanation, not hidden chain-of-thought and not speaker judgment.
 11. Submit exactly one structured review through the required tool.`;
 }
@@ -380,9 +380,7 @@ export function resolveHybridReview(
         ];
     summary = `The English word has one clear match in the dictionary, so ${translation} is shown. This checks the word itself, not the grammar of a full sentence.`;
   } else if (review.decision === 'insufficient_evidence') {
-    translation = draft;
     confidence = 'low';
-    changes = [];
   } else if (
     review.decision === 'kept_draft' ||
     sameSurface(review.translation, draft)

@@ -65,8 +65,8 @@ export const KUKU_YALANJI_HYBRID_DEFINITION: HybridLanguageDefinition = {
   contracts: {
     draft: 'hybrid-hf-draft-v2',
     evidence: 'hybrid-source-draft-retrieval-v3',
-    review: 'hybrid-plain-language-review-v4',
-    resolver: 'hybrid-conservative-resolver-v3',
+    review: 'hybrid-complete-best-effort-review-v5',
+    resolver: 'hybrid-complete-best-effort-resolver-v4',
   },
   env: {
     enabled: 'MOBTRANSLATE_HYBRID_KUKU_YALANJI_ENABLED',
@@ -149,8 +149,8 @@ export const MIGMAQ_HYBRID_DEFINITION: HybridLanguageDefinition = {
   contracts: {
     draft: 'hybrid-hf-draft-v2',
     evidence: 'hybrid-source-draft-retrieval-v3',
-    review: 'hybrid-plain-language-review-v4',
-    resolver: 'hybrid-conservative-resolver-v3',
+    review: 'hybrid-complete-best-effort-review-v5',
+    resolver: 'hybrid-complete-best-effort-resolver-v4',
   },
   env: {
     enabled: 'MOBTRANSLATE_HYBRID_MIGMAQ_ENABLED',

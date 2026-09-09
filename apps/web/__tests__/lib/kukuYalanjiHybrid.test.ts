@@ -70,7 +70,8 @@ describe('Kuku Yalanji hybrid review evidence', () => {
     expect(prompt).toContain('does not verify a particular suffix');
     expect(prompt).toContain('short, everyday English');
     expect(prompt).toContain('role marking');
-    expect(prompt).toContain('[word not confirmed]');
+    expect(prompt).toContain('complete best-effort research draft');
+    expect(prompt).toContain('model-only choice');
   });
 
   it('lets one exact dictionary record override an unsupported model surface', () => {
@@ -102,32 +103,34 @@ describe('Kuku Yalanji hybrid review evidence', () => {
     expect(resolved.evidence[0].title).toBe('jalbu');
   });
 
-  it('keeps the Hugging Face draft when the reviewer says evidence is insufficient', () => {
+  it('returns a complete reviewer attempt while keeping insufficient evidence explicit', () => {
     const evidence = retrieveKukuYalanjiDictionaryEvidence(
       'The woman saw water.',
       dictionary,
     );
     const resolved = resolveKukuYalanjiReview(
       'The woman saw water.',
-      'Jalbungku bana nyajin.',
+      'jalbu',
       dictionary,
       evidence,
       {
         decision: 'insufficient_evidence',
-        translation: 'different output',
+        translation: 'Jalbu-ngku bana nyajin.',
         literalBackTranslation: 'The woman saw water.',
         confidence: 'medium',
         reviewSummary: 'The supplied evidence cannot justify a correction.',
-        changes: ['Unsupported change'],
+        changes: ['Completed the proposition that was missing from the draft.'],
         evidenceIds: [KUKU_YALANJI_GRAMMAR_EVIDENCE[0].id],
         caveats: ['No matching inflected example was supplied.'],
       },
     );
 
-    expect(resolved.translation).toBe('Jalbungku bana nyajin.');
+    expect(resolved.translation).toBe('Jalbu-ngku bana nyajin.');
     expect(resolved.decision).toBe('insufficient_evidence');
     expect(resolved.confidence).toBe('low');
-    expect(resolved.changes).toEqual([]);
+    expect(resolved.changes).toEqual([
+      'Completed the proposition that was missing from the draft.',
+    ]);
   });
 
   it('still uses a unique dictionary record if the frontier review is unavailable', () => {
