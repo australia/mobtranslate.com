@@ -12,6 +12,7 @@ PREVIOUS="$RELEASE_ROOT/previous"
 SERVICE="mobtranslate-web.service"
 SERVICE_USER="${MOBTRANSLATE_SERVICE_USER:-ajax}"
 SERVICE_GROUP="${MOBTRANSLATE_SERVICE_GROUP:-ajax}"
+DEPLOY_VITEST_POOL="${MOBTRANSLATE_DEPLOY_VITEST_POOL:-forks}"
 UNIT_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-web.service"
 UNIT_TARGET="/etc/systemd/system/mobtranslate-web.service"
 TRANSLATE_CONF_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-web-translate-v2.conf"
@@ -74,6 +75,13 @@ git -C "$REPO_ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
   echo "Repository not found: $REPO_ROOT" >&2
   exit 1
 }
+case "$DEPLOY_VITEST_POOL" in
+  forks|threads) ;;
+  *)
+    echo "Unsupported deploy Vitest pool: $DEPLOY_VITEST_POOL" >&2
+    exit 1
+    ;;
+esac
 [[ -x "$RELEASE_PRUNE_SCRIPT" && -x "$RELEASE_PRUNE_TEST" \
   && -x "$RELEASE_VERIFY_SCRIPT" && -x "$RELEASE_VERIFY_TEST" ]] || {
   echo "Release integrity/retention scripts are missing or not executable." >&2
@@ -162,15 +170,15 @@ if [[ -n "${MOBTRANSLATE_ALLOW_PLAYBOOK_DRIFT_SHA256:-}" ]]; then
     echo "Playbook matches the frozen migration; remove the unnecessary waiver." >&2
     exit 1
   }
-  NODE_ENV=test pnpm --filter web exec vitest run \
+  NODE_ENV=test pnpm --filter web exec vitest run --pool="$DEPLOY_VITEST_POOL" \
     --exclude __tests__/lib/languageProgramControlPlaneMigration.test.ts
-  NODE_ENV=test pnpm --filter web exec vitest run \
+  NODE_ENV=test pnpm --filter web exec vitest run --pool="$DEPLOY_VITEST_POOL" \
     __tests__/lib/languageProgramControlPlaneMigration.test.ts \
     --testNamePattern '^(?!.*binds the database template to the exact playbook).+'
   PLAYBOOK_TEST_WAIVER="current:$PLAYBOOK_CURRENT_SHA256,frozen:$PLAYBOOK_MIGRATION_SHA256"
   printf '%s\n' "$PLAYBOOK_TEST_WAIVER" > "$STAGING/metadata/playbook-test-waiver.txt"
 else
-  NODE_ENV=test pnpm --filter web test
+  NODE_ENV=test pnpm --filter web exec vitest run --pool="$DEPLOY_VITEST_POOL"
 fi
 pnpm --filter web typecheck
 pnpm --filter web lint
