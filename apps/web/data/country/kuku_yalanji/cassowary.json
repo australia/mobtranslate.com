@@ -1,0 +1,160 @@
+{
+  "slug": "cassowary",
+  "title": "Cassowary",
+  "category": "bird",
+  "names": [
+    { "word": "kurranji", "gloss": "cassowary" },
+    { "word": "babarr", "gloss": "young cassowary", "note": "A separate headword from babarr 'older sister'. The two words sound the same." },
+    { "word": "barbarr", "gloss": "young cassowary" }
+  ],
+  "scientificName": "Casuarius casuarius johnsonii",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary glosses kurranji simply as 'cassowary', and the southern cassowary is the only cassowary in Australia. Queensland Parks and Wildlife Service records the southern cassowary in Daintree National Park, on Eastern Kuku Yalanji country."
+  },
+  "countryTypes": ["rainforest", "coast-mangrove", "mountains"],
+  "summary": "**Kurranji**, the southern cassowary (*Casuarius casuarius johnsonii*), is Australia's largest bird: up to 2 m tall and 76 kg, flightless, with a blue neck, red wattles and a horn-like casque on its head [ref:qld-cassowary]. Kuku Yalanji has its own words for a young cassowary, **babarr** and **barbarr** [ref:hershberger1982]. On the Bloomfield River, Roth recorded fly-flicks made of cassowary feathers [ref:roth1904]. Among the neighbouring rainforest people of the lower Tully he saw cassowaries speared by hunters who imitated the bird's call, run down with dogs, and their chicks caught and raised in camp [ref:roth1901]. The bird is **Endangered** today [ref:qld-cassowary] [ref:ag-cassowary]. It is also the one animal on country with a recorded human death to its name, a boy killed near Mossman in 1926 [ref:kofron2003].",
+  "infobox": [
+    { "label": "Kuku Yalanji", "value": "kurranji; young: babarr, barbarr" },
+    { "label": "Scientific name", "value": "Casuarius casuarius johnsonii (family Casuariidae)" },
+    { "label": "Size", "value": "1.5–2 m tall, up to 76 kg; females larger than males" },
+    { "label": "Where", "value": "Rainforest, swamp and mangrove country of the Wet Tropics and Cape York; not the dry inland woodland" },
+    { "label": "Breeding", "value": "May–November; the male sits on the eggs and raises the chicks" },
+    { "label": "Uses recorded", "value": "Food; feathers for fly-flicks (Bloomfield River)" },
+    { "label": "Status", "value": "Endangered (Queensland and Commonwealth)" },
+    { "label": "Danger", "value": "Kicks with a dagger-like inner claw; one recorded death (Mossman, 1926)" }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives **kurranji** for the cassowary, and two words for a young bird, **babarr** and **barbarr** [ref:hershberger1982]. Babarr sounds the same as *babarr* 'older sister', but the dictionary lists the two as separate words [ref:hershberger1982]. Having its own names for the young bird fits a creature whose chicks look quite different from the adults. They are striped yellow and black at first, then turn brown before they grow into the black adult plumage [ref:am-cassowary]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "A huge, flightless bird, 1.5–2 m tall. Its body feathers are black, coarse and hair-like. The bare skin of the head and front of the neck is blue, the back of the neck is red, and two red wattles hang from the throat. On its head it carries a tall greyish casque, or helmet [ref:am-cassowary]. Queensland gives its weight as up to 76 kg [ref:qld-cassowary]. Females are bigger than males, with taller casques and brighter colours [ref:am-cassowary]. The innermost toe of each foot carries a long, very sharp claw [ref:am-cassowary]. That claw is the reason the bird is dangerous (see *Safety*).\n\nCassowaries usually live alone and keep to the same patch of forest all year [ref:am-cassowary]. They eat mostly fallen fruit: over 238 plant species, with some small animals, fungi and snails [ref:qld-cassowary]. Some rainforest fruits are so big that the cassowary is the only animal that can swallow them and carry their seeds away [ref:qpws-daintree]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "Cassowaries once lived in the rainforests from north of Townsville to Cape York. Today there are three populations, one in the Wet Tropics and two on Cape York [ref:qld-cassowary]. They live in tropical rainforest and also use mangroves and melaleuca swamps, sometimes walking into woodland [ref:ag-cassowary]. On Eastern Kuku Yalanji country they live in the rainforest of the Daintree and Cape Tribulation coast [ref:qpws-daintree] and the ranges and lowlands between the Mossman, Daintree and Bloomfield rivers.\n\n**Western Yalanji country.** The cassowary is a rainforest bird. It does not belong to the dry open woodland and river country inland around the Mitchell River near Mt Carbine. Atlas of Living Australia records cluster in the rainforest on the ranges east of Mt Carbine, and there are almost none from the Mitchell River country to the west [ref:ala]. Someone staying at Karma Waters would have to travel back east into the rainforest to meet one."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Cassowaries breed in the drier part of the year, from about May to November [ref:qld-cassowary]. The female lays 3–5 large green eggs on the forest floor and then leaves. The male sits on them for about 50 days [ref:qld-cassowary]. He then guards the striped chicks for up to nine months [ref:ag-cassowary]. During this time males are very aggressive [ref:am-cassowary], so the breeding season is when people most need to keep their distance. Because the birds live on fallen fruit, they follow the fruiting of the forest through the year [ref:qld-cassowary]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Feathers.** Roth's Bloomfield River notes record fly-flicks made of cassowary feathers. They were made to the same design as the emu-feather flicks of Cape Bedford and the Palmer River: a bunch of quills bound onto a short handle, with the binding strengthened with gum cement [ref:roth1904].\n\n**Food.** Roth's detailed account of cassowary hunting comes from the lower Tully River, south of Kuku Yalanji country. There it was the only bird that was speared [ref:roth1901]. The cassowary is a big package of meat and fat, and the general Kuku Yalanji word *minya* covers 'meat, eggs (protein food)' [ref:hershberger1982]. The sources do not describe how Kuku Yalanji people used cassowary bones.\n\n**Raising chicks.** On the lower Tully, Roth saw young cassowaries caught and fed by the rainforest people. They grew up around the camp and followed the people from camp to camp [ref:roth1902]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was hunted and cooked",
+      "body": "No published account describes cassowary hunting on the Bloomfield itself. The nearest detailed record is Roth's, from the **lower Tully River** rainforest people [ref:roth1901]:\n\n1. **Learn the bird's path.** The cassowary walks the same way to water.\n2. **Hide** behind a tree beside that path.\n3. **Call it in** by imitating the cassowary's own call.\n4. **Spear it** as it walks past to the water.\n5. Alternatively, **hunt it with dogs**. Young birds are **run down** on foot.\n\nFor cooking, Roth describes the stone **earth oven** used **on the Bloomfield** (Kuku Yalanji *kurrma*; Roth wrote it *kurma*) for meat [ref:roth1901] [ref:hershberger1982]:\n\n1. Heat a number of **stones** well in a fire.\n2. Rake the stones and ashes aside and quickly **dig a hole** where the fire was.\n3. Line the bottom with **leaves**, several kinds of ginger.\n4. Lay in the **pieces of meat**, packing the **hot stones and ashes** among them.\n5. Cover with more leaves or tea-tree (paperbark) bark, then a **layer of earth and stones**, and leave it to bake.\n\nOn the lower Tully, big carcasses were first cut into pieces with the hooked spines of a **lawyer cane**, worked like a cross-cut saw [ref:roth1901]. Smaller pieces could simply be roasted on and in the hot ashes (*dindal*, 'to roast on coals') [ref:roth1901] [ref:hershberger1982]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**Cassowaries can kill.** The innermost claw on each foot is long and very sharp [ref:am-cassowary]. The only recorded human death from a cassowary in Australia happened on this country. On 6 April 1926, near Mossman, two boys and their dogs attacked a cassowary and tried to kill it. The older boy, 16, tripped and fell, and the bird jumped on him. Its claw went into his neck and cut a blood vessel, and he bled to death [ref:kofron2003].\n\nA review of 221 attacks in Queensland found 150 were on people, and 75% of those were by birds that people had fed. Victims were chased or charged in 71% of cases and kicked in 15% [ref:kofron2003]. Four of the eight people seriously hurt were crouching or lying on the ground [ref:kofron2003]. If you meet a cassowary:\n\n- **Stay standing.** Don't crouch, because that brings your head and body within reach of its feet [ref:kofron2003].\n- **Back off slowly** or put a tree between you and the bird, without turning your back [ref:kofron2003].\n- **Keep children close** and dogs on a lead [ref:kofron2003] [ref:qld-cassowary].\n- **Never feed a cassowary.** It is illegal, and fed birds become bold and dangerous [ref:qld-cassowary] [ref:kofron2003].\n- Give **males with chicks** a very wide berth [ref:am-cassowary]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The southern cassowary is listed as **Endangered** under the Commonwealth *EPBC Act* [ref:ag-cassowary] and as Endangered in Queensland [ref:qld-cassowary]. The main threats are cars, dogs, land clearing and fragmented forest, and cyclones that strip the fruit [ref:ag-cassowary]. Drivers in cassowary country, including the Daintree and Cape Tribulation roads, are asked to slow down [ref:qld-cassowary].\n\nIn September 2021 the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks, more than 160,000 ha between the Daintree and Cooktown, were handed back to the Eastern Kuku Yalanji people as Aboriginal land. They are jointly managed with the Queensland Government until Traditional Owners take over sole management [ref:handback2021]. The 2007 Eastern Kuku Yalanji native title determination recognises rights to hunt animals on the determination area, but not for trade or commerce [ref:walker2007]. Section 211 of the *Native Title Act 1993* lets native title holders hunt, fish and gather for **personal, domestic or non-commercial communal needs** without the licences other people need [ref:alrc-s211]. For everyone else, native wildlife is protected under Queensland's *Nature Conservation Act 1992*, and taking it needs a licence or permit [ref:qld-nca]. In practice, a cassowary is not a bird anyone else may touch. Under Eastern Kuku Yalanji law (Ngujakura), the right to give permission to come onto country belongs to the Traditional Owners [ref:walker2007]. Visitors should ask first, and should follow park rules."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "Useful words: *kurranji* 'cassowary'; *babarr*, *barbarr* 'young cassowary'; *jabil* 'kick'; *kaya* 'dog'; *damal* 'to spear'; *minya* 'meat, eggs (protein food)'; *kurrma* 'earth oven' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": ["scrub-turkey", "scrub-hen", "earth-oven", "spear-and-woomera", "lawyer-cane"],
+  "relatedWords": [
+    { "word": "jabil", "gloss": "kick" },
+    { "word": "kaya", "gloss": "dog" },
+    { "word": "damal", "gloss": "to spear" },
+    { "word": "minya", "gloss": "meat, eggs (protein food)" },
+    { "word": "kurrma", "gloss": "earth oven" },
+    { "word": "dindal", "gloss": "to roast on coals" }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from K. and R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 5 'Preparations for cooking meats', sect. 6 'Cooking' (Bloomfield earth oven), sect. 22 'Cassowaries'"
+    },
+    {
+      "id": "roth1902",
+      "citation": "Roth, W. E. (1902). North Queensland Ethnography, Bulletin No. 4: Games, sports and amusements. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 4 'Realistic games (animals)'"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 48 'Fly-flicks. Fans'"
+    },
+    {
+      "id": "kofron2003",
+      "citation": "Kofron, C. P. (2003). Case histories of attacks by the Southern Cassowary in Queensland. Memoirs of the Queensland Museum 49(1): 339–342.",
+      "url": "https://archive.org/details/biostor-239786"
+    },
+    {
+      "id": "am-cassowary",
+      "citation": "Australian Museum. Southern Cassowary (Casuarius casuarius johnsonii). Animal fact sheet.",
+      "url": "https://australian.museum/learn/animals/birds/southern-cassowary/"
+    },
+    {
+      "id": "qld-cassowary",
+      "citation": "Queensland Government. Living with wildlife: Southern cassowary.",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/cassowaries"
+    },
+    {
+      "id": "ag-cassowary",
+      "citation": "Australian Geographic. Fact file: Southern cassowary (EPBC listing as at July 2025).",
+      "url": "https://www.australiangeographic.com.au/fact-file/southern-cassowary/"
+    },
+    {
+      "id": "qpws-daintree",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history — Daintree National Park (CYPAL).",
+      "url": "https://parks.qld.gov.au/parks/daintree/about/culture"
+    },
+    {
+      "id": "ala",
+      "citation": "Atlas of Living Australia. Occurrence records for Casuarius casuarius within 35 km of Mt Carbine and within 25–60 km of the Mitchell River west of Mt Carbine, queried 5 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Casuarius%20casuarius%22"
+    },
+    {
+      "id": "handback2021",
+      "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
+      "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+    },
+    {
+      "id": "walker2007",
+      "citation": "Walker on behalf of the Eastern Kuku Yalanji People v State of Queensland [2007] FCA 1907 (Federal Court of Australia, 9 December 2007).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2007/2007fca1907"
+    },
+    {
+      "id": "alrc-s211",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    }
+  ],
+  "review": { "status": "unreviewed" },
+  "updated": "2026-10-05"
+}

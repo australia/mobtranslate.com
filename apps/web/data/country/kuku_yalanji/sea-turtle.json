@@ -1,0 +1,213 @@
+{
+  "slug": "sea-turtle",
+  "title": "Sea turtle",
+  "category": "reptile",
+  "names": [
+    {
+      "word": "ngawiya",
+      "gloss": "sea turtle"
+    },
+    {
+      "word": "yalnga",
+      "gloss": "sea turtle, poisonous if sacs aren't removed",
+      "note": "Species not stated in the dictionary."
+    }
+  ],
+  "scientificName": "Cheloniidae (chiefly Chelonia mydas, green turtle)",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary defines ngawiya as 'sea turtle', and the Eastern Kuku Yalanji IPA plan's species list applies ngawiya to all six marine turtles on their coast, including the green turtle, Chelonia mydas. Which turtle yalnga refers to is not recorded."
+  },
+  "countryTypes": [
+    "reef-sea",
+    "coast-mangrove"
+  ],
+  "summary": "**Ngawiya** is the Kuku Yalanji word for the sea turtle; the dictionary also has **yalnga**, 'sea turtle, poisonous if sacs aren't removed' [ref:hershberger1982]. Eastern Kuku Yalanji Traditional Owners use ngawiya for all six marine turtles of their sea country, from the green turtle to the leatherback [ref:jabalbina2016]. Turtle was hunted from outrigger dugout canoes with the **kukuni**, a big harpoon tipped with a **kurajan** point (Nyungkal **biyul**); the dictionary describes such points made of wattle and hardened in the fire [ref:hershberger1982]. Roth's Bloomfield record adds the details: the harpoon line was looped round the hand and tied to the canoe, and the hunter dived after the struck turtle and wrestled it up [ref:roth1904]. Today the hunting season, the right people and the right places are set by Kuku Yalanji lore, and the Traditional Owners are working to stop over-hunting [ref:jabalbina2016].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "ngawiya; yalnga"
+    },
+    {
+      "label": "Scientific names",
+      "value": "Family Cheloniidae and Dermochelyidae; mainly the green turtle, Chelonia mydas"
+    },
+    {
+      "label": "Hunting gear",
+      "value": "kukuni (harpoon), kurajan / kurrajan / biyul (points), kaljan (outrigger canoe)"
+    },
+    {
+      "label": "Where",
+      "value": "Reefs, seagrass beds and nesting beaches of the Eastern Kuku Yalanji coast"
+    },
+    {
+      "label": "Egg time",
+      "value": "When the flame tree flowers and the first storms come"
+    },
+    {
+      "label": "Warning",
+      "value": "Yalnga is 'poisonous if sacs aren't removed'"
+    },
+    {
+      "label": "Status",
+      "value": "All species threatened; protected (green turtle vulnerable)"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary has two words for sea turtle [ref:hershberger1982]:\n\n- **ngawiya** 'sea turtle', the general word. The Eastern Kuku Yalanji sea country plan uses it for every marine turtle species on their coast: green, loggerhead, hawksbill, flatback, olive (Pacific) ridley and leatherback [ref:jabalbina2016].\n- **yalnga** 'sea turtle, poisonous if sacs aren't removed'. The dictionary does not say which turtle yalnga is, or whether it is a separate kind or a different name [ref:hershberger1982]. Elders are the right people to say.\n\nThe freshwater turtle is a different animal, **ngujay** [ref:hershberger1982]. The turtle's shell is **kadan**, and **dumbul** covers 'any hard covering such as bark of a tree, crust of bread, shell of turtle' [ref:hershberger1982].\n\n**The hunting words.** The harpoon is **kukuni**, 'the big spear used for spearing turtle, used as a harpoon'. Its point is **kurajan** in Yalanji and **biyul** in Nyungkal. **Kurrajan** is 'a spear point made from wattle and used for turtle spearing. it was put in the fire until it was hard enough to pierce through a turtle shell' [ref:hershberger1982]. Just to the north, Roth recorded the Cape Bedford (Guugu Yimithirr) names for the same gear in 1904: *kokoni* for the harpoon shaft and *kuradan* for the barbed head (his spellings). They are plainly the same words, shared along the coast [ref:roth1904]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "Six of the world's seven sea turtle species live in the Great Barrier Reef World Heritage Area. Green and loggerhead turtles are often seen; olive ridley and leatherback turtles are rare [ref:gbrmpa-turtles].\n\nThe **green turtle**, the most abundant on the Reef, has a smooth, high-domed shell, olive green with brown, reddish-brown or black highlights. As adults green turtles are mostly plant-eaters: algae, seagrass and mangrove fruit, with some jellyfish [ref:gbrmpa-turtles]. Sea turtles grow slowly. They take decades to mature, perhaps 20 to 50 years, and adults migrate up to 3000 km between feeding grounds and the nesting beach where they hatched [ref:gbrmpa-turtles]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "Green turtles live on coral and rocky reefs and seagrass meadows of the continental shelf [ref:gbrmpa-turtles]. On Eastern Kuku Yalanji sea country, the fringing reefs along the coast and larger reefs such as Tongue and Batt reefs are very important places for ngawiya; Wungkun (Low Isles) is a refuge for them; and ngawiya nest on Kuku Yalanji beaches, although less than they used to [ref:jabalbina2016].\n\n**Western Yalanji country.** Sea turtles are animals of the coast. Inland on the Mitchell River the turtle you meet is the freshwater turtle, *ngujay* [ref:hershberger1982]. Across North Queensland, Roth found freshwater turtles caught by hand or with small nets [ref:roth1901]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Kuku Yalanji lore sets the seasons. The Traditional Owners' plan says the seasonal calendars tell 'when we can hunt ngawiya' and that **turtle eggs are ready to gather when the flame tree flowers and the first storms come** [ref:jabalbina2016]. The dictionary records the same flame tree, *ngakun*, as the signal for scrub-hen eggs [ref:hershberger1982].\n\nTurtles mate offshore a month or two before the first nesting, usually in summer. A female comes ashore every two weeks or so to lay three to seven clutches of about 120 eggs each. The temperature of the sand decides the hatchlings' sex: warm, dark sand gives mostly females [ref:gbrmpa-turtles]. Roth noted that across North Queensland turtle eggs were eaten whenever they were found [ref:roth1901]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "Ngawiya is meat (*minya*, 'meat, eggs (protein food)') [ref:hershberger1982]. The Traditional Owners' plan calls their reefs very important areas for fish and ngawiya, and says that dugong are now too few on their sea country to hunt for meat [ref:jabalbina2016].\n\n**The canoe.** The dictionary records *kaljan* 'outrigger canoe' and *marrakan* 'dugout canoe made of red cedar wood', and names the cotton tree (*wawuburra*) and candlenut (*bilar*) as canoe trees [ref:hershberger1982]. Roth describes the Bloomfield dugout as an outrigger canoe of the Cape Bedford type, but without the side wash-boards; its double booms passed straight through the gunwale [ref:roth1910]. On canoes of this kind the booms made a platform where spears and harpoons were laid or tied [ref:roth1910]. By 1904 Bloomfield and Endeavour River men were hollowing canoes with iron scraping blades set into wooden handles [ref:roth1904].\n\n**Rope.** The dictionary says the bark of the *kuralbi* tree made 'turtle rope': 'Two long strands were twisted together... It was very strong' [ref:hershberger1982]. At Cape Bedford Roth recorded the harpoon line made of kurrajong (*Sterculia quadrifida*) bark [ref:roth1904]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How turtle was hunted, butchered and cooked",
+      "body": "**The harpoon (Bloomfield River, after Roth 1904)** [ref:roth1904]:\n\n1. **Head.** A round, tapering wooden point 20–35 cm long with a single wooden barb. Elsewhere the base was usually wrapped in fibre before being jammed into the shaft's socket, but not on the Bloomfield; on this stretch of coast one or two wooden pegs could wedge it instead, and a ring of gum-cement just above the base stopped it going in too far and kept the rope from slipping.\n2. **Shaft.** About 2–3 m long, thickening towards the tip, where the socket was drilled. Between the Bloomfield and the Flinders Group the butt end was flattened and bored with a long slot.\n3. **Line.** The rope was tied to the head, often through a loop fixed with a clove-hitch. On the Bloomfield it then ran loosely through the hole in the butt. There was no basket for it: part was looped round the thrower's thumb and hand, and the rest was tied to the **front of the canoe**. Lines ran to 27 m or more, longer for turtle than for fish.\n\n**The hunt** [ref:roth1904] [ref:roth1901]:\n\n1. Paddle out to where turtles feed, over the reefs and seagrass [ref:gbrmpa-turtles]. On the Batavia River, on the other side of Cape York, Roth saw the hunter stand on a platform at the bow of the dugout to watch for turtle [ref:roth1910].\n2. Strike. With a wooden head the target had to be the **soft parts**, the neck or the rear, because wood could not get through the shell; that needed great skill. (The dictionary's *kurrajan* entry says a fire-hardened wattle point could pierce the shell [ref:hershberger1982].)\n3. The head comes free of the shaft. On the Endeavour River, Cook saw the shaft float off and act as a buoy, tiring the turtle and marking where it went [ref:roth1901].\n4. By Roth's time iron points had replaced wood. They pierced the shell but had no barb, so the line could not be pulled hard. **Bloomfield hunters therefore dived in after the turtle**, followed the line down and grabbed the animal by hand.\n5. At the Endeavour River the diver then either slipped a running knot round a flipper so the turtle could be hauled into the canoe, or turned it on its back and brought it up himself [ref:roth1901].\n\nOther coastal peoples had other methods. At Cape Grafton one man dived to drive the turtle up to the surface for the others to harpoon; on the Tully coast hunters let out a sucker-fish (remora) on a fine line to lead them to a turtle; and Keppel Islanders caught turtles underwater by hand [ref:roth1901].\n\n**Butchering.** The dictionary's warning comes first: yalnga is '**poisonous if sacs aren't removed**' [ref:hershberger1982]. The dictionary does not say which sacs, and that knowledge belongs to the people who still butcher turtle. Do the butchering **away from the river**: Eastern Kuku Yalanji Traditional Owners say cutting up ngawiya in the Bloomfield River estuary attracts crocodiles and is against their lore [ref:jabalbina2016].\n\n**Cooking (earth oven at Cape Bedford and on the Bloomfield)** [ref:roth1901]:\n\n1. Heat stones in a fire, rake out the stones and ashes, and dig a hole where the fire was.\n2. Line it with wild-ginger leaves, put in the meat, and pack the hot stones and ashes among the pieces.\n3. Cover with more leaves or tea-tree bark, then earth and stones, and leave it to bake.\n\nOn the Pennefather River (western Cape York) Roth saw a large turtle baked whole, with hot stones pushed inside it through a cut in the neck [ref:roth1901]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**Turtle meat can poison people.** Marine turtles of all species can carry toxins, hawksbills especially; poisoning from eating turtle is called chelonitoxism [ref:pavlin2015]. In 2010, on an atoll in Micronesia, a hawksbill cooked whole without gutting, all its meat and organs in one pot and boiled twice, killed four children and two adults and made 95 others sick. **Boiling did not make it safe**, there is no reliable way to tell a poisonous turtle by looking, and children are at greatest risk [ref:pavlin2015]. That is the sense of the dictionary's warning that yalnga is 'poisonous if sacs aren't removed' [ref:hershberger1982]: the old rules about how a turtle is cleaned matter. The Traditional Owners' plan also records people becoming sick or dying after eating seafood taken from the wrong places on their sea country [ref:jabalbina2016].\n\n**Crocodiles.** Butchering turtle at the water's edge draws saltwater crocodiles. Don't do it in the Bloomfield River estuary [ref:jabalbina2016].\n\n**Diving after a struck animal** is dangerous work. Roth heard of harpooned turtles on the Pennefather River dragging for nine or ten hours, and at Cape Bedford a man who struck a dugong clung to the rope and was dragged along until one of them tired [ref:roth1904]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "**Status.** Every marine turtle species is listed as threatened. Under the Commonwealth *EPBC Act* the green, hawksbill, flatback and leatherback turtles are **vulnerable**, and the loggerhead and olive ridley are **endangered**; Queensland lists them as vulnerable or endangered too [ref:gbrmpa-turtles].\n\n**Who may hunt.** Under section 211 of the *Native Title Act 1993*, native title holders may hunt and fish on their country for personal, domestic and non-commercial communal needs [ref:nta1993], and the Great Barrier Reef Marine Park recognises this right for traditional use of marine resources, including turtle [ref:gbrmpa-tu]. Eastern Kuku Yalanji native title was recognised in August 2026 over about 217,884 ha from the Annan River to the Daintree River [ref:nit2026eky]. For anyone else, turtles are protected and must be left alone.\n\n**Agreements.** Traditional Use of Marine Resources Agreements (TUMRAs) are community plans, accredited in law, under which Reef Traditional Owners manage traditional take of species such as turtle and dugong. As of October 2026 the Reef Authority lists ten TUMRAs and one Indigenous Land Use Agreement, and **none of them is an Eastern Kuku Yalanji agreement** [ref:gbrmpa-tu]. The neighbours have them: to the north, the **Yuku-Baja-Muliku** agreement (Archer Point, from Monkhouse Point to Forsberg Point) stipulates that turtle and dugong cannot be hunted outside the Traditional Owners' permit system; to the south, the **Yirrganydji** agreement covers sea country from Cairns to Port Douglas [ref:gbrmpa-tu].\n\n**Kuku Yalanji management.** In 2016 the Traditional Owners wrote that too many ngawiya were being taken, with too little respect for the right seasons and no limits on take. Their plan commits to monitoring turtle and dugong, hunting protocols agreed by all Bama, and ranger patrols to stop 'wrong sea hunting': hunting by the wrong people, too much hunting, and hunting against their lore [ref:jabalbina2016]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*kaljan* 'outrigger canoe'; *birungubay* 'paddle, oar'; *karra* 'rope, cord, string'; *jalun* 'sea, large body of water'; *mala-kural* 'good diver'; *kirbaji* 'dugong' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "saltwater-crocodile",
+    "spear-and-woomera",
+    "red-cedar",
+    "candlenut",
+    "earth-oven",
+    "mud-crab"
+  ],
+  "relatedWords": [
+    {
+      "word": "ngujay",
+      "gloss": "freshwater turtle"
+    },
+    {
+      "word": "kukuni",
+      "gloss": "the big spear used for spearing turtle, used as a harpoon"
+    },
+    {
+      "word": "kurajan",
+      "gloss": "turtle spear point (yalanji) (nyungkul - biyul)"
+    },
+    {
+      "word": "kurrajan",
+      "gloss": "a spear point made from wattle and used for turtle spearing"
+    },
+    {
+      "word": "biyul",
+      "gloss": "nyungkal - turtle spear point"
+    },
+    {
+      "word": "kadan",
+      "gloss": "shell of turtle"
+    },
+    {
+      "word": "kuralbi",
+      "gloss": "species of tree and its fruit - wild peasun. The bark from this tree was used to make rope"
+    },
+    {
+      "word": "kaljan",
+      "gloss": "outrigger canoe"
+    },
+    {
+      "word": "marrakan",
+      "gloss": "dugout canoe made of red cedar wood"
+    },
+    {
+      "word": "kirbaji",
+      "gloss": "dugong"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; sect. 15(e) sucker-fish; sect. 18 'Turtles and Tortoises'"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic Implements, Arts, and Manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 66 'Harpoons'; sects. 26–31 (scrapers, including iron blades for hollowing canoes)"
+    },
+    {
+      "id": "roth1910",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and Trade. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52863",
+      "locator": "Sects. 14–15, dug-out canoes from the Flinders Group to Cape Grafton"
+    },
+    {
+      "id": "jabalbina2016",
+      "citation": "Yalanjiwarra People & Jabalbina Yalanji Aboriginal Corporation (2016). Nganjinanga Bubu, Nganjinanga Jalun, Nganjinanga Bama Plan: Our Land, Our Sea, Our People Plan 2016–2021. Eastern Kuku Yalanji Indigenous Protected Area Management Plan, Stage 3. Mossman: Jabalbina.",
+      "url": "https://www.wettropicsplan.org.au/wp-content/uploads/2019/09/Eastern-Kuku-Yalanji-Indgenous-Protected-Area-Management-Plan-Stage-3-Yalanjiwarra-Land-and-Sea-Country.pdf",
+      "locator": "Sections 4, 7.9 (Wrong fishing and sea hunting), 7.10 and Action 9.2"
+    },
+    {
+      "id": "gbrmpa-turtles",
+      "citation": "Great Barrier Reef Marine Park Authority. Marine turtles (web page, accessed 5 October 2026).",
+      "url": "https://www2.gbrmpa.gov.au/learn/animals/marine-turtles"
+    },
+    {
+      "id": "gbrmpa-tu",
+      "citation": "Great Barrier Reef Marine Park Authority. Traditional use of the Marine Park; Traditional Use of Marine Resources Agreements (web pages, accessed 5 October 2026).",
+      "url": "https://www2.gbrmpa.gov.au/learn/traditional-owners/traditional-use-marine-resources-agreements"
+    },
+    {
+      "id": "pavlin2015",
+      "citation": "Pavlin, B. I., Musto, J., Pretrick, M., et al. (2015). Mass poisoning after consumption of a hawksbill turtle, Federated States of Micronesia, 2010. Western Pacific Surveillance and Response Journal 6(1): 25–32. doi:10.5365/wpsar.2014.5.3.006",
+      "url": "https://ojs.wpro.who.int/ojs/index.php/wpsar/article/view/283/438"
+    },
+    {
+      "id": "nta1993",
+      "citation": "Native Title Act 1993 (Cth), section 211: preservation of certain native title rights and interests (hunting, fishing and gathering for personal, domestic or non-commercial communal needs).",
+      "url": "https://www.legislation.gov.au/C2004A04665/latest/text"
+    },
+    {
+      "id": "nit2026eky",
+      "citation": "National Indigenous Times (12 August 2026). 'More than 100 ancestral lines united in Eastern Kuku Yalanji native title determination.'",
+      "url": "https://nit.com.au/12-08-2026/25896/more-than-100-ancestral-lines-united-in-eastern-kuku-yalanji-native-title-determination"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}

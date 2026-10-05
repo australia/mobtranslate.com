@@ -1,0 +1,174 @@
+{
+  "slug": "wallaby",
+  "title": "Wallabies and kangaroos",
+  "category": "mammal",
+  "names": [
+    { "word": "kadar", "gloss": "plains wallaby" },
+    { "word": "bimbarrbay", "gloss": "scrub wallaby" },
+    { "word": "darrba", "gloss": "grass wallaby" },
+    { "word": "jumar", "gloss": "little wallaby" },
+    { "word": "julmbanu", "gloss": "grey kangaroo, a darker variety than mayarriji" },
+    { "word": "mayarriji", "gloss": "sub-species of grey kangaroo, lighter in colour than the \"julmbanu\"" },
+    { "word": "nyarrkali", "gloss": "black kangaroo" },
+    { "word": "murral", "gloss": "tree kangaroo", "dialect": "Yalanji" },
+    { "word": "jarrabina", "gloss": "tree-climbing kangaroo", "dialect": "Nyungkul" }
+  ],
+  "scientificName": "Macropodidae (several species)",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary gives English descriptions, not species. Kadar 'plains wallaby' is most likely the agile wallaby (Notamacropus agilis), the common wallaby of open lowland country in north Queensland, and bimbarrbay 'scrub wallaby' most likely the red-legged pademelon (Thylogale stigmatica), widely called the scrub wallaby. Julmbanu and mayarriji are forms of the grey kangaroo (probably the eastern grey, Macropus giganteus). Nyarrkali 'black kangaroo' may be the dark common wallaroo (Osphranter robustus). Darrba and jumar are not yet matched to species. Murral/jarrabina is confirmed as a tree-kangaroo, and on Eastern Kuku Yalanji country most likely Bennett's tree-kangaroo (Dendrolagus bennettianus)."
+  },
+  "countryTypes": ["open-woodland", "rainforest", "river-freshwater", "mountains"],
+  "summary": "Kuku Yalanji has a whole family of words for the hopping animals. **Kadar** is the plains wallaby, **bimbarrbay** the scrub wallaby, **darrba** the grass wallaby and **jumar** the little wallaby. **Julmbanu** and **mayarriji** are darker and lighter grey kangaroos, and **nyarrkali** the black kangaroo. Up in the rainforest trees live **murral** (Nyungkul dialect **jarrabina**), the tree-kangaroos [ref:hershberger1982]. Roth found Bloomfield River families keeping young wallabies as pets [ref:roth1902]. Across north-east Queensland he recorded wallabies and kangaroos taken with spears, nets, cage traps, pitfalls, dogs and long lines of fire [ref:roth1901]. Wallaby tail sinew, *biyal*, was valued as string [ref:hershberger1982]. Wallabies and kangaroos live all through **Western Yalanji** country around the Mitchell River [ref:ala].",
+  "infobox": [
+    { "label": "Kuku Yalanji", "value": "kadar, bimbarrbay, darrba, jumar (wallabies); julmbanu, mayarriji, nyarrkali (kangaroos); murral / jarrabina (tree-kangaroo)" },
+    { "label": "Likely species", "value": "agile wallaby, red-legged pademelon, eastern grey kangaroo, common wallaroo, Bennett's tree-kangaroo" },
+    { "label": "Where", "value": "Open woodland and grassland (wallabies, kangaroos); rainforest floor (scrub wallaby); rainforest canopy (tree-kangaroo)" },
+    { "label": "Used for", "value": "Meat; tail sinew (biyal) as string; bone for tool points" },
+    { "label": "Hunting methods recorded", "value": "Spear and woomera, cage traps, nets, pits, dogs, fire drives" },
+    { "label": "Western Yalanji", "value": "Agile wallaby, eastern grey kangaroo and wallaroo all recorded in the Mitchell River country" }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary separates the wallabies and kangaroos by size, colour and the country they live in [ref:hershberger1982]:\n\n- **kadar** 'plains wallaby'\n- **bimbarrbay** 'scrub wallaby'\n- **darrba** 'grass wallaby'\n- **jumar** 'little wallaby'\n- **julmbanu** 'grey kangaroo, a darker variety than mayarriji'\n- **mayarriji** 'sub-species of grey kangaroo, lighter in colour than the julmbanu'\n- **nyarrkali** 'black kangaroo'\n- **murral** 'tree kangaroo' (Yalanji dialect); **jarrabina** 'tree-climbing kangaroo' (Nyungkul dialect)\n\nThe dictionary's example for *karangaji* 'stalk' is a hunting sentence: *Nyulu dingkar karangajin kadaranda* 'The man stalked the wallaby' [ref:hershberger1982]. Roth's 1901 list for the neighbouring Koko-Yimidir (Guugu Yimithirr) language of Cape Bedford gives *ga-dar* as a 'species of kangaroo' [ref:roth1901-b2], clearly the same word as Kuku Yalanji *kadar*."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "**Agile wallaby** (probably *kadar*). A large wallaby with a sandy-brown coat, a white stripe on each side of the face and on each thigh, black-edged ears and a black tail tip. Males weigh up to 27 kg, females around 15 kg, and body plus tail reach 1.8 m. Agile wallabies rest in the shade by day and graze in the late afternoon on grasses, legumes, herbs and fallen fruit, often in small groups [ref:nesp-agile]. Their scats lie in groups of four to eight around feeding and sleeping places. All wallabies leave similar tracks, with five clawed toes on the front foot [ref:nesp-agile].\n\n**Tree-kangaroos** (*murral*, *jarrabina*). Both north Queensland species stand no more than 60 cm tall, with a tail almost a metre long. They live in the canopy eating leaves, ferns and wild fruit [ref:wtma-treeroo]. They often come down to the forest floor for fallen fruit or to cross between trees [ref:qpws-daintree].\n\n**Kangaroos** (*julmbanu*, *mayarriji*, *nyarrkali*) are the big grazers of the open woodland. The dictionary distinguishes them mainly by colour, darker and lighter grey and black [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they live",
+      "body": "**Open country.** Agile wallabies live in open forest, tropical woodland and grassland and on coastal sand dunes, especially near water. They are common across northern Australia and parts of the Queensland east coast [ref:nesp-agile]. Here the 'plains' and 'grass' wallabies of the dictionary belong.\n\n**Rainforest.** Bennett's tree-kangaroo lives only in the lowland and upland rainforest north of the Daintree River [ref:qpws-daintree], in an area of about 70 by 50 km [ref:wtma-treeroo]. That is the heart of Eastern Kuku Yalanji country. South of the Daintree, the smaller Lumholtz's tree-kangaroo lives in rainforest usually above 500 m [ref:qpws-daintree]. The Queensland Parks and Wildlife Service records that murral were among the tree-dwelling animals the Eastern Kuku Yalanji hunted [ref:qpws-daintree].\n\n**Western Yalanji country.** This is wallaby and kangaroo country. The Atlas of Living Australia holds records of agile wallabies, eastern grey kangaroos and common wallaroos, and a few antilopine wallaroos, from the Mitchell River country west of Mt Carbine [ref:ala]. That is the area covered by the Western Yalanji native title determinations, 'in and around the Palmer and Mitchell River systems which lie to the north-west of Mt Carbine' [ref:brady2013]. Around Karma Waters, look for wallabies grazing near the river flats in the late afternoon and resting in shade at midday [ref:nesp-agile]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Roth wrote that, speaking generally, kangaroos were hunted 'at any time' of year [ref:roth1901]. Some methods did depend on the season. In flood time on the lower Tully, people drove wallabies off the high ground into the water and killed them there. Agile wallabies graze in the late afternoon and rest through the heat of the day [ref:nesp-agile]. Roth recorded hunters in the far North-West Central districts using this habit, tracking kangaroos and creeping up on them 'during the extreme midday heat' while they rested in the shade [ref:roth1901]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Meat.** Wallaby and kangaroo were among the main meats. The dictionary has a rule about condition. *Jirrburr* is 'meat with no fat, an animal in poor condition. (This kind of animal will not be eaten)', and *kunukunu* is 'fat in food or fatty meat' [ref:hershberger1982]. A fat animal was the prize.\n\n**Sinew.** *Biyal* is 'gristle, sinew, string, blood vessel (especially wallaby tail sinew)' [ref:hershberger1982]. The long tail tendons made strong, fine cord. Roth recorded hunters on the Pennefather River pulling out a kangaroo's tail tendons first thing after the kill. At Princess Charlotte Bay, kangaroo-tail tendon bound the bone points onto fish-hooks [ref:roth1901].\n\n**Bone and teeth.** Kangaroo bone was used for barbs and points. Roth records it on Palmer River fish-hooks [ref:roth1901] and as the barb of Pennefather River spears [ref:roth1909]. On the Pennefather River the incisor teeth were saved for spokeshaves [ref:roth1901].\n\n**Pets.** On the Bloomfield, Roth noted that people were 'very fond of playing with young rats, bandicoots, wallabies, etc., as pets', tying them up at night [ref:roth1902]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How they were hunted and cooked",
+      "body": "Roth gives no step-by-step wallaby hunt for the Bloomfield itself. His notes there record *kalka* as the general Kuku Yalanji word for a spear [ref:roth1909], the dictionary's *kalka* 'fishing spear, also generic term for spear'. Spears were thrown with the woomera (*mumal* 'to throw a spear with a woomera') [ref:hershberger1982]. The neighbouring records below are labelled by place [ref:roth1901].\n\n**Spearing by stalking (Palmer River, Musgrave and inland of Princess Charlotte Bay, close to Western Yalanji country):**\n\n1. **Track** the kangaroo or wallaby **from downwind**, because it has a very keen nose for people.\n2. If it is in thick brush or too far off, **throw a spare spear** well over its head into the ground beyond. Smear that spear first with sweat from the armpits, so the wind carries the human smell past the animal.\n3. The animal moves away from the scent, **towards the hidden hunter**, who spears it.\n\n**Cage traps (Atherton):**\n\n1. Make **10–12 cylindrical basket-traps** (*yingkar*), each about 4–4½ ft long and 1 ft across, with a pointed end and a hood-shaped mouth.\n2. Lay them along **wallaby tracks** you have already noted, hood up, and hide the mouths with bushes and bark.\n3. Women and children **beat** a wide stretch of scrub, shouting and hooting.\n4. A hard-pressed wallaby runs **head down** along its usual track and jams itself into a cage. A hunter waiting nearby kills it.\n\n**Nets (Atherton):** a heavy net of *Sterculia quadrifida* fibre, about 16–18 ft between its side posts, set across the tracks from the mountains to the waterholes. Hunters shouted the kangaroos into it and speared them as they tangled. One net took the whole camp about three weeks to make.\n\n**Pits (Cape Grafton, Cairns, Atherton):** a pit 6–8 ft wide and up to 2½ ft deep, roofed with cross-sticks, grass and soil to look like the ground around it, dug to break the animal's leg.\n\n**Fire drive (Cape Bedford, Guugu Yimithirr country):** the whole camp lights a **line of grass fires up to a mile long**, if possible running up to a hilltop. The men then form a line and circle round, spearing the kangaroos caught between them and the fire.\n\n**Floods and dogs (lower Tully):** drive wallabies off high ground into floodwater and kill them with sticks and spears, or hunt them with dogs.\n\n**Cooking.** On the **Bloomfield**, meat went into the stone **earth oven** (*kurrma*) [ref:roth1901] [ref:hershberger1982]:\n\n1. Heat stones in a fire, then rake them and the ashes aside and **dig a hole** where the fire was.\n2. Line it with **ginger leaves**.\n3. Lay in the **meat**, packing the **hot stones and ashes** among it.\n4. Cover with more leaves or **tea-tree bark**, then **earth and stones**.\n\nOn the **Pennefather River**, a whole kangaroo was baked rather than cut up. Hunters pulled the tail tendons, dislocated the leg joints so the limbs could fold, skewered the tongue over the front teeth to protect them, cut the belly and removed the guts, filled the cavity with **hot stones**, tied the folded animal up in bark and buried it in hot ashes [ref:roth1901]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**Big kangaroos can hurt you.** Large males may look placid but 'can be aggressive towards people', and both sexes are 'large, powerful, wild animals that are capable of inflicting injury', using their hind legs and tails [ref:qld-kangaroos]. Don't approach them. If one attacks, drop to the ground, curl up or lie face down, and protect your head and neck with your arms [ref:qld-kangaroos].\n\n**Fire.** A grass fire in dry-season woodland can run out of control, and recognised native title rights over some Western Yalanji areas expressly exclude lighting fires 'for the purpose of hunting' (see below) [ref:brady2013].\n\n**Condition of the meat.** Follow the old rule. A lean animal in poor condition (*jirrburr*) is not eaten [ref:hershberger1982]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Kangaroos and wallabies are protected native animals in Queensland. It is an offence for others to harm or kill them without a permit, with fines from $431 to $23,700 [ref:qld-kangaroos]. Taking any native wildlife needs a licence or permit [ref:qld-nca].\n\n**Native title.** Section 211 of the *Native Title Act 1993* protects native title holders who hunt for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. The 2007 Eastern Kuku Yalanji determination recognises rights to hunt animals but not for trade or commerce [ref:walker2007]. The 2013 Western Yalanji determinations recognise non-exclusive rights to 'hunt, fish and gather on the land and waters of the area for personal, domestic and non-commercial communal purposes' [ref:brady2013]. The same orders set limits that matter for wallaby hunting. On those areas the fire right is to 'light fires … for domestic purposes including cooking, but not for the purpose of hunting or clearing vegetation'. Hunting with firearms on a pastoral lease may only happen where stock are not present and after giving the lessee enough notice to deal with safety [ref:brady2013].\n\nIn the rainforest, the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back to the Eastern Kuku Yalanji in 2021. They are jointly managed with the Queensland Government until Traditional Owners take over sole management [ref:handback2021]. On Kuku Yalanji country, whether Eastern or Western, permission to come onto country and to hunt comes from the Traditional Owners [ref:walker2007]. Visitors and station guests must ask first."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "Hunting words: *karangaji* 'stalk'; *balbi* 'hunt for, search for'; *mumal* 'to throw a spear with a woomera'; *mungkil* 'spear to kill'; *kalka* 'fishing spear, also generic term for spear'; *mirrba* 'woomera'; *ngalku* 'bush fire'; *kaya* 'dog'; *biyal* 'sinew (especially wallaby tail sinew)'; *jirrburr* 'an animal in poor condition'; *kurrma* 'earth oven' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": ["spear-and-woomera", "firestick", "earth-oven", "lawyer-cane"],
+  "relatedWords": [
+    { "word": "karangaji", "gloss": "stalk" },
+    { "word": "balbi", "gloss": "hunt for, search for" },
+    { "word": "mumal", "gloss": "to throw a spear with a woomera" },
+    { "word": "mungkil", "gloss": "spear to kill" },
+    { "word": "kalka", "gloss": "fishing spear, also generic term for spear" },
+    { "word": "ngalku", "gloss": "bush fire" },
+    { "word": "biyal", "gloss": "gristle, sinew, string, blood vessel (especially wallaby tail sinew)" },
+    { "word": "jirrburr", "gloss": "meat with no fat, an animal in poor condition. (This kind of animal will not be eaten)" },
+    { "word": "kunukunu", "gloss": "fat in food or fatty meat" },
+    { "word": "kurrma", "gloss": "earth oven" }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from K. and R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 3 'Food in season', sect. 6 'Cooking', sect. 31 'Kangaroos', sect. 32 'Wallabies'; fish-hooks section"
+    },
+    {
+      "id": "roth1901-b2",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 2: The structure of the Koko-Yimidir language. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Vocabulary, mammals"
+    },
+    {
+      "id": "roth1902",
+      "citation": "Roth, W. E. (1902). North Queensland Ethnography, Bulletin No. 4: Games, sports and amusements. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 4 'Realistic games (animals)'"
+    },
+    {
+      "id": "roth1909",
+      "citation": "Roth, W. E. (1909). North Queensland Ethnography, Bulletin No. 13: Fighting weapons. Records of the Australian Museum 7.",
+      "url": "https://archive.org/details/biostor-52873",
+      "locator": "Sect. 4 (Princess Charlotte Bay, Cape Bedford, Bloomfield and Middle Palmer spears)"
+    },
+    {
+      "id": "nesp-agile",
+      "citation": "Threatened Species Recovery Hub (NESP). Arid Zone Monitoring species profile: Agile wallaby, Notamacropus agilis.",
+      "url": "https://www.nespthreatenedspecies.edu.au/media/ls3jimz1/azm_species-profile_agile-wallaby_v2.pdf"
+    },
+    {
+      "id": "wtma-treeroo",
+      "citation": "Wet Tropics Management Authority. Tree-kangaroos.",
+      "url": "https://www.wettropics.gov.au/tree-kangaroos"
+    },
+    {
+      "id": "qpws-daintree",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history — Daintree National Park (CYPAL).",
+      "url": "https://parks.qld.gov.au/parks/daintree/about/culture"
+    },
+    {
+      "id": "ala",
+      "citation": "Atlas of Living Australia. Occurrence records for Notamacropus agilis, Macropus giganteus, Osphranter robustus and Osphranter antilopinus within 60 km of the Mitchell River west of Mt Carbine, queried 5 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Notamacropus%20agilis%22"
+    },
+    {
+      "id": "qld-kangaroos",
+      "citation": "Queensland Government. Living with wildlife: Kangaroos and wallabies.",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/kangaroos"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "walker2007",
+      "citation": "Walker on behalf of the Eastern Kuku Yalanji People v State of Queensland [2007] FCA 1907 (Federal Court of Australia, 9 December 2007).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2007/2007fca1907"
+    },
+    {
+      "id": "alrc-s211",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "handback2021",
+      "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
+      "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    }
+  ],
+  "review": { "status": "unreviewed" },
+  "updated": "2026-10-05"
+}

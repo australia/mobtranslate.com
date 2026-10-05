@@ -1,0 +1,144 @@
+{
+  "slug": "goanna",
+  "title": "Goanna",
+  "category": "reptile",
+  "names": [
+    { "word": "kalajarr", "gloss": "scrub goanna" },
+    { "word": "walkarr", "gloss": "black scrub goanna" },
+    { "word": "jadi", "gloss": "sand goanna. Only old people are allowed to eat it.", "note": "The food rule is part of the dictionary entry." }
+  ],
+  "scientificName": "Varanus spp.",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary distinguishes the goannas by country and colour, not by species. Kalajarr 'scrub goanna' and walkarr 'black scrub goanna' are most likely forms of the lace monitor (Varanus varius), the big goanna of the rainforest and forest. Jadi 'sand goanna' is most likely Gould's sand goanna (Varanus gouldii) or the similar yellow-spotted goanna (V. panoptes) of dry, sandy country. Which exact species each word covers is not settled."
+  },
+  "countryTypes": ["rainforest", "open-woodland", "river-freshwater"],
+  "summary": "Kuku Yalanji names three goannas: **kalajarr**, the scrub goanna; **walkarr**, the black scrub goanna; and **jadi**, the sand goanna. Of jadi the dictionary says plainly: 'Only old people are allowed to eat it' [ref:hershberger1982]. Roth called goannas 'iguanas'. He recorded them speared in the open or dug out of hollow logs and burrows [ref:roth1901]. On the Bloomfield River he noted that old men could set food restrictions and sometimes relaxed them for young men when food was scarce [ref:roth1908]. The lace monitor of the forests grows to about 1.5 m and is a skilled tree-climber [ref:wtma-monitors]. Sand goannas dig deep burrows in dry country [ref:nesp-sandgoanna], the kind of country found inland on **Western Yalanji** land, where the Atlas of Living Australia records lace monitors and other goannas [ref:ala].",
+  "infobox": [
+    { "label": "Kuku Yalanji", "value": "kalajarr (scrub goanna), walkarr (black scrub goanna), jadi (sand goanna)" },
+    { "label": "Likely species", "value": "lace monitor (Varanus varius); Gould's sand goanna (V. gouldii) or yellow-spotted goanna (V. panoptes)" },
+    { "label": "Size", "value": "Lace monitor up to about 1.5 m; sand goanna well over 1 m" },
+    { "label": "Where", "value": "Scrub goannas: rainforest and open forest. Sand goanna: dry, sandy woodland" },
+    { "label": "Food rule", "value": "jadi: only old people are allowed to eat it" },
+    { "label": "Danger", "value": "Sharp teeth and claws; bites bleed heavily" }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives **kalajarr** 'scrub goanna', **walkarr** 'black scrub goanna' and **jadi** 'sand goanna. Only old people are allowed to eat it' [ref:hershberger1982]. It also gives *wangku*, 'small tree or wood goanna' [ref:hershberger1982]. Roth, writing in English, called all of these animals 'iguanas', the old Queensland bush word for goannas [ref:roth1901]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "**Lace monitor** (probably *kalajarr* and *walkarr*). A big goanna, up to about one and a half metres long. It spends much of its time in trees and is a major raider of birds' nests. It also eats reptiles, small mammals, large insects, carrion and food scraps. Lace monitors sometimes saunter through campgrounds looking for food, but if startled they run straight up the nearest tree [ref:wtma-monitors].\n\n**Sand goanna** (probably *jadi*). A large goanna, well over a metre long, light yellow to blackish-brown with dense dark speckles and pale spots. A dark stripe runs back from the eye, and the tail is banded with a pale yellow tip [ref:nesp-sandgoanna]. It digs large burrows for shelter and also uses rock crevices, hollow logs and thick litter. It eats other animals, alive or dead [ref:nesp-sandgoanna]. Trackers read its footprints and tail mark, its diggings and its burrow entrances [ref:nesp-sandgoanna]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they live",
+      "body": "The 'scrub' goannas belong to the forest. The lace monitor is the big monitor of the Wet Tropics, at home on the ground and in the trees [ref:wtma-monitors]. Kalajarr and walkarr are rainforest and forest animals of Eastern Kuku Yalanji country.\n\nThe sand goanna is an animal of drier, sandier country. It lives across many habitats of arid and semi-arid Australia, likes warm places with sandy, low-clay soils, and digs large burrows [ref:nesp-sandgoanna].\n\n**Western Yalanji country.** The dry open woodland, sandy creek beds and river flats of the Mitchell River country around Mt Carbine and Karma Waters are goanna country. The Atlas of Living Australia holds records of lace monitors and black-headed monitors from the Mitchell River country west of Mt Carbine, and the yellow-spotted goanna has been recorded in the wider area [ref:ala]. Look for goanna tracks and fresh diggings along sandy banks in the warm part of the day."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Food.** Goannas were good meat, and Roth recorded them taken across North Queensland [ref:roth1901]. Goanna fat had its own uses. On the middle Palmer River, close to Western Yalanji country, Roth recorded a honey-hunting trick. A native bee was caught and its body smeared with 'iguana or snake-fat' with a little feather-down stuck on. It was then let go and followed home to its nest [ref:roth1901].\n\n**Food rules.** The rule for **jadi** is printed in the dictionary: 'Only old people are allowed to eat it' [ref:hershberger1982]. The dictionary records the same rule for a small freshwater eel, *mawul*, and for the stingray, *yawu*, 'long ago' [ref:hershberger1982]. Kuku Yalanji has words for these restrictions, *jalbayn* 'food taboo' and *jabul* 'taboo' [ref:hershberger1982]. On the Bloomfield, Roth (who wrote the word *tcha-bul*) recorded that food restrictions were 'often relaxed by some of the very old men in favour of the young males when food happens to be extra scarce'. More generally, he noted that old men could place a ban on any food they wished to keep for themselves when it was scarce [ref:roth1908]. Among the lower Tully River people, the 'iguana' was one of the land foods forbidden to young people [ref:roth1908]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How they were hunted and cooked",
+      "body": "Roth's general account is that goannas 'are speared, out in the open, or else hunted for in hollow logs, or in their burrows' [ref:roth1901]. His most detailed notes come from **Princess Charlotte Bay**, north of Kuku Yalanji country [ref:roth1901]:\n\n1. **Read the tracks.** Hunters there could always tell from the tracks whether a goanna was inside its burrow or not.\n2. **Know the burrow's habits.** A goanna goes into one of its burrow holes at sundown and closes it behind it. Next morning it comes out by a different opening, and each day it uses another of the many openings. It may go back in during the hottest part of the day.\n3. **Check a log before cutting.** If a hollow log may hold a goanna, push a lawyer-cane prodder into the hollow, both to feel for the animal and to measure how far in it is.\n4. **Cut in** from the outside at the right spot and take it out.\n5. In the open, **spear** it (*damal* 'to spear').\n\nFor **cooking**, the simplest way was to lay the meat on and in the hot ashes [ref:roth1901] (*dindal* 'to roast on coals') [ref:hershberger1982]. Larger amounts could go in the Bloomfield stone **earth oven** (*kurrma*): stones heated in a fire, a hole dug where the fire was, ginger leaves underneath, meat with hot stones and ashes packed in, then leaves or tea-tree bark and earth on top [ref:roth1901] [ref:hershberger1982]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**Goannas bite.** A startled lace monitor will usually run up the nearest tree [ref:wtma-monitors], so give a goanna room to get away and never grab one. Bites bleed badly. Monitor-lizard saliva contains toxins, and 'bite victims of varanid lizards often report persistent bleeding exceeding that expected for the mechanical damage of the bite'. Lace monitor toxin has been shown to stop blood platelets clumping [ref:dobson2019]. Clean any goanna bite well and get medical help for deep wounds.\n\n**Cane toads.** In the tropics goannas can be poisoned by eating cane toads [ref:nesp-sandgoanna]. A goanna found dead or dying for no clear reason should not be eaten.\n\n**Food rules.** Keep the old rule. *Jadi*, the sand goanna, is for old people [ref:hershberger1982]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Goannas are protected native animals in Queensland, and anyone else needs a licence or permit to take them [ref:qld-nca]. They are under pressure from cane toads in the tropics [ref:nesp-sandgoanna].\n\nSection 211 of the *Native Title Act 1993* protects native title holders who hunt for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. The 2007 Eastern Kuku Yalanji determination recognises rights to hunt animals but not for trade or commerce [ref:walker2007]. In 2021 the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back to Eastern Kuku Yalanji and are jointly managed with the Queensland Government [ref:handback2021]. On Western Yalanji country, around the Palmer and Mitchell rivers north-west of Mt Carbine, the 2013 determinations recognise rights to hunt, fish and gather for personal, domestic and non-commercial communal purposes. Firearms may be used on a pastoral lease only where there are no stock and after giving the lessee notice [ref:brady2013]. Permission to come onto country belongs to the Traditional Owners [ref:walker2007]. Visitors should ask first."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*kalajarr* 'scrub goanna'; *walkarr* 'black scrub goanna'; *jadi* 'sand goanna'; *wangku* 'wood goanna'; *marri-marri* 'old people'; *jalbayn* 'food taboo'; *janku* 'hole in the ground'; *walmba* 'log'; *damal* 'to spear'; *dindal* 'to roast on coals' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": ["spear-and-woomera", "earth-oven", "lawyer-cane", "saltwater-crocodile"],
+  "relatedWords": [
+    { "word": "wangku", "gloss": "small tree or wood goanna" },
+    { "word": "jalbayn", "gloss": "food taboo" },
+    { "word": "jabul", "gloss": "taboo" },
+    { "word": "marri-marri", "gloss": "old people" },
+    { "word": "janku", "gloss": "hole in the ground" },
+    { "word": "walmba", "gloss": "log" },
+    { "word": "damal", "gloss": "to spear" },
+    { "word": "dindal", "gloss": "to roast on coals" }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from K. and R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking', sect. 11 'Bees (honey)', sect. 20 'Iguanas'"
+    },
+    {
+      "id": "roth1908",
+      "citation": "Roth, W. E. (1908). North Queensland Ethnography, Bulletin No. 11: Miscellaneous papers. Part 1, Tabu and other forms of restriction. Records of the Australian Museum 7.",
+      "url": "https://archive.org/details/biostor-52896",
+      "locator": "Part 1, Tabu, paras 1–6"
+    },
+    {
+      "id": "wtma-monitors",
+      "citation": "Wet Tropics Management Authority. Dragons and monitors.",
+      "url": "https://www.wettropics.gov.au/dragons-and-monitors"
+    },
+    {
+      "id": "nesp-sandgoanna",
+      "citation": "Threatened Species Recovery Hub (NESP). Arid Zone Monitoring species profile: Gould's goanna, sand goanna, Varanus gouldii.",
+      "url": "https://www.nespthreatenedspecies.edu.au/media/dh2gsdm0/azm_species-profile_gould-s_sand-goanna_v1.pdf"
+    },
+    {
+      "id": "dobson2019",
+      "citation": "Dobson, J. S., Zdenek, C. N., Hay, C., Violette, A., Fourmy, R., Cochran, C. & Fry, B. G. (2019). Varanid lizard venoms disrupt the clotting ability of human fibrinogen through destructive cleavage. Toxins 11(5): 255.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6563220/"
+    },
+    {
+      "id": "ala",
+      "citation": "Atlas of Living Australia. Occurrence records for Varanus varius, V. tristis and V. panoptes within 60 km of the Mitchell River west of Mt Carbine, queried 5 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Varanus%20varius%22"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc-s211",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "walker2007",
+      "citation": "Walker on behalf of the Eastern Kuku Yalanji People v State of Queensland [2007] FCA 1907 (Federal Court of Australia, 9 December 2007).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2007/2007fca1907"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "handback2021",
+      "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
+      "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+    }
+  ],
+  "review": { "status": "unreviewed" },
+  "updated": "2026-10-05"
+}

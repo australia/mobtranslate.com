@@ -1,0 +1,245 @@
+{
+  "slug": "firestick",
+  "title": "Firestick and fire",
+  "category": "fire",
+  "names": [
+    {
+      "word": "jimal",
+      "gloss": "fire stick"
+    },
+    {
+      "word": "jimal damal",
+      "gloss": "to make fire with a fire stick"
+    },
+    {
+      "word": "dama-murnil",
+      "gloss": "twirl a fire drill"
+    },
+    {
+      "word": "baya",
+      "gloss": "flame, fire; firewood",
+      "note": "The dictionary gives 'baya wayu' for 'light a fire'."
+    },
+    {
+      "word": "kunjin",
+      "gloss": "fire"
+    },
+    {
+      "word": "jirramar",
+      "gloss": "chips, small sticks to start a fire"
+    },
+    {
+      "word": "ngunjil",
+      "gloss": "charcoal; hot coals or hot ashes"
+    },
+    {
+      "word": "kubu",
+      "gloss": "smoke"
+    },
+    {
+      "word": "ngalku",
+      "gloss": "bush fire"
+    },
+    {
+      "word": "miyilkura",
+      "gloss": "smouldering log"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary gives jimal 'fire stick' and jimal damal 'to make fire with a fire stick'. Roth (1904) recorded the Bloomfield River Koko-yellanji name for fire-sticks as tchi-mal, an older English-based spelling of the same word."
+  },
+  "countryTypes": [
+    "camp",
+    "open-woodland",
+    "rainforest"
+  ],
+  "summary": "The **jimal** is the fire drill: two sticks, one twirled upright between the palms against the other until the wood dust smoulders and lights a pinch of tinder [ref:hershberger1982] [ref:roth1904]. Roth recorded it on the Bloomfield River as *tchi-mal* (his 1904 spelling). He noted that there, unusually, women could carry fire-sticks on hunting trips [ref:roth1904]. Once fire, **baya** or **kunjin**, was made, it was kept going with a smouldering log, **miyilkura**, and fed with chips, **jirramar** [ref:hershberger1982]. It was used for cooking, light and warmth, and set across the country to hunt and to keep the land in good order [ref:roth1901] [ref:newsport].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "jimal (fire stick); baya, kunjin (fire)"
+    },
+    {
+      "label": "Roth's spellings",
+      "value": "tchi-mal (Bloomfield River), mannimbal (Butcher's Hill), 1904"
+    },
+    {
+      "label": "Method",
+      "value": "Hand drill: a vertical stick twirled on a flat horizontal piece"
+    },
+    {
+      "label": "Woods",
+      "value": "Grass-tree most widely; Premna, cotton-tree, Clerodendrum and others by district"
+    },
+    {
+      "label": "Tinder",
+      "value": "Fine dry grass, pith dust, grass-tree tops"
+    },
+    {
+      "label": "Law today",
+      "value": "Fires over 2 m need a Permit to Light Fire (Fire Services Act 1990, Qld)"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Jimal** is the fire stick. **Jimal damal** is 'to make fire with a fire stick', and **dama-murnil** is 'twirl a fire drill' [ref:hershberger1982]. Roth wrote the Bloomfield name as *tchi-mal* and the Butcher's Hill name as *mannimbal* (his 1904 spellings) [ref:roth1904].\n\nFire itself is **baya**, which also means flame and firewood, or **kunjin** [ref:hershberger1982]. The dictionary has a full set of words for a fire's life: **jirramar**, chips and small sticks to start it; **dalngarri**, flames which make light; **ngunjil**, charcoal, hot coals or hot ashes; **kubu**, smoke; **nulu**, ashes; **miyilkura**, a smouldering log; and **nyunil**, to put a fire out [ref:hershberger1982]. Out on the land, **ngalku** is a bush fire and **duli** a burnt patch of grass [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "Roth described two kinds of fire drill in North Queensland [ref:roth1904].\n\n**The long pair.** Across the Peninsula and the far west, both sticks are thin wands of the same wood, two to four or more feet long. In the Peninsula they were kept, not thrown away, and their working ends were protected by a cap. On the Batavia, Pennefather and Embley rivers the cap was a piece of pandanus leaf bound with twine and sealed with warmed beeswax [ref:roth1904].\n\n**The short, unlike pair.** From below the Endeavour River south to the Herbert, with its hinterland, the two sticks differ. The upright drill is a thin wand up to 15 inches long. The hearth is a flattened oval piece 8 to 12 inches long. For carrying, the pair was wrapped parcel-fashion in paperbark and kept in a man's dilly-bag [ref:roth1904]. The Bloomfield lies inside this area.\n\nThe drill's hearth slowly wears a round, blackened hollow. An old hollow could be used again and again until it burnt right through [ref:roth1904]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the materials come from",
+      "body": "Fire-sticks were usually named after the timber they were made of [ref:roth1904]. The woods Roth lists, with the district for each:\n\n- **Grass-tree** (*Xanthorrhoea*): 'the most common of all, and utilised wherever available' [ref:roth1904]. Kuku Yalanji **nganjirr** is the grass tree [ref:hershberger1982].\n- ***Premna dallachyana***: from the Endeavour River north to Princess Charlotte Bay. Said to stand up to the wet season much better than grass-tree sticks [ref:roth1904].\n- **Cotton-tree** (*Hibiscus tiliaceus*) for the drill, and *Mollinedia*, *Cryptocarya murrayi* or a split length of lawyer cane for the hearth, on the lower Tully River [ref:roth1904].\n- ***Clerodendrum inerme*** (Roth's *Clerodendron inerme*): Pennefather River, on the west coast of Cape York [ref:roth1904]. His plant list also marks it 'timber for firesticks' [ref:roth1901].\n- ***Erythrina vespertilio*** (bat's-wing coral tree): 'timber for firesticks', Pennefather River [ref:roth1901].\n- ***Psychotria*** species: on the Mitchell River, the river of Western Yalanji country, from E. Palmer's report [ref:roth1904].\n\nFor tinder Roth lists fine dried grass, pith dust and bits of the prickly tops of the grass-tree [ref:roth1904]. With grass-tree used 'wherever available' and *Psychotria* recorded on the Mitchell, the drill was as much a tool of the dry inland country as of the coast [ref:roth1904]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Carrying fire.** Fire was carried as much as made. On the Keppel Islands, people carried grass-tree sticks alight because they smouldered slowly and saved making a new fire. Roth found that women never carried the fire-sticks, with one exception. On the Bloomfield in the old days, women might carry them on hunting expeditions [ref:roth1904]. A **miyilkura**, smouldering log, kept a camp fire alive [ref:hershberger1982].\n\n**Cooking, light and warmth.** Kuku Yalanji **jakalambal** means both 'start a fire' and 'start to cook food' [ref:hershberger1982]. **Jidi** is a torch of paperbark [ref:hershberger1982]. See the earth-oven entry for cooking.\n\n**Fire on the land.** Fire was a hunting tool. At Cape Bedford, among the Guugu Yimithirr neighbours north of Kuku Yalanji country, the whole camp would light a line of bush fires up to a mile long, running up a hill if possible. The men then spread out in a line and speared the kangaroos caught between them and the fire [ref:roth1901]. Roth also quotes Cook on the Endeavour River: the people could be traced 'by the fires which they kindled in their way' [ref:roth1901]. Eastern Kuku Yalanji people used cultural burning to keep the land healthy for thousands of years before colonisation [ref:newsport].\n\n**Working wood.** Charring in the fire hardened digging sticks and fighting poles. Red-hot cinders were laid in a hollow and blown on to burn out the socket of a spear or the bowl of a dug-out water-carrier [ref:roth1904]. The wattle turtle-spear point **kurrajan** was put in the fire until it was hard enough to pierce a turtle shell [ref:hershberger1982]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How fire was made with the drill",
+      "body": "From Roth's account of twirling, which opens with Captain Cook's description from the Endeavour River [ref:roth1904]:\n\n1. **Choose dry, soft wood.** Shape the upright stick, about 8 or 9 inches long in Cook's account, to a blunt point at one end. The hearth piece is flat.\n2. **Start a hollow.** Punch a small hollow near the edge of the hearth with a sharp stone so the drill will not slip off. A split length of lawyer cane or grass-tree gives a ready flat surface. An old hollow can be used again until it burns through.\n3. **Prime a new hollow** with a little charcoal dust (**ngunjil**).\n4. **Lay the tinder.** Pile a pinch of fine dry grass, pith dust or prickly grass-tree tops on a leaf or the ground, touching the edge of the hollow. On a windy day, cut a small nick from the hollow to the edge of the hearth to lead the hot dust onto the tinder.\n5. **Twirl** (**dama-murnil**). Hold the drill upright between the flats of both hands and spin it fast, pressing down hard. Keep shifting your hands up and running them down the stick to keep up the pressure. Cook says people got fire this way 'in less than two minutes'.\n6. **Watch the dust.** The fine wood dust gathers in a little heap at the mouth of the hollow. It heats, blackens and smokes until a spark forms in it and touches the tinder.\n7. **Bring it to flame.** Whip the tinder up in a bunch of dry grass, swing it round in the air and blow on it until it bursts into flame.\n8. **Build the fire.** Feed it with **jirramar**, chips and small sticks, then **baya**, firewood [ref:hershberger1982].\n9. **Keep it.** Bank the coals, keep a smouldering log going, or carry a glowing grass-tree stick to the next camp [ref:hershberger1982] [ref:roth1904].\n\nThe only other method Roth knew in Queensland, sawing one stick across another, he saw only on the upper Georgina River in the far west [ref:roth1904]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "Fire burns and spreads. Make fire on bare ground, away from dry grass, with water at hand. Never leave a fire unattended. Grass-tree tops and dry tinder flare suddenly. Hard twirling raises blisters, so toughen your hands gradually.\n\nDo not burn or roast **jinjay**, the poison nut. The dictionary warns that its smoke is poisonous when the nut is roasted [ref:hershberger1982]. Smoke from any wood is hard on the lungs in a closed shelter.\n\nOutside the small-fire allowance, lighting a fire without a permit is against the law in Queensland, and no fire may be lit during a fire ban [ref:qfd]. In national parks, camp fires are allowed only in QPWS fireplaces, fire rings or existing fire sites. Firewood must not be collected [ref:parks]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Lighting fires outdoors in Queensland is controlled by the *Fire Services Act 1990*. Fires smaller than 2 metres in any dimension may be lit without a permit if adequate precautions are taken. All other fires need a **Permit to Light Fire** from the local Fire Warden, which is free [ref:qfd]. Section 211 of the *Native Title Act 1993* protects native title holders' hunting, gathering, fishing and cultural or spiritual activities from licence and permit requirements when done for personal, domestic or non-commercial communal needs [ref:alrc]. On the Eastern Kuku Yalanji Indigenous Protected Area and the Daintree-area national parks, the Eastern Kuku Yalanji rangers carry out the Jabalbina Fire Management Plan with QPWS and Queensland Rural Fires [ref:ekyrangers].\n\nOn Eastern Kuku Yalanji country, the national parks handed back in 2021 are jointly managed with the Queensland Parks and Wildlife Service [ref:nit2021]. Jabalbina Yalanji Aboriginal Corporation and the Wet Tropics Management Authority are setting up a cultural burning project, *Return to Country Bama on Bubu*. It combines Traditional Owner knowledge with fire science to reduce bushfire risk, restore fire-dependent ecosystems and support cultural stewardship [ref:newsport]. On Western Yalanji country, the 2026 determination recognises rights to access and camp on Country, alongside pastoral and mining interests [ref:nit2026]. Visitors need the Traditional Owners' permission, and the landholder's on a station, before lighting any fire."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "The dictionary records that the mountain lizard **jimalili** taught people how to use the firestick [ref:hershberger1982]. Other words: **jirra-kangal** 'to start a fire'; **waju-l** 'to cook, burn, or light (a fire)'; **wula** 'flames' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "earth-oven",
+    "spear-and-woomera",
+    "paperbark",
+    "lawyer-cane",
+    "native-bees"
+  ],
+  "relatedWords": [
+    {
+      "word": "jimalili",
+      "gloss": "mountain lizard"
+    },
+    {
+      "word": "dalngarri",
+      "gloss": "flames which make light"
+    },
+    {
+      "word": "nulu",
+      "gloss": "ashes"
+    },
+    {
+      "word": "nyunil",
+      "gloss": "extinguish, or to put a fire or light out"
+    },
+    {
+      "word": "duli",
+      "gloss": "burnt patch of grass"
+    },
+    {
+      "word": "jakalambal",
+      "gloss": "start a fire, start to cook food"
+    },
+    {
+      "word": "jirra-kangal",
+      "gloss": "to start a fire"
+    },
+    {
+      "word": "waju-l",
+      "gloss": "To cook, burn, or light (a fire)"
+    },
+    {
+      "word": "wula",
+      "gloss": "flames"
+    },
+    {
+      "word": "jidi",
+      "gloss": "paperbark tree bark torch"
+    },
+    {
+      "word": "nganjirr",
+      "gloss": "grass tree"
+    },
+    {
+      "word": "jinjay",
+      "gloss": "poison nut tree. The smoke is poisonous when roasting the nut."
+    },
+    {
+      "word": "kurrajan",
+      "gloss": "a spear point made from wattle and used for turtle spearing"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Plant list ('Clerodendron inerme', 'Erythrina vespertilio'); kangaroo hunting by fire, Cape Bedford"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sects. 2–9: treatment of timber; fire by twirling and sawing; names of fire-sticks"
+    },
+    {
+      "id": "qfd",
+      "citation": "Queensland Fire Department. Fire permits: lighting fires in Queensland.",
+      "url": "https://fire.qld.gov.au/safety-education/using-fire-outdoors/lighting-fires-in-queensland"
+    },
+    {
+      "id": "parks",
+      "citation": "Queensland Parks and Wildlife Service. Camping: legal requirements.",
+      "url": "https://parks.qld.gov.au/camping/legal-requirements"
+    },
+    {
+      "id": "newsport",
+      "citation": "Newsport (July 2026). Kuku Yalanji to rekindle cultural-burning regime.",
+      "url": "https://www.newsport.com.au/2026/july/kuku-yalanji-to-rekindle-cultural-burning-regime?type=55423"
+    },
+    {
+      "id": "ekyrangers",
+      "citation": "Queensland Government. Land and Sea Rangers: Wujal Wujal (Eastern Kuku Yalanji Rangers, Jabalbina Yalanji Aboriginal Corporation).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/conservation/community/land-sea-rangers/locations/wujal-wujal"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "nit2021",
+      "citation": "National Indigenous Times (1 October 2021). Daintree Rainforest handed back to Eastern Kuku Yalanji people.",
+      "url": "https://nit.com.au/01-10-2021/2393/daintree-rainforest-handed-back-to-eastern-kuku-yalanji-people"
+    },
+    {
+      "id": "nit2026",
+      "citation": "National Indigenous Times (13 August 2026). Western Yalanji determination brings Cape York native title 'to the finish line'.",
+      "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}

@@ -1,0 +1,239 @@
+{
+  "slug": "earth-oven",
+  "title": "Earth oven",
+  "category": "food",
+  "names": [
+    {
+      "word": "kurrma",
+      "gloss": "earth oven"
+    },
+    {
+      "word": "bangkal",
+      "gloss": "tongs made from voya vine, used in cooking in a kurrma - an earth oven"
+    },
+    {
+      "word": "dukul-dukul",
+      "gloss": "broad-leafed bush that can be used as cover for a dirt oven, kurrma."
+    },
+    {
+      "word": "jidu",
+      "gloss": "species of wild fruit in scrub, a bushy plant, with long leaves, ripe in March. These leaves are also used to line a dirt oven (kurrma)"
+    },
+    {
+      "word": "dindal",
+      "gloss": "to roast on coals"
+    },
+    {
+      "word": "wayjul",
+      "gloss": "to cook food; to burn something"
+    },
+    {
+      "word": "waju-l",
+      "gloss": "To cook, burn, or light (a fire); also 'boil'."
+    },
+    {
+      "word": "nyamal",
+      "gloss": "to boil"
+    },
+    {
+      "word": "muyu wayjul",
+      "gloss": "singeing the hair of the pig before cooking"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary gives kurrma 'earth oven'. Roth (1901) describes the stone ground-oven of the Bloomfield River and Cape Bedford and gives the Koko-yellanji word for its heated stones as 'kurma'. The lining plant jidu is probably Roth's Bloomfield 'jeddo', the wild ginger Elettaria scottiana (now Hornstedtia scottiana, still called jiddo), since Roth says Bloomfield ovens were lined with ginger leaves."
+  },
+  "countryTypes": [
+    "camp",
+    "rainforest",
+    "open-woodland",
+    "river-freshwater"
+  ],
+  "summary": "The **kurrma** is the earth oven: a pit of hot stones, lined and covered with leaves, then sealed with earth [ref:hershberger1982]. On the Bloomfield River and at Cape Bedford, Roth recorded that the stones were heated in a fire and pulled out with the ashes. A hole was dug where the fire had been and lined with ginger leaves, and the food was packed in among the hot stones. It was then covered with more leaves or tea-tree bark and finally with earth and stones [ref:roth1901]. The hot stones were handled with **bangkal**, tongs of bent cane [ref:hershberger1982] [ref:roth1904]. The oven baked meat, yams and the poisonous nuts that had to be cooked before leaching. On the Bloomfield, yams took about four hours [ref:roth1901].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kurrma (earth oven)"
+    },
+    {
+      "label": "Roth's spelling",
+      "value": "kurma (the oven stones, Bloomfield River, 1901)"
+    },
+    {
+      "label": "Lining",
+      "value": "jidu leaves (wild ginger); tea-tree bark"
+    },
+    {
+      "label": "Cover",
+      "value": "dukul-dukul leaves, tea-tree bark, then earth and stones"
+    },
+    {
+      "label": "Tools",
+      "value": "bangkal (cane tongs), digging stick"
+    },
+    {
+      "label": "Typical time",
+      "value": "About four hours for yams on the Bloomfield"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Kurrma** is the earth oven [ref:hershberger1982]. Roth's Bloomfield record, in his English-based 1901 spelling, gives *kurma* for the stones heated for it [ref:roth1901]. The dictionary also names the things used with it. **Bangkal** are tongs 'made from voya vine, used in cooking in a kurrma'. **Dukul-dukul** is a broad-leafed bush used as the oven's cover. **Jidu** is a scrub plant whose long leaves line the oven [ref:hershberger1982].\n\nThe cooking verbs are **wayjul** or **waju-l** 'to cook, burn', **dindal** 'to roast on coals', **nyamal** 'to boil' and **muyu wayjul** 'singeing the hair of the pig before cooking' [ref:hershberger1982]. Food that is **jani** is 'well cooked, done', and food that is **jirra** is burnt [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "An earth oven bakes and steams food with stored heat. Stones heated in an open fire are buried with the food in a leaf-lined pit and sealed in with earth. Roth found the method 'varies slightly in the different districts'. Where there were no stones, chunks of ant-bed (termite mound) were heated instead [ref:roth1901]. Seeds of the waterlily were likewise baked in their pods in 'ovens' of stones or pieces of ant-bed, covered with strips of tea-tree bark, ashes and sand [ref:roth1901]. This is a method for open termite-mound country like the inland woodland of Western Yalanji country. Kuku Yalanji names both a small ant bed, **kabay**, and a large one, **jawurraji** [ref:hershberger1982].\n\nRoth says the Bloomfield ovens were lined with 'various species of ginger' [ref:roth1901]. In his Bloomfield plant list the wild ginger *Elettaria scottiana* is called *jeddo* (Roth's spelling) [ref:roth1901]. That plant is now *Hornstedtia scottiana*, Scott's ginger, still known in English as **jiddo**. It is a large ginger 2–4 m tall with lance-shaped leaves 40–70 cm long, growing in lowland rainforest [ref:rfkginger]. This fits the dictionary's description of jidu as a bushy scrub plant with long leaves used to line a kurrma [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the materials come from",
+      "body": "- **Stones**: any stones that will take heat. In the Endeavour River district, around the Annan, people used the stone heads of old discarded axes to line their ground-ovens, which Roth thought explained why so few such axe heads were left there [ref:roth1901].\n- **Ant-bed** (termite mound): used instead of stones where these were scarce [ref:roth1901].\n- **Lining leaves**: jidu and other gingers on the Bloomfield; banana leaves and tea-tree bark on the Tully [ref:hershberger1982] [ref:roth1901].\n- **Cover**: dukul-dukul leaves, tea-tree (paperbark) bark, then earth [ref:hershberger1982] [ref:roth1901].\n- **Tongs**: lawyer cane. **Yibuy** is 'loya cane', and the dictionary's 'voya vine' for bangkal is most likely the same lawyer cane [ref:hershberger1982]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The oven was busiest when the starchy foods were in. On the Bloomfield the round yam (*Dioscorea sativa* var. *rotunda*) was ready from about the middle of February to the middle of May, roughly the wet season, and was then the main food. It was baked in a stone oven [ref:roth1901]. Black bean, which Roth called 'nearly always obtainable' on the Bloomfield, was baked in the same way before being pounded and leached [ref:roth1901]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "The oven cooked meat and also the plant foods that had to be baked before they could be leached or eaten. On the Bloomfield, black bean nuts were 'baked in a stone oven, then pounded and sifted', and then washed in a bark trough [ref:roth1901]. Yams were baked about four hours, then mashed and strained through a dilly-bag into a bark trough [ref:roth1901].\n\nThe kurrma was one of several ways of cooking. Roasting in the hot ashes was the simplest, and is the dictionary's **dindal** [ref:roth1901] [ref:hershberger1982]. Roth was told by the Hislops, early settlers, that the Bloomfield people also **boiled** food, in a bark trough or a large baler shell, before any permanent European settlement. That is unusual: Cook saw no boiling at the Endeavour River, only 60 miles away, and Roth knew of none on the Tully [ref:roth1901]. The dictionary's **nyamal** 'to boil' fits that record, and **kunjarri** is a palm whose bark 'can be used to make containers for cooking' [ref:hershberger1982]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How an earth oven was made",
+      "body": "**The Bloomfield and Cape Bedford oven** (Roth [ref:roth1901], with Kuku Yalanji terms from the dictionary [ref:hershberger1982]):\n\n1. **Gather the stones.** Collect a number of good-sized stones, the *kurma* in Roth's spelling.\n2. **Heat them.** Build a fire and heat the stones well in it.\n3. **Pull out the stones and ashes together.** Use the cane tongs, **bangkal**. On the Bloomfield, fire-tongs were a split length of lawyer cane bent double, and were used to pick up both hot ashes and baking stones [ref:roth1904].\n4. **Dig the pit at once**, in the spot the fire has just occupied.\n5. **Line the bottom** with leaves of wild ginger (**jidu**).\n6. **Load the food.** Put in the meat in pieces, or the yams or nuts, and pack the hot stones and ashes in among them.\n7. **Cover it.** Put on more leaves, such as broad **dukul-dukul** leaves, or tea-tree bark.\n8. **Seal it** with a layer of earth and stones to hold the heat in.\n9. **Wait.** Yams took about four hours on the Bloomfield [ref:roth1901]. At Atherton, black bean kernels went in about sunrise under leaves and earth and were uncovered about midday [ref:roth1901].\n10. **Open it.** Roth does not describe this step. Scrape off the earth, lift the leaves, take out the stones with the tongs, and lift the food out.\n\n**Other districts** (Roth [ref:roth1901]):\n\n- **Lower Tully River**: a second fire was lit on top of the covered oven. Ovens in sandy places were used over and over again, lined with banana leaves and tea-tree bark.\n- **Pennefather River** (west coast of Cape York): a kangaroo was baked whole. The tail tendons were removed, the limb joints dislocated so the legs could be folded, and the guts replaced with hot stones. The animal was wrapped and tied in bark and buried in the hot ashes. Large turtles were stuffed with hot stones through a cut in the neck.\n- **Mornington Island**: Roth found old ovens lined with tea-tree bark, the charred stones still in place."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "Hot stones, ash and steam burn badly. Always use tongs, and keep children back while the oven is opened. Stones taken wet from a creek can crack or burst in a fire, so use dry stones. Fill the pit in afterwards and make sure no coals are left smouldering underground.\n\nMeat must be cooked right through. The oven is also the first step in preparing poisonous plant foods such as black bean and zamia, which stay poisonous until properly sliced and leached after baking (see those entries) [ref:roth1901]. Do not roast **jinjay**, the poison nut, near people, as the dictionary warns its smoke is poisonous [ref:hershberger1982].\n\nIn Queensland, a fire smaller than 2 metres in every dimension may be lit without a permit if adequate precautions are taken. A larger fire needs a Permit to Light Fire from the local Fire Warden, and no fire may be lit during a fire ban [ref:qfd]. In national parks, camp fires are allowed only in QPWS fireplaces or existing fire sites, and firewood must not be collected [ref:parks]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Much of Eastern Kuku Yalanji country between Mossman and Cooktown is now national park handed back to Traditional Owners in 2021 and jointly managed with QPWS [ref:nit2021]. Digging ovens and lighting fires there is a matter for Traditional Owners and the joint managers, not for visitors. Section 211 of the *Native Title Act 1993* protects native title holders' hunting, fishing and gathering for personal, domestic or non-commercial communal needs from licence and permit requirements [ref:alrc]. On Western Yalanji country the 2026 determination recognised rights to access Country, camp, hunt, fish and gather over most of the area [ref:nit2026]. Anyone else needs the Traditional Owners' permission, and the landholder's on station country, to camp and cook with fire."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**Jani** 'well cooked, done'; **jirra** 'burnt, as food'; **jirra-bungal** 'to overcook, to burn the food'; **jakalambal** 'start a fire, start to cook food'; **binju** also means 'poorly made or cooked' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "black-bean",
+    "zamia",
+    "yam",
+    "firestick",
+    "paperbark",
+    "lawyer-cane",
+    "witchetty-grub"
+  ],
+  "relatedWords": [
+    {
+      "word": "jani",
+      "gloss": "well cooked, done"
+    },
+    {
+      "word": "jirra",
+      "gloss": "burnt, as food"
+    },
+    {
+      "word": "jirra-bungal",
+      "gloss": "to overcook, to burn the food"
+    },
+    {
+      "word": "jakalambal",
+      "gloss": "start a fire, start to cook food"
+    },
+    {
+      "word": "muyu",
+      "gloss": "hair of a pig"
+    },
+    {
+      "word": "yibuy",
+      "gloss": "loya cane"
+    },
+    {
+      "word": "kunjarri",
+      "gloss": "species of palm tree. The bark can be used to make containers for cooking."
+    },
+    {
+      "word": "ngunjil",
+      "gloss": "charcoal; hot coals or hot ashes"
+    },
+    {
+      "word": "jinjay",
+      "gloss": "poison nut tree. The smoke is poisonous when roasting the nut."
+    },
+    {
+      "word": "binju",
+      "gloss": "poorly made or cooked"
+    },
+    {
+      "word": "kabay",
+      "gloss": "small ant bed"
+    },
+    {
+      "word": "jawurraji",
+      "gloss": "large ant bed"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "rfkginger",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Hornstedtia scottiana. CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/hornstedtia_scottiana.htm"
+    },
+    {
+      "id": "qfd",
+      "citation": "Queensland Fire Department. Fire permits: lighting fires in Queensland.",
+      "url": "https://fire.qld.gov.au/safety-education/using-fire-outdoors/lighting-fires-in-queensland"
+    },
+    {
+      "id": "parks",
+      "citation": "Queensland Parks and Wildlife Service. Camping: legal requirements.",
+      "url": "https://parks.qld.gov.au/camping/legal-requirements"
+    },
+    {
+      "id": "nit2021",
+      "citation": "National Indigenous Times (1 October 2021). Daintree Rainforest handed back to Eastern Kuku Yalanji people.",
+      "url": "https://nit.com.au/01-10-2021/2393/daintree-rainforest-handed-back-to-eastern-kuku-yalanji-people"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "nit2026",
+      "citation": "National Indigenous Times (13 August 2026). Western Yalanji determination brings Cape York native title 'to the finish line'.",
+      "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}

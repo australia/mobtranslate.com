@@ -1,0 +1,203 @@
+{
+  "slug": "red-ochre",
+  "title": "Red ochre",
+  "category": "stone-earth",
+  "names": [
+    {
+      "word": "murbuy",
+      "gloss": "red ochre"
+    },
+    {
+      "word": "wuba",
+      "gloss": "red ochre",
+      "note": "Cf. Guugu Yimithirr wo-ba (Roth 1904)."
+    },
+    {
+      "word": "makirr",
+      "gloss": "yellow ochre"
+    },
+    {
+      "word": "makarra",
+      "gloss": "streaky yellow ochre"
+    },
+    {
+      "word": "kambar",
+      "gloss": "white clay",
+      "note": "Also 'wet season'. Roth (1901) recorded kambar for the Bloomfield white kaolin."
+    }
+  ],
+  "scientificName": "Iron-oxide earths (haematite, ferruginous clay); kaolin (white clay)",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary names each material directly (red ochre, yellow ochre, streaky yellow ochre, white clay), and Roth (1901) independently recorded kambar as the Bloomfield name of white kaolin clay. Which deposits each word was applied to is not recorded."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "camp"
+  ],
+  "summary": "**Murbuy** and **wuba** are red ochre. **Makirr** is yellow ochre, **makarra** 'streaky yellow ochre' and **kambar** 'white clay' [ref:hershberger1982]. Together with charcoal, these earths were the paint box of the Bloomfield. They were used for painting the body for hunting, fighting, mourning, initiation and dance, and for striping spear handles red and white [ref:anderson1996]. Red ochre was something the Bloomfield people **produced and traded**, and yellow ochre came in by trade [ref:roth1910b14]. White clay was even made into a baked cake and eaten as a delicacy [ref:roth1901]. Ochre and clay pits can be culturally significant places and are protected as Aboriginal cultural heritage [ref:qld-acha].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "murbuy, wuba (red ochre); makirr (yellow); makarra (streaky yellow); kambar (white clay)"
+    },
+    {
+      "label": "What it is",
+      "value": "Red and yellow iron-oxide earths; white kaolin clay"
+    },
+    {
+      "label": "Where",
+      "value": "White clay in cliff and creek-bank veins on the Bloomfield; red ochre a Bloomfield trade product; yellow traded in"
+    },
+    {
+      "label": "Uses",
+      "value": "Body paint; spear and weapon painting (fixed with candlenut oil); white clay eaten; trade"
+    },
+    {
+      "label": "Protected",
+      "value": "Ochre sources can be significant places; Aboriginal Cultural Heritage Act 2003 (Qld)"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives two words for red ochre, **murbuy** and **wuba**. It gives **makirr** 'yellow ochre', **makarra** 'streaky yellow ochre' and **kambar** 'white clay' [ref:hershberger1982]. *Kambar* also means 'wet season' [ref:hershberger1982]. The dictionary does not say why the clay and the season share a name.\n\nRoth confirms *kambar*. In 1901 he wrote the Bloomfield name for the white kaolin clay as *kambar*, exactly as the dictionary spells it today [ref:roth1901]. *Wuba* is shared with the Guugu Yimithirr of Cape Bedford. Roth recorded *wo-ba* there for a red pigment of burnt ferruginous sandstone from the McIvor River. Their word for 'red' was *woba-dir*, literally 'with *woba*' [ref:roth1904]."
+    },
+    {
+      "id": "description",
+      "heading": "What it is",
+      "body": "Ochres are natural earth pigments. Roth sorted the North Queensland pigments by colour [ref:roth1904]:\n\n- **White.** Kaolin or pipe-clay, a fine white clay (hydrous silicate of alumina). He found it at the Bloomfield, at Cooktown and Cape Bedford, on the Palmer and elsewhere.\n- **Red.** Oxides of iron. These include haematite (on the Palmer River), burnt ferruginous sandstone (McIvor River), red oxide probably made by burning yellow ochre (Pennefather River), and ferruginous clay with sand.\n- **Yellow.** A yellow iron-oxide ochre with a little fine sand, traded from the north. It was said to be dug from under salt pans and dried in the sun.\n- **Black.** Charcoal, 'used everywhere'.\n\nOn the Bloomfield the paints were **red and yellow ochres, Grevillea charcoal and white kaolin clay** [ref:anderson1996]. *Makarra*, the 'streaky' yellow, presumably names a banded or mottled ochre [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it is found",
+      "body": "On the Bloomfield the white clay, *kambar*, was 'dug out from the veins in the cliffs or in the banks of the creeks' [ref:roth1901]. Red ochre came from Bloomfield country itself, since it was one of the district's own products for trade. Yellow ochre was mostly brought in [ref:roth1910b14]. The exact pits are not named in the published sources. Their locations are knowledge held by Traditional Owners.\n\n**Western Yalanji country.** Inland, the Koko-minni of the middle Palmer River obtained red haematite together with burnt ferruginous clay, and called it *norda* [ref:roth1904]. Western Yalanji, a dialect of Kuku Yalanji, is the language of the wider Maytown, Mitchell and Palmer River area [ref:fca2013]. Painted caves and tools there show that Aboriginal people have lived in that region for at least 21,000 years [ref:fca2013]. The pigment trade linked the coast and the inland. Bloomfield and Endeavour River people travelled towards the Laura River and supplied the Koko-warra with red ochre and white clay [ref:roth1910b14]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Ochre moved in the trading season. Roth wrote that for the Bloomfield people, 'the principal time of barter was during the laying-season at King's Lake country', whenever there was enough food to draw people together [ref:roth1910b14]. Anderson places King's Lake country at King's Plains, near the Laura–Cooktown road [ref:anderson1996]. White clay cakes needed six to eight days of sun-drying before baking [ref:roth1901]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Body painting.** On the Bloomfield, body paint was put on for some hunting trips and for mourning, fighting, initiation and dancing. 'While men were painted anywhere on their bodies, women were only painted on the faces' [ref:anderson1996]. Roth also recorded that Bloomfield painting differed with the purpose: mourning, fighting, initiation or corroboree [ref:roth1910b15]. These are ceremonial matters, and the designs belong to their owners.\n\n**Weapons and things.** Spear handles 'were usually painted with red and white stripes' [ref:anderson1996]. The white clay was also 'employed for painting weapons' [ref:roth1901]. On the Bloomfield the oil of the candlenut, **bilar**, was 'used in fixing the ochre for spear-painting' [ref:roth1904] [ref:roth1901]. The wheel for the spear-throwing game was covered on its sides with red clay and beeswax and decorated with feathers [ref:anderson1996]. Women's waist circlets of hair or fibre were prized when 'some red colour is woven into it' [ref:anderson1996].\n\n**Food and medicine.** White clay was eaten at the Bloomfield and at Cooktown, 'as a food and as a medicine' [ref:roth1904]. It was prepared into a baked cake 'considered a delicacy' (see below) [ref:roth1901]. The outer crust of ant-hills, which Roth wrote as *kappai*, was eaten as a filler 'when no other edible substance is available' [ref:roth1901].\n\n**Trade.** Bloomfield trade goods included dilly-bags, spears, woomeras, gum-cements, edible pipe-clay (in recent years) and **red ochre**. In return came stingray spears, shell ornaments, **yellow ochre** and, in the old days, edible pipe-clay [ref:roth1910b14]. Small precious things like pigment travelled rolled up in tea-tree bark and tied with twine [ref:roth1904].\n\n**Meaning.** Roth found that across North Queensland white was 'essentially the colour of mourning', while red was the colour of force and energy, 'a man's colour', seen on warriors and fighting gear [ref:roth1904]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was prepared",
+      "body": "**Edible white clay cake, Bloomfield River** (R. Hislop to Roth) [ref:roth1901]:\n\n1. **Dig the white clay** (*kambar*) from the veins in a cliff or creek bank.\n2. **Pound it carefully and sift it** until it is quite smooth and free of grit.\n3. Put it in a **bark trough** and work it with water into **a stiff paste**.\n4. **Shape the paste into a cake.**\n5. **Dry it in the sun for six to eight days.**\n6. **Wrap it in leaves, bury it in the ashes and make a hot fire over it.**\n7. When it has cooled it is ready to eat.\n\n**White paint** (Palmer River and Cape Bedford, neighbouring peoples) [ref:roth1904]:\n\n1. **Hammer the clay to a fine powder** between stones.\n2. **Mix it with water.**\n3. **Dry it in the sun** and keep it for use. On the Palmer and Pennefather it was also used just as found.\n\n**Paint that lasts, Bloomfield River** [ref:roth1904] [ref:anderson1996]:\n\n1. Grind the ochre or clay fine.\n2. Mix it with **candlenut (bilar) oil**, the Bloomfield fixing medium for spear-painting. Spittle and water were the everyday media across the north.\n3. Paint it on. Spear handles were striped red and white.\n\n**Making red from yellow.** Elsewhere in the north, red was made by burning. On the Pennefather the red oxide was probably obtained by burning yellow ochre, and the Gunanni burnt their red pigment *marcla* before use [ref:roth1904]. No Bloomfield record says whether *makirr* was burnt to make *murbuy*."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety and respect",
+      "body": "The clay-eating recipe above is a historical record, not a tested recipe or a recommendation [ref:roth1901]. More important: **ochre and clay sources can be significant cultural places**, and the paints themselves are tied to mourning, initiation and other ceremony [ref:anderson1996]. Do not dig, collect or use ochre from country without the Traditional Owners' permission. Anyone carrying out an activity in Queensland must take all reasonable and practicable measures not to harm Aboriginal cultural heritage [ref:qld-acha]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Queensland's *Aboriginal Cultural Heritage Act 2003* protects significant Aboriginal areas and objects and imposes a **cultural heritage duty of care** on everyone carrying out an activity [ref:qld-acha]. The Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks were returned to Eastern Kuku Yalanji Traditional Owners in 2021 and are jointly managed with the Queensland Government [ref:qld-handback]. Inland, the Western Yalanji determinations of 2013 define the 'Natural Resources' native title holders may take and use to include 'any clays, soil, sand, gravel or rock'. Minerals under the *Mineral Resources Act 1989* are excluded [ref:fca2013]. Under s 211 of the *Native Title Act 1993*, native title holders may gather and carry out cultural activities for personal, domestic and communal needs without licences [ref:alrc-s211]. Visitors need Traditional Owners' permission."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**julngkal** 'to rub or paint on'; **marun-marun** 'bright red colour'; **bingaji** 'white or light colored'; **ngumbu** 'black, charcoal'; **ngunjil** 'charcoal'; **bilar** 'candle nut tree' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "stone",
+    "candlenut",
+    "spear-and-woomera",
+    "paperbark",
+    "black-palm"
+  ],
+  "relatedWords": [
+    {
+      "word": "julngkal",
+      "gloss": "to rub or paint on"
+    },
+    {
+      "word": "marun-marun",
+      "gloss": "bright red colour"
+    },
+    {
+      "word": "bingaji",
+      "gloss": "white or light colored"
+    },
+    {
+      "word": "ngumbu",
+      "gloss": "black, charcoal"
+    },
+    {
+      "word": "ngunjil",
+      "gloss": "charcoal"
+    },
+    {
+      "word": "bilar",
+      "gloss": "candle nut tree"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 8 Minerals (white clay, ant-hill clay); plant list 'Aleurites moluccana'"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 13 gums (Aleurites); sects 17–21 Pigments, media, uses of colours, colour-sense; sect. 65 Packages"
+    },
+    {
+      "id": "roth1910b14",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and trade. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52863",
+      "locator": "Sect. 1, Trade and barter on the Bloomfield River; sect. 2, Princess Charlotte Bay"
+    },
+    {
+      "id": "roth1910b15",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 15: Decoration, deformation, and clothing. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52864",
+      "locator": "Sect. 53, Painting of the body"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Personal property, decoration, magic, ceremony and conflict; Communications, trade, pp. 76–79"
+    },
+    {
+      "id": "fca2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Logan J, 24 September 2013), consent determinations of native title over lands in and around the Palmer and Mitchell River systems north-west of Mt Carbine.",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958",
+      "locator": "Orders, para 13 (definition of Natural Resources); Reasons, paras 3, 20, 22"
+    },
+    {
+      "id": "qld-acha",
+      "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), s 23 (cultural heritage duty of care).",
+      "url": "https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079"
+    },
+    {
+      "id": "qld-handback",
+      "citation": "Queensland Government (29 September 2021). Ministerial media statement: Daintree, Ngalba-bulal, Kalkajaka and Hope Islands National Parks returned to Eastern Kuku Yalanji Traditional Owners as Cape York Peninsula Aboriginal Land, to be jointly managed.",
+      "url": "https://statements.qld.gov.au/statements/93360"
+    },
+    {
+      "id": "alrc-s211",
+      "citation": "Australian Law Reform Commission (2014). Review of the Native Title Act 1993, Discussion Paper 82, ch. 8: Relevant provisions in the Native Title Act (s 211, preservation of native title hunting, fishing, gathering and cultural activities).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}

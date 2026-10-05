@@ -1,0 +1,256 @@
+{
+  "slug": "paperbark",
+  "title": "Paperbark",
+  "category": "tree",
+  "names": [
+    {
+      "word": "buyku",
+      "gloss": "paperbark"
+    },
+    {
+      "word": "jidi",
+      "gloss": "paperbark tree bark torch",
+      "note": "The torch made from the bark, not the tree."
+    },
+    {
+      "word": "kalkuri",
+      "gloss": "woolly butt, Malaleuca gum"
+    },
+    {
+      "word": "wanjakan",
+      "gloss": "species of ti tree, used for bark painting",
+      "note": "Bark also used for the roof of a house."
+    },
+    {
+      "word": "bijan",
+      "gloss": "species of ti tree"
+    },
+    {
+      "word": "marngkil",
+      "gloss": "species of ti tree"
+    },
+    {
+      "word": "marrabal",
+      "gloss": "species of ti tree"
+    },
+    {
+      "word": "marril",
+      "gloss": "species of ti tree",
+      "note": "The same word also names a species of mangrove."
+    },
+    {
+      "word": "bijin",
+      "gloss": "species of tea tree"
+    }
+  ],
+  "scientificName": "Melaleuca spp. (e.g. Melaleuca leucadendra, M. argentea, M. fluviatilis)",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary glosses buyku as 'paperbark' and gives several 'ti tree' names; in North Queensland both English names refer to Melaleuca. No source ties a particular Kuku Yalanji word to a particular Melaleuca species."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "coast-mangrove",
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "**Buyku** is the Kuku Yalanji word for paperbark [ref:hershberger1982]: the *Melaleuca* trees, often called ti-tree or tea-tree in North Queensland English, whose pale bark peels away in soft layers [ref:rfk-melaleuca]. Paperbark is one of the most useful trees on country. Its bark covered the earth oven and roofed huts. It was folded into troughs for carrying water, laid down as mats and blankets, rolled into parcels and lit as a torch, **jidi** [ref:hershberger1982] [ref:roth1901] [ref:anderson1996]. Paperbarks line the creeks and rivers from the Bloomfield coast right across to the dry inland rivers of Western Yalanji country [ref:rfk-melaleuca] [ref:re9314].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "buyku (paperbark); jidi (bark torch); several ti-tree names"
+    },
+    {
+      "label": "Scientific name",
+      "value": "Melaleuca spp. (myrtle family, Myrtaceae)"
+    },
+    {
+      "label": "Other English names",
+      "value": "ti-tree, tea-tree, weeping paperbark, silver-leafed paperbark"
+    },
+    {
+      "label": "Parts used",
+      "value": "Bark (oven covers, roofing, troughs, blankets, wrapping, torches); leaves (medicine, neighbouring peoples)"
+    },
+    {
+      "label": "Where",
+      "value": "Creek and river banks, swamps and beach forest; fringing the inland rivers of Western Yalanji country"
+    },
+    {
+      "label": "Bark season",
+      "value": "End of the wet, when the sap is up"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives **buyku** 'paperbark' [ref:hershberger1982]. It also records a whole family of ti-tree names, each glossed only as a 'species of ti tree': **bijan**, **marngkil**, **marrabal** and **marril**, with **bijin** 'species of tea tree' [ref:hershberger1982]. **Wanjakan** is the ti-tree 'used for bark painting', whose bark was 'also used for roof of house'. **Kalkuri** is the 'woolly butt, Malaleuca gum' [ref:hershberger1982]. The dictionary does not say which botanical species each name belongs to. Matching them to the different Melaleucas is work for Elders and botanists together.\n\nTwo cautions. *Marril* is also the name of a mangrove with hard wood 'good for making oars' [ref:hershberger1982]. *Bikarrakul* is glossed 'ti tree (fruit must be cooked)' [ref:hershberger1982]. Paperbarks have small woody capsules, not food fruits [ref:rfk-melaleuca], so *bikarrakul* is probably a different tree that shares the English name 'ti tree'.\n\n**Jidi** is the 'paperbark tree bark torch' [ref:hershberger1982]. Roth recorded no Bloomfield word for Melaleuca. For Cape Bedford (Guugu Yimithirr country) he gave *bo-du*, and for Cooktown *put-yo* [ref:roth1901]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "The common riverside paperbark of the north, *Melaleuca leucadendra* (weeping paperbark), is a tall tree with **white or pale bark built up of many dead, papery layers** [ref:rfk-melaleuca]. The leaves are long and narrow, 11–17 cm by 1–2 cm, with five lengthwise veins standing out more than the rest. New shoots are covered in silvery hairs. The cream flowers grow in bottlebrush spikes about 25–30 mm across and have **a strong sweet smell**. The fruits are small woody capsules pressed against the twig [ref:rfk-melaleuca]. The leaves hold an aromatic oil (cajeput oil) [ref:roth1903]. Other paperbarks on country, such as the silver-leafed *M. argentea* and the teatree *M. fluviatilis* of the inland rivers, have the same peeling bark and bottlebrush flowers [ref:re9314]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it grows",
+      "body": "*M. leucadendra* grows along the creeks and rivers of northern Australia, where floods wash over it. It also grows in beach forest, swampy rainforest and gallery forest, and it tolerates very wet and salty ground. It is found from sea level to about 700 m, across northern Australia and in New Guinea [ref:rfk-melaleuca]. Anderson's account of Bloomfield camp life names this 'forest paper bark tree' (*Melaleuca leucadendron*) as a source of fire-lighting bark [ref:anderson1996].\n\n**Western Yalanji country.** Paperbarks are just as much at home on the dry inland side. On the western-flowing rivers that drain the Hodgkinson Basin country, the stream banks carry a narrow fringe, 1–50 m wide, of *Melaleuca fluviatilis*, *M. leucadendra* (weeping teatree) and *M. argentea* (silver-leafed paperbark), with river red gum, bluegum and Leichhardt tree [ref:re9314]. Mount Carbine sits on the Hodgkinson Formation rocks [ref:jcu-carbine] in the upper Mitchell River catchment [ref:wiki-mitchell]. So the shady paperbark-lined banks of the upper Mitchell are this same fringing forest. Roth also noted that on the Palmer and further north, the Melaleucas were 'the usual trees whence water may be derived' in the dry season (see Uses) [ref:roth1901]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Bark comes off most easily **at the end of the wet season, 'when the sap is up and the bark slips'** [ref:roth1904]. On the Bloomfield, Kuku Yalanji people told Anderson that hut bark was cut and peeled 'when the sap had arisen after the first storms in December' [ref:anderson1996]. Inland, the dome huts were built mainly for the wet season. For much of the dry season people slept in the open by their fires. Sheets of Melaleuca served as blankets in cold weather [ref:anderson1996]. The dictionary's season words include **kambar** 'wet season' and **wangariji** 'the hot season' [ref:hershberger1982]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Earth oven.** On the Bloomfield the stone oven (Roth spelled it *kurma*, the dictionary's **kurrma**) was capped with leaves or tea-tree bark and then earth [ref:roth1901]. Kuku Yalanji descriptions from the 1970s put ti-tree bark over the bark trough and the hot rocks before the sand went on [ref:anderson1996].\n\n**Light and fire.** **Jidi**, the paperbark torch [ref:hershberger1982], lit the way for **night fishing**. On the tidal estuaries one person sat in the front of the canoe 'holding aloft a burning paperbark torch' while another speared the fish that came to the light [ref:anderson1996]. In wet weather the inner bark of the forest paperbark was used to start fires. Men carried their fire-sticks wrapped in paperbark in their net bags [ref:anderson1996].\n\n**Shelter.** Bloomfield huts were domes of bent saplings thatched with whatever was nearest: fan-palm or lawyer-palm leaves, grass or bark [ref:anderson1996]. The thatch was laid **from the top down** and weighed with logs [ref:roth1910b16]. The bark of *wanjakan* was used for house roofs [ref:hershberger1982].\n\n**Troughs and water carriers.** The spiked bark trough was made from the Bloomfield northwards, from 'tea-tree or other' bark. Roth's Bloomfield name was *tu-bal*, the dictionary's **dubal** 'coolamon' [ref:roth1904] [ref:hershberger1982]. Troughs carried water, honey and food, and were pushed ahead of a swimmer to ferry babies and gear across flooded creeks [ref:roth1904]. On the Bloomfield, eucalypt and other barks were often used for these troughs too [ref:anderson1996]. Large troughs also had a part in funeral custom [ref:roth1904].\n\n**Bedding, wrapping and binding.** Melaleuca sheets served as mats, seats and blankets [ref:anderson1996]. Strips of paperbark were 'a very common material' for tying things [ref:roth1901-string]. Valuable small things such as pigments were rolled in bark and tied for travel or trade, and 'tea-tree appears to be the bark invariably used' [ref:roth1904]. Thick rings of Melaleuca bark served as head-pads for heavy loads at Cape Bedford and in the Palmer camps [ref:roth1904].\n\n**Water in the dry.** Inland, on the Palmer and Pennefather rivers and elsewhere, a bulge low on a paperbark trunk could be cut to give 'a pint or two' of slightly salty water [ref:roth1901].\n\n**Medicine (neighbouring peoples).** On the Mitchell River the young leaves were bruised in water and drunk for headaches and colds. Palmer River women massaged sick people with a mush of Melaleuca leaves soaked in water [ref:roth1903]. These records are not from Kuku Yalanji people."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was done",
+      "body": "**Taking a sheet of bark** (Roth's general account for North Queensland) [ref:roth1904]:\n\n1. Wait for the **end of the wet season**, when the sap is up and the bark slips.\n2. Make **two cuts around the trunk** and **one long cut** joining them.\n3. **Tap the sheet with a stone** to loosen it, then peel it off.\n4. For blankets, some canoes and water-carriers, **pick the inner surface clean** as well.\n\nFor their hut sheets, Bloomfield people **pounded the bark flat with stones and smoked it over the fire** [ref:anderson1996].\n\n**The earth oven on the Bloomfield** [ref:roth1901] [ref:anderson1996]:\n\n1. Heat round stones that are known not to crack in a big fire.\n2. Rake out the stones and ashes and **dig a hole** where the fire was.\n3. Lift the hot stones into the hole with **lawyer-cane tongs**.\n4. Lay leaves (ginger, eucalypt or wattle for flavour), then the meat. Kuku Yalanji often put the meat in a bark trough set on the stones.\n5. Pack more hot stones and ashes around and on the meat.\n6. **Cover it all with leaves or ti-tree bark**, then earth and stones (or sand), and leave it to cook for several hours.\n\n**A spiked bark trough**, as Roth watched it made on the Endeavour River (Guugu Yimithirr country). This trough type is found from the Bloomfield northwards [ref:roth1904]:\n\n1. Take a sheet of tea-tree or other bark from the **full width of the tree**, so that it curls naturally.\n2. **Pick and peel off the outer layer** with a kangaroo-bone point. Pare the two ends thin.\n3. **Warm the ends over a fire.**\n4. Make two shallow cuts across the inside near each end, and **bunch the end into pleats**.\n5. Heat the ends again and **pin the pleats with a curved, sharp ironwood peg**. The smooth inner bark becomes the inside of the vessel.\n\nKuku Yalanji makers soaked the bark in water before bunching the ends into a 'spike' [ref:anderson1996]. The dictionary does not say how **jidi** torches were made, and neither do the Bloomfield records."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "Paperbark itself is safe to handle. Fire is the main danger. Kuku Yalanji knew that some woods are dangerous to burn. The smoke of a mangrove, *Excoecaria agallocha*, and of brown cedar (*Canarium australasicum*) is said to cause blindness [ref:anderson1996], so take care what goes in the fire under a bark-covered oven. The leaf medicines above are historical records from other peoples, not tested remedies. The leaves hold strong cajeput oil [ref:roth1903]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Much Eastern Kuku Yalanji paperbark country lies in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks. On 29 September 2021 these parks were returned to Eastern Kuku Yalanji Traditional Owners as Aboriginal land and are now jointly managed with the Queensland Government [ref:qld-handback]. Inland, the Western Yalanji People's native title around the Palmer and Mitchell River systems north-west of Mt Carbine was recognised in 2013. It includes rights to hunt, fish and gather, and to take and use natural resources, for personal, domestic and communal needs [ref:fca2013]. Under s 211 of the *Native Title Act 1993*, native title holders can hunt, fish, gather and carry out cultural activities for those needs without the licences other people need [ref:alrc-s211]. Visitors need Traditional Owners' permission to take bark, and park rules apply.\n\nThe inland paperbark fringe (Regional Ecosystem 9.3.14) is listed as **'Of Concern'** for biodiversity. It is a drought refuge and wildlife corridor and is easily invaded by weeds such as rubber vine [ref:re9314]. Old trees with bark or wood cut out of them are records of past use. On the Bloomfield, Anderson found many scarred trees where spear-thrower wood had been taken [ref:anderson1996]. Everyone in Queensland has a legal duty of care not to harm Aboriginal cultural heritage [ref:qld-acha]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**kurrma** 'earth oven'; **dubal** 'coolamon', also a bark coffin; **bayan** 'house, camp, shelter'; **wurun** 'humpy'; **ngunjil** 'charcoal; hot coals or hot ashes'; **wanjakan** 'ti tree, used for bark painting' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "earth-oven",
+    "firestick",
+    "lawyer-cane",
+    "black-palm",
+    "red-ochre"
+  ],
+  "relatedWords": [
+    {
+      "word": "kurrma",
+      "gloss": "earth oven"
+    },
+    {
+      "word": "dubal",
+      "gloss": "coolamon"
+    },
+    {
+      "word": "bayan",
+      "gloss": "house, camp, shelter"
+    },
+    {
+      "word": "wurun",
+      "gloss": "humpy"
+    },
+    {
+      "word": "ngunjil",
+      "gloss": "charcoal; hot coals or hot ashes"
+    },
+    {
+      "word": "kambar",
+      "gloss": "white clay; wet season"
+    },
+    {
+      "word": "wangariji",
+      "gloss": "the hot season"
+    },
+    {
+      "word": "bikarrakul",
+      "gloss": "ti tree (fruit must be cooked)"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Ch. 6 Cooking (Bloomfield earth oven); ch. 7 Water (Melaleuca); plant list, 'Melaleuca sp.'"
+    },
+    {
+      "id": "roth1901-string",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6, 'Melaleuca leucadendron'"
+    },
+    {
+      "id": "roth1903",
+      "citation": "Roth, W. E. (1903). North Queensland Ethnography, Bulletin No. 5: Superstition, magic, and medicine. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 1 Wood-work; sect. 49 Head-pads; sect. 58 Pleat-type bark trough; sect. 65 Packages"
+    },
+    {
+      "id": "roth1910b16",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 16: Huts and shelters. Records of the Australian Museum 8(1): 55–66.",
+      "url": "https://archive.org/details/records-australian-museum-8-055-066"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout"
+    },
+    {
+      "id": "rfk-melaleuca",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Melaleuca leucadendra. CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/melaleuca_leucadendra.htm"
+    },
+    {
+      "id": "re9314",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.3.14 (Einasleigh Uplands): Melaleuca fringing woodland on channels and levees. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.3.14"
+    },
+    {
+      "id": "jcu-carbine",
+      "citation": "Cheng, Y. et al. (2017). Geology and mineralization of the Mt Carbine tungsten deposit, northern Queensland. EGRU Contribution 69, James Cook University.",
+      "url": "https://researchonline.jcu.edu.au/54656/"
+    },
+    {
+      "id": "wiki-mitchell",
+      "citation": "Wikipedia, 'Mitchell River (Queensland)' (catchment and settlements, including Mount Carbine and Mount Molloy).",
+      "url": "https://en.wikipedia.org/wiki/Mitchell_River_(Queensland)"
+    },
+    {
+      "id": "qld-handback",
+      "citation": "Queensland Government (29 September 2021). Ministerial media statement: Daintree, Ngalba-bulal, Kalkajaka and Hope Islands National Parks returned to Eastern Kuku Yalanji Traditional Owners as Cape York Peninsula Aboriginal Land, to be jointly managed.",
+      "url": "https://statements.qld.gov.au/statements/93360"
+    },
+    {
+      "id": "fca2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Logan J, 24 September 2013), consent determinations of native title over lands in and around the Palmer and Mitchell River systems north-west of Mt Carbine.",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "alrc-s211",
+      "citation": "Australian Law Reform Commission (2014). Review of the Native Title Act 1993, Discussion Paper 82, ch. 8: Relevant provisions in the Native Title Act (s 211, preservation of native title hunting, fishing, gathering and cultural activities).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "qld-acha",
+      "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), s 23 (cultural heritage duty of care).",
+      "url": "https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}

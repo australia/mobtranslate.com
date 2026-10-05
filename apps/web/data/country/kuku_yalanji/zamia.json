@@ -1,0 +1,236 @@
+{
+  "slug": "zamia",
+  "title": "Zamia",
+  "category": "tree",
+  "names": [
+    {
+      "word": "marra",
+      "gloss": "zemia tree and the zemia nut which is roasted, ground and leached to make flour",
+      "note": "'Zemia' is the dictionary's spelling of zamia. A second entry glosses marra simply as 'zemia nut'. The same word also means 'wing'."
+    },
+    {
+      "word": "julbin",
+      "gloss": "species of scrub zemia",
+      "note": "A different plant: the rainforest ('scrub') zamia, 'edible when ground and leached with water'. Very probably the zamia fern, Bowenia spectabilis (see Names)."
+    }
+  ],
+  "scientificName": "Cycas media (here subsp. banksii)",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "Roth (1901) gives ma-ra as the Bloomfield River Koko-yellanji name of Cycas media, matching the dictionary's marra 'zemia tree'. Anderson (1996) names Cycas media as the Bloomfield cycad staple, and the Gymnosperm Database lists marra as a Yalanji name for Cycas media subsp. banksii."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "rainforest",
+    "river-freshwater"
+  ],
+  "summary": "**Marra**, the zamia or cycad (*Cycas media*), is a palm-like plant of the open forest whose big seeds are **poisonous raw**. The dictionary sums up how Kuku Yalanji people made it into food: it is 'roasted, ground and leached to make flour' [ref:hershberger1982]. On the Bloomfield River it was a staple of the mid to late dry season, when big camps gathered beside fast creeks to roast the nuts, grind them on flat rocks and wash the flour [ref:anderson1996]. Roth recorded that the flour was washed all night in a dilly-bag colander fed by running water [ref:roth1901], and that the Bloomfield zamia patches belonged to women, passed down from mother to daughter [ref:roth1906].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "marra (also julbin, the rainforest zamia)"
+    },
+    {
+      "label": "Scientific name",
+      "value": "Cycas media subsp. banksii (cycad family, Cycadaceae)"
+    },
+    {
+      "label": "Other English names",
+      "value": "zamia, cycad"
+    },
+    {
+      "label": "Part used",
+      "value": "Seeds (flour, after long leaching)"
+    },
+    {
+      "label": "Season",
+      "value": "Mid to late dry season; July to January on the Bloomfield"
+    },
+    {
+      "label": "Where",
+      "value": "Open forest and woodland, sea level to about 1000 m"
+    },
+    {
+      "label": "Raw seeds",
+      "value": "Poisonous — never eat unprocessed"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives **marra** for the 'zemia tree and the zemia nut which is roasted, ground and leached to make flour' [ref:hershberger1982]. Roth's 1901 Bloomfield River list, in his English-based spelling, gives *ma-ra* for *Cycas media* — the same word [ref:roth1901]. At Cooktown and Cape Bedford, in Guugu Yimithirr country, Roth recorded *bu-dur* for the same plant [ref:roth1901]. The Gymnosperm Database lists marra as a Yalanji name for *Cycas media* subsp. *banksii* [ref:gymnosperm-db].\n\nA second plant, **julbin**, is the dictionary's 'species of scrub zemia', 'edible when ground and leached with water' [ref:hershberger1982]. 'Scrub' is the North Queensland English word for rainforest. Roth gives *jul-bin* as the Cooktown name of *Bowenia spectabilis*, the zamia fern, and says its rootstock was eaten on the Bloomfield [ref:roth1901]. So julbin is very probably *Bowenia spectabilis*, although no source ties the Kuku Yalanji word to that species directly."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "*Cycas media* is an unbranched, palm-like plant with a squat, thick trunk that seldom passes 6 m. Its stiff, feather-like leaves carry many narrow leaflets, each about 14–28 cm long and less than a centimetre wide [ref:rfk-cycas]. Male plants carry an upright cone 15–25 cm long. Female plants carry a crown of soft, leaf-like stalks 20–30 cm long, each bearing up to ten seeds. The seeds are about 3–4 cm long, inside a fleshy outer coat 3–4 mm thick [ref:rfk-cycas]. Botanists put the cycads of the Cooktown district in subspecies *banksii*, described from a plant on the Cooktown–Battle Camp Road [ref:cycadlist].\n\nJulbin, the zamia fern (*Bowenia spectabilis*), looks quite different. It is a shrubby plant about 1 m tall whose true stem is underground, with up to seven big compound leaves as long as 2 m and broad, fern-like leaflets. Its cones sit at ground level, and each seed is wrapped in a fleshy coat that turns mauve or purple when ripe [ref:rfk-bowenia]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it grows",
+      "body": "Marra grows in open forest and woodland, and now and then in beach forest, monsoon forest and vine thickets, from near sea level to about 1000 m [ref:rfk-cycas]. Around the Bloomfield it 'grows prolifically at several locations', and the nuts were processed at creeks nearby [ref:anderson1996]. Look for it on the drier, sunnier ridges and slopes between the rainforest and the coast, not inside the closed forest.\n\nIt is a plant of **Western Yalanji** country too. Herbarium specimens of *Cycas media* subsp. *banksii* have been collected in the dry country about 25 km north of Mount Carbine [ref:ala-cycas-north] and south-west of Mount Molloy [ref:ala-cycas-south]. On the stony open-woodland ridges of the upper Mitchell River country, a cycad is very likely to be marra.\n\nJulbin is the opposite: *Bowenia spectabilis* grows only in Queensland, in undisturbed lowland and upland rainforest from near sea level to 700 m, most often on red basalt soils [ref:rfk-bowenia]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "On the Bloomfield River, Roth was told the zamia was 'fit to eat from July to January' [ref:roth1901]. Anderson puts the main harvest in the mid to late dry season, when large central camps of up to 100 people formed at the processing sites [ref:anderson1996]. Gathered nuts could be kept: Anderson notes that the nut foods of the Bloomfield could be stored for up to two months, which mattered in the wet season, when heavy rain and flooded creeks kept people close to camp [ref:anderson1996]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Food.** Marra flour was a staple of the dry season on the Bloomfield [ref:anderson1996]. Roth recorded that the nuts were gathered by old men, women and girls, and pounded into flour by the women [ref:roth1901]. Anderson adds that the women did the processing while the young men kept the camp supplied with meat and honey [ref:anderson1996]. Roth singled out washing under running water as the step that 'undoubtedly removes injurious elements' from both zamia and black bean [ref:roth1901].\n\n**Women's property.** The Bloomfield zamia groves were the only case Roth knew of where women held something like real estate. The patches of edible zamia were shared out among the women, and each woman left her patch to her daughters or other female relatives [ref:roth1906].\n\n**Grinding places.** The flour was ground on big flat rocks with small hollows worn into them, called **jinali**, beside or in the creek. Their locations were widely known and the same sites were used year after year [ref:anderson1996]. The dictionary glosses jinali as 'smooth rock' [ref:hershberger1982]. In the late 1970s some Kuku Yalanji people still knew the whole process in detail, and the grinding stones were still in place at several sites [ref:anderson1996].\n\n**Julbin.** The rootstock of the zamia fern was eaten on the Bloomfield and at Cape Grafton, but not at Cooktown [ref:roth1901]. The dictionary says julbin is edible when ground and leached with water [ref:hershberger1982]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was prepared",
+      "body": "This is the Bloomfield River method, put together from Roth's 1901 account (from R. Hislop) [ref:roth1901] and Anderson's later record [ref:anderson1996]:\n\n1. **Gather** the ripe nuts after they fall, and carry them to a processing camp beside a shallow, fast-flowing creek with grinding rocks [ref:anderson1996].\n2. **Roast** the nuts on the fire. The heat cracks the outer shell; peel it off and keep the kernels [ref:anderson1996].\n3. **Leave the kernels for four or five days.** People said the wait made them grind more finely [ref:roth1901].\n4. **Grind** the kernels in the small hollows on the jinali rock with a round, fist-sized stone. Sweep the coarse bits aside with a small grass brush and grind them again, until only fine flour is left [ref:anderson1996].\n5. **Sift** the flour through a **palm-fibre dilly-bag**, whose mesh is finer than other bags and holds back the coarse particles [ref:roth1901]. On the Bloomfield these sieve-bags were made from black palm fibre [ref:roth1904].\n6. **Fold a grass dilly-bag** sideways on itself to make a basin, put the flour in it, and set it beside the stream [ref:roth1901].\n7. **Run the water in** along a trough of leaves — pandanus or wild ginger, according to Anderson — so that fresh water keeps flowing into the bag and percolating through the flour, without ever overflowing the edges [ref:roth1901] [ref:anderson1996].\n8. **Leave it running all night.** In the morning the flour is ready to eat [ref:roth1901].\n9. It **keeps for three or four days**, and was thought to improve over that time, but no longer [ref:roth1901].\n\nThe dictionary records another Kuku Yalanji way under **kajimarra**, 'food which is ground up to make flour, i.e. marra': it is 'rolled in junjun leaves and left in water for several weeks, then ground and roasted' [ref:hershberger1982]. Junjun is a rainforest plant with fruit ripe in March to May [ref:hershberger1982]; Roth's Bloomfield *jun-jun* is *Amomum dallachyi*, a native ginger [ref:roth1901].\n\nFar to the south, on the lower Tully River, Roth saw a different method: the nuts were steamed and sliced like black bean, and rushing water was made to fall from a height onto the bag of meal for a whole day [ref:roth1901]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**The fruits and seeds of *Cycas media* are poisonous** [ref:rfk-cycas]. The first European case on record was in 1770 on the Endeavour River, when sailors from Cook's ship fell ill after eating raw seeds, and pigs fed on them died [ref:rfk-cycas]. Young leaves poison cattle [ref:rfk-cycas], and grazing the zamia fern gives cattle 'zamia staggers' [ref:rfk-bowenia]. Roasting alone does not make the nuts safe: every recorded method grinds them fine and then washes the flour in running water for many hours. Coarse meal, a short soak or still water can leave enough poison to make someone very sick. The steps above are a record of how it was done, not a tested recipe. Learn it hands-on from people who hold the knowledge."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "*Cycas media* and *Bowenia spectabilis* are not listed as threatened, so they are 'least concern' plants under Queensland's Nature Conservation Act. But all plants of the cycad families (Cycadaceae and Zamiaceae) are 'special least concern plants', which means taking them is more tightly controlled than for ordinary least concern plants [ref:qld-plants-reg].\n\nMuch of Eastern Kuku Yalanji country is now Aboriginal land. On 29 September 2021 more than 160,000 ha, taking in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks between Mossman and Cooktown, was handed back to the Eastern Kuku Yalanji people, to be jointly managed with the Queensland Government through the Queensland Parks and Wildlife Service [ref:ag2021]. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to hunt, fish or gather for their personal, domestic or non-commercial communal needs [ref:alrc]. Everyone else needs the Traditional Owners' permission to take anything from country, and park rules apply."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "Words for this work: *nyurrbal* 'to grind, sharpen'; *ngabal* 'soak, leach'; *dindal* 'to roast on coals'; *munja-l* 'to gather, collect (e.g. nuts, plant food)'; *jinali* 'smooth rock'; *kajimarra* 'food which is ground up to make flour'; *jandu*, 'a food made from flour cooked in water, which is thick, not soupy'; *balji*, a 'ladies' dilly bag, made from grass or black palm'; and *kakan*, 'the green upper part of the black palm tree from which the dilly bag is made' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "black-bean",
+    "yam",
+    "black-palm",
+    "pandanus",
+    "stone",
+    "earth-oven"
+  ],
+  "relatedWords": [
+    {
+      "word": "nyurrbal",
+      "gloss": "to grind, sharpen"
+    },
+    {
+      "word": "ngabal",
+      "gloss": "soak, leach"
+    },
+    {
+      "word": "dindal",
+      "gloss": "to roast on coals"
+    },
+    {
+      "word": "munja-l",
+      "gloss": "to gather, collect (e.g. nuts, plant food)"
+    },
+    {
+      "word": "jinali",
+      "gloss": "smooth rock"
+    },
+    {
+      "word": "kajimarra",
+      "gloss": "food which is ground up to make flour, i.e. marra"
+    },
+    {
+      "word": "jandu",
+      "gloss": "a food made from flour cooked in water, which is thick, not soupy"
+    },
+    {
+      "word": "junjun",
+      "gloss": "species of wild fruit, ripe in March - May"
+    },
+    {
+      "word": "balji",
+      "gloss": "ladies' dilly bag, made from grass or black palm"
+    },
+    {
+      "word": "kakan",
+      "gloss": "the green upper part of the black palm tree from which the dilly bag is made"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Plant list: 'Cycas media', 'Bowenia spectabilis', 'Amomum Dallachyi'; sect. 4, preparations for cooking vegetables"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 54, Bloomfield River dilly-bags and sieve-bags"
+    },
+    {
+      "id": "roth1906",
+      "citation": "Roth, W. E. (1906). North Queensland Ethnography, Bulletin No. 8: Notes on government, morals, and crime. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 9, inheritance of property (Bloomfield River zamia patches)"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83.",
+      "url": "https://hdl.handle.net/2440/13994",
+      "locator": "'Preparation of cycad nuts'; settlement and seasonal movement"
+    },
+    {
+      "id": "gymnosperm-db",
+      "citation": "The Gymnosperm Database. Cycas media.",
+      "url": "https://conifers.org/cy/Cycas_media.php"
+    },
+    {
+      "id": "cycadlist",
+      "citation": "The World List of Cycads. Cycas media subsp. banksii K.D.Hill (type locality).",
+      "url": "https://cycadlist.org/scientific_name/160"
+    },
+    {
+      "id": "rfk-cycas",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Cycas media. CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/Cycas_media.htm"
+    },
+    {
+      "id": "rfk-bowenia",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Bowenia spectabilis. CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/bowenia_spectabilis.htm"
+    },
+    {
+      "id": "ala-cycas-north",
+      "citation": "Queensland Herbarium (BRI) specimen AQ0832928, Cycas media subsp. banksii, collected 2012 at about 16.3°S 145.1°E. Atlas of Living Australia.",
+      "url": "https://biocache.ala.org.au/occurrences/d7280064-c270-44c4-89f3-8430e68aa419"
+    },
+    {
+      "id": "ala-cycas-south",
+      "citation": "Queensland Herbarium (BRI) specimen AQ0559269, Cycas media subsp. banksii, collected 2002 at about 16.8°S 145.2°E. Atlas of Living Australia.",
+      "url": "https://biocache.ala.org.au/occurrences/b6ef42f3-1b57-4c54-a634-beed2d4c337b"
+    },
+    {
+      "id": "qld-plants-reg",
+      "citation": "Nature Conservation (Plants) Regulation 2020 (Qld), current as at 22 May 2026.",
+      "url": "https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2020-0137",
+      "locator": "Sch. 1 pt 2 div 7 s 25 (least concern wildlife); sch. 2 (special least concern plants)"
+    },
+    {
+      "id": "ag2021",
+      "citation": "Australian Geographic (September 2021). Daintree handed back to Traditional Owners.",
+      "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}
