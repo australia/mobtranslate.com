@@ -220,7 +220,7 @@ export function evaluateReviewerAssignmentReadiness(
   const eligibleRoleKeys = new Set<string>();
   const roleStatuses: Array<{
     reviewerId: string;
-    role: z.infer<typeof ReviewRoleSchema>['role'];
+    role: z.infer<typeof ReviewRoleSchema>;
     eligible: boolean;
     reasons: string[];
   }> = [];
