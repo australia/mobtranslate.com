@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowLeft } from 'lucide-react';
 import SharedLayout from '../../../components/SharedLayout';
-import { COUNTRY_LANGUAGES, getCountryEntries } from '@/lib/country/entries.server';
+import { COUNTRY_LANGUAGES, getCountryEntries, getCountryPlaces } from '@/lib/country/entries.server';
 import { CountryBrowser, type CountryCard } from './CountryBrowser';
 import { ReviewNotice } from './components/ReviewNotice';
 
@@ -30,6 +30,7 @@ const blurb = (markdown: string) =>
 export default async function CountryIndexPage(props: { params: Promise<{ language: string }> }) {
   const { language } = await props.params;
   const entries = getCountryEntries(language);
+  const places = getCountryPlaces(language);
   const cards: CountryCard[] = entries.map((entry) => ({
     slug: entry.slug,
     title: entry.title,
@@ -64,6 +65,25 @@ export default async function CountryIndexPage(props: { params: Promise<{ langua
         <div className="mb-8">
           <ReviewNotice status="unreviewed" />
         </div>
+
+        {places.length > 0 && (
+          <section className="mb-10">
+            <h2 className="mb-3 text-xl font-semibold tracking-tight">Place guides</h2>
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {places.map((place) => (
+                <li key={place.slug}>
+                  <Link
+                    href={`/dictionaries/${language}/country/places/${place.slug}`}
+                    className="block h-full rounded-lg border border-[var(--lang-accent)] bg-[var(--lang-accent-soft)] px-4 py-3 no-underline transition-colors hover:border-[var(--lang-accent)]"
+                  >
+                    <p className="font-semibold text-foreground">{place.title}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{place.subtitle}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <CountryBrowser language={language} cards={cards} />
       </div>

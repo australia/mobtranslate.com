@@ -1,0 +1,248 @@
+{
+  "slug": "catfish",
+  "title": "Freshwater catfish",
+  "category": "fish",
+  "names": [
+    {
+      "word": "julaji",
+      "gloss": "catfish",
+      "dialect": "Yalanji",
+      "note": "Dictionary: 'fresh water catfish (yalanji)'."
+    },
+    {
+      "word": "kanyaji",
+      "gloss": "catfish",
+      "dialect": "Nyungkul",
+      "note": "Dictionary: 'freshwater catfish (nyungkul) (yalanji - julaji) Sometimes called walarrji, \"with whiskers\"'."
+    },
+    {
+      "word": "walarrji",
+      "gloss": "catfish",
+      "note": "Dictionary: 'literally \"with whiskers\". Freshwater catfish are sometimes called this'. Built on walarr 'whiskers, beard'."
+    }
+  ],
+  "scientificName": "Eel-tailed catfishes (Plotosidae: Neosilurus, Tandanus and relatives) and fork-tailed catfishes (Ariidae: Neoarius and relatives)",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary defines julaji, kanyaji and walarrji as 'freshwater catfish', which names the group, not a species. The species differ by river: the Bloomfield and Daintree streams of the dictionary's speakers hold the Wet Tropics tandan (Tandanus tropicanus), while the upper Mitchell holds Hyrtl's catfish (Neosilurus hyrtlii), the black catfish (N. ater) and fork-tailed catfishes. Which of these Western Yalanji speakers call julaji or kanyaji is not recorded."
+  },
+  "countryTypes": [
+    "river-freshwater"
+  ],
+  "summary": "Freshwater catfish are **julaji** in the Yalanji dialect and **kanyaji** in Nyungkul, and are sometimes called **walarrji**, 'with whiskers' [ref:hershberger1982]. They are whiskered, scaleless fish of creeks, rivers and waterholes, and **all of them carry sharp, venomous fin spines** [ref:foa-hyrtl]. On the upper Mitchell around Karma Waters the common ones are eel-tailed catfish (*Neosilurus*), with fork-tailed catfish in the bigger holes [ref:ala-catfish]. Bloomfield Kuku Yalanji caught them on lines of bark twine with lawyer-cane thorn hooks, baited with grubs, small prawns or frogs [ref:anderson1996]. Upriver on the Palmer, a catfish spine made the barb of the fish-hook [ref:roth1901].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "julaji (Yalanji), kanyaji (Nyungkul), walarrji 'with whiskers'"
+    },
+    {
+      "label": "Saltwater catfish",
+      "value": "kalu, kijukum"
+    },
+    {
+      "label": "Upper Mitchell species",
+      "value": "Hyrtl's catfish (Neosilurus hyrtlii), black catfish (N. ater), highfin catfish (Neoarius berneyi), blue catfish (N. graeffei)"
+    },
+    {
+      "label": "East-coast species",
+      "value": "Wet Tropics tandan (Tandanus tropicanus)"
+    },
+    {
+      "label": "Size",
+      "value": "Hyrtl's catfish to 40 cm; blue catfish to 60 cm"
+    },
+    {
+      "label": "Danger",
+      "value": "Venomous fin spines: very painful wounds"
+    },
+    {
+      "label": "Limit (Qld fresh waters)",
+      "value": "5 freshwater catfish in total"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary has three words for freshwater catfish [ref:hershberger1982]:\n\n- **julaji**, the *Yalanji* dialect word;\n- **kanyaji**, the *Nyungkul* word, with *julaji* given as its Yalanji equivalent;\n- **walarrji**, literally 'with whiskers', which the dictionary says freshwater catfish 'are sometimes called'. It is built on **walarr** 'whiskers, beard'.\n\nThe sea and estuary catfish have their own names: **kalu** and **kijukum**, both 'salt water catfish'. The dictionary also lists a separate *kalu* meaning 'garfish', so check which fish a speaker means [ref:hershberger1982].\n\nThese words come from Bloomfield and Daintree speakers. Western Yalanji people on the Mitchell and Palmer may use the same words or their own."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "Two families of catfish live in the rivers of Kuku Yalanji country.\n\n**Eel-tailed catfish** (family Plotosidae) are named for their tapering, eel-like tail. **Hyrtl's catfish** (*Neosilurus hyrtlii*) is dark brown to light silver-grey, white underneath, with dark brown to yellow fins. It grows to 40 cm but is commonly about 20 cm. It eats insects, very small crustaceans and some detritus [ref:foa-hyrtl].\n\n**Fork-tailed catfish** (family Ariidae) have a forked tail. The **blue catfish** (*Neoarius graeffei*) is dusky grey with a bluish tinge above and pale cream to pinkish below. It reaches 60 cm, commonly 35 cm, and eats almost anything: small fish, prawns, insects, worms, plants and detritus [ref:foa-blue]. The **highfin catfish** (*Neoarius berneyi*) is silvery-bronze to dark grey and grows to about 45 cm [ref:foa-highfin].\n\nThe stiff spines at the front of the back fin and the two side (pectoral) fins are **very sharp and venomous** [ref:foa-hyrtl] [ref:foa-blue] [ref:foa-highfin]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "**The upper Mitchell and Karma Waters.** Karma Waters Station sits on the north side of the Mitchell River, about 25 km west of Mount Carbine [ref:karmawaters]. The Atlas of Living Australia holds catfish records right on this stretch: the black catfish (*Neosilurus ater*) recorded by Queensland WildNet in 2008 at about 16.56°S 144.89°E, and Hyrtl's catfish and the highfin catfish collected for the Queensland Museum at about 16.5°S 144.92°E. Across the whole Mitchell drainage the Atlas holds more than 100 eel-tailed catfish records (mostly Hyrtl's and black catfish, with Dahl's and Rendahl's catfish) and more than 60 fork-tailed catfish records [ref:ala-catfish]. Hyrtl's catfish lives in still or flowing water, in streams, billabongs and pools [ref:foa-hyrtl], and the blue catfish lives in clear or muddy, fast or slow fresh water and in estuaries [ref:foa-blue].\n\n**Eastern Kuku Yalanji country.** In the Daintree drainage, which includes the Bloomfield, the common catfish is a different one, the Wet Tropics tandan (*Tandanus tropicanus*), with a few black catfish records [ref:ala-catfish]. Bloomfield people fished for catfish 'in freshwater creeks and waterholes' [ref:anderson1996]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Fish could be taken at any time of year [ref:anderson1996]. Two seasonal moments stand out in the sources.\n\n- **Late dry season.** As the smaller creeks dry back into separate waterholes, fish are trapped in them. This was when Bloomfield people used plant poisons [ref:anderson1996], and when Roth saw poisons put into drying holes elsewhere [ref:roth1901].\n- **Spawning.** The highfin catfish usually spawns in the late dry, September to October, sometimes into February [ref:foa-highfin]; the blue catfish spawns from the late dry to the end of the wet. In both, the **male carries the eggs and young in his mouth**, for 4–6 weeks in the blue catfish [ref:foa-blue] [ref:foa-highfin]. Hyrtl's catfish breeds at about 12 months old [ref:foa-hyrtl]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "Catfish is good eating, and freshwater fish of all kinds were a regular food on the inland creeks, where Bloomfield people fished with lines for 'turtle, eelfish, catfish and perch' [ref:anderson1996].\n\nThe spine itself was useful. On the Palmer River, the Mitchell's big northern tributary, the Kuku Mini (Roth's 'Koko-minni') made fish-hooks with a wooden shank and a bone barb, the barb being 'either from kangaroo-bone, or from one of the spines of the \"cat-fish\"' [ref:roth1901].\n\nThe fishing words in the dictionary include **badur** 'hook and line', **mandurr** 'bait (any kind)' and **kuyu** 'fish' [ref:hershberger1982]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was caught and cooked",
+      "body": "**Hook and line in a creek or waterhole (Bloomfield Kuku Yalanji)** [ref:anderson1996]:\n\n1. Make the line from the bark of *Sterculia quadrifolia*, twisted into twine.\n2. Make the hook from a thorn of the lawyer cane (*Calamus australis*).\n3. Bait it with a grub, a small freshwater prawn or a small frog.\n4. Hold the line in your hand, or tie it to a stick set into the bank.\n5. Line fishing was mostly women's work, though men did it too.\n\n**The Palmer River hook (Kuku Mini).** A wooden shank with a barb of kangaroo bone or catfish spine lashed on at a sharp angle. Further north, around Princess Charlotte Bay, Roth saw the barb fixed with kangaroo-tail tendon and grevillea gum [ref:roth1901].\n\n**Poisoning a drying waterhole.** At Bloomfield in the late dry, people used the bark and leaves of *Erythrophleum chlorostachys*, smashed together under water, or the stems of *Barringtonia racemosa*. The stunned fish floated up and were collected. Divers had to keep their eyes shut tight, and the hole could not be used again until a storm and flood refreshed it [ref:anderson1996]. The poisons Roth recorded nearest Karma Waters were on the middle Palmer [ref:roth1901]:\n\n1. Throw the bark of *Adenanthera abrosperma* into the water; or\n2. Throw in leaves of the red stringybark (*Eucalyptus resinifera*) and leave them one to three days, depending on the size of the pool. An ironbark was used the same way and worked faster.\n\nE. Palmer told Roth that *Barringtonia racemosa* was also used on the Mitchell, Laura and Lynd rivers [ref:roth1901].\n\n**Muddying.** In a small shallow pool, stir up the mud with your feet, then hit or spear the fish as they come up. Roth called this 'a common procedure everywhere' [ref:roth1901].\n\n**Nets on the inland rivers.** The Koko-yellanji of the Laura used an oval-framed net they called *jikan-ikan* (Roth's spelling). On the Palmer the same kind of net was strung with *Acacia leptocarpa* twine on a large frame and worked by two people [ref:roth1901].\n\n**Cooking.** Roast the fish straight on the coals, **dindal** 'to roast on coals' [ref:hershberger1982]. Bigger catches, such as eels, turtles and cassowaries, were cut up and baked in the earth oven, **kurrma**, which Bloomfield people made like this [ref:anderson1996]:\n\n1. Heat round stones that are known not to crack in a fire, and dig a hole nearby.\n2. Lift the hot stones into the hole with lawyer-cane tongs.\n3. Put the food, with eucalyptus, acacia or wild-ginger leaves for flavour, into a bark trough on the stones.\n4. Pack more hot stones around and on top, cover with tea-tree bark and then sand or earth, and leave it to cook for several hours."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**The spines.** Catfish spines are venomous and 'may inflict a very painful injury' [ref:foa-hyrtl]. Most stings happen to people taking the fish off the line [ref:isbister2007]. If you are spiked [ref:isbister2007]:\n\n1. Wash the wound.\n2. Put the hurt hand or foot in **hot water, about 45°C**, for up to 90 minutes. Test the heat with your other hand first so you don't scald yourself.\n3. Get medical care to clean out the wound and check for broken-off spine, and watch for infection over the next days.\n\n**Crocodiles.** Follow the Crocwise rules at any river: stand back from the edge, don't wade in after a snagged line, never clean fish at the water's edge, and take extra care at night, dusk and dawn [ref:crocwise]. See the freshwater-crocodile and saltwater-crocodile entries for which crocodiles live where.\n\n**Fish poisons** stun and can blind; they are described here as history, not as a method to use [ref:anderson1996]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "**Recreational rules (Queensland fresh waters).** Eel-tailed catfish (*Tandanus tandanus*) must be at least 35 cm. The other freshwater catfishes (*Anodontiglanis*, *Neosilurus*, *Neosiluroides*) have no size limit. You may keep **5 freshwater catfish in total**. Fork-tailed catfishes are not listed there; the page sets a general limit of 20 for unlisted freshwater species [ref:qld-limits]. In fresh waters you may use up to six handheld lines with one hook each and must stay within 50 m of them. Spears, set lines, cast nets and crab pots are not allowed [ref:qld-gear].\n\n**Native title.** In 2013 the Federal Court recognised Western Yalanji native title that includes rights to hunt, fish and gather, and to take and use the water, held through the Western Yalanji Aboriginal Corporation RNTBC [ref:fca2013]. A further 170,827 ha was recognised in August 2026; Elder Rose Snider said it meant going back to Country to teach the kids 'how to hunt and fish' [ref:nit2026wy]. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to fish for personal, domestic or non-commercial communal needs [ref:alrc].\n\nKarma Waters is a working station [ref:karmawaters]. Visitors need the station's permission, and the Western Yalanji Traditional Owners' permission, to fish its holes.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*julaji*, *kanyaji*, *walarrji* 'freshwater catfish'; *kalu*, *kijukum* 'salt water catfish'; *walarr* 'whiskers, beard'; *kuyu* 'fish'; *badur* 'hook and line'; *mandurr* 'bait (any kind)'; *dindal* 'to roast on coals'; *kurrma* 'earth oven' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "eels",
+    "barramundi",
+    "black-bream",
+    "freshwater-turtle",
+    "freshwater-crocodile",
+    "cherabin",
+    "lawyer-cane",
+    "earth-oven"
+  ],
+  "relatedWords": [
+    {
+      "word": "kalu",
+      "gloss": "salt water catfish"
+    },
+    {
+      "word": "kijukum",
+      "gloss": "saltwater catfish"
+    },
+    {
+      "word": "walarr",
+      "gloss": "whiskers, beard"
+    },
+    {
+      "word": "kuyu",
+      "gloss": "fish"
+    },
+    {
+      "word": "badur",
+      "gloss": "hook and line"
+    },
+    {
+      "word": "mandurr",
+      "gloss": "bait (any kind)"
+    },
+    {
+      "word": "dindal",
+      "gloss": "to roast on coals"
+    },
+    {
+      "word": "kurrma",
+      "gloss": "earth oven"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 15 'Fish': (b) muddying, (c) fish-poisons, (f) fish-hooks (Palmer River), (i) fish-nets"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83.",
+      "url": "https://hdl.handle.net/2440/13994",
+      "locator": "Fishing (spearing, hook and line, plant stupefacients); 'Cooking processes and associated implements'"
+    },
+    {
+      "id": "foa-hyrtl",
+      "citation": "Gomon, M. F. & Bray, D. J. (2017). Hyrtl's Catfish, Neosilurus hyrtlii. Fishes of Australia (Museums Victoria), accessed 5 October 2026.",
+      "url": "https://fishesofaustralia.net.au/home/species/3304"
+    },
+    {
+      "id": "foa-blue",
+      "citation": "Gomon, M. F. & Bray, D. J. (2023). Blue Catfish, Neoarius graeffei. Fishes of Australia (Museums Victoria), accessed 5 October 2026.",
+      "url": "https://fishesofaustralia.net.au/home/species/2141"
+    },
+    {
+      "id": "foa-highfin",
+      "citation": "Gomon, M. F. & Bray, D. J. (2023). Highfin Catfish, Neoarius berneyi. Fishes of Australia (Museums Victoria), accessed 5 October 2026.",
+      "url": "https://fishesofaustralia.net.au/home/species/2140"
+    },
+    {
+      "id": "ala-catfish",
+      "citation": "Atlas of Living Australia. Occurrence records for Plotosidae and Ariidae in the Mitchell–Coleman Rivers and Daintree River drainage divisions, including Queensland WildNet and Queensland Museum records near Karma Waters (accessed 5 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=family%3APlotosidae%20OR%20family%3AAriidae&fq=cl1059%3A%22MITCHELL-COLEMAN%20RIVERS%20(QLD)%22"
+    },
+    {
+      "id": "karmawaters",
+      "citation": "Karma Waters Station. About (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "isbister2007",
+      "citation": "Isbister, G. K. (2007). Managing injuries by venomous sea creatures in Australia. Australian Prescriber 30(5).",
+      "url": "https://australianprescriber.tg.org.au/articles/managing-injuries-by-venomous-sea-creatures-in-australia.html"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips (web page, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "qld-limits",
+      "citation": "Queensland Government. Size and possession limits in fresh waters (web page, last updated 27 March 2026, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/limits-fresh"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing gear: fresh waters (web page, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "fca2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Logan J, 24 September 2013), determination orders 6–7.",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "nit2026wy",
+      "citation": "National Indigenous Times (13 August 2026). 'Western Yalanji determination brings Cape York native title to the finish line.'",
+      "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Western Yalanji story; historical timeline (Table 1); Native Title Determinations 1–4; ILUAs (Table 4); pastoral stations (Table 5); heritage sites"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}

@@ -1,0 +1,264 @@
+{
+  "slug": "eels",
+  "title": "Freshwater eels",
+  "category": "fish",
+  "names": [
+    {
+      "word": "kubarr",
+      "gloss": "big black fresh water eel",
+      "note": "The dictionary's two entries read 'big black fresh water eel' and 'big black freshwater eelfish'."
+    },
+    {
+      "word": "dandarrbina",
+      "gloss": "yellow freshwater eel",
+      "note": "Also defined as 'yellow freshwater eelfish'."
+    },
+    {
+      "word": "mawul",
+      "gloss": "small fresh water eel",
+      "note": "Dictionary: 'small variety of freshwater eel. Only old people were allowed to eat it.'"
+    },
+    {
+      "word": "yaba",
+      "gloss": "eel",
+      "note": "Dictionary: 'freshwater eel - has a big head and is smaller than dandarribina. It does not have much taste, no fat, people don't eat it unless there's no other meat.' The same word also means 'older brother'."
+    }
+  ],
+  "scientificName": "Anguilla reinhardtii, A. obscura and A. marmorata (family Anguillidae)",
+  "identification": {
+    "confidence": "probable",
+    "basis": "Each word is defined in the dictionary as a kind of freshwater eel, and the only freshwater eels in Kuku Yalanji rivers are Anguilla species: the longfin eel (A. reinhardtii), the Pacific shortfin eel (A. obscura) and the marbled eel (A. marmorata), all recorded in the Daintree drainage that includes the Bloomfield. No source matches a particular word to a particular species. The colour words are suggestive (the Pacific shortfin eel can be dark brown, the marbled eel greyish-yellow) but that pairing is untested and should be checked with speakers."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "rainforest"
+  ],
+  "summary": "Kuku Yalanji has at least four words for freshwater eels: **kubarr**, the big black eel; **dandarrbina**, the yellow eel; **mawul**, a small eel that **only old people were allowed to eat**; and **yaba**, a big-headed eel eaten only when there is no other meat [ref:hershberger1982]. Bloomfield people went to the freshwater streams for 'eelfish', speared them under water, caught them on lines and baked the big ones in the earth oven [ref:anderson1996]. The eels themselves are longfin, Pacific shortfin and marbled eels, which breed far out in the Coral Sea [ref:foa-longfin] [ref:ala-eels]. **They belong to the east-flowing rivers.** The Atlas of Living Australia has no eel records from the Mitchell around Karma Waters [ref:ala-eels].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kubarr (big black), dandarrbina (yellow), mawul (small), yaba (big-headed)"
+    },
+    {
+      "label": "Scientific names",
+      "value": "Anguilla reinhardtii, A. obscura, A. marmorata"
+    },
+    {
+      "label": "English names",
+      "value": "Longfin eel, Pacific shortfin eel, marbled (giant mottled) eel; 'eelfish'"
+    },
+    {
+      "label": "Size",
+      "value": "Longfin eel commonly 100–150 cm; Pacific shortfin commonly about 60 cm"
+    },
+    {
+      "label": "Where",
+      "value": "Creeks and rivers flowing east to the Coral Sea; not recorded on the Mitchell at Karma Waters"
+    },
+    {
+      "label": "Food rule",
+      "value": "mawul: 'Only old people were allowed to eat it'"
+    },
+    {
+      "label": "Legal size (Qld)",
+      "value": "30 cm minimum; 10 eels in total"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary names four freshwater eels [ref:hershberger1982]:\n\n- **kubarr**, 'big black fresh water eel';\n- **dandarrbina**, 'yellow freshwater eel';\n- **mawul**, 'small variety of freshwater eel. Only old people were allowed to eat it';\n- **yaba**, a freshwater eel that 'has a big head and is smaller than dandarribina. It does not have much taste, no fat, people don't eat it unless there's no other meat.' *Yaba* also means 'older brother'.\n\nThe dictionary uses 'eel' and 'eelfish' for the same animals, and 'eelfish' is the word Anderson heard at Bloomfield [ref:hershberger1982] [ref:anderson1996]. The sea's moray eel is a different animal with its own name, **ngiwa** [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "Freshwater eels are long, round-bodied fish with small eyes, a big mouth and tiny scales buried in the skin. The back fin, tail fin and belly fin run together into one continuous fin, and there are no fins underneath at the front [ref:foa-longfin].\n\n- **Longfin eel** (*Anguilla reinhardtii*): mottled or marbled olive-green to brown, paler underneath. Commonly 100–150 cm and 1–2 kg; eels that cannot get back to sea can reach 300 cm and 22 kg. Males are much smaller, to about 65 cm. It can live more than 50 years [ref:foa-longfin].\n- **Pacific shortfin eel** (*A. obscura*): plain silver or yellowish to dark brown, paler below. Commonly about 60 cm, reported to 120 cm [ref:foa-shortfin].\n- **Marbled eel** (*A. marmorata*): greyish-yellow with brownish to black marbling on the back, sides and fins [ref:foa-marbled].\n\nEels are the top predator in many streams. They usually feed **at night** on fish, crustaceans, molluscs and insects [ref:foa-longfin]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "Longfin eels live in flowing rivers from the mouth to the headwater streams, and in lakes, swamps and floodplains [ref:foa-longfin]. The marbled eel lives in the coastal freshwater streams of the Wet Tropics [ref:foa-marbled].\n\n**Eastern Kuku Yalanji country.** The Daintree drainage, which includes the Bloomfield, is eel country: the Atlas of Living Australia holds about 100 longfin eel records there, and more than 40 each of the Pacific shortfin and marbled eels [ref:ala-eels]. Bloomfield families made trips inland to the freshwater streams for eelfish and freshwater tortoise [ref:anderson1996].\n\n**The Mitchell and Karma Waters.** Eels are rare to absent here. The longfin eel lives in the coastal drainages of eastern Australia and spawns in the Coral Sea [ref:foa-longfin]. The Pacific shortfin eel reaches the Gulf only in the far north, at the Watson River [ref:foa-shortfin], and the Indonesian shortfin eel is found in Australia only in the Kimberley [ref:foa-bicolor]. The Atlas holds just two eel records anywhere in the Mitchell drainage, both on its eastern rim near the Great Dividing Range, and none near Karma Waters (about 25 km west of Mount Carbine) [ref:ala-eels] [ref:karmawaters]. The nearest good eel water inland is the Laura and Normanby system, which runs east to Princess Charlotte Bay and has longfin and Pacific shortfin eel records [ref:ala-eels]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Anderson calls eels a 'non-seasonal' food, taken whenever the chance came. In the dry season, small family groups of inland Bloomfield people moved out from the main creek camps to 'branch' camps to take eelfish, tortoises, wallabies and goannas [ref:anderson1996]. On the lower Tully River, far to the south, Roth saw eels speared 'after the floods have gone down' [ref:roth1901].\n\nThe eel's own life runs on a much longer clock. Adult longfin eels may stay in fresh water for more than 50 years, then go down to the sea and swim to the deep Coral Sea to spawn. The young drift back as see-through 'glass eels', darken into elvers in the estuaries and work their way upstream [ref:foa-longfin]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "The big eels were treated like other large game: butchered and baked in the stone oven [ref:anderson1996]. The dictionary notes that *yaba* has 'no fat' and was eaten only when there was no other meat [ref:hershberger1982].\n\n**The mawul rule.** The dictionary records that the small *mawul* eel was a food for old people only [ref:hershberger1982]. It records the same kind of rule for the stingray, *yawu*: 'Long ago only old people were allowed to eat it, but now this isn't followed much' [ref:hershberger1982]. Roth, from Bloomfield information, recorded that such food bans could be relaxed by 'some of the very old men' in favour of young men 'when food happens to be extra scarce' [ref:roth1908]. Whether the *mawul* rule is still kept is a question for the families."
+    },
+    {
+      "id": "how-to",
+      "heading": "How they were caught and cooked",
+      "body": "**Bloomfield Kuku Yalanji** [ref:anderson1996]:\n\n1. **Spearing under water.** In freshwater creeks and waterholes, eelfish were sometimes speared from underwater. By the late 1970s people dived for eels and turtles inland with goggles and a flexible steel rod.\n2. **Hook and line.** Lines of *Sterculia quadrifolia* bark, hooks of lawyer-cane thorn, and bait of grubs, small freshwater prawns or small frogs were used for 'turtle, eelfish, catfish and perch'.\n3. **Cooking.** Large eels were butchered and the meat cooked in the stone oven (see below).\n\n**Lower Tully River (Mallanpara country, far south of Kuku Yalanji country).** Roth's fullest eel account [ref:roth1901]:\n\n1. **Bobbing at night.** Thread a dozen big earthworms on split lawyer cane, tie them in a tassel to a cord on a short stick, and bob it in the water near a fire on the bank. When an eel bites and fixes its teeth in, jerk the stick over your shoulder to throw the eel onto the bank.\n2. **Jabbing.** Where leaves and water-grass have collected in an eddy after a flood, fifteen or twenty men wade in waist-deep and jab single-pointed spears straight down; three-pronged spears would clog. The spear twirls when an eel is struck, and the man grabs it by hand, 'a practice which often entailed his being severely bitten'.\n3. **Basket traps.** Set a funnel-shaped cane trap in the stream, lined with water-grass, with fences of sticks and blady grass running out from its mouth. For eels it is set in the daytime, left all night and lifted in the morning.\n4. **Hollow logs.** If an eel is hiding in a log in the water, hold the trap at one end and push a frayed lawyer cane in from the other end to drive it out. A slimy cane tip tells you an eel is inside.\n5. **Grilling.** Eels were cooked on a grid of sticks laid across four forked uprights, 18–24 inches high.\n\n**Princess Charlotte Bay hinterland (north of the Laura).** Throw hollow paperbark or bloodwood logs, 4–7 feet long, into a waterhole and leave them for a few hours or all day. Dive down, bring the log up at an angle with one hand closing the lower end, and let the water trickle out through your fingers to see whether an eel, crayfish or fish is inside [ref:roth1901].\n\n**Carrying.** Roth's Cape Bedford string figures include 'eels carried on a hooked stick', which he notes was 'a common method of carrying fish' [ref:roth1902].\n\n**The Bloomfield stone oven** [ref:anderson1996]:\n\n1. Heat round stones that are known not to crack in a fire, and dig a hole nearby.\n2. Lift the hot stones into the hole with lawyer-cane tongs.\n3. Put the meat, with eucalyptus, acacia or wild-ginger leaves for flavour, into a bark trough on the stones.\n4. Pack more hot stones around and on top, cover with tea-tree bark and then sand or earth, and leave it for several hours."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**Bites.** Eels are toothed predators, and Roth recorded that catching them by hand 'often entailed' a severe bite [ref:roth1901].\n\n**Crocodiles.** Eel creeks near the coast are crocodile country. Stand back from the water's edge, don't wade in after a snagged line, never clean fish at the water's edge, and take extra care at night, dusk and dawn, which is when eels feed [ref:crocwise] [ref:foa-longfin].\n\n**Plant poisons** such as the *Derris* leaves Roth saw used for eels on the Tully [ref:roth1901] are poisons, recorded here as history, not as a method to use."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "**Recreational rules (Queensland fresh waters).** Longfin, Pacific shortfin and southern shortfin eels must be at least **30 cm**, with **10 eels in total** per person [ref:qld-limits]. In fresh waters you may use handheld lines (one hook each, and stay within 50 m of them) and up to four tagged traps of the legal kinds. Spears are not allowed [ref:qld-gear].\n\n**Native title.** Much of the rainforest eel country between the Daintree and Bloomfield was handed back to Eastern Kuku Yalanji ownership in 2021 [ref:nit2021]. Western Yalanji native title, including fishing, was recognised over a further 170,827 ha in August 2026 [ref:nit2026wy]. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to fish for personal, domestic or non-commercial communal needs [ref:alrc]. Anyone else needs the Traditional Owners' permission, and on a station such as Karma Waters the owners' permission as well.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*kubarr*, *dandarrbina*, *mawul*, *yaba* 'freshwater eels'; *ngiwa* 'moray eel'; *kuyu* 'fish'; *damal* 'to spear'; *walmba* 'log'; *mala-kural* 'good diver'; *mandurr* 'bait (any kind)'; *kurrma* 'earth oven' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "catfish",
+    "freshwater-turtle",
+    "cherabin",
+    "barramundi",
+    "spear-and-woomera",
+    "earth-oven",
+    "lawyer-cane",
+    "paperbark"
+  ],
+  "relatedWords": [
+    {
+      "word": "ngiwa",
+      "gloss": "moray eel"
+    },
+    {
+      "word": "kuyu",
+      "gloss": "fish"
+    },
+    {
+      "word": "damal",
+      "gloss": "to spear"
+    },
+    {
+      "word": "walmba",
+      "gloss": "log"
+    },
+    {
+      "word": "mala-kural",
+      "gloss": "good diver"
+    },
+    {
+      "word": "mandurr",
+      "gloss": "bait (any kind)"
+    },
+    {
+      "word": "kurrma",
+      "gloss": "earth oven"
+    },
+    {
+      "word": "yawu",
+      "gloss": "stingray"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83.",
+      "url": "https://hdl.handle.net/2440/13994",
+      "locator": "Environment and seasonal movement; fishing; 'Cooking processes and associated implements'; post-contact hunting"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking' (grilling eels, Tully); sect. 15 'Fish' (c) Derris, (d) bobbing, (g) hollow logs, (h) baskets and cages, (n) spears"
+    },
+    {
+      "id": "roth1902",
+      "citation": "Roth, W. E. (1902). North Queensland Ethnography, Bulletin No. 4: Games, Sports and Amusements. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "String figures, plate VII fig. 6 (Cape Bedford)"
+    },
+    {
+      "id": "roth1908",
+      "citation": "Roth, W. E. (1908). North Queensland Ethnography, Bulletin No. 11: Miscellaneous Papers (tabu and other restrictions). Records of the Australian Museum 7(2).",
+      "url": "https://archive.org/details/biostor-52896",
+      "locator": "Sect. 2–6, tabu on foods (Bloomfield River information from R. Hislop)"
+    },
+    {
+      "id": "foa-longfin",
+      "citation": "Gomon, M. F. & Bray, D. J. (2021). Longfin Eel, Anguilla reinhardtii. Fishes of Australia (Museums Victoria), accessed 5 October 2026.",
+      "url": "https://fishesofaustralia.net.au/home/species/1426"
+    },
+    {
+      "id": "foa-shortfin",
+      "citation": "Gomon, M. F. & Bray, D. J. (2021). Pacific Shortfin Eel, Anguilla obscura. Fishes of Australia (Museums Victoria), accessed 5 October 2026.",
+      "url": "https://fishesofaustralia.net.au/home/species/1425"
+    },
+    {
+      "id": "foa-marbled",
+      "citation": "Bray, D. J. (2023). Marbled Eel, Anguilla marmorata. Fishes of Australia (Museums Victoria), accessed 5 October 2026.",
+      "url": "https://fishesofaustralia.net.au/home/species/5706"
+    },
+    {
+      "id": "foa-bicolor",
+      "citation": "Gomon, M. F. & Bray, D. J. (2022). Indonesian Shortfin Eel, Anguilla bicolor. Fishes of Australia (Museums Victoria), accessed 5 October 2026.",
+      "url": "https://fishesofaustralia.net.au/home/species/1424"
+    },
+    {
+      "id": "ala-eels",
+      "citation": "Atlas of Living Australia. Occurrence records for Anguilla in the Mitchell–Coleman Rivers, Daintree River and Normanby River drainage divisions (accessed 5 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus%3AAnguilla&fq=cl1059%3A%22MITCHELL-COLEMAN%20RIVERS%20(QLD)%22"
+    },
+    {
+      "id": "karmawaters",
+      "citation": "Karma Waters Station. About (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips (web page, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "qld-limits",
+      "citation": "Queensland Government. Size and possession limits in fresh waters (web page, last updated 27 March 2026, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/limits-fresh"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing gear: fresh waters (web page, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "nit2021",
+      "citation": "National Indigenous Times (1 October 2021). Daintree Rainforest handed back to Eastern Kuku Yalanji people.",
+      "url": "https://nit.com.au/01-10-2021/2393/daintree-rainforest-handed-back-to-eastern-kuku-yalanji-people"
+    },
+    {
+      "id": "nit2026wy",
+      "citation": "National Indigenous Times (13 August 2026). 'Western Yalanji determination brings Cape York native title to the finish line.'",
+      "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Western Yalanji story; historical timeline (Table 1); Native Title Determinations 1–4; ILUAs (Table 4); pastoral stations (Table 5); heritage sites"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}

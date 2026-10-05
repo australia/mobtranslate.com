@@ -1,0 +1,218 @@
+{
+  "slug": "cherabin",
+  "title": "Cherabin (freshwater prawn)",
+  "category": "shellfish-crustacean",
+  "names": [
+    {
+      "word": "wukuju",
+      "gloss": "freshwater prawn",
+      "note": "Dictionary: 'freshwater prawn, the big one with long legs'."
+    }
+  ],
+  "scientificName": "Macrobrachium species, chiefly the giant river prawn M. spinipes (formerly M. rosenbergii) and the long-arm prawn M. lar",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary defines wukuju as 'freshwater prawn, the big one with long legs'. The big freshwater prawns of north Queensland, called cherabin in the Queensland fishing rules, are Macrobrachium species, and both the giant river prawn (M. spinipes) and the long-arm prawn (M. lar) are recorded from the Daintree drainage that includes the Bloomfield. The dictionary does not say which of them, or whether both, wukuju covers."
+  },
+  "countryTypes": [
+    "river-freshwater"
+  ],
+  "summary": "**Wukuju** is the Kuku Yalanji word for 'freshwater prawn, the big one with long legs' [ref:hershberger1982]: the big river prawns that north Queenslanders call **cherabin** [ref:qld-limits]. The largest, the giant river prawn (*Macrobrachium spinipes*), is a prized catch [ref:cdu2014]. Its larvae must reach salt water within a week of hatching, so every wet season they drift down to the sea and the young prawns climb back up the rivers afterwards [ref:cdu2016]. Bloomfield Kuku Yalanji used small freshwater prawns as bait for eels, catfish and perch [ref:anderson1996]. On the upper Mitchell at Karma Waters the freshwater crustaceans on record are the smaller *Macrobrachium australiense* prawn and the **redclaw crayfish** [ref:ala-crustaceans].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "wukuju 'freshwater prawn, the big one with long legs'"
+    },
+    {
+      "label": "Related words",
+      "value": "wakal 'prawn, lobster'; ngajay, a small crayfish 'not eaten'"
+    },
+    {
+      "label": "Scientific names",
+      "value": "Macrobrachium spinipes (giant river prawn), M. lar (long-arm prawn)"
+    },
+    {
+      "label": "Upper Mitchell",
+      "value": "Macrobrachium australiense; redclaw crayfish (Cherax quadricarinatus)"
+    },
+    {
+      "label": "Breeding",
+      "value": "November–March (giant river prawn)"
+    },
+    {
+      "label": "Limit (Qld fresh waters)",
+      "value": "Cherabin: no size limit, 10 in total. Redclaw: 40; return females carrying eggs"
+    },
+    {
+      "label": "No take",
+      "value": "Spiny crayfish (Euastacus)"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives **wukuju** as 'freshwater prawn, the big one with long legs' [ref:hershberger1982]. The general word for prawns is **wakal**, 'prawn, lobster'. A third crustacean word, **ngajay**, is 'species of small crayfish, not eaten'; the dictionary does not say which crayfish that is [ref:hershberger1982].\n\n'Cherabin' is the north Australian English name for the big freshwater prawns, used in the Queensland fishing rules for *Macrobrachium lar* and *M. rosenbergii* [ref:qld-limits]. The Australian prawn long called *M. rosenbergii* has since been recognised as its own species and renamed *M. spinipes* [ref:lober2015].\n\nThese words come from Bloomfield and Daintree speakers. Western Yalanji people on the Mitchell may use the same word or their own."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "Cherabin are large freshwater prawns, the 'big one with long legs' of the dictionary [ref:hershberger1982]. The giant river prawn (*Macrobrachium spinipes*) is Australia's native giant freshwater prawn [ref:lober2015], an 'iconic' species of the northern rivers [ref:cdu2016]. It is a freshwater animal for most of its life, but closely tied to the sea: its larvae cannot survive in fresh water for more than about a week [ref:cdu2016].\n\n**Redclaw** (*Cherax quadricarinatus*) is a freshwater crayfish, not a prawn. The Queensland rules list it separately from cherabin [ref:qld-limits]. The **spiny crayfish** (*Euastacus*) are another group again, and are fully protected [ref:qld-limits]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "**Eastern Kuku Yalanji country.** In the Daintree drainage, which includes the Bloomfield, the Atlas of Living Australia holds records of the long-arm prawn (*M. lar*) and the giant river prawn (*M. spinipes*), along with several smaller *Macrobrachium* prawns and two spiny crayfish, *Euastacus robertsi* and *E. fleckeri* [ref:ala-crustaceans]. Bloomfield people fished the inland freshwater creeks, where small freshwater prawns were a usual bait [ref:anderson1996].\n\n**The upper Mitchell and Karma Waters.** Karma Waters lies on the north side of the Mitchell about 25 km west of Mount Carbine [ref:karmawaters]. The prawn the Atlas records most often in the Mitchell drainage is the smaller *Macrobrachium australiense* (22 records), including Queensland Museum samples near Mount Carbine at about 16.5°S 145.0°E (1997) and 16.57°S 145.10°E (1998). The giant river prawn has six records in the drainage, some far downstream and some in the headwaters near Mount Molloy [ref:ala-crustaceans]. **Redclaw** is well recorded through the Mitchell drainage (32 records), including an Australian Museum record at about 16.57°S 144.70°E, a little upstream of Karma Waters [ref:ala-crustaceans].\n\nIn the Daly River, Northern Territory, giant river prawns used banks with plenty of sticks, undercuts and roots early in the dry season, then the algae-covered sand banks; by the end of the dry, the big breeding males held the rock bars and undercut banks [ref:cdu2016]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The giant river prawn breeds from **November to March** [ref:lober2015]. Its life runs with the wet season. In the Daly River study, the larvae drifted downstream with the wet-season flows from December to March, because they must reach salt water within seven days of hatching. After the rains, about 14 million young prawns migrated back upstream over about six weeks, alongside barramundi and mullet [ref:cdu2016], the main run coming in **April and May** [ref:cdu2014].\n\nOn the lower Tully River, far to the south, Roth saw shrimps and prawns caught when the river was at **half-flood** [ref:roth1901]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Bait.** At Bloomfield, the bait for the freshwater lines that took turtle, eelfish, catfish and perch was 'generally grubs, small freshwater prawns or small frogs' [ref:anderson1996]. The dictionary's word for bait is **mandurr**, 'bait (any kind)' [ref:hershberger1982].\n\n**Food.** Prawns were eaten as well as used for bait. On the lower Tully, Roth recorded that shrimps and prawns, 'besides being utilised as bait, are eaten subsequent to baking in ginger leaves or tea-tree bark' [ref:roth1901]. On the Tully the bait was 'always tied onto the hook, never transfixed', and was chewed before use [ref:roth1901]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How they were caught and cooked",
+      "body": "The Kuku Yalanji sources record cherabin as bait but do not describe how they were caught. The fullest accounts come from neighbours, and are labelled by district.\n\n**Lower Tully River (Mallanpara country, far south of Kuku Yalanji country)** [ref:roth1901]:\n\n1. **Pulling the water-grass.** When the river is about half-flood, the women wade in and root up the bundles of water-grass with their hands, throw them on the bank, and pick out the prawns and shrimps from among the blades.\n2. **The dilly-bag sweep.** At the same half-flood, a woman holds the mouth of a dilly-bag close against one side of a grass tussock and drives the shrimps into it with a movement of her other hand on the far side.\n3. **Scooping at the river mouth.** At spring tides, when the prawns swarm so thickly that the water looks reddish, the men wade in and scoop them up in long baskets of split lawyer cane, up to 10–12 feet long.\n\n**Crayfish** were caught 'with the hands, in nets, or, as on the Musgrave, etc., in logs' [ref:roth1901]. The log method, from the hinterland of Princess Charlotte Bay north of the Laura [ref:roth1901]:\n\n1. Throw hollow logs of paperbark or bloodwood, 4–7 feet long, into a waterhole.\n2. Leave them for three or four hours, or all day.\n3. Tread water or dive down to the log, and bring it up at an angle with one hand closing the lower end.\n4. Hold it above the surface and let the water trickle out through your fingers; you can tell at once whether anything is inside.\n\n**Cooking.** Wrap the prawns in wild-ginger leaves or tea-tree bark and bake them [ref:roth1901]. The Kuku Yalanji word for cooking on the coals is **dindal**, 'to roast on coals' [ref:hershberger1982].\n\n**Today's way on the upper Mitchell.** Visitors use a legal trap in a quiet hole, as set out below."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**Crocodiles.** Setting and checking traps puts you at the water's edge. Follow the Crocwise rules: stand back from the edge, never lean out over the water or stand on overhanging logs, don't wade in to free a trap, and take extra care at night, dusk and dawn [ref:crocwise]. See the freshwater-crocodile and saltwater-crocodile entries for which crocodiles live where.\n\n**Traps.** Use only legal traps, tagged with your name and address [ref:qld-gear]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "**Recreational rules (Queensland fresh waters)** [ref:qld-limits]:\n\n- **Cherabin** (*Macrobrachium lar* and *M. rosenbergii*): no size limit; **10 in total**.\n- **Redclaw** (*Cherax quadricarinatus*): no size limit; **40** within its natural range. **Females carrying eggs or young must be put back.**\n- **Spiny crayfish** (*Euastacus*): **no take**.\n\n**Traps** [ref:qld-gear]:\n\n1. You may use up to **4 traps in total**: canister traps, collapsible traps, dilly nets, funnel or round traps, or open-top pyramid traps.\n2. Tag every trap with your surname and full address. If it isn't tied to something fixed above the water, it needs a light-coloured float at least 15 cm across, marked with your surname.\n3. Funnel and round traps may be up to 70 cm long (funnel) or 70 cm across (round), with mesh no bigger than 25 mm.\n4. Entrances of up to 5 cm are legal in all Queensland fresh waters. Entrances up to 10 cm are allowed only in fresh waters west of the line that follows the Great Dividing Range and the Gore Highway. The Mitchell runs west to the Gulf, but check the official map before using the larger entrances.\n5. Crab pots, cast nets and spears are not allowed in fresh waters.\n\n**Native title.** In 2013 the Federal Court recognised Western Yalanji native title that includes rights to hunt, fish and gather from the waters, and to take and use their natural resources [ref:fca2013]. Further Western Yalanji country, 170,827 ha, was recognised in August 2026 [ref:nit2026wy]. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to fish for personal, domestic or non-commercial communal needs [ref:alrc]. On Karma Waters, ask the station and the Western Yalanji Traditional Owners before you set a trap.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*wukuju* 'freshwater prawn, the big one with long legs'; *wakal* 'prawn, lobster'; *ngajay* 'species of small crayfish, not eaten'; *mandurr* 'bait (any kind)'; *kuyu* 'fish'; *dindal* 'to roast on coals' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "barramundi",
+    "catfish",
+    "eels",
+    "mud-crab",
+    "freshwater-crocodile",
+    "lawyer-cane",
+    "paperbark"
+  ],
+  "relatedWords": [
+    {
+      "word": "wakal",
+      "gloss": "prawn, lobster"
+    },
+    {
+      "word": "ngajay",
+      "gloss": "species of small crayfish, not eaten"
+    },
+    {
+      "word": "mandurr",
+      "gloss": "bait (any kind)"
+    },
+    {
+      "word": "kuyu",
+      "gloss": "fish"
+    },
+    {
+      "word": "dindal",
+      "gloss": "to roast on coals"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83.",
+      "url": "https://hdl.handle.net/2440/13994",
+      "locator": "Fishing: hook and line in freshwater creeks and waterholes"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 13 'Crustaceans'; sect. 15 'Fish' (f) fish-hooks and bait, (g) hollow logs"
+    },
+    {
+      "id": "cdu2016",
+      "citation": "Charles Darwin University. 'Graduate discovers \"key to cherabin survival\"' (news release on P. Novak's PhD research on Macrobrachium spinipes in the Daly River, NT; accessed 5 October 2026).",
+      "url": "https://www.cdu.edu.au/news/news-archive/graduate-discovers-%E2%80%98key-cherabin-survival%E2%80%99"
+    },
+    {
+      "id": "cdu2014",
+      "citation": "Charles Darwin University. 'Wet season flows crucial to Cherabin survival' (news release on P. Novak's research on Macrobrachium spinipes in the Daly River, NT; accessed 5 October 2026).",
+      "url": "https://www.cdu.edu.au/news/news-archive/wet-season-flows-crucial-cherabin-survival"
+    },
+    {
+      "id": "lober2015",
+      "citation": "Lober, M. (2015). Investigation of the aquaculture potential of an Australian freshwater prawn, Macrobrachium spinipes (Schenkel, 1902). MSc (Research) thesis, James Cook University.",
+      "url": "https://researchonline.jcu.edu.au/46193/"
+    },
+    {
+      "id": "ala-crustaceans",
+      "citation": "Atlas of Living Australia. Occurrence records for Macrobrachium, Cherax and Euastacus in the Mitchell–Coleman Rivers and Daintree River drainage divisions, including Queensland Museum and Australian Museum records near Mount Carbine and Karma Waters (accessed 5 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus%3AMacrobrachium%20OR%20genus%3ACherax&fq=cl1059%3A%22MITCHELL-COLEMAN%20RIVERS%20(QLD)%22"
+    },
+    {
+      "id": "karmawaters",
+      "citation": "Karma Waters Station. About (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips (web page, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "qld-limits",
+      "citation": "Queensland Government. Size and possession limits in fresh waters (web page, last updated 27 March 2026, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/limits-fresh"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing gear: fresh waters (web page, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "fca2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Logan J, 24 September 2013), determination orders 6–7.",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "nit2026wy",
+      "citation": "National Indigenous Times (13 August 2026). 'Western Yalanji determination brings Cape York native title to the finish line.'",
+      "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Western Yalanji story; historical timeline (Table 1); Native Title Determinations 1–4; ILUAs (Table 4); pastoral stations (Table 5); heritage sites"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}

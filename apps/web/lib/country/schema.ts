@@ -134,3 +134,49 @@ export const countryEntrySchema = z.object({
 export type CountryEntry = z.infer<typeof countryEntrySchema>;
 export type CountryCategory = (typeof COUNTRY_CATEGORIES)[number];
 export type CountryType = (typeof COUNTRY_TYPES)[number];
+
+// Place guides: one page per place (a station, a river reach), linking the
+// entries that occur there. Stored under data/country/<language>/places/.
+export const countryPlaceSchema = z.object({
+  slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  title: z.string().min(1),
+  subtitle: z.string().min(1),
+  summary: markdown,
+  infobox: z.array(z.object({ label: z.string().min(1), value: z.string().min(1) })),
+  sections: z
+    .array(
+      z.object({
+        id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+        heading: z.string().min(1),
+        body: markdown,
+      }),
+    )
+    .min(3),
+  // Entries found here, grouped for the page ("In the river", "On the banks" …).
+  groups: z
+    .array(
+      z.object({
+        heading: z.string().min(1),
+        note: z.string().optional(),
+        entries: z.array(z.string()).min(1),
+      }),
+    )
+    .min(1),
+  references: z
+    .array(
+      z.object({
+        id: z.string().regex(/^[a-z0-9-]+$/),
+        citation: z.string().min(1),
+        url: z.string().url().optional(),
+        locator: z.string().optional(),
+      }),
+    )
+    .min(1),
+  review: z.object({
+    status: z.enum(['unreviewed', 'community-reviewed', 'corrected', 'hidden']),
+    note: z.string().optional(),
+  }),
+  updated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+});
+
+export type CountryPlace = z.infer<typeof countryPlaceSchema>;

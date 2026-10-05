@@ -1,0 +1,235 @@
+{
+  "slug": "freshwater-turtle",
+  "title": "Freshwater turtle",
+  "category": "reptile",
+  "names": [
+    {
+      "word": "ngujay",
+      "gloss": "freshwater turtle",
+      "note": "Dictionary: 'freshwater turtle'. A general word; the dictionary does not split it by species."
+    }
+  ],
+  "scientificName": "Chelidae: Emydura, Myuchelys, Elseya and Chelodina species",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary defines ngujay simply as 'freshwater turtle' and keeps ngawiya for the sea turtle. It is most likely a general word for all the river turtles. On the upper Mitchell those are chiefly the northern yellow-faced turtle (Emydura tanybaraga) and the saw-shelled turtle (Myuchelys latisternum), with snapping turtles (Elseya) and the northern snake-necked turtle (Chelodina rugosa) also recorded. Whether speakers had separate words for these is not recorded."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "**Ngujay** is the Kuku Yalanji word for the freshwater turtle [ref:hershberger1982], the river turtle of the creeks and waterholes, as opposed to *ngawiya*, the sea turtle. Bloomfield Kuku Yalanji went to the freshwater streams for 'eelfish and freshwater tortoise', especially in the dry season [ref:anderson1996]. They caught turtles on bark lines with lawyer-cane thorn hooks, and by the 1970s by diving with goggles and a steel rod [ref:anderson1996]. Across North Queensland Roth found river turtles caught by hand or with small nets; on the Palmer River they were killed by breaking the neck [ref:roth1901]. The upper Mitchell around Karma Waters is turtle country, with northern yellow-faced and saw-shelled turtles the commonest kinds on record [ref:ala].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "ngujay; shell: kadan"
+    },
+    {
+      "label": "Main species (upper Mitchell)",
+      "value": "Northern yellow-faced turtle (Emydura tanybaraga); saw-shelled turtle (Myuchelys latisternum)"
+    },
+    {
+      "label": "Also recorded",
+      "value": "Snapping turtle (Elseya); northern snake-necked turtle (Chelodina rugosa); Krefft's turtle (Emydura macquarii krefftii)"
+    },
+    {
+      "label": "Size",
+      "value": "Shell up to about 28 cm (saw-shelled females, yellow-faced)"
+    },
+    {
+      "label": "Nesting",
+      "value": "Saw-shelled turtle: September–December, 9–20 eggs a clutch"
+    },
+    {
+      "label": "Status (Qld)",
+      "value": "Protected native animals"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives **ngujay** 'freshwater turtle' [ref:hershberger1982]. It is a different animal and a different word from the sea turtle, **ngawiya** [ref:hershberger1982]. The shell of a turtle is **kadan**. The more general word **dumbul** covers 'any hard covering such as bark of a tree, crust of bread, shell of turtle' [ref:hershberger1982].\n\nOlder English writers called river turtles **'tortoises'**, and Roth and Anderson both use that word. When they write 'freshwater tortoise', they mean ngujay [ref:roth1901] [ref:anderson1996]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "The two river turtles you are most likely to meet on the upper Mitchell are these.\n\n- **Northern yellow-faced turtle** (*Emydura tanybaraga*). A short-necked turtle with a shell up to about 28.5 cm. A light yellow band runs from the eye back to above the ear, and another from the corner of the mouth along the neck. The shell is light to dark brown with a yellow or white rim, and the belly plate is bone-coloured [ref:wp-emydura].\n- **Saw-shelled turtle** (*Myuchelys latisternum*). The back edge of the shell stays **saw-toothed** all its life, and the neck is covered in **pointed bumps**. Females grow to 28 cm of shell, males to about 18 cm. It is mainly a meat-eater, taking fish, tadpoles, frogs and crustaceans, and it will even tear up and eat cane toads. It can give off a strong smell and **bites hard** when handled [ref:wp-sawshell]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "River turtles live in the permanent pools, slow reaches, billabongs and paperbark swamps of the rivers [ref:wp-emydura]. The saw-shelled turtle ranges through rivers, streams, swamps and lagoons from Cape York to northern New South Wales [ref:wp-sawshell].\n\n**Karma Waters and the upper Mitchell.** The Atlas of Living Australia has northern yellow-faced turtle records within 30 km of the Karma Waters homestead, one of them about 11 km to the west, and a snapping turtle (*Elseya*) recorded about 25 km to the south-east. About 30 km east, on the Mitchell, a 1973 museum survey collected large series of both northern yellow-faced and saw-shelled turtles. A northern snake-necked turtle and a few Krefft's turtles have also been recorded in the upper Mitchell country [ref:ala]. Look for them in the long, permanent pools of the river."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "At Bloomfield, freshwater tortoise was a **dry-season** food. Inland groups, which camped on sandy creek beds in the dry, split into small family groups and set up temporary 'branch' camps to go after eelfish, tortoises, wallabies and goannas. Coastal people made seasonal trips inland to the freshwater streams 'for eelfish and freshwater tortoise' [ref:anderson1996].\n\nSaw-shelled turtles nest from **September to December**, laying several clutches of 9–20 eggs that hatch in about 60 days [ref:wp-sawshell]. Roth recorded that across North Queensland turtle eggs were eaten 'whenever found' [ref:roth1901]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Meat and eggs.** Ngujay was hunted for food: at Bloomfield it was one of the foods small family groups went after from their temporary dry-season camps [ref:anderson1996]. Its eggs (*diburr*, which also means 'seed') were eaten too [ref:hershberger1982] [ref:roth1901]. The dictionary's word *minya* covers 'meat, eggs (protein food)' [ref:hershberger1982]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was caught and cooked",
+      "body": "**By hand and with small nets (North Queensland generally).** Roth's summary is simple: 'Tortoises are caught in the hands or with small nets' [ref:roth1901]. His small folding hand-nets, described for fish, were worked by one person groping about the shallower waterholes with the net held in front or at the side [ref:roth1901].\n\n**Hook and line (Bloomfield Kuku Yalanji)** [ref:anderson1996]:\n\n1. Make a line from the bark of *Sterculia quadrifolia*.\n2. Make a hook from a **lawyer-cane thorn**.\n3. Bait it with grubs, small freshwater prawns or small frogs.\n4. Fish the freshwater creeks and waterholes. Lines were used here for turtle, eelfish, catfish and perch, and this was mostly women's work.\n\n**Diving (Bloomfield Kuku Yalanji, late 1970s).** In the inland creeks people dived for freshwater eelfish and turtles, using **diving goggles and a flexible steel rod** [ref:anderson1996]. *Mala-kural* is 'a good diver' [ref:hershberger1982].\n\n**Feeling with the feet.** Roth recorded people groping carefully along the mud with their feet to catch catfish on the Georgina River [ref:roth1901]. None of the sources describes feeling for turtles the same way on Kuku Yalanji country.\n\n**Killing.** Two neighbouring methods are recorded [ref:roth1901]:\n\n1. **Palmer River (Koko-minni):** pull the head well forwards, then **break the neck upwards and backwards**.\n2. **Behind Princess Charlotte Bay:** push a stiff wooden bristle through the nostril into the brain and spinal cavity, and work it up and down.\n\n**Cooking.** At Bloomfield, reptiles were cooked **straight on the fire** after the body had been bashed with an axe to break the bones [ref:anderson1996]. Roth describes the simplest cooking as laying the food 'on and in the hot ashes' [ref:roth1901], the dictionary's *dindal* 'to roast on coals'; *nulu* is 'ashes' and *ngunjil* 'hot coals or hot ashes' [ref:hershberger1982]. Bigger animals went into the stone oven (*kurrma*). Hot stones were lifted with lawyer-cane tongs into a pit, and the meat, with eucalyptus, acacia or wild-ginger leaves, was set in a bark trough on the stones. More hot stones went around and on top, then tea-tree bark, and everything was covered with sand or earth for several hours [ref:anderson1996]. Food that is 'well cooked, done' is *jani* [ref:hershberger1982]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**Turtles bite.** The saw-shelled turtle bites hard when handled [ref:wp-sawshell]. Keep fingers away from the head.\n\n**Crocodile water.** Diving and groping in waterholes is exactly what Crocwise warns against wherever saltwater crocodiles could be: in croc country, keep out of the water and stay well back from the edge [ref:crocwise]. The crocodile recorded around Karma Waters is the freshwater crocodile, *ngawurr-ngawun* [ref:hershberger1982] [ref:ala]. It is usually shy, but a big one can give a serious bite [ref:am-johnstoni]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "**The law.** Freshwater turtles are protected native animals under Queensland's *Nature Conservation Act 1992*, and anyone else needs a licence or permit to take them [ref:qld-nca]. If a turtle takes your bait, unhook it gently and let it go.\n\n**Native title.** The 2013 Western Yalanji determinations recognise rights to **hunt, fish and gather on the land and waters for personal, domestic and non-commercial communal purposes** [ref:brady2013]. A further Western Yalanji determination followed in August 2026 [ref:nit2026wy]. Section 211 of the *Native Title Act 1993* means native title holders hunting for those needs do not need the licences and permits other people need [ref:alrc].\n\n**At Karma Waters.** The station's agreement with the Western Yalanji Traditional Owners was the first on pastoral land in Australia [ref:karma]. Ask the Traditional Owners before taking anything from their country, and follow the station's rules: no weapons or hunting dogs, and no recreation access from 1 December to 1 April [ref:karma-camping].\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*ngujay* 'freshwater turtle'; *ngawiya* 'sea turtle'; *kadan* 'shell of turtle'; *diburr* 'egg'; *jamal* 'white of egg'; *birukay* 'yolk of the egg'; *mala-kural* 'good diver'; *baral* 'to feel something', as in *nyulu nguwul-nguwulbu torch baran-baral* 'He was feeling for his torch in the dark' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "sea-turtle",
+    "freshwater-crocodile",
+    "black-bream",
+    "eels",
+    "catfish",
+    "earth-oven",
+    "goanna"
+  ],
+  "relatedWords": [
+    {
+      "word": "ngawiya",
+      "gloss": "sea turtle"
+    },
+    {
+      "word": "kadan",
+      "gloss": "shell of turtle"
+    },
+    {
+      "word": "dumbul",
+      "gloss": "any hard covering such as bark of a tree, crust of bread, shell of turtle"
+    },
+    {
+      "word": "diburr",
+      "gloss": "egg"
+    },
+    {
+      "word": "minya",
+      "gloss": "meat, eggs (protein food)"
+    },
+    {
+      "word": "mala-kural",
+      "gloss": "good diver"
+    },
+    {
+      "word": "baral",
+      "gloss": "to feel something"
+    },
+    {
+      "word": "dindal",
+      "gloss": "to roast on coals"
+    },
+    {
+      "word": "ngunjil",
+      "gloss": "charcoal; hot coals or hot ashes"
+    },
+    {
+      "word": "jani",
+      "gloss": "well cooked, done"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 3 'Food in season'; sect. 5 'Preparations for cooking meats'; sect. 6 'Cooking'; sect. 15 (a) and (i); sect. 18 'Turtles and Tortoises'"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83.",
+      "url": "https://hdl.handle.net/2440/13994",
+      "locator": "Seasonal rounds; fishing (hook and line); 'Cooking processes and associated implements'; material culture in the late 1970s"
+    },
+    {
+      "id": "wp-emydura",
+      "citation": "Wikipedia. Emydura tanybaraga (northern yellow-faced turtle) (accessed 5 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Emydura_tanybaraga"
+    },
+    {
+      "id": "wp-sawshell",
+      "citation": "Wikipedia. Saw-shelled turtle, Myuchelys latisternum (accessed 5 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Saw-shelled_turtle"
+    },
+    {
+      "id": "ala",
+      "citation": "Atlas of Living Australia. Occurrence records for Emydura, Myuchelys, Elseya, Chelodina and Crocodylus within 30 km of Karma Waters homestead (16.62° S, 144.60° E) and in the upper Mitchell River area (lat −17.0 to −15.8, long 144.3 to 145.12), queried 5 October 2026. Sources include WildNet (Queensland), the Queensland Museum, University of Canberra, CAS and UMNH collections, and iNaturalist Australia.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Myuchelys%20latisternum%22"
+    },
+    {
+      "id": "am-johnstoni",
+      "citation": "Australian Museum. Freshwater Crocodile, Crocodylus johnstoni (web page, accessed 5 October 2026).",
+      "url": "https://australian.museum/learn/animals/reptiles/freshwater-crocodile/"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips (web page, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "nit2026wy",
+      "citation": "National Indigenous Times (13 August 2026). 'Western Yalanji determination brings Cape York native title to the finish line.'",
+      "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "karma",
+      "citation": "Karma Waters Station. About (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "karma-camping",
+      "citation": "Karma Waters Station. Bush camping (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Western Yalanji story; historical timeline (Table 1); Native Title Determinations 1–4; ILUAs (Table 4); pastoral stations (Table 5); heritage sites"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}

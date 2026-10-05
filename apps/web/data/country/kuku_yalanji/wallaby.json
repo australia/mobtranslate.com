@@ -3,30 +3,82 @@
   "title": "Wallabies and kangaroos",
   "category": "mammal",
   "names": [
-    { "word": "kadar", "gloss": "plains wallaby" },
-    { "word": "bimbarrbay", "gloss": "scrub wallaby" },
-    { "word": "darrba", "gloss": "grass wallaby" },
-    { "word": "jumar", "gloss": "little wallaby" },
-    { "word": "julmbanu", "gloss": "grey kangaroo, a darker variety than mayarriji" },
-    { "word": "mayarriji", "gloss": "sub-species of grey kangaroo, lighter in colour than the \"julmbanu\"" },
-    { "word": "nyarrkali", "gloss": "black kangaroo" },
-    { "word": "murral", "gloss": "tree kangaroo", "dialect": "Yalanji" },
-    { "word": "jarrabina", "gloss": "tree-climbing kangaroo", "dialect": "Nyungkul" }
+    {
+      "word": "kadar",
+      "gloss": "plains wallaby"
+    },
+    {
+      "word": "bimbarrbay",
+      "gloss": "scrub wallaby"
+    },
+    {
+      "word": "darrba",
+      "gloss": "grass wallaby"
+    },
+    {
+      "word": "jumar",
+      "gloss": "little wallaby"
+    },
+    {
+      "word": "julmbanu",
+      "gloss": "grey kangaroo, a darker variety than mayarriji"
+    },
+    {
+      "word": "mayarriji",
+      "gloss": "sub-species of grey kangaroo, lighter in colour than the \"julmbanu\""
+    },
+    {
+      "word": "nyarrkali",
+      "gloss": "black kangaroo"
+    },
+    {
+      "word": "murral",
+      "gloss": "tree kangaroo",
+      "dialect": "Yalanji"
+    },
+    {
+      "word": "jarrabina",
+      "gloss": "tree-climbing kangaroo",
+      "dialect": "Nyungkul"
+    }
   ],
   "scientificName": "Macropodidae (several species)",
   "identification": {
     "confidence": "probable",
     "basis": "The dictionary gives English descriptions, not species. Kadar 'plains wallaby' is most likely the agile wallaby (Notamacropus agilis), the common wallaby of open lowland country in north Queensland, and bimbarrbay 'scrub wallaby' most likely the red-legged pademelon (Thylogale stigmatica), widely called the scrub wallaby. Julmbanu and mayarriji are forms of the grey kangaroo (probably the eastern grey, Macropus giganteus). Nyarrkali 'black kangaroo' may be the dark common wallaroo (Osphranter robustus). Darrba and jumar are not yet matched to species. Murral/jarrabina is confirmed as a tree-kangaroo, and on Eastern Kuku Yalanji country most likely Bennett's tree-kangaroo (Dendrolagus bennettianus)."
   },
-  "countryTypes": ["open-woodland", "rainforest", "river-freshwater", "mountains"],
+  "countryTypes": [
+    "open-woodland",
+    "rainforest",
+    "river-freshwater",
+    "mountains"
+  ],
   "summary": "Kuku Yalanji has a whole family of words for the hopping animals. **Kadar** is the plains wallaby, **bimbarrbay** the scrub wallaby, **darrba** the grass wallaby and **jumar** the little wallaby. **Julmbanu** and **mayarriji** are darker and lighter grey kangaroos, and **nyarrkali** the black kangaroo. Up in the rainforest trees live **murral** (Nyungkul dialect **jarrabina**), the tree-kangaroos [ref:hershberger1982]. Roth found Bloomfield River families keeping young wallabies as pets [ref:roth1902]. Across north-east Queensland he recorded wallabies and kangaroos taken with spears, nets, cage traps, pitfalls, dogs and long lines of fire [ref:roth1901]. Wallaby tail sinew, *biyal*, was valued as string [ref:hershberger1982]. Wallabies and kangaroos live all through **Western Yalanji** country around the Mitchell River [ref:ala].",
   "infobox": [
-    { "label": "Kuku Yalanji", "value": "kadar, bimbarrbay, darrba, jumar (wallabies); julmbanu, mayarriji, nyarrkali (kangaroos); murral / jarrabina (tree-kangaroo)" },
-    { "label": "Likely species", "value": "agile wallaby, red-legged pademelon, eastern grey kangaroo, common wallaroo, Bennett's tree-kangaroo" },
-    { "label": "Where", "value": "Open woodland and grassland (wallabies, kangaroos); rainforest floor (scrub wallaby); rainforest canopy (tree-kangaroo)" },
-    { "label": "Used for", "value": "Meat; tail sinew (biyal) as string; bone for tool points" },
-    { "label": "Hunting methods recorded", "value": "Spear and woomera, cage traps, nets, pits, dogs, fire drives" },
-    { "label": "Western Yalanji", "value": "Agile wallaby, eastern grey kangaroo and wallaroo all recorded in the Mitchell River country" }
+    {
+      "label": "Kuku Yalanji",
+      "value": "kadar, bimbarrbay, darrba, jumar (wallabies); julmbanu, mayarriji, nyarrkali (kangaroos); murral / jarrabina (tree-kangaroo)"
+    },
+    {
+      "label": "Likely species",
+      "value": "agile wallaby, red-legged pademelon, eastern grey kangaroo, common wallaroo, Bennett's tree-kangaroo"
+    },
+    {
+      "label": "Where",
+      "value": "Open woodland and grassland (wallabies, kangaroos); rainforest floor (scrub wallaby); rainforest canopy (tree-kangaroo)"
+    },
+    {
+      "label": "Used for",
+      "value": "Meat; tail sinew (biyal) as string; bone for tool points"
+    },
+    {
+      "label": "Hunting methods recorded",
+      "value": "Spear and woomera, cage traps, nets, pits, dogs, fire drives"
+    },
+    {
+      "label": "Western Yalanji",
+      "value": "Agile wallaby, eastern grey kangaroo and wallaroo all recorded in the Mitchell River country"
+    }
   ],
   "sections": [
     {
@@ -67,7 +119,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Kangaroos and wallabies are protected native animals in Queensland. It is an offence for others to harm or kill them without a permit, with fines from $431 to $23,700 [ref:qld-kangaroos]. Taking any native wildlife needs a licence or permit [ref:qld-nca].\n\n**Native title.** Section 211 of the *Native Title Act 1993* protects native title holders who hunt for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. The 2007 Eastern Kuku Yalanji determination recognises rights to hunt animals but not for trade or commerce [ref:walker2007]. The 2013 Western Yalanji determinations recognise non-exclusive rights to 'hunt, fish and gather on the land and waters of the area for personal, domestic and non-commercial communal purposes' [ref:brady2013]. The same orders set limits that matter for wallaby hunting. On those areas the fire right is to 'light fires … for domestic purposes including cooking, but not for the purpose of hunting or clearing vegetation'. Hunting with firearms on a pastoral lease may only happen where stock are not present and after giving the lessee enough notice to deal with safety [ref:brady2013].\n\nIn the rainforest, the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back to the Eastern Kuku Yalanji in 2021. They are jointly managed with the Queensland Government until Traditional Owners take over sole management [ref:handback2021]. On Kuku Yalanji country, whether Eastern or Western, permission to come onto country and to hunt comes from the Traditional Owners [ref:walker2007]. Visitors and station guests must ask first."
+      "body": "Kangaroos and wallabies are protected native animals in Queensland. It is an offence for others to harm or kill them without a permit, with fines from $431 to $23,700 [ref:qld-kangaroos]. Taking any native wildlife needs a licence or permit [ref:qld-nca].\n\n**Native title.** Section 211 of the *Native Title Act 1993* protects native title holders who hunt for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. The 2007 Eastern Kuku Yalanji determination recognises rights to hunt animals but not for trade or commerce [ref:walker2007]. The 2013 Western Yalanji determinations recognise non-exclusive rights to 'hunt, fish and gather on the land and waters of the area for personal, domestic and non-commercial communal purposes' [ref:brady2013]. The same orders set limits that matter for wallaby hunting. On those areas the fire right is to 'light fires … for domestic purposes including cooking, but not for the purpose of hunting or clearing vegetation'. Hunting with firearms on a pastoral lease may only happen where stock are not present and after giving the lessee enough notice to deal with safety [ref:brady2013].\n\nIn the rainforest, the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back to the Eastern Kuku Yalanji in 2021. They are jointly managed with the Queensland Government until Traditional Owners take over sole management [ref:handback2021]. On Kuku Yalanji country, whether Eastern or Western, permission to come onto country and to hunt comes from the Traditional Owners [ref:walker2007]. Visitors and station guests must ask first.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
     },
     {
       "id": "language",
@@ -75,18 +127,53 @@
       "body": "Hunting words: *karangaji* 'stalk'; *balbi* 'hunt for, search for'; *mumal* 'to throw a spear with a woomera'; *mungkil* 'spear to kill'; *kalka* 'fishing spear, also generic term for spear'; *mirrba* 'woomera'; *ngalku* 'bush fire'; *kaya* 'dog'; *biyal* 'sinew (especially wallaby tail sinew)'; *jirrburr* 'an animal in poor condition'; *kurrma* 'earth oven' [ref:hershberger1982]."
     }
   ],
-  "relatedEntries": ["spear-and-woomera", "firestick", "earth-oven", "lawyer-cane"],
+  "relatedEntries": [
+    "spear-and-woomera",
+    "firestick",
+    "earth-oven",
+    "lawyer-cane"
+  ],
   "relatedWords": [
-    { "word": "karangaji", "gloss": "stalk" },
-    { "word": "balbi", "gloss": "hunt for, search for" },
-    { "word": "mumal", "gloss": "to throw a spear with a woomera" },
-    { "word": "mungkil", "gloss": "spear to kill" },
-    { "word": "kalka", "gloss": "fishing spear, also generic term for spear" },
-    { "word": "ngalku", "gloss": "bush fire" },
-    { "word": "biyal", "gloss": "gristle, sinew, string, blood vessel (especially wallaby tail sinew)" },
-    { "word": "jirrburr", "gloss": "meat with no fat, an animal in poor condition. (This kind of animal will not be eaten)" },
-    { "word": "kunukunu", "gloss": "fat in food or fatty meat" },
-    { "word": "kurrma", "gloss": "earth oven" }
+    {
+      "word": "karangaji",
+      "gloss": "stalk"
+    },
+    {
+      "word": "balbi",
+      "gloss": "hunt for, search for"
+    },
+    {
+      "word": "mumal",
+      "gloss": "to throw a spear with a woomera"
+    },
+    {
+      "word": "mungkil",
+      "gloss": "spear to kill"
+    },
+    {
+      "word": "kalka",
+      "gloss": "fishing spear, also generic term for spear"
+    },
+    {
+      "word": "ngalku",
+      "gloss": "bush fire"
+    },
+    {
+      "word": "biyal",
+      "gloss": "gristle, sinew, string, blood vessel (especially wallaby tail sinew)"
+    },
+    {
+      "word": "jirrburr",
+      "gloss": "meat with no fat, an animal in poor condition. (This kind of animal will not be eaten)"
+    },
+    {
+      "word": "kunukunu",
+      "gloss": "fat in food or fatty meat"
+    },
+    {
+      "word": "kurrma",
+      "gloss": "earth oven"
+    }
   ],
   "references": [
     {
@@ -167,8 +254,21 @@
       "id": "qld-nca",
       "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
       "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Western Yalanji story; historical timeline (Table 1); Native Title Determinations 1–4; ILUAs (Table 4); pastoral stations (Table 5); heritage sites"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
     }
   ],
-  "review": { "status": "unreviewed" },
+  "review": {
+    "status": "unreviewed"
+  },
   "updated": "2026-10-05"
 }

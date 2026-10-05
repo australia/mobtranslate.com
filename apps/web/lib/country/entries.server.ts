@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { countryEntrySchema, type CountryEntry } from './schema';
+import { countryEntrySchema, countryPlaceSchema, type CountryEntry, type CountryPlace } from './schema';
 
 // Read at build time: the Country routes are statically generated.
 const DATA_ROOT = path.join(process.cwd(), 'data', 'country');
@@ -33,4 +33,20 @@ export function getCountryEntries(language: string, { includeHidden = false } = 
 
 export function getCountryEntry(language: string, slug: string): CountryEntry | null {
   return getCountryEntries(language).find((entry) => entry.slug === slug) ?? null;
+}
+
+export function getCountryPlaces(language: string): CountryPlace[] {
+  if (!hasCountry(language)) return [];
+  const dir = path.join(DATA_ROOT, language, 'places');
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((file) => file.endsWith('.json'))
+    .map((file) => countryPlaceSchema.parse(JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'))))
+    .filter((place) => place.review.status !== 'hidden')
+    .sort((a, b) => a.title.localeCompare(b.title, 'en'));
+}
+
+export function getCountryPlace(language: string, slug: string): CountryPlace | null {
+  return getCountryPlaces(language).find((place) => place.slug === slug) ?? null;
 }

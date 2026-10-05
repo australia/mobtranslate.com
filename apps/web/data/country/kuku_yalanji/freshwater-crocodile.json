@@ -1,0 +1,235 @@
+{
+  "slug": "freshwater-crocodile",
+  "title": "Freshwater crocodile",
+  "category": "reptile",
+  "names": [
+    {
+      "word": "ngawurr-ngawun",
+      "gloss": "freshwater crocodile",
+      "note": "Dictionary headword gloss 'crocodile', defined as 'freshwater crocodile'. A doubled-up (reduplicated) form."
+    }
+  ],
+  "scientificName": "Crocodylus johnstoni",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary defines ngawurr-ngawun as 'freshwater crocodile' and keeps a separate word, bilngkumu, for the saltwater crocodile. Australia has only one freshwater crocodile, Crocodylus johnstoni (Roth's Philas johnstonii)."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "**Ngawurr-ngawun** is the Kuku Yalanji word for the freshwater crocodile (*Crocodylus johnstoni*) [ref:hershberger1982], the slender-snouted crocodile of the inland rivers. It is the crocodile of the upper Mitchell River around Mount Carbine and Karma Waters, where it is regularly recorded [ref:ala] [ref:karma]. Roth recorded that across North Queensland crocodiles were speared for food and that crocodile eggs were eaten 'whenever found'; on the lower Palmer River, just north of Karma Waters, freshwater crocodiles were even caught by hand [ref:roth1901]. It is shy, but it bites hard, and it is a protected animal [ref:am-johnstoni] [ref:des2023].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "ngawurr-ngawun (saltwater crocodile: bilngkumu)"
+    },
+    {
+      "label": "Scientific name",
+      "value": "Crocodylus johnstoni (family Crocodylidae)"
+    },
+    {
+      "label": "Other English names",
+      "value": "Freshie, Johnstone's crocodile"
+    },
+    {
+      "label": "Size",
+      "value": "Males usually 2.3–3 m; females to about 2.1 m"
+    },
+    {
+      "label": "Where",
+      "value": "Rivers, creeks, pools, billabongs and swamps; upper Mitchell River"
+    },
+    {
+      "label": "Eggs",
+      "value": "About 12 (4–20) laid in a hole in the sand, Aug–Sept; hatch Nov–Dec"
+    },
+    {
+      "label": "Status (Qld)",
+      "value": "Protected native animal; taking one without authority is an offence"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives **ngawurr-ngawun** for the freshwater crocodile, a doubled-up form of the word [ref:hershberger1982]. It keeps the saltwater crocodile apart under its own name, **bilngkumu** ('salt water crocodile'), so Kuku Yalanji speakers clearly treated the two as different animals [ref:hershberger1982]. Roth, writing in 1901, called the freshwater crocodile *Philas johnstonii*, the scientific name of his day [ref:roth1901]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "A smaller, lighter crocodile than the saltie, with a **long, slender snout**. It is grey to tan-brown with dark patches, and its powerful tail, almost half the animal's length, carries rows of large triangular scales (scutes) [ref:am-johnstoni]. Males usually grow to 2.3–3 m and about 70 kg; females reach about 2.1 m and 40 kg [ref:wp-johnstoni]. It eats crustaceans, insects, spiders, fish, frogs, turtles, lizards, snakes, birds and mammals. Insects are the most common food, and small prey is taken by sitting still and waiting [ref:am-johnstoni]. On land it can lift its body right off the ground in a 'high walk' [ref:am-johnstoni]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "Freshwater crocodiles live in rivers, creeks, pools, billabongs, lagoons and swamps across northern Australia, from King Sound in Western Australia to Cape York Peninsula. They keep away from the near-coastal waters that saltwater crocodiles dominate [ref:am-johnstoni]. In the dry season they can go dormant in shelters [ref:am-johnstoni].\n\n**Karma Waters and the upper Mitchell.** Karma Waters Station, on the northern side of the Mitchell River west of Mount Carbine, says plainly that freshwater crocodiles are found in its river [ref:karma]. The Atlas of Living Australia holds freshwater crocodile records from 2004 to 2025 within 30 km of the homestead, and more along the Mitchell and its tributaries between Mount Carbine and the Palmer. It holds no saltwater crocodile records within 30 km [ref:ala]. Look for them in the long deep pools and under the shady banks of the big river."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Courtship starts in June and the eggs are laid around **August–September** [ref:am-johnstoni], in holes dug in the dry season, and they hatch at the start of the wet, in **November–December** [ref:wp-johnstoni]. A clutch holds 4–20 eggs, usually about a dozen. The mother does not guard the nest, but she comes back and digs the young out when they hatch [ref:am-johnstoni]. So the late dry is egg time.\n\nRoth wrote that across North Queensland 'birds, crocodile- and turtle-eggs' were taken 'whenever found', and that big crocodiles were mostly caught after floods, when they were stranded in the smaller water-holes [ref:roth1901]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Food.** Crocodiles are listed among the foods in Roth's bulletin on food, its search, capture and preparation, and crocodile eggs were eaten wherever they were found [ref:roth1901]. Meat was always cooked in some way, never eaten raw [ref:roth1901]. Among the Bloomfield Kuku Yalanji, reptiles were cooked straight on the fire after the body had been bashed with an axe to break the bones [ref:anderson1996].\n\nThe records are thin for Kuku Yalanji people in particular. Neither the dictionary nor Anderson's Bloomfield study describes eating ngawurr-ngawun, so the details below come from the nearest districts, labelled by place."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was hunted and cooked",
+      "body": "**Spearing (general North Queensland)** [ref:roth1901]:\n\n1. Crocodiles were usually speared. A favourite place to strike was **just behind the arm**.\n2. The bigger ones were mostly taken **after floods**, when they were stranded in small water-holes.\n3. The hunters surrounded the hole and **let fly dozens of spears**. The dictionary's general word for spear is *kalka*, and 'to spear' is *damal* [ref:hershberger1982].\n\n**By hand (lower Palmer and upper Leichhardt rivers).** Roth heard of two or three cases on these rivers in which *Philas johnstonii*, the freshwater crocodile, was caught in the water by hand [ref:roth1901]:\n\n1. The hunter **got onto its back** in the water.\n2. He **held its jaws together**.\n3. He **fixed its tail by putting his leg round it**.\n4. He **dragged it onto the river bank**, where it was easily made helpless.\n\n**Killing.** On the lower Tully River (Mallanpara country, far to the south), a saltwater crocodile hauled out with a cane noose was killed by **knocking it on the head with heavy sticks** [ref:roth1901].\n\n**Eggs.** Freshwater crocodile eggs lie in a hole in the sand, dug in August or September and left unguarded until the young hatch two to three months later [ref:am-johnstoni] [ref:wp-johnstoni]. Roth says the eggs were eaten whenever found but does not describe a method [ref:roth1901].\n\n**Cooking.** The two recorded ways are [ref:roth1901] [ref:anderson1996]:\n\n1. **On the coals.** Bash the carcass to break the bones (Bloomfield), then cook it straight on the fire, on and in the hot ashes (*dindal*, 'to roast on coals') [ref:hershberger1982].\n2. **In the earth oven** (*kurrma*, Roth's *kurma*, at Cape Bedford and the Bloomfield): heat stones well in a fire, rake them out with the ashes and dig a hole where the fire was. Line it with wild-ginger leaves, lay in the meat with the hot stones and ashes packed around it, cover with more leaves or tea-tree bark, then a layer of earth and stones."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "Freshwater crocodiles are **generally shy and quick to flee**, but a big one can give a serious bite that takes months to heal [ref:am-johnstoni]. Even juveniles have very sharp teeth that they slash from side to side, and they will lash out if they feel threatened or cornered. Never provoke, harass or grab one [ref:des2023]. They have never been known to kill a person [ref:qld-crocbio].\n\n**Don't assume it's a freshie.** Saltwater crocodiles can travel long distances up rivers, so follow the Crocwise rules near any deep, dark water: keep out of the water in croc country and stay well back from the edge [ref:crocwise].\n\n**Cane toads.** The cane toad is poisonous to freshwater crocodiles, and toads have caused big drops in their numbers [ref:wp-johnstoni]. Don't eat a crocodile found dead or dying for no clear reason."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "**The law.** Freshwater crocodiles are protected animals under Queensland's *Nature Conservation Act 1992*. In 2023 a Townsville man was fined $12,000 for catching freshwater crocodiles by rope and by hand, under the section that makes taking a protected animal an offence [ref:des2023].\n\n**Native title.** On Western Yalanji country the 2013 Federal Court determinations, around the Palmer and Mitchell rivers north-west of Mount Carbine, recognise rights to **hunt, fish and gather on the land and waters for personal, domestic and non-commercial communal purposes**. On a pastoral lease, hunting with firearms may happen only where stock are not present and after the lessee has been given notice [ref:brady2013]. A further Western Yalanji determination followed in August 2026 [ref:nit2026wy]. Section 211 of the *Native Title Act 1993* means native title holders do not need the licences and permits other people need for this kind of hunting [ref:alrc].\n\n**At Karma Waters.** The station says its agreement with the Western Yalanji Traditional Owners was the first on pastoral land in Australia [ref:karma]. Guests may not bring weapons or hunting dogs, and all recreation access closes from 1 December to 1 April [ref:karma-camping]. Leave ngawurr-ngawun and its nests alone unless you are a Traditional Owner exercising your rights.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*ngawurr-ngawun* 'freshwater crocodile'; *bilngkumu* 'salt water crocodile'; *diburr* 'seed, egg'; *yijirr* 'shell of egg'; *karrbal* 'to catch, grab'; *damal* 'to spear'; *dajali* 'deep water'. The dictionary's example for *mumbar* 'alert' is about a crocodile: *Bilngkumu milka mumbarku wunany* 'The crocodile is lying there alert' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "saltwater-crocodile",
+    "freshwater-turtle",
+    "black-bream",
+    "spear-and-woomera",
+    "earth-oven",
+    "goanna"
+  ],
+  "relatedWords": [
+    {
+      "word": "bilngkumu",
+      "gloss": "salt water crocodile"
+    },
+    {
+      "word": "kurrujuwa",
+      "gloss": "sentry bird which warns of crocodiles along the banks of the river"
+    },
+    {
+      "word": "diburr",
+      "gloss": "egg"
+    },
+    {
+      "word": "yijirr",
+      "gloss": "shell of egg"
+    },
+    {
+      "word": "karrbal",
+      "gloss": "to catch, grab, touch, arrest"
+    },
+    {
+      "word": "kalka",
+      "gloss": "fishing spear, also generic term for spear"
+    },
+    {
+      "word": "dajali",
+      "gloss": "deep water"
+    },
+    {
+      "word": "dindal",
+      "gloss": "to roast on coals"
+    },
+    {
+      "word": "kurrma",
+      "gloss": "earth oven"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 3 'Food in season'; sect. 5 'Preparations for cooking meats'; sect. 6 'Cooking'; sect. 19 'Crocodiles'"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83.",
+      "url": "https://hdl.handle.net/2440/13994",
+      "locator": "'Cooking processes and associated implements'"
+    },
+    {
+      "id": "am-johnstoni",
+      "citation": "Australian Museum. Freshwater Crocodile, Crocodylus johnstoni (web page, accessed 5 October 2026).",
+      "url": "https://australian.museum/learn/animals/reptiles/freshwater-crocodile/"
+    },
+    {
+      "id": "wp-johnstoni",
+      "citation": "Wikipedia. Freshwater crocodile (accessed 5 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Freshwater_crocodile"
+    },
+    {
+      "id": "qld-crocbio",
+      "citation": "Queensland Department of Environment, Science and Innovation. Crocodile biology and ecology (web page, last reviewed 15 June 2023; Wayback Machine copy).",
+      "url": "https://environment.des.qld.gov.au/wildlife/animals/living-with/crocodiles/about-crocodiles"
+    },
+    {
+      "id": "des2023",
+      "citation": "Queensland Department of Environment and Science (7 March 2023). 'Man sentenced for illegally catching freshwater crocodiles' (media release; Wayback Machine copy).",
+      "url": "https://www.des.qld.gov.au/our-department/news-media/mediareleases/man-sentenced-for-illegally-catching-freshwater-crocodiles"
+    },
+    {
+      "id": "ala",
+      "citation": "Atlas of Living Australia. Occurrence records for Crocodylus johnstoni and Crocodylus porosus within 30 km of Karma Waters homestead (16.62° S, 144.60° E) and in the upper Mitchell River area (lat −17.0 to −15.8, long 144.3 to 145.12), queried 5 October 2026. Sources include WildNet (Queensland) and iNaturalist Australia.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Crocodylus%20johnstoni%22&lat=-16.618&lon=144.605&radius=30"
+    },
+    {
+      "id": "karma",
+      "citation": "Karma Waters Station. About (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "karma-camping",
+      "citation": "Karma Waters Station. Bush camping (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958",
+      "locator": "Determination: native title rights and interests (hunt, fish and gather); condition on hunting with firearms on a pastoral lease"
+    },
+    {
+      "id": "nit2026wy",
+      "citation": "National Indigenous Times (13 August 2026). 'Western Yalanji determination brings Cape York native title to the finish line.'",
+      "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Western Yalanji story; historical timeline (Table 1); Native Title Determinations 1–4; ILUAs (Table 4); pastoral stations (Table 5); heritage sites"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-05"
+}

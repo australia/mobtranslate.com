@@ -3,24 +3,56 @@
   "title": "Goanna",
   "category": "reptile",
   "names": [
-    { "word": "kalajarr", "gloss": "scrub goanna" },
-    { "word": "walkarr", "gloss": "black scrub goanna" },
-    { "word": "jadi", "gloss": "sand goanna. Only old people are allowed to eat it.", "note": "The food rule is part of the dictionary entry." }
+    {
+      "word": "kalajarr",
+      "gloss": "scrub goanna"
+    },
+    {
+      "word": "walkarr",
+      "gloss": "black scrub goanna"
+    },
+    {
+      "word": "jadi",
+      "gloss": "sand goanna. Only old people are allowed to eat it.",
+      "note": "The food rule is part of the dictionary entry."
+    }
   ],
   "scientificName": "Varanus spp.",
   "identification": {
     "confidence": "probable",
     "basis": "The dictionary distinguishes the goannas by country and colour, not by species. Kalajarr 'scrub goanna' and walkarr 'black scrub goanna' are most likely forms of the lace monitor (Varanus varius), the big goanna of the rainforest and forest. Jadi 'sand goanna' is most likely Gould's sand goanna (Varanus gouldii) or the similar yellow-spotted goanna (V. panoptes) of dry, sandy country. Which exact species each word covers is not settled."
   },
-  "countryTypes": ["rainforest", "open-woodland", "river-freshwater"],
+  "countryTypes": [
+    "rainforest",
+    "open-woodland",
+    "river-freshwater"
+  ],
   "summary": "Kuku Yalanji names three goannas: **kalajarr**, the scrub goanna; **walkarr**, the black scrub goanna; and **jadi**, the sand goanna. Of jadi the dictionary says plainly: 'Only old people are allowed to eat it' [ref:hershberger1982]. Roth called goannas 'iguanas'. He recorded them speared in the open or dug out of hollow logs and burrows [ref:roth1901]. On the Bloomfield River he noted that old men could set food restrictions and sometimes relaxed them for young men when food was scarce [ref:roth1908]. The lace monitor of the forests grows to about 1.5 m and is a skilled tree-climber [ref:wtma-monitors]. Sand goannas dig deep burrows in dry country [ref:nesp-sandgoanna], the kind of country found inland on **Western Yalanji** land, where the Atlas of Living Australia records lace monitors and other goannas [ref:ala].",
   "infobox": [
-    { "label": "Kuku Yalanji", "value": "kalajarr (scrub goanna), walkarr (black scrub goanna), jadi (sand goanna)" },
-    { "label": "Likely species", "value": "lace monitor (Varanus varius); Gould's sand goanna (V. gouldii) or yellow-spotted goanna (V. panoptes)" },
-    { "label": "Size", "value": "Lace monitor up to about 1.5 m; sand goanna well over 1 m" },
-    { "label": "Where", "value": "Scrub goannas: rainforest and open forest. Sand goanna: dry, sandy woodland" },
-    { "label": "Food rule", "value": "jadi: only old people are allowed to eat it" },
-    { "label": "Danger", "value": "Sharp teeth and claws; bites bleed heavily" }
+    {
+      "label": "Kuku Yalanji",
+      "value": "kalajarr (scrub goanna), walkarr (black scrub goanna), jadi (sand goanna)"
+    },
+    {
+      "label": "Likely species",
+      "value": "lace monitor (Varanus varius); Gould's sand goanna (V. gouldii) or yellow-spotted goanna (V. panoptes)"
+    },
+    {
+      "label": "Size",
+      "value": "Lace monitor up to about 1.5 m; sand goanna well over 1 m"
+    },
+    {
+      "label": "Where",
+      "value": "Scrub goannas: rainforest and open forest. Sand goanna: dry, sandy woodland"
+    },
+    {
+      "label": "Food rule",
+      "value": "jadi: only old people are allowed to eat it"
+    },
+    {
+      "label": "Danger",
+      "value": "Sharp teeth and claws; bites bleed heavily"
+    }
   ],
   "sections": [
     {
@@ -56,7 +88,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Goannas are protected native animals in Queensland, and anyone else needs a licence or permit to take them [ref:qld-nca]. They are under pressure from cane toads in the tropics [ref:nesp-sandgoanna].\n\nSection 211 of the *Native Title Act 1993* protects native title holders who hunt for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. The 2007 Eastern Kuku Yalanji determination recognises rights to hunt animals but not for trade or commerce [ref:walker2007]. In 2021 the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back to Eastern Kuku Yalanji and are jointly managed with the Queensland Government [ref:handback2021]. On Western Yalanji country, around the Palmer and Mitchell rivers north-west of Mt Carbine, the 2013 determinations recognise rights to hunt, fish and gather for personal, domestic and non-commercial communal purposes. Firearms may be used on a pastoral lease only where there are no stock and after giving the lessee notice [ref:brady2013]. Permission to come onto country belongs to the Traditional Owners [ref:walker2007]. Visitors should ask first."
+      "body": "Goannas are protected native animals in Queensland, and anyone else needs a licence or permit to take them [ref:qld-nca]. They are under pressure from cane toads in the tropics [ref:nesp-sandgoanna].\n\nSection 211 of the *Native Title Act 1993* protects native title holders who hunt for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. The 2007 Eastern Kuku Yalanji determination recognises rights to hunt animals but not for trade or commerce [ref:walker2007]. In 2021 the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back to Eastern Kuku Yalanji and are jointly managed with the Queensland Government [ref:handback2021]. On Western Yalanji country, around the Palmer and Mitchell rivers north-west of Mt Carbine, the 2013 determinations recognise rights to hunt, fish and gather for personal, domestic and non-commercial communal purposes. Firearms may be used on a pastoral lease only where there are no stock and after giving the lessee notice [ref:brady2013]. Permission to come onto country belongs to the Traditional Owners [ref:walker2007]. Visitors should ask first.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
     },
     {
       "id": "language",
@@ -64,16 +96,45 @@
       "body": "*kalajarr* 'scrub goanna'; *walkarr* 'black scrub goanna'; *jadi* 'sand goanna'; *wangku* 'wood goanna'; *marri-marri* 'old people'; *jalbayn* 'food taboo'; *janku* 'hole in the ground'; *walmba* 'log'; *damal* 'to spear'; *dindal* 'to roast on coals' [ref:hershberger1982]."
     }
   ],
-  "relatedEntries": ["spear-and-woomera", "earth-oven", "lawyer-cane", "saltwater-crocodile"],
+  "relatedEntries": [
+    "spear-and-woomera",
+    "earth-oven",
+    "lawyer-cane",
+    "saltwater-crocodile"
+  ],
   "relatedWords": [
-    { "word": "wangku", "gloss": "small tree or wood goanna" },
-    { "word": "jalbayn", "gloss": "food taboo" },
-    { "word": "jabul", "gloss": "taboo" },
-    { "word": "marri-marri", "gloss": "old people" },
-    { "word": "janku", "gloss": "hole in the ground" },
-    { "word": "walmba", "gloss": "log" },
-    { "word": "damal", "gloss": "to spear" },
-    { "word": "dindal", "gloss": "to roast on coals" }
+    {
+      "word": "wangku",
+      "gloss": "small tree or wood goanna"
+    },
+    {
+      "word": "jalbayn",
+      "gloss": "food taboo"
+    },
+    {
+      "word": "jabul",
+      "gloss": "taboo"
+    },
+    {
+      "word": "marri-marri",
+      "gloss": "old people"
+    },
+    {
+      "word": "janku",
+      "gloss": "hole in the ground"
+    },
+    {
+      "word": "walmba",
+      "gloss": "log"
+    },
+    {
+      "word": "damal",
+      "gloss": "to spear"
+    },
+    {
+      "word": "dindal",
+      "gloss": "to roast on coals"
+    }
   ],
   "references": [
     {
@@ -137,8 +198,21 @@
       "id": "handback2021",
       "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
       "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Western Yalanji story; historical timeline (Table 1); Native Title Determinations 1–4; ILUAs (Table 4); pastoral stations (Table 5); heritage sites"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
     }
   ],
-  "review": { "status": "unreviewed" },
+  "review": {
+    "status": "unreviewed"
+  },
   "updated": "2026-10-05"
 }
