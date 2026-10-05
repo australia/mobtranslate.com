@@ -44,7 +44,7 @@ make_release() {
 v2_id="20260719T000001Z-aaaaaaaaaaaa"
 make_release "$TEMP_ROOT" "$v2_id" 2
 v2="$TEMP_ROOT/$v2_id"
-"$VERIFIER" "$v2" | grep -Fxq 'runtime_integrity_version=2'
+"$VERIFIER" "$v2" | grep -Fx 'runtime_integrity_version=2' >/dev/null
 
 printf 'unexpected\n' \
   > "$v2/runtime/apps/web/.next-release-$v2_id/server/app/new.html"
@@ -66,7 +66,7 @@ make_release "$TEMP_ROOT" "$legacy_id" 1
 legacy="$TEMP_ROOT/$legacy_id"
 legacy_cache="$legacy/runtime/apps/web/.next-release-$legacy_id/server/app"
 printf 'generated\n' > "$legacy_cache/language.html"
-"$VERIFIER" "$legacy" | grep -Fxq 'legacy_cache_extra_files=1'
+"$VERIFIER" "$legacy" | grep -Fx 'legacy_cache_extra_files=1' >/dev/null
 
 printf 'revalidated\n' > "$legacy_cache/index.html"
 if "$VERIFIER" "$legacy" >/dev/null 2>&1; then
@@ -74,7 +74,7 @@ if "$VERIFIER" "$legacy" >/dev/null 2>&1; then
   exit 1
 fi
 "$VERIFIER" --allow-legacy-cache-drift "$legacy" \
-  | grep -Fxq 'legacy_cache_changed_files=1'
+  | grep -Fx 'legacy_cache_changed_files=1' >/dev/null
 
 printf 'injected\n' > "$legacy_cache/injected.js"
 if "$VERIFIER" --allow-legacy-cache-drift "$legacy" >/dev/null 2>&1; then
