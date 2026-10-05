@@ -64,7 +64,7 @@ for command in git pnpm node rsync curl sha256sum tar find flock sort xargs ss; 
   command -v "$command" >/dev/null || { echo "Missing required command: $command" >&2; exit 1; }
 done
 
-[[ -d "$REPO_ROOT/.git" ]] || { echo "Repository not found: $REPO_ROOT" >&2; exit 1; }
+[[ -e "$REPO_ROOT/.git" ]] || { echo "Repository not found: $REPO_ROOT" >&2; exit 1; }
 [[ -x "$RELEASE_PRUNE_SCRIPT" && -x "$RELEASE_PRUNE_TEST" \
   && -x "$RELEASE_VERIFY_SCRIPT" && -x "$RELEASE_VERIFY_TEST" ]] || {
   echo "Release integrity/retention scripts are missing or not executable." >&2
