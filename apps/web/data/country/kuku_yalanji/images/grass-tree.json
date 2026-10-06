@@ -1,0 +1,29 @@
+{
+  "slug": "grass-tree",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/grass-tree/plant.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "A grass tree with a dark trunk and a skirt of fine leaves in open forest",
+      "caption": "A grass tree in dry open woodland.",
+      "kind": "photo",
+      "credit": "Photo: George Baker, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/182968577",
+      "location": "Davies Creek, Queensland, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/grass-tree/spike.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "A tall brown spike covered in small flowers",
+      "caption": "A grass tree flower spike.",
+      "kind": "photo",
+      "credit": "Photo: Matt B, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/107785762",
+      "location": "Atherton QLD 4883, Australia"
+    }
+  ]
+}

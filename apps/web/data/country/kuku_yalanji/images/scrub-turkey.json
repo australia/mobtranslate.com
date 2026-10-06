@@ -1,0 +1,17 @@
+{
+  "slug": "scrub-turkey",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/scrub-turkey/bird.webp",
+      "width": 1024,
+      "height": 681,
+      "alt": "A black turkey-like bird with a red head on grass",
+      "caption": "An Australian brush-turkey: black body, bare red head, yellow wattle.",
+      "kind": "photo",
+      "credit": "Photo: Donald Davesne, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/185416127",
+      "location": "Cairns Queensland, Australie"
+    }
+  ]
+}

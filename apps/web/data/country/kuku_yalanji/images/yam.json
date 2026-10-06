@@ -1,0 +1,29 @@
+{
+  "slug": "yam",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/yam/vine.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "Heart-shaped yam leaves covering a tree trunk",
+      "caption": "Hairy yam vines climbing a tree trunk.",
+      "kind": "photo",
+      "credit": "Photo: Annika Lindqvist, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/279277827",
+      "location": "Cairns Botanic Gardens, QLD, AU"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/yam/bulbils.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Two rough brown aerial tubers on the ground",
+      "caption": "Aerial tubers ('air potatoes') dropped from the vine.",
+      "kind": "photo",
+      "credit": "Photo: Steve Fitzgerald, via iNaturalist",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/250411156",
+      "location": "Edge Hill QLD, Australia"
+    }
+  ]
+}

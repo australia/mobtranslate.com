@@ -1,0 +1,40 @@
+{
+  "slug": "pandanus",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/pandanus/woodland.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "Spiky pandanus crowns standing above open grassy woodland",
+      "caption": "Pandanus in open woodland, the kind of country around the upper Mitchell.",
+      "kind": "photo",
+      "credit": "Photo: Andrew Allen, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/135648817",
+      "location": "Chewko QLD 4880, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/pandanus/fruit.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "A round orange segmented pandanus fruit among spiky leaves",
+      "caption": "A ripening pandanus fruit.",
+      "kind": "photo",
+      "credit": "Photo: Tom Field, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/142197081",
+      "location": "Yarraden QLD 4892, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/pandanus/roth-armlet.webp",
+      "width": 1584,
+      "height": 1600,
+      "alt": "Line drawings of a pandanus leaf strip being cut, folded and plaited into an armlet",
+      "caption": "Making a simple pandanus-leaf armlet: the prepared leaf strip (1), cutting and folding it around (2–3), and how the ends are woven in (4–5).",
+      "kind": "drawing",
+      "credit": "Drawing: W. E. Roth, North Queensland Ethnography Bulletin 1 (1901), Plate IV",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/northqueensland00landgoog/page/n25"
+    }
+  ]
+}

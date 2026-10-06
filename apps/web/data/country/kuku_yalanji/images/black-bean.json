@@ -1,0 +1,29 @@
+{
+  "slug": "black-bean",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/black-bean/pods.webp",
+      "width": 1024,
+      "height": 1024,
+      "alt": "Open woody pod holding several large brown seeds",
+      "caption": "An opened black bean pod with its big chestnut-like seeds, which are poisonous raw.",
+      "kind": "photo",
+      "credit": "Photo: James K. Douch, via iNaturalist",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/170787606",
+      "location": "Mossman Gorge, QLD, AU"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/black-bean/flowers.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Clusters of orange-red pea flowers on a branch",
+      "caption": "Black bean flowers grow straight from the older branches.",
+      "kind": "photo",
+      "credit": "Photo: Kai Squires, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/185249628",
+      "location": "North Thornton Beach"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "red-cedar",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/red-cedar/trunk.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "A large buttressed tree trunk in rainforest",
+      "caption": "The buttressed trunk of a red cedar in rainforest.",
+      "kind": "photo",
+      "credit": "Photo: Steve Fitzgerald, via iNaturalist",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/123924771",
+      "location": "Cairns QLD, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/red-cedar/leaves.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "A long compound leaf with paired leaflets",
+      "caption": "Red cedar leaves have many paired leaflets.",
+      "kind": "photo",
+      "credit": "Photo: Mark Richman, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/198691360",
+      "location": "Wooroora Rd, Millstream, QLD, AU"
+    }
+  ]
+}

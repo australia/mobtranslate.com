@@ -1,0 +1,29 @@
+{
+  "slug": "fish-poison-plants",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/fish-poison-plants/flowers.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Long drooping strings of small red flowers",
+      "caption": "Freshwater mangrove (Barringtonia acutangula) in flower: long hanging strings of red flowers.",
+      "kind": "photo",
+      "credit": "Photo: Steve Fitzgerald, via iNaturalist",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/356305700",
+      "location": "Manoora QLD, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/fish-poison-plants/billabong.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "A shrubby tree growing out of shallow open water",
+      "caption": "Freshwater mangrove standing in a billabong.",
+      "kind": "photo",
+      "credit": "Photo: coenobita, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/19364899",
+      "location": "Lakefield QLD 4892, Australia"
+    }
+  ]
+}

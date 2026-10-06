@@ -1,0 +1,29 @@
+{
+  "slug": "catfish",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/catfish/fish.webp",
+      "width": 337,
+      "height": 297,
+      "alt": "A slender pale catfish over sand",
+      "caption": "Hyrtl's tandan (Neosilurus hyrtlii), an eel-tailed catfish of the upper Mitchell.",
+      "kind": "photo",
+      "credit": "Photo: Tom Ferguson, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/364968827",
+      "location": "Robin Falls NT 0822, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/catfish/pool.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "Catfish swimming among orange rocks",
+      "caption": "Neosilurus catfish in a rocky pool.",
+      "kind": "photo",
+      "credit": "Photo: Hugo Innes, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/116780681",
+      "location": "Lake Argyle WA 6743, Australia"
+    }
+  ]
+}

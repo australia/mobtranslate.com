@@ -1,0 +1,17 @@
+{
+  "slug": "barramundi",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/barramundi/underwater.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "A silvery fish seen underwater in a pool",
+      "caption": "A barramundi in a freshwater pool.",
+      "kind": "photo",
+      "credit": "Photo: Jake Nitta, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/289396033",
+      "location": "WF58+R7, Cape Tribulation QLD 4873, Australia"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "paperbark",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/paperbark/bark.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Close-up of a trunk shedding layers of papery bark",
+      "caption": "Paperbark: the thick, papery bark peels away in sheets.",
+      "kind": "photo",
+      "credit": "Photo: coenobita, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/18906697",
+      "location": "Biboohra QLD 4880, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/paperbark/river.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Paperbark trees leaning over a river with a sandy bank",
+      "caption": "Paperbarks lining a sandy river bank.",
+      "kind": "photo",
+      "credit": "Photo: coenobita, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/18905367",
+      "location": "Innot Hot Springs QLD 4872, Australia"
+    }
+  ]
+}

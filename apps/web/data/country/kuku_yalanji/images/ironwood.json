@@ -1,0 +1,29 @@
+{
+  "slug": "ironwood",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/ironwood/tree.webp",
+      "width": 779,
+      "height": 1024,
+      "alt": "A spreading tree beside a road in dry country",
+      "caption": "A Cooktown ironwood tree in dry woodland.",
+      "kind": "photo",
+      "credit": "Photo: Ben Lewis, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/62776994",
+      "location": "Katherine NT 0850, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/ironwood/leaves.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "Rounded leaflets against a blue sky",
+      "caption": "Ironwood leaves. All parts of the tree are poisonous to stock.",
+      "kind": "photo",
+      "credit": "Photo: Thomas Mesaglio, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/351389506",
+      "location": " trail towards Bird Billabong, Mary River NP, Northern Territory"
+    }
+  ]
+}

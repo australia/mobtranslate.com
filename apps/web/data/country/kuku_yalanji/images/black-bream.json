@@ -1,0 +1,29 @@
+{
+  "slug": "black-bream",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/black-bream/fish.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "A dark deep-bodied fish in clear water",
+      "caption": "A sooty grunter (black bream) in a clear freshwater pool.",
+      "kind": "photo",
+      "credit": "Photo: Tom Field, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/142487466",
+      "location": "Chewko QLD 4880, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/black-bream/side.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "A dark fish over a sandy bottom",
+      "caption": "Sooty grunter.",
+      "kind": "photo",
+      "credit": "Photo: Kai Squires, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/203847126",
+      "location": "Madja"
+    }
+  ]
+}

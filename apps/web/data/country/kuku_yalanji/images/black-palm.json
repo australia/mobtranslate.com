@@ -1,0 +1,29 @@
+{
+  "slug": "black-palm",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/black-palm/palm.webp",
+      "width": 1024,
+      "height": 796,
+      "alt": "A slender palm trunk with clusters of dark red fruit",
+      "caption": "A black palm in rainforest, with fruit hanging below the crown.",
+      "kind": "photo",
+      "credit": "Photo: Tim, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/99875315",
+      "location": "Cow Bay QLD 4873, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/black-palm/fruit.webp",
+      "width": 1024,
+      "height": 682,
+      "alt": "Hanging bunches of red-purple palm fruit",
+      "caption": "Black palm fruit.",
+      "kind": "photo",
+      "credit": "Photo: coenobita, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/16197086",
+      "location": "Cape Tribulation QLD 4873, Australia"
+    }
+  ]
+}

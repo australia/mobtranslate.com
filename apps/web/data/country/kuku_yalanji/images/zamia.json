@@ -1,0 +1,29 @@
+{
+  "slug": "zamia",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/zamia/plant.webp",
+      "width": 1024,
+      "height": 681,
+      "alt": "A cycad with a crown of stiff fronds among boulders",
+      "caption": "Zamia (Cycas media) growing among rocks in open woodland.",
+      "kind": "photo",
+      "credit": "Photo: Donald Davesne, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/199457185",
+      "location": "Paddys Green QLD 4880, Australie"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/zamia/fronds.webp",
+      "width": 1024,
+      "height": 681,
+      "alt": "Radiating stiff green cycad fronds",
+      "caption": "Looking down into the crown of fronds.",
+      "kind": "photo",
+      "credit": "Photo: Donald Davesne, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/199457185",
+      "location": "Paddys Green QLD 4880, Australie"
+    }
+  ]
+}

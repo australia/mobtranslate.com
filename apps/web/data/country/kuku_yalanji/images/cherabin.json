@@ -1,0 +1,29 @@
+{
+  "slug": "cherabin",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/cherabin/prawn.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "A large freshwater prawn with long blue claws",
+      "caption": "A giant freshwater prawn (cherabin), with its long blue claws.",
+      "kind": "photo",
+      "credit": "Photo: Kristof Zyskowski, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/9816629",
+      "location": "Waigeo, Raja Ampat, West Papua, Indonesia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/cherabin/catch.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "Several freshwater prawns of different sizes on a rock",
+      "caption": "Several freshwater prawns laid out for comparison.",
+      "kind": "photo",
+      "credit": "Photo: Kristof Zyskowski, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/9816520",
+      "location": "Waigeo, Raja Ampat, West Papua, Indonesia"
+    }
+  ]
+}

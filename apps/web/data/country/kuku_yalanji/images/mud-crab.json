@@ -1,0 +1,17 @@
+{
+  "slug": "mud-crab",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/mud-crab/crab.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "A large dark crab among rocks and water",
+      "caption": "A giant mud crab among rocks.",
+      "kind": "photo",
+      "credit": "Photo: Lek Khauv, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/1976704",
+      "location": "Machans Beach, Cairns, Queensland, Australia"
+    }
+  ]
+}

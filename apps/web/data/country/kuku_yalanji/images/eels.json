@@ -1,0 +1,29 @@
+{
+  "slug": "eels",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/eels/eel.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "A long dark eel among leaf litter in shallow water",
+      "caption": "A longfin eel in a rainforest creek.",
+      "kind": "photo",
+      "credit": "Photo: Matt B, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/147089367",
+      "location": "Barron Gorge QLD 4870, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/eels/creek.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "An eel in shallow water over leaves",
+      "caption": "Longfin eel in a creek bed.",
+      "kind": "photo",
+      "credit": "Photo: Matt B, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/147089367",
+      "location": "Barron Gorge QLD 4870, Australia"
+    }
+  ]
+}

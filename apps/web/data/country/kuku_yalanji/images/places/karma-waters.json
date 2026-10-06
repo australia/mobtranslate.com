@@ -1,0 +1,41 @@
+{
+  "slug": "karma-waters",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/karma-waters/mitchell-river.webp",
+      "width": 1600,
+      "height": 1067,
+      "alt": "A wide, shallow river with sand banks under a cloudy sky",
+      "caption": "The Mitchell River in the dry season: a wide sandy bed with permanent pools. This photo is from far downstream at the Koolatah–Dunbar crossing; up near Karma Waters the river is narrower, with paperbark-lined banks.",
+      "kind": "photo",
+      "credit": "Photo: Tennis expert, via Wikimedia Commons",
+      "licence": "CC-BY-SA-2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitchell_River.JPG",
+      "location": "Koolatah–Dunbar crossing, Mitchell River, Cape York Peninsula"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/karma-waters/mount-carbine.webp",
+      "width": 1466,
+      "height": 941,
+      "alt": "A roadside township with a pub and old machinery under a blue sky",
+      "caption": "Mount Carbine, the nearest township to Karma Waters, on the Peninsula Developmental Road.",
+      "kind": "photo",
+      "credit": "Photo: Bruceanthro at English Wikipedia, via Wikimedia Commons",
+      "licence": "CC-BY-SA-3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MountCarbine01.jpg",
+      "location": "Mount Carbine, Qld"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/karma-waters/mount-carbine-1911.webp",
+      "width": 1000,
+      "height": 759,
+      "alt": "A black-and-white view over a mining township and bare hills",
+      "caption": "Mount Carbine in about 1911, seen from its hill of wolfram (tungsten) workings. Mining reshaped this country from the late 1800s.",
+      "kind": "photo",
+      "credit": "Photo: State Library of Queensland, via Wikimedia Commons",
+      "licence": "PD",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:StateLibQld_1_293463_Mount_Carbine,_ca._1911.jpg",
+      "location": "Mount Carbine, Qld, about 1911"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "native-bees",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/native-bees/bee.webp",
+      "width": 1024,
+      "height": 761,
+      "alt": "A tiny black bee on a fingertip",
+      "caption": "A Tetragonula stingless bee: tiny, black and stingless.",
+      "kind": "photo",
+      "credit": "Photo: Tony Eales, via iNaturalist",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/71420861",
+      "location": "Thornton Beach QLD 4873, Australia"
+    }
+  ]
+}

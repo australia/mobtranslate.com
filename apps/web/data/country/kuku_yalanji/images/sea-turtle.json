@@ -1,0 +1,29 @@
+{
+  "slug": "sea-turtle",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/sea-turtle/turtle.webp",
+      "width": 1024,
+      "height": 1001,
+      "alt": "A sea turtle swimming over a sandy bottom",
+      "caption": "A green turtle.",
+      "kind": "photo",
+      "credit": "Photo: Daniel Montesinos, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/198970770",
+      "location": "Oak Beach QLD 4877, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/sea-turtle/swimming.webp",
+      "width": 1024,
+      "height": 709,
+      "alt": "A sea turtle swimming in blue water",
+      "caption": "Green turtle swimming.",
+      "kind": "photo",
+      "credit": "Photo: Rolf Lawrenz, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/180589197",
+      "location": "Cairns, QLD, Australia"
+    }
+  ]
+}

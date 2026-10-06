@@ -1,0 +1,29 @@
+{
+  "slug": "cassowary",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/cassowary/adult.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "A large black bird with a blue neck, red wattles and a tall casque",
+      "caption": "An adult southern cassowary.",
+      "kind": "photo",
+      "credit": "Photo: Oscar Dove, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/196978347",
+      "location": "Cape Tribulation QLD 4873, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/cassowary/chick.webp",
+      "width": 800,
+      "height": 614,
+      "alt": "A small brown-and-cream striped chick",
+      "caption": "A striped cassowary chick.",
+      "kind": "photo",
+      "credit": "Photo: no rights reserved, via iNaturalist",
+      "licence": "CC0-1.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/96985521",
+      "location": "Kuranda QLD 4881, Australia"
+    }
+  ]
+}

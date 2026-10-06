@@ -1,0 +1,29 @@
+{
+  "slug": "saltwater-crocodile",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/saltwater-crocodile/bank.webp",
+      "width": 1024,
+      "height": 684,
+      "alt": "A large crocodile resting on a mudbank",
+      "caption": "A saltwater crocodile on a muddy bank.",
+      "kind": "photo",
+      "credit": "Photo: no rights reserved, via iNaturalist",
+      "licence": "CC0-1.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/14789694",
+      "location": "Cape Tribulation Road (shop 2), Lower Daintree QLD 4873, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/saltwater-crocodile/mangroves.webp",
+      "width": 1024,
+      "height": 681,
+      "alt": "A crocodile in murky water among mangrove roots",
+      "caption": "Saltwater crocodile in a mangrove creek. Assume crocodiles are present in any tidal water.",
+      "kind": "photo",
+      "credit": "Photo: Donald Davesne, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/187420618",
+      "location": "Lower Daintree QLD 4873, Australie"
+    }
+  ]
+}

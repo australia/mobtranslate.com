@@ -1,0 +1,29 @@
+{
+  "slug": "goanna",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/goanna/lace-monitor.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "A large banded goanna on grass",
+      "caption": "A lace monitor on open ground.",
+      "kind": "photo",
+      "credit": "Photo: Kai Squires, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/258532000",
+      "location": "Candlenut"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/goanna/head.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Close-up of a goanna's head among leaves",
+      "caption": "Lace monitor, showing the banded head and neck.",
+      "kind": "photo",
+      "credit": "Photo: Kai Squires, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/258532000",
+      "location": "Candlenut"
+    }
+  ]
+}

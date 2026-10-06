@@ -1,0 +1,29 @@
+{
+  "slug": "freshwater-crocodile",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/freshwater-crocodile/bank.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "A slender-snouted crocodile at the water's edge",
+      "caption": "A freshwater crocodile: note the narrow, pointed snout.",
+      "kind": "photo",
+      "credit": "Photo: gwynmwilliams, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/387828435",
+      "location": "Barron River, Kuranda QLD 4881, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/freshwater-crocodile/basking.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "A crocodile lying on a rock by a creek",
+      "caption": "Freshwater crocodile basking on a rock bar.",
+      "kind": "photo",
+      "credit": "Photo: no rights reserved, via iNaturalist",
+      "licence": "CC0-1.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/300681647",
+      "location": "Kuranda QLD 4881, Australia"
+    }
+  ]
+}

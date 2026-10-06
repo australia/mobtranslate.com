@@ -1,0 +1,29 @@
+{
+  "slug": "scrub-hen",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/scrub-hen/bird.webp",
+      "width": 1024,
+      "height": 682,
+      "alt": "A brown ground bird with large orange feet",
+      "caption": "An orange-footed scrubfowl.",
+      "kind": "photo",
+      "credit": "Photo: Lek Khauv, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/2357400",
+      "location": "Wangetti, Queensland, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/scrub-hen/mound.webp",
+      "width": 1024,
+      "height": 681,
+      "alt": "Two dark birds on a large mound of earth and leaves",
+      "caption": "Scrubfowl on their mound, a big heap of soil and leaf litter where the eggs incubate.",
+      "kind": "photo",
+      "credit": "Photo: Donald Davesne, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/180946252",
+      "location": "Cairns Queensland, Australie"
+    }
+  ]
+}

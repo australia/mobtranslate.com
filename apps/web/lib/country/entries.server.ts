@@ -77,7 +77,7 @@ export function getCountryBacklinks(language: string, slug: string): CountryBack
   ];
 }
 
-function readJsonDir<T>(dir: string, parse: (raw: unknown) => T): T[] {
+function readJsonDir<T>(dir: string, parse: (_raw: unknown) => T): T[] {
   if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir)

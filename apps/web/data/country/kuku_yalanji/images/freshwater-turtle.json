@@ -1,0 +1,29 @@
+{
+  "slug": "freshwater-turtle",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/freshwater-turtle/turtle.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "A freshwater turtle among leaf litter",
+      "caption": "A northern yellow-faced turtle on a creek bank.",
+      "kind": "photo",
+      "credit": "Photo: Alan Bell, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/345630774",
+      "location": "Julatten QLD 4871, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/freshwater-turtle/walking.webp",
+      "width": 1024,
+      "height": 780,
+      "alt": "A freshwater turtle walking on dry ground",
+      "caption": "Northern yellow-faced turtle.",
+      "kind": "photo",
+      "credit": "Photo: Lachlan Copeland, via iNaturalist",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/291179538",
+      "location": "Middle Point NT 0822, Australia"
+    }
+  ]
+}

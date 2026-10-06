@@ -1,0 +1,29 @@
+{
+  "slug": "fig",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/fig/figs.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "Red and orange figs growing on a pale tree trunk",
+      "caption": "Cluster fig: the figs grow straight from the trunk and ripen red.",
+      "kind": "photo",
+      "credit": "Photo: Matt B, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/102142142",
+      "location": "Trinity Beach QLD 4879, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/fig/trunk.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "A smooth pale tree trunk in riverside forest",
+      "caption": "The pale trunk of a cluster fig.",
+      "kind": "photo",
+      "credit": "Photo: Steve Fitzgerald, via iNaturalist",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/143972113",
+      "location": "Brinsmead QLD, Australia"
+    }
+  ]
+}

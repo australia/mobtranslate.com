@@ -1,0 +1,29 @@
+{
+  "slug": "candlenut",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/candlenut/leaves.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Broad pale green candlenut leaves",
+      "caption": "Candlenut foliage; the pale young leaves stand out in the canopy.",
+      "kind": "photo",
+      "credit": "Photo: Steve Fitzgerald, via iNaturalist",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/189546684",
+      "location": "East Barron QLD 4883, Australia"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/candlenut/tree.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "A spreading candlenut tree against the sky",
+      "caption": "A candlenut tree on the edge of rainforest.",
+      "kind": "photo",
+      "credit": "Photo: Thomas Mesaglio, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/164561994",
+      "location": "Daintree River, Solar Whisper cruise route, Queensland"
+    }
+  ]
+}

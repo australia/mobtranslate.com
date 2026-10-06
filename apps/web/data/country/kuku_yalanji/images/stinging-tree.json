@@ -1,0 +1,29 @@
+{
+  "slug": "stinging-tree",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/stinging-tree/leaves.webp",
+      "width": 576,
+      "height": 1024,
+      "alt": "Large heart-shaped leaves of a stinging tree",
+      "caption": "Gympie-gympie leaves: large, heart-shaped and covered in stinging hairs. Do not touch.",
+      "kind": "photo",
+      "credit": "Photo: Oliver S., via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/85454870",
+      "location": "Daintree National Park, Shannonvale, QLD, AU"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/stinging-tree/fruit.webp",
+      "width": 1024,
+      "height": 682,
+      "alt": "Clusters of bright pink-red fruit",
+      "caption": "Stinging tree fruit clusters, which also carry stinging hairs.",
+      "kind": "photo",
+      "credit": "Photo: coenobita, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/11445857",
+      "location": "Barron Gorge QLD 4870, Australia"
+    }
+  ]
+}

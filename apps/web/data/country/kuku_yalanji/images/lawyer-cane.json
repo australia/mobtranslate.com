@@ -1,0 +1,29 @@
+{
+  "slug": "lawyer-cane",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/lawyer-cane/spines.webp",
+      "width": 576,
+      "height": 1024,
+      "alt": "A spiny cane stem in rainforest",
+      "caption": "A lawyer cane stem armed with rows of sharp spines.",
+      "kind": "photo",
+      "credit": "Photo: Oliver S., via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/85995154",
+      "location": "Cape Tribulation"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/lawyer-cane/habit.webp",
+      "width": 576,
+      "height": 1024,
+      "alt": "Feathery palm leaves of lawyer cane in rainforest",
+      "caption": "Lawyer cane scrambling through the rainforest understorey.",
+      "kind": "photo",
+      "credit": "Photo: Oliver S., via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/85436237",
+      "location": "Douglas, AU-QL, AU"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "wallaby",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/wallaby/dry-grass.webp",
+      "width": 1024,
+      "height": 684,
+      "alt": "A sandy-coloured wallaby sitting upright in dry grass",
+      "caption": "An agile wallaby in dry grass.",
+      "kind": "photo",
+      "credit": "Photo: Lawrence Hylton, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/383627477",
+      "location": "Cook, AU-QL, AU"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/wallaby/upright.webp",
+      "width": 1024,
+      "height": 681,
+      "alt": "A wallaby standing upright on green grass",
+      "caption": "Agile wallaby, showing the pale hip stripe.",
+      "kind": "photo",
+      "credit": "Photo: Donald Davesne, via iNaturalist",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/181948906",
+      "location": "Julatten QLD 4871, Australie"
+    }
+  ]
+}
