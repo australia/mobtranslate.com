@@ -1,0 +1,220 @@
+{
+  "slug": "hooks-and-lines",
+  "title": "Hooks and lines",
+  "category": "technique",
+  "names": [
+    {
+      "word": "badur",
+      "gloss": "hook and line",
+      "note": "Example: ngayu badurriji bundanday 'I'm fishing (sitting with hook and line)'."
+    },
+    {
+      "word": "mandurr",
+      "gloss": "bait (any kind)"
+    },
+    {
+      "word": "ngarruy",
+      "gloss": "shellbait"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary defines badur as 'hook and line', with an example sentence about sitting fishing with hook and line, and mandurr as 'bait (any kind)'. Anderson describes Kuku Yalanji line fishing at Bloomfield in detail."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "coast-mangrove",
+    "camp"
+  ],
+  "summary": "Fishing with **badur**, 'hook and line', was a year-round Kuku Yalanji method that worked even in muddy water, when spearing could not [ref:hershberger1982] [ref:anderson1996]. At Bloomfield it was mostly women's work. In salt water the line was twisted from the bark of the beach hibiscus (*Hibiscus tiliaceus*) and the hook was cut from pearl shell. In fresh water the line came from the bark of *Sterculia quadrifolia*, the hook was a [lawyer-cane](entry:lawyer-cane) thorn, and the bait (**mandurr**) was grubs, small freshwater prawns or small frogs [ref:anderson1996]. Upriver, on the Palmer, hooks had a wooden shank and a barb of bone or catfish spine [ref:roth1901].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "badur (hook and line); mandurr (bait); ngarruy (shellbait)"
+    },
+    {
+      "label": "Line, salt water",
+      "value": "Beach hibiscus (Hibiscus tiliaceus) bark"
+    },
+    {
+      "label": "Line, fresh water",
+      "value": "Sterculia quadrifolia bark"
+    },
+    {
+      "label": "Hooks",
+      "value": "Pearl shell (coast); lawyer-cane thorn (inland); wood and bone (Palmer River)"
+    },
+    {
+      "label": "Bait",
+      "value": "Grubs, small prawns, small frogs, small crabs, shellfish, cut fish"
+    },
+    {
+      "label": "Who",
+      "value": "Mostly women at Bloomfield; men occasionally"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Badur** is 'hook and line'. The dictionary's example is *ngayu badurriji bundanday*, 'I'm fishing (sitting with hook and line)'. Another runs *ngayu baduriji dungaka, yinya bubu babanka*, 'I want to go fishing to try the place out' [ref:hershberger1982].\n\nBait is **mandurr** 'bait (any kind)', and **ngarruy** is 'shellbait'. **Kuyalin** is a 'small conical shellfish, used for bait', and one definition of **bikarrakal** is 'a kind of grub used for bait' [ref:hershberger1982]. A **mala-kuyu** is a 'good fisherman', and **wuwu-damaji** means 'to go back all the time to the same place, as a good place to fish' [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "Anderson lists hook and line as the second of three Bloomfield fishing methods, after [spearing](entry:spear-and-woomera) and before [plant poisons](entry:fish-poisoning). 'Spear fishing could only be done in relatively clear water', but a line could be fished in the river and estuarine creeks 'year-round even when the water was muddy' [ref:anderson1996].\n\n**Hooks in North Queensland** came in several kinds [ref:roth1904] [ref:roth1901]:\n\n- **Thorn hooks**: a lawyer-cane thorn, used on the Bloomfield. Roth notes the cane's 'hook' sometimes took the place of the natural tendril hook.\n- **Tendril hooks**: the hardened tendril of *Hugonia jenkinsii* (lower Tully River).\n- **Crescent shell hooks**: pearl shell (Cape Grafton, lower Tully, the Bloomfield coast).\n- **Wood and bone hooks**: a hardwood shank with a bone barb (Palmer River, Princess Charlotte Bay).\n- **Bent-pin hooks** of tortoise shell (Batavia and Pennefather Rivers, on the Gulf side).\n\nRoth found that 'weights or sinkers are never used' [ref:roth1901].\n\n**Shell hooks at Bloomfield.** In the late 1970s nobody at Bloomfield knew how the old shell hooks had been made. Rowan found one on the banks of the Bloomfield River in 1892. In 1821, in a deserted camp just south of Bloomfield, Phillip Parker King found 'a fishing rod, and a line five or six fathoms long', about 9–11 m, 'with a hook made from a shell' [ref:anderson1996]. At the Endeavour River, Cook's party saw hooks 'very neatly made, and some of them … exceedingly small'. By Roth's time hooks were unknown there [ref:roth1904]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where and when",
+      "body": "- **Coast**: the river and the estuarine creeks, all year [ref:anderson1996].\n- **Inland**: freshwater creeks and waterholes [ref:anderson1996]. Inland Bloomfield families moved out to small 'branch' camps in the dry to get eelfish, tortoises, wallabies and goannas [ref:anderson1996].\n- **The upper Mitchell**: the nearest recorded hook is the Palmer River one, a wooden shank with a bone barb [ref:roth1901]. Karma Waters' river holds black bream and freshwater prawns, so bait is close at hand [ref:kw-camping]."
+    },
+    {
+      "id": "uses",
+      "heading": "What it caught",
+      "body": "- **Coast and estuary (Bloomfield)**: various bream, trevally, mangrove jack, sea perch and [barramundi](entry:barramundi) [ref:anderson1996].\n- **Fresh water (Bloomfield)**: turtle, eelfish, catfish and perch [ref:anderson1996]. See [freshwater turtle](entry:freshwater-turtle), [eels](entry:eels), [catfish](entry:catfish) and [black bream](entry:black-bream)."
+    },
+    {
+      "id": "how-to",
+      "heading": "How to make and fish a line",
+      "body": "**The line** [ref:anderson1996] [ref:roth1901-string]:\n\n1. Choose the bark. At Bloomfield, beach hibiscus (*Hibiscus tiliaceus*) was used for salt-water lines and *Sterculia quadrifolia* for fresh water. Roth adds that *Hibiscus tiliaceus* lines were also used on the lower Tully, to fish and to tie bait onto hooks.\n2. Smash, twist and twine the bark. In Anderson's words the line was 'made from the smashed, twisted and twined bark'.\n3. Roth's general method: split the cleaned inner fibre into fine shreds and dry them in the sun. Roll each shred forwards on the outer thigh, fold it in two, and roll it forwards and back to twist two plies together. All fibre twine was two-ply. See [string and twine](entry:string-and-twine).\n\n**Hooks:**\n\n4. **Thorn hook (Bloomfield, fresh water).** Use a thorn of the lawyer cane, *Calamus australis* [ref:anderson1996]. How it was shaped and tied is not recorded.\n5. **Pearl-shell hook (Cape Grafton, 1898; Roth watched one made)** [ref:roth1904]:\n   1. Chip a fresh pearl shell (*Perna*) between two stones into a rough plate about 2 inches (5 cm) across.\n   2. Char the centre: hold two smouldering hardwood points against it and blow hard.\n   3. Break through the weakened centre with a pencil of white coral.\n   4. File the hole into an oval with the coral, dipping it often in water.\n   5. Grind the outer edge to the width of the hook.\n   6. Grind one side of the ring on a sharp rock edge until it breaks, and finish the crescent with rock and coral. On the lower Tully the hole was started without fire.\n6. **Bone-barbed hook (Palmer River, Kuku Mini)**: a wooden shank with a barb of kangaroo bone or a catfish spine [ref:roth1901]. At Princess Charlotte Bay the barb was fixed at a sharp angle with kangaroo-tail tendon and grevillea gum [ref:roth1901].\n\n**Bait and fishing:**\n\n7. **Fresh-water bait**: grubs, small freshwater prawns ([cherabin](entry:cherabin)) or small frogs. **Coastal bait**: pieces of less-liked fish such as a small grunter or shark, small crabs, frogs or small shellfish [ref:anderson1996]. Small grubs, and grubs from certain 'poison' trees, were kept for bait [ref:anderson1996]. See [witchetty grubs](entry:witchetty-grub).\n8. On the lower Tully (Mallanpara country), bait was 'always tied onto the hook, never transfixed', and chewed first [ref:roth1901].\n9. Hold the line in your hand, or tie it to a stick pushed into the sand or the bank [ref:anderson1996].\n\nFor bobbing for eels with a bunch of worms and no hook at all, a lower Tully method, see [eels](entry:eels)."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "Lawyer cane is armed with hooked thorns, so wear gloves to collect them; see [lawyer cane](entry:lawyer-cane). Pearl shell and coral cut. Don't fish from the water's edge in crocodile country; see [saltwater crocodile](entry:saltwater-crocodile)."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "By the late 1970s, Bloomfield people fished with plastic hand reels and lines and metal hooks, 'with no sinkers or floats' [ref:anderson1996].\n\n**Recreational rules (Queensland fresh waters).** You may use up to 6 handheld lines, each with one hook, fly or lure, and you must stay within 50 m of them. Set lines are not allowed [ref:qld-gear]. On Gulf rivers such as the Mitchell, barramundi are closed from 7 October to 31 January, and you can't target them even for catch-and-release [ref:qld-closed].\n\n**Native title.** The Western Yalanji determinations recognise rights to fish for personal, domestic and non-commercial communal purposes [ref:brady2013], and further country was recognised in August 2026 [ref:nit2026wy]. Section 211 of the *Native Title Act 1993* frees native title holders from licence and permit requirements for those needs [ref:alrc]. Everyone else needs permission from the Traditional Owners, and at [Karma Waters](place:karma-waters) from the station too."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**Kuyu** 'fish'; **dawal** 'trevally'; **karra** 'rope, cord, string'; **murnil** 'twist, stir'; **kajal** 'to tie'; **babal** 'try, taste' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "lawyer-cane",
+    "string-and-twine",
+    "barramundi",
+    "freshwater-turtle",
+    "eels",
+    "catfish",
+    "black-bream",
+    "cherabin",
+    "witchetty-grub",
+    "nets",
+    "fish-traps",
+    "fish-poisoning",
+    "spear-and-woomera"
+  ],
+  "relatedWords": [
+    {
+      "word": "kuyalin",
+      "gloss": "small conical shellfish, used for bait"
+    },
+    {
+      "word": "bikarrakal",
+      "gloss": "a kind of grub used for bait"
+    },
+    {
+      "word": "mala-kuyu",
+      "gloss": "good fisherman"
+    },
+    {
+      "word": "wuwu-damaji",
+      "gloss": "to go back all the time to the same place, as a good place to fish"
+    },
+    {
+      "word": "babal",
+      "gloss": "try, taste"
+    },
+    {
+      "word": "kuyu",
+      "gloss": "fish"
+    },
+    {
+      "word": "dawal",
+      "gloss": "trevally"
+    },
+    {
+      "word": "karra",
+      "gloss": "rope, cord, string"
+    },
+    {
+      "word": "murnil",
+      "gloss": "twist, stir"
+    },
+    {
+      "word": "kajal",
+      "gloss": "to tie"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Environment and seasonal movement; subsistence activities: fishing and gathering; material culture in the late 1970s"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 15 'Fish' (f), fish-hooks"
+    },
+    {
+      "id": "roth1901-string",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Plant list 'Hibiscus tiliaceus'; sect. 7, manufacture of fibre-twine"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 68 'Fish-hooks'"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing equipment rules: fresh waters (web page, last updated 26 March 2026, accessed 6 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "qld-closed",
+      "citation": "Queensland Department of Primary Industries. Closed seasons in fresh waters: barramundi (web page, accessed 5 October 2026).",
+      "url": "https://www.dpi.qld.gov.au/business-priorities/fisheries/closures/fresh/seasons"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "nit2026wy",
+      "citation": "National Indigenous Times (13 August 2026). 'Western Yalanji determination brings Cape York native title to the finish line.'",
+      "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-06"
+}

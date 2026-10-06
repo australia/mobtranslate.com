@@ -1,0 +1,234 @@
+{
+  "slug": "fig",
+  "title": "Fig trees",
+  "category": "tree",
+  "names": [
+    {
+      "word": "jarrangkal",
+      "gloss": "fig tree and its fruit"
+    },
+    {
+      "word": "mujarr",
+      "gloss": "species of fig tree and its fruit, which is edible, and is like a very small apple - ripe in August to October. It is red when ripe, grows out of the trunk of the tree.",
+      "note": "Probably the cluster fig, Ficus racemosa. Roth (1901) recorded the Cooktown name mu-char for Ficus glomerata, an old name for that species."
+    },
+    {
+      "word": "kumin",
+      "gloss": "species of fig tree with edible fruit. The fruit looks like an eyeball, it is ripe in August - October."
+    },
+    {
+      "word": "yinkunji",
+      "gloss": "species of fig tree with edible fruit (longest black fruit which becomes rip in the wet)"
+    },
+    {
+      "word": "dukal",
+      "gloss": "kind of fruit (fig) that is edible after roasting"
+    },
+    {
+      "word": "binanji",
+      "gloss": "species of fig (large edible)"
+    },
+    {
+      "word": "baril-baril",
+      "gloss": "Moreton Bay fig tree"
+    }
+  ],
+  "scientificName": "Ficus spp. (including Ficus racemosa and F. opposita)",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary glosses all seven words as figs, but names a species for none of them. Mujarr is probably the cluster fig, Ficus racemosa: the dictionary's red, small-apple-sized fruit growing out of the trunk matches that species' cauliflorous figs, and Roth (1901) gives the Cooktown name mu-char for Ficus glomerata, a synonym of F. racemosa. The fig of Anderson's (1996) ngunyin bag is identified only as 'Ficus'. The other words have not been matched to species."
+  },
+  "countryTypes": [
+    "rainforest",
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "Fig trees (*Ficus*) have more names in Kuku Yalanji than almost any other kind of tree. **Jarrangkal** is 'fig tree and its fruit', and there are separate words for at least six particular figs, among them **mujarr**, **kumin**, **yinkunji** and **dukal** [ref:hershberger1982]. The fruit was an important seasonal food on the Bloomfield River. Some figs were eaten fresh, some were sun-dried and kept for weeks, and **dukal** is only edible after roasting [ref:anderson1996] [ref:hershberger1982]. Fig bark made the fibre for the men's **ngunyin** bag [ref:anderson1996], and rough fig leaves were used like sandpaper to smooth spear-throwers [ref:anderson1996] [ref:roth1909]. On the upper Mitchell, the Atlas of Living Australia records the cluster fig and the sandpaper fig along the rivers [ref:ala-ficus].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "jarrangkal (fig tree and fruit); mujarr, kumin, yinkunji, dukal, binanji, baril-baril (particular figs)"
+    },
+    {
+      "label": "Scientific name",
+      "value": "Ficus spp. (fig family, Moraceae); mujarr probably Ficus racemosa"
+    },
+    {
+      "label": "Other English names",
+      "value": "cluster fig, figwood (F. racemosa); sandpaper fig (F. opposita)"
+    },
+    {
+      "label": "Parts used",
+      "value": "Fruit (food); inner bark (fibre for twine, bags and nets); rough leaves (sandpaper)"
+    },
+    {
+      "label": "Ripe",
+      "value": "Mostly August to October; yinkunji in the wet"
+    },
+    {
+      "label": "Where",
+      "value": "Rainforest, its edges and gallery forest; cluster and sandpaper figs along inland rivers"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Jarrangkal** is the general 'fig tree and its fruit'. The dictionary also lists it as one 'species of fig' [ref:hershberger1982]. The other names pick out particular figs:\n\n- **mujarr**: its edible fruit is 'like a very small apple', red when ripe, and 'grows out of the trunk of the tree'. It ripens in August to October.\n- **kumin**: 'the fruit looks like an eyeball'. It also ripens in August to October.\n- **yinkunji**: the 'longest black fruit', which ripens in the wet.\n- **dukal**: a fig 'that is edible after roasting'.\n- **binanji**: a 'large edible' fig.\n- **baril-baril**: the 'Moreton Bay fig tree' [ref:hershberger1982].\n\nMujarr is probably the **cluster fig**, *Ficus racemosa*. Its figs grow on special shoots from the trunk and main branches [ref:rfk-ficus-racemosa], just as the dictionary describes. At Cooktown, Roth recorded the Guugu Yimithirr name *mu-char* for *Ficus glomerata* [ref:roth1901], which is an older name for *F. racemosa* [ref:wp-ficus-racemosa]. Which fig Bloomfield speakers meant by 'Moreton Bay fig' is not recorded, and nor are the species of kumin, yinkunji, dukal and binanji."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "Figs are trees and shrubs with a milky or brownish sap [ref:rfk-ficus-racemosa] [ref:rfk-ficus-opposita]. The 'fruit' is a fig with tiny flowers inside, pollinated by fig wasps that crawl in through the opening at its tip [ref:wp-ficus-racemosa].\n\nThe **cluster fig** (*F. racemosa*) is a large tree that drops its leaves around August or September. Its round or slightly pear-shaped figs are about 3–4 cm across. They hang in clusters on special shoots from the trunk and main branches. The sap turns brown when it meets the air [ref:rfk-ficus-racemosa].\n\nThe **sandpaper fig** (*F. opposita*) is often only a shrub of 1–3 m, though it still fruits at that size. Its leaves, 6–14 cm long, are 'usually sandpapery on the upper surface'. The figs are 15–20 mm across and hairy, and some turn black and shiny when ripe [ref:rfk-ficus-opposita]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it grows",
+      "body": "On the Bloomfield, most of the important fruits, figs among them, grow in rainforest, on its edges or in the gallery forest along the big creeks [ref:anderson1996]. The cluster fig grows in dry rainforest, beach forest and gallery forest, sometimes in country 'quite dry and not conducive to rain forest development', from sea level to 500 m [ref:rfk-ficus-racemosa]. The sandpaper fig grows in open forest, monsoon forest and beach forest, up to 750 m [ref:rfk-ficus-opposita].\n\n**Around [Karma Waters](place:karma-waters).** Within 30 km of the homestead, the Atlas of Living Australia holds four fig records. There are two of a 1967 cluster-fig specimen labelled only 'Palmer River', with rough coordinates. There is also a *Ficus obliqua* from 2002, and a 1972 sandpaper fig from the McLeod River on the road from Mount Carbine to Cooktown. Within 60 km there are about 120 records of some fifteen species. The commonest are the sandpaper fig, *F. obliqua*, the cluster fig and *F. henneana* [ref:ala-ficus]. The collector Edward Palmer reported cluster-fig fruit (as *Ficus vesca*) being eaten on 'Mitchell and most coastal rivers' [ref:roth1901]. *F. vesca* is another old name for *F. racemosa* [ref:wp-ficus-racemosa]. So look for cluster figs on the banks of the Mitchell and its side creeks."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Most Bloomfield fruits ripen between May and August [ref:anderson1996]. The dictionary puts **mujarr** and **kumin** a little later, ripe in August to October, the late dry. **Yinkunji** ripens in the wet [ref:hershberger1982]. The cluster fig drops its leaves around August or September [ref:rfk-ficus-racemosa], so in the late dry its trunk-borne figs are easy to see on the bare branches. At the Pennefather River, far to the north, Roth noted that one fig twine was 'made in the dry' [ref:roth1901-string]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Food (Bloomfield).** Kuku Yalanji counted at least fifty kinds of desirable fruit, and several figs were among the most important. People often picked them up while doing something else, such as men out hunting or women out fishing. Long sticks knocked fruit down from tall trees, and it was carried home in bark troughs or [dilly bags](entry:dilly-bags). Some figs could be dried in the sun and kept for several weeks [ref:anderson1996]. **Dukal** must be roasted before it is eaten [ref:hershberger1982]. Neighbouring peoples ate many figs too. Roth's food list gives Cooktown and Cape Bedford names for several, among them *mu-char* [ref:roth1901].\n\n**Fibre (Bloomfield).** Of the three main kinds of bag on the Bloomfield, two were women's bags of [black palm](entry:black-palm) or grass fibre. The third, the men's bag called **ngunyin**, was made of *Ficus* fibre-twine. People said it could stretch big enough to carry a small [wallaby](entry:wallaby). Men also carried their own things in it, such as a small stick tipped with gum, [firesticks](entry:firestick) wrapped in [paperbark](entry:paperbark), and spare spear barbs [ref:anderson1996]. The dictionary's **ngunyin** means both 'dilly bag' and 'the tree bark used to make into strips and weave fishing nets and dilly bags' [ref:hershberger1982]. Fig fibre links to [string and twine](entry:string-and-twine) and to [nets](entry:nets).\n\n**Fibre (neighbours).** Roth recorded fig twine in many places north of the Bloomfield [ref:roth1901-string]:\n\n- *F. platypoda*: fibre for dilly bags. At Cape Bedford it was called *berdiga*.\n- *F. fasciculata*: twine for dilly bags on the Morehead and Starcke rivers.\n- *F. cunninghamii*: a reddish twine from the dried inner bark of the roots, on the Pennefather.\n- *F. orbicularis*: a whitish twine.\n\n**Sandpaper.** Rough fig leaves were Bloomfield sandpaper. Anderson records leaves of the sandpaper fig used to smooth spear-throwers and other wooden things [ref:anderson1996]. Roth notes the same on the middle Palmer River, at Cooktown and on the Bloomfield, where fig leaves smoothed the blades of [spear-throwers](entry:spear-and-woomera) [ref:roth1909]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was done",
+      "body": "**Gathering fruit**, Bloomfield River [ref:anderson1996]:\n\n1. Knock ripe figs down from tall trees with a long stick.\n2. Carry them in a bark trough or dilly bag.\n3. To keep some, dry them in the sun. Certain figs then last several weeks.\n\n**Making bark twine.** Roth wrote that *F. fasciculata* twine on the Starcke and Morehead rivers was made 'just like' that of *Macaranga*. This is his general method [ref:roth1901-string]:\n\n1. Cut a fairly smooth switch and strip off its bark.\n2. Snap the bark strip sharply at an angle. This lets you peel the fibre away from its coloured outer covering. Throw the covering away.\n3. Wash and rinse the fibre for a few minutes, until the water turns cloudy, 'to make milk come out'.\n4. Dry it in the sun.\n5. Split the dry shreds with your fingernails until they are fine, 20–25 cm long or more.\n6. Sitting, roll a shred forward on your outer thigh with the open hand to make a strand.\n7. Fold the strand in two. Roll it once forward and once back under the palm to twist two plies together. Hold the twist and repeat along its length, rolling in a new strand when one runs out.\n\nThe dictionary does not say how **dukal** was roasted."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "Not every fig is good to eat raw. The dictionary singles out **dukal** as edible only after roasting [ref:hershberger1982], so learn from people who know which fig is which before you eat any. Roth's and Anderson's records are history, not tested recipes. Cluster figs feed many birds and animals, and feral pigs eat the fallen fruit [ref:rfk-ficus-racemosa], so expect pigs under fruiting trees."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "On the coast, much Eastern Kuku Yalanji fig country lies in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks. These were returned to Eastern Kuku Yalanji Traditional Owners on 29 September 2021 and are jointly managed [ref:qld-handback]. Inland, the Western Yalanji determinations recognise rights to take and use natural resources for personal, domestic and communal needs [ref:fca2013]. Under s 211 of the *Native Title Act 1993*, native title holders can gather for those needs without the licences other people need [ref:alrc-s211]. Visitors should ask Traditional Owners before stripping bark."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**jarrangkal** 'fig tree and its fruit'; **jilanji** 'edible fig'; **ngurrkul** 'tree and its edible fruit, found only in deep scrub', also listed as a 'species of tree (with edible fig)'; **wulku** 'fig'; **yinjul** 'fig parrot' [ref:hershberger1982].\n\n**Ngunyin** has four senses: 'dilly bag', 'the tree bark used to make into strips and weave fishing nets and dilly bags', 'spider web' and 'placenta'. A related word, **warrur**, is 'tree bark which can be used as vine', used to make fishnets dragged through the water in the dry season. The dictionary does not say which tree it comes from. Twine itself is **karra**, 'rope, cord, string' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "string-and-twine",
+    "dilly-bags",
+    "nets",
+    "spear-and-woomera",
+    "black-palm",
+    "paperbark",
+    "wallaby",
+    "firestick"
+  ],
+  "relatedWords": [
+    {
+      "word": "jilanji",
+      "gloss": "edible fig"
+    },
+    {
+      "word": "ngurrkul",
+      "gloss": "tree and its edible fruit, found only in deep scrub"
+    },
+    {
+      "word": "wulku",
+      "gloss": "fig"
+    },
+    {
+      "word": "binainyji",
+      "gloss": "fig-like fruit"
+    },
+    {
+      "word": "yinjul",
+      "gloss": "fig parrot"
+    },
+    {
+      "word": "ngunyin",
+      "gloss": "dilly bag"
+    },
+    {
+      "word": "warrur",
+      "gloss": "tree bark which can be used as vine"
+    },
+    {
+      "word": "karra",
+      "gloss": "rope, cord, string"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Plant list, 'Ficus glomerata', 'Ficus vesca' (after E. Palmer)"
+    },
+    {
+      "id": "roth1901-string",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6, plant list ('Ficus'); sect. 7, manufacture of fibre-twine"
+    },
+    {
+      "id": "roth1909",
+      "citation": "Roth, W. E. (1909). North Queensland Ethnography, Bulletin No. 13: Fighting weapons. Records of the Australian Museum 7(4).",
+      "url": "https://archive.org/details/biostor-52873",
+      "locator": "Sect. 10, n. 22 (fig leaves for smoothing spear-thrower blades: middle Palmer, Cooktown and Bloomfield rivers)"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Gathering (fruit); dilly-bags (ngunyin); manufacturing items (Ficus opposita leaves)"
+    },
+    {
+      "id": "rfk-ficus-racemosa",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Ficus racemosa (cluster fig, figwood). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/ficus_racemosa.htm"
+    },
+    {
+      "id": "rfk-ficus-opposita",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Ficus opposita (sandpaper fig). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/ficus_opposita.htm"
+    },
+    {
+      "id": "wp-ficus-racemosa",
+      "citation": "Wikipedia, 'Ficus racemosa' (synonyms include Ficus glomerata Roxb. and Ficus vesca F.Muell. ex Miq.) (accessed 6 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Ficus_racemosa"
+    },
+    {
+      "id": "ala-ficus",
+      "citation": "Atlas of Living Australia. Occurrence records of the genus Ficus within 30 km and 60 km of the Karma Waters homestead (16.618° S, 144.605° E), queried 6 October 2026 (4 records within 30 km; about 120 within 60 km).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus%3AFicus&lat=-16.6179&lon=144.6047&radius=60"
+    },
+    {
+      "id": "qld-handback",
+      "citation": "Queensland Government (29 September 2021). Ministerial media statement: Daintree, Ngalba-bulal, Kalkajaka and Hope Islands National Parks returned to Eastern Kuku Yalanji Traditional Owners as Cape York Peninsula Aboriginal Land, to be jointly managed.",
+      "url": "https://statements.qld.gov.au/statements/93360"
+    },
+    {
+      "id": "fca2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Logan J, 24 September 2013), consent determinations of native title over lands in and around the Palmer and Mitchell River systems north-west of Mt Carbine.",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "alrc-s211",
+      "citation": "Australian Law Reform Commission (2014). Review of the Native Title Act 1993, Discussion Paper 82, ch. 8: Relevant provisions in the Native Title Act (s 211, preservation of native title hunting, fishing, gathering and cultural activities).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-06"
+}

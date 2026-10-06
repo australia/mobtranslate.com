@@ -1,0 +1,211 @@
+{
+  "slug": "dilly-bags",
+  "title": "Dilly bags",
+  "category": "technique",
+  "names": [
+    {
+      "word": "balji",
+      "gloss": "ladie's dilly bag, made from grass or black palm"
+    },
+    {
+      "word": "ngunyin",
+      "gloss": "dilly bag",
+      "note": "Also 'the tree bark used to make into strips and weave fishing nets and dilly bags'."
+    },
+    {
+      "word": "kakan",
+      "gloss": "the green upper part of the black palm tree from which the dilly bag is made"
+    },
+    {
+      "word": "ngurran",
+      "gloss": "rope, also dilly bag made from rope"
+    },
+    {
+      "word": "bilanji",
+      "gloss": "grass used to make dilly bags"
+    },
+    {
+      "word": "mawu",
+      "gloss": "a coarse grass used in the making of dilly bags"
+    },
+    {
+      "word": "wukurril",
+      "gloss": "weave",
+      "note": "Also 'follow'. The dictionary's example: Jalbungku balji wukurrin, 'The woman wove a dilly bag'."
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary gives balji and ngunyin for dilly bags, and kakan, bilanji and mawu as their materials. Roth (1904) recorded the same Bloomfield River names in his older spelling: ngon-yan for fig-twine bags, karkan for black-palm bags and bal-ji for grass bags. In 1901 he gave mau-u as a Bloomfield name for the bag grass Xerotes multiflora (now Lomandra multiflora). Anderson (1996) describes the three Bloomfield bag types, with a photograph of a balji being made in 1982."
+  },
+  "countryTypes": [
+    "rainforest",
+    "river-freshwater",
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "A **balji** is a 'ladie's dilly bag, made from grass or black palm', and a **ngunyin** is a dilly bag [ref:hershberger1982]: on the Bloomfield River, the men's bag of [fig](entry:fig)-fibre twine [ref:anderson1996]. Anderson describes three main Bloomfield kinds: a [black palm](entry:black-palm) fibre bag and a grass bag, both made and used by women, and the men's ngunyin. Women carried anything in them, babies included. The women's bags were also kitchen tools, used as sieves and colanders for [zamia](entry:zamia) flour and for mashing and straining the poisonous hairy [yam](entry:yam) in running water [ref:anderson1996] [ref:roth1901].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "balji (woman’s bag), ngunyin (dilly bag; men’s fig-twine bag)"
+    },
+    {
+      "label": "Roth's spellings",
+      "value": "bal-ji, ngon-yan, karkan (Bloomfield River, 1904)"
+    },
+    {
+      "label": "Materials",
+      "value": "Black palm fibre (kakan); grasses bilanji and mawu (Lomandra); fig-bark twine"
+    },
+    {
+      "label": "Techniques",
+      "value": "Chain-twist basketry (palm bags); looped 'hour-glass' mesh (grass bags, men's bags)"
+    },
+    {
+      "label": "Uses",
+      "value": "Carrying food, gear and babies; sifting and leaching zamia; mashing yams"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Balji** is a 'ladie's dilly bag, made from grass or black palm', and **ngunyin** is 'dilly bag'. **Ngurran** is 'rope, also dilly bag made from rope' [ref:hershberger1982]. The dictionary names the materials too: **kakan** is 'the green upper part of the black palm tree from which the dilly bag is made', **bilanji** is a 'grass used to make dilly bags' and **mawu** is 'a coarse grass used in the making of dilly bags' [ref:hershberger1982]. To weave is **wukurril**, as in *Jalbungku balji wukurrin*, 'The woman wove a dilly bag' [ref:hershberger1982].\n\nRoth's 1904 Bloomfield notes, in his older English-based spelling, give *ngon-yan* for the fig-twine bags. Palm sieve-bags were called *karkan*, 'the name of the plant itself', and grass bags *bal-ji*, which he took to be 'a term independent of the material' [ref:roth1904]. In 1901 he gave *mau-u* for the old plant, and *tan-di* for the young, of the bag grass *Xerotes multiflora* at Bloomfield [ref:roth1901-string]. That plant is now *Lomandra multiflora* [ref:apni-xerotes], and *mau-u* is the dictionary's mawu."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "Anderson, working at Bloomfield in the late 1970s and early 1980s, describes three kinds of bag [ref:anderson1996]:\n\n- **The palm bag** was made from fibre strands pulled from the leaf-stalk bases of the black palm (*Normanbya normanbyi*). It had 'two continuous strands chained together and several straight basal strands'. This is the stiff, basket-like weave Roth called **chain-twist**, like the warp and weft of a basket [ref:roth1901-string].\n- **The grass bag** was made from *Lomandra* (then *Xerotes*) grass, 'with one continuous strand, in the hour-glass pattern', a looped and pliable mesh.\n- **The ngunyin**, a men's bag of fig-fibre twine, could stretch big enough to carry a small [wallaby](entry:wallaby).\n\nRoth's account differs slightly. He puts the ngunyin in the hour-glass mesh but groups the grass bal-ji with the chain-twist palm sieve-bags [ref:roth1904]. Both may have been made.\n\nWomen's palm bags and men's net bags were personal property and were not normally lent [ref:anderson1996]. Sections of a bag were sometimes dyed red with blood-root (*Haemodorum coccineum*) [ref:anderson1996] [ref:roth1904]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the materials come from",
+      "body": "**Black palm** is a rainforest palm. The Kuku Yalanji weaver Delissa Walker uses black palm from the Daintree rainforest around Cow Bay [ref:cairnsart]. **Lomandra** grasses were used for bags on the Bloomfield and the Starcke River [ref:roth1901-string]. **Fig** twine is described under [string and twine](entry:string-and-twine).\n\n**Upper Mitchell.** Black palm belongs to the rainforest of the ranges to the east (see the [Karma Waters](place:karma-waters) guide), but *Lomandra multiflora*, the old Bloomfield bag grass, has been recorded within 30 km of the homestead [ref:ala-fibre]. Roth's records from inland neighbours show other bag-making. There were looped 'loop and twist' bags at Laura and Maytown. At the Middle Palmer there were hour-glass bags and chain-twist bags whose basal strands were tied into a bundle, as on the Bloomfield [ref:roth1901-string]. Edward Palmer recorded bags of twisted *Hibiscus* bark 'for carrying roots, game' on the Mitchell River [ref:roth1901-string]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Bags were in heaviest use when the bulk foods came in. On the Bloomfield, zamia was 'fit to eat from July to January', and the hairy yam was the staple from mid-February to mid-May [ref:roth1901]. Burdekin plums could be ripened by burying them in a dilly bag in the ground for up to a week [ref:anderson1996]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Carrying.** Women used the palm and grass bags for 'carrying anything (including infants)'. Fruit was carried in bags or bark troughs [ref:anderson1996].\n- **Sifting.** Pounded zamia was sifted through a palm-fibre bag, 'having a mesh with smaller interspaces than the other varieties of bag' [ref:roth1901].\n- **[Leaching](entry:leaching).** The zamia flour then went into a grass bag 'folded sideways upon itself so as to form a basin-like receptacle', set by a stream with fresh water running through it all night [ref:roth1901]. Further south, at Atherton, chipped [black bean](entry:black-bean) was left overnight in a lawyer-cane bag in a running creek [ref:roth1901].\n- **Mashing.** Baked hairy yam was mashed by hand in a palm-fibre bag held over a bark trough while water was poured through [ref:anderson1996].\n- **The men's bag.** Men carried personal gear in the ngunyin: a gum stick, [firesticks](entry:firestick) wrapped in [paperbark](entry:paperbark), spare spear barbs and medicines [ref:anderson1996].\n- **Trade.** Roth listed dilly bags among the Bloomfield district's 'articles of home production for trade and barter' [ref:anderson1996]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How the bags were made",
+      "body": "First make the twine or prepare the fibre (see [string and twine](entry:string-and-twine)).\n\n**A looped 'hour-glass' bag** (Roth's general method; he lists the Bloomfield among the places where it was made) [ref:roth1901-string]:\n\n1. Push **two sticks** firmly into the ground a few centimetres apart and tie a cross-string between them. This is the basal strand.\n2. Tie the working strand to the left end of the cross-string.\n3. Working left to right, **loop the strand onto the cross-string**. In the hour-glass pattern each mesh is a double loop.\n4. At the right end, **turn the sticks right round** (or untie the cross-string and retie it reversed) so that you can work left to right again without moving. These first two rows make the bottom of the bag.\n5. Keep looping row after row, each into the row above, until the bag is deep enough.\n6. **Pull out the cross-string** and finish the mouth by over-casting.\n\n**A black-palm sieve-bag** (Bloomfield River) [ref:roth1901-string] [ref:roth1904]:\n\n1. Pull fibre strands out of the leaf bases of the palm's green crown (**kakan**) one at a time, and clean each by drawing it between the thumb-nail and finger-nail.\n2. Tie several straight strands together into a bundle to start the base.\n3. Twist **two continuous strands** around each straight strand in turn, so that they chain. Work round and round, adding straight strands as the bag widens.\n4. Finish the rim by **searing the ends in the ashes** or by over-casting.\n\nLouisa Smith was photographed making a balji with black palm fibre strands at Wujal Wujal in 1982 [ref:anderson1996]. How the Bloomfield grasses were prepared is not recorded in our sources."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "In 1982 only three or four women at Bloomfield could still make the bags. In bush camps, metal drums and plastic buckets had taken over much of the yam processing, but 'the palm-fibre dilly bags were still used for the initial mashing' [ref:anderson1996]. The weaving continues. Delissa Walker, a Kuku Yalanji artist born in 1990, learnt kakan basket weaving from her grandmother, Ngadijina Wilma Walker. She is one of very few weavers using black palm, and her work is held in public collections, among them the National Gallery of Victoria [ref:cairnsart].\n\nNative title holders gathering for personal, domestic or non-commercial communal needs are protected from licence and permit requirements by section 211 of the *Native Title Act 1993* [ref:alrc]. Others should ask the Traditional Owners, and the landholder, before collecting palm or grass."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**Kurmun** is 'sack, bag', and **buyandi-l** is 'to put (something) in a container' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "string-and-twine",
+    "black-palm",
+    "fig",
+    "leaching",
+    "zamia",
+    "yam",
+    "black-bean",
+    "lawyer-cane",
+    "nets",
+    "paperbark",
+    "firestick",
+    "wallaby"
+  ],
+  "relatedWords": [
+    {
+      "word": "kurmun",
+      "gloss": "sack, bag"
+    },
+    {
+      "word": "buyandi-l",
+      "gloss": "to put (something) in a container"
+    },
+    {
+      "word": "duwar",
+      "gloss": "black palm"
+    },
+    {
+      "word": "karra",
+      "gloss": "rope, cord, string"
+    },
+    {
+      "word": "ngabal",
+      "gloss": "soak, leach"
+    },
+    {
+      "word": "marra",
+      "gloss": "zemia tree and the zemia nut which is roasted, ground and leached to make flour"
+    },
+    {
+      "word": "wukay",
+      "gloss": "hairy yam"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Preparation of cycad nuts (Figure 6 and the three bag types); 'Yam preparation'; gathering; personal property and decoration; trade; 'Bloomfield since 1873'"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Plant list ('Cycas media', 'Castanospermum australe', 'Dioscorea sativa')"
+    },
+    {
+      "id": "roth1901-string",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 and plant list ('Drymophloeus Normanbyi', 'Xerotes multiflora', 'Xerotes longifolia', 'Hibiscus panduriformis'); sects. 18–22 and 29 (hour-glass and chain-twist work)"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 53–54 'Dilly-bags. Baskets' and 'Variations in different districts' (Bloomfield River); sect. 19 'Stains, dyes'"
+    },
+    {
+      "id": "apni-xerotes",
+      "citation": "Australian Plant Name Index: Xerotes multiflora R.Br., homotypic synonym of Lomandra multiflora (R.Br.) Britten (via Atlas of Living Australia).",
+      "url": "https://id.biodiversity.org.au/instance/apni/852068"
+    },
+    {
+      "id": "cairnsart",
+      "citation": "Cairns Art Gallery. Artist showcase: Delissa Walker (accessed 6 October 2026).",
+      "url": "https://www.cairnsartgallery.com.au/art-artists/artist-showcase/delissa-walker"
+    },
+    {
+      "id": "ala-fibre",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.618° S, 144.605° E) for the genera Lomandra, Ficus, Brachychiton, Hibiscus, Sterculia and Cycas, queried 6 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus:Lomandra&lat=-16.6179&lon=144.6047&radius=30"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-06"
+}

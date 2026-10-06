@@ -1,0 +1,189 @@
+{
+  "slug": "fish-poisoning",
+  "title": "Fish poisoning",
+  "category": "technique",
+  "names": [
+    {
+      "word": "miyil",
+      "gloss": "species of tree, which has poisonous sap used to blind fish. You wrap orange seed in grass to keep the sap from touching your skin and the eyes of people, then smash under water.",
+      "note": "The same word means 'eye'. The dictionary does not give the tree's botanical name."
+    },
+    {
+      "word": "kuli",
+      "gloss": "anger; poison; trouble"
+    }
+  ],
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary defines miyil as a tree whose poisonous sap is 'used to blind fish', smashed under water in a grass wrapping. That closely matches Anderson's Bloomfield account of Barringtonia asiatica seeds mashed with a grass sponge and swirled under water, but the dictionary does not name the species, so miyil may be that tree or another. No Kuku Yalanji verb for poisoning fish was found."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "rainforest",
+    "open-woodland"
+  ],
+  "summary": "Fish poisoning stuns fish in a still pool with crushed bark, leaves, seeds or fruit. The fish float up dazed and are picked out by hand. At Bloomfield it was a late dry-season method in the inland creeks, when the smaller streams broke up into isolated waterholes. Cooktown ironwood, two kinds of *Barringtonia* and a native ebony were used there [ref:anderson1996] [ref:roth1901]. The dictionary names **miyil**, a tree whose sap is 'used to blind fish' [ref:hershberger1982]. Today using any noxious substance to take fish is an offence under Queensland's *Fisheries Act 1994* [ref:qld-fishact].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "miyil (tree whose sap blinds fish); kuli 'poison'"
+    },
+    {
+      "label": "Bloomfield plants",
+      "value": "Cooktown ironwood, Barringtonia asiatica, B. racemosa, Diospyros hebecarpa"
+    },
+    {
+      "label": "Season",
+      "value": "Late dry season, in isolated waterholes"
+    },
+    {
+      "label": "Speed",
+      "value": "About 15 minutes (Barringtonia) to 1–3 days (stringybark leaves)"
+    },
+    {
+      "label": "Afterwards",
+      "value": "The hole is unusable until a storm and flood renew it"
+    },
+    {
+      "label": "Law (Qld)",
+      "value": "Offence under Fisheries Act 1994 s 81"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Miyil** is a tree 'which has poisonous sap used to blind fish'. The dictionary adds the method: 'You wrap orange seed in grass to keep the sap from touching your skin and the eyes of people, then smash under water' [ref:hershberger1982]. The same word means 'eye', and blindness words are built on it, such as **miyil kari** 'blind'. A mangrove, **miyilabu**, 'has a poisonous sap which makes people blind' [ref:hershberger1982]. The general word for poison is **kuli** 'anger; poison; trouble' [ref:hershberger1982].\n\nRoth recorded the Bloomfield name of the native ebony *Diospyros hebecarpa*, a fish poison, as *ngam-boi* (his spelling) [ref:roth1901]. It was not found in the dictionary."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "The poisons 'stunned or blinded the fish and they then floated to the surface where they could be collected' [ref:anderson1996]. With *Barringtonia racemosa* bark, fish were stupefied in about a quarter of an hour [ref:roth1901]. Unlike [fish traps](entry:fish-traps), [nets](entry:nets) or [hooks and lines](entry:hooks-and-lines), it needs no gear at all. The plants themselves have their own page: [fish-poison plants](entry:fish-poison-plants).\n\n**Recorded on the Bloomfield (Kuku Yalanji):**\n\n- **Cooktown ironwood** (*Erythrophleum chlorostachys*; see [ironwood](entry:ironwood)): bark and leaves smashed together under water [ref:anderson1996].\n- ***Barringtonia asiatica***: seeds mashed with a grass sponge [ref:anderson1996].\n- ***Barringtonia racemosa***: the stems [ref:anderson1996], or the bark hammered spongy, as Roth heard from R. Hislop. Roth also recorded it at Cooktown [ref:roth1901].\n- ***Diospyros hebecarpa***: bundles of fruit warmed over a fire and squashed in the water, at Cooktown, Cape Bedford, the Bloomfield and Cape Grafton [ref:roth1901].\n\n**Neighbours, by district** [ref:roth1901]:\n\n- **Middle Palmer River (Kuku Mini, Roth's 'Koko-minni')**: bark of *Adenanthera abrosperma*; leaves of *Careya australis*; leaves of red stringybark (*Eucalyptus resinifera*); and an ironbark, which worked faster.\n- **Mitchell, Laura and Lynd Rivers**: *Barringtonia racemosa*, according to the collector E. Palmer. He also said green *Luffa* was used on the Mitchell, Gilbert and Einasleigh.\n- **Cooktown (Guugu Yimithirr country)**: hammered and roasted stems of *Derris uliginosa*, and the roasted roots of *Pongamia*."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where and when",
+      "body": "At Bloomfield this was 'a common technique in the inland areas in the late dry season as some of the smaller creeks dried and became a series of isolated waterholes' [ref:anderson1996]. Elsewhere in the north Roth recorded it in small lagoons, in water-holes 'which are drying up', and in a waist-deep hole 20–30 feet across [ref:roth1901]. A poison needs still water. In a running river it washes away.\n\n**The upper Mitchell.** The nearest records are E. Palmer's *Barringtonia* and *Luffa* on the Mitchell itself, and the Kuku Mini poisons of the middle Palmer [ref:roth1901]. Only about 4% of the Mitchell catchment's rain falls between May and October [ref:griffith2021], so by the late dry the side creeks and lagoons are shrinking pools."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons and timing",
+      "body": "The late dry, before the storms, was the time [ref:anderson1996]. The poisons worked at different speeds [ref:roth1901]:\n\n- *Barringtonia racemosa* bark: about a quarter of an hour.\n- Red stringybark leaves: one to three days, depending on the size of the pool. The ironbark was faster.\n- *Pongamia* roots at Cooktown: put in of an evening and left all night."
+    },
+    {
+      "id": "uses",
+      "heading": "What it caught",
+      "body": "Whatever was trapped in the pool. Anderson and Roth name no species for the Bloomfield poisons [ref:anderson1996] [ref:roth1901]. On the lower Tully, *Derris* leaves were used 'especially for eels', and another plant was 'used for small fish in water-holes which are drying up' [ref:roth1901]. In the Mitchell's pools that would mean fish such as [black bream](entry:black-bream), [catfish](entry:catfish) and [eels](entry:eels)."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was done",
+      "body": "**A Bloomfield waterhole (Kuku Yalanji)** [ref:anderson1996]:\n\n1. Choose a small, isolated waterhole late in the dry season.\n2. Prepare one poison:\n   - Cooktown ironwood: take bark and leaves into the water and smash them together under water.\n   - *Barringtonia asiatica*: mash the seeds together with a grass sponge, then shake and swirl the sponge under water.\n   - *Barringtonia racemosa*: work the stems the same way.\n3. While working under water, **keep your eyes shut tight**, and don't swim through the poisoned water.\n4. Collect the fish as they float to the surface.\n5. Leave the hole. It cannot be used again until a storm and flood renew the water.\n\n**The miyil tree (dictionary)** [ref:hershberger1982]: wrap the seed in grass, so the sap cannot touch your skin or anyone's eyes, and smash it under water.\n\n***Barringtonia* bark (Bloomfield and Cooktown, from R. Hislop)** [ref:roth1901]:\n\n1. Hammer the bark between stones until it is quite spongy.\n2. Take it into the water and rub it with your hands.\n3. Wait about a quarter of an hour for the fish to be stupefied.\n\n**Native ebony fruit (Cooktown to Cape Grafton, including the Bloomfield)** [ref:roth1901]:\n\n1. Collect plenty of *Diospyros hebecarpa* fruit and tie it into long bundles.\n2. Each person takes a bundle and warms it over a fire.\n3. Squash it in the water.\n\n**Middle Palmer River (Kuku Mini)** [ref:roth1901]: throw *Adenanthera* bark into the water. Or throw in red stringybark leaves and leave them one to three days."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**The plants.** The dictionary's own instructions are to keep **miyil** sap off your skin and out of people's eyes, and **miyilabu** mangrove sap 'makes people blind' [ref:hershberger1982]. Bloomfield divers kept their eyes shut tight [ref:anderson1996]. Cooktown ironwood is dangerous to stock. All parts are poisonous, especially the leaves of suckers and regrowth. Less than 100 g can kill a horse or cow, and no treatment reliably works [ref:futurebeef]. Wash your hands after handling any of these plants, and keep them away from children, dogs and cattle.\n\n**The water.** A poisoned hole was unusable until a flood renewed it [ref:anderson1996]. Never poison water that people or stock drink.\n\n**Eating the fish.** People ate fish taken this way. A Port Curtis account quoted by Roth says a *Polygonum* poison brought fish up 'without impairing their wholesomeness as food' [ref:roth1901]. None of these sources tests the other plants for safety. Gut and clean the fish promptly, and don't eat any fish that was already dead before the poison went in."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "**It is an offence in Queensland.** Section 81 of the *Fisheries Act 1994* says a person must not unlawfully use an explosive, firearm or **noxious substance** to take fish, with a maximum penalty of 2,000 penalty units. A noxious substance is anything that is harmful, or produces conditions that are harmful, to fisheries resources or fish habitats [ref:qld-fishact]. Plant fish-poisons are made to do exactly that.\n\n**Aboriginal tradition and native title.** The Act gives an Aboriginal person acting under Aboriginal tradition a defence, but only for fishing with prescribed gear: recreational fishing gear, plus traditional fish traps of stone or organic material [ref:qld-fishact] [ref:qld-fishreg]. Plant poisons are neither. Section 211 of the *Native Title Act 1993* lifts licence and permit requirements for native title holders fishing for personal, domestic or non-commercial communal needs [ref:alrc]. Section 81 is a ban, not a licence requirement, and no court ruling on plant fish-poisons was found. Western Yalanji native title includes rights to fish [ref:brady2013]. Native title holders who want to practise or teach the method should ask their prescribed body corporate for advice first.\n\n**For everyone else** it is simply illegal. The knowledge can still be shared: which tree is **miyil**, and why the old people shut their eyes under water."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**Miyil** 'eye'; **miyil kari** 'blind'; **kuli** 'poison'. **Wuju** is a 'sponge made from grass, used as a sop for eating honey or soup'; Anderson's *Barringtonia* method used a grass sponge, though the dictionary does not link the two [ref:hershberger1982] [ref:anderson1996]. **Kuyu** is 'fish'. The reverse skill, washing poison out of food, is **ngabal** 'soak, leach' [ref:hershberger1982]; see [leaching](entry:leaching)."
+    }
+  ],
+  "relatedEntries": [
+    "fish-poison-plants",
+    "ironwood",
+    "leaching",
+    "eels",
+    "catfish",
+    "black-bream",
+    "fish-traps",
+    "hooks-and-lines",
+    "nets"
+  ],
+  "relatedWords": [
+    {
+      "word": "miyilabu",
+      "gloss": "species of mangrove. It has a poisonous sap which makes people blind."
+    },
+    {
+      "word": "miyil kari",
+      "gloss": "blind"
+    },
+    {
+      "word": "wuju",
+      "gloss": "sponge made from grass, used as a sop for eating honey or soup"
+    },
+    {
+      "word": "kuyu",
+      "gloss": "fish"
+    },
+    {
+      "word": "ngabal",
+      "gloss": "soak, leach"
+    },
+    {
+      "word": "marral",
+      "gloss": "dry"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Subsistence activities: fishing ('the third method … plant stupefacients')"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 15 'Fish' (c), fish-poisons"
+    },
+    {
+      "id": "futurebeef",
+      "citation": "FutureBeef. Poisonous trees and shrubs: Cooktown ironwood (Erythrophleum chlorostachys) (web page, accessed 6 October 2026).",
+      "url": "https://futurebeef.com.au/resources/poisonous-trees-and-shrubs/"
+    },
+    {
+      "id": "griffith2021",
+      "citation": "Stewart-Koster, B., O'Mara, K., et al. (2021). Critical water needs to sustain freshwater ecosystems and aquatic biodiversity in Queensland's Mitchell River. Griffith University / NESP Northern Australia Environmental Resources Hub.",
+      "url": "https://era.dpi.qld.gov.au/id/eprint/8432/1/Critical-water-needs-for-the-Mitchell-River-final-report.pdf"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples), s 81 (use of explosives etc. prohibited) and sch 1 ('noxious substance').",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "qld-fishreg",
+      "citation": "Fisheries (General) Regulation 2019 (Qld), current as at 1 July 2026: s 7 (recreational fishing apparatus) and s 21 (prescribed fishing apparatus for s 14 of the Act: fish trap).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/sl-2019-0179"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-06"
+}

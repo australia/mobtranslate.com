@@ -1,0 +1,287 @@
+{
+  "slug": "hunting-with-fire",
+  "title": "Hunting with fire",
+  "category": "technique",
+  "names": [
+    {
+      "word": "ngalku",
+      "gloss": "bush fire"
+    },
+    {
+      "word": "duli",
+      "gloss": "burnt patch of grass"
+    },
+    {
+      "word": "balbi",
+      "gloss": "hunt for, search for"
+    },
+    {
+      "word": "baya",
+      "gloss": "flame, fire",
+      "note": "Also 'firewood'; baya wayu is 'light a fire'."
+    },
+    {
+      "word": "kangal",
+      "gloss": "chase"
+    },
+    {
+      "word": "karangaji",
+      "gloss": "stalk"
+    },
+    {
+      "word": "kubu",
+      "gloss": "smoke"
+    }
+  ],
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary has no single word for a fire drive. It does have ngalku 'bush fire', duli 'burnt patch of grass', balbi 'hunt for', kangal 'chase' and the wallaby and kangaroo names. The drive itself is documented for the Kuku Yalanji of the Bloomfield River by Anderson (1996), drawing on Kuku Yalanji teachers and on Le Souef (1894) and Hodgkinson (1886)."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "mountains",
+    "river-freshwater"
+  ],
+  "summary": "Kuku Yalanji hunting on land was usually a matter of one or two men, but in the dry season whole groups held **wallaby drives with fire**. Fires were 'carefully lit to create a ‘wall’ of fire going in one direction with only a few openings'. Young people walked in a long line through the bush, beating it and shouting, and the kangaroos and [wallabies](entry:wallaby) ran for the gaps, where older men waited with spears [ref:anderson1996]. The dictionary's **ngalku** is 'bush fire' and **duli** 'burnt patch of grass' [ref:hershberger1982]. Fire is now regulated. On some Western Yalanji determination areas native title expressly excludes lighting fires for hunting [ref:brady2013]. [Karma Waters](place:karma-waters) is under a different, 1998 determination, so people there should ask the Traditional Owners and the station.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "ngalku (bush fire), duli (burnt patch of grass), balbi (hunt for)"
+    },
+    {
+      "label": "Season",
+      "value": "Dry season (Bloomfield drives); early-dry burning is the modern management norm"
+    },
+    {
+      "label": "Game",
+      "value": "Kangaroos, wallabies and smaller animals"
+    },
+    {
+      "label": "Tools",
+      "value": "Firesticks, spears and spear-throwers; nets in some districts"
+    },
+    {
+      "label": "Law today",
+      "value": "Queensland fire permits; native title fire rights differ by determination"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Ngalku** is 'bush fire' and **duli** is 'burnt patch of grass'. Fire is **baya** or **kunjin**, and *baya wayu* is 'light a fire'. **Kubu** is smoke [ref:hershberger1982]. The hunter's words are **balbi** 'hunt for, search for', **kangal** 'chase', **karangaji** 'stalk' and **mala-minya** 'good hunter' [ref:hershberger1982]. The fire drill is **jimal**, Roth's Bloomfield *tchi-mal* [ref:hershberger1982] [ref:roth1904]. The game includes **kadar** 'plains wallaby', **darrba** 'grass wallaby' and the grey kangaroos **julmbanu** and **mayarriji** [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "**Bloomfield River (Kuku Yalanji).** Anderson describes the dry-season drives as the big exception to solitary hunting. They 'involved both young and old men, and occasionally women'. The fires made a wall moving one way, with a few openings left. The young people started inside a forested area and drove the animals toward the openings, where the older men waited with [spears](entry:spear-and-woomera) [ref:anderson1996].\n\n**Neighbours, as Roth recorded them** [ref:roth1901]:\n\n- **Cape Bedford** (Guugu Yimithirr, to the north): the whole camp lit 'a long line of bush-fires — up to a mile long — extending to the summit of some hill if possible'. The men formed a line and circled round, spearing the kangaroos caught between them and the fires.\n- **Pennefather River** (west Cape York): 'a three-quarter circle of fires' was lit, and the best spear-throwers watched the gap between its two ends.\n- **Endeavour River**: Cook noted that people could be traced 'by the fires which they kindled in their way', and that kangaroos were so afraid of fire that the ship's dogs could hardly force them over newly burnt ground.\n- **Atherton**: big kangaroo [nets](entry:nets) of kurrajong-fibre twine (see [string and twine](entry:string-and-twine)) were set across tracks to water, and hunters drove animals into them by shouting. Roth does not mention fire there.\n\nRoth thought the systematic grass burning Leichhardt saw in the Burdekin and Gulf country was probably linked to fire drives [ref:roth1901]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where and on what country",
+      "body": "Drives need grassy open forest that will carry fire. On the upper Mitchell that is the ironbark and box woodland of the ridges. Cullen's ironbark and Molloy red box are among the woodland trees recorded around Karma Waters [ref:ala-karma]. The Queensland Herbarium's guideline for this kind of woodland on the Einasleigh Uplands calls for early-dry-season and storm-time burns, 'low, with occasional moderate' intensity, at 2–5 year intervals. It says to burn less than 40% of the landscape in any year and to leave long-unburnt patches 'to maintain a diversity of habitat for wildlife' [ref:re-woodland].\n\nThe paperbark fringe along the river is different. The guideline for it says 'do not burn deliberately', and lets fire only trickle in from the woodland [ref:re9314].\n\nKarma Waters itself burns 'most of our country' on a three-to-four-year cycle, depending on the seasons, to clear excess fuel and control weeds [ref:kw-land]. The Western Yalanji say their country has 'suffered from wildfires since traditional burning practices all but ceased in the 20th century', and have begun a savanna burning project [ref:wyac2020]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The Bloomfield drives were held in the dry season [ref:anderson1996]. On Cape York, the early dry, as the grass starts to cure, gives low-severity fires. By the late dry, fuels are completely dry and fires can be severe and widespread. Storm burns are lit after the first storm rains, normally between October and January [ref:pbg-cape-york]. At Palmerville, the nearest long weather record to Karma Waters, bad fire-weather days average about 36 °C with about 18% humidity [ref:pbg-cape-york].\n\nDown the Mitchell at Kowanyama (Kokoberra, Yir Yoront and Kunjen country), Traditional Owner Clarita Yam describes the early burn as 'after the wet when the grass is [mostly] still green'. She adds that 'when you burn too much, you burn out your Country and there's nothing left for your cattle, wallabies and kangaroo' [ref:kowanyama2024]."
+    },
+    {
+      "id": "uses",
+      "heading": "What fire did for the hunt",
+      "body": "- **Driving game.** A line or arc of fire moved animals toward waiting hunters [ref:anderson1996] [ref:roth1901].\n- **Opening the country.** In the Western Desert, Martu hunters burn small patches of country to expose sand goanna burrows. Their small fires leave a fine mosaic of burnt and regrowing country [ref:bird2008]. That is a desert people's practice. We found no published Kuku Yalanji record of burning for [goannas](entry:goanna).\n- **Looking after country.** Eastern Kuku Yalanji used cultural burning 'to help maintain the health of the land for thousands of years' [ref:newsport]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How a Bloomfield drive was run",
+      "body": "This is a record of the old method from Anderson's account [ref:anderson1996], not instructions. It is not lawful for most people today (see *On Country today*).\n\n1. **Choose the time and place.** It must be the dry season, on grassy forest country where the animals are known to be.\n2. **Bring fire.** Men carried [firesticks](entry:firestick) wrapped in [paperbark](entry:paperbark) in their bags [ref:anderson1996].\n3. **Set the waiting line.** The older men, the best spearmen, take up positions at the planned gaps.\n4. **Light the fire carefully** so that it forms a wall moving in one direction, leaving only a few openings.\n5. **Beat the bush.** Starting inside the forest, the young people walk in a long line, beating and shouting.\n6. **Spear at the gaps** as kangaroos, wallabies and smaller animals come through.\n7. **Cook the game.** Wallabies were usually cooked straight on the fire after the bones were broken with an axe [ref:anderson1996]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "A grass fire can outrun a person, especially on late-dry days of heat, low humidity and wind [ref:pbg-cape-york]. In Queensland, occupiers must take all reasonable steps to control or put out a fire on their land, warn neighbours and call 000 [ref:qfes-pp]. Lighting fires to hunt also puts cattle, fences and other people at risk."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "**Queensland law.** A fire smaller than 2 metres in every dimension may be lit without a permit if adequate precautions are taken. A larger fire needs a Permit to Light Fire from the local Fire Warden, and no fire may be lit during a fire ban [ref:qfd]. Permits are free, and the occupier is responsible for any fire on their land [ref:qfes-pp].\n\n**Native title: which determination says what.**\n\n- The **2013 Western Yalanji determinations** (#4, [2013] FCA 958, and the combined #5 and #7) cover country around the Palmer and Mitchell north-west of Mount Carbine. Their fire right is to 'light fires on the area for domestic purposes including cooking, but not for the purpose of hunting or clearing vegetation' [ref:brady2013] [ref:wyac2020].\n- The **2026 Western Yalanji determination** allows fires 'for cultural, spiritual or domestic purposes including cooking, but not for the purpose of hunting or clearing vegetation' [ref:fca2026wy].\n- **Karma Waters** falls under neither. It is under the **1998 *Western Yalanji or 'Sunset' Peoples v Pedersen*** consent determination [ref:kw-about] [ref:wyac2020]. Its published summary recognises rights to use the area and its natural resources for 'social, cultural, economic, religious, spiritual, customary and traditional purposes'. It says nothing about fire either way [ref:wyac2020]. We have not seen the full 1998 orders.\n\nSection 211 of the *Native Title Act 1993* protects native title holders' hunting for personal, domestic or non-commercial communal needs from licence and permit requirements [ref:alrc].\n\n**At Karma Waters**, visitors' campfires are restricted to the campsite, and weapons and hunting dogs are not allowed [ref:kw-induction]. Anyone who wants to burn country, or to learn about fire, should ask the Western Yalanji Traditional Owners (through the Western Yalanji Aboriginal Corporation in Mareeba) and the station first [ref:wyac2020]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**Nyunil** 'extinguish, or to put a fire or light out'; **miyilkura** 'smouldering log'; **ngunjil** 'charcoal; hot coals or hot ashes'; **jakalambal** 'start a fire, start to cook food' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "wallaby",
+    "goanna",
+    "firestick",
+    "spear-and-woomera",
+    "paperbark",
+    "string-and-twine",
+    "nets",
+    "earth-oven"
+  ],
+  "relatedWords": [
+    {
+      "word": "kunjin",
+      "gloss": "fire"
+    },
+    {
+      "word": "jimal",
+      "gloss": "fire stick"
+    },
+    {
+      "word": "mala-minya",
+      "gloss": "good hunter"
+    },
+    {
+      "word": "kadar",
+      "gloss": "plains wallaby"
+    },
+    {
+      "word": "darrba",
+      "gloss": "grass wallaby"
+    },
+    {
+      "word": "julmbanu",
+      "gloss": "grey kangaroo, a darker variety than mayarriji"
+    },
+    {
+      "word": "mayarriji",
+      "gloss": "sub-species of grey kangaroo, lighter in colour than the \"julmbanu\""
+    },
+    {
+      "word": "jikan",
+      "gloss": "grass"
+    },
+    {
+      "word": "nyunil",
+      "gloss": "extinguish, or to put a fire or light out"
+    },
+    {
+      "word": "miyilkura",
+      "gloss": "smouldering log"
+    },
+    {
+      "word": "ngunjil",
+      "gloss": "charcoal; hot coals or hot ashes"
+    },
+    {
+      "word": "jakalambal",
+      "gloss": "start a fire start to cook food"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "'Kuku-Yalanji subsistence activities and material culture' (hunting, wallaby drives); men's bags; 'Cooking processes'"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 31 'Kangaroos' (Cape Bedford, Pennefather River, Atherton nets; Cook and Leichhardt quoted)"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 8, fire-stick names (KYE, Bld., tchi-mal)"
+    },
+    {
+      "id": "ala-karma",
+      "citation": "Atlas of Living Australia. All occurrence records within 30 km of the Karma Waters homestead (16.618° S, 144.605° E), species facet, queried 5 October 2026 (4,053 records; 601 species).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.6179&lon=144.6047&radius=30"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "re9314",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.3.14 (Einasleigh Uplands): Melaleuca fringing woodland on channels and levees. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.3.14"
+    },
+    {
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "pbg-cape-york",
+      "citation": "Queensland Parks and Wildlife Service (2013). Planned Burn Guidelines: Cape York Peninsula Bioregion of Queensland. Department of National Parks, Recreation, Sport and Racing.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0019/151480/pbg-cape-york.pdf",
+      "locator": "'Fire in the monsoonal tropics of the Cape York Peninsula bioregion'; ch. 1–2 season guidance (storm burns)"
+    },
+    {
+      "id": "kowanyama2024",
+      "citation": "Hasegawa, C. (21 March 2024). 'Kowanyama shares preserved fire knowledge at forum'. Cape York Weekly.",
+      "url": "https://capeyorkweekly.com.au/kowanyama-shares-preserved-fire-knowledge-at-forum/8636/"
+    },
+    {
+      "id": "bird2008",
+      "citation": "Bliege Bird, R., Bird, D. W., Codding, B. F., Parker, C. H. & Jones, J. H. (2008). The 'fire stick farming' hypothesis: Australian Aboriginal foraging strategies, biodiversity, and anthropogenic fire mosaics. PNAS 105(39): 14796–14801.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2567447"
+    },
+    {
+      "id": "newsport",
+      "citation": "Newsport (July 2026). Kuku Yalanji to rekindle cultural-burning regime.",
+      "url": "https://www.newsport.com.au/2026/july/kuku-yalanji-to-rekindle-cultural-burning-regime?type=55423"
+    },
+    {
+      "id": "qfes-pp",
+      "citation": "Queensland Fire and Emergency Services (2021). Queensland Primary Producers: 'Fire, it's a responsibility' (information sheet).",
+      "url": "https://www.fire.qld.gov.au/sites/default/files/2021-05/PrimaryProducersInformationSheet.pdf"
+    },
+    {
+      "id": "qfd",
+      "citation": "Queensland Fire Department. Fire permits: lighting fires in Queensland.",
+      "url": "https://fire.qld.gov.au/safety-education/using-fire-outdoors/lighting-fires-in-queensland"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "fca2026wy",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 42) (Western Yalanji determination) [2026] FCA 1084 (Mortimer CJ, 14 August 2026).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2026/2026fca1084",
+      "locator": "Order on native title rights (fires)"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "kw-induction",
+      "citation": "Karma Waters Station. Induction, waiver and indemnity form (updated 9 June 2023).",
+      "url": "https://www.karmawatersstation.com/uploads/3/1/9/2/31929385/induction_waiver_and_indemnity.pdf"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-06"
+}

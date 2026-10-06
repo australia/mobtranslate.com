@@ -1,0 +1,186 @@
+{
+  "slug": "fish-poison-plants",
+  "title": "Fish-poison plants",
+  "category": "plant",
+  "names": [
+    {
+      "word": "miyil",
+      "gloss": "species of tree, which has poisonous sap used to blind fish. You wrap orange seed in grass to keep the sap from touching your skin and the eyes of people, then smash under water.",
+      "note": "Miyil is also the ordinary word for 'eye'. The tree sense is listed under the same headword."
+    }
+  ],
+  "scientificName": "Barringtonia spp., Erythrophleum chlorostachys, Diospyros hebecarpa and others",
+  "identification": {
+    "confidence": "uncertain",
+    "basis": "This entry covers a group of plants used to stun fish, not one species. Miyil is the only dictionary word tied directly to fish poisoning; its gloss describes a tree whose seeds are wrapped in grass and smashed under water. That matches Anderson's (1996) Bloomfield account of Barringtonia asiatica seeds mashed in a grass sponge, so miyil may be a Barringtonia. But the gloss also speaks of a sap that blinds, and the dictionary does not name the species, so the identification is uncertain. The other plants here are identified by botanical name in Roth (1901) and Anderson (1996)."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland",
+    "coast-mangrove"
+  ],
+  "summary": "Late in the dry season, when creeks shrink to separate waterholes, Kuku Yalanji stunned fish with crushed plants [ref:anderson1996]. The dictionary's **miyil** is a tree 'which has poisonous sap used to blind fish': its seed is wrapped in grass and smashed under water [ref:hershberger1982]. On the Bloomfield the main fish poisons were the bark of *Barringtonia racemosa*, the seeds of *B. asiatica*, the bark and leaves of [ironwood](entry:ironwood), and bundles of warmed *Diospyros* fruit [ref:roth1901] [ref:anderson1996]. Near [Karma Waters](place:karma-waters) the likeliest candidates are the freshwater mangrove *Barringtonia acutangula*, whose roots and other parts 'can be used as fish poison' [ref:rfk-barringtonia], and *Tephrosia astragaloides*, a fish poison in Roth's list that has been collected about 4 km from the homestead [ref:roth1901] [ref:ala-tephrosia]. The method itself is described under [fish poisoning](entry:fish-poisoning).",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "miyil (fish-poison tree)"
+    },
+    {
+      "label": "Bloomfield plants",
+      "value": "Barringtonia racemosa (bark), B. asiatica (seeds), Erythrophleum chlorostachys (bark and leaves), Diospyros hebecarpa (fruit)"
+    },
+    {
+      "label": "Upper Mitchell candidates",
+      "value": "Barringtonia acutangula (freshwater mangrove), Tephrosia astragaloides, Planchonia careya (cocky apple)"
+    },
+    {
+      "label": "When",
+      "value": "Late dry season, in shrinking waterholes"
+    },
+    {
+      "label": "Watch out",
+      "value": "Sap and pulp can blind people; ironwood kills stock; illegal for anyone without native title rights"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Miyil** is the 'eye'. The same headword names a 'species of tree, which has poisonous sap used to blind fish. You wrap orange seed in grass to keep the sap from touching your skin and the eyes of people, then smash under water' [ref:hershberger1982]. The name fits what the poison does: Anderson's Bloomfield consultants said these plants 'stunned or blinded the fish' [ref:anderson1996]. A related word, **miyilabu**, is a 'species of mangrove. It has a poisonous sap which makes people blind' [ref:hershberger1982]. Kuku Yalanji said the smoke of the mangrove *Excoecaria agallocha* causes blindness [ref:anderson1996]. That suggests, but does not prove, that miyilabu is *Excoecaria*. The everyday word for poison is **kuli**, 'anger, poison, trouble' [ref:hershberger1982].\n\nRoth recorded one Bloomfield fish-poison name: *ngam-boi* for *Diospyros hebecarpa* [ref:roth1901]. It has not been matched to a dictionary headword. Which tree **miyil** is, the dictionary does not say."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "**Freshwater mangrove** (*Barringtonia acutangula*) is the river species. Its leaves are 7–19 cm long, with finely toothed margins. The flowers hang in long strings, with red stamens and styles. The fruits are 2–6 cm long and four-winged when young, and the bark is 'strong and fibrous' [ref:rfk-barringtonia]. Common names include stream barringtonia, itchy tree and mango bark [ref:rfk-barringtonia].\n\n**Cooktown ironwood** (*Erythrophleum chlorostachys*) is described in its own entry, [Ironwood](entry:ironwood).\n\n*Barringtonia racemosa*, *B. asiatica* and *Diospyros hebecarpa* are coastal and rainforest-edge plants of the Bloomfield [ref:roth1901] [ref:anderson1996]; they are not described further here. *Tephrosia astragaloides* is a member of the pea family. The specimen near the homestead grew in open woodland near a creek [ref:ala-tephrosia]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it grows",
+      "body": "*B. acutangula* is 'a characteristic species along major creeks and rivers' and lagoon margins across northern Australia. It grows in gallery forest from sea level to 450 m [ref:rfk-barringtonia].\n\n**Around [Karma Waters](place:karma-waters)** [ref:ala-barringtonia] [ref:ala-tephrosia]:\n\n- **Freshwater mangrove.** The Atlas of Living Australia has no *Barringtonia* records within 30 km of the homestead, but 12 within 60 km, all *B. acutangula*. They include a 1975 specimen from 'fringing scrub along river' on the McLeod River, 15 km west-north-west of Mount Carbine, and 2025 photographs about 37 km to the west-south-west. It is very likely on the Mitchell itself and is worth looking for on the banks.\n- ***Tephrosia astragaloides*** was collected in 2008 about 4 km from the homestead (labelled 'Nychum Station', on metasediment near a creek in open woodland). There are 23 records within 60 km.\n- **Cocky apple** (*Planchonia careya*, Roth's *Careya australis*) has four records within 60 km, the nearest about 37 km west-south-west [ref:ala-planchonia].\n\n**Old records from the Gulf rivers.** Edward Palmer told Roth that *Barringtonia racemosa* bark was used to stupefy fish 'on the Mitchell, Laura, and Lynd Rivers' [ref:roth1901]. *B. racemosa* is mainly coastal, and the Barringtonia of the inland Mitchell today is *B. acutangula* [ref:ala-barringtonia]. Palmer may have meant that species. The sources do not settle it."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Plant stupefacients were 'a common technique in the inland areas in the late dry season', when 'some of the smaller creeks dried and became a series of isolated waterholes' [ref:anderson1996]. The poison works only in small, still pools."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Bloomfield River (Kuku Yalanji).**\n\n- ***Barringtonia racemosa***: 'the bark is hammered between stones till it gets quite spongy, and then taken into the water, where it is rubbed with the hands. Fish are stupefied in about a quarter of an hour' (Bloomfield and Cooktown) [ref:roth1901]. Anderson recorded the stems used the same way [ref:anderson1996].\n- ***Barringtonia asiatica***: the seeds were mashed together with a grass sponge, which was then shaken and swirled under water [ref:anderson1996]. That is close to the dictionary's description of **miyil** [ref:hershberger1982].\n- **Ironwood** (*Erythrophleum chlorostachys*): the bark and leaves were smashed together under water [ref:anderson1996].\n- ***Diospyros hebecarpa***: the fruit was tied into long bundles. Each person warmed a bundle over the fire and squashed it in the water (Cooktown, Cape Bedford, Bloomfield, Cape Grafton) [ref:roth1901].\n\nThe poisons 'stunned or blinded the fish and they then floated to the surface where they could be collected' [ref:anderson1996]. Anderson does not say which fish were taken this way. Line fishing in the same creeks and waterholes took turtle, 'eelfish', [catfish](entry:catfish) and perch [ref:anderson1996]. At Karma Waters, the station names [black bream](entry:black-bream) among the fish of the river [ref:kw-camping].\n\n**Neighbours (not Kuku Yalanji)** [ref:roth1901]:\n\n- *Derris uliginosa* at Cooktown: stems hammered, roasted in bundles and thrown in.\n- *Pongamia* at Cooktown, Cape Bedford and Princess Charlotte Bay: roasted roots beaten and left in overnight.\n- Cocky apple (*Careya australis*) leaves on the middle Palmer and the Gulf coast. Palmer reported the stem bark used in fresh water and the root bark in salt water.\n- *Eucalyptus* leaves and an ironbark among the Koko-minni of the middle Palmer.\n- *Tephrosia astragaloides* leaves at Cloncurry and on the upper Flinders, crushed and thrown by the bundle into waist-deep waterholes 6–9 m across.\n- Green *Luffa* on the Mitchell, Gilbert and Einasleigh rivers (after Palmer)."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was done",
+      "body": "These are historical records, set down so the knowledge is not lost. They are **not** instructions for visitors (see Safety).\n\n**Barringtonia bark**, Bloomfield River [ref:roth1901] [ref:anderson1996]:\n\n1. Choose a small, isolated waterhole late in the dry.\n2. Hammer the bark (or stems) between stones until it is spongy.\n3. Take it into the water and rub it with the hands.\n4. Wait about a quarter of an hour, then collect the stunned fish as they float up.\n\n**Seeds in a grass sponge** [ref:anderson1996] [ref:hershberger1982]:\n\n1. Wrap the seeds in grass, so the sap does not touch your skin or eyes.\n2. Mash or smash them under water, then shake and swirl the grass sponge through the pool.\n3. Keep your eyes tightly shut while working under water, and don't swim through the poisoned water.\n\nAfterwards, the waterhole 'was then unusable until after a storm and flood renewed the water' [ref:anderson1996]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**Eyes.** The sap of these plants can blind people. The dictionary says to wrap the seed in grass 'to keep the sap from touching your skin and the eyes of people' [ref:hershberger1982]. The divers 'had to close their eyes very tightly' and avoid swimming through the poison [ref:anderson1996].\n\n**Water and stock.** A poisoned waterhole stays unusable until the next flood [ref:anderson1996]. In the dry season on a cattle station it may be the only water for stock and wildlife. Ironwood leaves are also deadly to cattle and horses (see [Ironwood](entry:ironwood)).\n\n**The law.** Under s 81 of Queensland's *Fisheries Act 1994*, a person must not unlawfully use a 'noxious substance' to take fish. The maximum penalty is 2,000 penalty units [ref:qld-fisheries-act]. Native title holders' traditional fishing for personal, domestic and non-commercial communal needs is protected by s 211 of the *Native Title Act 1993* [ref:alrc-s211]. Queensland's fisheries rules likewise exempt traditional fishing for those needs under native title holders' laws and customs [ref:qldfish]. For anyone else, plant-poisoning a waterhole is illegal."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The Western Yalanji determinations recognise rights to hunt, fish and take natural resources around the Palmer and Mitchell rivers [ref:fca2013]. Whether, where and when plant poisons are still used is for Western Yalanji people to say. Ask the Western Yalanji Aboriginal Corporation, not the old books. For a station, the useful practical knowledge is recognising these plants, especially ironwood around stock and freshwater mangrove along the river."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**miyil** 'eye'; also a fish-poison tree; **miyilabu** 'species of mangrove. It has a poisonous sap which makes people blind'; **kuli** 'anger, poison, trouble'; **bakul** 'poison plant found at Rossville'; **jujabala** 'ironwood tree' [ref:hershberger1982]. In Roth's spellings the Bloomfield name of *Diospyros hebecarpa* was *ngam-boi*, and the Guugu Yimithirr name of *Derris* at Cooktown was *mokorja* [ref:roth1901]."
+    }
+  ],
+  "relatedEntries": [
+    "fish-poisoning",
+    "ironwood",
+    "black-bream",
+    "catfish",
+    "fish-traps",
+    "hooks-and-lines"
+  ],
+  "relatedWords": [
+    {
+      "word": "miyilabu",
+      "gloss": "species of mangrove. It has a poisonous sap which makes people blind."
+    },
+    {
+      "word": "kuli",
+      "gloss": "anger, poison, trouble"
+    },
+    {
+      "word": "bakul",
+      "gloss": "poison plant found at Rossville."
+    },
+    {
+      "word": "jujabala",
+      "gloss": "ironwood"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 15(c) fish-poisons ('Barringtonia racemosa', 'Careya australis', 'Derris uliginosa', 'Diospyros hebecarpa', 'Eucalyptus resinifera', 'Luffa aegyptiaca', 'Pongamia glabra', 'Tephrosia astragaloides')"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Fishing (plant stupefacients); camp (firewood: Excoecaria agallocha)"
+    },
+    {
+      "id": "rfk-barringtonia",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Barringtonia acutangula subsp. acutangula (freshwater mangrove). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/barringtonia_acutangula_subsp._acutangula.htm"
+    },
+    {
+      "id": "ala-barringtonia",
+      "citation": "Atlas of Living Australia. Occurrence records of Barringtonia within 30 km and 60 km of the Karma Waters homestead (16.618° S, 144.605° E), queried 6 October 2026 (none within 30 km; 12 within 60 km, all B. acutangula, including I. B. Staples 1975, McLeod River).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus%3ABarringtonia&lat=-16.6179&lon=144.6047&radius=60"
+    },
+    {
+      "id": "ala-tephrosia",
+      "citation": "Atlas of Living Australia. Occurrence records of Tephrosia astragaloides within 60 km of the Karma Waters homestead, queried 6 October 2026 (23 records; nearest B. S. Wannan & B. Ackerman 2008, Nychum Station, about 4 km from the homestead).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Tephrosia%20astragaloides%22&lat=-16.6179&lon=144.6047&radius=60"
+    },
+    {
+      "id": "ala-planchonia",
+      "citation": "Atlas of Living Australia. Occurrence records of Planchonia careya within 60 km of the Karma Waters homestead, queried 6 October 2026 (4 records).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Planchonia%20careya%22&lat=-16.6179&lon=144.6047&radius=60"
+    },
+    {
+      "id": "qld-fisheries-act",
+      "citation": "Fisheries Act 1994 (Qld), s 81 (use of explosives, firearms or noxious substances to take fish prohibited).",
+      "url": "https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "qldfish",
+      "citation": "Business Queensland. First Nations fishing (Fisheries Act 1994).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/fisheries/first-nations"
+    },
+    {
+      "id": "alrc-s211",
+      "citation": "Australian Law Reform Commission (2014). Review of the Native Title Act 1993, Discussion Paper 82, ch. 8: Relevant provisions in the Native Title Act (s 211, preservation of native title hunting, fishing, gathering and cultural activities).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "fca2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Logan J, 24 September 2013), consent determinations of native title over lands in and around the Palmer and Mitchell River systems north-west of Mt Carbine.",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-06"
+}

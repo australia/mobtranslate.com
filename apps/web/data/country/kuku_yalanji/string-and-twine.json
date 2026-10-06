@@ -1,0 +1,217 @@
+{
+  "slug": "string-and-twine",
+  "title": "String, twine and rope",
+  "category": "technique",
+  "names": [
+    {
+      "word": "karra",
+      "gloss": "rope, cord, string"
+    },
+    {
+      "word": "ngurran",
+      "gloss": "rope, also dilly bag made from rope"
+    },
+    {
+      "word": "kuralbi",
+      "gloss": "species of tree and its fruit - wild peasun. The bark from this tree was used to make rope. Two long strands were twisted together and used for turtle rope. It was very strong."
+    },
+    {
+      "word": "warrur",
+      "gloss": "tree bark which can be used as vine. it was used to make fishnets, which were dragged through the water in the dry season when the water goes down."
+    },
+    {
+      "word": "ngunyin",
+      "gloss": "the tree bark used to make into strips and weave fishing nets and dilly bags",
+      "note": "Also means dilly bag."
+    },
+    {
+      "word": "biyal",
+      "gloss": "gristle, sinew, string, blood vessel (especially wallaby tail sinew)"
+    },
+    {
+      "word": "murnil",
+      "gloss": "twist, stir"
+    },
+    {
+      "word": "kajal",
+      "gloss": "to tie"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary gives karra 'rope, cord, string' and ngurran 'rope', and names the barks used for rope, nets and bags (kuralbi, warrur, ngunyin). Roth (1904) records the Bloomfield River men's bags as made of fig fibre-twines he calls warur and tchul-bal, matching warrur. Kuralbi 'wild peasun' is probably the kurrajong or peanut tree, Sterculia quadrifida, whose twisted bark Anderson (1996) records for Bloomfield turtle rope; that species match is not confirmed by the dictionary."
+  },
+  "countryTypes": [
+    "rainforest",
+    "river-freshwater",
+    "open-woodland",
+    "coast-mangrove",
+    "camp"
+  ],
+  "summary": "**Karra** is 'rope, cord, string' [ref:hershberger1982]. Kuku Yalanji people made string from the inner bark of [figs](entry:fig) and other trees, from grasses and palm fibre, and from wallaby-tail sinew. It became fishing lines, nets, dilly bags, turtle-harpoon ropes and the bindings on axes and spears [ref:anderson1996] [ref:roth1904]. Across North Queensland, bark twine was made the same way: the fibre was stripped, washed or soaked, dried, split fine with the nails, then rolled on the outer thigh into a strong two-ply twine [ref:roth1901-string]. String is the starting point for [nets](entry:nets), [fishing lines](entry:hooks-and-lines) and [dilly bags](entry:dilly-bags).",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "karra, ngurran (rope, cord, string)"
+    },
+    {
+      "label": "Fibres",
+      "value": "Fig bark (warrur, ngunyin), kurrajong or peanut tree (kuralbi), beach hibiscus, black palm, grasses, wallaby-tail sinew (biyal)"
+    },
+    {
+      "label": "Method",
+      "value": "Strip, wash or soak, dry, split, roll on the thigh into two-ply twine"
+    },
+    {
+      "label": "Made into",
+      "value": "Fishing lines, nets, dilly bags, harpoon rope, bindings, climbing ropes"
+    },
+    {
+      "label": "Roth's spellings",
+      "value": "warur, tchul-bal (fig twines, Bloomfield River, 1904)"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Karra** is 'rope, cord, string', and **ngurran** is 'rope, also dilly bag made from rope' [ref:hershberger1982]. The dictionary also names the raw materials. **Kuralbi** is a tree whose bark 'was used to make rope. Two long strands were twisted together and used for turtle rope. It was very strong.' **Warrur** is 'tree bark which can be used as vine', used for fishnets. **Ngunyin** means a dilly bag and also 'the tree bark used to make into strips and weave fishing nets and dilly bags'. **Biyal** is 'gristle, sinew, string', especially wallaby tail sinew. The working verbs are **murnil** 'twist, stir', **kajal** 'to tie' and **kuna-bungal** 'to join something to something' [ref:hershberger1982].\n\nRoth's Bloomfield notes, in his older English-based spelling, name two fig fibres used for the men's bags, *warur* and *tchul-bal* [ref:roth1904]. *Warur* is the dictionary's warrur. *Tchul-bal* might be **julbal**, which the dictionary lists only as a tree with 'a small edible green apple' [ref:hershberger1982]; that match is unconfirmed.\n\nThe dictionary's 'wild peasun' for kuralbi is probably 'wild peanut'. The kurrajong *Sterculia quadrifida* is also called peanut tree or native peanut, and its seeds are edible [ref:rfk-sterculia]. Anderson recorded that Bloomfield turtle rope was made from the 'smashed and twisted bark' of *Sterculia quadrifida* or of beach hibiscus [ref:anderson1996]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "Roth sorted North Queensland cordage by where it came from. There were animal products, such as human and possum hair and kangaroo-tail tendon. There were whole stems or leaves, such as grasses, palm-leaf fibre and split cane. And there was bark: mostly the inner bark of the trunk, sometimes of the roots, from which 'most of the aboriginal fibre-twines are manufactured' [ref:roth1901-string]. Some binding needed no twisting at all. Strips of tea-tree ([paperbark](entry:paperbark)) bark were 'used everywhere for binding' [ref:roth1901-string].\n\nFresh twine varied in colour, red from some barks and white from others, and it could be dyed. On the Bloomfield, string for certain dilly bags was dyed with the roots of blood-root, *Haemodorum coccineum* [ref:roth1904] [ref:roth1901-string]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Materials and where they grow",
+      "body": "- **Fig bark** (warrur, ngunyin): the Bloomfield men's bags were made of fig-fibre twine [ref:roth1904] [ref:anderson1996]. Elsewhere Roth recorded twine from the dried inner bark of fig roots and a white fig twine 'made in the dry' [ref:roth1901-string].\n- **Kurrajong or peanut tree** (*Sterculia quadrifida*, probably kuralbi): freshwater fishing lines and turtle rope at Bloomfield [ref:anderson1996], and the big kangaroo nets at Atherton [ref:roth1901-string]. It grows in monsoon forest, vine thickets and drier, seasonal rainforest up to about 500 m [ref:rfk-sterculia].\n- **Beach hibiscus** (*Hibiscus tiliaceus*): saltwater fishing lines [ref:anderson1996]. It grows on beaches and the banks of tidal streams, and its twig bark is 'strong and fibrous when stripped' [ref:rfk-hibiscus].\n- **[Black palm](entry:black-palm)**: fibre strands pulled from the leaf bases, for sieve-bags [ref:roth1901-string].\n- **Grasses**: dilly-bag grasses (see [dilly bags](entry:dilly-bags)), and grass ropes for climbing to high bee nests [ref:anderson1996].\n- **[Lawyer cane](entry:lawyer-cane)**: split for bags and [traps](entry:fish-traps) in the Cairns district [ref:roth1901-string].\n- **Sinew and hair**: wallaby-tail sinew for binding [ref:hershberger1982] [ref:anderson1996], and human hair twine for string games [ref:anderson1996].\n\n**Upper Mitchell.** Edward Palmer's notes from the Mitchell River (the reach is not stated) record bark of *Hibiscus panduriformis* 'twisted into twine, and into bags for carrying roots, game', and fibre peeled from the underside of *Panicum trachyrachis* leaves and 'twisted up at once into twine' [ref:roth1901-string]. Within 30 km of [Karma Waters](place:karma-waters) the Atlas of Living Australia holds records of cluster fig (*Ficus racemosa*) and two other figs, two kurrajongs (*Brachychiton*), the native hibiscus *H. meraukensis* and the mat-rush *Lomandra multiflora*, but none of *Sterculia* [ref:ala-fibre]. Which of these Western Yalanji people used for string is not recorded in our sources."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **[Fishing lines](entry:hooks-and-lines).** On the coast, lines were 'smashed, twisted and twined' beach-hibiscus bark. In creeks and waterholes they were *Sterculia* bark, with hooks made from [lawyer-cane](entry:lawyer-cane) thorns [ref:anderson1996].\n- **[Nets](entry:nets).** Warrur nets 'were dragged through the water in the dry season when the water goes down' [ref:hershberger1982]. Roth found fishing nets in the 'hour-glass' mesh at Laura, and at Maytown and Palmerville on the Palmer River [ref:roth1901-string], in the Maytown and Palmer River country of the Western Yalanji [ref:brady2013].\n- **Bags.** The men's **ngunyin** was netted from fig twine and could stretch big enough to carry a small [wallaby](entry:wallaby) [ref:anderson1996].\n- **Turtle rope.** Kuralbi rope tied the harpoon point to the hunter's canoe [ref:hershberger1982] [ref:anderson1996] (see [sea turtle](entry:sea-turtle)).\n- **Binding.** [Stone](entry:stone) axe heads were tied to a lawyer-cane handle 'by bark fibre or wallaby sinew' and gummed with [beeswax](entry:native-bees) and resin. Spear barbs and prongs were bound with wallaby sinew and resin [ref:anderson1996] (see [spears](entry:spear-and-woomera)). Roth describes the tail tendon being pulled from a freshly killed kangaroo, dried and carried, then moistened in the lips before use [ref:roth1901-string].\n- **Climbing.** Grass ropes were made to climb to high honey nests [ref:anderson1996].\n- **Play and trade.** Adults and children played string games with fibre and hair twines. Bloomfield people took red ochre, white clay and [grass-tree](entry:grass-tree) spears to the Koko-Warra of the Laura River district and received, among other things, fishing nets ('string dilly-bags') [ref:anderson1996]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How two-ply bark twine was made",
+      "body": "No step-by-step Bloomfield account survives. This is Roth's general North Queensland method, recorded with several fibre plants [ref:roth1901-string]. Anderson's Bloomfield lines were made from 'smashed' bark, so pounding the bark first was part of the local method [ref:anderson1996].\n\n1. **Strip the bark** from a smooth young switch or sapling.\n2. **Separate the fibre.** With some plants the strip is snapped sharply at an angle so the inner fibre comes away from the coloured outer skin, which is thrown away.\n3. **Clean or soften it.** Depending on the plant: rinse the shreds for a few minutes 'to make milk come out' (the water turns cloudy); or soak the inner bark all morning; or chew green strips for two or three minutes.\n4. **Dry the fibre in the sun.**\n5. **Split it with the nails** to the fineness wanted, into shreds 20–25 cm long or more.\n6. **Roll a shred forwards on the outer thigh** with the open right hand, sitting in a squat. This tightens and evens it into a strand.\n7. **Fold the strand in two.** Hold the bend between the left thumb and forefinger.\n8. **Roll both halves under firm pressure**, once slowly forwards, then once sharply backwards, without lifting the hand. This twists the two halves together, leaving a small kink.\n9. **Clear the kink** by hooking the right forefinger into it and pulling firmly outwards. Move the left hand along and repeat.\n10. **Add a new shred** by rolling its end forwards onto the old one, and carry on. 'All fibre-twines are thus made of two plies.'\n\nThicker rope is made the same way from longer, heavier strands, as with kuralbi turtle rope, 'two long strands... twisted together' [ref:hershberger1982]. For joints, Roth found the granny knot 'extremely common' and never saw a reef knot [ref:roth1901-string]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "Know your tree before you strip or chew its bark. The dictionary warns that the bark and sap of **jinjay**, the poison nut tree, are poisonous, and that the sap of **miyil** is used to blind fish [ref:hershberger1982]. Take strips from one side of a tree only, because bark stripped right round the trunk kills it."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "By the late 1970s, Bloomfield men bound spear prongs with commercial string and used European rope on turtle harpoons [ref:anderson1996]. Native title holders' gathering for personal, domestic or non-commercial communal needs is protected from licence and permit requirements by section 211 of the *Native Title Act 1993* [ref:alrc]. Anyone else should ask the Traditional Owners, and the landholder, before cutting bark. At Karma Waters, see the [place guide](place:karma-waters) for whom to ask."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**Wukurril** means 'weave' as well as 'follow'. **Waba** is 'thigh, hip', the body part on which twine is rolled. **Dama-murnil**, 'twirl a fire drill', is built on murnil 'twist' (see [firestick](entry:firestick)) [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "fig",
+    "nets",
+    "hooks-and-lines",
+    "dilly-bags",
+    "black-palm",
+    "lawyer-cane",
+    "paperbark",
+    "sea-turtle",
+    "spear-and-woomera",
+    "wallaby",
+    "native-bees",
+    "stone",
+    "firestick",
+    "fish-traps",
+    "grass-tree"
+  ],
+  "relatedWords": [
+    {
+      "word": "kuna-bungal",
+      "gloss": "to join something to something, i.e. to tie something to something else."
+    },
+    {
+      "word": "wukurril",
+      "gloss": "follow; weave; make a fence; imitate"
+    },
+    {
+      "word": "waba",
+      "gloss": "thigh, hip"
+    },
+    {
+      "word": "julbal",
+      "gloss": "species of tree and its fruit, a small edible green apple which becomes ripe in the wet season"
+    },
+    {
+      "word": "dama-murnil",
+      "gloss": "twirl a fire drill"
+    },
+    {
+      "word": "jinjay",
+      "gloss": "poison nut tree. The nut is edible after roasting. The smoke is poisonous when roasting the nut. The bark and sap are poisonous, but water from cooked wattle tree bark will cure the poisoned skin."
+    },
+    {
+      "word": "makarr",
+      "gloss": "fish net"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (turtle harpoon rope); fishing (lines); gathering (honey, axe hafting); spear binding; string games; trade; 'Bloomfield since 1873'"
+    },
+    {
+      "id": "roth1901-string",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sects. 1–9: animal and vegetable string, plant list ('Ficus', 'Hibiscus', 'Panicum trachyrachis', 'Sterculia quadrifida'), manufacture of fibre-twine, knots, colouring; sect. 22 hour-glass nets"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 19 'Stains, dyes'; sect. 54 Bloomfield River dilly-bags (fig twines warur, tchul-bal)"
+    },
+    {
+      "id": "rfk-sterculia",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Sterculia quadrifida. CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/sterculia_quadrifida.htm"
+    },
+    {
+      "id": "rfk-hibiscus",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Hibiscus tiliaceus. CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/hibiscus_tiliaceus.htm"
+    },
+    {
+      "id": "ala-fibre",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.618° S, 144.605° E) for the genera Lomandra, Ficus, Brachychiton, Hibiscus, Sterculia and Cycas, queried 6 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus:Lomandra&lat=-16.6179&lon=144.6047&radius=30"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-06"
+}

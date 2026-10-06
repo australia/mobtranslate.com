@@ -1,0 +1,201 @@
+{
+  "slug": "ironwood",
+  "title": "Ironwood",
+  "category": "tree",
+  "names": [
+    {
+      "word": "jujabala",
+      "gloss": "ironwood",
+      "note": "The dictionary's fuller entry reads 'ironwood tree'."
+    }
+  ],
+  "scientificName": "Erythrophleum chlorostachys (syn. E. laboucherii)",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary glosses jujabala only as 'ironwood tree'. Both Bloomfield ethnographers use 'ironwood' for Erythrophleum chlorostachys. Anderson (1996) calls it 'the Cooktown ironwood'. Roth (1904) describes 'ironwood' gum (as E. laboucherii, a synonym) being made from the tree's roots on the Bloomfield, which matches the dictionary's yikari, made with 'ironwood root juice'. No source pairs the word jujabala directly with a botanical name, so the match is probable rather than confirmed."
+  },
+  "countryTypes": [
+    "open-woodland"
+  ],
+  "summary": "**Jujabala** is the 'ironwood tree' [ref:hershberger1982]. On the Bloomfield River, 'ironwood' meant the **Cooktown ironwood**, *Erythrophleum chlorostachys*, a tree of the dry open forest with extremely hard, heavy wood [ref:anderson1996] [ref:rfk-erythrophleum]. Kuku Yalanji made hunting spear-throwers and fire-hardened spear points from it, and cooked a strong cement out of the sticky covering of its roots [ref:anderson1996] [ref:roth1904]. That root 'juice' also hardened the beeswax called **yikari** [ref:hershberger1982]. Its bark and leaves were a fish poison [ref:anderson1996], and its leaves are deadly to cattle and horses [ref:futurebeef].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "jujabala"
+    },
+    {
+      "label": "Scientific name",
+      "value": "Erythrophleum chlorostachys (pea family, Fabaceae); formerly E. laboucherii"
+    },
+    {
+      "label": "Other English names",
+      "value": "Cooktown ironwood, leguminous ironwood, red ironwood, camel poison"
+    },
+    {
+      "label": "Parts used",
+      "value": "Wood (spear-throwers, spear points, smoothing boards, digging sticks); root covering (cement); bark and leaves (fish poison)"
+    },
+    {
+      "label": "Where",
+      "value": "Open forest, monsoon forest and rainforest edges, sea level to 500 m"
+    },
+    {
+      "label": "Watch out",
+      "value": "Leaves and young shoots poison cattle and horses; timber can cause dermatitis"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Jujabala** is 'ironwood tree' [ref:hershberger1982]. Its bark is also burned to control thunderstorms, the dictionary notes. Anderson's Bloomfield account names 'Cooktown ironwood' as *Erythrophleum chlorostachys* [ref:anderson1996]. Roth used the older name *E. laboucherii* [ref:roth1904], which is now a synonym [ref:wp-erythrophleum]. Several unrelated hardwoods are called 'ironwood' in English, so the botanical name matters. The match between the word and the tree rests on the ethnographers' usage and on the root gum (see Uses)."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "*E. chlorostachys* is a tree of the pea family. Its trunk is often short, and its dead bark is 'hard and horny to cut'. The wood is 'extremely hard and heavy', with a specific gravity of about 1.22, so it sinks in water [ref:rfk-erythrophleum]. Each leaf is divided into leaflets 3–5.5 cm long with lopsided bases. The small flowers grow in spikes, and the flat pods, 25–40 mm wide, hold seeds about 10 mm across [ref:rfk-erythrophleum]. The tree is semi-deciduous, shedding leaves in the dry winter, and the timber resists termites [ref:wp-erythrophleum]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it grows",
+      "body": "Cooktown ironwood grows only in Australia, from north-east Queensland across Cape York Peninsula and the Northern Territory to the Kimberley. It is mainly a tree of open forest but also grows in monsoon forest and on rainforest edges, from sea level to 500 m [ref:rfk-erythrophleum] [ref:wp-erythrophleum]. Roth saw ironwood cement in use on the Endeavour, Laura and Palmer rivers and on the Gulf coast between the Mitchell and Staaten rivers [ref:roth1904]. On the middle Palmer, Koko-minni people made spear-throwers and hut bark from it [ref:roth1909] [ref:roth1910b16].\n\n**Around [Karma Waters](place:karma-waters).** The Atlas of Living Australia has no ironwood records within 30 km of the homestead. Within 60 km it holds 39 records of *E. chlorostachys*. The nearest is a Queensland WildNet record about 35 km south-west, near Nychum. There are herbarium specimens from Mount Mulligan (1936) and from Whites Creek on the Peninsula Development Road, in open forest about 43 km north (1990) [ref:ala-erythrophleum]. So ironwood grows around the upper Mitchell but is patchy. Learn to recognise it before turning stock into a new paddock (see Safety)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Spear-throwers (Bloomfield).** Hunters used a plain lath spear-thrower of *E. chlorostachys*, linear or oval in outline, 0.9–1 m long and 60–90 mm wide, usually without a shell grip [ref:anderson1996]. There are many scarred trees around the Bloomfield where wood for them was cut out [ref:anderson1996]. Roth describes the ironwood spear-thrower of Cape Bedford, the Endeavour and Bloomfield rivers and Butcher's Hill. It had a long blade of even width and a short peg of *Petalostigma* tied on with tendon and covered with cement [ref:roth1909]. See [Spear and woomera](entry:spear-and-woomera).\n\n**Spear points.** For wooden-pointed spears, Cooktown ironwood sometimes replaced [black palm](entry:black-palm) as the point and foreshaft, and was fire-hardened after sharpening. Turtle-harpoon points were usually *Acacia crassicarpa* but sometimes ironwood [ref:anderson1996].\n\n**Cement (Bloomfield).** The sticky covering of ironwood roots made a strong black cement [ref:roth1904] [ref:anderson1996]. Anderson's consultants rated it above [grass-tree](entry:grass-tree) gum: 'readily available and of good quality' [ref:anderson1996]. It fixed stingray barbs and spear prongs over their sinew bindings [ref:anderson1996]. Its weakness was 'its liability to crack', and on spear-throwers a *Grevillea* cement was preferred where it could be had, 'as it lasts better' [ref:roth1904] [ref:roth1909]. The dictionary's **yikari** is 'hardened beeswax, hardened with ironwood root juice. The juice is extracted by heating and is used to make spears' [ref:hershberger1982]. That joins this tree to the wax of [native bees](entry:native-bees).\n\n**Fish poison.** In the inland areas in the late dry, the bark and leaves were smashed together under water in drying waterholes to stun fish [ref:anderson1996]. See [fish-poison plants](entry:fish-poison-plants) and [fish poisoning](entry:fish-poisoning).\n\n**Other tools.** The smoothing board for spreading hot cement, used on the Bloomfield, Palmer and Mitchell rivers, was a flat piece of ironwood or similar wood [ref:roth1904]. Across North Queensland, women's digging sticks were cut from ironwood 'where generally available'. On the Bloomfield the digging stick was *tchu-al* in Roth's spelling, the dictionary's **juwal** [ref:roth1904] [ref:hershberger1982]. No source here records ironwood clubs among Kuku Yalanji.\n\n**Medicine (neighbours, not Kuku Yalanji).** On the Pennefather River, far to the north, the outer bark was soaked in water for some hours. The liquid was rubbed into spear wounds, or over the whole body for general sickness [ref:roth1903]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How it was done",
+      "body": "**Ironwood root cement**, Bloomfield River. Roth's account came from R. Hislop [ref:roth1904], and Anderson recorded it at Wujal Wujal [ref:anderson1996].\n\n1. Choose a tree, 'the younger the better'.\n2. **Test first.** Rub a firestick on an exposed root so that some of the sticky covering melts off. Try it between your closed teeth. If it is sticky there, the gum is good.\n3. Clear the soil from the underground roots and cut off pieces of a handy length.\n4. **Strip off the sticky outer covering** with a bark strip pulled steadily upwards, or scrape it off. Gather it onto the end of a stick.\n5. **Roast it lightly** over the fire.\n6. **Pound it between two stones** greased with [cassowary](entry:cassowary) fat so that it does not stick.\n7. Roast and pound again, and keep alternating until it is soft. Let it cool and harden for storage.\n8. To use it, warm it and spread it over the binding with a greased wooden smoothing board.\n\n**A spear-thrower blank.** Cut a lath from the trunk, which leaves a scar like those still seen around the Bloomfield. Shape it to 0.9–1 m long and 60–90 mm wide [ref:anderson1996]. Fig leaves were used to smooth the blade [ref:roth1909] (see [Fig](entry:fig))."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**Stock poison.** Cooktown ironwood is 'well known as a stock poison'. It has killed cattle, horses, sheep, donkeys, goats and camels [ref:rfk-erythrophleum]. A Northern Territory resource puts the lethal dose at less than 100 g for a horse or a cow. Poisonings usually happen in the dry season, when pasture is poor and the tree is putting out fresh shoots. The young leaves and sucker growth are the most toxic. Sick animals show severe abdominal pain, sunken eyes, laboured breathing and sometimes bloody scours, and usually die within 24–48 hours. There is no consistently successful treatment, so keep stock away from ironwood country at risky times [ref:futurebeef].\n\n**People.** The timber can cause dermatitis, and splinters can turn septic. Rainwater collected under the trees can be fouled by fallen leaves [ref:rfk-erythrophleum]. A waterhole poisoned for fish was unusable until a storm and flood renewed it [ref:anderson1996]. Don't drink from water where bark or leaves have been pounded."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "In the late 1970s and early 1980s, Bloomfield men still covered the bindings of wire-pronged fish spears with some mix of ironwood resin, car-battery 'tar', 'Araldite' or asphalt [ref:anderson1996]. Old ironwood trees with spear-thrower blanks cut out of them are records of past use [ref:anderson1996]. Everyone in Queensland has a duty of care not to harm Aboriginal cultural heritage [ref:qld-acha]. The Western Yalanji determinations recognise rights to take and use natural resources around the Palmer and Mitchell rivers [ref:fca2013]. Under s 211 of the *Native Title Act 1993*, native title holders can do so for personal, domestic and communal needs without licences [ref:alrc-s211]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**jujabala** 'ironwood tree'; **yikari** 'hardened beeswax, hardened with ironwood root juice'; **jila** 'beeswax'; **nyumbirr** 'wax made by bees'; **balur** 'spear thrower'; **juwal** 'yam or digging stick'; **julnji** 'tar from a tree used to make spears' [ref:hershberger1982].\n\nThe sources disagree about **yikari**. The dictionary makes it a beeswax hardened with ironwood root juice [ref:hershberger1982]. Roth wrote that the resin of *Canarium muelleri* was 'known to the Bloomfield River natives as yikari' and was 'largely traded and bartered' [ref:roth1904]. Both records are kept here. Speakers can say whether the word covers both prepared cements. Anderson's word for the ironwood spear-thrower, *milbayarr* [ref:anderson1996], is not a spear-thrower headword in the dictionary; there the spear-thrower is **balur** [ref:hershberger1982]. Neighbouring names: Guugu Yimithirr *gam-bar*, the cement named after the tree, at Cooktown; Koko-minni *ariga* for the tree and *tchal-nga* for its cement, on the middle Palmer [ref:roth1904]."
+    }
+  ],
+  "relatedEntries": [
+    "spear-and-woomera",
+    "grass-tree",
+    "native-bees",
+    "black-palm",
+    "fig",
+    "fish-poison-plants",
+    "fish-poisoning",
+    "cassowary"
+  ],
+  "relatedWords": [
+    {
+      "word": "yikari",
+      "gloss": "hardened beeswax"
+    },
+    {
+      "word": "jila",
+      "gloss": "beeswax"
+    },
+    {
+      "word": "nyumbirr",
+      "gloss": "wax made by bees"
+    },
+    {
+      "word": "balur",
+      "gloss": "spear thrower"
+    },
+    {
+      "word": "juwal",
+      "gloss": "yam or digging stick"
+    },
+    {
+      "word": "julnji",
+      "gloss": "tar from a tree used to make spears"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1903",
+      "citation": "Roth, W. E. (1903). North Queensland Ethnography, Bulletin No. 5: Superstition, magic, and medicine. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Medicine, 'Erythrophloeum laboucherii' (Pennefather River)"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 13 cements ('Erythrophloeum laboucherii', 'Canarium muelleri'); sect. 16 smoothing-board; sect. 39 digging-sticks"
+    },
+    {
+      "id": "roth1909",
+      "citation": "Roth, W. E. (1909). North Queensland Ethnography, Bulletin No. 13: Fighting weapons. Records of the Australian Museum 7(4).",
+      "url": "https://archive.org/details/biostor-52873",
+      "locator": "Sects. 10–11 spear-throwers (middle Palmer; Cape Bedford, Endeavour and Bloomfield rivers, Butcher's Hill)"
+    },
+    {
+      "id": "roth1910b16",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 16: Huts and shelters. Records of the Australian Museum 8(1): 55–66.",
+      "url": "https://archive.org/details/records-australian-museum-8-055-066",
+      "locator": "Middle Palmer huts (ironwood bark)"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "rfk-erythrophleum",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Erythrophleum chlorostachys (Cooktown ironwood). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/erythrophleum_chlorostachys.htm"
+    },
+    {
+      "id": "wp-erythrophleum",
+      "citation": "Wikipedia, 'Erythrophleum chlorostachys' (synonyms E. laboucheri, Laboucheria chlorostachya) (accessed 6 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Erythrophleum_chlorostachys"
+    },
+    {
+      "id": "futurebeef",
+      "citation": "FutureBeef (Queensland, NT and WA agriculture departments and MLA). Poisonous trees and shrubs: Cooktown ironwood.",
+      "url": "https://futurebeef.com.au/resources/poisonous-trees-and-shrubs/"
+    },
+    {
+      "id": "ala-erythrophleum",
+      "citation": "Atlas of Living Australia. Occurrence records of Erythrophleum within 30 km and 60 km of the Karma Waters homestead (16.618° S, 144.605° E), queried 6 October 2026 (none within 30 km; 42 within 60 km, 39 of them E. chlorostachys).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus%3AErythrophleum&lat=-16.6179&lon=144.6047&radius=60"
+    },
+    {
+      "id": "qld-acha",
+      "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), s 23 (cultural heritage duty of care).",
+      "url": "https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079"
+    },
+    {
+      "id": "fca2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Logan J, 24 September 2013), consent determinations of native title over lands in and around the Palmer and Mitchell River systems north-west of Mt Carbine.",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "alrc-s211",
+      "citation": "Australian Law Reform Commission (2014). Review of the Native Title Act 1993, Discussion Paper 82, ch. 8: Relevant provisions in the Native Title Act (s 211, preservation of native title hunting, fishing, gathering and cultural activities).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-06"
+}

@@ -1,0 +1,234 @@
+{
+  "slug": "fish-traps",
+  "title": "Fish traps and weirs",
+  "category": "technique",
+  "names": [
+    {
+      "word": "wukurril",
+      "gloss": "follow; weave; make a fence; imitate",
+      "note": "A general verb. The dictionary does not tie it to fishing."
+    },
+    {
+      "word": "kanbil",
+      "gloss": "to block, put in the way of",
+      "note": "A general verb for blocking something's path."
+    },
+    {
+      "word": "milmarr",
+      "gloss": "edible lawyer cane",
+      "note": "Probably Roth's Bloomfield 'milma', the large lawyer cane that was split for fish traps in the Cairns district."
+    }
+  ],
+  "identification": {
+    "confidence": "uncertain",
+    "basis": "The dictionary has no noun for a fish trap, weir or fish fence. Wukurril 'make a fence; weave' and kanbil 'to block' describe what such structures do, but are not names for them. Roth's Bloomfield records and Anderson's study of Bloomfield material culture describe no Kuku Yalanji fish trap, and Roth's Bloomfield collection holds none. The traps described here are labelled by district."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "coast-mangrove",
+    "rainforest"
+  ],
+  "summary": "Fish traps catch fish without hook or spear. A cane cage, a stone dam or a fence of sticks blocks a stream, and the fish are taken as the water falls or as people drive them in. Neither Roth's Bloomfield records nor Anderson's study of Bloomfield fishing describes a Kuku Yalanji fish trap, and the dictionary has no word for one [ref:roth1901] [ref:anderson1996] [ref:hershberger1982]. The fullest records come from neighbours: [lawyer-cane](entry:lawyer-cane) cages for eels on the Tully and around Atherton, stone dams on the Russell, Barron and Mulgrave, and brush fences across flooded streams in Cape York [ref:roth1901]. A Kuku Yalanji cultural tour now takes visitors to old stone fish traps at Rocky Point, between Mossman and the Daintree River [ref:jalun-tour].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "No word for a fish trap; wukurril 'make a fence', kanbil 'to block'"
+    },
+    {
+      "label": "Kinds recorded",
+      "value": "Cane cages, stone dams, brush fences, moving grass fences, hollow logs"
+    },
+    {
+      "label": "Materials",
+      "value": "Split lawyer cane, stones, saplings, blady grass, water-grass, hollow logs"
+    },
+    {
+      "label": "When",
+      "value": "Falling floods; eel cages set by day and lifted next morning"
+    },
+    {
+      "label": "Kuku Yalanji record",
+      "value": "None in Roth or Anderson; stone traps shown today at Rocky Point"
+    },
+    {
+      "label": "Museum examples",
+      "value": "Two lawyer-cane fish traps from Atherton, Australian Museum E.15011–15012"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary has no noun for a fish trap, weir or fish fence [ref:hershberger1982]. Two verbs describe what such structures do: **wukurril** 'follow; weave; make a fence; imitate' and **kanbil** 'to block, put in the way of'. Most traps in the record were made of split lawyer cane, called **milmarr** 'edible lawyer cane', with **mawar** for 'the vine of the lawyer cane' [ref:hershberger1982]. Roth gave the Bloomfield name of the large lawyer cane, *Calamus australis*, as *milma* (his spelling). In the Cairns district that cane was split for fish and wallaby traps [ref:roth1901] [ref:roth1901-string]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "Roth's North Queensland record has five kinds of trap [ref:roth1901]:\n\n- **Cane cages**: long funnels of split lawyer cane laid in a creek, mouth upstream.\n- **Stone dams and weirs**: walls of rock across a stream, with gaps where the fish are caught.\n- **Brush fences**: saplings or bushes set across a flooded stream or a tidal creek.\n- **Moving grass fences**: a line of people pushing grass and boughs through a waterhole.\n- **Hollow logs**: left lying in a waterhole for eels, crayfish and fish to shelter in.\n\n**What is recorded for Kuku Yalanji.** Anderson gives three main ways the Bloomfield people got fish: [spearing](entry:spear-and-woomera), [hook and line](entry:hooks-and-lines), and [plant poisons](entry:fish-poisoning). Traps are not among them [ref:anderson1996]. Roth collected 112 artefacts on the Bloomfield. The two fish traps in his collection both come from Atherton [ref:khan1993]. So **eel traps are not recorded for Kuku Yalanji** in these sources. The nearest recorded eel traps are the cane cages of the Tully, Atherton, the Barron, Russell and Mulgrave, among rainforest peoples to the south [ref:roth1901].\n\nToday a Kuku Yalanji cultural tour guided by Traditional Custodians shows visitors 'ancient fish traps engineered from stone and tidal knowledge' at Rocky Point [ref:jalun-tour]. No published survey of those traps was found."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where and when",
+      "body": "- **Falling floods.** Stone dams were 'greatly adopted after floods when the waters are going down'. Brush fences were used 'only in flood time' to catch the bigger fish as they returned downstream [ref:roth1901]. The dictionary's word for a flood is **jalungkarr** [ref:hershberger1982].\n- **Shallow creeks.** Cane cages were laid in a shallow part of the creek [ref:roth1901].\n- **Tides.** On Sweers, Bentinck and Mornington Islands in the Gulf, curved stone walls up to 300 yards out from shore stopped fish going back to sea on the falling tide. Near Mapoon, a bush fence in a tidal creek held fish that came in on the rising tide [ref:roth1901].\n- **Eel cages.** On the Tully they were set in the daytime, left all night and lifted in the morning [ref:roth1901].\n- **Hollow logs.** They were left for three or four hours, or all day. Roth first saw them worked in November 1898, near the Musgrave Telegraph Station [ref:roth1901].\n\n**The upper Mitchell.** No trap or weir is recorded for Western Yalanji country in these sources. Roth's nearest inland records are those hollow logs, and a brush fence 100 feet long near the head of Birthday Creek, Princess Charlotte Bay [ref:roth1901]. Only about 4% of the Mitchell catchment's rain falls between May and October [ref:griffith2021], so a flood fence there would belong to the end of the wet."
+    },
+    {
+      "id": "uses",
+      "heading": "What they caught",
+      "body": "- **Cane cages**: 'usually eel' around Atherton and on the Barron, Russell and Mulgrave; eels again on the Tully. The mesh was made to suit the size of fish wanted [ref:roth1901]. See [eels](entry:eels).\n- **Stone dams and brush fences**: 'the bigger fish' coming back down after a flood. Roth does not name the species [ref:roth1901].\n- **Hollow logs**: crayfish, eels, and fish 'somewhat resembling rock-cod' [ref:roth1901]. See [cherabin](entry:cherabin).\n- **Grass fences**: whatever fish were in the hole [ref:roth1901]."
+    },
+    {
+      "id": "how-to",
+      "heading": "How they were built and fished",
+      "body": "**Lawyer-cane cage (Atherton and Cairns districts)** [ref:roth1901-string] [ref:roth1901] [ref:khan1993]:\n\n1. Split [lawyer cane](entry:lawyer-cane) into strips and sort them into lengths.\n2. Bend three or four strips sharply to make the pointed end.\n3. Weave two continuous strands in and out of them in a chain-twist. Keep going in a spiral towards the mouth, adding strips as the cage widens.\n4. At the mouth, cut the ends of the strips level and bend them outwards. A cage took three to four hours to make.\n5. The finished cage is 3–4 feet long and up to 6 or 7 inches across. The two in the Australian Museum are 97 and 108.7 cm long, with mouths 18 and 21 cm wide.\n6. Lay it lengthwise in a shallow part of the creek, mouth upstream. Wedge it with rocks set at an angle across the water.\n7. Men beat the water further up the creek and drive the fish down into it.\n\n**Tully River eel trap (Mallanpara country, far south of Kuku Yalanji country)** [ref:roth1901]:\n\n1. Use a funnel-shaped cage (*kau*). Line its inside with fine water-grass.\n2. Drive sticks upright in two lines spreading out from the mouth in a V, and weave blady grass through them so that fish can pass only into the trap.\n3. Set it in the daytime, leave it all night and lift it in the morning.\n4. To drive out an eel hiding in a hollow log, hold the cage at one end and push a lawyer cane with a frayed end in from the other. If the chewed end comes out slimy, an eel is inside.\n\n**Stone dam** [ref:roth1901]:\n\n1. As a flood goes down, build a wall of rocks and [stones](entry:stone) right across the stream.\n2. Leave gaps (breaks) for the water to rush through.\n3. Below each gap, build a stone platform covered with boughs and then grass; the fish stick in the grass as the water drops. On the Russell, Barron and Mulgrave, a cane cage at the gap took the place of the platform.\n\n**Brush fence (Birthday Creek, Princess Charlotte Bay, 1898)** [ref:roth1901]:\n\n1. Stand five or six upright forked posts across the stream, and lay long logs in the forks at the height of the flood water.\n2. Stick dozens of saplings, 8–10 feet long, into the mud so that they lean on the upstream side of the logs.\n3. Leave two gaps about a foot wide near the ends, with [nets](entry:nets) on the downstream side.\n4. As the water falls, spear the fish left along the foot of the fence.\n\n**Hollow log (Princess Charlotte Bay hinterland)** [ref:roth1901]:\n\n1. Throw hollow [paperbark](entry:paperbark) or bloodwood logs, 4–7 feet long, into a waterhole.\n2. Come back hours later. Dive down and bring each log up at an angle, one hand closing the lower end.\n3. Let the water trickle out through your fingers to feel whether anything is inside.\n\n**Grass fence (Cape York Peninsula, and the east coast as far south as the Tully)** [ref:roth1901]: the women of the camp line up across a shallow waterhole on hands and knees. They push thick bundles of grass and leafy boughs ahead of them and drive the fish against the bank."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "Eels bite. On the Tully, men who grabbed speared eels by hand were often 'severely bitten' [ref:roth1901]. Floodwater is strong and full of snags, so never wade or dive into a flooded creek to set or check a trap. Waterholes and tidal creeks can hold crocodiles; see [freshwater crocodile](entry:freshwater-crocodile) and [saltwater crocodile](entry:saltwater-crocodile)."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "**Aboriginal tradition.** Queensland's *Fisheries Act 1994* gives an Aboriginal person acting under Aboriginal tradition a defence for personal, domestic or non-commercial communal fishing with prescribed gear outside prescribed waters [ref:qld-fishact]. The regulation prescribes a **fish trap**, meaning 'a structure made predominantly from stone or organic material that creates a holding area designed to capture a small quantity of fish' [ref:qld-fishreg]. Section 211 of the *Native Title Act 1993* also frees native title holders from licence and permit requirements for those needs [ref:alrc].\n\n**Everyone else.** In Queensland fresh waters a recreational fisher may use up to four tagged traps of listed kinds: canister, collapsible, dilly net, funnel or round, and open-top pyramid traps [ref:qld-gear]. A cane cage or brush fence is not on that list. A dam, weir or other barrier that limits fish movement in a waterway is a 'waterway barrier works', and building one needs development approval [ref:qld-fishact].\n\n**Old traps are heritage.** Stone fish traps are Aboriginal cultural heritage. Harming, moving or taking it is an offence in Queensland [ref:acha2003]. Leave old stone walls as they are.\n\n**Western Yalanji country.** The 2013 determinations recognise rights to hunt, fish and gather for personal, domestic and non-commercial communal purposes [ref:brady2013]. A further determination followed in August 2026 [ref:nit2026wy]. At [Karma Waters](place:karma-waters) the station closes from 1 December to 1 April, partly to give fish and prawns an undisturbed spawning season [ref:kw-camping]. Ask the Traditional Owners and the station before building anything in the river."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**Kuyu** 'fish'; **wawubaja** 'river'; **bana** 'water'; **jalungkarr** 'flood'; **marral** 'dry' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "lawyer-cane",
+    "eels",
+    "cherabin",
+    "stone",
+    "paperbark",
+    "barramundi",
+    "nets",
+    "hooks-and-lines",
+    "fish-poisoning"
+  ],
+  "relatedWords": [
+    {
+      "word": "mawar",
+      "gloss": "the vine of the lawyer cane. Also user to refer to braces."
+    },
+    {
+      "word": "jalungkarr",
+      "gloss": "flood"
+    },
+    {
+      "word": "kuyu",
+      "gloss": "fish"
+    },
+    {
+      "word": "wawubaja",
+      "gloss": "river"
+    },
+    {
+      "word": "bana",
+      "gloss": "water"
+    },
+    {
+      "word": "marral",
+      "gloss": "dry"
+    },
+    {
+      "word": "kubarr",
+      "gloss": "big black fresh water eel"
+    },
+    {
+      "word": "mawul",
+      "gloss": "small fresh water eel"
+    },
+    {
+      "word": "yaba",
+      "gloss": "species of fresh water eel"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 15 'Fish' (g) hollow logs, (h) baskets and cages, (j) stone dams and weirs, (k) bush fences, (l) moveable fences, (n) spears; plant list 'Calamus australis'"
+    },
+    {
+      "id": "roth1901-string",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Plant list 'Calamus australis'; sect. 29, fish- and wallaby-traps"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Subsistence activities: fishing"
+    },
+    {
+      "id": "khan1993",
+      "citation": "Khan, K. (1993). Catalogue of the Roth Collection of Aboriginal artefacts from north Queensland. Volume 1: Items collected from Archer River, Atherton, Bathurst Head, Bloomfield River and Butcher's Hill, 1897–1901. Technical Reports of the Australian Museum 10: 1–205.",
+      "url": "https://doi.org/10.3853/j.1031-8062.10.1993.69",
+      "locator": "List of localities (Bloomfield River, 112 artefacts); 'Fish traps', E.15011 and E.15012, Atherton"
+    },
+    {
+      "id": "jalun-tour",
+      "citation": "Jalun & Bubu Dreaming: Saltwater to Rainforest Cultural Journey. Tour description (Kuku Yalanji Country, guided by Traditional Custodians), accessed 6 October 2026.",
+      "url": "https://turers.rezdy.com/view/PRD2A6"
+    },
+    {
+      "id": "griffith2021",
+      "citation": "Stewart-Koster, B., O'Mara, K., et al. (2021). Critical water needs to sustain freshwater ecosystems and aquatic biodiversity in Queensland's Mitchell River. Griffith University / NESP Northern Australia Environmental Resources Hub.",
+      "url": "https://era.dpi.qld.gov.au/id/eprint/8432/1/Critical-water-needs-for-the-Mitchell-River-final-report.pdf"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples), s 76T and sch 1 ('waterway barrier works').",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "qld-fishreg",
+      "citation": "Fisheries (General) Regulation 2019 (Qld), current as at 1 July 2026: s 21 (prescribed fishing apparatus for s 14 of the Act: fish trap).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/sl-2019-0179"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing equipment rules: fresh waters (web page, last updated 26 March 2026, accessed 6 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "acha2003",
+      "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), sections 23–25 (cultural heritage duty of care; harming, excavating, relocating or taking away Aboriginal cultural heritage).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-2003-079"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "nit2026wy",
+      "citation": "National Indigenous Times (13 August 2026). 'Western Yalanji determination brings Cape York native title to the finish line.'",
+      "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-06"
+}
