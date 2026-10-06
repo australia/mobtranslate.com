@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 const blurb = (markdown: string) =>
   markdown
     .replace(/\s?\[ref:[a-z0-9-]+\]/g, '')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
     .replace(/[*_]/g, '')
     .slice(0, 220);
 
