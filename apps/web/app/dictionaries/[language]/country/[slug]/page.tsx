@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { ArrowLeft } from 'lucide-react';
 import SharedLayout from '../../../../components/SharedLayout';
-import { COUNTRY_LANGUAGES, getCountryEntries, getCountryEntry } from '@/lib/country/entries.server';
+import { COUNTRY_LANGUAGES, getCountryBacklinks, getCountryEntries, getCountryEntry } from '@/lib/country/entries.server';
+import { countryHref } from '@/lib/country/links';
 import { CATEGORY_LABELS, COUNTRY_TYPE_LABELS } from '@/lib/country/schema';
 import { CountryMarkdown } from '../components/CountryMarkdown';
 import { ReviewNotice } from '../components/ReviewNotice';
@@ -61,6 +62,7 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
   const related = entry.relatedEntries
     .map((relatedSlug) => allEntries.find((candidate) => candidate.slug === relatedSlug))
     .filter((candidate) => candidate !== undefined);
+  const backlinks = getCountryBacklinks(language, entry.slug);
 
   return (
     <SharedLayout>
@@ -97,7 +99,7 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <div className="min-w-0 text-[1.0625rem]">
             <div className="text-foreground">
-              <CountryMarkdown refNumbers={refNumbers}>{entry.summary}</CountryMarkdown>
+              <CountryMarkdown refNumbers={refNumbers} language={language}>{entry.summary}</CountryMarkdown>
             </div>
 
             <nav aria-label="Contents" className="my-6 rounded-lg border border-border bg-card px-4 py-3 text-sm lg:hidden">
@@ -116,7 +118,7 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
             {entry.sections.map((section) => (
               <section key={section.id} id={section.id} className="mt-8 scroll-mt-24">
                 <h2 className="mb-3 border-b border-border pb-1 text-2xl font-semibold tracking-tight">{section.heading}</h2>
-                <CountryMarkdown refNumbers={refNumbers}>{section.body}</CountryMarkdown>
+                <CountryMarkdown refNumbers={refNumbers} language={language}>{section.body}</CountryMarkdown>
               </section>
             ))}
 
@@ -206,6 +208,22 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
                         {other.title}
                       </Link>{' '}
                       <span className="text-muted-foreground">{other.names[0]?.word}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {backlinks.length > 0 && (
+              <div className="rounded-lg border border-border bg-card px-4 py-3 text-sm">
+                <p className="mb-2 font-semibold">What links here</p>
+                <ul className="space-y-1.5">
+                  {backlinks.map((link) => (
+                    <li key={`${link.kind}-${link.slug}`}>
+                      <Link href={countryHref(language, link)} className="text-[var(--lang-accent)] hover:underline">
+                        {link.title}
+                      </Link>
+                      {link.kind === 'place' && <span className="text-muted-foreground"> (place guide)</span>}
                     </li>
                   ))}
                 </ul>

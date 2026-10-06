@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { load as loadYaml } from 'js-yaml';
 import { countryEntrySchema, countryPlaceSchema, SECTION_IDS, type CountryEntry } from '@/lib/country/schema';
+import { countryLinksIn } from '@/lib/country/links';
 
 // Every Country entry must be valid, cite only references it declares, and
 // name things only with words that are real dictionary headwords.
@@ -13,6 +14,17 @@ const headwords = new Set(
 );
 
 const files = fs.readdirSync(DATA_DIR).filter((file) => file.endsWith('.json'));
+const PLACES_DIR = path.join(DATA_DIR, 'places');
+const placeFiles = fs.existsSync(PLACES_DIR) ? fs.readdirSync(PLACES_DIR).filter((file) => file.endsWith('.json')) : [];
+const entrySlugs = new Set(files.map((file) => file.replace(/\.json$/, '')));
+const placeSlugs = new Set(placeFiles.map((file) => file.replace(/\.json$/, '')));
+
+// Every [text](entry:slug) / [text](place:slug) link must resolve to a page.
+function brokenLinks(texts: string[]): string[] {
+  return countryLinksIn(texts.join('\n'))
+    .filter((link) => !(link.kind === 'entry' ? entrySlugs : placeSlugs).has(link.slug))
+    .map((link) => `${link.kind}:${link.slug}`);
+}
 
 function citations(entry: CountryEntry): string[] {
   const text = [entry.summary, ...entry.sections.map((section) => section.body)].join('\n');
@@ -46,6 +58,12 @@ describe('Kuku Yalanji Country entries', () => {
       expect([...declared].filter((id) => !cited.includes(id))).toEqual([]);
     });
 
+    it('links only to Country pages that exist', () => {
+      const entry = countryEntrySchema.parse(raw);
+      expect(brokenLinks([entry.summary, ...entry.sections.map((section) => section.body)])).toEqual([]);
+      expect(entry.relatedEntries.filter((slug) => !entrySlugs.has(slug))).toEqual([]);
+    });
+
     it('keeps sections unique and in encyclopedia order', () => {
       const entry = countryEntrySchema.parse(raw);
       const order = entry.sections.map((section) => SECTION_IDS.indexOf(section.id));
@@ -55,9 +73,6 @@ describe('Kuku Yalanji Country entries', () => {
   });
 });
 
-const PLACES_DIR = path.join(DATA_DIR, 'places');
-const placeFiles = fs.existsSync(PLACES_DIR) ? fs.readdirSync(PLACES_DIR).filter((file) => file.endsWith('.json')) : [];
-const entrySlugs = new Set(files.map((file) => file.replace(/\.json$/, '')));
 
 describe.runIf(placeFiles.length > 0)('Kuku Yalanji place guides', () => {
   describe.each(placeFiles)('%s', (file) => {
@@ -72,6 +87,7 @@ describe.runIf(placeFiles.length > 0)('Kuku Yalanji place guides', () => {
       const place = countryPlaceSchema.parse(raw);
       const linked = place.groups.flatMap((group) => group.entries);
       expect(linked.filter((slug) => !entrySlugs.has(slug))).toEqual([]);
+      expect(brokenLinks([place.summary, ...place.sections.map((section) => section.body)])).toEqual([]);
     });
 
     it('cites only declared references, and every reference is cited', () => {

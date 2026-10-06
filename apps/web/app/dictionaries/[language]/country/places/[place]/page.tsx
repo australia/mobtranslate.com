@@ -71,7 +71,7 @@ export default async function CountryPlacePage(props: { params: Promise<{ langua
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <div className="min-w-0 text-[1.0625rem]">
-            <CountryMarkdown refNumbers={refNumbers}>{place.summary}</CountryMarkdown>
+            <CountryMarkdown refNumbers={refNumbers} language={language}>{place.summary}</CountryMarkdown>
 
             <section id="what-lives-here" className="mt-8 scroll-mt-24">
               <h2 className="mb-3 border-b border-border pb-1 text-2xl font-semibold tracking-tight">What you'll find here</h2>
@@ -103,7 +103,7 @@ export default async function CountryPlacePage(props: { params: Promise<{ langua
             {place.sections.map((section) => (
               <section key={section.id} id={section.id} className="mt-8 scroll-mt-24">
                 <h2 className="mb-3 border-b border-border pb-1 text-2xl font-semibold tracking-tight">{section.heading}</h2>
-                <CountryMarkdown refNumbers={refNumbers}>{section.body}</CountryMarkdown>
+                <CountryMarkdown refNumbers={refNumbers} language={language}>{section.body}</CountryMarkdown>
               </section>
             ))}
 

@@ -3,7 +3,8 @@
 // One JSON file per entry under apps/web/data/country/<language>/. Every
 // Kuku Yalanji name must be a headword in dictionaries/<language>/dictionary.yaml
 // (enforced by __tests__/lib/countryEntries.test.ts). Body text is Markdown;
-// `[ref:<id>]` marks a citation to one of the entry's `references`.
+// `[ref:<id>]` marks a citation to one of the entry's `references`, and
+// `[text](entry:<slug>)` / `[text](place:<slug>)` link to other Country pages.
 import { z } from 'zod';
 
 export const COUNTRY_CATEGORIES = [
@@ -24,6 +25,7 @@ export const COUNTRY_CATEGORIES = [
   'water',
   'landform',
   'food',
+  'technique',
 ] as const;
 
 export const CATEGORY_LABELS: Record<(typeof COUNTRY_CATEGORIES)[number], string> = {
@@ -44,6 +46,7 @@ export const CATEGORY_LABELS: Record<(typeof COUNTRY_CATEGORIES)[number], string
   water: 'Water',
   landform: 'Land',
   food: 'Foods & cooking',
+  technique: 'Skills & methods',
 };
 
 export const COUNTRY_TYPES = [

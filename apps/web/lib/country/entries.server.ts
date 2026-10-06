@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { countryLinksIn } from './links';
 import { countryEntrySchema, countryPlaceSchema, type CountryEntry, type CountryPlace } from './schema';
 
 // Read at build time: the Country routes are statically generated.
@@ -49,4 +50,20 @@ export function getCountryPlaces(language: string): CountryPlace[] {
 
 export function getCountryPlace(language: string, slug: string): CountryPlace | null {
   return getCountryPlaces(language).find((place) => place.slug === slug) ?? null;
+}
+
+export type CountryBacklink = { kind: 'entry' | 'place'; slug: string; title: string };
+
+// "What links here": every entry or place guide whose text links to `slug`.
+export function getCountryBacklinks(language: string, slug: string): CountryBacklink[] {
+  const linksTo = (texts: string[]) =>
+    countryLinksIn(texts.join('\n')).some((link) => link.kind === 'entry' && link.slug === slug);
+  return [
+    ...getCountryEntries(language)
+      .filter((entry) => entry.slug !== slug && linksTo([entry.summary, ...entry.sections.map((s) => s.body)]))
+      .map((entry) => ({ kind: 'entry' as const, slug: entry.slug, title: entry.title })),
+    ...getCountryPlaces(language)
+      .filter((place) => place.groups.some((g) => g.entries.includes(slug)) || linksTo([place.summary, ...place.sections.map((s) => s.body)]))
+      .map((place) => ({ kind: 'place' as const, slug: place.slug, title: place.title })),
+  ];
 }
