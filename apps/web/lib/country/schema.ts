@@ -183,3 +183,48 @@ export const countryPlaceSchema = z.object({
 });
 
 export type CountryPlace = z.infer<typeof countryPlaceSchema>;
+
+// Images live beside the text, one file per page:
+// data/country/<language>/images/<slug>.json (places: images/places/<slug>.json),
+// with the image files under public/country-img/<language>/<slug>/.
+export const IMAGE_KINDS = ['photo', 'drawing', 'museum', 'illustration'] as const;
+
+export const countryImageSchema = z
+  .object({
+    src: z.string().regex(/^\/country-img\/[a-z_]+\/[a-z0-9-]+\/[a-z0-9-]+\.(webp|jpg|png)$/),
+    width: z.number().int().positive(),
+    height: z.number().int().positive(),
+    alt: z.string().min(1),
+    caption: z.string().min(1),
+    kind: z.enum(IMAGE_KINDS),
+    credit: z.string().min(1),
+    // CC0 / CC BY / CC BY-SA (any version), public domain, or our own AI illustration.
+    licence: z.string().regex(/^(CC0-1\.0|CC-BY-[1-4]\.[05]|CC-BY-SA-[1-4]\.[05]|PD|AI-generated)$/),
+    sourceUrl: z.string().url().optional(),
+    location: z.string().optional(),
+  })
+  .refine((image) => (image.kind === 'illustration') === (image.licence === 'AI-generated'), {
+    message: 'AI-generated images must be kind "illustration", and only they may be',
+  })
+  .refine((image) => image.licence === 'AI-generated' || image.sourceUrl, {
+    message: 'Sourced images need a sourceUrl',
+  });
+
+export const countryImageSetSchema = z.object({
+  slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  images: z.array(countryImageSchema).min(1),
+});
+
+// Pages that other pages already link to but nobody has written yet.
+export const wantedPagesSchema = z.object({
+  pages: z.array(
+    z.object({
+      slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+      title: z.string().min(1),
+      note: z.string().optional(),
+    }),
+  ),
+});
+
+export type CountryImage = z.infer<typeof countryImageSchema>;
+export type WantedPage = z.infer<typeof wantedPagesSchema>['pages'][number];

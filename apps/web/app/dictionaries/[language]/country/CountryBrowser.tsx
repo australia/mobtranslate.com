@@ -14,6 +14,7 @@ export type CountryCard = {
   scientificName?: string;
   countryTypes: CountryType[];
   blurb: string;
+  thumb?: string;
 };
 
 const chip = (active: boolean) =>
@@ -88,14 +89,25 @@ export function CountryBrowser({ language, cards }: { language: string; cards: C
               <li key={card.slug}>
                 <Link
                   href={`/dictionaries/${language}/country/${card.slug}`}
-                  className="block h-full rounded-lg border border-border bg-card px-4 py-3 no-underline transition-colors hover:border-[var(--lang-accent)]"
+                  className="flex h-full gap-3 rounded-lg border border-border bg-card px-4 py-3 no-underline transition-colors hover:border-[var(--lang-accent)]"
                 >
-                  <p className="font-semibold text-foreground">{card.title}</p>
-                  <p className="text-sm">
-                    <span className="font-medium text-[var(--lang-accent)]">{card.words.join(' · ')}</span>
-                    {card.scientificName && <em className="ml-2 text-muted-foreground">{card.scientificName}</em>}
-                  </p>
-                  <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">{card.blurb}</p>
+                  {card.thumb && (
+                    // eslint-disable-next-line @next/next/no-img-element -- static pre-sized assets
+                    <img
+                      src={card.thumb}
+                      alt=""
+                      loading="lazy"
+                      className="h-20 w-20 shrink-0 rounded-md bg-muted object-cover"
+                    />
+                  )}
+                  <div className="min-w-0">
+                    <p className="font-semibold text-foreground">{card.title}</p>
+                    <p className="text-sm">
+                      <span className="font-medium text-[var(--lang-accent)]">{card.words.join(' · ')}</span>
+                      {card.scientificName && <em className="ml-2 text-muted-foreground">{card.scientificName}</em>}
+                    </p>
+                    <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">{card.blurb}</p>
+                  </div>
                 </Link>
               </li>
             ))}

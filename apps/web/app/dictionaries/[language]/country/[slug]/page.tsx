@@ -3,11 +3,19 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { ArrowLeft } from 'lucide-react';
 import SharedLayout from '../../../../components/SharedLayout';
-import { COUNTRY_LANGUAGES, getCountryBacklinks, getCountryEntries, getCountryEntry } from '@/lib/country/entries.server';
+import {
+  COUNTRY_LANGUAGES,
+  getCountryBacklinks,
+  getCountryEntries,
+  getCountryEntry,
+  getCountryEntrySlugs,
+  getCountryImages,
+} from '@/lib/country/entries.server';
 import { countryHref } from '@/lib/country/links';
 import { CATEGORY_LABELS, COUNTRY_TYPE_LABELS } from '@/lib/country/schema';
 import { CountryMarkdown } from '../components/CountryMarkdown';
 import { ReviewNotice } from '../components/ReviewNotice';
+import { CountryFigure } from '../components/CountryFigure';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -63,6 +71,8 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
     .map((relatedSlug) => allEntries.find((candidate) => candidate.slug === relatedSlug))
     .filter((candidate) => candidate !== undefined);
   const backlinks = getCountryBacklinks(language, entry.slug);
+  const existingEntries = getCountryEntrySlugs(language);
+  const [leadImage, ...galleryImages] = getCountryImages(language, entry.slug);
 
   return (
     <SharedLayout>
@@ -98,8 +108,13 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <div className="min-w-0 text-[1.0625rem]">
+            {leadImage && (
+              <div className="mb-6 lg:hidden">
+                <CountryFigure image={leadImage} compact />
+              </div>
+            )}
             <div className="text-foreground">
-              <CountryMarkdown refNumbers={refNumbers} language={language}>{entry.summary}</CountryMarkdown>
+              <CountryMarkdown refNumbers={refNumbers} language={language} existingEntries={existingEntries}>{entry.summary}</CountryMarkdown>
             </div>
 
             <nav aria-label="Contents" className="my-6 rounded-lg border border-border bg-card px-4 py-3 text-sm lg:hidden">
@@ -118,9 +133,20 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
             {entry.sections.map((section) => (
               <section key={section.id} id={section.id} className="mt-8 scroll-mt-24">
                 <h2 className="mb-3 border-b border-border pb-1 text-2xl font-semibold tracking-tight">{section.heading}</h2>
-                <CountryMarkdown refNumbers={refNumbers} language={language}>{section.body}</CountryMarkdown>
+                <CountryMarkdown refNumbers={refNumbers} language={language} existingEntries={existingEntries}>{section.body}</CountryMarkdown>
               </section>
             ))}
+
+            {galleryImages.length > 0 && (
+              <section id="images" className="mt-10 scroll-mt-24">
+                <h2 className="mb-3 border-b border-border pb-1 text-2xl font-semibold tracking-tight">Images</h2>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {galleryImages.map((image) => (
+                    <CountryFigure key={image.src} image={image} />
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section id="references" className="mt-10 scroll-mt-24">
               <h2 className="mb-3 border-b border-border pb-1 text-2xl font-semibold tracking-tight">References</h2>
@@ -146,6 +172,11 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
           <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
             <div className="overflow-hidden rounded-lg border border-border bg-card text-sm">
               <div className="bg-[var(--lang-accent-soft)] px-4 py-2 text-center font-semibold">{entry.title}</div>
+              {leadImage && (
+                <div className="hidden border-b border-border p-3 lg:block">
+                  <CountryFigure image={leadImage} compact />
+                </div>
+              )}
               <dl className="divide-y divide-border">
                 {entry.infobox.map((row) => (
                   <div key={row.label} className="grid grid-cols-[6.5rem_1fr] gap-2 px-4 py-2">

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowLeft } from 'lucide-react';
 import SharedLayout from '../../../components/SharedLayout';
-import { COUNTRY_LANGUAGES, getCountryEntries, getCountryPlaces } from '@/lib/country/entries.server';
+import { COUNTRY_LANGUAGES, getCountryEntries, getCountryImages, getCountryPlaces, getWantedPages } from '@/lib/country/entries.server';
 import { CountryBrowser, type CountryCard } from './CountryBrowser';
 import { ReviewNotice } from './components/ReviewNotice';
 
@@ -31,6 +31,7 @@ export default async function CountryIndexPage(props: { params: Promise<{ langua
   const { language } = await props.params;
   const entries = getCountryEntries(language);
   const places = getCountryPlaces(language);
+  const wanted = getWantedPages(language);
   const cards: CountryCard[] = entries.map((entry) => ({
     slug: entry.slug,
     title: entry.title,
@@ -39,6 +40,7 @@ export default async function CountryIndexPage(props: { params: Promise<{ langua
     scientificName: entry.scientificName,
     countryTypes: entry.countryTypes,
     blurb: blurb(entry.summary),
+    thumb: getCountryImages(language, entry.slug)[0]?.src,
   }));
 
   return (
@@ -86,6 +88,35 @@ export default async function CountryIndexPage(props: { params: Promise<{ langua
         )}
 
         <CountryBrowser language={language} cards={cards} />
+
+        {wanted.length > 0 && (
+          <section className="mt-12 border-t border-border pt-8">
+            <h2 className="mb-1 text-xl font-semibold tracking-tight">Pages still to write</h2>
+            <p className="mb-4 text-sm text-muted-foreground">
+              Things other pages mention that don't have their own page yet, most-needed first. Dotted links in the
+              text point here.
+            </p>
+            <ul className="grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
+              {wanted.map((page) => (
+                <li key={page.slug} id={`wanted-${page.slug}`} className="scroll-mt-24">
+                  <span className="font-medium text-foreground">{page.title}</span>
+                  <span className="text-muted-foreground">
+                    {' '}
+                    — mentioned in{' '}
+                    {page.linkedFrom.map((from, index) => (
+                      <span key={from.slug}>
+                        {index > 0 && ', '}
+                        <Link href={`/dictionaries/${language}/country/${from.slug}`} className="hover:underline">
+                          {from.title}
+                        </Link>
+                      </span>
+                    ))}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
     </SharedLayout>
   );

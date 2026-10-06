@@ -3,10 +3,18 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { ArrowLeft } from 'lucide-react';
 import SharedLayout from '../../../../../components/SharedLayout';
-import { COUNTRY_LANGUAGES, getCountryEntries, getCountryPlace, getCountryPlaces } from '@/lib/country/entries.server';
+import {
+  COUNTRY_LANGUAGES,
+  getCountryEntries,
+  getCountryEntrySlugs,
+  getCountryImages,
+  getCountryPlace,
+  getCountryPlaces,
+} from '@/lib/country/entries.server';
 import { CATEGORY_LABELS } from '@/lib/country/schema';
 import { CountryMarkdown } from '../../components/CountryMarkdown';
 import { ReviewNotice } from '../../components/ReviewNotice';
+import { CountryFigure } from '../../components/CountryFigure';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -48,6 +56,8 @@ export default async function CountryPlacePage(props: { params: Promise<{ langua
   );
   const refNumbers = new Map(references.map((ref, index) => [ref.id, index + 1]));
   const entries = new Map(getCountryEntries(language).map((entry) => [entry.slug, entry]));
+  const existingEntries = getCountryEntrySlugs(language);
+  const [leadImage, ...galleryImages] = getCountryImages(language, place.slug, { place: true });
 
   return (
     <SharedLayout>
@@ -65,13 +75,19 @@ export default async function CountryPlacePage(props: { params: Promise<{ langua
           <p className="mt-2 text-lg text-muted-foreground">{place.subtitle}</p>
         </header>
 
+        {leadImage && (
+          <div className="mb-6">
+            <CountryFigure image={leadImage} />
+          </div>
+        )}
+
         <div className="mb-8">
           <ReviewNotice status={place.review.status} />
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
           <div className="min-w-0 text-[1.0625rem]">
-            <CountryMarkdown refNumbers={refNumbers} language={language}>{place.summary}</CountryMarkdown>
+            <CountryMarkdown refNumbers={refNumbers} language={language} existingEntries={existingEntries}>{place.summary}</CountryMarkdown>
 
             <section id="what-lives-here" className="mt-8 scroll-mt-24">
               <h2 className="mb-3 border-b border-border pb-1 text-2xl font-semibold tracking-tight">What you'll find here</h2>
@@ -103,9 +119,20 @@ export default async function CountryPlacePage(props: { params: Promise<{ langua
             {place.sections.map((section) => (
               <section key={section.id} id={section.id} className="mt-8 scroll-mt-24">
                 <h2 className="mb-3 border-b border-border pb-1 text-2xl font-semibold tracking-tight">{section.heading}</h2>
-                <CountryMarkdown refNumbers={refNumbers} language={language}>{section.body}</CountryMarkdown>
+                <CountryMarkdown refNumbers={refNumbers} language={language} existingEntries={existingEntries}>{section.body}</CountryMarkdown>
               </section>
             ))}
+
+            {galleryImages.length > 0 && (
+              <section id="images" className="mt-10 scroll-mt-24">
+                <h2 className="mb-3 border-b border-border pb-1 text-2xl font-semibold tracking-tight">Images</h2>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {galleryImages.map((image) => (
+                    <CountryFigure key={image.src} image={image} />
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section id="references" className="mt-10 scroll-mt-24">
               <h2 className="mb-3 border-b border-border pb-1 text-2xl font-semibold tracking-tight">References</h2>

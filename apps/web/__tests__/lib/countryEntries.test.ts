@@ -1,7 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { load as loadYaml } from 'js-yaml';
-import { countryEntrySchema, countryPlaceSchema, SECTION_IDS, type CountryEntry } from '@/lib/country/schema';
+import {
+  countryEntrySchema,
+  countryImageSetSchema,
+  countryPlaceSchema,
+  SECTION_IDS,
+  wantedPagesSchema,
+  type CountryEntry,
+} from '@/lib/country/schema';
 import { countryLinksIn } from '@/lib/country/links';
 
 // Every Country entry must be valid, cite only references it declares, and
@@ -19,10 +26,23 @@ const placeFiles = fs.existsSync(PLACES_DIR) ? fs.readdirSync(PLACES_DIR).filter
 const entrySlugs = new Set(files.map((file) => file.replace(/\.json$/, '')));
 const placeSlugs = new Set(placeFiles.map((file) => file.replace(/\.json$/, '')));
 
-// Every [text](entry:slug) / [text](place:slug) link must resolve to a page.
+const WANTED_DIR = path.join(DATA_DIR, 'wanted');
+const wantedFiles = fs.existsSync(WANTED_DIR) ? fs.readdirSync(WANTED_DIR).filter((file) => file.endsWith('.json')) : [];
+const wantedSlugs = new Set(
+  wantedFiles.flatMap((file) =>
+    wantedPagesSchema.parse(JSON.parse(fs.readFileSync(path.join(WANTED_DIR, file), 'utf8'))).pages.map((page) => page.slug),
+  ),
+);
+
+// Every link must resolve: entries to a written or registered-wanted page,
+// places to a place guide, words to a dictionary headword.
 function brokenLinks(texts: string[]): string[] {
   return countryLinksIn(texts.join('\n'))
-    .filter((link) => !(link.kind === 'entry' ? entrySlugs : placeSlugs).has(link.slug))
+    .filter((link) => {
+      if (link.kind === 'entry') return !entrySlugs.has(link.slug) && !wantedSlugs.has(link.slug);
+      if (link.kind === 'place') return !placeSlugs.has(link.slug);
+      return !headwords.has(link.slug);
+    })
     .map((link) => `${link.kind}:${link.slug}`);
 }
 
@@ -97,6 +117,53 @@ describe.runIf(placeFiles.length > 0)('Kuku Yalanji place guides', () => {
       const declared = new Set(place.references.map((ref) => ref.id));
       expect(cited.filter((id) => !declared.has(id))).toEqual([]);
       expect([...declared].filter((id) => !cited.includes(id))).toEqual([]);
+    });
+  });
+});
+
+const allText = [
+  ...files.map((file) => {
+    const entry = countryEntrySchema.parse(JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8')));
+    return [entry.summary, ...entry.sections.map((section) => section.body)].join('\n');
+  }),
+  ...placeFiles.map((file) => {
+    const place = countryPlaceSchema.parse(JSON.parse(fs.readFileSync(path.join(PLACES_DIR, file), 'utf8')));
+    return [place.summary, ...place.sections.map((section) => section.body)].join('\n');
+  }),
+].join('\n');
+
+describe('Pages still to write', () => {
+  it('lists only pages that something links to', () => {
+    const linked = new Set(countryLinksIn(allText).filter((link) => link.kind === 'entry').map((link) => link.slug));
+    expect([...wantedSlugs].filter((slug) => !linked.has(slug) && !entrySlugs.has(slug))).toEqual([]);
+  });
+});
+
+const IMAGES_DIR = path.join(DATA_DIR, 'images');
+const PUBLIC_DIR = path.resolve(__dirname, '../../public');
+const imageFiles = [
+  ...(fs.existsSync(IMAGES_DIR) ? fs.readdirSync(IMAGES_DIR).filter((f) => f.endsWith('.json')).map((f) => ({ file: f, place: false })) : []),
+  ...(fs.existsSync(path.join(IMAGES_DIR, 'places'))
+    ? fs.readdirSync(path.join(IMAGES_DIR, 'places')).filter((f) => f.endsWith('.json')).map((f) => ({ file: f, place: true }))
+    : []),
+];
+
+describe.runIf(imageFiles.length > 0)('Country images', () => {
+  describe.each(imageFiles)('$file', ({ file, place }) => {
+    const set = countryImageSetSchema.parse(
+      JSON.parse(fs.readFileSync(path.join(IMAGES_DIR, ...(place ? ['places'] : []), file), 'utf8')),
+    );
+
+    it('belongs to a page that exists', () => {
+      expect(`${set.slug}.json`).toBe(file);
+      expect((place ? placeSlugs : entrySlugs).has(set.slug)).toBe(true);
+    });
+
+    it('points at image files that exist in that page\'s folder', () => {
+      for (const image of set.images) {
+        expect(image.src.split('/')[3]).toBe(set.slug);
+        expect(fs.existsSync(path.join(PUBLIC_DIR, image.src))).toBe(true);
+      }
     });
   });
 });

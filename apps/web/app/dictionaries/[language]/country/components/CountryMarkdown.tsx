@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
-import { resolveCountryLinks } from '@/lib/country/links';
+import { resolveCountryLinks, WANTED_ANCHOR } from '@/lib/country/links';
 
 // Entry text marks citations as `[ref:<id>]`; render them as numbered
 // superscript links to the reference list, Wikipedia style.
@@ -15,10 +15,12 @@ export function CountryMarkdown({
   children,
   refNumbers,
   language,
+  existingEntries,
 }: {
   children: string;
   refNumbers: Map<string, number>;
   language: string;
+  existingEntries: Set<string>;
 }) {
   return (
     <ReactMarkdown
@@ -31,6 +33,17 @@ export function CountryMarkdown({
                   [{label}]
                 </a>
               </sup>
+            );
+          }
+          if (href?.includes(WANTED_ANCHOR)) {
+            return (
+              <Link
+                href={href}
+                title="Not written yet — see Pages still to write"
+                className="text-muted-foreground underline decoration-dotted decoration-1 underline-offset-2 hover:text-foreground"
+              >
+                {label}
+              </Link>
             );
           }
           if (href?.startsWith('/')) {
@@ -55,7 +68,7 @@ export function CountryMarkdown({
         strong: ({ children: text }) => <strong className="font-semibold text-foreground">{text}</strong>,
       }}
     >
-      {withCitationLinks(resolveCountryLinks(children, language), refNumbers)}
+      {withCitationLinks(resolveCountryLinks(children, language, existingEntries), refNumbers)}
     </ReactMarkdown>
   );
 }
