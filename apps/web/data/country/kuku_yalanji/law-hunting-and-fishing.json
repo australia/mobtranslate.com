@@ -1,0 +1,300 @@
+{
+  "slug": "law-hunting-and-fishing",
+  "title": "The law on hunting, fishing and gathering",
+  "category": "technique",
+  "names": [
+    {
+      "word": "bama",
+      "gloss": "aborigine, not a white person"
+    },
+    {
+      "word": "bubu",
+      "gloss": "a person's Country, where they belong"
+    },
+    {
+      "word": "minya",
+      "gloss": "meat, eggs (protein food)"
+    },
+    {
+      "word": "kuyu",
+      "gloss": "fish"
+    },
+    {
+      "word": "mayi",
+      "gloss": "vegetable food or fruit"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "A hub page collecting the legal points cited across this encyclopedia: native title and section 211, Queensland's Nature Conservation, Fisheries, Biosecurity, Cultural Heritage and fire laws, and the station's own rules. It is a summary of public sources, not legal advice."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater",
+    "coast-mangrove",
+    "camp"
+  ],
+  "summary": "**[bama](word:bama)** on their **[bubu](word:bubu)**, 'a person's Country, where they belong', taking **[minya](word:minya)**, **[kuyu](word:kuyu)** and **[mayi](word:mayi)**: meat, fish and plant food [ref:hershberger1982]. The law that frames that today has four layers. **Native title**: the Western Yalanji determinations recognise the rights of the native title holders on this country, and section 211 of the *Native Title Act 1993* preserves their right to hunt, fish, gather and camp 'for the purpose of satisfying their personal, domestic or non-commercial communal needs' without the licences and permits others need [ref:wyac2020] [ref:alrc] [ref:nta1993]. **Queensland's wildlife and fisheries law** for everyone else and for how things are taken: native animals and plants are protected wildlife under the *Nature Conservation Act 1992*, with the cycads 'special least concern plants'; the *Fisheries Act 1994* gives 'an Aboriginal person acting under Aboriginal tradition a defence for personal, domestic or non-commercial communal fishing with prescribed gear outside prescribed waters', bans 'explosives, firearms or noxious substances to take fish', and sets the size and possession limits, the gear rules and the Gulf barramundi closure 'from 7 October to 31 January' [ref:qld-nca] [ref:qld-plants-reg] [ref:qld-fishact] [ref:qld-fisheries-act] [ref:qld-limits] [ref:qld-gear] [ref:qld-closed]. **The pest, fire and heritage laws**: feral pigs and dingoes are 'restricted invasive animals' under the *Biosecurity Act 2014* with a 'general biosecurity obligation' on everyone; a fire bigger than a cooking fire 'needs a Permit to Light Fire from the local Fire Warden'; and the *Aboriginal Cultural Heritage Act 2003* puts a 'cultural heritage duty of care' on anyone carrying out an activity [ref:qld-feral-pig] [ref:qld-dingo] [ref:qfd] [ref:qld-acha]. **The station**: [Karma Waters](place:karma-waters) is a working cattle station on native title country, and its induction, camping rules and land management, which bait wild dogs and burn on a cycle, are the rules on the ground; for visitors 'weapons and hunting dogs are not allowed' [ref:kw-about] [ref:kw-induction] [ref:kw-camping] [ref:kw-land]. On the coast there is a fifth layer, the Marine Park's traditional-use agreements and the Eastern Kuku Yalanji's own plan [ref:gbrmpa-tu] [ref:jabalbina2016]. This page is a map of those sources as the other pages cite them; it is not legal advice.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "bama (Aboriginal person); bubu (a person's Country); minya (meat, protein food); kuyu (fish); mayi (plant food); jadi (sand goanna, 'only old people are allowed to eat it'): the old law in a word"
+    },
+    {
+      "label": "Native title",
+      "value": "Western Yalanji determinations; Native Title Act 1993 s 211: hunting, fishing, gathering and camping for personal, domestic or non-commercial communal needs, free of the licences others need"
+    },
+    {
+      "label": "Wildlife",
+      "value": "Nature Conservation Act 1992: native animals and plants are protected; cycads are 'special least concern'"
+    },
+    {
+      "label": "Fish",
+      "value": "Fisheries Act 1994 s 14 (Aboriginal tradition defence), s 81 (no explosives, firearms, poisons); size and possession limits; gear rules; Gulf barramundi closed 7 October to 31 January"
+    },
+    {
+      "label": "Pests, fire, heritage",
+      "value": "Biosecurity Act 2014 (pigs, dingoes, rubber vine); Permit to Light Fire beyond a cooking fire; Aboriginal Cultural Heritage Act 2003 duty of care"
+    },
+    {
+      "label": "The station",
+      "value": "Induction and waiver; camping rules; no weapons or hunting dogs for visitors; baiting and burning programs"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[bama](word:bama)** 'aborigine, not a white person; people, mankind'. **[bubu](word:bubu)** 'ground, earth; a person's Country, where they belong'. **[minya](word:minya)** 'meat, eggs (protein food); generic term for animal'. **[kuyu](word:kuyu)** 'fish'. **[mayi](word:mayi)** 'vegetable food or fruit; generic term for food'. The dictionary carries the old law in its glosses: **[jadi](word:jadi)** 'sand goanna. Only old people are allowed to eat it', and the [stingray](entry:stingrays) and [eel](entry:eels) pages have others like it [ref:hershberger1982]. The dictionary's words for the old trials and fights are on the [shields and swords](entry:shields-swords-and-clubs) page."
+    },
+    {
+      "id": "description",
+      "heading": "The layers of the law",
+      "body": "**1. Native title and section 211.** The Western Yalanji people's native title has been determined over country that includes the Mitchell River around Karma Waters, and the Western Yalanji Aboriginal Corporation's land-use plan sets out what the holders intend for it [ref:wyac2020] [ref:kw-about]. Section 211 of the *Native Title Act 1993* provides that where a law would otherwise require a licence or permit to hunt, fish, gather or carry on a cultural or spiritual activity, native title holders may do those things 'for the purpose of satisfying their personal, domestic or non-commercial communal needs' in exercise of their native title rights without that licence [ref:nta1993] [ref:alrc]. The Australian Law Reform Commission's review discusses the section's reach and its limits: it is a shield against licence requirements, not a licence to take what the native title rights do not cover, and it does not override every law [ref:alrc-s211] [ref:alrc].\n\n**2. Protected wildlife.** Native animals and plants are protected wildlife in Queensland under the *Nature Conservation Act 1992* [ref:qld-nca]. Native plants that are not threatened are 'least concern' wildlife under the *Nature Conservation (Plants) Regulation 2020*, and 'all plants of the cycad families (Cycadaceae and Zamiaceae) are \"special least concern plants\", which means taking them is more tightly controlled than for ordinary least concern plants'; see [zamia](entry:zamia) [ref:qld-plants-reg]. Some of what lives here is listed: the Gouldian finch endangered, the southern black-throated finch and squatter pigeon threatened, *Acacia guymeri* and the Mareeba rock-wallaby near threatened, the spectacled flying fox endangered; see [woodland](entry:woodland), [bush birds](entry:bush-birds) and [flying foxes](entry:flying-foxes-and-bats) [ref:re-woodland]. Kangaroos, wallabies, cassowaries and brush turkeys have their 'living with wildlife' pages, cited on their entries.\n\n**3. Fish.** The *Fisheries Act 1994* 'gives an Aboriginal person acting under Aboriginal tradition a defence for personal, domestic or non-commercial communal fishing with prescribed gear outside prescribed waters' (s 14), and the regulation prescribes the recreational gear and 'a fish trap, meaning \"a structure made predominantly from stone or organic material that creates a holding area designed to capture a small quantity of fish\"'; see [fish traps](entry:fish-traps) and [nets](entry:nets) [ref:qld-fishact] [ref:qld-fishreg]. 'Using any noxious substance to take fish is an offence', as is using explosives or firearms (s 81); see [fish poisoning](entry:fish-poisoning) [ref:qld-fisheries-act]. 'A dam, weir or other barrier that limits fish movement in a waterway is a \"waterway barrier works\", and building one needs development approval' [ref:qld-fishact]. The limits: barramundi 'between 58 and 120 cm, with a limit of 5 per person, or 10 per boat', and on the Gulf rivers, which the Mitchell is, closed 'from 7 October to 31 January' with no targeting 'even for catch-and-release'; saratoga one fish at 50 cm or more; the grunters and the rest on the fresh-water limits page; 'set lines are not allowed' [ref:qld-limits] [ref:qld-closed] [ref:qld-fresh] [ref:qld-gear]. Mangroves 'are protected marine plants in Queensland under the *Fisheries Act 1994*; cutting them needs a permit' [ref:qld-fishact].\n\n**4. Pests.** 'The feral pig is a category 3, 4 and 6 restricted invasive animal under the *Biosecurity Act 2014*', the dingo 'a category 3, 4, 5 and 6 restricted invasive animal', and 'you must take all reasonable and practical measures that are under your control to minimise the biosecurity risks', the 'general biosecurity obligation'; the dingo 'can be controlled outside national parks and other protected areas' and is 'native wildlife' inside them [ref:qld-feral-pig] [ref:qld-dingo]. Rubber vine is a restricted invasive plant; see [weeds and ferals](entry:weeds-and-ferals) [ref:qld-rubber-vine]. Poison baits for dogs and pigs are controlled, and 'CSSP (yellow phosphorus) pig poison must not be used' [ref:qld-feral-pig] [ref:qld-wild-dog].\n\n**5. Fire.** 'A larger fire needs a Permit to Light Fire from the local Fire Warden, and no fire may be lit during a fire ban'; the station 'burns \"most of our country\" on a three-to-four-year cycle'; see [hunting with fire](entry:hunting-with-fire) [ref:qfd] [ref:kw-land].\n\n**6. Cultural heritage.** 'Queensland's *Aboriginal Cultural Heritage Act 2003* protects significant Aboriginal areas and objects and imposes a cultural heritage duty of care on everyone carrying out an activity'; 'anyone carrying out an activity in Queensland must take all reasonable and practicable measures not to harm Aboriginal cultural heritage', which covers the ochre pits, the grinding rocks, the scarred trees and the old camps; see [red ochre](entry:red-ochre) and [stone](entry:stone) [ref:qld-acha].\n\n**7. The station.** Karma Waters is a working cattle station; its induction, waiver and indemnity form, its bush-camping page and its land-management page are the rules on the ground: campfires 'restricted to the campsite', 'weapons and hunting dogs are not allowed' for visitors, wild dogs baited 'with strychnine in the wet season and 1080 later in the year', dogs kept away from the baited country, and the burning cycle [ref:kw-induction] [ref:kw-camping] [ref:kw-land] [ref:kw-cattle]. Native title holders and the station's lease share the country, and the plan in the Western Yalanji land-use document is the native title side of that arrangement [ref:wyac2020] [ref:kw-about].\n\n**8. Sea country.** On the coast, 'in the Marine Park the Reef's Traditional Owners manage traditional take under accredited Traditional Use of Marine Resources Agreements', the neighbouring Yuku-Baja-Muliku and Yirrganydji agreements set permit systems for turtle and dugong, and the Eastern Kuku Yalanji plan 'says dugong on their sea country are now too few to hunt for meat'; see [dugong](entry:dugong) and [sea turtle](entry:sea-turtle) [ref:gbrmpa-tu] [ref:jabalbina2016]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Which law for which thing",
+      "body": "- **A wallaby, a goanna, a turtle, a duck, a bustard**: protected wildlife; native title holders' take for personal, domestic or non-communal needs under s 211; the station's rule on weapons for visitors [ref:qld-nca] [ref:alrc] [ref:kw-induction].\n- **A barramundi, a saratoga, a grunter**: the Fisheries Act's limits, closures and gear rules, with the s 14 tradition defence and s 211 [ref:qld-limits] [ref:qld-closed] [ref:qld-fishact].\n- **A pig, a dingo, a cat, a toad**: not protected; the Biosecurity Act's obligations and the station's control programs [ref:qld-feral-pig] [ref:qld-dingo] [ref:kw-land].\n- **A zamia, a cycad**: 'special least concern', tighter than other plants [ref:qld-plants-reg].\n- **Mangroves**: protected marine plants [ref:qld-fishact].\n- **A fire**: a cooking fire at the campsite, or a permit [ref:qfd] [ref:kw-induction].\n- **An ochre pit, a grinding rock, a scarred tree**: cultural heritage with a duty of care [ref:qld-acha].\n- **A dugong, a sea turtle**: the Marine Park agreements and the Traditional Owners' plans [ref:gbrmpa-tu] [ref:jabalbina2016]."
+    },
+    {
+      "id": "signs",
+      "heading": "Where the rules are written",
+      "body": "- **The fresh-water size and possession limits** and the **gear rules**, Queensland Government pages [ref:qld-limits] [ref:qld-gear].\n- **The barramundi closed seasons** page [ref:qld-closed].\n- **The Biosecurity pages** for pigs, dingoes, wild dogs and rubber vine [ref:qld-feral-pig] [ref:qld-dingo] [ref:qld-wild-dog] [ref:qld-rubber-vine].\n- **The fire permit page** [ref:qfd].\n- **The station's induction form, camping page and land-management page** [ref:kw-induction] [ref:kw-camping] [ref:kw-land].\n- **The Western Yalanji land-use plan** [ref:wyac2020]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where each law runs",
+      "body": "The fisheries law on the river; the Nature Conservation Act everywhere; the Biosecurity Act on the station's lease; the Marine Park's rules on the coast; the Cultural Heritage Act at every old place; native title across the determined country [ref:qld-fishact] [ref:qld-nca] [ref:qld-feral-pig] [ref:gbrmpa-tu] [ref:qld-acha] [ref:wyac2020]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Why the limits are what they are",
+      "body": "The limits track the animals' lives: the saratoga's one-fish limit because it is 'slow to mature and few-egged'; the barramundi closure over the spawning months; the cycads' special status because they are slow and old; the dingo's double status because it is both a native animal and a stock killer; the Gouldian finch's listing because its grass and hollows are going [ref:qld-limits] [ref:qld-closed] [ref:qld-plants-reg] [ref:qld-dingo] [ref:re-woodland]. The old law had its own versions, in the dictionary's rules about who could eat the sand goanna and the stingray [ref:hershberger1982]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The barramundi closure from 7 October to 31 January; the fire-permit season as the dry deepens; the station's wet-season strychnine and later 1080 baiting; the wet-season road closures [ref:qld-closed] [ref:qfd] [ref:kw-land] [ref:kw-camping]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "What this page is for",
+      "body": "- **Before a hunt or a fishing trip**: which rule applies to the animal, the gear and the place.\n- **Before a fire**: the permit and the station's cycle [ref:qfd] [ref:kw-land].\n- **Before bringing a dog**: the baits [ref:kw-land].\n- **Before digging, cutting or camping at an old place**: the duty of care [ref:qld-acha].\n- **For visitors**: the induction and the camping page first [ref:kw-induction] [ref:kw-camping]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Checking before you take",
+      "body": "1. **Who are you on this country?** A native title holder's rights under s 211 are theirs; a visitor's are the recreational rules and the station's permission [ref:alrc] [ref:kw-induction].\n2. **What is it?** Protected wildlife, a fish with a limit, a feral, a cycad, a mangrove: find it in the list above.\n3. **How will you take it?** No poisons, explosives or firearms for fish; prescribed gear; no set lines; a stone or organic fish trap only [ref:qld-fisheries-act] [ref:qld-gear] [ref:qld-fishreg].\n4. **When?** The barramundi closure; the fire season; the baiting rounds [ref:qld-closed] [ref:qfd] [ref:kw-land].\n5. **Where?** The station's camps and tracks, and never an old place without care [ref:kw-camping] [ref:qld-acha].\n6. **How much?** 'Personal, domestic or non-commercial communal needs' is the measure in the native title law and in the old law both [ref:nta1993] [ref:hershberger1982].\n7. **When in doubt, ask**: the Western Yalanji corporation, the station, and Queensland Fisheries' and Environment's pages [ref:wyac2020] [ref:kw-about] [ref:qld-limits]."
+    },
+    {
+      "id": "safety",
+      "heading": "A note on this page",
+      "body": "- This page summarises public sources as the other pages cite them; it is not legal advice, and the Acts and the station's documents are the authority [ref:nta1993] [ref:qld-fishact] [ref:kw-induction].\n- The rules change; the Queensland pages cited carry their 'last updated' dates [ref:qld-limits] [ref:qld-gear].\n- Crocodiles and snakes do not read the law; see [Crocwise](entry:freshwater-crocodile) and [snakes](entry:snakes) [ref:crocwise]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Karma Waters is native title country and a cattle station at once, and the law on it is the two together [ref:kw-about] [ref:wyac2020]. The Western Yalanji's own rules for who takes what, and the names of the old law's rules, are for the holders and the contribution box below."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[bama](word:bama)* 'aborigine; people'; *[bubu](word:bubu)* 'a person's Country, where they belong'; *[minya](word:minya)* 'meat, eggs (protein food)'; *[kuyu](word:kuyu)* 'fish'; *[mayi](word:mayi)* 'vegetable food or fruit'; *[jadi](word:jadi)* 'sand goanna. Only old people are allowed to eat it'; *[ngalku](word:ngalku)* 'bush fire'; *[duli](word:duli)* 'burnt patch of grass' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "hooks-and-lines",
+    "fish-traps",
+    "nets",
+    "fish-poisoning",
+    "hunting-with-fire",
+    "zamia",
+    "red-ochre",
+    "pigs",
+    "dingo-and-dogs",
+    "weeds-and-ferals",
+    "dugong",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "jadi",
+      "gloss": "sand goanna. only old people are allowed to eat it."
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "nta1993",
+      "citation": "Native Title Act 1993 (Cth), section 211: preservation of certain native title rights and interests (hunting, fishing and gathering for personal, domestic or non-commercial communal needs).",
+      "url": "https://www.legislation.gov.au/C2004A04665/latest/text"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "qld-plants-reg",
+      "citation": "Nature Conservation (Plants) Regulation 2020 (Qld), current as at 22 May 2026.",
+      "url": "https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2020-0137",
+      "locator": "Sch. 1 pt 2 div 7 s 25 (least concern wildlife); sch. 2 (special least concern plants)"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "qld-fisheries-act",
+      "citation": "Fisheries Act 1994 (Qld), s 81 (use of explosives, firearms or noxious substances to take fish prohibited).",
+      "url": "https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "qld-limits",
+      "citation": "Queensland Government. Size and possession limits in fresh waters (web page, last updated 27 March 2026, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/limits-fresh"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing equipment rules: fresh waters (web page, last updated 26 March 2026, accessed 6 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "qld-closed",
+      "citation": "Queensland Department of Primary Industries. Closed seasons in fresh waters: barramundi (web page, accessed 5 October 2026).",
+      "url": "https://www.dpi.qld.gov.au/business-priorities/fisheries/closures/fresh/seasons"
+    },
+    {
+      "id": "qld-feral-pig",
+      "citation": "Queensland Government (Business Queensland). Feral pig: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/feral-pig"
+    },
+    {
+      "id": "qld-dingo",
+      "citation": "Queensland Government (Business Queensland). Dingo: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/dingo"
+    },
+    {
+      "id": "qfd",
+      "citation": "Queensland Fire Department. Fire permits: lighting fires in Queensland.",
+      "url": "https://fire.qld.gov.au/safety-education/using-fire-outdoors/lighting-fires-in-queensland"
+    },
+    {
+      "id": "qld-acha",
+      "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), s 23 (cultural heritage duty of care).",
+      "url": "https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "kw-induction",
+      "citation": "Karma Waters Station. Induction, waiver and indemnity form (updated 9 June 2023).",
+      "url": "https://www.karmawatersstation.com/uploads/3/1/9/2/31929385/induction_waiver_and_indemnity.pdf"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
+    },
+    {
+      "id": "gbrmpa-tu",
+      "citation": "Great Barrier Reef Marine Park Authority. Traditional use of the Marine Park; Traditional Use of Marine Resources Agreements (web pages, accessed 5 October 2026).",
+      "url": "https://www2.gbrmpa.gov.au/learn/traditional-owners/traditional-use-marine-resources-agreements"
+    },
+    {
+      "id": "jabalbina2016",
+      "citation": "Yalanjiwarra People & Jabalbina Yalanji Aboriginal Corporation (2016). Nganjinanga Bubu, Nganjinanga Jalun, Nganjinanga Bama Plan: Our Land, Our Sea, Our People Plan 2016–2021. Eastern Kuku Yalanji Indigenous Protected Area Management Plan, Stage 3. Mossman: Jabalbina.",
+      "url": "https://www.wettropicsplan.org.au/wp-content/uploads/2019/09/Eastern-Kuku-Yalanji-Indgenous-Protected-Area-Management-Plan-Stage-3-Yalanjiwarra-Land-and-Sea-Country.pdf",
+      "locator": "Sections 4, 7.9 (Wrong fishing and sea hunting), 7.10 and Action 9.2"
+    },
+    {
+      "id": "alrc-s211",
+      "citation": "Australian Law Reform Commission (2014). Review of the Native Title Act 1993, Discussion Paper 82, ch. 8: Relevant provisions in the Native Title Act (s 211, preservation of native title hunting, fishing, gathering and cultural activities).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "qld-fishreg",
+      "citation": "Fisheries (General) Regulation 2019 (Qld), current as at 1 July 2026: s 7 (recreational fishing apparatus) and s 21 (prescribed fishing apparatus for s 14 of the Act: fish trap).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/sl-2019-0179"
+    },
+    {
+      "id": "qld-fresh",
+      "citation": "Queensland Government. Size and possession limits in fresh waters: grunters (web page, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/limits-fresh"
+    },
+    {
+      "id": "qld-rubber-vine",
+      "citation": "Queensland Government (Business Queensland). Rubber vine: restricted invasive plant (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/plants/invasive/restricted/rubber-vine"
+    },
+    {
+      "id": "qld-wild-dog",
+      "citation": "Queensland Government (Business Queensland). Wild dog: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/wild-dog"
+    },
+    {
+      "id": "kw-cattle",
+      "citation": "Karma Waters Station. Cattle (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/cattle.html"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

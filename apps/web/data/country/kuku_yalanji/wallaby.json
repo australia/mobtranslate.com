@@ -89,7 +89,7 @@
     {
       "id": "description",
       "heading": "Description",
-      "body": "**Agile wallaby** (probably *[kadar](word:kadar)*). A large wallaby with a sandy-brown coat, a white stripe on each side of the face and on each thigh, black-edged ears and a black tail tip. Males weigh up to 27 kg, females around 15 kg, and body plus tail reach 1.8 m. Agile wallabies rest in the shade by day and graze in the late afternoon on grasses, legumes, herbs and fallen fruit, often in small groups [ref:nesp-agile]. Their scats lie in groups of four to eight around feeding and sleeping places. All wallabies leave similar tracks, with five clawed toes on the front foot [ref:nesp-agile].\n\n**Tree-kangaroos** (*[murral](word:murral)*, *[jarrabina](word:jarrabina)*). Both north Queensland species stand no more than 60 cm tall, with a tail almost a metre long. They live in the canopy eating leaves, ferns and wild fruit [ref:wtma-treeroo]. They often come down to the forest floor for fallen fruit or to cross between trees [ref:qpws-daintree].\n\n**Kangaroos** (*[julmbanu](word:julmbanu)*, *[mayarriji](word:mayarriji)*, *[nyarrkali](word:nyarrkali)*) are the big grazers of the open woodland. The dictionary distinguishes them mainly by colour, darker and lighter grey and black [ref:hershberger1982]."
+      "body": "**Agile wallaby** (probably *[kadar](word:kadar)*). A large wallaby with a sandy-brown coat, a white stripe on each side of the face and on each thigh, black-edged ears and a black tail tip. Males weigh up to 27 kg, females around 15 kg, and body plus tail reach 1.8 m. Agile wallabies rest in the shade by day and graze in the late afternoon on grasses, legumes, herbs and fallen fruit, often in small groups [ref:nesp-agile]. Their scats lie in groups of four to eight around feeding and sleeping places. All wallabies leave similar tracks, with five clawed toes on the front foot [ref:nesp-agile].\n\n**Tree-kangaroos** (*[murral](word:murral)*, *[jarrabina](word:jarrabina)*). Both north Queensland species stand no more than 60 cm tall, with a tail almost a metre long. They live in the canopy eating leaves, ferns and wild fruit [ref:wtma-treeroo]. They often come down to the forest floor for fallen fruit or to cross between trees [ref:qpws-daintree].\n\n**Kangaroos** (*[julmbanu](word:julmbanu)*, *[mayarriji](word:mayarriji)*, *[nyarrkali](word:nyarrkali)*) are the big grazers of the open woodland. The dictionary distinguishes them mainly by colour, darker and lighter grey and black [ref:hershberger1982].\n\n**The hill kangaroos of the Mitchell.** Around Karma Waters the Atlas records the agile wallaby (233 records within 60 km), the common wallaroo (45), the whiptail wallaby (28), the eastern grey kangaroo (30), the antilopine kangaroo (2) and two rock-wallabies, the Mareeba rock-wallaby (27) and Godman's rock-wallaby (35) [ref:ala-karma-60]. 'The Mareeba rock-wallaby is a rare species, found in the highlands west of Cairns from around Mount Garnet to the Mitchell River and Mount Carbine, and inland to Mungana, but only on the tops of a couple of mountain ranges'; after a big fire on a reserve near Einasleigh in 2019 'the population was thriving, with several new joeys spotted in their mothers' pouches', and the reserve's manager credited years of cool burns that let 'native grasses such as cockatoo grass and kangaroo grass' grow back under the trees [ref:wiki-rock-wallaby]. The antilopine wallaroo 'moves in groups of up to 30 that bunch together against people and dingoes', and the common wallaroo is 'mostly nocturnal and solitary, on the rocky hills' [ref:wiki-antilopine] [ref:wiki-wallaroo]. The dictionary's wallaby words are the coast's and have no rock-wallaby in them; the Western Yalanji word for the little grey kangaroo of the rock piles is for the contribution box below [ref:hershberger1982]."
     },
     {
       "id": "habitat",
@@ -270,6 +270,26 @@
       "id": "kw-about",
       "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
       "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "wiki-rock-wallaby",
+      "citation": "Wikipedia. Mareeba rock-wallaby.",
+      "url": "https://en.wikipedia.org/wiki/Mareeba_rock-wallaby"
+    },
+    {
+      "id": "wiki-antilopine",
+      "citation": "Wikipedia. Antilopine kangaroo (antilopine wallaroo).",
+      "url": "https://en.wikipedia.org/wiki/Antilopine_kangaroo"
+    },
+    {
+      "id": "wiki-wallaroo",
+      "citation": "Wikipedia. Common wallaroo.",
+      "url": "https://en.wikipedia.org/wiki/Common_wallaroo"
     }
   ],
   "review": {

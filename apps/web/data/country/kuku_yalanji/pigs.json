@@ -100,7 +100,7 @@
     {
       "id": "how-to",
       "heading": "Taking and cooking a pig",
-      "body": "**On a working station the station's rules come first**: where shooting and dogs are allowed, when baits are down, and what the induction says [ref:kw-induction] [ref:kw-land].\n\n1. **Read the sign** at the water in the morning: fresh rooting, wallows and tracks tell you the mob's size and its line back to the shade it lies up in by day.\n2. **Trap rather than chase** where numbers are low: build a mesh trap on a pad the pigs are already using, 'free feed pigs with non-poisoned bait for several days' with the gate tied open, then set a pig-specific trigger so that it 'pose[s] little danger to other wild or domestic animals' [ref:qld-feral-pig].\n3. **Dispatch cleanly** and at once; a wounded boar is dangerous and a wounded pig left in the lagoon fouls the water.\n4. **Butcher with gloves and covered cuts**, away from the water, and wash afterwards; 'transmission can occur during field-dressing or handling of infected carcasses, as *Brucella* bacteria can enter the body through skin abrasions, mucous membranes, or inhalation' [ref:wiki-brucellosis].\n5. **Singe the hair** off over the fire, *muyu wayjul*, scrape, gut, and cook on the coals or in the [earth oven](entry:earth-oven) [ref:hershberger1982].\n6. **Cook it right through**: 'thoroughly cook meat from feral pigs (and other game) before eating – freezing, smoking, drying and pickling do not kill the bacteria that cause brucellosis' [ref:nsw-brucellosis].\n7. **Do not feed raw pig to the dogs**; brucellosis in dogs passes on to people [ref:nsw-brucellosis].\n8. **Bury or burn the offal** away from the water, so the crocodile is not taught to come to the butchering place [ref:crocwise]."
+      "body": "**On a working station the station's rules come first**: the induction says 'weapons and hunting dogs are not allowed' for visitors, the land-management page says when the baits are down, and native title holders arrange their own hunting with the station [ref:kw-induction] [ref:kw-land] [ref:kw-about].\n\n1. **Read the sign** at the water in the morning: fresh rooting, wallows and tracks tell you the mob's size and its line back to the shade it lies up in by day.\n2. **Trap rather than chase** where numbers are low: build a mesh trap on a pad the pigs are already using, 'free feed pigs with non-poisoned bait for several days' with the gate tied open, then set a pig-specific trigger so that it 'pose[s] little danger to other wild or domestic animals' [ref:qld-feral-pig].\n3. **Dispatch cleanly** and at once; a wounded boar is dangerous and a wounded pig left in the lagoon fouls the water.\n4. **Butcher with gloves and covered cuts**, away from the water, and wash afterwards; 'transmission can occur during field-dressing or handling of infected carcasses, as *Brucella* bacteria can enter the body through skin abrasions, mucous membranes, or inhalation' [ref:wiki-brucellosis].\n5. **Singe the hair** off over the fire, *muyu wayjul*, scrape, gut, and cook on the coals or in the [earth oven](entry:earth-oven) [ref:hershberger1982].\n6. **Cook it right through**: 'thoroughly cook meat from feral pigs (and other game) before eating – freezing, smoking, drying and pickling do not kill the bacteria that cause brucellosis' [ref:nsw-brucellosis].\n7. **Do not feed raw pig to the dogs**; brucellosis in dogs passes on to people [ref:nsw-brucellosis].\n8. **Bury or burn the offal** away from the water, so the crocodile is not taught to come to the butchering place [ref:crocwise]."
     },
     {
       "id": "safety",
@@ -195,6 +195,11 @@
       "id": "crocwise",
       "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
       "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
     }
   ],
   "review": {

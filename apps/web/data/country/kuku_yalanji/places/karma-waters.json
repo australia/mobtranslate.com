@@ -172,7 +172,9 @@
         "quolls-bandicoots-and-rats",
         "lizards",
         "termites-and-ant-beds",
-        "wattles-and-grevilleas"
+        "wattles-and-grevilleas",
+        "insects-and-grubs",
+        "weeds-and-ferals"
       ]
     },
     {
@@ -216,7 +218,8 @@
         "bites-and-stings",
         "camps-and-firewood",
         "cooking-meat",
-        "tracks-and-signs"
+        "tracks-and-signs",
+        "law-hunting-and-fishing"
       ]
     },
     {

@@ -1,0 +1,244 @@
+{
+  "slug": "weeds-and-ferals",
+  "title": "Weeds and feral animals",
+  "category": "plant",
+  "names": [
+    {
+      "word": "biki",
+      "gloss": "pig (also reduplicated as bikibiki)"
+    },
+    {
+      "word": "wunba",
+      "gloss": "name of the English bee and its honey. Also used for honey bought in store"
+    },
+    {
+      "word": "nyamun",
+      "gloss": "rubbish, (but not household rubbish) such as dead leaves or stuff washed up on the beach."
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The Atlas of Living Australia's records within 30 and 60 km of Karma Waters of the introduced plants and animals, with Queensland's biosecurity pages. The dictionary has borrowed words for the pig and the English bee and none for the weeds."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "The dictionary has words for the things that came with the settlers, **[biki](word:biki)** the pig and **[wunba](word:wunba)** 'the English bee and its honey', and none for the plants that came with them, which is a measure of how new they are [ref:hershberger1982]. At [Karma Waters](place:karma-waters) the weeds in the Atlas are led by **rubber vine**, thirteen records within 30 km, 'a woody-perennial vine that is native to south-west Madagascar', 'sometimes regarded as the worst weed in all of Australia', which 'smothers riparian vegetation and forms dense thickets', 'is extremely toxic to horses and cattle' and 'can grow as much as five metres in one month' [ref:ala-karma-plants] [ref:wiki-rubber-vine] [ref:qld-rubber-vine]. Behind it come **hyptis**, six records, a minty square-stemmed weed of the flats; **red Natal grass**, three; **devil's claw**, with its hooked fruits; **common wireweed**; and the cattle-forage **stylo** [ref:ala-karma-plants] [ref:wiki-hyptis] [ref:wiki-melinis] [ref:wiki-martynia] [ref:wiki-sida-acuta] [ref:wiki-stylo]. The feral animals within 60 km are the [pigs](entry:pigs), forty-five records, the **cats**, thirty-three, the [cane toads](entry:frogs), the [wild dogs](entry:dingo-and-dogs), the rabbits, the black rats and house mice, and the station's own cattle and horses [ref:ala-karma-60] [ref:kw-cattle]. 'There are estimated to be up to 6 million feral cats found in almost every remote area across the country', descended from the First Fleet's and from cats released in the 1860s and 1870s to control rat plagues [ref:wiki-feral-cats]. Queensland's *Biosecurity Act 2014* lists rubber vine, pigs and dingoes as restricted and puts a 'general biosecurity obligation' on everyone on the land, which on a station means burning, baiting, trapping and pulling [ref:qld-rubber-vine] [ref:qld-feral-pig] [ref:qld-dingo] [ref:kw-land].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "biki (pig); wunba (English bee); nyamun (rubbish, dead leaves, leaf mould): the dictionary has no words for the weeds"
+    },
+    {
+      "label": "Weeds at Karma Waters (ALA, 30 km)",
+      "value": "Rubber vine (13), hyptis (6), red Natal grass (3), shrubby stylo (1), devil's claw (1), common wireweed (1), grader grass (1), sponge gourd (1)"
+    },
+    {
+      "label": "Ferals (ALA, 60 km)",
+      "value": "Cattle (131), wild dogs and dingoes (58), pigs (45), cats (33), house mouse (25), black rat (6), horses (6), rabbit (4), cane toad (5 within 30 km)"
+    },
+    {
+      "label": "Worst",
+      "value": "Rubber vine on the river, pigs on the lagoons, cats on the small mammals and birds, toads on the goannas and quolls"
+    },
+    {
+      "label": "Law",
+      "value": "Biosecurity Act 2014: restricted invasive plants and animals; the general biosecurity obligation"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[biki](word:biki)**, **[bikibiki](word:bikibiki)** 'pig'; **[wunba](word:wunba)** 'name of the English bee and its honey. Also used for honey bought in store'; **[kaya](word:kaya)** 'dog' beside **[murramu](word:murramu)** 'dingo'; **[nyamun](word:nyamun)** 'rubbish, (but not household rubbish) such as dead leaves or stuff washed up on the beach. Also leaf mould from scrub, good for growing things' [ref:hershberger1982]. The weeds have no names in the dictionary. 'Rubber vine', 'hyptis', 'stylo', 'Natal grass' and 'grader grass' are the station's English."
+    },
+    {
+      "id": "description",
+      "heading": "The weeds and ferals of the upper Mitchell",
+      "body": "**Rubber vine** (*Cryptostegia grandiflora*), thirteen records within 30 km. 'A woody-perennial vine that is native to south-west Madagascar. It is also a significant weed in northern Australia, sometimes regarded as the worst weed in all of Australia. It has also been introduced to most other tropical and subtropical regions because of its attractive flowers and its latex containing commercial quality rubber'. 'Seeds germinate after the first rains of the wet season ... if enough water is available, rubber vine can grow as much as five metres in one month. Flowering usually occurs after the wet season ends'; 'evidence shows individual seed dispersal as far as ten kilometres'; 'a rubber vine can grow up to 2 metres tall as a shrub, but when it is supported on other vegetation as a vine, it can reach up to 30 metres'; 'rubber vine thrives on (and requires) the extreme variability of rainfall and streamflow characteristic of central Queensland' [ref:wiki-rubber-vine]. Queensland: 'native to Madagascar, rubber vine is a vigorous climber with twining, whip-like shoots. It can grow unsupported as an untidy shrub with many stems. Rubber vine smothers riparian vegetation and forms dense thickets. It is found in central and northern Queensland', and it is a restricted invasive plant with a herbicide fact sheet [ref:qld-rubber-vine]. The [woodland](entry:woodland) page has it as 'extremely toxic to horses and cattle' [ref:wiki-rubber-vine].\n\n**Hyptis, pignut** (*Mesosphaerum suaveolens*), six records. 'A branching pseudocereal plant native to tropical regions of Mexico, Central, the West Indies, and South America, as well as being naturalized in tropical parts of Africa, Asia and Australia. It is generally 1–1.5 m tall, occasionally up to 3 m. Stems are hairy, and square in cross section. Leaves are oppositely arranged, 2–10 cm long, with shallowly toothed margins, and emit a strong minty odor if crushed. Flowers are pink or purple' [ref:wiki-hyptis]. In its home countries the seed is 'made into a refreshing drink by soaking the seeds in water', which is a thing to know about a weed that covers the flats [ref:wiki-hyptis].\n\n**Red Natal grass** (*Melinis repens*), three records. 'A species of grass known by the common names rose Natal grass, Natal red top, or simply Natal grass. It is native to southern Africa and an introduced species, often considered a noxious weed, on other continents such as North America and Australia. It is an annual or perennial grass, growing up to a meter tall ... The inflorescence is an open array of branches bearing spikelets densely coated in silky white or pink' [ref:wiki-melinis]. **Grader grass** (*Themeda quadrivalvis*), one record, is an introduced annual cousin of the kangaroo grass, spread along the roads as its name says [ref:ala-karma-plants].\n\n**Devil's claw** (*Martynia annua*), one record. 'An erect, somewhat shrubby annual plant about 1 metre tall, covered with glandular hairs'; 'fruits become blackened when ripe and have hooked spines at the tip, lending their name \"cat's claw\" or \"tiger's claw\". They stick to animal fur and eventually the seeds fall out as the fruit gets crushed by the animal's feet' [ref:wiki-martynia]. **Common wireweed** (*Sida acuta*), one record, 'is believed to have originated in Central America, but today has a pantropical distribution and is considered a weed' [ref:wiki-sida-acuta]. **Shrubby stylo** (*Stylosanthes scabra*), one record, 'native to tropical South America, and introduced to Hawaii and Australia', 'widely planted as a drought-tolerant livestock forage', which is how it came to the station country [ref:wiki-stylo]. The sponge gourd *Luffa aegyptiaca*, one record, Palmer's 'Bun-bun', was already 'a vine growing in the bed of the Mitchell' in 1883, 'used to poison fish when green'; see [fish-poison plants](entry:fish-poison-plants) [ref:palmer1883] [ref:ala-karma-plants].\n\n**Feral cats.** 'There are estimated to be up to 6 million feral cats found in almost every remote area across the country'; 'several native species have evolved cat-like characteristics through a process of convergent evolution, including the marsupial quolls, known as a \"native cat\"'; 'historical records date the introduction of cats to the First Fleet in 1788'; 'in 1864 a mass release of cats in the Lachlan River in New South Wales was aimed at controlling a rat plague. Similar introductions to control rodent plagues occurred in rural areas of Western Australia and Victoria in the 1860s, and the Warrego River in Queensland in 1874' [ref:wiki-feral-cats]. Thirty-three records within 60 km of the homestead; the [quolls, bandicoots and rats](entry:quolls-bandicoots-and-rats), the [lizards](entry:lizards) and the ground birds are what they eat [ref:ala-karma-60].\n\n**Pigs, dogs, toads, cattle, horses, rabbits, rats.** The [pigs](entry:pigs) page has Queensland's 2.3 million and the damage; the [dingo and dogs](entry:dingo-and-dogs) page the wild-dog law and the station's baiting; the [frogs](entry:frogs) and [goanna](entry:goanna) pages the cane toad's toll; the [woodland](entry:woodland) page the station's cattle [ref:qld-feral-pig] [ref:qld-dingo] [ref:wiki-cane-toads] [ref:kw-cattle]. The rabbit's four records within 60 km are the surprise of the list [ref:ala-karma-60]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling the weeds from the natives",
+      "body": "- **Rubber vine**: glossy dark paired leaves, milky sap, big pale-pink trumpet flowers, long paired pods full of silky seed, climbing the river trees; the native milky vines of the bank do not climb thirty metres [ref:wiki-rubber-vine] [ref:qld-rubber-vine].\n- **Hyptis**: square hairy stems, a mint smell when crushed, small purple flowers in the leaf axils [ref:wiki-hyptis].\n- **Red Natal grass**: a pink silky plume; the native [blady grass](entry:blady-grass) plume is white and the [kangaroo grass](entry:wild-rice-and-grass-seed) rusty [ref:wiki-melinis].\n- **Devil's claw**: sticky rhubarb-like leaves and a black hooked fruit [ref:wiki-martynia].\n- **Stylo**: a low leguminous shrub with three-part leaves and small yellow pea flowers, planted for stock [ref:wiki-stylo].\n- **A cat's track**: round, no claws, in a straight line; a quoll's shows claws and toes [ref:wiki-feral-cats].\n- **Pig rooting, cattle pads, horse dung, rabbit scrapes**: see [tracks and signs](entry:tracks-and-signs)."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A river bank gone dark green and tangled** under a curtain of vine: rubber vine [ref:qld-rubber-vine].\n- **Silky seed blowing** off the vine in the dry: next wet's crop, up to ten kilometres away [ref:wiki-rubber-vine].\n- **A mint smell** from the weeds on a disturbed flat: hyptis [ref:wiki-hyptis].\n- **Pink plumes** on a road verge: Natal grass [ref:wiki-melinis].\n- **Hooked burrs** in a dog's coat or a cow's tail: devil's claw [ref:wiki-martynia].\n- **Feathers and a half-eaten skink** at a hollow log's mouth: a cat [ref:wiki-feral-cats].\n- **Dead goannas and quolls**, and frogs by the hundred at the lights: the toads [ref:wiki-cane-toads]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they are",
+      "body": "Rubber vine on the river and creek banks and anywhere it can climb; hyptis, wireweed and devil's claw on the trampled, disturbed flats and yards; Natal grass and grader grass on the roads; stylo where it was sown; the cats everywhere the small animals are; the pigs on the lagoons; the toads at the water [ref:qld-rubber-vine] [ref:wiki-hyptis] [ref:wiki-melinis] [ref:ala-karma-60]."
+    },
+    {
+      "id": "ecology",
+      "heading": "What they do to the country",
+      "body": "Rubber vine takes the river: it smothers the [paperbarks](entry:paperbark), the [Leichhardt trees](entry:leichhardt-tree) and the [river red gums](entry:river-red-gum) under thirty metres of vine, closes the banks, poisons the stock and feeds its seed down the river to the next station [ref:wiki-rubber-vine] [ref:qld-rubber-vine]. The pasture weeds take the flats after the cattle and the fire have opened them, and the flats are where the [finches](entry:bush-birds) and the [bustard](entry:bustard) feed on the native seed [ref:wiki-hyptis] [ref:wiki-btf]. The cat hunts what the [dingo](entry:dingo-and-dogs) and the [quoll](entry:quolls-bandicoots-and-rats) hunted, from the rock rat to the frilled lizard, and the toad kills the hunters [ref:wiki-feral-cats] [ref:wiki-cane-toads]. Fire is the station's answer to the vine and the grass, 'to clear excess fuel and control weeds', and the cool, late burn the finches need is the same burn the rubber vine hates least, which is the dilemma of the river [ref:kw-land] [ref:pbg-cape-york]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Rubber vine germinates 'after the first rains of the wet season', grows fastest in the wet, flowers and seeds after it, and blows its seed in the dry; the pasture weeds follow the wet; the station burns in the early and late dry; the pigs breed up after the wet [ref:wiki-rubber-vine] [ref:kw-land] [ref:qld-feral-pig]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses, such as they are",
+      "body": "- **Pig**: the one feral that is food; see [pigs](entry:pigs) [ref:hershberger1982].\n- **Hyptis seed** as a drink in its home countries; not a recorded use here [ref:wiki-hyptis].\n- **Stylo** as cattle feed, which is why it was sown [ref:wiki-stylo].\n- **Sponge gourd** as Palmer's fish poison and a scrubbing sponge [ref:palmer1883].\n- **Devil's claw fruits** 'for making beads and ornaments' elsewhere [ref:wiki-martynia].\n- **Firewood**: dead rubber vine burns; the live vine's milky sap does not go on the cooking fire."
+    },
+    {
+      "id": "how-to",
+      "heading": "Fighting the weeds and ferals on country",
+      "body": "1. **Rubber vine**: the station's cycle of fire and the herbicide fact sheet are the tools; pull or cut seedlings on the bank before they climb, and never carry the silky seed on clothes or a vehicle from an infested creek to a clean one [ref:qld-rubber-vine] [ref:kw-land].\n2. **Pasture weeds**: cool burns and keeping the native grass seeding; see [wild rice and grass seed](entry:wild-rice-and-grass-seed) [ref:pbg-cape-york].\n3. **Pigs**: trap with pre-feeding and pig-specific triggers; see [pigs](entry:pigs) [ref:qld-feral-pig].\n4. **Cats**: keep food and rubbish closed at the camp, and report them to the station [ref:wiki-feral-cats].\n5. **Toads**: no local fix; the [keelback](entry:archerfish-and-small-fish), the [rakali](entry:quolls-bandicoots-and-rats) and the crows have learnt to eat them, and the goannas have not [ref:wiki-cane-toads].\n6. **Dogs**: keep yours away from the baits and the stock; see [dingo and dogs](entry:dingo-and-dogs) [ref:kw-land].\n7. **Know the obligation**: 'you must take all reasonable and practical measures that are under your control to minimise the biosecurity risks', the Act's general biosecurity obligation [ref:qld-dingo]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Rubber vine's milky sap irritates skin and eyes, and the plant 'is extremely toxic to horses and cattle' [ref:wiki-rubber-vine].\n- Herbicides and baits by the label and the law; see [the law page](entry:law-hunting-and-fishing) [ref:qld-rubber-vine] [ref:qld-wild-dog].\n- Pigs carry brucellosis to the butcher; see [pigs](entry:pigs) [ref:nsw-brucellosis].\n- Toads poison dogs that mouth them [ref:wiki-cane-toads]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The rubber vine on the Mitchell and the pigs on the lagoons are the biggest changes to Karma Waters' country since the cattle came, and the station's fire, baits and traps are the fight [ref:ala-karma-plants] [ref:kw-land]. What the Western Yalanji call the weeds, and what they want done about them, is for the holders and the contribution box below [ref:wyac2020]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[biki](word:biki)* 'pig'; *[wunba](word:wunba)* 'the English bee and its honey'; *[kaya](word:kaya)* 'dog'; *[murramu](word:murramu)* 'dingo'; *[nyamun](word:nyamun)* 'rubbish, dead leaves, leaf mould'; *[ngalku](word:ngalku)* 'bush fire'; *[jikan](word:jikan)* 'grass' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "pigs",
+    "dingo-and-dogs",
+    "frogs",
+    "woodland",
+    "waterhole",
+    "river-red-gum",
+    "hunting-with-fire",
+    "law-hunting-and-fishing",
+    "quolls-bandicoots-and-rats",
+    "seasons"
+  ],
+  "relatedWords": [],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "wiki-rubber-vine",
+      "citation": "Wikipedia. Cryptostegia grandiflora (rubber vine).",
+      "url": "https://en.wikipedia.org/wiki/Cryptostegia_grandiflora"
+    },
+    {
+      "id": "qld-rubber-vine",
+      "citation": "Queensland Government (Business Queensland). Rubber vine: restricted invasive plant (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/plants/invasive/restricted/rubber-vine"
+    },
+    {
+      "id": "wiki-hyptis",
+      "citation": "Wikipedia. Mesosphaerum suaveolens (hyptis, pignut).",
+      "url": "https://en.wikipedia.org/wiki/Mesosphaerum_suaveolens"
+    },
+    {
+      "id": "wiki-melinis",
+      "citation": "Wikipedia. Melinis repens (red Natal grass).",
+      "url": "https://en.wikipedia.org/wiki/Melinis_repens"
+    },
+    {
+      "id": "wiki-martynia",
+      "citation": "Wikipedia. Martynia annua (devil's claw).",
+      "url": "https://en.wikipedia.org/wiki/Martynia"
+    },
+    {
+      "id": "wiki-sida-acuta",
+      "citation": "Wikipedia. Sida acuta (common wireweed).",
+      "url": "https://en.wikipedia.org/wiki/Sida_acuta"
+    },
+    {
+      "id": "wiki-stylo",
+      "citation": "Wikipedia. Stylosanthes scabra (shrubby stylo).",
+      "url": "https://en.wikipedia.org/wiki/Stylosanthes_scabra"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "kw-cattle",
+      "citation": "Karma Waters Station. Cattle (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/cattle.html"
+    },
+    {
+      "id": "wiki-feral-cats",
+      "citation": "Wikipedia. Feral cats in Australia.",
+      "url": "https://en.wikipedia.org/wiki/Feral_cats_in_Australia"
+    },
+    {
+      "id": "qld-feral-pig",
+      "citation": "Queensland Government (Business Queensland). Feral pig: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/feral-pig"
+    },
+    {
+      "id": "qld-dingo",
+      "citation": "Queensland Government (Business Queensland). Dingo: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/dingo"
+    },
+    {
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "wiki-cane-toads",
+      "citation": "Wikipedia. Cane toads in Australia: effects on native predators (goannas, snakes, freshwater crocodiles) and on dogs.",
+      "url": "https://en.wikipedia.org/wiki/Cane_toads_in_Australia"
+    },
+    {
+      "id": "wiki-btf",
+      "citation": "Wikipedia. Black-throated finch.",
+      "url": "https://en.wikipedia.org/wiki/Black-throated_finch"
+    },
+    {
+      "id": "pbg-cape-york",
+      "citation": "Queensland Parks and Wildlife Service (2013). Planned Burn Guidelines: Cape York Peninsula Bioregion of Queensland. Department of National Parks, Recreation, Sport and Racing.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0019/151480/pbg-cape-york.pdf",
+      "locator": "'Fire in the monsoonal tropics of the Cape York Peninsula bioregion'; ch. 1–2 season guidance (storm burns)"
+    },
+    {
+      "id": "qld-wild-dog",
+      "citation": "Queensland Government (Business Queensland). Wild dog: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/wild-dog"
+    },
+    {
+      "id": "nsw-brucellosis",
+      "citation": "NSW Health. Brucellosis: fact sheet (accessed 10 October 2026).",
+      "url": "https://www.health.nsw.gov.au/Infectious/factsheets/Pages/brucellosis.aspx"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
