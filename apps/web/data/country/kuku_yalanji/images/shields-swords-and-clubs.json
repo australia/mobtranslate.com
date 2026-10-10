@@ -1,0 +1,29 @@
+{
+  "slug": "shields-swords-and-clubs",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/shields-swords-and-clubs/north-queensland-shield-berlin.webp",
+      "width": 1011,
+      "height": 1600,
+      "alt": "A tall painted wooden shield from North Queensland, photographed against a plain background in a museum",
+      "caption": "A North Queensland shield in the Ethnological Museum, Berlin, collected in 1913: the big painted plank cut from a buttress flange, of the kind Roth described at the Tully and the Bloomfield.",
+      "kind": "museum",
+      "credit": "Photograph: FA2010, Wikimedia Commons; object in the Ethnological Museum, Berlin (Edlinger collection, 1913)",
+      "licence": "PD",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shield_Australia_5_EthnM.jpg",
+      "location": "Ethnological Museum, Berlin"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/shields-swords-and-clubs/rainforest-shield-met.webp",
+      "width": 900,
+      "height": 1200,
+      "alt": "A painted wooden rainforest shield with a central boss, from north-eastern Queensland, in a museum photograph",
+      "caption": "Shield, mid to late 19th century, north-eastern Queensland, wood and paint, 77.5 by 36.2 cm; the Metropolitan Museum of Art, New York (1979.206.1802). The central boss and the painted design are the rainforest pattern.",
+      "kind": "museum",
+      "credit": "Photograph: the Metropolitan Museum of Art, via Wikimedia Commons",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Escudo_Tropical_dos_Povo_Yidinj_da_Austr%C3%A1lia.jpg",
+      "location": "Metropolitan Museum of Art, New York"
+    }
+  ]
+}
