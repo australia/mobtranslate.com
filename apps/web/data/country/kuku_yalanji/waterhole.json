@@ -1,0 +1,382 @@
+{
+  "slug": "waterhole",
+  "title": "The waterhole",
+  "category": "water",
+  "names": [
+    {
+      "word": "yarru",
+      "gloss": "deep water hole"
+    },
+    {
+      "word": "dajali",
+      "gloss": "deep water"
+    },
+    {
+      "word": "yalkan",
+      "gloss": "shallow water"
+    },
+    {
+      "word": "wawubaja",
+      "gloss": "river"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary gives yarru for a 'deep water hole' and the surrounding water words directly. The natural history on this page comes from Mitchell River and other northern-river studies, with Atlas of Living Australia records placing each animal within 30 km of the Karma Waters homestead; where a finding comes from another river (Daly, Flinders, Fergusson, McKinlay) the text says so."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "A waterhole, **[yarru](word:yarru)** in the dictionary's sense of 'deep water hole', is the pool that is left when a sand-bed river like the Mitchell stops flowing [ref:hershberger1982]. From about May to the first storms, the river at [Karma Waters](place:karma-waters) is a chain of pools joined by trickles or dry sand, and everything that lives in the river is packed into them [ref:kw-about] [ref:asfb2018-flinders]. That makes the waterhole the best place on country to understand how the river animals live with each other: the [cherabin](entry:cherabin) that graze the algae on the sand banks at night, the [catfish](entry:catfish) that leave the deep water after dark to hunt them in the shallows, the [black bream](entry:black-bream) that take prawns and fruit in the daytime around the rock bars, the [barramundi](entry:barramundi), [mouth almighty](entry:mouth-almighty) and [sleepy cod](entry:sleepy-cod) that ambush at dusk and in the dark, the [freshwater crocodile](entry:freshwater-crocodile) that feeds along the edge by day, the [turtles](entry:freshwater-turtle) working the bottom, and above them the darters, cormorants, kingfishers, kites and the night heron that each take their turn [ref:jardine2012] [ref:pusey2004-hyrtlii] [ref:wiki-mouth-almighty] [ref:webb1982] [ref:ala-karma-river]. Underneath all of it is a film of algae growing on sand and rock in the sunlight, which Mitchell River research found is what feeds the fish of the waterholes [ref:jardine2013]. This page is the hub for the river pages: it follows the pool through one day and through one year, and says who eats whom, and when.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "yarru (deep water hole); bana (water); wawubaja (river)"
+    },
+    {
+      "label": "What it is",
+      "value": "A dry-season pool in a sand-bed river, with a deep hole, shallows, sand banks, rock bars, undercut banks and snags"
+    },
+    {
+      "label": "Food base",
+      "value": "Algae and biofilm on sand and rock, grazed by prawns, snails and insect larvae"
+    },
+    {
+      "label": "Night shift",
+      "value": "Catfish, prawns, mouth almighty, sleepy cod, night heron"
+    },
+    {
+      "label": "Day shift",
+      "value": "Sooty grunter, archerfish, saratoga, crocodiles, darters, cormorants, kingfishers, kites"
+    },
+    {
+      "label": "Dusk and dawn",
+      "value": "Barramundi, surface feeders, the changeover"
+    },
+    {
+      "label": "Best season",
+      "value": "Early to mid dry (May–August); late dry pools are crowded, hot and dangerous"
+    },
+    {
+      "label": "At Karma Waters",
+      "value": "The Mitchell River pools below the homestead; river camps open 1 April – 30 November"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives **[yarru](word:yarru)** for a 'deep water hole'. The same word names a being in story, which is not a matter for this page; Traditional Owners speak about that [ref:hershberger1982]. Around it sit the plain words for water country: **[bana](word:bana)** 'water', **[wawubaja](word:wawubaja)** 'river', **[yilki](word:yilki)** 'creek', **[dajali](word:dajali)** 'deep water', **[yalkan](word:yalkan)** 'shallow water', **[yaral](word:yaral)** 'fresh water', **[mabil](word:mabil)** and **[walngka](word:walngka)** 'swamp', **[jalungkarr](word:jalungkarr)** 'flood' and **[marral](word:marral)** 'dry' [ref:hershberger1982].\n\nFor the parts of a pool: **[yikin](word:yikin)** 'bank', **[jalkar](word:jalkar)** 'high bank', **[jukar](word:jukar)** 'sand', **[jalngarr](word:jalngarr)** 'flat rock', **[jinali](word:jinali)** 'smooth rock', **[walmba](word:walmba)** 'log', **[walngkal](word:walngkal)** 'to float, as a log on the water', **[kababina](word:kababina)** 'fresh water lily' and **[wurrbal](word:wurrbal)** 'fog, mist rising from the river' [ref:hershberger1982]. One word says a lot about how people used waterholes: **[wuwu-damaji](word:wuwu-damaji)**, 'to go back all the time to the same place, as a good place to fish' [ref:hershberger1982].\n\nThese are Eastern Kuku Yalanji words recorded at Bloomfield. The Western Yalanji words for the Mitchell River pools are not in the dictionary; if you know them, add them below."
+    },
+    {
+      "id": "description",
+      "heading": "The parts of a waterhole",
+      "body": "The Mitchell rises in the ranges inland of Mossman and runs north-west past Mount Carbine through Karma Waters before swinging west to the Gulf of Carpentaria [ref:kw-about]. Up here it is a sand-bed river: in the wet season it is a wide, brown, fast river that spreads over its banks; in the dry it shrinks to a string of pools between banks of pale sand, with bars of hard Hodgkinson Formation rock across the bed and a fringe of [paperbark](entry:paperbark) along the water [ref:kw-about] [ref:re9314]. The station names its river camps for exactly these pools [ref:kw-about].\n\nA dry-season pool has a few distinct parts, and each has its own animals:\n\n- **The deep hole** ([dajali](word:dajali)): the coolest, darkest water, where the big fish and the catfish spend the day and where the pool lasts longest into the dry [ref:pusey2004-hyrtlii] [ref:waterhole-temps].\n- **The shallows** ([yalkan](word:yalkan)) and the algae-covered sand banks: the feeding ground at night for prawns and catfish, and the place small fish and tadpoles gather [ref:pusey2004-hyrtlii] [ref:cdu2016].\n- **Rock bars and riffles**: where the current still runs between pools; sooty grunter hold in fast shallow water over rock, day and night, and big male cherabin hole up under the rocks late in the dry [ref:crook2021] [ref:cdu2016].\n- **Undercut banks, roots and snags**: cover for juvenile prawns early in the dry, ambush posts for sleepy cod and barramundi, and the places turtles and catfish hide [ref:cdu2016] [ref:angfa-sleepy].\n- **The edge and the sand**: the crocodile's hunting ground and basking place, the mud where tracks are written, and where the kingfishers, herons and the stork work [ref:webb1982] [ref:am-stork].\n- **The air above**: darters and cormorants drying their wings on snags, kites and the sea-eagle circling, swifts and bee-eaters over the water in the evening [ref:ala-karma-river]."
+    },
+    {
+      "id": "signs",
+      "heading": "Reading a pool: signs and tracks",
+      "body": "You can read a pool before you see a single fish.\n\n- **Birds tell you what is in the water.** Darters and cormorants sitting on snags with their wings out have been fishing; little pied cormorants on inland water are usually after crustaceans, little black cormorants after fish [ref:wiki-darter] [ref:am-little-pied-cormorant] [ref:wiki-little-black-cormorant]. An azure kingfisher on a low branch means small fish and shrimps in the shallows below it [ref:wiki-azure-kingfisher]. A black-necked stork or egrets stalking the edge mean small fish, prawns and frogs in the shallows [ref:am-stork]. The dictionary records a bird, **[kurrujuwa](word:kurrujuwa)**, as a 'sentry bird which warns of crocodiles along the banks of the river' [ref:hershberger1982].\n- **Slides and tracks.** A smooth slide down a sand bank into the water, with claw marks beside it, is a crocodile's; freshwater crocodiles bask on sand and rock bars and feed along the edge [ref:webb1982]. Turtle tracks are paired flipper drags with a tail line between them.\n- **Eyes at night.** A torch across the shallows picks up the eyeshine of prawns on the sand banks, where they feed after dark, and the red eyes of crocodiles at the surface [ref:lammers2009] [ref:seebacher2005].\n- **Rises and swirls.** Fish taking insects off the surface in the evening are saratoga, archerfish and rainbowfish; a heavy boil near a snag at dusk is a barramundi [ref:wiki-saratoga] [ref:angfa-archer] [ref:ntgov-barra].\n- **Shells and bones.** Piles of opened freshwater mussel ([mukirr](word:mukirr)) shells on a bank are left by birds and water rats; crayfish and prawn remains under a kingfisher's perch tell you what it has been catching [ref:hershberger1982] [ref:wiki-azure-kingfisher].\n- **Mist at dawn.** [wurrbal](word:wurrbal), the fog rising off the river, sits on the pools in the cold mornings of the mid dry [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "The Mitchell's pools at Karma Waters",
+      "body": "Within 30 km of the Karma Waters homestead the Atlas of Living Australia has records of the whole cast of a Mitchell waterhole: rainbowfish, banded grunter, mouth almighty, sooty grunter, spangled perch, bony bream, both eel-tailed catfish (Hyrtl's and black), sleepy cod, Gulf saratoga and archerfish; redclaw crayfish and the freshwater mussel *Velesunio angasi*; the northern yellow-faced turtle and the freshwater crocodile; keelback snakes, several tree frogs and the cane toad; and a long list of waterbirds, among them darter, little pied, little black, pied and great cormorants, pelican, great, intermediate and little egrets, white-faced and white-necked herons, nankeen night heron, black-necked stork, both ibises, two spoonbills, five kingfishers, whistling and black kites, white-bellied sea-eagle, osprey, comb-crested jacana and green pygmy goose [ref:ala-karma-river]. Barramundi and cherabin are part of the Mitchell system but thin this far upstream; see their own pages [ref:ala-karma-river].\n\nResearch on the Mitchell has looked at exactly this kind of pool. In the dry season the river's food web rests on periphyton, the algae and biofilm growing on sand and rock in the sunlit shallows: that carbon, not leaf litter from the banks, is what supports the fish biomass in the waterholes [ref:jardine2013]. Snails, insect larvae and prawns graze it; the fish eat them. The same work found the Mitchell's fish are highly mobile, moving between pools, channel and floodplain whenever flows connect them, so the animals in a pool in October are not all the animals that were there in May [ref:jardine2012] [ref:jardine2012b]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Who eats whom, and when",
+      "body": "## One day in the pool\n\n**Before dawn ([kunarangkal](word:kunarangkal), 'middle of the night', into pre-dawn).** The night shift is still working. Hyrtl's catfish, which spends the day near the bottom in about two metres of water, forages at night in water as shallow as 30 cm, nosing the sand for snails, mussels, shrimps, insect larvae and detritus [ref:pusey2004-hyrtlii]. Prawns are out on the sand banks grazing the algae; like other Macrobrachium, they shut down in bright light and come out in the dark, which is their main defence against being eaten [ref:lammers2009] [ref:cdu2016]. In the weed and roots at the edge, the mouth almighty, a nocturnal ambush predator, is taking small crustaceans, insects and small fish [ref:wiki-mouth-almighty]. The nankeen night heron, almost fully nocturnal and most active from dusk to dawn, is stalking the shallows [ref:wiki-night-heron]. The crocodiles are at their least active, lying at the surface [ref:seebacher2005].\n\n**Dawn ([muduwaju](word:muduwaju)) and morning ([wunkuwingku](word:wunkuwingku)).** The light drives the prawns back into cover and the catfish into the deep water [ref:lammers2009] [ref:pusey2004-hyrtlii]. Crocodile activity rises with the light: radio-tracked freshwater crocodiles dived most in the morning, and their activity followed daylight rather than body temperature [ref:seebacher2005]. They hunt at the water's edge, taking mostly small aquatic animals, insects, fish and crustaceans, plus whatever lands on the bank [ref:webb1982]. The darters and cormorants start fishing, the darter swimming with only its head and neck out and spearing fish underwater [ref:wiki-darter]. Kingfishers take their perches [ref:wiki-azure-kingfisher]. Sooty grunter are feeding around the rocks and snags and in the fast shallow water of the riffles; radio-tracking in the late dry found no difference between their day and night habitat [ref:angfa-grunter] [ref:crook2021].\n\n**The middle of the day.** This is the fishes' quiet time and the birds' working time. Turtles bask on logs and rock. Archerfish patrol under overhanging branches, knocking insects off the leaves with a jet of water; saratoga cruise just under the surface for insects, small fish and crustaceans [ref:angfa-archer] [ref:wiki-saratoga]. Whistling kites, black kites and the sea-eagle circle the pool for fish, carrion and anything dead on the banks [ref:wiki-whistling-kite]. The crocodiles bask on the sand [ref:webb1982].\n\n**Late afternoon ([yilay-yilay](word:yilay-yilay)) and dusk.** The surface comes alive with insects, and the rainbowfish, saratoga and archerfish feed hard on them [ref:angfa-archer] [ref:wiki-saratoga]. Barramundi, which eat 'just about anything that lives in or around water', hunt the edges and snags; a big barramundi's diet is about 60 per cent fish and 40 per cent crustaceans, mostly prawns [ref:ntgov-barra]. The night heron leaves its roost shortly after sunset [ref:wiki-night-heron]. The sleepy cod, which sits among snags and vegetation in slow water, and the mouth almighty come out to ambush [ref:angfa-sleepy] [ref:wiki-mouth-almighty].\n\n**Night ([wujurr](word:wujurr)).** The prawns move out onto the sand banks, the catfish into the shallows after them, and the ambush fish wait where the two meet [ref:lammers2009] [ref:pusey2004-hyrtlii] [ref:wiki-mouth-almighty]. Spangled perch spawn in the shallows at night over soft bottoms after rain [ref:angfa-spangled]. In April and May, on the lower rivers, the year's young cherabin run upstream by the hundreds of thousands a night, timed to the moon and the hour, with young barramundi and mullet moving with them [ref:cdu2014] [ref:cdu2016].\n\n## Who eats whom\n\nMitchell River diet studies put the prawn at the centre. Prawns 'featured prominently' in the diets of fish with big mouths or big bodies: mouth almighty, spangled perch, sooty grunter, Hyrtl's catfish, sleepy cod and barramundi [ref:jardine2012]. In the Daly, a sister river, the sooty grunter's diet was dominated by palaemonid prawns, with terrestrial insects a tiny fraction [ref:davis2010].\n\n- **Algae and biofilm** on sand and rock feed the snails, insect larvae, bony bream and prawns [ref:jardine2013].\n- **Prawns (cherabin and the smaller Macrobrachium)** are eaten by catfish, sooty grunter, spangled perch, mouth almighty, sleepy cod and barramundi; by freshwater crocodiles, whose stomachs held shrimp in every size class; by little pied cormorants and azure kingfishers; and, if they are small enough, by black-necked storks and egrets [ref:jardine2012] [ref:tucker1996] [ref:am-little-pied-cormorant] [ref:wiki-azure-kingfisher] [ref:am-stork].\n- **Snails, mussels and insect larvae** are the catfish's main food, and part of the turtles' [ref:pusey2004-hyrtlii] [ref:turtle-competition].\n- **Small fish** (rainbowfish, young grunter, bony bream) feed barramundi, saratoga, mouth almighty and sleepy cod, the darter, the cormorants, the kingfishers, the kites and the crocodiles [ref:ntgov-barra] [ref:wiki-saratoga] [ref:wiki-darter] [ref:webb1982].\n- **Big fish, turtles and snakes** are taken by big crocodiles: as crocodiles grow, fish, turtles and snakes become a larger share of what they eat, and spiders, insects and frogs a smaller one [ref:tucker1996].\n- **Barramundi eat barramundi.** When one year's young are numerous they eat the next year's recruits [ref:ntgov-barra].\n- **Turtles** are omnivores: in clear water much of their food is bottom invertebrates; in muddy water, more algae and land insects that fall in; a related species switches to meat when plant food is scarce [ref:turtle-competition] [ref:georges1982].\n- **Carrion** on the banks and floating fish go to the kites, the crocodiles and the turtles [ref:wiki-whistling-kite] [ref:webb1982].\n\n## One year in the pool\n\n**The wet ([kambar](word:kambar)).** The flood ([jalungkarr](word:jalungkarr)) joins the pools into one river and the river to its floodplain. This is when the fish spawn: sooty grunter on rising water above 25 °C, black catfish on upstream migrations at peak flood, spangled perch after rain [ref:angfa-grunter] [ref:angfa-ater] [ref:angfa-spangled]. Barramundi spawn at the river mouths between September and March, and cherabin larvae hatched from December to March must reach salt water within seven days or die [ref:ntgov-barra] [ref:cdu2014]. On the floodplain, big fish such as barramundi and fork-tailed catfish feed mostly on floodplain food while the water is up [ref:jardine2012b].\n\n**Early dry (April–June).** The river drops back into its bed. Juvenile cherabin come back upstream in a six-week run and live along banks with cover: sticks, undercuts and roots [ref:cdu2016]. Fish that spread out in the wet are back in the pools. The river is cool; the fish are in good condition.\n\n**Mid dry (July–August).** Algae and plants colonise the big sand banks, and the young prawns move onto them to feed [ref:cdu2016]. The pools are clearest now, the food base at its richest, and the catfish and grunter fat. Nights are cold and the morning mist sits on the water.\n\n**Late dry ([wangariji](word:wangariji), the hot season, September–November).** The pools shrink, warm and concentrate everything. A Flinders River study tracking isolated waterholes through a dry season found fish biomass fell as the pools contracted, from limited food and from predation [ref:asfb2018-flinders]; a seven-year Northern Territory study found the river shrank to a single refuge pool, with the fish-eating fish a major and variable part of what was left [ref:fergusson-refuge]. Water temperature in these refuge pools can approach what the fish can stand [ref:waterhole-temps]. By now the juvenile prawns 'had grown or been eaten', and the big breeding males hold the rock bars and undercut banks [ref:cdu2016]. Crocodiles gather in the deeper pools as the water drops [ref:webb1982]. Freshwater crocodiles ate much more in the wet season than in the dry [ref:webb1982]. The first storms break the pattern, and the year starts again."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The fishing calendar follows the pool:\n\n- **Barramundi** in Gulf fresh waters are closed from 7 October to 31 January [ref:qld-gear]. In the Mitchell they are scarce this far up in any case [ref:ala-karma-river].\n- **Grunter, catfish, prawns and turtles** are dry-season food: the pools are reachable, the fish concentrated, the water clear. Bloomfield families moved out to small 'branch' camps in the dry to get eelfish, tortoises, wallabies and goannas [ref:anderson1996].\n- **The first storms** muddy the pools and spread the fish; the wet is the season to leave the river alone, and the station's river camps close from 1 December to 1 April [ref:kw-about].\n- **Cold nights** ([kiway](word:kiway) 'cold') in June and July slow everything; the **hot season** ([wangariji](word:wangariji)) is when the pools are at their most crowded and their most dangerous [ref:hershberger1982] [ref:waterhole-temps]."
+    },
+    {
+      "id": "uses",
+      "heading": "What people take from a waterhole",
+      "body": "A waterhole is a larder, a water supply and a camp. From it people took fish ([catfish](entry:catfish), [black bream](entry:black-bream), [barramundi](entry:barramundi), the smaller grunters and perches), [cherabin](entry:cherabin), [freshwater turtles](entry:freshwater-turtle), freshwater [mussels](entry:mussels), [water lilies](entry:water-lilies) for their roots and seeds, [frogs](entry:frogs) and grubs for bait, and in the old days [freshwater crocodile](entry:freshwater-crocodile) and its eggs [ref:anderson1996] [ref:hershberger1982] [ref:roth1901]. The dictionary's fishing words belong here: **[kuyu](word:kuyu)** 'fish', **[mandurr](word:mandurr)** 'bait (any kind)', **[ngarruy](word:ngarruy)** 'shellbait', **[bikarrakal](word:bikarrakal)** 'a kind of grub used for bait', **[badur](word:badur)** 'hook and line', **[yinba](word:yinba)** 'fish spear', **[yirrmba](word:yirrmba)** 'many-pronged fish spear', **[makarr](word:makarr)** 'fish net' and **[warrur](word:warrur)**, the bark 'used to make fishnets, which were dragged through the water in the dry season when the water goes down' [ref:hershberger1982]. How each is done is on the [hooks and lines](entry:hooks-and-lines), [nets](entry:nets), [fish traps](entry:fish-traps) and [fish poisoning](entry:fish-poisoning) pages."
+    },
+    {
+      "id": "how-to",
+      "heading": "Working a pool through a day",
+      "body": "This is how to work a pool through a day, putting the animals' own timetable to use. The gear rules for fresh water are on the fish pages: hand-held lines, listed traps, no spears in fresh water, no cast nets or crab pots [ref:qld-gear].\n\n1. **Read the pool first** (see Signs). Find the deep hole, the rock bar, the sand bank with algae on it, the undercut bank and the snags. Look for the crocodile slide before you choose where to stand.\n2. **Dawn and the first hour**: fish the rock bar and the head of the pool for sooty grunter with a line and a prawn, grub or bit of meat; they hold in the fast shallow water over rock and feed around the rocks [ref:crook2021] [ref:angfa-grunter]. A second line at the snags for barramundi where the river still has them [ref:ntgov-barra].\n3. **Daytime**: the fish are quiet. This is the time to gather bait (grubs, shellfish, small prawns from under rocks), to collect lily roots and mussels, and to set any legal traps so they fish the night [ref:hershberger1982] [ref:qld-gear].\n4. **Dusk**: the surface feeders rise; the barramundi, sleepy cod and mouth almighty start to hunt the edges. Fish a line along the snags and undercut banks with a small live bait or prawn [ref:ntgov-barra] [ref:angfa-sleepy] [ref:wiki-mouth-almighty].\n5. **After dark**: the catfish are in the shallows, in water you could wade, feeding on the bottom; a bait on the sand in 30–60 cm of water, at the edge of the drop-off, is where they are [ref:pusey2004-hyrtlii]. Prawns are on the sand banks; a torch finds their eyes, and a legal trap or scoop set on the algae banks in the early and mid dry catches the juveniles, while the big males are under the rock bars late in the dry [ref:lammers2009] [ref:cdu2016] [ref:qld-gear].\n6. **Never wade or stand at the edge at night without a light and a look**, and never where there is a slide. The crocodiles are at the surface at night, and in the late dry they are concentrated in the same pools as the fish [ref:seebacher2005] [ref:webb1982].\n7. **Go back to the same place.** The pools that fish well one year fish well the next, because the deep holes, rock bars and snags are the same; that is what the word *wuwu-damaji* records [ref:hershberger1982]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- **Crocodiles.** Freshwater crocodiles are the ones recorded near the homestead, but saltwater crocodiles can travel far up rivers; treat every pool as crocodile water and read the [crocodile](entry:saltwater-crocodile) pages [ref:ala-karma-river]. The animals concentrate in the deep pools late in the dry, exactly when the fishing is best [ref:webb1982].\n- **Water.** Late-dry pools get hot, low in oxygen and thick with algae; fish die-offs happen in them [ref:waterhole-temps] [ref:asfb2018-flinders]. Don't drink from a shrinking pool without boiling or treating it, and don't swim in water that smells.\n- **Cane toads** are recorded in these pools; dogs that mouth them die, and they are the reason goannas, snakes and some crocodiles have thinned out across the north [ref:ala-karma-river].\n- **Catfish spines** and the stings and bites covered on each animal's page.\n- **Flash floods** in the storm season turn a dry sand bed into a river in an hour; camp above the high bank, not on the sand."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The pools of the upper Mitchell are on Western Yalanji country. Karma Waters falls under the 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination [ref:wyac2020] [ref:kw-about]. Native title holders do not need a licence to fish or gather for personal, domestic or non-commercial communal needs (Native Title Act 1993, section 211), but Queensland's gear rules and the barramundi closed season still frame what everyone else may do [ref:alrc] [ref:qld-gear]. Anyone who is not a native title holder needs the Traditional Owners' permission and the station's, and the station closes its river camps from 1 December to 1 April [ref:kw-about].\n\nThe research that this page rests on was done to answer one question: what the Mitchell's animals need from its flows. The answer was that the pools, the floodplain and the sea are one system joined by water, and that taking water out of the upper river shrinks the pools and cuts the connections that the fish and prawns depend on [ref:jardine2012] [ref:jardine2012b] [ref:crook2021]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "Times of day in the dictionary: *[muduwaju](word:muduwaju)* 'dawn, daybreak, early morning'; *[wunkuwingku](word:wunkuwingku)* 'morning'; *[yilay-yilay](word:yilay-yilay)* 'late afternoon, when the sun is in the west'; *[wujurr](word:wujurr)* 'darkness, night'; *[kunarangkal](word:kunarangkal)* 'middle of the night'; *[kija](word:kija)* 'moon'; *[kurrubijal](word:kurrubijal)* 'morning star'. Seasons: *[kambar](word:kambar)* 'wet season'; *[wangariji](word:wangariji)* 'the hot season'; *[kiway](word:kiway)* 'cold'. The fish and animals of the pool: *[kuyu](word:kuyu)* 'fish'; *[julaji](word:julaji)* 'freshwater catfish'; *[barrbal](word:barrbal)* 'black bream'; *[jarbir](word:jarbir)* and *[kurriyala](word:kurriyala)* 'grunter'; *[wukuju](word:wukuju)* 'freshwater prawn, the big one with long legs'; *[judi](word:judi)* 'barramundi'; *[ngawurr-ngawun](word:ngawurr-ngawun)* 'freshwater crocodile'; *[ngujay](word:ngujay)* 'freshwater turtle'; *[mukirr](word:mukirr)* 'mussel'. And *[karrbal](word:karrbal)* 'to catch, grab' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "catfish",
+    "black-bream",
+    "cherabin",
+    "barramundi",
+    "freshwater-crocodile",
+    "freshwater-turtle",
+    "eels",
+    "saltwater-crocodile",
+    "hooks-and-lines",
+    "nets",
+    "fish-traps",
+    "fish-poisoning",
+    "paperbark"
+  ],
+  "relatedWords": [
+    {
+      "word": "bana",
+      "gloss": "water"
+    },
+    {
+      "word": "yilki",
+      "gloss": "creek"
+    },
+    {
+      "word": "jalungkarr",
+      "gloss": "flood"
+    },
+    {
+      "word": "marral",
+      "gloss": "dry"
+    },
+    {
+      "word": "wuwu-damaji",
+      "gloss": "to go back all the time to the same place, as a good place to fish"
+    },
+    {
+      "word": "kurrujuwa",
+      "gloss": "sentry bird which warns of crocodiles along the banks of the river"
+    },
+    {
+      "word": "wurrbal",
+      "gloss": "fog, mist rising from the river"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "asfb2018-flinders",
+      "citation": "Australian Society for Fish Biology conference 2018, poster: fish biomass and condition in isolated perennial waterholes of the Flinders River catchment, Queensland, through a dry season.",
+      "url": "https://asfb-2018.p.asnevents.com.au/days/2018-10-10/abstract/53604"
+    },
+    {
+      "id": "jardine2012",
+      "citation": "Jardine, T. D., Pettit, N. E., Warfe, D. M., Pusey, B. J., Ward, D. P., Douglas, M. M., Davies, P. M. & Bunn, S. E. (2012). Consumer–resource coupling in wet–dry tropical rivers. Journal of Animal Ecology 81: 310–322. Mitchell River sites sampled in the early dry season.",
+      "url": "https://doi.org/10.1111/j.1365-2656.2011.01925.x"
+    },
+    {
+      "id": "pusey2004-hyrtlii",
+      "citation": "Pusey, B. J., Kennard, M. J. & Arthington, A. H. (2004). Freshwater Fishes of North-Eastern Australia. CSIRO Publishing. Hyrtl's catfish account, as summarised in the Wikipedia article 'Neosilurus hyrtlii'.",
+      "url": "https://en.wikipedia.org/wiki/Neosilurus_hyrtlii"
+    },
+    {
+      "id": "wiki-mouth-almighty",
+      "citation": "Wikipedia. Mouth almighty (Glossamia aprion).",
+      "url": "https://en.wikipedia.org/wiki/Mouth_almighty"
+    },
+    {
+      "id": "webb1982",
+      "citation": "Webb, G. J. W., Manolis, S. C. & Buckworth, R. (1982). Crocodylus johnstoni in the McKinlay River area, N.T. I. Variation in the diet, and a new method of assessing the relative importance of prey. Australian Journal of Zoology 30: 877–899.",
+      "url": "https://doi.org/10.1071/ZO9820877"
+    },
+    {
+      "id": "ala-karma-river",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: river animals and waterbirds.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "jardine2013",
+      "citation": "Jardine, T. D., Hunt, R. J., Faggotter, S. J., Valdez, D., Burford, M. A. & Bunn, S. E. (2013). Carbon from periphyton supports fish biomass in waterholes of a wet–dry tropical river. River Research and Applications 29: 560–573. Mitchell River.",
+      "url": "https://doi.org/10.1002/rra.2554"
+    },
+    {
+      "id": "re9314",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.3.14 (Einasleigh Uplands): Melaleuca fringing woodland on channels and levees. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.3.14"
+    },
+    {
+      "id": "waterhole-temps",
+      "citation": "The temperature regimes of dry-season waterholes in tropical northern Australia: potential effects on fish refugia (Flinders and Gilbert catchments). Freshwater Science.",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/681278"
+    },
+    {
+      "id": "cdu2016",
+      "citation": "Charles Darwin University. 'Graduate discovers \"key to cherabin survival\"' (news release on P. Novak's PhD research on Macrobrachium spinipes in the Daly River, NT; accessed 5 October 2026).",
+      "url": "https://www.cdu.edu.au/news/news-archive/graduate-discovers-%E2%80%98key-cherabin-survival%E2%80%99"
+    },
+    {
+      "id": "crook2021",
+      "citation": "Crook, D. A., Keller, K., Adair, B. J. et al. (2021). Use of radiotelemetry to quantify diel habitat preferences and minimum environmental flow requirements of a tropical riverine fish (Sooty grunter Hephaestus fuliginosus). Ecohydrology 14: e2290.",
+      "url": "https://doi.org/10.1002/eco.2290"
+    },
+    {
+      "id": "angfa-sleepy",
+      "citation": "Australia New Guinea Fishes Association. Oxyeleotris lineolata, sleepy cod (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/gudgeons/oxyeleotris_lineolata.html"
+    },
+    {
+      "id": "am-stork",
+      "citation": "Australian Museum. Black-necked Stork: feeding and diet.",
+      "url": "https://australian.museum/learn/animals/birds/black-necked-stork/"
+    },
+    {
+      "id": "wiki-darter",
+      "citation": "Wikipedia. Australasian darter (Anhinga novaehollandiae).",
+      "url": "https://en.wikipedia.org/wiki/Australasian_darter"
+    },
+    {
+      "id": "am-little-pied-cormorant",
+      "citation": "Australian Museum. Little Pied Cormorant: feeding and diet.",
+      "url": "https://australian.museum/learn/animals/birds/little-pied-cormorant/"
+    },
+    {
+      "id": "wiki-little-black-cormorant",
+      "citation": "Wikipedia. Little black cormorant (Phalacrocorax sulcirostris), citing Miller (1979), Wildlife Research 6: 79–95.",
+      "url": "https://en.wikipedia.org/wiki/Little_black_cormorant"
+    },
+    {
+      "id": "wiki-azure-kingfisher",
+      "citation": "Wikipedia. Azure kingfisher (Ceyx azureus).",
+      "url": "https://en.wikipedia.org/wiki/Azure_kingfisher"
+    },
+    {
+      "id": "lammers2009",
+      "citation": "Lammers, J. H., Warburton, K. & Cribb, B. W. (2009). Anti-predator strategies in relation to diurnal refuge usage and exploration in the Australian freshwater prawn, Macrobrachium australiense. Journal of Crustacean Biology 29: 175–182.",
+      "url": "https://academic.oup.com/jcb/article/29/2/175/2547994"
+    },
+    {
+      "id": "seebacher2005",
+      "citation": "Seebacher, F., Franklin, C. E. & Read, M. (2005). Diving behaviour of a reptile (Crocodylus johnstoni) in the wild: interactions with heart rate and body temperature. Physiological and Biochemical Zoology 78: 1–8.",
+      "url": "https://doi.org/10.1086/425192"
+    },
+    {
+      "id": "wiki-saratoga",
+      "citation": "Wikipedia. Gulf saratoga (Scleropages jardinii).",
+      "url": "https://en.wikipedia.org/wiki/Gulf_saratoga"
+    },
+    {
+      "id": "angfa-archer",
+      "citation": "Australia New Guinea Fishes Association. Toxotes chatareus, seven-spot archerfish (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/archerfishes/toxotes_chatareus.html"
+    },
+    {
+      "id": "ntgov-barra",
+      "citation": "Northern Territory Government. Barramundi: what they eat, spawning and migration (fish species page).",
+      "url": "https://nt.gov.au/marine/recreational-fishing/types-of-fish/fish-species/barramundi"
+    },
+    {
+      "id": "jardine2012b",
+      "citation": "Jardine, T. D., Pusey, B. J., Hamilton, S. K., Pettit, N. E., Davies, P. M., Douglas, M. M., Sinnamon, V., Halliday, I. A. & Bunn, S. E. (2012). Fish mediate high food web connectivity in the lower reaches of a tropical floodplain river. Oecologia 168: 829–838. Mitchell River.",
+      "url": "https://doi.org/10.1007/s00442-011-2148-0"
+    },
+    {
+      "id": "wiki-night-heron",
+      "citation": "Wikipedia. Nankeen night heron (Nycticorax caledonicus).",
+      "url": "https://en.wikipedia.org/wiki/Nankeen_night_heron"
+    },
+    {
+      "id": "angfa-grunter",
+      "citation": "Australia New Guinea Fishes Association. Hephaestus fuliginosus, sooty grunter (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/grunters/hephaestus_fuliginosus.html"
+    },
+    {
+      "id": "wiki-whistling-kite",
+      "citation": "Wikipedia. Whistling kite (Haliastur sphenurus).",
+      "url": "https://en.wikipedia.org/wiki/Whistling_kite"
+    },
+    {
+      "id": "angfa-spangled",
+      "citation": "Australia New Guinea Fishes Association. Leiopotherapon unicolor, spangled perch (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/grunters/leiopotherapon_unicolor.html"
+    },
+    {
+      "id": "cdu2014",
+      "citation": "Charles Darwin University. 'Wet season flows crucial to Cherabin survival' (news release on P. Novak's research on Macrobrachium spinipes in the Daly River, NT; accessed 5 October 2026).",
+      "url": "https://www.cdu.edu.au/news/news-archive/wet-season-flows-crucial-cherabin-survival"
+    },
+    {
+      "id": "davis2010",
+      "citation": "Davis, A. M., Pusey, B. J., Thorburn, D. C., Dowe, J. L., Morgan, D. L. & Burrows, D. (2010). Riparian contributions to the diet of terapontid grunters (Pisces: Terapontidae) in wet–dry tropical rivers. Journal of Fish Biology 76: 862–879.",
+      "url": "https://doi.org/10.1111/j.1095-8649.2010.02541.x"
+    },
+    {
+      "id": "tucker1996",
+      "citation": "Tucker, A. D., Limpus, C. J., McCallum, H. I. & McDonald, K. R. (1996). Ontogenetic dietary partitioning by Crocodylus johnstoni during the dry season. Copeia 1996(4): 978–988. 324 crocodiles stomach-flushed over three dry seasons in Queensland.",
+      "url": "https://doi.org/10.2307/1447669"
+    },
+    {
+      "id": "turtle-competition",
+      "citation": "Petrov, K. et al. The risk of inter-specific competition in Australian short-necked turtles (Emydura, Myuchelys): omnivory, benthic invertebrates in clear water, algae and terrestrial invertebrates in turbid water.",
+      "url": "https://researchers.westernsydney.edu.au/en/publications/the-risk-of-inter-specific-competition-in-australian-short-necked/"
+    },
+    {
+      "id": "georges1982",
+      "citation": "Georges, A. (1982). Diet of the Australian freshwater turtle Emydura krefftii (Chelonia: Chelidae), in an unproductive lentic environment. Copeia 1982(2): 331–336.",
+      "url": "https://doi.org/10.2307/1444611"
+    },
+    {
+      "id": "angfa-ater",
+      "citation": "Australia New Guinea Fishes Association. Neosilurus ater, black catfish (species profile).",
+      "url": "https://www.rainbowfish.angfa.org.au/eeltailed_catfishes/neosilurus_ater.html"
+    },
+    {
+      "id": "fergusson-refuge",
+      "citation": "Fish assemblage dynamics in an intermittent river of the northern Australian wet–dry tropics (Fergusson River, Daly catchment, seven-year study): contraction to a single refugial pool and the role of piscivorous fish.",
+      "url": "https://agris.fao.org/search/ar/records/65dea3fb4c5aef494fdcf454"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing equipment rules: fresh waters (web page, last updated 26 March 2026, accessed 6 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

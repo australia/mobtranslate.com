@@ -86,6 +86,11 @@
       "note": "Mangrove trees, fruits that must be leached, and mangrove country"
     },
     {
+      "slug": "mouth-almighty",
+      "title": "Mouth almighty",
+      "note": "Glossamia aprion, the nocturnal ambush fish of the pool edges"
+    },
+    {
       "slug": "mussels",
       "title": "Freshwater mussels"
     },
@@ -118,9 +123,19 @@
       "note": "Wallaby-tail sinew for binding spears and tools"
     },
     {
+      "slug": "sleepy-cod",
+      "title": "Sleepy cod",
+      "note": "Oxyeleotris lineolata, the snag-dwelling ambush predator"
+    },
+    {
       "slug": "snakes",
       "title": "Snakes",
       "note": "Snakes of the region, food and safety"
+    },
+    {
+      "slug": "spangled-perch",
+      "title": "Spangled perch",
+      "note": "Leiopotherapon unicolor, the small grunter found in every kind of water"
     },
     {
       "slug": "stingrays",

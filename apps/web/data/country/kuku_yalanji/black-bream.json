@@ -60,9 +60,24 @@
       "body": "A deep-bodied, thick-lipped fish, brownish-grey to **sooty black** with darker scale margins. Some have golden blotches on the sides [ref:wp-sooty]. Most are about 25 cm and 400 g, but they can reach 54 cm and 6.2 kg [ref:wp-sooty] [ref:nfa-sooty]. Sooty grunter eat almost anything: shrimp, worms, insects, frogs, algae, plant roots and **palm berries** [ref:nfa-sooty]. They are tough fish that put up with clear or muddy water, still or flowing, and a wide range of temperatures [ref:wp-sooty]."
     },
     {
+      "id": "lookalikes",
+      "heading": "What it can be confused with",
+      "body": "- **Coal grunter** (*Hephaestus carbo*), a close relative recorded near Mount Carbine: much the same shape; the Atlas records both in the upper Mitchell [ref:ala].\n- **[Spangled perch](entry:spangled-perch)**: smaller, silvery with fine dark spots, and in every kind of water from bore drains to rivers [ref:angfa-spangled].\n- **Banded grunter**: small, yellowish, with four or five dark vertical bars [ref:ala].\n- **The estuary 'black bream'** (pikey bream, *Acanthopagrus*) of the Bloomfield coast is a different family altogether, silvery with a forked tail; see Names.\n\nA sooty grunter is deep-bodied, dark to black with darker scale edges, and thick-lipped, especially the big ones [ref:wp-sooty]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Fast, shallow water over rock.** Radio-tracked juveniles in the late dry held strongly to riffles and runs, in water flowing at roughly 0.3 to 1.4 metres a second and less than 70 cm deep, by day and by night alike [ref:crook2021]. The rock bar at the head of a pool is where to look.\n- **Around rocks, logs and below falls**, where they lurk and feed [ref:angfa-grunter] [ref:wp-sooty].\n- **Under fruiting trees.** They eat palm berries and fruit that fall into the water, so a fig or palm hanging over a pool is a feeding station [ref:nfa-sooty] [ref:davis2010].\n- **Spawning schools** of up to 50 fish in less than half a metre of water on rising water in summer [ref:nfa-sooty].\n- **Darters and cormorants** working the pool mean fish of this size are in it [ref:wiki-darter]."
+    },
+    {
       "id": "habitat",
       "heading": "Where it lives",
       "body": "Sooty grunter live in freshwater streams from Cape Hillsborough north along the Queensland east coast, through Cape York and the Gulf of Carpentaria rivers, and west to the Daly River in the Northern Territory [ref:nfa-sooty]. They like flowing water over rock, and lurk around rocks, sunken logs and in pools below waterfalls [ref:wp-sooty].\n\n**Karma Waters and the upper Mitchell.** The Atlas of Living Australia holds sooty grunter records from the upper Mitchell country dated 2008 to 2026, including one about 25 km east-south-east of the [Karma Waters](place:karma-waters) homestead. It also has records of a close relative, the coal grunter (*Hephaestus carbo*), near Mount Carbine [ref:ala]. The station's own camping page features the black bream of its river [ref:karma-camping]. Fish the rocky runs, the heads of pools and the snags."
+    },
+    {
+      "id": "ecology",
+      "heading": "Who eats whom, and when",
+      "body": "The sooty grunter is the day shift of the [waterhole](entry:waterhole), and the prawn's daytime enemy. In the Daly River, a sister river to the Mitchell, its diet was dominated by palaemonid prawns, with land insects only about half to one per cent of it [ref:davis2010]. In the Mitchell diet studies, prawns featured prominently in sooty grunter, as in the other big fish of the pool [ref:jardine2012]. The rest is whatever is going: shrimp, worms, insects, frogs, algae, plant roots and fruit [ref:nfa-sooty].\n\n**Bream, catfish and prawns together.** The [cherabin](entry:cherabin) hide in roots, undercuts and burrows by day and come out onto the sand banks at night [ref:lammers2009] [ref:cdu2016]. The bream takes the ones it can find by day around the rocks and in the fast runs, where it holds day and night [ref:crook2021]; the [catfish](entry:catfish) takes them at night on the sand [ref:pusey2004-hyrtlii]. The prawn's own defence is the dark, and against the bream it works better than against the catfish. Where the bream and the catfish meet is the edge of the rock bar at dusk, when both are feeding.\n\n**What eats the bream.** Young grunter in the shallows are food for [barramundi](entry:barramundi) (60 per cent of a big barramundi's diet is fish) [ref:ntgov-barra], for the [mouth almighty](entry:mouth-almighty) and [sleepy cod](entry:sleepy-cod) at night [ref:wiki-mouth-almighty] [ref:angfa-sleepy], for darters and cormorants by day [ref:wiki-darter] [ref:wiki-little-black-cormorant], and for [freshwater crocodiles](entry:freshwater-crocodile), which eat more fish the bigger they get [ref:tucker1996]. Big adults have few enemies but the crocodile, the sea-eagle and people.\n\n**Water level is everything.** The radio-tracking study modelled what happens as flows fall: the area of the grunter's preferred fast shallow habitat was highest at about 8 cubic metres a second and fell by 61 per cent when flow dropped to half a cubic metre a second [ref:crook2021]. That is the late dry in a nutshell: as the runs between pools stop, the bream are pushed into the pools with everything else, the food base shrinks and predation rises [ref:asfb2018-flinders]. Spawning comes with the opposite extreme, rising water above 25 °C at the start of the wet [ref:angfa-grunter]."
     },
     {
       "id": "seasons",
@@ -112,7 +127,8 @@
     "string-and-twine",
     "lawyer-cane",
     "cherabin",
-    "saltwater-crocodile"
+    "saltwater-crocodile",
+    "waterhole"
   ],
   "relatedWords": [
     {
@@ -249,10 +265,85 @@
       "id": "kw-about",
       "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
       "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "angfa-spangled",
+      "citation": "Australia New Guinea Fishes Association. Leiopotherapon unicolor, spangled perch (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/grunters/leiopotherapon_unicolor.html"
+    },
+    {
+      "id": "crook2021",
+      "citation": "Crook, D. A., Keller, K., Adair, B. J. et al. (2021). Use of radiotelemetry to quantify diel habitat preferences and minimum environmental flow requirements of a tropical riverine fish (Sooty grunter Hephaestus fuliginosus). Ecohydrology 14: e2290.",
+      "url": "https://doi.org/10.1002/eco.2290"
+    },
+    {
+      "id": "angfa-grunter",
+      "citation": "Australia New Guinea Fishes Association. Hephaestus fuliginosus, sooty grunter (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/grunters/hephaestus_fuliginosus.html"
+    },
+    {
+      "id": "davis2010",
+      "citation": "Davis, A. M., Pusey, B. J., Thorburn, D. C., Dowe, J. L., Morgan, D. L. & Burrows, D. (2010). Riparian contributions to the diet of terapontid grunters (Pisces: Terapontidae) in wet–dry tropical rivers. Journal of Fish Biology 76: 862–879.",
+      "url": "https://doi.org/10.1111/j.1095-8649.2010.02541.x"
+    },
+    {
+      "id": "wiki-darter",
+      "citation": "Wikipedia. Australasian darter (Anhinga novaehollandiae).",
+      "url": "https://en.wikipedia.org/wiki/Australasian_darter"
+    },
+    {
+      "id": "jardine2012",
+      "citation": "Jardine, T. D., Pettit, N. E., Warfe, D. M., Pusey, B. J., Ward, D. P., Douglas, M. M., Davies, P. M. & Bunn, S. E. (2012). Consumer–resource coupling in wet–dry tropical rivers. Journal of Animal Ecology 81: 310–322. Mitchell River sites sampled in the early dry season.",
+      "url": "https://doi.org/10.1111/j.1365-2656.2011.01925.x"
+    },
+    {
+      "id": "lammers2009",
+      "citation": "Lammers, J. H., Warburton, K. & Cribb, B. W. (2009). Anti-predator strategies in relation to diurnal refuge usage and exploration in the Australian freshwater prawn, Macrobrachium australiense. Journal of Crustacean Biology 29: 175–182.",
+      "url": "https://academic.oup.com/jcb/article/29/2/175/2547994"
+    },
+    {
+      "id": "cdu2016",
+      "citation": "Charles Darwin University. 'Graduate discovers \"key to cherabin survival\"' (news release on P. Novak's PhD research on Macrobrachium spinipes in the Daly River, NT; accessed 5 October 2026).",
+      "url": "https://www.cdu.edu.au/news/news-archive/graduate-discovers-%E2%80%98key-cherabin-survival%E2%80%99"
+    },
+    {
+      "id": "pusey2004-hyrtlii",
+      "citation": "Pusey, B. J., Kennard, M. J. & Arthington, A. H. (2004). Freshwater Fishes of North-Eastern Australia. CSIRO Publishing. Hyrtl's catfish account, as summarised in the Wikipedia article 'Neosilurus hyrtlii'.",
+      "url": "https://en.wikipedia.org/wiki/Neosilurus_hyrtlii"
+    },
+    {
+      "id": "ntgov-barra",
+      "citation": "Northern Territory Government. Barramundi: what they eat, spawning and migration (fish species page).",
+      "url": "https://nt.gov.au/marine/recreational-fishing/types-of-fish/fish-species/barramundi"
+    },
+    {
+      "id": "wiki-mouth-almighty",
+      "citation": "Wikipedia. Mouth almighty (Glossamia aprion).",
+      "url": "https://en.wikipedia.org/wiki/Mouth_almighty"
+    },
+    {
+      "id": "angfa-sleepy",
+      "citation": "Australia New Guinea Fishes Association. Oxyeleotris lineolata, sleepy cod (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/gudgeons/oxyeleotris_lineolata.html"
+    },
+    {
+      "id": "wiki-little-black-cormorant",
+      "citation": "Wikipedia. Little black cormorant (Phalacrocorax sulcirostris), citing Miller (1979), Wildlife Research 6: 79–95.",
+      "url": "https://en.wikipedia.org/wiki/Little_black_cormorant"
+    },
+    {
+      "id": "tucker1996",
+      "citation": "Tucker, A. D., Limpus, C. J., McCallum, H. I. & McDonald, K. R. (1996). Ontogenetic dietary partitioning by Crocodylus johnstoni during the dry season. Copeia 1996(4): 978–988. 324 crocodiles stomach-flushed over three dry seasons in Queensland.",
+      "url": "https://doi.org/10.2307/1447669"
+    },
+    {
+      "id": "asfb2018-flinders",
+      "citation": "Australian Society for Fish Biology conference 2018, poster: fish biomass and condition in isolated perennial waterholes of the Flinders River catchment, Queensland, through a dry season.",
+      "url": "https://asfb-2018.p.asnevents.com.au/days/2018-10-10/abstract/53604"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-10"
 }
