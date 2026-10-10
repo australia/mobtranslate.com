@@ -1,0 +1,256 @@
+{
+  "slug": "saratoga",
+  "title": "Saratoga",
+  "category": "fish",
+  "names": [
+    {
+      "word": "kuyu",
+      "gloss": "fish"
+    }
+  ],
+  "scientificName": "Scleropages jardinii",
+  "identification": {
+    "confidence": "probable",
+    "basis": "No Kuku Yalanji word for the saratoga is recorded; the dictionary's fish words come from the Bloomfield rivers, where the saratoga does not occur. The Gulf saratoga is recorded by the Atlas of Living Australia within 30 km of Karma Waters, and the Mitchell is inside its range."
+  },
+  "countryTypes": [
+    "river-freshwater"
+  ],
+  "summary": "The saratoga is the fish that cruises just under the surface of a still Mitchell pool in the evening, long and dark, each big scale marked with a crescent of pink spots, 'giving it a pearly appearance', and takes insects, small fish and prawns off the top with a sharp upturned mouth [ref:wiki-saratoga] [ref:fishbase-saratoga]. It is the Gulf saratoga, *Scleropages jardinii*, the Australian bonytongue, a relative of the arowanas of Asia and South America, found 'patchily ... throughout most of the Gulf of Carpentaria drainage system', across northern Queensland and in southern New Guinea, in 'still clear waters of pools and billabongs, and the slow-flowing sections of streams' [ref:wiki-saratoga]. It grows to about 90 cm and has been recorded at 17 kg; it is solitary and territorial, it spawns before the wet when the surface water nears 30 °C, and the female carries the eggs and then the hatched young in her mouth for five or six weeks [ref:wiki-saratoga] [ref:fishbase-saratoga]. The dictionary has no word for it; the Bloomfield rivers, where the dictionary's fish were named, are outside its range, and here it is one of the **[kuyu](word:kuyu)**, the fish, with a question beside it for Western Yalanji speakers [ref:hershberger1982] [ref:wp-saratoga]. It is a gamefish with a high vulnerability rating, slow to mature and few-egged, and Queensland lets one be kept, at 50 cm or more [ref:fishbase-saratoga] [ref:qld-limits].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "No word recorded; kuyu is 'fish'"
+    },
+    {
+      "label": "Size",
+      "value": "To about 90 cm and 17 kg; commonly 55 cm; mature at about 45 cm and 4–5 years"
+    },
+    {
+      "label": "Look",
+      "value": "Long dark body, seven rows of large scales each with a crescent of pink or red spots; big wing-like pectoral fins; upturned mouth; long low back fin"
+    },
+    {
+      "label": "Where",
+      "value": "Still clear pools, billabongs and slow reaches; near the surface or close to shore among weed; one ALA record within 30 km of Karma Waters"
+    },
+    {
+      "label": "Food",
+      "value": "Aquatic and terrestrial insects, small fish, prawns and crustaceans, mostly from the surface"
+    },
+    {
+      "label": "Breeding",
+      "value": "Solitary and territorial; spawns before the wet near 30 °C; 30–130 eggs carried in the female's mouth, hatch in 1–2 weeks, young held 4–5 weeks more"
+    },
+    {
+      "label": "Rules",
+      "value": "Queensland: minimum 50 cm, possession limit 1 (northern or southern saratoga combined)"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary records no name for the saratoga. **[kuyu](word:kuyu)** is 'fish'; **[kurruba](word:kurruba)** is 'species of freshwater fish', unidentified; **[jilngu](word:jilngu)** 'boney salmon, tarpon' is the other big silver surface fish of the coastal rivers, and is not this one [ref:hershberger1982]. In English the saratoga carries the name 'barramundi' in parts of Queensland, 'not to be confused' with the [barramundi](entry:barramundi) proper, and the names Gulf saratoga, northern saratoga, pearl arowana, Australian bonytongue and 'toga' [ref:wiki-saratoga]. The species name honours Frank Jardine, the pastoralist of the Jardine River at the top of the Peninsula [ref:fishbase-saratoga]."
+    },
+    {
+      "id": "description",
+      "heading": "The fish",
+      "body": "'This fish has a long, dark-colored body with seven rows of large scales, each with several reddish or pinkish spots arranged in a crescent shape around the trailing edge of the scale, giving it a pearly appearance. It has large, wing-like pectoral fins ... It grows to a length of about 90 cm. Its maximum weight is recorded as 17.2 kg, but one report suggests it has been known to weigh as much as 27 kg' [ref:wiki-saratoga]. FishBase gives a maximum of 100 cm and a common length of 55 cm, and maturity at about 45 cm [ref:fishbase-saratoga]. The body is deep for an arowana, about a quarter of its length, and the back fin is long and low, set far back with the anal fin, so the fish looks like a dark plank with a tail [ref:wiki-saratoga].\n\n'Adults occur in still waters of streams and swamps where it is usually seen near the surface or close to shore among aquatic vegetation. Solitary, territorial and spawn prior to the wet season when surface water temperatures approach 30 °C' [ref:fishbase-saratoga]. 'Gulf saratoga are opportunistic carnivores, feeding on aquatic and terrestrial insects, small fishes and crustaceans' [ref:wiki-saratoga]; it is 'primarily a surface' feeder, and its young 'feed primarily on microcrustaceans' [ref:fishbase-saratoga].\n\n**Breeding.** 'Like other arowanas, it is a mouthbrooder, but unlike the Asian arowana, reports suggest the female rather than the male broods the young in her mouth' [ref:wiki-saratoga]. 'Fertilized eggs are carried in the mouth of the female. Eggs hatch in 1–2 weeks. Larvae, with their enlarged yolk sac, are kept in or close to the mouth for another 4 or 5 weeks. Young fish commence feeding, primarily on microcrustaceans, at a size of 2–3 cm, well before the yolk sac is entirely resorbed. Become independent at a length of 3.5–4.0 cm'. A female carries only 30 to 130 eggs, matures at four or five years, and the species' population doubling time is 4.5 to 14 years: 'high vulnerability' [ref:fishbase-saratoga].\n\n**Range.** 'Patchily distributed throughout most of the Gulf of Carpentaria drainage system, west to the Adelaide River in the Northern Territory, throughout northern Queensland and in central-southern New Guinea'; the Mitchell is a Gulf river, and the Atlas has a record within 30 km of Karma Waters [ref:wiki-saratoga] [ref:ala-karma-river]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Saratoga, barramundi, tarpon",
+      "body": "- **Saratoga**: dark, pearl-spotted scales as big as a thumbnail, a flat back with the fin set far back, an upturned mouth, and a slow cruise just under the surface [ref:wiki-saratoga].\n- **[Barramundi](entry:barramundi)**: silver, deep-bodied with a humped back and a big broom tail, a boil near a snag rather than a cruise; it reaches the upper Mitchell too [ref:wiki-saratoga].\n- **Tarpon or 'boney salmon'** (*jilngu*): silver, with a single long dorsal filament, a leaper; a fish of the lower rivers and estuaries [ref:hershberger1982].\n- **[Sooty grunter](entry:black-bream)**: dark too, but a deep oval fish with small scales and a bottom-and-midwater habit [ref:angfa-spangled].\n- **Archerfish** (*mujarrka*): also a surface feeder under the overhangs, but small, silver and barred, and it spits [ref:hershberger1982]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A dark shape cruising slowly just under the surface** along the edge of a still pool, in the evening and early morning [ref:fishbase-saratoga].\n- **A surface strike** under an overhanging branch where insects drop; the saratoga takes from the top [ref:wiki-saratoga].\n- **A big fish holding a beat**: it is 'solitary, territorial', and the same fish will be in the same reach [ref:fishbase-saratoga].\n- **A fish that will not feed** in the late dry may be a female with a mouthful of eggs or fry [ref:fishbase-saratoga].\n- **A darter's or a cormorant's dive** finds the smaller fish the saratoga also hunts [ref:wiki-darter]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "'Still clear waters of pools and billabongs, and the slow-flowing sections of streams', 'near the surface or close to shore among aquatic vegetation' [ref:wiki-saratoga] [ref:fishbase-saratoga]. On the Mitchell at Karma Waters that is the long deep dry-season pools and the backwaters, not the rock runs; the [waterhole](entry:waterhole) page describes those pools, their shrinking through the dry and their temperatures, which are what the saratoga lives inside from May to the first storms [ref:waterhole-temps] [ref:fergusson-refuge]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The surface shift",
+      "body": "The saratoga is the pool's surface hunter. It takes 'aquatic and terrestrial insects, small fishes and crustaceans', which in a Mitchell pool means the grasshoppers and cicadas that fall from the paperbarks, the rainbowfish and bony bream of the shallows, and the [cherabin](entry:cherabin) and small prawns at the edges [ref:wiki-saratoga] [ref:jardine2012]. It works the top while the [sleepy cod](entry:sleepy-cod) works the bottom and the [mouth almighty](entry:mouth-almighty) the weedy edges after dark, and the [barramundi](entry:barramundi) takes the middle; the [waterhole](entry:waterhole) page sets out the day and night shifts of the pool [ref:fishbase-sleepy] [ref:wiki-mouth-almighty]. Its own enemies are the [freshwater crocodile](entry:freshwater-crocodile), which takes bigger fish as it grows, and, for the fry, every fish in the pool, which is why the mother holds them in her mouth for five weeks [ref:tucker1996] [ref:fishbase-saratoga]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Spawning comes 'prior to the wet season when surface water temperatures approach 30 °C', so from October into the storm season the females are brooding and the fish are hardest to catch; through the dry they cruise the pools and feed on the surface, most in the evening [ref:fishbase-saratoga]. The pools' surface water on the Mitchell is near 30 °C from late October [ref:waterhole-temps] [ref:bom-palmerville]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- Food: a bony fish, as the name says, but a big one; the Bloomfield night-spearing method works on a surface cruiser [ref:anderson1996].\n- A gamefish on lures, now; 'gamefish: yes' in FishBase, with a Queensland limit of one fish over 50 cm [ref:fishbase-saratoga] [ref:qld-limits].\n- A sign of a healthy still pool with cover and insects [ref:wiki-saratoga]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Taking a saratoga",
+      "body": "The ways of taking river fish are on their own pages: [spears](entry:spear-and-woomera), [nets](entry:nets), [traps and fences](entry:fish-traps), [hooks and lines](entry:hooks-and-lines) and [fish poisons](entry:fish-poisoning). At Bloomfield, night fishing was 'done on the tidal estuaries from a canoe at night. One person sat at the front of the boat holding aloft a burning paperbark torch. As the fish were attracted to the light, another person would spear them' [ref:anderson1996]. On the Mitchell, Palmer saw the freshwater mangrove *Barringtonia racemosa*, 'Yakoora', cut up, hammered fine and put in the lagoons, and the coolibah's branches and leaves 'laid in water for several days to sicken the fish; it is universally used for this purpose' [ref:palmer1883].\n\n1. **Find the fish** in the evening along the still edge of a long pool, cruising under the surface by overhanging trees [ref:fishbase-saratoga].\n2. **By spear**: from the bank or a snag, or by torchlight at night from the water, as at Bloomfield; the many-pronged [spear](entry:spear-and-woomera) (*yirrmba*) is the fish spear [ref:anderson1996] [ref:hershberger1982].\n3. **By line**: a surface lure or a live insect or small fish on a [hook](entry:hooks-and-lines) at dusk; keep what the rules allow, one fish at 50 cm or more [ref:qld-limits] [ref:qld-gear].\n4. **Leave the brooding females** from October: a mouthful of fry is the next five years of saratoga in the pool [ref:fishbase-saratoga].\n5. **Scale it** with the shell or a knife, *jindi*; the scales are the size of coins [ref:hershberger1982] [ref:wiki-saratoga]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Crocodile water: the saratoga's pools are the [freshwater crocodile's](entry:freshwater-crocodile), and on the lower rivers the saltwater one's; Be Crocwise [ref:crocwise] [ref:kw-about].\n- The species is rated 'high vulnerability' with few eggs and slow maturity; the one-fish limit is there for a reason [ref:fishbase-saratoga] [ref:qld-limits].\n- Native title holders fishing for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993* and section 14 of the *Fisheries Act 1994*; the gear rules still apply to how fish are taken [ref:alrc] [ref:qld-fishact] [ref:qld-gear]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The saratoga is in the Mitchell at Karma Waters now and is the pool fish most people come to the station for; it is also the one with the smallest margin, so the old habit of taking what the camp needs and leaving the brooders is the right one [ref:ala-karma-river] [ref:fishbase-saratoga] [ref:kw-camping]. Whether the Western Yalanji have a name for it, as the Gulf peoples do, is for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kuyu](word:kuyu)* 'fish'; *[kurruba](word:kurruba)* 'species of freshwater fish'; *[jilngu](word:jilngu)* 'boney salmon, tarpon'; *[mujarrka](word:mujarrka)* 'archerfish'; *[yinba](word:yinba)* 'fish spear'; *[yirrmba](word:yirrmba)* 'many-pronged fish spear'; *[jindi](word:jindi)* 'fish scale; dish'; *[wuwu-damaji](word:wuwu-damaji)* 'to go back all the time to the same place, as a good place to fish'; *[yarru](word:yarru)* 'deep water hole' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "waterhole",
+    "barramundi",
+    "sleepy-cod",
+    "mouth-almighty",
+    "spangled-perch",
+    "cherabin",
+    "spear-and-woomera",
+    "hooks-and-lines",
+    "freshwater-crocodile",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "yirrmba",
+      "gloss": "many-pronged fish spear"
+    },
+    {
+      "word": "wuwu-damaji",
+      "gloss": "to go back all the time to the same place, as a good place to fish"
+    }
+  ],
+  "references": [
+    {
+      "id": "wiki-saratoga",
+      "citation": "Wikipedia. Gulf saratoga (Scleropages jardinii).",
+      "url": "https://en.wikipedia.org/wiki/Gulf_saratoga"
+    },
+    {
+      "id": "fishbase-saratoga",
+      "citation": "FishBase. Scleropages jardinii (Saville-Kent, 1892), Gulf saratoga: biology, reproduction and vulnerability, citing Allen, Midgley & Allen (2002) and Merrick & Schmida (1984).",
+      "url": "https://www.fishbase.se/summary/Scleropages-jardinii"
+    },
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wp-saratoga",
+      "citation": "Wikipedia. Scleropages jardinii (Gulf saratoga), accessed 5 October 2026; distribution after Gomon (2011), Fishes of Australia.",
+      "url": "https://en.wikipedia.org/wiki/Scleropages_jardinii"
+    },
+    {
+      "id": "qld-limits",
+      "citation": "Queensland Government. Size and possession limits in fresh waters (web page, last updated 27 March 2026, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/limits-fresh"
+    },
+    {
+      "id": "ala-karma-river",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: river animals and waterbirds.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "angfa-spangled",
+      "citation": "Australia New Guinea Fishes Association. Leiopotherapon unicolor, spangled perch (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/grunters/leiopotherapon_unicolor.html"
+    },
+    {
+      "id": "wiki-darter",
+      "citation": "Wikipedia. Australasian darter (Anhinga novaehollandiae).",
+      "url": "https://en.wikipedia.org/wiki/Australasian_darter"
+    },
+    {
+      "id": "waterhole-temps",
+      "citation": "The temperature regimes of dry-season waterholes in tropical northern Australia: potential effects on fish refugia (Flinders and Gilbert catchments). Freshwater Science.",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/681278"
+    },
+    {
+      "id": "fergusson-refuge",
+      "citation": "Fish assemblage dynamics in an intermittent river of the northern Australian wet–dry tropics (Fergusson River, Daly catchment, seven-year study): contraction to a single refugial pool and the role of piscivorous fish.",
+      "url": "https://agris.fao.org/search/ar/records/65dea3fb4c5aef494fdcf454"
+    },
+    {
+      "id": "jardine2012",
+      "citation": "Jardine, T. D., Pettit, N. E., Warfe, D. M., Pusey, B. J., Ward, D. P., Douglas, M. M., Davies, P. M. & Bunn, S. E. (2012). Consumer–resource coupling in wet–dry tropical rivers. Journal of Animal Ecology 81: 310–322. Mitchell River sites sampled in the early dry season.",
+      "url": "https://doi.org/10.1111/j.1365-2656.2011.01925.x"
+    },
+    {
+      "id": "fishbase-sleepy",
+      "citation": "FishBase. Oxyeleotris lineolata (Steindachner, 1867), sleepy cod: habitat, diet and spawning, citing Allen, Midgley & Allen (2002).",
+      "url": "https://www.fishbase.se/summary/Oxyeleotris-lineolata"
+    },
+    {
+      "id": "wiki-mouth-almighty",
+      "citation": "Wikipedia. Mouth almighty (Glossamia aprion).",
+      "url": "https://en.wikipedia.org/wiki/Mouth_almighty"
+    },
+    {
+      "id": "tucker1996",
+      "citation": "Tucker, A. D., Limpus, C. J., McCallum, H. I. & McDonald, K. R. (1996). Ontogenetic dietary partitioning by Crocodylus johnstoni during the dry season. Copeia 1996(4): 978–988. 324 crocodiles stomach-flushed over three dry seasons in Queensland.",
+      "url": "https://doi.org/10.2307/1447669"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing equipment rules: fresh waters (web page, last updated 26 March 2026, accessed 6 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

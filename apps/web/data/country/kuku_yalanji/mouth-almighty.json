@@ -1,0 +1,241 @@
+{
+  "slug": "mouth-almighty",
+  "title": "Mouth almighty",
+  "category": "fish",
+  "names": [
+    {
+      "word": "kuyu",
+      "gloss": "fish"
+    }
+  ],
+  "scientificName": "Glossamia aprion",
+  "identification": {
+    "confidence": "probable",
+    "basis": "No Kuku Yalanji word for the mouth almighty is recorded. The fish is recorded within 30 km of Karma Waters and is common in still vegetated water across northern Australia."
+  },
+  "countryTypes": [
+    "river-freshwater"
+  ],
+  "summary": "The mouth almighty is the small barred fish that hangs motionless in the weed at the edge of a pool and, after dark, swallows anything it can fit: 'a nocturnal species which ambushes its prey, mainly small crustaceans, insects, and smaller fish' [ref:wiki-mouth-almighty]. It is a cardinalfish that has moved into fresh water, 'strictly a freshwater species although most other members of its group are marine', creamy-brown with six to eight broken dark bars and a dark bar through the eye, to 18 cm and 600 g in the north [ref:nfa-mouth] [ref:wiki-mouth-almighty] [ref:fishbase-mouth]. The female lays a few large eggs in a packet and the male carries them in his mouth until they hatch, well grown, which is where the name comes from [ref:wiki-mouth-almighty] [ref:nfa-mouth]. It is 'quite good eating despite its usually small size', it tolerates water to 38 °C, and on the Mitchell its diet is prawns before anything else [ref:nfa-mouth] [ref:fishbase-mouth] [ref:jardine2012]. It is recorded within 30 km of [Karma Waters](place:karma-waters); the dictionary has no word for it beyond **[kuyu](word:kuyu)**, 'fish' [ref:ala-karma-river] [ref:hershberger1982].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "No word recorded; kuyu is 'fish'"
+    },
+    {
+      "label": "Size",
+      "value": "Commonly 12 cm; to 18 cm and 600 g in the north"
+    },
+    {
+      "label": "Look",
+      "value": "Creamy brown with 6–8 broken dark bars, scattered dark blotches, a dark bar from eye to gills, two back fins, the first sooty"
+    },
+    {
+      "label": "Where",
+      "value": "Still or slow water, in dense weed on the shallow margins of rivers, creeks and lagoons; Kimberley to the Burnett, and New Guinea"
+    },
+    {
+      "label": "Habits",
+      "value": "Solitary; sits motionless among plants by day; a nocturnal ambush predator of prawns, insects and small fish"
+    },
+    {
+      "label": "Breeding",
+      "value": "Summer, at about 22 °C; a few large eggs (3 mm) in a membrane packet, brooded in the male's mouth; larvae hatch advanced"
+    },
+    {
+      "label": "Rules",
+      "value": "Not listed in the Queensland freshwater size and possession table"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "No Kuku Yalanji name is recorded; **[kuyu](word:kuyu)** 'fish', and **[kurruba](word:kurruba)** 'species of freshwater fish' is unidentified [ref:hershberger1982]. The English names say what people noticed: mouth almighty, Queensland mouthbrooder, Gill's cardinalfish, and the less kind 'flabby' and 'stinker' [ref:nfa-mouth]. The genus *Glossamia* is the freshwater branch of the cardinalfishes, *Apogonidae*, a family of small marine mouthbrooders [ref:wiki-mouth-almighty]."
+    },
+    {
+      "id": "description",
+      "heading": "The fish",
+      "body": "'*G. aprion* has a creamy-brown background colour and six to eight irregularly shaped, broken markings which are similar to bars; these are darker olive-brown in colour and they reach the ventral side. They also have many irregular, darker brown spots and blotches, which vary in size, and a dark bar which runs from the eye to gills. The first dorsal fin is sooty in colour, with the outer half much darker than the inner part, as are the pelvic and the inner parts of second dorsal and anal fins' [ref:wiki-mouth-almighty]. 'To 180 mm, 600 g in northern Australia, to 150 mm in southern waters' [ref:nfa-mouth]; commonly 12 cm [ref:fishbase-mouth].\n\n'Widespread in northern Australia, where it occurs in rivers, creeks, and lagoons from the Fitzroy River in the West Kimberley region of Western Australia to the Burnett River in Queensland. It is found in similar habitats in New Guinea' [ref:wiki-mouth-almighty]. 'Native to still or slowly flowing fresh waters, where it shelters in aquatic vegetation growing in the shallows near the edges. It is a nocturnal species which ambushes its prey, mainly small crustaceans, insects, and smaller fish' [ref:wiki-mouth-almighty]. 'Solitary, carnivore. Most of its time is spent sitting motionless among plants'; 'tolerant of temperatures to at least 38 °C and pH range of 4.5–8.1' [ref:fishbase-mouth]. On the Mitchell, prawns 'featured prominently' in its diet [ref:jardine2012].\n\n**Breeding.** 'The female lays a relatively small number of large eggs. These are brooded by the male in his mouth, and the larvae hatch at a quite advanced stage' [ref:wiki-mouth-almighty]. 'Spawns in summer at water temperatures of about 22 °C. The eggs are about 3 mm across and laid in a packet surrounded by a thin membrane. The male incubates the eggs in his mouth' [ref:nfa-mouth].\n\n'Not generally considered an angling species due to its size. Quite good eating despite its usually small size' [ref:nfa-mouth]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Mouth almighty, gudgeon, grunter",
+      "body": "- **Mouth almighty**: barred and blotched, a bar through the eye, two back fins, a big mouth on a small fish, hanging in the weed [ref:wiki-mouth-almighty].\n- **[Sleepy cod](entry:sleepy-cod)** and the small gudgeons: mottled rather than barred, on the bottom rather than in the weed [ref:wiki-sleepy-cod].\n- **Barred grunter** (*Amniataba*): dark vertical bars too, but a single notched back fin and a grunter's shape, in open water [ref:ala-karma-river].\n- **[Spangled perch](entry:spangled-perch)**: spotted, not barred; silvery; out in the open by day [ref:lintermans2023].\n- **Archerfish** (*mujarrka*): barred and big-eyed, but silver, under the overhangs at the surface, and it spits [ref:hershberger1982]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A fish hanging dead still in the weed** at the edge of a pool, head down a little, in daylight [ref:fishbase-mouth].\n- **A male with a swollen throat** that will not feed, in the storm season: a mouthful of eggs [ref:nfa-mouth].\n- **Small prawns scattering** at the weedy edge at night, and a swirl [ref:jardine2012].\n- **It comes to a torch**: the night-spearing light of the Bloomfield rivers draws the night fish to the edges [ref:anderson1996]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "'Still or gently flowing water of streams, pools, lakes, swamps and reservoirs, usually in well vegetated, shallow margins' [ref:fishbase-mouth]. On Karma Waters that is the weedy, rooty edges of the dry-season pools and the lagoons off the river; the [waterhole](entry:waterhole) page gives the pools' temperatures, well inside the mouth almighty's 38 °C [ref:waterhole-temps]. It is 'strictly a freshwater species' [ref:nfa-mouth]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The ambush in the weed",
+      "body": "After dark the mouth almighty takes the weedy edge of the pool: the small prawns and [cherabin](entry:cherabin), the insects that fall in, the rainbowfish and the fry of everything, while the [sleepy cod](entry:sleepy-cod) takes the bottom and the [catfish](entry:catfish) the open sand [ref:wiki-mouth-almighty] [ref:jardine2012]. By day, hanging in the weed, it is prey itself for the [barramundi](entry:barramundi), the [freshwater crocodile](entry:freshwater-crocodile), the darter and the kingfishers [ref:tucker1996] [ref:wiki-darter]. Its eggs are the safest in the pool, in the male's mouth, and few, which is the cardinalfish way; the [waterhole](entry:waterhole) page has the whole pool's day and night."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Spawning in summer, 'at water temperatures of about 22 °C', which on the Mitchell is from the end of the dry through the storms; males mouthbrooding then [ref:nfa-mouth] [ref:waterhole-temps]. Through the dry it is in the weed of every pool; in the hot late dry it is still comfortable at 38 °C [ref:fishbase-mouth]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- Food, 'quite good eating despite its usually small size' [ref:nfa-mouth].\n- Bait for the bigger fish.\n- A fish of the grass drive and the dip net rather than the line [ref:roth1901]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Taking mouth almighty",
+      "body": "The ways of taking river fish are on their own pages: [spears](entry:spear-and-woomera), [nets](entry:nets), [traps and fences](entry:fish-traps), [hooks and lines](entry:hooks-and-lines) and [fish poisons](entry:fish-poisoning). At Bloomfield, night fishing was 'done on the tidal estuaries from a canoe at night. One person sat at the front of the boat holding aloft a burning paperbark torch. As the fish were attracted to the light, another person would spear them' [ref:anderson1996]. On the Mitchell, Palmer saw the freshwater mangrove *Barringtonia racemosa*, 'Yakoora', cut up, hammered fine and put in the lagoons, and the coolibah's branches and leaves 'laid in water for several days to sicken the fish; it is universally used for this purpose' [ref:palmer1883].\n\n1. **A [grass fence](entry:fish-traps) or a dip net** (*makarr*) worked through the weedy margin of a pool at dusk takes them with the prawns [ref:roth1901] [ref:hershberger1982].\n2. **By torchlight** at the edge, with a small [spear](entry:spear-and-woomera), the Bloomfield way [ref:anderson1996].\n3. **On a small [hook](entry:hooks-and-lines)** with a prawn after dark, beside the weed [ref:wiki-mouth-almighty].\n4. **Let the brooding males go** in the storm season; a swollen throat is the next generation [ref:nfa-mouth].\n5. **Cook on the coals** whole; the flesh is white and the fish is small [ref:nfa-mouth]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Crocodile water at night, which is when this fish is taken [ref:crocwise] [ref:kw-about].\n- Not listed in the Queensland freshwater size and possession table; the gear rules apply [ref:qld-limits] [ref:qld-gear].\n- Native title holders' fishing for personal, domestic or non-commercial communal needs is covered by section 211 of the *Native Title Act 1993* and section 14 of the *Fisheries Act 1994* [ref:alrc] [ref:qld-fishact]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The mouth almighty is in the weedy pools of the Mitchell at Karma Waters, one of the fish of the night shift that the prawns feed [ref:ala-karma-river] [ref:jardine2012]. If the Western Yalanji have a name for it, the contribution box below is for that [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kuyu](word:kuyu)* 'fish'; *[kurruba](word:kurruba)* 'species of freshwater fish'; *[mujarrka](word:mujarrka)* 'archerfish'; *[wukuju](word:wukuju)* 'freshwater prawn'; *[makarr](word:makarr)* 'fish net'; *[yinba](word:yinba)* 'fish spear'; *[bana](word:bana)* 'water' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "waterhole",
+    "sleepy-cod",
+    "spangled-perch",
+    "saratoga",
+    "cherabin",
+    "catfish",
+    "fish-traps",
+    "nets",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "mujarrka",
+      "gloss": "archerfish (Yalanji dialect)"
+    },
+    {
+      "word": "makarr",
+      "gloss": "fish net"
+    }
+  ],
+  "references": [
+    {
+      "id": "wiki-mouth-almighty",
+      "citation": "Wikipedia. Mouth almighty (Glossamia aprion).",
+      "url": "https://en.wikipedia.org/wiki/Mouth_almighty"
+    },
+    {
+      "id": "nfa-mouth",
+      "citation": "Native Fish Australia. Mouth almighty, Glossamia aprion (species page).",
+      "url": "https://www.nativefish.asn.au/home/page/Mouth-Almighty"
+    },
+    {
+      "id": "fishbase-mouth",
+      "citation": "FishBase. Glossamia aprion (Richardson, 1842), mouth almighty: habitat, size and behaviour, citing Allen (1991) and Allen, Midgley & Allen (2002).",
+      "url": "https://www.fishbase.se/summary/Glossamia-aprion"
+    },
+    {
+      "id": "jardine2012",
+      "citation": "Jardine, T. D., Pettit, N. E., Warfe, D. M., Pusey, B. J., Ward, D. P., Douglas, M. M., Davies, P. M. & Bunn, S. E. (2012). Consumer–resource coupling in wet–dry tropical rivers. Journal of Animal Ecology 81: 310–322. Mitchell River sites sampled in the early dry season.",
+      "url": "https://doi.org/10.1111/j.1365-2656.2011.01925.x"
+    },
+    {
+      "id": "ala-karma-river",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: river animals and waterbirds.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-sleepy-cod",
+      "citation": "Wikipedia. Sleepy cod (Oxyeleotris lineolata).",
+      "url": "https://en.wikipedia.org/wiki/Sleepy_cod"
+    },
+    {
+      "id": "lintermans2023",
+      "citation": "Lintermans, M. (2023). Fishes of the Murray–Darling Basin, second edition. Australian River Restoration Centre, Canberra. Species account: spangled perch, Leiopotherapon unicolor (extract at mdb.fish).",
+      "url": "https://www.mdb.fish/fish-fact-sheets/spangled-perch"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "waterhole-temps",
+      "citation": "The temperature regimes of dry-season waterholes in tropical northern Australia: potential effects on fish refugia (Flinders and Gilbert catchments). Freshwater Science.",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/681278"
+    },
+    {
+      "id": "tucker1996",
+      "citation": "Tucker, A. D., Limpus, C. J., McCallum, H. I. & McDonald, K. R. (1996). Ontogenetic dietary partitioning by Crocodylus johnstoni during the dry season. Copeia 1996(4): 978–988. 324 crocodiles stomach-flushed over three dry seasons in Queensland.",
+      "url": "https://doi.org/10.2307/1447669"
+    },
+    {
+      "id": "wiki-darter",
+      "citation": "Wikipedia. Australasian darter (Anhinga novaehollandiae).",
+      "url": "https://en.wikipedia.org/wiki/Australasian_darter"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "qld-limits",
+      "citation": "Queensland Government. Size and possession limits in fresh waters (web page, last updated 27 March 2026, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/limits-fresh"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing equipment rules: fresh waters (web page, last updated 26 March 2026, accessed 6 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

@@ -1,0 +1,248 @@
+{
+  "slug": "spangled-perch",
+  "title": "Spangled perch",
+  "category": "fish",
+  "names": [
+    {
+      "word": "kuyu",
+      "gloss": "fish"
+    }
+  ],
+  "scientificName": "Leiopotherapon unicolor",
+  "identification": {
+    "confidence": "probable",
+    "basis": "No Kuku Yalanji word for the spangled perch is recorded; the dictionary's grunter words jarbir and kurriyala are more likely the sooty grunter of the Bloomfield rivers. The spangled perch is recorded within 30 km of Karma Waters and is Australia's most widespread freshwater fish."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "The spangled perch is the fish that turns up in the dam, the bore drain, the wheel rut and the puddle: 'Australia's most widespread native freshwater fish', a hand-long silver-grey grunter freckled with bronze spots, 'well adapted to surviving in diverse environments including rivers, billabongs, lakes, isolated dams, bore-drains, wells and waterholes in intermittent streams' [ref:lintermans2023] [ref:wiki-spangled-perch]. It survives water from 5 to 44 °C, from fresh to seawater, and clear to opaque; it has 'exceptional dispersal abilities', and the 'rains of fishes' of the inland are spangled perch that have 'quickly swum through overland surface waters (sometimes just centimetres deep) following heavy rainfall', 'across flooded paddocks and along wheel ruts on tracks for up to 16 km' [ref:fishbase-spangled] [ref:lintermans2023]. It matures in its first year, spawns at night in the shallows when the water is over 20 °C, from November to February, and a female can carry over a hundred thousand eggs; it eats insects, prawns, small fish and a little plant, mostly by day, and it grunts [ref:lintermans2023]. It is recorded within 30 km of [Karma Waters](place:karma-waters), and the dictionary has no name for it that can be tied to it; it is one of the **kuyu**, the fish, and in the dictionary's grunter words **jarbir** and **kurriyala** it may be hiding [ref:ala-karma-river] [ref:hershberger1982].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "No certain word; jarbir and kurriyala are 'grunter'; kundurr-kundurr is 'crescent perch'"
+    },
+    {
+      "label": "Size",
+      "value": "Commonly 15 cm; rarely 25 cm and 560 g; maximum 33 cm"
+    },
+    {
+      "label": "Look",
+      "value": "Slender oval grunter, brown to steel-blue back, silvery-grey sides with bronze to rusty spots, white anal and pelvic fins, slightly forked tail"
+    },
+    {
+      "label": "Where",
+      "value": "Any water: rivers, billabongs, dams, bore drains, wells, intermittent waterholes; most numerous in intermittent waters"
+    },
+    {
+      "label": "Tolerance",
+      "value": "5–44 °C, fresh to seawater, pH 4–8.6, clear to opaque; may sit out droughts in wet mud"
+    },
+    {
+      "label": "Breeding",
+      "value": "Mature in the first year; November–February, at night in shallows above 20–22 °C; 24,000–113,000 eggs; hatch in about two days"
+    },
+    {
+      "label": "Rules",
+      "value": "Not listed in the Queensland freshwater size and possession table"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[jarbir](word:jarbir)** and **[kurriyala](word:kurriyala)** are each 'species of fish, grunter'; the [sooty grunter](entry:black-bream) is the big grunter of the Bloomfield and Daintree rivers, and those words most likely belong to it, though the spangled perch is a grunter too [ref:hershberger1982]. **[kundurr-kundurr](word:kundurr-kundurr)** 'crescent perch' is an English name for a striped estuary grunter, not this fish. **[kuyu](word:kuyu)** is 'fish' [ref:hershberger1982]. In English it is the spangled perch or spangled grunter, 'spangled' for the spots; the genus name means something like 'fat server' and the species name 'one colour' [ref:fishbase-spangled] [ref:wiki-spangled-perch]."
+    },
+    {
+      "id": "description",
+      "heading": "The fish",
+      "body": "'A small to medium sized, laterally compressed fish with a relatively slender body for a grunter. Maximum size 330 mm; rarely 250 mm and 560 g; commonly 150 mm. The single dorsal fin has a moderately-sized notch between the spinous and soft-rayed portions ... The anal and pelvic fins are white. The back is generally brown to steely-blue and the sides silvery-grey with numerous bronze to rusty-brown spots. The tail is slightly forked, the eye is small to moderate, and the mouth is of moderate size with equal jaws' [ref:lintermans2023]. 'The mouth is oblique ... equipped with strong conical teeth' [ref:wiki-spangled-perch].\n\n**Where it lives.** 'Occurs in a wide range of water conditions, it can be found in running to still waters with turbidity ranging from clear to almost opaque as well as being able to tolerate a wide range of salinities and showing the ability to live in a wide range of temperatures ... intermittent waters, and these waters are where it is most numerous. It also inhabits lakes, dams, rivers, billabongs, bore drains, wells and waterholes' [ref:wiki-spangled-perch]. 'Adults inhabit forest streams to desert bores under equally variable regimes of salinity (pure fresh to seawater), pH (4.0 to 8.6) and temperature (5° to 44 °C) ... May be encountered in any temporary water in the interior after rains, including wheel ruts of vehicle tracks ... A hardy species that may be capable of surviving droughts by aestivating in wet mud' [ref:fishbase-spangled]. 'It can survive temperatures up to 40 °C, but is relatively intolerant of colder water with a lower lethal limit of around 4.1 °C' [ref:lintermans2023].\n\n**The rain of fishes.** 'Often reported in \"rains of fishes\" it is likely to have quickly swum through overland surface waters (sometimes just centimetres deep) following heavy rainfall, rather than having fallen from the sky (check the house gutters/water tank). This allows it to rapidly colonise habitats not readily accessible to other fish species. It has been observed swimming across flooded paddocks and along wheel ruts on tracks for up to 16 km' [ref:lintermans2023].\n\n**Breeding.** 'Individuals mature in their first year, males at about 58 mm length and females at 78 mm. Breeding occurs from November to February and fecundity is high and size-dependant, with between 24,000 and 113,200 eggs per female. Spawning occurs at night, in shallow areas such as backwaters or still pools, when water temperatures are above 20–22 °C and with eggs spread randomly over the sediments. The eggs are small (0.7 mm diam.), round, demersal, non-adhesive and hatch in 45–55 hrs at 23–26 °C' [ref:lintermans2023]. FishBase adds that 'mature adults migrate to the upper reaches of rivers and creeks to spawn during floods' and reports the eggs 'guarded and fanned by the male parent' [ref:fishbase-spangled].\n\n**Food and voice.** 'Primarily a carnivore eating aquatic insects, shrimps, microcrustaceans and fish, although it also consumes some plant material (~10 % of diet). It feeds mainly during daylight hours. As a member of the Grunter family, Spangled perch emit a distinctive, species-specific \"grunt\" ... produced by vibrating its swim bladder' [ref:lintermans2023]. On the Mitchell, prawns 'featured prominently' in its diet [ref:jardine2012]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Spangled perch, sooty grunter, bony bream",
+      "body": "- **Spangled perch**: slender, silvery, bronze-freckled, white lower fins, a hand long; everywhere [ref:lintermans2023].\n- **[Sooty grunter](entry:black-bream)**: deep, dark, to 4 kg, in the rock runs and deep pools; the dictionary's *jarbir* and *kurriyala* more likely [ref:angfa-spangled] [ref:hershberger1982].\n- **Barred grunter** (*Amniataba*): the same size with dark vertical bars, recorded in the same waters [ref:ala-karma-river].\n- **Bony bream** (*dalkal*, 'freshwater sardine'): silver, deep, soft-mouthed, in shoals, a plankton feeder [ref:hershberger1982].\n- **Rainbowfish** and the small silver fish of the shallows: smaller, two back fins, no spines to speak of [ref:ala-karma-river].\n- **It grunts** when handled, which the others do not [ref:lintermans2023]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Fish in a puddle, a dam, a wheel rut** after the first storms: spangled perch, which swam there [ref:lintermans2023].\n- **Small fish dimpling a shallow backwater at night** in the storm season: spawning [ref:lintermans2023].\n- **Grunting** from the bucket or the bank [ref:lintermans2023].\n- **Kingfishers, egrets and the darter** working a shrinking pool are usually working spangled perch, the commonest fish in it [ref:wiki-darter].\n- **Fish alive in the last mud** of a dried waterhole [ref:fishbase-spangled]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "Everywhere there is water, and most of all in the intermittent creeks and waterholes that dry back each year, where it is 'most numerous' [ref:wiki-spangled-perch]. On Karma Waters that is every pool of the Mitchell, every side creek, the station dams and the soaks; the [waterhole](entry:waterhole) page gives the pools' temperatures, which the spangled perch tolerates further than any other fish here [ref:waterhole-temps] [ref:fergusson-refuge]. Its lower limit is cold, not heat: it dies out of the cold southern rivers [ref:lintermans2023]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The pioneer",
+      "body": "The spangled perch is the first fish back into every pool and creek after the wet, by swimming overland, and the last to die when a pool dries, and that is its place in the river: the pioneer and the food base [ref:lintermans2023] [ref:fishbase-spangled]. It eats the insects, the shrimps and prawns, the small fish and a little weed, by day; it is eaten by the [barramundi](entry:barramundi), the [saratoga](entry:saratoga), the [sleepy cod](entry:sleepy-cod), the [catfish](entry:catfish), the [freshwater crocodile](entry:freshwater-crocodile), the darter, the cormorants, the kingfishers and the kites, which is why a shrinking pool full of spangled perch draws every fish-eater on the river [ref:lintermans2023] [ref:jardine2012] [ref:tucker1996] [ref:wiki-darter]. A female's hundred thousand eggs in a shallow backwater are what feeds the next pool's [cherabin](entry:cherabin) and rainbowfish [ref:lintermans2023]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The first storms bring it overland into the dams and puddles; November to February it spawns at night in the warm shallows, and FishBase has the adults moving up the creeks to spawn on the floods; through the dry it is the commonest fish in every pool, feeding by day; in the late dry it is in the hot last water, and in the mud [ref:lintermans2023] [ref:fishbase-spangled] [ref:bom-palmerville]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- Food: a small fish, but there is always one; a bony, sweet-fleshed grunter [ref:lintermans2023].\n- Bait and live bait for the bigger fish [ref:nfa-sleepy].\n- The children's fish: caught on a hand line from any pool, any day [ref:qld-gear].\n- A sign of water that will hold fish: where the spangled perch is, the pool has not died [ref:fishbase-spangled]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Taking spangled perch",
+      "body": "The ways of taking river fish are on their own pages: [spears](entry:spear-and-woomera), [nets](entry:nets), [traps and fences](entry:fish-traps), [hooks and lines](entry:hooks-and-lines) and [fish poisons](entry:fish-poisoning). At Bloomfield, night fishing was 'done on the tidal estuaries from a canoe at night. One person sat at the front of the boat holding aloft a burning paperbark torch. As the fish were attracted to the light, another person would spear them' [ref:anderson1996]. On the Mitchell, Palmer saw the freshwater mangrove *Barringtonia racemosa*, 'Yakoora', cut up, hammered fine and put in the lagoons, and the coolibah's branches and leaves 'laid in water for several days to sicken the fish; it is universally used for this purpose' [ref:palmer1883].\n\n1. **A hand line and a small [hook](entry:hooks-and-lines)** with a grasshopper, a worm or a piece of prawn, in any pool, by day; it feeds in daylight and bites freely [ref:lintermans2023] [ref:qld-gear].\n2. **A [grass fence](entry:fish-traps) across a shallow pool** drives them with everything else; the women's grass drive of the Peninsula was for exactly this kind of fish [ref:roth1901].\n3. **A dip net** (*makarr*) in the shrinking pools of the late dry [ref:hershberger1982].\n4. **Scale and gut** them small; they cook in minutes on the coals.\n5. **Listen for the grunt**: a bucket of them tells you what you have [ref:lintermans2023]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- A shrinking pool full of spangled perch is also full of what eats them, including the [freshwater crocodile](entry:freshwater-crocodile) [ref:crocwise] [ref:tucker1996].\n- Not listed in the Queensland freshwater size and possession table; the gear rules apply [ref:qld-limits] [ref:qld-gear].\n- Native title holders' fishing for personal, domestic or non-commercial communal needs is covered by section 211 of the *Native Title Act 1993* and section 14 of the *Fisheries Act 1994* [ref:alrc] [ref:qld-fishact]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The spangled perch is in every pool and dam on Karma Waters and will be in the first puddle after the first storm; it is the fish everyone's first fish is [ref:ala-karma-river] [ref:lintermans2023]. Its Western Yalanji name, if it has one apart from *kuyu*, is for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kuyu](word:kuyu)* 'fish'; *[jarbir](word:jarbir)*, *[kurriyala](word:kurriyala)* 'grunter'; *[kundurr-kundurr](word:kundurr-kundurr)* 'crescent perch'; *[dalkal](word:dalkal)* 'freshwater sardine'; *[julba](word:julba)* 'freshwater minnow'; *[julmba](word:julmba)* 'sucker fish'; *[makarr](word:makarr)* 'fish net'; *[wukuju](word:wukuju)* 'freshwater prawn' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "waterhole",
+    "black-bream",
+    "barramundi",
+    "saratoga",
+    "sleepy-cod",
+    "mouth-almighty",
+    "cherabin",
+    "fish-traps",
+    "hooks-and-lines",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "dalkal",
+      "gloss": "freshwater sardine"
+    },
+    {
+      "word": "julba",
+      "gloss": "freshwater minnow"
+    }
+  ],
+  "references": [
+    {
+      "id": "lintermans2023",
+      "citation": "Lintermans, M. (2023). Fishes of the Murray–Darling Basin, second edition. Australian River Restoration Centre, Canberra. Species account: spangled perch, Leiopotherapon unicolor (extract at mdb.fish).",
+      "url": "https://www.mdb.fish/fish-fact-sheets/spangled-perch"
+    },
+    {
+      "id": "wiki-spangled-perch",
+      "citation": "Wikipedia. Leiopotherapon unicolor (spangled perch), citing Fishes of Australia and the IUCN assessment.",
+      "url": "https://en.wikipedia.org/wiki/Spangled_perch"
+    },
+    {
+      "id": "fishbase-spangled",
+      "citation": "FishBase. Leiopotherapon unicolor (Günther, 1859), spangled perch: habitat tolerances, diet and spawning, citing Allen, Midgley & Allen (2002).",
+      "url": "https://www.fishbase.se/summary/Leiopotherapon-unicolor"
+    },
+    {
+      "id": "ala-karma-river",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: river animals and waterbirds.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "jardine2012",
+      "citation": "Jardine, T. D., Pettit, N. E., Warfe, D. M., Pusey, B. J., Ward, D. P., Douglas, M. M., Davies, P. M. & Bunn, S. E. (2012). Consumer–resource coupling in wet–dry tropical rivers. Journal of Animal Ecology 81: 310–322. Mitchell River sites sampled in the early dry season.",
+      "url": "https://doi.org/10.1111/j.1365-2656.2011.01925.x"
+    },
+    {
+      "id": "angfa-spangled",
+      "citation": "Australia New Guinea Fishes Association. Leiopotherapon unicolor, spangled perch (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/grunters/leiopotherapon_unicolor.html"
+    },
+    {
+      "id": "wiki-darter",
+      "citation": "Wikipedia. Australasian darter (Anhinga novaehollandiae).",
+      "url": "https://en.wikipedia.org/wiki/Australasian_darter"
+    },
+    {
+      "id": "waterhole-temps",
+      "citation": "The temperature regimes of dry-season waterholes in tropical northern Australia: potential effects on fish refugia (Flinders and Gilbert catchments). Freshwater Science.",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/681278"
+    },
+    {
+      "id": "fergusson-refuge",
+      "citation": "Fish assemblage dynamics in an intermittent river of the northern Australian wet–dry tropics (Fergusson River, Daly catchment, seven-year study): contraction to a single refugial pool and the role of piscivorous fish.",
+      "url": "https://agris.fao.org/search/ar/records/65dea3fb4c5aef494fdcf454"
+    },
+    {
+      "id": "tucker1996",
+      "citation": "Tucker, A. D., Limpus, C. J., McCallum, H. I. & McDonald, K. R. (1996). Ontogenetic dietary partitioning by Crocodylus johnstoni during the dry season. Copeia 1996(4): 978–988. 324 crocodiles stomach-flushed over three dry seasons in Queensland.",
+      "url": "https://doi.org/10.2307/1447669"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "nfa-sleepy",
+      "citation": "Native Fish Australia. Sleepy cod, Oxyeleotris lineolata (species page).",
+      "url": "https://www.nativefish.asn.au/home/page/Sleepy-Cod"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing equipment rules: fresh waters (web page, last updated 26 March 2026, accessed 6 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "qld-limits",
+      "citation": "Queensland Government. Size and possession limits in fresh waters (web page, last updated 27 March 2026, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/limits-fresh"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

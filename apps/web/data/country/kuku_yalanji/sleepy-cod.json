@@ -1,0 +1,247 @@
+{
+  "slug": "sleepy-cod",
+  "title": "Sleepy cod",
+  "category": "fish",
+  "names": [
+    {
+      "word": "kurrubal",
+      "gloss": "fresh water cod"
+    }
+  ],
+  "scientificName": "Oxyeleotris lineolata",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary's kurrubal is 'fresh water cod', and the sleepy cod is the only freshwater fish called a cod on this coast; the identification is a reasonable guess, not a record. The sleepy cod is recorded within 30 km of Karma Waters."
+  },
+  "countryTypes": [
+    "river-freshwater"
+  ],
+  "summary": "**[kurrubal](word:kurrubal)** is 'fresh water cod', and the freshwater cod of these rivers is the sleepy cod, *Oxyeleotris lineolata*, a thick, mottled, big-headed fish that lies on the bottom among snags and roots by day and hunts by night, and that is 'one of the most favoured freshwater fish in Australia for eating, having white, flaky flesh, low fat content, and a mild flavour' [ref:hershberger1982] [ref:wiki-sleepy-cod]. It is not a cod at all but a gudgeon, in the family Butidae, 'thus is unrelated to the true cods' [ref:wiki-sleepy-cod]. It reaches 51 cm and 3 kg, though most are under 20 cm; it lives 'in quiet or slow-flowing water among vegetation, around log debris or beneath undercut banks'; it can breathe air; and from October to February the male guards a sheet of up to 70,000 eggs 'which look like shiny velvet' stuck to the roof of a hollow log or the underside of a ledge until they hatch [ref:wiki-sleepy-cod] [ref:fishbase-sleepy] [ref:nfa-sleepy]. It is recorded within 30 km of [Karma Waters](place:karma-waters), and the dry-season pools with their snags and undercut banks are its country [ref:ala-karma-river].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kurrubal (fresh water cod), probably"
+    },
+    {
+      "label": "Size",
+      "value": "To 51 cm and 3 kg; most under 20 cm"
+    },
+    {
+      "label": "Look",
+      "value": "Dark brown back, paler sides with fuzzy dark lines along the scale rows; big head and mouth; rounded tail; young with a cream stripe along the back"
+    },
+    {
+      "label": "Where",
+      "value": "Quiet, slow water among weed, snags, log debris and undercut banks; Fitzroy River north through Cape York, the Gulf and west to the Ord"
+    },
+    {
+      "label": "Food",
+      "value": "Fish, insects, prawns and crustaceans; sits by day, takes live food at night"
+    },
+    {
+      "label": "Breeding",
+      "value": "October–February; a sheet of up to 70,000 adhesive eggs on the roof of a log or the underside of a ledge, guarded and fanned by the male, hatching in 5–7 days"
+    },
+    {
+      "label": "Rules",
+      "value": "Not listed in the Queensland freshwater size and possession table"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[kurrubal](word:kurrubal)** 'fresh water cod' [ref:hershberger1982]. Nothing else in the dictionary fits the sleepy cod so well, and nothing says outright that this is the fish; the gloss is a colonist's name applied to a Kuku Yalanji word, and the identification is this page's. Other river fish words: **[kuyu](word:kuyu)** 'fish'; **[kurruba](word:kurruba)** 'species of freshwater fish'; **[bayil](word:bayil)** 'jungle perch'; **[dijarr](word:dijarr)** a perch 'like the jungle perch, but not around here. Found at Rossville and Shipton's Flats'; **[julaji](word:julaji)** and **[kanyaji](word:kanyaji)** the [catfish](entry:catfish) [ref:hershberger1982]. In English the fish is the sleepy cod, 'sleepy' for the way it lies, and 'cod' for its shape and its eating, though it is a gudgeon [ref:wiki-sleepy-cod]."
+    },
+    {
+      "id": "description",
+      "heading": "The fish",
+      "body": "'The sleepy cod can reach a length of 51 cm, though most do not exceed 20 cm. Fish up to 3 kg have been caught by anglers. They are dark brown along the back and paler on the sides, with fuzzy dark lines running along scale rows. Juveniles have a white or cream patch running along the back and top of the head, with brown sides and a white belly' [ref:wiki-sleepy-cod]. FishBase: maximum 45 cm standard length, common 20 cm; 'facultative air-breathing in the genus' [ref:fishbase-sleepy].\n\n'Most often found in slow flowing well vegetated areas with abundant in-stream cover, snags and submerged logs'; 'widespread from the Fitzroy River in Queensland north throughout Cape York, the Gulf of Carpentaria and west to the Ord River system' [ref:nfa-sleepy]. 'A sluggish bottom dwelling carnivore, feeds on other fish, insects and crustaceans'; 'generally quiet during the day it will take live food such as other fish, shrimps etc at night' [ref:nfa-sleepy]. On the Mitchell, prawns 'featured prominently' in its diet [ref:jardine2012].\n\n**Breeding.** 'Spawning occurs between October and February. Female lays a roundish egg sheet, of up to 70,000 adhesive eggs. This is frequently on the underside of an overhanging rock ledge, under roots or on the roof of a hollow submerged log, usually in a shady location. The straw coloured eggs, which look like shiny velvet, are guarded and aerated by the male until after the eggs hatch in 5 to 7 days' [ref:nfa-sleepy] [ref:wiki-sleepy-cod].\n\n'A popular angling species, although it offers little in the way of sport' [ref:nfa-sleepy]. 'They are one of the most favoured freshwater fish in Australia for eating' [ref:wiki-sleepy-cod]. FishBase rates it 'moderate vulnerability' [ref:fishbase-sleepy]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Sleepy cod, catfish, barramundi",
+      "body": "- **Sleepy cod**: mottled brown, big flat head, rounded tail, no whiskers, lying on the bottom [ref:wiki-sleepy-cod].\n- **[Catfish](entry:catfish)**: whiskers, a pointed eel-like tail, and venomous fin spines [ref:hershberger1982].\n- **[Barramundi](entry:barramundi)**: silver, humped, broom-tailed, a mid-water hunter [ref:wiki-saratoga].\n- **[Mouth almighty](entry:mouth-almighty)**: small, barred, with two back fins and a bar through the eye, in the weed at the edge [ref:wiki-mouth-almighty].\n- **Purple-spotted gudgeon and the small gudgeons**: the same family, a hand long at most [ref:fishbase-sleepy]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A shape on the bottom beside a log** that does not move when you look at it; the fish lies still by day [ref:nfa-sleepy].\n- **A velvet sheet of straw-coloured eggs** on the roof of a hollow log or under a ledge in the shade, with a male beside it, from October [ref:nfa-sleepy].\n- **Prawn shells** in the shallows at dawn: the night's hunting [ref:jardine2012].\n- **A fish gulping at the surface** of a hot, still pool in the late dry is using its air-breathing [ref:fishbase-sleepy] [ref:waterhole-temps]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "'Quiet or slow-flowing water among vegetation, around log debris or beneath undercut banks' in 'rivers, creeks and billabongs' [ref:fishbase-sleepy]. At Karma Waters the undercut banks, roots and snags of the dry-season pools are its places; the [waterhole](entry:waterhole) page describes the cover and the hot, low-oxygen water of the late dry that the sleepy cod's air-breathing helps it through [ref:waterhole-temps] [ref:fergusson-refuge]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The night shift on the bottom",
+      "body": "The sleepy cod takes the bottom of the pool at night: prawns, [cherabin](entry:cherabin), insects, small fish, among the snags, while the [catfish](entry:catfish) work the open bottom and the [eels](entry:eels) the edges, and the [mouth almighty](entry:mouth-almighty) ambushes in the weed [ref:nfa-sleepy] [ref:jardine2012]. By day it lies up, and that is when the [freshwater crocodile](entry:freshwater-crocodile), the darter and the cormorant find it [ref:tucker1996] [ref:wiki-darter]. Its eggs on the roof of a log are a fortnight's work for the male and food for everything that finds them; the [waterhole](entry:waterhole) page has the pool's whole cast."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Spawning October to February, as the water warms past 25 °C and the first storms come; males on the nests then [ref:nfa-sleepy] [ref:waterhole-temps]. Through the dry it is in the deep cover of the pools, most active on warm nights; in the late dry, when the pools shrink and go hot and low in oxygen, the air-breathing gudgeons are among the last fish still comfortable [ref:fishbase-sleepy] [ref:fergusson-refuge]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- The best eating fish in the river: white, flaky, mild, low in fat [ref:wiki-sleepy-cod].\n- Easy to keep alive and carry: 'tolerates capture, handling and transport well' [ref:nfa-sleepy].\n- Taken by spear from the bank by day where it lies, by line at night, and in traps and fences [ref:anderson1996] [ref:roth1901]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Taking a sleepy cod",
+      "body": "The ways of taking river fish are on their own pages: [spears](entry:spear-and-woomera), [nets](entry:nets), [traps and fences](entry:fish-traps), [hooks and lines](entry:hooks-and-lines) and [fish poisons](entry:fish-poisoning). At Bloomfield, night fishing was 'done on the tidal estuaries from a canoe at night. One person sat at the front of the boat holding aloft a burning paperbark torch. As the fish were attracted to the light, another person would spear them' [ref:anderson1996]. On the Mitchell, Palmer saw the freshwater mangrove *Barringtonia racemosa*, 'Yakoora', cut up, hammered fine and put in the lagoons, and the coolibah's branches and leaves 'laid in water for several days to sicken the fish; it is universally used for this purpose' [ref:palmer1883].\n\n1. **By day, by spear**: walk the bank of a clear pool and look beside the logs and under the overhangs for the mottled shape lying still; the many-pronged *yirrmba* is the spear for a fish that does not move [ref:nfa-sleepy] [ref:hershberger1982].\n2. **By night, by line**: a live prawn or a piece of fish on a [hook](entry:hooks-and-lines) dropped beside a snag; it 'will take live food such as other fish, shrimps etc at night' [ref:nfa-sleepy].\n3. **By torchlight**: the Bloomfield method, a paperbark torch in the bow and a spear [ref:anderson1996].\n4. **In a trap**: a [trap or fence](entry:fish-traps) across a narrow in the dry [ref:roth1901].\n5. **Leave the guarding males** from October to February; the sheet of eggs under the log is next year's fish [ref:nfa-sleepy].\n6. **Cook it** on the coals or in the [earth oven](entry:earth-oven); the flesh is white and flaky [ref:wiki-sleepy-cod]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Crocodile water, especially at night by torchlight [ref:crocwise] [ref:kw-about].\n- The sleepy cod is not listed in the Queensland freshwater size and possession table; the gear rules and the general rules apply [ref:qld-limits] [ref:qld-gear].\n- Native title holders' fishing for personal, domestic or non-commercial communal needs is covered by section 211 of the *Native Title Act 1993* and section 14 of the *Fisheries Act 1994* [ref:alrc] [ref:qld-fishact]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The sleepy cod is in the Karma Waters pools and is the fish to teach children spearing on, because it lies still and is worth eating [ref:ala-karma-river] [ref:nfa-sleepy]. Whether *kurrubal* is its name is for Kuku Yalanji speakers; the contribution box below is for that [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kurrubal](word:kurrubal)* 'fresh water cod'; *[kuyu](word:kuyu)* 'fish'; *[kurruba](word:kurruba)* 'species of freshwater fish'; *[wukuju](word:wukuju)* 'freshwater prawn, the big one with long legs'; *[yinba](word:yinba)* 'fish spear'; *[yirrmba](word:yirrmba)* 'many-pronged fish spear'; *[makarr](word:makarr)* 'fish net'; *[ngawurr-ngawun](word:ngawurr-ngawun)* 'freshwater crocodile' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "waterhole",
+    "catfish",
+    "barramundi",
+    "mouth-almighty",
+    "saratoga",
+    "cherabin",
+    "eels",
+    "spear-and-woomera",
+    "fish-traps",
+    "earth-oven"
+  ],
+  "relatedWords": [
+    {
+      "word": "wukuju",
+      "gloss": "freshwater prawn, the big one with long legs"
+    },
+    {
+      "word": "makarr",
+      "gloss": "fish net"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-sleepy-cod",
+      "citation": "Wikipedia. Sleepy cod (Oxyeleotris lineolata).",
+      "url": "https://en.wikipedia.org/wiki/Sleepy_cod"
+    },
+    {
+      "id": "fishbase-sleepy",
+      "citation": "FishBase. Oxyeleotris lineolata (Steindachner, 1867), sleepy cod: habitat, diet and spawning, citing Allen, Midgley & Allen (2002).",
+      "url": "https://www.fishbase.se/summary/Oxyeleotris-lineolata"
+    },
+    {
+      "id": "nfa-sleepy",
+      "citation": "Native Fish Australia. Sleepy cod, Oxyeleotris lineolata (species page).",
+      "url": "https://www.nativefish.asn.au/home/page/Sleepy-Cod"
+    },
+    {
+      "id": "ala-karma-river",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: river animals and waterbirds.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "jardine2012",
+      "citation": "Jardine, T. D., Pettit, N. E., Warfe, D. M., Pusey, B. J., Ward, D. P., Douglas, M. M., Davies, P. M. & Bunn, S. E. (2012). Consumer–resource coupling in wet–dry tropical rivers. Journal of Animal Ecology 81: 310–322. Mitchell River sites sampled in the early dry season.",
+      "url": "https://doi.org/10.1111/j.1365-2656.2011.01925.x"
+    },
+    {
+      "id": "wiki-saratoga",
+      "citation": "Wikipedia. Gulf saratoga (Scleropages jardinii).",
+      "url": "https://en.wikipedia.org/wiki/Gulf_saratoga"
+    },
+    {
+      "id": "wiki-mouth-almighty",
+      "citation": "Wikipedia. Mouth almighty (Glossamia aprion).",
+      "url": "https://en.wikipedia.org/wiki/Mouth_almighty"
+    },
+    {
+      "id": "waterhole-temps",
+      "citation": "The temperature regimes of dry-season waterholes in tropical northern Australia: potential effects on fish refugia (Flinders and Gilbert catchments). Freshwater Science.",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/681278"
+    },
+    {
+      "id": "fergusson-refuge",
+      "citation": "Fish assemblage dynamics in an intermittent river of the northern Australian wet–dry tropics (Fergusson River, Daly catchment, seven-year study): contraction to a single refugial pool and the role of piscivorous fish.",
+      "url": "https://agris.fao.org/search/ar/records/65dea3fb4c5aef494fdcf454"
+    },
+    {
+      "id": "tucker1996",
+      "citation": "Tucker, A. D., Limpus, C. J., McCallum, H. I. & McDonald, K. R. (1996). Ontogenetic dietary partitioning by Crocodylus johnstoni during the dry season. Copeia 1996(4): 978–988. 324 crocodiles stomach-flushed over three dry seasons in Queensland.",
+      "url": "https://doi.org/10.2307/1447669"
+    },
+    {
+      "id": "wiki-darter",
+      "citation": "Wikipedia. Australasian darter (Anhinga novaehollandiae).",
+      "url": "https://en.wikipedia.org/wiki/Australasian_darter"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "qld-limits",
+      "citation": "Queensland Government. Size and possession limits in fresh waters (web page, last updated 27 March 2026, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/limits-fresh"
+    },
+    {
+      "id": "qld-gear",
+      "citation": "Queensland Government. Fishing equipment rules: fresh waters (web page, last updated 26 March 2026, accessed 6 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/equipment"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
