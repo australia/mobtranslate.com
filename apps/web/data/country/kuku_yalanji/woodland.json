@@ -1,0 +1,485 @@
+{
+  "slug": "woodland",
+  "title": "The ironbark and bloodwood woodland",
+  "category": "landform",
+  "names": [
+    {
+      "word": "bubu",
+      "gloss": "ground, earth; a person's Country, where they belong"
+    },
+    {
+      "word": "babajaka",
+      "gloss": "species of bloodwood tree"
+    },
+    {
+      "word": "kayjurr",
+      "gloss": "white gum"
+    },
+    {
+      "word": "marbaji",
+      "gloss": "stringy bark tree"
+    },
+    {
+      "word": "ngalku",
+      "gloss": "bush fire"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The regional-ecosystem mapping and the Atlas of Living Australia records within 30 km of the homestead agree on what this woodland is made of. The Kuku Yalanji tree words are the dictionary's bark classes (bloodwood, white gum, stringybark, wattle) recorded at Bloomfield; which exact species each word named there is not recorded, and no word for ironbark is."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "mountains"
+  ],
+  "summary": "Most of Karma Waters is not river at all. It is the country between the pools: rolling hills of **ironbark, box and bloodwood woodland** with a sparse understorey and a grassy floor, the regional ecosystem that Queensland's mapping calls Molloy red box, Cullen's ironbark and Clarkson's bloodwood woodland [ref:re-woodland]. The Atlas of Living Australia's most-recorded plants within 30 km of the homestead are exactly these trees, with the wattles, silver oak and bushman's clothes-peg grevillea beneath them and kangaroo grass and black speargrass under those [ref:ala-karma-plants]. It is the country of the [wallabies and wallaroos](entry:wallaby), the [goannas](entry:goanna), the echidna and the bats, of the red-tailed black cockatoos that crack bloodwood seed and the lorikeets that strip the blossom, of the great bowerbird's avenue of white stones, the finches on the grass seed and the kites over the fires [ref:ala-karma] [ref:wiki-rtbc] [ref:wiki-lorikeet] [ref:wiki-bowerbird]. For Kuku Yalanji people the open eucalypt woodland was one of three inland countries, worked from the creek camps for wallaby, yams, honey and bark [ref:anderson1996]. This page is the hub for the dry-country pages: what the trees are and how to tell them apart, what lives in them and who eats whom through the day and the year, and how the woodland is read, used and burnt.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "bubu (Country); babajaka, kawarr, kuji-kuji (bloodwood); kayjurr (white gum); marbaji (stringybark); ngalku (bush fire)"
+    },
+    {
+      "label": "What it is",
+      "value": "Woodland of Cullen's ironbark, Molloy red box and Clarkson's bloodwood on rolling stony hills (RE 9.11.26), with silver-leaved ironbark on the stoniest rises"
+    },
+    {
+      "label": "Under the trees",
+      "value": "Wattles, silver oak, bushman's clothes peg, kurrajong, native cotton; kangaroo grass and black speargrass"
+    },
+    {
+      "label": "Who lives here",
+      "value": "Lorikeets, cockatoos, finches, bowerbirds, kookaburras, kites and the eagle; wallabies, wallaroos, echidna, bats, flying foxes; goannas and snakes"
+    },
+    {
+      "label": "Fire",
+      "value": "Low-intensity burns in the early dry and at storm time, every 2–5 years, less than 40% at once"
+    },
+    {
+      "label": "At Karma Waters",
+      "value": "The hills either side of the river; most of the station"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary, recorded at Bloomfield, sorts the woodland trees by their bark, which is also how a botanist tells them apart. There are three words for **bloodwood**: **[babajaka](word:babajaka)**, **[kawarr](word:kawarr)** and **[kuji-kuji](word:kuji-kuji)**, each 'a species of bloodwood tree'; **[kayjurr](word:kayjurr)** 'white gum' and **[bajar](word:bajar)**, 'species of white gum' and 'Moreton Bay ash'; **[jabarr](word:jabarr)** 'baldy gum'; and three words for the fibrous-barked trees, **[marbaji](word:marbaji)** and **[wulngkurr](word:wulngkurr)** 'stringy bark' and **[warka](word:warka)** 'messmate or stringy bark' [ref:hershberger1982]. The wattles are **[yalngkal](word:yalngkal)** 'white wattle', **[yarun](word:yarun)** 'black wattle (yellow flower)' and **[yumba](word:yumba)** 'species of wattle'; **[dalban](word:dalban)** is 'a species of oak' and **[kingal](word:kingal)** the river oak; **[jujabala](word:jujabala)** is the [ironwood](entry:ironwood) and **[kalkuri](word:kalkuri)** the woolly-butt [paperbark](entry:paperbark) [ref:hershberger1982]. **[nganka](word:nganka)** is 'flower, blossom' [ref:hershberger1982].\n\nTwo fruit trees of the woodland can be matched to Roth's 1901 Bloomfield list: **[banday](word:banday)**, 'a species of tree with edible cherry-like fruit, ripe in December', is Roth's *pandar*, which he lists under *Buchanania*, the little gooseberry tree; and **[jingajalka](word:jingajalka)**, with its 'small and elongated plum-like' fruit and basket bark, is his *jinjajalga*, *Terminalia sericocarpa*, the damson plum [ref:hershberger1982] [ref:roth1901]. Both genera are recorded near Karma Waters, though not those exact species [ref:ala-karma-plants].\n\nFor the country itself: **[bubu](word:bubu)** 'ground, earth; a person's Country'; **[manjal](word:manjal)** 'mountain'; **[jamba](word:jamba)** 'hillside'; **[balay](word:balay)** 'level ground' and **[dubar](word:dubar)** 'flat place'; **[jangka](word:jangka)** 'stone', **[kulji](word:kulji)** 'pebbles' and **[jukar](word:jukar)** 'sand'; **[jikan](word:jikan)** and **[kakarr](word:kakarr)** 'grass'; **[ngalku](word:ngalku)** 'bush fire' and **[duli](word:duli)** 'burnt patch of grass'; **[baral](word:baral)** 'road, path, track'; and the tree words **[juku](word:juku)** 'tree, wood of any size', **[birra](word:birra)** 'leaf', **[dakil-dakil](word:dakil-dakil)** 'branches', **[dimbirr](word:dimbirr)** 'hollow trunk', **[dingal](word:dingal)** 'base of a tree' and **[jakalkulu](word:jakalkulu)** 'tree stump' [ref:hershberger1982].\n\nNo word for **ironbark** itself is recorded in the dictionary, and the Western Yalanji names for these inland trees are not in it. If you know them, add them below."
+    },
+    {
+      "id": "description",
+      "heading": "The trees",
+      "body": "**The woodland.** Queensland's regional-ecosystem mapping describes the main vegetation of these hills as woodland of Molloy red box and/or Cullen's ironbark and/or Clarkson's bloodwood, sometimes with poplar gum, on undulating to rolling and steep hills, with a very sparse sub-canopy and a very sparse to sparse shrub layer [ref:re-woodland]. On the stonier metamorphic rises the same mapping has low woodland of silver-leaved ironbark with Dallachy's gum and narrow-leaved ironbark over a dense grassy floor [ref:re-9-11-1]. Along the river the trees change to the [paperbark](entry:paperbark) fringe, with river red gum and Leichhardt tree over bare sand and leaf litter [ref:re9314]. The soils are red and shallow and stony, over the Hodgkinson Formation rock that also makes the river's rock bars [ref:wiki-cullenii] [ref:kw-about].\n\n**The trees, by bark.**\n\n- **Cullen's ironbark** (*Eucalyptus cullenii*): the most-recorded tree near the homestead. To about 15 m, with thick, rough, dark grey to black, deeply and widely furrowed bark on trunk and branches, lance-shaped leaves, green to yellow buds in sevens, white flowers and hemispherical fruit. It grows in red podsols and shallow stony soil in hilly woodland [ref:wiki-cullenii] [ref:ala-karma-plants].\n- **Molloy red box** (*E. leptophleba*): a bigger tree, 14–28 m, with grey box bark, finely fissured and rough right out to the small branches, flowers on branched stalks at the branch ends and cup-shaped fruit [ref:wiki-leptophleba].\n- **Green-leaf box** (*E. chlorophylla*): a tree to 18 m or a mallee to 6 m, with hard, rough, grey-brown to bleached grey bark, creamy white flowers in sevens [ref:wiki-chlorophylla].\n- **Dallachy's gum** (*Corymbia dallachiana*): a smooth-barked 'ghost gum', white to cream and pinkish bark shed in thin patches, sometimes with a short stocking of rough bark at the base; grassy woodland on plains and creek levees [ref:wiki-dallachiana].\n- **Clarkson's bloodwood** (*C. clarksoniana*): to 20 m, with tessellated red-brown to grey-brown bark all the way up, glossy green leaves paler beneath, and urn-shaped fruit [ref:wiki-clarksoniana].\n- **Red bloodwood** (*C. erythrophloia*): to 15 m, its tessellated red-brown, grey or pink bark shed in small flakes to give a mottled trunk; buds in sevens [ref:wiki-erythrophloia].\n- **Hyland's bloodwood** (*C. hylandii*): a small tree, usually 5 m, of shallow soil on sandstone and granite ridges, with rough tessellated bark and urn-shaped fruit [ref:wiki-hylandii].\n- **Blotchy bloodwood** (*C. stockeri*): 12–20 m, with thick, soft, scaly reddish bark; the peninsula subspecies grows on river levees and gentle hills south to the Palmer [ref:wiki-stockeri].\n- **Carbeen** or **Moreton Bay ash** (*C. tessellaris*), the dictionary's *bajar*: a tall straight tree, 30–35 m, with rough tessellated grey bark on the lower trunk changing abruptly to smooth bark above; open forest and woodland from Cape York to New South Wales [ref:wiki-tessellaris] [ref:hershberger1982].\n- **Broad-leaved carbeen** (*C. confertiflora*): a straggly, often crooked tree, rough dark bark at the base and white above, that drops its leaves in the dry season [ref:wiki-confertiflora].\n- ***Eucalyptus tardecidens***: a mallee or small tree to 7 m with mottled grey flaky bark, known only from the dry woodland between Lakeland and the country south of Mount Carbine. It has no common name, and this is its home [ref:wiki-tardecidens].\n- **River red gum** (*E. camaldulensis*): on the river, to 20 m and sometimes far more, smooth white or cream bark with patches of yellow, pink and brown and loose rough slabs at the base [ref:wiki-camaldulensis].\n\n**Beneath them.** *Acacia guymeri*, an open shrub 1–2.5 m with smooth silver-grey bark, resinous red-brown twigs and spikes of pale to golden flowers, grows on poor stony ridges and is near threatened in Queensland; the candelabra or silver wattle (*A. holosericea*), 3–8 m, silky-silver, is the one used as a fish poison [ref:wiki-guymeri] [ref:wiki-holosericea]. **Silver oak** (*Grevillea parallela*), to 15 m with dark furrowed bark and hanging strap leaves, and **bushman's clothes peg** (*G. glauca*), spindly, hairy-leaved, with cylinders of flowers, are the two grevilleas [ref:wiki-parallela] [ref:wiki-glauca]. The **[kurrajong](entry:kurrajong)** here is *Brachychiton albidus*, described only in 1988 [ref:wiki-albidus]. **Native cotton** (*Gossypium australe*), a soft grey-leaved shrub of sandy ground near watercourses, and the **black-currant tree** (*Antidesma ghaesembilla*), with sweet purple-black fruit, grow in the moister places [ref:wiki-gossypium] [ref:wiki-antidesma]. **Brown randia** (*Atractocarpus sessilis*) and the wild gardenia (*Gardenia vilhelmii*) are the glossy-leaved shrubs; the **fibre-barked teatree** (*Melaleuca stenostachya*) stands in the drainage lines [ref:wiki-sessilis] [ref:wiki-stenostachya] [ref:ala-karma-plants]. Under everything, **kangaroo grass** (*Themeda triandra*) and **black speargrass** (*Heteropogon contortus*), the grass whose twisted awns catch in your socks, and on the stoniest ground **spinifex** (*Triodia*) [ref:wiki-themeda] [ref:wiki-heteropogon] [ref:ala-karma-plants]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling the trees apart",
+      "body": "The quickest way through the eucalypts is the bark, and the dictionary's classes match the botanist's:\n\n- **Ironbark**: hard, dark, deeply furrowed, never shed, the whole height of the tree [ref:wiki-cullenii].\n- **Box**: grey, finely fissured, rough but not deep, out to the small branches [ref:wiki-leptophleba] [ref:wiki-chlorophylla].\n- **Bloodwood** (*babajaka, kawarr, kuji-kuji*): tessellated, broken into small squares like crocodile skin, red-brown to grey, shed in little flakes; the urn- or barrel-shaped fruit and the red kino that bleeds from a cut are the other marks [ref:wiki-clarksoniana] [ref:wiki-erythrophloia] [ref:hershberger1982].\n- **Gum** (*kayjurr, jabarr*): smooth bark shed in patches, white, cream or pink, sometimes with a short rough stocking at the base [ref:wiki-dallachiana] [ref:wiki-camaldulensis] [ref:hershberger1982].\n- **Carbeen / Moreton Bay ash** (*bajar*): rough tessellated bark on the bottom few metres, then abruptly smooth [ref:wiki-tessellaris] [ref:hershberger1982].\n- **Stringybark and messmate** (*marbaji, wulngkurr, warka*): long, fibrous, stringy bark that peels in sheets, which is why it was the hut bark [ref:hershberger1982] [ref:anderson1996].\n- **Paperbark** (*buyku*): papery layers, and a different family's flowers in bottlebrush spikes; see the [paperbark](entry:paperbark) page.\n\nThe two grevilleas are told apart by their leaves, strap-like and hanging on the silver oak, broad and hairy on bushman's clothes peg [ref:wiki-parallela] [ref:wiki-glauca]. The wattles are told by their phyllodes: needle-thin on *A. guymeri*, broad and silvery on the candelabra wattle [ref:wiki-guymeri] [ref:wiki-holosericea]."
+    },
+    {
+      "id": "signs",
+      "heading": "Reading the woodland: signs",
+      "body": "- **A bower.** The great bowerbird builds a twin-walled avenue about a metre long and 45 cm high under a shrub or leafy branch, with white and green objects, stones, bones, shells, leaves, bottle caps, scattered at the ends. The male spends most of the year on it [ref:wiki-bowerbird].\n- **Hollows.** Red-tailed black cockatoos nest in cavities in big eucalypts; pale-headed rosellas use a hollow often more than a metre deep; blue-winged kookaburras nest in a hollow high up [ref:wiki-rtbc] [ref:wiki-rosella] [ref:wiki-bwk]. A big old ironbark or bloodwood with hollows is worth more to the woodland than any other tree.\n- **Mud nests** on a horizontal branch are the apostlebirds', built and guarded by the whole family group [ref:wiki-apostlebird]. A round woven grass nest with a tube entrance five metres up a eucalypt is a black-throated finch's [ref:wiki-btf].\n- **Bee sign.** In the late dry Bloomfield people checked the bases of the trees the bees favour for bee dung, and tapped the trunk for hollowness; and they cut steps up the trunk to reach a nest. Old cut steps on a tree are the sign of an old sugarbag tree [ref:anderson1996].\n- **Burnt patches** ([duli](word:duli)) and the mosaic of burnt and unburnt grass are the sign of a woodland being managed with fire, and new green pick on a burn is where the [wallabies](entry:wallaby) will be [ref:hershberger1982] [ref:re-woodland].\n- **Birds over a fire.** Whistling kites and black kites hunt the front of a grass fire, and are among the birds known to carry burning sticks and spread it [ref:wiki-whistling-kite].\n- **Flowering trees.** A tree in blossom full of noise is lorikeets and honeyeaters by day; at night it is the little red flying foxes, which leave their camps along the creeks to feed in the woodland [ref:wiki-lorikeet] [ref:wiki-lrff].\n- **Chewed bloodwood fruit** under a tree, split open, is cockatoo work: eucalyptus seed is the mainstay of the red-tailed black cockatoo's diet, especially the big-fruited gums and bloodwoods [ref:wiki-rtbc].\n- **Echidna diggings** into ant nests and termite mounds, and the echidna's wandering track; it feeds with a tongue it can push 18 cm out of its snout [ref:wiki-echidna].\n- **Dawn.** The blue-faced honeyeater's piping call starts about half an hour before first light [ref:wiki-bfh]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it is",
+      "body": "**At Karma Waters.** The Atlas of Living Australia's plant records within 30 km of the homestead are headed by Cullen's ironbark (53 records), Dallachy's gum (47), *Eucalyptus tardecidens* (38), green-leaf box (27), *Acacia guymeri* (26), river red gum (22), Molloy red box (21), then the bloodwoods, silver oak, bushman's clothes peg and the smaller wattles [ref:ala-karma-plants]. The animals recorded there in the same radius are the woodland's: rainbow lorikeet, Torresian crow, magpie-lark, rainbow bee-eater, striated pardalote, squatter pigeon, magpie, black kite, pale-headed rosella, pied butcherbird, apostlebird, blue-faced honeyeater, double-barred finch, brown honeyeater, great bowerbird, willie wagtail, peaceful dove, whistling kite and black-throated finch head the list; among the mammals are several cave and forest bats, the common wallaroo, dingo, antilopine wallaroo, agile wallaby, Mareeba rock-wallaby, sugar glider, little red flying fox and echidna; and among the reptiles the small skinks and dragons of the leaf litter, Burton's legless lizard, geckos, the green tree snake, the mulga snake and the coastal taipan [ref:ala-karma].\n\n**Where in the woodland.** The ironbarks and boxes take the hills; Dallachy's gum the grassy flats and creek levees; Hyland's bloodwood the sandstone and granite ridges; the blotchy bloodwood the river levees; *A. guymeri* the poor rocky ridges; native cotton and the black-currant tree the sandy and moist ground near water [ref:wiki-cullenii] [ref:wiki-dallachiana] [ref:wiki-hylandii] [ref:wiki-stockeri] [ref:wiki-guymeri] [ref:wiki-gossypium] [ref:wiki-antidesma]. The waterholes and their paperbark fringe are another country again: see [the waterhole](entry:waterhole).\n\n**On Eastern Kuku Yalanji country.** Anderson describes three inland environments worked from the creek camps at Bloomfield: the upper montane and riverine rainforest, 'open eucalypt and woodland forests', and the freshwater creeks, with dry-season camps in the sandy beds of the smaller creeks and wet-season camps on the ridges between the gullies, above the floods [ref:anderson1996]. The dictionary's bloodwood, white-gum, stringybark and wattle words come from that open country behind the Bloomfield, which is why they fit the Mitchell's woodland as well."
+    },
+    {
+      "id": "ecology",
+      "heading": "Who eats whom, and when",
+      "body": "## What the trees give\n\nThe woodland runs on three things the trees produce: **blossom**, **seed** and **hollows**, and on the **grass** beneath them.\n\n- **Nectar and pollen.** Rainbow lorikeets feed mainly on fruit, pollen and nectar with a brush-tipped tongue made for it, and eucalyptus nectar is central to them [ref:wiki-lorikeet]. The blue-faced honeyeater takes mostly insects but works the blossom too [ref:wiki-bfh]. At night the little red flying foxes come in from their camps near the creeks to feed in the woodland, and their colonies are recognised as important contributors to woodland ecology, as pollinators [ref:wiki-lrff]. The [native bees](entry:native-bees) turn the same blossom into sugarbag; Kuku Yalanji people recognised nine kinds of honey bee, and the dry season was sugarbag time [ref:anderson1996].\n- **Seed.** The red-tailed black cockatoo's mainstay is eucalyptus seed, with a special relationship to the larger-fruited gums and bloodwoods; in the north they gather in flocks of hundreds where food is concentrated [ref:wiki-rtbc]. Pale-headed rosellas take grass and tree seed, river red gum among it [ref:wiki-rosella]. On the ground the black-throated finch lives mainly on fallen grass seed, in flocks of up to 30, with spiders and ants on the side, and the double-barred finch is a seed-eater too [ref:wiki-btf] [ref:wiki-dbf]. The squatter pigeon walks the same ground [ref:wiki-squatter].\n- **Hollows.** Cockatoos, rosellas and kookaburras all nest in hollows, which only old trees have [ref:wiki-rtbc] [ref:wiki-rosella] [ref:wiki-bwk]. The bats that top the mammal records roost in caves and hollows and hunt the night air for insects [ref:ala-karma].\n- **Grass.** Kangaroo grass and black speargrass feed the wallabies and wallaroos, the finches and the fires [ref:wiki-themeda] [ref:wiki-heteropogon] [ref:re-woodland].\n\n## Who eats whom\n\n- **Insects** feed almost everyone: apostlebirds on the ground, the honeyeaters in the canopy, the bats at night, the echidna in the ant nests [ref:wiki-apostlebird] [ref:wiki-bfh] [ref:wiki-echidna].\n- **The blue-winged kookaburra** eats whatever lives on or near the ground: in the wet season more insects, lizards and frogs; in the dry more crayfish, scorpions and the like. It is taken in turn by the red goshawk and the rufous owl, and its nests are raided by pythons, quolls and [goannas](entry:goanna) [ref:wiki-bwk].\n- **The pheasant coucal** takes small reptiles and frogs, birds' eggs and nestlings, small mammals and big insects, from its grass nest with the stems tied over it [ref:wiki-coucal].\n- **The bustard**, a metre tall and nomadic, eats shoots, roots, leaves, flowerheads, fruit and small animals; it lays one egg on bare ground, and the black-breasted buzzard breaks the egg with a stone [ref:wiki-bustard].\n- **The wallabies and wallaroos** graze the grass. The antilopine wallaroo moves in groups of up to 30 that bunch together against people and dingoes; the common wallaroo is mostly nocturnal and solitary, on the rocky hills; the Mareeba rock-wallaby lives on the rock piles and is near threatened [ref:wiki-antilopine] [ref:wiki-wallaroo] [ref:wiki-rock-wallaby]. See the [wallaby](entry:wallaby) page for the agile wallaby.\n- **The hunters.** The wedge-tailed eagle, one of the world's most powerful birds of prey, is above all a mammal hunter, nesting in the largest tree in a stand [ref:wiki-wedgie]. The whistling and black kites take small mammals, birds, fish, reptiles and carrion, and hunt the fires [ref:wiki-whistling-kite]. The dingo hunts the wallaroos [ref:wiki-antilopine]; the station baits wild dogs twice a year [ref:kw-land]. The [goannas](entry:goanna) and the [snakes](entry:snakes), the mulga snake and the coastal taipan among them, take the lizards, frogs, eggs and small mammals [ref:ala-karma].\n- **The ferals.** Pigs, cats, horses and cattle are all recorded in the same 30 km, and the station runs cattle on this country [ref:ala-karma] [ref:kw-cattle]. Rubber vine, a weed that climbs and strangles the trees along rivers and is deadly to stock, has 13 records within 30 km [ref:wiki-rubber-vine] [ref:ala-karma-plants].\n\n## Through the day\n\nThe honeyeater pipes half an hour before dawn [ref:wiki-bfh]. First light brings the lorikeets and cockatoos to the flowering and fruiting trees, noisy and in flocks [ref:wiki-lorikeet] [ref:wiki-rtbc]; the finches and pigeons are on the ground for seed while it is cool [ref:wiki-btf] [ref:wiki-squatter]; the bowerbird is at his bower [ref:wiki-bowerbird]. Through the heat of the day the wallabies lie up in shade and the birds go quiet; the kites and the eagle ride the thermals [ref:wiki-wedgie]. Towards dusk the kookaburras call and the wallaroos come out to graze [ref:wiki-wallaroo]. After dark the flying foxes arrive in the blossom, the bats take the insects, the echidna and the common wallaroo work the night, and the dingoes hunt [ref:wiki-lrff] [ref:wiki-wallaroo] [ref:wiki-antilopine].\n\n## Through the year\n\n**The wet** fills the grass with seed and the ground with insects, and that is when the black-throated finch breeds in the north, from February after the monsoon [ref:wiki-btf]; the kookaburras breed in the late dry, September to December, as the storms build [ref:wiki-bwk]; the pale-headed rosella's northern birds nest from February to June [ref:wiki-rosella]. **The early dry** is burning time: the regional-ecosystem guidelines for this woodland call for low-intensity burns in the early dry season and at storm time, every two to five years with longer unburnt patches, never more than 40 per cent of the country at once, and after a big wet, because the grass is heavier [ref:re-woodland]. **The dry season** was sugarbag season at Bloomfield, when the hives were found, climbed and cut [ref:anderson1996]. **The storms** bring the sap up: Bloomfield people cut their messmate bark sheets for huts after the first storms in December, when the bark would peel [ref:anderson1996]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons and fire",
+      "body": "- **Fire.** For the ironbark–box–bloodwood woodland: early dry season and storm time, low intensity with occasional moderate, every 2–5 years with longer unburnt patches, less than 40 per cent of the country in any one year, and burns after a big wet because fuel loads will be high [ref:re-woodland]. The stony silver-leaved ironbark woodland is different: fire only every 10–50 years, after good rain, because its wattles do not survive frequent or hot fire [ref:re-9-11-1]. The [paperbark](entry:paperbark) fringe along the river should not be burnt deliberately at all [ref:re9314]. How fire was used to hunt is on the [hunting with fire](entry:hunting-with-fire) page.\n- **Honey**: the dry season [ref:anderson1996].\n- **Bark**: after the first storms in December, when the sap has risen [ref:anderson1996].\n- **Fruit**: *banday*, the little gooseberry, ripens in December; the black-currant tree's fruit turns purple to black when ripe [ref:hershberger1982] [ref:wiki-antidesma].\n- **Birds**: finches breed after the monsoon, kookaburras from September, cockatoo flocks gather wherever a crop of seed or blossom is heavy [ref:wiki-btf] [ref:wiki-bwk] [ref:wiki-rtbc]."
+    },
+    {
+      "id": "uses",
+      "heading": "What people take from the woodland",
+      "body": "What Kuku Yalanji people took from the open woodland, from the Bloomfield record [ref:anderson1996] [ref:hershberger1982] [ref:roth1901]:\n\n- **Bark.** Sheets of messmate (*Eucalyptus tetrodonta*) bark for the inland huts, cut and peeled after the first storms, pounded with stones and smoked flat; troughs from the bark of various eucalypts; see [bark troughs](entry:bark-troughs) and [huts and shelters](entry:huts-and-shelters) [ref:anderson1996].\n- **Firewood.** Dead branches of grey boxwood, the carbeen or Moreton Bay ash (*bajar*), 'made the best cooking wood: it is very hard, but splits easily and burns slowly and intensely' [ref:anderson1996] [ref:hershberger1982].\n- **Honey.** Sugarbag from nine kinds of bee, found by watching the hole, following the bee home or, at China Camp, tying a streamer of bush cotton to a bee so it hummed; the tree was climbed on cut steps or grass ropes, or felled, and the comb went into a bark container; see [native bees](entry:native-bees) [ref:anderson1996].\n- **Gum.** Ironbark gum, carried on a small stick in a man's bag with his firesticks and spare spear barbs, and used with beeswax to haft [stone](entry:stone) axes; see [beeswax and gums](entry:beeswax-and-gums) [ref:anderson1996].\n- **Leaves.** Eucalyptus and wattle leaves laid with the meat in the [earth oven](entry:earth-oven) for flavour [ref:anderson1996].\n- **Wattle.** Acacia wood for spear shafts and barbs (see [spear and woomera](entry:spear-and-woomera)); the candelabra wattle as a [fish poison](entry:fish-poisoning), and its seeds as food [ref:anderson1996] [ref:wiki-holosericea].\n- **Fruit.** *Banday* and *jingajalka*, the little gooseberry and the damson, and the black-currant tree, whose fruit Mangarrayi and Yangman people in the Northern Territory eat ripe and crush into a cordial [ref:hershberger1982] [ref:roth1901] [ref:wiki-antidesma] [ref:wiki-buchanania].\n- **Grass.** Kangaroo grass seed was ground for bread and its stems twisted for string in other parts of Australia; black speargrass stems are sucked for their sweet sap in the Northern Territory [ref:wiki-themeda] [ref:wiki-heteropogon].\n- **Game.** [Wallabies](entry:wallaby), [goannas](entry:goanna), bustard (trapped elsewhere with pits around a fruiting caper bush) and [grubs](entry:witchetty-grub) [ref:anderson1996] [ref:wiki-bustard].\n- **Adornment.** Bloodwood seed pods mixed with small clay balls went into the hair, and cockatoo crest feathers in beeswax made a head ornament for men [ref:anderson1996]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Reading the country on a day's walk",
+      "body": "How to read this country on a day's walk, using what the animals and trees give away.\n\n1. **Before dawn, listen.** The blue-faced honeyeater starts half an hour before light; where it calls there is blossom [ref:wiki-bfh].\n2. **At first light, find the flowering trees** by the lorikeets' noise, and the fruiting bloodwoods by the cockatoos and the split fruit beneath [ref:wiki-lorikeet] [ref:wiki-rtbc]. A tree the birds are in is a tree the bees are in.\n3. **Walk the grass while it is cool** and watch for finches and squatter pigeons getting up; they show you where the seed is heavy, and so where the wallabies feed [ref:wiki-btf] [ref:wiki-squatter].\n4. **Check the big old trees** for hollows, bee dung at the base, and cut steps [ref:anderson1996] [ref:wiki-rtbc].\n5. **Look under the shrubs** for a bower, and on the branches for the apostlebirds' mud nests [ref:wiki-bowerbird] [ref:wiki-apostlebird].\n6. **Read the burns.** Fresh black means a recent fire; green pick on it means wallabies at dusk; old unburnt tussock means heavy fuel [ref:re-woodland].\n7. **In the heat, do what the wallabies do**: shade, water, stillness.\n8. **Before dark, be off the hills.** The wallaroos and the dingoes have the night, and so do the snakes [ref:wiki-wallaroo] [ref:ala-karma].\n\nBurning, hunting and honey have their own pages: [hunting with fire](entry:hunting-with-fire), [wallaby](entry:wallaby), [goanna](entry:goanna), [native bees](entry:native-bees), [firestick](entry:firestick)."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- **Snakes.** The coastal taipan and the mulga snake (king brown) are both recorded within 30 km of the homestead, along with the harmless green tree snake [ref:ala-karma]. Boots, a torch at night, and never a hand into grass or under bark you cannot see.\n- **Fire.** This is fire country by design, with a 2–5 year burn cycle, and a grass fire in black speargrass in the late dry moves faster than you can walk [ref:re-woodland]. Lighting fires needs a permit beyond the small cooking fire [ref:qfd].\n- **Baits.** The station baits wild dogs with strychnine in the wet season and 1080 later in the year; dogs must be kept away from the homestead and the baited country [ref:kw-land].\n- **Stock and ferals.** Cattle, feral pigs, horses and cats are on this country [ref:ala-karma] [ref:kw-cattle]. Rubber vine is extremely toxic to horses and cattle [ref:wiki-rubber-vine].\n- **Heat and distance.** The hills look alike and the creeks are dry; carry water, and keep the river's line in your head.\n- **Falling timber.** Dead branches are what the fire and the cockatoos leave; do not camp under them."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The woodland of Karma Waters is Western Yalanji country under the 1998 consent determination, held alongside the pastoral lease [ref:wyac2020] [ref:kw-about]. Native title holders' rights to hunt, gather and camp are protected from licence requirements by section 211 of the *Native Title Act 1993*, and the station manages the land, the cattle and the fire [ref:alrc] [ref:kw-land] [ref:kw-cattle]. Anyone else needs the Traditional Owners' and the station's permission.\n\nQueensland's vegetation mapping rates this woodland 'least concern', but some of what lives in it is not: the southern black-throated finch is endangered, the southern squatter pigeon is listed as threatened, *Acacia guymeri* is near threatened in Queensland and the Mareeba rock-wallaby near threatened on the IUCN list [ref:re-woodland] [ref:wiki-btf] [ref:wiki-squatter] [ref:wiki-guymeri] [ref:wiki-rock-wallaby]. The things that keep them are the things this page is about: old hollow trees, grass with seed in it, and fire at the right time."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "Country words: *[bubu](word:bubu)* 'ground, earth; a person's Country'; *[manjal](word:manjal)* 'mountain'; *[jamba](word:jamba)* 'hillside'; *[balay](word:balay)* 'level ground'; *[dubar](word:dubar)* 'level or flat place'; *[kuri](word:kuri)* 'small patch of scrub'; *[madja](word:madja)* 'scrub, jungle, rain forest'; *[warrmba](word:warrmba)* 'uncovered or exposed place, in the open'; *[baral](word:baral)* 'road, path, track, trail'. Fire and grass: *[ngalku](word:ngalku)* 'bush fire'; *[duli](word:duli)* 'burnt patch of grass'; *[jikan](word:jikan)*, *[kakarr](word:kakarr)* 'grass'. Trees: *[juku](word:juku)* 'tree, wood'; *[birra](word:birra)* 'leaf'; *[nganka](word:nganka)* 'flower, blossom'; *[dakil-dakil](word:dakil-dakil)* 'branches of a tree'; *[dimbirr](word:dimbirr)* 'hollow trunk of a tree'; *[dingal](word:dingal)* 'base of a tree'; *[jakalkulu](word:jakalkulu)* 'tree stump'. The woodland trees are in Names above. And *[kurranji](word:kurranji)*, the cassowary, which is the rainforest's bird, not this country's [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "waterhole",
+    "wallaby",
+    "goanna",
+    "native-bees",
+    "witchetty-grub",
+    "hunting-with-fire",
+    "firestick",
+    "earth-oven",
+    "paperbark",
+    "ironwood",
+    "grass-tree",
+    "spear-and-woomera",
+    "fish-poisoning",
+    "stone"
+  ],
+  "relatedWords": [
+    {
+      "word": "kawarr",
+      "gloss": "species of bloodwood tree"
+    },
+    {
+      "word": "kuji-kuji",
+      "gloss": "species of bloodwood tree"
+    },
+    {
+      "word": "bajar",
+      "gloss": "Moreton Bay ash; species of white gum"
+    },
+    {
+      "word": "jabarr",
+      "gloss": "baldy gum"
+    },
+    {
+      "word": "wulngkurr",
+      "gloss": "stringy bark tree"
+    },
+    {
+      "word": "warka",
+      "gloss": "species of tree, messmate or stringy bark"
+    },
+    {
+      "word": "yalngkal",
+      "gloss": "white wattle"
+    },
+    {
+      "word": "yarun",
+      "gloss": "black wattle tree and its yellow flower"
+    },
+    {
+      "word": "duli",
+      "gloss": "burnt patch of grass"
+    },
+    {
+      "word": "nganka",
+      "gloss": "flower, blossom"
+    },
+    {
+      "word": "banday",
+      "gloss": "species of tree with edible cherry-like fruit"
+    }
+  ],
+  "references": [
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "ala-karma",
+      "citation": "Atlas of Living Australia. All occurrence records within 30 km of the Karma Waters homestead (16.618° S, 144.605° E), species facet, queried 5 October 2026 (4,053 records; 601 species).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.6179&lon=144.6047&radius=30"
+    },
+    {
+      "id": "wiki-rtbc",
+      "citation": "Wikipedia. Red-tailed black cockatoo.",
+      "url": "https://en.wikipedia.org/wiki/Red-tailed_black_cockatoo"
+    },
+    {
+      "id": "wiki-lorikeet",
+      "citation": "Wikipedia. Rainbow lorikeet.",
+      "url": "https://en.wikipedia.org/wiki/Rainbow_lorikeet"
+    },
+    {
+      "id": "wiki-bowerbird",
+      "citation": "Wikipedia. Great bowerbird.",
+      "url": "https://en.wikipedia.org/wiki/Great_bowerbird"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "re-9-11-1",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.1 (Einasleigh Uplands): Eucalyptus melanophloia low woodland on skeletal soils on metamorphic hills; fire management guidelines.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.1"
+    },
+    {
+      "id": "re9314",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.3.14 (Einasleigh Uplands): Melaleuca fringing woodland on channels and levees. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.3.14"
+    },
+    {
+      "id": "wiki-cullenii",
+      "citation": "Wikipedia. Eucalyptus cullenii (Cullen's ironbark).",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_cullenii"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "wiki-leptophleba",
+      "citation": "Wikipedia. Eucalyptus leptophleba (Molloy red box).",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_leptophleba"
+    },
+    {
+      "id": "wiki-chlorophylla",
+      "citation": "Wikipedia. Eucalyptus chlorophylla (green-leaf box).",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_chlorophylla"
+    },
+    {
+      "id": "wiki-dallachiana",
+      "citation": "Wikipedia. Corymbia dallachiana (Dallachy's gum).",
+      "url": "https://en.wikipedia.org/wiki/Corymbia_dallachiana"
+    },
+    {
+      "id": "wiki-clarksoniana",
+      "citation": "Wikipedia. Corymbia clarksoniana (Clarkson's bloodwood).",
+      "url": "https://en.wikipedia.org/wiki/Corymbia_clarksoniana"
+    },
+    {
+      "id": "wiki-erythrophloia",
+      "citation": "Wikipedia. Corymbia erythrophloia (red bloodwood).",
+      "url": "https://en.wikipedia.org/wiki/Corymbia_erythrophloia"
+    },
+    {
+      "id": "wiki-hylandii",
+      "citation": "Wikipedia. Corymbia hylandii (Hyland's bloodwood).",
+      "url": "https://en.wikipedia.org/wiki/Corymbia_hylandii"
+    },
+    {
+      "id": "wiki-stockeri",
+      "citation": "Wikipedia. Corymbia stockeri (blotchy bloodwood).",
+      "url": "https://en.wikipedia.org/wiki/Corymbia_stockeri"
+    },
+    {
+      "id": "wiki-tessellaris",
+      "citation": "Wikipedia. Corymbia tessellaris (carbeen, Moreton Bay ash).",
+      "url": "https://en.wikipedia.org/wiki/Corymbia_tessellaris"
+    },
+    {
+      "id": "wiki-confertiflora",
+      "citation": "Wikipedia. Corymbia confertiflora (broad-leaved carbeen).",
+      "url": "https://en.wikipedia.org/wiki/Corymbia_confertiflora"
+    },
+    {
+      "id": "wiki-tardecidens",
+      "citation": "Wikipedia. Eucalyptus tardecidens.",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_tardecidens"
+    },
+    {
+      "id": "wiki-camaldulensis",
+      "citation": "Wikipedia. Eucalyptus camaldulensis (river red gum).",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_camaldulensis"
+    },
+    {
+      "id": "wiki-guymeri",
+      "citation": "Wikipedia. Acacia guymeri.",
+      "url": "https://en.wikipedia.org/wiki/Acacia_guymeri"
+    },
+    {
+      "id": "wiki-holosericea",
+      "citation": "Wikipedia. Acacia holosericea (candelabra wattle).",
+      "url": "https://en.wikipedia.org/wiki/Acacia_holosericea"
+    },
+    {
+      "id": "wiki-parallela",
+      "citation": "Wikipedia. Grevillea parallela (silver oak).",
+      "url": "https://en.wikipedia.org/wiki/Grevillea_parallela"
+    },
+    {
+      "id": "wiki-glauca",
+      "citation": "Wikipedia. Grevillea glauca (bushman's clothes peg).",
+      "url": "https://en.wikipedia.org/wiki/Grevillea_glauca"
+    },
+    {
+      "id": "wiki-albidus",
+      "citation": "Wikipedia. Brachychiton albidus (kurrajong).",
+      "url": "https://en.wikipedia.org/wiki/Brachychiton_albidus"
+    },
+    {
+      "id": "wiki-gossypium",
+      "citation": "Wikipedia. Gossypium australe (native cotton).",
+      "url": "https://en.wikipedia.org/wiki/Gossypium_australe"
+    },
+    {
+      "id": "wiki-antidesma",
+      "citation": "Wikipedia. Antidesma ghaesembilla (black-currant tree).",
+      "url": "https://en.wikipedia.org/wiki/Antidesma_ghaesembilla"
+    },
+    {
+      "id": "wiki-sessilis",
+      "citation": "Wikipedia. Atractocarpus sessilis (brown randia).",
+      "url": "https://en.wikipedia.org/wiki/Atractocarpus_sessilis"
+    },
+    {
+      "id": "wiki-stenostachya",
+      "citation": "Wikipedia. Melaleuca stenostachya (fibre-barked teatree).",
+      "url": "https://en.wikipedia.org/wiki/Melaleuca_stenostachya"
+    },
+    {
+      "id": "wiki-themeda",
+      "citation": "Wikipedia. Themeda triandra (kangaroo grass).",
+      "url": "https://en.wikipedia.org/wiki/Themeda_triandra"
+    },
+    {
+      "id": "wiki-heteropogon",
+      "citation": "Wikipedia. Heteropogon contortus (black speargrass).",
+      "url": "https://en.wikipedia.org/wiki/Heteropogon_contortus"
+    },
+    {
+      "id": "wiki-rosella",
+      "citation": "Wikipedia. Pale-headed rosella.",
+      "url": "https://en.wikipedia.org/wiki/Pale-headed_rosella"
+    },
+    {
+      "id": "wiki-bwk",
+      "citation": "Wikipedia. Blue-winged kookaburra.",
+      "url": "https://en.wikipedia.org/wiki/Blue-winged_kookaburra"
+    },
+    {
+      "id": "wiki-apostlebird",
+      "citation": "Wikipedia. Apostlebird.",
+      "url": "https://en.wikipedia.org/wiki/Apostlebird"
+    },
+    {
+      "id": "wiki-btf",
+      "citation": "Wikipedia. Black-throated finch.",
+      "url": "https://en.wikipedia.org/wiki/Black-throated_finch"
+    },
+    {
+      "id": "wiki-whistling-kite",
+      "citation": "Wikipedia. Whistling kite (Haliastur sphenurus).",
+      "url": "https://en.wikipedia.org/wiki/Whistling_kite"
+    },
+    {
+      "id": "wiki-lrff",
+      "citation": "Wikipedia. Little red flying fox.",
+      "url": "https://en.wikipedia.org/wiki/Little_red_flying_fox"
+    },
+    {
+      "id": "wiki-echidna",
+      "citation": "Wikipedia. Short-beaked echidna.",
+      "url": "https://en.wikipedia.org/wiki/Short-beaked_echidna"
+    },
+    {
+      "id": "wiki-bfh",
+      "citation": "Wikipedia. Blue-faced honeyeater.",
+      "url": "https://en.wikipedia.org/wiki/Blue-faced_honeyeater"
+    },
+    {
+      "id": "wiki-dbf",
+      "citation": "Wikipedia. Double-barred finch.",
+      "url": "https://en.wikipedia.org/wiki/Double-barred_finch"
+    },
+    {
+      "id": "wiki-squatter",
+      "citation": "Wikipedia. Squatter pigeon.",
+      "url": "https://en.wikipedia.org/wiki/Squatter_pigeon"
+    },
+    {
+      "id": "wiki-coucal",
+      "citation": "Wikipedia. Pheasant coucal.",
+      "url": "https://en.wikipedia.org/wiki/Pheasant_coucal"
+    },
+    {
+      "id": "wiki-bustard",
+      "citation": "Wikipedia. Australian bustard.",
+      "url": "https://en.wikipedia.org/wiki/Australian_bustard"
+    },
+    {
+      "id": "wiki-antilopine",
+      "citation": "Wikipedia. Antilopine kangaroo (antilopine wallaroo).",
+      "url": "https://en.wikipedia.org/wiki/Antilopine_kangaroo"
+    },
+    {
+      "id": "wiki-wallaroo",
+      "citation": "Wikipedia. Common wallaroo.",
+      "url": "https://en.wikipedia.org/wiki/Common_wallaroo"
+    },
+    {
+      "id": "wiki-rock-wallaby",
+      "citation": "Wikipedia. Mareeba rock-wallaby.",
+      "url": "https://en.wikipedia.org/wiki/Mareeba_rock-wallaby"
+    },
+    {
+      "id": "wiki-wedgie",
+      "citation": "Wikipedia. Wedge-tailed eagle.",
+      "url": "https://en.wikipedia.org/wiki/Wedge-tailed_eagle"
+    },
+    {
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
+    },
+    {
+      "id": "kw-cattle",
+      "citation": "Karma Waters Station. Cattle (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/cattle.html"
+    },
+    {
+      "id": "wiki-rubber-vine",
+      "citation": "Wikipedia. Cryptostegia grandiflora (rubber vine).",
+      "url": "https://en.wikipedia.org/wiki/Cryptostegia_grandiflora"
+    },
+    {
+      "id": "wiki-buchanania",
+      "citation": "Wikipedia. Buchanania arborescens (little gooseberry tree).",
+      "url": "https://en.wikipedia.org/wiki/Buchanania_arborescens"
+    },
+    {
+      "id": "qfd",
+      "citation": "Queensland Fire Department. Fire permits: lighting fires in Queensland.",
+      "url": "https://fire.qld.gov.au/safety-education/using-fire-outdoors/lighting-fires-in-queensland"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
