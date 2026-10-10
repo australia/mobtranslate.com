@@ -1,0 +1,314 @@
+{
+  "slug": "bush-birds",
+  "title": "Bush birds of the woodland",
+  "category": "bird",
+  "names": [
+    {
+      "word": "kalbu",
+      "gloss": "black crow"
+    },
+    {
+      "word": "dawadawa",
+      "gloss": "magpie"
+    },
+    {
+      "word": "kurkunbay",
+      "gloss": "butcherbird, stockwhip bird"
+    },
+    {
+      "word": "bajal",
+      "gloss": "bower bird"
+    },
+    {
+      "word": "biru-biru",
+      "gloss": "bee eater, rainbow bird"
+    },
+    {
+      "word": "kuyir",
+      "gloss": "bush curlew"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary names the crow, the magpie, the butcherbird, the bowerbird, the bee-eater, the friarbird, a honeyeater, the curlew, the frogmouth, three owls, the coucal, the swallow and the swift. The species here are the most-recorded woodland birds within 30 km of Karma Waters."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "These are the birds of every camp and every walk: **[kalbu](word:kalbu)** and **[waja](word:waja)** the crows, **[dawadawa](word:dawadawa)** and **[kurburrubun](word:kurburrubun)** the magpie, **[kurkunbay](word:kurkunbay)** the 'butcherbird, stockwhip bird', **[bajal](word:bajal)** the bowerbird that collects white things, **[biru-biru](word:biru-biru)** the 'bee eater, rainbow bird', **[jaka](word:jaka)** the friarbird, **[binjurrbinjurr](word:binjurrbinjurr)** a honeyeater, **[kuyir](word:kuyir)** the 'bush curlew' that wails at night, **[bulnja](word:bulnja)** the 'frogmouth, mopoke', **[kalkuy](word:kalkuy)**, **[yiki](word:yiki)** and **[julurr-julurr](word:julurr-julurr)** the owls, **[jiwurrmal](word:jiwurrmal)** the 'pheasant cuckoo', **[mabal](word:mabal)** and **[yurmbil](word:yurmbil)** the swallows and **[jangkan](word:jangkan)** the swift [ref:hershberger1982]. At [Karma Waters](place:karma-waters) the Atlas's most-recorded land birds are the Torresian crow, the magpie-lark and the rainbow bee-eater at sixty-four records each, the striated pardalote, the magpie, the pied butcherbird, the apostlebird, the blue-faced honeyeater, the double-barred and black-throated finches, the great bowerbird, the willie wagtail, the pale-headed rosella, and, in the night, the bush stone-curlew, the tawny frogmouth, the boobook and the barking owl [ref:ala-aves]. The [woodland](entry:woodland) page has their place in the whole; this page is the birds themselves, with the four Gouldian finch records that are the rarest thing in the list [ref:wiki-gouldian]. Roth's east-coast rule for small birds was that 'it is the eggs and fledgelings which are rather sought for', pulled from the nests with a hooked stick, and the Tully people limed the roosts with fig-sap [ref:roth1901].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kalbu, waja (crow); dawadawa, kurburrubun (magpie); kurkunbay, karkunbay (butcherbird, stockwhip bird); bajal, jurriyan (bowerbirds); biru-biru, dibirr-dibirr (bee-eater, rainbow bird); jaka (friarbird); binjurrbinjurr (honeyeater); kuyir (bush curlew); bulnja (frogmouth); kalkuy, yiki, julurr-julurr (owls); jiwurrmal, bulbul (pheasant coucal); mabal, yurmbil (swallow); jangkan (swift)"
+    },
+    {
+      "label": "At Karma Waters (ALA, 30 km)",
+      "value": "Torresian crow (64), magpie-lark (64), rainbow bee-eater (64), striated pardalote (57), magpie (53), pied butcherbird (51), apostlebird (50), blue-faced honeyeater (49), double-barred finch (48), great bowerbird (46), willie wagtail (46), black-throated finch (43), noisy friarbird (33), grey-crowned babbler (25), pheasant coucal (13), bush stone-curlew (5), tawny frogmouth (7), boobook (7), barking owl (5), Gouldian finch (4)"
+    },
+    {
+      "label": "Night",
+      "value": "Curlew wailing, frogmouth on a branch, boobook 'mo-poke', barking owl 'wook-wook'"
+    },
+    {
+      "label": "Taken by",
+      "value": "Eggs and fledglings from the nests with a hooked stick; bird-lime on the roosts (Tully)"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Crows**: **[kalbu](word:kalbu)** 'black crow', **[waja](word:waja)** 'species of crow' (also 'big yellow March fly'), **[wakuka](word:wakuka)** 'species of crow' (also 'kookaburra'). **Magpie**: **[dawadawa](word:dawadawa)**, **[kurburrubun](word:kurburrubun)**. **Butcherbird**: **[kurkunbay](word:kurkunbay)** and **[karkunbay](word:karkunbay)** 'butcherbird, stockwhip bird'. **Bowerbirds**: **[bajal](word:bajal)** 'bower bird', **[jurriyan](word:jurriyan)** 'satin bower bird'. **Bee-eater**: **[biru-biru](word:biru-biru)** 'bee eater, rainbow bird', **[dibirr-dibirr](word:dibirr-dibirr)** 'rainbow bird, honey eater'. **Honeyeaters**: **[jaka](word:jaka)** 'friarbird (leather-head)', **[binjurrbinjurr](word:binjurrbinjurr)** 'honey eater bird'. **Night birds**: **[kuyir](word:kuyir)** 'bush curlew', **[bulnja](word:bulnja)** 'frogmouth, mopoke', **[kalkuy](word:kalkuy)** and **[yiki](word:yiki)** 'night owl', **[julurr-julurr](word:julurr-julurr)** 'moomoo birds, night owl, night hawk', **[jiral-jiral](word:jiral-jiral)** 'night bird'. **Coucal**: **[jiwurrmal](word:jiwurrmal)** 'pheasant cuckoo', also called **[bulbul](word:bulbul)**. **Swallows and swifts**: **[mabal](word:mabal)**, **[yurmbil](word:yurmbil)** 'swallow', **[jangkan](word:jangkan)** 'swift'. **Others**: **[dakwul-dakwul](word:dakwul-dakwul)**, a 'brown and white scrub bird' whose males 'clear an area, then many form a circle with one in the middle and the middle one will sing and dance', **[barinkan](word:barinkan)** 'scrub bird, dark grey with white breast', **[mirrki](word:mirrki)** 'kidney bird', **[dikal](word:dikal)** 'bird' [ref:hershberger1982]. The dictionary also lists a 'messenger night bird' and a 'black messenger bird' with their meanings; this page leaves those to the dictionary."
+    },
+    {
+      "id": "description",
+      "heading": "The bush birds of the upper Mitchell",
+      "body": "**Torresian crow** (*Corvus orru*, *kalbu*), sixty-four records. 'A large corvid, about the same size (48–53 cm in length) as the Eurasian carrion crow but with a more robust bill and slightly longer legs. The plumage of the Torresian crow is glossy black on the back and dull black on' the underside, with a white eye; it 'occupies almost any habitat within its geographic range where there is a permanent source of water' [ref:wiki-torresian-crow].\n\n**Australian magpie** (*Gymnorhina tibicen*, *dawadawa*), fifty-three. 'A fairly robust bird ranging from 37 to 43 cm in length, with black and white plumage, gold brown eyes and a solid wedge-shaped bluish-white and black bill'; 'described as one of Australia's most accomplished songbirds, the Australian magpie has an array of complex vocalisations. It is omnivorous, with the bulk of its varied diet made up of invertebrates. It is generally sedentary and territorial' [ref:wiki-magpie]. **Pied butcherbird** (*Cracticus nigrogularis*, *kurkunbay*), fifty-one: 'a black-and-white bird', 'common in woodlands and urban environments, it is carnivorous, eating insects and small vertebrates', and the best singer of the woodland dawn; the 'stockwhip' of the dictionary's gloss is its whip-crack whistle [ref:wiki-pied-butcherbird] [ref:hershberger1982]. **Magpie-lark** (*Grallina cyanoleuca*), sixty-four, the peewee, black and white, building a mud bowl on a branch [ref:wiki-magpie-lark].\n\n**Apostlebird** (*Struthidea cinerea*), fifty. 'A quick-moving, gray or black bird about 33 cm long', 'also known as the grey jumper, lousy jack or happy family', in family groups of a dozen that build and guard mud nests together [ref:wiki-apostlebird]. **Grey-crowned babbler** (*Pomatostomus temporalis*), twenty-five, the other noisy family bird, hopping through the undergrowth in gangs [ref:wiki-babbler].\n\n**Great bowerbird** (*Chlamydera nuchalis*, *bajal*), forty-six. 'The largest of the bowerbird family and is 33 to 38 cm long and fawny grey in colour. Males have a small but conspicuous pink crest on the nape of the neck.' 'The bower is a twin-walled avenue-type bower approximately 1 metre long and 45 cm high. It is typically located under a shrub or leafy branch. The ends of the bower are scattered with white and green objects, stones, bones, shells and leaves and small man-made objects such as plastic and bottle caps'; 'the males spend most of the year building, maintaining, improving, defending, and above all displaying from their bowers' [ref:wiki-bowerbird].\n\n**Rainbow bee-eater** (*Merops ornatus*, *biru-biru*), sixty-four. 'Brilliantly coloured birds that grow to be 23–28 cm in length, including the elongated tail feathers'; 'the upper back and wings are green, and the lower back and under-tail coverts are bright blue'; they 'migrate north during the winter into northern Australia', hawk bees, wasps and dragonflies over the river in the evening, and nest in tunnels in sand banks [ref:wiki-bee-eater]. The **dollarbird** (*Eurystomus orientalis*), seven, is the other wet-season hawker, 'seen singly with a distinctive upright silhouette on a bare branch high in a tree, from which it hawks for flying insects' between September and April [ref:wiki-dollarbird].\n\n**Honeyeaters.** The blue-faced honeyeater (*Entomyzon cyanotis*), forty-nine, 'colloquially known as the bananabird', 'found in open woodland', with a diet 'mostly composed of invertebrates' and the blossom besides, and the first voice before dawn [ref:wiki-bfh]. The noisy friarbird (*Philemon corniculatus*, *jaka*), thirty-three, 'a large honeyeater with dull brownish grey upperparts ... Its black head is completely bald apart from tufts of feathers under the chin', with 'its rounded knob above the black bill', the 'leather-head' of the dictionary's gloss; the little friarbird, thirty-three, is the one without the knob [ref:wiki-friarbird] [ref:wiki-little-friarbird] [ref:hershberger1982]. Brown, white-throated, yellow and rufous-throated honeyeaters fill out the forty-odd species of blossom birds in the list [ref:ala-aves].\n\n**Finches.** The double-barred finch (*Stizoptera bichenovii*), forty-eight, 'a 10–11 cm long munia-like bird. It has a white face bordered with black', 'the owl finch'; 'granivorous and highly gregarious. Nests are built in grass, bushes or low trees' [ref:wiki-dbf]. The black-throated finch (*Poephila cincta*), forty-three, 'around 10 cm in length ... a short black bill, lores, and throat, sharply delineated from the rest of the pale grey head', 'found in grassy woodlands throughout north-east Australia' and gone from the south; the northern black-rumped form is the one here [ref:wiki-btf]. The Gouldian finch (*Chloebia gouldiae*), four records, 'about 125–140 mm long. Their heads may be red, black, or yellow', 'considered an Endangered species by the Australian Government' under the EPBC Act: four records within 30 km of the homestead make Karma Waters one of the places this bird still lives [ref:wiki-gouldian] [ref:ala-aves]. The masked finch, six, and the crimson finch are in the list too [ref:ala-aves].\n\n**The night.** The bush stone-curlew (*Burhinus grallarius*, *kuyir*), five records, 'a large, ground-dwelling bird endemic to Australia. Its favoured habitat is open plains and woodlands, where it stalks slowly at night in search of invertebrates such as insects. Its grey-brown coloration is distinguished by dark streaks', and its wail is the sound of the dark [ref:wiki-curlew]. The tawny frogmouth (*Podargus strigoides*, *bulnja*), seven, 'a big-headed, stocky bird often mistaken for an owl due to its nocturnal' habits, '34 to 53 cm long', sitting as a broken branch by day; 'it was sometimes mistakenly called a mopoke', the boobook's name, 'the call of which is often confused with that of the tawny frogmouth' [ref:wiki-frogmouth]. The Australian boobook (*Ninox boobook*), seven, 'the smallest owl on the Australian mainland ... 27 to 36 cm long, with predominantly dark-brown plumage with prominent pale spots', calling 'mo-poke' [ref:wiki-boobook]; the barking owl (*N. connivens*), five, which 'takes its name from its characteristic barking voice', 'brown with white spots on its wings and a vertically streaked chest', with yellow eyes [ref:wiki-barking-owl]; and the owlet-nightjar, five, 'the smallest nocturnal bird found in Australia', in a hollow by day [ref:wiki-owlet-nightjar].\n\n**Pheasant coucal** (*Centropus phasianinus*, *jiwurrmal*), thirteen. 'A large heavy-set bird adapted for living on the ground, reminiscent of a pheasant in shape. Birds in breeding plumage have black heads, necks, breasts and bellies, barred chestnut wings and long black, brown and cream barred tails'; the [woodland](entry:woodland) page has its diet of small reptiles, frogs, eggs and nestlings and its grass nest with the stems tied over it [ref:wiki-coucal]. The **channel-billed cuckoo** (*Scythrops novaehollandiae*), seven, 'the world's largest cuckoo', '56–70 cm long', arrives with the storms, screams over the camp at night, and lays in the crows' nests [ref:wiki-channel-billed-cuckoo]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Black-and-white birds, and the night",
+      "body": "- **Crow**: all black, white eye, 'aah-aah' [ref:wiki-torresian-crow].\n- **Magpie**: black and white with a white nape and a big bill; carolling [ref:wiki-magpie].\n- **Pied butcherbird**: black hood, white collar, hooked bill, a flute [ref:wiki-pied-butcherbird].\n- **Magpie-lark**: small, black and white, a mud nest, 'pee-wee' [ref:wiki-magpie-lark].\n- **Willie wagtail**: small, black above and white below, wagging, in every camp [ref:ala-aves].\n- **Apostlebird and babbler**: grey or brown gangs on the ground, never alone [ref:wiki-apostlebird] [ref:wiki-babbler].\n- **Frogmouth or owl**: the frogmouth has a wide frog's bill and sits upright as a stump; the boobook has the owl's face and eyes and calls 'mo-poke'; the barking owl barks [ref:wiki-frogmouth] [ref:wiki-boobook] [ref:wiki-barking-owl].\n- **Curlew**: a long-legged grey bird standing dead still by day under a tree, and the wail at night [ref:wiki-curlew]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A bower of twigs with white bones and green glass** at its ends under a shrub [ref:wiki-bowerbird].\n- **Mud nests** on a horizontal branch: apostlebirds or magpie-larks [ref:wiki-apostlebird] [ref:wiki-magpie-lark].\n- **A round grass nest with a tube** in a gum: a finch [ref:wiki-btf].\n- **Bee-eater tunnels** in a sand bank over the river [ref:wiki-bee-eater].\n- **A wail at night** is the curlew; a bark is the owl; 'mo-poke' is the boobook [ref:wiki-curlew] [ref:wiki-barking-owl] [ref:wiki-boobook].\n- **Magpies and butcherbirds mobbing one spot**: a snake or a goanna [ref:wiki-magpie].\n- **A ring cleared on the ground** with birds dancing in it: the dictionary's *dakwul-dakwul* [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they are",
+      "body": "The open [woodland](entry:woodland) and its edges, the river's banks for the bee-eaters, the grass for the finches and the coucal, the camp itself for the crows, magpies, butcherbirds, wagtails and apostlebirds, and the dark for the curlew and the owls [ref:re-woodland] [ref:wiki-bee-eater] [ref:wiki-curlew]. The Gouldian finch needs seeding grass and hollows near water, which is the woodland the fire regime of the [woodland](entry:woodland) page is for [ref:wiki-gouldian] [ref:pbg-cape-york]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The camp's birds",
+      "body": "The crows, magpies, butcherbirds, wagtails and apostlebirds are the birds that live off the camp and the stock as they lived off the old camps: scraps, flies, the grasshoppers the cattle put up [ref:wiki-torresian-crow] [ref:wiki-magpie]. The honeyeaters, lorikeets and bee-eaters are the blossom's and the river's; the finches the grass seed's; the butcherbird and the magpie the lizards' and small snakes'; the owls the mice's and the possums'; the coucal the frogs' and nestlings' [ref:wiki-bfh] [ref:wiki-btf] [ref:wiki-pied-butcherbird] [ref:wiki-coucal]. The [goshawk](entry:eagles-and-hawks) and the [pythons](entry:pythons) take them; the cane toad takes the frogmouth and the curlew that swallow it [ref:wiki-brown-goshawk] [ref:wiki-cane-toads]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The bee-eaters and the dollarbird come north for the dry and the storms; the finches breed after the monsoon on the new seed; the bowerbird builds all year and displays before the rains; the cuckoos arrive and scream with the first storms [ref:wiki-bee-eater] [ref:wiki-dollarbird] [ref:wiki-btf] [ref:wiki-bowerbird] [ref:wiki-channel-billed-cuckoo]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Eggs and fledglings**, the east coast's small-bird food, taken from the nests with a hooked stick carried down the back [ref:roth1901].\n- **Bird-lime** on the roosts and in the blossom, the Tully method, for 'peewits, small parrots, and even young cockatoos' [ref:roth1901].\n- **Sentries**: the magpies and butcherbirds on a snake, the curlew's and the lapwing's night alarms [ref:wiki-magpie].\n- **A clock**: the honeyeater half an hour before light, the butcherbird at dawn, the boobook at dark [ref:wiki-bfh]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Living with the bush birds",
+      "body": "1. **Let the magpies and butcherbirds work the camp**; they are the snake alarm and the fly control [ref:wiki-magpie].\n2. **Find the bowers** under the shrubs and leave the bones and glass where the bird put them [ref:wiki-bowerbird].\n3. **Watch the finches** on the seeding grass; a red, black or yellow-headed one is a Gouldian, and a thing to report [ref:wiki-gouldian].\n4. **At night, learn the three calls**: the curlew's wail, the boobook's 'mo-poke', the barking owl's bark [ref:wiki-curlew] [ref:wiki-boobook] [ref:wiki-barking-owl].\n5. **Nests**: the old practice took eggs and young from the small birds' nests with a hooked stick; the law and the finches' decline argue for leaving them [ref:roth1901] [ref:wiki-gouldian]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Native birds are protected wildlife in Queensland under the *Nature Conservation Act 1992*; native title holders hunting for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993*, recognised in the Western Yalanji determinations [ref:qld-nca] [ref:alrc] [ref:wyac2020].\n- The Gouldian finch is nationally endangered; its presence here is a reason to burn cool and late, not hot and early [ref:wiki-gouldian] [ref:pbg-cape-york].\n- A magpie in the breeding season swoops; a crow at the camp steals; neither is dangerous.\n- A bird mobbing the ground is a snake warning; see [snakes](entry:snakes) [ref:healthdirect-snakebite]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "These are the birds the station lives with, and the Gouldian finch is the one that makes Karma Waters' grass and hollows matter beyond the station [ref:ala-aves] [ref:wiki-gouldian]. The dictionary has more night-bird words than the Atlas has night birds; which owl is *kalkuy*, which *yiki*, is for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kalbu](word:kalbu)*, *[waja](word:waja)* 'crow'; *[dawadawa](word:dawadawa)*, *[kurburrubun](word:kurburrubun)* 'magpie'; *[kurkunbay](word:kurkunbay)* 'butcherbird, stockwhip bird'; *[bajal](word:bajal)* 'bower bird'; *[jurriyan](word:jurriyan)* 'satin bower bird'; *[biru-biru](word:biru-biru)*, *[dibirr-dibirr](word:dibirr-dibirr)* 'bee eater, rainbow bird'; *[jaka](word:jaka)* 'friarbird'; *[binjurrbinjurr](word:binjurrbinjurr)* 'honey eater'; *[kuyir](word:kuyir)* 'bush curlew'; *[bulnja](word:bulnja)* 'frogmouth, mopoke'; *[kalkuy](word:kalkuy)*, *[yiki](word:yiki)*, *[julurr-julurr](word:julurr-julurr)* 'night owl'; *[jiwurrmal](word:jiwurrmal)* 'pheasant cuckoo'; *[mabal](word:mabal)*, *[yurmbil](word:yurmbil)* 'swallow'; *[jangkan](word:jangkan)* 'swift'; *[dakwul-dakwul](word:dakwul-dakwul)* the dancing scrub bird; *[dikal](word:dikal)* 'bird' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "woodland",
+    "cockatoos-and-parrots",
+    "kookaburras-and-kingfishers",
+    "eagles-and-hawks",
+    "pigeons-and-doves",
+    "snakes",
+    "blady-grass",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "dakwul-dakwul",
+      "gloss": "brown and white scrub bird whose males clear a ring and dance"
+    },
+    {
+      "word": "jaka",
+      "gloss": "friarbird (leather-head)"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "ala-aves",
+      "citation": "Atlas of Living Australia. Bird (Aves) occurrence records within 30 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30&fq=class:Aves"
+    },
+    {
+      "id": "wiki-gouldian",
+      "citation": "Wikipedia. Gouldian finch (Chloebia gouldiae).",
+      "url": "https://en.wikipedia.org/wiki/Gouldian_finch"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "wiki-torresian-crow",
+      "citation": "Wikipedia. Torresian crow (Corvus orru).",
+      "url": "https://en.wikipedia.org/wiki/Torresian_crow"
+    },
+    {
+      "id": "wiki-magpie",
+      "citation": "Wikipedia. Australian magpie (Gymnorhina tibicen).",
+      "url": "https://en.wikipedia.org/wiki/Australian_magpie"
+    },
+    {
+      "id": "wiki-pied-butcherbird",
+      "citation": "Wikipedia. Pied butcherbird (Cracticus nigrogularis).",
+      "url": "https://en.wikipedia.org/wiki/Pied_butcherbird"
+    },
+    {
+      "id": "wiki-magpie-lark",
+      "citation": "Wikipedia. Magpie-lark (Grallina cyanoleuca).",
+      "url": "https://en.wikipedia.org/wiki/Magpie-lark"
+    },
+    {
+      "id": "wiki-apostlebird",
+      "citation": "Wikipedia. Apostlebird.",
+      "url": "https://en.wikipedia.org/wiki/Apostlebird"
+    },
+    {
+      "id": "wiki-babbler",
+      "citation": "Wikipedia. Grey-crowned babbler (Pomatostomus temporalis).",
+      "url": "https://en.wikipedia.org/wiki/Grey-crowned_babbler"
+    },
+    {
+      "id": "wiki-bowerbird",
+      "citation": "Wikipedia. Great bowerbird.",
+      "url": "https://en.wikipedia.org/wiki/Great_bowerbird"
+    },
+    {
+      "id": "wiki-bee-eater",
+      "citation": "Wikipedia. Rainbow bee-eater (Merops ornatus).",
+      "url": "https://en.wikipedia.org/wiki/Rainbow_bee-eater"
+    },
+    {
+      "id": "wiki-dollarbird",
+      "citation": "Wikipedia. Oriental dollarbird (Eurystomus orientalis).",
+      "url": "https://en.wikipedia.org/wiki/Oriental_dollarbird"
+    },
+    {
+      "id": "wiki-bfh",
+      "citation": "Wikipedia. Blue-faced honeyeater.",
+      "url": "https://en.wikipedia.org/wiki/Blue-faced_honeyeater"
+    },
+    {
+      "id": "wiki-friarbird",
+      "citation": "Wikipedia. Noisy friarbird (Philemon corniculatus).",
+      "url": "https://en.wikipedia.org/wiki/Noisy_friarbird"
+    },
+    {
+      "id": "wiki-little-friarbird",
+      "citation": "Wikipedia. Little friarbird (Philemon citreogularis).",
+      "url": "https://en.wikipedia.org/wiki/Little_friarbird"
+    },
+    {
+      "id": "wiki-dbf",
+      "citation": "Wikipedia. Double-barred finch.",
+      "url": "https://en.wikipedia.org/wiki/Double-barred_finch"
+    },
+    {
+      "id": "wiki-btf",
+      "citation": "Wikipedia. Black-throated finch.",
+      "url": "https://en.wikipedia.org/wiki/Black-throated_finch"
+    },
+    {
+      "id": "wiki-curlew",
+      "citation": "Wikipedia. Bush stone-curlew (Burhinus grallarius).",
+      "url": "https://en.wikipedia.org/wiki/Bush_stone-curlew"
+    },
+    {
+      "id": "wiki-frogmouth",
+      "citation": "Wikipedia. Tawny frogmouth (Podargus strigoides).",
+      "url": "https://en.wikipedia.org/wiki/Tawny_frogmouth"
+    },
+    {
+      "id": "wiki-boobook",
+      "citation": "Wikipedia. Australian boobook (Ninox boobook).",
+      "url": "https://en.wikipedia.org/wiki/Australian_boobook"
+    },
+    {
+      "id": "wiki-barking-owl",
+      "citation": "Wikipedia. Barking owl (Ninox connivens).",
+      "url": "https://en.wikipedia.org/wiki/Barking_owl"
+    },
+    {
+      "id": "wiki-owlet-nightjar",
+      "citation": "Wikipedia. Australian owlet-nightjar (Aegotheles cristatus).",
+      "url": "https://en.wikipedia.org/wiki/Australian_owlet-nightjar"
+    },
+    {
+      "id": "wiki-coucal",
+      "citation": "Wikipedia. Pheasant coucal.",
+      "url": "https://en.wikipedia.org/wiki/Pheasant_coucal"
+    },
+    {
+      "id": "wiki-channel-billed-cuckoo",
+      "citation": "Wikipedia. Channel-billed cuckoo (Scythrops novaehollandiae).",
+      "url": "https://en.wikipedia.org/wiki/Channel-billed_cuckoo"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "pbg-cape-york",
+      "citation": "Queensland Parks and Wildlife Service (2013). Planned Burn Guidelines: Cape York Peninsula Bioregion of Queensland. Department of National Parks, Recreation, Sport and Racing.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0019/151480/pbg-cape-york.pdf",
+      "locator": "'Fire in the monsoonal tropics of the Cape York Peninsula bioregion'; ch. 1–2 season guidance (storm burns)"
+    },
+    {
+      "id": "wiki-brown-goshawk",
+      "citation": "Wikipedia. Brown goshawk (Tachyspiza fasciata).",
+      "url": "https://en.wikipedia.org/wiki/Brown_goshawk"
+    },
+    {
+      "id": "wiki-cane-toads",
+      "citation": "Wikipedia. Cane toads in Australia: effects on native predators (goannas, snakes, freshwater crocodiles) and on dogs.",
+      "url": "https://en.wikipedia.org/wiki/Cane_toads_in_Australia"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "healthdirect-snakebite",
+      "citation": "healthdirect Australia (Australian Government). Snake bites: symptoms, first aid and the pressure immobilisation bandage (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/snake-bites"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

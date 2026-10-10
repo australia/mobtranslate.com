@@ -1,0 +1,226 @@
+{
+  "slug": "eagles-and-hawks",
+  "title": "Eagles, kites and hawks",
+  "category": "bird",
+  "names": [
+    {
+      "word": "yalngkurr",
+      "gloss": "eagle hawk; grey sea eagle"
+    },
+    {
+      "word": "wandi",
+      "gloss": "fish hawk, brown hawk, red-backed sea eagle"
+    },
+    {
+      "word": "kalin-kalin",
+      "gloss": "kestrel hawk"
+    },
+    {
+      "word": "jinabiju",
+      "gloss": "chicken hawk, goshawk"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary names the eagle hawk, the sea eagle, the fish hawk, the kestrel, the goshawk and a small hawk. Within 30 km of Karma Waters the Atlas records the black kite, whistling kite, kestrel, brown falcon, wedge-tailed eagle, white-bellied sea eagle, brown goshawk, collared sparrowhawk, black-breasted buzzard and osprey."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater"
+  ],
+  "summary": "**[yalngkurr](word:yalngkurr)** is the eagle hawk, the wedge-tailed eagle, and the dictionary says of it: 'Totem of all the Kuku-Yalanji people. It represents the country to which they belong'; the same word is glossed 'grey sea eagle' [ref:hershberger1982]. **[wandi](word:wandi)** is the 'fish hawk, brown hawk, red-backed sea eagle', the brahminy kite of the coast, 'one of the sacred birds'; **[kalin-kalin](word:kalin-kalin)** the kestrel; **[jinabiju](word:jinabiju)** the 'chicken hawk, goshawk'; **[muku](word:muku)** a 'small hawk' [ref:hershberger1982]. Over [Karma Waters](place:karma-waters) the hawks are the commonest big birds in the sky: the black kite with fifty-two records within 30 km, the whistling kite forty-three, the kestrel thirty-nine, the brown falcon twenty, the wedge-tailed eagle sixteen, the white-bellied sea eagle nine, the brown goshawk nine, and the black-breasted buzzard three [ref:ala-aves]. The whistling kite, the black kite and the brown falcon are the three 'firehawks', birds that 'intentionally set or spread fires to catch prey', carrying burning sticks from a grass fire to unburnt grass, which the [hunting with fire](entry:hunting-with-fire) page takes up [ref:wiki-whistling-kite] [ref:wiki-brown-falcon]. The wedge-tailed eagle is 'one of the world's most powerful avian predators', above all a mammal hunter that takes the young [wallabies](entry:wallaby); the sea eagle takes the fish and the ducks of the pools; the kestrel hovers over the grass for mice and grasshoppers [ref:wiki-wedgie] [ref:wiki-sea-eagle] [ref:wiki-kestrel].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "yalngkurr (eagle hawk; grey sea eagle); wandi (fish hawk, red-backed sea eagle); kalin-kalin (kestrel); jinabiju (goshawk); muku (small hawk)"
+    },
+    {
+      "label": "At Karma Waters (ALA, 30 km)",
+      "value": "Black kite (52), whistling kite (43), nankeen kestrel (39), brown falcon (20), wedge-tailed eagle (16), white-bellied sea eagle (9), brown goshawk (9), collared sparrowhawk (4), black-breasted buzzard (3), osprey (3), Australian hobby (3)"
+    },
+    {
+      "label": "Firehawks",
+      "value": "Whistling kite, black kite and brown falcon carry burning sticks to spread grass fires and hunt the front"
+    },
+    {
+      "label": "Food",
+      "value": "Eagle: mammals to wallaby size, reptiles, birds, carrion; kites: small animals, fish, carrion, the fire front; kestrel: mice, grasshoppers; goshawk: birds; buzzard: eggs, breaking emu eggs with a stone"
+    },
+    {
+      "label": "Nests",
+      "value": "Big stick nests in the tallest tree of a stand; the brown falcon in another bird's old nest"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[yalngkurr](word:yalngkurr)** 'eagle hawk. Totem of all the Kuku-Yalanji people. It represents the country to which they belong', and in another entry 'grey sea eagle' [ref:hershberger1982]. **[wandi](word:wandi)** 'fish hawk, brown hawk, red-backed sea eagle. One of the sacred birds', the brahminy kite, which is a coastal bird and not in the Karma Waters records; its inland cousin the whistling kite is [ref:hershberger1982] [ref:ala-aves]. **[kalin-kalin](word:kalin-kalin)** 'kestrel hawk'. **[jinabiju](word:jinabiju)** 'chicken hawk (goshawk)'. **[muku](word:muku)** 'small hawk' (the same word is 'back'). The dictionary's notes on which birds are totems and sacred are given as they stand and not added to [ref:hershberger1982]. The brown falcon's species name '*berigora* has Aboriginal origins' [ref:wiki-brown-falcon]."
+    },
+    {
+      "id": "description",
+      "heading": "The birds of prey of the upper Mitchell",
+      "body": "**Wedge-tailed eagle** (*Aquila audax*, *yalngkurr*), sixteen records. 'The largest bird of prey in the continent of Australia'; 'some of their native continent's most generalised birds of prey. They reside in most habitats present in Australia'; 'one of the world's most powerful avian predators. Although a true generalist, which hunts a wide range of prey, including birds, reptiles, and' mammals, it is above all a mammal hunter [ref:wiki-wedgie]. 'Wedge-tailed eagles usually construct a large stick nest in an ample tree, normally the largest in a stand, and lay one to four eggs, though typically only two'; 'although historically heavily persecuted by humans through poisoning and shooting, mostly for alleged predation on sheep, wedge-tailed eagles have proved to be exceptionally resilient' [ref:wiki-wedgie].\n\n**White-bellied sea eagle** (*Icthyophaga leucogaster*), nine records. 'A large diurnal bird of prey'; 'resident from India and Sri Lanka through Southeast Asia to Australia on coasts and major waterways, the white-bellied sea eagle breeds and hunts near water, and fish form around half of its diet'. 'A white head, rump and underparts, and dark or slate-grey back and wings. In flight, the black flight feathers on the wings are easily seen when the bird is viewed from below'; in a glide the wings 'rise from the body at an angle' [ref:wiki-sea-eagle].\n\n**Whistling kite** (*Haliastur sphenurus*), forty-three records. 'A medium-sized diurnal raptor found throughout Australia'; 'one of three birds that intentionally sets or spreads fires to catch prey. The other two are the black kite and brown falcon'. '50 to 60 cm, with a wingspan between 123 and 146 cm'; 'adult birds are a pale buff on the head, breast and tail, with browner wings and black flight feathers'; 'a noisy species, calling regularly in flight and while perched ... a clear descending whistle, often followed by a rapid series of rising notes' [ref:wiki-whistling-kite].\n\n**Black kite** (*Milvus migrans*), fifty-two records, the most-recorded raptor here. 'The black kite or fire kite', 'thought to be the world's most abundant species' of its family; dark, with a shallowly forked tail that it twists as a rudder, in loose flocks over the fires, the river and the rubbish [ref:wiki-black-kite].\n\n**Nankeen kestrel** (*Falco cenchroides*, *kalin-kalin*), thirty-nine records. 'One of the smallest falcons, and unlike many, does not rely on speed to catch its prey. Instead, it simply perches in an exposed position, but it also has a distinctive technique of hovering over crop and grasslands'; 'a small, slim falcon 28 to 35 cm long with a wingspan of 66 to 78 cm', 'pale rufous upper-parts with contrasting black flight-feathers'; 'mosquito hawk, kestrel, windhover, hoverer' are its other names [ref:wiki-kestrel].\n\n**Brown falcon** (*F. berigora*), twenty records. 'Adults are usually 40 to 50 cm long. They are found in light and dark forms'; 'the falcons make a loud cackle call uttered frequently'; 'the brown falcon eats small mammals, including house mice ... small birds, lizards, snakes, and a variety of invertebrates, particularly caterpillars, grasshoppers, crickets, and beetles'; it nests 'usually in an old nest of a larger passerine or another hawk species'; and 'brown falcons and other Australian firehawks have been said to pick up sticks with flames and dropping them to spread fires and prey on escaping animals' [ref:wiki-brown-falcon].\n\n**Brown goshawk** (*Tachyspiza fasciata*, *jinabiju*), nine records, with the smaller collared sparrowhawk, four. 'Its upperparts are grey with a chestnut collar; its underparts are mainly rufous, finely barred with white'; 'body length is 40–55 cm'; 'brown goshawks feed mainly on other medium-sized birds, while small mammals such as rats and rabbits are also taken. Brown goshawks often hunt near farmland or wetlands, where birds such as ducks, cockatoos and pigeons' gather; 'the main methods of catching prey are still-hunting, by which the goshawk waits on a hidden perch until prey comes within striking distance, and flying through undergrowth attempting to flush out small prey' [ref:wiki-brown-goshawk].\n\n**Black-breasted buzzard** (*Hamirostra melanosternon*), three records. 'One of Australia's largest birds of prey and one of the world's largest kites'; 'from the underside, the mainly black colouring of the body and wings is contrasted by thick white panels near the end of the wings'; 'widely but sparsely distributed throughout northern and inland Australia'; famous for the way 'it uses a stone to crack an emu egg' [ref:wiki-buzzard]. The osprey, three records, is the river's other fish hawk [ref:ala-aves]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling them in the air",
+      "body": "- **Wedge-tailed eagle**: huge, dark, a long wedge tail, wings held in a shallow V, soaring high [ref:wiki-wedgie].\n- **Sea eagle**: white below with black flight feathers, a short wedge tail, over the river [ref:wiki-sea-eagle].\n- **Whistling kite**: pale buff head and body, long rounded tail, a drooping flight and the whistle [ref:wiki-whistling-kite].\n- **Black kite**: dark, a forked tail that twists, in flocks [ref:wiki-black-kite].\n- **Kestrel**: small, rufous, hovering [ref:wiki-kestrel].\n- **Brown falcon**: a lazy flight, long legs, perched on fence posts, cackling [ref:wiki-brown-falcon].\n- **Goshawk and sparrowhawk**: rounded wings, long barred tail, a dash through the trees after a pigeon [ref:wiki-brown-goshawk].\n- **Buzzard**: black with white 'windows' in the wings, a short tail, over open country [ref:wiki-buzzard].\n- **Crows** fly straight and flap; the kites sail [ref:wiki-torresian-crow]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Kites over a grass fire**, and a kite carrying a burning stick [ref:wiki-whistling-kite].\n- **A kestrel hanging in the wind** over the grass: mice there [ref:wiki-kestrel].\n- **A stick nest the size of a car bonnet** in the biggest tree: the eagle [ref:wiki-wedgie].\n- **A sea eagle's plucking post** on the bank, with fish bones and duck feathers [ref:wiki-sea-eagle].\n- **Every small bird silent and still**: a goshawk through the trees [ref:wiki-brown-goshawk].\n- **A broken emu or bustard egg** with a stone beside it: the buzzard [ref:wiki-buzzard]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they are",
+      "body": "The eagle over the [woodland](entry:woodland) and the ridges, nesting in the tallest tree; the sea eagle and the osprey along the river; the kites over everything, the fires, the river and the camp; the kestrel and the brown falcon on the open flats and the fence lines; the goshawk in the trees by the water where the birds drink [ref:wiki-wedgie] [ref:wiki-sea-eagle] [ref:wiki-kestrel] [ref:wiki-brown-goshawk]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The top of the chain",
+      "body": "The birds of prey are the end of the woodland's food chain and the beginning of its fires. The eagle takes the [wallaby](entry:wallaby) joeys, the [goannas](entry:goanna), the [bustard](entry:bustard) chicks and the carrion; the sea eagle the fish, the [ducks](entry:ducks-and-geese) and the [turtles](entry:freshwater-turtle); the kites whatever the fire flushes and whatever dies; the kestrel the mice and grasshoppers; the goshawk the [pigeons](entry:pigeons-and-doves) and parrots; the buzzard the eggs [ref:wiki-wedgie] [ref:wiki-sea-eagle] [ref:wiki-whistling-kite] [ref:wiki-kestrel] [ref:wiki-brown-goshawk] [ref:wiki-buzzard]. The firehawks make the fire work for them, which the [hunting with fire](entry:hunting-with-fire) page says people watched and did too [ref:wiki-whistling-kite]. The cane toad kills the kites and the eagle that eat it dead on the road [ref:wiki-cane-toads]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The brown falcon breeds from June to November, the eagle and the kites through the dry on their stick nests; the kites gather over the early-dry burns and the late-dry fires, and over the shrinking pools where the fish die [ref:wiki-brown-falcon] [ref:wiki-whistling-kite] [ref:pbg-cape-york]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Fire-finding and fire-reading**: where the kites circle, the fire is, and where it is going [ref:wiki-whistling-kite].\n- **Game-finding**: the kestrel over the mice, the kites over the drive [ref:wiki-kestrel].\n- **Feathers**: Roth's Tully girl 'decorated with eagle-hawk or cockatoo feathers in her hair' [ref:roth1903].\n- **A mark of country**: the eagle hawk 'represents the country to which they belong' [ref:hershberger1982]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Reading the hawks",
+      "body": "1. **Kites circling low and fast** mean a fire front; kites drifting high mean carrion or a dead pool [ref:wiki-whistling-kite].\n2. **Where the kestrel hovers**, the grass has mice and grasshoppers, and so, later, the [snakes](entry:snakes) [ref:wiki-kestrel].\n3. **When the small birds go quiet**, a goshawk is through; a minute later they start again [ref:wiki-brown-goshawk].\n4. **The eagle's nest tree** is the biggest in the stand; leave it, and do not burn under it in the nesting season [ref:wiki-wedgie].\n5. **A sea eagle working the pool** is working the same fish you are [ref:wiki-sea-eagle]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Native birds are protected wildlife in Queensland under the *Nature Conservation Act 1992*; native title holders hunting for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993*, recognised in the Western Yalanji determinations [ref:qld-nca] [ref:alrc] [ref:wyac2020]. The eagle's long persecution 'for alleged predation on sheep' is a station history too [ref:wiki-wedgie].\n- A kite that drops a burning stick in unburnt grass has started a fire; firehawks are one reason a cool burn runs away [ref:wiki-whistling-kite] [ref:pbg-cape-york].\n- Road-killed toads poison the kites that eat them; see [frogs](entry:frogs) [ref:wiki-cane-toads]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The kites and the kestrel are over Karma Waters every day of the dry, the eagle most days, and the firehawks are over every burn [ref:ala-aves] [ref:wiki-whistling-kite]. The dictionary's word for the eagle hawk carries more than a name, and this page leaves it in the dictionary's words [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[yalngkurr](word:yalngkurr)* 'eagle hawk; grey sea eagle'; *[wandi](word:wandi)* 'fish hawk, red-backed sea eagle'; *[kalin-kalin](word:kalin-kalin)* 'kestrel hawk'; *[jinabiju](word:jinabiju)* 'chicken hawk, goshawk'; *[muku](word:muku)* 'small hawk'; *[ngalku](word:ngalku)* 'bush fire'; *[duli](word:duli)* 'burnt patch of grass' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "woodland",
+    "hunting-with-fire",
+    "wallaby",
+    "waterhole",
+    "ducks-and-geese",
+    "pigeons-and-doves",
+    "bush-birds",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "muku",
+      "gloss": "small hawk"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "ala-aves",
+      "citation": "Atlas of Living Australia. Bird (Aves) occurrence records within 30 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30&fq=class:Aves"
+    },
+    {
+      "id": "wiki-whistling-kite",
+      "citation": "Wikipedia. Whistling kite (Haliastur sphenurus).",
+      "url": "https://en.wikipedia.org/wiki/Whistling_kite"
+    },
+    {
+      "id": "wiki-brown-falcon",
+      "citation": "Wikipedia. Brown falcon (Falco berigora).",
+      "url": "https://en.wikipedia.org/wiki/Brown_falcon"
+    },
+    {
+      "id": "wiki-wedgie",
+      "citation": "Wikipedia. Wedge-tailed eagle.",
+      "url": "https://en.wikipedia.org/wiki/Wedge-tailed_eagle"
+    },
+    {
+      "id": "wiki-sea-eagle",
+      "citation": "Wikipedia. White-bellied sea eagle (Icthyophaga leucogaster).",
+      "url": "https://en.wikipedia.org/wiki/White-bellied_sea_eagle"
+    },
+    {
+      "id": "wiki-kestrel",
+      "citation": "Wikipedia. Nankeen kestrel (Falco cenchroides).",
+      "url": "https://en.wikipedia.org/wiki/Nankeen_kestrel"
+    },
+    {
+      "id": "wiki-black-kite",
+      "citation": "Wikipedia. Black kite (Milvus migrans).",
+      "url": "https://en.wikipedia.org/wiki/Black_kite"
+    },
+    {
+      "id": "wiki-brown-goshawk",
+      "citation": "Wikipedia. Brown goshawk (Tachyspiza fasciata).",
+      "url": "https://en.wikipedia.org/wiki/Brown_goshawk"
+    },
+    {
+      "id": "wiki-buzzard",
+      "citation": "Wikipedia. Black-breasted buzzard (Hamirostra melanosternon).",
+      "url": "https://en.wikipedia.org/wiki/Black-breasted_buzzard"
+    },
+    {
+      "id": "wiki-torresian-crow",
+      "citation": "Wikipedia. Torresian crow (Corvus orru).",
+      "url": "https://en.wikipedia.org/wiki/Torresian_crow"
+    },
+    {
+      "id": "wiki-cane-toads",
+      "citation": "Wikipedia. Cane toads in Australia: effects on native predators (goannas, snakes, freshwater crocodiles) and on dogs.",
+      "url": "https://en.wikipedia.org/wiki/Cane_toads_in_Australia"
+    },
+    {
+      "id": "pbg-cape-york",
+      "citation": "Queensland Parks and Wildlife Service (2013). Planned Burn Guidelines: Cape York Peninsula Bioregion of Queensland. Department of National Parks, Recreation, Sport and Racing.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0019/151480/pbg-cape-york.pdf",
+      "locator": "'Fire in the monsoonal tropics of the Cape York Peninsula bioregion'; ch. 1–2 season guidance (storm burns)"
+    },
+    {
+      "id": "roth1903",
+      "citation": "Roth, W. E. (1903). North Queensland Ethnography, Bulletin No. 5: Superstition, magic, and medicine. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Medicine, 'Erythrophloeum laboucherii' (Pennefather River)"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
