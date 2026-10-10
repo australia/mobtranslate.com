@@ -1,0 +1,191 @@
+{
+  "slug": "brolga-and-cranes",
+  "title": "Brolga and sarus crane (kulbal)",
+  "category": "bird",
+  "names": [
+    {
+      "word": "kulbal",
+      "gloss": "brolga"
+    }
+  ],
+  "scientificName": "Antigone rubicunda; Antigone antigone",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary has kulbal 'brolga'. Both cranes are recorded within 30 km of Karma Waters: the brolga twice and the sarus crane five times."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "**[kulbal](word:kulbal)** is the brolga, the grey crane with the red head that dances at the lagoons, 'a tall, upright bird with a small head, long beak, slender neck, and long legs', Queensland's emblem, found 'often abundant in north and north-east Australia' in flocks of up to a thousand [ref:hershberger1982] [ref:wiki-brolga]. It has a double on the upper Mitchell: the sarus crane, 'the tallest of the flying birds', which reached Australia from Asia in the last ice age and is recorded five times within 30 km of [Karma Waters](place:karma-waters) to the brolga's two; the sarus has red running down its neck and the brolga's red stops at the head [ref:wiki-sarus] [ref:ala-aves] [ref:wiki-brolga]. Both dig the wet ground for bulbs and roots, 'tear up the ground with their powerful beaks in search of bulbs and edible roots', and eat insects, crustaceans and frogs; both pair for life, hold a territory, and nest in the wet on a platform of reeds in the shallows [ref:wiki-brolga] [ref:wiki-sarus]. Roth lists cranes with the ducks and divers that 'may be caught with sticks, etc., in the nesting season by sneaking upon them unawares' and that were 'stalked and speared' by the grass-hooded hunter [ref:roth1901]. The dance is the thing everyone knows: a bird 'picking up some grass and tossing it into the air before catching it in its bill', then jumping 'a metre into the air with outstretched wings', bowing, strutting, calling [ref:wiki-brolga].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kulbal (brolga); kurrbal, 'plain turkey (native companion)', is taken as the bustard"
+    },
+    {
+      "label": "Brolga",
+      "value": "Grey, black wingtips, bare red band on the head, grey-green crown, dark legs; pairs and flocks at wetlands"
+    },
+    {
+      "label": "Sarus crane",
+      "value": "Taller, grey, the red running down the upper neck, pinkish legs; the tallest flying bird; in Australia since the last ice age"
+    },
+    {
+      "label": "Food",
+      "value": "Bulbs and tubers dug from wet ground, insects, crustaceans, frogs, small animals"
+    },
+    {
+      "label": "Breeding",
+      "value": "Wet season; a big platform nest of reeds in shallow water; pairs defend territories; flocks in the dry"
+    },
+    {
+      "label": "At Karma Waters",
+      "value": "Brolga 2 ALA records, sarus crane 5, within 30 km"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[kulbal](word:kulbal)** 'brolga' [ref:hershberger1982]. **[kurrbal](word:kurrbal)**, 'plain turkey (native companion)', carries the brolga's old English name 'native companion' as well as the bustard's; this page follows the dictionary's *kulbal* for the brolga and leaves *kurrbal* to the [bustard](entry:bustard) [ref:hershberger1982] [ref:wiki-brolga]. The sarus crane has no recorded Kuku Yalanji name; on the Atherton Tableland and the Gulf, where it is common, it is lately distinguished from the brolga and may once have gone under the same word [ref:wiki-sarus]."
+    },
+    {
+      "id": "description",
+      "heading": "The two cranes",
+      "body": "**Brolga.** 'A common, gregarious wetland bird species of tropical and south-eastern Australia and New Guinea. It is a tall, upright bird with a small head, long beak, slender neck, and long legs. Its plumage is mainly grey, with black wing tips, and it has an orange-red band on its head.' 'The adult has a grey-green, skin-covered crown, and the face, cheeks, and throat pouch are also featherless and are coral red. Other parts of the head are olive green and clothed in dark bristles.' 'Brolgas are widespread and often abundant in north and north-east Australia, especially north-east Queensland ... The population in northern Australia is estimated at between 20,000 and 100,000 birds'. 'Queensland has the greatest numbers of brolgas, and sometimes flocks of over 1,000 individuals are seen ... Breeding pairs and flocks are distributed across several floodplains along the Gulf of Carpentaria.' 'In breeding areas, breeding pairs defend territories against other brolgas, and when breeding efforts are successful, they remain in territories with one or two chicks.' 'Brolgas are omnivorous and forage in wetlands, saltwater marshes, and farmlands. They tear up the ground with their powerful beaks in search of bulbs and edible roots. Northern populations have a very varied diet, with minimal contribution of vegetation' [ref:wiki-brolga].\n\n**The dance.** 'Brolgas are well known for their ritualised, intricate mating dances. The performance begins with a bird picking up some grass and tossing it into the air before catching it in its bill. The bird then jumps a metre into the air with outstretched wings and continues by stretching its neck, bowing, strutting around, calling, and bobbing its head up and down' [ref:wiki-brolga].\n\n**Sarus crane.** 'A large nonmigratory crane found in parts of the Indian subcontinent, Southeast Asia, and northern Australia. The tallest of the flying birds'. 'The sarus crane is easily distinguished from other cranes in the region by its overall grey colour and the contrasting red head and upper neck. They forage on marshes and shallow wetlands for roots, tubers, insects, crustaceans, and small vertebrate prey. Like other cranes, they form long-lasting pair bonds and maintain territories'. 'The main breeding season is during the wet season, when the pair builds an enormous nest \"island,\" a circular platform of reeds and grasses nearly two meters in diameter and high enough to stay above the shallow water surrounding it.' Mitochondrial DNA suggests 'Australia was colonized only in the Late Pleistocene, some 35,000 years ago' [ref:wiki-sarus].\n\n**Roth's note.** 'Ducks, Cranes, Diver-birds, and others may be caught with sticks, etc., in the nesting season by sneaking upon them unawares'; in the hinterland of Princess Charlotte Bay and on the Palmer 'ducks, geese, and similar game are all stalked and speared', the hunter's head 'covered with a bundle of long grass' so that he 'looks for all the world like a tussock of grass floating down the stream' [ref:roth1901]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Brolga or sarus",
+      "body": "- **Brolga**: the red is a band on the head only; a grey-green crown; dark grey legs; a dewlap under the chin [ref:wiki-brolga].\n- **Sarus crane**: the red runs down the upper neck; a paler crown; pinkish legs; taller [ref:wiki-sarus].\n- **Both** fly with the neck straight out and the legs trailing, unlike the herons, which fold the neck [ref:wiki-white-necked-heron].\n- **[Black-necked stork](entry:water-birds)**, the jabiru: black and white with a huge bill and red legs; not a crane [ref:wiki-stork].\n- **[Bustard](entry:bustard)**: brown and grey, no red, on dry ground [ref:wiki-bustard]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Dug ground at a lagoon edge**, turned over for bulbs [ref:wiki-brolga].\n- **The trumpeting call**, carrying a long way at dawn, and the dance [ref:wiki-brolga].\n- **A reed platform in shallow water** in the wet [ref:wiki-sarus].\n- **Pairs in the breeding season, flocks in the dry** on the floodplain and the paddocks [ref:wiki-brolga].\n- **Big four-toed tracks** in the mud, the hind toe short."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they live",
+      "body": "Lagoons, swamps, the margins of the big pools and the floodplain flats, and the station paddocks; the brolga 'forage[s] in wetlands, saltwater marshes, and farmlands', the sarus 'on marshes and shallow wetlands' [ref:wiki-brolga] [ref:wiki-sarus]. The [waterhole](entry:waterhole) and [water lily](entry:water-lilies) pages describe the lagoons of the Mitchell where both dig."
+    },
+    {
+      "id": "ecology",
+      "heading": "The diggers of the lagoon",
+      "body": "The cranes work the same mud as the [water lilies](entry:water-lilies) and the magpie geese, digging for the bulbs and tubers of the sedges and lilies and taking the frogs, crayfish and insects as they go; they share the floodplain with the [ducks and geese](entry:ducks-and-geese) and the [jabiru](entry:water-birds) [ref:wiki-brolga] [ref:wiki-sarus]. The chicks are prey for the eagles, the [goannas](entry:goanna) and the dingo; the adults have few enemies but the drying of their lagoons [ref:wiki-brolga]. See the [waterhole](entry:waterhole) page for the pool's year."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Breeding in the wet, on a platform in the flooded shallows; pairs on territories then; flocks on the drying floodplain and the paddocks through the dry, and the dances before the rains [ref:wiki-sarus] [ref:wiki-brolga]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Food**: stalked and speared with the water birds, or taken at the nest in the nesting season [ref:roth1901].\n- **Eggs**, from the reed platform [ref:wiki-sarus] [ref:roth1901].\n- **A calendar**: the dance and the flocks mark the turn of the dry [ref:wiki-brolga]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Approaching a crane",
+      "body": "From Roth [ref:roth1901]:\n\n1. **In the water, under grass**: a collar of long grass round the head and a bunch of leafy switches held in front, gliding so slowly that 'viewed from the front, the individual so concealed looks for all the world like a tussock of grass floating down the stream' [ref:roth1901].\n2. **On the plain, on all fours** under the cover of bushes [ref:roth1901].\n3. **Spear** with the plain-pointed spear on land, the pronged spear on water [ref:roth1901].\n4. **At the nest in the wet**, 'by sneaking upon them unawares' [ref:roth1901].\n5. **Leave a pair with chicks**; a brolga pair raises one or two a year [ref:wiki-brolga]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Native birds are protected wildlife in Queensland under the *Nature Conservation Act 1992*; native title holders hunting for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993*, recognised in the Western Yalanji determinations [ref:qld-nca] [ref:alrc] [ref:wyac2020].\n- Lagoon mud and reeds are crocodile cover; Be Crocwise [ref:crocwise].\n- The brolga is in decline in the south; the north's flocks depend on the wetlands being left wet [ref:wiki-brolga]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Both cranes are on the Karma Waters lagoons, the sarus now the commoner in the records, which is a change within living memory on the Tableland and may be one here [ref:ala-aves] [ref:wiki-sarus]. Whether the Western Yalanji had a second word for the second crane is for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kulbal](word:kulbal)* 'brolga'; *[kurrbal](word:kurrbal)* 'plain turkey (native companion)'; *[dikal](word:dikal)* 'bird'; *[diwalngku](word:diwalngku)* 'migratory bird'; *[bana](word:bana)* 'water' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "water-birds",
+    "ducks-and-geese",
+    "bustard",
+    "waterhole",
+    "water-lilies",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "diwalngku",
+      "gloss": "migratory bird"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-brolga",
+      "citation": "Wikipedia. Brolga (Antigone rubicunda).",
+      "url": "https://en.wikipedia.org/wiki/Brolga"
+    },
+    {
+      "id": "wiki-sarus",
+      "citation": "Wikipedia. Sarus crane (Antigone antigone), including its Australian population.",
+      "url": "https://en.wikipedia.org/wiki/Sarus_crane"
+    },
+    {
+      "id": "ala-aves",
+      "citation": "Atlas of Living Australia. Bird (Aves) occurrence records within 30 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30&fq=class:Aves"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "wiki-white-necked-heron",
+      "citation": "Wikipedia. White-necked heron (Ardea pacifica).",
+      "url": "https://en.wikipedia.org/wiki/White-necked_heron"
+    },
+    {
+      "id": "wiki-stork",
+      "citation": "Wikipedia. Black-necked stork (Ephippiorhynchus asiaticus).",
+      "url": "https://en.wikipedia.org/wiki/Black-necked_stork"
+    },
+    {
+      "id": "wiki-bustard",
+      "citation": "Wikipedia. Australian bustard.",
+      "url": "https://en.wikipedia.org/wiki/Australian_bustard"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
