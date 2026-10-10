@@ -1,0 +1,160 @@
+{
+  "slug": "leichhardt-tree",
+  "title": "Leichhardt tree",
+  "category": "tree",
+  "names": [
+    {
+      "word": "kabal",
+      "gloss": "leichardt tree and its fruit. the fruit is edible, it is small and round with small seeds. if you have a sore joint, boil the bark in water, rub the cooled water on the sore joint."
+    }
+  ],
+  "scientificName": "Nauclea orientalis",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary names the tree and its fruit and gives the bark remedy; Wikipedia records the Kuku Yalanji name kabal for Nauclea orientalis; Palmer described it on the Mitchell in 1883; the Queensland Herbarium lists it with river red gum in the Mitchell's fringing woodland."
+  },
+  "countryTypes": [
+    "river-freshwater"
+  ],
+  "summary": "**[kabal](word:kabal)** is the Leichhardt tree and its fruit: 'the fruit is edible, it is small and round with small seeds. If you have a sore joint, boil the bark in water, rub the cooled water on the sore joint' [ref:hershberger1982]. It is the big-leaved shade tree of the river bank, 'a large tree, growing in scrubs along the banks of rivers, 40 feet high or more, a beautiful shade tree, wood yellow and bitter', as Palmer described it on the Mitchell in 1883, where its name was 'Oolpanje' and the fruit was 'eaten raw' [ref:palmer1883]. The Queensland Herbarium maps it with the [river red gum](entry:woodland) and the [paperbarks](entry:paperbark) in the fringing woodland of the Mitchell's channels, and two of its records are within 30 km of [Karma Waters](place:karma-waters) [ref:re9314] [ref:ala-karma-plants]. It 'grows to a maximum of around 30 m in height and has large glossy leaves. It bears spherical clusters of fragrant flowers that develop into golf-ball-sized edible but bitter fruits. The yellowish-to-orange soft wood is also used for timber and in woodcarving and folk medicine', and 'among the Kuku Yalanji, they are known as *kabal*' [ref:wiki-nauclea]. The tree drops its leaves in the dry, flowers and fruits with the wet, and feeds the [flying foxes](entry:flying-foxes-and-bats), the birds and the fish under it.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kabal (the tree and its fruit)"
+    },
+    {
+      "label": "Other names",
+      "value": "Leichhardt tree, Leichhardt pine, bur tree, canary wood, yellow cheesewood; 'Oolpanje' on the Mitchell in 1883"
+    },
+    {
+      "label": "Size",
+      "value": "To about 30 m; Palmer's 40 ft and more on the Mitchell"
+    },
+    {
+      "label": "Marks",
+      "value": "Big glossy oval leaves; round fragrant flower balls; a golf-ball fruit; yellow bitter wood; bark orange-yellow when cut; deciduous in the dry"
+    },
+    {
+      "label": "Where",
+      "value": "The river bank with river red gum and paperbark; 2 ALA records within 30 km of Karma Waters"
+    },
+    {
+      "label": "Uses",
+      "value": "Fruit eaten raw; bark water for sore joints; shade; soft carving timber"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[kabal](word:kabal)** 'leichardt tree and its fruit. The fruit is edible, it is small and round with small seeds. If you have a sore joint, boil the bark in water, rub the cooled water on the sore joint' [ref:hershberger1982]. 'Among the Kuku Yalanji, they are known as *kabal*'; the neighbours' names run west down the Mitchell: 'kaapi or kalpi in Pakanh, atulwanyj in Uw Oykangand, atulganyj in Uw Olkola', and the Djabugay of the Barron call it 'gadugay' [ref:wiki-nauclea]. Palmer's Mitchell River name in 1883 was 'Oolpanje', and on the Cloncurry 'Goobiaby' [ref:palmer1883]. In English it is 'bur tree, canary wood, Leichhardt pine, yellow cheesewood', and 'Leichhardt pine' is a misnomer, 'though it is not a conifer' [ref:wiki-nauclea]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "'Leichhardt trees are medium to tall trees, reaching maximum height of around 30 m with a diameter of 1 m. They are deciduous, shedding their leaves during the dry season. The bark surface of Leichhardt trees are grayish-to-reddish-brown and may be smooth or fissured and flaky. It is orange-to-yellow in color when cut' [ref:wiki-nauclea]. Palmer, 1883: 'A large tree, growing in scrubs along the banks of rivers, 40 feet high or more, a beautiful shade tree, wood yellow and bitter, called the Leichhardt tree. Leaves broad, oblong, very glossy, deciduous. Flowers globular and fragrant. Fruit 1½ to 2 inches in diameter, spherical, soft when ripe, the pulp slightly bitter; eaten raw. Native name on Mitchell, \"Oolpanje\" ... Grows on the Gregory River, and Mitchell and other rivers; fruits during wet season' [ref:palmer1883]. 'It bears spherical clusters of fragrant flowers that develop into golf-ball-sized edible but bitter fruits' [ref:wiki-nauclea]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling it from the other river trees",
+      "body": "- **Leichhardt tree**: the biggest leaves on the bank, glossy, oval, in opposite pairs; a round yellow-brown fruit the size of a golf ball; yellow wood under the bark; bare in the late dry [ref:wiki-nauclea] [ref:palmer1883].\n- **[River red gum](entry:woodland)**: smooth white bark, narrow gum leaves, small capsule fruit.\n- **[Paperbark](entry:paperbark)**: papery layered bark, bottlebrush flowers.\n- **[Fig](entry:fig)**: milky sap when a leaf is broken; the Leichhardt tree's sap is not milky.\n- **[Cotton tree](entry:cotton-tree)** and the kapok: big leaves too, but lobed, and a seed pod of fluff."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **The round fruit on the sand** under the tree in the wet, and the [pigs'](entry:pigs) rooting where it falls [ref:palmer1883].\n- **The fragrant balls of flower** at the start of the wet, loud with insects and the honeyeaters [ref:wiki-nauclea].\n- **A bare big tree on the bank** in October: the Leichhardt tree before its leaves [ref:wiki-nauclea].\n- **Yellow wood** in a fallen branch [ref:palmer1883]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it grows",
+      "body": "'A large tree, growing in scrubs along the banks of rivers', on the Mitchell, the Gregory and the Gulf rivers, with the river red gum and the paperbarks over bare sand in the Herbarium's 'Melaleuca fringing woodland on channels and levees' [ref:palmer1883] [ref:re9314]. Two records within 30 km of Karma Waters [ref:ala-karma-plants]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The tree over the pool",
+      "body": "The Leichhardt tree is a [waterhole](entry:waterhole) tree: its shade keeps the pool cool, its branches hang over the water where the [archerfish](entry:archerfish-and-small-fish) wait for the insects on its leaves, its flowers feed the honeyeaters and the [bees](entry:native-bees), and its fruit feeds the [flying foxes](entry:flying-foxes-and-bats), the birds, the pigs and the fish that take what drops in [ref:angfa-archer] [ref:wiki-nauclea]. Being deciduous, it is one of the river's clocks: bare in the late dry, in leaf and flower with the storms, in fruit through the wet [ref:wiki-nauclea] [ref:palmer1883]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Leaves drop in the dry; flower and new leaf with the first storms; 'fruits during wet season' [ref:wiki-nauclea] [ref:palmer1883]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Fruit**, 'small and round with small seeds', 'eaten raw', 'slightly bitter' [ref:hershberger1982] [ref:palmer1883].\n- **Bark water for sore joints**: 'boil the bark in water, rub the cooled water on the sore joint' [ref:hershberger1982]. See [bush medicine](entry:bush-medicine).\n- **Shade**: 'a beautiful shade tree', the camp tree of the river bank [ref:palmer1883].\n- **Timber**: 'the yellowish-to-orange soft wood is also used for timber and in woodcarving' [ref:wiki-nauclea]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Using the Leichhardt tree",
+      "body": "1. **Fruit**: take it soft and ripe from the ground or the low branches in the wet; it is bitter, and a mouthful at a time is the way the old people ate it [ref:palmer1883] [ref:hershberger1982].\n2. **Joint wash**: strip a hand's width of bark from a branch, not a ring round the trunk; boil it in water; let the water cool; rub it on the sore joint [ref:hershberger1982]. This is the dictionary's recipe as given; it is a wash, not a drink, and the [bush medicine](entry:bush-medicine) page has the cautions.\n3. **Camp** under it for the shade, but not in a storm: a big deciduous tree on a sand bank drops limbs.\n4. **Carving**: the yellow wood is soft and works green [ref:wiki-nauclea]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- The fruit is edible but bitter; the dictionary says edible and Palmer says eaten raw, and that is as far as the sources go [ref:hershberger1982] [ref:palmer1883].\n- The bark water is for rubbing on, not drinking, in the dictionary's recipe [ref:hershberger1982].\n- Never ring-bark the tree for its bark; the bank needs it.\n- The pool under it is the crocodile's; see [Crocwise](entry:freshwater-crocodile) [ref:crocwise]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The Leichhardt trees stand over the Karma Waters pools with the red gums, bare in October and green by Christmas [ref:re9314] [ref:ala-karma-plants]. Western Yalanji names and uses for it are for the contribution box below."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kabal](word:kabal)* 'leichardt tree and its fruit'; *[mayi](word:mayi)* 'vegetable food, fruit'; *[bana](word:bana)* 'water' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "waterhole",
+    "paperbark",
+    "woodland",
+    "bush-medicine",
+    "archerfish-and-small-fish",
+    "flying-foxes-and-bats",
+    "wild-plums",
+    "seasons"
+  ],
+  "relatedWords": [],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "re9314",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.3.14 (Einasleigh Uplands): Melaleuca fringing woodland on channels and levees. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.3.14"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "wiki-nauclea",
+      "citation": "Wikipedia. Nauclea orientalis (Leichhardt tree).",
+      "url": "https://en.wikipedia.org/wiki/Nauclea_orientalis"
+    },
+    {
+      "id": "angfa-archer",
+      "citation": "Australia New Guinea Fishes Association. Toxotes chatareus, seven-spot archerfish (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/archerfishes/toxotes_chatareus.html"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

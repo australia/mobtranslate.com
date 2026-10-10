@@ -1,0 +1,209 @@
+{
+  "slug": "finding-water",
+  "title": "Finding water",
+  "category": "technique",
+  "names": [
+    {
+      "word": "bana",
+      "gloss": "water"
+    },
+    {
+      "word": "jirka",
+      "gloss": "spring"
+    },
+    {
+      "word": "yaral",
+      "gloss": "fresh water (opposite of kalki)"
+    },
+    {
+      "word": "ngabal",
+      "gloss": "soak, leach"
+    },
+    {
+      "word": "wawu-wulay",
+      "gloss": "thirsty"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary's water words and Roth's 1901 account of how water was found and taken in the dry parts of north Queensland, with the Karma Waters river's own dry-season behaviour."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "**[bana](word:bana)** is water, **[yaral](word:yaral)** fresh water, **[jirka](word:jirka)** a spring, **[yirri](word:yirri)** running water, **[dajali](word:dajali)** deep water, **[yalkan](word:yalkan)** shallow water, **[daburri](word:daburri)** 'brackish swamp water', **[ngabal](word:ngabal)** a soak, and **[wawu-wulay](word:wawu-wulay)** thirsty [ref:hershberger1982]. From about May to the first storms the Mitchell at [Karma Waters](place:karma-waters) 'is a chain of pools joined by trickles or dry sand', so the river itself is the first water, and the [waterhole](entry:waterhole) page is the first thing to read [ref:kw-about]. Away from the river, Roth's 1901 account of the dry country is the manual: 'in times of scarcity, water is obtained from wells and from trees. Wells are usually dug in the beds of dried-up creeks or water-holes, and in close proximity to old swamps'; on the Pennefather, people tested a likely spot 'by driving a spear some 3 or 4 feet down into the ground and seeing whether the extremity is moist or not; if the quest be successful, a bunch of dried grass will then be rammed down. The grass acts as a strainer to the debris, and thus permits of the water being sucked up by means of a reed'; and 'in the hinterland of Princess Charlotte Bay, on the Palmer and Pennefather Rivers, and elsewhere, the *Melaleuca* are the usual trees whence water may be derived', a pint or two of saltish water from the base of a bulge in a [paperbark's](entry:paperbark) butt [ref:roth1901]. The country tells you where water is: the line of [river red gums](entry:river-red-gum), which are hardly ever 'found away from a watercourse'; the evening flight of the pigeons and finches, which 'must drink frequently'; the frogs calling; the [flying foxes](entry:flying-foxes-and-bats) skimming at dusk; the green of the [blady grass](entry:blady-grass) and the [paperbarks](entry:paperbark) in a dry gully [ref:wiki-camaldulensis] [ref:wiki-bronzewing] [ref:wiki-lrff].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "bana (water); yaral (fresh water); jirka (spring); yirri (running water); dajali (deep water); yalkan (shallow water); daburri (brackish swamp water); ngabal (soak); wawu-wulay (thirsty); nukal (to drink); jalungkarr (flood); marral (dry)"
+    },
+    {
+      "label": "The river",
+      "value": "May to the first storms: a chain of pools joined by trickles or dry sand"
+    },
+    {
+      "label": "Wells (Roth)",
+      "value": "Dug in the beds of dried creeks and waterholes near old swamps; the Tully's pilmba 3–4 ft deep, 2 ft across; a spear probe, a grass strainer and a reed"
+    },
+    {
+      "label": "Trees (Roth)",
+      "value": "A pint or two of saltish water from a bulge in a paperbark butt; the kurrajong's trunk-hole reservoirs; rain led down a pandanus trunk by bark strips into shells"
+    },
+    {
+      "label": "Signs",
+      "value": "River red gums, paperbarks and green grass in a dry gully; pigeons and finches flying to water at evening; frogs; flying foxes skimming; bees and wasps"
+    },
+    {
+      "label": "Danger",
+      "value": "Crocodiles at every pool; dead-fish pools low in oxygen; cattle-fouled water; untreated water in general"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[bana](word:bana)** 'water'. **[yaral](word:yaral)** 'fresh water (opposite of *kalki*)', also 'cool, not too hot'. **[jirka](word:jirka)** 'spring'. **[yirri](word:yirri)** 'running water'. **[dajali](word:dajali)** 'deep water'; **[yalkan](word:yalkan)** 'shallow water'; **[yarru](word:yarru)** 'deep water hole'. **[daburri](word:daburri)** 'brackish swamp water'. **[ngabal](word:ngabal)** 'soak, leach'. **[wawu-wulay](word:wawu-wulay)** 'thirsty; exhausted, tired'. **[nukal](word:nukal)** 'to eat, to drink'. **[kima-kima](word:kima-kima)** 'easy crossing of water, water isn't rushing as during a flood'; **[jalungkarr](word:jalungkarr)** 'flood'; **[marral](word:marral)** 'dry'; **[wurrbal](word:wurrbal)** 'fog, mist rising from the river'; **[janku](word:janku)** 'hole in the ground'; **[yilki](word:yilki)** 'creek'; **[wawubaja](word:wawubaja)** 'river'; **[yikin](word:yikin)** 'bank of river'; **[jalkar](word:jalkar)** 'high bank'; **[jukar](word:jukar)** 'sand' [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "Where the water is",
+      "body": "**The river.** The Mitchell at Karma Waters runs in the wet and 'from about May to the first storms' is a chain of pools, deep holes at the bends and the rock bars, joined by trickles under the sand, so that there is always water somewhere along it and the question is which pool and how far [ref:kw-about]. The [waterhole](entry:waterhole) page has how to read a pool.\n\n**Under the sand.** Roth, 1901: 'In times of scarcity, water is obtained from wells and from trees. Wells are usually dug in the beds of dried-up creeks or water-holes, and in close proximity to old swamps. The coastal blacks along the mouth of the Tully River sink circular wells with digging-sticks: they are from 3 to 4 feet deep, about 2 feet in diameter, and are spoken of as *pilmba*. At Bentinck Island, I saw circular wells about 1 foot in diameter, and 2 feet in depth, dug in the sand above high-water mark along the coast-line.' 'On the Isaacs River, Leichhardt speaks of the natives having fenced a water-hole \"round with branches to prevent the sand from filling it up.\"' 'In the Pennefather River district, in addition to being obtained from trees, water is also got by sinking. This is done in some likely spot — e.g., wherever the *Pandanus* grows in plenty — by driving a spear some 3 or 4 feet down into the ground and seeing whether the extremity is moist or not; if the quest be successful, a bunch of dried grass will then be rammed down. The grass acts as a strainer to the debris, and thus permits of the water being sucked up by means of a reed' [ref:roth1901].\n\n**From trees.** 'In the hinterland of Princess Charlotte Bay, on the Palmer and Pennefather Rivers, and elsewhere, the *Melaleuca* are the usual trees whence water may be derived. The butt of this tea-tree is ordinarily more or less circular in section, but every here and there is to be met one more or less lozenge-shaped, due to a lateral bulge. From the bases of these bulges, when cut, a pint or two of water is obtainable, which, though of a saltish taste, often proves very acceptable' [ref:roth1901]. The Palmer is the next river north of Karma Waters, so that is this country's method. Of the bottle tree or [kurrajong](entry:kurrajong) Roth quotes Thozet: 'The natives refresh themselves with the mucilaginous sweet substance afforded by this tree. They cut holes in its soft trunk, where the water lodges and rots them to its centre, thus forming so many artificial reservoirs. On their hunting excursions afterwards, when thirsty, they tap them one or two feet below the old cuts and procure an abundant supply' [ref:roth1901]. And Flinders, in Torres Strait: 'Long slips of bark are tied round the smooth stems of the *Pandanus*, and the loose ends are led into the shells of the cockle placed underneath. By these slips, the rain, which runs down the branches and stem of the tree, is conducted into the shells, and fills them at every considerable shower; and as each shell will contain two or three pints, forty or fifty thus placed under different trees will supply a good number of men' [ref:roth1901]. The [kurrajong](entry:kurrajong) page has the roots of the young tree as a water source besides.\n\n**Springs.** The dictionary's *jirka*; the green of the [paperbarks](entry:paperbark) and [blady grass](entry:blady-grass) in a dry gully marks a spring or a soak [ref:hershberger1982] [ref:re9314]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Reading the trees for water",
+      "body": "- **[River red gum](entry:river-red-gum)**: 'commonly found along waterways and there are only a few locations where the species is found away from a watercourse' [ref:wiki-camaldulensis].\n- **[Paperbark](entry:paperbark)**: the swamp and spring tree, and Roth's water-butt tree [ref:roth1901] [ref:re9314].\n- **[Pandanus](entry:pandanus)**: Roth's 'likely spot' for sinking [ref:roth1901].\n- **[Leichhardt tree](entry:leichhardt-tree)** and [fig](entry:fig): bank trees, over a pool [ref:re9314].\n- **[Blady grass](entry:blady-grass)** green in the dry: water under it.\n- **Ironbark and bloodwood** on the ridge: dry country; see [woodland](entry:woodland) [ref:re-woodland]."
+    },
+    {
+      "id": "signs",
+      "heading": "Reading the animals for water",
+      "body": "- **Pigeons and finches flying low and straight in the late afternoon** are going to drink; the bronzewing 'must drink frequently' and 'utilizes watering holes', and that daily walk to water was Roth's pigeon-netters' handle [ref:wiki-bronzewing] [ref:roth1901].\n- **Frogs calling** at night: water or wet sand; see [frogs](entry:frogs).\n- **Flying foxes skimming** at dusk: open water [ref:wiki-lrff].\n- **Bees and wasps** in numbers on a hot day, and dragonflies, are within a short flight of water; see [native bees](entry:native-bees).\n- **Converging tracks** of wallabies, cattle and pigs on a pad: follow them downhill.\n- **Cattle camped** in the shade of a gully in the heat: water near.\n- **Dead silver fish on the surface** of a pool: the water is foul; see [the small fish](entry:archerfish-and-small-fish) [ref:wiki-bony-bream]."
+    },
+    {
+      "id": "habitat",
+      "heading": "The water country",
+      "body": "The river's deep pools at the bends and rock bars; the springs at the foot of the ridges; the lagoons and swamps on the flats that hold after the wet; the sand of the dry creek beds, with water a spear's length down where the pandanus and paperbarks grow [ref:kw-about] [ref:roth1901] [ref:re9314]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Everything comes to water",
+      "body": "In the dry the water decides where everything is, and the [waterhole](entry:waterhole) page is the whole food web packed into a pool. The hunter's use of it is the old one: the pigeons at the made water-hole, the [ducks](entry:ducks-and-geese) at the lagoon, the [wallabies](entry:wallaby) netted on their 'beaten tracks to water', the [cockatoos](entry:cockatoos-and-parrots) at the drinking log [ref:roth1901]. The crocodile knows it too; every pool in the chain is a [crocodile's](entry:freshwater-crocodile), and the [saltwater crocodile](entry:saltwater-crocodile) is in the Mitchell too [ref:crocwise]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Wet: the river runs, the roads close, *jalungkarr*; early dry: the chain of pools, the lagoons full; late dry, 'especially in the summer months when all the natural water-channels have dried up', the time of wells and tree water, and the hottest months before the storms [ref:kw-about] [ref:roth1901] [ref:bom-palmerville]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Drinking water** from pool, spring, soak, well or tree [ref:roth1901].\n- **Carrying it**: the [bailer shell](entry:bailer-shells), the [bark trough](entry:bark-troughs), the [paperbark](entry:paperbark) bucket, Roth's cockle shells under the pandanus [ref:roth1901].\n- **Finding game**: the water is where the animals will be [ref:roth1901].\n- **Leaching** the poison foods needs running water; see [leaching](entry:leaching) [ref:hershberger1982]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Finding water in the dry",
+      "body": "1. **Carry water.** On a working station in the dry, that is the first rule; the rest is for when it runs out.\n2. **Go to the river** and work along the chain of pools; the deep holes at the bends and the rock bars hold longest [ref:kw-about].\n3. **Read the trees** from a rise: a line of white gums and paperbarks is a creek; the green patch in a dry gully is a spring [ref:wiki-camaldulensis] [ref:re9314].\n4. **Watch the birds at four o'clock**: pigeons and finches fly straight to water in the late afternoon; follow their line [ref:wiki-bronzewing].\n5. **Dig a soak** in the sand at the outside of a bend of a dry creek bed, or where the pandanus and paperbarks grow; Roth's test is a stick or spear driven down a metre to see if the point comes up damp. Dig a hole an arm deep and a knee wide, let it fill and clear, and ram a wad of dry grass in as a strainer; drink through a reed or dip with a cup [ref:roth1901].\n6. **Fence a soak** with branches 'to prevent the sand from filling it up' if you will come back [ref:roth1901].\n7. **Tree water** as a last resort: a lozenge-shaped bulge at the base of a paperbark, cut at its base, gives 'a pint or two' of salty water; a kurrajong's trunk can be tapped below an old cut [ref:roth1901].\n8. **Boil or treat** what you drink from a pool, and never drink from a pool with dead fish on it or cattle in it [ref:wiki-bony-bream].\n9. **Mind the crocodile** at every pool; fill from a place with a clear view, back from the edge, not the same place twice [ref:crocwise]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- **Crocodiles** at every pool and soak in the river bed; see [Crocwise](entry:freshwater-crocodile) and [the saltwater crocodile](entry:saltwater-crocodile) [ref:crocwise].\n- **Foul water**: a pool going bad kills the bony bream first; do not drink it [ref:wiki-bony-bream].\n- **Heat**: the late dry on the Mitchell is the hottest time of the year, and *wawu-wulay* is 'thirsty; exhausted, tired' in one word [ref:bom-palmerville] [ref:hershberger1982].\n- **Floods**: *kima-kima* is the easy crossing, 'water isn't rushing as during a flood'; the other kind is not crossed [ref:hershberger1982]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Karma Waters is named for its water, and the station's river pools, springs and dams carry it through the dry; the old wells and tree water are the knowledge behind the name [ref:kw-about]. The Western Yalanji words for spring, soak and the named waters of the station are for the contribution box below."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[bana](word:bana)* 'water'; *[yaral](word:yaral)* 'fresh water'; *[jirka](word:jirka)* 'spring'; *[yirri](word:yirri)* 'running water'; *[dajali](word:dajali)* 'deep water'; *[yalkan](word:yalkan)* 'shallow water'; *[yarru](word:yarru)* 'deep water hole'; *[daburri](word:daburri)* 'brackish swamp water'; *[ngabal](word:ngabal)* 'soak'; *[wawu-wulay](word:wawu-wulay)* 'thirsty'; *[nukal](word:nukal)* 'to drink'; *[jalungkarr](word:jalungkarr)* 'flood'; *[kima-kima](word:kima-kima)* 'easy crossing'; *[wurrbal](word:wurrbal)* 'fog'; *[juwal](word:juwal)* 'digging stick'; *[bakal](word:bakal)* 'dig' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "waterhole",
+    "river-red-gum",
+    "paperbark",
+    "pandanus",
+    "kurrajong",
+    "bailer-shells",
+    "bark-troughs",
+    "blady-grass",
+    "freshwater-crocodile",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "kima-kima",
+      "gloss": "easy crossing of water, water isn't rushing as during a flood"
+    },
+    {
+      "word": "wurrbal",
+      "gloss": "fog, mist rising from the river"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "wiki-camaldulensis",
+      "citation": "Wikipedia. Eucalyptus camaldulensis (river red gum).",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_camaldulensis"
+    },
+    {
+      "id": "wiki-bronzewing",
+      "citation": "Wikipedia. Common bronzewing (Phaps chalcoptera).",
+      "url": "https://en.wikipedia.org/wiki/Common_bronzewing"
+    },
+    {
+      "id": "wiki-lrff",
+      "citation": "Wikipedia. Little red flying fox.",
+      "url": "https://en.wikipedia.org/wiki/Little_red_flying_fox"
+    },
+    {
+      "id": "re9314",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.3.14 (Einasleigh Uplands): Melaleuca fringing woodland on channels and levees. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.3.14"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "wiki-bony-bream",
+      "citation": "Wikipedia. Bony bream (Nematalosa erebi).",
+      "url": "https://en.wikipedia.org/wiki/Bony_bream"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

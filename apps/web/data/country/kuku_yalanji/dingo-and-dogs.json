@@ -1,0 +1,226 @@
+{
+  "slug": "dingo-and-dogs",
+  "title": "Dingo and hunting dogs",
+  "category": "mammal",
+  "names": [
+    {
+      "word": "murramu",
+      "gloss": "dingo"
+    },
+    {
+      "word": "murrumu",
+      "gloss": "dingo"
+    },
+    {
+      "word": "ngamu-murramu",
+      "gloss": "dingo"
+    },
+    {
+      "word": "kaya",
+      "gloss": "dog"
+    }
+  ],
+  "scientificName": "Canis familiaris (dingo)",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary gives three forms for dingo and a separate word for dog. The Atlas records Canis familiaris, which covers dingoes, wild dogs and strays, 4 times within 30 km of Karma Waters and 58 times within 60 km."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "**[murramu](word:murramu)**, **[murrumu](word:murrumu)** and **[ngamu-murramu](word:ngamu-murramu)** are the dingo and **[kaya](word:kaya)** the dog, and the dictionary keeps the dog's working life in its words: **[majarr](word:majarr)** is 'lazy, no good for hunting or working, used to refer to both dogs and people', **[jurru-walay](word:jurru-walay)** and **[mala-minya](word:mala-minya)** a good hunter, **[ngangkurr](word:ngangkurr)** the bark [ref:hershberger1982]. The dingo 'is a medium-sized canine that possesses a lean, hardy body adapted for speed, agility, and stamina. Its three main coat colourations are light ginger or tan, black and tan, or creamy white'; 'the oldest remains of dingoes discovered in Australia are around 3,500 years old' [ref:wiki-dingo]. Roth wrote in 1901 that 'dingoes are, on the whole, hunted rather for the sake of obtaining the pups than for the sake of food', and in 1902 that 'only in the case of the dingo does true domestication and training take place. The pups are caught young, brought into camp, and tied up by the leg until such time as they become reconciled to their surroundings'; at Bloomfield 'young boys ... had dingo pups as pets while they were being trained for hunting', and 'women sometimes suckled the pups' [ref:roth1901] [ref:roth1902] [ref:anderson1996]. The dogs ran down [kangaroos](entry:wallaby) 'in rainy weather, and over boggy soil', went for the [emu's](entry:brolga-and-cranes) neck, hunted [possums](entry:possums) by night and tracked the tree-kangaroo [ref:roth1901] [ref:anderson1996]. Today the dingo is 'the largest mammalian carnivore remaining in mainland Australia', hunting the wallaroos of the Karma Waters hills, and also a 'category 3, 4, 5 and 6 restricted invasive animal under the Biosecurity Act 2014' that the station baits twice a year, which is the first thing to know before bringing a dog onto this country [ref:qld-dingo] [ref:wiki-antilopine] [ref:kw-land].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "murramu, murrumu, ngamu-murramu (dingo); kaya (dog); ngangkurr (bark); majarr (lazy, no good for hunting); jurru-walay, mala-minya (good hunter)"
+    },
+    {
+      "label": "At Karma Waters (ALA)",
+      "value": "Canis familiaris: 4 records within 30 km, 58 within 60 km"
+    },
+    {
+      "label": "Colour",
+      "value": "Ginger or tan, black and tan, or creamy white; a wedge-shaped skull"
+    },
+    {
+      "label": "Old use",
+      "value": "Pups taken from the den and raised as hunting dogs; the adult rarely eaten"
+    },
+    {
+      "label": "Law today",
+      "value": "Restricted invasive animal under the Biosecurity Act 2014 outside protected areas; native wildlife under the Nature Conservation Act 1992 inside them"
+    },
+    {
+      "label": "Danger to your dog",
+      "value": "1080 and PAPP baits laid on the station twice a year"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[murramu](word:murramu)**, **[murrumu](word:murrumu)**, **[ngamu-murramu](word:ngamu-murramu)** 'dingo'. **[kaya](word:kaya)** 'dog'; **[kayamuku](word:kayamuku)** 'felt hat (literally the back of a dog)'. **[ngangkurr](word:ngangkurr)** 'bark, as of a dog', **[ngangkurri-l](word:ngangkurri-l)** 'to bark'. **[majarr](word:majarr)** 'lazy, no good for hunting or working, used to refer to both dogs and people'. **[jurru-walay](word:jurru-walay)** 'expert, good shooter or hunter', **[mala-minya](word:mala-minya)** 'good hunter', **[walay](word:walay)** 'being good at working or getting food, as a good hunter'. **[mindil](word:mindil)** 'dog flea'. **[jindal](word:jindal)** 'to bite and leave a puncture mark, as a snake bite or some dog bites' [ref:hershberger1982]. In English, 'the name \"dingo\" comes from the Dharug language used by the Indigenous Australians of the Sydney area', and 'the dingo has different names in different Aboriginal Australian languages'; some peoples 'had different names' for camp dingoes and wild ones [ref:wiki-dingo]. Roth recorded at Cape Bedford, north of Cooktown, that 'the name for a dingo signifies the offspring of a coward', and the dictionary's *ngamu-murramu* has the dictionary's word for 'mother' in it [ref:roth1901] [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "The dingo",
+      "body": "'The dingo is a lineage of dog found in Australia. It is a medium-sized canine that possesses a lean, hardy body adapted for speed, agility, and stamina. Its three main coat colourations are light ginger or tan, black and tan, or creamy white. The skull is wedge-shaped and appears large in proportion to the body.' 'The dingo is closely related to the New Guinea singing dog: their lineage split early from the lineage that led to today's domestic dogs, and can be traced back through Maritime Southeast Asia to Asia. The oldest remains of dingoes discovered in Australia are around 3,500 years old' [ref:wiki-dingo]. Queensland's biosecurity page says the same: 'thought to have arrived in Australia around 3,500–4,000 years ago', 'the largest mammalian carnivore remaining in mainland Australia, and fills an important ecological niche. Since early European settlement, the dingo has been regarded as a serious predator of domestic livestock' [ref:qld-dingo]. 'The term \"wild dog\" refers to purebred dingoes, dingo hybrids, and dogs that are not owned by a person' [ref:qld-wild-dog].\n\n**Camp dogs and hunting dogs, 1901–1902.** 'Dingoes (*Canis dingo*) are, on the whole, hunted rather for the sake of obtaining the pups than for the sake of food—unless the natives are very hard pressed; the tracks of the pups are followed, and when run down are taken alive, to be subsequently tamed' [ref:roth1901]. 'Only in the case of the dingo does true domestication and training take place. The pups are caught young, brought into camp, and tied up by the leg until such time as they become reconciled to their surroundings. Sometimes a boy (on the Bloomfield) but more usually a gin is placed in charge of these animals: in the latter case it is a very common practice for her to suckle them if necessary. The aboriginals appear to be very fond of their dogs, share their food with them, often speak to them as if they were intelligent beings, and do not believe in \"suling\" them one onto the other: in the latter case, they will indulge in violent outbursts of anger even with their children — a most unusual occurrence — for attempting to do so' [ref:roth1902]. Anderson's summary for the Bloomfield Kuku Yalanji: 'young boys at Bloomfield had dingo pups as pets while they were being trained for hunting ... women sometimes suckled the pups' [ref:anderson1996].\n\n**What the dogs hunted.** Roth: 'Emus may also be hunted with dogs, the latter always making for the bird's neck'; kangaroos 'in rainy weather, and over boggy soil, they are run down with dogs'; on 'the Palmer, Musgrave, and back of Princess Charlotte Bay generally, in addition to occasionally hunting them with dogs, kangaroos are speared'; on the lower Tully wallabies 'also hunt them occasionally with dogs'; opossums 'can be hunted at night by sight, provided of course the moon is up, or by dogs' [ref:roth1901]. Anderson: the Bennett's tree-kangaroo 'was tracked by sight or with the use of dogs' [ref:anderson1996]. Roth's grammar notes carry the idea in a word: a 'kangaroo-dog', 'a dog for-kangaroos — for hunting them specially' [ref:roth1901]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Dingo or dog",
+      "body": "- **Dingo**: ginger, black-and-tan or cream, white feet and tail-tip, a broad wedge head, erect ears, a bushy tail carried low; a howl, rarely a bark [ref:wiki-dingo].\n- **Wild dog**: under Queensland's definition any 'purebred dingoes, dingo hybrids, and dogs that are not owned by a person'; a brindle, piebald or heavy-headed animal is a hybrid or a stray [ref:qld-wild-dog].\n- **Pig dog gone bush**: big, often brindle, collar marks; dangerous [ref:qld-wild-dog].\n- **Tracks**: a dog's track shows claws and is narrower and longer than the [quoll's](entry:woodland) or the cat's."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Howling** at dusk and before dawn, from the ridges [ref:wiki-dingo].\n- **Tracks along the river sand** and the station roads in the morning; the pups' small tracks near a den in the rocks [ref:roth1901].\n- **A kill**: a wallaroo or calf opened at the belly; the [kites](entry:eagles-and-hawks) above it [ref:wiki-antilopine].\n- **Scats** of fur and bone on a track or a rise.\n- **The wallaroos bunched** on the hill: 'groups of up to 30 that bunch together against people and dingoes' [ref:wiki-antilopine]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they are",
+      "body": "Everywhere on the station, from the river to the ridges, with dens in the rock piles and hollow logs; the Atlas's records cluster on the roads and the river where people see them [ref:ala-karma-60] [ref:wiki-dingo]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The top predator",
+      "body": "The dingo hunts the [wallaroos](entry:wallaby) and their joeys, the [possums](entry:possums) on the ground, the [bandicoots](entry:woodland), the [goannas](entry:goanna) and the [bustard's](entry:bustard) chicks, and takes the calves, which is the station's quarrel with it [ref:wiki-antilopine] [ref:wiki-brushtail] [ref:kw-land]. It is also the one animal that hunts the feral [pigs'](entry:pigs) piglets and the cats, and across northern Australia its absence is argued over for that reason [ref:qld-dingo]. The cane toad poisons it as it poisons the quoll and the goannas [ref:wiki-cane-toads]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Pups in the cool of the dry, when the old people followed their tracks; the dogs hunted best for people in the wet, when the ground was boggy and the kangaroos could be run down [ref:roth1901]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **The hunting dog**: raised from a den pup, fed from the camp's food, used for the emu's neck, the kangaroo in the wet, the possum at night and the tree-kangaroo in the scrub [ref:roth1901] [ref:roth1902] [ref:anderson1996].\n- **A camp alarm** against snakes, strangers and pigs.\n- **Meat** only 'if the natives are very hard pressed' [ref:roth1901].\n- **Fur**: Roth records animal-skin cloaks and rugs made 'from Paddymelon, or Opossum, occasionally from Dingo', in the south of the state [ref:roth1904]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Raising a hunting dog the old way",
+      "body": "From Roth's and Anderson's accounts [ref:roth1901] [ref:roth1902] [ref:anderson1996]:\n\n1. **Find the den** by following the pups' tracks in the cool season; take the pups young [ref:roth1901].\n2. **Tie each pup by the leg** in the camp until it settles, and put a boy or a woman in charge of it [ref:roth1902].\n3. **Feed it from your own food** and talk to it; the old people 'share their food with them, often speak to them as if they were intelligent beings' [ref:roth1902].\n4. **Never set the dogs on each other**; the old people punished even children for it [ref:roth1902].\n5. **Take it out**: on the wet-season ground after kangaroos, at night after possums, after an emu to seize the neck [ref:roth1901].\n6. A dog that will not work is *majarr*, and the word is used of people too [ref:hershberger1982].\n\n**Today**, on a working station, add: keep your dog tied up or muzzled during the baiting rounds, carry it in the vehicle across baited country, and ask the station where and when the baits are down [ref:kw-land] [ref:qld-wild-dog]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety and the law",
+      "body": "- **Baits.** Queensland's wild dog control uses 1080 and PAPP poison baits, 'laid quickly by hand, vehicle or from air', and 'some local government agencies provide a baiting service'; the station 'baits wild dogs twice a year' [ref:qld-wild-dog] [ref:kw-land]. A working or pet dog that picks up a bait dies. The dingo 'can be controlled outside national parks and other protected areas' and 'is defined as both \"wildlife\" and \"native wildlife\" under the *Nature Conservation Act 1992*, and is a natural resource within protected areas such as national parks' [ref:qld-dingo].\n- **Traps.** 'Only padded or offset laminated jawed traps are acceptable'; a dog in a trap is attended to quickly [ref:qld-wild-dog].\n- **A dingo or wild dog that follows you** is testing; do not run, face it, make yourself big, keep children close.\n- **Brucellosis** passes from feral pigs to pig dogs and from dogs to people; 'if your dog has been diagnosed with brucellosis' there are rules to follow, and pregnant women 'should avoid all contact with feral pigs, hunting activities and pig hunting dogs' [ref:nsw-brucellosis].\n- A dog bite that leaves a puncture, *jindal*, is washed and watched like a snake bite [ref:hershberger1982] [ref:healthdirect-snakebite]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The dingoes howl from the Karma Waters ridges and the station baits them; the camp dogs of the old Bloomfield camps are the pig dogs and the house dogs of today [ref:kw-land] [ref:anderson1996]. The dictionary's three words for dingo and one for dog, and *majarr* for the dog that will not hunt, are the Kuku Yalanji side of it; the Western Yalanji words are for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[murramu](word:murramu)*, *[murrumu](word:murrumu)*, *[ngamu-murramu](word:ngamu-murramu)* 'dingo'; *[kaya](word:kaya)* 'dog'; *[ngangkurr](word:ngangkurr)* 'bark'; *[majarr](word:majarr)* 'lazy, no good for hunting'; *[jurru-walay](word:jurru-walay)*, *[mala-minya](word:mala-minya)* 'good hunter'; *[balbi](word:balbi)* 'hunt for, search for'; *[minya](word:minya)* 'meat, animal' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "wallaby",
+    "possums",
+    "pigs",
+    "woodland",
+    "hunting-with-fire",
+    "bustard",
+    "goanna",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "kayamuku",
+      "gloss": "felt hat (literally the back of a dog)"
+    },
+    {
+      "word": "walay",
+      "gloss": "being good at working or getting food, as a good hunter"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-dingo",
+      "citation": "Wikipedia. Dingo.",
+      "url": "https://en.wikipedia.org/wiki/Dingo"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "roth1902",
+      "citation": "Roth, W. E. (1902). North Queensland Ethnography, Bulletin No. 4: Games, sports and amusements. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 4 'Realistic games (animals)'"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "qld-dingo",
+      "citation": "Queensland Government (Business Queensland). Dingo: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/dingo"
+    },
+    {
+      "id": "wiki-antilopine",
+      "citation": "Wikipedia. Antilopine kangaroo (antilopine wallaroo).",
+      "url": "https://en.wikipedia.org/wiki/Antilopine_kangaroo"
+    },
+    {
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
+    },
+    {
+      "id": "qld-wild-dog",
+      "citation": "Queensland Government (Business Queensland). Wild dog: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/wild-dog"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "wiki-brushtail",
+      "citation": "Wikipedia. Common brushtail possum (Trichosurus vulpecula), including the northern subspecies' decline (von Takach et al. 2020).",
+      "url": "https://en.wikipedia.org/wiki/Common_brushtail_possum"
+    },
+    {
+      "id": "wiki-cane-toads",
+      "citation": "Wikipedia. Cane toads in Australia: effects on native predators (goannas, snakes, freshwater crocodiles) and on dogs.",
+      "url": "https://en.wikipedia.org/wiki/Cane_toads_in_Australia"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "nsw-brucellosis",
+      "citation": "NSW Health. Brucellosis: fact sheet (accessed 10 October 2026).",
+      "url": "https://www.health.nsw.gov.au/Infectious/factsheets/Pages/brucellosis.aspx"
+    },
+    {
+      "id": "healthdirect-snakebite",
+      "citation": "healthdirect Australia (Australian Government). Snake bites: symptoms, first aid and the pressure immobilisation bandage (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/snake-bites"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

@@ -1,0 +1,204 @@
+{
+  "slug": "pigs",
+  "title": "Feral pigs",
+  "category": "mammal",
+  "names": [
+    {
+      "word": "biki",
+      "gloss": "pig (also reduplicated as bikibiki)"
+    },
+    {
+      "word": "bikibiki",
+      "gloss": "pig"
+    },
+    {
+      "word": "muyu",
+      "gloss": "hair of a pig"
+    },
+    {
+      "word": "muyu wayjul",
+      "gloss": "singeing the hair of the pig before cooking"
+    }
+  ],
+  "scientificName": "Sus scrofa",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary has the pig, the pig's hair and the singeing of it before cooking, and an example sentence about hearing a pig grunt. The Atlas records feral pigs twice within 30 km of Karma Waters and 45 times within 60 km."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "**[biki](word:biki)** and **[bikibiki](word:bikibiki)** are the pig, **[muyu](word:muyu)** its hair and **[muyu wayjul](word:muyu wayjul)** 'singeing the hair of the pig before cooking', and the dictionary's example for **[ngingkirr](word:ngingkirr)** is 'we were going, heard a grunt, a pig coming' [ref:hershberger1982]. The pig is not an animal of the old country: 'pigs were brought from Europe to Australia by the First Fleet in 1788. Imported as livestock, pigs soon escaped and established wild populations that have expanded over time. In 2021, it was estimated that Queensland had up to 2.3 million feral pigs. They are among Queensland's most widespread and damaging pest animals. Feral pigs spread invasive plants, degrade soil and water, prey on native species, damage crops and livestock, and carry diseases' [ref:qld-feral-pig]. But by the mission years at Bloomfield the pig was already bush food: Anderson lists the 'bush-food resources important during this time' as 'fish, shellfish, pig, turtle and cassowary meat, wild fruits, hairy yam' [ref:anderson1996]. On [Karma Waters](place:karma-waters) the pigs root the river margins and the [water-lily](entry:water-lilies) lagoons, and the station's cattle country is the kind of country they damage most [ref:ala-karma-60] [ref:qld-feral-pig] [ref:kw-cattle]. A pig is the biggest meat on the river and the most dangerous to butcher: brucellosis from feral pigs 'typically begins with a flu-like illness', passes through cuts and splashes while gutting, and 'freezing, smoking, drying and pickling do not kill the bacteria' [ref:nsw-brucellosis].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "biki, bikibiki (pig); muyu (pig hair); muyu wayjul (singeing the hair before cooking); ngingkirr (a grunt); muna (tame, as a tame pig)"
+    },
+    {
+      "label": "At Karma Waters (ALA)",
+      "value": "Sus scrofa: 2 records within 30 km, 45 within 60 km"
+    },
+    {
+      "label": "Status",
+      "value": "Introduced 1788; up to 2.3 million in Queensland (2021); category 3, 4 and 6 restricted invasive animal under the Biosecurity Act 2014"
+    },
+    {
+      "label": "Damage",
+      "value": "Spreads weeds, degrades soil and water, preys on native species, damages crops and stock, carries disease"
+    },
+    {
+      "label": "Taken by",
+      "value": "Trapping with pre-feeding and pig-specific triggers; aerial shooting; dogs and knife on the stations"
+    },
+    {
+      "label": "Health",
+      "value": "Brucellosis and other diseases: gloves, cover cuts, cook right through; pregnant women keep away from pigs and pig dogs"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[biki](word:biki)** 'pig (also reduplicated as *bikibiki*)', **[bikibiki](word:bikibiki)** 'pig'. **[muyu](word:muyu)** 'hair of a pig'; **[muyu wayjul](word:muyu wayjul)** 'singeing the hair of the pig before cooking'. **[ngingkirr](word:ngingkirr)**, with the example 'we were going, heard a grunt, a pig coming'. **[muna](word:muna)** 'tame, as a tame pig' [ref:hershberger1982]. The word is the English one taken into the language, as the animal was taken into the country."
+    },
+    {
+      "id": "description",
+      "heading": "The feral pig",
+      "body": "'A feral pig is a pig that lives in a wild state and is not being farmed or kept for another purpose' [ref:qld-feral-pig]. They are black, ginger, spotted or sandy, long-snouted and razor-backed, the boars with tusks, and they run in mobs of sows and young with the boars alone. 'In 2021, it was estimated that Queensland had up to 2.3 million feral pigs. They are among Queensland's most widespread and damaging pest animals' [ref:qld-feral-pig].\n\n**What they do to country.** 'Feral pigs spread invasive plants, degrade soil and water, prey on native species, damage crops and livestock, and carry diseases' [ref:qld-feral-pig]. On a river like the Mitchell that means the soft ground: the lily lagoons, the drying margins of the pools, the turtle and crocodile nests in the sand, the [cherabin](entry:cherabin) and [mussel](entry:mussels) beds in the shallows, and the ground under the [figs](entry:fig) and [wild plums](entry:wild-plums) when the fruit falls [ref:qld-feral-pig].\n\n**Control, as Queensland describes it.** 'Difficult to control in some situations. Effective control requires integrated, collaborative approach'; 'most effective strategy is to combine various control methods (including shooting, poisoning, trapping and fencing) with appropriate land management practices.' 'Trapping is most useful in populated areas, on smaller properties (<5,000ha), and where pig numbers are low. Trapping can be particularly useful in removing survivors from poisoning programs. Trapping is most successful when food resources are limited. Trigger mechanisms for pig traps can be made pig-specific so that they pose little danger to other wild or domestic animals.' 'Pre-feeding is the most important step in ground poisoning. To maximise effectiveness, free feed pigs with non-poisoned bait for several days before laying poisoned baits.' 'Shooting pigs by helicopter is most effective where pigs exist in reasonable numbers and are observable from the air ... In dry tropics, aerial shooting is the most cost-effective method of control. Ground shooting is generally not effective in reducing pig populations unless intense shooting is undertaken on small, isolated, accessible populations of pigs.' 'CSSP (yellow phosphorus) pig poison must not be used to control feral pigs. CSSP is inhumane and its use is prohibited under the *Animal Care and Protection Act 2001*.' 'The feral pig is a category 3, 4 and 6 restricted invasive animal under the *Biosecurity Act 2014*' [ref:qld-feral-pig].\n\n**The pig as food.** Anderson, writing of the Bloomfield mission years, puts pig second only to fish and shellfish among the bush foods: 'fish, shellfish, pig, turtle and cassowary meat, wild fruits, hairy yam and the introduced \"New Guinea yam\"' [ref:anderson1996]. The dictionary's *muyu wayjul*, the singeing of the hair before cooking, is the cooking of a whole pig on the coals or in the [earth oven](entry:earth-oven) [ref:hershberger1982]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling the sign",
+      "body": "- **Pig rooting**: ground turned over as if by a plough, along the water's edge and under fruiting trees [ref:qld-feral-pig].\n- **Wallows**: mud baths in the drying margins, with mud rubbed on the trees beside them.\n- **Tracks**: cloven, rounder and blunter than a wallaby's, the dew-claws showing in soft ground.\n- **Cattle sign** is bigger and the dung is different; a [goanna's](entry:goanna) digging is a neat hole, not a ploughed patch.\n- **A grunt in the scrub**, *ngingkirr*: 'a pig coming' [ref:hershberger1982]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Fresh rooting with wet soil** means the mob was there last night; they feed at night and lie up in the thick shade by day in the heat.\n- **A mob of sows with young** is the most dangerous; a sow will charge for her piglets.\n- **A dug-out turtle nest** on a sandbank with broken shells: pigs or [goannas](entry:freshwater-turtle).\n- **Kites and crows** over the scrub: a dead pig, or a kill [ref:wiki-whistling-kite]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they are",
+      "body": "Along the river and the creeks, in the lily lagoons and the paperbark fringe, wherever there is water, shade and soft ground; out into the [woodland](entry:woodland) after the wet when the ground is soft and the grass seed and fruit are down [ref:qld-feral-pig] [ref:ala-karma-60]. 'Trapping is most successful when food resources are limited', which on the Mitchell is the late dry [ref:qld-feral-pig]."
+    },
+    {
+      "id": "ecology",
+      "heading": "What the pig eats and what eats it",
+      "body": "The pig eats everything the river offers: lily tubers and stems, roots, fallen fruit, grass seed, [mussels](entry:mussels) and [cherabin](entry:cherabin), frogs, turtle and crocodile eggs, carrion and the newborn calf, which is what 'prey on native species' and 'damage ... livestock' mean on the ground [ref:qld-feral-pig]. It is eaten by the [saltwater crocodile](entry:saltwater-crocodile) at the water's edge and by the [dingo](entry:dingo-and-dogs), which takes the piglets, and by people [ref:qld-dingo] [ref:anderson1996]. It carries disease to the cattle and to the people who butcher it, and it spreads the [weeds](entry:woodland) along the river [ref:qld-feral-pig] [ref:nsw-brucellosis]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The pigs breed through the year and the mobs are biggest after the wet; in the late dry they are tied to the last water and the last soft ground, which is when trapping works and when the river margins show their rooting most [ref:qld-feral-pig]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Meat**, the biggest on the river, cooked whole after singeing the hair, as the dictionary's *muyu wayjul* says [ref:hershberger1982] [ref:anderson1996].\n- **Pig fat** for cooking and for greasing tools and leather.\n- **Tusks** as ornaments and tools.\n- **Country care**: taking pigs off the lagoons is one of the few things a hunter does that the [lilies](entry:water-lilies) and the turtles are better for [ref:qld-feral-pig]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Taking and cooking a pig",
+      "body": "**On a working station the station's rules come first**: where shooting and dogs are allowed, when baits are down, and what the induction says [ref:kw-induction] [ref:kw-land].\n\n1. **Read the sign** at the water in the morning: fresh rooting, wallows and tracks tell you the mob's size and its line back to the shade it lies up in by day.\n2. **Trap rather than chase** where numbers are low: build a mesh trap on a pad the pigs are already using, 'free feed pigs with non-poisoned bait for several days' with the gate tied open, then set a pig-specific trigger so that it 'pose[s] little danger to other wild or domestic animals' [ref:qld-feral-pig].\n3. **Dispatch cleanly** and at once; a wounded boar is dangerous and a wounded pig left in the lagoon fouls the water.\n4. **Butcher with gloves and covered cuts**, away from the water, and wash afterwards; 'transmission can occur during field-dressing or handling of infected carcasses, as *Brucella* bacteria can enter the body through skin abrasions, mucous membranes, or inhalation' [ref:wiki-brucellosis].\n5. **Singe the hair** off over the fire, *muyu wayjul*, scrape, gut, and cook on the coals or in the [earth oven](entry:earth-oven) [ref:hershberger1982].\n6. **Cook it right through**: 'thoroughly cook meat from feral pigs (and other game) before eating – freezing, smoking, drying and pickling do not kill the bacteria that cause brucellosis' [ref:nsw-brucellosis].\n7. **Do not feed raw pig to the dogs**; brucellosis in dogs passes on to people [ref:nsw-brucellosis].\n8. **Bury or burn the offal** away from the water, so the crocodile is not taught to come to the butchering place [ref:crocwise]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- **Brucellosis.** 'Brucellosis typically begins with a flu-like illness. This may include fever, headache, weakness, drenching sweats, chills, weight loss, joint and muscle pain'; 'the symptoms usually start 5-60 days after a person has been infected'; 'the infection typically lasts for days or months but can occasionally last for a year or more and may recur'. 'Pregnant women and their babies are at risk of developing severe disease', and 'those vulnerable to severe disease (such as pregnant women) should avoid all contact with feral pigs, hunting activities and pig hunting dogs' [ref:nsw-brucellosis]. '*B. suis* is of intermediate virulence and chiefly infects pigs'; 'hunters and individuals who consume wild game face an elevated risk' [ref:wiki-brucellosis].\n- **The boar's tusks and the sow's charge**: never between a sow and her young, never follow a wounded pig into cover.\n- **Pig dogs** are a brucellosis route to the family; see [dingo and dogs](entry:dingo-and-dogs) [ref:nsw-brucellosis].\n- **The crocodile** works the same water's edge the pigs do; see [Crocwise](entry:saltwater-crocodile) [ref:crocwise].\n- **Poisons**: CSSP is prohibited; 1080 only through authorised persons; and a 1080 pig bait kills a dog [ref:qld-feral-pig].\n- The pig is not native, so native title hunting rights are not the question; the station's permission and firearms law are [ref:kw-induction]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The pigs are on the Karma Waters river every dry season and the station fights them with the rest of Cape York; the pig the Bloomfield families ate at the mission is the same animal the Western Yalanji take on the Mitchell now [ref:ala-karma-60] [ref:anderson1996]. The dictionary already has the pig's cooking word; the hunting words are for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[biki](word:biki)*, *[bikibiki](word:bikibiki)* 'pig'; *[muyu](word:muyu)* 'hair of a pig'; *[muyu wayjul](word:muyu wayjul)* 'singeing the hair of the pig before cooking'; *[wayjul](word:wayjul)* the verb to cook or burn; *[ngingkirr](word:ngingkirr)* 'a grunt'; *[muna](word:muna)* 'tame, as a tame pig'; *[kurrma](word:kurrma)* 'earth oven'; *[minya](word:minya)* 'meat' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "dingo-and-dogs",
+    "earth-oven",
+    "water-lilies",
+    "freshwater-turtle",
+    "saltwater-crocodile",
+    "waterhole",
+    "woodland",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "ngingkirr",
+      "gloss": "we were going, heard a grunt, a pig coming"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "qld-feral-pig",
+      "citation": "Queensland Government (Business Queensland). Feral pig: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/feral-pig"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "kw-cattle",
+      "citation": "Karma Waters Station. Cattle (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/cattle.html"
+    },
+    {
+      "id": "nsw-brucellosis",
+      "citation": "NSW Health. Brucellosis: fact sheet (accessed 10 October 2026).",
+      "url": "https://www.health.nsw.gov.au/Infectious/factsheets/Pages/brucellosis.aspx"
+    },
+    {
+      "id": "wiki-whistling-kite",
+      "citation": "Wikipedia. Whistling kite (Haliastur sphenurus).",
+      "url": "https://en.wikipedia.org/wiki/Whistling_kite"
+    },
+    {
+      "id": "qld-dingo",
+      "citation": "Queensland Government (Business Queensland). Dingo: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/dingo"
+    },
+    {
+      "id": "kw-induction",
+      "citation": "Karma Waters Station. Induction, waiver and indemnity form (updated 9 June 2023).",
+      "url": "https://www.karmawatersstation.com/uploads/3/1/9/2/31929385/induction_waiver_and_indemnity.pdf"
+    },
+    {
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
+    },
+    {
+      "id": "wiki-brucellosis",
+      "citation": "Wikipedia. Brucellosis.",
+      "url": "https://en.wikipedia.org/wiki/Brucellosis"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

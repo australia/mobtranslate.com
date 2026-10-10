@@ -1,0 +1,225 @@
+{
+  "slug": "wild-rice-and-grass-seed",
+  "title": "Wild rice and grass seed",
+  "category": "food",
+  "names": [
+    {
+      "word": "jikan",
+      "gloss": "grass"
+    },
+    {
+      "word": "kakarr",
+      "gloss": "grass"
+    },
+    {
+      "word": "jumul-jumul",
+      "gloss": "the grass seeds that get stuck in clothes, which come during the wet season"
+    },
+    {
+      "word": "diburr",
+      "gloss": "seed"
+    },
+    {
+      "word": "janban",
+      "gloss": "rice"
+    }
+  ],
+  "scientificName": "Oryza australiensis; Panicum, Sporobolus and the other seed grasses",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary has words for grass and seed and for the wet-season grass seeds, and a borrowed word for rice; it records no grass-seed food, which was the inland's, not the coast's. The Atlas records Australian wild rice three times within 30 km of Karma Waters, and Roth and Palmer describe the harvest on the Gulf side of the divide."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "**[jikan](word:jikan)** and **[kakarr](word:kakarr)** are grass, **[diburr](word:diburr)** is seed, **[jumul-jumul](word:jumul-jumul)** 'the grass seeds that get stuck in clothes, which come during the wet season', and **[janban](word:janban)** is the dictionary's word for rice, taken from English [ref:hershberger1982]. The Kuku Yalanji of the coast lived on roots and fruit, and Roth found that on the eastern seaboard 'it is comparatively rare to come across any specialised form of grindstone ... considering that, instead of grain, we meet with a vegetable diet composed almost entirely of roots and fruits' [ref:roth1904]. West of the divide, on the Mitchell's plains and swamps, it was different: **Australian wild rice**, 'a tall grass, 4 to 6 feet high, called wild rice; grows during and after the wet season on all the plains and swamps all over the Gulf country', was a harvest, 'the heads ... gathered before the seed falls, and then threshed out on a flat stone. The seeds are then broken and winnowed, to separate the husks and beards from the eatable part, which is then ground between two stones with water, and roasted' [ref:palmer1883]. Roth's version: 'the plants are collected, tied into bundles, and kept some considerable time under water: at last, they are taken out, dried, shaken, and the seeds winnowed — these are then ground between two stones, etc., and the pasty mass cooked like a \"damper\"', and his Cooktown name for the plant was *jikan*, the dictionary's word for grass [ref:roth1901] [ref:hershberger1982]. The wild rice, *Oryza australiensis*, has three Atlas records within 30 km of [Karma Waters](place:karma-waters), and the seed grasses of the flats, the panics, dropseeds, kangaroo and spear grasses, are all through the list [ref:ala-karma-plants] [ref:wiki-oryza].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "jikan, kakarr (grass); diburr (seed); jumul-jumul (the wet-season grass seeds that stick in clothes); janban (rice, from English); kumul (a species of grass); mawu, bilanji (grasses for dilly bags)"
+    },
+    {
+      "label": "Wild rice",
+      "value": "Oryza australiensis: a perennial grass of the wet flats, 4–6 ft, with a long-awned seed; 3 ALA records within 30 km of Karma Waters"
+    },
+    {
+      "label": "Harvest (Palmer, 1883)",
+      "value": "Heads gathered before the seed drops, threshed on a flat stone, broken and winnowed, ground wet between two stones, roasted"
+    },
+    {
+      "label": "Harvest (Roth, 1901)",
+      "value": "Plants bundled and kept under water, dried, shaken, winnowed, ground, cooked as a damper"
+    },
+    {
+      "label": "Other seed grasses",
+      "value": "Native millet (Panicum), dropseed (Sporobolus), kangaroo grass, spear grass, native sorghum"
+    },
+    {
+      "label": "Stones",
+      "value": "A fixed slab and a hand-rubber; pounders left in a tree fork when the camp moved"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[jikan](word:jikan)** 'grass'; **[kakarr](word:kakarr)** 'grass' (also 'blanket to lie on' and 'year'); **[kumul](word:kumul)** 'species of grass'; **[mawu](word:mawu)** 'a coarse grass used in the making of dilly bags'; **[bilanji](word:bilanji)** 'grass used to make dilly bags'; **[diburr](word:diburr)** 'seed, egg, bullet, tablets'; **[jumul-jumul](word:jumul-jumul)** 'the grass seeds that get stuck in clothes, which come during the wet season'; **[janban](word:janban)** 'rice' [ref:hershberger1982]. Roth's 1901 food list gives for the wild rice 'KYI, Ckn., jikan', the Koko-Yimidir name at Cooktown, the same word the Kuku Yalanji dictionary has for grass, and *mokomurdo* in the Cloncurry district, where Palmer heard the dropseed grass called 'Jil-crow-arberry' and Roth wrote the same name *jilgrubari* [ref:roth1901] [ref:palmer1883] [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "The seed grasses and the harvest",
+      "body": "**Australian wild rice** (*Oryza australiensis*). 'A wild rice species native to monsoonal northern Australia'; 'a perennial plant'; 'within northern Australia, it is found in wet areas near or on the edge of fresh water. It grows in the open in black, clay, or red loam soil'; 'it survives the dry season through its rhizomes'; it stands heat to 45°C and drought, 'has been described as an extremophile', and 'has the largest genome in the genus', for which it is 'used in breeding programs' [ref:wiki-oryza]. Palmer, 1883, writing it as the cultivated species: 'a tall grass, 4 to 6 feet high, called wild rice; grows during and after the wet season on all the plains and swamps all over the Gulf country. It soon dries, and bends over or breaks. The seeds are large, with flat husk and a long awn or beard. The heads are gathered before the seed falls, and then threshed out on a flat stone. The seeds are then broken and winnowed, to separate the husks and beards from the eatable part, which is then ground between two stones with water, and roasted' [ref:palmer1883]. Roth, 1901: '\"Wild Rice.\" The plants are collected, tied into bundles, and kept some considerable time under water: at last, they are taken out, dried, shaken, and the seeds winnowed — these are then ground between two stones, etc., and the pasty mass cooked like a \"damper\"' [ref:roth1901].\n\n**Native millet** (*Panicum decompositum*): 'seed winnowed and ground, and cooked like a \"damper\"', *tindil* in the Cloncurry district; the Karma Waters list has its relatives *Panicum seminudum*, six records, and *P. trichoides* [ref:roth1901] [ref:ala-karma-plants].\n\n**Dropseed grasses** (*Sporobolus*). Palmer: *S. indicus*, 'a fine grass, about 9 to 12 inches high', 'the stalks are steeped several hours in water, when the seeds are easily rubbed out, and then ground between two stones and baked for bread. Wherever this grass grows in N. Queensland the natives use it in the same manner'; and *S. lindleyi*, 'the fine seeds are gathered and ground up with water into a paste, and baked' [ref:palmer1883]. Roth's fuller method for *S. actinocladus*: 'This is cut down, tied into small bundles, taken down to the nearest waterhole, and dipped under, just for a minute or two: the bundles are next laid out to dry in the sun for a quarter of an hour or so, but to prevent the desiccation taking place too rapidly, especially on a very hot day, they may be covered over with some other grasses or bushes. When the moisture has been sufficiently removed, each bundle is firmly held by the stalk-portion with one hand, while the head-portion is gently brushed over and squeezed with the other, the seed so loosened being allowed to fall into the water contained in a wooden bowl beneath. The water is drawn off subsequently by tipping up the vessel, and so letting the fluid escape through the interdigital spaces of the hollowed hand; the seed itself is then dried again before being ground and made up into a \"damper\"' [ref:roth1901].\n\n**The other grasses of the flats.** Kangaroo grass (*Themeda triandra*) and black spear grass (*Heteropogon contortus*) under the woodland, native sorghum (*Sorghum laxiflorum*), *Chrysopogon*, *Eriachne* and the wire grasses (*Aristida*) are all in the Karma Waters list, and all set seed after the wet; see [blady grass](entry:blady-grass) for the grass of the damp flats [ref:ala-karma-plants] [ref:re-woodland].\n\n**The stones.** Roth, 1904: 'A special form of grinding- or mealing-stones is met with. Each set consists of a movable stone or rubber, and a fixed slab upon which it is rubbed and pressed. The former is bilaterally convex on its under surface, more or less circular, and anything between 4 and 6 inches in diameter: it is pressed with both hands backwards and forwards, each change in direction being accompanied with a kind of initial half-circular movement at the wrist. The oval slab, up to 18 inches long ... almost invariably shows two longitudinal shallow depressions along which the mealing-stone or rubber has been working.' 'In the upper Peninsula and along the eastern seaboard it is comparatively rare to come across any specialised form of grindstone ... There is evidence, however, that some of these coastal natives, amongst whom these articles are no longer met with, used in former times to possess them: the Cape Bedford aboriginals, for instance, speak of the fixed stone as *dindi*, and of the rubber as *mar-ngumai*, although they have no examples to show me.' Pounders: 'any basalt, diorite, etc., boulder-pebble conveniently to hand', used 'in pairs, like mill-stones', and the Rockhampton people 'never carried them about when shifting camp: they just planted them, when not in use, up in the fork of a tree' [ref:roth1904]. See [stone](entry:stone)."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling the seed grasses",
+      "body": "- **Wild rice**: tall, in and beside standing water on black or clay soil, a loose head of big seeds each with a long beard; perennial from a rhizome [ref:wiki-oryza] [ref:palmer1883].\n- **Native millet**: an open, spreading head on a knee-high grass of the flats [ref:roth1901].\n- **Dropseed**: a fine grass a foot high with tiny seeds, on the ridges [ref:palmer1883].\n- **Kangaroo grass**: rusty-red nodding heads; **spear grass**: the black twisted awns that drill into socks, the dictionary's *jumul-jumul* [ref:hershberger1982] [ref:ala-karma-plants].\n- **[Blady grass](entry:blady-grass)**: a silky white plume, no seed worth gathering.\n- **Cultivated rice** (*janban*) is the same genus and a different plant [ref:hershberger1982]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Grass heads bending and breaking** at the end of the wet: the harvest is now or not at all, 'gathered before the seed falls' [ref:palmer1883].\n- **Finches on the seed**: the black-throated finch 'feeds mainly on fallen grass seed'; where the finches are, the seed is ripe [ref:wiki-btf].\n- **A flat rock with two shallow grooves** worn in it near an old camp: a mealing slab [ref:roth1904].\n- **Seeds in your socks**: *jumul-jumul*, the wet-season sign [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the seed grasses grow",
+      "body": "The wild rice 'in wet areas near or on the edge of fresh water', in the lagoons and swampy flats that hold water after the wet; the millets on the flats; the dropseeds on the ridges; kangaroo and spear grass under the [woodland](entry:woodland) [ref:wiki-oryza] [ref:palmer1883] [ref:re-woodland]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Seed for everyone",
+      "body": "The grass seed of the flats is the food of the finches, the [pigeons](entry:pigeons-and-doves), the [rosellas](entry:cockatoos-and-parrots), the rats and the ants, and so of the hawks and snakes that eat them, and a seed year after a good wet is a bird year [ref:wiki-btf] [ref:wiki-rosella] [ref:wiki-bronzewing]. The wild rice stands in the lagoons with the [water lilies](entry:water-lilies), and the [magpie geese](entry:ducks-and-geese) and the [pigs](entry:pigs) work the same ground [ref:wiki-oryza]. Fire decides the seed: a cool, late burn after the seed drops keeps the seed grasses; a hot early burn before it kills the year's crop and the finches' with it; see [hunting with fire](entry:hunting-with-fire) and the [Gouldian finch](entry:bush-birds) [ref:re-woodland]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Wild rice 'grows during and after the wet season' and the harvest is in the early dry, 'before the seed falls'; the dropseeds and millets seed with the end of the rains; the grindstone's season is the dry [ref:palmer1883] [ref:roth1901]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Seed flour and damper** from wild rice, millet and dropseed, ground wet and roasted [ref:palmer1883] [ref:roth1901].\n- **Grass for dilly bags** (*mawu*, *bilanji*), bedding (*kakarr*) and [hut](entry:huts-and-shelters) thatch [ref:hershberger1982].\n- **Grass hoods and bundles** for hunting ducks and hiding from cockatoos; see [ducks and geese](entry:ducks-and-geese) and [cockatoos](entry:cockatoos-and-parrots) [ref:roth1901].\n- **The grass sponge** *wuju* for eating honey; see [native bees](entry:native-bees) [ref:hershberger1982]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Harvesting and grinding seed",
+      "body": "Palmer's and Roth's methods, combined [ref:palmer1883] [ref:roth1901] [ref:roth1904]:\n\n1. **Cut the heads** of wild rice or dropseed when the seed is full but before it drops, and tie them in small bundles [ref:palmer1883] [ref:roth1901].\n2. **Dip the bundles** in the waterhole for a minute or two (dropseed) or steep the plants for hours (dropseed) or days (Roth's rice, 'kept some considerable time under water') so the seed loosens [ref:roth1901] [ref:palmer1883].\n3. **Dry them in the sun** for a quarter of an hour, covered with other grass on a hot day so they do not dry too fast [ref:roth1901].\n4. **Hold each bundle by the stalk and brush the head** with the other hand over a bowl of water; the seed falls in, the chaff floats; tip the water off through the fingers and dry the seed again [ref:roth1901].\n5. **Thresh wild rice on a flat stone**, break the husks and winnow the beards away [ref:palmer1883].\n6. **Grind wet** between the fixed slab and the hand-rubber, 'pressed with both hands backwards and forwards' with a half-turn of the wrist at each change, adding water to make a paste [ref:roth1904] [ref:palmer1883].\n7. **Roast or bake as a damper** in the ashes [ref:palmer1883] [ref:roth1901].\n8. **Leave the stones in a tree fork** for next year, as the old people did [ref:roth1904]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Native plants are protected; gathering for personal use on native title country is covered by the Western Yalanji determinations [ref:qld-nca] [ref:alrc] [ref:wyac2020].\n- The wild-rice lagoons are the crocodile's and the pigs'; see [Crocwise](entry:freshwater-crocodile) [ref:crocwise].\n- Seed with black mould or ergot on the head is left; a wet-season seed harvest spoils fast, so dry it well."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The wild rice is in the Karma Waters lagoons and the seed grasses on every flat, but the grass-seed harvest was the Gulf side's craft, and whether the Western Yalanji of the upper Mitchell ground seed is for the old people to say; the contribution box below is for it [ref:ala-karma-plants] [ref:roth1904]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[jikan](word:jikan)*, *[kakarr](word:kakarr)* 'grass'; *[kumul](word:kumul)* 'species of grass'; *[mawu](word:mawu)*, *[bilanji](word:bilanji)* dilly-bag grasses; *[diburr](word:diburr)* 'seed'; *[jumul-jumul](word:jumul-jumul)* the wet-season grass seeds; *[janban](word:janban)* 'rice'; *[jalngarr](word:jalngarr)* 'flat rock'; *[jinali](word:jinali)* 'smooth rock'; *[jangka](word:jangka)* 'stone'; *[mayi](word:mayi)* 'vegetable food' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "stone",
+    "blady-grass",
+    "water-lilies",
+    "woodland",
+    "hunting-with-fire",
+    "bush-birds",
+    "pigeons-and-doves",
+    "dilly-bags",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "mawu",
+      "gloss": "a coarse grass used in the making of dilly bags"
+    },
+    {
+      "word": "kumul",
+      "gloss": "species of grass"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "wiki-oryza",
+      "citation": "Wikipedia. Oryza australiensis (Australian wild rice).",
+      "url": "https://en.wikipedia.org/wiki/Oryza_australiensis"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "wiki-btf",
+      "citation": "Wikipedia. Black-throated finch.",
+      "url": "https://en.wikipedia.org/wiki/Black-throated_finch"
+    },
+    {
+      "id": "wiki-rosella",
+      "citation": "Wikipedia. Pale-headed rosella.",
+      "url": "https://en.wikipedia.org/wiki/Pale-headed_rosella"
+    },
+    {
+      "id": "wiki-bronzewing",
+      "citation": "Wikipedia. Common bronzewing (Phaps chalcoptera).",
+      "url": "https://en.wikipedia.org/wiki/Common_bronzewing"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

@@ -1,0 +1,228 @@
+{
+  "slug": "flying-foxes-and-bats",
+  "title": "Flying foxes and bats",
+  "category": "mammal",
+  "names": [
+    {
+      "word": "kambi",
+      "gloss": "flying fox"
+    },
+    {
+      "word": "mali",
+      "gloss": "species of small bat"
+    },
+    {
+      "word": "jibul",
+      "gloss": "species of large bat"
+    }
+  ],
+  "scientificName": "Pteropus scapulatus (little red flying fox); Pteropus alecto; Pteropus conspicillatus; and the cave and hollow bats",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary has a word for the flying fox and two for bats. The Atlas of Living Australia records the little red flying fox and eight kinds of small bat within 30 km of Karma Waters, and within 60 km the black and spectacled flying foxes and the ghost bat as well."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater",
+    "rainforest"
+  ],
+  "summary": "**[kambi](word:kambi)** is the flying fox, **[mali](word:mali)** 'species of small bat' and **[jibul](word:jibul)** 'species of large bat' [ref:hershberger1982]. The flying fox of the upper Mitchell is the **little red flying fox**, the smallest and most inland of the mainland flying foxes, which 'camps and flies to the tropical to temperate regions that provide them with an annual source of nectar', lives on the blossom of the gums and bloodwoods and the [paperbarks](entry:paperbark), and drinks on the wing by 'skimming a stream's surface to gather it onto their fur' [ref:wiki-lrff]. Within 60 km of [Karma Waters](place:karma-waters) the Atlas has twenty-eight records of it, eight of the spectacled flying fox of the rainforest and four of the big black flying fox of the coast, and the small bats outnumber them all: the little bent-wing bat with thirty-six, the horseshoe bat with thirty-four, the eastern cave bat with twenty-two, the Australasian bent-wing with twenty-one, and thirteen of the **ghost bat**, 'the only Australian bat that preys on large vertebrates' [ref:ala-karma-60] [ref:wiki-ghost-bat]. The small bats are the woodland's night insect-eaters, roosting in caves, rock crevices and hollows and hunting the air over the pools; the flying foxes are its night pollinators, and 'their colonies are recognised as important contributors to woodland ecology' [ref:wiki-horseshoe-bat] [ref:wiki-lrff]. Roth's Tully people knocked flying foxes 'over when on the wing, with a long stick held by the hunter hidden up in a tree' [ref:roth1901]. Today the first rule of bats is a health rule: 'any bat in Australia could potentially carry' the bat lyssavirus, and no bat, alive or dead, is handled barehanded [ref:nsw-ablv].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kambi (flying fox); mali (small bat); jibul (large bat)"
+    },
+    {
+      "label": "At Karma Waters (ALA, 60 km)",
+      "value": "Little red flying fox (28), spectacled flying fox (8), black flying fox (4); little bent-wing bat (36), smaller horseshoe bat (34), eastern cave bat (22), Australasian bent-wing bat (21), diadem leaf-nosed bat (13), ghost bat (13), hoary wattled bat (12)"
+    },
+    {
+      "label": "Flying fox food",
+      "value": "Nectar and pollen of eucalypt, bloodwood and paperbark blossom; figs and rainforest fruit for the spectacled flying fox"
+    },
+    {
+      "label": "Small bat food",
+      "value": "Moths, beetles and other night insects; the ghost bat takes birds, reptiles and other mammals"
+    },
+    {
+      "label": "Roosts",
+      "value": "Flying foxes in tree camps of thousands along creeks and in paperbark swamps; the small bats in caves, mine shafts, crevices and hollows"
+    },
+    {
+      "label": "Health",
+      "value": "Australian bat lyssavirus: never handle a bat; a bite or scratch needs washing and vaccination the same day"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[kambi](word:kambi)** 'flying fox' (the same word is also glossed 'clothing'). **[mali](word:mali)** 'species of small bat'. **[jibul](word:jibul)** 'species of large bat' [ref:hershberger1982]. The dictionary names no more bats than that, and the Atlas has a dozen kinds here, so the two small-bat words cover a lot; which bat is *mali* and which *jibul* is for the contribution box below."
+    },
+    {
+      "id": "description",
+      "heading": "The flying foxes and bats of the upper Mitchell",
+      "body": "**Little red flying fox** (*Pteropus scapulatus*, *kambi*), twenty-eight records within 60 km and one within 30 km of the homestead. 'A megachiropteran bat native to northern and eastern Australia. The species weighs about half a kilogram ... and is the smallest species of *Pteropus* in mainland Australia'; 'frugivorous bats with simple dog-like heads, often found roosting closely together in large numbers. The characteristic absence of a tail distinguishes these \"flying-foxes\" from other bats in Australia'; 'a measured weight range of 300 to 600 grams'; 'the bare legs, reddish fur colour, and the paler near-transparent wings distinguish it' from the grey-headed and the black [ref:wiki-lrff] [ref:ala-karma-60] [ref:ala-karma]. 'The largest range of all the species, extending further inland than the others of the family', it 'will also decamp and roam widely to increase their food availability. The primary source of food for this species is obtained from *Eucalyptus* and *Corymbia* blossoms. Their diet consists of nectar and pollen of these eucalypts and is responsible for the much of their pollination, the irregular flowering periods induce the camps to forage in new areas. The nectar of *Melaleuca* species is also favoured'. 'Camps may become large groups of tens of thousands, with records of some colonies of over one hundred thousand individuals. This species gives birth 6 months later than the other mainland flying fox species, in April and May, this may be to avoid exposing a newborn to the high temperatures of the northern austral summer' [ref:wiki-lrff].\n\n**Black flying fox** (*P. alecto*), four records. 'Short, black hair with a contrasting reddish-brown mantle, and a mean forearm length of 164 mm and a mean weight of 710 g. It is one of the largest bat species in the world, and has a wingspan of more than 1 metre.' 'During the day, individuals reside in large roosts (colonies or \"camps\") consisting of hundreds to tens of thousands of individuals. They sometimes share their roosts with ... the little red flying fox. They roost in mangroves, paperbark swamps, patches of rainforest'. 'A single young is born, and carried by its mother for the first month of life'; they 'eat pollen and nectar from native eucalyptus, lilypillies, paperbark, and turpentine trees' and have 'been known to travel up to 50 km a night in search of food'; 'these animals begin to die once temperatures reach above 40°C' [ref:wiki-black-ff].\n\n**Spectacled flying fox** (*P. conspicillatus*), eight records, the rainforest's bat from the ranges to the east. 'A large spectacled flying fox has pale yellow or straw-colored fur around its eyes'; 'forest dwellers and rainforests are their preferred habitat'; the diet 'is rainforest fruits, riparian zone flowers, and flowers from Myrtaceae (primarily *Eucalyptus* and *Syzygium* species) and fruits from the Moraceae (figs)'. 'In February 2019, the Australian government upgraded the threatened status from vulnerable to endangered, after almost a third of the bat population died in a severe heatwave in Queensland in late 2018.' 'Spectacled flying foxes skim over the surface of water to drink and are sometimes eaten by crocodiles' [ref:wiki-spectacled-ff].\n\n**The small bats.** The **smaller horseshoe bat** (*Rhinolophus megaphyllus*), thirty-four records within 60 km, 'a combined head and body length of 44–53 millimetres ... The mass is in a range of 7 to 13 grams', with 'a distinctively shaped nose-leaf'; 'they have a fluttery motion in flight as the wing shape allows them to make slow and agile manoeuvres while foraging within the forest. Insects are gleaned close to surfaces at all levels of the forest canopy'; the diet is 'mostly consisting of Lepidoptera and Coleoptera', moths and beetles; 'rather than clinging to walls while at their roost, *R. megaphyllus* hang from the ceiling of caves. The individuals roost apart from their neighbours and may cloak their body with the wings' [ref:wiki-horseshoe-bat]. The two **bent-wing bats** (*Miniopterus australis*, thirty-six, and *M. orianae*, twenty-one) are cave bats of the same gorges, and the **eastern cave bat** (*Vespadelus troughtoni*), twenty-two records and the most-recorded bat within 30 km, roosts in the rock as its name says [ref:wiki-little-bent-wing] [ref:wiki-bent-wing] [ref:ala-karma-60] [ref:ala-karma]. The hoary wattled bat, the diadem and dusky leaf-nosed bats, two long-eared bats and the sheath-tailed bats make up the rest of the list [ref:ala-karma-60].\n\n**Ghost bat** (*Macroderma gigas*), thirteen records within 60 km. 'The only Australian bat that preys on large vertebrates – birds, reptiles and other mammals – which they detect using acute sight and hearing, combined with echolocation, while waiting in ambush at a perch. The wing membrane and bare skin is pale in colour, their fur is light or dark grey'; 'a larger species of microchiropterans (microbats) and the largest in Australia, the size is comparable to the megabat species'; 'since when its recorded range has significantly contracted' [ref:wiki-ghost-bat].\n\n**Roth, 1901.** 'Flying foxes (*Pteropus funereus*), on the lower Tully River, are knocked over when on the wing, with a long stick held by the hunter hidden up in a tree on the same lines adopted in the case of the Torres Strait pigeon' [ref:roth1901]. That Tully method was the east coast's; no account of how Kuku Yalanji people took the flying fox is in the sources used here."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling them",
+      "body": "- **Little red flying fox**: small, reddish, bare legs, wings you can see the light through, in enormous noisy camps that come and go with the blossom [ref:wiki-lrff].\n- **Black flying fox**: much bigger, black with a reddish collar, a wingspan over a metre [ref:wiki-black-ff].\n- **Spectacled flying fox**: straw-coloured rings round the eyes, in the rainforest to the east [ref:wiki-spectacled-ff].\n- **A bat with a tail**: a small insect bat, not a flying fox [ref:wiki-lrff].\n- **Horseshoe and leaf-nosed bats**: a fleshy nose-leaf, hanging free from a cave roof, wrapped in their wings [ref:wiki-horseshoe-bat].\n- **Ghost bat**: pale, huge ears joined at the base, a big-eyed face, and feathers or bones under its feeding perch [ref:wiki-ghost-bat].\n- **Night birds**: an [owlet-nightjar or a frogmouth](entry:bush-birds) flies with a bird's silhouette; a bat flickers."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A camp**: trees along a creek or a paperbark swamp screaming by day, with a sweet strong smell and the ground white beneath [ref:wiki-black-ff].\n- **A tree in blossom roaring at night**: flying foxes feeding [ref:wiki-lrff].\n- **Chewed spat-out fruit and blossom** under figs and gums in the morning [ref:wiki-spectacled-ff].\n- **Skimming over the pool at dusk**: flying foxes drinking, and the crocodile waiting under them [ref:wiki-lrff] [ref:wiki-spectacled-ff].\n- **A cave or mine with a smell of ammonia** and guano on the floor: a bat roost; stay out of it [ref:wiki-horseshoe-bat].\n- **Bird and bat remains under a rock overhang**: a ghost bat's perch [ref:wiki-ghost-bat]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they live",
+      "body": "The flying foxes camp in the river's [paperbarks](entry:paperbark) and scrub and fly out to whatever is flowering in the [woodland](entry:woodland), the little red 'at the coast and further inland', the spectacled in the rainforest, the black in the mangroves and paperbark swamps of the coast [ref:wiki-lrff] [ref:wiki-spectacled-ff] [ref:wiki-black-ff]. The small bats roost in the caves and crevices of the gorges and old mine workings and in hollows, and hunt over the pools and through the trees [ref:wiki-horseshoe-bat] [ref:ala-karma-60]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The night shift",
+      "body": "The flying foxes are the night half of the woodland's blossom economy: by day the lorikeets and honeyeaters and the [native bees](entry:native-bees) work the gum and [bloodwood](entry:bloodwood) flowers, and by night the little reds do, carrying pollen for kilometres between trees 'responsible for the much of their pollination' [ref:wiki-lrff]. The spectacled flying fox spreads the [figs](entry:fig) and rainforest fruit the same way [ref:wiki-spectacled-ff]. The small bats take the moths and beetles that the swifts and bee-eaters took by day, 'gleaned close to surfaces at all levels of the forest canopy', and the ghost bat takes the small bats, the mice and the birds [ref:wiki-horseshoe-bat] [ref:wiki-ghost-bat]. Over the pool at dusk the flying foxes drink by skimming and the [freshwater crocodile](entry:freshwater-crocodile) takes them [ref:wiki-spectacled-ff]. In the hollows the small bats share with the [possums](entry:possums), the parrots and the [carpet python](entry:pythons), which eats them [ref:wiki-carpet-python]. Heat kills them: the black flying fox dies above 40°C and a third of the spectacled flying foxes died in one 2018 heatwave, which is why the little red times its births for April and May [ref:wiki-black-ff] [ref:wiki-spectacled-ff] [ref:wiki-lrff]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The little red camps arrive with the blossom and leave with it, 'the irregular flowering periods induce the camps to forage in new areas'; their young are born in April and May as the cold comes on; the spectacled flying fox gives birth from October to December [ref:wiki-lrff] [ref:wiki-spectacled-ff]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Meat**, on the east coast, knocked from the evening flight [ref:roth1901].\n- **A sign of where the blossom is**, and so of where the honey and the lorikeets will be [ref:wiki-lrff].\n- **Pollination** of the trees whose blossom makes the sugarbag; the flying foxes keep the woodland flowering [ref:wiki-lrff].\n- **Insect control** over the camp at night, by the small bats [ref:wiki-horseshoe-bat]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Living with the bats",
+      "body": "1. **Find the camp** by the noise and the smell by day; sit downwind at dusk to watch the fly-out, which goes the way of the flowering trees [ref:wiki-lrff].\n2. **Do not touch a bat**, alive, hurt or dead, even a baby on the ground; call a wildlife rescuer, who is vaccinated and trained [ref:nsw-ablv].\n3. **Old method, for the record**: Roth's Tully hunter hid in a tree on the flight line at dusk with a long stick and knocked the flying foxes down as they passed [ref:roth1901]. The health rule above comes first today.\n4. **Leave the caves alone**; a disturbed bat colony abandons its young, and a cave of bats is a cave of bat virus and dust [ref:wiki-horseshoe-bat] [ref:nsw-ablv].\n5. **Keep the big flowering trees** along the creek; the camp is as much a part of the river as the pool [ref:wiki-lrff]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- **Bat lyssavirus.** 'In Australia, evidence of ABLV infection has been found in species of flying foxes/fruit bats and insect-eating microbats. Any bat in Australia could potentially carry ABLV. The behaviour or appearance of a bat is not a true guide as to whether it is carrying the virus.' It is spread 'through bites or scratches, or by being exposed to infected animals' saliva through the eyes, nose or mouth'; 'the early symptoms are flu-like ... The illness progresses rapidly to paralysis, delirium, convulsions and death'; 'there is no available treatment for rabies or ABLV once symptoms have started.' 'The best protection ... is to avoid handling any bat'; 'if you are bitten or scratched by a bat' wash the wound thoroughly and get medical help the same day, because 'rabies infection can be prevented following an exposure through proper wound care' and post-exposure vaccination [ref:nsw-ablv].\n- Native animals are protected wildlife in Queensland under the *Nature Conservation Act 1992*; native title holders hunting for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993*, recognised in the Western Yalanji determinations [ref:qld-nca] [ref:alrc] [ref:wyac2020]. The spectacled flying fox is nationally endangered [ref:wiki-spectacled-ff].\n- A dusk pool full of skimming flying foxes is a pool the crocodile is working; see [Crocwise](entry:freshwater-crocodile) [ref:wiki-spectacled-ff] [ref:crocwise]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The little reds come through Karma Waters with the blossom in their tens of thousands and are gone a month later; the cave bats are in every gorge and old working of the Hodgkinson goldfield country round the station [ref:wiki-lrff] [ref:ala-karma-60] [ref:kw-about]. Whether the flying fox was a Western Yalanji food, and what the two bat words name, is for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kambi](word:kambi)* 'flying fox'; *[mali](word:mali)* 'species of small bat'; *[jibul](word:jibul)* 'species of large bat'; *[minya](word:minya)* 'meat, animal'; *[ngalku](word:ngalku)* 'bush fire' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "woodland",
+    "paperbark",
+    "bloodwood",
+    "fig",
+    "native-bees",
+    "possums",
+    "freshwater-crocodile",
+    "bush-birds",
+    "seasons"
+  ],
+  "relatedWords": [],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-lrff",
+      "citation": "Wikipedia. Little red flying fox.",
+      "url": "https://en.wikipedia.org/wiki/Little_red_flying_fox"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "wiki-ghost-bat",
+      "citation": "Wikipedia. Ghost bat (Macroderma gigas).",
+      "url": "https://en.wikipedia.org/wiki/Ghost_bat"
+    },
+    {
+      "id": "wiki-horseshoe-bat",
+      "citation": "Wikipedia. Smaller horseshoe bat (Rhinolophus megaphyllus).",
+      "url": "https://en.wikipedia.org/wiki/Eastern_horseshoe_bat"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "nsw-ablv",
+      "citation": "NSW Health. Rabies and Australian bat lyssavirus infection: fact sheet (accessed 10 October 2026).",
+      "url": "https://www.health.nsw.gov.au/Infectious/factsheets/Pages/rabies-australian-bat-lyssavirus-infection.aspx"
+    },
+    {
+      "id": "ala-karma",
+      "citation": "Atlas of Living Australia. All occurrence records within 30 km of the Karma Waters homestead (16.618° S, 144.605° E), species facet, queried 5 October 2026 (4,053 records; 601 species).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.6179&lon=144.6047&radius=30"
+    },
+    {
+      "id": "wiki-black-ff",
+      "citation": "Wikipedia. Black flying fox (Pteropus alecto).",
+      "url": "https://en.wikipedia.org/wiki/Black_flying_fox"
+    },
+    {
+      "id": "wiki-spectacled-ff",
+      "citation": "Wikipedia. Spectacled flying fox (Pteropus conspicillatus).",
+      "url": "https://en.wikipedia.org/wiki/Spectacled_flying_fox"
+    },
+    {
+      "id": "wiki-little-bent-wing",
+      "citation": "Wikipedia. Little bent-wing bat (Miniopterus australis).",
+      "url": "https://en.wikipedia.org/wiki/Little_bent-wing_bat"
+    },
+    {
+      "id": "wiki-bent-wing",
+      "citation": "Wikipedia. Australasian bent-wing bat (Miniopterus orianae).",
+      "url": "https://en.wikipedia.org/wiki/Miniopterus_orianae"
+    },
+    {
+      "id": "wiki-carpet-python",
+      "citation": "Wikipedia. Morelia spilota (carpet python).",
+      "url": "https://en.wikipedia.org/wiki/Morelia_spilota"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

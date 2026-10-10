@@ -1,0 +1,252 @@
+{
+  "slug": "bush-medicine",
+  "title": "Bush medicine: the recorded remedies",
+  "category": "technique",
+  "names": [
+    {
+      "word": "dukunjaka",
+      "gloss": "bush medicine"
+    },
+    {
+      "word": "bangkan",
+      "gloss": "a kind of root, a medecine for sores. boil the roots and wash the sores with the water."
+    },
+    {
+      "word": "yangka",
+      "gloss": "green ant. there are used as a medecine for the common cold and other chest complaints."
+    },
+    {
+      "word": "kabal",
+      "gloss": "leichardt tree ... if you have a sore joint, boil the bark in water, rub the cooled water on the sore joint."
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "This page collects the remedies the Kuku Yalanji dictionary records, the medicine plants Edward Palmer listed from the Mitchell and Cloncurry rivers in 1883, and what the modern sources say about the same plants. It is a record of what was used, not medical advice."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "**[dukunjaka](word:dukunjaka)** is 'bush medicine', and the dictionary records a handful of remedies in its own words: **[bangkan](word:bangkan)**, 'a kind of root, a medicine for sores. Boil the roots and wash the sores with the water'; **[kabal](word:kabal)**, the [Leichhardt tree](entry:leichhardt-tree), 'if you have a sore joint, boil the bark in water, rub the cooled water on the sore joint'; **[yangka](word:yangka)**, the [green ant](entry:green-ants), 'used as a medicine for the common cold and other chest complaints. They can be crushed and the odour inhaled to cure headache; or the eggs, larvae, and pupae from the nests can be mixed with salt water and taken', the mixture being **[kalbal](word:kalbal)**; and the [poison nut](entry:leaching) **[jinjay](word:jinjay)**, whose 'bark and sap are poisonous, but water from cooked wattle tree bark will cure the poisoned skin' [ref:hershberger1982]. In 1883 Edward Palmer listed the 'plants used for medicine' on the Flinders, Mitchell and Cloncurry rivers: the young leaves of the stringybark 'bruised and rubbed in water in a kooliman with the hands till the water is green and thick, when it is drunk for fevers and headache'; the young leaves of the big [paperbark](entry:paperbark) 'bruised in water, and drunk for headache and colds and general sickness'; the bark of the gutta-percha tree mashed in hot water as a wash 'for pains and sickness'; and a set of strong-smelling river herbs, two of them called 'Kar-kar', 'which seems to be a general name for medicinal plants', drunk for fevers [ref:palmer1883]. The modern sources add that eucalyptus oil is accepted in Europe 'for treating cough associated with the common cold, and to relieve symptoms of localized muscle pain', that tea-tree oil 'is poisonous if consumed by mouth and is unsafe for children', and that the [kino](entry:river-red-gum) of the river red gum was once a drug for diarrhoea [ref:wiki-eucalyptus-oil] [ref:wiki-tea-tree-oil] [ref:wiki-kino]. **This page records; it does not prescribe.** For a snake bite, a bad cut, a fever that will not break or a sick child, the answer on [Karma Waters](place:karma-waters) is the first-aid kit, the satellite phone and the Flying Doctor, and the old washes and drinks are for the small complaints they were always for [ref:healthdirect-snakebite] [ref:kw-camping].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "dukunjaka (bush medicine); bangkan (root wash for sores); kabal (Leichhardt tree bark wash for sore joints); yangka, kalbal (green ants for colds and chest); jinjay (wattle-bark water for poisoned skin); ngiki (a cold, chest sickness); ngiki-damaji (cough); baji (a sore); muja (a wound not yet healed); baykal (ache, pain)"
+    },
+    {
+      "label": "Palmer's Mitchell and Cloncurry medicines, 1883",
+      "value": "Stringybark leaf water (fever, headache); paperbark leaf water (headache, colds); gutta-percha bark wash (pains); 'Kar-kar' herbs, mistletoe, Moschosma, 'Bulla bulla' basil, Pterocaulon (fevers); silver-leaved box bark wrap (rheumatism); coolibah bark poultice (then used for snakebite)"
+    },
+    {
+      "label": "Other recorded",
+      "value": "Woody pear bark and leaf infusion for internal pain; soap tree leaves as soap; apple bush as an aromatic medicine; gutta-percha smoke against mosquitoes; eucalyptus oil for coughs and muscle pain"
+    },
+    {
+      "label": "Rule",
+      "value": "Recorded uses, not advice. Washes and inhalations outside the body; nothing from this page is a treatment for snakebite, infection, fever in a child, or any emergency"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names: the dictionary's medicine words",
+      "body": "**[dukunjaka](word:dukunjaka)** 'bush medicine'. **[bangkan](word:bangkan)** 'a kind of root, a medicine for sores. Boil the roots and wash the sores with the water.' **[kabal](word:kabal)** the Leichhardt tree, bark boiled, cooled and rubbed on a sore joint. **[yangka](word:yangka)** 'green ant. There are used as a medicine for the common cold and other chest complaints. They can be crushed and the odour inhaled to cure headache; or the eggs, larvae, and pupae from the nests can be mixed with salt water and taken'; **[kalbal](word:kalbal)** 'the mixture made from green ant larvae/pupae and eggs eaten for chest sickness and the common cold'. **[jinjay](word:jinjay)** 'poison nut tree ... the bark and sap are poisonous, but water from cooked wattle tree bark will cure the poisoned skin' [ref:hershberger1982].\n\nThe sicknesses: **[bambay](word:bambay)** 'sick', **[kumbir](word:kumbir)** 'well after being sick', **[ngulkurr](word:ngulkurr)** 'good, well, not sick', **[ngiki](word:ngiki)** 'a cold, or any sickness of the lungs as bronchitis', **[ngikiji](word:ngikiji)** 'have a cold or chest complaint', **[ngiki-damaji](word:ngiki-damaji)** 'cough', **[baji](word:baji)** 'a sore', **[muja](word:muja)** 'wound not yet healed', **[baykal](word:baykal)** 'ache, pain', **[wurrkal](word:wurrkal)** 'hurt, ache', **[kaka](word:kaka)** 'sore, achey', **[jalngkay](word:jalngkay)** 'itch', **[kiway](word:kiway)** 'cold' [ref:hershberger1982]. The dictionary also records beliefs about the causes and cures of sickness that belong to the old people and are left in the dictionary."
+    },
+    {
+      "id": "description",
+      "heading": "The recorded remedies",
+      "body": "**From the dictionary (Bloomfield Kuku Yalanji).**\n- A root, *bangkan*, boiled, the water used to wash sores [ref:hershberger1982].\n- Leichhardt tree bark, *kabal*, boiled, the water cooled and rubbed on a sore joint; see [Leichhardt tree](entry:leichhardt-tree) [ref:hershberger1982].\n- Green ants, *yangka*: crushed and the smell breathed in for headache; the eggs, larvae and pupae mixed with salt water and taken for colds and chest complaints; see [green ants](entry:green-ants) [ref:hershberger1982].\n- Water from cooked wattle bark for skin poisoned by the sap of the poison nut, *jinjay*; see [leaching](entry:leaching) [ref:hershberger1982].\n- The [stinging tree](entry:stinging-tree) page has the dictionary's note on that sting.\n\n**From Palmer's list, 'Plants used for medicine' on the Flinders and Mitchell Rivers, 1883.** Palmer gave the native names of the Cloncurry and Mitchell districts as he heard them, and those names belong to the Gulf-side peoples, not to Kuku Yalanji.\n- *Eucalyptus tetrodonta*, the stringybark or messmate, 'Olm-bah' on the Mitchell: 'the leaves of the young trees are bruised and rubbed in water in a kooliman with the hands till the water is green and thick, when it is drunk for fevers and headache' [ref:palmer1883].\n- *Melaleuca leucadendron*, 'the large tea-tree', 'Atchoourgo' on the Mitchell: 'the young leaves are bruised in water, and drunk for headache and colds and general sickness; the bark is also used for bedding to lay on the ground, and to form camps with. Cajaput oil is made from this same tree' [ref:palmer1883]. See [paperbark](entry:paperbark).\n- *Excoecaria parvifolia*, 'the gutta-percha tree', on the Mitchell 'often in country subject to floods': 'full of milky juice, very dangerous to the eyes. The natives use the bark mashed up in water in a wooden kooliman, and heated with stones from a fire close by. The wash is applied externally to all parts of the body, rubbing it in. Used for pains and sickness' [ref:palmer1883]. The Warumungu of Tennant Creek 'use the smoke from burning the wood to keep away mosquitoes' [ref:wiki-excoecaria].\n- *Gnaphalium luteo-album*, 'Kar-kar', 'found mostly in the rivers and creeks or near scrubs on the Mitchell. Used medicinally for general sickness, as a drink'; and *Heliotropium ovalifolium*, 'Kar-kar, which seems to be a general name for medicinal plants ... Bruised in water it is used as a drink and wash, the head and body being rubbed over with the dilution' [ref:palmer1883]. The first is the cudweed *Pseudognaphalium luteoalbum*, one record within 30 km of Karma Waters, used in Vietnam's traditional medicine 'for the treatment of cough, and for pain relief' [ref:wiki-pseudognaphalium] [ref:ala-karma-plants].\n- *Loranthus quandang*, the mistletoe of the gidgee: 'the leaves are bruised in water and drunk for fevers' [ref:palmer1883].\n- *Moschosma polystachium*, 'an erect, slender, much-branched annual ... strong-smelling', on the Mitchell 'in sheltered places': 'used as a medicine by mixing in water, for fevers' [ref:palmer1883].\n- *Ocimum sanctum*, 'Bulla bulla' on the Mitchell, 'a fragrant shrub ... of a strong pleasant odour. The leaves are crushed up in water in a kooliman, and drunk for fevers and sickness. White people make tea of the leaves dried, called bush tea' [ref:palmer1883].\n- *Plectranthus congestus*, 'Kar-kar' on the Mitchell, 'a strong-smelling branching herb, 3 feet high, growing rankly on the banks of the Mitchell and Flinders. Leaves and branches crushed in water and drunk for internal complaints' [ref:palmer1883].\n- *Pterocaulon glandulosus*, 'a strongly smelling herb ... Used for medicine in fevers' [ref:palmer1883]; its relative the apple bush 'is an aromatic plant used in Australian Aboriginal medicine' [ref:wiki-pterocaulon].\n- *Eucalyptus pruinosa*, the silver-leaved box of the Cloncurry: 'the inside bark is stripped and wound round the chest and body very tightly, damped with water, for pains, rheumatism, &c., sitting down in the water at the same time' [ref:palmer1883].\n- *Eucalyptus microtheca*, the coolibah, 'Jinbul or Kurleah' on the Cloncurry: the branches and leaves laid in water 'for several days to sicken the fish', and 'the inside bark is beaten up and used as a poultice for snake-bites, heated' [ref:palmer1883]. **That was 1883.** Today's first aid for any suspected snake bite is a pressure bandage, keeping still and getting to hospital; see [snakes](entry:snakes) [ref:healthdirect-snakebite].\n\n**Other recorded uses of plants on this country.**\n- The northern woody pear, *Xylomelum scottianum*, two records within 30 km: 'it was used medicinally by the Aboriginal people, as an infusion of the bark and leaves, drunk to relieve internal pain' [ref:wiki-xylomelum] [ref:ala-karma-plants].\n- The soap tree or red ash, *Alphitonia excelsa*: 'Indigenous Australians used the leaves as a soap due to the plant's high saponin content' [ref:wiki-alphitonia].\n- The lemon-scented ironbark, *Eucalyptus staigeriana*, nine records within 30 km and 'endemic to the Cape York Peninsula', whose leaves 'smell strongly of lemons when crushed' and yield an essential oil 'used for flavouring, perfumery and aromatherapy' [ref:wiki-staigeriana] [ref:ala-karma-plants].\n- Eucalyptus oil generally: 'the European Medicines Agency Committee on Herbal Medicinal Products concluded that traditional medicines based on eucalyptus oil can be used for treating cough associated with the common cold, and to relieve symptoms of localized muscle pain' [ref:wiki-eucalyptus-oil].\n- Tea-tree oil, from a southern *Melaleuca*: 'a possible treatment for \"small, superficial wounds, insect bites, and small boils\"', but 'highly toxic when ingested orally' and not 'used on people under 12 years of age' [ref:wiki-tea-tree-oil].\n- Eucalyptus kino from the river red gum, 'frequently used in diarrhoea' in the old pharmacopoeias [ref:wiki-kino].\n- The fish-poison plants, *Tephrosia* and the rest, are poisons, not medicines; 'many species in the genus are poisonous' with rotenone; see [fish-poison plants](entry:fish-poison-plants) [ref:wiki-tephrosia]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling the medicine plants",
+      "body": "- **Stringybark**: long fibrous bark peeling in strips, broad bluish leaves in opposite pairs on the young trees [ref:palmer1883].\n- **Weeping paperbark**: white papery bark, drooping branches, cream bottlebrush spikes; the leaves smell of tea-tree when crushed [ref:wiki-leucadendra].\n- **Gutta-percha tree**: small clustered leaves, rough bark, milky sap that is 'very dangerous to the eyes', on the flood flats [ref:palmer1883].\n- **The 'Kar-kar' herbs**: soft, strong-smelling river-bank herbs; the cudweed is woolly-white with pale flower heads [ref:palmer1883] [ref:wiki-pseudognaphalium].\n- **Lemon-scented ironbark**: ironbark that smells of lemon when a leaf is crushed [ref:wiki-staigeriana].\n- **Woody pear**: a small tree of the sandy ridges with a big woody pear-shaped fruit [ref:wiki-xylomelum].\n- **Soap tree**: leaves dark green above and silver-white beneath; bruised shoots smell of sarsaparilla; the leaves lather [ref:wiki-alphitonia]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Green ant nests** of leaves sewn together in the trees [ref:hershberger1982].\n- **A Leichhardt tree** by the pool, bare in the dry [ref:wiki-nauclea].\n- **Strong-smelling herbs** on the river bank after the wet: the 'Kar-kar' plants [ref:palmer1883].\n- **Red kino** on a gum's trunk [ref:wiki-kino]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the medicine plants grow",
+      "body": "The river bank and flood flats for the herbs, the gutta-percha tree and the paperbarks; the sandy ridges for the stringybark and the woody pear; the hills for the lemon-scented ironbark; the green ants in the trees of both [ref:palmer1883] [ref:wiki-xylomelum] [ref:wiki-staigeriana]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Why the remedies are what they are",
+      "body": "Almost every plant on the list is aromatic: eucalypt and paperbark leaves full of oil, the strong-smelling mint-family herbs, the lemon ironbark, the crushed green ant. The smell is the medicine the old people recognised, and it is the same oil that the modern sources accept for coughs and sore muscles [ref:palmer1883] [ref:wiki-eucalyptus-oil]. The other group is the astringents and washes: bark water, kino, root water for sores, which draw and dry [ref:hershberger1982] [ref:wiki-kino]. The third is the one that fails: the poultice for snake bite, which was what people had before antivenom and the pressure bandage [ref:palmer1883] [ref:healthdirect-snakebite]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The river herbs come after the wet and go with the dry; the bark and leaf medicines are there all year; the green ants' eggs and larvae are in the nests through the warm months [ref:palmer1883] [ref:hershberger1982]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "The remedies by complaint, as recorded",
+      "body": "- **Colds, chest, cough**: green ants crushed and inhaled, or the eggs and larvae in salt water (dictionary); paperbark young-leaf water drunk (Palmer); eucalyptus oil (modern) [ref:hershberger1982] [ref:palmer1883] [ref:wiki-eucalyptus-oil].\n- **Headache**: green ants inhaled; stringybark and paperbark leaf water [ref:hershberger1982] [ref:palmer1883].\n- **Fevers**: the 'Kar-kar' herbs, the mistletoe, 'Bulla bulla' basil and Pterocaulon as drinks (Palmer) [ref:palmer1883].\n- **Sore joints, pains, rheumatism**: Leichhardt tree bark wash (dictionary); gutta-percha bark hot wash; silver-leaved box bark wrap (Palmer) [ref:hershberger1982] [ref:palmer1883].\n- **Sores and poisoned skin**: *bangkan* root wash; cooked wattle-bark water (dictionary) [ref:hershberger1982].\n- **Internal pain**: woody pear bark and leaf infusion (recorded) [ref:wiki-xylomelum].\n- **Washing**: soap tree leaves [ref:wiki-alphitonia].\n- **Mosquitoes**: gutta-percha smoke (Warumungu) [ref:wiki-excoecaria]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Using the record",
+      "body": "1. **Treat this page as a record.** Each remedy is given in its source's words; none has been tested here, and the dictionary's and Palmer's recipes are a century and more old [ref:hershberger1982] [ref:palmer1883].\n2. **Washes and smells first.** The recorded uses that carry least risk are the external ones: a cooled bark or root wash on a sore joint or a sore, a crushed aromatic leaf breathed in, a smoky fire against mosquitoes [ref:hershberger1982] [ref:wiki-excoecaria].\n3. **Know the plant.** The gutta-percha sap is 'very dangerous to the eyes'; the poison nut's sap burns; tea-tree oil is 'highly toxic when ingested'; a wrong leaf in a drink is a poisoning. Identify with someone who knows, and start with a little [ref:palmer1883] [ref:hershberger1982] [ref:wiki-tea-tree-oil].\n4. **Never for the emergencies.** Snake bite is a pressure bandage and a phone call; a deep cut, a burn, a fever in a child, chest pain, a crocodile or pig wound, a bat scratch: the first-aid kit and the Flying Doctor [ref:healthdirect-snakebite] [ref:nsw-ablv].\n5. **Take bark from a branch, not round the trunk**, and leaves from several plants, so the medicine tree lives.\n6. **Write down what the old people say** about which plant and which complaint; the contribution box below is for that, and the dictionary's *dukunjaka* list is short."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- This page is not medical advice; it records uses from the dictionary, from Palmer in 1883 and from encyclopaedia sources [ref:hershberger1982] [ref:palmer1883].\n- Snake bite: pressure bandage, keep still, hospital; not a poultice [ref:healthdirect-snakebite].\n- Tea-tree and eucalyptus oils are for the outside of the body; tea-tree oil 'is poisonous if consumed by mouth and is unsafe for children' [ref:wiki-tea-tree-oil].\n- Milky saps: the gutta-percha and the poison nut burn skin and eyes [ref:palmer1883] [ref:hershberger1982].\n- Native plants are protected; taking bark and leaves for personal use on native title country is covered by the Western Yalanji determinations [ref:qld-nca] [ref:alrc] [ref:wyac2020]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The paperbarks, stringybarks, lemon ironbarks, woody pears and river herbs of Palmer's list are all on Karma Waters, and the green ants are in every second tree [ref:ala-karma-plants] [ref:wiki-oecophylla]. What the Western Yalanji called them and used them for is the knowledge this page is waiting for; the contribution box below is for it, and the sensitive parts of that knowledge belong to the people who hold it."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[dukunjaka](word:dukunjaka)* 'bush medicine'; *[bangkan](word:bangkan)* root medicine for sores; *[kabal](word:kabal)* Leichhardt tree; *[yangka](word:yangka)* green ant; *[kalbal](word:kalbal)* the green-ant mixture; *[jinjay](word:jinjay)* poison nut; *[ngiki](word:ngiki)* 'a cold'; *[ngiki-damaji](word:ngiki-damaji)* 'cough'; *[baji](word:baji)* 'a sore'; *[muja](word:muja)* 'wound not yet healed'; *[baykal](word:baykal)* 'ache, pain'; *[bambay](word:bambay)* 'sick'; *[kumbir](word:kumbir)* 'well after being sick'; *[ngulkurr](word:ngulkurr)* 'well, not sick' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "green-ants",
+    "leichhardt-tree",
+    "paperbark",
+    "river-red-gum",
+    "stinging-tree",
+    "leaching",
+    "fish-poison-plants",
+    "snakes",
+    "woodland",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "kalbal",
+      "gloss": "the mixture made from green ant larvae/pupae and eggs eaten for chest sickness and the common cold."
+    },
+    {
+      "word": "ngiki",
+      "gloss": "a cold, or any sickness of the lungs as bronchitis"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "wiki-eucalyptus-oil",
+      "citation": "Wikipedia. Eucalyptus oil.",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_oil"
+    },
+    {
+      "id": "wiki-tea-tree-oil",
+      "citation": "Wikipedia. Tea tree oil.",
+      "url": "https://en.wikipedia.org/wiki/Tea_tree_oil"
+    },
+    {
+      "id": "wiki-kino",
+      "citation": "Wikipedia. Kino (botany): Eucalyptus kino and its former medicinal use.",
+      "url": "https://en.wikipedia.org/wiki/Kino_(botany)"
+    },
+    {
+      "id": "healthdirect-snakebite",
+      "citation": "healthdirect Australia (Australian Government). Snake bites: symptoms, first aid and the pressure immobilisation bandage (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/snake-bites"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "wiki-excoecaria",
+      "citation": "Wikipedia. Excoecaria parvifolia (gutta-percha tree).",
+      "url": "https://en.wikipedia.org/wiki/Excoecaria_parvifolia"
+    },
+    {
+      "id": "wiki-pseudognaphalium",
+      "citation": "Wikipedia. Pseudognaphalium luteoalbum (Jersey cudweed).",
+      "url": "https://en.wikipedia.org/wiki/Pseudognaphalium_luteoalbum"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "wiki-pterocaulon",
+      "citation": "Wikipedia. Pterocaulon sphacelatum (apple bush).",
+      "url": "https://en.wikipedia.org/wiki/Pterocaulon_sphacelatum"
+    },
+    {
+      "id": "wiki-xylomelum",
+      "citation": "Wikipedia. Xylomelum scottianum (northern woody pear).",
+      "url": "https://en.wikipedia.org/wiki/Xylomelum_scottianum"
+    },
+    {
+      "id": "wiki-alphitonia",
+      "citation": "Wikipedia. Alphitonia excelsa (red ash, soap tree).",
+      "url": "https://en.wikipedia.org/wiki/Alphitonia_excelsa"
+    },
+    {
+      "id": "wiki-staigeriana",
+      "citation": "Wikipedia. Eucalyptus staigeriana (lemon-scented ironbark).",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_staigeriana"
+    },
+    {
+      "id": "wiki-tephrosia",
+      "citation": "Wikipedia. Tephrosia.",
+      "url": "https://en.wikipedia.org/wiki/Tephrosia"
+    },
+    {
+      "id": "wiki-leucadendra",
+      "citation": "Wikipedia. Melaleuca leucadendra (weeping paperbark).",
+      "url": "https://en.wikipedia.org/wiki/Melaleuca_leucadendra"
+    },
+    {
+      "id": "wiki-nauclea",
+      "citation": "Wikipedia. Nauclea orientalis (Leichhardt tree).",
+      "url": "https://en.wikipedia.org/wiki/Nauclea_orientalis"
+    },
+    {
+      "id": "nsw-ablv",
+      "citation": "NSW Health. Rabies and Australian bat lyssavirus infection: fact sheet (accessed 10 October 2026).",
+      "url": "https://www.health.nsw.gov.au/Infectious/factsheets/Pages/rabies-australian-bat-lyssavirus-infection.aspx"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "wiki-oecophylla",
+      "citation": "Wikipedia. Oecophylla smaragdina (green tree ant, weaver ant).",
+      "url": "https://en.wikipedia.org/wiki/Oecophylla_smaragdina"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
