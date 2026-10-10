@@ -17,13 +17,13 @@
       "src": "/country-img/kuku_yalanji/mitchell-river/sentinel-radar-2022.webp",
       "width": 1600,
       "height": 1021,
-      "alt": "A satellite radar image of a river system branching across a flat plain towards the coast",
-      "caption": "The lower Mitchell and its fan of channels seen by the Sentinel-1 radar satellite on 17 February 2022, in the wet season: the river Karma Waters sits at the top of, spread across the Gulf plains towards Kowanyama and the sea.",
+      "alt": "A false-colour satellite radar image with a dark winding river crossing a mottled plain",
+      "caption": "A stretch of the Mitchell seen by the Sentinel-1 radar satellite on 17 February 2022, in the wet season, winding dark across the Gulf plains below Karma Waters; the colours are radar returns, not the true colours of the country.",
       "kind": "photo",
       "credit": "Image: Monja Šebela / Sentinel Hub, containing modified Copernicus Sentinel data (2022), via Wikimedia Commons",
       "licence": "CC-BY-2.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitchell_River,_Australia_(51895202769).png",
-      "location": "Lower Mitchell River and delta, Gulf of Carpentaria"
+      "location": "Lower Mitchell River, Gulf plains"
     }
   ]
 }
