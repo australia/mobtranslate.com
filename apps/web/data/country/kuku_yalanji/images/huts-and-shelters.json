@@ -1,0 +1,75 @@
+{
+  "slug": "huts-and-shelters",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/huts-and-shelters/dome-frame.webp",
+      "width": 932,
+      "height": 550,
+      "alt": "A dome of thin saplings stuck in the ground and bent over into crossing hoops, before thatching",
+      "caption": "The frame of a beehive hut: switches stuck into the ground round the floor and bent over into crossing hoops. Roth's 'Northern Coast-line', the Bloomfield to Princess Charlotte Bay type.",
+      "kind": "photo",
+      "credit": "Photograph: W. E. Roth, North Queensland Ethnography Bulletin 16 (Records of the Australian Museum 8, 1910), Plate XVI fig. 1",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/records-australian-museum-8-055-066/page/n24",
+      "location": "Northern coast-line of Queensland, 1898–1900"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/huts-and-shelters/mitchell-huts.webp",
+      "width": 680,
+      "height": 480,
+      "alt": "Low bark-roofed platform huts on forked posts among river trees",
+      "caption": "Composite huts at the junction of the Palmer and Mitchell Rivers in 1899: sleeping platforms on forked posts, roofed with bark. The nearest old photograph of a house on the Mitchell. Cropped to the huts.",
+      "kind": "photo",
+      "credit": "Photograph: Sub-Inspector Garraway, 1899, in W. E. Roth, North Queensland Ethnography Bulletin 16 (1910), Plate XIII fig. 2",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/records-australian-museum-8-055-066/page/n18",
+      "location": "Junction of the Palmer and Mitchell Rivers, 1899"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/huts-and-shelters/grass-hut.webp",
+      "width": 1007,
+      "height": 603,
+      "alt": "A low rounded hut thickly thatched with grass, with a small dark entrance",
+      "caption": "A finished grass-thatched hut with its small entrance, at Normanton on the Gulf: the same dome under a different thatch.",
+      "kind": "photo",
+      "credit": "Photograph: W. E. Roth, North Queensland Ethnography Bulletin 16 (Records of the Australian Museum 8, 1910), Plate XIV fig. 1",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/records-australian-museum-8-055-066/page/n20",
+      "location": "Normanton, Gulf of Carpentaria"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/huts-and-shelters/leaf-dome.webp",
+      "width": 989,
+      "height": 484,
+      "alt": "A dome hut covered in leafy bushes with an arched doorway",
+      "caption": "A sapling-framed hut covered with bushes, in the north-west districts; the leaves go on from the top down.",
+      "kind": "photo",
+      "credit": "Photograph: W. E. Roth, North Queensland Ethnography Bulletin 16 (Records of the Australian Museum 8, 1910), Plate XVII fig. 1",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/records-australian-museum-8-055-066/page/n26",
+      "location": "North-west districts of Queensland"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/huts-and-shelters/bark-sheet.webp",
+      "width": 934,
+      "height": 762,
+      "alt": "A single sheet of bark propped on edge in sand with a stick",
+      "caption": "The simplest shelter: one sheet of bark fixed lengthways and edgeways in the ground.",
+      "kind": "photo",
+      "credit": "Photograph: W. E. Roth, North Queensland Ethnography Bulletin 16 (Records of the Australian Museum 8, 1910), Plate XIII fig. 1",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/records-australian-museum-8-055-066/page/n18"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/huts-and-shelters/bark-ridge.webp",
+      "width": 1063,
+      "height": 759,
+      "alt": "A sheet of bark bent over into a low tent shape on sand",
+      "caption": "A single bark sheet bent at the middle with its ends fixed in the soil: the bark tent of the dry country.",
+      "kind": "photo",
+      "credit": "Photograph: W. E. Roth, North Queensland Ethnography Bulletin 16 (Records of the Australian Museum 8, 1910), Plate XVI fig. 2",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/records-australian-museum-8-055-066/page/n24"
+    }
+  ]
+}

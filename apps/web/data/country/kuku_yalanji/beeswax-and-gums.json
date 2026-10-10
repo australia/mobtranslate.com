@@ -1,0 +1,198 @@
+{
+  "slug": "beeswax-and-gums",
+  "title": "Beeswax, gums and resins",
+  "category": "tool",
+  "names": [
+    {
+      "word": "yikari",
+      "gloss": "hardened beeswax, hardened with ironwood root juice"
+    },
+    {
+      "word": "nyumbirr",
+      "gloss": "wax made by bees"
+    },
+    {
+      "word": "jila",
+      "gloss": "beeswax"
+    },
+    {
+      "word": "kanunjul",
+      "gloss": "resin of grass tree, used to make pitch to seal spear bindings"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary names the cements directly: yikari, nyumbirr, jila, kanunjul, kulbawurr, jalnji, julnji. Roth (1904) recorded the Bloomfield names and preparation of brown-cedar gum, grass-tree gum (kannojo-ol = kanunjul), the kalbuwur cement (kulbawurr) and beeswax; Anderson (1996) lists the gums used at Bloomfield in the 1970s. Where the dictionary and Roth disagree about what yikari is, both are given."
+  },
+  "countryTypes": [
+    "rainforest",
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "Nothing in the old toolkit held together without cement. The [spear](entry:spear-and-woomera) point was bound and then sealed, the [axe](entry:axes-and-adzes) head was set in its haft, the woomera peg was fixed, the crack in a [trough](entry:bark-troughs) was mended and a broken twine was joined, all with **gums and resins** softened by heat, and with **beeswax**, **[nyumbirr](word:nyumbirr)** or **[jila](word:jila)**, from the [native bees](entry:native-bees) [ref:roth1904] [ref:hershberger1982] [ref:anderson1996]. Kuku Yalanji people had several: **[yikari](word:yikari)**, which the dictionary calls 'hardened beeswax, hardened with ironwood root juice' and Roth the traded resin of the *Canarium muelleri* tree; the gum of the brown cedar, baked and pounded between stones; **[kanunjul](word:kanunjul)**, the grass-tree resin for pitching spear bindings; **[kulbawurr](word:kulbawurr)**, the poisonous cypress-pine pitch once put on spear points; and the gum of the **[jalnji](word:jalnji)** tree, 'used for making spears' [ref:hershberger1982] [ref:roth1904]. Gum-cements were among the things the Bloomfield people made for trade [ref:roth1910]. Out west of here the cement was spinifex resin, pounded from the grass itself on a hot stone, and spinifex grows on the stony ridges near Karma Waters [ref:roth1904] [ref:ala-karma-plants].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "yikari; nyumbirr, jila (beeswax); kanunjul (grass-tree resin); kulbawurr (cypress-pine pitch); jalnji, julnji (spear gums)"
+    },
+    {
+      "label": "Beeswax",
+      "value": "Roasted in the rough, squeezed, then warmed and hammered; mixed with resin for axe hafts"
+    },
+    {
+      "label": "Brown-cedar gum",
+      "value": "Dry lumps off the tree, wrapped in leaves and baked or warmed, pounded between stones till soft"
+    },
+    {
+      "label": "Grass-tree gum",
+      "value": "Lumps among the roots; only needs heating"
+    },
+    {
+      "label": "Spinifex resin",
+      "value": "Grass broken up, pounded and rolled on a hot stone into a hard brown-black mass; the inland cement"
+    },
+    {
+      "label": "Tools",
+      "value": "Two stones to pound; an ironwood smoothing-board to level the hot gum on a spear"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Beeswax**: **[nyumbirr](word:nyumbirr)** 'wax made by bees' and **[jila](word:jila)** 'beeswax' (the same word means 'smell' and 'sweat') [ref:hershberger1982]. Roth's section on cements of animal origin records beeswax prepared across the north by 'roasting it in the rough over the fire, squeezing it a few times between the hands, and then alternately warming and hammering it' [ref:roth1904].\n\n**[yikari](word:yikari)**: the dictionary says 'hardened beeswax, hardened with ironwood root juice. The juice is extracted by heating and is used to make spears'. Roth, writing of the resin of *Canarium muelleri*, says it is 'known to the Bloomfield River natives as yikari, is largely traded and bartered'. The two may be describing one cement with two ingredients, or two things under one name; both are kept here [ref:hershberger1982] [ref:roth1904].\n\n**[kanunjul](word:kanunjul)**: 'resin of grass tree, used to make pitch to seal spear bindings'. Roth's Bloomfield names for the grass-tree gum are *tun-ja* and *kannojo-ol*, the second plainly the same word [ref:hershberger1982] [ref:roth1904]. See [grass tree](entry:grass-tree).\n\n**[kulbawurr](word:kulbawurr)**: 'the resin gum of the cypress pine which is poisonous. It was used on spears in the old days, the effect lasts about two hours'. Roth recorded a cement called *kalbuwur* 'obtained at the head of the Daintree River, from a tree in appearance something like the \"shea-oak\"', known by that name at Butcher's Hill and Cooktown too, 'but on the Bloomfield it is called chakki, the term applied to any gum' [ref:hershberger1982] [ref:roth1904].\n\n**[jalnji](word:jalnji)**: a poison-nut tree whose 'gum from this tree is not poisonous, used for making spears'; Roth's Bloomfield *t-chaln-ji* was the brown-cedar gum 'used for fixing together the haft and shaft of spears, and in the old days was employed for fixing the stone-celt into its handle' [ref:hershberger1982] [ref:roth1904]. **[julnji](word:julnji)** is 'tar from a tree used to make spears'; **[makul-makul](word:makul-makul)** 'tar, or something black as tar' [ref:hershberger1982].\n\n**Verbs and qualities**: **[janbangal](word:janbangal)** 'to glue or stick something, using pitch or glue'; **[janbay-manil](word:janbay-manil)** 'to stick or glue something to something'; **[kalkandiji](word:kalkandiji)** 'stuck, welded or glued together'; **[janbar](word:janbar)** 'sticky, also used for sticky honey'; **[nguyal](word:nguyal)** 'sticky (as honey)' [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "The cements, one by one",
+      "body": "**Brown-cedar gum** (*Canarium australasicum*, 'brown cedar' or 'Mackay cedar'). On the Bloomfield, Roth wrote, 'the dry lumps of gum are gathered off the tree ... and are either wrapped in leaves and baked, or just warmed before a fire, and then pounded between two stones till pliable and soft enough for use' [ref:roth1904]. Anderson: it fixed spear points and axe hafts; mixed with beeswax it set the stone head in its lawyer-cane handle [ref:anderson1996]. See [brown cedar](entry:brown-cedar).\n\n**Canarium muelleri resin**, Roth's *yikari*: 'in large tears', brittle, bright-fractured, melting easily and mouldable between the fingers; his chemist judged it 'would make an excellent cement'; 'largely traded and bartered' [ref:roth1904].\n\n**Grass-tree gum** (*Xanthorrhoea*): 'found as it is in lumps in amongst the roots, only requires heating before use'; the dictionary's *kanunjul*, for pitching spear bindings. Anderson's Bloomfield consultants thought it did not bond as well as the tree gums, and preferred ironwood root gum [ref:roth1904] [ref:hershberger1982] [ref:anderson1996].\n\n**Ironwood root gum**: scraped from the exposed roots of the [ironwood](entry:ironwood), tested first with a firestick to see whether the sticky coating would run, and the dictionary's hardener for yikari [ref:anderson1996] [ref:hershberger1982].\n\n**Kalbuwur / kulbawurr**: hard lumps, purplish-brown in the break and black outside, softening slightly in warm water and readily in the flame, where it 'runs quickly, and takes fire readily; when thus melted it can be readily moulded, and sets hard quickly'; the dictionary adds that it is poisonous and was put on spear points [ref:roth1904] [ref:hershberger1982].\n\n**Other gums**: *Canarium muelleri*, a forest she-oak (*Casuarina*), *Xanthorrhoea johnsonii* and *Grevillea striata* gums were 'widely used' at Bloomfield [ref:anderson1996]. The candlenut's oil was used to fix ochre on painted spears [ref:roth1904]. And one gum 'obtained from the inside of the hollow tree is roasted on the ashes and hammered: it is only used for the handle of the woomera to prevent it slipping from the hand' [ref:roth1904].\n\n**Spinifex resin** (*Triodia*), the cement of the inland: 'the plant is gathered in large quantities, broken up into small pieces with the fingers, and still further disintegrated and pounded with stones: the lump so formed is next rolled over and over, pounded upon a heated flattened stone, and so, with the sticky matter in it, rendered down into a dullish brown-black pasty mass, which, soon hardening, is put by for subsequent use. No water, wax, or other ingredients are utilised'. 'Remarkably hard and firm', it 'only requires heat to soften it again' and fixed stone flakes into their handles [ref:roth1904]. Spinifex is recorded on the stony ground near Karma Waters [ref:ala-karma-plants].\n\n**Beeswax**: roasted, squeezed, warmed and hammered; 'employed for sticking articles on the hair, fixing it up in throms, for mending fibre-twine, cracks in water-carriers, etc.' [ref:roth1904]. **White clay** mended cracks in water-carriers in the Brisbane district and set rock-hard [ref:roth1904]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling the gums apart",
+      "body": "- **Beeswax** softens in the hand and smells of honey; it is the binder, rarely used alone on a tool [ref:roth1904].\n- **Brown-cedar gum** comes as dry lumps on the trunk and must be baked or warmed and pounded before it will work [ref:roth1904].\n- ***Canarium muelleri* resin** comes in big brittle tears with a glassy break, and melts easily [ref:roth1904].\n- **Grass-tree gum** is in lumps among the roots of the grass tree, reddish, and needs only heat [ref:roth1904].\n- **Kulbawurr** is black outside and purplish-brown inside, hard, and poisonous: do not use it on anything that touches food [ref:roth1904] [ref:hershberger1982].\n- **Spinifex resin** is brown-black, hard as rock, and made from grass rather than a tree [ref:roth1904].\n- **Bloodwood kino**, the dark red sap of the [bloodwood](entry:bloodwood), is a medicine and a dye, not a cement."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- Lumps of gum on the trunk of a brown cedar; resin tears on a *Canarium muelleri*; red lumps in the butt of a grass tree [ref:roth1904].\n- A bee's nest hole in a tree, bee dung at the base; see [native bees](entry:native-bees) [ref:anderson1996].\n- On an old spear or axe, a smooth dark collar of cement over the binding, levelled with the smoothing-board [ref:roth1904].\n- The **smoothing-board** itself: 'a flat elongate thin piece of iron-wood ... 5 or 6 inches long', used by men to level the heated gum over a spear's binding, greased with sweat from the forehead before use, and found 'on the Bloomfield and Endeavour Rivers, along Princess Charlotte Bay, on the Palmer and Mitchell Rivers' [ref:roth1904]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the gums come from",
+      "body": "Brown cedar and *Canarium muelleri* are rainforest trees of the Bloomfield and Daintree country; grass trees grow on the stony ridges; [ironwood](entry:ironwood) is a tree of the open woodland and is recorded around the upper Mitchell; spinifex (*Triodia*) is on the stoniest ground near Karma Waters; and beeswax is wherever the bees are [ref:roth1904] [ref:ala-karma-plants] [ref:anderson1996]. The Bloomfield people exported 'several varieties of gum-cements' and red ochre, and took in stingray spears, shell ornaments and yellow ochre [ref:roth1910]."
+    },
+    {
+      "id": "ecology",
+      "heading": "What the cements hold together",
+      "body": "Gum and wax sit between almost every pair of materials in the toolkit: stone to cane in the [axe](entry:axes-and-adzes); barb to shaft and point to shaft in the [spear](entry:spear-and-woomera); peg to [woomera](entry:spear-and-woomera); bark to bark in a mended [trough](entry:bark-troughs); fibre to fibre in a mended [net](entry:nets); feather to hair and seed to hair in adornment; and ochre to wood when a spear was painted, fixed with candlenut oil [ref:roth1904] [ref:anderson1996]. They depend in turn on the bees, which depend on the blossom of the [woodland](entry:woodland); on the gum trees of the rainforest; on the [grass tree](entry:grass-tree); and on fire, since every cement is worked hot and the [firestick](entry:firestick) came first [ref:anderson1996] [ref:roth1904]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Beeswax came with the sugarbag season, the dry; gum lumps were gathered off the trees when found and kept, since all of them 'only require heat to soften' again; spear and axe work followed the materials, with the cane and timber cut after the storms [ref:anderson1996] [ref:roth1904]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- Setting the stone head in an axe haft: beeswax mixed with brown-cedar resin at Bloomfield [ref:anderson1996].\n- Sealing the binding of a spear's barb, prongs or point: grass-tree pitch (*kanunjul*), brown-cedar gum, or *yikari* [ref:hershberger1982] [ref:roth1904] [ref:anderson1996].\n- Fixing the woomera's peg; a special roasted gum to stop the handle slipping [ref:roth1904].\n- Mending twine and cracks in water-carriers with beeswax [ref:roth1904].\n- Poison on spear points, in the old days: *kulbawurr* [ref:hershberger1982].\n- Adornment: beeswax held seeds and small clay balls in the hair, and a cockatoo-crest head ornament, which the dictionary notes has ceremonial use and is left there [ref:anderson1996] [ref:hershberger1982].\n- Fixing paint: candlenut oil for ochre on spears [ref:roth1904].\n- Trade: gum-cements were a Bloomfield export [ref:roth1910]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Preparing and using a gum-cement",
+      "body": "From Roth's Bloomfield notes and Anderson's [ref:roth1904] [ref:anderson1996]:\n\n1. **Gather** dry lumps of brown-cedar gum off the trunk, or grass-tree gum from among the roots, or resin tears from a *Canarium muelleri*.\n2. **Soften.** Brown-cedar gum: wrap it in leaves and bake it in the ashes, or warm it before the fire. Grass-tree gum: heat only.\n3. **Pound it between two stones** until pliable; at Cooktown the stones were greased with the oily nut of *Calophyllum* so the gum did not stick [ref:roth1904].\n4. **For a harder cement, mix.** Beeswax (roasted, squeezed, warmed and hammered) with brown-cedar resin for an axe haft [ref:anderson1996]; or, by the dictionary's recipe, beeswax hardened with ironwood root juice extracted by heating [ref:hershberger1982].\n5. **Work it hot** round the binding or into the haft.\n6. **Level it with the smoothing-board**, a flat ironwood blade greased with sweat, twirling the spear in the other hand [ref:roth1904].\n7. **Let it set hard.** Any of these cements can be re-softened with heat to repair the tool [ref:roth1904].\n\n**Spinifex resin** (inland method): break the grass up small with the fingers, pound it with stones, roll and pound the lump on a heated flat stone until it renders down into a brown-black paste, and put it by to harden [ref:roth1904]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- *Kulbawurr*, the cypress-pine pitch, is poisonous and was used as a spear poison; keep it off food, skin and tools that touch either [ref:hershberger1982].\n- Hot gum burns like toffee and sticks; the smoothing-board was the tool for a reason [ref:roth1904].\n- Some of the resins 'take fire readily' in the flame [ref:roth1904].\n- The smoke of brown cedar is said at Bloomfield to cause blindness, so do not burn its wood as a cooking fire while you prepare its gum [ref:anderson1996]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "By the late 1970s and early 1980s, Bloomfield fishing spears still had their prong bindings covered with ironwood resin, or with car-battery 'tar', Araldite or asphalt: the job was the same and the material whatever was to hand [ref:anderson1996]. The trees, the bees and the grass trees are still on country; gathering gum and wax for your own use is part of the gathering right under section 211 of the *Native Title Act 1993* [ref:alrc] [ref:wyac2020]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[nyumbirr](word:nyumbirr)* 'wax made by bees'; *[jila](word:jila)* 'beeswax'; *[yikari](word:yikari)* 'hardened beeswax, hardened with ironwood root juice'; *[kanunjul](word:kanunjul)* 'resin of grass tree'; *[kulbawurr](word:kulbawurr)* 'the resin gum of the cypress pine which is poisonous'; *[jalnji](word:jalnji)* the tree whose gum is 'used for making spears'; *[julnji](word:julnji)* 'tar from a tree used to make spears'; *[makul-makul](word:makul-makul)* 'tar'; *[janbangal](word:janbangal)* 'to glue or stick something, using pitch or glue'; *[kalkandiji](word:kalkandiji)* 'stuck, glued together'; *[janbar](word:janbar)*, *[nguyal](word:nguyal)* 'sticky'; *[nganjirr](word:nganjirr)* 'grass tree'; *[jujabala](word:jujabala)* 'ironwood tree'; *[mandi-mandi](word:mandi-mandi)* 'honeycomb'; the bees *[dabu](word:dabu)* and *[kuja](word:kuja)* [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "native-bees",
+    "grass-tree",
+    "ironwood",
+    "spear-and-woomera",
+    "axes-and-adzes",
+    "bark-troughs",
+    "stone",
+    "firestick"
+  ],
+  "relatedWords": [
+    {
+      "word": "kulbawurr",
+      "gloss": "the resin gum of the cypress pine which is poisonous"
+    },
+    {
+      "word": "jalnji",
+      "gloss": "species of poison nut tree; gum from this tree is not poisonous, used for making spears"
+    },
+    {
+      "word": "julnji",
+      "gloss": "tar from a tree used to make spears"
+    },
+    {
+      "word": "janbangal",
+      "gloss": "to glue or stick something, using pitch or glue"
+    },
+    {
+      "word": "kalkandiji",
+      "gloss": "stuck, welded or glued together"
+    }
+  ],
+  "references": [
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "roth1910",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and Trade. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52863",
+      "locator": "Sects. 14–15, dug-out canoes from the Flinders Group to Cape Grafton"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

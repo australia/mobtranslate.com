@@ -1,0 +1,220 @@
+{
+  "slug": "huts-and-shelters",
+  "title": "Huts, shelters and camps",
+  "category": "tool",
+  "names": [
+    {
+      "word": "bayan",
+      "gloss": "house, camp, shelter"
+    },
+    {
+      "word": "warrbi",
+      "gloss": "house made of grass, \"beehive house\""
+    },
+    {
+      "word": "wurun",
+      "gloss": "humpy"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary's bayan 'house, camp, shelter' is the word Roth recorded as bayen for the hoop-framed hut at Cape Bedford, and warrbi 'beehive house' names the same dome. Roth's 1910 bulletin describes the Bloomfield and Cape Bedford huts and the ridge-pole and platform huts of the Palmer and Mitchell, with photographs; Anderson (1996) adds the Bloomfield materials and seasonal camps from fieldwork."
+  },
+  "countryTypes": [
+    "camp",
+    "rainforest",
+    "open-woodland",
+    "river-freshwater"
+  ],
+  "summary": "A **[bayan](word:bayan)** is 'house, camp, shelter', and the Kuku Yalanji house was the **[warrbi](word:warrbi)**, the 'beehive house' of grass: a dome of saplings stuck in the ground, bent over and tied into crossing hoops, thatched from the top down with leaves, grass or bark and weighed down with logs [ref:hershberger1982] [ref:roth1910-huts]. Roth, who recorded these huts from Cape Grafton to Princess Charlotte Bay in 1898–1900, photographed the frame and the finished house; his pictures are on this page [ref:roth1910-huts]. Where the Palmer meets the Mitchell, in the country the Western Yalanji share with their western neighbours, he photographed a different house: a sleeping platform on forked posts, roofed with bark, raised between six inches and three feet off the ground against the mosquitoes [ref:roth1910-huts]. At Bloomfield the dry-season camps were on the sandy beds of the smaller creeks and the wet-season camps on the ridges above the floods; house-building was normally women's work; the hut sapling of choice was Burdekin plum, the inland roof was palm leaf or messmate bark cut after the first storms, and a fire burned inside [ref:anderson1996] [ref:roth1910-huts]. This page covers the kinds of shelter, how the beehive hut was built, the bark and ridge-pole shelters of the dry country, where camps were put and why, and the words.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "bayan (house, camp, shelter); warrbi (beehive house); wurun (humpy); bira, kilili (windbreak); jiji (roof)"
+    },
+    {
+      "label": "Frame",
+      "value": "Flexible saplings stuck in the ground round the floor, bent over and tied into crossing hoops"
+    },
+    {
+      "label": "Thatch",
+      "value": "Leaves (lawyer vine, palm, cycad), blady grass or bark, laid from the top down and weighed with logs"
+    },
+    {
+      "label": "Size",
+      "value": "About 4–4½ feet high, oval floor, one or two entrances, fire inside in the cold"
+    },
+    {
+      "label": "Dry-country forms",
+      "value": "Bark sheet over a ridge-pole on forked posts; raised sleeping platforms (Palmer–Mitchell)"
+    },
+    {
+      "label": "Season",
+      "value": "Bark cut after the first storms; dry camps on creek sand, wet camps on ridges"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[bayan](word:bayan)** 'house, camp, shelter' is the general word; Roth recorded the hoop-framed hut at Cape Bedford as *bayen*, its hoops as *karar* and its doorway as *barkar*, 'mouth' [ref:hershberger1982] [ref:roth1910-huts]. **[warrbi](word:warrbi)** is the 'house made of grass, \"beehive house\"', and also an axe; **[wurun](word:wurun)** is 'humpy' [ref:hershberger1982]. **[bira](word:bira)** and **[kilili](word:kilili)** are both 'windbreak'; **[jiji](word:jiji)** is 'roof of house; the top of anything'; **[karrngka](word:karrngka)** 'a crack in a house'; **[dimbi](word:dimbi)** 'behind the house'; **[ngalkal](word:ngalkal)** 'outside' [ref:hershberger1982]. Materials: **[bajarr](word:bajarr)**, 'loya vine fern leaves, used in making mia-mia'; **[wanjakan](word:wanjakan)**, a ti-tree whose 'bark [is] also used for roof of house'; **[buyku](word:buyku)** [paperbark](entry:paperbark); the [stringybarks](entry:woodland) **[warka](word:warka)** and **[marbaji](word:marbaji)**; **[yulal](word:yulal)** 'board, plank' [ref:hershberger1982]. And **[balnji](word:balnji)**, 'camping out', which also means 'doing something right'; **[yamba-yamba](word:yamba-yamba)** 'household goods, collection of personal things'; **[kakarr](word:kakarr)** 'grass; blanket to lie on' [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "The kinds of shelter",
+      "body": "Roth set the shelters of North Queensland out from the simplest to the most built [ref:roth1910-huts]:\n\n- **The windbreak** (*bira*, *kilili*): bundles of grass, leafy switches or bloodwood boughs thrown down in a half circle round a sleeping hollow and a fire; or switches stuck upright in the ground and interwoven; or, on the lower Tully, a sapling tied at an angle to a tree with leafy switches leant against it [ref:roth1910-huts] [ref:hershberger1982].\n- **The single bark sheet**: one sheet set lengthways and edgeways in the ground, or bent over at the middle with its ends fixed in the soil. Simple, Roth notes, but it already needs tree-climbing, bark-stripping and tools [ref:roth1910-huts].\n- **The ridge-pole shelter** of the dry Peninsula: a ridge-pole on two forked uprights, very often pandanus, with a sheet or sheets of bark over it; then two ridge-poles; then cross-sticks over the poles to make a bunk to sleep on by night and shade under by day [ref:roth1910-huts].\n- **The sleeping platform**, five or six feet high, with a forked limb as a step and a smoky fire near, never under, it, against the mosquitoes; common in the hinterland of Princess Charlotte Bay, and at the **junction of the Palmer and Mitchell Rivers**, where Sub-Inspector Garraway told Roth the platform was fixed between six inches and three feet up and roofed over with bark into a raised house [ref:roth1910-huts].\n- **The dome hut**, the *warrbi*: along the coast from Cape Grafton through the Bloomfield River and Cape Bedford to Princess Charlotte Bay, saplings or switches are 'firmly stuck into the ground along the limits of the area to be enclosed, and then bent over and tied, not interlocked, so as to form a series of hoops crossing one another', strengthened with transverse and oblique pieces fixed in and out. At Cape Bedford five or six crossed hoops; at Princess Charlotte Bay more than a dozen. The thatch is 'bark, blady-grass, lawyer-vine, cycad- or palm-leaf according to the local vegetation', and 'certainly both on the Bloomfield River and at Cape Grafton, the leaves are invariably commenced with from the top, succeeding layers being placed from above down, heavy boughs or rather logs weigh them into position, the rain being kept out not so much owing to the arrangement of the leaves as to the quantity put on'. Height about four to four and a half feet, no floor excavation, a fire inside when built for winter, one or two entrances by the size of the household [ref:roth1910-huts].\n\nAnderson's Bloomfield informants in the 1970s said young saplings of the Burdekin plum were 'particularly favoured for hut construction, but that any flexible saplings would suffice'; for the inland huts, 'if palm leaves were unavailable, bark from the \"Messmate\" tree, *Eucalyptus tetrodonta*, was used'; and, citing McConnel, that house-building 'was normally the job of the woman' [ref:anderson1996]. The household rule Roth recorded on the Bloomfield: a man with one wife and a small family has a hut with one entrance; a bigger household has a larger hut, and the senior wife 'a separate entrance and separate fire to herself' [ref:roth1910-huts]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Which shelter for which weather",
+      "body": "- **Fine dry nights**: a windbreak and a fire, or nothing; Roth noticed that people who slept without a hut rose at first light [ref:roth1910-huts].\n- **Sudden rain**: the Boulia *winji-winji*, 'any temporary bough-shed for protection from rain should it suddenly come up', of light sticks, grass and bushes [ref:roth1910-huts].\n- **Cold season**: the dome hut with the fire inside, which is why it was 'built for winter-use' [ref:roth1910-huts].\n- **Mosquito country by the river**: the raised platform, with a smoky fire alongside [ref:roth1910-huts].\n- **The wet**: the big leaf-thatched dome on a ridge above the flood line, where Bloomfield people put their wet-season camps [ref:anderson1996].\n- **Bark or grass?** Bark where the stringybarks, messmate, boxwood and ironwood grow and the sap is up; blady grass and lawyer-vine or palm leaf in the rainforest; the Koko-minni of the middle Palmer used ironwood, teatree and messmate or boxwood bark [ref:roth1910-huts] [ref:anderson1996]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Camp sites.** At Bloomfield, dry-season camps 'were in the sandy beds of the smaller dry creeks or on the sandy terraces above the running creeks', and wet-season camps 'on the ridges between creek gullies, well above flood level, but not too far from water supplies' [ref:anderson1996]. The same logic picks a camp at Karma Waters today: sand and shade by the pool in the dry, the ridge in the wet.\n- **Scarred trees** where bark sheets were taken; see [bark troughs](entry:bark-troughs) [ref:roth1904].\n- **Sand thrown up** five or six inches round the base of a bark-thatched hut, to stop the bark springing out, leaves a low ring on the ground long after the hut is gone [ref:roth1910-huts].\n- **A sleeping hollow** ringed with old grass bundles was the simplest camp of all [ref:roth1910-huts].\n- **The old photographs** on this page show what to look for: the ring of switch-butts in the ground, the heavy logs on the thatch, the forked posts of a platform [ref:roth1910-huts]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Materials from the country",
+      "body": "**Frame**: flexible saplings, Burdekin plum preferred at Bloomfield; heavy saplings in the north-west; pandanus forks for ridge-pole uprights [ref:anderson1996] [ref:roth1910-huts]. **Thatch**: blady grass two and a half to three feet long; the leaves of lawyer vine and fan palm; cycad fronds; cabbage-tree palm; teatree bark; and in the dry country the barks of ironwood, messmate, boxwood and teatree [ref:roth1910-huts]. **Ties**: split cane [ref:roth1910-huts]. **Weights**: heavy boughs and logs [ref:roth1910-huts].\n\nAt [Karma Waters](place:karma-waters) the frame trees are the wattles and the river's saplings, the barks are on the [woodland](entry:woodland) and [paperbark](entry:paperbark) pages, blady grass is a wanted page, and the pandanus of the river banks gives the forked posts [ref:ala-karma-plants] [ref:roth1910-huts]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The camp in the country",
+      "body": "The camp was placed by water, shade, flood and mosquitoes, and moved with the seasons: the Bloomfield round ran between permanent beach camps and inland camps on the creeks, with the big dry-season processing camps of up to a hundred people beside the zamia creeks [ref:anderson1996]. Fire was 'a central part of domestic camp life', lit with the [firestick](entry:firestick), kept inside the dome hut in the cold, and burned smoky beside a platform for the mosquitoes [ref:anderson1996] [ref:roth1910-huts]. The hut's thatch came from the same plants as the [dilly bags](entry:dilly-bags) and [string](entry:string-and-twine), its bark from the same trees as the [troughs](entry:bark-troughs), cut with the same [axes](entry:axes-and-adzes) in the same storm season [ref:anderson1996] [ref:roth1904]. Snakes, [goannas](entry:goanna) and the small lizards of the leaf litter share any camp; the dictionary's *kulmba-kulmba* is 'gecko, small house lizard' [ref:hershberger1982]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Bark sheets for the inland huts 'were cut and peeled off the trees when the sap had arisen after the first storms in December', then 'pounded with stones and smoked with the fire until flat' [ref:anderson1996]. The dome hut was the winter house, built with its fire inside [ref:roth1910-huts]. Dry-season camps on the creek sand, wet-season camps on the ridges [ref:anderson1996]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "Shelter from rain, wind, cold and mosquitoes; shade by day; a place for the fire; and a place that tells who lives there, by its size and the number of its doors [ref:roth1910-huts]. The platform houses of the Palmer–Mitchell junction lifted sleepers off the wet ground and out of the mosquito layer [ref:roth1910-huts]. The boys' initiation hut was a much larger grass-thatched building, which this page leaves to the families concerned [ref:roth1910-huts]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Building the beehive hut",
+      "body": "From Roth's account of the coast from Cape Grafton to Princess Charlotte Bay, with the Bloomfield details, and Anderson's materials [ref:roth1910-huts] [ref:anderson1996]:\n\n1. **Mark the floor**: an oval, big enough for the household, no digging [ref:roth1910-huts].\n2. **Cut flexible saplings**, Burdekin plum if you have it, 'any flexible saplings' if not [ref:anderson1996].\n3. **Stick them firmly into the ground** round the edge of the floor, leaving a gap for the door, or two gaps for a big household [ref:roth1910-huts].\n4. **Bend each pair over and tie them**, not interlocked, into hoops that cross one another; five or six crossed hoops for a small hut, a dozen or more for a big one [ref:roth1910-huts].\n5. **Strengthen the dome** with pieces tied across and obliquely, in and out of the hoops [ref:roth1910-huts].\n6. **Start the thatch at the top.** On the Bloomfield the leaves 'are invariably commenced with from the top', each layer placed from above down, so the rain runs off every layer onto the one below [ref:roth1910-huts]. For grass thatch (lower Tully method): handfuls of blady grass laid butts-down against the frame all the way round, then a layer butts-up, both fixed with a split cane tied round the hut; then single rows fixed with cane as you go, spiralling up to the top; cap the top with teatree bark or palm leaves [ref:roth1910-huts]. For bark: a long sheet round the base, vertical sheets with their ends tucked into the frame over it, horizontal pieces on top [ref:roth1910-huts].\n7. **Put on plenty.** The rain is kept out 'not so much owing to the arrangement of the leaves as to the quantity put on' [ref:roth1910-huts].\n8. **Weigh it down** with heavy boughs or logs laid over the thatch; for bark, a log or two, and sand thrown up round the base [ref:roth1910-huts].\n9. **Light the fire inside** in the cold, and keep the door toward where you came from, as the Brisbane huts did [ref:roth1910-huts].\n\n**A dry-country bark shelter** (Peninsula and Palmer): two forked posts, pandanus if you can, a ridge-pole between, bark sheets over; add a second ridge-pole and cross-sticks and it becomes a bunk by night and shade by day [ref:roth1910-huts]. **A platform house** (Palmer–Mitchell junction): the bunk raised on longer forked posts, six inches to three feet up, enclosed with two more ridge-poles and roofed with bark [ref:roth1910-huts]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Camp above the high bank from November: a dry creek bed is a river within hours of a storm upstream [ref:anderson1996].\n- Not under dead limbs, which the fires and the cockatoos leave.\n- A fire inside a grass hut is how it was done, in winter, by people who tended it all night; a sleeping camp with a dry-grass thatch and a wind is how fires start [ref:roth1910-huts] [ref:qfd].\n- Snakes come to camps for the mice and frogs the camp attracts; see [snakes](entry:snakes).\n- Cutting bark from standing trees on the station is a matter for the lessee's permission; scarred trees are protected heritage [ref:acha2003] [ref:kw-about]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The station's river camps run from 1 April to 30 November, on the sand by the pools where the dry-season camps always were [ref:kw-camping] [ref:anderson1996]. Native title holders' right to camp on country is among the rights protected by section 211 of the *Native Title Act 1993* and recognised in the Western Yalanji determinations [ref:alrc] [ref:wyac2020]. Roth's photographs are the record of what the houses looked like; the knowledge of how to put one up is still in the hands that have done it, and the contribution box below is for that."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[bayan](word:bayan)* 'house, camp, shelter'; *[warrbi](word:warrbi)* 'beehive house'; *[wurun](word:wurun)* 'humpy'; *[bira](word:bira)*, *[kilili](word:kilili)* 'windbreak'; *[jiji](word:jiji)* 'roof'; *[karrngka](word:karrngka)* 'crack in a house'; *[dimbi](word:dimbi)* 'behind the house'; *[ngalkal](word:ngalkal)* 'outside'; *[bajarr](word:bajarr)* 'loya vine fern leaves, used in making mia-mia'; *[wanjakan](word:wanjakan)* ti-tree 'bark also used for roof of house'; *[yulal](word:yulal)* 'board, plank'; *[balnji](word:balnji)* 'camping out'; *[yamba-yamba](word:yamba-yamba)* 'household goods'; *[kakarr](word:kakarr)* 'grass; blanket to lie on'; *[jukar](word:jukar)* 'sand' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "bark-troughs",
+    "axes-and-adzes",
+    "paperbark",
+    "woodland",
+    "firestick",
+    "dilly-bags",
+    "string-and-twine",
+    "lawyer-cane",
+    "pandanus",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "bira",
+      "gloss": "windbreak"
+    },
+    {
+      "word": "kilili",
+      "gloss": "windbreak"
+    },
+    {
+      "word": "jiji",
+      "gloss": "roof of house; the top of anything"
+    },
+    {
+      "word": "bajarr",
+      "gloss": "loya vine fern leaves, used in making mia-mia"
+    },
+    {
+      "word": "wanjakan",
+      "gloss": "species of ti tree, used for bark painting. Bark also used for roof of house"
+    },
+    {
+      "word": "balnji",
+      "gloss": "camping out"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1910-huts",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 16: Huts and shelters. Records of the Australian Museum 8(1): 55–66, plates xi–xvii.",
+      "url": "https://archive.org/details/records-australian-museum-8-055-066"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "qfd",
+      "citation": "Queensland Fire Department. Fire permits: lighting fires in Queensland.",
+      "url": "https://fire.qld.gov.au/safety-education/using-fire-outdoors/lighting-fires-in-queensland"
+    },
+    {
+      "id": "acha2003",
+      "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), sections 23–25 (cultural heritage duty of care; harming, excavating, relocating or taking away Aboriginal cultural heritage).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-2003-079"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
