@@ -1,0 +1,72 @@
+{
+  "slug": "canoes",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/canoes/bloomfield-dugout.webp",
+      "width": 1354,
+      "height": 809,
+      "alt": "A long narrow dug-out canoe on a beach, with pairs of booms through the gunwale running out to a float",
+      "caption": "A Bloomfield River dug-out on the beach: the double booms pass straight through the gunwale and run down to the crossed pegs in the float. Roth's photograph, the only old picture of a Kuku Yalanji canoe on this page.",
+      "kind": "photo",
+      "credit": "Photograph: W. E. Roth, North Queensland Ethnography Bulletin 14 (Records of the Australian Museum 8, 1910), Plate VI fig. 2",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/records-australian-museum-8-001-019",
+      "location": "Bloomfield River, c. 1898–1900"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/canoes/boom-and-float.webp",
+      "width": 468,
+      "height": 527,
+      "alt": "Line drawing of two crossed pegs set into a float with the two halves of a double boom lashed above and below the crossing",
+      "caption": "How the boom meets the float at Cape Bedford: two pegs morticed into the float and crossed, with the two halves of the double boom lashed above and below the angle. The Bloomfield canoe was built the same way.",
+      "kind": "drawing",
+      "credit": "Drawing: W. E. Roth, North Queensland Ethnography Bulletin 14 (Records of the Australian Museum 8, 1910), fig. 13",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/biostor-52863"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/canoes/washboards.webp",
+      "width": 860,
+      "height": 310,
+      "alt": "Line drawing of a dug-out seen from the outrigger side with seven pairs of booms pegged through a side board down to the float",
+      "caption": "The Flinders-to-Endeavour type from the outrigger side: wash-boards lashed along the gunwale, with seven double booms pegged through them to the float. Bloomfield canoes had the booms but not the boards.",
+      "kind": "drawing",
+      "credit": "Drawing: W. E. Roth, North Queensland Ethnography Bulletin 14 (Records of the Australian Museum 8, 1910), fig. 12",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/biostor-52863"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/canoes/outrigger-dugout.webp",
+      "width": 950,
+      "height": 360,
+      "alt": "Line drawing of a dug-out with two booms and a float on each side and a lattice staging between the booms",
+      "caption": "The original double-outrigger dug-out of the Batavia (Wenlock) River, far to the north: two booms, a float each side and a central staging. Southward one float was dropped and the booms multiplied.",
+      "kind": "drawing",
+      "credit": "Drawing: W. E. Roth, North Queensland Ethnography Bulletin 14 (Records of the Australian Museum 8, 1910), fig. 10",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/biostor-52863"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/canoes/bark-vice.webp",
+      "width": 1010,
+      "height": 335,
+      "alt": "Line drawing of a folded sheet of bark with one end clamped upright between two tied switches",
+      "caption": "The Tully River bark canoe in its 'vice': the folded bark sheet clamped between two switches driven into the ground while the bow is cut and sewn. A neighbouring method; no bark canoe is recorded on Kuku Yalanji country.",
+      "kind": "drawing",
+      "credit": "Drawing: W. E. Roth, North Queensland Ethnography Bulletin 14 (Records of the Australian Museum 8, 1910), fig. 4",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/biostor-52863"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/canoes/three-sheet-bark.webp",
+      "width": 730,
+      "height": 200,
+      "alt": "Line drawing of a lens-shaped bark canoe with sewn seams and a stick across the middle",
+      "caption": "A three-sheet bark canoe of the Whitsunday Islands: one sheet for the bottom, two for the sides, sewn along the seams and held open with a cross-stick.",
+      "kind": "drawing",
+      "credit": "Drawing: W. E. Roth, North Queensland Ethnography Bulletin 14 (Records of the Australian Museum 8, 1910), fig. 9",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/biostor-52863"
+    }
+  ]
+}
