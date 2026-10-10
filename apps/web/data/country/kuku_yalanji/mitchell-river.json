@@ -1,0 +1,303 @@
+{
+  "slug": "mitchell-river",
+  "title": "The Mitchell River",
+  "category": "landform",
+  "names": [
+    {
+      "word": "wawubaja",
+      "gloss": "river"
+    },
+    {
+      "word": "yikin",
+      "gloss": "bank or river"
+    },
+    {
+      "word": "jalungkarr",
+      "gloss": "flood"
+    },
+    {
+      "word": "yarru",
+      "gloss": "deep water hole"
+    },
+    {
+      "word": "jukar",
+      "gloss": "sand"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The river Karma Waters stands on. The dictionary's river words are the coast's, and the Western Yalanji name for the Mitchell is not recorded in the sources used here."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "**[wawubaja](word:wawubaja)** is the river, **[yikin](word:yikin)** its bank, **[jalkar](word:jalkar)** 'high bank', **[yilki](word:yilki)** a creek, **[binda](word:binda)** 'fork in a tree or river', **[bada](word:bada)** 'down, down river, down hill', **[jalungkarr](word:jalungkarr)** the flood, **[kima-kima](word:kima-kima)** 'easy crossing of water, water isn't rushing as during a flood', **[yarru](word:yarru)** 'deep water hole', **[jukar](word:jukar)** the sand and **[wurrbal](word:wurrbal)** 'fog, mist rising from the river' [ref:hershberger1982]. The Mitchell 'rises on the Atherton Tableland about 50 kilometres northwest of Cairns and flows about 750 kilometres northwest across Cape York Peninsula from Mareeba to the Gulf of Carpentaria'; its catchment 'covers an area of 71,757 km²'; it 'has the state's largest discharge, at 11.3 million megalitres annually, but is intermittent and may be dry for part of the year'; and it 'is joined by 34 tributaries including the McLeod River, Hodgkinson River, St George River, Dry River, Little Mitchell River, Walsh River, Lynd River, Palmer River and Alice River' [ref:wiki-mitchell-river]. [Karma Waters](place:karma-waters) sits on its northern bank in the upper reach, where the St George comes in, below the Tableland headwaters and above the Walsh, the Lynd and the Palmer; 'the name joins \"karma\", for luck, to the waters of the Mitchell and the St George' [ref:kw-about]. Here it is a sand-bed river between rock bars of Hodgkinson Formation greywacke: 'in the wet season it is a wide, brown, fast river that spreads over its banks; in the dry it shrinks to a string of pools between banks of pale sand', and 'from about May to the first storms' it is 'a chain of pools joined by trickles or dry sand' [ref:kw-about] [ref:re9314]. Only about four per cent of the catchment's rain falls from May to October, so the river's year is the monsoon's: 'the rivers' waters \"pulse\" annually with monsoonal rains', joining the pools to the floodplain and the Gulf in the wet and cutting them off in the dry, and the fish, prawns and birds of every other page on this site live by that pulse [ref:griffith2021] [ref:wiki-mitchell-river] [ref:jardine2012]. Downstream it runs through the country of the Kokomini, the Olkola and Uw Oykangand, and the Kowanyama peoples at its delta, before the Gulf [ref:roth1909] [ref:wiki-nauclea] [ref:wiki-kowanyama].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "wawubaja (river); yikin (bank); jalkar (high bank); yilki (creek); binda (fork); bada (down river); jalungkarr (flood); kima-kima (easy crossing); yarru (deep water hole); dajali (deep water); yalkan (shallow water); yirri (running water); jukar (sand); wurrbal (river mist)"
+    },
+    {
+      "label": "Source and mouth",
+      "value": "Rises on the Atherton Tableland about 50 km north-west of Cairns; about 750 km to the Gulf of Carpentaria"
+    },
+    {
+      "label": "Size",
+      "value": "Catchment 71,757 km²; Queensland's largest discharge, 11.3 million megalitres a year; 34 tributaries"
+    },
+    {
+      "label": "At Karma Waters",
+      "value": "Upper reach on the northern bank at the St George junction; sand bed, rock bars, paperbark fringe; a chain of pools from about May to the first storms"
+    },
+    {
+      "label": "Below Karma Waters",
+      "value": "The Walsh, Lynd and Palmer come in; the Mitchell River Fan wetlands near Kowanyama; the delta and the Gulf"
+    },
+    {
+      "label": "Named",
+      "value": "By Ludwig Leichhardt on 16 June 1845 after Sir Thomas Mitchell"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[wawubaja](word:wawubaja)** 'river'; **[yikin](word:yikin)** 'bank or river'; **[jalkar](word:jalkar)** 'high bank'; **[yilki](word:yilki)** 'creek'; **[binda](word:binda)** 'shoulder; fork in a tree or river'; **[bada](word:bada)** 'down, down river, down hill'; **[jalungkarr](word:jalungkarr)** 'flood'; **[kima-kima](word:kima-kima)** 'easy crossing of water, water isn't rushing as during a flood'; **[yarru](word:yarru)** 'deep water hole'; **[dajali](word:dajali)** 'deep water'; **[yalkan](word:yalkan)** 'shallow water'; **[yirri](word:yirri)** 'running water'; **[bana](word:bana)** 'water'; **[yaral](word:yaral)** 'fresh water'; **[jukar](word:jukar)** 'sand'; **[wurrbal](word:wurrbal)** 'fog, mist rising from the river'; **[jirka](word:jirka)** 'spring' [ref:hershberger1982]. In English the river 'was named by Ludwig Leichhardt on 16 June 1845 after Sir Thomas Mitchell while he was on his overland expedition from Moreton Bay to Port Essington', and the Lynd 'was named in 1844 ... by Ludwig Leichhardt' on the same journey; the Palmer was named by William Hann in 1872 'after Arthur Hunter Palmer the Premier of Queensland' [ref:wiki-mitchell-river] [ref:wiki-lynd-river] [ref:wiki-palmer-river]. The Western Yalanji name for the Mitchell is for the contribution box below."
+    },
+    {
+      "id": "description",
+      "heading": "The river from the Tableland to the Gulf",
+      "body": "**The whole river.** 'The Mitchell River is a river in Far North Queensland, Australia. The river rises on the Atherton Tableland about 50 kilometres northwest of Cairns and flows about 750 kilometres northwest across Cape York Peninsula from Mareeba to the Gulf of Carpentaria. The river's watershed covers an area of 71,757 km². The Mitchell has the state's largest discharge, at 11.3 million megalitres annually, but is intermittent and may be dry for part of the year. Lake Mitchell is the main water storage facility on the river.' 'The Mitchell River and its tributaries have for a long time carved their way westwards through the rugged, weathered highlands of the Great Dividing Range, carrying away sediments to be deposited in the broad floodplains and wetlands of the Gulf Savannah country. The rivers' waters \"pulse\" annually with monsoonal rains, seasonally collecting water from across the local tropical rainforests in the highlands to the east; the wet sclerophyll forests in the central uplands; a variety of woodlands plus savannah in the western plains; annually flooding with freshwater, the tidal plains, wetlands, estuaries, and mangroves of the lower Mitchell and coastal plains.' 'Being a large river system, the Mitchell River may contain within its catchment one of Australia's most ecologically diverse aquatic systems consisting of a rich variety of both wet and dry tropical monsoonal habitats' [ref:wiki-mitchell-river].\n\n**The tributaries.** Above Karma Waters: the McLeod, the Hodgkinson and the St George, which joins at the station [ref:wiki-mitchell-river] [ref:kw-about]. Below it: the Walsh, which 'rise[s] in the locality of Watsonville on the Atherton Tableland' and 'discharges into the Mitchell River ... on the boundary of the localities of Gamboola and Wrotham', where Edward Palmer wrote his 1883 plant list; the Lynd, from 'the Forty Mile Scrub National Park in the Great Dividing Range', 'joined by twenty tributaries, descending 647 metres over its 323-kilometre course'; and the Palmer, whose 'headwaters ... were part of the territory of the Kuku Yalanji, Western Yalanji and Gugu Mini Aboriginal peoples', which 'descends 365 metres over its 327-kilometre course' to meet the Mitchell 'northeast of Staaten River National Park' [ref:wiki-walsh-river] [ref:palmer1883] [ref:wiki-lynd-river] [ref:wiki-palmer-river]. Then 'the Mitchell River Fan Aggregation, a 7,149-square-kilometre freshwater wetland area located approximately south east of Kowanyama, is fed by the Mitchell, Palmer and Lynd Rivers', and at the coast 'as the river approaches the Gulf, it splits into two watercourses around Wallaby Island' [ref:wiki-lynd-river] [ref:wiki-kowanyama].\n\n**At Karma Waters.** 'Karma Waters is a family-owned cattle station of about 45,000 ha on the northern side of the Mitchell River, about 200 km north-west of Cairns by road through Mount Carbine'; 'the country is dry open woodland on shaly and greywacke ridges, cut by a sandy, paperbark-lined river that keeps flowing through the dry season in most years'; 'the station names its river camps for exactly these pools', and the river camps close 'from 1 December to 1 April' [ref:kw-about] [ref:re9314] [ref:griffith2021]. The ridges are 'Hodgkinson Formation greywacke, siltstone and slate, and the river's bed is full of water-worn pebbles of it', the stone of the old axes; see [stone](entry:stone) and [axes and adzes](entry:axes-and-adzes) [ref:jcu-carbine] [ref:kw-about]. The [waterhole](entry:waterhole) page is the river's dry-season life in detail, and the [finding water](entry:finding-water) page its sand and soaks.\n\n**The people of the river.** The upper Mitchell and the Palmer headwaters are Western Yalanji country, held under the 1998 consent determination over the Karma Waters lease, 'the first consent determination of native title over a pastoral property in Australia' [ref:wyac2020] [ref:kw-about]. Roth's 1890s Koko-minni were 'the (middle) Palmer River' people, and the Leichhardt tree's names run west down the river through Pakanh, Uw Oykangand and Olkola country; at the delta, 'language groups associated with countries in the Kowanyama region are Yir Yoront, Yirrk Thangalkl, Koko Bera, Uw Oykangand, and Olkola', drawn into the Mitchell River Mission from 1916 and granted their land in trust in 1987 [ref:roth1909] [ref:wiki-nauclea] [ref:wiki-kowanyama].\n\n**The gold.** 'William Hann and geologist Norman Taylor found gold in a sandy bed of the' Palmer 'in 1872', and 'in 1873, access to the goldfields was established by Archibald Campbell MacMillan who led an expedition of 110 diggers, police and officials which blazed a trail from the port of Cooktown to the Palmer River'; the same article records that the expedition shot and 'hunted' Aboriginal people on the way, at the St George River among other places, and that a later inquiry found the diggers had acted in self-defence [ref:wiki-palmer-river]. The old workings of the Hodgkinson field are the cave bats' roosts now; see [flying foxes and bats](entry:flying-foxes-and-bats)."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "The parts of the river",
+      "body": "- **Headwaters**: the Tableland creeks, rainforest-fed, with the [platypus](entry:platypus) and the dam at Lake Mitchell [ref:wiki-mitchell-river].\n- **The upper reach** (Karma Waters): sand bed, rock bars, paperbark and red gum fringe, a chain of pools in the dry; the [freshwater crocodile's](entry:freshwater-crocodile) water, above the saltwater crocodile's 200 m contour [ref:kw-about] [ref:re9314] [ref:qld-crochabitat].\n- **The middle river**: the Walsh and Lynd junctions, Gamboola, the Gulf savannah [ref:wiki-walsh-river] [ref:wiki-lynd-river].\n- **The fan and the floodplain**: the 7,149 km² wetlands, magpie-goose and barramundi country [ref:wiki-lynd-river] [ref:jardine2012b].\n- **The delta**: Kowanyama, the two mouths, the mangroves and the [saltwater crocodile](entry:saltwater-crocodile) [ref:wiki-kowanyama].\n- **A creek** (*yilki*) and a **river** (*wawubaja*): the dictionary's distinction, and the St George is the creek-sized river that makes the station's junction [ref:hershberger1982] [ref:kw-about]."
+    },
+    {
+      "id": "signs",
+      "heading": "Reading the river",
+      "body": "- **Flood debris in the trees**: the last wet's height; *jalungkarr* [ref:hershberger1982].\n- **Mist at dawn** (*wurrbal*) in the cold dry [ref:hershberger1982] [ref:bom-palmerville].\n- **The chain of pools** and the dry sand between them from May; the deep holes at the bends and rock bars hold longest [ref:kw-about].\n- **Dead silver fish** on a late-dry pool: the oxygen is gone [ref:waterhole-temps] [ref:asfb2018-flinders].\n- **The first storms** muddy the pools and spread the fish [ref:kw-about] [ref:jardine2012].\n- **A line of white gums** across dry country: the river's and the creeks' course [ref:wiki-camaldulensis]."
+    },
+    {
+      "id": "habitat",
+      "heading": "What lives in it",
+      "body": "The [waterhole](entry:waterhole) page has the whole cast: [barramundi](entry:barramundi), [saratoga](entry:saratoga), [sooty grunter](entry:black-bream), [catfish](entry:catfish), [sleepy cod](entry:sleepy-cod), [spangled perch](entry:spangled-perch), [mouth almighty](entry:mouth-almighty), [the small fish](entry:archerfish-and-small-fish), [cherabin](entry:cherabin), [mussels](entry:mussels), [turtles](entry:freshwater-turtle), [eels](entry:eels), the [freshwater crocodile](entry:freshwater-crocodile), the [water birds](entry:water-birds) and the [rakali](entry:quolls-bandicoots-and-rats), with the [water lilies](entry:water-lilies) and [wild rice](entry:wild-rice-and-grass-seed) in its lagoons and the [river red gum](entry:river-red-gum), [paperbark](entry:paperbark) and [Leichhardt tree](entry:leichhardt-tree) on its banks [ref:ala-karma-river] [ref:re9314]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The pulse",
+      "body": "The Mitchell's research found what the river runs on: in the dry 'the river's food web rests on periphyton, the algae and biofilm growing on sand and rock in the sunlit shallows', the prawns graze it and the fish eat the prawns; in the wet the big fish 'feed mostly on floodplain food while the water is up' and come back to the pools carrying it; 'the Mitchell's fish are highly mobile, moving between pools, channel and floodplain whenever flows connect them'; and taking water out of the upper river 'shrinks the pools and cuts the connections that the fish and prawns depend on', so that 'the pools, the floodplain and the sea are one system joined by water' [ref:jardine2013] [ref:jardine2012b] [ref:jardine2012] [ref:crook2021]. In the late dry the pools 'get hot, low in oxygen and thick with algae', 'fish biomass fell as the pools contracted, from limited food and from predation', and the crocodiles hold the deep holes with the fish [ref:waterhole-temps] [ref:asfb2018-flinders]. The whole of the [year on country](entry:seasons) page is the river's pulse written out month by month."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Wet (December to April): 'a wide, brown, fast river that spreads over its banks', roads closed, river camps closed from 1 December to 1 April; early dry: the pools clear and rich; late dry: the pools at their smallest and hottest, barramundi closed from 7 October to 31 January on the Gulf rivers; the first storms: the river rises [ref:kw-about] [ref:kw-camping] [ref:bom-palmerville] [ref:qld-closed]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "What the river gives",
+      "body": "- **Water**: the chain of pools, the soaks in the sand; see [finding water](entry:finding-water) [ref:kw-about].\n- **Food**: every fish, prawn, mussel, turtle, lily and water bird on this site; see [waterhole](entry:waterhole).\n- **Stone**: the water-worn greywacke pebbles for axe heads; see [stone](entry:stone) [ref:jcu-carbine].\n- **Camps**: the sandy terraces; see [camps and firewood](entry:camps-and-firewood) [ref:kw-about].\n- **Crossing and travel**: *kima-kima*, the easy crossing, and the [rafts](entry:rafts) and [canoes](entry:canoes) of the old river [ref:hershberger1982] [ref:roth1910].\n- **The station's living**: the river camps and the cattle on the river flats [ref:kw-camping] [ref:kw-cattle]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Living with the river",
+      "body": "1. **Know the season**: the river camps are closed in the wet and the barramundi from 7 October; the roads go with the first big storm [ref:kw-camping] [ref:qld-closed].\n2. **Read the pool before you use it**: crocodile slides, dead fish, the colour of the water; see [waterhole](entry:waterhole) and [Crocwise](entry:freshwater-crocodile) [ref:crocwise].\n3. **Cross only at the easy crossing**, *kima-kima*, and never a flooded one [ref:hershberger1982].\n4. **Camp on the terrace, not the bed**, and above the flood-line in the build-up; see [camps and firewood](entry:camps-and-firewood).\n5. **Take water from the upstream end** of a pool and clean fish at the downstream, away from the camp [ref:crocwise].\n6. **Leave the connections**: the pools, the floodplain and the Gulf are one system, and the river's health is the pools' [ref:crook2021] [ref:jardine2012]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Crocodiles in every deep pool, the freshwater one here and the saltwater one below the 200 m contour; see [Crocwise](entry:freshwater-crocodile) and [the saltwater crocodile](entry:saltwater-crocodile) [ref:crocwise] [ref:qld-crochabitat].\n- Floods: the wet-season river 'spreads over its banks' and a crossing that was easy in May is not in January [ref:kw-about] [ref:hershberger1982].\n- Late-dry pools can be foul; see [finding water](entry:finding-water) [ref:waterhole-temps].\n- Falling river red gum limbs over the camps [ref:wiki-camaldulensis]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The Mitchell at Karma Waters is Western Yalanji water under a pastoral lease, a cattle station's river camps, and the top of Queensland's biggest river; what happens to its upper pools runs down to Kowanyama and the Gulf [ref:wyac2020] [ref:kw-about] [ref:crook2021]. The Western Yalanji names for the river, its pools and its junctions are for the holders and the contribution box below."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[wawubaja](word:wawubaja)* 'river'; *[yikin](word:yikin)* 'bank'; *[jalkar](word:jalkar)* 'high bank'; *[yilki](word:yilki)* 'creek'; *[binda](word:binda)* 'fork in a river'; *[bada](word:bada)* 'down river'; *[jalungkarr](word:jalungkarr)* 'flood'; *[kima-kima](word:kima-kima)* 'easy crossing'; *[yarru](word:yarru)* 'deep water hole'; *[dajali](word:dajali)* 'deep water'; *[yalkan](word:yalkan)* 'shallow water'; *[yirri](word:yirri)* 'running water'; *[jukar](word:jukar)* 'sand'; *[wurrbal](word:wurrbal)* 'river mist'; *[bubu](word:bubu)* 'a person's Country' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "waterhole",
+    "finding-water",
+    "seasons",
+    "woodland",
+    "river-red-gum",
+    "paperbark",
+    "barramundi",
+    "freshwater-crocodile",
+    "saltwater-crocodile",
+    "camps-and-firewood",
+    "rafts",
+    "canoes",
+    "platypus"
+  ],
+  "relatedWords": [
+    {
+      "word": "binda",
+      "gloss": "shoulder; fork in a tree or river"
+    },
+    {
+      "word": "bada",
+      "gloss": "down, down river, down hill"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-mitchell-river",
+      "citation": "Wikipedia. Mitchell River (Queensland).",
+      "url": "https://en.wikipedia.org/wiki/Mitchell_River_(Queensland)"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "re9314",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.3.14 (Einasleigh Uplands): Melaleuca fringing woodland on channels and levees. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.3.14"
+    },
+    {
+      "id": "griffith2021",
+      "citation": "Stewart-Koster, B., O'Mara, K., et al. (2021). Critical water needs to sustain freshwater ecosystems and aquatic biodiversity in Queensland's Mitchell River. Griffith University / NESP Northern Australia Environmental Resources Hub.",
+      "url": "https://era.dpi.qld.gov.au/id/eprint/8432/1/Critical-water-needs-for-the-Mitchell-River-final-report.pdf"
+    },
+    {
+      "id": "jardine2012",
+      "citation": "Jardine, T. D., Pettit, N. E., Warfe, D. M., Pusey, B. J., Ward, D. P., Douglas, M. M., Davies, P. M. & Bunn, S. E. (2012). Consumer–resource coupling in wet–dry tropical rivers. Journal of Animal Ecology 81: 310–322. Mitchell River sites sampled in the early dry season.",
+      "url": "https://doi.org/10.1111/j.1365-2656.2011.01925.x"
+    },
+    {
+      "id": "roth1909",
+      "citation": "Roth, W. E. (1909). North Queensland Ethnography, Bulletin No. 13: Fighting weapons. Records of the Australian Museum 7(4).",
+      "url": "https://archive.org/details/biostor-52873",
+      "locator": "Sects. 10–11 spear-throwers (middle Palmer; Cape Bedford, Endeavour and Bloomfield rivers, Butcher's Hill)"
+    },
+    {
+      "id": "wiki-nauclea",
+      "citation": "Wikipedia. Nauclea orientalis (Leichhardt tree).",
+      "url": "https://en.wikipedia.org/wiki/Nauclea_orientalis"
+    },
+    {
+      "id": "wiki-kowanyama",
+      "citation": "Wikipedia. Kowanyama, Queensland.",
+      "url": "https://en.wikipedia.org/wiki/Kowanyama,_Queensland"
+    },
+    {
+      "id": "wiki-lynd-river",
+      "citation": "Wikipedia. Lynd River.",
+      "url": "https://en.wikipedia.org/wiki/Lynd_River"
+    },
+    {
+      "id": "wiki-palmer-river",
+      "citation": "Wikipedia. Palmer River (Queensland).",
+      "url": "https://en.wikipedia.org/wiki/Palmer_River"
+    },
+    {
+      "id": "wiki-walsh-river",
+      "citation": "Wikipedia. Walsh River.",
+      "url": "https://en.wikipedia.org/wiki/Walsh_River"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "jcu-carbine",
+      "citation": "Cheng, Y. et al. (2017). Geology and mineralization of the Mt Carbine tungsten deposit, northern Queensland. EGRU Contribution 69, James Cook University.",
+      "url": "https://researchonline.jcu.edu.au/54656/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "qld-crochabitat",
+      "citation": "Queensland Department of Environment. Estuarine crocodile population modelling, Appendix 8: defining estuarine crocodile habitat (inland limit set at the 200 m contour).",
+      "url": "https://environment.desi.qld.gov.au/__data/assets/pdf_file/0032/276773/appendix-8.pdf"
+    },
+    {
+      "id": "jardine2012b",
+      "citation": "Jardine, T. D., Pusey, B. J., Hamilton, S. K., Pettit, N. E., Davies, P. M., Douglas, M. M., Sinnamon, V., Halliday, I. A. & Bunn, S. E. (2012). Fish mediate high food web connectivity in the lower reaches of a tropical floodplain river. Oecologia 168: 829–838. Mitchell River.",
+      "url": "https://doi.org/10.1007/s00442-011-2148-0"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "waterhole-temps",
+      "citation": "The temperature regimes of dry-season waterholes in tropical northern Australia: potential effects on fish refugia (Flinders and Gilbert catchments). Freshwater Science.",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/681278"
+    },
+    {
+      "id": "asfb2018-flinders",
+      "citation": "Australian Society for Fish Biology conference 2018, poster: fish biomass and condition in isolated perennial waterholes of the Flinders River catchment, Queensland, through a dry season.",
+      "url": "https://asfb-2018.p.asnevents.com.au/days/2018-10-10/abstract/53604"
+    },
+    {
+      "id": "wiki-camaldulensis",
+      "citation": "Wikipedia. Eucalyptus camaldulensis (river red gum).",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_camaldulensis"
+    },
+    {
+      "id": "ala-karma-river",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: river animals and waterbirds.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "jardine2013",
+      "citation": "Jardine, T. D., Hunt, R. J., Faggotter, S. J., Valdez, D., Burford, M. A. & Bunn, S. E. (2013). Carbon from periphyton supports fish biomass in waterholes of a wet–dry tropical river. River Research and Applications 29: 560–573. Mitchell River.",
+      "url": "https://doi.org/10.1002/rra.2554"
+    },
+    {
+      "id": "crook2021",
+      "citation": "Crook, D. A., Keller, K., Adair, B. J. et al. (2021). Use of radiotelemetry to quantify diel habitat preferences and minimum environmental flow requirements of a tropical riverine fish (Sooty grunter Hephaestus fuliginosus). Ecohydrology 14: e2290.",
+      "url": "https://doi.org/10.1002/eco.2290"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "qld-closed",
+      "citation": "Queensland Department of Primary Industries. Closed seasons in fresh waters: barramundi (web page, accessed 5 October 2026).",
+      "url": "https://www.dpi.qld.gov.au/business-priorities/fisheries/closures/fresh/seasons"
+    },
+    {
+      "id": "roth1910",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and Trade. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52863",
+      "locator": "Sects. 14–15, dug-out canoes from the Flinders Group to Cape Grafton"
+    },
+    {
+      "id": "kw-cattle",
+      "citation": "Karma Waters Station. Cattle (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/cattle.html"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

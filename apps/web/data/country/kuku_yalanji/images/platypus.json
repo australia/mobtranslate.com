@@ -1,0 +1,17 @@
+{
+  "slug": "platypus",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/platypus/ornithorhynchus-anatinus-inat.webp",
+      "width": 1024,
+      "height": 911,
+      "alt": "Platypus, Ornithorhynchus anatinus, photographed in the wild near East Barron Queensland",
+      "caption": "Platypus (Ornithorhynchus anatinus), East Barron Queensland, 2021. Photograph by Tim on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Tim, via iNaturalist (observation 95959684)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/95959684",
+      "location": "East Barron Queensland"
+    }
+  ]
+}

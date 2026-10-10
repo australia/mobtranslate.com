@@ -1,0 +1,165 @@
+{
+  "slug": "platypus",
+  "title": "Platypus",
+  "category": "mammal",
+  "names": [
+    {
+      "word": "wambiji",
+      "gloss": "platypus"
+    }
+  ],
+  "scientificName": "Ornithorhynchus anatinus",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary has a word for the platypus. The Atlas has one record within 60 km of Karma Waters; the Mitchell's headwater streams on the Tableland are platypus water, and whether it comes down to the station's pools is not recorded."
+  },
+  "countryTypes": [
+    "river-freshwater"
+  ],
+  "summary": "**[wambiji](word:wambiji)** is the platypus [ref:hershberger1982]. 'The platypus is a semiaquatic, egg-laying mammal endemic to eastern Australia'; 'together with the four species of echidna, it is one of the five extant species of monotremes, mammals that lay eggs instead of giving birth to live young. Like other monotremes, the platypus has a sense of electrolocation, which it uses to detect prey in water while its eyes, ears and nostrils are closed. It is one of the few species of venomous mammals, as the male platypus has a spur on each hind foot that delivers an extremely painful venom' [ref:wiki-platypus]. 'It is culturally significant to several Aboriginal peoples, who also used to hunt it for food', 'the platypus was hunted for its fur, but since 1912 it has been a legally protected species in all states where it is found', and it is 'near threatened', with numbers 'fallen by about thirty percent on average since European settlement' [ref:wiki-platypus]. It 'requires permanent freshwater habitat', 'forages by probing along the bottom' for 'insect larvae, annelid worms, shrimp, crayfish' and the like, and lives in a burrow in the bank; the Atlas has one record within 60 km of [Karma Waters](place:karma-waters), and the clear headwater creeks of the [Mitchell](entry:mitchell-river) on the Tableland are its country, so a quiet pool at dawn on the upper river is worth watching [ref:wiki-platypus] [ref:ala-karma-60]. Its neighbour in the same water is the [rakali](entry:quolls-bandicoots-and-rats), which the old Darling River people thought the platypus was a cross with [ref:wiki-rakali] [ref:wiki-platypus].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "wambiji (platypus)"
+    },
+    {
+      "label": "Size",
+      "value": "Males average 50 cm and 1.7 kg, females 43 cm and 0.9 kg; smaller in the north"
+    },
+    {
+      "label": "Marks",
+      "value": "A duck's bill, a flat tail, webbed feet, dense brown fur; swims with alternate strokes of the front feet; a male's venomous ankle spur"
+    },
+    {
+      "label": "Food",
+      "value": "Insect larvae, worms, shrimp and crayfish, found by electrolocation along the bottom with eyes, ears and nose shut"
+    },
+    {
+      "label": "Home",
+      "value": "Permanent fresh water; burrows in the bank, the nursery burrow plugged with soil"
+    },
+    {
+      "label": "Status",
+      "value": "Protected since 1912; near threatened; one Atlas record within 60 km of Karma Waters"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[wambiji](word:wambiji)** 'platypus' [ref:hershberger1982]. The dictionary was made on the coast, where the platypus lives in the rainforest streams, and the word is a sign the animal was known; the Western Yalanji name is for the contribution box below. 'The platypus has been a subject in the Dreamtime stories of Aboriginal Australians, some of whom believed the animal was a hybrid of a duck and a water rat', and it 'is also featured as a totem for some Aboriginal peoples'; this page leaves the stories to the people who hold them [ref:wiki-platypus]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "'Male platypuses have an average length of 50 cm and weight of 1,700 g, while females are smaller with an average length of 43 cm and weight of 900 g. The species follows Bergmann's rule, with individuals being larger the farther south they are', so the north's are the small ones [ref:wiki-platypus]. 'The platypus has secondarily acquired electroreception. Its receptors are arranged in stripes on its bill, giving it high sensitivity to the sides and below; it makes quick turns of its head as it swims to detect prey'; 'the 40,000 electroreceptors are arranged in rows in the skin of the bill' [ref:wiki-platypus]. 'Its swimming style is unique among mammals, propelling itself by alternating strokes of each front foot, while the webbed hind feet and tail are used for steering' [ref:wiki-platypus]. 'Male platypuses are born with back ankle spurs ... The spurs of the male inject venom', 'composed largely of defensin-like proteins', 'an extremely painful venom' [ref:wiki-platypus]. 'The unusual appearance of this egg-laying, duck-billed, beaver-tailed mammal at first baffled European naturalists. In 1799, the first scientists to examine a preserved platypus body judged it a fake made of several animals sewn together' [ref:wiki-platypus].\n\n**Breeding.** 'Platypuses are seasonal breeders, with the more southerly populations breeding later in the year than those further north'; the female lays her eggs in a nursery burrow, and 'during incubation and weaning, the mother initially leaves the burrow only for short periods to forage. She leaves behind her a number of thin soil plugs along the length of the burrow; pushing past these on her return squeezes water from her fur and allows the burrow to remain dry' [ref:wiki-platypus].\n\n**Status.** 'The platypus was hunted for its fur, but since 1912 it has been a legally protected species in all states where it is found. Captive breeding programs have had slight success, and it is vulnerable to pollution, bycatching and climate change. It is classified as a near-threatened species by the IUCN, but a November 2020 report has recommended that it be upgraded to threatened species under the federal EPBC Act, due to habitat destruction and declining numbers in all states' [ref:wiki-platypus]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Platypus or rakali",
+      "body": "- **Platypus**: a flat bill, a flat broad tail, a low silhouette, dives with a roll and surfaces with a ring of ripples, chewing at the surface; no visible ears [ref:wiki-platypus].\n- **[Rakali](entry:quolls-bandicoots-and-rats)**: a rat's head and whiskers, a long round tail with a white tip, swims with its head up, eats on a rock [ref:wiki-rakali].\n- **[Freshwater turtle](entry:freshwater-turtle)**: a head on a neck, no wake.\n- **A swimming [brushtail possum](entry:possums)** or a [water python](entry:pythons): neither has a bill."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A ring of ripples at dawn or dusk** on a still pool, then a small brown back and a bill [ref:wiki-platypus].\n- **A burrow entrance** in a steep earth bank just above the water, under roots [ref:wiki-platypus].\n- **Clear, permanent water with insect larvae and shrimp** in it: the only water it lives in [ref:wiki-platypus].\n- **No sign at all** in the sand-bed pools of the late dry; it needs the permanent reaches."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "'The platypus is native to the freshwaters of eastern Australia, from Queensland to Tasmania'; 'the platypus is semiaquatic and requires permanent freshwater habitat' [ref:wiki-platypus]. On the Mitchell that is the Tableland headwaters and the permanent upper reaches; one Atlas record within 60 km of Karma Waters, and none within 30 [ref:ala-karma-60] [ref:ala-karma]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The bottom-feeder of the clear pools",
+      "body": "The platypus 'is a carnivore and forages by probing along the bottom. It feeds on insect larvae, annelid worms, shrimp, crayfish' and other small water animals, which it finds blind with the bill's electroreceptors [ref:wiki-platypus]. That is the same food the [small fish](entry:archerfish-and-small-fish), the [rakali](entry:quolls-bandicoots-and-rats) and the [turtles](entry:freshwater-turtle) take, in the same clear water, and the [cherabin](entry:cherabin) and the [mussels'](entry:mussels) beds are its hunting ground; the [freshwater crocodile](entry:freshwater-crocodile) and the [sea eagle](entry:eagles-and-hawks) are its dangers [ref:wiki-platypus]. Like the [echidna](entry:echidna) it lays eggs, 'one of the five extant species of monotremes' [ref:wiki-platypus] [ref:wiki-echidna]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The northern populations breed earlier in the year than the southern; the platypus keeps to the permanent pools through the dry and spreads with the wet; dawn and dusk are its hours all year [ref:wiki-platypus]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Food, once**: 'culturally significant to several Aboriginal peoples, who also used to hunt it for food' [ref:wiki-platypus].\n- **Fur, once**: hunted for its pelt until protected in 1912 [ref:wiki-platypus].\n- **A sign of clean, permanent water** today [ref:wiki-platypus]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Seeing a platypus",
+      "body": "1. **Choose a permanent, clear, quiet pool** with earth banks on the upper river or a Tableland creek, not a sand-bed pool of the late dry [ref:wiki-platypus].\n2. **Sit still before first light or at dusk** on the bank, downwind, and watch for the ripple-ring and the roll [ref:wiki-platypus].\n3. **Do not try to catch or handle one**: protected since 1912, and the male's spur is 'extremely painful' [ref:wiki-platypus].\n4. **Report it**: a platypus at Karma Waters would be a record worth having; the contribution box below is the place."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Protected wildlife under the *Nature Conservation Act 1992* and 'a legally protected species in all states' since 1912 [ref:qld-nca] [ref:wiki-platypus].\n- The male's ankle spurs inject a venom that causes severe pain; never pick one up [ref:wiki-platypus].\n- Its pools are crocodile pools; see [Crocwise](entry:freshwater-crocodile) [ref:crocwise].\n- Set nets and traps drown platypus, which is one reason set lines and nets are controlled; see [the law page](entry:law-hunting-and-fishing) [ref:wiki-platypus]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Whether the platypus lives in the Karma Waters pools or stays in the Tableland headwaters is an open question for the station's dawn watchers; the dictionary's word says the old people knew it [ref:ala-karma-60] [ref:hershberger1982]. The contribution box below is for a sighting."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[wambiji](word:wambiji)* 'platypus'; *[bana](word:bana)* 'water'; *[yarru](word:yarru)* 'deep water hole'; *[yikin](word:yikin)* 'bank' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "mitchell-river",
+    "waterhole",
+    "quolls-bandicoots-and-rats",
+    "echidna",
+    "freshwater-turtle",
+    "cherabin",
+    "freshwater-crocodile",
+    "seasons"
+  ],
+  "relatedWords": [],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-platypus",
+      "citation": "Wikipedia. Platypus (Ornithorhynchus anatinus).",
+      "url": "https://en.wikipedia.org/wiki/Platypus"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "wiki-rakali",
+      "citation": "Wikipedia. Rakali, the water-rat (Hydromys chrysogaster).",
+      "url": "https://en.wikipedia.org/wiki/Rakali"
+    },
+    {
+      "id": "ala-karma",
+      "citation": "Atlas of Living Australia. All occurrence records within 30 km of the Karma Waters homestead (16.618° S, 144.605° E), species facet, queried 5 October 2026 (4,053 records; 601 species).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.6179&lon=144.6047&radius=30"
+    },
+    {
+      "id": "wiki-echidna",
+      "citation": "Wikipedia. Short-beaked echidna.",
+      "url": "https://en.wikipedia.org/wiki/Short-beaked_echidna"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

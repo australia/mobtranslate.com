@@ -55,3 +55,4 @@ experiments/pdftomd/extract/tts/out_audio/
 __pycache__/
 *.py[cod]
 .env*
+tools/country/inat-fetch-log.jsonl
