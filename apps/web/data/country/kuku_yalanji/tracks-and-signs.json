@@ -1,0 +1,265 @@
+{
+  "slug": "tracks-and-signs",
+  "title": "Tracks, signs and scents: reading the ground",
+  "category": "technique",
+  "names": [
+    {
+      "word": "baral",
+      "gloss": "road, path, track, trail"
+    },
+    {
+      "word": "jina",
+      "gloss": "foot"
+    },
+    {
+      "word": "duburan",
+      "gloss": "directional sign, one placed in position, (not a motion), as a heap of stones or grass twisted to point the way"
+    },
+    {
+      "word": "balbi",
+      "gloss": "hunt for, search for"
+    },
+    {
+      "word": "nyumal",
+      "gloss": "to smell or taste"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary's words for track, foot, the placed direction sign, hunting and smell, and the warning birds; Roth's 1901 notes on how game was tracked, scented and located; and the signs collected on the animal and plant pages of this encyclopedia."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater",
+    "camp"
+  ],
+  "summary": "**[baral](word:baral)** is 'road, path, track, trail', **[jina](word:jina)** the foot, **[jinabu dungay](word:jinabu dungay)** 'to go by foot, to walk', **[balbi](word:balbi)** 'hunt for, search for', **[nyumal](word:nyumal)** 'to smell or taste', and **[duburan](word:duburan)** 'directional sign, one placed in position, (not a motion), as a heap of stones or grass twisted to point the way' [ref:hershberger1982]. The old hunting was mostly reading: Roth's Palmer and Princess Charlotte Bay hunters speared kangaroos 'being tracked from the windward, these animals having a very sensitive appreciation of the aboriginal's scent', and used the scent as a tool, throwing 'a spare spear well over its head into the ground beyond. This spear, having been well smeared with the perspiration from under the arm-pits or crutch, is thus fully charged with the concentrated essence of humanity: the wind carries the scent and drives the kangaroo from apparent into real danger' [ref:roth1901]. Possums were found 'by sight, provided of course the moon is up, or by dogs: during the day-time, the freshly-made claw-marks are looked for on the tree-butts', or by 'the presence of mosquitoes flying in and out of a hole'; the quoll 'is tracked not only by its claw-marks, but also by its scent, which is as strong-smelling as a pole-cat's'; dingo pups by following 'the tracks of the pups'; and honey 'during the winter time by watching carefully for the minute pellets of dung lying on the ground around the butt; in the summer months by observing the bees going in and out of their nest' [ref:roth1901]. This page gathers the signs from every page of this encyclopedia into one walk: what the sand, the mud, the trees, the birds and the smells say at [Karma Waters](place:karma-waters), and the dictionary's warning birds, **{W('kurrujuwa')}**, the 'sentry bird which warns of crocodiles along the banks of the river', **{W('dabuy')}**, the kingfisher that means company, and **{W('jukujuku')}**, the bronzewing calling alone [ref:hershberger1982].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "baral (track, trail); jina (foot); jinabu dungay (to walk); balbi (hunt for, search); nyumal (to smell, taste); jila (smell, sweat); jila-burra (bad smell); bikarr (fishy smell); kabu (rotten smell); duburan (placed direction sign); yanja (a rustling); ngingkirr (a grunt); kurrujuwa (crocodile sentry bird); dabuy (the kingfisher of visitors); jukujuku (bronzewing warning); mala-minya, jurru-walay (good hunter)"
+    },
+    {
+      "label": "Best ground",
+      "value": "River sand at first light, mud at the water's edge, dust on the roads, ash after a burn"
+    },
+    {
+      "label": "Roth's methods",
+      "value": "Track from the windward; the sweat-smeared spear thrown beyond; claw-marks on the butts; mosquitoes at a hollow; bee dung at the butt; the dung and tracks of the pups"
+    },
+    {
+      "label": "The warning birds",
+      "value": "Kookaburras, magpies and butcherbirds scolding a snake; the sentry bird at the crocodile; kites over a fire or a kill; pigeons flying to water at evening"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[baral](word:baral)** 'road, path, track, trail'; **[jina](word:jina)** 'foot'; **[jinabu dungay](word:jinabu dungay)** 'to go by foot, to walk'; **[balbi](word:balbi)** 'hunt for, search for'; **[mala-minya](word:mala-minya)** 'good hunter', **[jurru-walay](word:jurru-walay)** 'expert, good shooter or hunter'; **[nyumal](word:nyumal)** 'to smell or taste'; **[jila](word:jila)** 'smell; sweat' (and 'beeswax'); **[jila-burra](word:jila-burra)** 'bad smell'; **[bikarr](word:bikarr)** 'fishy smell or taste'; **[kabu](word:kabu)** 'rotten, bad or rotten smell'; **[yanja](word:yanja)** 'rustling noise, as the wind blowing through trees or grass'; **[ngingkirr](word:ngingkirr)** a grunt, 'a pig coming'; **[duburan](word:duburan)** 'directional sign, one placed in position, (not a motion), as a heap of stones or grass twisted to point the way'; **[janku](word:janku)** 'hole in the ground'; **[kanka](word:kanka)** 'hole'; **[duli](word:duli)** 'burnt patch of grass'; **[jukar](word:jukar)** 'sand' [ref:hershberger1982]. The birds: **[kurrujuwa](word:kurrujuwa)** 'sentry bird which warns of crocodiles along the banks of the river'; **[dabuy](word:dabuy)** the small brown kingfisher: 'when this bird starts singing you know you will get company, that someone is travelling'; **[jukujuku](word:jukujuku)** the bronzewing: 'if the *jukujuku* sings out alone the people know that a stranger is coming or that someone may have died' [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "What the old hunters read",
+      "body": "**Wind and scent.** 'On the Palmer, Musgrave, and back of Princess Charlotte Bay generally ... kangaroos are speared, being tracked from the windward, these animals having a very sensitive appreciation of the aboriginal's scent. Sometimes, in order to make the marsupial approach into closer quarters, or else to get it out of some brush-wood, etc., so as to make surer of his aim and yet not to run the risk of exposing his presence, the hunter will throw a spare spear well over its head into the ground beyond. This spear, having been well smeared with the perspiration from under the arm-pits or crutch, is thus fully charged with the concentrated essence of humanity: the wind carries the scent and drives the kangaroo from apparent into real danger. (Wallabies are similarly hunted in these same districts.)' On the Pennefather the lone hunter 'will paint himself completely over with yellow ochre (with this pigment or earth rubbed well into his arm-pits, etc., so as to kill the smell of his perspiration), and make himself resemble an ant-bed' [ref:roth1901]. The Palmer is the next river north of Karma Waters.\n\n**Tracks and marks.** Kangaroos 'may be tracked and sneaked upon during the extreme midday heat, and caught while resting in the shade'; wallabies' 'accustomed tracks' were where the traps and nets went; dingoes: 'the tracks of the pups are followed'; possums: 'during the day-time, the freshly-made claw-marks are looked for on the tree-butts in the hollow trunk or branch of which the animal is camping. In the Rockhampton district it would appear that in the absence of claw-marks, the presence of mosquitoes flying in and out of a hole is a very likely indication of an opossum or native bear in an otherwise unsuspected tree. The ring-tailed spotted opossum — black with white spots — is tracked not only by its claw-marks, but also by its scent, which is as strong-smelling as a pole-cat's'; goannas go 'into one of its burrow-holes' and the burrow's sign is read on the [goanna](entry:goanna) page; bandicoots in burrows and logs were found with the beeswax-tipped [prodder](entry:quolls-bandicoots-and-rats) that 'picks up any opossum- or bandicoot-fur' [ref:roth1901] [ref:roth1904].\n\n**Honey.** 'To learn where the honey is, bees may be hunted by sight ... Its locality in the particular tree is tracked, during the winter time by watching carefully for the minute pellets of dung lying on the ground around the butt; in the summer months by observing the bees going in and out of their nest, and on occasion by putting the ear down to some natural orifice at the base of the tree and listening for the insects' hum and buzz. The trunk is often tapped lightly with the fingers, or with a stone, for indications of a hollow core — a likely situation for a nest. On the (middle) Palmer the insect may be caught in the open, when its body will be smeared with iguana or snake-fat, and some hawks', etc., feather-down stuck on: it is then let loose and followed home' [ref:roth1901]. See [native bees](entry:native-bees).\n\n**Water animals.** On the Cardwell coast 'very good indications of' dugong 'are the short lengths of grass, which have been bitten off by the dugong grazing below, floating on the water-surface'; see [dugong](entry:dugong) [ref:roth1901]. The dictionary's *kurrujuwa* is the river's crocodile sentry [ref:hershberger1982].\n\n**The placed sign.** The dictionary's *duburan*, 'a heap of stones or grass twisted to point the way', is the sign one person leaves for another, and the [finding water](entry:finding-water) page has Leichhardt's fenced water-hole and Roth's wells as the other kind of placed sign [ref:hershberger1982] [ref:roth1901]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Tracks in the sand",
+      "body": "The river sand at first light is the book. From the animal pages:\n\n- **Wallaby and wallaroo**: two long hind feet side by side, a tail drag between in soft sand; a bounding gap between sets; see [wallaby](entry:wallaby) [ref:wiki-antilopine].\n- **Dingo**: a dog's track with claws, in a straight line along the road or the sand; the pups' small tracks near the den; see [dingo](entry:dingo-and-dogs) [ref:wiki-dingo] [ref:roth1901].\n- **Pig**: cloven, blunt, the dew-claws showing, and the rooting and wallows beside; see [pigs](entry:pigs) [ref:qld-feral-pig].\n- **Cattle**: bigger cloven tracks and the dung; **horse**: the round shoe.\n- **Goanna**: a wide-legged walk with a tail line between and claw marks; see [goanna](entry:goanna).\n- **Crocodile**: a belly slide with the feet either side and the tail furrow, down a bank into the water; see [Crocwise](entry:freshwater-crocodile) [ref:crocwise].\n- **Turtle**: a short wide drag up a sandbank to a nest; see [freshwater turtle](entry:freshwater-turtle).\n- **Echidna**: a wandering line of small tracks with a tail drag, to a dug-out ant nest; see [echidna](entry:echidna) [ref:wiki-echidna].\n- **Bandicoot**: small tracks ending in a conical dig with a snout hole; see [quolls and bandicoots](entry:quolls-bandicoots-and-rats) [ref:wiki-bandicoot].\n- **Rakali**: webbed hind prints and a tail line at the water's edge, and the shell heap on a rock [ref:wiki-rakali].\n- **Birds**: the bustard's big three-toed walk on the flat, the brolga's at the lagoon, the pigeons' and finches' little lines to the water in the evening; see [bustard](entry:bustard) and [pigeons](entry:pigeons-and-doves) [ref:wiki-bronzewing].\n- **Snake**: a smooth winding furrow with no feet, into a hole; see [snakes](entry:snakes) [ref:healthdirect-snakebite].\n- **People**: *jina*, the foot [ref:hershberger1982]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs on the trees, the ground and the water",
+      "body": "- **Claw-marks on a tree butt**, fresh and pale: a possum's hollow above; **mosquitoes at a hole**: the same [ref:roth1901].\n- **Bee dung at a butt in winter, bees at a hole in summer, a hum at the base**: honey; see [native bees](entry:native-bees) [ref:roth1901].\n- **Chewed hollow entrances** and a head looking out: parrots or kookaburras nesting; see [cockatoos](entry:cockatoos-and-parrots).\n- **Split bloodwood fruit** under a tree: black cockatoos; see [bloodwood](entry:bloodwood).\n- **Mud tubes** up a trunk: termites; see [termites and ant beds](entry:termites-and-ant-beds) [ref:wiki-magnetic-termite].\n- **A bower with white bones and glass**: the bowerbird; see [bush birds](entry:bush-birds) [ref:wiki-bowerbird].\n- **A line of white gums across dry country**: a creek; a green gully in the dry: a spring; see [finding water](entry:finding-water) [ref:wiki-camaldulensis].\n- **Rooted-up ground** at the water: pigs; **a neat deep hole**: a goanna; **a conical dig**: a bandicoot; **a torn-open ant bed**: an echidna [ref:qld-feral-pig] [ref:wiki-echidna] [ref:wiki-bandicoot].\n- **Mussel shells and prawn claws on a rock**: a rakali's table; **shells under a perch**: a kingfisher's [ref:wiki-rakali] [ref:wiki-azure-kingfisher].\n- **Silver fish dead on a pool**: the water is failing; see [the small fish](entry:archerfish-and-small-fish) [ref:wiki-bony-bream].\n- **Bitten grass floating** on the coast: dugong [ref:roth1901].\n- **Fresh scats**: fur and bone on a rise, a dingo; white-spotted on a ledge, a quoll [ref:wiki-quoll].\n- **Flood debris in the forks** and **a burnt patch**, *duli*: the year's record [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where to read",
+      "body": "The river sand and the mud margins of the pools, where everything that drinks writes its name; the dust of the station roads; the ash of a burn, which takes a track like snow; the tree butts for the climbers; the flats for the bustard and the pigeons; the rock piles for the quoll and the wallaby [ref:roth1901] [ref:wiki-quoll]. Early morning, with the sun low across the sand, is the hour; by midday the light flattens the tracks and the animals are in the shade, which was Roth's hour to sneak up on them [ref:roth1901]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The birds as sentries",
+      "body": "The woodland's birds watch for you: a [kookaburra](entry:kookaburras-and-kingfishers), magpie or butcherbird scolding one spot on the ground is a snake or a goanna; the [kites](entry:eagles-and-hawks) circling low and fast are a fire, high and slow a carcass or a dying pool; the small birds going silent is a goshawk; the pigeons and finches flying straight and low at four o'clock are going to water; the dictionary's sentry bird calls at the crocodile; the [sea eagle](entry:eagles-and-hawks) working a pool is working your fish [ref:wiki-laughing-kookaburra] [ref:wiki-whistling-kite] [ref:wiki-bronzewing] [ref:hershberger1982] [ref:wiki-sea-eagle]. At dusk the [flying foxes](entry:flying-foxes-and-bats) skimming show open water and the blossom they came from; the frogs calling show wet ground; the dictionary's *yanja*, the rustle in the grass, is the thing you do not see [ref:wiki-lrff] [ref:hershberger1982]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The dry is the tracking season: the sand bars are out, the animals are tied to the pools, and every night's traffic is written at the water by morning; the ash of the early-dry burns takes tracks like a page; the wet washes the book clean each night and brings the [frilled lizard](entry:lizards) and the frogs onto the ground [ref:roth1901] [ref:wiki-frilled-lizard]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Hunting**: reading where the game is, which way it went, how fresh, and coming at it from downwind [ref:roth1901].\n- **Safety**: the crocodile slide, the snake's furrow, the pig mob's wallows, the dingo's line; knowing what is at the water before you go to it [ref:crocwise] [ref:healthdirect-snakebite].\n- **Finding water, honey and fruit**: the gums, the bees' dung, the cockatoos' split fruit, the flying foxes' blossom [ref:wiki-camaldulensis] [ref:roth1901].\n- **Finding people**: the placed sign, *duburan*, and the visitor birds [ref:hershberger1982].\n- **Teaching**: the sand at the pool is the first lesson for a child on country."
+    },
+    {
+      "id": "how-to",
+      "heading": "A morning's reading at the pool",
+      "body": "1. **Go early**, with the sun behind you and low, so the tracks throw shadows; walk the sand along the water's edge, not through it [ref:roth1901].\n2. **Read the water's edge first** for the crocodile slide and the drag marks, and the mud for last night's drinkers; decide where you will and will not go in [ref:crocwise].\n3. **Age the tracks**: sharp edges and damp sand are hours old; crumbled edges, insect trails across them and leaves fallen in are days.\n4. **Follow one track** away from the water to its shade or its hole, from the windward side, as Roth's hunters did; a kangaroo's 'very sensitive appreciation' of scent means the wind decides [ref:roth1901].\n5. **Look up the tree butts** for fresh claw-marks and down at the butts for bee dung [ref:roth1901].\n6. **Listen**: the scolding bird, the grunt, the rustle; the dictionary has a word for each [ref:hershberger1982].\n7. **Leave a sign** for the next person if you go on: a twist of grass pointing the way, *duburan* [ref:hershberger1982].\n8. **Write it down** or photograph it: a tracks book of the station is the field guide this page cannot be."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- The track you most need to read is the crocodile's; see [Crocwise](entry:freshwater-crocodile) and [the saltwater crocodile](entry:saltwater-crocodile) [ref:crocwise].\n- A hole with a smooth furrow into it is a snake's; do not put a hand in; see [snakes](entry:snakes) [ref:healthdirect-snakebite].\n- A sow's and piglets' tracks together mean a sow nearby; see [pigs](entry:pigs) [ref:qld-feral-pig].\n- Tracking at midday in the late dry is heat-stroke country; *wawu-wulay* is 'thirsty; exhausted, tired' [ref:hershberger1982]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The Karma Waters sand bars print the night's traffic every morning of the dry, and the station roads carry the dingo's and the pig's lines; this page is the index to the signs on every other page [ref:roth1901]. The Western Yalanji tracking words and the names of the warning birds here are for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[baral](word:baral)* 'track, trail'; *[jina](word:jina)* 'foot'; *[jinabu dungay](word:jinabu dungay)* 'to walk'; *[balbi](word:balbi)* 'hunt for'; *[nyumal](word:nyumal)* 'to smell'; *[jila](word:jila)* 'smell, sweat'; *[jila-burra](word:jila-burra)* 'bad smell'; *[bikarr](word:bikarr)* 'fishy smell'; *[kabu](word:kabu)* 'rotten smell'; *[yanja](word:yanja)* 'rustling'; *[ngingkirr](word:ngingkirr)* 'grunt'; *[duburan](word:duburan)* 'placed direction sign'; *[kurrujuwa](word:kurrujuwa)* 'crocodile sentry bird'; *[dabuy](word:dabuy)* the visitor kingfisher; *[jukujuku](word:jukujuku)* the warning bronzewing; *[minya](word:minya)* 'meat, animal' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "finding-water",
+    "waterhole",
+    "wallaby",
+    "goanna",
+    "dingo-and-dogs",
+    "pigs",
+    "possums",
+    "native-bees",
+    "snakes",
+    "freshwater-crocodile",
+    "bush-birds",
+    "eagles-and-hawks",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "duburan",
+      "gloss": "directional sign, one placed in position, (not a motion), as a heap of stones or grass twisted to point the way"
+    },
+    {
+      "word": "kurrujuwa",
+      "gloss": "sentry bird which warns of crocodiles along the banks of the river"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "wiki-antilopine",
+      "citation": "Wikipedia. Antilopine kangaroo (antilopine wallaroo).",
+      "url": "https://en.wikipedia.org/wiki/Antilopine_kangaroo"
+    },
+    {
+      "id": "wiki-dingo",
+      "citation": "Wikipedia. Dingo.",
+      "url": "https://en.wikipedia.org/wiki/Dingo"
+    },
+    {
+      "id": "qld-feral-pig",
+      "citation": "Queensland Government (Business Queensland). Feral pig: restricted invasive animal (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/animals/invasive/restricted/feral-pig"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "wiki-echidna",
+      "citation": "Wikipedia. Short-beaked echidna.",
+      "url": "https://en.wikipedia.org/wiki/Short-beaked_echidna"
+    },
+    {
+      "id": "wiki-bandicoot",
+      "citation": "Wikipedia. Northern brown bandicoot (Isoodon macrourus).",
+      "url": "https://en.wikipedia.org/wiki/Northern_brown_bandicoot"
+    },
+    {
+      "id": "wiki-rakali",
+      "citation": "Wikipedia. Rakali, the water-rat (Hydromys chrysogaster).",
+      "url": "https://en.wikipedia.org/wiki/Rakali"
+    },
+    {
+      "id": "wiki-bronzewing",
+      "citation": "Wikipedia. Common bronzewing (Phaps chalcoptera).",
+      "url": "https://en.wikipedia.org/wiki/Common_bronzewing"
+    },
+    {
+      "id": "healthdirect-snakebite",
+      "citation": "healthdirect Australia (Australian Government). Snake bites: symptoms, first aid and the pressure immobilisation bandage (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/snake-bites"
+    },
+    {
+      "id": "wiki-magnetic-termite",
+      "citation": "Wikipedia. Magnetic termite (Amitermes meridionalis).",
+      "url": "https://en.wikipedia.org/wiki/Amitermes_meridionalis"
+    },
+    {
+      "id": "wiki-bowerbird",
+      "citation": "Wikipedia. Great bowerbird.",
+      "url": "https://en.wikipedia.org/wiki/Great_bowerbird"
+    },
+    {
+      "id": "wiki-camaldulensis",
+      "citation": "Wikipedia. Eucalyptus camaldulensis (river red gum).",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_camaldulensis"
+    },
+    {
+      "id": "wiki-azure-kingfisher",
+      "citation": "Wikipedia. Azure kingfisher (Ceyx azureus).",
+      "url": "https://en.wikipedia.org/wiki/Azure_kingfisher"
+    },
+    {
+      "id": "wiki-bony-bream",
+      "citation": "Wikipedia. Bony bream (Nematalosa erebi).",
+      "url": "https://en.wikipedia.org/wiki/Bony_bream"
+    },
+    {
+      "id": "wiki-quoll",
+      "citation": "Wikipedia. Northern quoll (Dasyurus hallucatus).",
+      "url": "https://en.wikipedia.org/wiki/Northern_quoll"
+    },
+    {
+      "id": "wiki-laughing-kookaburra",
+      "citation": "Wikipedia. Laughing kookaburra (Dacelo novaeguineae).",
+      "url": "https://en.wikipedia.org/wiki/Laughing_kookaburra"
+    },
+    {
+      "id": "wiki-whistling-kite",
+      "citation": "Wikipedia. Whistling kite (Haliastur sphenurus).",
+      "url": "https://en.wikipedia.org/wiki/Whistling_kite"
+    },
+    {
+      "id": "wiki-sea-eagle",
+      "citation": "Wikipedia. White-bellied sea eagle (Icthyophaga leucogaster).",
+      "url": "https://en.wikipedia.org/wiki/White-bellied_sea_eagle"
+    },
+    {
+      "id": "wiki-lrff",
+      "citation": "Wikipedia. Little red flying fox.",
+      "url": "https://en.wikipedia.org/wiki/Little_red_flying_fox"
+    },
+    {
+      "id": "wiki-frilled-lizard",
+      "citation": "Wikipedia. Frilled lizard (Chlamydosaurus kingii).",
+      "url": "https://en.wikipedia.org/wiki/Frilled_lizard"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

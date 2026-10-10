@@ -1,0 +1,201 @@
+{
+  "slug": "shields-swords-and-clubs",
+  "title": "Shields, swords, clubs and boomerangs",
+  "category": "weapon",
+  "names": [
+    {
+      "word": "kunjuri",
+      "gloss": "shield"
+    },
+    {
+      "word": "wakay",
+      "gloss": "wooden sword. the port douglas and rain forest people used them"
+    },
+    {
+      "word": "mirru",
+      "gloss": "club, nullanulla"
+    },
+    {
+      "word": "nala-nala",
+      "gloss": "waddy club"
+    },
+    {
+      "word": "wangal",
+      "gloss": "boomerang"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary names the shield, the wooden sword, two clubs and the boomerang. Roth described the Bloomfield shield and sword in 1898–1909 and the Mitchell River shield; Anderson summarised the Bloomfield evidence; examples are in the Australian Museum."
+  },
+  "countryTypes": [
+    "rainforest",
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "**[kunjuri](word:kunjuri)** is the shield, **[wakay](word:wakay)** the 'wooden sword. The Port Douglas and rain forest people used them', **[mirru](word:mirru)** the 'club, nullanulla', **[nala-nala](word:nala-nala)** the 'waddy club', and **[wangal](word:wangal)** the boomerang [ref:hershberger1982]. Roth, 1909: 'The Bloomfield weapon was somewhat more oblong and rectangular as compared with that of the Tully, and usually larger, such dimensions as three and a half by one and a half feet being not uncommon; it is, however, fast falling into disuse, and even so late as 1898 was only being occasionally manufactured by some of the very old men. The Bloomfield Natives called it *kún-juri*, and used to paint it with varying designs' [ref:roth1909]. Those are the big painted rainforest shields of the wet tropics, cut from the plank buttress of a fig and worked with fire and stone, and the Bloomfield was their northern limit on the coast [ref:roth1909]. On the Mitchell it was different: 'throughout the Peninsula no indigenous shield is to be met, the place of the weapon being taken by the broad-bladed spear-thrower, which, in the hands of a skilful fighter, can brush to the right or the left, as the case may be, any spear that may be thrown at him. On the Gulf Coast-line, the northernmost limit of the shield would appear to be the Mitchell River, where the weapon is more or less identical with the Normanton and North-West District pattern, in that it is made from a split timber and subsequently trimmed down into shape' [ref:roth1909]. The single-handed sword, 'from four and a half to five feet in length, and always used with the one hand stretched over the shoulder, the weapon hanging behind the back, and brought forward from above down with a more or less sudden jerk', 'used to be manufactured on the Bloomfield River, but now (1898) only occasionally by the old men', and 'the swords were sometimes used as fighting sticks', 'the shields were given to individuals for blocking spears during the formal trial' [ref:roth1909] [ref:anderson1996].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kunjuri (shield); wakay (wooden sword); mirru (club, nulla-nulla); nala-nala (waddy club); wangal (boomerang); balur, mirrba (spear-thrower, also used to ward off spears)"
+    },
+    {
+      "label": "Bloomfield shield",
+      "value": "Oblong, about 106 x 50 cm, cut from a tree's buttress flange, painted in varying designs; a few very old men still making them in 1898"
+    },
+    {
+      "label": "Mitchell River shield",
+      "value": "The northern limit on the Gulf side: an elongate oval of split timber, trimmed to shape, like the Normanton pattern, raddled with red and white bands"
+    },
+    {
+      "label": "Sword",
+      "value": "Single-handed, 108–150 cm by about 16 cm, split from a tree six inches through, handle bound with twine and beeswax; swung over the shoulder"
+    },
+    {
+      "label": "Clubs",
+      "value": "The nulla-nulla and the waddy; the boomerang known but not the returning kind in the north"
+    },
+    {
+      "label": "Where to see them",
+      "value": "Roth's Bloomfield shield and two swords are in the Australian Museum"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[kunjuri](word:kunjuri)** 'shield', Roth's *kún-juri*. **[wakay](word:wakay)** 'wooden sword. The Port Douglas and rain forest people used them'; Roth wrote that 'the Koko-yellanji Natives here call it *worran*', a word not in the dictionary. **[mirru](word:mirru)** 'club, nullanulla'; **[nala-nala](word:nala-nala)** 'waddy club'. **[wangal](word:wangal)** 'boomerang'. **[balur](word:balur)** 'spear thrower' and **[mirrba](word:mirrba)**, 'a wooden instrument to help throw spears more powerfully. This was used as an instrument of defence. After being found guilty, a man used to be given a woomera with which to ward off the spears thrown' [ref:hershberger1982] [ref:roth1909]. The fighting words: **[kuyan](word:kuyan)** 'war spear with quartz head', **[dajal](word:dajal)** 'fighting spear', **[murrangkal](word:murrangkal)** 'fighting spear (shovelhead), made from black palm', **[dikarra](word:dikarra)** 'war spear, has a stingray barb', **[mabarr](word:mabarr)** 'war', **[damaway](word:damaway)** 'fight with spears', **[nganya-burra](word:nganya-burra)** 'old time aboriginal trial. The one on trial has spears thrown at him. If he is able to dodge them, he goes free' [ref:hershberger1982]. In English, 'waddy comes from the Darug people of Port Jackson, Sydney' and 'nulla-nulla' and 'boomerang' are from the same region [ref:wiki-waddy] [ref:wiki-boomerang]."
+    },
+    {
+      "id": "description",
+      "heading": "The weapons and how they were made",
+      "body": "**The rainforest shield.** Roth's account of the Tully shield is the making of the whole type: 'the shield or *pi-kan* is made from *Ficus* ... It is cut from the tree on similar lines as the boomerang. A curved incision is made in the flange both above and below, and the spur next chipped about half-way through on either side along the lines required, and the piece then hammered or pushed out. Such shields are therefore not exactly oval, their shape on one edge depending upon the greater or less concavity of the flange. After this piece has been removed it is chipped away on both surfaces, except at the centres, which remain ... To the central boss on the front of the shield nothing more is done for the present, though it may subsequently be shaved down a little; into the projection at its future back, however, two longitudinal holes are chipped, these being united below by hot cinders, together constitute a handle at the end of the process. The weapon is then lightened ... then rubbed down with pumice stone, etc., and finally painted. In the designs of the patterns so depicted there is no meaning or interpretation ... as a rule, one man copies another's'. 'This manufacture of a shield from the flange of a tree extends southwards to below Cardwell, and northwards to the Bloomfield River, and is met with along the mountain ranges of the hinterland, e.g., Atherton' [ref:roth1909]. Then the Bloomfield: 'somewhat more oblong and rectangular as compared with that of the Tully, and usually larger, such dimensions as three and a half by one and a half feet being not uncommon; it is, however, fast falling into disuse, and even so late as 1898 was only being occasionally manufactured by some of the very old men. The Bloomfield Natives called it *kún-juri*, and used to paint it with varying designs. Although no shields are found on the Endeavour River and at Cape Bedford at the present day, the local Koko-yimidir Blacks speak of them as *gorndor-e*. Indeed, so far as the eastern coast-line is concerned, the Endeavour River must be regarded as the northerly limit of the weapon' [ref:roth1909]. Anderson: 'a shield collected by Roth is in the Australian Museum. Le Souef also describes a shield 3'8\" (110 cm) long by 1'4\" (40 cm) wide. Neither source gives any information on methods of manufacture or the woods used at Bloomfield' [ref:anderson1996] [ref:khan1993].\n\n**The Mitchell River shield.** 'Throughout the Peninsula no indigenous shield is to be met, the place of the weapon being taken by the broad-bladed spear-thrower ... On the Gulf Coast-line, the northernmost limit of the shield would appear to be the Mitchell River, where the weapon is more or less identical with the Normanton and North-West District pattern, in that it is made from a split timber and subsequently trimmed down into shape ... The Normanton District shields are usually decorated with red and white bands.' Roth's example 'measures three feet three and a half inches in length by one foot in width. It is a large and proportionately very elongate oval shield ... concavo-convex, convex externally ... Both surfaces are raddled, the outer decorated with three pipeclay and four dark-red narrow transverse bands at the centre, with a pipeclay panel occupying the whole of each apex. The handle or holdfast, on the inside, is of the ordinary pattern' [ref:roth1909]. Which of the two the Western Yalanji of the upper Mitchell carried, the rainforest plank from the east or the split-timber oval from the Gulf, the sources used here do not say.\n\n**The sword.** 'Single-handed swords are met with in the Cardwell and Bloomfield Districts. On the Lower Tully River this weapon, the *barkur*, is made from *Myrtus exaltata* ... Such a tree of about six inches in diameter is cut off at the butt and felled, the length required removed, and then split down the centre. A slab can then be taken from either half, and chipped to shape. The shape of weapon thus follows the shape of the tree, straight or bent; the straighter it is the more preferable it would appear to be. To make the handle a cut is made into either side of the slab, which is then split; fibre twine is finally wound round the handle and covered with beeswax. One edge is as a rule sharper than the other, but both edges can be used for cutting ... It is from four and a half to five feet in length, and always used with the one hand stretched over the shoulder, the weapon hanging behind the back, and brought forward from above down with a more or less sudden jerk; well directed, a blow from it can split a man's skull. This weapon used to be manufactured on the Bloomfield River, but now (1898) only occasionally by the old men' [ref:roth1909]. Anderson: 'this was from 3'3\" to 5' (108 cm – 150 cm) long and about 6\" (16 cm) wide ... Although older Kuku-Yalanji in the late 1970s knew of these two items and knew that they had been used at Bloomfield, no one had ever made one or seen one for at least 60 years. The swords were sometimes used as fighting sticks during the ritual head-hitting; the shields were given to individuals for blocking spears during the formal trial. There are two swords from Bloomfield in the Australian Museum collection' [ref:anderson1996] [ref:khan1993].\n\n**Clubs.** 'A waddy is a heavy pointed club constructed of carved hardwood timber'; 'waddies were used in hand-to-hand combat and were capable of splitting a shield. They could also kill or stun a prey. They could be used as projectiles or to make fire and make ochre. The waddies were sometimes used to punish those who broke Aboriginal law' [ref:wiki-waddy]. Anderson: at Bloomfield 'two disputing individuals taking turns to hit each other on the head with sticks' was one of the recognised forms of conflict; 'men used fighting sticks and women used their yam sticks. A fighting stick from Bloomfield River is in the Australian Museum collection', and 'there are several eyewitness accounts of women fighting using yam sticks' [ref:anderson1996] [ref:khan1993].\n\n**Boomerangs.** 'Various forms of boomerang-like designs were traditionally and in some cases are still used by some groups of Aboriginal Australians for hunting'; 'boomerangs were, historically, used as hunting weapons, percussive musical instruments, battle clubs, fire-starters, decoys for hunting waterfowl'; but 'the returning boomerang was unknown to Aboriginal peoples in most of the Northern Territory, all of Tasmania, half of South Australia and the northern parts of Queensland' [ref:wiki-boomerang]. The dictionary has *wangal*, and the [cockatoo](entry:cockatoos-and-parrots) and [pigeon](entry:pigeons-and-doves) pages have Roth's western hunters throwing a light boomerang into the flocks; at Bloomfield the children's 'boomerangs' were 'made from pandanus leaves', and the boomerang-shaped thing Roth collected there fourteen of was the spear-thrower [ref:hershberger1982] [ref:roth1901] [ref:anderson1996] [ref:mv].\n\n**The trial.** Anderson: 'physical conflict at Bloomfield took a number of forms including: (i) generalised fights of one group against another, often in the form of an ambush; (ii) two groups \"squaring off\" against each other in a formal fight; (iii) two disputing individuals taking turns to hit each other on the head with sticks; (iv) a formal \"trial by spear\" of one individual against a group with a grievance against him. With the first two forms, fighting spears and the curved woomeras were used ... In the \"trial\" the defendant was given the longer, straight spear thrower and he was allowed to block or deflect the spears thrown at him', which is the dictionary's *nganya-burra* and the *mirrba* given to the guilty man [ref:anderson1996] [ref:hershberger1982]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling the types",
+      "body": "- **Rainforest shield**: a big flat plank with a boss and a cut-in handle at the back, painted; the Bloomfield ones oblong, the Tully ones oval [ref:roth1909].\n- **Gulf shield**: a narrow elongate oval of split wood, concave inside, red and white bands [ref:roth1909].\n- **Sword**: a long flat slab, one edge sharper, a twine-and-beeswax grip [ref:roth1909].\n- **Nulla-nulla / waddy**: a heavy pointed hardwood club [ref:wiki-waddy].\n- **Fighting stick and yam stick**: see [digging sticks](entry:digging-sticks) [ref:anderson1996].\n- **Spear-thrower as shield**: the broad-bladed woomera of the Peninsula; see [spear and woomera](entry:spear-and-woomera) [ref:roth1909]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A fig with a buttress flange cut out** in an old scrub camp: a shield's tree [ref:roth1909].\n- **Pipeclay and red ochre** on a weapon: the Gulf raddle; see [red ochre](entry:red-ochre) [ref:roth1909].\n- **Museum labels**: Roth's Bloomfield shield and swords in the Australian Museum [ref:khan1993]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the wood came from",
+      "body": "The rainforest shield from the plank buttresses of the scrub figs and their like, on the Bloomfield and the ranges; the sword from a straight scrub tree 'about six inches in diameter'; the Gulf shield from split timber; the clubs and fighting sticks from the hard woods of the woodland, the [ironwood](entry:ironwood) and the wattles [ref:roth1909] [ref:wiki-waddy]."
+    },
+    {
+      "id": "ecology",
+      "heading": "A weapon's country",
+      "body": "Roth's map of the shield is a map of the trees: the plank shield stops where the rainforest's buttressed figs stop, at the Bloomfield and the Endeavour, and the split-timber shield comes up the Gulf side to the Mitchell; between them, on the Peninsula, the broad woomera did the shield's work [ref:roth1909]. Karma Waters sits at the meeting of the three."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The fights and the trials Anderson describes were held when the groups came together, at the big gatherings of the dry; the wood for a shield was cut when the figs were not in sap [ref:anderson1996] [ref:roth1909]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **The shield** to block spears, 'given to individuals for blocking spears during the formal trial', and in the group fights [ref:anderson1996].\n- **The sword** as a two-edged striking weapon and 'as fighting sticks' [ref:roth1909] [ref:anderson1996].\n- **The club** in hand-to-hand fighting, for finishing game, as a throwing stick and for law [ref:wiki-waddy].\n- **The boomerang** thrown into bird flocks in the west; the spear-thrower as both weapon and shield here [ref:roth1901] [ref:roth1909].\n- **Today**: the shield and sword as the Kuku Yalanji's own art object, painted 'with varying designs' that Roth could find no meaning in and that the makers copied and improved from one another [ref:roth1909]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Making a rainforest shield, after Roth",
+      "body": "This is Roth's Tully method, the same craft the Bloomfield shield came from [ref:roth1909]:\n\n1. **Find a fig** or similar scrub tree with a plank buttress, and mark on it the outline of the shield, about a metre by half a metre for the Bloomfield shape.\n2. **Cut a curved incision** across the flange above and below, chip the spur 'about half-way through on either side along the lines required', and hammer or push the slab out of the tree [ref:roth1909].\n3. **Thin the slab** on both faces with the stone adze, leaving a boss in the centre of the front and a block at the centre of the back; see [axes and adzes](entry:axes-and-adzes) [ref:roth1909].\n4. **Make the handle**: chip two holes lengthwise into the back block and burn them through to each other with hot cinders [ref:roth1909].\n5. **Lighten and smooth** the shield, rubbing it down with pumice or sandstone; see [stone](entry:stone) [ref:roth1909].\n6. **Paint it** with the ochres, pipeclay and charcoal in your own design; see [red ochre](entry:red-ochre) [ref:roth1909] [ref:anderson1996].\n\n**A sword**: fell a straight tree six inches through, split it down the centre, take a slab from one half and chip it to shape; cut into both sides at the handle end and split the grip, bind it with twine and cover the binding with beeswax [ref:roth1909]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety and respect",
+      "body": "- These are weapons; a sword blow 'can split a man's skull' [ref:roth1909].\n- The painted designs were each maker's own, and the old fights and trials belong to the old law; this page records the craft, not the practice [ref:roth1909] [ref:anderson1996].\n- Native plants are protected; taking a slab from a living fig is a big cut, and a dead fall or a station tree is the modern source [ref:qld-nca]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "No one at Bloomfield had made or seen a shield or sword 'for at least 60 years' by the 1970s, and the Karma Waters ridges are not fig country; the museum pieces and Roth's pages are the pattern for anyone who wants to make one again [ref:anderson1996] [ref:roth1909]. Whether the Western Yalanji carried the Gulf shield or the woomera is for the old people and the contribution box below."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kunjuri](word:kunjuri)* 'shield'; *[wakay](word:wakay)* 'wooden sword'; *[mirru](word:mirru)* 'club, nullanulla'; *[nala-nala](word:nala-nala)* 'waddy club'; *[wangal](word:wangal)* 'boomerang'; *[balur](word:balur)* 'spear thrower'; *[mirrba](word:mirrba)* the defensive woomera; *[kuyan](word:kuyan)* 'war spear with quartz head'; *[dajal](word:dajal)* 'fighting spear'; *[mabarr](word:mabarr)* 'war'; *[damaway](word:damaway)* 'fight with spears'; *[nganya-burra](word:nganya-burra)* 'old time aboriginal trial'; *[juwal](word:juwal)* 'yam or digging stick' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "spear-and-woomera",
+    "digging-sticks",
+    "axes-and-adzes",
+    "stone",
+    "red-ochre",
+    "beeswax-and-gums",
+    "fig",
+    "ironwood",
+    "black-palm"
+  ],
+  "relatedWords": [
+    {
+      "word": "mirrba",
+      "gloss": "a wooden instrument to help throw spears more powerfully. this was used as an instrument of defence."
+    },
+    {
+      "word": "nganya-burra",
+      "gloss": "old time aboriginal trial. the one on trial has spears thrown at him. if he is able to dodge them, he goes free."
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1909",
+      "citation": "Roth, W. E. (1909). North Queensland Ethnography, Bulletin No. 13: Fighting weapons. Records of the Australian Museum 7(4).",
+      "url": "https://archive.org/details/biostor-52873",
+      "locator": "Sects. 10–11 spear-throwers (middle Palmer; Cape Bedford, Endeavour and Bloomfield rivers, Butcher's Hill)"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "wiki-waddy",
+      "citation": "Wikipedia. Waddy (nulla-nulla).",
+      "url": "https://en.wikipedia.org/wiki/Waddy"
+    },
+    {
+      "id": "wiki-boomerang",
+      "citation": "Wikipedia. Boomerang.",
+      "url": "https://en.wikipedia.org/wiki/Boomerang"
+    },
+    {
+      "id": "khan1993",
+      "citation": "Khan, K. (1993). Catalogue of the Roth Collection of Aboriginal artefacts from north Queensland. Volume 1: Items collected from Archer River, Atherton, Bathurst Head, Bloomfield River and Butcher's Hill, 1897–1901. Technical Reports of the Australian Museum 10: 1–205.",
+      "url": "https://doi.org/10.3853/j.1031-8062.10.1993.69",
+      "locator": "Bloomfield River: 'Woven bag' E.14833; 'Non-folding oval frame fishing net' E.14959"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "mv",
+      "citation": "Museums Victoria Collections. Item X 94769: Ballur, spearthrower, Bloomfield River, East Cape York, Queensland, c.1880.",
+      "url": "https://collections.museumsvictoria.com.au/items/239263"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

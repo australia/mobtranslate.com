@@ -1,0 +1,274 @@
+{
+  "slug": "lizards",
+  "title": "Lizards: frilled lizard, dragons, skinks and geckos",
+  "category": "reptile",
+  "names": [
+    {
+      "word": "binanjal",
+      "gloss": "frill necked lizard"
+    },
+    {
+      "word": "bajabaja",
+      "gloss": "blue-tongue lizard"
+    },
+    {
+      "word": "jirabay",
+      "gloss": "ground lizard, larger than the blue-tongue lizard"
+    },
+    {
+      "word": "bilbil-bilbil",
+      "gloss": "gecko"
+    },
+    {
+      "word": "kulmba-kulmba",
+      "gloss": "gecko, small house lizard"
+    },
+    {
+      "word": "junbirr",
+      "gloss": "small lizard. common in leaves and grass before and during wet season, with reddish markings on head"
+    }
+  ],
+  "scientificName": "Chlamydosaurus kingii; Diporiphora australis; Tiliqua scincoides; Carlia, Ctenotus, Cryptoblepharus and Lygisaurus skinks; Gehyra, Heteronotia, Oedura and Lucasium geckos; Lialis burtonis",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary names the frilled lizard, the blue-tongue, a bigger ground lizard, two geckos and several small lizards. The Atlas records two dozen lizards within 30 km of Karma Waters and the frilled lizard and blue-tongue within 60 km."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "camp",
+    "river-freshwater"
+  ],
+  "summary": "**[binanjal](word:binanjal)** is the frill-necked lizard, **[bajabaja](word:bajabaja)** the blue-tongue, **[jirabay](word:jirabay)** a 'ground lizard, larger than the blue-tongue lizard', **[bilbil-bilbil](word:bilbil-bilbil)** and **[kulmba-kulmba](word:kulmba-kulmba)** the geckos, the second 'small house lizard', **[junbirr](word:junbirr)** a 'small lizard, common in leaves and grass before and during wet season, with reddish markings on head', **[dukul-mukul](word:dukul-mukul)** a 'small lizard with big head', **[jabil](word:jabil)** a 'scrub lizard', **[bajuy](word:bajuy)** a 'slippery lizard', **[wangku](word:wangku)** a 'small tree or wood goanna', and **[murrbun](word:murrbun)** another lizard [ref:hershberger1982]. The [goannas](entry:goanna) have their own page; this one is the rest, and there are a lot of the rest: within 60 km of [Karma Waters](place:karma-waters) the Atlas has more than a thousand records of one rainbow skink, three hundred of the Tommy roundhead dragon, two hundred and sixty of the native house gecko, two hundred each of the velvet gecko, Bynoe's gecko and a ground gecko, and a dozen more kinds of skink, twenty-four records of the frilled lizard and four of the blue-tongue [ref:ala-karma-60]. The frilled lizard 'grows to 90 cm from head to tail tip', 'is largely arboreal, spending most of its time in trees. Its diet consists mainly of insects', and 'is more active during the wet season, when it spends more time near or on the ground' [ref:wiki-frilled-lizard]. The skinks and geckos are the woodland's small change, the insect-eaters that feed the [kookaburras](entry:kookaburras-and-kingfishers), the butcherbirds, the [kestrel](entry:eagles-and-hawks), the [snakes](entry:snakes), the goannas and the [quoll](entry:quolls-bandicoots-and-rats), and the geckos on the homestead wall at night are the same native gecko 'frequently found at night on walls, floors, or windowpanes' [ref:wiki-gehyra-dubia] [ref:wiki-laughing-kookaburra]. Burton's legless lizard, thirty-three records, is the one that gets killed as a snake: it has 'visible ear holes, and remnant hind limbs', a fleshy tongue, and no venom [ref:wiki-burtons-legless].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "binanjal (frill-necked lizard); bajabaja (blue-tongue); jirabay (big ground lizard); bilbil-bilbil, kulmba-kulmba (geckos); junbirr, dukul-mukul, jabil, bajuy, murrbun (small lizards); wangku (small tree goanna)"
+    },
+    {
+      "label": "At Karma Waters (ALA, 60 km)",
+      "value": "Shaded-litter rainbow-skink (1,049), Tommy roundhead (313), native house gecko (261), litter skink Lygisaurus foliorum (257), Carlia vivax (232), Bynoe's gecko (197), box-patterned gecko (202), northern velvet gecko (201), fat-tailed gecko (176), Ctenotus zebrilla (149), Ctenotus spaldingi (139), metallic snake-eyed skink (94), Storr's monitor (59), Burton's legless lizard (33), frilled lizard (24), blue-tongue (4)"
+    },
+    {
+      "label": "Frilled lizard",
+      "value": "To 90 cm and 600 g; in the trees; insects; out in the wet, in the canopy in the dry; breeds late dry to early wet"
+    },
+    {
+      "label": "Blue-tongue",
+      "value": "About 60 cm and 1 kg; a ground omnivore of insects, snails, flowers and fruit; bears live young; hisses and shows the tongue"
+    },
+    {
+      "label": "Geckos",
+      "value": "Night insect-eaters on bark, rock and walls; no eyelids, they lick their eyes; drop the tail"
+    },
+    {
+      "label": "Danger",
+      "value": "None of them is venomous; the legless lizard is not a snake, but treat anything snake-shaped as one until you are sure"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[binanjal](word:binanjal)** 'frill necked lizard'. **[bajabaja](word:bajabaja)** 'blue-tongue lizard'. **[jirabay](word:jirabay)** 'ground lizard, larger than the blue-tongue lizard'. **[bilbil-bilbil](word:bilbil-bilbil)** 'gecko'; **[kulmba-kulmba](word:kulmba-kulmba)** 'gecko, small house lizard'. **[junbirr](word:junbirr)** 'small lizard. Common in leaves and grass before and during wet season, with reddish markings on head'. **[dukul-mukul](word:dukul-mukul)** 'species of small lizard with big head'. **[jabil](word:jabil)** 'scrub lizard'. **[bajuy](word:bajuy)** 'slippery lizard'. **[wangku](word:wangku)** 'small tree or wood goanna'. **[murrbun](word:murrbun)** 'species of lizard' (also 'scabies'). **[jimalili](word:jimalili)** 'mountain lizard', of which the [firestick](entry:firestick) page has the dictionary's note [ref:hershberger1982]. The dictionary has several more lizard words that belong to stories, and they are left in the dictionary."
+    },
+    {
+      "id": "description",
+      "heading": "The lizards of the upper Mitchell",
+      "body": "**Frilled lizard** (*Chlamydosaurus kingii*, *binanjal*), twenty-four records within 60 km. 'Its common names refer to the large frill around its neck, which usually stays folded against the lizard's body. The frilled lizard grows to 90 cm from head to tail tip and can weigh 600 g. Males are larger and more robust than females. The lizard's body is generally grey, brown, orangish-brown, or black in colour. The frills have red, orange, yellow, or white colours.' 'The frilled lizard is largely arboreal, spending most of its time in trees. Its diet consists mainly of insects and other invertebrates. It is more active during the wet season, when it spends more time near or on the ground, and is less observed during the dry season, during which it seeks shade in the branches of the upper canopy. It breeds in the late dry season and early wet season. The lizard uses its frill to scare off predators and display to other individuals' [ref:wiki-frilled-lizard].\n\n**Tommy roundhead** (*Diporiphora australis*), three hundred and thirteen records, the commonest dragon: a slim, pale, long-tailed lizard of the grass and low branches, 'a species of agama found in Australia and Papua New Guinea', with four other *Diporiphora* dragons in the list beside it [ref:wiki-tommy-roundhead] [ref:ala-karma-60].\n\n**Blue-tongue** (*Tiliqua scincoides*, *bajabaja*), four records. 'Most species of blue-tongued skinks are diurnal, ground-foraging omnivores, feeding on a wide variety of insects, gastropods, flowers, fruits, and berries' [ref:wiki-blue-tongue]. The eastern blue-tongue 'weighs approximately 1 kilogram and extends approximately 60 centimeters'; 'its blue tongue can be used to warn off predators. In addition to flashing its blue tongue, the skink hisses and puffs up its chest to assert dominance and appear bigger'; it 'is ovoviviparous', bearing live young, 'is not venomous or poisonous to humans', takes 'shelter among large objects on the ground like logs or rocks or among leaf litter', and spends 'mornings in the sun before looking for food' [ref:wiki-blue-tongue-eastern]. The dictionary's *jirabay*, 'larger than the blue-tongue', is probably one of the bigger skinks or a small goanna; the Atlas's Hosmer's skink, a spiny rock skink, has three records [ref:hershberger1982] [ref:ala-karma-60].\n\n**The geckos.** The **native house gecko** or dubious dtella (*Gehyra dubia*, *kulmba-kulmba*), two hundred and sixty-one records: 'a small gecko; its snout-to-vent length ranges up to 6 cm, and its tail length ranging up to 14 cm'; 'a dull gray-brown color' with dark spots; circular toe pads so that 'they can grip onto ceilings and glass windows'; 'these geckos also lack eyelids and have vertical eyes like most other gecko species. Therefore, they lick their eyes with their tongues rather than blinking'; 'their big eyes are about 350 times more sensitive than human eyes in the dark'; it 'can lose its tail as a mechanism for feigning injury'; 'mainly arboreal' in dry woodland, and 'frequently found at night on walls, floors, or windowpanes'. 'These geckos are often confused with the Asian common house gecko, which was introduced to Australia from Indonesia, but *G. dubia* has distinct rounded feet and quieter calls' [ref:wiki-gehyra-dubia]. **Bynoe's gecko** (*Heteronotia binoei*), one hundred and ninety-seven: 'a slender, long-tailed species which may grow to a total length of 11–12 cm'; 'slim toes which end with strong claws, but unlike many other gecko species, it does not have expandable toe pads'; 'small spine like ridges which run down the length of the back', the 'prickly gecko'; 'a terrestrial species, it takes shelter under all types of ground cover including leaves, logs, stumps, stones, termite mounds, loose bark at the base of trees, and animal burrows', and 'is often the most abundant reptile found in many arid areas' [ref:wiki-bynoes-gecko]. The **northern velvet gecko** (*Oedura castelnaui*), two hundred and one, and the northern spotted velvet gecko, thirty-five, are the big soft-skinned geckos under the loose bark of the ironbarks and on the rock; the box-patterned gecko (*Lucasium steindachneri*) and the fat-tailed gecko (*Diplodactylus conspicillatus*) live on the ground and in spider burrows; the ring-tailed gecko (*Cyrtodactylus mcdonaldi*), twenty-nine, is the big banded gecko of the rock piles [ref:wiki-velvet-gecko] [ref:ala-karma-60].\n\n**The skinks.** The shaded-litter rainbow-skink (*Carlia munda*), with over a thousand records, is the lizard of the leaf litter; four more *Carlia* rainbow skinks are in the list, the breeding males with orange flanks, which fits the dictionary's *junbirr* with its 'reddish markings on head' in the wet [ref:wiki-rainbow-skink] [ref:ala-karma-60] [ref:hershberger1982]. The **striped snake-eyed skink** (*Cryptoblepharus virgatus*), forty-five, and the metallic snake-eyed skink, ninety-four: 'a relatively small, flat-bodied skink of a silver-gray coloring. It has a distinct white stripe running along the body from the eye to the base of the tail. It typically grows to a snout-to-vent length of around 4 cm'; 'it lacks eyelids, instead having a translucent layer of scales covering its eyes similar to that of snakes'; 'an active little lizard, and if threatened will often play dead'; 'often be seen on vertical surfaces such as trees, fences, and walls' [ref:wiki-snake-eyed-skink]. The **comb-eared skinks** (*Ctenotus*), nearly three hundred records of two species: 'lizards in the genus *Ctenotus* are commonly called comb-eared skinks, a reference to the scales aligned near the ear. *Ctenotus* lizards are able to move very quickly, disappearing whilst being observed', and in the tropical north they account 'for 10–20% of the lizard species' [ref:wiki-ctenotus]. The litter skinks (*Lygisaurus*), the dwarf skinks (*Menetia*, *Pygmaeascincus*) and the fire-tailed skink (*Morethia*) are the tiny ones under the leaves [ref:ala-karma-60].\n\n**Burton's legless lizard** (*Lialis burtonis*), thirty-three records. A snake-shaped lizard that 'can swallow relatively large prey whole'; 'differences between legless lizards and snakes include the lack of venom glands in legless lizards, their inability to constrict prey, the presence of a fleshy tongue rather than a forked tongue, visible ear holes, and remnant hind limbs'; it is 'essentially' a legless gecko, with 'an elongated snout' and hinged teeth to grip the skinks it hunts [ref:wiki-burtons-legless]. Its cousin the excitable delma, ten records, is smaller and jumps [ref:ala-karma-60].\n\n**Roth.** The lizards Roth's people hunted were the goannas, and the [goanna](entry:goanna) page has his account; of the small ones he records only that on the lower Tully 'snakes are often hunted for in iguana burrows', and in the children's games the catching of lizards and 'iguanas by the tail, with the usual results' [ref:roth1901] [ref:roth1902]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling them",
+      "body": "- **Frilled lizard**: big, on a trunk with its frill folded, or standing up on its hind legs and running; the frill opens when it is cornered [ref:wiki-frilled-lizard].\n- **Dragons** (Tommy roundhead and the rest): rough-scaled, long-tailed, long-legged, head-bobbing on a stick or a rock by day [ref:wiki-tommy-roundhead].\n- **Skinks**: smooth, shiny, fast, under the leaves and on the logs; the rainbow skinks with orange breeding colours, the snake-eyed skinks flat on the trunks, the comb-eared skinks striped and gone before you look [ref:wiki-rainbow-skink] [ref:wiki-snake-eyed-skink] [ref:wiki-ctenotus].\n- **Blue-tongue**: big, slow, banded, a fat body and short legs; the tongue [ref:wiki-blue-tongue-eastern].\n- **Geckos**: soft skin, big eyes, out at night; pads on the house gecko, claws on Bynoe's [ref:wiki-gehyra-dubia] [ref:wiki-bynoes-gecko].\n- **Legless lizard or snake**: ear holes, a flat fleshy tongue, a wedge snout, tiny flap hind legs, a tail longer than the body: lizard. No ear holes and a forked tongue: [snake](entry:snakes), and stand back [ref:wiki-burtons-legless] [ref:healthdirect-snakebite].\n- **Goanna**: a forked tongue and a long neck; see [goanna](entry:goanna)."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Geckos on the wall at night** and their chirp: the insects are at the light [ref:wiki-gehyra-dubia].\n- **A rustle in the leaf litter** at midday: rainbow skinks [ref:wiki-rainbow-skink].\n- **A dragon on a fence post** bobbing its head [ref:wiki-tommy-roundhead].\n- **A kookaburra or butcherbird dropping on the ground**: a skink taken [ref:wiki-laughing-kookaburra].\n- **A frilled lizard flattened on a trunk** in the wet, and up in the canopy in the dry, which is why it is rarely seen then [ref:wiki-frilled-lizard].\n- **Shed gecko skins** under loose bark [ref:wiki-velvet-gecko]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they are",
+      "body": "The frilled lizard and the velvet geckos in the trees and under the bark of the [woodland](entry:woodland); the dragons on the open ground, sticks and rocks; the rainbow and litter skinks in the leaf litter under the trees; the snake-eyed skinks on the trunks, fences and the homestead walls; the ground geckos under logs, stones and termite mounds; the ring-tailed gecko and the rock skinks on the rock piles; the house gecko on the house [ref:wiki-frilled-lizard] [ref:wiki-bynoes-gecko] [ref:wiki-snake-eyed-skink] [ref:wiki-gehyra-dubia] [ref:ala-karma-60]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The small change of the woodland",
+      "body": "The lizards are the link between the insects and everything that eats meat: the skinks and geckos eat the ants, termites, moths and grasshoppers, the dragons and the frilled lizard the bigger insects, Burton's legless lizard the skinks, and all of them feed the [kookaburras](entry:kookaburras-and-kingfishers), 'lizards, insects, worms, snakes, mice', the butcherbirds, the [kestrel](entry:eagles-and-hawks), the [snakes](entry:snakes), the [goannas](entry:goanna), the [quoll](entry:quolls-bandicoots-and-rats) and the whistling spider in its burrow, whose diet includes 'geckos, skinks and frogs' [ref:wiki-laughing-kookaburra] [ref:wiki-burtons-legless] [ref:wiki-quoll] [ref:wiki-whistling-spider]. The day belongs to the skinks and dragons, the night to the geckos, which is why the house gecko's eyes are '350 times more sensitive than human eyes in the dark' [ref:wiki-gehyra-dubia]. The wet is the lizards' season: the frilled lizard comes down from the canopy, the rainbow skinks colour up and breed, and the dictionary's *junbirr* is 'common in leaves and grass before and during wet season' [ref:wiki-frilled-lizard] [ref:hershberger1982]. The cane toad takes their insects and their ground, and poisons the goannas and quolls that would have eaten both [ref:wiki-cane-toads]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The frilled lizard 'breeds in the late dry season and early wet season' and is out in the wet; the skinks breed with the rains; the blue-tongue basks in the cool mornings of the dry; the geckos are on the walls every warm night [ref:wiki-frilled-lizard] [ref:wiki-blue-tongue-eastern]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Food**: the goannas were the lizard that was eaten, and the dictionary's *jadi*, the sand goanna, had its own rule; see [goanna](entry:goanna) [ref:hershberger1982] [ref:roth1901]. The sources used here record no eating of the small lizards.\n- **A camp's insect control**: the geckos at the light and the skinks in the litter [ref:wiki-gehyra-dubia].\n- **A children's game**: catching lizards, 'with the usual results' when a goanna is caught by the tail [ref:roth1902].\n- **A sign of the season**: the frilled lizard down from the trees means the wet [ref:wiki-frilled-lizard]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Living with the lizards",
+      "body": "1. **Leave the geckos on the walls**; the native house gecko with its rounded feet is the one you want there, and it eats the mosquitoes [ref:wiki-gehyra-dubia].\n2. **Look at the tongue and the ears** before you kill a 'snake' in the woodpile; a legless lizard has ear holes and a fleshy tongue, and no venom [ref:wiki-burtons-legless]. If you cannot see, treat it as a snake [ref:healthdirect-snakebite].\n3. **A blue-tongue in the garden** eats the snails; it hisses and shows its tongue and bites hard if picked up, and lets go [ref:wiki-blue-tongue-eastern].\n4. **Watch the frilled lizard** from a distance in the wet, flattened on a trunk; it runs on two legs and opens the frill if you press it, which is the photograph, and stress for the lizard [ref:wiki-frilled-lizard].\n5. **Turn logs back** the way they lay; the skinks and geckos under them are the kookaburra's dinner and the woodland's insect-eaters [ref:wiki-bynoes-gecko]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- No Australian lizard here is venomous: the blue-tongue 'is not venomous or poisonous to humans' and the legless lizards have no 'venom glands' [ref:wiki-blue-tongue-eastern] [ref:wiki-burtons-legless]. A big lizard's bite still breaks the skin; wash it.\n- The snake you mistake for a legless lizard is the danger; see [snakes](entry:snakes) [ref:healthdirect-snakebite].\n- Native animals are protected wildlife in Queensland under the *Nature Conservation Act 1992*; native title holders hunting for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993*, recognised in the Western Yalanji determinations [ref:qld-nca] [ref:alrc] [ref:wyac2020]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The Karma Waters rock piles, ironbark trunks and homestead walls carry one of the richest lizard lists in the Atlas; the frilled lizard and the blue-tongue are the rare ones [ref:ala-karma-60]. Which skink is *junbirr* and which gecko *bilbil-bilbil* here is for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[binanjal](word:binanjal)* 'frill necked lizard'; *[bajabaja](word:bajabaja)* 'blue-tongue lizard'; *[jirabay](word:jirabay)* 'ground lizard, larger than the blue-tongue'; *[bilbil-bilbil](word:bilbil-bilbil)*, *[kulmba-kulmba](word:kulmba-kulmba)* 'gecko'; *[junbirr](word:junbirr)*, *[dukul-mukul](word:dukul-mukul)*, *[jabil](word:jabil)*, *[bajuy](word:bajuy)*, *[murrbun](word:murrbun)* small lizards; *[wangku](word:wangku)* 'small tree or wood goanna'; *[jadi](word:jadi)* 'sand goanna'; *[kakarr](word:kakarr)* 'grass'; *[jangka](word:jangka)* 'stone' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "goanna",
+    "snakes",
+    "kookaburras-and-kingfishers",
+    "bush-birds",
+    "quolls-bandicoots-and-rats",
+    "woodland",
+    "firestick",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "wangku",
+      "gloss": "small tree or wood goanna"
+    },
+    {
+      "word": "jabil",
+      "gloss": "scrub lizard"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "wiki-frilled-lizard",
+      "citation": "Wikipedia. Frilled lizard (Chlamydosaurus kingii).",
+      "url": "https://en.wikipedia.org/wiki/Frilled_lizard"
+    },
+    {
+      "id": "wiki-gehyra-dubia",
+      "citation": "Wikipedia. Dubious dtella, the native house gecko (Gehyra dubia).",
+      "url": "https://en.wikipedia.org/wiki/Gehyra_dubia"
+    },
+    {
+      "id": "wiki-laughing-kookaburra",
+      "citation": "Wikipedia. Laughing kookaburra (Dacelo novaeguineae).",
+      "url": "https://en.wikipedia.org/wiki/Laughing_kookaburra"
+    },
+    {
+      "id": "wiki-burtons-legless",
+      "citation": "Wikipedia. Burton's legless lizard (Lialis burtonis).",
+      "url": "https://en.wikipedia.org/wiki/Burton%27s_legless_lizard"
+    },
+    {
+      "id": "wiki-tommy-roundhead",
+      "citation": "Wikipedia. Tommy roundhead (Diporiphora australis).",
+      "url": "https://en.wikipedia.org/wiki/Diporiphora_australis"
+    },
+    {
+      "id": "wiki-blue-tongue",
+      "citation": "Wikipedia. Blue-tongued skink (Tiliqua).",
+      "url": "https://en.wikipedia.org/wiki/Blue-tongued_skink"
+    },
+    {
+      "id": "wiki-blue-tongue-eastern",
+      "citation": "Wikipedia. Eastern blue-tongued skink (Tiliqua scincoides scincoides).",
+      "url": "https://en.wikipedia.org/wiki/Eastern_blue-tongued_lizard"
+    },
+    {
+      "id": "wiki-bynoes-gecko",
+      "citation": "Wikipedia. Bynoe's gecko (Heteronotia binoei).",
+      "url": "https://en.wikipedia.org/wiki/Bynoe%27s_gecko"
+    },
+    {
+      "id": "wiki-velvet-gecko",
+      "citation": "Wikipedia. Northern velvet gecko (Oedura castelnaui).",
+      "url": "https://en.wikipedia.org/wiki/Oedura_castelnaui"
+    },
+    {
+      "id": "wiki-rainbow-skink",
+      "citation": "Wikipedia. Shaded-litter rainbow-skink (Carlia munda).",
+      "url": "https://en.wikipedia.org/wiki/Carlia_munda"
+    },
+    {
+      "id": "wiki-snake-eyed-skink",
+      "citation": "Wikipedia. Striped snake-eyed skink (Cryptoblepharus virgatus).",
+      "url": "https://en.wikipedia.org/wiki/Cryptoblepharus_virgatus"
+    },
+    {
+      "id": "wiki-ctenotus",
+      "citation": "Wikipedia. Ctenotus, the comb-eared skinks.",
+      "url": "https://en.wikipedia.org/wiki/Ctenotus"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "roth1902",
+      "citation": "Roth, W. E. (1902). North Queensland Ethnography, Bulletin No. 4: Games, sports and amusements. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 4 'Realistic games (animals)'"
+    },
+    {
+      "id": "healthdirect-snakebite",
+      "citation": "healthdirect Australia (Australian Government). Snake bites: symptoms, first aid and the pressure immobilisation bandage (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/snake-bites"
+    },
+    {
+      "id": "wiki-quoll",
+      "citation": "Wikipedia. Northern quoll (Dasyurus hallucatus).",
+      "url": "https://en.wikipedia.org/wiki/Northern_quoll"
+    },
+    {
+      "id": "wiki-whistling-spider",
+      "citation": "Wikipedia. Queensland whistling tarantula (Selenocosmia crassipes).",
+      "url": "https://en.wikipedia.org/wiki/Phlogius_crassipes"
+    },
+    {
+      "id": "wiki-cane-toads",
+      "citation": "Wikipedia. Cane toads in Australia: effects on native predators (goannas, snakes, freshwater crocodiles) and on dogs.",
+      "url": "https://en.wikipedia.org/wiki/Cane_toads_in_Australia"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

@@ -1,0 +1,280 @@
+{
+  "slug": "bites-and-stings",
+  "title": "Things that bite and sting",
+  "category": "insect",
+  "names": [
+    {
+      "word": "kamu",
+      "gloss": "mosquito"
+    },
+    {
+      "word": "diri-diri",
+      "gloss": "sandfly"
+    },
+    {
+      "word": "waja",
+      "gloss": "big yellow March fly"
+    },
+    {
+      "word": "karrkil",
+      "gloss": "red jumper ant. some people have gotten sick and vomited after being bitten by them."
+    },
+    {
+      "word": "murma",
+      "gloss": "small paper wasp, yellow in colour with a bad sting. its nest hangs in trees."
+    },
+    {
+      "word": "biringal",
+      "gloss": "scorpion"
+    },
+    {
+      "word": "birinjil",
+      "gloss": "centipede"
+    },
+    {
+      "word": "nyumbil",
+      "gloss": "leech"
+    },
+    {
+      "word": "malal",
+      "gloss": "spider and spider web"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary names the mosquito, two sandflies, three March flies, the jumper ants, the paper wasp, two hornets, the mud wasp, three scorpion words, the centipede, the leech, the spider and the fleas. The Atlas records the redback, the whistling spider, the giant centipede and the paper wasps within 60 km of Karma Waters."
+  },
+  "countryTypes": [
+    "camp",
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "The dictionary has a word for everything that bites in a camp: **[kamu](word:kamu)** the mosquito, **[diri-diri](word:diri-diri)** and **[munyurri](word:munyurri)** the sandfly, **[biray](word:biray)** the 'grey March fly', **[kamay](word:kamay)** the 'yellow March fly' and **[waja](word:waja)** the 'big yellow March fly', **[karrkil](word:karrkil)** the 'red jumper ant', of which 'some people have gotten sick and vomited after being bitten by them', **[ngalmnbu](word:ngalmnbu)** the jumper ant, **[murma](word:murma)** the 'small paper wasp, yellow in colour with a bad sting', **[mulma](word:mulma)** and **[wurrbu](word:wurrbu)** the hornets, **[wurrarr-wurrarr](word:wurrarr-wurrarr)** the mud wasp, **[biringal](word:biringal)**, **[manukurru](word:manukurru)** and **[munudumbun](word:munudumbun)** the scorpion, **[birinjil](word:birinjil)** the centipede, **[nyumbil](word:nyumbil)** the leech, **[malal](word:malal)** the spider, **[balarr](word:balarr)** the 'human body flea' and **[mindil](word:mindil)** the dog flea [ref:hershberger1982]. This page is the camp's first-aid order of those things, from the ones that kill to the ones that only itch, with the [snakes](entry:snakes), the [crocodiles](entry:saltwater-crocodile), the [bats](entry:flying-foxes-and-bats) and the [pigs](entry:pigs) on their own pages. The rule from healthdirect: 'most insects in Australia are not harmful to people'; 'the scorpions, centipedes and millipedes found in Australia are not venomous'; among the spiders 'funnel-web spiders and other big black spiders' are the dangerous ones, 'redback spiders' hurt but are 'not life-threatening', and 'all other spiders in Australia are generally harmless'; and the thing that actually kills is allergy, since 'allergies to insect stings are one of the most common causes of anaphylaxis' [ref:healthdirect-insect-bites] [ref:healthdirect-spider]. On the Mitchell the other killer is slow: Ross River virus, 'the most common mosquito-borne disease in Australia', 'more common in the tropical areas of Queensland', carried inland by the *Culex annulirostris* mosquitoes of the lagoons, for which 'there is no vaccine' and whose joint pain can last months [ref:healthdirect-ross-river] [ref:wiki-ross-river].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kamu (mosquito); diri-diri, munyurri (sandfly); biray, kamay, waja (March flies); karrkil, ngalmnbu (jumper ants); murma (paper wasp); mulma, wurrbu (hornets); wurrarr-wurrarr (mud wasp); biringal, manukurru, munudumbun (scorpion); birinjil (centipede); nyumbil (leech); malal (spider); balarr (body flea); mindil (dog flea)"
+    },
+    {
+      "label": "At Karma Waters (ALA, 60 km)",
+      "value": "Redback spider (5), Queensland whistling spider (5), giant centipede (3), paper wasps Ropalidia romandi (5) and Polistes (4), March fly Tabanus (1), paralysis tick not recorded (a coastal species)"
+    },
+    {
+      "label": "Call triple zero (000) for",
+      "value": "Trouble breathing, collapse, swelling of face or throat after any bite or sting; a big black spider bite; a snake bite"
+    },
+    {
+      "label": "The rule",
+      "value": "Most bites and stings get better in a few days; allergy is the killer; carry the adrenaline autoinjector if you have one"
+    },
+    {
+      "label": "Mosquito disease",
+      "value": "Ross River virus: no vaccine, joint pain for weeks to months; repellent, screens, nets, long clothes at dusk"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Flies**: **[kamu](word:kamu)** 'mosquito'; **[diri-diri](word:diri-diri)**, **[munyurri](word:munyurri)** 'sandfly'; **[biray](word:biray)** 'grey March fly', **[kamay](word:kamay)** 'yellow March fly', **[waja](word:waja)** 'big yellow March fly' (also 'crow'). **Ants**: **[karrkil](word:karrkil)** 'red jumper ant. Some people have gotten sick and vomited after being bitten by them'; **[ngalmnbu](word:ngalmnbu)** 'jumper ant'; **[kawa](word:kawa)** 'little ants, white or black'; **[kira-kira](word:kira-kira)** 'black ant'; **[muyu-muyu](word:muyu-muyu)** 'small red ant'; and the [green ant](entry:green-ants), *munjurr*, *yangka*. **Wasps**: **[murma](word:murma)** 'small paper wasp, yellow in colour with a bad sting. Its nest hangs in trees'; **[mulma](word:mulma)** 'hornet'; **[wurrbu](word:wurrbu)** 'hornet, bumblebee. Nests in a stump or the ground'; **[wurrarr-wurrarr](word:wurrarr-wurrarr)** 'mud wasp'. **Scorpion**: **[biringal](word:biringal)**, **[manukurru](word:manukurru)**, **[munudumbun](word:munudumbun)**. **[birinjil](word:birinjil)** 'centipede'. **[nyumbil](word:nyumbil)** 'leech'. **[malal](word:malal)** 'spider and spider web'. **[balarr](word:balarr)** 'human body flea'; **[mindil](word:mindil)** 'dog flea'. **[jindal](word:jindal)** 'to bite and leave a puncture mark'; **[baji](word:baji)** 'a sore'; **[jalngkay](word:jalngkay)** 'itch' [ref:hershberger1982]. Anderson records a children's game called *birray*, 'March fly', 'in which they chased each other while buzzing like the fly' [ref:anderson1996]."
+    },
+    {
+      "id": "description",
+      "heading": "What bites, in order of harm",
+      "body": "**1. Anaphylaxis, from anything.** 'Allergies to insect stings are one of the most common causes of anaphylaxis (severe allergic reactions) in Australia'; 'repeat exposure to ant stings may increase your sensitivity to their venom. The more you get stung, the more likely you are to have an allergic reaction'; 'if you are stung multiple times by a large group of bees or wasps, get medical attention. You may have a toxic reaction (envenomation) after 500 or more bee or wasp stings' [ref:healthdirect-insect-bites]. The jumper and bull ants, *Myrmecia*, 'are characterized by their extreme aggressiveness, ferocity, and painful stings. Some species are known for the jumping behavior they exhibit when agitated'; 'very few predators eat these ants due to their sting, but their larvae are often consumed by blindsnakes and echidnas' [ref:wiki-myrmecia]. The dictionary's note on the red jumper ant, that people 'have gotten sick and vomited', is an allergy note [ref:hershberger1982].\n\n**2. Spiders.** 'Funnel-web spiders and other big black spiders — bites from these spiders are very dangerous and can cause death'; 'redback spiders — bites from redbacks can cause a lot of pain, but they aren't life-threatening'; 'all other spiders in Australia are generally harmless' [ref:healthdirect-spider]. The **redback** (*Latrodectus hasselti*), five records within 60 km: 'the adult female is easily recognised by her spherical black body with a prominent red stripe on the upper side of her abdomen and an hourglass-shaped red/orange streak on the underside. Females usually have a body length of about 10 millimetres'; 'mainly nocturnal, the female redback lives in an untidy web in a warm sheltered location, commonly near or inside human residences' [ref:wiki-redback] [ref:ala-karma-60]. The **Queensland whistling spider** (*Selenocosmia crassipes*), five records, the big hairy one that is not a funnel-web: 'legspans of up to 22 cm', 'the largest Australian tarantula'; it 'produce[s] a hissing noise when provoked'; 'a burrowing arachnid, living underground in burrows, which can be up to 1 metre deep, but might be forced into the open during periods of heavy rain'; it eats insects, spiders, 'geckos, skinks and frogs' [ref:wiki-whistling-spider]. For 'a big, black, hairy spider' healthdirect's rule is the pressure bandage, as for a snake, and the hospital [ref:healthdirect-spider]. The **huntsman** on the wall is harmless: 'their legs ... extend forward in a crab-like fashion'; 'they tend to live under rocks, bark, and similar shelters, but human encounters are common in sheds, garages' [ref:wiki-huntsman].\n\n**3. Ticks.** 'Ticks are parasites that can bite and feed on animal and human blood'; 'they can bury into your skin and scalp, and stay attached to you for up to 5 days'; 'tick bites can cause a variety of illnesses. The most common are allergic reactions', 'from a mild reaction to anaphylaxis'; 'in eastern Australia, most tick bites are caused by the paralysis tick *Ixodes holocyclus*' [ref:healthdirect-tick]. The paralysis tick 'is usually found in a 20-kilometre wide band following the eastern coastline', in 'areas of high rainfall', on 'bandicoots, possums and kangaroos', so the Karma Waters ticks are the inland ones, the cattle and scrub ticks of the grass, and the Atlas has no paralysis tick record here; the first-aid rule is the same [ref:wiki-paralysis-tick] [ref:ala-karma-60]. The removal: 'trying to remove the tick before it's dead may cause it to inject more venom'; 'to kill the tick safely, freeze it with an ether spray'; 'if the tick is embedded in your skin, use permethrin cream'; 'you should not squeeze, twist or try to forcibly remove the tick'; 'once the tick is off your skin, wash the area with soap and water' [ref:healthdirect-tick].\n\n**4. Mosquitoes and the Mitchell's fevers.** 'Australia has more than 350 species of mosquitoes. However, only some mosquitoes bite people. Some mosquitoes spread disease'; 'see your doctor urgently or go to the emergency department if you have' fever, joint pain or a rash after bites, 'signs of mosquito-borne diseases, such as Ross River virus' [ref:healthdirect-mosquito]. 'Ross River virus infection (also known as Ross River fever and epidemic polyarthritis) is caused by an alphavirus. It is spread to humans by infected mosquitoes. Ross River virus infection is the most common mosquito-borne disease in Australia'; 'more common in the tropical areas of Queensland and the Northern Territory'; 'the illness usually begins with painful joints and muscle pain'; 'symptoms can appear anywhere from 3 to 21 days after being bitten'; 'some people may experience painful joints for 3 to 6 months after diagnosis'; 'the highest risk is in warm, humid areas near water'; 'there are no approved vaccines or antiviral drugs yet'; 'mosquito numbers rise about 2 weeks after rain' [ref:healthdirect-ross-river]. 'Inland the *Culex annulirostris* is the main carrier with *Aedes* mosquitoes becoming active during wet seasons', and the virus lives in 'natural reservoirs such as large marsupial mammals', the wallabies of the river [ref:wiki-ross-river].\n\n**5. Wasps and hornets.** The small brown paper wasps, *Ropalidia*, five records of *R. romandi*, which is 'swarm founding, meaning that new nests are founded by a large group of workers', hang their combs under leaves and eaves; the dictionary's *murma*, 'yellow in colour with a bad sting', and its hornets that nest 'in a stump or the ground' are the ones a hand goes into [ref:wiki-ropalidia] [ref:ala-karma-60] [ref:hershberger1982]. The [native bees](entry:native-bees) page has Roth's method for taking the wasp brood with a torch of grass.\n\n**6. Centipedes and scorpions.** 'The scorpions, centipedes and millipedes found in Australia are not venomous' in healthdirect's sense of dangerous, though the bite of the **giant centipede** (*Ethmostigmus rubripes*), three records, 'a solitary nocturnal predator' that 'can often be found sheltering beneath logs, bark, leaf litter, or rocks', is a famous night of pain [ref:healthdirect-insect-bites] [ref:wiki-giant-centipede] [ref:ala-karma-60]. The dictionary gives the scorpion three names [ref:hershberger1982].\n\n**7. March flies and sandflies.** March flies are horse-flies: 'females have mouthparts strong enough to puncture the skin of large animals ... a stout stabbing organ with two pairs of sharp cutting blades, and a spongelike part used to lap up the blood'; 'the larvae are predaceous and grow in semiaquatic habitats'; 'in Australia and the UK they are also known as March flies' [ref:wiki-horse-fly]. Sandflies are the biting midges, *Culicoides*: 'only the females take a blood meal'; 'females typically bite at dusk or dawn often in dense swarms and usually in the vicinity of water, marshes or rotting vegetation'; 'the bite of *Culicoides* is felt as a sharp prick and is often followed by irritating lumps that may disappear in a few hours or last for days' [ref:wiki-culicoides]. Roth records that March flies were eaten by 'the Tully River children' [ref:roth1901].\n\n**8. Leeches.** 'The majority of freshwater leeches are found in the shallow, vegetated areas on the edges of ponds, lakes and slow-moving streams'; the land leeches of the wet scrub 'feed largely on mammals, including humans'; they attach 'with a sucker' and secrete 'hirudin to prevent the blood from clotting', which is why the bite bleeds [ref:wiki-leech]. The dictionary's *nyumbil* is the leech and the coolibah tree both [ref:hershberger1982].\n\n**9. Caterpillars.** 'Some caterpillars can cause painful, itchy and inflamed skin if their hairs stick into you'; 'if caterpillar hairs get stuck on your skin, remove them with tweezers or sticky tape' [ref:healthdirect-insect-bites]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling the dangerous from the harmless",
+      "body": "- **Redback**: a small shiny black spider with a red stripe, hanging upside down in a messy web under a seat, a tap, a tyre; the male is tiny and harmless [ref:wiki-redback].\n- **Whistling spider**: big, brown and hairy, in a silk-lined burrow in the ground, hissing; treat as a 'big black spider' and bandage [ref:wiki-whistling-spider] [ref:healthdirect-spider].\n- **Huntsman**: big, flat, grey-brown, crab-legged, on the wall or under bark; harmless [ref:wiki-huntsman].\n- **Jumper ant**: a long-jawed red-and-black ant that jumps at you from the nest mound; the green ant bites and sprays acid but is not the same risk [ref:wiki-myrmecia] [ref:wiki-oecophylla].\n- **Paper wasp**: a small brown-and-yellow wasp on an open comb under a leaf; the mud wasp's clay cells on the wall are a solitary wasp that rarely stings [ref:wiki-ropalidia] [ref:hershberger1982].\n- **March fly**: a heavy grey or yellow fly that lands silently and cuts; the sandfly is a dot you feel before you see [ref:wiki-horse-fly] [ref:wiki-culicoides].\n- **A tick** is a flat grey or brown seed that grows to a pea; a leech is a black worm that moves like an inch-worm [ref:healthdirect-tick] [ref:wiki-leech]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Jumper ant nests**: low gravel mounds with a hole, ants standing up at the entrance [ref:wiki-myrmecia].\n- **A silk-lined hole in the ground** the width of a thumb: the whistling spider [ref:wiki-whistling-spider].\n- **A messy web in a dark corner** with white egg sacs: a redback [ref:wiki-redback].\n- **Paper combs** under the leaves and eaves; **clay cells** on the wall [ref:wiki-ropalidia].\n- **Mosquitoes rising two weeks after rain**, and worst at dusk by the lagoons [ref:healthdirect-ross-river] [ref:wiki-culicoides].\n- **A dog scratching one spot**: a tick [ref:healthdirect-tick]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they are",
+      "body": "The mosquitoes and sandflies at the lagoons and the river at dusk and dawn; the March flies on the open flats in the heat; the jumper ants on the sandy ground of the woodland; the paper wasps under leaves and the eaves of the camp; the redback in the sheds and under the furniture; the whistling spider and the centipede under logs and in the ground; the leeches in the wet scrub and the lagoon edges; the ticks in the long grass the stock use [ref:wiki-culicoides] [ref:wiki-myrmecia] [ref:wiki-redback] [ref:wiki-whistling-spider] [ref:wiki-giant-centipede] [ref:wiki-leech] [ref:healthdirect-tick]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Who eats the biters",
+      "body": "The things that bite are food for everything else: the mosquitoes and midges feed the [small fish](entry:archerfish-and-small-fish), the dragonflies, the swallows and the [bats](entry:flying-foxes-and-bats); the March flies feed the bee-eaters; the jumper ants' larvae are 'consumed by blindsnakes and echidnas'; the wasps' brood was eaten by people; the spiders feed the [kookaburras](entry:kookaburras-and-kingfishers) and the [geckos](entry:lizards) and the whistling spider eats the geckos back; the leeches 'are prey to fish, birds, and invertebrates' [ref:wiki-myrmecia] [ref:roth1901] [ref:wiki-whistling-spider] [ref:wiki-leech]. A camp with geckos on the walls, [native bees](entry:native-bees) in the trees and a resident kookaburra has fewer biters than a camp without."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The wet and the weeks after every storm are the mosquito time, and the *Aedes* 'becoming active during wet seasons'; the March flies come with the heat of the build-up; the sandflies with every still dusk at the water; the leeches in the wet scrub; the jumper ants and wasps all year, worst when the nest is disturbed [ref:wiki-ross-river] [ref:healthdirect-ross-river] [ref:wiki-culicoides]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "What the old people did with them",
+      "body": "- **Green ants** as medicine and food; see [green ants](entry:green-ants) [ref:hershberger1982] [ref:roth1901].\n- **Wasp larvae** eaten raw after the nest was smoked with a grass torch [ref:roth1901].\n- **March flies** eaten by the Tully children, and a children's chasing game named for them at Bloomfield [ref:roth1901] [ref:anderson1996].\n- **Smoke** against mosquitoes: a smoky fire of the right wood, as the Warumungu burn the gutta-percha tree; see [bush medicine](entry:bush-medicine).\n- **Mosquito-proof huts**: the Bloomfield dome huts were closed up and smoked against mosquitoes; see [huts and shelters](entry:huts-and-shelters)."
+    },
+    {
+      "id": "how-to",
+      "heading": "First aid, from healthdirect",
+      "body": "1. **Anaphylaxis**: trouble breathing, swelling of the face or throat, collapse: call triple zero (000), use the adrenaline autoinjector if there is one, and start CPR if breathing stops [ref:healthdirect-insect-bites] [ref:healthdirect-spider].\n2. **A big black hairy spider bite**: pressure immobilisation bandage as for a snake, splint the limb, mark the bite, note the time, hospital; 'only use an immobilisation bandage for funnel web or mouse spider bites' and for 'a big, black, hairy spider' [ref:healthdirect-spider].\n3. **Redback and other spiders**: a wrapped ice pack, 'if your pain is very bad, go to your local hospital emergency department'; catch the spider for identification if you safely can [ref:healthdirect-spider].\n4. **Bee sting**: 'carefully scrape the sting out using the edge of your fingernail or something like a credit card'; antihistamines for the swelling 'for up to 3 days' [ref:healthdirect-insect-bites].\n5. **Tick**: freeze it with an ether spray from the pharmacy and let it drop off, or permethrin cream on an embedded one; do not squeeze or pull; wash; 'if the tick does not drop off, or can't be frozen, leave it in place and get urgent medical help' [ref:healthdirect-tick].\n6. **Mosquito and sandfly bites**: 'wash the area with soap and water. Use an ice pack to reduce the itching and swelling', wrapped; do not scratch; see a doctor for fever, joint pain or rash after bites [ref:healthdirect-mosquito].\n7. **Leech**: let it finish or slide a fingernail under the sucker; the bite bleeds for a while because of the hirudin; wash it [ref:wiki-leech].\n8. **Caterpillar hairs**: sticky tape [ref:healthdirect-insect-bites].\n9. **Any bite that goes red, warm and painful days later** is infected and needs antibiotics [ref:healthdirect-insect-bites].\n10. **Prevention on the Mitchell**: repellent on exposed skin, 'long clothing', screens and nets, and the dusk and dawn indoors or in smoke when the lagoons are up; an adult applies repellent to children under five, none for babies under three months [ref:healthdirect-mosquito] [ref:healthdirect-ross-river]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Allergy is the killer; anyone who has had a bad reaction carries the autoinjector on country [ref:healthdirect-insect-bites].\n- A bite from something you did not see on a hand put into a hollow, under bark or into a burrow is treated as a snake bite until proven otherwise; see [snakes](entry:snakes) [ref:healthdirect-snakebite].\n- Mosquito disease is the most likely thing on this page to put someone in bed for months; the repellent and the net are the medicine [ref:healthdirect-ross-river].\n- The station's induction has the emergency numbers and the evacuation plan [ref:kw-induction]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The Karma Waters lagoons breed the mosquitoes and the camps have the redbacks and paper wasps of every Queensland camp; the paralysis tick stays on the coast [ref:ala-karma-60] [ref:wiki-paralysis-tick]. The dictionary's names are the camp's; the Western Yalanji words are for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kamu](word:kamu)* 'mosquito'; *[diri-diri](word:diri-diri)*, *[munyurri](word:munyurri)* 'sandfly'; *[biray](word:biray)*, *[kamay](word:kamay)*, *[waja](word:waja)* March flies; *[karrkil](word:karrkil)*, *[ngalmnbu](word:ngalmnbu)* jumper ants; *[murma](word:murma)* 'paper wasp'; *[mulma](word:mulma)*, *[wurrbu](word:wurrbu)* 'hornet'; *[wurrarr-wurrarr](word:wurrarr-wurrarr)* 'mud wasp'; *[biringal](word:biringal)* 'scorpion'; *[birinjil](word:birinjil)* 'centipede'; *[nyumbil](word:nyumbil)* 'leech'; *[malal](word:malal)* 'spider'; *[balarr](word:balarr)* 'flea'; *[jindal](word:jindal)* 'to bite and leave a puncture mark'; *[baji](word:baji)* 'a sore'; *[jalngkay](word:jalngkay)* 'itch' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "snakes",
+    "green-ants",
+    "native-bees",
+    "bush-medicine",
+    "huts-and-shelters",
+    "lizards",
+    "flying-foxes-and-bats",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "wurrbu",
+      "gloss": "hornet, bumblebee. nests in a stump or the ground"
+    },
+    {
+      "word": "kira-kira",
+      "gloss": "black ant"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "healthdirect-insect-bites",
+      "citation": "healthdirect Australia. Insect bites and stings (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/insect-bites-and-stings"
+    },
+    {
+      "id": "healthdirect-spider",
+      "citation": "healthdirect Australia. Spider bites (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/spider-bites"
+    },
+    {
+      "id": "healthdirect-ross-river",
+      "citation": "healthdirect Australia. Ross River virus infection (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/ross-river-virus"
+    },
+    {
+      "id": "wiki-ross-river",
+      "citation": "Wikipedia. Ross River virus.",
+      "url": "https://en.wikipedia.org/wiki/Ross_River_virus"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "wiki-myrmecia",
+      "citation": "Wikipedia. Myrmecia, the bull ants and jumper ants.",
+      "url": "https://en.wikipedia.org/wiki/Myrmecia_(ant)"
+    },
+    {
+      "id": "wiki-redback",
+      "citation": "Wikipedia. Redback spider (Latrodectus hasselti).",
+      "url": "https://en.wikipedia.org/wiki/Redback_spider"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "wiki-whistling-spider",
+      "citation": "Wikipedia. Queensland whistling tarantula (Selenocosmia crassipes).",
+      "url": "https://en.wikipedia.org/wiki/Phlogius_crassipes"
+    },
+    {
+      "id": "wiki-huntsman",
+      "citation": "Wikipedia. Huntsman spider (Sparassidae).",
+      "url": "https://en.wikipedia.org/wiki/Huntsman_spider"
+    },
+    {
+      "id": "healthdirect-tick",
+      "citation": "healthdirect Australia. Tick bites (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/tick-bites"
+    },
+    {
+      "id": "wiki-paralysis-tick",
+      "citation": "Wikipedia. Australian paralysis tick (Ixodes holocyclus).",
+      "url": "https://en.wikipedia.org/wiki/Ixodes_holocyclus"
+    },
+    {
+      "id": "healthdirect-mosquito",
+      "citation": "healthdirect Australia. Mosquito bites (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/mosquito-bites"
+    },
+    {
+      "id": "wiki-ropalidia",
+      "citation": "Wikipedia. Ropalidia, the small brown paper wasps.",
+      "url": "https://en.wikipedia.org/wiki/Ropalidia"
+    },
+    {
+      "id": "wiki-giant-centipede",
+      "citation": "Wikipedia. Giant centipede (Ethmostigmus rubripes).",
+      "url": "https://en.wikipedia.org/wiki/Ethmostigmus_rubripes"
+    },
+    {
+      "id": "wiki-horse-fly",
+      "citation": "Wikipedia. Horse-fly (Tabanidae), the March flies.",
+      "url": "https://en.wikipedia.org/wiki/Horse-fly"
+    },
+    {
+      "id": "wiki-culicoides",
+      "citation": "Wikipedia. Culicoides, the biting midges or sandflies.",
+      "url": "https://en.wikipedia.org/wiki/Culicoides"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "wiki-leech",
+      "citation": "Wikipedia. Leech.",
+      "url": "https://en.wikipedia.org/wiki/Leech"
+    },
+    {
+      "id": "wiki-oecophylla",
+      "citation": "Wikipedia. Oecophylla smaragdina (green tree ant, weaver ant).",
+      "url": "https://en.wikipedia.org/wiki/Oecophylla_smaragdina"
+    },
+    {
+      "id": "healthdirect-snakebite",
+      "citation": "healthdirect Australia (Australian Government). Snake bites: symptoms, first aid and the pressure immobilisation bandage (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/snake-bites"
+    },
+    {
+      "id": "kw-induction",
+      "citation": "Karma Waters Station. Induction, waiver and indemnity form (updated 9 June 2023).",
+      "url": "https://www.karmawatersstation.com/uploads/3/1/9/2/31929385/induction_waiver_and_indemnity.pdf"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

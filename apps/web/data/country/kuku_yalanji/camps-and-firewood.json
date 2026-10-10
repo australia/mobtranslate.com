@@ -1,0 +1,250 @@
+{
+  "slug": "camps-and-firewood",
+  "title": "Choosing a camp, and firewood",
+  "category": "technique",
+  "names": [
+    {
+      "word": "bayan",
+      "gloss": "house, camp, shelter"
+    },
+    {
+      "word": "baya",
+      "gloss": "flame, fire; firewood"
+    },
+    {
+      "word": "kubu",
+      "gloss": "smoke"
+    },
+    {
+      "word": "ngunjil",
+      "gloss": "charcoal; hot coals or hot ashes"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "Anderson's account of where Kuku Yalanji people camped by season and which woods they burned, with the dictionary's fire and camp words and the station's camping rules."
+  },
+  "countryTypes": [
+    "camp",
+    "river-freshwater",
+    "open-woodland"
+  ],
+  "summary": "**[bayan](word:bayan)** is 'house, camp, shelter', **[baya](word:baya)** 'flame, fire' and 'firewood', **[kubu](word:kubu)** smoke, **[ngunjil](word:ngunjil)** 'charcoal; hot coals or hot ashes', **[nulu](word:nulu)** ashes, **[jakalambal](word:jakalambal)** 'start a fire, start to cook food', and **[balnji](word:balnji)**, 'doing something right', is the word for 'properly with a fire as in cooking or hardening spears over a fire' and also for 'camping out' [ref:hershberger1982]. Anderson's summary of where the inland Kuku Yalanji camped is the rule for the Mitchell too: the freshwater creeks 'were undoubtedly the focal points of economic life for inlanders, where good sandy campsites, shade and proximity to freshwater year-round could be found. Dry season camps were in the sandy beds of the smaller dry creeks or on the sandy terraces above the running creeks. The wet season camps were generally on the ridges between creek gullies, well above flood level, but not too far from water supplies' [ref:anderson1996]. 'Collecting firewood was usually women's work and different woods were used for different purposes. If conditions were rainy and damp, wood from the \"kerosene tree\" made an excellent fire starter. Inner portions of bark from the forest paper bark tree could also be used for this purpose. Dead branches from the grey boxwood (*Eucalyptus tessellaris*) made the best cooking wood: it is very hard, but splits easily and burns slowly and intensely. Some wood was very dangerous to use as firewood. For instance, a mangrove species, *Excoecaria agallocha*, produces a smoke which is said by Kuku-Yalanji to produce blindness. This is also true of the \"brown cedar\", *Canarium australasicum*' [ref:anderson1996]. At [Karma Waters](place:karma-waters) the station's camping page and induction add the modern rules: where the river camps are, the fire and firewood rules, the wet-season road closures, and [Crocwise](entry:freshwater-crocodile) at the water [ref:kw-camping] [ref:kw-induction] [ref:crocwise].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "bayan (house, camp, shelter); baya (fire, firewood); kubu (smoke); ngunjil (charcoal, hot coals); nulu (ashes); jakalambal (start a fire to cook); balnji (doing it properly; camping out); kararr (grass bedding); warrbi (grass 'beehive' house)"
+    },
+    {
+      "label": "Dry-season camp",
+      "value": "Sandy creek beds and the sandy terraces above the running water; small family 'branch' camps out after eels, turtles, wallabies and goannas"
+    },
+    {
+      "label": "Wet-season camp",
+      "value": "The ridges between creek gullies, above flood level, near water; bigger camps"
+    },
+    {
+      "label": "Firewood",
+      "value": "Carbeen (Moreton Bay ash) dead branches for cooking; kerosene tree and paperbark inner bark for starting; never the milky mangrove or the brown cedar"
+    },
+    {
+      "label": "Never camp",
+      "value": "Under a river red gum's dead limbs; at the water's edge; in a creek bed in the wet; in long grass in the fire season"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[bayan](word:bayan)** 'house, camp, shelter'; **[warrbi](word:warrbi)** 'house made of grass, \"beehive house\"' (also 'axe'); **[kararr](word:kararr)** 'a blanket, sheet, or grass bedding spread out to lie on'; **[kakarr](word:kakarr)** 'grass; blanket to lie on, not to put over you'. **[baya](word:baya)** 'flame, fire; firewood', with 'baya wayu, light a fire'; **[jakalambal](word:jakalambal)** 'start a fire, start to cook food'; **[kubu](word:kubu)** 'smoke'; **[ngunjil](word:ngunjil)** 'charcoal; hot coals or hot ashes'; **[nulu](word:nulu)** 'ashes'; **[jidi](word:jidi)** 'paperbark tree bark torch'; **[balnji](word:balnji)** 'doing something right; properly with a fire as in cooking or hardening spears over a fire; camping out' [ref:hershberger1982]. The [huts and shelters](entry:huts-and-shelters) page has the words and the building of the shelters themselves, and the [firestick](entry:firestick) page the making of fire."
+    },
+    {
+      "id": "description",
+      "heading": "Where the old people camped, and what they burned",
+      "body": "**The camps by season.** 'In the inland areas around Bloomfield, three types of environment were habitually exploited: upper montane and riverine rainforest, open eucalypt and woodland forests and the freshwater creek systems. The latter were undoubtedly the focal points of economic life for inlanders, where good sandy campsites, shade and proximity to freshwater year-round could be found. Dry season camps were in the sandy beds of the smaller dry creeks or on the sandy terraces above the running creeks. The wet season camps were generally on the ridges between creek gullies, well above flood level, but not too far from water supplies. The pattern of movement in the inland areas was one of short distance shifts within a series of major camps along the creeks. In the dry, the smaller nuclear family-based groups would move out away from the main camping areas and set up temporary \"branch\" camps in order to exploit non-seasonal opportunistic resources such as eelfish, tortoises, wallabies and goannas. In the wet, the tendency was to contract into larger more permanent camps. Large camps with up to 100 people also existed in the dry during the harvesting and preparation of seasonal, bulk' foods such as the [zamia](entry:zamia) nuts, processed beside 'a shallow, but fast-flowing section of creek' with 'large flat rocks with small indentations in them' [ref:anderson1996].\n\n**Firewood.** 'Collecting firewood was usually women's work and different woods were used for different purposes. If conditions were rainy and damp, wood from the \"kerosene tree\" (*Halfordia scleroxyla*) made an excellent fire starter. Inner portions of bark from the forest paper bark tree (*Melaleuca leucadendron*) could also be used for this purpose. Dead branches from the grey boxwood (*Eucalyptus tessellaris*) made the best cooking wood: it is very hard, but splits easily and burns slowly and intensely. Some wood was very dangerous to use as firewood. For instance, a mangrove species, *Excoecaria agallocha*, produces a smoke which is said by Kuku-Yalanji to produce blindness. This is also true of the \"brown cedar\", *Canarium australasicum*' [ref:anderson1996]. The grey boxwood is the carbeen or Moreton Bay ash, the dictionary's *bajar*, two records within 30 km of the homestead; the paperbark is the river's; the kerosene tree is a rainforest tree of the coast; the milky mangrove's inland cousin is the gutta-percha tree of the flood flats, whose sap is 'very dangerous to the eyes', and the [brown cedar](entry:brown-cedar) has its own page [ref:wiki-tessellaris] [ref:wiki-leucadendra] [ref:wiki-excoecaria] [ref:rfk-canarium]. The ironbark gum 'carried on a small stick in a man's bag with his firesticks' is on the [woodland](entry:woodland) page [ref:anderson1996].\n\n**Roth's note on sleeping.** On the Bloomfield the huts were closed and smoked against the mosquitoes, and the [huts and shelters](entry:huts-and-shelters) page has the dome hut, the lean-to and the wet-season shelter from Roth's 1910 bulletin [ref:roth1910-huts]. The dictionary's **{W('kamu')}** is the mosquito, and the dusk fire's **{W('kubu')}** was the answer to it [ref:hershberger1982]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Good camp, bad camp",
+      "body": "- **Good in the dry**: a sandy terrace above the pool, shade from paperbarks, a breeze, a view of the water, the fire on sand [ref:anderson1996].\n- **Good in the wet**: a ridge between gullies, above any flood mark, with the water a short walk down [ref:anderson1996].\n- **Bad**: under a [river red gum](entry:river-red-gum) with dead limbs, which 'often fall without warning' [ref:wiki-camaldulensis].\n- **Bad**: on the water's edge or on a crocodile slide; camp back from the water and fill from a clear bank [ref:crocwise].\n- **Bad**: in a creek bed with the build-up storms about; the dry creek is the dry-season camp only [ref:anderson1996].\n- **Bad**: in long grass in the late dry, downwind of a burn; see [hunting with fire](entry:hunting-with-fire) [ref:pbg-cape-york].\n- **Bad**: under a tree with termite mud tubes up it; see [termites](entry:termites-and-ant-beds) [ref:wiki-mastotermes]."
+    },
+    {
+      "id": "signs",
+      "heading": "Reading an old camp",
+      "body": "- **Mussel shell heaps and charcoal** on a sandy terrace: the old dry-season camp; see [mussels](entry:mussels).\n- **Grinding hollows** in a flat rock by a fast riffle, the dictionary's *jinali*: a zamia-processing camp [ref:anderson1996] [ref:hershberger1982].\n- **Flood debris in the trees** above the terrace: how high the wet comes, and why the wet camp is on the ridge [ref:anderson1996].\n- **A scarred tree** where bark was taken for a hut or a trough; see [bark troughs](entry:bark-troughs).\n- **Split dead branches of carbeen** under a tree: the cooking wood [ref:anderson1996]."
+    },
+    {
+      "id": "habitat",
+      "heading": "The camp country",
+      "body": "The sandy terraces and creek beds of the Mitchell and its creeks in the dry, the ridges above them in the wet, and the big dry-season camps at the food-processing places; on Karma Waters the station's river camps are on the same terraces [ref:anderson1996] [ref:kw-camping]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The camp in the country",
+      "body": "A camp is where the country's food comes together, and everything that eats comes to it: the [crows, magpies and butcherbirds](entry:bush-birds), the [kookaburra](entry:kookaburras-and-kingfishers) at the table, the [quoll](entry:quolls-bandicoots-and-rats) and the [possum](entry:possums) at night, the [dingo](entry:dingo-and-dogs) at the edge, the [pigs](entry:pigs) at the rubbish, the [goanna](entry:goanna) in the bins, the mosquitoes at dusk, and the crocodile at the place the fish are cleaned [ref:wiki-brushtail] [ref:crocwise]. The old people's answer was to move: short shifts along the creek, branch camps in the dry, the big camp when the zamia was in [ref:anderson1996]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Dry: the creek-bed and terrace camps and the branch camps; wet: the ridge camps and the big shelters; the build-up: the move up before the storms; the roads closed in the wet [ref:anderson1996] [ref:kw-camping] [ref:bom-palmerville]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Firewood by job",
+      "body": "- **Starting**: kerosene-tree wood in the wet, paperbark inner bark, a paperbark torch, *jidi* [ref:anderson1996] [ref:hershberger1982].\n- **Cooking**: carbeen dead branches, 'very hard, but splits easily and burns slowly and intensely'; the ironbarks and river red gum for long coals [ref:anderson1996] [ref:wiki-camaldulensis].\n- **Smoke** against mosquitoes: a green or punky log on the dusk fire [ref:hershberger1982].\n- **The earth oven**: see [earth oven](entry:earth-oven) and [cooking meat](entry:cooking-meat) [ref:roth1901].\n- **Never**: the milky mangrove, the gutta-percha, the brown cedar, whose smoke blinds, and the poison nut, whose smoke 'is poisonous when roasting the nut' [ref:anderson1996] [ref:hershberger1982]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Making a camp on the river",
+      "body": "1. **Pick the terrace, not the beach**: a sandy bench above the pool with shade, a breeze, and a view of the water; in the build-up, pick the ridge [ref:anderson1996].\n2. **Look up**: no dead limbs, no hollow red gum, no termite tubes over the swags [ref:wiki-camaldulensis] [ref:wiki-mastotermes].\n3. **Look down**: the flood-line in the trees and the crocodile slides on the bank; be well above the one and well away from the other [ref:anderson1996] [ref:crocwise].\n4. **Set the fire on sand**, clear the grass round it, and gather the cooking wood from the dead carbeen, box and gum branches on the ground; keep the starter bark dry [ref:anderson1996].\n5. **Know the smoke**: no milky-sapped wood on the fire [ref:anderson1996].\n6. **Water and fish-cleaning** at a different place from the swimming and the camp, never the same spot twice [ref:crocwise].\n7. **Food up and closed** against the quoll, the possum, the crow and the pig; rubbish out, not buried by the water.\n8. **Smoke at dusk** and the net at night; the mosquito is the one animal here that will make you sick for months; see [bites and stings](entry:bites-and-stings) [ref:healthdirect-ross-river].\n9. **Follow the station's rules** on where to camp and when the fire ban is on [ref:kw-camping] [ref:kw-induction]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Falling limbs, flood, fire and the crocodile are the camp's four killers; the old camp sites answered all four [ref:wiki-camaldulensis] [ref:anderson1996] [ref:crocwise].\n- The station's induction, camping page and fire rules apply; a grass fire in the late dry runs faster than a person [ref:kw-induction] [ref:kw-camping] [ref:pbg-cape-york].\n- Blinding smoke from the milky-sapped trees [ref:anderson1996].\n- Native title covers camping on country for the holders; the station's lease and the campground's rules run alongside it [ref:alrc] [ref:wyac2020] [ref:kw-about]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The Karma Waters river camps are on the old terraces and the wet closes the roads as it always closed the creek beds; the carbeen and the paperbark are on the bank for the fire [ref:kw-camping] [ref:anderson1996]. The Western Yalanji names for the camps along the Mitchell are for the contribution box below."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[bayan](word:bayan)* 'house, camp, shelter'; *[warrbi](word:warrbi)* 'grass house'; *[kararr](word:kararr)* 'grass bedding'; *[baya](word:baya)* 'fire, firewood'; *[jakalambal](word:jakalambal)* 'start a fire'; *[kubu](word:kubu)* 'smoke'; *[ngunjil](word:ngunjil)* 'charcoal, hot coals'; *[nulu](word:nulu)* 'ashes'; *[jidi](word:jidi)* 'paperbark torch'; *[balnji](word:balnji)* 'properly; camping out'; *[jukar](word:jukar)* 'sand'; *[yikin](word:yikin)* 'bank'; *[jalkar](word:jalkar)* 'high bank'; *[jalungkarr](word:jalungkarr)* 'flood'; *[yilki](word:yilki)* 'creek' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "huts-and-shelters",
+    "firestick",
+    "earth-oven",
+    "cooking-meat",
+    "finding-water",
+    "river-red-gum",
+    "paperbark",
+    "brown-cedar",
+    "bites-and-stings",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "jidi",
+      "gloss": "paperbark tree bark torch"
+    },
+    {
+      "word": "warrbi",
+      "gloss": "house made of grass, 'beehive house'"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "kw-induction",
+      "citation": "Karma Waters Station. Induction, waiver and indemnity form (updated 9 June 2023).",
+      "url": "https://www.karmawatersstation.com/uploads/3/1/9/2/31929385/induction_waiver_and_indemnity.pdf"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "wiki-tessellaris",
+      "citation": "Wikipedia. Corymbia tessellaris (carbeen, Moreton Bay ash).",
+      "url": "https://en.wikipedia.org/wiki/Corymbia_tessellaris"
+    },
+    {
+      "id": "wiki-leucadendra",
+      "citation": "Wikipedia. Melaleuca leucadendra (weeping paperbark).",
+      "url": "https://en.wikipedia.org/wiki/Melaleuca_leucadendra"
+    },
+    {
+      "id": "wiki-excoecaria",
+      "citation": "Wikipedia. Excoecaria parvifolia (gutta-percha tree).",
+      "url": "https://en.wikipedia.org/wiki/Excoecaria_parvifolia"
+    },
+    {
+      "id": "rfk-canarium",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Canarium australasicum (brown cudgerie, mango bark, carrotwood). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/canarium_australasicum.htm"
+    },
+    {
+      "id": "roth1910-huts",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 16: Huts and shelters. Records of the Australian Museum 8(1): 55–66.",
+      "url": "https://archive.org/details/records-australian-museum-8-055-066",
+      "locator": "Sect. 11, ridge-pole huts"
+    },
+    {
+      "id": "wiki-camaldulensis",
+      "citation": "Wikipedia. Eucalyptus camaldulensis (river red gum).",
+      "url": "https://en.wikipedia.org/wiki/Eucalyptus_camaldulensis"
+    },
+    {
+      "id": "pbg-cape-york",
+      "citation": "Queensland Parks and Wildlife Service (2013). Planned Burn Guidelines: Cape York Peninsula Bioregion of Queensland. Department of National Parks, Recreation, Sport and Racing.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0019/151480/pbg-cape-york.pdf",
+      "locator": "'Fire in the monsoonal tropics of the Cape York Peninsula bioregion'; ch. 1–2 season guidance (storm burns)"
+    },
+    {
+      "id": "wiki-mastotermes",
+      "citation": "Wikipedia. Giant northern termite (Mastotermes darwiniensis).",
+      "url": "https://en.wikipedia.org/wiki/Mastotermes_darwiniensis"
+    },
+    {
+      "id": "wiki-brushtail",
+      "citation": "Wikipedia. Common brushtail possum (Trichosurus vulpecula), including the northern subspecies' decline (von Takach et al. 2020).",
+      "url": "https://en.wikipedia.org/wiki/Common_brushtail_possum"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "healthdirect-ross-river",
+      "citation": "healthdirect Australia. Ross River virus infection (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/ross-river-virus"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

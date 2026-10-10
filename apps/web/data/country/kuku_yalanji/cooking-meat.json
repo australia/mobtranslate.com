@@ -1,0 +1,182 @@
+{
+  "slug": "cooking-meat",
+  "title": "Cooking meat: coals, oven, trough and grill",
+  "category": "technique",
+  "names": [
+    {
+      "word": "wayjul",
+      "gloss": "to cook food; to burn something"
+    },
+    {
+      "word": "dindal",
+      "gloss": "to roast on coals"
+    },
+    {
+      "word": "jani",
+      "gloss": "well cooked, done"
+    },
+    {
+      "word": "kurrma",
+      "gloss": "earth oven"
+    },
+    {
+      "word": "bangkal",
+      "gloss": "tongs made from voya vine, used in cooking in a kurrma - an earth oven"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "Roth's 1901 account of preparing and cooking meat, with Anderson's notes on firewood and the dictionary's cooking vocabulary."
+  },
+  "countryTypes": [
+    "camp"
+  ],
+  "summary": "The dictionary cooks in detail: **[wayjul](word:wayjul)** 'to cook food; to burn something', **[dindal](word:dindal)** 'to roast on coals', **[jani](word:jani)** 'well cooked, done', **[jirra](word:jirra)** 'burnt, as food', **[jirra-bungal](word:jirra-bungal)** 'to overcook, to burn the food', **[kayal](word:kayal)** 'raw', **[jika](word:jika)** food that 'when cooked, is not hard but squishy', **[bangkal](word:bangkal)** the 'tongs made from voya vine, used in cooking in a *kurrma*, an earth oven', **[kunukunu](word:kunukunu)** 'fat in food or fatty meat', **[jirrburr](word:jirrburr)** 'meat with no fat, an animal in poor condition (this kind of animal will not be eaten)', and **[wuynkurr](word:wuynkurr)** 'juice of meat' [ref:hershberger1982]. Roth, 1901: 'the actual cooking of both animal and plant food is effected either by roasting, baking, boiling, or grilling. Of these, roasting — broiling would be a better term — is perhaps the simplest and easiest process, the material to be cooked being just placed on and in the hot ashes. Baking in ground-ovens with heated stones, or with chunks of ant-bed when the latter are not available, varies slightly in the different districts. At Cape Bedford and on the Bloomfield a number of stones (KYE, *kurma*), after being well heated in a fire, are removed together with the ashes, and a hole quickly dug in the position just occupied. Along its bottom are next placed several kinds of leaves (various species of ginger); upon these the pieces of meat, amongst which the hot stones and ashes are packed, then a covering of some more leaves or tea-tree bark, and lastly a layer of earth and stones' [ref:roth1901]. 'Meat is certainly preferred fresh to being tainted, and is always cooked in some way or another'; and the Bloomfield people boiled, 'in a bark-trough', 'before any permanent European settlement ever took place there', when Cook's Endeavour River people sixty miles away did not [ref:roth1901]. The [earth oven](entry:earth-oven) has its own page; this one is the whole kitchen, from cutting up to the grill, with the meat pages, [wallaby](entry:wallaby), [goanna](entry:goanna), [pigs](entry:pigs), [turtle](entry:freshwater-turtle), [fish](entry:barramundi), for each animal's own way.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "wayjul, waju-l (cook, burn); dindal (roast on coals); jani (well cooked); jirra (burnt); jirra-bungal (overcook); kayal (raw); kulbul (ripe); kalki (unripe); jika (soft when cooked); kurrma (earth oven); bangkal (vine tongs); ngunjil (hot coals); nulu (ashes); kunukunu (fat); jirrburr (lean animal, not eaten); wuynkurr (meat juice); muyu wayjul (singeing the pig)"
+    },
+    {
+      "label": "Four ways (Roth)",
+      "value": "Roasting on and in the hot ashes; baking in the ground oven with hot stones or ant-bed; boiling in a bark trough or bailer shell; grilling on a stick frame"
+    },
+    {
+      "label": "Cutting up",
+      "value": "Lawyer-cane spines as a saw on the Tully; stone flakes with gum handles in the west"
+    },
+    {
+      "label": "The oven",
+      "value": "Stones heated, hole dug where the fire was, ginger leaves, meat with the hot stones packed among it, leaves or paperbark, earth and stones"
+    },
+    {
+      "label": "Rules",
+      "value": "Fresh, never tainted; the lean animal not eaten; the pig cooked through; the snake stretched over the flames first"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[wayjul](word:wayjul)** 'to cook food; to burn something'; **[waju-l](word:waju-l)** 'to cook, burn, or light (a fire); also boil'; **[dindal](word:dindal)** 'to roast on coals'; **[jakalambal](word:jakalambal)** 'start a fire, start to cook food'; **[balnji](word:balnji)** 'properly with a fire as in cooking'; **[jani](word:jani)** 'well cooked, done'; **[jirra](word:jirra)** 'burnt, as food. Sometimes also the crust of bread'; **[jirra-bungal](word:jirra-bungal)** 'to overcook, to burn the food'; **[kayal](word:kayal)** 'undeveloped, green, unripe; raw'; **[kalki](word:kalki)** 'unripe'; **[kulbul](word:kulbul)** 'ripe'; **[jika](word:jika)** 'any food if, when cooked, is not hard but squishy'; **[kurrma](word:kurrma)** 'earth oven'; **[bangkal](word:bangkal)** 'tongs made from voya vine, used in cooking in a *kurrma*'; **[jidu](word:jidu)** a scrub fruit whose 'leaves are also used to line a dirt oven'; **[ngunjil](word:ngunjil)** 'charcoal; hot coals or hot ashes'; **[nulu](word:nulu)** 'ashes'; **[kunukunu](word:kunukunu)** 'fat in food or fatty meat'; **[jirrburr](word:jirrburr)** 'meat with no fat, an animal in poor condition. (This kind of animal will not be eaten)'; **[wuynkurr](word:wuynkurr)** 'juice of meat'; **[minya](word:minya)** 'meat, eggs (protein food)'; **[mayi](word:mayi)** vegetable food; **[muyu wayjul](word:muyu wayjul)** 'singeing the hair of the pig before cooking' [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "Roth's kitchen, 1901",
+      "body": "**Cutting up.** 'Any large portion of flesh is cut up into conveniently-sized pieces, on the lower Tully River, by means of the spines on a lawyer-cane used after the manner of a cross-cut saw. Leichhardt, when on the Lynd River, speaks of \"flints fastened with human hair to the ends of sticks, and which are used as knives to cut their skin and food.\" Flint flakes with gum-cement handles are used for similar purposes in the far Western districts' [ref:roth1901]. See [stone](entry:stone) and [lawyer cane](entry:lawyer-cane).\n\n**Fresh, and the few things raw.** 'Meat is certainly preferred fresh to being tainted, and is always cooked in some way or another: the only exception I know of is on the Tully, where the intestines of some of the larger mammals, reptiles, and birds may be eaten raw'. 'At the back of Princess Charlotte Bay, presumably to stop all reflex action when roasted in a coil over the fire, I have seen the snake previously and forcibly stretched, length by length, over the flames'; there too 'tortoises are killed by inserting a stiff wooden bristle through the nostril into the brain'; and 'a common way of killing fish is to bite into them deeply just at the back of the head ... who thus makes sure that on throwing the fish already caught on to the banks there is no chance of their skipping back' [ref:roth1901].\n\n**Roasting.** 'Roasting — broiling would be a better term — is perhaps the simplest and easiest process, the material to be cooked being just placed on and in the hot ashes' [ref:roth1901]. The dictionary's *dindal*, 'to roast on coals', and *ngunjil*, the hot coals, are this; the pig's hair is singed first, *muyu wayjul*, and the dictionary's meat pages, the [mussels](entry:mussels) roasted then cleaned, the [witchetty grub](entry:witchetty-grub) raw or roasted, say what goes in the ashes [ref:hershberger1982].\n\n**Baking: the earth oven.** 'At Cape Bedford and on the Bloomfield a number of stones (KYE, *kurma*), after being well heated in a fire, are removed together with the ashes, and a hole quickly dug in the position just occupied. Along its bottom are next placed several kinds of leaves (various species of ginger); upon these the pieces of meat, amongst which the hot stones and ashes are packed, then a covering of some more leaves or tea-tree bark, and lastly a layer of earth and stones.' 'On the Pennefather River, instead of cutting the carcass up into pieces, heated stones are placed inside the animal to be baked. Take, for instance, the case of a kangaroo, which, on being killed, is usually first of all robbed of its tail-tendons, and then has the main joints of its upper and lower limbs dislocated to enable them to be subsequently folded over and bound together. The tongue is next drawn out and skewered with a wooden splinter over the incisors (required for spoke-shaves) to prevent them being too much damaged by the heat. The belly, incised horizontally, is now freed of its intestines, which are replaced by heated stones. The limbs are finally drawn up to the sides of the body, the whole covered with bark, tied round and round like a bundle, and put into the hot ashes, etc., with which it is well covered over. Large turtle is similarly baked here, with the insertion of hot stones through an incision in the neck.' 'On the lower Tully, an additional fire is lighted on top of the oven, which, met with in sandy places, is found to be used over and over again: banana leaves and tea-tree bark generally line it. In the Endeavour River district, around the Annan, etc., the old discarded stone heads of the original axes have been utilised in large measure for lining the ground-ovens' [ref:roth1901]. See [earth oven](entry:earth-oven), [sinew](entry:sinew) and [termites and ant beds](entry:termites-and-ant-beds) for the oven of ant-bed chunks.\n\n**Boiling.** 'Boiling is done in a bark-trough (e.g., *Curcuma australasica* on the Bloomfield), or more usually in a large *Melo* shell ... From the evidence of one of the earliest pioneers (Messrs. Hislop), it is a certainty that the Bloomfield blacks practised boiling before any permanent European settlement ever took place there. On the other hand, Lieutenant Cook, in describing the Endeavour River natives, only 60 miles distant, says: \"They do not appear to eat any animal food raw; but, having no vessel in which water can be boiled, they either broil it upon the coals or bake it in a hole by the help of hot stones.\" There is no such thing as boiling on the Tully River' [ref:roth1901]. See [bark troughs](entry:bark-troughs), [bailer shells](entry:bailer-shells) and [wild ginger](entry:wild-ginger).\n\n**Grilling.** 'Grilling, which I have seen practised at Atherton and Cooktown in the case of the *Colocasia*, is the general way for cooking eels on the Tully River ... The Tully appliances are of two types; the one is formed of four upright forks supporting two main cross-pieces, on which several sticks are laid, the whole reaching to a height of from 18 to 24 inches from the ground; the other is lower, and built convex after the manner of a miniature hut' [ref:roth1901]. See [eels](entry:eels).\n\n**The wood.** 'Dead branches from the grey boxwood (*Eucalyptus tessellaris*) made the best cooking wood: it is very hard, but splits easily and burns slowly and intensely', and the smoke of the milky-sapped trees blinds; see [camps and firewood](entry:camps-and-firewood) [ref:anderson1996]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Which way for which meat",
+      "body": "- **Small game, fish, mussels, grubs**: on and in the hot ashes, *dindal* [ref:roth1901] [ref:hershberger1982].\n- **Kangaroo, wallaby, pig, turtle, big fish, a bundle of birds**: the earth oven, whole or in pieces, with ginger or wattle or gum leaves [ref:roth1901] [ref:anderson1996].\n- **Eels and yams**: the grill of sticks over coals [ref:roth1901].\n- **Stews and the ginger root**: the bark trough or the shell, with hot stones dropped in [ref:roth1901].\n- **Snake**: stretched over the flames, then coiled and roasted [ref:roth1901].\n- **Pig**: singed, scraped, and cooked right through [ref:hershberger1982] [ref:nsw-brucellosis]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs of an old kitchen",
+      "body": "- **A ring of fire-cracked stones** in the sand: an earth oven, 'used over and over again' [ref:roth1901].\n- **Old axe heads** in the oven lining, on the Endeavour [ref:roth1901].\n- **Burnt ant-bed chunks** where there was no stone [ref:roth1901].\n- **A grinding boulder by a riffle**: the zamia camp; see [camps and firewood](entry:camps-and-firewood) [ref:anderson1996]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the cooking was done",
+      "body": "At the camp on the sandy terrace, 'the camps were the usual sites for food preparation and consumption', with the oven dug in the sand and used again, and the trough and shell at the hearth [ref:anderson1996] [ref:roth1901]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Fat, lean and fresh",
+      "body": "The dictionary's rules are a hunter's ecology: a *jirrburr* animal, lean and in poor condition, 'will not be eaten', the fat, *kunukunu*, is the point of the meat, and Roth's people 'preferred fresh to being tainted' [ref:hershberger1982] [ref:roth1901]. Fat follows the season: the [turtles](entry:freshwater-turtle) and [goannas](entry:goanna) are fat in the late dry and the wet, the [wallabies](entry:wallaby) after the green pick, the [ducks](entry:ducks-and-geese) and [magpie geese](entry:ducks-and-geese) in the late wet, the fish before the flood, the flying foxes in the blossom; see [the year on country](entry:seasons)."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The big ovens of the dry-season camps, with the zamia and the game of the branch camps; the grill for the eels of the falling river; the trough for the wet [ref:anderson1996] [ref:roth1901]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "The methods, by name",
+      "body": "- **Roasting** on the coals and in the ashes: fast, for small things [ref:roth1901].\n- **Baking** in the *kurrma*: slow, for whole animals and bulk, in ginger leaves and bark [ref:roth1901] [ref:hershberger1982].\n- **Boiling** in the bark trough or bailer shell: the Bloomfield's own method, older than the settlers [ref:roth1901].\n- **Grilling** on a frame of forked sticks: eels and roots [ref:roth1901].\n- **Singeing**: the pig's hair, *muyu wayjul* [ref:hershberger1982].\n- **Drying**: grubs 'dried in the sun and put away for future occasions' in the west; see [witchetty grub](entry:witchetty-grub) [ref:roth1901]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Baking a kangaroo whole, after Roth",
+      "body": "The Pennefather method, for a wallaby or a small kangaroo [ref:roth1901]:\n\n1. **Take the tail tendons** first, for the [sinew](entry:sinew) [ref:roth1901].\n2. **Dislocate the main joints** of the legs so they will fold [ref:roth1901].\n3. **Draw the tongue** and skewer it over the front teeth with a splinter, so the teeth are not spoilt by the heat; the incisors were wanted for spokeshaves [ref:roth1901].\n4. **Open the belly** across, take out the guts, and pack the cavity with stones heated in the fire [ref:roth1901].\n5. **Fold the legs** up to the body, wrap the whole in bark and tie it round and round like a bundle [ref:roth1901].\n6. **Bury it in the hot ashes** and cover well; on the Tully a second fire is lit on top [ref:roth1901].\n7. **Open it** when the smell says *jani*; the bark comes away with the fur [ref:hershberger1982].\n\n**The simple oven**, for pieces: heat the stones in the fire, rake them and the ashes out, dig the hole where the fire was, line it with ginger or wattle leaves, lay the meat with the hot stones packed among it, cover with leaves or paperbark, then earth and stones, and leave it an hour or more; lift with the vine tongs, *bangkal* [ref:roth1901] [ref:hershberger1982] [ref:anderson1996]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Cook the pig through; 'freezing, smoking, drying and pickling do not kill the bacteria that cause brucellosis' [ref:nsw-brucellosis]. See [pigs](entry:pigs).\n- Fresh, never tainted, and not the lean animal [ref:roth1901] [ref:hershberger1982].\n- The poison nut's roasting smoke 'is poisonous'; see [leaching](entry:leaching) [ref:hershberger1982].\n- Hot stones burst; heat river stones slowly and stand back; see [earth oven](entry:earth-oven).\n- Clean the fish and butcher the game away from the water the camp drinks and swims in [ref:crocwise]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The Karma Waters river camps cook on the carbeen coals and in the ground as the old camps did, and the station's induction has the fire rules [ref:anderson1996] [ref:kw-induction]. The Western Yalanji cooking words, and the Mitchell's leaves for the oven, are for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[wayjul](word:wayjul)* 'to cook, to burn'; *[dindal](word:dindal)* 'to roast on coals'; *[jani](word:jani)* 'well cooked'; *[jirra](word:jirra)* 'burnt'; *[kayal](word:kayal)* 'raw'; *[kulbul](word:kulbul)* 'ripe'; *[jika](word:jika)* 'soft when cooked'; *[kurrma](word:kurrma)* 'earth oven'; *[bangkal](word:bangkal)* 'vine tongs'; *[ngunjil](word:ngunjil)* 'hot coals'; *[nulu](word:nulu)* 'ashes'; *[kunukunu](word:kunukunu)* 'fat'; *[jirrburr](word:jirrburr)* 'lean, not eaten'; *[wuynkurr](word:wuynkurr)* 'juice of meat'; *[minya](word:minya)* 'meat'; *[mayi](word:mayi)* 'vegetable food' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "earth-oven",
+    "camps-and-firewood",
+    "bark-troughs",
+    "bailer-shells",
+    "wild-ginger",
+    "sinew",
+    "stone",
+    "lawyer-cane",
+    "wallaby",
+    "pigs",
+    "eels",
+    "termites-and-ant-beds",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "jirrburr",
+      "gloss": "meat with no fat, an animal in poor condition. (this kind of animal will not be eaten)"
+    },
+    {
+      "word": "wuynkurr",
+      "gloss": "juice of meat"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "nsw-brucellosis",
+      "citation": "NSW Health. Brucellosis: fact sheet (accessed 10 October 2026).",
+      "url": "https://www.health.nsw.gov.au/Infectious/factsheets/Pages/brucellosis.aspx"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "kw-induction",
+      "citation": "Karma Waters Station. Induction, waiver and indemnity form (updated 9 June 2023).",
+      "url": "https://www.karmawatersstation.com/uploads/3/1/9/2/31929385/induction_waiver_and_indemnity.pdf"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

@@ -169,7 +169,10 @@
         "bush-birds",
         "dingo-and-dogs",
         "pigs",
-        "quolls-bandicoots-and-rats"
+        "quolls-bandicoots-and-rats",
+        "lizards",
+        "termites-and-ant-beds",
+        "wattles-and-grevilleas"
       ]
     },
     {
@@ -190,7 +193,8 @@
         "bailer-shells",
         "bark-blankets",
         "sinew",
-        "rafts"
+        "rafts",
+        "shields-swords-and-clubs"
       ]
     },
     {
@@ -208,7 +212,11 @@
         "hunting-with-fire",
         "finding-water",
         "bush-medicine",
-        "wild-rice-and-grass-seed"
+        "wild-rice-and-grass-seed",
+        "bites-and-stings",
+        "camps-and-firewood",
+        "cooking-meat",
+        "tracks-and-signs"
       ]
     },
     {
