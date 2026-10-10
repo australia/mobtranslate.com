@@ -1,11 +1,6 @@
 {
   "pages": [
     {
-      "slug": "axes-and-adzes",
-      "title": "Axes and adzes",
-      "note": "Stone and later steel axes for felling and shaping timber"
-    },
-    {
       "slug": "bailer-shells",
       "title": "Bailer shells",
       "note": "Melo shells used as containers and billies"
@@ -13,11 +8,6 @@
     {
       "slug": "bark-blankets",
       "title": "Bark blankets and bark cloth"
-    },
-    {
-      "slug": "bark-troughs",
-      "title": "Bark troughs",
-      "note": "Bark containers for carrying water, cooking and leaching food"
     },
     {
       "slug": "beeswax-and-gums",

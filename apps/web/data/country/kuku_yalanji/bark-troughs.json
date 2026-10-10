@@ -1,0 +1,196 @@
+{
+  "slug": "bark-troughs",
+  "title": "Bark troughs and coolamons",
+  "category": "tool",
+  "names": [
+    {
+      "word": "dubal",
+      "gloss": "coolamon"
+    },
+    {
+      "word": "kunjarri",
+      "gloss": "species of palm tree. The bark can be used to make containers for cooking"
+    },
+    {
+      "word": "warkal",
+      "gloss": "bailer shell used in the old time for a billy"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary gives dubal for a coolamon, and Roth's 1904 list of local names for the pleated bark trough gives 'tu-bal' for the Bloomfield River, the same word in his spelling. Anderson (1996) describes the Bloomfield troughs, their bark and their uses from fieldwork; the Endeavour River construction sequence is Roth's eyewitness account from the next river north."
+  },
+  "countryTypes": [
+    "rainforest",
+    "river-freshwater",
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "The **[dubal](word:dubal)**, the bark trough or coolamon, is the container that made almost every other job possible: it carried water and honey, caught the mash when [yams](entry:yam) and [zamia](entry:zamia) were leached, held the meat in the [earth oven](entry:earth-oven), boiled water with hot stones, carried a baby, and floated the family's gear across a flooded creek ahead of the swimmer [ref:hershberger1982] [ref:anderson1996] [ref:roth1904]. It was made in a morning from one sheet of bark, usually a [bloodwood](entry:bloodwood), stringybark or box, heated and folded at the ends and pinned with a hardwood peg [ref:roth1904] [ref:anderson1996]. Kuku Yalanji troughs were 'another important and widely used item' of the material culture and examples are held in the Australian Museum [ref:anderson1996]. West and north of here, in the Gulf country as far as the Mitchell River, the same jobs were done by the wooden *koolamon*, gouged out of a solid log, and both kinds belong to Karma Waters country [ref:roth1904].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "dubal (coolamon); Roth's Bloomfield name tu-bal"
+    },
+    {
+      "label": "What it is",
+      "value": "A one-piece bark vessel, ends heated, pleated and skewered; or a wooden trough gouged from a log"
+    },
+    {
+      "label": "Bark",
+      "value": "Eucalypts (bloodwood, stringybark, red mahogany), swamp box (Tristania), teatree; palm-bark sheets for a quick one"
+    },
+    {
+      "label": "Uses",
+      "value": "Water, honey, leaching and mashing food, cooking and boiling, carrying infants, ferrying gear across creeks"
+    },
+    {
+      "label": "Where",
+      "value": "Bark troughs from the Bloomfield north and across the Peninsula; wooden koolamons through the Gulf country to the Mitchell"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives **[dubal](word:dubal)** for a coolamon; the same word names a bark container used in the old burial custom, which is a matter for families and is not described here [ref:hershberger1982]. Roth listed the local names of the pleated bark carrier along the east coast, and for the Bloomfield River (KYE, Bld.) he recorded *tu-bal*, his spelling of the same word [ref:roth1904]. Other containers in the dictionary: **[kunjarri](word:kunjarri)**, a palm whose bark 'can be used to make containers for cooking'; **[warkal](word:warkal)**, the 'bailer shell used in the old time for a billy'; **[jungkalu](word:jungkalu)**, 'billycan', the English word taken in; **[jindi](word:jindi)**, 'dish'; and the verb **[buyandi-l](word:buyandi-l)**, 'to put (something) in a container' [ref:hershberger1982]. The [dilly bag](entry:dilly-bags) was the other carrier, for things that did not need to hold water."
+    },
+    {
+      "id": "description",
+      "heading": "What it is",
+      "body": "Roth, who collected and watched these being made in 1898–1900, sorted the bark carriers of North Queensland into types. The one that runs from the Bloomfield north is the **pleat-type trough with spiked ends**: a single sheet of bark whose two ends are folded into pleats, bunched up and skewered through with a pointed peg, so that each end finishes in a spike. He found it 'on the eastern coast-line, from the Bloomfield River to a good distance north of Princess Charlotte Bay, on the Gulf coast from Pera Head to the Batavia, and in the Peninsula, from the Palmer to as far north as the Moreton Telegraph Station' [ref:roth1904]. Anderson's Bloomfield informants described the same thing seventy years later: the bark was soaked in water, then 'bunched up at each end into a kind of spike' [ref:anderson1996].\n\nTwo other bark types belong to the districts south of Kuku Yalanji country: the **bi-cornual** carrier of Cairns, folded from inner bark so that its base ends in two horns, laced up the sides, rimmed with lawyer cane and sealed with gum or beeswax; and the big **punt-type** trough, four feet and more long and 6–8 inches deep, with sticks laced through its sides, used around Cairns and Cape Grafton for preparing a sour yam. On the Tully there was a **sewn-canoe** type, a miniature of the local bark canoe, for washing yams [ref:roth1904].\n\n**The koolamon.** In the western districts and along the Gulf coast, 'certainly as far north as the Mitchell River', the trough was wood, not bark: a solid vessel hollowed from a log with the native gouge, used as 'a basin for carrying water, food, or the baby in, a miniature canoe for transporting impedimenta across a stream, a vessel for washing and soaking yams'. The bigger ones were carried on the head, or at the hip on a cord over the opposite shoulder with the hand underneath, and a few leafy twigs laid on the water stopped it slopping [ref:roth1904]. The upper Mitchell sits where the two traditions meet."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Trough, dish, shell or bag?",
+      "body": "- **Bark trough** (*dubal*): holds water; folded ends; one sheet of bark [ref:roth1904].\n- **Wooden koolamon**: holds water; gouged from a log, often with the gouge's fluting on the outside; the Gulf and western form [ref:roth1904].\n- **Bailer shell** (*[warkal](word:warkal)*): the big *Melo* shell, the usual pot for boiling on the Bloomfield and the canoe bailer; see [bailer shells](entry:bailer-shells) [ref:anderson1996] [ref:hershberger1982].\n- **Palm-bark sheet** (*[kunjarri](word:kunjarri)*): a dry sheet from the base of a palm frond, folded into a temporary trough when no bark was handy [ref:anderson1996] [ref:hershberger1982].\n- **[Dilly bag](entry:dilly-bags)**: fibre, open mesh; carries and sieves but does not hold water, which is exactly why zamia flour was leached in a bag standing in a trough or a creek [ref:roth1901] [ref:anderson1996]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Scarred trees.** A bark trough leaves a long oval scar on the trunk, often head-high, with the bark grown back around the edges over the decades. Big old bloodwoods, stringybarks and boxes with regular scars are the trough and canoe trees of a camp [ref:roth1904] [ref:anderson1996].\n- **The right bark.** A trough needs a sheet 'the full size of the tree — so as to curl nicely'; look for straight, clean trunks without branches for the length of a trough [ref:roth1904].\n- **After the first storms**, when the sap is up and the bark will peel, is when sheets were cut [ref:anderson1996].\n- **In a collection.** The Australian Museum holds Bloomfield troughs from Roth's collecting, described in Khan's catalogue [ref:anderson1996] [ref:khan1993]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the bark comes from",
+      "body": "Roth's list of the trees the east-coast spiked trough was made from reads like a list of the [woodland](entry:woodland) trees of Karma Waters: a bloodwood (*Eucalyptus corymbosa*, now *Corymbia*), the messmate or Darwin stringybark (*E. tetrodonta*), red mahogany (*E. resinifera*) on the Palmer, *E. phoenicea* at Cape Bedford, and the swamp box or broad-leaved water gum (*Tristania suaveolens*, now *Lophostemon*) at Cooktown [ref:roth1904]. Anderson's Bloomfield list is 'the bark of various *Eucalyptus* species, *Curcuma australasica* or *Tristania suaveolens*', with dry bark sheets from the Alexandra or black palm for a temporary trough [ref:anderson1996]. Teatree ([paperbark](entry:paperbark)) bark made the lighter water-carriers of the islands and the Endeavour River [ref:roth1904].\n\nAt Karma Waters the bloodwoods, Molloy red box and ironbark are the trees, and the river's paperbarks the softer option; swamp box is recorded in the district [ref:ala-karma-plants]. The wooden koolamon of the Gulf country was cut from whatever log was handy and charred before gouging [ref:roth1904]."
+    },
+    {
+      "id": "ecology",
+      "heading": "How it fits with everything else",
+      "body": "The trough is the hinge of the food system described across this guide. **Leaching**: on the Bloomfield, [black bean](entry:black-bean) was baked, pounded and sifted, then 'put into a bark trough and treated like the yam'; the hairy [yam](entry:yam) was mashed in a palm-fibre bag held over a bark trough while water was poured through, and the trough was left to settle until the oily 'poison' rose and was poured off [ref:roth1901] [ref:anderson1996]. See [leaching](entry:leaching). **Cooking**: in the Bloomfield [earth oven](entry:earth-oven) the meat went into a bark trough set on the hot stones, with more stones around and on it and teatree bark over the top; and boiling was done either in water-soaked troughs sat straight on the fire or by dropping red-hot rocks into water in the trough [ref:anderson1996]. **Carrying**: water, honey and vegetables, and 'infants', and 'ferrying things across swollen creeks' [ref:anderson1996]. **Fruit**: lawyer-cane berries were 'squashed in a bark-trough, and mixed with water' at Cooktown for an acid drink [ref:roth1901].\n\nEach use has its season: leaching in the zamia and yam camps of the dry and the wet, honey in the dry, creek crossings in the wet [ref:anderson1996]. A trough is also a sign of who carried: Roth and Anderson both record the women's bags and troughs as the family's transport, and the men's bags as small and personal [ref:anderson1996] [ref:roth1904]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Bark is cut when the sap has risen after the first storms in December, 'when the bark would peel' [ref:anderson1996]. The troughs themselves were worked hardest in the leaching camps of the mid to late dry and the yam season of the wet [ref:anderson1996] [ref:roth1901]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "From the Bloomfield record [ref:anderson1996] [ref:roth1904] [ref:roth1901]:\n\n- Carrying water and honey, and the bark container the sugarbag was put into when it was cut; see [native bees](entry:native-bees).\n- Leaching and mashing yams, zamia and black bean; mashing fruit with water.\n- A cooking vessel in the earth oven and a pot for boiling, with hot stones.\n- Carrying infants.\n- A float for gear across a flooded creek, 'pushed along in front of the swimmer' [ref:roth1904].\n- The bigger ones had a part in burial custom, which this page leaves to families [ref:roth1904] [ref:hershberger1982]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Making a bark trough",
+      "body": "Roth watched a spiked trough made on the Endeavour River, the next river north of the Bloomfield, and set it down step by step [ref:roth1904]; Anderson's Bloomfield informants add the soaking [ref:anderson1996].\n\n1. **Choose the tree and the season.** A straight trunk with a clean length, after the first storms when the sap is up [ref:anderson1996]. Bloodwood, stringybark, red mahogany, swamp box or teatree [ref:roth1904].\n2. **Take one sheet of bark 'the full size of the tree — so as to curl nicely'.** Cut round the trunk at the top and bottom of the sheet, slit it down one side and lever it off [ref:roth1904].\n3. **Pick and peel the outer layer** off with a kangaroo-bone stiletto, so the smooth inner bark is left; the inner surface of the bark becomes the inside of the trough [ref:roth1904].\n4. **Thin the two ends.** Pare and shave down the parts that will be pleated [ref:roth1904].\n5. **Warm the ends over a fire** so they bend without cracking; or soak the sheet in water first [ref:roth1904] [ref:anderson1996].\n6. **Score two shallow cuts across the inside**, one near each end, far enough in to let the folds bunch up on a common base [ref:roth1904].\n7. **Heat the ends again, gather each into pleats** and bunch them up into a spike [ref:roth1904] [ref:anderson1996].\n8. **Skewer each spike through** with a curved, sharply pointed [ironwood](entry:ironwood) peg to hold the pleats [ref:roth1904].\n9. **Add a sling or handle if you want one**: a fibre-twine sling with loops under the skewers, as on the Embley; or a stick tied along the length to both ends, as on the Batavia and Pennefather [ref:roth1904].\n\n**A wooden koolamon** (Gulf and western districts) was gouged out of a charred log with the native gouge, the big one 'for cutting in the rough', the small one 'for finishing off', worked towards the body with one or both hands [ref:roth1904]. **A quick trough**: fold a dry palm-bark sheet [ref:anderson1996]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Taking a trough-sized sheet ring-barks a tree if you go right round; the old scars show the sheet taken from one side only.\n- Scarred trees are cultural heritage. Under the *Aboriginal Cultural Heritage Act 2003* everyone has a duty of care not to harm them, and they must not be cut for firewood or cleared [ref:acha2003].\n- Boiling with hot stones in a wet bark trough works because the bark is soaked; a dry trough on a fire burns.\n- A trough on a swollen creek is a float for gear, not for a person; the river pages have the crocodile warnings."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Anderson found bark troughs still in use at Bloomfield bush camps in the late 1970s, with billies, buckets and drums alongside them [ref:anderson1996]. Scarred trees and old troughs are protected cultural heritage [ref:acha2003]. On Western Yalanji country native title holders' right to take bark and timber for their own use is part of the gathering right protected by section 211 of the *Native Title Act 1993*; on a station, ask the lessee before cutting bark from standing trees [ref:alrc] [ref:kw-about]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[dubal](word:dubal)* 'coolamon'; *[kunjarri](word:kunjarri)* 'palm whose bark can be used to make containers for cooking'; *[warkal](word:warkal)* 'bailer shell used in the old time for a billy'; *[jungkalu](word:jungkalu)* 'billycan'; *[jindi](word:jindi)* 'dish'; *[buyandi-l](word:buyandi-l)* 'to put in a container'; *[bana](word:bana)* 'water'; *[kawar](word:kawar)* 'honey bread of bees'; *[duna](word:duna)* 'wet'; *[buyku](word:buyku)* 'paperbark'; and the foods the trough was for, *[wukay](word:wukay)*, *[marra](word:marra)* and *[baway](word:baway)* [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "leaching",
+    "earth-oven",
+    "dilly-bags",
+    "yam",
+    "zamia",
+    "black-bean",
+    "native-bees",
+    "paperbark",
+    "woodland",
+    "stone",
+    "string-and-twine"
+  ],
+  "relatedWords": [
+    {
+      "word": "jungkalu",
+      "gloss": "billycan"
+    },
+    {
+      "word": "jindi",
+      "gloss": "dish"
+    },
+    {
+      "word": "buyandi-l",
+      "gloss": "to put (something) in a container"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "khan1993",
+      "citation": "Khan, K. (1993). Catalogue of the Roth Collection of Aboriginal artefacts from north Queensland. Volume 1: Items collected from Archer River, Atherton, Bathurst Head, Bloomfield River and Butcher's Hill, 1897–1901. Technical Reports of the Australian Museum 10: 1–205.",
+      "url": "https://doi.org/10.3853/j.1031-8062.10.1993.69",
+      "locator": "Bloomfield River: 'Woven bag' E.14833; 'Non-folding oval frame fishing net' E.14959"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "acha2003",
+      "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), sections 23–25 (cultural heritage duty of care; harming, excavating, relocating or taking away Aboriginal cultural heritage).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-2003-079"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
