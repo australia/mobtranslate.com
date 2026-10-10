@@ -1,0 +1,17 @@
+{
+  "slug": "pigs",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/pigs/sus-scrofa-inat.webp",
+      "width": 1024,
+      "height": 863,
+      "alt": "Feral pig, Sus scrofa, photographed in the wild near Lakefield Queensland",
+      "caption": "Feral pig (Sus scrofa), Lakefield Queensland, 2012. Photograph by Pål A. Olsvik on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Pål A. Olsvik, via iNaturalist (observation 142632552)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/142632552",
+      "location": "Lakefield Queensland"
+    }
+  ]
+}

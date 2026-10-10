@@ -1,0 +1,17 @@
+{
+  "slug": "dingo-and-dogs",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/dingo-and-dogs/canis-familiaris-dingo-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Dingo, Canis familiaris dingo, photographed in the wild near Upper Barron Queensland",
+      "caption": "Dingo (Canis familiaris dingo), Upper Barron Queensland, 2025. Photograph by Mark Clarke on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Mark Clarke, via iNaturalist (observation 305132805)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/305132805",
+      "location": "Upper Barron Queensland"
+    }
+  ]
+}

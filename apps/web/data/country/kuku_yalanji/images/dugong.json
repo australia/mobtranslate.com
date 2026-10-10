@@ -1,0 +1,17 @@
+{
+  "slug": "dugong",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/dugong/dugong-dugon-inat.webp",
+      "width": 1024,
+      "height": 657,
+      "alt": "Dugong, Dugong dugon, photographed in the wild near Cook, Queensland",
+      "caption": "Dugong (Dugong dugon), Cook, Queensland, 2019. Photograph by Ellen Rykers on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Ellen Rykers, via iNaturalist (observation 31280358)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/31280358",
+      "location": "Cook, Queensland"
+    }
+  ]
+}

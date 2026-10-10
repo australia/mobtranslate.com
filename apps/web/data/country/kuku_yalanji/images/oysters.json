@@ -1,0 +1,17 @@
+{
+  "slug": "oysters",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/oysters/saccostrea-inat.webp",
+      "width": 1024,
+      "height": 682,
+      "alt": "Rock oyster, Saccostrea scyphophilla, photographed in the wild near Green Island Queensland",
+      "caption": "Rock oyster (Saccostrea scyphophilla), Green Island Queensland, 2026. Photograph by Richard Littauer on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Richard Littauer, via iNaturalist (observation 395162316)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/395162316",
+      "location": "Green Island Queensland"
+    }
+  ]
+}

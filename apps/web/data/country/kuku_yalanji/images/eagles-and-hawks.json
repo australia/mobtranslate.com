@@ -1,0 +1,17 @@
+{
+  "slug": "eagles-and-hawks",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/eagles-and-hawks/aquila-audax-inat.webp",
+      "width": 1024,
+      "height": 685,
+      "alt": "Wedge-tailed eagle, Aquila audax audax, photographed in the wild near Cook, Queensland",
+      "caption": "Wedge-tailed eagle (Aquila audax audax), Cook, Queensland, 2026. Photograph by Lawrence Hylton on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Lawrence Hylton, via iNaturalist (observation 383627422)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/383627422",
+      "location": "Cook, Queensland"
+    }
+  ]
+}

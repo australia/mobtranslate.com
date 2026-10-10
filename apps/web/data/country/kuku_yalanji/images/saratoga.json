@@ -1,0 +1,17 @@
+{
+  "slug": "saratoga",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/saratoga/scleropages-jardinii-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Gulf saratoga, Scleropages jardinii, photographed in the wild near Mapoon Queensland",
+      "caption": "Gulf saratoga (Scleropages jardinii), Mapoon Queensland, 2008. Photograph by coenobita on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: coenobita, via iNaturalist (observation 10487540)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/10487540",
+      "location": "Mapoon Queensland"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "waterhole",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/waterhole/nymphaea-gigantea-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Giant water lily on a waterhole, Nymphaea gigantea, photographed in the wild near Ingham Queensland",
+      "caption": "Giant water lily on a waterhole (Nymphaea gigantea), Ingham Queensland, 2017. Photograph by Rob Foster on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Rob Foster, via iNaturalist (observation 11323499)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/11323499",
+      "location": "Ingham Queensland"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "bustard",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/bustard/ardeotis-australis-inat.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "Australian bustard, Ardeotis australis, photographed in the wild near Mount Carbine Queensland",
+      "caption": "Australian bustard (Ardeotis australis), Mount Carbine Queensland, 2024. Photograph by Romain Boisseau on iNaturalist, licence CC BY-SA-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Romain Boisseau, via iNaturalist (observation 294162779)",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/294162779",
+      "location": "Mount Carbine Queensland"
+    }
+  ]
+}

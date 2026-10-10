@@ -1,0 +1,17 @@
+{
+  "slug": "bush-birds",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/bush-birds/chlamydera-nuchalis-inat.webp",
+      "width": 1024,
+      "height": 605,
+      "alt": "Great bowerbird, Chlamydera nuchalis, photographed in the wild near Mulligan, Mount Molloy Queensland",
+      "caption": "Great bowerbird (Chlamydera nuchalis), Mulligan, Mount Molloy Queensland, 2023. Photograph by no rights reserved on iNaturalist, licence CC0 1.0.",
+      "kind": "photo",
+      "credit": "Photograph: no rights reserved, via iNaturalist (observation 191538122)",
+      "licence": "CC0-1.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/191538122",
+      "location": "Mulligan, Mount Molloy Queensland"
+    }
+  ]
+}

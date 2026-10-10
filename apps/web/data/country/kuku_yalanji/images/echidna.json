@@ -1,0 +1,17 @@
+{
+  "slug": "echidna",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/echidna/tachyglossus-aculeatus-inat.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "Short-beaked echidna, Tachyglossus aculeatus, photographed in the wild near Cairns Botanic Gardens, Edge Hill Queensland",
+      "caption": "Short-beaked echidna (Tachyglossus aculeatus), Cairns Botanic Gardens, Edge Hill Queensland, 2024. Photograph by Ged Tranter on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Ged Tranter, via iNaturalist (observation 234494208)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/234494208",
+      "location": "Cairns Botanic Gardens, Edge Hill Queensland"
+    }
+  ]
+}

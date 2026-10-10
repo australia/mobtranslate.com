@@ -1,0 +1,17 @@
+{
+  "slug": "bloodwood",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/bloodwood/corymbia-clarksoniana-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Clarkson's bloodwood, Corymbia clarksoniana, photographed in the wild near Townsville Queensland",
+      "caption": "Clarkson's bloodwood (Corymbia clarksoniana), Townsville Queensland, 2026. Photograph by no rights reserved on iNaturalist, licence CC0 1.0.",
+      "kind": "photo",
+      "credit": "Photograph: no rights reserved, via iNaturalist (observation 404948426)",
+      "licence": "CC0-1.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/404948426",
+      "location": "Townsville Queensland"
+    }
+  ]
+}

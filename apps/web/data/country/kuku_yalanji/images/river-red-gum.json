@@ -1,0 +1,17 @@
+{
+  "slug": "river-red-gum",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/river-red-gum/eucalyptus-camaldulensis-inat.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "River red gum, Eucalyptus camaldulensis, photographed in the wild near Wyandra, Queensland",
+      "caption": "River red gum (Eucalyptus camaldulensis), Wyandra, Queensland, 2023. Photograph by Martin Hannan-Jones on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Martin Hannan-Jones, via iNaturalist (observation 156546898)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/156546898",
+      "location": "Wyandra, Queensland"
+    }
+  ]
+}

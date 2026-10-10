@@ -1,0 +1,17 @@
+{
+  "slug": "snakes",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/snakes/oxyuranus-scutellatus-inat.webp",
+      "width": 1024,
+      "height": 683,
+      "alt": "Coastal taipan, Oxyuranus scutellatus, photographed in the wild near Lakefield Queensland",
+      "caption": "Coastal taipan (Oxyuranus scutellatus), Lakefield Queensland, 2022. Photograph by Tom Field on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Tom Field, via iNaturalist (observation 142349091)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/142349091",
+      "location": "Lakefield Queensland"
+    }
+  ]
+}

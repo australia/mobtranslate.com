@@ -1,0 +1,17 @@
+{
+  "slug": "lizards",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/lizards/chlamydosaurus-kingii-inat.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "Frilled lizard, Chlamydosaurus kingii, photographed in the wild near Kuranda, Queensland",
+      "caption": "Frilled lizard (Chlamydosaurus kingii), Kuranda, Queensland, 2021. Photograph by Edward Bell on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Edward Bell, via iNaturalist (observation 72355421)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/72355421",
+      "location": "Kuranda, Queensland"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "mussels",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/mussels/velesunio-inat.webp",
+      "width": 1024,
+      "height": 682,
+      "alt": "Freshwater mussel, Velesunio wilsonii, photographed in the wild near Cairns Queensland",
+      "caption": "Freshwater mussel (Velesunio wilsonii), Cairns Queensland, 2018. Photograph by coenobita on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: coenobita, via iNaturalist (observation 150182336)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/150182336",
+      "location": "Cairns Queensland"
+    }
+  ]
+}

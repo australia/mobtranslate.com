@@ -1,0 +1,17 @@
+{
+  "slug": "sleepy-cod",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/sleepy-cod/oxyeleotris-lineolata-inat.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "Sleepy cod, Oxyeleotris lineolata, photographed in the wild near East Barron Queensland",
+      "caption": "Sleepy cod (Oxyeleotris lineolata), East Barron Queensland, 2022. Photograph by Matt B on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Matt B, via iNaturalist (observation 109637127)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/109637127",
+      "location": "East Barron Queensland"
+    }
+  ]
+}

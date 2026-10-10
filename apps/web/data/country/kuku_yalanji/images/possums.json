@@ -1,0 +1,17 @@
+{
+  "slug": "possums",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/possums/trichosurus-vulpecula-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Common brushtail possum, Trichosurus vulpecula, photographed in the wild near Mutchilba Queensland",
+      "caption": "Common brushtail possum (Trichosurus vulpecula), Mutchilba Queensland, 2024. Photograph by no rights reserved on iNaturalist, licence CC0 1.0.",
+      "kind": "photo",
+      "credit": "Photograph: no rights reserved, via iNaturalist (observation 260786261)",
+      "licence": "CC0-1.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/260786261",
+      "location": "Mutchilba Queensland"
+    }
+  ]
+}

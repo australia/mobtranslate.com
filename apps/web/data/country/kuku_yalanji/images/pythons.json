@@ -1,0 +1,17 @@
+{
+  "slug": "pythons",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/pythons/morelia-spilota-inat.webp",
+      "width": 1024,
+      "height": 772,
+      "alt": "Carpet python, Morelia spilota cheynei, photographed in the wild near Cairns Queensland",
+      "caption": "Carpet python (Morelia spilota cheynei), Cairns Queensland, 2025. Photograph by Graham Winterflood on iNaturalist, licence CC BY-SA-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Graham Winterflood, via iNaturalist (observation 303656924)",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/303656924",
+      "location": "Cairns Queensland"
+    }
+  ]
+}

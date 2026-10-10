@@ -1,0 +1,17 @@
+{
+  "slug": "water-lilies",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/water-lilies/nymphaea-gigantea-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Giant water lily, Nymphaea gigantea, photographed in the wild near Ingham Queensland",
+      "caption": "Giant water lily (Nymphaea gigantea), Ingham Queensland, 2014. Photograph by botanygirl on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: botanygirl, via iNaturalist (observation 8832951)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/8832951",
+      "location": "Ingham Queensland"
+    }
+  ]
+}

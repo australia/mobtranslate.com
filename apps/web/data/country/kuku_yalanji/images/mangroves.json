@@ -1,0 +1,17 @@
+{
+  "slug": "mangroves",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/mangroves/rhizophora-stylosa-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Stilt mangrove, Rhizophora stylosa, photographed in the wild near Cairns Botanic Gardens, Edge Hill, Queensland",
+      "caption": "Stilt mangrove (Rhizophora stylosa), Cairns Botanic Gardens, Edge Hill, Queensland, 2025. Photograph by Caleb Catto on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Caleb Catto, via iNaturalist (observation 270776765)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/270776765",
+      "location": "Cairns Botanic Gardens, Edge Hill, Queensland"
+    }
+  ]
+}

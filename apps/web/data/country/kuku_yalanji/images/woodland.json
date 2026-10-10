@@ -1,0 +1,17 @@
+{
+  "slug": "woodland",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/woodland/corymbia-dallachiana-inat.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "Dallachy's gum, a tree of the woodland, Corymbia dallachiana, photographed in the wild near Douglas, Queensland",
+      "caption": "Dallachy's gum, a tree of the woodland (Corymbia dallachiana), Douglas, Queensland, 2019. Photograph by elawrey on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: elawrey, via iNaturalist (observation 30593561)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/30593561",
+      "location": "Douglas, Queensland"
+    }
+  ]
+}

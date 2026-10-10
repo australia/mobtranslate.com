@@ -1,0 +1,17 @@
+{
+  "slug": "ducks-and-geese",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/ducks-and-geese/anseranas-semipalmata-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Magpie goose, Anseranas semipalmata, photographed in the wild near Edge Hill Queensland",
+      "caption": "Magpie goose (Anseranas semipalmata), Edge Hill Queensland, 2014. Photograph by Graham Winterflood on iNaturalist, licence CC BY-SA-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Graham Winterflood, via iNaturalist (observation 25519563)",
+      "licence": "CC-BY-SA-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/25519563",
+      "location": "Edge Hill Queensland"
+    }
+  ]
+}

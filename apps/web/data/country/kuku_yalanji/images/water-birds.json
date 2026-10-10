@@ -1,0 +1,17 @@
+{
+  "slug": "water-birds",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/water-birds/anhinga-novaehollandiae-inat.webp",
+      "width": 1024,
+      "height": 681,
+      "alt": "Australasian darter, Anhinga novaehollandiae, photographed in the wild near Cairns Queensland",
+      "caption": "Australasian darter (Anhinga novaehollandiae), Cairns Queensland, 2023. Photograph by Donald Davesne on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Donald Davesne, via iNaturalist (observation 180736482)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/180736482",
+      "location": "Cairns Queensland"
+    }
+  ]
+}

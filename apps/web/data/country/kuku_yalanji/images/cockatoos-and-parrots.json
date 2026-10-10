@@ -1,0 +1,17 @@
+{
+  "slug": "cockatoos-and-parrots",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/cockatoos-and-parrots/calyptorhynchus-banksii-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Red-tailed black cockatoo, Calyptorhynchus banksii, photographed in the wild near Cairns Queensland",
+      "caption": "Red-tailed black cockatoo (Calyptorhynchus banksii), Cairns Queensland, 2025. Photograph by no rights reserved on iNaturalist, licence CC0 1.0.",
+      "kind": "photo",
+      "credit": "Photograph: no rights reserved, via iNaturalist (observation 287909838)",
+      "licence": "CC0-1.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/287909838",
+      "location": "Cairns Queensland"
+    }
+  ]
+}

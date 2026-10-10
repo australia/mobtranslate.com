@@ -1,0 +1,17 @@
+{
+  "slug": "quolls-bandicoots-and-rats",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/quolls-bandicoots-and-rats/dasyurus-hallucatus-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Northern quoll, Dasyurus hallucatus, photographed in the wild near Mareeba Queensland",
+      "caption": "Northern quoll (Dasyurus hallucatus), Mareeba Queensland, 2018. Photograph by Valentin Moser on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Valentin Moser, via iNaturalist (observation 19148228)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/19148228",
+      "location": "Mareeba Queensland"
+    }
+  ]
+}

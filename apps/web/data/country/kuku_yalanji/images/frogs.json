@@ -1,0 +1,17 @@
+{
+  "slug": "frogs",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/frogs/litoria-caerulea-inat.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "Green tree frog, Pelodryas caerulea, photographed in the wild near Kuranda, Queensland",
+      "caption": "Green tree frog (Pelodryas caerulea), Kuranda, Queensland, 2019. Photograph by Edward Bell on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Edward Bell, via iNaturalist (observation 36404092)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/36404092",
+      "location": "Kuranda, Queensland"
+    }
+  ]
+}

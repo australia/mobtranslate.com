@@ -1,0 +1,17 @@
+{
+  "slug": "kurrajong",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/kurrajong/brachychiton-diversifolius-inat.webp",
+      "width": 768,
+      "height": 1024,
+      "alt": "Northern kurrajong, Brachychiton diversifolius, photographed in the wild near Wenlock Queensland",
+      "caption": "Northern kurrajong (Brachychiton diversifolius), Wenlock Queensland, 2009. Photograph by coenobita on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: coenobita, via iNaturalist (observation 20201388)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/20201388",
+      "location": "Wenlock Queensland"
+    }
+  ]
+}

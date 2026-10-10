@@ -1,0 +1,17 @@
+{
+  "slug": "green-ants",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/green-ants/oecophylla-smaragdina-inat.webp",
+      "width": 1024,
+      "height": 768,
+      "alt": "Green ant, Oecophylla smaragdina, photographed in the wild near Trinity Beach, Queensland",
+      "caption": "Green ant (Oecophylla smaragdina), Trinity Beach, Queensland, 2019. Photograph by Terra Occ on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Terra Occ, via iNaturalist (observation 28242131)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/28242131",
+      "location": "Trinity Beach, Queensland"
+    }
+  ]
+}
