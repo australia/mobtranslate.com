@@ -26,6 +26,7 @@ export const COUNTRY_CATEGORIES = [
   'landform',
   'food',
   'technique',
+  'country',
 ] as const;
 
 export const CATEGORY_LABELS: Record<(typeof COUNTRY_CATEGORIES)[number], string> = {
@@ -47,6 +48,7 @@ export const CATEGORY_LABELS: Record<(typeof COUNTRY_CATEGORIES)[number], string
   landform: 'Land',
   food: 'Foods & cooking',
   technique: 'Skills & methods',
+  country: 'Country, seasons & weather',
 };
 
 export const COUNTRY_TYPES = [

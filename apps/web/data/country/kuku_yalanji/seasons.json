@@ -1,0 +1,355 @@
+{
+  "slug": "seasons",
+  "title": "The year on country: seasons and their signs",
+  "category": "country",
+  "names": [
+    {
+      "word": "kambar",
+      "gloss": "wet season"
+    },
+    {
+      "word": "wangariji",
+      "gloss": "the hot season"
+    },
+    {
+      "word": "jarramali",
+      "gloss": "thunder, thunderstorm, thunderheads"
+    },
+    {
+      "word": "kiway",
+      "gloss": "cold"
+    },
+    {
+      "word": "kaba",
+      "gloss": "rain"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The five season names and their months are published by the Wujal Wujal Aboriginal Shire Council and match the dictionary's kambar, wangariji, jarramali and kaba. The seasonal signs are the dictionary's own entries. Climate figures are the Bureau of Meteorology's for Palmerville, the nearest long record to Karma Waters."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland",
+    "rainforest",
+    "coast-mangrove"
+  ],
+  "summary": "Kuku Yalanji people count **five seasons**, not two, and each is read from the country rather than the calendar: from what is flowering, what is fruiting, which insects have arrived and which way the thunder is [ref:wujal-council] [ref:hershberger1982]. In the dictionary's words the year turns through **[kambar](word:kambar)** the wet, the cool rains after it, **[kiway](word:kiway)** the cold, **[wangariji](word:wangariji)** the hot season and **[jarramali](word:jarramali)** the storms, and then back into the rain [ref:hershberger1982] [ref:wujal-council]. The dictionary carries a whole almanac inside its plant and animal entries: the cotton tree's big red flowers say the scrub-hen eggs have started, the junjun fruit brings the scrub turkeys down from the high country, a mountain locust says it is time for turkey eggs, the green ants that are eaten come in December and January, and a run of fruit trees ripen from August to October [ref:hershberger1982]. At [Karma Waters](place:karma-waters), 150 km inland from where those words were recorded, the rhythm is the same but harder: on the Mitchell only about four per cent of the year's rain falls between May and October, so the dry is drier, the pools shrink further and the hot season bites earlier [ref:griffith2021] [ref:bom-palmerville]. This page is the year, season by season and month by month: the weather, the signs, what the [waterhole](entry:waterhole) and the [woodland](entry:woodland) are doing, what is in season to gather, what the law closes and opens, and what the station does.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "Kab / kambar (wet) · Kabakababa (little rains) · Bulurij / kiway (cold) · Wungariji / wangariji (hot) · Jarramali (storms)"
+    },
+    {
+      "label": "Wet",
+      "value": "Late Dec–Mar: Palmerville 267 / 260 / 178 mm; river in flood; station closed"
+    },
+    {
+      "label": "Little rains",
+      "value": "Apr–May: river back in its bed; early burns; cherabin run; muster"
+    },
+    {
+      "label": "Cold",
+      "value": "Jun–Sep: near-zero rain, 14 °C nights; clearest pools; honey, zamia, fruit, turtles"
+    },
+    {
+      "label": "Hot",
+      "value": "Oct–Nov: 36 °C; pools at their smallest; barramundi closed from 7 Oct; eggs"
+    },
+    {
+      "label": "Storms",
+      "value": "Late Nov–mid Dec: thunder out west; bark peels; cotton tree flowers; the river rises"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "The five seasons and their words",
+      "body": "**The five seasons.** The Wujal Wujal council gives the Kuku Yalanji year as: *Kab*, the wet season, late December to March; *Kabakababa*, the winter rain season, April to May; *Bulurij*, the cold season, June to September; *Wungariji*, the hot season, October to November; and *Jarramali*, the stormy season, late November to the middle of December [ref:wujal-council]. A Daintree source gives the same five with slightly different spellings and dates: *Kambar* (late December to March, rain), *Kabakabada* (April to May, cool, rain easing), *Duluruiji* (June to September, cooler and dry), *Wungariji* (October to November, hot and dry) and *Jarramali* (November to December, hot and stormy) [ref:heritage-lodge]. Kuku Yalanji custodian Johnny Murison explains that *Jarramali* means thunder and is the storm season, late November to mid December, followed by *Kaba*, the rains, late December to March [ref:tnq-summer].\n\n**The dictionary's words** match three of them directly: **[kambar](word:kambar)** 'wet season' (and 'white clay'), **[wangariji](word:wangariji)** 'the hot season' and **[jarramali](word:jarramali)** 'thunder, thunderstorm, thunderheads' [ref:hershberger1982]. **[kaba](word:kaba)** is 'rain', so *Kab* and *Kabakababa* are the rain and the little rains [ref:hershberger1982]. The cold season's name is not a dictionary headword in that spelling, but **[kiway](word:kiway)** is 'cold' [ref:hershberger1982]. The dictionary adds a season the council list does not name: **[kumurr](word:kumurr)**, 'the autumn time of the year when so many flowers are in bloom' [ref:hershberger1982].\n\n**Weather words.** **[jabulbina](word:jabulbina)** 'thunder out west, the start of all storms'; **[wadil](word:wadil)** 'weather, rain or cold, entering'; **[balbay](word:balbay)** 'lightning'; **[ngurrban](word:ngurrban)** 'cloud'; **[muyar](word:muyar)** 'wind'; **[kumbamu](word:kumbamu)** 'trade wind, fair wind'; **[jukar-warra](word:jukar-warra)** 'whirlwind'; **[jirimali](word:jirimali)** 'fine day, cloudless sky'; **[jalungkarr](word:jalungkarr)** 'flood'; **[marral](word:marral)** 'dry'; **[duna](word:duna)** 'wet'; **[kurri-kurri](word:kurri-kurri)** 'storm bird' [ref:hershberger1982]. **Sky.** **[wungar](word:wungar)** 'sun'; **[kija](word:kija)** 'moon'; **[dawar](word:dawar)** 'star'; **[kurrubijal](word:kurrubijal)** 'morning star'. And **[kakarr](word:kakarr)**, 'grass', is also the word for a year: *kakarr jambul*, 'two years', one grass season after another [ref:hershberger1982].\n\nThese are Eastern Kuku Yalanji words and season names from the Bloomfield and Daintree coast. No Western Yalanji seasonal calendar has been published that we could find; if your family counts the seasons differently at Karma Waters, add it below."
+    },
+    {
+      "id": "description",
+      "heading": "The year, season by season",
+      "body": "The weather figures here are Palmerville's, the nearest long record to Karma Waters, about 90 km north-west on the Palmer River, kept since 1889 [ref:bom-palmerville].\n\n## Kab / [kambar](word:kambar): the wet (late December to March)\n\nThe three big months. Palmerville averages 267 mm of rain in January, 260 mm in February and 178 mm in March, with nights that never drop below about 22 °C [ref:bom-palmerville]. The river comes up and joins the pools into one brown flood that spreads onto its floodplain and feeds the whole system [ref:griffith2021]. 'The rain is heavy but has a sweet smell to it and the land drinks it in', Johnny Murison says of Kaba; 'it is a time when our country really comes alive' [ref:tnq-summer]. This is when the fish spawn and the fruit ripens: the hairy [yam](entry:yam) was 'the main article of diet' from mid-February to mid-May [ref:roth1901]; the *julbal* 'green apple' and the *kawunjil* black cherry ripen in the wet, the *jidu* fruit in March, and the *junjun* fruit from March to May [ref:hershberger1982]; the green ants that are eaten come in December and January [ref:hershberger1982]. At Bloomfield the wet-season camps were on the ridges between the creek gullies, above the floods [ref:anderson1996]. At Karma Waters the station's river camps are closed from 1 December to 1 April, to save the roads and to give the fish and prawns their spawning season [ref:kw-camping].\n\n## Kabakababa: the little rains (April to May)\n\nThe rain eases: 48 mm in April, 15 mm in May at Palmerville, and the nights cool from 20 °C to 17 °C [ref:bom-palmerville]. The river drops back into its bed and the first burns go in while the grass is still green: the early dry-season burn 'may sometimes commence as early as March' [ref:re-woodland], and at Kowanyama the early burn is 'after the wet when the grass is mostly still green' [ref:kowanyama2024]. On the lower rivers the year's young [cherabin](entry:cherabin) run upstream in a six-week migration in April and May, with young [barramundi](entry:barramundi) and mullet [ref:cdu2014] [ref:cdu2016]. The scrub turkeys come down from the high country to the junjun fruit [ref:hershberger1982]. The station musters in May [ref:kw-cattle].\n\n## Bulurij / [kiway](word:kiway): the cold (June to September)\n\nThe dry proper. Rain is close to nothing, 11 mm in June, 5 mm in July, 3 mm in August, 8 mm in September; days are 30 °C and the July nights 14 °C, with mist on the river at dawn [ref:bom-palmerville] [ref:hershberger1982]. The pools are clearest now and the food base at its richest: algae on the sand banks, prawns on the algae, fish on the prawns [ref:cdu2016] [ref:jardine2013]. This was the gathering season at Bloomfield: families moved out to 'branch' camps on the sandy creek beds for eelfish, [turtles](entry:freshwater-turtle), [wallabies](entry:wallaby) and [goannas](entry:goanna), the [wallaby drives with fire](entry:hunting-with-fire) were held, [sugarbag](entry:native-bees) was 'an important and highly desired resource' throughout the dry, the [zamia](entry:zamia) was fit to eat from July, and most tubers and yams came in from the mid dry to about November [ref:anderson1996] [ref:roth1901]. The dictionary's fruit calendar is thick here: the Queensland nut *barka* from July to October; the figs *kumin* and *mujarr*, and *murrkul*, *ngalkarran*, *wada*, *wanakan* and *mukukanka*, all 'ripe in August to October' [ref:hershberger1982]. [Freshwater crocodiles](entry:freshwater-crocodile) court from June and lay in August and September [ref:am-johnstoni]. The station musters again in September and the bulls go out [ref:kw-cattle]. By September the woodland's fuel is cured and fires can run [ref:pbg-cape-york].\n\n## Wungariji / [wangariji](word:wangariji): the hot season (October to November)\n\nThe hardest months. Palmerville's mean maximum reaches 35.6 °C in October and 36.2 °C in November, with only 21 mm and 61 mm of rain; bad fire-weather days run to about 36 °C with 18 per cent humidity [ref:bom-palmerville] [ref:pbg-cape-york]. The pools shrink, warm and crowd: fish biomass falls in isolated waterholes through the late dry, from short food and predation, and the deep holes hold the crocodiles with the fish [ref:asfb2018-flinders] [ref:waterhole-temps]. The barramundi closed season starts on 7 October [ref:qld-closed]. Turtles are nesting from September to December, the brush-turkey mounds are at their fullest from September to December, the blue-winged kookaburras nest from September, and the first crocodile hatchlings come in November [ref:wp-sawshell] [ref:qld-brushturkey] [ref:wiki-bwk] [ref:am-johnstoni]. In the woodland the late dry was the time to check the tree bases for bee dung [ref:anderson1996]. The mountain locust **[kalkamal](word:kalkamal)** 'tells when to collect turkey eggs', and names that time [ref:hershberger1982].\n\n## Jarramali / [jarramali](word:jarramali): the storms (late November to mid December)\n\n'Thunder out west, the start of all storms' is *jabulbina* [ref:hershberger1982]. The build-up breaks in storms; December brings 158 mm at Palmerville [ref:bom-palmerville]. Juan Walker counts the build-up his favourite part of the year, 'some amazing calm days when the ocean looks like a mirror', and the cicadas starting their call to signal the rain [ref:tnq-summer]. The first storms raise the sap: this is when the bark sheets for huts were cut and peeled [ref:anderson1996]. Storm burns are lit after the first storm rains, between October and January [ref:pbg-cape-york]. The cotton tree **[wawuburra](word:wawuburra)** blooms with 'big red flowers' and 'signals the start of the scrub hen egg season', and the flame tree **[ngakun](word:ngakun)** flowers for the same reason; a Daintree account puts it as turtle eggs ready when the flame tree flowers and the first storm comes [ref:hershberger1982] [ref:heritage-lodge]. The little gooseberry *banday* ripens in December [ref:hershberger1982]. [Cherabin](entry:cherabin) larvae hatch from December and must reach the sea within a week [ref:cdu2014]. Lightning is the woodland's other fire-lighter."
+    },
+    {
+      "id": "signs",
+      "heading": "The signs: the dictionary's almanac",
+      "body": "The dictionary's own almanac, the living things that say what time of year it is [ref:hershberger1982]:\n\n- **[wawuburra](word:wawuburra)** (cotton tree) 'When it blooms (big red flowers) it signals the start of the scrub hen egg season'. The [scrub hen](entry:scrub-hen) page has the rest.\n- **[ngakun](word:ngakun)** (flame tree): 'The flowering of this tree signals the time when the scrub hen eggs are in season'.\n- **[junjun](word:junjun)**: fruit 'ripe in March – May. During the junjun season, the [scrub turkey](entry:scrub-turkey), which normally lives in the high country, will come down to feed on them'.\n- **[kalkamal](word:kalkamal)**: 'a locust in the mountains which tells when to collect turkey eggs; the time to collect the eggs'.\n- **[mura](word:mura)**: a tree; 'when this is in bloom it is time for *minya jalan*', the sea-urchin meat.\n- **[nyirran](word:nyirran)**: 'the big green ant that is eaten, comes in December – January'.\n- **[jumul-jumul](word:jumul-jumul)**: 'the grass seeds that get stuck in clothes, which come during the wet season'.\n- **[junbirr](word:junbirr)**: a small lizard 'common in leaves and grass before and during wet season'.\n- **[biray](word:biray)** and **[kamay](word:kamay)**: the grey and yellow March flies.\n- **[kumurr](word:kumurr)**: 'the autumn time of the year when so many flowers are in bloom'.\n- **[kurri-kurri](word:kurri-kurri)**: the storm bird.\n- The fruit calendar: *[jidu](word:jidu)* in March; *[julbal](word:julbal)* and *[kawunjil](word:kawunjil)* in the wet; *[barka](word:barka)* from July to October; *[kumin](word:kumin)*, *[mujarr](word:mujarr)*, *[murrkul](word:murrkul)*, *[ngalkarran](word:ngalkarran)*, *[wada](word:wada)*, *[wanakan](word:wanakan)* and *[mukukanka](word:mukukanka)* from August to October; *[banday](word:banday)* in December.\n\nOther signs worth watching at Karma Waters, from the research on this guide's pages: the first cherabin running upstream after the wet; the finches breeding after the monsoon; the cockatoo flocks on a heavy bloodwood crop; crocodile slides on the sand banks from August; mist on the pools in the cold; and the honeyeaters' dawn chorus moving earlier as the days lengthen [ref:cdu2016] [ref:wiki-btf] [ref:wiki-rtbc] [ref:am-johnstoni] [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Inland and coast",
+      "body": "**Inland and coast.** The five seasons were named on the coast, where the wet is longer and the dry never quite dries. The Mitchell is different in degree: only about 4 per cent of the catchment's rain falls from May to October, against the Daintree coast's year-round showers, so at Karma Waters the little rains are smaller, the cold is colder at night, the pools shrink further and the hot season bites earlier [ref:griffith2021] [ref:bom-palmerville]. Mareeba Airport, up on the tableland at 472 m, is a few degrees cooler again with the same pattern, 894 mm a year, mostly December to March [ref:bom-mareeba].\n\n**The river's year** is on the [waterhole](entry:waterhole) page: flood, early-dry refilling, mid-dry clarity, late-dry contraction. **The woodland's year** is on the [woodland](entry:woodland) page: blossom, seed, hollows and the burn cycle. The two hubs and this page are one calendar seen from three places."
+    },
+    {
+      "id": "ecology",
+      "heading": "What the seasons turn",
+      "body": "The seasons are the hinge on which everything else on this guide turns.\n\n- **Water connects and disconnects.** In the wet the river joins its floodplain and its pools, and the fish move and feed across the whole system; in the dry each pool becomes its own world and the animals in it depend on what that pool grows [ref:griffith2021] [ref:jardine2012]. Big wet years make more and bigger barramundi [ref:griffith2021].\n- **Spawning rides the flood.** Sooty grunter spawn on rising water over 25 °C, black catfish migrate upstream at peak flood, barramundi spawn at the river mouths from September to March, cherabin larvae ride the December–March flows to the sea and the young ride the falling river back up in April and May [ref:angfa-grunter] [ref:angfa-ater] [ref:foa-barra] [ref:cdu2014].\n- **Blossom and seed set the birds' year.** The woodland's finches breed after the monsoon from February, the rosellas from February to June in the north, the kookaburras from September to December; the cockatoo flocks follow the seed crops and the lorikeets and flying foxes the blossom [ref:wiki-btf] [ref:wiki-rosella] [ref:wiki-bwk] [ref:wiki-rtbc] [ref:wiki-lrff].\n- **Eggs come with the heat.** Crocodiles lay in August–September and hatch in November–December; turtles nest September to December; the mound-builders peak from September; and the dictionary's egg signs (cotton tree, flame tree, mountain locust) all fall in the storm season [ref:am-johnstoni] [ref:wp-sawshell] [ref:qld-brushturkey] [ref:hershberger1982].\n- **Fire follows the grass.** Early-dry burns while the grass is green and low; storm burns after the first rains; and in between, the late dry when a fire cannot be stopped [ref:re-woodland] [ref:pbg-cape-york] [ref:kowanyama2024].\n- **Food follows all of it.** Roth summed up the north: honey in the dry, roots and fruits in the wet [ref:roth1901]. Anderson's Bloomfield round: fish and shellfish all year on the coast; wallaby, yams, tubers and honey from the ranges; eelfish and turtle from the creeks in the dry; nuts gathered and kept for the wet, when the creeks were up and people moved less [ref:anderson1996]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Month by month, and what is closed",
+      "body": "## Month by month at Karma Waters\n\n- **January**: wet; 267 mm; river up and brown; station closed; yams and wet-season fruit; green ants [ref:bom-palmerville] [ref:kw-camping] [ref:roth1901] [ref:hershberger1982].\n- **February**: wettest nights; finches start to breed; barramundi season closed until 31 January is over, so it reopens on 1 February [ref:bom-palmerville] [ref:wiki-btf] [ref:qld-closed].\n- **March**: 178 mm; *jidu* ripe; junjun from now; cherabin larvae still going down [ref:bom-palmerville] [ref:hershberger1982] [ref:cdu2014].\n- **April**: station camps reopen on 1 April; early burns while the grass is green; the cherabin run up; scrub turkeys down on the junjun [ref:kw-camping] [ref:re-woodland] [ref:cdu2016] [ref:hershberger1982].\n- **May**: muster; the river settles into its pools; the last of the junjun; yams from mid-dry on [ref:kw-cattle] [ref:anderson1996] [ref:hershberger1982].\n- **June**: cold nights begin; crocodiles courting; honey season; zamia nearly ready [ref:bom-palmerville] [ref:am-johnstoni] [ref:anderson1996] [ref:roth1901].\n- **July**: coldest, 14 °C nights, 5 mm; mist on the river; zamia and the Queensland nut [ref:bom-palmerville] [ref:hershberger1982] [ref:roth1901].\n- **August**: crocodiles laying; the fig and fruit calendar opens (*kumin*, *mujarr*, *wada* and the rest, to October) [ref:am-johnstoni] [ref:hershberger1982].\n- **September**: muster, bulls out; days climbing to 34 °C; turtles start nesting; kookaburras nesting; turkey mounds filling; grass fully cured [ref:kw-cattle] [ref:bom-palmerville] [ref:wp-sawshell] [ref:wiki-bwk] [ref:qld-brushturkey] [ref:pbg-cape-york].\n- **October**: 35.6 °C; barramundi closed from the 7th; the pools at their smallest; bee-dung time; storm burns after the first storms [ref:bom-palmerville] [ref:qld-closed] [ref:asfb2018-flinders] [ref:anderson1996] [ref:pbg-cape-york].\n- **November**: hottest, 36.2 °C; thunder out west; crocodile hatchlings; cotton tree and flame tree flowering for the egg season; station closes on 1 December [ref:bom-palmerville] [ref:hershberger1982] [ref:am-johnstoni] [ref:kw-camping].\n- **December**: storms, 158 mm; bark peels; *banday* ripe; green ants; cherabin hatching; the river rises [ref:bom-palmerville] [ref:anderson1996] [ref:hershberger1982] [ref:cdu2014].\n\n## What the law and the station close and open\n\n- **Barramundi**: closed in Gulf fresh waters 7 October to 31 January [ref:qld-closed].\n- **Karma Waters river camps**: closed 1 December to 1 April [ref:kw-camping].\n- **Fire**: permits for anything beyond a small cooking fire, and the regional-ecosystem guidelines above for when [ref:qfd] [ref:re-woodland].\n- **Musters**: May and September; bulls out in September, back to the breeders in early February [ref:kw-cattle].\n- **Baits**: strychnine in the wet, 1080 later in the year [ref:kw-land]."
+    },
+    {
+      "id": "uses",
+      "heading": "The gathering calendar",
+      "body": "A gathering calendar from the sources on this guide, Bloomfield unless stated [ref:hershberger1982] [ref:anderson1996] [ref:roth1901]:\n\n- **Wet (Dec–Mar)**: hairy yam from mid-February (roast, mash, wash); *julbal*, *kawunjil*, *jidu* fruit; green ants (*nyirran*) and their medicine; fish any time, but the river is high and the camps are up on the ridges.\n- **Little rains (Apr–May)**: junjun fruit and the scrub turkeys on it; scrub turkey eggs when the mountain locust calls; the cherabin run; the last soft ground for yams.\n- **Cold (Jun–Sep)**: the main season. Sugarbag; zamia from July (the long leaching process); the Queensland nut from July; tubers and yams through to November; eelfish, turtles, wallabies, goannas from the branch camps; wallaby drives with fire; figs and the August–October fruits; crocodile eggs from August 'whenever found'.\n- **Hot (Oct–Nov)**: the last fruit; turkey and scrub-hen eggs as the signs show; turtle eggs; the hunting of the crowded pools, with the barramundi closed.\n- **Storms (late Nov–Dec)**: bark for huts; *banday*; the first green ants; and then the river takes the country back.\n\nEach food's own page has the method: [zamia](entry:zamia), [yam](entry:yam), [native bees](entry:native-bees), [scrub hen](entry:scrub-hen), [scrub turkey](entry:scrub-turkey), [cherabin](entry:cherabin), [freshwater turtle](entry:freshwater-turtle), [fig](entry:fig)."
+    },
+    {
+      "id": "how-to",
+      "heading": "Keeping the calendar",
+      "body": "How to keep the calendar from the country, as the dictionary does:\n\n1. **Pick your marker trees** and visit them: a cotton tree, a flame tree, a bloodwood, a fig. Note the month each flowers and fruits in your first year; it will be close the next [ref:hershberger1982].\n2. **Listen for the insects**: the cicadas before the rain, the March flies, the mountain locust [ref:tnq-summer] [ref:hershberger1982].\n3. **Watch the river gauge you have**: a rock bar or a snag at the pool you use most. When it goes under, the wet has started; when the riffle stops, the dry is on [ref:griffith2021].\n4. **Read the thunder**: storms building out west in November are the season's turn [ref:hershberger1982].\n5. **Keep a note on the page.** The contribution box below is for exactly this: the dates things happened at Karma Waters this year. Over a few years that becomes the Western Yalanji calendar nobody has published."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety by season",
+      "body": "- **Heat**: October and November days near 36 °C; walk early and late, carry water, know where shade and the river are [ref:bom-palmerville].\n- **Lightning and storms** from November: get off the ridges and out from under the tallest trees.\n- **Floods**: a dry sand bed can be a river within hours of a storm upstream; camp above the high bank, not on the sand, from November.\n- **Fire**: the late dry, September to the storms, is when fires cannot be controlled; the early dry is when they are lit on purpose [ref:pbg-cape-york] [ref:re-woodland].\n- **Crocodiles**: nesting females on the sand banks from August; crowded pools in the hot season [ref:am-johnstoni].\n- **Cold**: July nights at 14 °C on an open sand bed feel colder; the dictionary's *kiway-kiway* is cold enough to have its own word [ref:bom-palmerville] [ref:hershberger1982]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The five-season calendar is published by the Wujal Wujal council as the shared knowledge of Eastern Kuku Yalanji people, and custodians use it in their own words to describe caring for country, moving between sea and rainforest to let each rest [ref:wujal-council] [ref:tnq-summer]. On Western Yalanji country the station's own year, closures, musters, burning and baiting, runs alongside it [ref:kw-camping] [ref:kw-cattle] [ref:kw-land]. Native title holders' seasonal hunting, fishing and gathering is protected by section 211 of the *Native Title Act 1993*; the barramundi closure and fire permits are the state rules that frame everyone else [ref:alrc] [ref:qld-closed] [ref:qfd]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "Times of day belong with the seasons: *[muduwaju](word:muduwaju)* 'dawn'; *[wunkuwingku](word:wunkuwingku)* 'morning'; *[yilay-yilay](word:yilay-yilay)* 'late afternoon'; *[wujurr](word:wujurr)* 'night'; *[kunarangkal](word:kunarangkal)* 'middle of the night'; *[wurrbal](word:wurrbal)* 'fog, mist rising from the river'. Fire and grass: *[ngalku](word:ngalku)* 'bush fire'; *[duli](word:duli)* 'burnt patch of grass'; *[kakarr](word:kakarr)* 'grass; year'. Staples by season: *[wukay](word:wukay)*, the hairy yam of the wet; *[marra](word:marra)*, the zamia of the dry [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "waterhole",
+    "woodland",
+    "hunting-with-fire",
+    "native-bees",
+    "zamia",
+    "yam",
+    "scrub-hen",
+    "scrub-turkey",
+    "cherabin",
+    "barramundi",
+    "freshwater-crocodile",
+    "freshwater-turtle",
+    "fig",
+    "paperbark"
+  ],
+  "relatedWords": [
+    {
+      "word": "kumurr",
+      "gloss": "the autumn time of the year when so many flowers are in bloom"
+    },
+    {
+      "word": "jabulbina",
+      "gloss": "thunder out west, the start of all storms"
+    },
+    {
+      "word": "jalungkarr",
+      "gloss": "flood"
+    },
+    {
+      "word": "marral",
+      "gloss": "dry"
+    },
+    {
+      "word": "wawuburra",
+      "gloss": "cottontree; when it blooms it signals the start of the scrub hen egg season"
+    },
+    {
+      "word": "junjun",
+      "gloss": "species of wild fruit, ripe in March - May"
+    },
+    {
+      "word": "kalkamal",
+      "gloss": "a locust in the mountains which tells when to collect turkey eggs"
+    },
+    {
+      "word": "kakarr",
+      "gloss": "grass; also used as year"
+    }
+  ],
+  "references": [
+    {
+      "id": "wujal-council",
+      "citation": "Wujal Wujal Aboriginal Shire Council. Living Here: the five Kuku-Yalanji seasons (Kab, Kabakababa, Bulurij, Wungariji, Jarramali).",
+      "url": "https://www.wujalwujalcouncil.qld.gov.au/Living-Here"
+    },
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "griffith2021",
+      "citation": "Stewart-Koster, B., O'Mara, K., et al. (2021). Critical water needs to sustain freshwater ecosystems and aquatic biodiversity in Queensland's Mitchell River. Griffith University / NESP Northern Australia Environmental Resources Hub.",
+      "url": "https://era.dpi.qld.gov.au/id/eprint/8432/1/Critical-water-needs-for-the-Mitchell-River-final-report.pdf"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "heritage-lodge",
+      "citation": "Heritage Lodge (Daintree). The seasons of the Daintree Rainforest: the Kuku Yalanji five-season calendar (Kambar, Kabakabada, Duluruiji, Wungariji, Jarramali).",
+      "url": "https://www.heritagelodge.net.au/the-seasons-of-the-daintree-rainforest/"
+    },
+    {
+      "id": "tnq-summer",
+      "citation": "Tourism Tropical North Queensland. 'An Indigenous perspective of summer', with Kuku-Yalanji custodians Johnny Murison (Jarramali Rock Art Tours) and Juan Walker (Walkabout Cultural Adventures).",
+      "url": "https://tropicalnorthqueensland.org.au/articles/indigenous-perspective-of-summer/"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "kowanyama2024",
+      "citation": "Hasegawa, C. (21 March 2024). 'Kowanyama shares preserved fire knowledge at forum'. Cape York Weekly.",
+      "url": "https://capeyorkweekly.com.au/kowanyama-shares-preserved-fire-knowledge-at-forum/8636/"
+    },
+    {
+      "id": "cdu2014",
+      "citation": "Charles Darwin University. 'Wet season flows crucial to Cherabin survival' (news release on P. Novak's research on Macrobrachium spinipes in the Daly River, NT; accessed 5 October 2026).",
+      "url": "https://www.cdu.edu.au/news/news-archive/wet-season-flows-crucial-cherabin-survival"
+    },
+    {
+      "id": "cdu2016",
+      "citation": "Charles Darwin University. 'Graduate discovers \"key to cherabin survival\"' (news release on P. Novak's PhD research on Macrobrachium spinipes in the Daly River, NT; accessed 5 October 2026).",
+      "url": "https://www.cdu.edu.au/news/news-archive/graduate-discovers-%E2%80%98key-cherabin-survival%E2%80%99"
+    },
+    {
+      "id": "kw-cattle",
+      "citation": "Karma Waters Station. Cattle (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/cattle.html"
+    },
+    {
+      "id": "jardine2013",
+      "citation": "Jardine, T. D., Hunt, R. J., Faggotter, S. J., Valdez, D., Burford, M. A. & Bunn, S. E. (2013). Carbon from periphyton supports fish biomass in waterholes of a wet–dry tropical river. River Research and Applications 29: 560–573. Mitchell River.",
+      "url": "https://doi.org/10.1002/rra.2554"
+    },
+    {
+      "id": "am-johnstoni",
+      "citation": "Australian Museum. Freshwater Crocodile, Crocodylus johnstoni (web page, accessed 5 October 2026).",
+      "url": "https://australian.museum/learn/animals/reptiles/freshwater-crocodile/"
+    },
+    {
+      "id": "pbg-cape-york",
+      "citation": "Queensland Parks and Wildlife Service (2013). Planned Burn Guidelines: Cape York Peninsula Bioregion of Queensland. Department of National Parks, Recreation, Sport and Racing.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0019/151480/pbg-cape-york.pdf",
+      "locator": "'Fire in the monsoonal tropics of the Cape York Peninsula bioregion'; ch. 1–2 season guidance (storm burns)"
+    },
+    {
+      "id": "asfb2018-flinders",
+      "citation": "Australian Society for Fish Biology conference 2018, poster: fish biomass and condition in isolated perennial waterholes of the Flinders River catchment, Queensland, through a dry season.",
+      "url": "https://asfb-2018.p.asnevents.com.au/days/2018-10-10/abstract/53604"
+    },
+    {
+      "id": "waterhole-temps",
+      "citation": "The temperature regimes of dry-season waterholes in tropical northern Australia: potential effects on fish refugia (Flinders and Gilbert catchments). Freshwater Science.",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/681278"
+    },
+    {
+      "id": "qld-closed",
+      "citation": "Queensland Department of Primary Industries. Closed seasons in fresh waters: barramundi (web page, accessed 5 October 2026).",
+      "url": "https://www.dpi.qld.gov.au/business-priorities/fisheries/closures/fresh/seasons"
+    },
+    {
+      "id": "wp-sawshell",
+      "citation": "Wikipedia. Saw-shelled turtle, Myuchelys latisternum (accessed 5 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Saw-shelled_turtle"
+    },
+    {
+      "id": "qld-brushturkey",
+      "citation": "Queensland Government. Living with wildlife: Brush turkeys.",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/brush-turkeys"
+    },
+    {
+      "id": "wiki-bwk",
+      "citation": "Wikipedia. Blue-winged kookaburra.",
+      "url": "https://en.wikipedia.org/wiki/Blue-winged_kookaburra"
+    },
+    {
+      "id": "wiki-btf",
+      "citation": "Wikipedia. Black-throated finch.",
+      "url": "https://en.wikipedia.org/wiki/Black-throated_finch"
+    },
+    {
+      "id": "wiki-rtbc",
+      "citation": "Wikipedia. Red-tailed black cockatoo.",
+      "url": "https://en.wikipedia.org/wiki/Red-tailed_black_cockatoo"
+    },
+    {
+      "id": "bom-mareeba",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Mareeba Airport (station 031210), 2000–2026 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_031210.shtml"
+    },
+    {
+      "id": "jardine2012",
+      "citation": "Jardine, T. D., Pettit, N. E., Warfe, D. M., Pusey, B. J., Ward, D. P., Douglas, M. M., Davies, P. M. & Bunn, S. E. (2012). Consumer–resource coupling in wet–dry tropical rivers. Journal of Animal Ecology 81: 310–322. Mitchell River sites sampled in the early dry season.",
+      "url": "https://doi.org/10.1111/j.1365-2656.2011.01925.x"
+    },
+    {
+      "id": "angfa-grunter",
+      "citation": "Australia New Guinea Fishes Association. Hephaestus fuliginosus, sooty grunter (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/grunters/hephaestus_fuliginosus.html"
+    },
+    {
+      "id": "angfa-ater",
+      "citation": "Australia New Guinea Fishes Association. Neosilurus ater, black catfish (species profile).",
+      "url": "https://www.rainbowfish.angfa.org.au/eeltailed_catfishes/neosilurus_ater.html"
+    },
+    {
+      "id": "foa-barra",
+      "citation": "Gomon, M. F. & Bray, D. J. (2025). Barramundi, Lates calcarifer. Fishes of Australia (Museums Victoria), accessed 5 October 2026.",
+      "url": "https://fishesofaustralia.net.au/home/species/4643"
+    },
+    {
+      "id": "wiki-rosella",
+      "citation": "Wikipedia. Pale-headed rosella.",
+      "url": "https://en.wikipedia.org/wiki/Pale-headed_rosella"
+    },
+    {
+      "id": "wiki-lrff",
+      "citation": "Wikipedia. Little red flying fox.",
+      "url": "https://en.wikipedia.org/wiki/Little_red_flying_fox"
+    },
+    {
+      "id": "qfd",
+      "citation": "Queensland Fire Department. Fire permits: lighting fires in Queensland.",
+      "url": "https://fire.qld.gov.au/safety-education/using-fire-outdoors/lighting-fires-in-queensland"
+    },
+    {
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
