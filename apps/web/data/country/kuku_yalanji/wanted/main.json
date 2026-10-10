@@ -1,15 +1,6 @@
 {
   "pages": [
     {
-      "slug": "bailer-shells",
-      "title": "Bailer shells",
-      "note": "Melo shells used as containers and billies"
-    },
-    {
-      "slug": "bark-blankets",
-      "title": "Bark blankets and bark cloth"
-    },
-    {
       "slug": "blady-grass",
       "title": "Blady grass",
       "note": "Imperata grass used for thatch and fences"
@@ -28,11 +19,6 @@
       "slug": "cotton-tree",
       "title": "Cotton tree",
       "note": "Wawuburra; canoe timber and seasonal sign"
-    },
-    {
-      "slug": "digging-sticks",
-      "title": "Digging sticks",
-      "note": "The juwal digging stick for yams"
     },
     {
       "slug": "dugong",
@@ -92,11 +78,6 @@
       "slug": "saratoga",
       "title": "Gulf saratoga",
       "note": "Scleropages jardinii, the surface-hunting bonytongue of the Gulf rivers"
-    },
-    {
-      "slug": "sinew",
-      "title": "Sinew",
-      "note": "Wallaby-tail sinew for binding spears and tools"
     },
     {
       "slug": "sleepy-cod",

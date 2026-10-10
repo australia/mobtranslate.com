@@ -1,0 +1,251 @@
+{
+  "slug": "bark-blankets",
+  "title": "Bark blankets and bedding",
+  "category": "tool",
+  "names": [
+    {
+      "word": "bilangkurr",
+      "gloss": "blanket"
+    },
+    {
+      "word": "kararr",
+      "gloss": "a blanket, sheet, or grass bedding spread out to lie on"
+    },
+    {
+      "word": "kakarr",
+      "gloss": "grass; blanket to lie on, not to put over you"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "Roth's 1910 bulletin on clothing records sheets of soft teatree bark used as blankets 'in many districts' and gives an eyewitness account of a hammered fig-bark blanket made at Atherton; Anderson records Melaleuca sheets as blankets at Bloomfield in cold weather. The dictionary has bilangkurr 'blanket' and kararr 'grass bedding spread out to lie on'."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "open-woodland",
+    "rainforest",
+    "camp"
+  ],
+  "summary": "On a July night at [Karma Waters](place:karma-waters) the air goes down to 14 °C and the mist sits on the river, and the dictionary has a word, **[kiway-kiway](word:kiway-kiway)**, for how that feels on a sand bed [ref:bom-palmerville] [ref:hershberger1982]. The answer was [paperbark](entry:paperbark): 'Sheets of soft tea-tree (*Melaleuca*) bark are often to be found used as blankets in cold weather, in many districts, and would appear to answer the purpose admirably', and at Bloomfield 'sheets of *Melaleuca* ... were used as blankets in cold weather', over a mattress of 'bunches of long bush grass' and a floor of fan-palm leaves [ref:roth1910-decoration] [ref:anderson1996]. The dictionary keeps the bed in two words: **[kararr](word:kararr)**, 'a blanket, sheet, or grass bedding spread out to lie on', and **[kakarr](word:kakarr)**, 'grass; blanket to lie on, not to put over you'; **[bilangkurr](word:bilangkurr)** is the blanket itself [ref:hershberger1982]. In the rainforest to the south a finer blanket was beaten out of the inner bark of a fig, and Roth watched one made at Atherton from the climb to the folding, five or six hours' work that is set out step by step below [ref:roth1910-decoration]. Possum cloaks and kangaroo rugs were, by Roth's time, 'a lost art in Queensland' [ref:roth1910-decoration].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "bilangkurr (blanket); kararr (blanket or grass bedding to lie on); kakarr (grass; a blanket to lie on); kiway-kiway (cold)"
+    },
+    {
+      "label": "The blanket",
+      "value": "A sheet of soft paperbark, inner surface picked clean; or hammered fig inner-bark (Tablelands, Cairns, Cardwell)"
+    },
+    {
+      "label": "The bed",
+      "value": "Grass bunches as a mattress, fan-palm leaves as a floor, a hollow in the sand, a fire and a windbreak"
+    },
+    {
+      "label": "Fig-bark method",
+      "value": "Strip a 42 × 20 in sheet, peel off the outer bark, hammer the inner bark on a root with a bat, fold and hammer four times, sun-dry: 4 ft × 2 ft 4 in in 5–6 hours"
+    },
+    {
+      "label": "Season",
+      "value": "Bark strips at the end of the wet; blankets for June to August"
+    },
+    {
+      "label": "Elsewhere",
+      "value": "Plaited reed and pandanus blankets (Gulf); possum cloaks (south, lost by 1900)"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[bilangkurr](word:bilangkurr)** 'blanket'. **[kararr](word:kararr)** 'a blanket, sheet, or grass bedding spread out to lie on'. **[kakarr](word:kakarr)** 'grass; blanket to lie on, not to put over you', and 'also used as year, i.e. *kararr jambul* \"two years\"' [ref:hershberger1982]. **[buyku](word:buyku)** is the [paperbark](entry:paperbark); **[wanjakan](word:wanjakan)** a ti-tree whose 'bark [is] also used for roof of house'; **[kiway](word:kiway)** and **[kiway-kiway](word:kiway-kiway)** 'cold'; **[wadil](word:wadil)** 'weather, rain or cold, entering' [ref:hershberger1982]. Roth's Koko-yimidir (Cape Bedford and Cooktown) lists give *bo-du* and *put-yo* for the *Melaleuca* with the note '[Blankets]', and in the Cape Bedford vocabulary the one word serves for 'Melaleuca (tea-tree) bark = blanket' [ref:roth1901] [ref:roth1901-kyi]. The fig-bark blanket's names on the Tablelands and at Cardwell were *kambilla* and *magulat*, 'the name of the *Ficus ehretioides* from which derived' [ref:roth1910-decoration]."
+    },
+    {
+      "id": "description",
+      "heading": "Blankets and beds",
+      "body": "**The paperbark blanket.** Roth: 'Sheets of soft tea-tree (*Melaleuca*) bark are often to be found used as blankets in cold weather, in many districts, and would appear to answer the purpose admirably' [ref:roth1910-decoration]. His bark-stripping section adds the one bit of preparation: 'further treatment of the bark, e.g., the picking off of its inner surface with stiletto, etc., is necessary in connection with the manufacture of blankets, some canoes, and certain water-carriers' [ref:roth1904]. Anderson at Bloomfield: 'Fan palm leaves were used as \"tablecloths\" and as seats and bunches of long bush grass served as mattresses on hard ground. Sheets of *Melaleuca* also sometimes served these same purposes, and additionally were used as blankets in cold weather' [ref:anderson1996].\n\n**The fig-bark blanket.** 'On other occasions the inner bark of various Fig-trees, e.g., the Ribbed-fig (*Ficus pleurocarpa*), *Ficus ehretioides*, undergoes special preparation before its conversion into a pliable coverlet.' At Atherton Roth watched a man climb a ribbed fig 'to a height of some forty feet and there remove a sheet of bark, the entire circumference of the trunk', by two ring cuts and a vertical cut, 'pounding along its connecting edge as it was being picked off the tree; in former times, he told me that this pounding was done with a stone'. The sheet, 'very moist on its inner surface', was forty-two by twenty inches. He rolled it, cut the outer bark across with the edge of a broken candlenut shell, and tore the outer layer off, 'which required no small amount of strength, judgment and skill'. Then, on a big exposed root cleared of its bark 'and used as a table', he hammered the inner surface of the sheet with a bat 'shaped like a narrow cricket-bat with handle cut-short ... about twenty-four by two inches', the blows 'struck sharply in a slanting direction at an angle with the run of the fibre, considerable force and rapidity being brought into requisition', drawing the sheet towards him so that all of it was struck and it became 'softer and more pliable, thinner, and correspondingly increased in surface area'. He doubled it, hammered again, and repeated the doubling and pounding twice more until the blanket was 'folded into a package, about a foot long, a size just convenient for carrying in a dilly-bag'. Opened and sun-dried, it measured four feet by two feet four inches 'and took between five and six hours to make'; a tear was mended with fibre twine and a pointed stick. The blankets Roth saw at Cairns and Cardwell were folded the same way [ref:roth1910-decoration]. The mallet of the Princess Charlotte Bay hinterland, 'similar to the model of the implement made by an aged native in the Atherton scrubs when showing me the old-time method of manufacturing a blanket', was a woman's tool, carried from camp to camp [ref:roth1904]. On the Tully, the Mallanpara bartered dilly-bags to the Cardwell people 'for which they receive bark-blankets' [ref:roth1910].\n\n**What is not here.** 'The manufacture of Opossum-cloaks and Kangaroo-rugs is now a lost art in Queensland, and in the course of all my wanderings I have never seen a single specimen', Roth wrote in 1910; the Brisbane cloak Petrie described was thirty or forty possum skins sewn with kangaroo [sinew](entry:sinew) and worn fur-side in [ref:roth1910-decoration]. Plaited blankets of reed stems and split pandanus, 'very warm for sleeping under on cold nights', were women's work on the Gulf rivers to 1899 [ref:roth1910-decoration].\n\n**The bed.** A hollow in the sand with a fire beside it and a windbreak of grass bundles or bloodwood boughs; grass bunches for a mattress, *kakarr*; fan-palm leaves to sit and eat on; and in the cold the fire inside the [hut](entry:huts-and-shelters) [ref:roth1910-huts] [ref:anderson1996] [ref:hershberger1982]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Which covering",
+      "body": "- **Paperbark sheet** (*buyku*): soft, layered, the everyday blanket of 'many districts' and of Bloomfield [ref:roth1910-decoration] [ref:anderson1996].\n- **Hammered fig bark**: thinner, pliable, folded into a foot-long packet; a rainforest and Tablelands thing (Atherton, Cairns, Cardwell) [ref:roth1910-decoration].\n- **Grass bedding** (*kararr*, *kakarr*): under you, 'not to put over you' [ref:hershberger1982] [ref:anderson1996].\n- **Fan-palm leaves**: floor, seat and tablecloth [ref:anderson1996].\n- **The hut's bark sheets** are stiffer, from stringybark and messmate, and go on the frame, not the bed [ref:roth1910-huts].\n- **Possum cloak**: southern, and gone by 1900 [ref:roth1910-decoration].\n- **The Government blanket**: issued by the police at Bloomfield by 1898, when Roth saw them being used as canoe sails [ref:anderson1996]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A paperbark with a sheet taken**: the long pale scar where the outer layers were peeled [ref:roth1904].\n- **A fig scarred high up**, forty feet from the ground, with the whole circumference gone [ref:roth1910-decoration].\n- **A root worn smooth** beside a camp was the hammering table [ref:roth1910-decoration].\n- **The folded packet** in a dilly bag, and the cricket-bat mallet among a woman's gear [ref:roth1910-decoration] [ref:roth1904].\n- **Flattened grass beds** and a ring of windbreak on the sand [ref:roth1910-huts]."
+    },
+    {
+      "id": "habitat",
+      "heading": "The trees",
+      "body": "The broad-leaved paperbark *Melaleuca leucadendra* lines the Mitchell at Karma Waters in a fringing woodland (regional ecosystem 9.3.14), and the fibre-barked teatree *M. stenostachya* is on the drier ground: the blanket tree is the river tree [ref:re9314] [ref:rfk-melaleuca] [ref:wiki-stenostachya]. Roth's blanket figs, the ribbed fig and *Ficus ehretioides*, are rainforest figs of the Tablelands and the coast; the [figs](entry:fig) recorded near Karma Waters, the cluster fig and the sandpaper fig, are river and woodland figs, and no one has recorded a blanket made from them [ref:roth1910-decoration] [ref:ala-ficus] [ref:rfk-ficus-racemosa]. Grass for bedding is everywhere on the flats after the wet [ref:re-woodland]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The cold and the camp",
+      "body": "Palmerville's July nights average 14 °C with the days at 30 °C, a swing of sixteen degrees that opens a bed on the sand to the cold and the dew [ref:bom-palmerville]. The dry-season camp on the creek sand, the fire, the windbreak, the grass under and the bark over are one system; the same paperbark gave the [hut](entry:huts-and-shelters) its roof, the [torch](entry:paperbark) for night fishing, the wrapping for the [earth oven](entry:earth-oven) and the caulking of a [canoe](entry:canoes) [ref:anderson1996] [ref:roth1910-huts] [ref:roth1910]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Bark is taken 'at the end of the wet season when the sap is up and the bark slips', though paperbark peels in its outer layers at any time [ref:roth1904]. The blanket's season is the cold dry, June to August, when the nights are coldest and the mist is on the river [ref:bom-palmerville]. The Atherton fig blanket took one man five to six hours, and the sheet had to be sun-dried [ref:roth1910-decoration]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- Blanket in cold weather [ref:roth1910-decoration] [ref:anderson1996].\n- Mattress and floor: grass, fan-palm leaves, paperbark [ref:anderson1996].\n- Seat and tablecloth [ref:anderson1996].\n- A baby's wrap and the carrying cloth of the camp.\n- Trade: bark blankets from Cardwell for Tully dilly-bags [ref:roth1910].\n- Emu mimicry in the dances, with 'a bark or Government blanket' over the head [ref:roth1902]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Making the bed and the blanket",
+      "body": "**A paperbark blanket** [ref:roth1904] [ref:roth1910-decoration] [ref:anderson1996]:\n\n1. **Choose a big paperbark** by the river with a long clean trunk; take the outer layers, which peel in sheets without a cut, or cut two rings and a vertical line and lift the sheet, tapping it loose with a stone as you go [ref:roth1904].\n2. **Pick the inner surface clean** of its loose papery layers with a pointed stick until the sheet is soft and even [ref:roth1904].\n3. **Dry it in the sun** flat, under a weight, so it does not curl [ref:roth1910-decoration].\n4. **Use it** over a grass mattress, fire on the windward side, feet to the fire [ref:anderson1996] [ref:roth1910-huts].\n\n**The fig-bark blanket**, as Roth watched it made [ref:roth1910-decoration]:\n\n1. Climb to clean trunk and take a sheet of bark the whole way round, two ring cuts and one vertical cut, pounding along the edge as it is picked off.\n2. On the ground, unroll it inner side up; roll it again lengthwise with the outer bark outside.\n3. Cut across the outer layer only, four or five inches from the end, with a sharp shell or candlenut-shell edge, so that it kinks and gives two free edges.\n4. Tear the outer bark off, the short piece first, then the long; discard it.\n5. Find a tree with a big exposed root, clear the root of bark for a table.\n6. Hammer the inner bark on its inner face with the edge of a flat bat about two feet by two inches, slanting blows across the grain, hard and fast, drawing the sheet toward you so every part is struck.\n7. Fold it double, outer side in, and hammer again; fold and hammer twice more, until it is a packet a foot long.\n8. Open it and dry it in the sun. Mend any tear with fibre twine and a pointed stick.\n\n**A grass bed**: bunches of long grass laid thick on the sand in a shallow hollow, *kararr*; fan-palm leaves on top where you sit [ref:anderson1996] [ref:hershberger1982]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Dry paperbark and dry grass are tinder; the fire goes beside the bed, not under the blanket, and never unattended in the dry; permits apply in fire season [ref:qfd].\n- Do not ring-bark a tree for a blanket; take outer layers only, or one side of the trunk [ref:roth1904].\n- A forty-foot climb for fig bark is the Atherton man's skill, not a thing to try alone [ref:roth1910-decoration].\n- Cutting bark on the station is a matter for the lessee's permission [ref:kw-about]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Government blankets had reached Bloomfield by 1898, and by the 1970s paperbark sheets were 'sometimes' bedding and 'in cold weather' a blanket, which is still how a sheet of paperbark gets used on a river camp [ref:anderson1996]. The river at Karma Waters is lined with the tree, the station's camps are open through the cold months, and a paperbark sheet over a grass bed is a one-hour job [ref:re9314] [ref:kw-camping]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[bilangkurr](word:bilangkurr)* 'blanket'; *[kararr](word:kararr)* 'a blanket, sheet, or grass bedding spread out to lie on'; *[kakarr](word:kakarr)* 'grass; blanket to lie on, not to put over you'; *[buyku](word:buyku)* paperbark; *[wanjakan](word:wanjakan)* a ti-tree used for roofing; *[kiway](word:kiway)*, *[kiway-kiway](word:kiway-kiway)* 'cold'; *[wadil](word:wadil)* 'weather, rain or cold, entering'; *[balnji](word:balnji)* 'camping out'; *[yamba-yamba](word:yamba-yamba)* 'household goods' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "paperbark",
+    "huts-and-shelters",
+    "seasons",
+    "woodland",
+    "fig",
+    "dilly-bags",
+    "firestick",
+    "sinew"
+  ],
+  "relatedWords": [
+    {
+      "word": "kiway-kiway",
+      "gloss": "cold"
+    },
+    {
+      "word": "buyku",
+      "gloss": "paperbark tree"
+    },
+    {
+      "word": "wadil",
+      "gloss": "weather - rain or cold - entering"
+    }
+  ],
+  "references": [
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1910-decoration",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 15: Decoration, deformation, and clothing. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52864",
+      "locator": "Sect. 56, bark blankets (Atherton)"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "roth1901-kyi",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 2: The structure of the Koko-Yimidir language. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Vocabulary, 'mu-rong-al'"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "roth1910",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and Trade. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52863",
+      "locator": "Sects. 14–15, dug-out canoes from the Flinders Group to Cape Grafton"
+    },
+    {
+      "id": "roth1910-huts",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 16: Huts and shelters. Records of the Australian Museum 8(1): 55–66.",
+      "url": "https://archive.org/details/records-australian-museum-8-055-066",
+      "locator": "Sect. 11, ridge-pole huts"
+    },
+    {
+      "id": "re9314",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.3.14 (Einasleigh Uplands): Melaleuca fringing woodland on channels and levees. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.3.14"
+    },
+    {
+      "id": "rfk-melaleuca",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Melaleuca leucadendra. CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/melaleuca_leucadendra.htm"
+    },
+    {
+      "id": "wiki-stenostachya",
+      "citation": "Wikipedia. Melaleuca stenostachya (fibre-barked teatree).",
+      "url": "https://en.wikipedia.org/wiki/Melaleuca_stenostachya"
+    },
+    {
+      "id": "ala-ficus",
+      "citation": "Atlas of Living Australia. Occurrence records of the genus Ficus within 30 km and 60 km of the Karma Waters homestead (16.618° S, 144.605° E), queried 6 October 2026 (4 records within 30 km; about 120 within 60 km).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus%3AFicus&lat=-16.6179&lon=144.6047&radius=60"
+    },
+    {
+      "id": "rfk-ficus-racemosa",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Ficus racemosa (cluster fig, figwood). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/ficus_racemosa.htm"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "roth1902",
+      "citation": "Roth, W. E. (1902). North Queensland Ethnography, Bulletin No. 4: Games, sports and amusements. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 4 'Realistic games (animals)'"
+    },
+    {
+      "id": "qfd",
+      "citation": "Queensland Fire Department. Fire permits: lighting fires in Queensland.",
+      "url": "https://fire.qld.gov.au/safety-education/using-fire-outdoors/lighting-fires-in-queensland"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
