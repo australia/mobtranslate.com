@@ -1,0 +1,220 @@
+{
+  "slug": "pythons",
+  "title": "Pythons (carpet snake)",
+  "category": "reptile",
+  "names": [
+    {
+      "word": "kungkun",
+      "gloss": "carpet snake, North Queensland python (no distinction)"
+    },
+    {
+      "word": "kurriyala",
+      "gloss": "carpet snake, python"
+    },
+    {
+      "word": "kabul",
+      "gloss": "rock python"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary has kungkun and kurriyala for the carpet snake or python and kabul and bajalji for a rock python. Within 60 km of Karma Waters the Atlas records the carpet python, the scrub python, the black-headed python, the spotted python and the children's python."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater",
+    "rainforest",
+    "camp"
+  ],
+  "summary": "The pythons are the snakes that were eaten. **[kungkun](word:kungkun)** and **[kurriyala](word:kurriyala)** are 'carpet snake, North Queensland python', **[kabul](word:kabul)** a 'rock python', and **[bajalji](word:bajalji)** a rock python with 'a white head', 'not many at Bloomfield, but many at Helenvale, Rossville and Shipton's Flat' [ref:hershberger1982]. Roth's note from the lower Tully is the one record of how a python was found: 'the large carpet-snake is commonly discovered by its messmate, Broadbent's black butcher-bird, these two being nearly always found together here. The bird flies over the snake with a \"clacky\" chirp, and whenever the natives hear it in the dense scrubs they sneak in to discover the reptile, which is caught by being grabbed at the back of the head'; snakes were also 'often hunted for in iguana burrows' [ref:roth1901]. Within 60 km of [Karma Waters](place:karma-waters) the Atlas has five pythons: the carpet python, the big scrub python of the ranges, the black-headed python of the rocks, which eats other snakes, the spotted python that hunts bats at cave mouths, and the children's python [ref:ala-karma-60]. None is venomous; all of them bite [ref:wiki-black-headed-python].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kungkun, kurriyala (carpet snake, python); kabul, bajalji (rock python)"
+    },
+    {
+      "label": "Near Karma Waters (ALA, 60 km)",
+      "value": "Carpet python (5), scrub python (6), black-headed python (7; 1 within 30 km), spotted python (21), children's python (3)"
+    },
+    {
+      "label": "Size",
+      "value": "Carpet 2–4 m; scrub python the longest in Australia, females mature at 2.3 m; black-headed 1.5–2 m; spotted 1–1.4 m"
+    },
+    {
+      "label": "Food",
+      "value": "Mammals, birds and lizards by constriction; the black-headed python eats snakes; the spotted python eats bats"
+    },
+    {
+      "label": "Breeding",
+      "value": "Eggs coiled and warmed by the mother: carpet 10–50, black-headed 5–10"
+    },
+    {
+      "label": "Use",
+      "value": "Food, caught by hand behind the head; found by birds or in goanna burrows"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[kungkun](word:kungkun)** 'carpet snake, North Queensland python (no distinction)'; the same word is also glossed 'brown tree snake'. **[kurriyala](word:kurriyala)** 'carpet snake, python', a word that also means a grunter fish. **[kabul](word:kabul)** 'rock python'. **[bajalji](word:bajalji)** 'species of rock python. Not many at Bloomfield, but many at Helenvale, Rossville and Shipton's Flat. They have a white head and will chase bald-headed people not wearing a hat because they think they are being copied', which the dictionary's second entry calls a 'poisonous snake' of the same country; which snake it is, this page cannot say [ref:hershberger1982]. **[jarba](word:jarba)** is any snake [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "The pythons of the upper Mitchell",
+      "body": "**Carpet python** (*Morelia spilota*), five records within 60 km. 'A large species of python ... reaching between 2 and 4 m in length and weighing up to 15 kg'; the north Queensland form 'regularly attaining lengths of 2.7–3.0 m'. 'The species is oviparous, with females laying 10–50 eggs at a time. Afterward, females coil around the eggs to protect them and keep them warm through using muscular contractions to generate heat.' 'Generally active during both daytime and nighttime', the northern form 'primarily nocturnal'; 'carpet pythons favor arboreal living conditions, although they can also be found on the ground'. 'Carpet pythons kill prey by constriction. Their diet consists mainly of small mammals, birds, and lizards'; in Darwin they come into the suburbs in the dry season, May to July, 'in search of prey or mates' [ref:wiki-carpet-python].\n\n**Scrub python** (*Simalia kinghorni*), six records within 60 km, from the rainforest side. Australia's longest snake, 'commonly considered arboreal', with 'an ornate dorsal pattern consisting of browns and tans'; 'males usually growing a third longer and twice as heavy than females. Females reach sexual maturity with a snout-to-vent length of about 2.27 m while males reach sexual maturity with an SVL of 1.34 m' [ref:wiki-scrub-python].\n\n**Black-headed python** (*Aspidites melanocephalus*), seven records within 60 km and one within 30; a strong candidate for the dictionary's rock python. 'Adults typically grow to 1.5–2 m in length, but can grow to a maximum length of 3.5 m. The body is muscular with a flattened profile'. 'Terrestrial and is often found amongst rocks and loose debris. If disturbed, it hisses loudly, but is unlikely to bite unless hunting prey. It sometimes strikes with a closed mouth, but generally can be handled easily. It is a strong swimmer, but is almost never found in water. It is not venomous.' 'The diet consists mainly of reptiles, including snakes, but it will eat mammals and some birds if available. Skinks are the primary prey'. 'Adult females lay five to 10 eggs per clutch. The females stay coiled about the eggs and incubate them until they hatch, which is usually after 2–3 months.' 'Adults have no natural predators other than dingos and humans' [ref:wiki-black-headed-python].\n\n**Spotted python** (*Antaresia maculosa*), twenty-one records within 60 km, the commonest python in the Atlas here. 'Adults average about 100–140 centimetres in length', 'an irregular, blotched color pattern throughout its life. The blotches have ragged edges'; 'one of its favorite foods are the insectivorous bats that it catches at the entrance of their caves', and it takes geckos [ref:wiki-spotted-python]. The **children's python** (*A. childreni*), three records, is its smaller plainer relative [ref:ala-karma-60]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Python or something worse",
+      "body": "- **Pythons** have a blocky head wider than the neck, with heat pits along the lip, a patterned back, and a slow, heavy way of moving; they constrict [ref:wiki-carpet-python] [ref:wiki-black-headed-python].\n- **The black-headed python** is the one that gets mistaken for a venomous snake: a cream-and-brown banded body with a shining black head and neck. It hisses and strikes closed-mouthed; it is harmless [ref:wiki-black-headed-python].\n- **A dark carpet python in the grass** and a mulga snake look alike at a glance; the python's head and pattern settle it, but not at the distance you should keep; see [snakes](entry:snakes) [ref:wiki-mulga].\n- **Spotted and children's pythons**: small, blotched, around rocks and caves; nothing venomous here is blotched like that [ref:wiki-spotted-python].\n- **Brown tree snake** (*kungkun* in its other sense): slender, big-eyed, banded, rear-fanged and mildly venomous, in the trees at night [ref:hershberger1982] [ref:ala-karma-60]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A butcher-bird or a mob of small birds scolding one spot** in the scrub: Roth's Tully method, the bird 'flies over the snake with a \"clacky\" chirp' [ref:roth1901].\n- **A wide belly-track** across sand to a hollow log or a bank [ref:wiki-carpet-python].\n- **A python coiled on eggs** under a log or in a hollow in the warm months; she will not leave them [ref:wiki-carpet-python] [ref:wiki-black-headed-python].\n- **Spotted pythons at a cave or rock overhang at dusk**, waiting for the bats [ref:wiki-spotted-python].\n- **A goanna burrow** was where snakes were 'often hunted for' [ref:roth1901]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they live",
+      "body": "The carpet python in the trees and on the ground of the [woodland](entry:woodland) and the river scrub, and around sheds and roofs where the possums and rats are; the scrub python in the rainforest of the ranges to the east; the black-headed python 'amongst rocks and loose debris' on the stony rises; the spotted and children's pythons on the rocky ridges and at the caves [ref:wiki-carpet-python] [ref:wiki-scrub-python] [ref:wiki-black-headed-python] [ref:wiki-spotted-python]. The hollow-tree [woodland](entry:woodland) and the goanna burrows are their dens [ref:roth1901]."
+    },
+    {
+      "id": "ecology",
+      "heading": "What they eat and who eats them",
+      "body": "The carpet python takes the [possums](entry:possums), the rats and the birds of the hollows; the black-headed python takes the skinks and the other [snakes](entry:snakes), venomous ones included; the spotted python takes the bats at the cave mouth [ref:wiki-carpet-python] [ref:wiki-black-headed-python] [ref:wiki-spotted-python]. Young pythons are eaten by everything, kookaburras and [goannas](entry:goanna) first; adults by dingoes and people [ref:wiki-black-headed-python]. The cane toad is a hazard to pythons as to the other snakes; see [frogs](entry:frogs) [ref:wiki-cane-toads]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Mating and egg-laying come with the warm months, the mothers coiled on the clutch two to three months into the storm season; the Darwin carpet pythons move about most in the dry, May to July, after prey and mates [ref:wiki-black-headed-python] [ref:wiki-carpet-python]. In the cold dry nights a python lies up and is slow, which is when the old method of catching by hand worked best [ref:bom-palmerville]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Food.** The carpet snake was hunted and eaten across North Queensland; the Bloomfield rule against eating venomous snakes did not apply to it [ref:roth1901].\n- **Fat**, as with the other snakes, for the bee-tracking trick [ref:roth1901].\n- **Rat control** around a camp: a resident carpet python in the roof is a working animal [ref:wiki-carpet-python]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Finding and taking a python",
+      "body": "From Roth's Tully River note and the hunting pages [ref:roth1901]:\n\n1. **Listen** for the butcher-bird's 'clacky' chirp over one spot in the scrub, or watch where the small birds mob [ref:roth1901].\n2. **Check goanna burrows**, hollow logs and the rock piles; snakes 'are often hunted for in iguana burrows' [ref:roth1901].\n3. **Be sure it is a python** before anything else: the head, the pattern, the pits; if not sure, leave it [ref:wiki-black-headed-python].\n4. **Grab it behind the head**, as the Tully people did, with a stick pinning the neck first; a big carpet python bites hard and coils [ref:roth1901] [ref:wiki-carpet-python].\n5. **Cook it** on the coals or in the [earth oven](entry:earth-oven) as the other meat was cooked [ref:anderson1996].\n6. **Leave a female on eggs** and the big breeding females; a clutch is 10–50 young [ref:wiki-carpet-python]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Pythons are protected wildlife in Queensland; native title holders hunting for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993* [ref:qld-nca] [ref:alrc] [ref:wyac2020].\n- A python bite is a mouthful of curved teeth and a serious wound; a big one can hold a limb [ref:wiki-carpet-python].\n- The snake you are sure is a python is the one to be surest about; see [snakes](entry:snakes) for the first aid if you were wrong [ref:healthdirect-snakebite]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The spotted python at the rock overhangs and the black-headed python on the stony rises are the pythons you are most likely to meet at Karma Waters, and the carpet python in a shed roof [ref:ala-karma-60]. Which of them is *kabul* and which *bajalji* is for Kuku Yalanji speakers; the contribution box below is for that [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kungkun](word:kungkun)* 'carpet snake, North Queensland python'; *[kurriyala](word:kurriyala)* 'carpet snake, python'; *[kabul](word:kabul)* 'rock python'; *[bajalji](word:bajalji)* 'species of rock python'; *[jarba](word:jarba)* 'snake'; *[munyun](word:munyun)* 'snake scale' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "snakes",
+    "goanna",
+    "possums",
+    "woodland",
+    "earth-oven",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "bajalji",
+      "gloss": "species of rock python with a white head"
+    },
+    {
+      "word": "munyun",
+      "gloss": "snake scale"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "wiki-black-headed-python",
+      "citation": "Wikipedia. Black-headed python (Aspidites melanocephalus).",
+      "url": "https://en.wikipedia.org/wiki/Black-headed_python"
+    },
+    {
+      "id": "wiki-carpet-python",
+      "citation": "Wikipedia. Morelia spilota (carpet python).",
+      "url": "https://en.wikipedia.org/wiki/Morelia_spilota"
+    },
+    {
+      "id": "wiki-scrub-python",
+      "citation": "Wikipedia. Australian scrub python (Simalia kinghorni).",
+      "url": "https://en.wikipedia.org/wiki/Simalia_kinghorni"
+    },
+    {
+      "id": "wiki-spotted-python",
+      "citation": "Wikipedia. Spotted python (Antaresia maculosa).",
+      "url": "https://en.wikipedia.org/wiki/Spotted_python"
+    },
+    {
+      "id": "wiki-mulga",
+      "citation": "Wikipedia. King brown snake / mulga snake (Pseudechis australis).",
+      "url": "https://en.wikipedia.org/wiki/Mulga_snake"
+    },
+    {
+      "id": "wiki-cane-toads",
+      "citation": "Wikipedia. Cane toads in Australia: effects on native predators (goannas, snakes, freshwater crocodiles) and on dogs.",
+      "url": "https://en.wikipedia.org/wiki/Cane_toads_in_Australia"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "healthdirect-snakebite",
+      "citation": "healthdirect Australia (Australian Government). Snake bites: symptoms, first aid and the pressure immobilisation bandage (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/snake-bites"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

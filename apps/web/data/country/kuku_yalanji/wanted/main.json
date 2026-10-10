@@ -10,19 +10,6 @@
       "title": "Dugong"
     },
     {
-      "slug": "echidna",
-      "title": "Echidna"
-    },
-    {
-      "slug": "frogs",
-      "title": "Frogs",
-      "note": "Frogs as food and bait"
-    },
-    {
-      "slug": "green-ants",
-      "title": "Green ants"
-    },
-    {
       "slug": "mangroves",
       "title": "Mangroves",
       "note": "Mangrove trees, fruits that must be leached, and mangrove country"
@@ -30,20 +17,6 @@
     {
       "slug": "oysters",
       "title": "Oysters"
-    },
-    {
-      "slug": "possums",
-      "title": "Possums"
-    },
-    {
-      "slug": "pythons",
-      "title": "Pythons",
-      "note": "Pythons and carpet snakes"
-    },
-    {
-      "slug": "snakes",
-      "title": "Snakes",
-      "note": "Snakes of the region, food and safety"
     },
     {
       "slug": "stingrays",

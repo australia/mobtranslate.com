@@ -1,0 +1,218 @@
+{
+  "slug": "possums",
+  "title": "Possums and gliders",
+  "category": "mammal",
+  "names": [
+    {
+      "word": "yawa",
+      "gloss": "possum"
+    },
+    {
+      "word": "bala",
+      "gloss": "feathertail glider or sugar glider"
+    }
+  ],
+  "scientificName": "Trichosurus vulpecula; Pseudocheirus peregrinus; Petaurus spp.",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary has yawa 'possum' and bala for the small gliders. The common brushtail possum, the common ringtail and four gliders (Petaurus) are recorded within 60 km of Karma Waters; the brushtail is the possum of the open woodland and its hollows."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater",
+    "camp"
+  ],
+  "summary": "**[yawa](word:yawa)** is the possum and **[bala](word:bala)** the 'feathertail glider or sugar glider', the small animals of the night in the hollows of the [woodland](entry:woodland) [ref:hershberger1982]. The possum of the Mitchell is the common brushtail, *Trichosurus vulpecula*, 'a nocturnal, semiarboreal marsupial', 32–58 cm in the body with a tail of 24–40 cm, 1.2–4.5 kg, with a prehensile tail and a diet of eucalypt leaves, flowers, fruit and the odd insect, which dens by day 'in natural places such as tree hollows and caves, but also use spaces in the roofs of houses' [ref:wiki-brushtail]. Roth's hunting note is the plainest on these pages: possums 'can be hunted at night by sight, provided of course the moon is up, or by dogs: during the day-time, the freshly-made claw-marks are looked for on the tree-butts in the hollow trunk or branch of which the animal is camping' [ref:roth1901]. Its fur was spun into twine on the middle Palmer, and its skin cloaks were a lost art by 1910 [ref:roth1901-string] [ref:roth1910-decoration]. Within 60 km of [Karma Waters](place:karma-waters) the Atlas has the brushtail twenty-four times, the ringtail six, and four gliders, with the northern brushtail in retreat across the north 'towards areas of higher rainfall, lower fire frequency, and higher vegetation cover' [ref:ala-karma-60] [ref:wiki-brushtail].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "yawa (possum); bala (feathertail or sugar glider)"
+    },
+    {
+      "label": "Near Karma Waters (ALA, 60 km)",
+      "value": "Common brushtail (24), common ringtail (6), yellow-bellied glider (32), sugar glider (16), squirrel glider (6), Krefft's glider (8, one within 30 km)"
+    },
+    {
+      "label": "Brushtail",
+      "value": "32–58 cm body, 24–40 cm tail, 1.2–4.5 kg; nocturnal; eucalypt leaves, flowers, fruit, seeds, some insects; dens in hollows"
+    },
+    {
+      "label": "Finding one",
+      "value": "Fresh claw marks on the butt of a hollow tree by day; by moonlight or dogs at night"
+    },
+    {
+      "label": "Uses",
+      "value": "Meat; belly-fur twine (Palmer River); skin cloaks (south, lost by 1910)"
+    },
+    {
+      "label": "Threat",
+      "value": "The northern brushtail is declining with hot frequent fire and loss of cover"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[yawa](word:yawa)** 'possum'; **[bala](word:bala)** 'feathertail glider or sugar glider' [ref:hershberger1982]. Roth's Koko-minni of the middle Palmer called possum-hair and kangaroo-hair twine alike *alnjo* [ref:roth1901-string]. The brushtail's scientific name is 'from the Greek for \"furry tailed\" and the Latin for \"little fox\"'; the northern form is the subspecies *arnhemensis* and the Cape York form *eburacensis* [ref:wiki-brushtail]."
+    },
+    {
+      "id": "description",
+      "heading": "The possums and gliders",
+      "body": "**Common brushtail possum.** 'A nocturnal, semiarboreal marsupial'. 'Like most possums, the common brushtail possum is nocturnal. It is mainly a folivore, but has been known to eat small mammals such as rats. In most Australian habitats, eucalyptus leaves are a significant part of the diet, but rarely the sole item eaten. Its tail is prehensile and naked on its lower underside.' 'The common brushtail possum has a head and body length of 32–58 cm with a tail length of 24–40 cm. It weighs 1.2–4.5 kg. Males are generally larger than females.' 'It prefers *Eucalyptus* leaves, but also eats flowers, shoots, fruits, and seeds. It may also consume animal matter such as insects'. 'It has a mostly solitary lifestyle, and individuals keep their distance with scent markings (urinating) and vocalisations. They usually make their dens in natural places such as tree hollows and caves, but also use spaces in the roofs of houses.' 'The common brushtail possum can breed at any time of the year, but breeding tends to peak in spring, from September to November, and in autumn, from March to May' [ref:wiki-brushtail].\n\n'The northern subspecies of the common brushtail possum has declined substantially, with one study in Australia's Northern Territory finding a 22% reduction in the extent of occurrence ... Analysis of contemporary occurrence points suggested that the species is contracting towards areas of higher rainfall, lower fire frequency, and higher vegetation cover' [ref:wiki-brushtail].\n\n**Ringtail and gliders.** The common ringtail possum, smaller, grey, with a white-tipped tail carried in a coil, six records within 60 km; the yellow-bellied glider, thirty-two records, the biggest glider, which cuts V-shaped notches in gum bark for the sap; the sugar glider, sixteen, Krefft's glider, eight, and the squirrel glider, six, the small *bala* that sail between the trees after blossom, sap and insects [ref:ala-karma-60] [ref:hershberger1982].\n\n**Roth's hunting note.** 'Opossums can be hunted at night by sight, provided of course the moon is up, or by dogs: during the day-time, the freshly-made claw-marks are looked for on the tree-butts in the hollow trunk or branch of which the animal is camping. In the Rockhampton district it would appear that in the absence of claw-marks, the presence of mosquitoes flying in and out of a hole is a very likely indication of an opossum or native bear in an otherwise unsuspected tree. The ring-tailed spotted opossum, black with white spots, is tracked not only by its claw-marks, but also by its scent, which is as strong-smelling as a pole-cat's'; that last is the quoll, twenty-five records within 60 km [ref:roth1901] [ref:ala-karma-60]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Possum, glider, quoll, flying fox",
+      "body": "- **Brushtail**: big, grey to copper, a black bushy tail, pink nose, in the hollows and the roofs; a growl and a hiss at night [ref:wiki-brushtail].\n- **Ringtail**: smaller, with a thin white-tipped tail held coiled; a drey of leaves or a hollow [ref:ala-karma-60].\n- **Gliders**: a membrane from wrist to ankle, a flat furred tail; the yellow-bellied glider is possum-sized and loud, the sugar and squirrel gliders a hand long [ref:ala-karma-60].\n- **Northern quoll**: Roth's 'ring-tailed spotted opossum', black-brown with white spots, a hunter not a leaf-eater, and smelling 'as strong as a pole-cat's' [ref:roth1901].\n- **[Flying foxes](entry:woodland)**: in the blossom at night too, but hanging, and on wings [ref:wiki-lrff]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Fresh claw marks** on the butt and trunk of a hollow tree, which is Roth's sign and the one that still works [ref:roth1901].\n- **Mosquitoes going in and out of a hole** in a tree by day, Roth's Rockhampton sign [ref:roth1901].\n- **Droppings** at the base of a den tree, and the smell of urine on the trunk: 'scent markings' [ref:wiki-brushtail].\n- **V-cut notches** bleeding sap on a gum: the yellow-bellied glider [ref:ala-karma-60].\n- **Eye-shine and a growl** in the torch at night; a crash in the camp roof [ref:wiki-brushtail]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they live",
+      "body": "'A variety of habitats, such as forests, semi-arid areas and even cultivated or urban areas', but 'mostly a forest inhabiting species', and in the north retreating to wetter, denser, less-burnt country [ref:wiki-brushtail]. On Karma Waters that is the river's paperbark and gum fringe and the old hollow-bearing trees of the [woodland](entry:woodland), the ironbarks and [bloodwoods](entry:bloodwood) that the fire has spared [ref:re-woodland]. The gliders need the same hollows and the blossom [ref:ala-karma-60]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The hollow's night shift",
+      "body": "The possums and gliders are the hollow-tree animals, and the hollows are made over a century by kino, termites and fire in the old [bloodwoods](entry:bloodwood) and ironbarks; cut the old trees or burn them hot and the possums go with them, which is what the northern decline shows [ref:wiki-brushtail] [ref:re-woodland]. At night they eat leaf, blossom, fruit and sap; the [carpet python](entry:pythons) eats them in the hollows, the owls and the quoll hunt them, and the dingo takes them on the ground [ref:wiki-brushtail] [ref:wiki-carpet-python]. A camp with a roof and food is a possum's den and larder, as Roth's note and every station kitchen knows [ref:wiki-brushtail]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Breeding peaks in spring, September to November, and in autumn, March to May; the young ride the mother's back through the dry [ref:wiki-brushtail]. The moonlit nights of the dry are the hunting nights, and the fire season is the possum's hazard [ref:roth1901] [ref:pbg-cape-york]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Meat**, hunted by moonlight or dogs at night, or dug out of the hollow by day [ref:roth1901].\n- **Twine** from 'the soft down from the belly of the animal', spun with a spindle on the thigh on the middle Palmer, for apron-belts and waist-belts; in the west the possum-string was 'both greased and raddled', the grease to keep the vermin off [ref:roth1901-string].\n- **Skin cloaks** in the south, thirty or forty skins sewn with sinew; 'now a lost art in Queensland' by 1910 [ref:roth1910-decoration].\n- **Trade**: 'opossum-string armlets' were among the goods that came into the Cape Grafton trade from the south [ref:roth1910]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Finding a possum",
+      "body": "From Roth [ref:roth1901]:\n\n1. **By day**, walk the hollow trees and look for 'the freshly-made claw-marks ... on the tree-butts'; fresh scratches with the bark still bright mean the hollow above is in use.\n2. **Check for mosquitoes** going in and out of a hole in a tree with no claw marks [ref:roth1901].\n3. **By night**, with the moon up, by sight along the river trees and the blossom; or with dogs [ref:roth1901].\n4. **Getting it out of a hollow**: the [axe](entry:axes-and-adzes) and the climbing method on the [native bees](entry:native-bees) page were the same for possums; the Bloomfield people cut steps in trees to climb them [ref:anderson1996].\n5. **Cook** it whole on the coals or in the [earth oven](entry:earth-oven), fur singed off first [ref:anderson1996].\n6. **Keep the belly fur** if you want twine; see [string and twine](entry:string-and-twine) [ref:roth1901-string]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Possums and gliders are protected wildlife in Queensland; native title holders hunting for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993* [ref:qld-nca] [ref:alrc] [ref:wyac2020].\n- The northern brushtail is in decline; a hollow tree with a possum in it is worth more standing [ref:wiki-brushtail].\n- A cornered brushtail bites and claws hard.\n- Cutting a hollow tree on the station is a matter for the lessee's permission and kills a hollow it took a century to make [ref:kw-about] [ref:re-woodland]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Possums are in the Karma Waters river trees and roofs, and fewer in the burnt woodland than they were; the four gliders are the sign that the old trees are still there [ref:ala-karma-60] [ref:wiki-brushtail]. The Western Yalanji names for the ringtail and the big glider, if they differ from *yawa* and *bala*, are for the contribution box below [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[yawa](word:yawa)* 'possum'; *[bala](word:bala)* 'feathertail glider or sugar glider'; the night words are on the [woodland](entry:woodland) page [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "woodland",
+    "bloodwood",
+    "pythons",
+    "native-bees",
+    "string-and-twine",
+    "earth-oven",
+    "hunting-with-fire",
+    "seasons"
+  ],
+  "relatedWords": [],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-brushtail",
+      "citation": "Wikipedia. Common brushtail possum (Trichosurus vulpecula), including the northern subspecies' decline (von Takach et al. 2020).",
+      "url": "https://en.wikipedia.org/wiki/Common_brushtail_possum"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "roth1901-string",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sects. 1–9: animal and vegetable string, plant list ('Ficus', 'Hibiscus', 'Panicum trachyrachis', 'Sterculia quadrifida'), manufacture of fibre-twine, knots, colouring; sect. 22 hour-glass nets"
+    },
+    {
+      "id": "roth1910-decoration",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 15: Decoration, deformation, and clothing. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52864",
+      "locator": "Sect. 56, bark blankets (Atherton)"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "wiki-lrff",
+      "citation": "Wikipedia. Little red flying fox.",
+      "url": "https://en.wikipedia.org/wiki/Little_red_flying_fox"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "wiki-carpet-python",
+      "citation": "Wikipedia. Morelia spilota (carpet python).",
+      "url": "https://en.wikipedia.org/wiki/Morelia_spilota"
+    },
+    {
+      "id": "pbg-cape-york",
+      "citation": "Queensland Parks and Wildlife Service (2013). Planned Burn Guidelines: Cape York Peninsula Bioregion of Queensland. Department of National Parks, Recreation, Sport and Racing.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0019/151480/pbg-cape-york.pdf",
+      "locator": "'Fire in the monsoonal tropics of the Cape York Peninsula bioregion'; ch. 1–2 season guidance (storm burns)"
+    },
+    {
+      "id": "roth1910",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and Trade. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52863",
+      "locator": "Sects. 14–15, dug-out canoes from the Flinders Group to Cape Grafton"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

@@ -1,0 +1,248 @@
+{
+  "slug": "snakes",
+  "title": "Snakes",
+  "category": "reptile",
+  "names": [
+    {
+      "word": "jarba",
+      "gloss": "generic word for snake"
+    },
+    {
+      "word": "jinkalmu",
+      "gloss": "taipan, brown snake (not distinguished)"
+    },
+    {
+      "word": "bindimu",
+      "gloss": "red-bellied black snake"
+    },
+    {
+      "word": "kundurr",
+      "gloss": "death adder"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary names the dangerous snakes directly: jinkalmu for taipan and brown snake, bindimu, biwul and binju for the black snakes, kundurr for the death adder, with jarba the general word. The Atlas of Living Australia records the coastal taipan, the mulga snake, the eastern brown, the red-bellied black and two death adders within 60 km of Karma Waters."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater",
+    "camp"
+  ],
+  "summary": "**[jarba](word:jarba)** is any snake, and the dictionary then does what a bush dictionary should: it names the ones that matter. **[jinkalmu](word:jinkalmu)** is 'taipan, brown snake. (These are not distinguished)'; **[bindimu](word:bindimu)** the 'red bellied black snake'; **[biwul](word:biwul)** a 'black snake (bigger than the red bellied)'; **[binju](word:binju)** a 'small black snake, light or reddish belly, poisonous'; **[kundurr](word:kundurr)** the 'death adder' [ref:hershberger1982]. All of them are on the upper Mitchell: within 60 km of [Karma Waters](place:karma-waters) the Atlas records the coastal taipan, the mulga or king brown snake, the eastern brown, the red-bellied black and two death adders, with the taipan and the mulga snake inside 30 km of the homestead [ref:ala-karma] [ref:ala-karma-60]. Beside them are the harmless ones the dictionary also names: the whip snake, the green tree snake, the water snakes of the pools, and the [pythons](entry:pythons), which have their own page [ref:hershberger1982]. Roth's note on them as food is short: 'poisonous snakes are eaten at Princess Charlotte Bay, but avoided on the Bloomfield' [ref:roth1901]. This page is about knowing them, keeping out of their way, and what to do if that fails; the first aid on it is the current Australian advice, and Roth's old cures are given as history [ref:healthdirect-snakebite] [ref:roth1903].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "jarba (snake); jinkalmu (taipan, brown snake); bindimu, biwul, binju (black snakes); kundurr (death adder); jijirrbay (whip snake); kalkamuku (green tree snake); banamu, bakay, barka, kabuljaka (water snakes)"
+    },
+    {
+      "label": "Dangerous here (ALA, 60 km)",
+      "value": "Coastal taipan, mulga snake, eastern brown, red-bellied black, northern and common death adders, whip snakes, the small-eyed and curl snakes"
+    },
+    {
+      "label": "Harmless here",
+      "value": "Green tree snake, brown tree snake, keelback, bandy-bandy, the pythons"
+    },
+    {
+      "label": "When",
+      "value": "Most active on warm nights and in the storm season; sluggish in the cold dry"
+    },
+    {
+      "label": "If bitten",
+      "value": "000; keep still; pressure immobilisation bandage up the whole limb; splint; do not wash, cut, suck or tourniquet"
+    },
+    {
+      "label": "Old treatments",
+      "value": "Recorded by Roth: ligatures, sucking, a leaf-and-stone steam bed, Leichhardt-tree bark as an emetic (Palmer River); history, not advice"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[jarba](word:jarba)** 'generic word for snake'. The dangerous ones: **[jinkalmu](word:jinkalmu)** 'taipan, brown snake. (These are not distinguished)'; **[bindimu](word:bindimu)** 'red bellied black snake'; **[biwul](word:biwul)** 'black snake (bigger than the red bellied)', which fits the mulga snake; **[binju](word:binju)** 'small black snake, light or reddish belly, poisonous'; **[kundurr](word:kundurr)** 'death adder'; **[bajalji](word:bajalji)**, in one entry 'species of rock python' and in another 'poisonous snake (found in the Rossville–Shipton's Flat area)' [ref:hershberger1982]. The others: **[jijirrbay](word:jijirrbay)** 'whip snake'; **[kalkamuku](word:kalkamuku)** 'green tree snake'; **[bubal](word:bubal)** 'species of tree snake'; **[kungkun](word:kungkun)**, 'carpet snake, North Queensland python' and also 'brown tree snake'; **[banamu](word:banamu)** 'fresh water snake'; **[bakay](word:bakay)** 'short light brown or yellow water snake'; **[barka](word:barka)** 'yellow water snake'; **[kabuljaka](word:kabuljaka)** 'striped water snake, known as the zebra snake'; **[yuray](word:yuray)** 'sea snake'; **[ngumbul](word:ngumbul)** 'species of snake'; **[munyun](word:munyun)** 'snake scale'; **[jindal](word:jindal)** 'to bite and leave a puncture mark, as a snake bite' [ref:hershberger1982]. The dictionary also lists **[yarru](word:yarru)**, glossed 'rainbow snake (mythical serpent); deep water hole'; this page leaves it at that [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "The snakes of the upper Mitchell",
+      "body": "**Coastal taipan** (*Oxyuranus scutellatus*, *jinkalmu*), two records within 60 km and one within 30. 'The second-longest venomous snake in Australia', maturing at about 1.2 m and growing to 1.5–2 m; 'a long and narrow head with an angular brow and is lighter-coloured on the face. The body is slender ... often uniformly light olive or reddish-brown in colour, but some specimens may be dark gray to black', paler on the sides, the belly 'creamy-white to a pale light yellow ... often marked with orange or pink flecks'. 'According to most toxicological studies, this species is the third-most venomous land snake in the world'; its venom is 'predominantly neurotoxic and coagulopathic'. It lives 'in a wide range of habitats, from monsoon forests to open woodland, as well as human-modified habitats such as sugarcane fields', and 'it mainly hunts and eats small mammals' [ref:wiki-taipan]. One of its old names, *Pseudechis wilesmithii*, was described from the Walsh River, the next river south of the Mitchell [ref:wiki-taipan].\n\n**Mulga snake, king brown** (*Pseudechis australis*, probably *biwul*), two records within 60 km, one within 30. 'The largest terrestrial venomous snake in Australia'. 'Its venom is not as potent as those of Australia's other dangerous snakes, but can still cause severe effects if delivered in large enough quantities. Its main effect is on striated muscle tissue, causing paralysis from muscle damage, and also commonly affects blood clotting'. Its name is a trap: 'its venom is not neutralised by brown snake antivenom', which is why the name 'mulga snake' is preferred; it is a black snake, not a brown [ref:wiki-mulga].\n\n**Eastern brown snake** (*Pseudonaja textilis*, *jinkalmu*), two records within 60 km. 'The world's second-most venomous land snake after the inland taipan'; 'of slender to average build with no demarcation between its head and neck', 'most specimens have a total length (including tail) up to 1.5 m'; its venom works mainly on the circulation [ref:wiki-eastern-brown].\n\n**Red-bellied black snake** (*Pseudechis porphyriacus*, *bindimu*), one record within 60 km, at the northern edge of its range. 'A glossy black top body with a light-grey snout and brown mouth', the flanks 'bright red or orange, fading to pink or dull red on the belly'. 'Common in woodlands, forests, swamplands, along river banks and waterways ... it forages in bodies of shallow water, commonly with tangles of water plants and logs, where it hunts its main prey item, frogs, as well as fish, reptiles, and small mammals'; its numbers are falling where the cane toad has come [ref:wiki-rbbs] [ref:wiki-cane-toads].\n\n**Death adders** (*Acanthophis praelongus*, the northern death adder, three records within 60 km; *A. antarcticus*, one; *kundurr*). Short, thick, viper-shaped snakes that lie in the leaf litter and twitch a grub-like tail tip as a lure. The northern death adder 'hunts birds, amphibians, and small mammals both by day and night'; 'the venom of the northern death adder is highly potent against the human organism. It contains pre- and postsynaptic neurotoxins ... An envenoming by this snake is very dangerous, and all bites should be treated as medical emergencies. Main effects include local pain and flaccid paralysis' [ref:wiki-northern-death-adder].\n\n**The rest of the venomous list** within 60 km: four whip snakes (*Demansia*, *jijirrbay*), fast, slender, day-active lizard hunters with a mild bite; the small-eyed snakes (*Cryptophis*), the curl snake (*Suta suta*), the naped snakes (*Furina*) and the bandy-bandy (*Vermicella*), small, mostly nocturnal, and best left alone [ref:ala-karma-60].\n\n**The harmless ones**: the green tree snake (*Dendrelaphis punctulatus*, *kalkamuku*), eighteen records, the brown tree snake (*Boiga irregularis*), twenty-five, mildly venomous and rear-fanged, and the keelback (*Tropidonophis mairii*), the water snake of the pools, four records, one of the few Australian snakes that eats cane toads and survives [ref:ala-karma-60] [ref:wiki-cane-toads]. The [pythons](entry:pythons) are on their own page."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling them apart, and not trusting it",
+      "body": "- **Python or not**: pythons have a heat-pitted, blocky head distinct from the neck and a patterned body; the taipan and browns have a narrow head that runs into the body and a plain back. But a young mulga snake, a dark taipan and a black-headed python can all be 'a dark snake in the grass'. The rule is to treat every snake as *jinkalmu* until it is plainly something else [ref:wiki-taipan] [ref:wiki-black-headed-python].\n- **Taipan**: long, pale-faced, olive to red-brown, quick, in woodland and grass; it 'mainly hunts and eats small mammals' and is where the rats are [ref:wiki-taipan].\n- **Mulga snake**: heavy, 'the largest', coppery to black with a paler belly; not a brown snake, and brown-snake antivenom does not work on it [ref:wiki-mulga].\n- **Eastern brown**: slim, rounded snout, no neck, fast; here at the edge of its range [ref:wiki-eastern-brown].\n- **Red-bellied black**: glossy black with red sides, by the water, after frogs [ref:wiki-rbbs].\n- **Death adder**: short, fat, flat-headed, a thin tail tip, lying still in litter; it does not move away, which is the danger [ref:wiki-northern-death-adder].\n- **Keelback**: a plain brown water snake with keeled scales that swims off; harmless, but a wet brown snake by a pool is also what a young mulga looks like [ref:ala-karma-60].\n- **Green tree snake**: slender, green-grey above and yellow below, in the trees and on the river; harmless [ref:ala-karma-60]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A shed skin** (*munyun* is 'snake scale') in the grass or under bark; the scale pattern tells a python from an elapid if you know scales, and nothing if you do not [ref:hershberger1982].\n- **A sinuous track** across sand or dust in the morning; a wide one by the water is a python or a mulga snake [ref:wiki-mulga].\n- **Rats and mice** in a camp or a shed bring the taipan and the browns; the taipan 'mainly hunts and eats small mammals' [ref:wiki-taipan].\n- **Frogs calling in a pool** bring the red-bellied black and the keelback [ref:wiki-rbbs].\n- **Puncture marks** (*jindal*) and sudden pain, or 'almost invisible small scratches' and no pain: both are bites [ref:hershberger1982] [ref:healthdirect-snakebite].\n- **Birds scolding** one spot in the grass; Roth's Tully people found the carpet snake by its butcher-bird [ref:roth1901]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they are",
+      "body": "The taipan and the browns in the open [woodland](entry:woodland) and the grass, wherever there are rats; the mulga snake on the flats and the stony rises; the red-bellied black and the keelback at the [waterhole](entry:waterhole) and along the river; the death adders in the leaf litter under the trees and in the grass; the tree snakes in the river trees; all of them under tin, timber, bark and rubbish around a camp [ref:wiki-taipan] [ref:wiki-mulga] [ref:wiki-rbbs] [ref:wiki-northern-death-adder]. The [huts and shelters](entry:huts-and-shelters) page's rule about not putting a hand where you cannot see is a snake rule."
+    },
+    {
+      "id": "ecology",
+      "heading": "What they eat and what eats them",
+      "body": "The venomous snakes are the woodland's rat-catchers and frog-catchers: the taipan takes 'small mammals, and opportunistically takes bird prey'; the red-bellied black 'frogs, as well as fish, reptiles, and small mammals'; the death adder 'birds, amphibians, and small mammals' [ref:wiki-taipan] [ref:wiki-rbbs] [ref:wiki-northern-death-adder]. They are eaten in turn by the [goannas](entry:goanna), the kookaburras and the kites, the black-headed [python](entry:pythons), whose diet is 'mainly reptiles, including snakes', and by people where that was the custom [ref:wiki-black-headed-python] [ref:roth1901]. The cane toad, 1,079 records within 60 km, has changed the balance: the frog-eating snakes, the death adders and the goannas die of eating it, and the keelback is one of the few that can [ref:ala-karma-60] [ref:wiki-cane-toads]. A camp changes it too: food scraps bring mice, mice bring snakes; the [frogs](entry:frogs) at a camp tank bring the black snake."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Snakes are most on the move in the warm months and the storm season, and on warm nights; in the cold dry (July nights at 14 °C) they are slow and under cover, and a camp on the sand is quieter [ref:bom-palmerville]. The red-bellied black and the keelback follow the frogs, so the first storms, when every frog calls, are their season at the pools [ref:wiki-rbbs]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Food, elsewhere.** 'Poisonous snakes are eaten at Princess Charlotte Bay, but avoided on the Bloomfield'; the non-venomous [pythons](entry:pythons) are the snakes that were eaten here [ref:roth1901].\n- **Fat.** Snake fat with goanna fat was smeared on a bee to make it visible to follow on the middle Palmer; see [native bees](entry:native-bees) [ref:roth1901].\n- **Knowing where the rats are**: a snake in the woodpile is information."
+    },
+    {
+      "id": "how-to",
+      "heading": "Living with snakes, and the bite",
+      "body": "**Keeping out of their way** [ref:healthdirect-snakebite] [ref:kw-camping]:\n\n1. Boots and long trousers in the grass; 'wear thick clothing, such as jeans and boots'.\n2. A torch at night, every time, on every walk to the river.\n3. Keep the camp clean of scraps and tidy of tin and timber; no rats, fewer snakes.\n4. Never a hand under bark, into a hollow, under a log or into long grass you cannot see into; use a stick, and the [digging stick](entry:digging-sticks) was the prodder for exactly this [ref:anderson1996].\n5. Step onto logs, not over them; look where you put your feet at the water's edge.\n6. Leave a snake alone and it leaves. Most bites happen to people trying to kill or catch one; 'do not try to catch or kill the snake'.\n\n**If someone is bitten** (healthdirect's current first aid) [ref:healthdirect-snakebite]: 'All snake bites must be treated as potentially life-threatening.' Call triple zero (000), or 112 if 000 will not connect on a mobile. 'Keep the person who has been bitten still and help them to stay calm.' Put a roller bandage 10–15 cm wide over the bite, then a second bandage from just above the fingers or toes of the bitten limb up the whole limb, 'tight: you should not be able to easily slide a finger between the bandage and the skin'; splint the limb so it cannot move; write down the time of the bite and the bandaging, and mark the bite site on the bandage. 'Do not wash the bite area', 'do not apply a tourniquet', 'do not cut the wound', 'do not try to suck the venom out', and 'do not try to catch or kill the snake'. At Karma Waters the nearest help is a long drive, which is why the bandage and the stillness matter more here than anywhere [ref:kw-about].\n\n**What Roth recorded, a hundred years ago**, and what it is not: 'At Cape Bedford, snake-bite is cured by rubbing the faeces of the reptile into the wound made by its teeth. In the case of accidents with black snakes on the Palmer River, the limb is held tightly with the hand, just above the injury, and the patient made to eat some raw bark of the Leichhardt-tree, which soon makes him vomit, and so gives him relief'; other bites were sucked by a medicine-man. In the Boulia and Cloncurry districts the victim tied ligatures above and below the joint, had the wound sucked, and was given a steam bed: a pit of hot stones under wet leafy boughs, on which he lay and sweated and slept 'for two or three hours, wakes up refreshed, has a \"spit,\" and is quite recovered' [ref:roth1903]. The Koko-minni used the Leichhardt tree's bark for 'sore belly and certain snake-bites' [ref:roth1903]. The ligatures and the sucking are the things the current advice says not to do; the stillness and the sleep are the things it says to do. Most bites, then as now, were dry or from snakes that could not kill, which is how any cure got its reputation [ref:roth1903] [ref:healthdirect-snakebite]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Every snake is *jinkalmu* until proven otherwise; the two most dangerous land snakes in the world are both recorded near the homestead [ref:wiki-taipan] [ref:wiki-eastern-brown].\n- Bandage, splint, stillness, 000; nothing else [ref:healthdirect-snakebite].\n- Snakes are protected wildlife in Queensland; killing one is an offence as well as the commonest way to be bitten [ref:qld-nca] [ref:healthdirect-snakebite].\n- A dog that mouths a cane toad or a snake needs a vet; the toad alone kills dogs [ref:wiki-cane-toads].\n- Mobile coverage at Karma Waters is not to be relied on; know where the station's phone and first-aid kit are before you need them [ref:kw-about]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The snakes are all still here and the dictionary's words for them are as useful as they ever were; what has changed is the cane toad, which is thinning the frog-eaters, and the first aid, which is better than anything Roth saw [ref:wiki-cane-toads] [ref:healthdirect-snakebite]. Which snake the dictionary's *biwul* and *bajalji* are is a question for the people who named them; the contribution box below is for that [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[jarba](word:jarba)* 'snake'; *[jinkalmu](word:jinkalmu)* 'taipan, brown snake'; *[bindimu](word:bindimu)* 'red bellied black snake'; *[biwul](word:biwul)* 'black snake (bigger than the red bellied)'; *[binju](word:binju)* 'small black snake, light or reddish belly, poisonous'; *[kundurr](word:kundurr)* 'death adder'; *[jijirrbay](word:jijirrbay)* 'whip snake'; *[kalkamuku](word:kalkamuku)* 'green tree snake'; *[bubal](word:bubal)* 'tree snake'; *[banamu](word:banamu)*, *[bakay](word:bakay)*, *[barka](word:barka)*, *[kabuljaka](word:kabuljaka)* water snakes; *[yuray](word:yuray)* 'sea snake'; *[ngumbul](word:ngumbul)* 'species of snake'; *[munyun](word:munyun)* 'snake scale'; *[jindal](word:jindal)* 'to bite and leave a puncture mark'; *[kuliji](word:kuliji)* 'fierce' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "pythons",
+    "goanna",
+    "frogs",
+    "woodland",
+    "waterhole",
+    "huts-and-shelters",
+    "digging-sticks",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "jijirrbay",
+      "gloss": "whip snake"
+    },
+    {
+      "word": "kalkamuku",
+      "gloss": "green tree snake"
+    },
+    {
+      "word": "banamu",
+      "gloss": "fresh water snake"
+    },
+    {
+      "word": "jindal",
+      "gloss": "to bite and leave a puncture mark, as a snake bite"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "ala-karma",
+      "citation": "Atlas of Living Australia. All occurrence records within 30 km of the Karma Waters homestead (16.618° S, 144.605° E), species facet, queried 5 October 2026 (4,053 records; 601 species).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.6179&lon=144.6047&radius=30"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "healthdirect-snakebite",
+      "citation": "healthdirect Australia (Australian Government). Snake bites: symptoms, first aid and the pressure immobilisation bandage (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/snake-bites"
+    },
+    {
+      "id": "roth1903",
+      "citation": "Roth, W. E. (1903). North Queensland Ethnography, Bulletin No. 5: Superstition, magic, and medicine. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Medicine, 'Erythrophloeum laboucherii' (Pennefather River)"
+    },
+    {
+      "id": "wiki-taipan",
+      "citation": "Wikipedia. Coastal taipan (Oxyuranus scutellatus).",
+      "url": "https://en.wikipedia.org/wiki/Coastal_taipan"
+    },
+    {
+      "id": "wiki-mulga",
+      "citation": "Wikipedia. King brown snake / mulga snake (Pseudechis australis).",
+      "url": "https://en.wikipedia.org/wiki/Mulga_snake"
+    },
+    {
+      "id": "wiki-eastern-brown",
+      "citation": "Wikipedia. Eastern brown snake (Pseudonaja textilis).",
+      "url": "https://en.wikipedia.org/wiki/Eastern_brown_snake"
+    },
+    {
+      "id": "wiki-rbbs",
+      "citation": "Wikipedia. Red-bellied black snake (Pseudechis porphyriacus).",
+      "url": "https://en.wikipedia.org/wiki/Red-bellied_black_snake"
+    },
+    {
+      "id": "wiki-cane-toads",
+      "citation": "Wikipedia. Cane toads in Australia: effects on native predators (goannas, snakes, freshwater crocodiles) and on dogs.",
+      "url": "https://en.wikipedia.org/wiki/Cane_toads_in_Australia"
+    },
+    {
+      "id": "wiki-northern-death-adder",
+      "citation": "Wikipedia. Northern death adder (Acanthophis praelongus).",
+      "url": "https://en.wikipedia.org/wiki/Northern_death_adder"
+    },
+    {
+      "id": "wiki-black-headed-python",
+      "citation": "Wikipedia. Black-headed python (Aspidites melanocephalus).",
+      "url": "https://en.wikipedia.org/wiki/Black-headed_python"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

@@ -1,0 +1,197 @@
+{
+  "slug": "echidna",
+  "title": "Echidna (ngangkin)",
+  "category": "mammal",
+  "names": [
+    {
+      "word": "ngangkin",
+      "gloss": "echidna, porcupine"
+    }
+  ],
+  "scientificName": "Tachyglossus aculeatus",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary's ngangkin is 'echidna, porcupine'. The short-beaked echidna is recorded within 30 km of Karma Waters and is the most widespread native mammal in Australia."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "camp"
+  ],
+  "summary": "**[ngangkin](word:ngangkin)** is the echidna, the 'porcupine' of the old English, the spiny egg-laying ant-eater that digs into the [woodland's](entry:woodland) ant nests and termite mounds with claws that can move 'a 13.5 kg stone' and feeds with a tongue it pushes out of a snout it cannot open [ref:hershberger1982] [ref:wiki-echidna]. It is 'the most widespread native mammal' in Australia, 30 to 45 cm long and 2 to 7 kg, recorded within 30 km of [Karma Waters](place:karma-waters) and eighteen times within 60 [ref:wiki-echidna] [ref:ala-karma] [ref:ala-karma-60]. It 'has no weapons or fighting ability but deters predators by curling into a ball' or digging straight down; in the cold of the dry it 'goes into deep torpor', and the female lays one egg a year [ref:wiki-echidna]. 'They were eaten by indigenous Australians and the early European settlers' [ref:wiki-echidna]. Roth left no Bloomfield note on hunting it, so the method here is the animal's own habits and the common sense they imply.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "ngangkin (echidna, porcupine)"
+    },
+    {
+      "label": "Size",
+      "value": "30–45 cm, 2–7 kg; a 75 mm snout; spines over fur"
+    },
+    {
+      "label": "Food",
+      "value": "Ants and termites, especially their eggs, pupae and winged forms; found by smell with the snout"
+    },
+    {
+      "label": "Habits",
+      "value": "Solitary; digs straight down or curls into a ball when threatened; torpor in the cold; one egg a year"
+    },
+    {
+      "label": "Where",
+      "value": "Anywhere with ants and termites; one ALA record within 30 km of Karma Waters, 18 within 60"
+    },
+    {
+      "label": "Use",
+      "value": "Eaten; the spines and the digging claws are the things to handle"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[ngangkin](word:ngangkin)** 'echidna, porcupine' [ref:hershberger1982]. In English it was 'the spiny anteater in older books, though this term has fallen out of fashion since the echidna is only very distantly related to the true anteaters'; the genus name is Greek for 'fast tongue' [ref:wiki-echidna]. Its food has its own words: **[jabarrangkul](word:jabarrangkul)** 'black ant. Also their nest in rotten logs'; **[jawurraji](word:jawurraji)** 'large ant bed'; **[kabay](word:kabay)** 'small ant bed'; **[jungu-jungu](word:jungu-jungu)** 'white ant eggs' [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "The animal",
+      "body": "'Short-beaked echidnas are typically 30 to 45 cm in length, with 75 mm of snout, and weigh between 2 and 7 kg ... Because the neck is not externally visible, the head and body appear to merge.' 'The limbs of the short-beaked echidna are adapted for rapid digging; they are short and have strong claws. Their strong and stout limbs allow it to tear apart large logs and move paving stones, and one has been recorded moving a 13.5 kg stone'. 'The claws on the hind feet are elongated and curved backward to enable cleaning and grooming between the spines.' It 'has a low body temperature, between 30–32 °C', and 'the body temperature of the echidna may fall as low as 5 °C' in torpor [ref:wiki-echidna].\n\n'The short-beaked echidna has extremely strong front limbs and claws, which allow it to burrow quickly with great power. As it needs to be able to survive underground, it has a significant tolerance to high levels of carbon dioxide and low levels of oxygen. It has no weapons or fighting ability but deters predators by curling into a ball'. 'During the Australian winter, it goes into deep torpor and hibernation, reducing its metabolism to save energy. As the temperature increases, it emerges to mate. Female echidnas lay one egg a year and the mating period is the only time the otherwise solitary animals meet' [ref:wiki-echidna].\n\n'Short-beaked echidnas can live anywhere with a good supply of food, and regularly feast on ants and termites. They are believed to locate food by smell, using sensors in the tips of their snouts'. 'Echidnas use their strong claws to pull apart nests and rotting logs to gain access to their prey. They avoid ants and termites that secrete repulsive liquids, and have a preference for the eggs, pupae and winged phases of the insects. Echidnas hunt most vigorously towards the end of the southern winter and early in spring, when their fat reserves have' run down [ref:wiki-echidna]. 'Because of its low body temperature, it becomes sluggish in very hot and very cold weather' [ref:wiki-echidna]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Echidna, goanna digging, bandicoot digging",
+      "body": "- **An echidna** cannot be mistaken for anything else alive; its diggings can. It opens ant nests and termite mounds from the side and leaves a snout-shaped probe hole [ref:wiki-echidna].\n- **[Goanna](entry:goanna) diggings** are long trenches after eggs and burrowing animals, with claw marks and a tail drag [ref:hershberger1982].\n- **Bandicoot diggings** are small conical holes in soft ground at night; the northern brown bandicoot is recorded 27 times within 60 km [ref:ala-karma-60].\n- **A rolled echidna** in the grass looks like a clump of dead leaves and spines; it does not run [ref:wiki-echidna]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Ant nests and termite mounds torn open** from the side, rotten logs pulled apart, and a snout-shaped hole in the soil [ref:wiki-echidna].\n- **A wandering track** of paired prints with the claws turned out, and a dragged tail line [ref:wiki-echidna].\n- **Spines** caught on a log or a fence where one has pushed under.\n- **A dug-in animal** with only its spines showing, straight down in the soil, which is what it does on hard ground when it cannot roll [ref:wiki-echidna].\n- **Late winter and spring** is when it is out and about most, feeding hard after torpor [ref:wiki-echidna]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "'Anywhere with a good supply of food': the open [woodland](entry:woodland) with its termite mounds and meat-ant nests, the rocky rises, the river scrub; it dens in hollow logs, under rocks and in burrows it digs [ref:wiki-echidna] [ref:re-woodland]. One record within 30 km of the homestead and eighteen within 60 [ref:ala-karma] [ref:ala-karma-60]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The ant-eater's year",
+      "body": "The echidna is the woodland's slow mower of ants and termites, taking 'the eggs, pupae and winged phases' by choice; the [green ants](entry:green-ants) in the trees are out of its reach, the meat ants and the termites in the mounds are its living [ref:wiki-echidna]. It has 'no weapons' and few enemies: the dingo and, once, people; the cane toad is not its problem [ref:wiki-echidna]. It is slow in the hot and the cold, so the warm mornings of the dry and the evenings of the build-up are its hours, and 'towards the end of the southern winter and early in spring' its hungriest weeks [ref:wiki-echidna] [ref:bom-palmerville]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Torpor through the coldest weeks of the dry; out and feeding hard from August into the spring; mating as the weather warms, the one egg carried in the pouch and the young, the puggle, in a burrow; sluggish again in the heat of the build-up [ref:wiki-echidna] [ref:bom-palmerville]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Food.** 'They were eaten by indigenous Australians and the early European settlers of Australia' [ref:wiki-echidna].\n- **Spines** as awls and points in other parts of Australia; Roth records a 'porcupine-quill' used to pierce skins at Brisbane [ref:roth1910-decoration].\n- **A sign of healthy termite and ant country**, which is to say of a woodland with logs and mounds left in it [ref:wiki-echidna]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Finding and cooking an echidna",
+      "body": "No Bloomfield or Western Yalanji account of hunting the echidna is in the sources used here; what follows is the animal's own habits and the usual practice recorded elsewhere, stated plainly [ref:wiki-echidna]:\n\n1. **Walk the woodland in the late dry and spring mornings**, when it is out and feeding; look for freshly opened ant nests and mounds [ref:wiki-echidna].\n2. **Follow the track**: the turned-out claw prints and the tail drag.\n3. **When found, it rolls or digs**: on soft ground it goes straight down with great power; a stick or a hand under the belly before it is dug in is the only moment [ref:wiki-echidna].\n4. **Carry it in a bag**; the spines go through cloth.\n5. **Cooking**: singe the spines off in the fire, gut it, and cook it in the [earth oven](entry:earth-oven) as the camp's other meat was cooked [ref:anderson1996].\n6. **Leave the small ones and the females in spring**; one egg a year does not replace fast [ref:wiki-echidna]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- The echidna is protected wildlife in Queensland; native title holders hunting for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993* [ref:qld-nca] [ref:alrc] [ref:wyac2020].\n- Spines pierce hands and feet; the claws will cut.\n- An echidna dug into a bank or under a rock is best left; so is a termite mound you are not going to use, since the mound is the ant-bed oven stone as well as the echidna's larder [ref:roth1901]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The echidna is still on Karma Waters wherever the mounds and the logs are, which is wherever the woodland has not been cleared or burnt too hot; it is the animal whose diggings you see far more than the animal [ref:ala-karma-60] [ref:re-woodland]. How Kuku Yalanji people hunted and cooked *ngangkin* is not in Roth or Anderson; the contribution box below is for that [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[ngangkin](word:ngangkin)* 'echidna, porcupine'; *[jabarrangkul](word:jabarrangkul)* 'black ant; their nest in rotten logs'; *[jawurraji](word:jawurraji)* 'large ant bed'; *[kabay](word:kabay)* 'small ant bed'; *[jungu-jungu](word:jungu-jungu)* 'white ant eggs'; *[kiway](word:kiway)* 'cold' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "woodland",
+    "goanna",
+    "green-ants",
+    "earth-oven",
+    "hunting-with-fire",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "jawurraji",
+      "gloss": "large ant bed"
+    },
+    {
+      "word": "jungu-jungu",
+      "gloss": "white ant eggs"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-echidna",
+      "citation": "Wikipedia. Short-beaked echidna.",
+      "url": "https://en.wikipedia.org/wiki/Short-beaked_echidna"
+    },
+    {
+      "id": "ala-karma",
+      "citation": "Atlas of Living Australia. All occurrence records within 30 km of the Karma Waters homestead (16.618° S, 144.605° E), species facet, queried 5 October 2026 (4,053 records; 601 species).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.6179&lon=144.6047&radius=30"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "roth1910-decoration",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 15: Decoration, deformation, and clothing. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52864",
+      "locator": "Sect. 56, bark blankets (Atherton)"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
