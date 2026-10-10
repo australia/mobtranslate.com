@@ -35,6 +35,8 @@ UA = {"User-Agent": "mobtranslate-country/1.0 (Kuku Yalanji Country encyclopedia
 
 # Pages whose scientificName field is absent or too broad: an explicit taxon and a display name.
 OVERRIDES = {
+    "weeds-and-ferals": ("Cryptostegia grandiflora", "rubber vine"),
+    "insects-and-grubs": ("Valanga irregularis", "giant grasshopper"),
     "fish-poison-plants": ("Barringtonia racemosa", "freshwater mangrove, a fish-poison tree"),
     "woodland": ("Corymbia dallachiana", "Dallachy's gum, a tree of the woodland"),
     "waterhole": ("Nymphaea gigantea", "giant water lily on a waterhole"),
