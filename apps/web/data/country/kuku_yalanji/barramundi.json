@@ -77,9 +77,24 @@
       "body": "A long, powerful fish, silver to greenish-grey or greyish-blue, with a **distinctly concave head profile**, a pointed snout, a big mouth, brown to dark grey fins and a pale belly. Its eye glows **bright red** in torchlight at night [ref:foa-barra]. Barramundi commonly reach 150 cm and can reach 200 cm. They eat mainly fish and crustaceans; the young also eat insects [ref:foa-barra].\n\nBarramundi change sex. Most start life as males and turn into females at 3–5 years old, so small fish are almost all males and the very big fish are all females [ref:foa-barra]. That is why the law protects the biggest fish."
     },
     {
+      "id": "lookalikes",
+      "heading": "What it can be confused with",
+      "body": "- **[Gulf saratoga](entry:saratoga)**: also big, silvery and a surface hunter, but with a flat back, a sharply upturned mouth, huge scales and a long low back fin; it cruises just under the surface for insects [ref:wp-saratoga].\n- **[Sleepy cod](entry:sleepy-cod)**: a thick, mottled, big-mouthed fish of the snags, but rounded in the tail and never silver [ref:angfa-sleepy].\n- **Big [sooty grunter](entry:black-bream)**: dark, deep-bodied and thick-lipped; a barramundi is long, silver and has that dished forehead [ref:foa-barra] [ref:wp-sooty].\n\nThe concave head, the big mouth and, at night, the red eyeshine are the barramundi's marks [ref:foa-barra]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Red eyes in the torchlight.** A barramundi's eye glows bright red at night; that is how they are counted and found in the dark [ref:foa-barra].\n- **Snags, undercut banks and overhanging plants** in the upper reaches are where the juveniles live [ref:foa-barra].\n- **The run upstream.** After the wet, young barramundi move back up the rivers with the mullet and the young [cherabin](entry:cherabin), in April and May [ref:cdu2014] [ref:cdu2016].\n- **Big wet years** mean more and bigger barramundi in the Mitchell, and fish that go up into fresh water grow faster than those that stay on the coast [ref:griffith2021].\n- **How far up?** The Mitchell Falls is named as a natural barrier, and this far upstream barramundi are thin; ask the Traditional Owners which pools hold them [ref:griffith2021] [ref:ala-karma-river]."
+    },
+    {
       "id": "habitat",
       "heading": "Where it lives",
       "body": "Barramundi live in coastal and estuarine waters, often around [mangroves](entry:mangroves), in clear or muddy water. Some run far upstream and some spend their whole lives in fresh water; juveniles live in the upper reaches of rivers around undercut banks, sunken logs and overhanging plants [ref:foa-barra]. On Eastern Kuku Yalanji country, look for them in the estuaries, mangrove creeks and lower rivers from the Daintree to the Bloomfield and Annan.\n\n**Western Yalanji country.** Barramundi are part of the Mitchell River system. Griffith University's study of the Mitchell found that barramundi which move into fresh water in the [wet season](entry:seasons) grow faster than those that stay on the coast, and that big wet years produce more and bigger barramundi [ref:griffith2021]. How far up the river they reach in a given year depends on the floods and on natural barriers; the study names the Mitchell Falls as a natural barrier to fish moving upstream [ref:griffith2021]. Ask the Traditional Owners where barramundi are found near you."
+    },
+    {
+      "id": "ecology",
+      "heading": "Who eats whom, and when",
+      "body": "Where the barramundi is present it is the top fish of the [waterhole](entry:waterhole). It eats 'just about anything that lives in or around water, including insects, spiders, crocodiles, prawns, fish and each other' [ref:ntgov-barra]. The size of the prey follows the size of the fish; a big barramundi's diet is about 60 per cent fish and 40 per cent crustaceans, mostly prawns [ref:ntgov-barra]. In the Mitchell diet studies, prawns featured prominently in barramundi as in the pool's other big fish, and the giant river prawn is called a critical prey species for it [ref:jardine2012] [ref:asfb2016-cherabin]. On the floodplain in the wet, the big fish feed mostly on floodplain food, and come back to the river pools carrying it [ref:jardine2012b].\n\n**Barramundi eat barramundi.** When one year's young are numerous, they eat the next year's recruits [ref:ntgov-barra]. The sex change (males first, females after three to five years) means the biggest fish in a pool are all females, and the most valuable to leave [ref:foa-barra].\n\n**Who eats the barramundi.** Small ones feed the [freshwater crocodile](entry:freshwater-crocodile), which takes more fish as it grows [ref:tucker1996], the darters and cormorants [ref:wiki-darter], the [mouth almighty](entry:mouth-almighty) and [sleepy cod](entry:sleepy-cod) at night [ref:wiki-mouth-almighty] [ref:angfa-sleepy], and bigger barramundi. Adults answer only to the [saltwater crocodile](entry:saltwater-crocodile) and to people.\n\n**Hour and season.** The sources used here do not give the barramundi a timetable in the way the research gives the [catfish](entry:catfish) and the prawns theirs; what they do say is that its prey, the prawn, is out on the sand at night and in cover by day [ref:lammers2009] [ref:cdu2016], that the fish holds in snags and undercut banks [ref:foa-barra], and that its eyes are counted by torch after dark [ref:foa-barra]. Fish the snags at dusk and after dark, and expect the fish to follow the floods: it moves up into fresh water on the wet-season rises and back down to the salt to spawn between September and March [ref:griffith2021] [ref:foa-barra]."
     },
     {
       "id": "seasons",
@@ -125,7 +140,8 @@
     "fish-poison-plants",
     "grass-tree",
     "lawyer-cane",
-    "paperbark"
+    "paperbark",
+    "waterhole"
   ],
   "relatedWords": [
     {
@@ -237,10 +253,75 @@
       "id": "nta1993",
       "citation": "Native Title Act 1993 (Cth), section 211: preservation of certain native title rights and interests (hunting, fishing and gathering for personal, domestic or non-commercial communal needs).",
       "url": "https://www.legislation.gov.au/C2004A04665/latest/text"
+    },
+    {
+      "id": "angfa-sleepy",
+      "citation": "Australia New Guinea Fishes Association. Oxyeleotris lineolata, sleepy cod (species profile).",
+      "url": "https://rainbowfish.angfa.org.au/gudgeons/oxyeleotris_lineolata.html"
+    },
+    {
+      "id": "wp-sooty",
+      "citation": "Wikipedia. Sooty grunter, Hephaestus fuliginosus (accessed 5 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Sooty_grunter"
+    },
+    {
+      "id": "cdu2014",
+      "citation": "Charles Darwin University. 'Wet season flows crucial to Cherabin survival' (news release on P. Novak's research on Macrobrachium spinipes in the Daly River, NT; accessed 5 October 2026).",
+      "url": "https://www.cdu.edu.au/news/news-archive/wet-season-flows-crucial-cherabin-survival"
+    },
+    {
+      "id": "cdu2016",
+      "citation": "Charles Darwin University. 'Graduate discovers \"key to cherabin survival\"' (news release on P. Novak's PhD research on Macrobrachium spinipes in the Daly River, NT; accessed 5 October 2026).",
+      "url": "https://www.cdu.edu.au/news/news-archive/graduate-discovers-%E2%80%98key-cherabin-survival%E2%80%99"
+    },
+    {
+      "id": "ala-karma-river",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: river animals and waterbirds.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "ntgov-barra",
+      "citation": "Northern Territory Government. Barramundi: what they eat, spawning and migration (fish species page).",
+      "url": "https://nt.gov.au/marine/recreational-fishing/types-of-fish/fish-species/barramundi"
+    },
+    {
+      "id": "jardine2012",
+      "citation": "Jardine, T. D., Pettit, N. E., Warfe, D. M., Pusey, B. J., Ward, D. P., Douglas, M. M., Davies, P. M. & Bunn, S. E. (2012). Consumer–resource coupling in wet–dry tropical rivers. Journal of Animal Ecology 81: 310–322. Mitchell River sites sampled in the early dry season.",
+      "url": "https://doi.org/10.1111/j.1365-2656.2011.01925.x"
+    },
+    {
+      "id": "asfb2016-cherabin",
+      "citation": "Australian Society for Fish Biology conference 2016, oral presentation on Macrobrachium spinipes: a critical prey species for predators such as barramundi (Lates calcarifer).",
+      "url": "https://asfb-2016.p.asnevents.com.au/tracks/1722/abstract/38152"
+    },
+    {
+      "id": "jardine2012b",
+      "citation": "Jardine, T. D., Pusey, B. J., Hamilton, S. K., Pettit, N. E., Davies, P. M., Douglas, M. M., Sinnamon, V., Halliday, I. A. & Bunn, S. E. (2012). Fish mediate high food web connectivity in the lower reaches of a tropical floodplain river. Oecologia 168: 829–838. Mitchell River.",
+      "url": "https://doi.org/10.1007/s00442-011-2148-0"
+    },
+    {
+      "id": "tucker1996",
+      "citation": "Tucker, A. D., Limpus, C. J., McCallum, H. I. & McDonald, K. R. (1996). Ontogenetic dietary partitioning by Crocodylus johnstoni during the dry season. Copeia 1996(4): 978–988. 324 crocodiles stomach-flushed over three dry seasons in Queensland.",
+      "url": "https://doi.org/10.2307/1447669"
+    },
+    {
+      "id": "wiki-darter",
+      "citation": "Wikipedia. Australasian darter (Anhinga novaehollandiae).",
+      "url": "https://en.wikipedia.org/wiki/Australasian_darter"
+    },
+    {
+      "id": "wiki-mouth-almighty",
+      "citation": "Wikipedia. Mouth almighty (Glossamia aprion).",
+      "url": "https://en.wikipedia.org/wiki/Mouth_almighty"
+    },
+    {
+      "id": "lammers2009",
+      "citation": "Lammers, J. H., Warburton, K. & Cribb, B. W. (2009). Anti-predator strategies in relation to diurnal refuge usage and exploration in the Australian freshwater prawn, Macrobrachium australiense. Journal of Crustacean Biology 29: 175–182.",
+      "url": "https://academic.oup.com/jcb/article/29/2/175/2547994"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-10"
 }

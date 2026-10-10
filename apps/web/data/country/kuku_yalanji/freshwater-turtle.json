@@ -57,9 +57,24 @@
       "body": "The two river turtles you are most likely to meet on the upper Mitchell are these.\n\n- **Northern yellow-faced turtle** (*Emydura tanybaraga*). A short-necked turtle with a shell up to about 28.5 cm. A light yellow band runs from the eye back to above the ear, and another from the corner of the mouth along the neck. The shell is light to dark brown with a yellow or white rim, and the belly plate is bone-coloured [ref:wp-emydura].\n- **Saw-shelled turtle** (*Myuchelys latisternum*). The back edge of the shell stays **saw-toothed** all its life, and the neck is covered in **pointed bumps**. Females grow to 28 cm of shell, males to about 18 cm. It is mainly a meat-eater, taking fish, tadpoles, frogs and crustaceans, and it will even tear up and eat cane toads. It can give off a strong smell and **bites hard** when handled [ref:wp-sawshell]."
     },
     {
+      "id": "lookalikes",
+      "heading": "What it can be confused with",
+      "body": "- **Northern yellow-faced turtle**: short neck, a yellow stripe from the eye back and another from the mouth along the neck, smooth shell edge [ref:wp-emydura].\n- **Saw-shelled turtle**: the back edge of the shell stays saw-toothed for life and the neck carries pointed bumps; it bites hard [ref:wp-sawshell].\n- **Northern snake-necked turtle**: a neck as long as the shell, folded sideways; a few are recorded in the upper Mitchell country [ref:ala].\n- **Snapping turtles** (*Elseya*): big, heavy-headed, recorded to the south-east of the station [ref:ala].\n\nIn the water, what you usually see is a head and nostrils at the surface, then nothing. The length of the neck and the shape of the head are the quickest tells."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Basking** on logs, rock bars and banks in the sun, and sliding off at the first movement on the bank. In the hot months they bask at night as well [ref:basking2023].\n- **Heads at the surface** in the still water of the pool in the middle of the day.\n- **Tracks**: paired flipper drags with a tail line between, running from the water to a nest hole dug in a sand bank from September to December [ref:wp-sawshell].\n- **Dug-out nests**: a scatter of leathery shell fragments beside a hole is a nest found by a [goanna](entry:goanna) or a pig.\n- **Empty freshwater mussel shells** on the bottom: the turtles are among the animals that open them [ref:turtle-competition]."
+    },
+    {
       "id": "habitat",
       "heading": "Where it lives",
       "body": "River turtles live in the permanent pools, slow reaches, billabongs and [paperbark](entry:paperbark) swamps of the rivers [ref:wp-emydura]. The saw-shelled turtle ranges through rivers, streams, swamps and lagoons from Cape York to northern New South Wales [ref:wp-sawshell].\n\n**Karma Waters and the upper Mitchell.** The Atlas of Living Australia has northern yellow-faced turtle records within 30 km of the [Karma Waters](place:karma-waters) homestead, one of them about 11 km to the west, and a snapping turtle (*Elseya*) recorded about 25 km to the south-east. About 30 km east, on the Mitchell, a 1973 museum survey collected large series of both northern yellow-faced and saw-shelled turtles. A northern snake-necked turtle and a few Krefft's turtles have also been recorded in the upper Mitchell country [ref:ala]. Look for them in the long, permanent pools of the river."
+    },
+    {
+      "id": "ecology",
+      "heading": "Who eats whom, and when",
+      "body": "The river turtles are the bottom workers of the [waterhole](entry:waterhole). Australia's short-necked turtles (*Emydura* and *Myuchelys*) are omnivores: in clear water much of their food comes from the invertebrates on the bottom, snails, [mussels](entry:mussels), insect larvae and small crustaceans; in muddy water they take more filamentous algae and more land insects that fall in [ref:turtle-competition]. A relative switches to a meat diet when plant food runs short [ref:turtle-competition]. The saw-shelled turtle is the hunter of the two: fish, tadpoles, [frogs](entry:frogs) and crustaceans, and it tears up and eats cane toads that kill most other animals [ref:wp-sawshell]. So the turtles share the catfish's food, the snails and insect larvae of the sand, and take the small [cherabin](entry:cherabin) and dead fish the pool offers.\n\n**Who eats the turtle.** The [freshwater crocodile](entry:freshwater-crocodile): turtles become a bigger part of its diet as it grows [ref:tucker1996]. Eggs and hatchlings go to [goannas](entry:goanna), kites, pigs and big fish; the adults' shell and bite are their defence [ref:wp-sawshell]. People took turtles in the dry season, by hand, by diving and on lines [ref:anderson1996].\n\n**Hour and season.** Turtles work by day, feeding on the bottom and basking between feeds; the sources used here do not give a night-time account of the Mitchell species. Their year follows the pool: the dry season concentrates them in the permanent pools, where Bloomfield families went for them [ref:anderson1996]; nesting runs from September to December, with the eggs hatching in about 60 days, so the hatchlings arrive with the first floods [ref:wp-sawshell]."
     },
     {
       "id": "seasons",
@@ -106,7 +121,8 @@
     "wallaby",
     "paperbark",
     "cherabin",
-    "saltwater-crocodile"
+    "saltwater-crocodile",
+    "waterhole"
   ],
   "relatedWords": [
     {
@@ -233,10 +249,25 @@
       "id": "kw-about",
       "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
       "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "basking2023",
+      "citation": "Nordberg, E. J. & McKnight, D. T. (2023). Seasonal, environmental and anthropogenic influences on nocturnal basking in turtles and crocodiles from North-Eastern Australia. Austral Ecology 48(8): 1516–1531. Night surveys of the Ross River, Townsville, March–November 2020: freshwater crocodiles and turtles basked at night significantly more in the hotter months, and more on the undeveloped bank.",
+      "url": "https://researchonline.jcu.edu.au/78463/"
+    },
+    {
+      "id": "turtle-competition",
+      "citation": "Petrov, K. et al. The risk of inter-specific competition in Australian short-necked turtles (Emydura, Myuchelys): omnivory, benthic invertebrates in clear water, algae and terrestrial invertebrates in turbid water.",
+      "url": "https://researchers.westernsydney.edu.au/en/publications/the-risk-of-inter-specific-competition-in-australian-short-necked/"
+    },
+    {
+      "id": "tucker1996",
+      "citation": "Tucker, A. D., Limpus, C. J., McCallum, H. I. & McDonald, K. R. (1996). Ontogenetic dietary partitioning by Crocodylus johnstoni during the dry season. Copeia 1996(4): 978–988. 324 crocodiles stomach-flushed over three dry seasons in Queensland.",
+      "url": "https://doi.org/10.2307/1447669"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-10"
 }

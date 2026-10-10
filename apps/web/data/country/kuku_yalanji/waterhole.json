@@ -107,7 +107,7 @@
     {
       "id": "safety",
       "heading": "Safety",
-      "body": "- **Crocodiles.** Freshwater crocodiles are the ones recorded near the homestead, but saltwater crocodiles can travel far up rivers; treat every pool as crocodile water and read the [crocodile](entry:saltwater-crocodile) pages [ref:ala-karma-river]. The animals concentrate in the deep pools late in the dry, exactly when the fishing is best [ref:webb1982].\n- **Water.** Late-dry pools get hot, low in oxygen and thick with algae; fish die-offs happen in them [ref:waterhole-temps] [ref:asfb2018-flinders]. Don't drink from a shrinking pool without boiling or treating it, and don't swim in water that smells.\n- **Cane toads** are recorded in these pools; dogs that mouth them die, and they are the reason goannas, snakes and some crocodiles have thinned out across the north [ref:ala-karma-river].\n- **Catfish spines** and the stings and bites covered on each animal's page.\n- **Flash floods** in the storm season turn a dry sand bed into a river in an hour; camp above the high bank, not on the sand."
+      "body": "- **Crocodiles.** Freshwater crocodiles are the ones recorded near the homestead, but saltwater crocodiles can travel far up rivers; treat every pool as crocodile water and read the [crocodile](entry:saltwater-crocodile) pages [ref:ala-karma-river]. The animals concentrate in the deep pools late in the dry, exactly when the fishing is best [ref:webb1982].\n- **Water.** Late-dry pools get hot, low in oxygen and thick with algae; fish die-offs happen in them [ref:waterhole-temps] [ref:asfb2018-flinders]. Don't drink from a shrinking pool without boiling or treating it, and don't swim in water that smells.\n- **Cane toads** are recorded in these pools [ref:ala-karma-river]. Their poison kills dogs that mouth them and the goannas, snakes and freshwater crocodiles that eat them [ref:wiki-cane-toads].\n- **Catfish spines** and the stings and bites covered on each animal's page.\n- **Flash floods** in the storm season turn a dry sand bed into a river in an hour; camp above the high bank, not on the sand."
     },
     {
       "id": "today",
@@ -373,6 +373,11 @@
       "id": "alrc",
       "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
       "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wiki-cane-toads",
+      "citation": "Wikipedia. Cane toads in Australia: effects on native predators (goannas, snakes, freshwater crocodiles) and on dogs.",
+      "url": "https://en.wikipedia.org/wiki/Cane_toads_in_Australia"
     }
   ],
   "review": {

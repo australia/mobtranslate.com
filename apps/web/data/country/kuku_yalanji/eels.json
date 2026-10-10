@@ -76,9 +76,24 @@
       "body": "Freshwater eels are long, round-bodied fish with small eyes, a big mouth and tiny scales buried in the skin. The back fin, tail fin and belly fin run together into one continuous fin, and there are no fins underneath at the front [ref:foa-longfin].\n\n- **Longfin eel** (*Anguilla reinhardtii*): mottled or marbled olive-green to brown, paler underneath. Commonly 100–150 cm and 1–2 kg; eels that cannot get back to sea can reach 300 cm and 22 kg. Males are much smaller, to about 65 cm. It can live more than 50 years [ref:foa-longfin].\n- **Pacific shortfin eel** (*A. obscura*): plain silver or yellowish to dark brown, paler below. Commonly about 60 cm, reported to 120 cm [ref:foa-shortfin].\n- **Marbled eel** (*A. marmorata*): greyish-yellow with brownish to black marbling on the back, sides and fins [ref:foa-marbled].\n\nEels are the top predator in many streams. They usually feed **at night** on fish, crustaceans, molluscs and insects [ref:foa-longfin]."
     },
     {
+      "id": "lookalikes",
+      "heading": "What it can be confused with",
+      "body": "- **Eel-tailed [catfish](entry:catfish)** in the torchlight: also long and dark with a continuous fin along the tail, but a catfish has whiskers and the sharp spines in its back and side fins; an eel has neither and has a snake's head [ref:foa-longfin] [ref:foa-hyrtl].\n- **Water [snakes](entry:snakes)**: the keelback, a harmless water snake, is recorded near Karma Waters and swims the pools; a snake has scales you can see and no fins at all [ref:ala-karma-river].\n- **Eels of the Mitchell** are the exception, not the rule: the Atlas holds two eel records in the whole drainage, so an 'eel' in a Karma Waters pool is most likely a catfish or a snake [ref:ala-eels]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Night.** Eels feed at night, on fish, crustaceans, molluscs and insects, and are seen by torchlight moving through the shallows [ref:foa-longfin].\n- **Glass eels and elvers** in the estuaries and lower rivers after the spawning migration to the Coral Sea; the young work their way upstream over years [ref:foa-longfin].\n- **In eel country** (the Bloomfield and the Daintree drainage), the deep rainforest creek pools and the swamps; inland from the Mitchell headwaters, the Laura and Normanby system [ref:ala-eels]."
+    },
+    {
       "id": "habitat",
       "heading": "Where it lives",
       "body": "Longfin eels live in flowing rivers from the mouth to the headwater streams, and in lakes, swamps and floodplains [ref:foa-longfin]. The marbled eel lives in the coastal freshwater streams of the Wet Tropics [ref:foa-marbled].\n\n**Eastern Kuku Yalanji country.** The Daintree drainage, which includes the Bloomfield, is eel country: the Atlas of Living Australia holds about 100 longfin eel records there, and more than 40 each of the Pacific shortfin and marbled eels [ref:ala-eels]. Bloomfield families made trips inland to the freshwater streams for eelfish and [freshwater tortoise](entry:freshwater-turtle) [ref:anderson1996].\n\n**The Mitchell and Karma Waters.** Eels are rare to absent here. The longfin eel lives in the coastal drainages of eastern Australia and spawns in the Coral Sea [ref:foa-longfin]. The Pacific shortfin eel reaches the Gulf only in the far north, at the Watson River [ref:foa-shortfin], and the Indonesian shortfin eel is found in Australia only in the Kimberley [ref:foa-bicolor]. The Atlas holds just two eel records anywhere in the Mitchell drainage, both on its eastern rim near the Great Dividing Range, and none near [Karma Waters](place:karma-waters) (about 25 km west of Mount Carbine) [ref:ala-eels] [ref:karmawaters]. The nearest good eel water inland is the Laura and Normanby system, which runs east to Princess Charlotte Bay and has longfin and Pacific shortfin eel records [ref:ala-eels]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Who eats whom, and when",
+      "body": "In the creeks of Eastern Kuku Yalanji country the longfin eel is the top predator of the night: it feeds after dark on fish, crustaceans, molluscs and insects, and a big one can take almost anything in a pool [ref:foa-longfin]. It fills the night shift that, in a Mitchell [waterhole](entry:waterhole), belongs to the [catfish](entry:catfish), the [mouth almighty](entry:mouth-almighty) and the [sleepy cod](entry:sleepy-cod), and like them it lives on the prawns that come out on the sand after dark [ref:lammers2009] [ref:foa-longfin]. Small eels and elvers are food for [barramundi](entry:barramundi), crocodiles, cormorants and herons; an adult longfin eel has few enemies but the [saltwater crocodile](entry:saltwater-crocodile) and people [ref:ntgov-barra] [ref:wiki-darter].\n\nIts clock is the longest in the river. Adult longfin eels may stay in fresh water for more than 50 years before going down to the sea to spawn in the Coral Sea, and the young take years to climb back up [ref:foa-longfin]. That is why eels are a 'non-seasonal' food at Bloomfield, there whenever the chance comes [ref:anderson1996], and why they are missing from the Gulf-flowing Mitchell: the Mitchell's water runs the wrong way for them [ref:foa-longfin] [ref:ala-eels]."
     },
     {
       "id": "seasons",
@@ -126,7 +141,8 @@
     "fish-poison-plants",
     "string-and-twine",
     "stone",
-    "saltwater-crocodile"
+    "saltwater-crocodile",
+    "waterhole"
   ],
   "relatedWords": [
     {
@@ -262,10 +278,35 @@
       "id": "kw-about",
       "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
       "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "foa-hyrtl",
+      "citation": "Gomon, M. F. & Bray, D. J. (2017). Hyrtl's Catfish, Neosilurus hyrtlii. Fishes of Australia (Museums Victoria), accessed 5 October 2026.",
+      "url": "https://fishesofaustralia.net.au/home/species/3304"
+    },
+    {
+      "id": "ala-karma-river",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: river animals and waterbirds.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "lammers2009",
+      "citation": "Lammers, J. H., Warburton, K. & Cribb, B. W. (2009). Anti-predator strategies in relation to diurnal refuge usage and exploration in the Australian freshwater prawn, Macrobrachium australiense. Journal of Crustacean Biology 29: 175–182.",
+      "url": "https://academic.oup.com/jcb/article/29/2/175/2547994"
+    },
+    {
+      "id": "ntgov-barra",
+      "citation": "Northern Territory Government. Barramundi: what they eat, spawning and migration (fish species page).",
+      "url": "https://nt.gov.au/marine/recreational-fishing/types-of-fish/fish-species/barramundi"
+    },
+    {
+      "id": "wiki-darter",
+      "citation": "Wikipedia. Australasian darter (Anhinga novaehollandiae).",
+      "url": "https://en.wikipedia.org/wiki/Australasian_darter"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-10"
 }

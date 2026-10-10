@@ -61,9 +61,24 @@
       "body": "A smaller, lighter crocodile than the [saltie](entry:saltwater-crocodile), with a **long, slender snout**. It is grey to tan-brown with dark patches, and its powerful tail, almost half the animal's length, carries rows of large triangular scales (scutes) [ref:am-johnstoni]. Males usually grow to 2.3–3 m and about 70 kg; females reach about 2.1 m and 40 kg [ref:wp-johnstoni]. It eats crustaceans, insects, spiders, fish, [frogs](entry:frogs), [turtles](entry:freshwater-turtle), lizards, [snakes](entry:snakes), birds and mammals. Insects are the most common food, and small prey is taken by sitting still and waiting [ref:am-johnstoni]. On land it can lift its body right off the ground in a 'high walk' [ref:am-johnstoni]."
     },
     {
+      "id": "lookalikes",
+      "heading": "What it can be confused with",
+      "body": "- **[Saltwater crocodile](entry:saltwater-crocodile)**: broader, heavier, with a wide snout and a bigger head; it grows two to three times the length. The freshwater crocodile's snout is long and slender, and the body light [ref:am-johnstoni]. The saltwater crocodile is not recorded within 30 km of Karma Waters, but it can travel far up rivers; assume nothing [ref:ala].\n- **A floating log** ([walmba](word:walmba) in the dictionary): the oldest mistake on the river. Watch for the eyes and the line of the back, and for the log that moves against the wind [ref:hershberger1982].\n- **A big [goanna](entry:goanna) swimming**: a lace monitor crosses pools with its body under and only the head up; it has a narrow head and no raised eyes.\n- **Hatchlings** are easily taken for lizards at the edge; they have the same long snout in miniature [ref:am-johnstoni]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Slides**: a smooth belly-track down a sand bank into the water with claw marks either side, and a flattened basking place on sand or a rock bar at the top of it [ref:am-johnstoni].\n- **Tracks**: four feet with a drag line between them; in the 'high walk' the body lifts clear and the drag line disappears [ref:am-johnstoni].\n- **Eyes at night**: the animals lie at the surface at night and their eyeshine shows in a torch beam, red and low to the water [ref:seebacher2005].\n- **Nests**: holes dug in sand banks in the late dry, eggs laid around August–September; the mother comes back to dig the hatchlings out in November–December [ref:am-johnstoni] [ref:wp-johnstoni].\n- **A warning bird**: the dictionary records [kurrujuwa](word:kurrujuwa) as a 'sentry bird which warns of crocodiles along the banks of the river' [ref:hershberger1982]."
+    },
+    {
       "id": "habitat",
       "heading": "Where it lives",
       "body": "Freshwater crocodiles live in rivers, creeks, pools, billabongs, lagoons and swamps across northern Australia, from King Sound in Western Australia to Cape York Peninsula. They keep away from the near-coastal waters that [saltwater crocodiles](entry:saltwater-crocodile) dominate [ref:am-johnstoni]. In the [dry season](entry:seasons) they can go dormant in shelters [ref:am-johnstoni].\n\n**Karma Waters and the upper Mitchell.** [Karma Waters Station](place:karma-waters), on the northern side of the Mitchell River west of Mount Carbine, says plainly that freshwater crocodiles are found in its river [ref:karma]. The Atlas of Living Australia holds freshwater crocodile records from 2004 to 2025 within 30 km of the homestead, and more along the Mitchell and its tributaries between Mount Carbine and the Palmer. It holds no saltwater crocodile records within 30 km [ref:ala]. Look for them in the long deep pools and under the shady banks of the big river."
+    },
+    {
+      "id": "ecology",
+      "heading": "Who eats whom, and when",
+      "body": "The freshwater crocodile is the daytime predator of the [waterhole](entry:waterhole)'s edge. The classic study on the McKinlay River in the Northern Territory describes it as an opportunistic predator at the water's edge that feeds mostly on small aquatic prey, chiefly aquatic and terrestrial insects, fish and crustaceans, with a substantial side of land animals that come to the water; the bigger the crocodile, the larger the share of aquatic prey [ref:webb1982]. A Queensland study that stomach-flushed 324 crocodiles over three dry seasons found shrimp in every size class, and found that as crocodiles grow, fish, [turtles](entry:freshwater-turtle) and [snakes](entry:snakes) make up more of the diet while spiders, insects and [frogs](entry:frogs) make up less [ref:tucker1996]. Small prey is taken by sitting still and waiting [ref:am-johnstoni].\n\n**The hour.** Radio-tracked freshwater crocodiles dived most in the morning and were least active at night, when they lay at the surface; their activity followed light rather than body temperature [ref:seebacher2005]. So the crocodile works the same daylight shift as the [black bream](entry:black-bream) and the darters, and rests through the night shift of the [catfish](entry:catfish) and the [cherabin](entry:cherabin). At night in the hot months they also come out to bask, to cool off rather than to warm up [ref:basking2023].\n\n**The season.** The McKinlay crocodiles ate appreciably more in the wet than in the dry [ref:webb1982]. In the dry they can go dormant in shelters, and as the pools shrink they are concentrated into the deep holes with the fish [ref:am-johnstoni]. Roth recorded that across North Queensland big crocodiles were mostly caught after floods, stranded in the smaller waterholes [ref:roth1901].\n\n**Who eats the crocodile.** Eggs and hatchlings feed [goannas](entry:goanna), kites, the sea-eagle, big fish and bigger crocodiles; the Northern Territory's barramundi page lists crocodiles among the things a barramundi eats [ref:ntgov-barra] [ref:wiki-whistling-kite]. The [saltwater crocodile](entry:saltwater-crocodile) kills and displaces it in the lower rivers [ref:am-johnstoni]. And the cane toad, recorded in these pools, poisons the crocodiles that eat it, as it does the goannas and snakes [ref:ala-karma-river] [ref:wiki-cane-toads]."
     },
     {
       "id": "seasons",
@@ -103,7 +118,8 @@
     "spear-and-woomera",
     "earth-oven",
     "goanna",
-    "paperbark"
+    "paperbark",
+    "waterhole"
   ],
   "relatedWords": [
     {
@@ -227,10 +243,50 @@
       "id": "kw-about",
       "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
       "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "seebacher2005",
+      "citation": "Seebacher, F., Franklin, C. E. & Read, M. (2005). Diving behaviour of a reptile (Crocodylus johnstoni) in the wild: interactions with heart rate and body temperature. Physiological and Biochemical Zoology 78: 1–8.",
+      "url": "https://doi.org/10.1086/425192"
+    },
+    {
+      "id": "webb1982",
+      "citation": "Webb, G. J. W., Manolis, S. C. & Buckworth, R. (1982). Crocodylus johnstoni in the McKinlay River area, N.T. I. Variation in the diet, and a new method of assessing the relative importance of prey. Australian Journal of Zoology 30: 877–899.",
+      "url": "https://doi.org/10.1071/ZO9820877"
+    },
+    {
+      "id": "tucker1996",
+      "citation": "Tucker, A. D., Limpus, C. J., McCallum, H. I. & McDonald, K. R. (1996). Ontogenetic dietary partitioning by Crocodylus johnstoni during the dry season. Copeia 1996(4): 978–988. 324 crocodiles stomach-flushed over three dry seasons in Queensland.",
+      "url": "https://doi.org/10.2307/1447669"
+    },
+    {
+      "id": "basking2023",
+      "citation": "Nordberg, E. J. & McKnight, D. T. (2023). Seasonal, environmental and anthropogenic influences on nocturnal basking in turtles and crocodiles from North-Eastern Australia. Austral Ecology 48(8): 1516–1531. Night surveys of the Ross River, Townsville, March–November 2020: freshwater crocodiles and turtles basked at night significantly more in the hotter months, and more on the undeveloped bank.",
+      "url": "https://researchonline.jcu.edu.au/78463/"
+    },
+    {
+      "id": "ntgov-barra",
+      "citation": "Northern Territory Government. Barramundi: what they eat, spawning and migration (fish species page).",
+      "url": "https://nt.gov.au/marine/recreational-fishing/types-of-fish/fish-species/barramundi"
+    },
+    {
+      "id": "wiki-whistling-kite",
+      "citation": "Wikipedia. Whistling kite (Haliastur sphenurus).",
+      "url": "https://en.wikipedia.org/wiki/Whistling_kite"
+    },
+    {
+      "id": "ala-karma-river",
+      "citation": "Atlas of Living Australia. Occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: river animals and waterbirds.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "wiki-cane-toads",
+      "citation": "Wikipedia. Cane toads in Australia: effects on native predators (goannas, snakes, freshwater crocodiles) and on dogs.",
+      "url": "https://en.wikipedia.org/wiki/Cane_toads_in_Australia"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-10"
 }
