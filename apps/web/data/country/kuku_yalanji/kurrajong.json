@@ -1,0 +1,204 @@
+{
+  "slug": "kurrajong",
+  "title": "Kurrajongs",
+  "category": "tree",
+  "names": [
+    {
+      "word": "kuralbi",
+      "gloss": "species of tree (English name unknown); the rope tree of the turtle harpoon"
+    }
+  ],
+  "scientificName": "Brachychiton albidus, B. diversifolius; Sterculia quadrifida",
+  "identification": {
+    "confidence": "uncertain",
+    "basis": "No Kuku Yalanji word is recorded for the kurrajong. Kuralbi, 'species of tree (English name unknown)', is the tree whose bark rope held the turtle harpoon, which Anderson identifies as the peanut tree Sterculia quadrifida, a close relative. Two Brachychiton kurrajongs are recorded within 30 km of Karma Waters: B. albidus (four records) and the northern kurrajong B. diversifolius (one)."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "rainforest"
+  ],
+  "summary": "The kurrajong is the string tree. The word itself is Dharug, from Sydney, *garrajung*, 'fishing line', 'as fishing lines were made from kurrajong bark', and that is what the family did across Queensland: the inner bark of the kurrajongs and their relative the peanut tree, dried and drawn into shreds, was the twine of [dilly bags](entry:dilly-bags), kangaroo [nets](entry:nets), [fishing lines](entry:hooks-and-lines) and the turtle rope [ref:wiki-brachychiton] [ref:roth1904] [ref:anderson1996]. The dictionary has no word 'kurrajong', but it has **[kuralbi](word:kuralbi)**, 'species of tree (English name unknown)', the tree of the harpoon rope, which Anderson's Bloomfield informants made from the bark of *Sterculia quadrifida*, the peanut tree [ref:hershberger1982] [ref:anderson1996]. On the Mitchell the kurrajong was food as well: Palmer recorded a Cloncurry kurrajong whose 'seed-pods [were] eaten after roasting' and whose 'inside bark [was] worked up into strong cord for wallaby nets and bags', and the bottle-tree kurrajong whose young roots were eaten [ref:palmer1883]. Within 30 km of [Karma Waters](place:karma-waters) two *Brachychiton* kurrajongs are recorded: *B. albidus*, a Queensland tree described only in 1988, and the northern kurrajong *B. diversifolius* [ref:ala-karma-plants] [ref:wiki-albidus] [ref:rfk-brachychiton-div].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "No word for kurrajong recorded; kuralbi is the rope tree (probably the peanut tree Sterculia quadrifida)"
+    },
+    {
+      "label": "At Karma Waters",
+      "value": "Brachychiton albidus (4 ALA records); northern kurrajong B. diversifolius (1)"
+    },
+    {
+      "label": "The family",
+      "value": "Brachychiton: 31 Australian species, 4–30 m, some dry-season deciduous, some with swollen water-storing trunks; bell-shaped flowers; boat-shaped woody follicles"
+    },
+    {
+      "label": "Fibre",
+      "value": "Inner bark dried, shredded and twisted: dilly bags, nets, lines, the turtle rope"
+    },
+    {
+      "label": "Food",
+      "value": "Seeds roasted; young roots roasted (Palmer, Mitchell and Cloncurry)"
+    },
+    {
+      "label": "Name",
+      "value": "Dharug garrajung 'fishing line'"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary records no word glossed 'kurrajong'. **[kuralbi](word:kuralbi)** is 'species of tree (English name unknown)'; the [sea turtle](entry:sea-turtle) and [string](entry:string-and-twine) pages give the reasons for taking it as the peanut tree, *Sterculia quadrifida*, whose bark made the harpoon rope at Bloomfield [ref:hershberger1982] [ref:anderson1996]. Roth's Koko-minni (middle Palmer) name for the black kurrajong, *Sterculia diversifolia*, now *Brachychiton populneus*, was *kalan*; on the Tablelands the peanut tree's fibre was *pu-kuru* and *ke-wan*, 'same names as the *Cochlospermum*' [ref:roth1904] [ref:roth1901-string]. Palmer's Cloncurry kurrajong was *Eendurah* [ref:palmer1883]. 'Kurrajong comes from the Dharuk language *garrajuŋ* \"fishing line\", as fishing lines were made from kurrajong bark' [ref:wiki-brachychiton]."
+    },
+    {
+      "id": "description",
+      "heading": "The trees",
+      "body": "***Brachychiton*** 'is a genus of 31 species of trees and large shrubs, native to Australia'. 'They grow to 4–30 m tall, and some are dry-season deciduous. Several species (though not all) are pachycaul plants with a very stout stem for their overall size, used to store water during periods of drought', the bottle trees. The leaves vary on one tree, from entire to deeply lobed; the flowers are bell-shaped, the coloured cup being the calyx, with male and female flowers on the same tree; the fruit is a set of up to five woody boat-shaped follicles that split along one seam to show the seeds [ref:wiki-brachychiton].\n\n***Brachychiton albidus***, the commoner one near Karma Waters, 'is a tree of the genus *Brachychiton* native to Queensland, Australia. It was described in 1988' by Gordon Guymer in his revision of the genus, and that is all the public record says of it [ref:wiki-albidus].\n\n**The northern kurrajong**, *B. diversifolius*, is a small tree of northern Australia with heart-shaped to egg-shaped leaves 6–16 cm long on long slender stalks, hairless fruits 6–10 cm long, and seeds 'covered with a yellow mealy layer' [ref:rfk-brachychiton-div].\n\n**The peanut tree**, *Sterculia quadrifida*, the rope tree of the coast, is on the [string](entry:string-and-twine) page; its seeds are edible and its bark is the twine [ref:rfk-sterculia] [ref:anderson1996]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Kurrajong, peanut tree, cotton tree",
+      "body": "- **Kurrajong** (*Brachychiton*): bell flowers, boat-shaped woody pods that split along one side, often a stout trunk, bark that strips in long tough fibrous strands [ref:wiki-brachychiton].\n- **Peanut tree** (*Sterculia quadrifida*): the same family, a coastal and scrub tree with red leathery pods that open to show black seeds; the Bloomfield rope tree [ref:rfk-sterculia] [ref:anderson1996].\n- **[Cotton tree](entry:cotton-tree)** and the kapok bushes: also the same family, with cotton in the pod instead of mealy seeds [ref:rfk-bombax].\n- **The flame tree**, *ngakun*, is a *Brachychiton* too, the Illawarra flame tree's northern relatives [ref:wiki-brachychiton] [ref:hershberger1982]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Long fibrous strips** hanging from a damaged trunk; a kurrajong's bark peels in ribbons [ref:wiki-brachychiton].\n- **Boat-shaped pods** on the ground, split along one seam, with the mealy seeds gone to the cockatoos [ref:wiki-brachychiton] [ref:rfk-brachychiton-div].\n- **A leafless tree in the dry** on a stony rise with a thickened trunk [ref:wiki-brachychiton].\n- **Bark strips drying** at a camp, and the shredded fibre, are the start of a net [ref:roth1904] [ref:palmer1883]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they grow",
+      "body": "The two *Brachychiton* records near Karma Waters put the kurrajongs in the open [woodland](entry:woodland) on the rises; the peanut tree is a tree of the coast and the scrubs, Bloomfield rather than the Mitchell [ref:ala-karma-plants] [ref:rfk-sterculia]. Palmer's kurrajongs were on the Cloncurry and 'mostly over all North Queensland' [ref:palmer1883]. The Dharug kurrajong is a Sydney tree; the name travelled with the settlers to every tree of the family [ref:wiki-brachychiton]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The string tree in the toolkit",
+      "body": "Kurrajong fibre sits where the kurrajong's relatives sit: in the [string](entry:string-and-twine) that made the [nets](entry:nets), the [dilly bags](entry:dilly-bags) and the [lines](entry:hooks-and-lines), and the rope that held the harpoon to the [turtle](entry:sea-turtle) and the canoe [ref:roth1904] [ref:anderson1996]. On the Palmer the Koko-minni's dilly bags were woven from black kurrajong fibre, alternated with wattle fibre 'so as to produce a horizontally-striped appearance'; at Atherton the big kangaroo nets were peanut-tree twine [ref:roth1904]. The seeds feed cockatoos and people; the stout trunk stores water through the dry [ref:wiki-brachychiton] [ref:palmer1883]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Bark 'at the end of the wet season when the sap is up and the bark slips' [ref:roth1904]; some kurrajongs drop their leaves in the dry [ref:wiki-brachychiton]; seed pods in the dry, roasted [ref:palmer1883]; young roots dug when the ground is soft. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Twine** from the inner bark 'dried in the sun, and drawn into shreds', for dilly bags on the Palmer; for the big kangaroo nets at Atherton; for fish nets at Princess Charlotte Bay; 'strong cord for wallaby nets and bags' on the Cloncurry [ref:roth1904] [ref:palmer1883].\n- **Lines and rope** at Bloomfield: freshwater fishing lines and the turtle harpoon rope from *Sterculia* bark [ref:anderson1996].\n- **Seeds** roasted: Palmer's Cloncurry kurrajong 'seed-pods eaten after roasting'; the peanut tree's seeds are eaten raw or roasted [ref:palmer1883] [ref:rfk-sterculia].\n- **Roots** of young bottle-tree kurrajongs eaten [ref:palmer1883].\n- **Water** in the swollen trunk of the bottle trees [ref:wiki-brachychiton]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Kurrajong string",
+      "body": "From Roth's Palmer River and Palmer's Cloncurry accounts [ref:roth1904] [ref:palmer1883]; the twisting is on the [string](entry:string-and-twine) page:\n\n1. **Strip the bark** from a limb or a young trunk when the sap is up, in long ribbons.\n2. **Take the inner bark**, peeling away the outer; scrape it clean with a mussel shell [ref:palmer1883].\n3. **Dry it in the sun** [ref:roth1904].\n4. **Draw it into shreds** with the fingers, as fine as the job needs [ref:roth1904].\n5. **Twist** two strands on the thigh into twine; for a rope, twist twines together [ref:anderson1996].\n6. **Dye** with the red root of the bloodroot *Haemodorum* if the bag is to be striped, as on the Bloomfield [ref:roth1904].\n\n**Seeds**: roast the pods in the ashes and eat the seeds; handle the pods carefully, the inside of a kurrajong pod is lined with fine hairs [ref:palmer1883]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Two kurrajongs are recorded here and neither has a documented Kuku Yalanji use; the uses above are from the Palmer, the Cloncurry, Atherton and the Bloomfield coast, and are labelled so [ref:roth1904] [ref:palmer1883] [ref:anderson1996].\n- Strip bark from one side of a tree only; a ring-barked kurrajong dies.\n- Cutting on the station is a matter for the lessee's permission [ref:kw-about]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The kurrajong is the tree to learn by making one thing from it: a length of two-ply string, the way the [string](entry:string-and-twine) page shows, from bark stripped after the storms [ref:roth1904] [ref:anderson1996]. Which of the two Karma Waters kurrajongs gives the better fibre, and what either is called, is for the contribution box below. Gathering on native title country is protected by section 211 of the *Native Title Act 1993* [ref:alrc] [ref:wyac2020]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kuralbi](word:kuralbi)* 'species of tree (English name unknown)', the rope tree; *[ngakun](word:ngakun)* 'flame tree'; *[wawuburra](word:wawuburra)* 'cottontree'; the string words are on the [string](entry:string-and-twine) page [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "string-and-twine",
+    "nets",
+    "dilly-bags",
+    "hooks-and-lines",
+    "sea-turtle",
+    "cotton-tree",
+    "woodland"
+  ],
+  "relatedWords": [
+    {
+      "word": "ngakun",
+      "gloss": "flame tree"
+    }
+  ],
+  "references": [
+    {
+      "id": "wiki-brachychiton",
+      "citation": "Wikipedia. Brachychiton (kurrajongs and bottle trees): the genus, its 31 species, and the Dharug origin of the name.",
+      "url": "https://en.wikipedia.org/wiki/Brachychiton"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "wiki-albidus",
+      "citation": "Wikipedia. Brachychiton albidus (kurrajong).",
+      "url": "https://en.wikipedia.org/wiki/Brachychiton_albidus"
+    },
+    {
+      "id": "rfk-brachychiton-div",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Brachychiton diversifolius subsp. diversifolius (northern kurrajong). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/brachychiton_diversifolius_subsp._diversifolius.htm"
+    },
+    {
+      "id": "roth1901-string",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sects. 1–9: animal and vegetable string, plant list ('Ficus', 'Hibiscus', 'Panicum trachyrachis', 'Sterculia quadrifida'), manufacture of fibre-twine, knots, colouring; sect. 22 hour-glass nets"
+    },
+    {
+      "id": "rfk-sterculia",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Sterculia quadrifida. CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/sterculia_quadrifida.htm"
+    },
+    {
+      "id": "rfk-bombax",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Bombax ceiba var. leiocarpum (northern cottonwood, red silk-cotton tree). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/bombax_ceiba_var._leiocarpum.htm"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

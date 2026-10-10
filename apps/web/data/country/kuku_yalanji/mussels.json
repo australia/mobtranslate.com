@@ -1,0 +1,227 @@
+{
+  "slug": "mussels",
+  "title": "Freshwater mussels (mukirr)",
+  "category": "food",
+  "names": [
+    {
+      "word": "mukirr",
+      "gloss": "mussel, found in fresh and brackish water"
+    }
+  ],
+  "scientificName": "Velesunio angasi",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary's mukirr is the freshwater mussel, with the cooking method. The Australian Museum holds Velesunio angasi from the Mitchell River a few kilometres from the Karma Waters homestead, and the Atlas of Living Australia has four records within 30 km."
+  },
+  "countryTypes": [
+    "river-freshwater"
+  ],
+  "summary": "**[mukirr](word:mukirr)** is the mussel: 'found in fresh and brackish water. There are many up the Daintree near Bairds, some up Granite Creek. Has to be cleaned from the black stuff that tastes like tobacco. First roast it, then clean the \"ear\" out, then boil it or else eat it right away without boiling' [ref:hershberger1982]. In the Mitchell at [Karma Waters](place:karma-waters) the mussel is *Velesunio angasi*, 'a shallow burrower in silty sand/mud in streams, billabongs, and slow-flowing rivers', a suspension feeder that breeds through the year and broods its larvae in its gills; the Australian Museum has specimens from the river near the homestead [ref:lucid-velesunio] [ref:ala-mussel]. It is the easiest meat in the river, dug by hand from the sand of the pools and roasted in the ashes, which is how Roth says 'the large majority of these shell-fish' were cooked, by the women who 'generally' prepared 'yams, roots, nuts, and shell-fish' [ref:roth1901]. The shell was a tool as well: a scoop and spoon, an ash-scraper and a cutter, and on the Mitchell the blade that scraped the [bloodwood](entry:bloodwood) manna and the inner bark of the string plants [ref:anderson1996] [ref:roth1904] [ref:palmer1883].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "mukirr (mussel)"
+    },
+    {
+      "label": "The animal",
+      "value": "Velesunio angasi: a compressed, elongate shell with a winged back end; a shallow burrower in silty sand and mud; filter feeder; breeds all year, larvae brooded in the gills"
+    },
+    {
+      "label": "Where",
+      "value": "Pools, billabongs and slow reaches of the Mitchell; Australian Museum specimens from near the homestead"
+    },
+    {
+      "label": "Cooking",
+      "value": "Roast, clean out the 'ear' (the black part that tastes of tobacco), then boil or eat"
+    },
+    {
+      "label": "The shell",
+      "value": "Scoop, spoon, scraper, cutter; manna-scraper and bark-scraper on the Mitchell"
+    },
+    {
+      "label": "Who eats it",
+      "value": "People, turtles, water rats, birds"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[mukirr](word:mukirr)** 'mussel' [ref:hershberger1982]. Roth recorded the river mussel (*Unio*) as *wambiram* on the Pennefather and the Cape Bedford scoop made from it as *warboparka*; his list of edible molluscs runs to pages, nearly all of them sea shells with Pennefather, Cape Bedford and Bloomfield names [ref:roth1901] [ref:roth1904]. The shell tools have their own words: **[warkal](word:warkal)** the [bailer shell](entry:bailer-shells) billy and **[jurungurr](word:jurungurr)** 'spoon made in old time' [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "The mussel",
+      "body": "*Velesunio angasi* was named *Unio angasi* by Sowerby in 1867 from the Strangways River in the Northern Territory. 'The shell is compressed, relatively elongate, the posterior expanded, usually winged'. It is a 'shallow burrower in silty sand/mud in streams, billabongs, and slow-flowing rivers', a 'suspension feeder'; 'reproduction occurs throughout the year', and the larvae, glochidia, 'are brooded in the marsupia', the gill pouches, before they attach to a host fish [ref:lucid-velesunio]. 'This species is widely distributed, occurring from north-eastern Queensland throughout tropical northern Australia, and extending south to the Pilbara region of Western Australia' [ref:lucid-velesunio]. The Australian Museum holds specimens from the Mitchell River at about 16.65° S, 144.68° E, which is the river below the Karma Waters homestead, and the Atlas has four records within 30 km [ref:ala-mussel] [ref:ala-karma-plants].\n\nThe one long study of the animal was done on Magela Creek in Kakadu, 'a seasonally flowing stream of tropical northern Australia' like the Mitchell: 'shell shape and environment, distribution, abundance, population dynamics, reproduction, food ingestion, physiological condition, production, and seasonal changes in any of these' [ref:humphrey1985]. Because it filters the water and lives for years in one place, the same mussel is used across the north as a monitor of metals and radium in the water, which is also a reason to be careful what water you take it from [ref:lucid-velesunio].\n\nThe dictionary's note that it 'has to be cleaned from the black stuff that tastes like tobacco' is the one piece of cooking advice recorded in Kuku Yalanji: roast, open, clean out the 'ear', then boil or eat [ref:hershberger1982]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Mussel, cockle, baler",
+      "body": "- **The river mussel** (*mukirr*, *Velesunio*): dark, elongate, winged at the back, in fresh water sand and mud [ref:lucid-velesunio] [ref:hershberger1982].\n- **The mangrove cockle** (*Geloina coaxans*), which Anderson's informants used the same way as scrapers and cutters, is a thick estuary shell [ref:anderson1996].\n- ***Cyrena***, the thick estuary cockle whose edge cut bark [ref:roth1904].\n- **The baler** (*warkal*): the sea volute that became a pot; see [bailer shells](entry:bailer-shells) [ref:hershberger1982].\n- **Empty shells on the bottom** are turtle work, not a sign of a dead bed [ref:turtle-competition]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Slits in the sand** of a pool's shallows, the mussel's siphons showing; a hand run through the sand finds them [ref:lucid-velesunio].\n- **Piles of opened shells on a bank** are birds and water rats; shells opened on the bottom are turtles; see the [waterhole](entry:waterhole) page [ref:wiki-azure-kingfisher] [ref:turtle-competition].\n- **Middens** of mussel shell on an old camp terrace are heritage and are left [ref:acha2003].\n- **A shrinking pool** in the late dry concentrates the mussels into the last wet sand [ref:humphrey1985]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they live",
+      "body": "'Silty sand/mud in streams, billabongs, and slow-flowing rivers': the sandy pools and backwaters of the Mitchell, not the fast rock runs [ref:lucid-velesunio]. The dictionary puts them 'in fresh and brackish water', up the Daintree and Granite Creek on the east side [ref:hershberger1982]. The [waterhole](entry:waterhole) page gives the pools' year."
+    },
+    {
+      "id": "ecology",
+      "heading": "The mussel in the pool",
+      "body": "The mussel filters the pool, lives in it for years, and is eaten by the [freshwater turtles](entry:freshwater-turtle), the water rat and the birds; its larvae ride the gills of the pool's fish, so a pool without fish has no young mussels [ref:lucid-velesunio] [ref:turtle-competition]. It is the dry-season food of the shrinking pool, with the [lilies](entry:water-lilies), the [cherabin](entry:cherabin) and the [catfish](entry:catfish) that share the bottom [ref:roth1901]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Mussels breed through the year and are there in every season, but they are gathered when the water is low and warm and the sand is within reach: the dry, from the end of the wet to the first storms [ref:lucid-velesunio] [ref:bom-palmerville]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Food**, roasted in the ashes, then cleaned and boiled or eaten [ref:hershberger1982] [ref:roth1901].\n- **Scoops and spoons** from the unmodified valve [ref:anderson1996] [ref:roth1904].\n- **Scrapers**, 'to remove ashes from cooked meat', and **cutters**; only from live shells, 'as dead ones cracked unevenly when worked' [ref:anderson1996].\n- **Manna and bark scrapers** on the Mitchell [ref:palmer1883].\n- **A pelican lure** at Boulia: empty shells thrown onto the water to mimic jumping fish [ref:roth1901].\n- **Bait** for the [lines](entry:hooks-and-lines)."
+    },
+    {
+      "id": "how-to",
+      "heading": "Gathering and cooking mukirr",
+      "body": "From the dictionary and Roth [ref:hershberger1982] [ref:roth1901]:\n\n1. **Find the bed** in the sandy shallows of a pool or backwater; feel through the sand with your fingers or toes for the shells standing on edge [ref:lucid-velesunio].\n2. **Gather** into a bag or trough; take the bigger ones and leave the small [ref:anderson1996].\n3. **Roast** them in the ashes until they open [ref:hershberger1982] [ref:roth1901].\n4. **Clean out the 'ear'**, the black part 'that tastes like tobacco' [ref:hershberger1982].\n5. **Boil** the cleaned meat, or eat it 'right away without boiling' [ref:hershberger1982].\n6. **Keep the shells**: a live-taken valve is a scoop, a scraper and a knife [ref:anderson1996]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- A filter feeder takes up what is in the water; mussels from a fouled, stagnant or mine-affected pool are a bad idea, which is why they are used as pollution monitors [ref:lucid-velesunio].\n- Crocodile water: feel for mussels in the daytime in open shallows, with someone watching [ref:crocwise] [ref:kw-about].\n- Freshwater shellfish on native title country are covered by section 211 of the *Native Title Act 1993* and the Aboriginal-use provisions of the *Fisheries Act 1994* [ref:alrc] [ref:qld-fishact].\n- Middens are heritage; take live shells only [ref:acha2003]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The mussels are in the Mitchell at Karma Waters now, recorded within a few kilometres of the homestead, and the dictionary's cooking note is complete enough to follow this afternoon [ref:ala-mussel] [ref:hershberger1982]. The station's river camps are on the pools where the beds are [ref:kw-camping]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[mukirr](word:mukirr)* 'mussel'; *[warkal](word:warkal)* 'bailer shell'; *[jurungurr](word:jurungurr)* 'spoon made in old time'; *[bana](word:bana)* 'water'; *[yarru](word:yarru)* 'deep water hole' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "waterhole",
+    "bailer-shells",
+    "freshwater-turtle",
+    "cherabin",
+    "catfish",
+    "water-lilies",
+    "hooks-and-lines",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "warkal",
+      "gloss": "bailer shell used in the old time for a billy"
+    },
+    {
+      "word": "jurungurr",
+      "gloss": "spoon made in old time"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "lucid-velesunio",
+      "citation": "Australian Freshwater Molluscs (Lucid key, online). Velesunio angasi (Sowerby, 1867): description, habitat and references.",
+      "url": "https://keys.lucidcentral.org/keys/v3/freshwater_molluscs/key/australian_freshwater_molluscs/Media/Html/entities/velesunio_angasi.htm"
+    },
+    {
+      "id": "ala-mussel",
+      "citation": "Australian Museum specimen, Velesunio angasi, Mitchell River at about 16.65° S, 144.68° E, collected 1916. Atlas of Living Australia.",
+      "url": "https://biocache.ala.org.au/occurrences/5f751ec4-88f1-4b7f-be38-9d915a49c5ff"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "humphrey1985",
+      "citation": "Humphrey, C. L. (1985). Biology and ecology of the freshwater mussel Velesunio angasi (Bivalvia: Hyriidae) in the Magela Creek, Alligator Rivers Region, Northern Territory. PhD thesis, University of New England (abstract).",
+      "url": "https://rune.une.edu.au/web/handle/1959.11/19326"
+    },
+    {
+      "id": "turtle-competition",
+      "citation": "Petrov, K. et al. The risk of inter-specific competition in Australian short-necked turtles (Emydura, Myuchelys): omnivory, benthic invertebrates in clear water, algae and terrestrial invertebrates in turbid water.",
+      "url": "https://researchers.westernsydney.edu.au/en/publications/the-risk-of-inter-specific-competition-in-australian-short-necked/"
+    },
+    {
+      "id": "wiki-azure-kingfisher",
+      "citation": "Wikipedia. Azure kingfisher (Ceyx azureus).",
+      "url": "https://en.wikipedia.org/wiki/Azure_kingfisher"
+    },
+    {
+      "id": "acha2003",
+      "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), sections 23–25 (cultural heritage duty of care; harming, excavating, relocating or taking away Aboriginal cultural heritage).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-2003-079"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

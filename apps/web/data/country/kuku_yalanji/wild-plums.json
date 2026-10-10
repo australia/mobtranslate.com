@@ -1,0 +1,268 @@
+{
+  "slug": "wild-plums",
+  "title": "Wild plums, apples and cherries",
+  "category": "food",
+  "names": [
+    {
+      "word": "kurruy",
+      "gloss": "Burdekin plum"
+    },
+    {
+      "word": "bulngkar",
+      "gloss": "lady apple"
+    },
+    {
+      "word": "ngalkarran",
+      "gloss": "species of tree with edible red seed like an apple, ripe in August–October"
+    },
+    {
+      "word": "banday",
+      "gloss": "species of tree with edible cherry-like fruit, ripe in December"
+    }
+  ],
+  "identification": {
+    "confidence": "probable",
+    "basis": "Roth's 1901 Bloomfield names tie three dictionary words to trees: korroi (kurruy) is the Burdekin plum, walkaran (ngalkarran) is Eugenia hislopii, and pandar (banday) is Buchanania; the rest of the dictionary's fruit words are glossed only as 'species of tree with edible fruit'. The trees near Karma Waters are from the Atlas of Living Australia and Palmer's 1883 Mitchell list."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater",
+    "rainforest"
+  ],
+  "summary": "The dictionary has more words for fruit than for almost anything else on country, and most of them are glossed only 'species of tree with edible fruit', with a month: **[ngalkarran](word:ngalkarran)** 'edible red seed like an apple, ripe in August–October', **[wada](word:wada)** 'edible white seed the size of an apple', **[murrkul](word:murrkul)** 'round like an apple, ripe August–October', **[banday](word:banday)** 'like a small cherry, ripe in December', **[kawunjil](word:kawunjil)** 'a small edible black cherry, very sweet, ripe in wet season' [ref:hershberger1982]. Named ones are **[kurruy](word:kurruy)** the Burdekin plum, which Roth wrote as *korroi* at the Bloomfield in 1901, **[bulngkar](word:bulngkar)** the lady apple, **[kabal](word:kabal)** the Leichhardt tree, and **[junda](word:junda)**, 'wild plum which is poisonous and must be leached before eating' [ref:hershberger1982] [ref:roth1901]. Anderson counted 'at least fifty major species' of fruit at Bloomfield, 'most of these ripen in the period May to August', knocked down with long sticks and carried in bark troughs or dilly bags; figs and quandongs were sun-dried to keep, and Burdekin plums 'force-ripened by burying them in the ground in a dilly bag and left for up to a week' [ref:anderson1996]. On the Mitchell, Edward Palmer listed the plum trees of the sandy forest in 1883: the lady apple he called 'Oloorgo', the blue-fruited *Terminalia*, the white currant 'Arrimby' that ripens in November, the sandalwood plum, the nonda and the Leichhardt tree, and within 30 km of [Karma Waters](place:karma-waters) the Atlas records most of their kin [ref:palmer1883] [ref:ala-karma-plants].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kurruy (Burdekin plum); bulngkar (lady apple); kabal (Leichhardt tree); junda, jundul (plum to be leached); ngalkarran, wada, murrkul, wanakan, mukukanka (Aug–Oct fruits); banday, kawunjil, julbal (wet-season fruits)"
+    },
+    {
+      "label": "Near Karma Waters (ALA)",
+      "value": "Native apple (Syzygium eucalyptoides), Terminalia aridicola and T. subacroptera, black-currant tree, little gooseberry tree, white currant (Flueggea), sandalwood plum (Santalum), black plum (Vitex), red coondoo (Mimusops), ebony (Diospyros), wild orange (Capparis), figs; cocky apple within 60 km"
+    },
+    {
+      "label": "Season",
+      "value": "Most Bloomfield fruit May–August; the dictionary's cluster August–October; cherries and green apples in the wet; white currant in November"
+    },
+    {
+      "label": "Gathering",
+      "value": "Knocked down with long sticks; carried in bark troughs and dilly bags; some dried in the sun, some buried to ripen, some leached"
+    },
+    {
+      "label": "Watch for",
+      "value": "Junda and jundul are poisonous until leached; cocky-apple bark is a fish poison"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**Plums.** **[kurruy](word:kurruy)** 'Burdekin plum'; Roth's Bloomfield (KYE) and Cooktown name for *Pleiogynium*, the Burdekin plum, was *korroi* [ref:hershberger1982] [ref:roth1901]. **[bulbul](word:bulbul)** 'species of plum'. **[junda](word:junda)** 'wild plum which is poisonous and must be leached before eating' and **[jundul](word:jundul)** 'wild plum (poisonous without leaching); species of tree, big round leaves, smooth bark'. **[jingajalka](word:jingajalka)**, 'a species of tree, also its edible fruit, which is small and elongated and plum-like with a large seed. The tree has bark out of which baskets can be made. It peels off easily then is put into the fire for a minute to soften, then it is bent and the ends tied to form a basket. It is used to cook with, hot stones can also be put in the water in it' [ref:hershberger1982].\n\n**Apples.** **[bulngkar](word:bulngkar)** 'lady apple'. **[julbal](word:julbal)** 'a small edible green apple which becomes ripe in the wet season'. **[ngalkarran](word:ngalkarran)** 'edible red seed like an apple, ripe in August–October', which is Roth's Bloomfield *walkaran*, *Eugenia hislopii*, a lillypilly [ref:hershberger1982] [ref:roth1901]. **[wada](word:wada)** 'edible white seed the size of an apple, ripe August–October', Roth's Bloomfield *warta*, another *Eugenia* [ref:hershberger1982] [ref:roth1901]. **[murrkul](word:murrkul)** 'edible fruit, two seeds one above the other, round like an apple. Ripe August–October' [ref:hershberger1982].\n\n**Cherries.** **[banday](word:banday)** 'the fruit of the tree which is like a small cherry, ripe in December', Roth's Bloomfield *pandar*, *Buchanania*, the little gooseberry tree [ref:hershberger1982] [ref:roth1901]. **[kawunjil](word:kawunjil)** 'a small edible black cherry, very sweet. Ripe in wet season'. **[jungka](word:jungka)** 'wild cherry tree and its fruit'. **[marrku](word:marrku)**, 'edible wild cherry which has two or three seeds in each fruit. It grows on lows by the beach' [ref:hershberger1982].\n\n**Others.** **[kabal](word:kabal)** 'Leichhardt tree and its fruit. The fruit is edible, it is small and round with small seeds. If you have a sore joint, boil the bark in water, rub the cooled water on the sore joint'; Roth's *ka-pal* at the Bloomfield and Cooktown, and Palmer's *Oolpanje* on the Mitchell [ref:hershberger1982] [ref:roth1901] [ref:palmer1883]. **[wanakan](word:wanakan)** 'a long sweet seed, ripe in August–October. It is edible if ripe, if unripe it must be roasted first'. **[mukukanka](word:mukukanka)** 'edible fruit, becomes ripe in August–September'. **[durral](word:durral)** 'edible fruit; spears made from this wood'. **[bujabay](word:bujabay)** 'edible fruit which must be leached (in water)'. **[ngurrkul](word:ngurrkul)** 'edible fruit, found only in deep scrub'. The figs **[kumin](word:kumin)**, **[mujarr](word:mujarr)**, **[yinkunji](word:yinkunji)** and **[dukal](word:dukal)** are on the [fig](entry:fig) page [ref:hershberger1982].\n\nPalmer's Mitchell River names, in a language he does not name: *Oloorgo* for the lady apple, *Arrimby* for the white currant, *Oolpanje* for the Leichhardt tree, *Nanchee* and *Booral* for the geebung, *Ootcho* for the cocky apple; and from Cooktown and Cape Bedford Roth gives *delloi* and *jelloi* for the lady apple, *ngundar* for the red coondoo, *tommin* for the sea almond, *wo-inva* for the nonda [ref:palmer1883] [ref:roth1901]."
+    },
+    {
+      "id": "description",
+      "heading": "The fruit trees of the upper Mitchell",
+      "body": "**Lady apple, red bush apple** (*Syzygium suborbiculare*; Palmer's 'plum tree', Roth's *Eugenia suborbicularis*). 'A shrub or small understorey tree ... typically grows to a height of 4 to 20 metres. It blooms between June and November producing white flowers. The leaves are smooth, thick, leathery, broad oval 7.2–19 cm long. Flowers are white with numerous stamens. The edible fruit is flattened-globular, fleshy, prominently ribbed, 3–7 cm long, with a large seed'; 'found in open forests and woodland and on the flood plains' on sandy soils [ref:wiki-syzygium-suborbiculare]. The rainforest key: fruit 'often conspicuously longitudinally ribbed', 30–70 by 35–90 mm, 'large cream flowers are followed by large, pink to red fruits'; 'usually grows in open forest', sea level to 250 m [ref:rfk-syzygium-suborbiculare]. Palmer: 'A large tree, 30 to 40 feet high, called plum tree, with smooth brown bark ... fruit large and red, with small stone inside; eaten when ripe. Grows in sandy country, in open forest, between the Lynd and Endeavour Rivers' [ref:palmer1883]. The **native apple** *S. eucalyptoides*, 'a tree native to Western Australia, Queensland, and the Northern Territory', is the one recorded within 30 km of Karma Waters [ref:wiki-syzygium-eucalyptoides] [ref:ala-karma-plants].\n\n**Burdekin plum** (*Pleiogynium timoriense*, *kurruy*). 'A semi-deciduous rainforest tree growing up to 20 m high ... may develop buttress roots on older individuals', dioecious, flowering January to March; 'the fruit is a depressed-obovoid drupe, up to 25 by 38 mm. The fruit's flesh is generally plum-coloured (dark purple)'; 'the fruit is edible but tart ... Indigenous Australians are known to have buried the fruit underground to ripen'; 'the fruits are eaten by cassowaries and great bowerbirds' [ref:wiki-pleiogynium]. It grows 'in drier rain forest and monsoon forest' from the Peninsula south, with big plank buttresses, five to twelve seeds in a hard woody stone [ref:rfk-pleiogynium]. Its saplings were the favoured frame of the Bloomfield [hut](entry:huts-and-shelters) [ref:anderson1996].\n\n**Black plum** (*Vitex glabrata*). 'A species medium-sized deciduous tree', 'the fruit is black in color and edible when ripe with a sweet taste, and is eaten raw, cooked, or dry'; 'some sources claim that the bark and roots are used as a traditional medicine' [ref:wiki-vitex]. It 'grows in monsoon forest' from sea level to 300 m across the north; one record near Karma Waters [ref:rfk-vitex] [ref:ala-karma-plants].\n\n**The blue-fruited *Terminalia*s.** Palmer's 'Durin': 'A large shady tree, 30 to 40 feet high; leaf large, 4 to 6 inches long; a rough bark, broken into small squares; wood hard and tough. Small fruit, oblong, pointed, blue when ripe; eaten raw. Grows in or near water-courses on the Cloncurry, Gilbert, and Mitchell Rivers', and a smaller one of the dry ridges 'with fine large blue plums, good to eat, fruits in August very plentifully' [ref:palmer1883]. *Terminalia aridicola* and *T. subacroptera* are the two in the Karma Waters records [ref:ala-karma-plants].\n\n**White currant** (*Flueggea virosa*; Palmer's *Securinega*, 'Arrimby' on the Mitchell). 'A deciduous shrub or tree reaching 6 m', 'its white berries are edible' [ref:wiki-flueggea]. Palmer: 'Shrub with numerous straight stems, about 6 or 7 feet high ... fruit small and white, in great quantities; the natives gather them in bark koolimans to bring into camp; about the size of flat peas, sweet and juicy, eaten raw, and ripens in November. Grows on all the country from the Cloncurry to the Mitchell, often along the banks of creeks' [ref:palmer1883].\n\n**Sandalwood plum** (*Santalum lanceolatum*). A small tree with brittle grey-green leaves that 'crack and break along a straight line when bent', 'may be parasitic on the roots of other plants'; it 'entered into Aboriginal medicine for both internal and external use. Leaves were burnt to drive away mosquitoes' [ref:rfk-santalum]. Palmer: 'flowering in September; fruit, a brown or black drupe, oblong, of a sweet taste, and the size of a small plum' [ref:palmer1883]. Three records near Karma Waters [ref:ala-karma-plants].\n\n**Red coondoo** (*Mimusops elengi*). 'An evergreen tree reaching a height of about 15 m. It flowers in April, and fruiting occurs between June and October. The leaves are glossy, dark green, oval-shaped', the flowers cream, hairy and 'heavily scented' [ref:wiki-mimusops]; 'the fruit of this tree is much sought after by fruit eating pigeons particularly Torresian Imperial-Pigeons' [ref:rfk-mimusops]. Roth, of its relative at Cape Bedford: the red fruit 'is collected, and put into a hole in the ground with tea-tree bark below, and leaves, earth, or grass above: in about a couple of days the fruit turns black, when it is considered fit to eat' [ref:roth1901].\n\n**Little gooseberry tree** (*Buchanania arborescens*, *banday*). 'A small and slender tree ... The edible fruit are globular, small (1 cm long), reddish to purple-black. Torresian imperial pigeons and other birds eat these' [ref:wiki-buchanania]. **Black-currant tree** (*Antidesma ghaesembilla*): a shrub or small tree, 'often with a short, poorly-formed trunk', of gallery and monsoon forest 'on heavy soils that experience water-logging during wet season'; its fruit draws emus, so that hunters on the Roper used it to predict them [ref:wiki-antidesma]. **Cocky apple** (*Planchonia careya*, Palmer's 'Ootcho'): the fruit 'eaten when ripe'; the pulverised inner bark a fish poison, and boiled 'as an antiseptic wash for open cuts and sores'; the flowers 'as decorations' [ref:palmer1883] [ref:wiki-planchonia] [ref:ala-planchonia].\n\n**Leichhardt tree** (*kabal*, *Nauclea orientalis*, Roth's and Palmer's *Sarcocephalus*). Palmer: 'A large tree, growing in scrubs along the banks of rivers, 40 feet high or more, a beautiful shade tree, wood yellow and bitter ... Flowers globular and fragrant. Fruit 1½ to 2 inches in diameter, spherical, soft when ripe, the pulp slightly bitter; eaten raw ... fruits during wet season' [ref:palmer1883]. The dictionary adds the bark wash for sore joints [ref:hershberger1982].\n\n**Nonda** (*Parinari nonda*), 'a large shady tree, growing in sandy forest country, from the Saxby River to Cooktown', fruit 'yellow when ripe, with a dry mealy taste', eaten by people and emus; **geebung** (*Persoonia falcata*, 'Nanchee'), fruit 'green, pointed and oblong, ¾ inch long, eaten raw' on poor sandy ground; **emu berries** (*Grewia*), **conkerberry** (*Carissa*), gathered 'in great quantities after the wet season on pebbly ridges ... in February', and the **wild oranges** (*Capparis*) that flower and fruit 'after the first thunder-showers in October' fill out Palmer's list; *Capparis canescens* and *C. lasiantha* are in the Karma Waters records [ref:palmer1883] [ref:ala-karma-plants]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling the fruits apart",
+      "body": "- **Lady apple**: big, ribbed, pink to red, one large seed; open sandy forest [ref:rfk-syzygium-suborbiculare].\n- **Burdekin plum**: dark purple, flattened, tart, a woody stone with many seeds; scrub and gallery forest [ref:wiki-pleiogynium].\n- **Black plum**: small, black, sweet, on a deciduous monsoon-forest tree [ref:wiki-vitex].\n- **Blue *Terminalia* plums**: oblong, blue, on trees with bark 'broken into small squares' by the creeks and on the ridges [ref:palmer1883].\n- **White currant**: tiny white berries in quantity on a many-stemmed shrub by the creeks, November [ref:palmer1883] [ref:wiki-flueggea].\n- **Sandalwood plum**: sweet brown-black drupe on a small grey-leaved tree whose leaves snap straight across [ref:rfk-santalum] [ref:palmer1883].\n- **Red coondoo**: red to black, pigeon fruit, scented cream flowers [ref:wiki-mimusops] [ref:rfk-mimusops].\n- **Junda and jundul**: the plums that must be leached; and **bujabay**, the fruit that must be leached; know them before anything else [ref:hershberger1982].\n- **Cocky apple**: edible fruit on a tree whose bark poisons fish [ref:wiki-planchonia]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Pigeons and bowerbirds** working a tree; the imperial pigeons on the coondoo and gooseberry trees; cassowaries and bowerbirds under a Burdekin plum [ref:rfk-mimusops] [ref:wiki-buchanania] [ref:wiki-pleiogynium].\n- **Emu droppings full of seed** under a black-currant tree or a nonda [ref:wiki-antidesma] [ref:palmer1883].\n- **[Flying foxes](entry:woodland)** at night in a fruiting tree; *kambi* [ref:hershberger1982].\n- **Knocked branches and fallen fruit** where someone has been with a long stick [ref:anderson1996].\n- **A dug patch with teatree bark in it** near a camp is a ripening pit [ref:roth1901]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the fruit trees grow",
+      "body": "Anderson's fifty species were mostly 'in rainforest, on its margins or within gallery forests along the major creeks'; Palmer's Mitchell trees were in 'sandy country, in open forest' (lady apple, nonda, geebung), 'in or near water-courses' (the *Terminalia*s, the Leichhardt tree, the white currant, the figs) and on 'pebbly ridges' (conkerberry, sweet plum) [ref:anderson1996] [ref:palmer1883]. At Karma Waters that is the river's gallery forest and paperbark fringe for the plums and the Leichhardt tree, the sandy flats for the lady apple and the nonda, and the stony rises for the sandalwood and the wild oranges; the [woodland](entry:woodland) page has the country [ref:ala-karma-plants] [ref:re9314]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Fruit, birds and the year",
+      "body": "The fruit trees are the birds' trees: the Torresian imperial pigeon on the coondoo and the gooseberry, the [cassowary](entry:cassowary) and the great bowerbird on the Burdekin plum, the emu on the nonda and the black-currant, the [flying fox](entry:woodland) on everything, and the [scrub turkey](entry:scrub-turkey) and [scrub hen](entry:scrub-hen) under them [ref:rfk-mimusops] [ref:wiki-buchanania] [ref:wiki-pleiogynium] [ref:wiki-antidesma] [ref:palmer1883]. People came to the fruit 'as an adjunct to some other production task, for example men while hunting, or women while fishing' [ref:anderson1996]. The dictionary's months make the fruit a calendar: the August–October cluster of *ngalkarran*, *wada*, *murrkul*, *wanakan* and *mukukanka*, then the wet-season cherries *banday* in December and *kawunjil*, and the green apple *julbal*; the [seasons](entry:seasons) page puts them with the flowers and the eggs [ref:hershberger1982]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "'Most of these ripen in the period May to August' at Bloomfield [ref:anderson1996]; the dictionary's fruits are 'ripe in August–October' and in the wet [ref:hershberger1982]; on the Mitchell Palmer dated the conkerberry to February, the blue ridge-plums to August, the sandalwood flowering to September, the wild oranges to the first storms of October, the white currant to November and the Leichhardt tree's fruit to the wet [ref:palmer1883]. The lady apple flowers June to November and the Burdekin plum January to March [ref:wiki-syzygium-suborbiculare] [ref:wiki-pleiogynium]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Eaten raw** in season, most of them [ref:anderson1996] [ref:palmer1883].\n- **Dried in the sun** to keep for weeks: figs and quandong [ref:anderson1996].\n- **Buried to ripen**: Burdekin plums in a dilly bag in the ground 'for up to a week'; the Cape Bedford coondoo in a pit with teatree bark 'in about a couple of days' [ref:anderson1996] [ref:roth1901].\n- **Leached**: *junda*, *jundul*, *bujabay*; see [leaching](entry:leaching) [ref:hershberger1982].\n- **Roasted if unripe**: *wanakan* [ref:hershberger1982].\n- **Gathered in troughs**: the white currant 'in bark koolimans to bring into camp' [ref:palmer1883].\n- **Medicine**: the Leichhardt tree's bark boiled for sore joints; the lady apple's cooked fruit juice for coughs and chest congestion, its heated leaves for wounds; the cocky apple's inner bark boiled 'as an antiseptic wash'; the sandalwood's leaves burnt against mosquitoes [ref:hershberger1982] [ref:wiki-syzygium-suborbiculare] [ref:wiki-planchonia] [ref:rfk-santalum].\n- **Bark baskets** from *jingajalka*; hut saplings from the Burdekin plum; spears from *durral* [ref:hershberger1982] [ref:anderson1996].\n- **Fish poison** from cocky-apple bark; see [fish poisoning](entry:fish-poisoning) [ref:wiki-planchonia]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Gathering and keeping fruit",
+      "body": "From Anderson, Roth and Palmer [ref:anderson1996] [ref:roth1901] [ref:palmer1883]:\n\n1. **Knock the fruit down** with a long stick from the taller trees; gather the fallen fruit from under the pigeons' and flying foxes' trees [ref:anderson1996].\n2. **Carry it** in a bark trough or a dilly bag [ref:anderson1996] [ref:palmer1883].\n3. **To ripen a tart fruit** (Burdekin plum, coondoo): dig a hole, line it with teatree bark, put the fruit in, in a dilly bag or loose, cover with leaves, earth or grass, and leave it two days to a week until it turns black and soft [ref:anderson1996] [ref:roth1901].\n4. **To keep fruit**: dry figs and quandongs in the sun; they keep 'for several weeks' [ref:anderson1996].\n5. **To make a *jingajalka* basket**: peel the bark, hold it in the fire a minute to soften, bend it and tie the ends; it will hold water and hot stones [ref:hershberger1982].\n6. **Junda, jundul and bujabay** go to the [leaching](entry:leaching) water before anyone eats them [ref:hershberger1982]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Two of the dictionary's plums and one of its fruits are poisonous until leached; the names are *junda*, *jundul* and *bujabay*, and the trees need to be learned from someone who knows them [ref:hershberger1982].\n- A bird eating a fruit does not make it safe for people.\n- The cocky apple's bark is a fish poison; the fruit is the food [ref:wiki-planchonia].\n- The Burdekin plum unripe is astringent enough to bury for a week [ref:wiki-pleiogynium] [ref:anderson1996].\n- Gathering on native title country is protected by section 211 of the *Native Title Act 1993* [ref:alrc] [ref:wyac2020]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Most of Palmer's Mitchell fruit trees are in the Karma Waters records today, and the dictionary's months are a checklist for walking the river in August and the ridges after the first storms [ref:ala-karma-plants] [ref:hershberger1982]. Which dictionary word belongs to which Mitchell tree is the open question; the contribution box below is for the people who know."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kurruy](word:kurruy)* 'Burdekin plum'; *[bulngkar](word:bulngkar)* 'lady apple'; *[bulbul](word:bulbul)* 'species of plum'; *[junda](word:junda)*, *[jundul](word:jundul)* plums to be leached; *[jingajalka](word:jingajalka)* plum-like fruit and bark basket; *[julbal](word:julbal)* green apple of the wet; *[ngalkarran](word:ngalkarran)*, *[wada](word:wada)*, *[murrkul](word:murrkul)*, *[wanakan](word:wanakan)*, *[mukukanka](word:mukukanka)* the August–October fruits; *[banday](word:banday)* December cherry; *[kawunjil](word:kawunjil)* black cherry of the wet; *[jungka](word:jungka)*, *[marrku](word:marrku)* wild cherries; *[kabal](word:kabal)* Leichhardt tree; *[durral](word:durral)* fruit and spear tree; *[bujabay](word:bujabay)* fruit to be leached; *[ngurrkul](word:ngurrkul)* deep-scrub fruit; *[kambi](word:kambi)* 'flying fox' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "fig",
+    "leaching",
+    "yam",
+    "zamia",
+    "woodland",
+    "seasons",
+    "scrub-turkey",
+    "cassowary",
+    "bark-troughs",
+    "dilly-bags",
+    "fish-poisoning"
+  ],
+  "relatedWords": [
+    {
+      "word": "kabal",
+      "gloss": "Leichhardt tree and its fruit; bark boiled for sore joints"
+    },
+    {
+      "word": "jingajalka",
+      "gloss": "plum-like fruit; its bark makes a cooking basket"
+    },
+    {
+      "word": "kawunjil",
+      "gloss": "small edible black cherry, very sweet, ripe in wet season"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "wiki-syzygium-suborbiculare",
+      "citation": "Wikipedia. Syzygium suborbiculare (red bush apple, lady apple), citing FloraBase and Aboriginal-use sources.",
+      "url": "https://en.wikipedia.org/wiki/Syzygium_suborbiculare"
+    },
+    {
+      "id": "rfk-syzygium-suborbiculare",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Syzygium suborbiculare (lady apple, red bush apple). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/syzygium_suborbiculare.htm"
+    },
+    {
+      "id": "wiki-syzygium-eucalyptoides",
+      "citation": "Wikipedia. Syzygium eucalyptoides (native apple).",
+      "url": "https://en.wikipedia.org/wiki/Syzygium_eucalyptoides"
+    },
+    {
+      "id": "wiki-pleiogynium",
+      "citation": "Wikipedia. Pleiogynium timoriense (Burdekin plum), citing RFK, Low (1991) and Cooper & Cooper (2004).",
+      "url": "https://en.wikipedia.org/wiki/Pleiogynium_timorense"
+    },
+    {
+      "id": "rfk-pleiogynium",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Pleiogynium timoriense (Burdekin plum). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/pleiogynium_timorense.htm"
+    },
+    {
+      "id": "wiki-vitex",
+      "citation": "Wikipedia. Vitex glabrata (black plum, bush currant).",
+      "url": "https://en.wikipedia.org/wiki/Vitex_glabrata"
+    },
+    {
+      "id": "rfk-vitex",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Vitex glabrata (black plum, smooth chastetree). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/vitex_glabrata.htm"
+    },
+    {
+      "id": "wiki-flueggea",
+      "citation": "Wikipedia. Flueggea virosa (white-berry bush, snowberry tree).",
+      "url": "https://en.wikipedia.org/wiki/Flueggea_virosa"
+    },
+    {
+      "id": "rfk-santalum",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Santalum lanceolatum (northern sandalwood, plumwood), citing Cribb (1981). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/santalum_lanceolatum.htm"
+    },
+    {
+      "id": "wiki-mimusops",
+      "citation": "Wikipedia. Mimusops elengi (red coondoo, bullet wood).",
+      "url": "https://en.wikipedia.org/wiki/Mimusops_elengi"
+    },
+    {
+      "id": "rfk-mimusops",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Mimusops elengi (red coondoo). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/mimusops_elengi.htm"
+    },
+    {
+      "id": "wiki-buchanania",
+      "citation": "Wikipedia. Buchanania arborescens (little gooseberry tree).",
+      "url": "https://en.wikipedia.org/wiki/Buchanania_arborescens"
+    },
+    {
+      "id": "wiki-antidesma",
+      "citation": "Wikipedia. Antidesma ghaesembilla (black-currant tree).",
+      "url": "https://en.wikipedia.org/wiki/Antidesma_ghaesembilla"
+    },
+    {
+      "id": "wiki-planchonia",
+      "citation": "Wikipedia. Planchonia careya (cocky apple), citing Smith (1991) for Aboriginal uses.",
+      "url": "https://en.wikipedia.org/wiki/Planchonia_careya"
+    },
+    {
+      "id": "ala-planchonia",
+      "citation": "Atlas of Living Australia. Occurrence records of Planchonia careya within 60 km of the Karma Waters homestead, queried 6 October 2026 (4 records).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Planchonia%20careya%22&lat=-16.6179&lon=144.6047&radius=60"
+    },
+    {
+      "id": "re9314",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.3.14 (Einasleigh Uplands): Melaleuca fringing woodland on channels and levees. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.3.14"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "wyac2020",
+      "citation": "Western Yalanji Aboriginal Corporation & CRC for Developing Northern Australia (2020). Western Yalanji Land Use and Economic Diversification Plan. CC BY 4.0.",
+      "url": "https://crcna.com.au/wp-content/uploads/2024/05/westernyalanjilanduseplan_nov2020.pdf",
+      "locator": "Native Title Determinations 1–4 (pp. 13–18); ‘Fire Management and Carbon Farming’ (pp. 32–33); ‘Pastoralists’"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

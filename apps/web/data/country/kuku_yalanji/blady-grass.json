@@ -1,0 +1,238 @@
+{
+  "slug": "blady-grass",
+  "title": "Blady grass and the grasses",
+  "category": "plant",
+  "names": [
+    {
+      "word": "jikan",
+      "gloss": "grass"
+    },
+    {
+      "word": "kakarr",
+      "gloss": "grass; blanket to lie on"
+    },
+    {
+      "word": "kumul",
+      "gloss": "species of grass"
+    }
+  ],
+  "scientificName": "Imperata cylindrica; with Heteropogon contortus and Themeda triandra",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary has general grass words but no word glossed 'blady grass'. Roth recorded blady grass (Imperata) as thatch, dilly-bag fibre and fish-fence material from Cape Bedford to the Tully, and Anderson records grass thatch, bags, sponges, ropes, bedding and signs at Bloomfield. Blady grass is not in the 30 km Karma Waters records; black speargrass and kangaroo grass are."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater",
+    "camp"
+  ],
+  "summary": "**[jikan](word:jikan)** is grass, and **[kakarr](word:kakarr)** is 'grass; blanket to lie on, not to put over you', which says what grass was for first [ref:hershberger1982]. Blady grass, *Imperata cylindrica*, is the tall, sharp-edged, rhizome-forming grass of damp flats and creek margins, 'regarded as an excellent plant for thatching the roofs of traditional homes throughout south-east Asia', and in North Queensland the thatch of the [beehive hut](entry:huts-and-shelters), the fibre of Cape Bedford dilly bags, the weave of the fish-fence wings, and the toy spears of small boys [ref:wiki-imperata] [ref:roth1910-huts] [ref:roth1904] [ref:roth1901] [ref:roth1902]. The dictionary's grass words cover the rest of the grass toolkit: **[mawu](word:mawu)** 'a coarse grass used in the making of dilly bags', **[bilanji](word:bilanji)** 'grass used to make dilly bags', **[balji](word:balji)** the 'ladies' dilly bag, made from grass', **[wuju](word:wuju)** 'sponge made from grass, used as a sop for eating honey or soup', **[duburan](word:duburan)** the directional sign of 'grass twisted to point the way', **[warrbi](word:warrbi)** 'house made of grass', **[duli](word:duli)** 'burnt patch of grass' and **[jumul-jumul](word:jumul-jumul)** 'the grass seeds that get stuck in clothes, which come during the wet season' [ref:hershberger1982]. At [Karma Waters](place:karma-waters) the recorded grasses are black speargrass and kangaroo grass; blady grass is not in the 30 km records, and the methods here work with whatever long grass the flats give [ref:ala-karma-plants] [ref:wiki-heteropogon] [ref:wiki-themeda].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "jikan (grass); kakarr (grass; bedding); kumul (a grass); mawu, bilanji (dilly-bag grasses); wuju (grass sponge); duburan (grass sign); warrbi (grass house); duli (burnt patch)"
+    },
+    {
+      "label": "Blady grass",
+      "value": "Imperata cylindrica: perennial, from a dense rhizome mat; blades about 2 cm wide, 12–80 cm, edged with silica; fluffy white seed heads; burns even when green"
+    },
+    {
+      "label": "Uses on record",
+      "value": "Hut thatch; dilly bags and sieve-bags (Cape Bedford); fish-fence wings; toy spears; bedding; sponges; climbing ropes; signs; tinder"
+    },
+    {
+      "label": "At Karma Waters",
+      "value": "Not in the 30 km records; black speargrass (Heteropogon contortus) and kangaroo grass (Themeda triandra) are"
+    },
+    {
+      "label": "Fire",
+      "value": "A pyrophyte that carries fire and comes back from the rhizome"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[jikan](word:jikan)** 'grass'; **[kakarr](word:kakarr)** 'grass; blanket to lie on, not to put over you; also used as year, i.e. *kararr jambul* \"two years\"'; **[kararr](word:kararr)** 'a blanket, sheet, or grass bedding spread out to lie on'; **[kumul](word:kumul)** 'species of grass'; **[mawu](word:mawu)** 'a coarse grass used in the making of dilly bags'; **[bilanji](word:bilanji)** 'grass used to make dilly bags'; **[balji](word:balji)** 'ladie's dilly bag, made from grass or black palm'; **[wuju](word:wuju)** 'sponge made from grass'; **[duburan](word:duburan)** 'directional sign ... as a heap of stones or grass twisted to point the way; ring of soft materials to put on women's [heads] for carrying things'; **[warrbi](word:warrbi)** 'house made of grass, \"beehive house\"'; **[duli](word:duli)** 'burnt patch of grass'; **[jumul-jumul](word:jumul-jumul)** the clinging grass seeds of the wet; **[ngalku](word:ngalku)** 'bush fire' [ref:hershberger1982]. Roth's Cape Bedford (Guugu Yimithirr) word *dirnbur* was both the blady grass and the dilly-bag made from it, 'the name of the plant itself' [ref:roth1904] [ref:roth1901-string]. The Bloomfield bag grass that Roth and Anderson name is not blady grass but *Lomandra* (then *Xerotes*), *mau-u*, which the [dilly bags](entry:dilly-bags) page covers [ref:roth1901-string] [ref:anderson1996]."
+    },
+    {
+      "id": "description",
+      "heading": "Blady grass, speargrass, kangaroo grass",
+      "body": "**Blady grass**, *Imperata cylindrica*, 'is a species of perennial rhizomatous grass'. It 'grows from 0.2–3 m tall, its stalk is firm and has nodes covered with long white hairs. Each clump that grows shares an extensive rhizome network'; 'the leaves are about 2 cm wide in average and 12–80 centimetres in length near the base of the plant and narrow to a sharp point at the top; the margins are finely toothed and are embedded with sharp silica crystals'; the seed heads are narrow white plumes. 'It spreads both through small seeds, which are easily carried by the wind, and rhizomes'. It 'is a pyrophyte. It is highly flammable, even when still apparently green, particularly in tropical climates' [ref:wiki-imperata]. The blade is the 'blade' of the name; Roth knew it as *Imperata arundinacea*, 'Blady Grass' [ref:roth1904].\n\n**Black speargrass** (*Heteropogon contortus*) and **kangaroo grass** (*Themeda triandra*) are the recorded grasses of the Karma Waters woodland, the ones under the ironbarks and bloodwoods, with their twisted awns and their seed that the finches and the fires live on; the [woodland](entry:woodland) page has them [ref:ala-karma-plants] [ref:wiki-heteropogon] [ref:wiki-themeda] [ref:re-woodland].\n\n**Grass in Roth's North Queensland.** The thatch of the beehive hut was 'bark, blady-grass, lawyer-vine, cycad- or palm-leaf according to the local vegetation', and on the lower Tully the grass was laid 'two and a half to three feet long' in handfuls, butts down then butts up, fixed with a spiral of split cane [ref:roth1910-huts]. At Cape Bedford 'the long leaves, dried in the sun, are put into fresh water, and split. These lengths are made up into dilly-bags, which are called *dirnbur*', and the sieve-baskets were 'woven from twine derived from *Haemodorum coccineum*, *Spinifex hirsutus*, *Imperata arundinacea* (\"Blady Grass\"), etc.' [ref:roth1904]. In the eel-trap fences of the coast, sticks were 'driven in vertically, and plenty of big blady-grass intertwined, so as to prevent the fish passing through anywhere, except into the trap', and the flood-time net wings were 'short thin stakes intertwined with blady grass' [ref:roth1901]. Small boys' 'toy spears are thus made from light thin withes or else from grasses, reeds, and rushes, e.g., *Andropogon*, *Imperata*' [ref:roth1902].\n\n**Grass at Bloomfield.** Anderson: huts 'covered with whatever they could get nearest at hand, either the leaves of the Fan Palm, Lawyer Palms, grass or bark'; 'bunches of long bush grass served as mattresses on hard ground'; a 'grass sponge' swirled the *Barringtonia* fish poison into the water; 'when the nests were high in the tree, grass ropes were made for climbing'; the fire-drill's ember 'caught alight with the addition of dry grass and wood particles'; zamia flour was separated 'with a small grass brush'; 'necklaces of grass-bugles' were worn; and the path signs, *duburan*, ranged 'from a knotted tussock of grass with the tips pointing in the desired direction, a single stem of grass woven into the branches of a shrub, a number of straws or a palm leaf tied to a tree (all with their butts as pointers), to rather complicated little devices tied to sticks pushed into the ground' [ref:anderson1996]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Which grass for which job",
+      "body": "- **Blady grass**: wide flat blades, white plumes, damp flats; thatch, bag fibre, fish fences [ref:wiki-imperata] [ref:roth1904] [ref:roth1901].\n- **Speargrass**: tall, with the black twisted awns that drill into socks and skin in the late dry; the fire grass of the woodland; its stems are sucked for sweet sap in the Northern Territory [ref:wiki-heteropogon].\n- **Kangaroo grass**: the rusty-headed tussock grass; seed ground for bread and stems twisted for string elsewhere in Australia [ref:wiki-themeda].\n- **Lomandra** (*mau-u*), a grass-like lily: the Bloomfield bag grass, recorded near Karma Waters; see [dilly bags](entry:dilly-bags) [ref:roth1901-string] [ref:anderson1996].\n- **Reeds** of the river bed (*Phragmites*): the reed-spear shafts of the Mitchell, 'cut green, and stored in large quantities', straightened in the fire [ref:palmer1883].\n- **Spinifex** (*Triodia*) on the stoniest ground, the resin grass; see [beeswax and gums](entry:beeswax-and-gums) [ref:roth1904]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **A knotted tussock with its tips pointing**, a stem woven into a shrub, straws tied to a tree: *duburan*, a message on the path, saying who went where and how many, or where the water or the food is [ref:anderson1996] [ref:hershberger1982].\n- **Burnt patches** (*duli*) and green pick: the managed woodland, and where the [wallabies](entry:wallaby) will be [ref:hershberger1982] [ref:re-woodland].\n- **Flattened grass beds** and grass bundles in a half-ring: a camp [ref:roth1910-huts] [ref:anderson1996].\n- **Round woven grass nests** with a tube entrance high in a gum: the black-throated finch [ref:wiki-btf].\n- **Seeds in your socks** in the wet: *jumul-jumul* [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where the grasses grow",
+      "body": "Blady grass wants moisture: damp flats, creek margins, the edges of swamps, and it holds ground with its rhizome mat, which is why it is planted 'for ground cover and soil stabilization' elsewhere [ref:wiki-imperata]. Within 30 km of Karma Waters the Atlas records black speargrass and kangaroo grass, the grasses of the dry ironbark and bloodwood woodland on sand, and no blady grass; if it is here it is on the wetter ground by the river and the soaks [ref:ala-karma-plants] [ref:re-woodland]. The Tully, the Bloomfield and Cape Bedford, where Roth saw it used, are wetter country [ref:roth1904] [ref:roth1910-huts]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Grass, fire and seed",
+      "body": "The grass is the fuel and the feed of the whole [woodland](entry:woodland): kangaroo grass and speargrass feed the wallabies and the finches, carry the dry-season burns and come back green behind them [ref:wiki-themeda] [ref:wiki-heteropogon] [ref:re-woodland]. Blady grass is the extreme case, 'highly flammable, even when still apparently green', and it is the rhizome that survives the fire and the dense mat and the chemicals it releases that let it 'outcompete' other plants [ref:wiki-imperata]. The [fire-drive](entry:hunting-with-fire) and the cultural burn are grass management; the dictionary's *duli* and *ngalku* are the vocabulary of it [ref:hershberger1982] [ref:pbg-cape-york]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Thatch and bag grass are cut long in the late wet and early dry, when the blades are full length; bedding grass whenever the camp moves; the seeds that stick in clothes come 'during the wet season'; the burns run from the early dry as the grass cures, 'every 2–5 years' in the ironbark-bloodwood woodland [ref:roth1910-huts] [ref:hershberger1982] [ref:re-woodland] [ref:pbg-cape-york]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Thatch** for the beehive hut, laid from the top down in handfuls fixed with cane [ref:roth1910-huts].\n- **Dilly bags and sieve-baskets** from sun-dried, soaked, split blades (Cape Bedford) [ref:roth1904].\n- **Fish-fence wings** of stakes with blady grass woven through [ref:roth1901].\n- **Bedding**: *kararr*, bunches of long grass as a mattress [ref:hershberger1982] [ref:anderson1996].\n- **Windbreaks** of grass bundles round the sleeping place [ref:roth1910-huts].\n- **Sponges** (*wuju*) for honey and soup, and for swirling fish poison [ref:hershberger1982] [ref:anderson1996].\n- **Grass ropes** for climbing to high bee nests [ref:anderson1996].\n- **Tinder** for the fire-drill [ref:anderson1996].\n- **A brush** for sorting zamia flour [ref:anderson1996].\n- **Signs** on the path, *duburan* [ref:anderson1996] [ref:hershberger1982].\n- **Head rings** of grass for carrying, the Cape Bedford *mordi* [ref:roth1910] [ref:hershberger1982].\n- **Toy spears** for boys [ref:roth1902].\n- **Necklaces** of grass-stem bugles [ref:anderson1996].\n- **Seed** of other grasses ground for bread in the west [ref:palmer1883]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Grass work",
+      "body": "**Thatching a hut** (lower Tully method, Roth) [ref:roth1910-huts]: cut blady grass two and a half to three feet long; lay handfuls butts-down against the frame all round, then a layer butts-up, and tie both on with a split cane run round the hut; then single rows, each tied with cane, spiralling up; cap the top with teatree bark or palm leaves; weigh it with logs. Put on plenty: the rain is kept out by the quantity, not the arrangement [ref:roth1910-huts]. The frame is on the [huts](entry:huts-and-shelters) page.\n\n**A grass dilly bag** (Cape Bedford, Roth) [ref:roth1904]: dry the long blades in the sun; soak them in fresh water; split them into strands; work them up on the bag's mesh. The mesh patterns are on the [dilly bags](entry:dilly-bags) page.\n\n**A fish-fence wing** [ref:roth1901]: drive thin stakes in a V from the trap's mouth and weave big blady grass through them so nothing passes except into the trap; see [fish traps](entry:fish-traps).\n\n**A grass sponge** (*wuju*) [ref:hershberger1982] [ref:anderson1996]: pull two or three handfuls, take off the roots, rub the grass hard between the hands until it is a soft pad; sop honey or soup with it, or wrap the mashed fish-poison seed in it and swirl it under water.\n\n**A bed**: a shallow hollow in the sand, bunches of long grass laid thick, a paperbark sheet over you in the cold; see [bark blankets](entry:bark-blankets) [ref:anderson1996].\n\n**A sign**: knot a tussock with its tips pointing the way you went, or weave a stem into a shrub, butt as the pointer [ref:anderson1996]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Blady grass cuts: the blade edges carry silica crystals [ref:wiki-imperata].\n- It burns green; a grass fire in cured speargrass in the late dry moves faster than a person; permits apply [ref:wiki-imperata] [ref:re-woodland] [ref:qfd].\n- Dry grass bedding and a fire are a hut fire; see [huts](entry:huts-and-shelters) [ref:roth1910-huts].\n- Never a hand into long grass you cannot see into; see [snakes](entry:snakes) [ref:re-woodland]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Grass is the one material that is always there and always free, and most of what this page lists can be tried on a river camp in an afternoon: a sponge, a bed, a sign on the path, a windbreak [ref:anderson1996] [ref:hershberger1982]. Whether blady grass grows on the Karma Waters flats, and what the Western Yalanji call the speargrass and the kangaroo grass, is for the contribution box below [ref:ala-karma-plants]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[jikan](word:jikan)* 'grass'; *[kakarr](word:kakarr)* 'grass; blanket to lie on'; *[kararr](word:kararr)* 'grass bedding spread out to lie on'; *[kumul](word:kumul)* 'species of grass'; *[mawu](word:mawu)*, *[bilanji](word:bilanji)* dilly-bag grasses; *[balji](word:balji)* grass dilly bag; *[wuju](word:wuju)* 'sponge made from grass'; *[duburan](word:duburan)* 'directional sign'; *[warrbi](word:warrbi)* 'house made of grass'; *[duli](word:duli)* 'burnt patch of grass'; *[ngalku](word:ngalku)* 'bush fire'; *[jumul-jumul](word:jumul-jumul)* grass seeds in clothes [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "huts-and-shelters",
+    "dilly-bags",
+    "fish-traps",
+    "bark-blankets",
+    "native-bees",
+    "hunting-with-fire",
+    "woodland",
+    "firestick",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "wuju",
+      "gloss": "sponge made from grass, used as a sop for eating honey or soup"
+    },
+    {
+      "word": "duburan",
+      "gloss": "directional sign, e.g. grass twisted to point the way"
+    },
+    {
+      "word": "jumul-jumul",
+      "gloss": "the grass seeds that get stuck in clothes, which come during the wet season"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-imperata",
+      "citation": "Wikipedia. Imperata cylindrica (blady grass, cogongrass): description, fire ecology and uses.",
+      "url": "https://en.wikipedia.org/wiki/Imperata_cylindrica"
+    },
+    {
+      "id": "roth1910-huts",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 16: Huts and shelters. Records of the Australian Museum 8(1): 55–66.",
+      "url": "https://archive.org/details/records-australian-museum-8-055-066",
+      "locator": "Sect. 11, ridge-pole huts"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "roth1902",
+      "citation": "Roth, W. E. (1902). North Queensland Ethnography, Bulletin No. 4: Games, sports and amusements. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 4 'Realistic games (animals)'"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "wiki-heteropogon",
+      "citation": "Wikipedia. Heteropogon contortus (black speargrass).",
+      "url": "https://en.wikipedia.org/wiki/Heteropogon_contortus"
+    },
+    {
+      "id": "wiki-themeda",
+      "citation": "Wikipedia. Themeda triandra (kangaroo grass).",
+      "url": "https://en.wikipedia.org/wiki/Themeda_triandra"
+    },
+    {
+      "id": "roth1901-string",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sects. 1–9: animal and vegetable string, plant list ('Ficus', 'Hibiscus', 'Panicum trachyrachis', 'Sterculia quadrifida'), manufacture of fibre-twine, knots, colouring; sect. 22 hour-glass nets"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "palmer1883",
+      "citation": "Palmer, E. (1883). On plants used by the natives of North Queensland, Flinders and Mitchell Rivers, for food, medicine, &c., &c. Journal and Proceedings of the Royal Society of New South Wales 17: 93–113. Palmer's Mitchell River names come from the lower and middle Mitchell, not from Kuku Yalanji speakers.",
+      "url": "https://archive.org/details/journalandproce16walegoog"
+    },
+    {
+      "id": "wiki-btf",
+      "citation": "Wikipedia. Black-throated finch.",
+      "url": "https://en.wikipedia.org/wiki/Black-throated_finch"
+    },
+    {
+      "id": "pbg-cape-york",
+      "citation": "Queensland Parks and Wildlife Service (2013). Planned Burn Guidelines: Cape York Peninsula Bioregion of Queensland. Department of National Parks, Recreation, Sport and Racing.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0019/151480/pbg-cape-york.pdf",
+      "locator": "'Fire in the monsoonal tropics of the Cape York Peninsula bioregion'; ch. 1–2 season guidance (storm burns)"
+    },
+    {
+      "id": "roth1910",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and Trade. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52863",
+      "locator": "Sects. 14–15, dug-out canoes from the Flinders Group to Cape Grafton"
+    },
+    {
+      "id": "qfd",
+      "citation": "Queensland Fire Department. Fire permits: lighting fires in Queensland.",
+      "url": "https://fire.qld.gov.au/safety-education/using-fire-outdoors/lighting-fires-in-queensland"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

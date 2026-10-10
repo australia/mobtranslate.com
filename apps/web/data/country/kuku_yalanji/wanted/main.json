@@ -1,24 +1,9 @@
 {
   "pages": [
     {
-      "slug": "blady-grass",
-      "title": "Blady grass",
-      "note": "Imperata grass used for thatch and fences"
-    },
-    {
-      "slug": "bloodwood",
-      "title": "Bloodwood",
-      "note": "Corymbia trees: timber, kino gum, sugarbag nests"
-    },
-    {
       "slug": "brown-cedar",
       "title": "Brown cedar",
       "note": "Canarium australasicum; its smoke is said to blind"
-    },
-    {
-      "slug": "cotton-tree",
-      "title": "Cotton tree",
-      "note": "Wawuburra; canoe timber and seasonal sign"
     },
     {
       "slug": "dugong",
@@ -38,11 +23,6 @@
       "title": "Green ants"
     },
     {
-      "slug": "kurrajong",
-      "title": "Kurrajong and peanut tree",
-      "note": "Sterculia bark fibre for lines and harpoon ropes (kuralbi)"
-    },
-    {
       "slug": "mangroves",
       "title": "Mangroves",
       "note": "Mangrove trees, fruits that must be leached, and mangrove country"
@@ -51,10 +31,6 @@
       "slug": "mouth-almighty",
       "title": "Mouth almighty",
       "note": "Glossamia aprion, the nocturnal ambush fish of the pool edges"
-    },
-    {
-      "slug": "mussels",
-      "title": "Freshwater mussels"
     },
     {
       "slug": "oysters",
@@ -68,11 +44,6 @@
       "slug": "pythons",
       "title": "Pythons",
       "note": "Pythons and carpet snakes"
-    },
-    {
-      "slug": "rafts",
-      "title": "Rafts",
-      "note": "Log and bark rafts for crossing rivers"
     },
     {
       "slug": "saratoga",
@@ -100,18 +71,9 @@
       "note": "Stingrays: food, spear barbs and a danger on the flats"
     },
     {
-      "slug": "water-lilies",
-      "title": "Water lilies"
-    },
-    {
       "slug": "wild-ginger",
       "title": "Wild ginger",
       "note": "Ginger leaves used to line earth ovens and wrap food; the jidu plant"
-    },
-    {
-      "slug": "wild-plums",
-      "title": "Wild plums",
-      "note": "Wild plums that must be leached (junda, jundul)"
     }
   ]
 }

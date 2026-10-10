@@ -1,0 +1,28 @@
+{
+  "slug": "rafts",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/rafts/log-raft-lashing.webp",
+      "width": 950,
+      "height": 430,
+      "alt": "Line drawing of four logs seen end-on, bound by one cane passing over and under the outer logs and a second cane frapped between each pair",
+      "caption": "Roth's figure 2: how the Tully River log raft is tied. One cane (a–b) runs over the top and under the bottom of the outside logs; a second (c–d) is passed between the logs in a frapping turn, pulling the two runs together at each gap (m, n, o).",
+      "kind": "drawing",
+      "credit": "Drawing: W. E. Roth, North Queensland Ethnography Bulletin 14 (Records of the Australian Museum 8, 1910), fig. 2",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/biostor-52863"
+    },
+    {
+      "src": "/country-img/kuku_yalanji/rafts/wellesley-raft.webp",
+      "width": 1590,
+      "height": 990,
+      "alt": "A raft of many light saplings tied together, with a bundle of dried grass on it, on a beach by calm water",
+      "caption": "A V-shaped raft of light saplings with its seat of dried grass, on the Wellesley Islands in the Gulf: not a Kuku Yalanji craft, but the clearest old photograph of how little a raft needs to be.",
+      "kind": "photo",
+      "credit": "Photograph: W. E. Roth, North Queensland Ethnography Bulletin 14 (Records of the Australian Museum 8, 1910), Plate II fig. 2",
+      "licence": "PD",
+      "sourceUrl": "https://archive.org/details/records-australian-museum-8-001-019",
+      "location": "Wellesley Islands, Gulf of Carpentaria"
+    }
+  ]
+}
