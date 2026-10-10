@@ -1,0 +1,158 @@
+{
+  "slug": "brown-cedar",
+  "title": "Brown cedar (jalnji)",
+  "category": "tree",
+  "names": [
+    {
+      "word": "jalnji",
+      "gloss": "species of poison-nut tree; the gum from it is not poisonous and is used for making spears"
+    }
+  ],
+  "scientificName": "Canarium australasicum",
+  "identification": {
+    "confidence": "probable",
+    "basis": "Roth's Bloomfield name for the brown-cedar gum, t-chaln-ji, matches the dictionary's jalnji, 'the gum from this tree is used for making spears'. Anderson confirms Canarium australasicum gum for spear points and axe hafts and the blinding smoke of its wood."
+  },
+  "countryTypes": [
+    "rainforest"
+  ],
+  "summary": "**[jalnji](word:jalnji)** is a tree whose 'gum from this tree is not poisonous, used for making spears', and Roth's Bloomfield name for the brown-cedar gum, *t-chaln-ji*, is the same word: this is *Canarium australasicum*, the brown cedar, brown cudgerie or mango bark, the rainforest tree whose dry lumps of gum, baked and pounded, were the cement of the Bloomfield spear and axe [ref:hershberger1982] [ref:roth1904] [ref:anderson1996]. Its bark 'exudes a strong mango odour' when cut, its flowers are dark red to maroon, and its fruit small [ref:rfk-canarium]. Anderson: the stone axe head was set in its lawyer-cane handle with 'a gum mixture of beeswax mixed with resin from *Canarium australasicum*', the stingray barbs on the spears with the same resin, and the harpoon point with 'a ring-plug of gum (usually *Canarium australasicum*)'; and its wood, like the blind-your-eye mangrove's, 'produces a smoke which is said by Kuku-Yalanji to produce blindness' [ref:anderson1996]. At Cape Bedford the tree was also a canoe timber [ref:roth1910]. This is a page of the sea country of the Eastern Kuku Yalanji, the Bloomfield and Daintree coast; it is a long way from [Karma Waters](place:karma-waters) on the upper Mitchell, and is here because the words, the trade and the tools reach inland. The gums themselves are on the [beeswax and gums](entry:beeswax-and-gums) page.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "jalnji (the tree whose gum makes spears); Roth's t-chaln-ji (the gum)"
+    },
+    {
+      "label": "The tree",
+      "value": "Canarium australasicum, brown cudgerie, mango bark: rainforest tree, bark smelling of mango when cut, maroon flowers, small fruit"
+    },
+    {
+      "label": "The gum",
+      "value": "Dry lumps off the trunk, wrapped in leaves and baked or warmed, pounded between stones until soft"
+    },
+    {
+      "label": "Used for",
+      "value": "Fixing spear points and barbs, setting axe heads (with beeswax), plugging harpoon points; canoe hulls at Cape Bedford"
+    },
+    {
+      "label": "Danger",
+      "value": "Its smoke is said to blind; not a cooking wood"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[jalnji](word:jalnji)** 'species of poison nut tree; gum from this tree is not poisonous, used for making spears' [ref:hershberger1982]. Roth: the brown-cedar gum 'is used for fixing together the haft and shaft of spears, and in the old days (R. Hislop) was employed for fixing the stone-celt into its handle. KYE Bld. *t-chaln-ji*. Though the tree is not growing in the immediate vicinity of Cooktown and Cape Bedford, the local (KYI) blacks know the gum as *kun-dar*', and at Cape Bedford the tree itself, as a canoe timber, was *gundar* [ref:roth1904] [ref:roth1910]. The related **[yikari](word:yikari)** is the traded resin of *Canarium muelleri*, a different tree; the dictionary's cedars **[milbanku](word:milbanku)** and **[mirrbangku](word:mirrbangku)** are the 'pencil cedar' with a sweet date-shaped fruit, and the [red cedar](entry:red-cedar) is *marrakan* [ref:roth1904] [ref:hershberger1982]."
+    },
+    {
+      "id": "description",
+      "heading": "The tree and the gum",
+      "body": "'Brown cudgerie; carrotwood; mango bark; mango carrotwood; parsnip wood': 'freshly cut bark exudes a strong mango odour and a small amount of clear or slightly milky exudate'; the leaves are compound, sometimes reduced on big trees to one leaflet; the flowers 'dark red to maroon' with yellow or orange anthers; the fruits 'about 8–9 mm long' [ref:rfk-canarium].\n\n**The gum.** Roth: 'the dry lumps of gum are gathered off the tree ... and are either wrapped in leaves and baked, or just warmed before a fire, and then pounded between two stones till pliable and soft enough for use' [ref:roth1904]. Anderson: 'the celts were tied onto a handle made of a portion of large lawyer cane and secured there by bark fibre or wallaby sinew and a gum mixture of beeswax mixed with resin from *Canarium australasicum*'; the stingray barbs and prongs 'were held in place by wallaby sinew and resins made from *Canarium australasicum*, *E. chlorostachys* or grasstree'; the harpoon point 'was stuffed into the hollowed-out end of the handle and kept there by a ring-plug of gum (usually *Canarium australasicum*)' [ref:anderson1996]. 'Gums and resins were an important resource ... I have noted the use of *Canarium australasicum* gum for fixing spear points and axe hafts. *C. muelleri* resin, and the gum from a forest Casuarina species, *Xanthorrhoea johnsonii* and *Grevillea striata* were also widely used' [ref:anderson1996].\n\n**The wood.** 'Some wood was very dangerous to use as firewood. For instance, a mangrove species, *Excoecaria agallocha*, produces a smoke which is said by Kuku-Yalanji to produce blindness. This is also true of the \"brown cedar\", *Canarium australasicum*' [ref:anderson1996]. At Cape Bedford the dug-out canoes were made of '*Canarium australasicum* (KYI *gundar*), and *Gmelina*' [ref:roth1910]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Brown cedar, red cedar, pencil cedar",
+      "body": "- **Brown cedar** (*jalnji*): mango smell from the cut bark, maroon flowers, gum lumps on the trunk; the cement tree [ref:rfk-canarium] [ref:roth1904].\n- **[Red cedar](entry:red-cedar)** (*marrakan*): the canoe and timber tree, pinnate leaves, red wood, no mango smell [ref:hershberger1982].\n- **Pencil cedar** (*milbanku*, *mirrbangku*): 'the fruit is the shape of a date and very sweet' [ref:hershberger1982].\n- ***Canarium muelleri***: the big-teared resin tree of *yikari* [ref:roth1904]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Dry lumps of gum on the trunk** where the bark has been wounded [ref:roth1904].\n- **Mango smell** from a cut in the bark [ref:rfk-canarium].\n- **A cassowary or pigeon tree** in fruit in the rainforest [ref:rfk-canarium].\n- **Old axe scars** where gum was tapped."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it grows",
+      "body": "The lowland rainforest of the Bloomfield and Daintree, and not at Cooktown, where the gum was known by name but had to be traded in; nor at Karma Waters, whose cements are the [grass tree](entry:grass-tree), the [ironwood](entry:ironwood) and the spinifex [ref:roth1904] [ref:rfk-canarium]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The cement tree",
+      "body": "Brown-cedar gum is the thing that holds the Bloomfield toolkit together: barb to [spear](entry:spear-and-woomera), stone to [axe](entry:axes-and-adzes) haft, point to harpoon, with [beeswax](entry:native-bees) and [sinew](entry:sinew); its wood made the Cape Bedford canoe; and its smoke was the one thing a Bloomfield cook would not have at the fire [ref:anderson1996] [ref:roth1910]. Gum-cements were among the Bloomfield's trade exports [ref:roth1910]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Gum lumps are gathered when found and kept, since the cement 'only requires heat to soften it again'; spear and axe work followed the materials, after the storms [ref:roth1904] [ref:anderson1996]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- Spear cement: hafts to shafts, barbs and prongs on the head [ref:roth1904] [ref:anderson1996].\n- Axe cement, mixed with beeswax [ref:anderson1996].\n- The harpoon's ring-plug [ref:anderson1996].\n- Canoe hulls at Cape Bedford [ref:roth1910].\n- Trade: a Bloomfield export [ref:roth1910]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Preparing the gum",
+      "body": "From Roth and Anderson [ref:roth1904] [ref:anderson1996]:\n\n1. Gather the dry lumps of gum from the trunk.\n2. Wrap them in leaves and bake them in the ashes, or warm them before the fire.\n3. Pound between two stones until soft; at Cooktown the stones were greased with an oily nut so the gum did not stick [ref:roth1904].\n4. For an axe, mix with beeswax; work it hot round the binding and let it set [ref:anderson1996].\n5. Never burn the wood at the cooking fire [ref:anderson1996].\n\nThe whole cement kit is on the [beeswax and gums](entry:beeswax-and-gums) page."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- The smoke 'is said by Kuku-Yalanji to produce blindness'; not firewood [ref:anderson1996].\n- The dictionary calls it a 'poison nut tree' with a gum that is 'not poisonous'; take the gum and leave the nut [ref:hershberger1982].\n- Hot gum burns and sticks."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The tree is in the Bloomfield scrubs and its gum still sets a spear; the Eastern Kuku Yalanji country where it grows was handed back to its Traditional Owners in 2021 [ref:handback2021] [ref:anderson1996]. Whether *jalnji* is this tree exactly is for the people who gather its gum; the contribution box below is for that [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[jalnji](word:jalnji)* the spear-gum tree; *[yikari](word:yikari)* the traded resin; *[milbanku](word:milbanku)*, *[mirrbangku](word:mirrbangku)* 'pencil cedar' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "beeswax-and-gums",
+    "spear-and-woomera",
+    "axes-and-adzes",
+    "red-cedar",
+    "canoes",
+    "native-bees",
+    "sinew"
+  ],
+  "relatedWords": [
+    {
+      "word": "yikari",
+      "gloss": "hardened beeswax; Roth's name for the traded Canarium muelleri resin"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "rfk-canarium",
+      "citation": "Australian Tropical Rainforest Plants (RFK8), Canarium australasicum (brown cudgerie, mango bark, carrotwood). CSIRO / Lucidcentral.",
+      "url": "https://apps.lucidcentral.org/rainforest/text/entities/canarium_australasicum.htm"
+    },
+    {
+      "id": "roth1910",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and Trade. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52863",
+      "locator": "Sects. 14–15, dug-out canoes from the Flinders Group to Cape Grafton"
+    },
+    {
+      "id": "handback2021",
+      "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
+      "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

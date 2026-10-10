@@ -1,32 +1,3 @@
 {
-  "pages": [
-    {
-      "slug": "brown-cedar",
-      "title": "Brown cedar",
-      "note": "Canarium australasicum; its smoke is said to blind"
-    },
-    {
-      "slug": "dugong",
-      "title": "Dugong"
-    },
-    {
-      "slug": "mangroves",
-      "title": "Mangroves",
-      "note": "Mangrove trees, fruits that must be leached, and mangrove country"
-    },
-    {
-      "slug": "oysters",
-      "title": "Oysters"
-    },
-    {
-      "slug": "stingrays",
-      "title": "Stingrays",
-      "note": "Stingrays: food, spear barbs and a danger on the flats"
-    },
-    {
-      "slug": "wild-ginger",
-      "title": "Wild ginger",
-      "note": "Ginger leaves used to line earth ovens and wrap food; the jidu plant"
-    }
-  ]
+  "pages": []
 }

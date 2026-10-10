@@ -1,0 +1,200 @@
+{
+  "slug": "oysters",
+  "title": "Oysters",
+  "category": "shellfish-crustacean",
+  "names": [
+    {
+      "word": "marrkabina",
+      "gloss": "edible oyster"
+    },
+    {
+      "word": "julul",
+      "gloss": "kind of oyster, larger than juwarru"
+    },
+    {
+      "word": "juwarru",
+      "gloss": "mud oyster, clinging to rock and mangroves"
+    },
+    {
+      "word": "yulba",
+      "gloss": "large round oyster"
+    }
+  ],
+  "scientificName": "Saccostrea and other rock oysters",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary names seven oysters by size and place and the Bloomfield rock and mangrove oysters are Saccostrea; which word is which species is not recorded."
+  },
+  "countryTypes": [
+    "coast-mangrove",
+    "reef-sea"
+  ],
+  "summary": "Seven words for oysters: **[marrkabina](word:marrkabina)** 'edible oyster'; **[julul](word:julul)** 'kind of oyster, larger than *juwarru*'; **[juwarru](word:juwarru)** 'mud oyster. It is like a barnacle, only it clings to rock and mangroves. Smaller and flatter than *julul*'; **[yulba](word:yulba)** 'large round oyster'; **[jirrum](word:jirrum)** 'small oyster'; **[nikar](word:nikar)** 'species of shallow water oyster found on rock'; **[marku](word:marku)** and **[marubu](word:marubu)** 'species of oyster' [ref:hershberger1982]. The rock oyster of this coast is *Saccostrea*, the hooded oyster, which 'cements itself to rocks or to the branches and roots of mangroves', grows to 8–12 cm in the Pacific, 'is a filter feeder' and 'is tolerant of a wide range of temperatures and salinities' [ref:wiki-saccostrea]. Roth's rule for all shellfish was that 'the large majority of these shell-fish are roasted in the ashes: a few may be eaten raw', and that they were 'generally prepared by the women'; Anderson lists shellfish among the gathered foods at Bloomfield, with the oyster-growths of the reef and the creek mouths among the 'very important' areas of the Traditional Owners' plan [ref:roth1901] [ref:anderson1996] [ref:jabalbina2016]. This is a page of the sea country of the Eastern Kuku Yalanji, the Bloomfield and Daintree coast; it is a long way from [Karma Waters](place:karma-waters) on the upper Mitchell, and is here because the words, the trade and the tools reach inland.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "marrkabina (edible oyster); julul, juwarru, yulba, jirrum, nikar, marku, marubu (kinds of oyster)"
+    },
+    {
+      "label": "The animal",
+      "value": "Saccostrea, the rock or hooded oyster: thick-shelled, the lower valve cemented to rock or mangrove root, the upper a flat lid; to 8–12 cm"
+    },
+    {
+      "label": "Where",
+      "value": "Rocks and mangrove roots between the tides, at creek mouths and headlands; low tide is the time"
+    },
+    {
+      "label": "Eaten",
+      "value": "Roasted in the ashes, or raw off the rock"
+    },
+    {
+      "label": "Watch for",
+      "value": "Polluted water, which the oyster concentrates; the crocodile; the shell's edge"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[marrkabina](word:marrkabina)** 'edible oyster'; **[julul](word:julul)** 'kind of oyster, larger than *juwarru*'; **[juwarru](word:juwarru)** 'mud oyster ... clings to rock and mangroves. Smaller and flatter than *julul*'; **[yulba](word:yulba)** 'large round oyster'; **[jirrum](word:jirrum)** 'small oyster'; **[nikar](word:nikar)** 'species of shallow water oyster found on rock'; **[marku](word:marku)** 'species of oyster'; **[marubu](word:marubu)** 'species of oyster'; **[milbar](word:milbar)** 'generic term for shell' [ref:hershberger1982]. The dictionary sorts oysters by size and where they sit, which is how a gatherer sorts them."
+    },
+    {
+      "id": "description",
+      "heading": "The oyster",
+      "body": "'The appearance and form of the hooded oyster is very variable. The shape is sometimes nearly circular or it may be oblong or roughly oval, often with an irregular outline. In the Mediterranean, it grows to 4 to 6 cm, but achieves double that size in the Pacific Ocean. The valves are thick and solid. The lower valve is convex and has no sculpturing near the umbo, which is fixed to the substrate. The upper valve is flat'. 'The hooded oyster is a filter feeder, pumping water through its gills and removing the phytoplankton. In polluted waters, it accumulates heavy metals in its tissues. For this reason it can be used as a bioindicator'. 'The hooded oyster is tolerant of a wide range of temperatures and salinities'. It 'cements itself to rocks or to the branches and roots of mangroves' [ref:wiki-saccostrea].\n\nOn the Gulf islands Roth saw stone fish-weirs 'built of pieces of stone (subsequently locked together by oyster-growths)', which is how fast and how hard the oyster builds [ref:roth1901]. The estuary [stingray](entry:stingrays) 'has gained infamy for consuming farmed shellfish such as oysters', though it mainly eats crabs and worms [ref:wiki-estuary-stingray]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Oyster, mussel, cockle",
+      "body": "- **Rock and mangrove oysters**: cemented down, flat-lidded, irregular, in clusters [ref:wiki-saccostrea].\n- **Saltwater [mussels](entry:mussels)** and the mangrove cockles (*Geloina*): two matching valves, held by threads in the mud or roots, not cemented [ref:anderson1996].\n- **The big [bailer](entry:bailer-shells) and nautilus**: not food on the rock but tools on the beach [ref:roth1904].\n- **Barnacles**, which the dictionary's *juwarru* 'is like', are not shellfish at all [ref:hershberger1982]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Grey rough crusts on the rocks and the mangrove roots** uncovered at low tide [ref:wiki-saccostrea].\n- **Middens** of oyster shell on a headland camp: old gathering, and heritage to leave [ref:acha2003].\n- **A stingray's bite marks** on an oyster bed [ref:wiki-estuary-stingray].\n- **Low tide**, *ngajal*, is the only time [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they grow",
+      "body": "Between the tides on rock and on mangrove roots, at creek mouths, on the headlands and the reef flats of the Bloomfield and Daintree coast and the islands; the Traditional Owners' plan names the reefs, mangroves and mudflats as the important areas [ref:wiki-saccostrea] [ref:jabalbina2016]. There are no oysters at Karma Waters; the river's shellfish is the freshwater [mussel](entry:mussels)."
+    },
+    {
+      "id": "ecology",
+      "heading": "The filter on the rock",
+      "body": "The oyster filters the creek, cements the rocks and the weirs, and feeds the stingray, the crabs and the people; because it filters, it carries whatever is in the water, which is the one caution about eating it [ref:wiki-saccostrea]. It sits in the [mangroves'](entry:mangroves) nursery with the [mud crab](entry:mud-crab), and the shell went into the [earth oven](entry:earth-oven) ashes and the middens [ref:roth1901]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Gathered at low tide in any season; the big spring low tides of the dry are the easiest; the shellfish 'generally prepared by the women' [ref:roth1901]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Food**, roasted in the ashes or eaten raw [ref:roth1901].\n- **The shell**: a cutting edge, and lime in the oven ashes; the Keppel Islanders drilled shell with stone, and the east coast used oval pieces of nautilus and baler for spoons [ref:roth1904]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Gathering oysters",
+      "body": "From Roth and the dictionary [ref:roth1901] [ref:hershberger1982]:\n\n1. **Go at low tide** (*ngajal*) to the rocks and mangrove roots at a creek mouth [ref:hershberger1982].\n2. **Knock the big ones off** with a stone or open them on the rock with a shell or a knife; the dictionary's *julul* and *yulba* are the ones worth the work [ref:hershberger1982].\n3. **Roast** them in the ashes until they open, 'the large majority of these shell-fish are roasted in the ashes', or eat the clean rock ones raw [ref:roth1901].\n4. **Leave the small ones**, *jirrum*, and the middens [ref:hershberger1982] [ref:acha2003]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Oysters concentrate what is in the water; none from a creek below a town, a drain or a boat ramp [ref:wiki-saccostrea].\n- Creek mouths and mangrove roots are crocodile country; Be Crocwise [ref:crocwise].\n- Shell edges cut; boots and a glove.\n- Taking shellfish on sea country comes under the Traditional Owners' plan, the Marine Park's traditional-use rules and the *Fisheries Act 1994* [ref:jabalbina2016] [ref:gbrmpa-tu] [ref:qld-fishact]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "Oysters are gathered at low tide on the Bloomfield coast as they always were, and the eight dictionary words are a field guide waiting for its photographs; the contribution box below is for them [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[marrkabina](word:marrkabina)* 'edible oyster'; *[julul](word:julul)*, *[juwarru](word:juwarru)*, *[yulba](word:yulba)*, *[jirrum](word:jirrum)*, *[nikar](word:nikar)*, *[marku](word:marku)*, *[marubu](word:marubu)* kinds of oyster; *[milbar](word:milbar)* 'shell'; *[ngajal](word:ngajal)* 'low tide' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "mangroves",
+    "mud-crab",
+    "mussels",
+    "bailer-shells",
+    "stingrays",
+    "earth-oven"
+  ],
+  "relatedWords": [
+    {
+      "word": "nikar",
+      "gloss": "species of shallow water oyster found on rock"
+    },
+    {
+      "word": "jirrum",
+      "gloss": "small oyster"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-saccostrea",
+      "citation": "Wikipedia. Saccostrea cucullata (hooded or rock oyster).",
+      "url": "https://en.wikipedia.org/wiki/Saccostrea_cucullata"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "jabalbina2016",
+      "citation": "Yalanjiwarra People & Jabalbina Yalanji Aboriginal Corporation (2016). Nganjinanga Bubu, Nganjinanga Jalun, Nganjinanga Bama Plan: Our Land, Our Sea, Our People Plan 2016–2021. Eastern Kuku Yalanji Indigenous Protected Area Management Plan, Stage 3. Mossman: Jabalbina.",
+      "url": "https://www.wettropicsplan.org.au/wp-content/uploads/2019/09/Eastern-Kuku-Yalanji-Indgenous-Protected-Area-Management-Plan-Stage-3-Yalanjiwarra-Land-and-Sea-Country.pdf",
+      "locator": "Sections 4, 7.9 (Wrong fishing and sea hunting), 7.10 and Action 9.2"
+    },
+    {
+      "id": "wiki-estuary-stingray",
+      "citation": "Wikipedia. Estuary stingray (Hemitrygon fluviorum).",
+      "url": "https://en.wikipedia.org/wiki/Estuary_stingray"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 10 'Fire-tongs'"
+    },
+    {
+      "id": "acha2003",
+      "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), sections 23–25 (cultural heritage duty of care; harming, excavating, relocating or taking away Aboriginal cultural heritage).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-2003-079"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "gbrmpa-tu",
+      "citation": "Great Barrier Reef Marine Park Authority. Traditional use of the Marine Park; Traditional Use of Marine Resources Agreements (web pages, accessed 5 October 2026).",
+      "url": "https://www2.gbrmpa.gov.au/learn/traditional-owners/traditional-use-marine-resources-agreements"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}

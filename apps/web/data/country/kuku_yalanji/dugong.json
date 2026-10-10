@@ -1,0 +1,202 @@
+{
+  "slug": "dugong",
+  "title": "Dugong (kirbaji)",
+  "category": "mammal",
+  "names": [
+    {
+      "word": "kirbaji",
+      "gloss": "dugong"
+    },
+    {
+      "word": "biwuy",
+      "gloss": "porpoise, dugong, sea cow"
+    }
+  ],
+  "scientificName": "Dugong dugon",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary has kirbaji 'dugong' and biwuy 'porpoise, dugong, sea cow'. Roth (1901) records dugong harpooning from the canoe and its signs; the Eastern Kuku Yalanji sea-country plan (2016) says dugong are now too few on their sea country to hunt."
+  },
+  "countryTypes": [
+    "reef-sea",
+    "coast-mangrove"
+  ],
+  "summary": "**[kirbaji](word:kirbaji)** is the dugong, and **[biwuy](word:biwuy)** is 'porpoise, dugong, sea cow' [ref:hershberger1982]. It is the sea cow of the seagrass meadows, 'about three metres in length' and 'as much as 400 kilograms', 'the only marine mammals in Australia that live mainly on plants', which 'cannot hold their breath under water for very long' and must surface every few minutes [ref:gbrmpa-dugong]. 'The dugong has been hunted for thousands of years for its meat and oil. Traditional hunting still has great cultural significance in several parts of its modern range, particularly northern Australia' [ref:wiki-dugong]. Roth's note is the method: 'dugong are either harpooned or speared, more generally the former', and the sign of one nearby 'the short lengths of grass, which have been bitten off by the dugong grazing below, floating on the water-surface' [ref:roth1901]. The Eastern Kuku Yalanji's own sea-country plan now says the dugong are too few on their sea country to hunt for meat, and that is the current word on it [ref:jabalbina2016]. This is a page of the sea country of the Eastern Kuku Yalanji, the Bloomfield and Daintree coast; it is a long way from [Karma Waters](place:karma-waters) on the upper Mitchell, and is here because the words, the trade and the tools reach inland.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "kirbaji (dugong); biwuy (porpoise, dugong, sea cow)"
+    },
+    {
+      "label": "Size",
+      "value": "To about 3 m and 400 kg; the largest recorded over 4 m and 1,000 kg"
+    },
+    {
+      "label": "Food",
+      "value": "Seagrass, uprooted whole, leaving a feeding trail; bitten-off grass floating is the sign"
+    },
+    {
+      "label": "Where",
+      "value": "Shallow sheltered bays with seagrass; the Great Barrier Reef holds a population of around 10,000"
+    },
+    {
+      "label": "Taken by",
+      "value": "Harpoon from the canoe, with the shaft as a float; at Bentinck Island, driven into bush fences"
+    },
+    {
+      "label": "Now",
+      "value": "IUCN vulnerable; too few on Eastern Kuku Yalanji sea country to hunt, by the Traditional Owners' own plan"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[kirbaji](word:kirbaji)** 'dugong'; **[biwuy](word:biwuy)** 'porpoise, dugong, sea cow', a word that also means 'iron' [ref:hershberger1982]. **[jalun](word:jalun)** is 'sea, large body of water'; **[kaljan](word:kaljan)** the [outrigger canoe](entry:canoes) the hunt was made from; **[kuralbi](word:kuralbi)** the rope tree [ref:hershberger1982]. 'Early explorers and sailors believed that they were mermaids because of their streamlined bodies and the large teats at the base of the flippers of the female dugong' [ref:gbrmpa-dugong]."
+    },
+    {
+      "id": "description",
+      "heading": "The animal",
+      "body": "'Dugongs, or sea cows as they are sometimes called, are marine animals which can grow to about three metres in length and weigh as much as 400 kilograms. They are the only marine mammals in Australia that live mainly on plants. The name sea cow refers to the fact that they graze on seagrass, which forms meadows in sheltered coastal waters. As dugongs feed, whole plants are uprooted and a telltale feeding trail is left behind.' 'Dugong are more closely related to elephants than to other marine mammals such as whales and dolphins'. 'They have a rounded head with small eyes and a large snout. The nostrils are at the top of the snout and can be closed diving to keep the water out ... Dives generally last for only a few minutes'. 'Dugong have poor eyesight but very good hearing. They find and grasp seagrass with the aid of coarse, sensitive bristles that cover the upper lip of their large and fleshy snout. Small tusks can be seen in adult males and some old females' [ref:gbrmpa-dugong].\n\n'An adult's length rarely exceeds 3 metres. An individual this long is expected to weigh around 420 kilograms'; 'the dugong is easily distinguishable from the manatees by its fluked, dolphin-like tail'. 'Australia is home to the largest population, stretching from Shark Bay in Western Australia to Moreton Bay in Queensland'; 'the Great Barrier Reef provides important feeding areas for the species; this reef area houses a stable population of around 10,000' [ref:wiki-dugong]. 'Their slow breeding rate and long life span mean that dugongs are particularly susceptible to factors that threaten their survival' [ref:gbrmpa-dugong]; the IUCN lists the species as vulnerable [ref:wiki-dugong].\n\n**The hunt, as Roth recorded it.** 'Dugong are either harpooned or speared, more generally the former. As pointed out to me by the natives on the Cardwell coast-line, very good indications of their presence in the neighbourhood are the short lengths of grass, which have been bitten off by the dugong grazing below, floating on the water-surface. I am informed that on the south-west portion of Bentinck Island are to be found alley-ways in the form of bush fences, built in the shallow water, into which these animals are driven' [ref:roth1901]. The harpoon was the turtle harpoon: 'a shaft and dart, connected by a rope, the dart being jambed into a socket at the distal extremity of the shaft', so that when the dart holds 'the staff flies off, and serves for a float to trace their victim in the water; it assists also to tire him till they can overtake him with their canoes and haul him ashore'; the Bloomfield harpoon is on the [sea turtle](entry:sea-turtle) page [ref:roth1901] [ref:anderson1996]. On the Tully coast a sucker-fish on a line was used 'as a guide for spearing or harpooning fish, as well as turtle and dugong' [ref:roth1901]. At Rockhampton 'dugong used to be \"stuffed\" with heated stones during its baking' in the ground oven [ref:roth1901]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Dugong, dolphin, turtle",
+      "body": "- **Dugong**: a grey back that rolls without a fin, a fluked tail, a snout down in the grass; grazing in a shallow bay, surfacing every few minutes [ref:gbrmpa-dugong].\n- **Dolphin** (*biwuy* in its other sense): a dorsal fin, a leap, a bow wave [ref:hershberger1982].\n- **[Green turtle](entry:sea-turtle)**: in the same seagrass, but a shell and a head that comes up to breathe and goes down [ref:gbrmpa-turtles].\n- **A feeding trail** of uprooted seagrass and floating bitten grass is the dugong's and no one else's [ref:gbrmpa-dugong] [ref:roth1901]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Short lengths of seagrass floating**, 'bitten off by the dugong grazing below' [ref:roth1901].\n- **Feeding trails** through the seagrass meadow, 'whole plants uprooted' [ref:gbrmpa-dugong].\n- **A slow roll and a blow** in a sheltered bay, every few minutes [ref:gbrmpa-dugong].\n- **Tusks** on an old male [ref:gbrmpa-dugong]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where it lives",
+      "body": "'Shallow, tropical waters' with seagrass, 'large numbers concentrated in wide and shallow protected bays' [ref:gbrmpa-dugong] [ref:wiki-dugong]. On Kuku Yalanji sea country that is the bays and seagrass beds of the Bloomfield and Daintree coast and the reef; the Traditional Owners' plan calls their reefs very important areas for fish and turtle and says the dugong there are now few [ref:jabalbina2016]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The grazer of the sea",
+      "body": "The dugong is the sea's grazer, a cow in the meadows, and 'the status of dugong populations in an area can be used as an indicator of general ecosystem health' [ref:gbrmpa-dugong]. It shares the seagrass with the [green turtle](entry:sea-turtle); it is hunted by big sharks and by people; and it is lost to nets, boat strike and the death of seagrass after floods and cyclones, which is why it is vulnerable and why the Reef's Traditional Owners manage its take under agreements [ref:wiki-dugong] [ref:gbrmpa-tu]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "Dugong hunting was dry-season, calm-weather work from the canoe, with turtle; the canoe went out 'only when the wind and weather are favourable' [ref:roth1910] [ref:anderson1996]. See [the year on country](entry:seasons)."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "- **Meat and oil**, 'for thousands of years' [ref:wiki-dugong].\n- **Baked** in the ground oven, stuffed with hot stones [ref:roth1901].\n- **Cultural significance** across northern Australia, and in the Eastern Kuku Yalanji sea-country plan [ref:wiki-dugong] [ref:jabalbina2016]."
+    },
+    {
+      "id": "how-to",
+      "heading": "The old hunt, and the present rule",
+      "body": "Roth's and Anderson's method [ref:roth1901] [ref:anderson1996]:\n\n1. **Read the water** for floating bitten seagrass and feeding trails [ref:roth1901] [ref:gbrmpa-dugong].\n2. **Go out in the [canoe](entry:canoes)** in calm weather, two or three men, one on the bow platform with the [harpoon](entry:sea-turtle), the others paddling and watching [ref:anderson1996].\n3. **Strike** when the dugong surfaces to breathe; the dart holds, the shaft floats, the rope runs from the bow [ref:roth1901] [ref:anderson1996].\n4. **Follow and tire it**, haul it to the canoe or the beach [ref:roth1901].\n5. **Cook** in the ground oven with hot stones inside [ref:roth1901].\n\n**The present rule.** Native title holders' right to hunt for personal, domestic or non-commercial communal needs is preserved by section 211 of the *Native Title Act 1993*; in the Marine Park the Reef's Traditional Owners manage traditional take under accredited Traditional Use of Marine Resources Agreements; and the Eastern Kuku Yalanji plan says dugong on their sea country are now too few to hunt for meat [ref:alrc] [ref:gbrmpa-tu] [ref:jabalbina2016]. That is the Traditional Owners' decision and this page follows it."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "- Roth heard of a Cape Bedford man who struck a dugong, clung to the rope and was dragged until he let go; a harpooned dugong is a tonne of animal on a line [ref:roth1901].\n- Sea country is [saltwater crocodile](entry:saltwater-crocodile) country [ref:crocwise].\n- The hunting rules of the Traditional Owners' plan, the Marine Park and the *Fisheries Act 1994* apply; wrong sea hunting is a thing the plan names [ref:jabalbina2016] [ref:gbrmpa-tu] [ref:qld-fishact]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The Eastern Kuku Yalanji manage their sea country from Wujal Wujal, and their plan is the word on dugong: monitor, protect the seagrass, and do not hunt while the numbers are low [ref:jabalbina2016] [ref:handback2021]. The dictionary keeps the name for when there are enough again [ref:hershberger1982]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "*[kirbaji](word:kirbaji)* 'dugong'; *[biwuy](word:biwuy)* 'porpoise, dugong, sea cow'; *[jalun](word:jalun)* 'sea'; *[kaljan](word:kaljan)* 'outrigger canoe'; *[kuralbi](word:kuralbi)* the rope tree [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "sea-turtle",
+    "canoes",
+    "spear-and-woomera",
+    "saltwater-crocodile",
+    "earth-oven",
+    "seasons"
+  ],
+  "relatedWords": [
+    {
+      "word": "jalun",
+      "gloss": "sea, large body of water"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "gbrmpa-dugong",
+      "citation": "Great Barrier Reef Marine Park Authority (Reef Authority). Dugong (web page, accessed 10 October 2026).",
+      "url": "https://www.gbrmpa.gov.au/learn/animals/dugong"
+    },
+    {
+      "id": "wiki-dugong",
+      "citation": "Wikipedia. Dugong (Dugong dugon): biology, range and traditional hunting.",
+      "url": "https://en.wikipedia.org/wiki/Dugong"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "jabalbina2016",
+      "citation": "Yalanjiwarra People & Jabalbina Yalanji Aboriginal Corporation (2016). Nganjinanga Bubu, Nganjinanga Jalun, Nganjinanga Bama Plan: Our Land, Our Sea, Our People Plan 2016–2021. Eastern Kuku Yalanji Indigenous Protected Area Management Plan, Stage 3. Mossman: Jabalbina.",
+      "url": "https://www.wettropicsplan.org.au/wp-content/uploads/2019/09/Eastern-Kuku-Yalanji-Indgenous-Protected-Area-Management-Plan-Stage-3-Yalanjiwarra-Land-and-Sea-Country.pdf",
+      "locator": "Sections 4, 7.9 (Wrong fishing and sea hunting), 7.10 and Action 9.2"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "gbrmpa-turtles",
+      "citation": "Great Barrier Reef Marine Park Authority. Marine turtles (web page, accessed 5 October 2026).",
+      "url": "https://www2.gbrmpa.gov.au/learn/animals/marine-turtles"
+    },
+    {
+      "id": "gbrmpa-tu",
+      "citation": "Great Barrier Reef Marine Park Authority. Traditional use of the Marine Park; Traditional Use of Marine Resources Agreements (web pages, accessed 5 October 2026).",
+      "url": "https://www2.gbrmpa.gov.au/learn/traditional-owners/traditional-use-marine-resources-agreements"
+    },
+    {
+      "id": "roth1910",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and Trade. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52863",
+      "locator": "Sects. 14–15, dug-out canoes from the Flinders Group to Cape Grafton"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "handback2021",
+      "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
+      "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
