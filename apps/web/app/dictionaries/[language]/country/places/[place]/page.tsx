@@ -15,6 +15,7 @@ import { CATEGORY_LABELS } from '@/lib/country/schema';
 import { CountryMarkdown } from '../../components/CountryMarkdown';
 import { ReviewNotice } from '../../components/ReviewNotice';
 import { CountryFigure } from '../../components/CountryFigure';
+import { Community } from '../../components/Community';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -153,6 +154,8 @@ export default async function CountryPlacePage(props: { params: Promise<{ langua
                 ))}
               </ol>
             </section>
+
+            <Community language={language} target={`place:${place.slug}`} />
           </div>
 
           <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">

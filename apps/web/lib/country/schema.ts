@@ -73,7 +73,10 @@ export const COUNTRY_TYPE_LABELS: Record<(typeof COUNTRY_TYPES)[number], string>
 export const SECTION_IDS = [
   'names',
   'description',
+  'lookalikes', // what it can be confused with, and how to tell
+  'signs', // tracks, scats, calls, smells, feeding sign: how you know it is there
   'habitat',
+  'ecology', // what it eats, what eats it, who it lives alongside, daily and seasonal rhythm
   'seasons',
   'uses',
   'how-to',

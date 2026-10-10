@@ -5,6 +5,7 @@ import SharedLayout from '../../../components/SharedLayout';
 import { COUNTRY_LANGUAGES, getCountryEntries, getCountryImages, getCountryPlaces, getWantedPages } from '@/lib/country/entries.server';
 import { CountryBrowser, type CountryCard } from './CountryBrowser';
 import { ReviewNotice } from './components/ReviewNotice';
+import { Community } from './components/Community';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -118,6 +119,13 @@ export default async function CountryIndexPage(props: { params: Promise<{ langua
             </ul>
           </section>
         )}
+
+        <Community language={language} target="new" mode="proposals" />
+        <p className="mt-6 text-sm">
+          <Link href={`/dictionaries/${language}/country/contributions`} className="font-medium text-[var(--lang-accent)] hover:underline">
+            Everything the community has added, across all pages
+          </Link>
+        </p>
       </div>
     </SharedLayout>
   );
