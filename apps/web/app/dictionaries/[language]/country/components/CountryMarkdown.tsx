@@ -62,6 +62,11 @@ export function CountryMarkdown({
             </a>
           );
         },
+        // Sub-headings inside a section body (`##`, `###`) sit under the section's h2.
+        h1: ({ children: text }) => <h3 className="mb-3 mt-8 text-xl font-semibold tracking-tight">{text}</h3>,
+        h2: ({ children: text }) => <h3 className="mb-3 mt-8 text-xl font-semibold tracking-tight">{text}</h3>,
+        h3: ({ children: text }) => <h4 className="mb-2 mt-6 text-lg font-semibold">{text}</h4>,
+        h4: ({ children: text }) => <h5 className="mb-2 mt-4 font-semibold">{text}</h5>,
         p: ({ children: text }) => <p className="mb-4 leading-7">{text}</p>,
         ol: ({ children: items }) => <ol className="mb-4 ml-5 list-decimal space-y-2 leading-7">{items}</ol>,
         ul: ({ children: items }) => <ul className="mb-4 ml-5 list-disc space-y-2 leading-7">{items}</ul>,
