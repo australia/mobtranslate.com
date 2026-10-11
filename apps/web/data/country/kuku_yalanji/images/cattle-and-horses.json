@@ -2,16 +2,16 @@
   "slug": "cattle-and-horses",
   "images": [
     {
-      "src": "/country-img/kuku_yalanji/cattle-and-horses/bos-taurus-inat.webp",
-      "width": 1024,
-      "height": 768,
-      "alt": "Cattle, Bos taurus taurus × indicus, photographed in the wild near Mutchilba Queensland",
-      "caption": "Cattle (Bos taurus taurus × indicus), Mutchilba Queensland, 2024. Photograph by no rights reserved on iNaturalist, licence CC0 1.0.",
+      "src": "/country-img/kuku_yalanji/cattle-and-horses/brahman-cattle-burdekin.webp",
+      "width": 1600,
+      "height": 1200,
+      "alt": "A mob of grey and red Brahman cattle standing in dry grass under scattered trees",
+      "caption": "Brahman cattle grazing in the Burdekin River catchment, north Queensland, the same breed and the same dry-season country as Karma Waters. Photograph by CSIRO, licence CC BY 3.0.",
       "kind": "photo",
-      "credit": "Photograph: no rights reserved, via iNaturalist (observation 260786260)",
-      "licence": "CC0-1.0",
-      "sourceUrl": "https://www.inaturalist.org/observations/260786260",
-      "location": "Mutchilba Queensland"
+      "credit": "Photograph: CSIRO (ScienceImage 10444), via Wikimedia Commons",
+      "licence": "CC-BY-3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_10444_Brahman_cattle_grazing_in_the_Burdekin_River_catchment_area.jpg",
+      "location": "Burdekin River catchment, Queensland"
     }
   ]
 }
