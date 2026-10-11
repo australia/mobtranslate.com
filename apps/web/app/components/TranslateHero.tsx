@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
+  AlertTriangle,
   ArrowRight,
   BookOpen,
   CheckCircle2,
@@ -12,6 +13,7 @@ import {
 import { track } from '@/lib/analytics';
 import type { Language } from '@/lib/supabase/types';
 import { getHybridLanguageIdentity } from '@/lib/hybrid-language-identities';
+import { countGlossWords, type GlossToken } from '@/lib/dictionary-gloss';
 
 interface TranslateHeroProps {
   languages: Language[];
@@ -39,6 +41,14 @@ interface DictionaryHit {
   word: string;
   meaning: string;
   wordClass?: string;
+}
+
+interface GlossPayload {
+  tokens?: GlossToken[];
+  found?: number;
+  missing?: number;
+  skipped?: number;
+  complete?: boolean;
 }
 
 const EXAMPLES: Record<string, string[]> = {
@@ -82,6 +92,32 @@ function toDictionaryHits(rows: SearchRow[]): DictionaryHit[] {
   return [...hits.values()].slice(0, 6);
 }
 
+function toGlossTokens(payload: GlossPayload): GlossToken[] {
+  if (!Array.isArray(payload.tokens)) return [];
+  return payload.tokens.filter(
+    (token): token is GlossToken =>
+      !!token &&
+      typeof token.token === 'string' &&
+      typeof token.status === 'string' &&
+      Array.isArray(token.matches),
+  );
+}
+
+function statusLabel(token: GlossToken): string {
+  switch (token.status) {
+    case 'headword':
+      return 'headword';
+    case 'exact':
+      return token.ambiguous ? 'more than one entry' : 'entry';
+    case 'mention':
+      return `mentioned under "${token.lookup}"`;
+    case 'skipped':
+      return 'English function word';
+    default:
+      return 'no entry';
+  }
+}
+
 export default function TranslateHero({ languages }: TranslateHeroProps) {
   const [target, setTarget] = useState(
     languages.find((language) => language.code === 'kuku_yalanji')?.code ||
@@ -90,6 +126,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
   );
   const [input, setInput] = useState('');
   const [hits, setHits] = useState<DictionaryHit[]>([]);
+  const [glossTokens, setGlossTokens] = useState<GlossToken[] | null>(null);
   const [searchedQuery, setSearchedQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -113,6 +150,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
     const query = input.trim();
     if (query.length < 2) {
       setHits([]);
+      setGlossTokens(null);
       setSearchedQuery('');
       setLoading(false);
       setError(null);
@@ -120,21 +158,37 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
     }
 
     const controller = new AbortController();
+    const phrase = countGlossWords(query) >= 2;
     const timer = window.setTimeout(async () => {
       setLoading(true);
       setError(null);
       try {
-        const params = new URLSearchParams({
-          q: query,
-          dictionary_code: target,
-          limit: '18',
-        });
-        const response = await fetch(`/api/v2/public/search?${params}`, {
-          signal: controller.signal,
-        });
-        if (!response.ok) throw new Error('Dictionary search failed');
-        const data = (await response.json()) as { results?: SearchRow[] };
-        setHits(toDictionaryHits(data.results ?? []));
+        if (phrase) {
+          const params = new URLSearchParams({
+            q: query,
+            dictionary_code: target,
+          });
+          const response = await fetch(`/api/v2/public/gloss?${params}`, {
+            signal: controller.signal,
+          });
+          if (!response.ok) throw new Error('Dictionary lookup failed');
+          const data = (await response.json()) as GlossPayload;
+          setHits([]);
+          setGlossTokens(toGlossTokens(data));
+        } else {
+          const params = new URLSearchParams({
+            q: query,
+            dictionary_code: target,
+            limit: '18',
+          });
+          const response = await fetch(`/api/v2/public/search?${params}`, {
+            signal: controller.signal,
+          });
+          if (!response.ok) throw new Error('Dictionary search failed');
+          const data = (await response.json()) as { results?: SearchRow[] };
+          setGlossTokens(null);
+          setHits(toDictionaryHits(data.results ?? []));
+        }
         setSearchedQuery(query);
       } catch (searchError) {
         if (controller.signal.aborted) return;
@@ -164,6 +218,15 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
     });
   }
 
+  const glossFound = glossTokens?.filter((token) => token.matches.length > 0) ?? [];
+  const glossMissing = glossTokens?.filter((token) => token.status === 'missing') ?? [];
+  const glossSkipped = glossTokens?.filter((token) => token.status === 'skipped') ?? [];
+  const showGloss = !!glossTokens && searchedQuery !== '' && !loading;
+  const nothingFound =
+    searchedQuery !== '' &&
+    !loading &&
+    (glossTokens ? glossFound.length === 0 : hits.length === 0);
+
   return (
     <div id="translate" className="mx-auto max-w-3xl scroll-mt-24">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
@@ -179,6 +242,7 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
             onChange={(event) => {
               setTarget(event.target.value);
               setHits([]);
+              setGlossTokens(null);
               setSearchedQuery('');
               setError(null);
             }}
@@ -213,8 +277,8 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
               id="dictionary-lookup"
               value={input}
               onChange={(event) => setInput(event.target.value)}
-              placeholder={`Search ${targetName} or an English meaning`}
-              maxLength={80}
+              placeholder={`Search ${targetName}, an English meaning, or a short phrase`}
+              maxLength={200}
               autoComplete="off"
               className="min-w-0 flex-1 bg-transparent py-4 text-lg text-[#faf8f5] outline-none placeholder:text-[#faf8f5]/35"
             />
@@ -251,13 +315,18 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
             <div className="p-5 text-sm text-[#f4d2b5]" role="alert">
               The dictionary could not be reached. Please try again.
             </div>
-          ) : searchedQuery && !loading && hits.length === 0 ? (
+          ) : nothingFound ? (
             <div className="p-6 text-center sm:p-8">
               <BookOpen className="mx-auto mb-3 h-6 w-6 text-[#ecb485]" />
               <p className="font-display text-xl text-[#faf8f5]">
                 No matching entry yet
               </p>
               <p className="mx-auto mt-1 max-w-md text-sm leading-relaxed text-[#faf8f5]/55">
+                {glossMissing.length > 0
+                  ? `No ${targetName} entry for: ${glossMissing
+                      .map((token) => token.token)
+                      .join(', ')}. `
+                  : null}
                 Try a shorter word or browse the working collection. A missing
                 result is left missing rather than filled with a machine guess.
               </p>
@@ -268,6 +337,97 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                 Browse {targetName}
                 <ArrowRight className="h-4 w-4" />
               </Link>
+            </div>
+          ) : showGloss ? (
+            <div>
+              <div className="flex items-center justify-between px-5 py-3 text-xs uppercase tracking-[0.14em] text-[#faf8f5]/45">
+                <span>
+                  Word by word · {glossFound.length} of{' '}
+                  {glossTokens!.length - glossSkipped.length}{' '}
+                  {glossTokens!.length - glossSkipped.length === 1
+                    ? 'word'
+                    : 'words'}{' '}
+                  found
+                </span>
+                <span>Open for sources</span>
+              </div>
+              {glossMissing.length > 0 ? (
+                <div
+                  className="mx-5 mb-3 flex items-start gap-2 rounded-lg border border-[#f4a07a]/40 bg-[#f4a07a]/10 px-3 py-2 text-sm text-[#f4d2b5]"
+                  role="alert"
+                >
+                  <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+                  <span>
+                    Not everything could be translated. No {targetName} entry
+                    for:{' '}
+                    <strong>
+                      {glossMissing.map((token) => token.token).join(', ')}
+                    </strong>
+                    . The gap is shown rather than filled with a guess.
+                  </span>
+                </div>
+              ) : (
+                <div className="mx-5 mb-3 flex items-start gap-2 rounded-lg border border-[#ecb485]/30 bg-[#ecb485]/10 px-3 py-2 text-sm text-[#faf8f5]/80">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#ecb485]" />
+                  <span>
+                    Every word has a source-backed {targetName} entry. Word
+                    order and grammar still belong to a speaker.
+                  </span>
+                </div>
+              )}
+              <ol className="divide-y divide-[#faf8f5]/10 border-t border-[#faf8f5]/10">
+                {glossTokens!.map((token, position) => (
+                  <li
+                    key={`${position}-${token.token}`}
+                    className={`flex flex-wrap items-baseline gap-x-4 gap-y-1 px-5 py-3 ${
+                      token.status === 'missing'
+                        ? 'bg-[#f4a07a]/[0.06]'
+                        : token.status === 'skipped'
+                          ? 'opacity-60'
+                          : ''
+                    }`}
+                    data-status={token.status}
+                  >
+                    <span className="w-28 shrink-0 truncate text-sm text-[#faf8f5]/70">
+                      {token.token}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      {token.matches.length > 0 ? (
+                        <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                          {token.matches.map((match) => (
+                            <Link
+                              key={`${match.word}-${match.gloss}`}
+                              href={`/dictionaries/${target}/words/${encodeURIComponent(match.word)}`}
+                              className="group inline-flex items-baseline gap-2 hover:underline"
+                            >
+                              <span
+                                className="font-display text-lg font-semibold text-[#faf8f5]"
+                                lang={languageTag}
+                              >
+                                {match.word}
+                              </span>
+                              <span className="truncate text-xs text-[#faf8f5]/55">
+                                {match.gloss}
+                              </span>
+                            </Link>
+                          ))}
+                        </span>
+                      ) : token.status === 'skipped' ? (
+                        <span className="text-sm text-[#faf8f5]/45">
+                          English function word, no separate entry
+                        </span>
+                      ) : (
+                        <span className="text-sm font-medium text-[#f4d2b5]">
+                          No entry
+                        </span>
+                      )}
+                    </span>
+                    <span className="text-[11px] uppercase tracking-[0.12em] text-[#faf8f5]/40">
+                      {statusLabel(token)}
+                    </span>
+                  </li>
+                ))}
+              </ol>
             </div>
           ) : hits.length > 0 ? (
             <div>
@@ -312,8 +472,10 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
               <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-[#ecb485]" />
               <p>
                 Search in either direction: enter a word in {targetName}, or an
-                English meaning. Each result opens its recorded source and
-                review trail where available.
+                English meaning. A short phrase is looked up word by word, and
+                any word without a recorded entry is shown as missing. Each
+                result opens its recorded source and review trail where
+                available.
               </p>
             </div>
           )}

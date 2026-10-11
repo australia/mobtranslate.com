@@ -106,7 +106,7 @@ describe('TranslateHero source-backed lookup', () => {
 
     await user.type(
       screen.getByLabelText('Search a Kuku Yalanji word or English meaning'),
-      'unrecorded phrase',
+      'unrecorded',
     );
 
     expect(await screen.findByText('No matching entry yet')).toBeVisible();
@@ -117,6 +117,88 @@ describe('TranslateHero source-backed lookup', () => {
       'href',
       '/dictionaries/kuku_yalanji',
     );
+  });
+
+  it('glosses a phrase word by word and names every word it cannot translate', async () => {
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        query: 'helllo we catching catfish',
+        tokens: [
+          { token: 'helllo', lookup: 'helllo', status: 'missing', matches: [], ambiguous: false },
+          {
+            token: 'we',
+            lookup: 'we',
+            status: 'exact',
+            matches: [{ word: 'ngana', gloss: 'we' }],
+            ambiguous: false,
+          },
+          { token: 'catching', lookup: 'catching', status: 'missing', matches: [], ambiguous: false },
+          {
+            token: 'catfish',
+            lookup: 'catfish',
+            status: 'exact',
+            matches: [{ word: 'mukal', gloss: 'catfish' }],
+            ambiguous: false,
+          },
+        ],
+        found: 2,
+        missing: 2,
+        skipped: 0,
+        complete: false,
+      }),
+    });
+    const user = userEvent.setup();
+    render(<TranslateHero languages={languages} />);
+
+    await user.type(
+      screen.getByLabelText('Search a Kuku Yalanji word or English meaning'),
+      'helllo we catching catfish',
+    );
+
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenLastCalledWith(
+        '/api/v2/public/gloss?q=helllo+we+catching+catfish&dictionary_code=kuku_yalanji',
+        expect.objectContaining({ signal: expect.any(AbortSignal) }),
+      ),
+    );
+    expect(await screen.findByText('ngana')).toHaveAttribute('lang', 'gvn');
+    expect(screen.getByRole('link', { name: /mukal/ })).toHaveAttribute(
+      'href',
+      '/dictionaries/kuku_yalanji/words/mukal',
+    );
+    const alert = screen.getByRole('alert');
+    expect(alert).toHaveTextContent('Not everything could be translated');
+    expect(alert).toHaveTextContent('helllo, catching');
+    expect(screen.getAllByText('No entry')).toHaveLength(2);
+    expect(screen.getByText(/Word by word · 2 of 4 words found/)).toBeVisible();
+    expect(screen.queryByText('No matching entry yet')).toBeNull();
+  });
+
+  it('shows the missing words when nothing in a phrase can be translated', async () => {
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        tokens: [
+          { token: 'zzz', lookup: 'zzz', status: 'missing', matches: [], ambiguous: false },
+          { token: 'qqq', lookup: 'qqq', status: 'missing', matches: [], ambiguous: false },
+        ],
+        found: 0,
+        missing: 2,
+        skipped: 0,
+        complete: false,
+      }),
+    });
+    const user = userEvent.setup();
+    render(<TranslateHero languages={languages} />);
+
+    await user.type(
+      screen.getByLabelText('Search a Kuku Yalanji word or English meaning'),
+      'zzz qqq',
+    );
+
+    expect(await screen.findByText('No matching entry yet')).toBeVisible();
+    expect(screen.getByText(/No Kuku Yalanji entry for: zzz, qqq/)).toBeVisible();
   });
 
   it('searches the selected collection', async () => {
