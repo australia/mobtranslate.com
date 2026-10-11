@@ -1,0 +1,255 @@
+{
+  "slug": "sawfish-and-river-sharks",
+  "title": "Sawfish and river sharks",
+  "category": "fish",
+  "names": [
+    {
+      "word": "yubuji",
+      "gloss": "sawfish"
+    },
+    {
+      "word": "yaburr",
+      "gloss": "shark"
+    },
+    {
+      "word": "bilmbin",
+      "gloss": "small shark which comes around mangroves and in the river; black-tip shark"
+    },
+    {
+      "word": "bububay",
+      "gloss": "black tip shark"
+    },
+    {
+      "word": "kilkirr",
+      "gloss": "tiger shark"
+    },
+    {
+      "word": "bayilbayil",
+      "gloss": "peewee, mud shark"
+    }
+  ],
+  "scientificName": "Pristis pristis; Carcharhinus leucas",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The dictionary's sawfish word is confirmed for the coast. The Mitchell's sawfish and river sharks are documented in its lower and middle reaches; whether they ever reached the Karma Waters reach is not recorded in the sources used here."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "coast-mangrove"
+  ],
+  "summary": "**[yubuji](word:yubuji)** 'sawfish', **[yaburr](word:yaburr)** 'shark', **[bilmbin](word:bilmbin)** 'small shark which comes around mangroves and in the river; black-tip shark', **[bububay](word:bububay)** 'black tip shark', **[kilkirr](word:kilkirr)** 'tiger shark' and **[bayilbayil](word:bayilbayil)** 'peewee, mud shark' are the dictionary's words, made on the Bloomfield coast where sharks are everyday [ref:hershberger1982]. This page is about the two that come up the [Mitchell](entry:mitchell-river): the freshwater or largetooth sawfish, 'the largest freshwater fish found in Australia' at 'up to 6.5m in length', and the bull shark, 'a species of requiem shark commonly found worldwide in warm, shallow waters along coasts and in rivers' that 'can thrive in both salt and fresh water' [ref:qld-sawfish] [ref:wiki-bull-shark]. The Mitchell, Palmer and Walsh rivers were declared an Important Shark and Ray Area in 2025 because they are 'an important reproductive area for one shark and two ray species': between 2014 and 2021 'a total of 29 Largetooth Sawfish were captured or observed in the area from the river mouth to more than ~65 km upstream', many of them newborns and young-of-the-year, and between 2016 and 2022 '35 Bull Sharks ranging in size between 70–150 cm' were caught in the same reach, '83%' of them 'neonates and young-of-the-year'; the third species is the [freshwater whipray](entry:stingrays) [ref:isra2025]. Public sightings and old trophy saws put sawfish 'up to 300 km inland', and the 'most recent sexually mature' freshwater sawfish 'in upstream regions' was a three-metre fish in the Walsh River in 2001 [ref:wueringer2025]. [Karma Waters](place:karma-waters) is far above that, with no Atlas record of either within 60 km, and the river between is broken by rock bars and dry-season sand; whether a sawfish or a bull shark ever came this far is a question for the old people and the contribution box below [ref:ala-karma-60] [ref:kw-about]. Both are protected: the sawfish is 'Vulnerable (EPBC Act), Critically Endangered (IUCN)', sawfish 'are no-take species under Fisheries Act since 2009' and 'possession & targeting is illegal', and any no-take species 'must be immediately and carefully returned to the water unharmed' [ref:qld-sawfish] [ref:wueringer2025] [ref:qld-no-take].",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "yubuji (sawfish); yaburr (shark); bilmbin, bububay (black-tip shark); kilkirr (tiger shark); bayilbayil (mud shark)"
+    },
+    {
+      "label": "Sawfish",
+      "value": "Pristis pristis, up to 6.5 m; born at 72–91 cm; 3–5 years in fresh water; mature at 2.8–3 m, 7–10 years; may live 44 years"
+    },
+    {
+      "label": "Bull shark",
+      "value": "Carcharhinus leucas; born at 56–81 cm; adult females about 2.4 m and 130 kg; the pups spend their first years in the river"
+    },
+    {
+      "label": "On the Mitchell",
+      "value": "29 sawfish and 35 bull sharks recorded from the mouth to 65 km upstream (2014–2022); sightings to 300 km inland; a mature sawfish in the Walsh in 2001"
+    },
+    {
+      "label": "At Karma Waters",
+      "value": "No Atlas record within 60 km; not recorded this far up the river in the sources used here"
+    },
+    {
+      "label": "Law",
+      "value": "Sawfish no-take since 2009, possession and targeting illegal; release in the water, cut the line close, report to 1800 CY TAGS"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[yubuji](word:yubuji)** 'sawfish' [ref:hershberger1982]. **[yaburr](word:yaburr)** 'shark', the general word [ref:hershberger1982]. **[bilmbin](word:bilmbin)** 'small shark which comes around mangroves and in the river; black-tip shark', and the same entry is also given as 'black tip ray'; **[bububay](word:bububay)** 'black tip shark' [ref:hershberger1982]. **[kilkirr](word:kilkirr)** 'tiger shark'; **[bayilbayil](word:bayilbayil)** 'peewee, mud shark' [ref:hershberger1982]. The rays have their own page: **[yawu](word:yawu)** 'stingray', **[ngarmu](word:ngarmu)** 'shovelnose ray' and the rest are under [stingrays](entry:stingrays) [ref:hershberger1982].\n\nThe dictionary was made at the mouth of the Bloomfield, where sharks and sawfish were part of fishing, and it is the coast's list; the Western Yalanji words for the river's sharks, if the old people had them, are not in the sources used here and belong in the contribution box [ref:hershberger1982]. On the Kowanyama end of the river the Kokoberra, Yir Yoront, Kunjen and Olkola peoples have their own words and their own connection to sawfish; the research on this page was done with the Kowanyama Land and Sea Rangers and the Kowanyama PBC [ref:isra2025] [ref:wueringer2025]."
+    },
+    {
+      "id": "description",
+      "heading": "Description",
+      "body": "**The freshwater sawfish.** The largetooth sawfish, *Pristis pristis*, is also called 'common sawfish', 'wide sawfish', 'freshwater sawfish', 'river sawfish', 'Leichhardt's sawfish (after explorer and naturalist Ludwig Leichhardt) and northern sawfish'; it 'may mature to 7.5 m' but 'today, most individuals are far smaller and a typical length is 2–2.5 m' [ref:wiki-largetooth-sawfish]. It has 'a flattened shape', 'a long, flattened snout edged with teeth resembling a saw', 'two prominent dorsal fins of almost equal height', 'eyes positioned at the top of their head', 'skin that resembles the sandpaper-like skin of sharks', 'olive-brown colour above and white below' and 'gills underneath their body' [ref:qld-sawfish]. It is 'easily recognized by the forward position of the dorsal fin with its leading edge placed clearly in front of the leading edge of the pelvic fins', 'the relatively long pectoral fins with angular tips, and the presence of a small lower tail lobe'; the saw 'has a width that is 15–25% of its length', wide for a sawfish, and 'individuals in freshwater may have a reddish colour caused by blood suffusion below the skin' [ref:wiki-largetooth-sawfish]. It is a ray, not a shark: sawfishes are 'shark-like batoids' [ref:wueringer2025].\n\n**The bull shark.** *Carcharhinus leucas* is 'large and stout, with females being larger than males'; 'adult female bull sharks average 2.4 m (8 ft) long and typically weigh 130 kg (290 lb), whereas the slightly smaller adult male averages 2.25 m (7 ft) and 95 kg', and 'a maximum size of 3.5 m (11 ft) is commonly reported' [ref:wiki-bull-shark]. 'The name \"bull shark\" comes from the shark's stocky shape, broad, flat snout, and aggressive, unpredictable behavior', and its other names tell where it goes: 'river shark, freshwater whaler, estuary whaler, Swan River whaler' [ref:wiki-bull-shark]. It 'is diadromous, meaning they can swim between salt and fresh water with ease'; in fresh water bull sharks 'show a significantly reduced concentration of urea within their blood' and 'possess several organs with which to maintain appropriate salt and water balance', the kidneys and rectal gland among them [ref:wiki-bull-shark]. Its bite is 'up to 5,914 newtons (1,330 lbf), weight for weight the highest among all investigated cartilaginous fishes' [ref:wiki-bull-shark].\n\n**The freshwater whipray**, *Urogymnus dalyensis*, the third of the river's cartilaginous fishes, is 'the only Australian stingray confined to fresh and brackish waters', 'reported from the Daly, Fitzroy, Gilbert, Mitchell, Normanby, Ord, Pentecost, Roper, South Alligator, and Wenlock Rivers', 'typically reaching 1 m (3.3 ft) across', 'plain brown above and white below with dark marginal bands'; it has its own page under [stingrays](entry:stingrays) [ref:wiki-freshwater-whipray]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Sawfish, shark or ray",
+      "body": "**Four sawfish, one in the river.** 'The 4 species in Queensland are: freshwater (largetooth) sawfish (*Pristis pristis*), green sawfish (*Pristis zijsron*), dwarf sawfish (*Pristis clavata*), narrow sawfish (*Anoxypristis cuspidata*)' [ref:qld-sawfish]. The largetooth is the one that lives in fresh water for years; the others are of the estuary and sea, and in the Mitchell survey the narrow sawfish and the green sawfish were 'supporting species' of the tidal reach [ref:isra2025]. Tell the largetooth by the dorsal fin 'placed clearly in front of the leading edge of the pelvic fins' and the wide saw; 'in all other sawfish species the leading edge of their dorsal fin is placed at, or behind, the leading edge of the pelvic fins' [ref:wiki-largetooth-sawfish]. The eDNA sampling found '4 sp. up to 100 km inland, then 1 sp.', the largetooth, beyond [ref:wueringer2025].\n\n**Bull shark or something else.** 'Unlike the river sharks of the genus *Glyphis*, bull sharks are not true freshwater sharks, despite their ability to survive in freshwater habitats'; the true river sharks are not recorded in the Mitchell in the sources used here, and in Queensland fresh water a shark is a bull shark until proven otherwise [ref:wiki-bull-shark]. On the coast the dictionary's **[bilmbin](word:bilmbin)** is the 'small shark which comes around mangroves and in the river', which is how a young bull shark or a blacktip looks from the bank; the dictionary does not say which, so the identification is the old people's [ref:hershberger1982].\n\n**Sawfish or sawshark or swordfish.** Sawfishes 'should not be confused with sawsharks (order Pristiophoriformes)', which are small deep-water sharks with barbels on the saw, 'or swordfish (family Xiphiidae), which have a similar name but a very different appearance' [ref:wiki-sawfish]. A saw with teeth of even size set in sockets, on a flat ray-shaped fish with gills underneath, is a sawfish [ref:qld-sawfish].\n\n**A ray without a saw** is a [stingray](entry:stingrays): the freshwater whipray has 'an apple-shaped pectoral fin disc approximately as wide as long', 'a projecting snout, and a thin tail without fin folds' [ref:wiki-freshwater-whipray]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "**A saw on a wall.** The surest sign of sawfish in a river is the old trophy saws: the researchers' set of '723 saws' is '100 years of death', and the Mitchell's own '59 saws, 1970–2019' were 'donated' or 'confiscated', '9 *P. pristis* saws from commercial fishers in early 2019, mouth of the Mitchell River' being juveniles of about two metres [ref:wueringer2025]. Every old saw has 'location & year', so a saw in a shed at Karma Waters, or anywhere on the upper river, with a story of where it came from, is a record worth reporting rather than hiding; 'people deliberately kill them for their rostrum (snout) or fins, which is illegal' now, but an old saw with its history is science [ref:wueringer2025] [ref:qld-sawfish].\n\n**The water itself.** Since 2020 the team has sampled 'mitochondrial DNA suspended in water': 'water is filtered on site', the filters 'preserved in Longmire Solution' and analysed at James Cook University's TropWater, and in 2020–23 '9/16 sites' were 'positive for eDNA' although 'the last sawfish caught by our team' was 'in 2018' [ref:wueringer2025]. A sawfish can be in a reach for years without anyone seeing it.\n\n**On the line.** A sawfish takes a bait on the bottom and comes up as a long weight with a saw thrashing at the surface; a bull shark bites through a line or a fish being retrieved, 'bump-and-bite', in 'murky waters where it is harder for the prey to see the shark coming' [ref:wiki-bull-shark]. A [barramundi](entry:barramundi) or [catfish](entry:catfish) brought in with a clean half-moon bite out of it in the tidal reach is a shark sign [ref:wiki-bull-shark].\n\n**Seen from the bank.** Sawfish young 'were recorded in downstream areas during August–September and in upstream areas year-round (March–June, November)'; in September 2021 'Kowanyama School kids spotted a small sawfish during a school trip to one of the local camping spots at dusk', and 'the whole class made the submission together' [ref:isra2025] [ref:wueringer2025]. Dusk on a sandy pool is when a small sawfish shows itself."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they are on the river",
+      "body": "**The lower and middle river.** The Important Shark and Ray Area 'includes the Mitchell River, Lynd River, Walsh River, Rosser Creek, and Palmer River', '542.0 km²' of water 'from inshore and surface waters (0 m) to 15 m depth', and it is 'located on the country of the Kokoberra, Yir Yoront, Kunjen, Olkola, Wakaman, Bar Barrum, Djungan, Tableland Yidinji, Mbabaram, Western Yalanji, and Koko Muluridji First Peoples' [ref:isra2025]. The surveys were made 'during the dry season' with gillnets in the fresh reaches, drum lines 'in the downstream tidal reaches' and handlines in both, and the animals came 'from ~14 km from the river mouth to more than ~65 km upstream' [ref:isra2025]. 'The Mitchell River is perennial, while its tributaries (the Alice, Lynd, Palmer, and Walsh rivers) flow intermittently', and the river 'flows through rainforest and wet sclerophyll forest in the highlands, transitions into savannah woodlands and open woodlands in the central uplands, and finally spreads across expansive floodplain wetlands, alluvial plains, estuaries, mangroves, and salt flats near its mouth' [ref:isra2025].\n\n**How far up.** The public sightings run 'up to 300 km inland', and the Walsh River, which joins the Mitchell below [Karma Waters](place:karma-waters), had a mature three-metre sawfish in 2001 [ref:wueringer2025] [ref:wiki-walsh-river]. The species worldwide 'has been recorded in rivers as far as 1,340 km (830 mi) from the sea', and the bull shark 'has traveled 4,000 km (2,500 mi) up the Amazon River', so distance alone does not stop them; what stops them on the Mitchell is the dry season, when the upper river is 'a chain of pools joined by trickles or dry sand', and the rock bars a big fish cannot pass at low water [ref:wiki-largetooth-sawfish] [ref:wiki-bull-shark] [ref:kw-about]. In the wet, when the river 'is a wide, brown, fast river that spreads over its banks', the way is open from the Gulf to the station, and that is when a young sawfish could come; the Atlas has no record within 60 km, and the sources used here do not say whether one ever did [ref:kw-about] [ref:ala-karma-60].\n\n**The whipray's home range.** 'Thirty-eight animals ranging in size between 59–138 cm disc width' were caught 'from ~13 km from the river mouth to more than ~17 km upstream', and 'two tagged Freshwater Whiprays were recaptured at the same location up to four years apart'; it 'appears to be highly resident, especially females' [ref:isra2025]."
+    },
+    {
+      "id": "ecology",
+      "heading": "Nurseries in the river",
+      "body": "**The sawfish's years in fresh water.** 'This species spends its first 3–4 years in estuaries and rivers, growing to about half its adult size (3m) before moving to coastal and offshore waters up to 25m deep'; it reaches 'sexual maturity at 8–10 years', the young 'are born alive at around 76cm in length, with their saws covered in a sheath to protect the mother', reach 'up to 100cm by their first birthday and 140cm by their second', and 'may live as long as 44 years' [ref:qld-sawfish]. 'There are 1–13 (average c. 7) young in each litter', 'the gestation period is about five months', 'the adult females can breed once every 1–2 years, and there are indications that mothers return to the region where they were born to give birth to their own young' [ref:wiki-largetooth-sawfish]. That is why the Mitchell matters: 'since Largetooth Sawfish leave rivers only upon reaching sexual maturity, the presence of YOY and juveniles in the Mitchell-Palmer-Walsh Rivers indicates that this area is an important reproductive area for the species', and 'this area, together with the Norman River, holds the largest contemporary records of YOY Largetooth Sawfish on the east coast of the Gulf of Carpentaria' [ref:isra2025].\n\n**What a sawfish eats, and what eats it.** It 'is a predator, using its saw-like rostrum for hunting and self-defence', it 'feeds on fishes and benthic (bottom-living) invertebrates', 'fine electromagnetic sensors along its rostrum help it detect prey', and 'sawfish use their rostrum to club and slash prey before eating it whole'; 'small sawfish are also sometimes taken by sharks and crocodiles' [ref:qld-sawfish]. In the pools that means [bony bream and small fish](entry:archerfish-and-small-fish), [catfish](entry:catfish) and [cherabin](entry:cherabin) on the sand, and a [freshwater crocodile](entry:freshwater-crocodile) or a bull shark as the thing to fear while small [ref:qld-sawfish] [ref:wiki-bull-shark].\n\n**The bull shark's nursery.** Bull sharks 'are viviparous, born live and free-swimming', 'the young are about 70 cm (27.6 in) at birth', 'the bull shark does not rear its young; the young bull sharks are born into flat, protected areas', and 'coastal lagoons, river mouths, and other low-salinity estuaries are common nursery habitats' [ref:wiki-bull-shark]. 'The driving factor for a bull shark to be in fresh or salt water, however, is its age; as the bull shark ages, its tolerance for very low or high salinity increases', so 'the majority of the newborn or very young bull sharks were found in the freshwater area, whereas the much older bull sharks were found to be in the saltwater areas' [ref:wiki-bull-shark]. On the Mitchell the neonates and young-of-the-year 'were captured between June–September', the dry-season months, 'while pregnant females have not been documented' [ref:isra2025]. Its diet 'consists mainly of bony fish and small sharks, including other bull sharks, and stingrays', and 'can also include turtles, birds, dolphins, terrestrial mammals, crustaceans, and echinoderms'; 'crocodiles may be a threat to bull sharks in rivers', and 'saltwater crocodiles have been observed preying on bull sharks in the rivers and estuaries of Northern Australia' [ref:wiki-bull-shark]. A young bull shark in a Mitchell pool is eating the same [catfish](entry:catfish), [bream](entry:black-bream) and [turtles](entry:freshwater-turtle) as everyone else, at the same dusk and dark hours, and the [saltwater crocodile](entry:saltwater-crocodile) of the lower river is eating it [ref:wiki-bull-shark].\n\n**The whipray** 'is an active hunter of small fishes and shrimps' and 'has been observed lunging up riverbanks and taking prey caught in its wash'; it 'may occasionally travel onto land and can \"breathe\" out of water for up to 7 minutes' [ref:wiki-freshwater-whipray]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "The surveys could only be made 'during the dry season, in June (2016, 2021), July–August (2017, 2018, 2020, 2021), and September (2022, 2023)', when the river is low and the nets can be set; the wet-season records are the fishers' and rangers' 'citizen science reports', 'collected during the wet season' [ref:isra2025]. Young sawfish 'were recorded in downstream areas during August–September and in upstream areas year-round (March–June, November)', so the upstream young are there through the [cold](entry:seasons) and the early storms, and the downstream ones at the end of the dry [ref:isra2025]. The bull shark pups of the Mitchell were caught June to September [ref:isra2025].\n\nFor the upper river the question is the flood: the [Mitchell](entry:mitchell-river) 'pulses' with the monsoon, and the only road a sawfish or a shark has to the station's reach is the wet-season river; by the time the pools are cut off in May anything that came up is shut in until the next wet, with the [freshwater crocodiles](entry:freshwater-crocodile) and the [catfish](entry:catfish), and a fish that cannot get back to the sea to mature is a lost fish [ref:wiki-mitchell-river] [ref:qld-sawfish]. The dictionary's own seasonal words for the river are on the [seasons](entry:seasons) page: **[jalungkarr](word:jalungkarr)** 'flood' and **[kaba](word:kaba)** 'rain' [ref:hershberger1982]."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Food, on the coast.** 'Some First Nations communities in northern Australia have strong cultural connections to sawfishes and for some coastal communities, sawfish are a traditional source of food' [ref:qld-sawfish]. At the Bloomfield 'rock cod, coral cod, red emperor, black-tip shark and stingrays were commonly speared', and 'pieces of less preferred fish (eg. a small grunter or shark)' were line bait; Roth's coastal people used 'the harpoon for the larger species of fish, e.g., shark, trevally' [ref:anderson1996] [ref:roth1901]. Shark flesh is eaten fresh across the north; the dictionary does not record a restriction on it as it does for stingray, where 'long ago only old people were allowed to eat it' [ref:hershberger1982].\n\n**The saw.** Roth lists a 'shark-bone necklace' among the Cape Bedford words and sawfish rostra were kept and traded across the north; today a saw is a protected part, and 'it is an offence to be in possession of any part' of a no-take species [ref:roth1901] [ref:wueringer2025] [ref:qld-no-take]. An old saw already in the family can be kept as it is, and its story is wanted by the researchers: 'each saw has location & year' [ref:wueringer2025].\n\n**Country and science.** The research is 'a collaboration between SARA & Kowanyama Land and Sea Rangers ongoing since 2016', with 'ongoing relationships with Kowanyama Council, PBC (Prescribed Body Corporate – holds Native Title), Traditional Owners, and local school', and 'with stations managers along the Mitchell River and tributaries' [ref:wueringer2025]. A sighting from Karma Waters, with a photo and a GPS mark, goes to the same database as the rangers' records, and it would be the first from this far up [ref:wueringer2025]."
+    },
+    {
+      "id": "how-to",
+      "heading": "If you hook one",
+      "body": "**Do not target them.** Sawfish 'are no-take species under Fisheries Act since 2009', 'possession & targeting is illegal', and the Queensland rule for every no-take species is that 'if accidentally caught, they must be immediately and carefully returned to the water unharmed' [ref:wueringer2025] [ref:qld-no-take]. The native title right to fish under tradition in s 211 and the Fisheries Act's s 14 defence are on the [law page](entry:law-hunting-and-fishing); they do not make a critically endangered animal a target, and the Kowanyama holders of the lower river are the ones who speak for sawfish there [ref:alrc] [ref:qld-fishact] [ref:isra2025].\n\n**Releasing a sawfish**, in the Queensland Government's own steps: 'leave the fish in the water, if possible, to avoid causing it undue stress'; 'use a dehooking device to remove the hook safely, or if this is impossible, cut the line as close to the hook as possible'; 'release the fish promptly and gently'; 'report the accidental catch by calling 1800 CY TAGS' [ref:qld-sawfish]. Never lift it by the saw, never drag it up the sand to photograph, never cut the saw off: sawfish 'are generally harmless to humans, but can inflict serious injuries with the saw when captured and defending themselves' [ref:wiki-sawfish]. A photo from the bank with the fish in the water, and the length estimated against something known, is the record that counts; 'submit your sighting to www.cytags.com' with 'date, species, location (GPS marks), capture vs. sighting, how captured', and 'every single submission is followed up' [ref:wueringer2025].\n\n**Releasing a shark.** The bull shark 'isn't named as a protected species', but a river pup of 70 to 150 cm is a nursery animal and the sensible thing is the same: cut the line close, keep hands away from the mouth, and let it go in the water [ref:wiki-bull-shark] [ref:isra2025]. A wire trace saves the hook and the shark; a bitten-off bait or a half fish is a sign to move pools rather than keep feeding it [ref:wiki-bull-shark].\n\n**Reporting a dead one or an injury**: 'report sawfish injuries or deaths by calling 1300 130 372', the Queensland wildlife line [ref:qld-sawfish]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**The saw.** Every injury the sawfish gives is at capture, 'defending themselves with the \"saw\"'; the teeth are set in sockets and the saw is swung sideways [ref:wiki-largetooth-sawfish]. Stay out of reach of the head, do not put a leg over it, and treat a cut from a saw like any deep dirty wound: pressure, clean water and medical help, since river wounds infect [ref:healthdirect-insect-bites].\n\n**The shark.** 'Since bull sharks often dwell in very shallow waters, are found in many types of habitats, are territorial by nature, and have no tolerance for provocation, they may be more dangerous to humans than any other species of shark', and they are 'one of the three shark species (along with the tiger shark and great white shark) most likely to bite humans' [ref:wiki-bull-shark]. In the Mitchell the sharks caught were pups and juveniles of 70 to 150 cm, in the tidal and lower reaches; the real danger in that water is the [saltwater crocodile](entry:saltwater-crocodile), and the Crocwise rules cover both: stay away from the water's edge, do not clean fish or leave scraps at the water, do not swim in the lower river [ref:isra2025] [ref:crocwise]. 'Few freshwater interactions with humans have been recorded' for the species, and none is recorded for the Mitchell in the sources used here [ref:wiki-bull-shark].\n\n**The law.** 'The maximum fine for possessing any part of a no-take species' runs to six figures under the Fisheries Act, and taking a sawfish is an offence under both the Queensland and the federal threatened-species law; a saw cut from a fish is evidence [ref:qld-sawfish] [ref:wueringer2025] [ref:qld-no-take]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "'Sawfish were once common along Queensland's east coast, from the tip of Cape York to Brisbane. Today, they are found in the far north only', and 'only Australia still has a relatively healthy population of the species and this may be the last remaining population in the entire Indo-Pacific that is of sufficient size to be viable' [ref:qld-sawfish] [ref:wiki-largetooth-sawfish]. 'Once common, sawfish have experienced a drastic decline in recent decades, and the only remaining strongholds are in Northern Australia and Florida', so the Mitchell's nursery is one of the last on earth [ref:wiki-sawfish]. The threats are 'habitat degradation and modification' and 'accidental bycatch from commercial and recreational fishing activities'; the State has made 'a gillnet-free zone in the far north of the Great Barrier Reef from Cape Bedford to the tip of Cape York' on the Yalanji side of the Peninsula, and on the Gulf side the research works 'to reduce bycatch and improve the post-release survival of the freshwater sawfish' [ref:qld-sawfish].\n\nFor the upper river the practical things are small: keep the river fenced from cattle so the pools stay clean, as the station has done with '45km of fence to exclude stock from the Mitchell River in 1992'; keep [rubber vine](entry:weeds-and-ferals) off the banks; and if anything with a saw or a shark's fin ever shows in a Karma Waters pool after a big wet, photograph it in the water and report it, because it would rewrite the map [ref:kw-land] [ref:qld-rubber-vine] [ref:wueringer2025]. What the Western Yalanji old people knew about sawfish and sharks this far up, and the words for them, are for the contribution box below."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**[yubuji](word:yubuji)** 'sawfish'; **[yaburr](word:yaburr)** 'shark'; **[bilmbin](word:bilmbin)** 'small shark which comes around mangroves and in the river; black-tip shark'; **[bububay](word:bububay)** 'black tip shark'; **[kilkirr](word:kilkirr)** 'tiger shark'; **[bayilbayil](word:bayilbayil)** 'peewee, mud shark'; **[yawu](word:yawu)** 'stingray'; **[ngarmu](word:ngarmu)** 'shovelnose ray' [ref:hershberger1982]. The river: **[wawubaja](word:wawubaja)** 'river', **[yarru](word:yarru)** 'deep water hole', **[jalungkarr](word:jalungkarr)** 'flood' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "stingrays",
+    "mitchell-river",
+    "barramundi",
+    "catfish",
+    "saltwater-crocodile",
+    "freshwater-crocodile",
+    "law-hunting-and-fishing",
+    "hooks-and-lines",
+    "spear-and-woomera",
+    "seasons"
+  ],
+  "relatedWords": [],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "qld-sawfish",
+      "citation": "Queensland Government (Department of the Environment, Tourism, Science and Innovation). Providing sanctuary for freshwater sawfish in Queensland (threatened species featured project, accessed 10 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/conservation/threatened-species/featured-projects/freshwater-sawfish"
+    },
+    {
+      "id": "wiki-bull-shark",
+      "citation": "Wikipedia. Bull shark (Carcharhinus leucas).",
+      "url": "https://en.wikipedia.org/wiki/Bull_shark"
+    },
+    {
+      "id": "isra2025",
+      "citation": "IUCN SSC Shark Specialist Group (2025). Mitchell-Palmer-Walsh Rivers ISRA Factsheet (Important Shark and Ray Area, Region 08: Australia and Southeast Indian Ocean). Dubai: IUCN SSC Shark Specialist Group.",
+      "url": "https://sharkrayareas.org/portfolio-item/mitchell-palmer-walsh-rivers-isra/"
+    },
+    {
+      "id": "wueringer2025",
+      "citation": "Wueringer, B. E., Biskis, V. N., Cooper, M. K., Frank, A. & Lawrence, F. (2025). Importance of the Mitchell River (Queensland, Australia) as habitat for freshwater sawfish Pristis pristis. Sharks And Rays Australia and Kowanyama Land and Sea Rangers, presentation to the Mitchell River forum.",
+      "url": "https://www.mitchell-river.com.au/sites/default/files/2025-11/25-mrfoum-wueringer-sawfish.pdf"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "qld-no-take",
+      "citation": "Queensland Government. Recreational fishing rules: protected and no-take species (accessed 10 October 2026).",
+      "url": "https://www.qld.gov.au/recreation/activities/boating-fishing/rec-fishing/rules/protected-and-no-take-species"
+    },
+    {
+      "id": "wiki-largetooth-sawfish",
+      "citation": "Wikipedia. Largetooth sawfish (Pristis pristis).",
+      "url": "https://en.wikipedia.org/wiki/Largetooth_sawfish"
+    },
+    {
+      "id": "wiki-freshwater-whipray",
+      "citation": "Wikipedia. Freshwater whipray (Urogymnus dalyensis).",
+      "url": "https://en.wikipedia.org/wiki/Freshwater_whipray"
+    },
+    {
+      "id": "wiki-sawfish",
+      "citation": "Wikipedia. Sawfish (family Pristidae).",
+      "url": "https://en.wikipedia.org/wiki/Sawfish"
+    },
+    {
+      "id": "wiki-walsh-river",
+      "citation": "Wikipedia. Walsh River.",
+      "url": "https://en.wikipedia.org/wiki/Walsh_River"
+    },
+    {
+      "id": "wiki-mitchell-river",
+      "citation": "Wikipedia. Mitchell River (Queensland).",
+      "url": "https://en.wikipedia.org/wiki/Mitchell_River_(Queensland)"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "alrc",
+      "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
+      "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "qld-fishact",
+      "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "healthdirect-insect-bites",
+      "citation": "healthdirect Australia. Insect bites and stings (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/insect-bites-and-stings"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
+    },
+    {
+      "id": "qld-rubber-vine",
+      "citation": "Queensland Government (Business Queensland). Rubber vine: restricted invasive plant (accessed 10 October 2026).",
+      "url": "https://www.business.qld.gov.au/industries/farms-fishing-forestry/agriculture/biosecurity/plants/invasive/restricted/rubber-vine"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-10"
+}
