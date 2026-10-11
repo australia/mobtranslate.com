@@ -1,0 +1,457 @@
+{
+  "slug": "weather-sky-and-stars",
+  "title": "Weather, sky and stars",
+  "category": "country",
+  "names": [
+    {
+      "word": "jiri",
+      "gloss": "sky"
+    },
+    {
+      "word": "kaba",
+      "gloss": "rain"
+    },
+    {
+      "word": "muyar",
+      "gloss": "wind"
+    },
+    {
+      "word": "ngurrban",
+      "gloss": "cloud"
+    },
+    {
+      "word": "jarramali",
+      "gloss": "thunder"
+    },
+    {
+      "word": "balbay",
+      "gloss": "lightning"
+    },
+    {
+      "word": "wadjal",
+      "gloss": "cyclone"
+    },
+    {
+      "word": "yiril",
+      "gloss": "rainbow"
+    },
+    {
+      "word": "wungar",
+      "gloss": "sun"
+    },
+    {
+      "word": "dawar",
+      "gloss": "star"
+    }
+  ],
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary has the words; the climate figures are the Bureau of Meteorology's for Palmerville on the Palmer River, the nearest long record to Karma Waters."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater",
+    "camp"
+  ],
+  "summary": "**[jiri](word:jiri)** 'sky', **[jiri bajaku](word:jiri bajaku)** 'fine day, cloudless sky', **[kaba](word:kaba)** 'rain', **[muyar](word:muyar)** 'wind', **[kumbamu](word:kumbamu)** 'trade wind, fair wind', **[ngurrban](word:ngurrban)** 'cloud', **[kurrinkurrin](word:kurrinkurrin)** 'mackeral sky', **[ngurrbal](word:ngurrbal)** 'fog', **[wurrbal](word:wurrbal)** 'fog, mist rising from the river', **[nganyil](word:nganyil)** 'haze, mist', **[jarramali](word:jarramali)** 'thunder, thunderstorm, thunderheads', **[jabulbina](word:jabulbina)** 'thunder out west, the start of all storms', **[balbay](word:balbay)** 'lightning', **[wadjal](word:wadjal)** 'cyclone', **[wurunurru](word:wurunurru)** 'whirlwind', **[yiril](word:yiril)** 'rainbow', **[jalungkarr](word:jalungkarr)** 'flood', **[wumbul](word:wumbul)** 'hot', **[kiway](word:kiway)** 'cold' and **[wadil](word:wadil)** 'weather - rain or cold - entering' are the dictionary's weather; **[wungar](word:wungar)** 'sun', **[kija](word:kija)** 'moon', **[dawar](word:dawar)** and **[mulawajarr](word:mulawajarr)** 'star', **[kurrubijal](word:kurrubijal)** 'morning star' and **[binyu](word:binyu)** 'shooting star' are its sky [ref:hershberger1982]. The weather at [Karma Waters](place:karma-waters) is the monsoon's: at Palmerville on the Palmer, the nearest long record, the mean rainfall is 1,030 mm a year, of which 267 mm falls in January, 260 mm in February and 178 mm in March, against 5 mm in July and 3 mm in August; the mean maximum climbs from 30.0 °C in June and July to 36.2 °C in November, and the mean minimum drops to 14.2 °C in July; September has 16 clear days and 31 per cent humidity at 3 pm, January 2 clear days and 15 cloudy ones [ref:bom-palmerville]. 'The monsoon seasons are generally associated with overcast conditions, extended periods of heavy rain, episodic thunderstorms and fresh to strong squally winds, which frequently lead to flooding', and 'most of the fresh water for the sparsely populated northern Australia comes from the Australian monsoonal rains' [ref:wiki-australian-monsoon]. The dry is the trade wind's: 'from May to September, the rain belt lies in the northern hemisphere, and the southern tropics have their dry season', when 'because of the lack of water in the plants, bushfires (wildfires) are common' [ref:wiki-dry-season]. This page is the weather as it is read on country, hour by hour and month by month, the clouds and winds that tell what is coming, the sky at night with the dictionary's words for it, and the safety that goes with storms, floods, heat and lightning; the [seasons page](entry:seasons) has the calendar and the [Mitchell page](entry:mitchell-river) the river's floods. What the Western Yalanji old people read in the sky, and the names they gave the stars, are theirs; nothing here adds to the dictionary's own words.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "jiri (sky); kaba (rain); muyar (wind); kumbamu (trade wind); ngurrban (cloud); kurrinkurrin (mackerel sky); ngurrbal, wurrbal (fog, river mist); nganyil (haze); jarramali (thunder, storm); jabulbina (thunder out west); balbay (lightning); wadjal (cyclone); wurunurru (whirlwind); yiril (rainbow); wungar (sun); kija (moon); dawar, mulawajarr (star); kurrubijal (morning star); binyu (shooting star)"
+    },
+    {
+      "label": "Rain (Palmerville)",
+      "value": "1,030 mm a year; Jan 267, Feb 260, Mar 178, Apr 48, May 15, Jun 11, Jul 5, Aug 3, Sep 8, Oct 21, Nov 61, Dec 159 mm; 71 rain days"
+    },
+    {
+      "label": "Heat and cold",
+      "value": "Mean max 30.0 °C in June–July, 36.2 °C in November; mean min 14.2 °C in July, 23.1 °C in January"
+    },
+    {
+      "label": "Clear and cloudy",
+      "value": "September: 16 clear days, 31% humidity at 3 pm; January: 2 clear days, 15 cloudy, 59%"
+    },
+    {
+      "label": "Cyclones",
+      "value": "Season 1 November to 30 April; Ita crossed at Cape Flattery as a category 4 in April 2014 and weakened inland within 18 hours"
+    },
+    {
+      "label": "Danger",
+      "value": "Flooded crossings (87% of Queensland's flood deaths), lightning under trees, heat above 40 °C body temperature, the fire weather of September–November"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**The sky.** **[jiri](word:jiri)** 'sky; heaven'; **[jiri bajaku](word:jiri bajaku)** and **[jirimali](word:jirimali)** 'fine day, cloudless sky'; **[ngurrban](word:ngurrban)** 'cloud'; **[kurrinkurrin](word:kurrinkurrin)** 'mackeral sky' [ref:hershberger1982].\n\n**Rain and wind.** **[kaba](word:kaba)** 'rain'; **[wadil](word:wadil)** 'weather - rain or cold - entering'; **[jalungkarr](word:jalungkarr)** 'flood'; **[muyar](word:muyar)** 'wind'; **[kumbamu](word:kumbamu)** 'trade wind, fair wind'; **[yanja](word:yanja)** 'rustling noise, as the wind blowing through trees or grass'; **[wurunurru](word:wurunurru)** 'whirlwind'; **[wadjal](word:wadjal)** 'cyclone'; **[bira](word:bira)** and **[kilili](word:kilili)** 'windbreak' [ref:hershberger1982].\n\n**Storms.** **[jarramali](word:jarramali)** 'thunder, thunderstorm, thunderheads', the same word as 'praying mantis' and 'small species of stingray'; **[jabulbina](word:jabulbina)** 'thunder out west, the start of all storms'; **[balbay](word:balbay)** 'lightning'; **[dalbarril](word:dalbarril)** 'strike by lightning', also 'ricochet, as a stone striking another stone and bouncing off or a person throwing a spear at a sea turtle and the spear glancing off the shell' [ref:hershberger1982]. **[kurri-kurri](word:kurri-kurri)** 'stormbird' is the [channel-billed cuckoo](entry:bush-birds) that comes with the first storms, and on the coast **[dirrmbay](word:dirrmbay)** is a seagull 'which gives warning of an approaching storm' [ref:hershberger1982].\n\n**Fog, haze and light.** **[ngurrbal](word:ngurrbal)** 'fog'; **[wurrbal](word:wurrbal)** 'fog, mist rising from the river'; **[nganyil](word:nganyil)** 'haze, mist'; **[yiril](word:yiril)** 'rainbow'; **[wabarr](word:wabarr)** 'shade' [ref:hershberger1982].\n\n**Hot and cold.** **[wumbul](word:wumbul)** 'hot'; **[wangariji](word:wangariji)** 'the hot season'; **[kiway](word:kiway)** 'cold'; **[kambar](word:kambar)** 'wet season', the same word as 'white clay'; **[marral](word:marral)** 'dry' [ref:hershberger1982]. The small signs: **[jumul-jumul](word:jumul-jumul)** 'the grass seeds that get stuck in clothes, which come during the wet season' and **[junbirr](word:junbirr)** 'small lizard. Common in leaves and grass before and durin wet season, with reddish markings on head' [ref:hershberger1982].\n\n**The day.** **[muduwaju](word:muduwaju)** 'dawn, daybreak, early morning'; **[yalibalaku](word:yalibalaku)** 'early morning (english loan word, from early)'; **[wunkuwingku](word:wunkuwingku)** 'morning'; **[wungar wandil-wandil](word:wungar wandil-wandil)** 'sun rise. The sun is coming up'; **[wungar dakal](word:wungar dakal)** 'sunrise'; **[wungar jalamal](word:wungar jalamal)** 'the sun comes out from behind the cloud'; **[wungar jarra-jarra](word:wungar jarra-jarra)** 'midday'; **[yilay-yilay](word:yilay-yilay)** 'late afternoon, when the sun is in the west'; **[wungar daray](word:wungar daray)** 'sunset'; **[wujurr](word:wujurr)** 'darkness, night'; **[ngungul-ngungul](word:ngungul-ngungul)** 'dark'; **[kunarangkal](word:kunarangkal)** 'middle of the night' [ref:hershberger1982].\n\n**The sky at night.** **[wungar](word:wungar)** 'sun'; **[kija](word:kija)** 'moon'; **[dawar](word:dawar)** 'star' and **[mulawajarr](word:mulawajarr)** 'star (yalanji) (nyungkul - dawar)'; **[kurrubijal](word:kurrubijal)** 'morning star'; **[binyu](word:binyu)** 'shooting star', which the dictionary also defines, in its own words, as 'the spirit of a dead person which becomes a shooting star, someone recently dead' [ref:hershberger1982]. That is the whole of the sky the dictionary gives; the constellations, the Milky Way and the seasons in the stars are not in it, and the Western Yalanji families' sky is theirs to keep or to share through the contribution box below."
+    },
+    {
+      "id": "description",
+      "heading": "The year's weather",
+      "body": "**The monsoon.** 'A monsoon is traditionally a seasonal reversing wind accompanied by corresponding changes in precipitation, but now used to describe seasonal changes in atmospheric circulation and precipitation associated with annual latitudinal oscillation of the Intertropical Convergence Zone' [ref:wiki-monsoon]. The Australian monsoon develops 'from the seasonal motion of the Intertropical Convergence Zone (ITCZ) and the connected meridional shift in the overturning Hadley circulation, which lead to a pronounced rainfall seasonality', and 'from the end of the 19th century, the force of the Australian monsoon has been measured by the summer precipitation at Darwin' [ref:wiki-australian-monsoon]. In the Mitchell catchment 'the wet season from November to April' encompasses 'nearly all annual rainfall'; 'rainfall averages 1,200 mm/yr near the Gulf of Carpentaria, decreasing to below 800 mm/yr in inland southern and western areas', and 'temperatures remain high year-round, ranging from 17–23°C in the dry season to 32–37°C in the wet season' [ref:isra2025].\n\n**The Palmerville record**, 122 years of temperature and 132 of rain on the Palmer north of Karma Waters: mean rainfall 267.2 mm in January, 260.3 in February, 177.9 in March, 48.0 in April, 15.3 in May, 11.3 in June, 5.2 in July, 3.2 in August, 8.0 in September, 20.7 in October, 60.9 in November and 158.5 in December, 1,030.2 for the year; the median is lower, 974.8, because a few big wets lift the mean; rain days of a millimetre or more run 15.8 in January and 0.5 in August [ref:bom-palmerville]. The mean maximum is 33.4 °C in January, 30.0 in June and July, 35.6 in October and 36.2 in November; the mean minimum 23.1 in January, 14.2 in July; the 3 pm humidity 59 per cent in January and 31 in September and October; clear days 2.0 in January and 16.0 in September; the 3 pm wind 6 to 8 km/h all year, freshest in September [ref:bom-palmerville]. Mareeba on the Tableland, where the Mitchell rises, is cooler and a little drier: 894.9 mm, a January mean maximum of 31.2 °C and a July minimum of 14.2 [ref:bom-mareeba].\n\n**Wet.** 'When the wet season occurs during a warm season, or summer, precipitation falls mainly during the late afternoon and early evening', because 'rainfall in the wet season is mainly due to daytime heating, which leads to diurnal thunderstorm activity within a pre-existing moist airmass'; 'rivers overflow their banks, and some animals retreat to higher ground', 'air quality improves, fresh water quality improves, and vegetation grows substantially' [ref:wiki-wet-season]. The wet comes in bursts and breaks: the Madden–Julian oscillation is 'an eastward progression of large regions of both enhanced and suppressed tropical rainfall', in which 'the wet phase of enhanced convection and precipitation is followed by a dry phase where thunderstorm activity is suppressed. Each cycle lasts approximately 30–60 days' [ref:wiki-mjo]. And wet differs from wet: in El Niño years 'weaker easterly trade winds result in a surge of warm surface waters to the east' of the Pacific and the rain tends to go with them, while 'the cooling phase' is 'La Niña', the wetter side for northern Australia [ref:wiki-enso].\n\n**Dry.** 'The tropical rain belt lies in the southern hemisphere roughly from November to March'; 'from May to September, the rain belt lies in the northern hemisphere, and the southern tropics have their dry season'; 'during the dry season, humidity is very low, causing some watering holes and rivers to dry up' [ref:wiki-dry-season]. The dry-season wind is the trade: 'the trade winds blow mainly from the northeast in the Northern Hemisphere and from the southeast in the Southern Hemisphere, strengthening during the winter', and 'clouds which form above regions within trade wind regimes are typically composed of cumulus which extend no more than 4 kilometres (13,000 ft) in height' [ref:wiki-trade-winds]. The dictionary's **[kumbamu](word:kumbamu)**, 'trade wind, fair wind', is the coast's south-easterly; inland it is the cool dry wind of the [cold season](entry:seasons) [ref:hershberger1982].\n\n**Storms.** 'A thunderstorm, also known as an electrical storm or a lightning storm, is a storm characterized by the presence of lightning and thunder', occurring 'in cumulonimbus clouds', which 'when causing thunderstorms' 'may be called thunderheads' [ref:wiki-thunderstorm] [ref:wiki-cumulonimbus]. 'Thunderstorms result from the rapid upward movement of warm, moist air', which 'cools, condenses, and forms a cumulonimbus cloud that can reach heights of over 20 kilometres'; 'the falling droplets create a downdraft as it pulls cold air with it, and this cold air spreads out at the Earth's surface, occasionally causing strong winds' [ref:wiki-thunderstorm]. 'Most storm cells die after about 20 minutes', but 'the outflowing moisture and gusts from one storm cell can lead to new cells forming just a few kilometres (miles) from the former one a few tens of minutes later', so that 'thunderstorm formation (and decay)' can 'last for several hours or even over multiple days' [ref:wiki-cumulonimbus]. 'Severe storms are likely to produce any of the following: large hail measuring more than 2cm in diameter; damaging or destructive wind gusts; heavy rainfall which may cause flash flooding; tornadoes', and 'the exact location of severe thunderstorms can be hard to predict' [ref:getready-storm]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Reading the sky",
+      "body": "**Thunder out west.** The dictionary's **[jabulbina](word:jabulbina)** is 'thunder out west, the start of all storms', and that is the build-up as it is seen from the river: the first storms of November come up in the west and north-west in the afternoon [ref:hershberger1982]. Lightning 'between the upper anvil portion and lower reaches of a given thunderstorm' 'can sometimes be observed at great distances at night as so-called \"sheet lightning\"', when 'the observer may see only a flash of light without hearing any thunder' [ref:wiki-lightning]. Silent lightning on the western horizon at night in October and November is a storm sixty or a hundred kilometres off, and the season turning.\n\n**Thunderheads.** A cumulonimbus is a cloud with a hard cauliflower top that flattens into an anvil; 'towering altocumulus, also called altocumulus castellanus, frequently signals the development of thunderstorms later in the day, as it shows instability and convection in the middle levels of the troposphere' [ref:wiki-cumulonimbus] [ref:wiki-altocumulus]. Little turrets on a mid-level cloud bank in the morning mean storms by evening.\n\n**Mackerel sky.** **[kurrinkurrin](word:kurrinkurrin)** is the dictionary's 'mackeral sky', the rippled sheet of small cloudlets, each 'cloudlet' a cell of cirrocumulus or altocumulus; 'a sheet of partially conjoined altocumulus perlucidus is sometimes found preceding a weakening warm front', and altocumulus 'signifies convection' [ref:hershberger1982] [ref:wiki-cirrocumulus] [ref:wiki-altocumulus]. It is a change coming, usually within a day.\n\n**A ring round the sun or moon.** 'A halo is an optical phenomenon produced by light (typically from the Sun or Moon) interacting with ice crystals suspended in the atmosphere'; the common one is 'the 22° halo', 'a large ring around the Sun or Moon with a radius of about 22° (roughly the width of an outstretched hand at arm's length)', which leaves 'the sky noticeably darker than the sky around it' inside the ring [ref:wiki-halo]. Ice crystals that high are the thin cloud that runs ahead of a change.\n\n**Fog and mist.** 'Fog forms when the difference between air temperature and dew point is less than 2.5°C', and among its causes is 'cool or dry air moving over warmer water' [ref:wiki-fog]. That is the dictionary's **[wurrbal](word:wurrbal)**, 'fog, mist rising from the river', the cold-season dawn on the Mitchell: the pools hold the day's warmth, the air over them drops to 14 °C before sunrise, and the river smokes until the sun is up [ref:hershberger1982] [ref:bom-palmerville]. **[ngurrbal](word:ngurrbal)** is fog in general, and **[nganyil](word:nganyil)** 'haze, mist' is the dry's other sky: haze 'tends to be primarily a warm-season phenomenon', and 'a small component of wet-haze aerosols appear to be derived from compounds released by trees when burning', so that 'sunrise and sunset colors and possibly the sun itself appear subdued on hazy days, and stars may be obscured by haze at night' [ref:hershberger1982] [ref:wiki-haze]. The burning season's haze is the smoke of the [fires](entry:hunting-with-fire) from here to the Gulf, and the red sun of August and September is its sign.\n\n**Dew and frost.** 'Dew is commonly formed at night, evening, and morning'; it wants 'the absence of clouds', 'sufficient humidity of the air near the ground' and 'a calm rather than windy night', and 'preferred objects of dew formation are thus poor-conducting or well-isolated from the ground and are non-metallic' [ref:wiki-dew]. A heavy dew on the grass and the swag means a clear still night behind it and a fine day ahead; frost needs a surface 'colder than freezing', and with a July mean minimum of 14.2 °C on the river it is a Tableland thing, not a Karma Waters one [ref:wiki-frost] [ref:bom-palmerville].\n\n**Whirlwinds and mirages.** **[wurunurru](word:wurunurru)** 'whirlwind' is the dust devil, 'a strong, well-formed, and relatively short-lived whirlwind' from 'small to large', 'more than 10 m (30 ft) wide and more than 1 km (1⁄2 mile) tall', 'usually harmless' [ref:hershberger1982] [ref:wiki-dust-devil]. They walk across the burnt flats and the dry river sand on the hottest still afternoons of October. The shimmer over the sand is heat haze, 'the inferior mirage observed when viewing objects through a mass of heated air', since 'both tarmac and sand can become very hot when exposed to the sun, easily being more than 10°C (18°F) higher than the air a meter (3.3 feet) above' [ref:wiki-mirage].\n\n**Rainbow.** **[yiril](word:yiril)**: 'rainbows caused by sunlight always appear in the section of sky directly opposite the sun', from 'rain, but also mist, spray, and airborne dew'; 'rarely, a moonbow, lunar rainbow, or nighttime rainbow can be seen on strongly moonlit nights', 'often perceived to be white' [ref:hershberger1982] [ref:wiki-rainbow]. A rainbow in the east in the late afternoon is a storm that has passed over and gone on; one in the west in the morning is a storm coming."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs from the country",
+      "body": "The dictionary's own almanac is on the [seasons page](entry:seasons): the storm bird's call, the cotton tree's flowers, the bark peeling, the **[jumul-jumul](word:jumul-jumul)** grass seeds 'which come during the wet season' and the **[junbirr](word:junbirr)** lizard 'common in leaves and grass before and durin wet season' [ref:hershberger1982]. A few more that the weather itself gives:\n\n- **The wind swings.** The dry's wind is the south-easterly trade, steady and cool; when the afternoon wind goes round to the north-west and the air turns thick, the build-up has begun [ref:wiki-trade-winds] [ref:wiki-australian-monsoon].\n- **The nights stop cooling.** Palmerville's mean minimum climbs from 14.2 °C in July to 19.2 in October and 21.5 in November; the first night you cannot sleep for the heat is the monsoon's doorstep [ref:bom-palmerville].\n- **The humidity comes back.** From 31 per cent at 3 pm in September and October to 44 in December and 59 in January; the sweat that will not dry is the measure [ref:bom-palmerville].\n- **Insects swarm.** Flying [termites](entry:termites-and-ant-beds) leave the mounds on the first humid evenings before the rain; the [insect page](entry:insects-and-grubs) has the rest.\n- **The river stops.** The flow between pools dies away through June and July; a rock bar that was a trickle in May is dry in August [ref:kw-about] [ref:wiki-mitchell-river].\n- **The birds move.** The [channel-billed cuckoo](entry:bush-birds) and the [dollarbird](entry:bush-birds) arrive with the storms and leave with the wet's end; the [water birds](entry:water-birds) crowd onto the shrinking pools at the end of the dry [ref:hershberger1982]."
+    },
+    {
+      "id": "habitat",
+      "heading": "The weather of this country",
+      "body": "Karma Waters sits 'approximately 200km North West of Cairns on the northern side of the Mitchell River', inland of the ranges that take the coast's rain, 'made up of shaly or greywacke ridges', with 'a 50 km frontage to the Mitchell River' [ref:kw-about]. The coast at the Bloomfield, where the dictionary was made, has the sea breeze, 'a wind that blows in the afternoon from a large body of water toward or onto a landmass', and the 'sea-breeze front' that 'can sometimes trigger thunderstorms', and more rain in every month; the Western Yalanji country of the Mitchell has the drier, hotter, clearer version of the same year [ref:wiki-sea-breeze] [ref:bom-palmerville]. The river itself 'flows through rainforest and wet sclerophyll forest in the highlands, transitions into savannah woodlands and open woodlands in the central uplands, and finally spreads across expansive floodplain wetlands' [ref:isra2025]. So the Mitchell's floods at the station are made of rain that fell on the Tableland the day before as much as of rain that fell here: the Tableland's 894.9 mm and the Palmer's 1,030 mm run together past the homestead [ref:bom-mareeba] [ref:bom-palmerville] [ref:wiki-mitchell-river].\n\n**Cyclones.** 'Queensland's cyclone season officially runs from 1 November to 30 April, however cyclones can occur at other times'; 'communities within 50 kilometres of the coastline from Bundaberg to Thursday Island, including the Gulf of Carpentaria are most susceptible to cyclones. However, accompanying wind and heavy rainfall and flooding from weakening cyclones and tropical lows can affect communities throughout all parts of Queensland' [ref:getready-cyclone]. 'Heat energy from the ocean acts as the accelerator for tropical cyclones. This causes inland regions to suffer far less damage from cyclones than coastal regions, although the impacts of flooding are felt across the board' [ref:wiki-tropical-cyclone]. Ita in April 2014 was 'a Category 5 severe tropical cyclone' at sea that made 'landfall near Cape Flattery as a Category 4'; 'once onshore Ita weakened dramatically to a Category 1 within 18 hours', 'turned southwest and accelerated', which took it over the Cooktown hinterland and the headwaters of this river [ref:wiki-cyclone-ita]. Larry in March 2006 crossed at Innisfail and 'moved over north-western Queensland on 22–23 March 2006, with heavy rain across the region. Gereta Station, north of Mount Isa, recorded 583 mm of rain in the 48 hours' [ref:wiki-cyclone-larry]. That is what the dictionary's **[wadjal](word:wadjal)** means here: not the wind, which the ranges break, but days of rain and the biggest floods [ref:hershberger1982] [ref:getready-cyclone]."
+    },
+    {
+      "id": "ecology",
+      "heading": "The sky at night",
+      "body": "**What the dictionary gives**, and only that: **[wungar](word:wungar)** 'sun', **[kija](word:kija)** 'moon', **[dawar](word:dawar)** and **[mulawajarr](word:mulawajarr)** 'star', **[kurrubijal](word:kurrubijal)** 'morning star', **[binyu](word:binyu)** 'shooting star' [ref:hershberger1982]. Everything else in this section is the astronomer's sky and the published knowledge of other peoples, named as theirs.\n\n**The morning star** is Venus, which 'orbits closer to the Sun than the Earth does' and 'comes closer to Earth than any other planet'; it is never far from the sun, so it is the bright star of the dawn or of the dusk and never of the middle of the night [ref:wiki-venus]. Jupiter is the other steady bright one; 'the four largest moons—Io, Europa, Ganymede, and Callisto' 'are visible with common binoculars' [ref:wiki-jupiter].\n\n**Shooting stars.** 'Meteors become visible between about 75 to 120 km (47 to 75 mi) above Earth. They usually disintegrate at altitudes of 50 to 95 km', and 'most meteors glow for about a second'; 'there are several thousand fireballs a day, but most go unnoticed because most occur over the ocean and half occur during daytime' [ref:wiki-meteor]. The dictionary's **[binyu](word:binyu)** carries a meaning beyond the astronomer's, given above in its own words [ref:hershberger1982].\n\n**The Milky Way and the Emu.** 'A constellation used almost everywhere in Australian Aboriginal culture is the \"Emu in the Sky\", which consists of dark nebulae (opaque clouds of dust and gas in outer space) that are visible against the (centre and other sectors of the) Milky Way background. The Emu's head is the very dark Coalsack Nebula, next to the Southern Cross; the body and legs are that extension of the Great Rift trailing out to Scorpius' [ref:wiki-aboriginal-astronomy]. 'In Australian Aboriginal astronomy, the Coalsack forms the head of the emu in the sky in several Aboriginal cultures', and the Coalsack is 'a dark nebula' '587 light-years' away, '7° × 5°' across [ref:wiki-coalsack]. The Gomeroi 'called the Milky Way Dhinawan, the giant \"Emu in the Sky\"', and the Kaurna of Adelaide 'wodliparri', 'house river'; whether the Yalanji saw the emu is not in the sources used here [ref:wiki-milky-way].\n\n**The Cross and the Pointers.** Crux is 'said to be a possum sitting in a tree (Boorong people of the Wimmera region of northwestern Victoria)', 'a stingray (Yolngu people of Arnhem Land), or an eagle (Kaurna people of the Adelaide Plains)', and 'in Aranda traditions of central Australia, the four Cross stars are the talon of an eagle and Gamma Centauri as its leg' [ref:wiki-crux]. The two Pointers are Alpha and Beta Centauri; Alpha Centauri AB 'is the brightest star in the constellation and the third-brightest in the night sky, outshone by only Sirius and Canopus', and 'the nearest binary stars to the Sun at a distance of 4.344 ly' [ref:wiki-alpha-centauri]. Sirius, in Canis Major, is the brightest star; Canopus, in Carina, the second, high in the south on summer nights [ref:wiki-sirius] [ref:wiki-canopus].\n\n**The Scorpion.** 'The Sun is in Scorpius's IAU boundaries for just six days, from November 23 to November 28', which puts the Scorpion opposite the sun in late May: it rises at dusk in the little rains, stands overhead on the cold-season evenings with the centre of the Milky Way, and is gone into the west by the storms [ref:wiki-scorpius]. Its tail is the Emu's legs [ref:wiki-aboriginal-astronomy].\n\n**Orion and the Seven Sisters.** 'From May to July (summer in the Northern Hemisphere, winter in the Southern Hemisphere), Orion is in the daytime sky and thus invisible at most latitudes'; it is the wet's constellation, overhead on the hot nights of December and January, 'seven brightest stars' in 'a distinctive hourglass-shaped asterism' with 'the three stars of Orion's Belt' in the middle [ref:wiki-orion]. 'The Yolŋu people of northern Australia say that the constellation of Orion, which they call Julpan (or Djulpan), is a canoe' [ref:wiki-aboriginal-astronomy]. The Pleiades, 'also known as Seven Sisters', 'the star cluster most obvious to the naked eye in the night sky', 'easily visible from mid-southern latitudes', lead Orion up the sky in the evenings of November [ref:wiki-pleiades]. 'In the Western Desert cultural bloc in central Australia, they are said to be seven sisters fleeing from the unwelcome attentions of a man represented by some of the stars in Orion', and 'the Yamatji people of the Wajarri language group' 'call the sisters Nyarluwarri. When the constellation is close to the horizon as the sun is setting, the people know that it is the right time to harvest emu eggs' [ref:wiki-aboriginal-astronomy]. Those are other peoples' stars, named as theirs; the Western Yalanji names and seasons for the same stars, if the families choose to give them, belong in the contribution box.\n\n**The Clouds.** The Magellanic Clouds, two smudges of light south of the Cross, 'were reported by 16th century Italian authors' 'based on Portuguese voyages' and had been watched from this hemisphere for all the time before that [ref:wiki-magellanic-clouds]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Weather by season",
+      "body": "Against the five seasons of the [seasons page](entry:seasons):\n\n- **Wet (late December to March).** 'Overcast conditions, extended periods of heavy rain, episodic thunderstorms and fresh to strong squally winds'; 267, 260 and 178 mm in the three months, 15 rain days a month, 2 clear days, 75 to 78 per cent humidity at 9 am; the rain 'mainly falls in late afternoon and early evening'; the cyclones and the lows; the river over its banks [ref:wiki-australian-monsoon] [ref:bom-palmerville] [ref:wiki-wet-season].\n- **Little rains (April to May).** 48 mm in April, 15 in May; the trade wind sets in from the south-east, the nights drop below 20 °C, the river goes back into its bed and the mists begin on the pools [ref:bom-palmerville] [ref:wiki-trade-winds].\n- **Cold (June to September).** 11, 5, 3 and 8 mm; 30.0 °C days and 14.2 °C nights in July; 12 to 16 clear days a month, 'humidity is very low', fires 'common'; the Scorpion overhead; dew on the swag and mist on the river at dawn [ref:bom-palmerville] [ref:wiki-dry-season] [ref:wiki-scorpius].\n- **Hot (October to November).** 35.6 and 36.2 °C mean maxima, 31 per cent humidity, 13 clear days in October; whirlwinds on the flats; thunder out west; the first storms in November, 61 mm [ref:bom-palmerville] [ref:wiki-dust-devil].\n- **Storms (late November to December).** 159 mm in December, 10 rain days; thunderheads every afternoon, lightning every night; the stormbird; the river rises [ref:bom-palmerville] [ref:wiki-cumulonimbus].\n\nThe fire weather is the end of the dry: 'the higher the temperature and the lower the humidity, the more likely it is that a fire may start or continue to burn', and September to November has the lowest humidity and the highest temperatures of the year together [ref:getready-bushfire] [ref:bom-palmerville]. The station burns 'on a 3-4 year cycle' and uses fire 'to clean up the country or get rid of excessive fuel loads', early, before that weather [ref:kw-land]."
+    },
+    {
+      "id": "uses",
+      "heading": "What the weather is used for",
+      "body": "**Hunting and fishing by weather.** The cold still mornings are the mist-on-the-river mornings for [turtles](entry:freshwater-turtle) and [catfish](entry:catfish) feeding in the warm pools; the overcast afternoons before a storm bring the [barramundi](entry:barramundi) and the [sooty grunter](entry:black-bream) on; the first floods run the [cherabin](entry:cherabin) and the [eels](entry:eels); the wind that lays the grass flat is the day to [burn](entry:hunting-with-fire) for [wallaby](entry:wallaby); the heat of October brings every animal to the last water, where the [hides](entry:waterhole) are [ref:hershberger1982] [ref:wiki-dry-season]. Every page on this site has its weather, and this page is where those weathers are named.\n\n**Camp by weather.** A [windbreak](entry:huts-and-shelters), **[bira](word:bira)** or **[kilili](word:kilili)**, against the south-easterly in the cold; a bark or iron roof against the wet; shade, **[wabarr](word:wabarr)**, in the hot; the camp above the flood line always [ref:hershberger1982] [ref:kw-camping]. The [camps page](entry:camps-and-firewood) has the choosing.\n\n**Travel by weather.** The road in is 'via the Mulligan highway, 25km west of Mt. Carbine and along Hurricane road and Karma Waters road', and the station is closed by the wet; the dry is the travelling season and the storms the time to be home [ref:kw-about] [ref:kw-camping].\n\n**Navigation.** The morning star and the sunrise give east, the Cross and the Pointers give south: a line through the long axis of the Cross, extended about four and a half times, meets a line at right angles from the middle of the Pointers above the south point of the horizon, and the sky's south pole has no bright star in it [ref:wiki-crux] [ref:wiki-alpha-centauri]. By day the sun is north at midday here, not overhead, except for a few weeks around the turn of the year when it passes overhead and the shadows vanish at noon; Karma Waters is inside the tropics [ref:kw-about]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Reading a storm, a flood and a hot day",
+      "body": "**A storm coming.** Towering altocumulus in the morning means storms by afternoon; a thunderhead with an anvil leaning toward you is coming your way; the cold wind that hits before the rain is the downdraft, 'cold air' that 'spreads out at the Earth's surface', and it arrives minutes ahead of the lightning [ref:wiki-altocumulus] [ref:wiki-thunderstorm]. Count the gap between flash and thunder; when it shortens, the storm is closing; when you can no longer count, it is on you [ref:wiki-lightning]. 'Severe thunderstorms can be quite localised and can develop quickly' and 'detailed warnings will generally be provided once they have been observed or detected', so on a station with a sky to look at, the sky is the first warning [ref:getready-storm].\n\n**A flood coming.** 'Riverine flooding happens when there's been a lot of rain over several days or weeks. When there is too much water, creeks and rivers can burst their banks'; 'flash flooding happens where there is a lot of rain in a short period of time. It can happen anywhere, at anytime, and often without a lot of warning' [ref:getready-flood]. A creek crossing can run in sunshine from rain that fell on the range an hour before: 'from the driver's perspective, there may be clear weather, when a river unexpectedly forms ahead of or around the vehicle in a matter of seconds' [ref:wiki-flash-flood]. The rule is the State's: 'If it's flooded, forget it'; 'it doesn't matter what car you drive, or how good you are at driving - as soon as you enter floodwater, your car can't protect you'; 'it can take as little as 15cm of water for a car to lose traction on the road and be swept away in floodwater'; '87% of lives lost happened on a creek crossing, bridge or causeway' [ref:getready-flooded]. Wait it out, or go round; the water drops as fast as it rose.\n\n**A hot day.** 'The Bureau of Meteorology defines a heatwave as 3 or more days of high maximum and minimum temperatures that are unusual for that location', and 'heatwaves have taken more lives and caused more adverse health outcomes than any other natural hazard in Australia' [ref:getready-heatwave]. Work and walk in the early morning, 'muduwaju', rest in the shade through 'wungar jarra-jarra', and move again in 'yilay-yilay'; carry water; the hot season's 36 °C in the shade is 45 in the sun on the river sand [ref:hershberger1982] [ref:bom-palmerville].\n\n**A cyclone or a big low.** 'As a cyclone approaches, the wind and rain gradually increases over several hours'; inland the wind is the smaller danger and 'heavy rainfall and flooding from weakening cyclones and tropical lows' the larger [ref:getready-cyclone]. Fuel, food, water, medicine and a charged radio before the road closes; the river crossings will be out for days [ref:getready-flood] [ref:kw-camping].\n\n**Watching the sky.** Learn the sky from one spot: the same tree, the same hour, and the sunrise point walking along the ridge from north-east in December to south-east in June and back; the stars that rise at dusk tonight rose an hour later a fortnight ago, so the whole sky turns through the year, and the Scorpion, Orion and the Sisters each have their season [ref:wiki-scorpius] [ref:wiki-orion] [ref:wiki-pleiades]. A notebook of first storms, first mists, first flowers and first birds, kept for a few years, is a calendar of this country that no book has."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "**Lightning.** 'The air around the lightning flash rapidly heats to temperatures of about 30,000°C', and 'lightning strikes can occur on a day that seems devoid of clouds', 'a bolt from the blue' [ref:wiki-lightning] [ref:wiki-lightning-safety]. The precautions: 'Seek shelter immediately in an enclosed car or substantial building; never shelter under trees because your body is a better conductor of electricity than the tree; if boating or engaged in other aquatic activities, head for shore straight away; avoid touching, handling and proximity to any metallic objects that may become part of the discharge path, for example towers, the metal parts of vehicles or mobile plant, power lines, pipes and rails; do not handle fishing rods, umbrellas, golf clubs or any other metal objects and stay clear of sheet metal, wire fences, clotheslines and so on; and if caught in the open, crouch down with your feet together. Do not lie down – the idea is to be as low as possible, but with minimal contact with the ground' [ref:worksafe-wa-lightning]. A fishing rod on a river bank in a December storm is the worst place on the station.\n\n**Flood.** 'Here in Queensland driving into floodwater is a major cause of flood-related deaths'; 'even in shallow floodwater, your steering, engine and electrics can stop working, making it extremely difficult to escape', and 'the pressure of floodwater can stop you opening doors and windows' [ref:getready-flooded]. On foot the same: a knee-deep crossing running fast will take an adult; the [Mitchell page](entry:mitchell-river) has the river's floods and the [crocodile](entry:saltwater-crocodile) that floods bring up [ref:getready-flooded] [ref:crocwise].\n\n**Heat.** 'Heatstroke occurs when your body temperature rises from its normal temperature to above 40°C. It can lead to serious organ damage or death if not treated urgently'; 'heat exhaustion' first, 'very weak, dizzy', 'skin may be clammy', then heatstroke: 'stop sweating', 'feel confused', 'lose consciousness', 'red, hot or dry skin', 'slurred speech', 'poor coordination' [ref:healthdirect-heatstroke]. 'In the field, the person should be moved to a cool area', 'clothing should be removed to promote heat loss', and 'conductive cooling methods such as ice-water immersion should also be used, if possible' or 'cool water spray or cold compresses with constant air flow over the body'; the river is the cold water, and the Flying Doctor is the call [ref:wiki-heat-stroke] [ref:healthdirect-heatstroke]. The vulnerable are 'babies and young children', the 'elderly', 'pregnant and breastfeeding people', 'people with medical conditions', 'pets' and 'people who work in the outdoors' [ref:getready-heatwave].\n\n**Storm wind and hail.** 'Storms have potential to cause substantial damage to homes and vehicles caused by heavy winds and large hail. They can damage significant structures such as powerlines, trees and other large objects'; a river gum drops limbs in the downdraft, so a storm camp is in the open, not under the big trees, and not in the creek bed [ref:getready-storm].\n\n**Fire.** 'Fire embers can spread many kilometres from the location of a large bushfire, causing smaller spot fires to break out', and 'radiant heat can be felt more than 100m away from a large bushfire' [ref:getready-bushfire]. On a September afternoon with the wind up, the river sand is the safe ground; the [hunting-with-fire page](entry:hunting-with-fire) has the rest."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The weather of this country is being measured in two ways at once: the Palmerville gauge since 1889, and the station's own records, 'photo points twice year; end of year at break of season and post wet season' since 2005, with 'the monitoring of break of season ground cover' by the Northern Gulf group [ref:bom-palmerville] [ref:kw-land]. 'Queensland is experiencing an increase in the frequency and duration of heatwaves, including higher humidity and higher overnight temperatures', and 'climate change can exacerbate the impact of tropical cyclones by increasing their duration, occurrence, and intensity due to the warming of ocean waters' [ref:getready-heatwave] [ref:wiki-tropical-cyclone]. The old calendar in the dictionary, and the old people's reading of the sky, are the longest record of all, and the one this site is for; the warnings, the forecasts and the river heights come from the Bureau and the local council's disaster dashboard, and the station's rules on fire and the wet come first [ref:getready-flood] [ref:kw-camping]. What the Western Yalanji families call the stars, which clouds and winds they name, and what the sky told the old people about the year, are for the contribution box below."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**[jiri](word:jiri)** 'sky'; **[jiri bajaku](word:jiri bajaku)** 'fine day'; **[kaba](word:kaba)** 'rain'; **[wadil](word:wadil)** 'weather entering'; **[jalungkarr](word:jalungkarr)** 'flood'; **[muyar](word:muyar)** 'wind'; **[kumbamu](word:kumbamu)** 'trade wind'; **[yanja](word:yanja)** 'rustling noise'; **[wurunurru](word:wurunurru)** 'whirlwind'; **[wadjal](word:wadjal)** 'cyclone'; **[ngurrban](word:ngurrban)** 'cloud'; **[kurrinkurrin](word:kurrinkurrin)** 'mackeral sky'; **[jarramali](word:jarramali)** 'thunder, thunderstorm, thunderheads'; **[jabulbina](word:jabulbina)** 'thunder out west'; **[balbay](word:balbay)** 'lightning'; **[dalbarril](word:dalbarril)** 'strike by lightning'; **[ngurrbal](word:ngurrbal)** 'fog'; **[wurrbal](word:wurrbal)** 'mist rising from the river'; **[nganyil](word:nganyil)** 'haze'; **[yiril](word:yiril)** 'rainbow'; **[wabarr](word:wabarr)** 'shade'; **[bira](word:bira)**, **[kilili](word:kilili)** 'windbreak'; **[wumbul](word:wumbul)** 'hot'; **[wangariji](word:wangariji)** 'the hot season'; **[kiway](word:kiway)** 'cold'; **[kambar](word:kambar)** 'wet season'; **[marral](word:marral)** 'dry'; **[wungar](word:wungar)** 'sun'; **[kija](word:kija)** 'moon'; **[dawar](word:dawar)**, **[mulawajarr](word:mulawajarr)** 'star'; **[kurrubijal](word:kurrubijal)** 'morning star'; **[binyu](word:binyu)** 'shooting star'; **[muduwaju](word:muduwaju)** 'dawn'; **[wunkuwingku](word:wunkuwingku)** 'morning'; **[wungar wandil-wandil](word:wungar wandil-wandil)** 'sun rise'; **[wungar jarra-jarra](word:wungar jarra-jarra)** 'midday'; **[yilay-yilay](word:yilay-yilay)** 'late afternoon'; **[wungar daray](word:wungar daray)** 'sunset'; **[wujurr](word:wujurr)** 'night'; **[kunarangkal](word:kunarangkal)** 'middle of the night' [ref:hershberger1982]. The dictionary also records, in its own words and as it stands, that the bark of **[jujabala](word:jujabala)** 'is burned to control thunderstorms, as is kangka, kanunjul and nganjirr', the [wild grape](entry:bush-medicine), the [grass-tree resin](entry:grass-tree) and the [grass tree](entry:grass-tree) [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "seasons",
+    "mitchell-river",
+    "finding-water",
+    "hunting-with-fire",
+    "camps-and-firewood",
+    "huts-and-shelters",
+    "waterhole",
+    "bush-birds",
+    "water-birds",
+    "termites-and-ant-beds",
+    "insects-and-grubs",
+    "saltwater-crocodile",
+    "cattle-and-horses"
+  ],
+  "relatedWords": [],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "bom-palmerville",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Palmerville (station 028004), records from 1889 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_028004.shtml"
+    },
+    {
+      "id": "wiki-australian-monsoon",
+      "citation": "Wikipedia. Australian monsoon.",
+      "url": "https://en.wikipedia.org/wiki/Australian_monsoon"
+    },
+    {
+      "id": "wiki-dry-season",
+      "citation": "Wikipedia. Dry season.",
+      "url": "https://en.wikipedia.org/wiki/Dry_season"
+    },
+    {
+      "id": "wiki-monsoon",
+      "citation": "Wikipedia. Monsoon.",
+      "url": "https://en.wikipedia.org/wiki/Monsoon"
+    },
+    {
+      "id": "isra2025",
+      "citation": "IUCN SSC Shark Specialist Group (2025). Mitchell-Palmer-Walsh Rivers ISRA Factsheet (Important Shark and Ray Area, Region 08: Australia and Southeast Indian Ocean). Dubai: IUCN SSC Shark Specialist Group.",
+      "url": "https://sharkrayareas.org/portfolio-item/mitchell-palmer-walsh-rivers-isra/"
+    },
+    {
+      "id": "bom-mareeba",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Mareeba Airport (station 031210), 2000–2026 (accessed 5 October 2026).",
+      "url": "https://www.bom.gov.au/climate/averages/tables/cw_031210.shtml"
+    },
+    {
+      "id": "wiki-wet-season",
+      "citation": "Wikipedia. Wet season.",
+      "url": "https://en.wikipedia.org/wiki/Wet_season"
+    },
+    {
+      "id": "wiki-mjo",
+      "citation": "Wikipedia. Madden–Julian oscillation.",
+      "url": "https://en.wikipedia.org/wiki/Madden%E2%80%93Julian_oscillation"
+    },
+    {
+      "id": "wiki-enso",
+      "citation": "Wikipedia. El Niño–Southern Oscillation.",
+      "url": "https://en.wikipedia.org/wiki/El_Ni%C3%B1o%E2%80%93Southern_Oscillation"
+    },
+    {
+      "id": "wiki-trade-winds",
+      "citation": "Wikipedia. Trade winds.",
+      "url": "https://en.wikipedia.org/wiki/Trade_winds"
+    },
+    {
+      "id": "wiki-thunderstorm",
+      "citation": "Wikipedia. Thunderstorm.",
+      "url": "https://en.wikipedia.org/wiki/Thunderstorm"
+    },
+    {
+      "id": "wiki-cumulonimbus",
+      "citation": "Wikipedia. Cumulonimbus cloud.",
+      "url": "https://en.wikipedia.org/wiki/Cumulonimbus_cloud"
+    },
+    {
+      "id": "getready-storm",
+      "citation": "Get Ready Queensland. Know your risk: Storm (updated September 2026).",
+      "url": "https://www.getready.qld.gov.au/prepare/know-your-risk/storm"
+    },
+    {
+      "id": "wiki-lightning",
+      "citation": "Wikipedia. Lightning.",
+      "url": "https://en.wikipedia.org/wiki/Lightning"
+    },
+    {
+      "id": "wiki-altocumulus",
+      "citation": "Wikipedia. Altocumulus cloud.",
+      "url": "https://en.wikipedia.org/wiki/Altocumulus_cloud"
+    },
+    {
+      "id": "wiki-cirrocumulus",
+      "citation": "Wikipedia. Cirrocumulus cloud.",
+      "url": "https://en.wikipedia.org/wiki/Cirrocumulus_cloud"
+    },
+    {
+      "id": "wiki-halo",
+      "citation": "Wikipedia. Halo (optical phenomenon).",
+      "url": "https://en.wikipedia.org/wiki/Halo_(optical_phenomenon)"
+    },
+    {
+      "id": "wiki-fog",
+      "citation": "Wikipedia. Fog.",
+      "url": "https://en.wikipedia.org/wiki/Fog"
+    },
+    {
+      "id": "wiki-haze",
+      "citation": "Wikipedia. Haze.",
+      "url": "https://en.wikipedia.org/wiki/Haze"
+    },
+    {
+      "id": "wiki-dew",
+      "citation": "Wikipedia. Dew.",
+      "url": "https://en.wikipedia.org/wiki/Dew"
+    },
+    {
+      "id": "wiki-frost",
+      "citation": "Wikipedia. Frost.",
+      "url": "https://en.wikipedia.org/wiki/Frost"
+    },
+    {
+      "id": "wiki-dust-devil",
+      "citation": "Wikipedia. Dust devil.",
+      "url": "https://en.wikipedia.org/wiki/Dust_devil"
+    },
+    {
+      "id": "wiki-mirage",
+      "citation": "Wikipedia. Mirage.",
+      "url": "https://en.wikipedia.org/wiki/Mirage"
+    },
+    {
+      "id": "wiki-rainbow",
+      "citation": "Wikipedia. Rainbow.",
+      "url": "https://en.wikipedia.org/wiki/Rainbow"
+    },
+    {
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "wiki-mitchell-river",
+      "citation": "Wikipedia. Mitchell River (Queensland).",
+      "url": "https://en.wikipedia.org/wiki/Mitchell_River_(Queensland)"
+    },
+    {
+      "id": "wiki-sea-breeze",
+      "citation": "Wikipedia. Sea breeze.",
+      "url": "https://en.wikipedia.org/wiki/Sea_breeze"
+    },
+    {
+      "id": "getready-cyclone",
+      "citation": "Get Ready Queensland. Know your risk: Cyclone and storm surge (accessed 11 October 2026).",
+      "url": "https://www.getready.qld.gov.au/prepare/know-your-risk/cyclone-and-storm-surge"
+    },
+    {
+      "id": "wiki-tropical-cyclone",
+      "citation": "Wikipedia. Tropical cyclone.",
+      "url": "https://en.wikipedia.org/wiki/Tropical_cyclone"
+    },
+    {
+      "id": "wiki-cyclone-ita",
+      "citation": "Wikipedia. Cyclone Ita (2014).",
+      "url": "https://en.wikipedia.org/wiki/Cyclone_Ita"
+    },
+    {
+      "id": "wiki-cyclone-larry",
+      "citation": "Wikipedia. Cyclone Larry (2006).",
+      "url": "https://en.wikipedia.org/wiki/Cyclone_Larry"
+    },
+    {
+      "id": "wiki-venus",
+      "citation": "Wikipedia. Venus.",
+      "url": "https://en.wikipedia.org/wiki/Venus"
+    },
+    {
+      "id": "wiki-jupiter",
+      "citation": "Wikipedia. Jupiter.",
+      "url": "https://en.wikipedia.org/wiki/Jupiter"
+    },
+    {
+      "id": "wiki-meteor",
+      "citation": "Wikipedia. Meteor.",
+      "url": "https://en.wikipedia.org/wiki/Meteor"
+    },
+    {
+      "id": "wiki-aboriginal-astronomy",
+      "citation": "Wikipedia. Australian Aboriginal astronomy.",
+      "url": "https://en.wikipedia.org/wiki/Australian_Aboriginal_astronomy"
+    },
+    {
+      "id": "wiki-coalsack",
+      "citation": "Wikipedia. Coalsack Nebula.",
+      "url": "https://en.wikipedia.org/wiki/Coalsack_Nebula"
+    },
+    {
+      "id": "wiki-milky-way",
+      "citation": "Wikipedia. Milky Way.",
+      "url": "https://en.wikipedia.org/wiki/Milky_Way"
+    },
+    {
+      "id": "wiki-crux",
+      "citation": "Wikipedia. Crux (the Southern Cross).",
+      "url": "https://en.wikipedia.org/wiki/Crux"
+    },
+    {
+      "id": "wiki-alpha-centauri",
+      "citation": "Wikipedia. Alpha Centauri.",
+      "url": "https://en.wikipedia.org/wiki/Alpha_Centauri"
+    },
+    {
+      "id": "wiki-sirius",
+      "citation": "Wikipedia. Sirius.",
+      "url": "https://en.wikipedia.org/wiki/Sirius"
+    },
+    {
+      "id": "wiki-canopus",
+      "citation": "Wikipedia. Canopus.",
+      "url": "https://en.wikipedia.org/wiki/Canopus"
+    },
+    {
+      "id": "wiki-scorpius",
+      "citation": "Wikipedia. Scorpius.",
+      "url": "https://en.wikipedia.org/wiki/Scorpius"
+    },
+    {
+      "id": "wiki-orion",
+      "citation": "Wikipedia. Orion (constellation).",
+      "url": "https://en.wikipedia.org/wiki/Orion_(constellation)"
+    },
+    {
+      "id": "wiki-pleiades",
+      "citation": "Wikipedia. Pleiades.",
+      "url": "https://en.wikipedia.org/wiki/Pleiades"
+    },
+    {
+      "id": "wiki-magellanic-clouds",
+      "citation": "Wikipedia. Magellanic Clouds.",
+      "url": "https://en.wikipedia.org/wiki/Magellanic_Clouds"
+    },
+    {
+      "id": "getready-bushfire",
+      "citation": "Get Ready Queensland. Know your risk: Bushfire (updated September 2026).",
+      "url": "https://www.getready.qld.gov.au/prepare/know-your-risk/bushfire"
+    },
+    {
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
+    },
+    {
+      "id": "kw-camping",
+      "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "getready-flood",
+      "citation": "Get Ready Queensland. Know your risk: Flood (updated September 2026).",
+      "url": "https://www.getready.qld.gov.au/prepare/know-your-risk/flood"
+    },
+    {
+      "id": "wiki-flash-flood",
+      "citation": "Wikipedia. Flash flood.",
+      "url": "https://en.wikipedia.org/wiki/Flash_flood"
+    },
+    {
+      "id": "getready-flooded",
+      "citation": "Get Ready Queensland (Queensland Reconstruction Authority). If it's flooded, forget it (accessed 11 October 2026).",
+      "url": "https://www.getready.qld.gov.au/FloodedForgetIt"
+    },
+    {
+      "id": "getready-heatwave",
+      "citation": "Get Ready Queensland. Know your risk: Heatwave (accessed 11 October 2026).",
+      "url": "https://www.getready.qld.gov.au/prepare/know-your-risk/heatwave"
+    },
+    {
+      "id": "wiki-lightning-safety",
+      "citation": "Wikipedia. Lightning strike.",
+      "url": "https://en.wikipedia.org/wiki/Lightning_strike"
+    },
+    {
+      "id": "worksafe-wa-lightning",
+      "citation": "WorkSafe Western Australia. Lightning: recommended precautions when working outdoors during a thunderstorm (updated 26 November 2024).",
+      "url": "https://www.worksafe.wa.gov.au/lightning"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "healthdirect-heatstroke",
+      "citation": "healthdirect Australia. Heatstroke (accessed 11 October 2026).",
+      "url": "https://www.healthdirect.gov.au/heatstroke"
+    },
+    {
+      "id": "wiki-heat-stroke",
+      "citation": "Wikipedia. Heat stroke.",
+      "url": "https://en.wikipedia.org/wiki/Heat_stroke"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-11"
+}

@@ -1,0 +1,418 @@
+{
+  "slug": "wagtails-robins-and-whistlers",
+  "title": "Wagtails, robins, whistlers and the small bush birds",
+  "category": "bird",
+  "names": [
+    {
+      "word": "dijarr-dijin",
+      "gloss": "willie wagtail"
+    },
+    {
+      "word": "dukunjulu",
+      "gloss": "golden whistler"
+    },
+    {
+      "word": "binjul-binjul",
+      "gloss": "scarlet robin"
+    },
+    {
+      "word": "binjurr-binjurr",
+      "gloss": "honey eater"
+    },
+    {
+      "word": "karrmbil",
+      "gloss": "blue mountain parakeet"
+    },
+    {
+      "word": "bayil-bayil",
+      "gloss": "mudlark"
+    },
+    {
+      "word": "barinkan",
+      "gloss": "scrub bird"
+    },
+    {
+      "word": "baringkan",
+      "gloss": "baringkan (small bird)"
+    },
+    {
+      "word": "diwalngku",
+      "gloss": "migratory bird"
+    }
+  ],
+  "scientificName": "Rhipidura leucophrys",
+  "identification": {
+    "confidence": "probable",
+    "basis": "The willie wagtail, the magpie-lark and the lorikeet are certain; the dictionary's whistler and robin are the coast's and the inland species differ; 'scrub bird' and 'small bird' are not identified."
+  },
+  "countryTypes": [
+    "open-woodland",
+    "river-freshwater",
+    "camp",
+    "rainforest"
+  ],
+  "summary": "**[dijarr-dijin](word:dijarr-dijin)** 'willie wagtail', **[dukunjulu](word:dukunjulu)** 'golden whistler', **[binjul-binjul](word:binjul-binjul)** 'scarlet robin', **[binjurr-binjurr](word:binjurr-binjurr)** 'species of honey eater', **[karrmbil](word:karrmbil)** 'blue mountain parakeet', **[bayil-bayil](word:bayil-bayil)** 'mudlark (peewee)', **[barinkan](word:barinkan)** 'scrub bird, dark grey with white breast', **[baringkan](word:baringkan)** 'species of small bird' and **[diwalngku](word:diwalngku)** 'migratory bird' are the dictionary's words for the small birds of the camp and the scrub [ref:hershberger1982]. The willie wagtail 'is a common and familiar bird throughout much of its range, living in most habitats apart from thick forest', 'contrastingly coloured with almost entirely black upperparts and white underparts', 'aggressive and territorial', and 'widely featured in Aboriginal folklore around Australia and New Guinea in a variety of roles, from stealer of secrets and liar to a good omen' [ref:wiki-willie-wagtail]. Around [Karma Waters](place:karma-waters) the Atlas's thirty-kilometre list is led by small birds: rainbow lorikeet 67 records, willie wagtail 46, brown honeyeater 47, double-barred finch 48, pale-headed rosella 52, striated pardalote 57, black-throated finch 43, rufous whistler 35, weebill 35, yellow honeyeater 35, white-throated gerygone 36, black-faced woodswallow 32, white-throated honeyeater 40 [ref:ala-aves]. This page is those birds: how to tell the wagtail from the restless flycatcher and the magpie-lark, the rufous whistler of the woodland from the golden whistler of the dictionary's coast, the honeyeaters from the finches; what they eat and when they sing; what the old people took from them; and what each one tells about water, flowering, insects and the season. The crows, magpies, butcherbirds, bowerbirds, bee-eaters, owls and the night birds are on the [bush birds page](entry:bush-birds), the parrots on the [cockatoos page](entry:cockatoos-and-parrots), the kingfishers on [their own](entry:kookaburras-and-kingfishers).",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "dijarr-dijin, dijarrdijin (willie wagtail); dukunjulu, dukunjuju (golden whistler); binjul-binjul (scarlet robin); binjurr-binjurr, binjurrbinjurr (honeyeater); karrmbil (blue mountain parakeet, the rainbow lorikeet); bayil-bayil (mudlark); barinkan (scrub bird); baringkan (small bird); diwalngku (migratory bird); dikal (bird)"
+    },
+    {
+      "label": "At Karma Waters (ALA, 30 km)",
+      "value": "Rainbow lorikeet (67), magpie-lark (64), striated pardalote (57), pale-headed rosella (52), double-barred finch (48), brown honeyeater (47), willie wagtail (46), black-throated finch (43), white-throated honeyeater (40), white-throated gerygone (36), rufous whistler (35), weebill (35), yellow honeyeater (35), black-faced woodswallow (32), leaden flycatcher (21), grey fantail (19), red-backed fairywren (18), brown treecreeper (19), mistletoebird (17), jacky winter (15), spangled drongo (15)"
+    },
+    {
+      "label": "Willie wagtail",
+      "value": "19–21.5 cm; black above, white below; wags the tail sideways; chases kookaburras and eagles; 'sweet pretty creature' song, scolding chatter"
+    },
+    {
+      "label": "Whistlers",
+      "value": "Rufous whistler of the woodland, 16–18 cm, the male with a black mask and rufous belly; golden whistler of the wet forest, the male yellow and black"
+    },
+    {
+      "label": "Honeyeaters here",
+      "value": "Brown, white-throated, yellow, banded, rufous-throated, scarlet myzomela; with the blue-faced and the friarbirds of the bush-birds page"
+    },
+    {
+      "label": "Finches",
+      "value": "Double-barred, black-throated, masked; Gouldian rare; all drink at the pools morning and evening"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "**[dijarr-dijin](word:dijarr-dijin)** and **[dijarrdijin](word:dijarrdijin)** 'willie wagtail' [ref:hershberger1982]. 'Many Aboriginal names are onomatopoeic, based on the sound of its scolding call': 'djididjidi' in Noongar country, 'djikirridj-djikirridj' among the Kunwinjku, 'dhirridhirri' among the Gamilaraay, 'tjintir-tjintir(pa)' in Pitjantjatjara, and the Yalanji word is the same scolding said in Yalanji [ref:wiki-willie-wagtail] [ref:hershberger1982].\n\n**[dukunjulu](word:dukunjulu)** and **[dukunjuju](word:dukunjuju)** 'golden whistler' [ref:hershberger1982]. **[binjul-binjul](word:binjul-binjul)** 'scarlet robin' [ref:hershberger1982]. **[binjurr-binjurr](word:binjurr-binjurr)** 'species of honey eater' and **[binjurrbinjurr](word:binjurrbinjurr)**, glossed 'robin' with the definition 'honey eater bird' [ref:hershberger1982]. **[karrmbil](word:karrmbil)** 'blue mountain parakeet', the old settlers' name for the rainbow lorikeet, which the dictionary also calls **[birrbirr](word:birrbirr)** 'parrot, parakeet, lorikeet' on the [cockatoos page](entry:cockatoos-and-parrots) [ref:hershberger1982]. **[bayil-bayil](word:bayil-bayil)** 'mudlark (peewee)', the magpie-lark [ref:hershberger1982]. **[barinkan](word:barinkan)** 'scrub bird, dark grey with white breast' and **[baringkan](word:baringkan)** 'species of small bird'; **[diwalngku](word:diwalngku)** 'migratory bird'; **[dikal](word:dikal)** 'bird'; **[buyi](word:buyi)** 'a type of bird called buyi'; **[muya](word:muya)** 'english name unknown' [ref:hershberger1982]. **[mabal](word:mabal)** 'swallow' and **[jangkan](word:jangkan)** 'swift' are on the [bush birds page](entry:bush-birds) [ref:hershberger1982].\n\nThe dictionary was made on the Bloomfield coast, where the golden whistler and the rainforest birds live, and its 'scarlet robin' is a coastal name for a red-breasted bird that is not the southern scarlet robin, which 'is found near the coast from southern Queensland to central South Australia' and no further north; which red bird the word meant, and the Western Yalanji words for the inland whistler, the flycatchers, the finches and the wrens, are for the contribution box below [ref:hershberger1982] [ref:wiki-scarlet-robin]."
+    },
+    {
+      "id": "description",
+      "heading": "The birds",
+      "body": "**Willie wagtail**, *Rhipidura leucophrys*: 'measuring 19–21.5 cm (7+1⁄2–8+1⁄2 in) in length, the willie wagtail is contrastingly coloured with almost entirely black upperparts and white underparts; the male and female have similar plumage'; 'its common name is derived from its habit of wagging its tail horizontally when foraging on the ground'; 'aggressive and territorial, the willie wagtail will often harass much larger birds such as the laughing kookaburra and wedge-tailed eagle' [ref:wiki-willie-wagtail]. Its other names tell its habits: 'shepherd's companion (because it accompanied livestock), frogbird, morning bird, and Australian nightingale', the last for the song it sings through moonlit nights [ref:wiki-willie-wagtail]. It follows the [cattle](entry:cattle-and-horses) and the [wallabies](entry:wallaby) for the insects they stir up, and it will follow a person for the same reason.\n\n**Grey fantail** and **rufous fantail**, the wagtail's cousins: the grey fantail 'grows to 16 cm (6.3 in) in length, of which half is the tail, which, as the name implies, is often displayed fanned out'; 'during waking hours, they are almost never still', 'the birds are not shy, and will often flit within a few metres of people', and 'the bird's call is an almost metallic cheek' [ref:wiki-grey-fantail]. The rufous fantail, 'generally ranging from 14.5 cm – 18.5 cm', is the orange-rumped one of the wet gullies and the river scrub, whose 'chip call' 'is often what first attracts an observer's attention' [ref:wiki-rufous-fantail].\n\n**Magpie-lark**, the peewee, **[bayil-bayil](word:bayil-bayil)**: the other black-and-white bird of the camp, bigger than the wagtail, pied in patches rather than black-over-white, walking rather than flitting, with the 'pee-wee' duet and the mud nest; the [bush birds page](entry:bush-birds) has it with the magpie [ref:hershberger1982] [ref:wiki-magpie-lark].\n\n**Restless flycatcher**, 'also known as the razor grinder or scissors grinder because of its distinctive call', 'has similar colouring to the willie wagtail'; 'its habitat is usually open and wooded forests, in river red gums near water', and 'it often hovers with its head and tail pointed downwards as it picks insects off from leaves' [ref:wiki-restless-flycatcher]. **Leaden flycatcher**: 'around 15 cm (6 in) in length, the male is lustrous azure with white underparts, while the female possesses leaden head, mantle and back and rufous throat and breast'; it is 'highly migratory within this range' [ref:wiki-leaden-flycatcher].\n\n**Rufous whistler**, *Pachycephala rufiventris*, the whistler of the woodland: 'predominantly a reddish-brown and grey bird, it makes up for its subdued plumage with its song-making ability'; 'males have rufous underparts and predominantly dark-grey back and tail with white throats and (in most cases) a black mask', females 'dull brown or grey with streaked underbodies'; 'between 16 and 18 centimetres' and 'approximately 25 grams' [ref:wiki-rufous-whistler]. **Golden whistler**, the dictionary's **[dukunjulu](word:dukunjulu)**: 'found in forest, woodland, mallee, mangrove and scrub in Australia (except the interior and most of the north)', 'can be found in almost any wooded habitat, especially dense forests', the male yellow below with a black head and a white throat [ref:wiki-golden-whistler] [ref:hershberger1982]. The Atlas has 450 rufous whistler records within 60 km of Karma Waters and 8 golden [ref:ala-karma-60].\n\n**Grey shrikethrush**, 'formerly commonly known as grey thrush', 'moderately common to common in most parts of Australia', the plain grey bird with the loudest, clearest song in the woodland [ref:wiki-grey-shrikethrush].\n\n**Jacky winter**, 'a small grey-brown robin', 'around 12 – 14 cm in length' with a 'tail' that 'is blackish brown with white outer feathers', 'acquired its name due to rapid and strong vocalisations, which sound like jacky-jacky winter-winter' or 'peter-peter-peter'; the northern race 'pallida' 'is much more pallid than the other subspecies, and is usually a sandy brown colour' [ref:wiki-jacky-winter]. **Lemon-bellied flyrobin**, the robin of the paperbarks: 'found in mangroves, paperbark swamp forests, and woodland', 'hunting its prey in the foliage or dead branches of trees and shrubs and only rarely on the ground' [ref:wiki-lemon-bellied-flyrobin].\n\n**Red-backed fairywren**: 'the male adopts a striking breeding plumage, with a black head, upperparts and tail, and a brightly coloured red back and brown wings. The female has brownish upperparts and paler underparts'; 'the preferred habitat is heathland and savannah, particularly where low shrubs and tall grasses provide cover', and 'it can be nomadic in areas where there are frequent bushfires' [ref:wiki-red-backed-fairywren].\n\n**Weebill**, 'Australia's smallest bird at approximately 8 to 9 cm (3.1 to 3.5 in) long and weighing an average of 6 grams', 'olive-grey upperparts and paler, more yellowish underparts', 'more yellow in tropical areas', 'most commonly found in the canopies of dry, open eucalyptus forests' [ref:wiki-weebill]. **Striated pardalote**, 'the least colourful and most common of the four pardalote species', 'pickwick, wittachew and chip-chip', 'a very small, short-tailed bird that is more often heard than seen, foraging noisily for lerps and other small creatures in the treetops', which nests in 'a tunnel excavated in the side of a bank' [ref:wiki-striated-pardalote]. **White-throated gerygone**, 'white-throated warbler', 'bush canary', 'native canary', with the falling silver song of the spring woodland [ref:wiki-white-throated-gerygone]. **Mistletoebird**: 'eats mainly the berries of the parasitic mistletoe and is a vector for the spread of the mistletoe's seeds through its digestive system', the male glossy blue-black above and scarlet at the throat; 'the mistletoebird needs the mistletoe but the mistletoe does not need the mistletoebird' [ref:wiki-mistletoebird].\n\n**Honeyeaters.** The **brown honeyeater**, 'a medium-small brownish bird, with yellow-olive panels in the tail and wing, and a yellow tuft behind the eye', 'occupies a range of habitats from mangroves to eucalypt woodlands', 'is seasonally nomadic within its local area, following flowering food plants', and 'has a loud, clear, musical song, described as the best of all the honeyeaters'; the Atlas has 703 records within 60 km, the most of any bird [ref:wiki-brown-honeyeater] [ref:ala-karma-60]. The **white-throated honeyeater**, '11.5 to 14.5 cm (4.5 to 5.7 in) long, olive-green above and white below, with a black head, a white or pale blue patch over the eye, and a white stripe across the nape' [ref:wiki-white-throated-honeyeater]. The **yellow honeyeater**, all yellow, 'endemic to Australia', which 'hovers in front of the spectacular flowers of the bottlebrush orchid' 'between August and November' [ref:wiki-yellow-honeyeater]. The **banded honeyeater**, 'with a characteristic narrow black band across its white underparts', 'endemic to tropical northern Australia', which 'feeds on the nectar of eucalypts and some other open flowers, such as Grevilleas, paperbarks and Bauhinias, plus insects' and 'is a blossom nomad' [ref:wiki-banded-honeyeater]. The **rufous-throated honeyeater**, 'endemic to northern Australia', and the **scarlet myzomela**, 'the smallest honeyeater in Australia', 'the male' 'a striking bright red with black wings, while the female is entirely brown' [ref:wiki-rufous-throated-honeyeater] [ref:wiki-scarlet-myzomela]. The **noisy miner**, 'a grey bird, with a black head, orange-yellow beak and feet, a distinctive yellow patch behind the eye', which lives in 'colonies that can contain several hundred birds' and 'is a notably aggressive bird' [ref:wiki-noisy-miner]. The blue-faced honeyeater and the friarbirds are on the [bush birds page](entry:bush-birds).\n\n**Finches.** Double-barred and black-throated finches are the two commonest at the pools, the masked finch 'a common resident of dry savannah across northern Australia', 'as far east as Chillagoe, but always near water', and the [Gouldian](entry:bush-birds) the rare one; 'in the evenings and early mornings, large numbers—sometimes thousands— can gather around waterholes to drink' [ref:wiki-masked-finch] [ref:wiki-black-throated-finch] [ref:wiki-double-barred-finch].\n\n**The rest of the woodland.** The **black-faced cuckooshrike**, 'a prominent black face and throat, grey plumage, white underparts', '32 cm and 34 cm', 'slow-moving, inconspicuous birds, with a shrill, screaming call'; the **white-winged triller**, whose 'conspicuous male bird—black above and white below in breeding plumage—trills cheerfully through much of the day during the breeding season'; the **olive-backed oriole**, 'noisy and conspicuous', which 'prefers more open woodland environments'; the **spangled drongo**, 'black, iridescent plumage and its characteristic forked tail', 'a mimic of the sounds it hears'; the **black-faced woodswallow**, '18–19 cm', 'the most widespread species in the family'; the **brown treecreeper**, whose northern race 'melanotus' is 'known as the black treecreeper'; the **varied sittella**, 'the barkpecker', in flocks 'descending erratically down the trunks'; the **pied currawong**, 'a robust crowlike bird averaging around 48 cm', 'a predator' of 'bird eggs, juvenile birds and young marsupials'; and the **pale-headed rosella** and **rainbow lorikeet** of the [cockatoos page](entry:cockatoos-and-parrots) [ref:wiki-black-faced-cuckooshrike] [ref:wiki-white-winged-triller] [ref:wiki-olive-backed-oriole] [ref:wiki-spangled-drongo] [ref:wiki-black-faced-woodswallow] [ref:wiki-brown-treecreeper] [ref:wiki-varied-sittella] [ref:wiki-pied-currawong] [ref:wiki-pale-headed-rosella] [ref:wiki-rainbow-lorikeet]."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling them apart",
+      "body": "**Three black-and-white birds.** The willie wagtail is small, black above and clean white below with a white eyebrow, and it never stops swinging its tail sideways; the restless flycatcher is the same colours with a white throat instead of a black one, hovers 'with its head and tail pointed downwards', and grinds instead of chattering; the magpie-lark is bigger, pied in patches, and walks [ref:wiki-willie-wagtail] [ref:wiki-restless-flycatcher] [ref:wiki-magpie-lark]. The dictionary keeps them apart: **[dijarr-dijin](word:dijarr-dijin)** and **[bayil-bayil](word:bayil-bayil)** [ref:hershberger1982].\n\n**Two whistlers.** The rufous whistler's male has 'rufous underparts' and 'a black mask' with a white throat; the golden whistler's is yellow below with a black head and white throat; the females of both are plain and are told by voice and country, the rufous in the open [woodland](entry:woodland), the golden in the wet forest [ref:wiki-rufous-whistler] [ref:wiki-golden-whistler]. The grey shrikethrush is bigger than either, plain grey, with a heavier bill [ref:wiki-grey-shrikethrush].\n\n**Red birds.** The scarlet myzomela male is 'bright red with black wings' and 'the smallest honeyeater'; the red-backed fairywren male is black with a red back and a long cocked tail; the mistletoebird male is blue-black with a red throat and a short tail; the [red-winged parrot](entry:cockatoos-and-parrots) is a parrot; none of them is the southern scarlet robin [ref:wiki-scarlet-myzomela] [ref:wiki-red-backed-fairywren] [ref:wiki-mistletoebird] [ref:wiki-scarlet-robin].\n\n**Small brown birds.** The jacky winter sits on a dead stick and drops to the ground for insects, 'perched atop trees and posts', and flicks a white-edged tail; the brown honeyeater is warm brown with 'a yellow tuft behind the eye' and sings; the female fairywren is brown with a cocked tail and a reddish bill; the weebill is tiny and yellowish in the gum tops; the gerygone is tiny, grey above and yellow below, in the outer leaves; the female leaden flycatcher has a 'rufous throat and breast' [ref:wiki-jacky-winter] [ref:wiki-brown-honeyeater] [ref:wiki-red-backed-fairywren] [ref:wiki-weebill] [ref:wiki-white-throated-gerygone] [ref:wiki-leaden-flycatcher]. The dictionary's **[barinkan](word:barinkan)**, 'scrub bird, dark grey with white breast', could be a leaden flycatcher, a jacky winter, a fantail or a shrikethrush; it is for the old people to say [ref:hershberger1982].\n\n**Black-headed honeyeaters.** The white-throated has 'a white stripe across the nape' and a white throat; the noisy miner is bigger, grey, with a yellow bill and a yellow patch behind the eye; the banded has a black band across a white chest; the [blue-faced honeyeater](entry:bush-birds) has a blue face [ref:wiki-white-throated-honeyeater] [ref:wiki-noisy-miner] [ref:wiki-banded-honeyeater].\n\n**Drongo or cuckooshrike or currawong.** The drongo is glossy black with a fish tail and a red eye; the cuckooshrike is grey with a black face and 'a somewhat hooked bill'; the currawong is big, black with white in the wing and tail, and a yellow eye [ref:wiki-spangled-drongo] [ref:wiki-black-faced-cuckooshrike] [ref:wiki-pied-currawong]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "**Calls as clocks.** 'The jacky winter can be heard vocalising before sunrise and usually stops towards the middle of the day. Occasionally closer to sunset, it can be heard again'; the willie wagtail sings on moonlit nights; the rufous fantails 'sing after sunset from perches'; the striated pardalote is 'more often heard than seen' through the heat of the day in the gum tops [ref:wiki-jacky-winter] [ref:wiki-willie-wagtail] [ref:wiki-rufous-fantail] [ref:wiki-striated-pardalote].\n\n**Calls as alarms.** The wagtail's scolding chatter, 'the sound of its scolding call', means a [snake](entry:snakes), a [goanna](entry:goanna), a cat or a [kookaburra](entry:kookaburras-and-kingfishers) on the ground; a mob of small birds scolding one spot in a tree is an owl or a python; the fantail's 'chip call' 'can be used as an alarm call when a predator is identified' [ref:wiki-willie-wagtail] [ref:wiki-rufous-fantail]. Noisy miners 'mobbing a predator' do it by the colony [ref:wiki-noisy-miner].\n\n**Birds as water signs.** Finches 'gather around waterholes to drink' 'in the evenings and early mornings', 'sometimes thousands'; a stream of finches and doves dropping into one spot in the dry is the way to water, and the [finding-water page](entry:finding-water) uses it [ref:wiki-masked-finch].\n\n**Birds as flowering signs.** Honeyeaters follow the blossom: the brown honeyeater 'following flowering food plants', the banded 'a blossom nomad' on 'eucalypts', 'Grevilleas, paperbarks and Bauhinias'; a tree full of honeyeaters, lorikeets and [flying foxes](entry:flying-foxes-and-bats) is a tree in nectar, and the [native bees](entry:native-bees) are in it too [ref:wiki-brown-honeyeater] [ref:wiki-banded-honeyeater]. The mistletoebird's sticky droppings wiped on a branch are tomorrow's mistletoe [ref:wiki-mistletoebird].\n\n**Nests.** The wagtail's and the flycatchers' are neat cups 'woven together with spider webs and decorated with lichen' on a horizontal branch; the magpie-lark's is mud; the pardalote's and the [kingfisher's](entry:kookaburras-and-kingfishers) are tunnels in a bank; the finches' are domes of grass 'lined with fine grass, feathers, and charcoal'; the gerygone's is a hanging pouch 'from strips of bark, twigs, animal fur' [ref:wiki-leaden-flycatcher] [ref:wiki-striated-pardalote] [ref:wiki-masked-finch] [ref:wiki-white-throated-gerygone]. A fairywren's or a flycatcher's nest with one big odd chick in it is a cuckoo's: the leaden flycatcher 'is parasitised by the brush cuckoo' [ref:wiki-leaden-flycatcher]."
+    },
+    {
+      "id": "habitat",
+      "heading": "Where they are",
+      "body": "The willie wagtail lives 'in most habitats apart from thick forest' and 'is a common sight in urban lawns, parks, and gardens', so the homestead lawn, the yards and the river sand are its country [ref:wiki-willie-wagtail]. The restless flycatcher wants 'river red gums near water', the lemon-bellied flyrobin 'mangroves, paperbark swamp forests, and woodland', the rufous fantail the wet gullies, the leaden flycatcher 'sclerophyll forest, rainforest margins, mangroves and coastal scrub' [ref:wiki-restless-flycatcher] [ref:wiki-lemon-bellied-flyrobin] [ref:wiki-leaden-flycatcher]. The rufous whistler is in 'forested areas, woodland, and shrubland', the red-backed fairywren in 'savannah, particularly where low shrubs and tall grasses provide cover', the weebill in 'the canopies of dry, open eucalyptus forests', the brown treecreeper in 'eucalypt-dominated woodland habitats' 'avoiding areas with a dense shrubby understorey', the noisy miner in 'dry, open eucalypt forests that lack understory shrubs' [ref:wiki-rufous-whistler] [ref:wiki-red-backed-fairywren] [ref:wiki-weebill] [ref:wiki-brown-treecreeper] [ref:wiki-noisy-miner]. The finches are 'always near water' [ref:wiki-masked-finch].\n\nSo the [woodland](entry:woodland) of the ridges has the whistler, the weebill, the pardalote, the treecreeper and the woodswallow; the grass has the fairywren and the finches; the [river](entry:mitchell-river) and its [red gums](entry:river-red-gum) and [paperbarks](entry:paperbark) have the flycatchers, the flyrobin, the fantails and the honeyeaters in the blossom; and the camp has the wagtail and the peewee [ref:wiki-restless-flycatcher] [ref:wiki-willie-wagtail]. The golden whistler and the rainforest birds of the dictionary's coast are 60 km east and a thousand metres up on the Tableland's edge, not here [ref:wiki-golden-whistler] [ref:ala-karma-60]."
+    },
+    {
+      "id": "ecology",
+      "heading": "What they eat, and what eats them",
+      "body": "**Insects.** 'The willie wagtail is insectivorous and spends much time chasing prey in open habitat'; the fantails 'catch flying insects using intricate acrobatic chases'; the restless flycatcher 'feeds on insects, as well as other invertebrates such as spiders and centipedes'; the weebill's 'diet consists mostly of insects, larvae, occasionally seeds and beetles'; the pardalote takes 'lerps and other small creatures in the treetops'; the sittella's 'diet consists of spiders and insects, usually prised from beneath the bark'; the lemon-bellied flyrobin 'occasionally caught large insects over 2 centimetres' [ref:wiki-willie-wagtail] [ref:wiki-grey-fantail] [ref:wiki-restless-flycatcher] [ref:wiki-weebill] [ref:wiki-striated-pardalote] [ref:wiki-varied-sittella] [ref:wiki-lemon-bellied-flyrobin]. Between them they work every layer of a tree, from the sittella under the bark to the weebill in the outer leaves, and the ground beneath it; the [insect page](entry:insects-and-grubs) is their menu.\n\n**Nectar and fruit.** The honeyeaters have 'highly developed brush-tipped tongues adapted for nectar feeding', and 'nectar and insects form' the brown honeyeater's diet; the mistletoebird's is mistletoe berries; the rufous whistler eats 'seeds, fruit and occasionally, leaves and grasses' as well as insects; the cuckooshrike 'some fruits and seeds' [ref:wiki-brown-honeyeater] [ref:wiki-mistletoebird] [ref:wiki-rufous-whistler] [ref:wiki-black-faced-cuckooshrike]. The lorikeets and the honeyeaters pollinate the [bloodwoods](entry:bloodwood), the [paperbarks](entry:paperbark) and the [grevilleas](entry:wattles-and-grevilleas) they feed in [ref:wiki-banded-honeyeater].\n\n**Seed.** The finches 'forage through the day, mostly on the ground for grass seeds', the seed of the [grasses](entry:wild-rice-and-grass-seed) the old people ground [ref:wiki-masked-finch].\n\n**Who eats them.** The currawong takes 'bird eggs, juvenile birds and young marsupials'; the [butcherbirds](entry:bush-birds), the [goshawks](entry:eagles-and-hawks) and the [kookaburras](entry:kookaburras-and-kingfishers) take the small birds and their young; the [pythons](entry:pythons) and [goannas](entry:goanna) take the nests; the feral [cat](entry:weeds-and-ferals) takes everything on the ground; the cuckoos take the nests another way [ref:wiki-pied-currawong] [ref:wiki-leaden-flycatcher] [ref:wiki-feral-cats]. 'Nesting success is low, with only 23% of nests successfully fledging a chick' for the leaden flycatcher [ref:wiki-leaden-flycatcher].\n\n**Living together.** The weebill is 'somewhat gregarious with other small insectivorous passerines, such as thornbills, silvereyes, and pardalotes'; the golden whistler 'may alternatively take part in mixed-species feeding flocks'; the brown honeyeater 'feeds in small groups, or flocks of mixed honeyeater species' [ref:wiki-weebill] [ref:wiki-golden-whistler] [ref:wiki-brown-honeyeater]. A mixed flock drifting through the woodland in the cold season, whistlers, gerygones, pardalotes, sittellas and honeyeaters together, is the small birds' way of hunting and of watching for hawks [ref:wiki-weebill]. The fairywren has helpers: 'groups consist of a socially monogamous pair with one or more helper birds who assist in raising the young', and 'as part of a courtship display, the male wren plucks red petals from flowers' [ref:wiki-red-backed-fairywren]. The willie wagtail's and the noisy miner's aggression is the other way of living: the wagtail 'will often harass much larger birds', the miner's 'chasing, pecking, fighting, scolding, and mobbing occur throughout the day, targeted at both intruders and colony members' [ref:wiki-willie-wagtail] [ref:wiki-noisy-miner]."
+    },
+    {
+      "id": "seasons",
+      "heading": "Seasons",
+      "body": "**Breeding.** The rufous whistler 'between the months of July and February', the golden whistler 'between September and January', the lemon-bellied flyrobin 'from August to February', the white-throated honeyeater 'from July or August to December', the leaden flycatcher 'September to February', the black-faced cuckooshrike 'chiefly from August to February', the striated pardalote 'from June to February', the masked finch 'in the late wet or early dry season', the sittella 'August to October in the north' [ref:wiki-rufous-whistler] [ref:wiki-golden-whistler] [ref:wiki-lemon-bellied-flyrobin] [ref:wiki-white-throated-honeyeater] [ref:wiki-leaden-flycatcher] [ref:wiki-black-faced-cuckooshrike] [ref:wiki-striated-pardalote] [ref:wiki-masked-finch] [ref:wiki-varied-sittella]. The spring woodland, August to November, is the nesting season for nearly all of them, the gerygone's and the triller's songs its sound, and the eggs are the [bush birds page's](entry:bush-birds) harvest [ref:wiki-white-winged-triller] [ref:roth1901].\n\n**Movement.** The rufous whistler 'migrates seasonally, moving south in the spring and north in the autumn'; the leaden flycatcher is 'highly migratory'; the spangled drongo 'arrives in Queensland in late spring'; the olive-backed oriole, 'most birds breed during the tropical wet season'; the white-winged triller is 'resident or nomadic over the warmer part of its range'; the honeyeaters move with the blossom; the fairywren 'can be nomadic in areas where there are frequent bushfires' [ref:wiki-rufous-whistler] [ref:wiki-leaden-flycatcher] [ref:wiki-spangled-drongo] [ref:wiki-olive-backed-oriole] [ref:wiki-white-winged-triller] [ref:wiki-brown-honeyeater] [ref:wiki-red-backed-fairywren]. The dictionary's **[diwalngku](word:diwalngku)** 'migratory bird' is the word for the ones that come and go [ref:hershberger1982].\n\n**After fire.** The burnt country of the early dry is the wagtail's and the woodswallow's for the insects the fire turns up, and the fairywrens and finches come back with the grass [ref:wiki-red-backed-fairywren]. The [seasons page](entry:seasons) has the year, and the [weather page](entry:weather-sky-and-stars) the storms that bring the drongo and the cuckoos."
+    },
+    {
+      "id": "uses",
+      "heading": "Uses",
+      "body": "**Eggs and young.** Roth's Bloomfield people took eggs and nestlings from the nests of the small birds with a hooked stick, as the [bush birds page](entry:bush-birds) describes, and the finches' and wrens' nests in the grass were the children's; a grown small bird is a mouthful and was not worth a spear [ref:roth1901] [ref:anderson1996]. The grass-blade shooter of the [games page](entry:games-and-string-figures) is Roth's record of boys 'killing such birds as small wrens, etc.' [ref:roth1902].\n\n**Signs.** The real use of the small birds is as the country's informants: the wagtail's scold for a snake, the finches for water, the honeyeaters for blossom, the whistler and the gerygone for the season turning; the dictionary's **[jukujuku](word:jukujuku)** on the [pigeons page](entry:pigeons-and-doves) is the same idea written down [ref:hershberger1982] [ref:wiki-willie-wagtail].\n\n**Feathers.** The [lorikeet's](entry:cockatoos-and-parrots) and the [rosella's](entry:cockatoos-and-parrots) feathers decorated the zamia disc of the [games page](entry:games-and-string-figures), 'decorated with parrot, pigeon or cockatoo feathers' [ref:anderson1996].\n\n**Company.** 'Shepherd's companion (because it accompanied livestock)': the wagtail works the cattle camps and the horse yards, and sits on the back of a beast for the flies; it is the station's bird as much as the old camps' [ref:wiki-willie-wagtail]."
+    },
+    {
+      "id": "how-to",
+      "heading": "Watching them",
+      "body": "**Sit still at dawn.** Half an hour before sunrise at a pool in the cold season, with the mist on the water: the jacky winter calls first, then the whistler, then the finches come in to drink, then the honeyeaters start in the blossom and the wagtail begins its rounds [ref:wiki-jacky-winter] [ref:wiki-masked-finch]. Dusk is the second sitting, 'in the evenings and early mornings' for the finches, and the fantails' song after sunset [ref:wiki-masked-finch] [ref:wiki-rufous-fantail].\n\n**Follow a mixed flock.** Stand in the woodland and wait for the chatter of pardalotes and the whistle of a shrikethrush; walk slowly with the flock, and in ten minutes you will have seen a dozen kinds in one tree [ref:wiki-weebill].\n\n**Learn the voices first.** 'More often heard than seen' is true of most of them; the gerygone's falling song, the whistler's 'ee-chong', the jacky winter's 'peter-peter', the pardalote's 'chip-chip', the miner's constant 'vocalisations', the drongo's mimicry; the Atlas and the bird apps have recordings, and a phone in a pocket with the calls on it is the best field guide for the small birds [ref:wiki-striated-pardalote] [ref:wiki-jacky-winter] [ref:wiki-noisy-miner] [ref:wiki-spangled-drongo].\n\n**Record what you see.** A photo of a bird at Karma Waters uploaded to the Atlas or iNaturalist with the date is a record for the whole catchment; the thirty-kilometre list on this page is a few hundred records, most of them from the road, and the station's own birds are barely counted [ref:ala-aves].\n\n**Do not take nests.** The small birds are protected wildlife under the Nature Conservation Act, and the native title right to take under tradition is on the [law page](entry:law-hunting-and-fishing); a nest with eggs in October is next year's birds [ref:qld-nca]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "The small birds are harmless; the wagtail's attacks on people near its nest are a flutter at the head. The dangers are the places they take you: the [snake](entry:snakes) the wagtail is scolding, the [bank](entry:mitchell-river) the pardalote's tunnel is in, the [crocodile](entry:freshwater-crocodile) water the finches drink from, the [ticks](entry:bites-and-stings) in the grass where the fairywrens are; the [bites and stings page](entry:bites-and-stings) has the rest [ref:healthdirect-insect-bites] [ref:crocwise]. The feral cat is the small birds' danger, not yours; a cat seen on the station is reported [ref:wiki-feral-cats]."
+    },
+    {
+      "id": "today",
+      "heading": "On Country today",
+      "body": "The small birds of the open woodland are mostly holding their own: the wagtail 'has responded well to human alteration of the landscape', the noisy miner 'has benefited primarily from landscaping practices that create open areas dominated by eucalypts', the pale-headed rosella 'has adapted well to human modification of the rural landscape' [ref:wiki-willie-wagtail] [ref:wiki-noisy-miner] [ref:wiki-pale-headed-rosella]. The grass-seed birds are the ones to watch: the [Gouldian finch](entry:bush-birds) is the catchment's listed bird and the black-throated finch's southern race has gone from most of its range; the finches live on the native grasses and the pools, and the station's year-on-year-off spelling of paddocks, its fenced river and its early burning are what keeps both [ref:wiki-black-throated-finch] [ref:wiki-gouldian] [ref:kw-land]. The brown treecreeper 'has contracted from the edges of its pre-European range, declining in Adelaide and Cape York' [ref:wiki-brown-treecreeper]. The Western Yalanji words for the whistler of the ridges, the finches at the pools, the fairywren in the grass and the flycatchers in the river gums, and what the old people read in each of them, are for the contribution box below."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "**[dijarr-dijin](word:dijarr-dijin)**, **[dijarrdijin](word:dijarrdijin)** 'willie wagtail'; **[dukunjulu](word:dukunjulu)**, **[dukunjuju](word:dukunjuju)** 'golden whistler'; **[binjul-binjul](word:binjul-binjul)** 'scarlet robin'; **[binjurr-binjurr](word:binjurr-binjurr)** 'species of honey eater'; **[binjurrbinjurr](word:binjurrbinjurr)** 'honey eater bird'; **[karrmbil](word:karrmbil)** 'blue mountain parakeet'; **[birrbirr](word:birrbirr)** 'parrot, parakeet, lorikeet'; **[bayil-bayil](word:bayil-bayil)** 'mudlark (peewee)'; **[barinkan](word:barinkan)** 'scrub bird, dark grey with white breast'; **[baringkan](word:baringkan)** 'species of small bird'; **[diwalngku](word:diwalngku)** 'migratory bird'; **[dikal](word:dikal)** 'bird'; **[buyi](word:buyi)** 'a type of bird called buyi'; **[muya](word:muya)** 'kind of bird'; **[mabal](word:mabal)** 'swallow'; **[jangkan](word:jangkan)** 'swift' [ref:hershberger1982]."
+    }
+  ],
+  "relatedEntries": [
+    "bush-birds",
+    "cockatoos-and-parrots",
+    "kookaburras-and-kingfishers",
+    "water-birds",
+    "pigeons-and-doves",
+    "eagles-and-hawks",
+    "insects-and-grubs",
+    "native-bees",
+    "wattles-and-grevilleas",
+    "bloodwood",
+    "paperbark",
+    "river-red-gum",
+    "finding-water",
+    "wild-rice-and-grass-seed",
+    "weeds-and-ferals",
+    "games-and-string-figures",
+    "seasons",
+    "weather-sky-and-stars"
+  ],
+  "relatedWords": [],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "wiki-willie-wagtail",
+      "citation": "Wikipedia. Willie wagtail (Rhipidura leucophrys).",
+      "url": "https://en.wikipedia.org/wiki/Willie_wagtail"
+    },
+    {
+      "id": "ala-aves",
+      "citation": "Atlas of Living Australia. Bird (Aves) occurrence records within 30 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=30&fq=class:Aves"
+    },
+    {
+      "id": "wiki-scarlet-robin",
+      "citation": "Wikipedia. Scarlet robin (Petroica boodang).",
+      "url": "https://en.wikipedia.org/wiki/Scarlet_robin"
+    },
+    {
+      "id": "wiki-grey-fantail",
+      "citation": "Wikipedia. Grey fantail (Rhipidura albiscapa).",
+      "url": "https://en.wikipedia.org/wiki/Grey_fantail"
+    },
+    {
+      "id": "wiki-rufous-fantail",
+      "citation": "Wikipedia. Rufous fantail (Rhipidura rufifrons).",
+      "url": "https://en.wikipedia.org/wiki/Rufous_fantail"
+    },
+    {
+      "id": "wiki-magpie-lark",
+      "citation": "Wikipedia. Magpie-lark (Grallina cyanoleuca).",
+      "url": "https://en.wikipedia.org/wiki/Magpie-lark"
+    },
+    {
+      "id": "wiki-restless-flycatcher",
+      "citation": "Wikipedia. Restless flycatcher (Myiagra inquieta).",
+      "url": "https://en.wikipedia.org/wiki/Restless_flycatcher"
+    },
+    {
+      "id": "wiki-leaden-flycatcher",
+      "citation": "Wikipedia. Leaden flycatcher (Myiagra rubecula).",
+      "url": "https://en.wikipedia.org/wiki/Leaden_flycatcher"
+    },
+    {
+      "id": "wiki-rufous-whistler",
+      "citation": "Wikipedia. Rufous whistler (Pachycephala rufiventris).",
+      "url": "https://en.wikipedia.org/wiki/Rufous_whistler"
+    },
+    {
+      "id": "wiki-golden-whistler",
+      "citation": "Wikipedia. Australian golden whistler (Pachycephala pectoralis).",
+      "url": "https://en.wikipedia.org/wiki/Golden_whistler"
+    },
+    {
+      "id": "ala-karma-60",
+      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+    },
+    {
+      "id": "wiki-grey-shrikethrush",
+      "citation": "Wikipedia. Grey shrikethrush (Colluricincla harmonica).",
+      "url": "https://en.wikipedia.org/wiki/Grey_shrike-thrush"
+    },
+    {
+      "id": "wiki-jacky-winter",
+      "citation": "Wikipedia. Jacky winter (Microeca fascinans).",
+      "url": "https://en.wikipedia.org/wiki/Jacky_winter"
+    },
+    {
+      "id": "wiki-lemon-bellied-flyrobin",
+      "citation": "Wikipedia. Lemon-bellied flyrobin (Microeca flavigaster).",
+      "url": "https://en.wikipedia.org/wiki/Lemon-bellied_flyrobin"
+    },
+    {
+      "id": "wiki-red-backed-fairywren",
+      "citation": "Wikipedia. Red-backed fairywren (Malurus melanocephalus).",
+      "url": "https://en.wikipedia.org/wiki/Red-backed_fairywren"
+    },
+    {
+      "id": "wiki-weebill",
+      "citation": "Wikipedia. Weebill (Smicrornis brevirostris).",
+      "url": "https://en.wikipedia.org/wiki/Weebill"
+    },
+    {
+      "id": "wiki-striated-pardalote",
+      "citation": "Wikipedia. Striated pardalote (Pardalotus striatus).",
+      "url": "https://en.wikipedia.org/wiki/Striated_pardalote"
+    },
+    {
+      "id": "wiki-white-throated-gerygone",
+      "citation": "Wikipedia. White-throated gerygone (Gerygone olivacea).",
+      "url": "https://en.wikipedia.org/wiki/White-throated_gerygone"
+    },
+    {
+      "id": "wiki-mistletoebird",
+      "citation": "Wikipedia. Mistletoebird (Dicaeum hirundinaceum).",
+      "url": "https://en.wikipedia.org/wiki/Mistletoebird"
+    },
+    {
+      "id": "wiki-brown-honeyeater",
+      "citation": "Wikipedia. Brown honeyeater (Lichmera indistincta).",
+      "url": "https://en.wikipedia.org/wiki/Brown_honeyeater"
+    },
+    {
+      "id": "wiki-white-throated-honeyeater",
+      "citation": "Wikipedia. White-throated honeyeater (Melithreptus albogularis).",
+      "url": "https://en.wikipedia.org/wiki/White-throated_honeyeater"
+    },
+    {
+      "id": "wiki-yellow-honeyeater",
+      "citation": "Wikipedia. Yellow honeyeater (Stomiopera flava).",
+      "url": "https://en.wikipedia.org/wiki/Yellow_honeyeater"
+    },
+    {
+      "id": "wiki-banded-honeyeater",
+      "citation": "Wikipedia. Banded honeyeater (Cissomela pectoralis).",
+      "url": "https://en.wikipedia.org/wiki/Banded_honeyeater"
+    },
+    {
+      "id": "wiki-rufous-throated-honeyeater",
+      "citation": "Wikipedia. Rufous-throated honeyeater (Conopophila rufogularis).",
+      "url": "https://en.wikipedia.org/wiki/Rufous-throated_honeyeater"
+    },
+    {
+      "id": "wiki-scarlet-myzomela",
+      "citation": "Wikipedia. Scarlet myzomela (Myzomela sanguinolenta).",
+      "url": "https://en.wikipedia.org/wiki/Scarlet_myzomela"
+    },
+    {
+      "id": "wiki-noisy-miner",
+      "citation": "Wikipedia. Noisy miner (Manorina melanocephala).",
+      "url": "https://en.wikipedia.org/wiki/Noisy_miner"
+    },
+    {
+      "id": "wiki-masked-finch",
+      "citation": "Wikipedia. Masked finch (Poephila personata).",
+      "url": "https://en.wikipedia.org/wiki/Masked_finch"
+    },
+    {
+      "id": "wiki-black-throated-finch",
+      "citation": "Wikipedia. Black-throated finch (Poephila cincta).",
+      "url": "https://en.wikipedia.org/wiki/Black-throated_finch"
+    },
+    {
+      "id": "wiki-double-barred-finch",
+      "citation": "Wikipedia. Double-barred finch (Stizoptera bichenovii).",
+      "url": "https://en.wikipedia.org/wiki/Double-barred_finch"
+    },
+    {
+      "id": "wiki-black-faced-cuckooshrike",
+      "citation": "Wikipedia. Black-faced cuckooshrike (Coracina novaehollandiae).",
+      "url": "https://en.wikipedia.org/wiki/Black-faced_cuckooshrike"
+    },
+    {
+      "id": "wiki-white-winged-triller",
+      "citation": "Wikipedia. White-winged triller (Lalage tricolor).",
+      "url": "https://en.wikipedia.org/wiki/White-winged_triller"
+    },
+    {
+      "id": "wiki-olive-backed-oriole",
+      "citation": "Wikipedia. Olive-backed oriole (Oriolus sagittatus).",
+      "url": "https://en.wikipedia.org/wiki/Olive-backed_oriole"
+    },
+    {
+      "id": "wiki-spangled-drongo",
+      "citation": "Wikipedia. Spangled drongo (Dicrurus bracteatus).",
+      "url": "https://en.wikipedia.org/wiki/Spangled_drongo"
+    },
+    {
+      "id": "wiki-black-faced-woodswallow",
+      "citation": "Wikipedia. Black-faced woodswallow (Artamus cinereus).",
+      "url": "https://en.wikipedia.org/wiki/Black-faced_woodswallow"
+    },
+    {
+      "id": "wiki-brown-treecreeper",
+      "citation": "Wikipedia. Brown treecreeper (Climacteris picumnus).",
+      "url": "https://en.wikipedia.org/wiki/Brown_treecreeper"
+    },
+    {
+      "id": "wiki-varied-sittella",
+      "citation": "Wikipedia. Varied sittella (Daphoenositta chrysoptera).",
+      "url": "https://en.wikipedia.org/wiki/Varied_sittella"
+    },
+    {
+      "id": "wiki-pied-currawong",
+      "citation": "Wikipedia. Pied currawong (Strepera graculina).",
+      "url": "https://en.wikipedia.org/wiki/Pied_currawong"
+    },
+    {
+      "id": "wiki-pale-headed-rosella",
+      "citation": "Wikipedia. Pale-headed rosella (Platycercus adscitus).",
+      "url": "https://en.wikipedia.org/wiki/Pale-headed_rosella"
+    },
+    {
+      "id": "wiki-rainbow-lorikeet",
+      "citation": "Wikipedia. Rainbow lorikeet (Trichoglossus moluccanus).",
+      "url": "https://en.wikipedia.org/wiki/Rainbow_lorikeet"
+    },
+    {
+      "id": "wiki-feral-cats",
+      "citation": "Wikipedia. Feral cats in Australia.",
+      "url": "https://en.wikipedia.org/wiki/Feral_cats_in_Australia"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
+      "id": "roth1902",
+      "citation": "Roth, W. E. (1902). North Queensland Ethnography, Bulletin No. 4: Games, sports and amusements. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 4 'Realistic games (animals)'"
+    },
+    {
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "healthdirect-insect-bites",
+      "citation": "healthdirect Australia. Insect bites and stings (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/insect-bites-and-stings"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "wiki-gouldian",
+      "citation": "Wikipedia. Gouldian finch (Chloebia gouldiae).",
+      "url": "https://en.wikipedia.org/wiki/Gouldian_finch"
+    },
+    {
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-11"
+}

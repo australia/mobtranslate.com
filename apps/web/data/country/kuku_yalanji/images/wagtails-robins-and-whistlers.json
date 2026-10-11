@@ -1,0 +1,17 @@
+{
+  "slug": "wagtails-robins-and-whistlers",
+  "images": [
+    {
+      "src": "/country-img/kuku_yalanji/wagtails-robins-and-whistlers/rhipidura-leucophrys-inat.webp",
+      "width": 1024,
+      "height": 681,
+      "alt": "Willie wagtail, Rhipidura leucophrys, photographed in the wild near Julatten Queensland",
+      "caption": "Willie wagtail (Rhipidura leucophrys), Julatten Queensland, 2023. Photograph by Donald Davesne on iNaturalist, licence CC BY-4.0.",
+      "kind": "photo",
+      "credit": "Photograph: Donald Davesne, via iNaturalist (observation 181202997)",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://www.inaturalist.org/observations/181202997",
+      "location": "Julatten Queensland"
+    }
+  ]
+}
