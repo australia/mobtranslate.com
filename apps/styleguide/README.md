@@ -24,7 +24,8 @@ pnpm --filter styleguide build
 pnpm --filter styleguide test:browser
 pnpm --filter styleguide test:communication
 pnpm --filter styleguide test:containment
-pnpm --filter styleguide test:selection
+pnpm --filter styleguide test:select
+pnpm --filter styleguide test:autocompleteion
 pnpm --filter styleguide test:inputs
 pnpm --filter styleguide test:menus
 pnpm --filter styleguide test:destinations
@@ -55,7 +56,7 @@ The index is an in-memory snapshot for that search page, available in developmen
 - Content search lives in `components/document-search.tsx` and `lib/document-search.ts`. Extraction uses the browser’s inert HTML parser and limits indexing to the main content of navigation routes. Keep failure/coverage feedback and section destinations tied to the actual render.
 - Detailed foundation content lives in `content/foundations.tsx`; `GuideDocument` renders its sections, specification tables, code and related links. Interactive labs live in `components/foundation-explorers.tsx`.
 - Developer guidance lives in `content/developer-guides.tsx`. Its live examples are real files in `examples/`; the theme controller in `lib/theme.ts` is also used by navigation. `examples:generate` copies these checked sources into `content/examples.json`; `examples:check` rejects drift. Dev/build regenerate both source catalogues.
-- Action documentation lives in `content/actions.tsx`; principles/accessibility in `content/principles-accessibility.tsx`. Thirty-seven source files feed the checked examples, including the interactive accessibility request. Keep guidance tied to current exports and source-backed behavior.
+- Action documentation lives in `content/actions.tsx`; principles/accessibility in `content/principles-accessibility.tsx`. Thirty-eight source files feed the checked examples, including the interactive accessibility request. Keep guidance tied to current exports and source-backed behavior.
 - Communication guidance lives in `content/communication.tsx`, with actual provider-managed notifications, inline alerts, count badges, linear/circular progress, scalar meters and loading recovery in four checked example files. `test:communication` verifies their task outcomes, keyboard behavior, timing, contrast and narrow reflow.
 - Containment guidance lives in `content/containment.tsx`; four checked sources exercise card actions, dialog editing, staged drawer filters and local confirmation/restore. `test:containment` verifies the actual local outcomes, focus and dismissal contracts, edge/size geometry and narrow layouts.
 - Selection guidance lives in `content/selection.tsx`; five checked sources exercise independent/grouped choices, retained settings, chip roles, named range sliders and pressed segments. `test:selection` verifies actual state, local FormData, filtering, recovery, keyboard behavior, directional layout and chip text contrast.
@@ -76,3 +77,5 @@ The destination delivery was checked with `agent-browser 0.31.0` from `/usr/loca
 Adaptive navigation guidance lives in `content/navigation-pattern.tsx`. Copy the checked `examples/adaptive-navigation.tsx` and its adjacent CSS together. `test:adaptive-navigation` verifies actual query-selected activities, native history/separate-tab behavior, retained local task values, modal closure/arrival, pending recovery, measured layout changes, focus handoff, narrow labels and both-theme contrast. The bar stays in document flow; fixed placement, durable storage, remote routes and hardware/assistive-technology behavior need their own acceptance evidence.
 
 Select guidance lives in `content/select.tsx`, with a checked form/preview source in `examples/select-preferences.tsx`. `test:select` verifies native submitted entries, disabled repeated-value omission, read-only serialization, unavailable activation, empty recovery, retained outcomes, geometry and text contrast. Closed option markup can remain registered under a hidden positioner in the pinned SDK; inspect actual visibility and the active focus tree rather than requiring DOM removal.
+
+Autocomplete guidance lives in `content/autocomplete.tsx`, with checked `examples/autocomplete-text.tsx`. `test:autocomplete` verifies controlled reset/clear, native text versus option metadata, exactly-once keyboard/click/drag-release callbacks, independent instance ids, unavailable/read-only/disabled behavior, native form outcomes, bounded geometry, contrast and narrow reflow. The wrapper uses the pinned primitive in list mode; free text remains valid and no remote provider or durable save is implied.

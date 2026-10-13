@@ -1532,3 +1532,18 @@
   .mt-select-item[data-selected] { text-decoration: underline; }
   .mt-select-trigger[data-disabled], .mt-select-item[data-disabled] { color: GrayText; opacity: 1; }
 }
+
+/* Editable suggestion text: the popup owns positioning; the list owns scrolling. */
+.mt-autocomplete-input { min-height: 44px; min-width: 0; max-width: 100%; transition: none; }
+.mt-autocomplete-input:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; box-shadow: none; }
+.mt-autocomplete-input:disabled { opacity: .6; cursor: not-allowed; }
+.mt-autocomplete-input::placeholder { color: var(--color-muted-foreground); opacity: 1; }
+.mt-autocomplete-positioner { z-index: var(--z-popover); }
+.mt-autocomplete-popup { min-width: min(var(--anchor-width, 160px), calc(100vw - 16px)); max-width: calc(100vw - 16px); max-height: min(320px, var(--available-height, 80dvh)); overflow: hidden; background: var(--color-popover); color: var(--color-popover-foreground); border: 2px solid var(--color-muted-foreground); border-radius: var(--radius-md); padding: 4px; }
+.mt-autocomplete-list { position: static; top: auto; left: auto; right: auto; margin: 0; border: 0; padding: 0; max-height: min(304px, calc(var(--available-height, 80dvh) - 12px)); overflow-y: auto; background: transparent; color: inherit; box-shadow: none; animation: none; }
+.mt-autocomplete-item { min-height: 44px; padding: 8px 12px; overflow-wrap: anywhere; transition: none; }
+.mt-autocomplete-item[data-highlighted] { outline: 2px solid var(--color-ring); outline-offset: -2px; }
+.mt-autocomplete-item[data-disabled] { opacity: .6; cursor: not-allowed; }
+.mt-autocomplete-empty { padding: 12px; max-width: 32ch; overflow-wrap: anywhere; }
+.mt-autocomplete-empty:empty { padding: 0; }
+@media (forced-colors: active) { .mt-autocomplete-popup, .mt-autocomplete-input { border-color: ButtonText; } .mt-autocomplete-input:focus-visible, .mt-autocomplete-item[data-highlighted] { outline-color: Highlight; } .mt-autocomplete-item[data-disabled] { color: GrayText; opacity: 1; } }
