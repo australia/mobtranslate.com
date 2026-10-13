@@ -23,11 +23,11 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL('https://mobtranslate.com'),
   title: {
-    default: 'Mob Translate — Indigenous language dictionaries, sources & voice',
+    default: 'Mob Translate — Indigenous language dictionaries, translation & voice',
     template: '%s | Mob Translate',
   },
   description:
-    "Source-attributed dictionaries, pronunciation and learning tools for Indigenous languages — Kuku Yalanji, Anindilyakwa, Mi'gmaq and more.",
+    "Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages — Kuku Yalanji, Anindilyakwa, Mi'gmaq and more.",
   applicationName: 'Mob Translate',
   keywords: [
     'indigenous languages', 'aboriginal languages', 'first nations languages', 'translation',
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   creator: 'Mob Translate Community',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Mob Translate — Indigenous language dictionaries, sources & voice',
+    title: 'Mob Translate — Indigenous language dictionaries, translation & voice',
     description:
-      'Source-attributed dictionaries, pronunciation and learning tools for Indigenous languages.',
+      'Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages.',
     url: 'https://mobtranslate.com',
     siteName: 'Mob Translate',
     locale: 'en_AU',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mob Translate',
     description:
-      'Source-attributed dictionaries, pronunciation and learning tools for Indigenous languages.',
+      'Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages.',
   },
   robots: { index: true, follow: true },
   manifest: '/manifest.json',

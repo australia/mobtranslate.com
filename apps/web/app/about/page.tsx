@@ -8,9 +8,9 @@ export const revalidate = 3600;
 const BUILDING = [
   {
     icon: Globe,
-    title: 'Words people can trace',
+    title: 'Translation for everyone',
     description:
-      'A welcoming place to find recorded words and meanings, then follow each result back to its documented source and review state.',
+      'A public research translator for Indigenous languages: accessible, source-aware, and explicit that machine output is an unverified draft.',
   },
   {
     icon: BookOpen,
@@ -20,9 +20,9 @@ const BUILDING = [
   },
   {
     icon: Sparkles,
-    title: 'Research that knows its place',
+    title: 'AI that knows its place',
     description:
-      'Experimental models remain on labelled research surfaces until linguistic evaluation and community authorization support learner use.',
+      'Research models and dictionary-grounded prompts that can assist exploration without pretending to be speaker-certified translation.',
   },
   {
     icon: Users,
@@ -34,8 +34,7 @@ const BUILDING = [
 
 const LIVE_NOW = [
   'Dictionaries for multiple Indigenous languages',
-  'Bidirectional word and meaning lookup',
-  'Entry-level source and review trails',
+  'English to Indigenous language translation',
   'Interactive learning games and quizzes',
   'Community contribution and word rating',
   'Dark mode and a mobile-first layout',
@@ -149,7 +148,7 @@ export default async function About() {
 
 export async function generateMetadata() {
   return {
-    title: 'About Mob Translate | Indigenous Language Dictionaries',
+    title: 'About Mob Translate | Indigenous Language Translation',
     description: 'Learn about Mob Translate’s source-attributed research tools for exploring Indigenous languages.',
   };
 }
