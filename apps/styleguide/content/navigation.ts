@@ -103,6 +103,7 @@ export const sections: NavSection[] = [
     title: 'Patterns',
     items: [
       { label: 'Forms', href: '/patterns/forms' },
+      { label: 'Date and Time Input', href: '/patterns/date-time' },
       { label: 'Navigation', href: '/patterns/navigation' },
       { label: 'Data Display', href: '/patterns/data-display' },
       { label: 'Notifications and Recovery', href: '/patterns/notifications' },
