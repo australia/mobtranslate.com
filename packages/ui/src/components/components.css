@@ -1584,3 +1584,17 @@
   .mt-accordion-trigger:focus-visible, .mt-collapsible-trigger:focus-visible { outline-color:Highlight; }
   .mt-accordion-trigger[data-disabled], .mt-collapsible-trigger[data-disabled] { color:GrayText; opacity:1; }
 }
+
+/* Registered Rating choices: icon size and input target are independent. */
+.mt-rating { flex-wrap:wrap; max-width:100%; gap:2px; }
+.mt-rating-star { min-width:44px; min-height:44px; align-items:center; justify-content:center; padding:8px; color:var(--color-muted-foreground); transition:none; border-radius:var(--radius-sm); }
+.mt-rating-star svg { width:20px; height:20px; }
+.mt-rating-sm .mt-rating-star svg { width:16px; height:16px; }
+.mt-rating-lg .mt-rating-star svg { width:24px; height:24px; }
+.mt-rating-star:hover { transform:none; }
+.mt-rating-star-filled { color:var(--color-foreground); }
+.mt-rating-star[data-checked] { outline:2px solid var(--color-muted-foreground); outline-offset:-2px; }
+.mt-rating-star:focus-visible { outline:2px solid var(--color-ring); outline-offset:2px; }
+.mt-rating-star[data-disabled] { opacity:.6; cursor:not-allowed; }
+.mt-rating-star[data-readonly] { cursor:default; }
+@media (forced-colors:active) { .mt-rating-star { color:CanvasText; } .mt-rating-star[data-checked] { outline-color:CanvasText; } .mt-rating-star:focus-visible { outline-color:Highlight; } .mt-rating-star[data-disabled] { color:GrayText; opacity:1; } }
