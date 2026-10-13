@@ -487,3 +487,111 @@ test('principles and accessibility guidance reflow with user text spacing at 320
   }
   browser('set', 'viewport', '1440', '1000');
 });
+
+test('content search finds prose and checked source and links to a focused matching heading', () => {
+  open('/search?q=capture');
+  browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("indexed pages")');
+  assert.ok(evaluate('Boolean(document.querySelector(\'.search-results a[href="/components/button#composition-and-refs"]\'))'));
+  browser('fill', '#guidance-query', 'onClickCapture');
+  clickButton('Search documentation');
+  assert.ok(evaluate('Boolean(document.querySelector(\'.search-results a[href="/components/button#composition-and-refs"]\'))'));
+  assert.ok(evaluate('document.querySelector(\'.search-results a[href="/components/button#composition-and-refs"]\').closest("li").textContent.includes("onClickCapture")'));
+  browser('scrollintoview', '.search-results a[href="/components/button#composition-and-refs"]');
+  browser('click', '.search-results a[href="/components/button#composition-and-refs"]');
+  browser('wait', '--fn', 'document.activeElement.id === "composition-and-refs"');
+  assert.equal(evaluate('location.hash'), '#composition-and-refs');
+  assert.equal(evaluate('document.querySelector("main h1").textContent'), 'Button');
+});
+
+test('content search applies all terms, explains empty queries and paginates without duplicate destinations', () => {
+  open('/search?q=time%20zones');
+  browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("indexed pages")');
+  assert.ok(evaluate('[...document.querySelectorAll(".search-results a")].some(link => link.pathname === "/foundations/internationalization")'));
+  browser('fill', '#guidance-query', 'lexical-no-match-xyz');
+  clickButton('Search documentation');
+  assert.match(evaluate('document.querySelector("[data-search-status]").textContent'), /^0 matching sections/);
+  assert.equal(evaluate('document.querySelectorAll(".search-results li").length'), 0);
+  assert.equal(evaluate('new URLSearchParams(location.search).get("q")'), 'lexical-no-match-xyz');
+  browser('fill', '#guidance-query', '   ');
+  clickButton('Search documentation');
+  assert.equal(evaluate('location.search'), '');
+  assert.match(evaluate('document.querySelector("[data-search-status]").textContent'), /Enter words/);
+  browser('fill', '#guidance-query', 'Button');
+  clickButton('Search documentation');
+  assert.equal(evaluate('document.querySelectorAll(".search-results li").length'), 20);
+  clickButton('Show more results');
+  const links = evaluate('[...document.querySelectorAll(".search-results a")].map(link => link.href)');
+  assert.ok(links.length > 20);
+  assert.equal(new Set(links).size, links.length);
+  const total = Number(evaluate('document.querySelector("[data-search-status]").textContent').match(/^(\d+)/)[1]);
+  while (evaluate('document.querySelectorAll(".search-results li").length') < total) clickButton('Show more results');
+  assert.equal(evaluate('document.activeElement.textContent'), 'Return to first result');
+  browser('press', 'Enter');
+  assert.equal(evaluate('document.activeElement === document.querySelector(".search-results a")'), true);
+});
+
+test('content indexing failure removes incomplete results and supports an honest full retry', () => {
+  evaluate('window.originalSearchFetch = window.fetch; window.fetch = (...args) => args[0] === "/foundations/colors" ? Promise.resolve(new Response("unavailable", {status:503})) : window.originalSearchFetch(...args);');
+  clickButton('Reload guidance');
+  browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("could not be fully loaded")');
+  assert.equal(evaluate('document.querySelectorAll(".search-results li").length'), 0);
+  assert.equal(evaluate('document.querySelector("#guidance-query").value'), 'Button');
+  assert.ok(evaluate('document.querySelector("main").textContent.includes("HTTP 503")'));
+  evaluate('window.fetch = window.originalSearchFetch;');
+  clickButton('Retry loading guidance');
+  browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("indexed pages")');
+  assert.ok(evaluate('document.querySelectorAll(".search-results li").length > 0'));
+});
+
+test('mobile search supports keyboard submission and focused section navigation below the header', () => {
+  browser('set', 'viewport', '375', '812');
+  open('/foundations/layout');
+  browser('click', '.mobile-nav-trigger');
+  browser('fill', 'dialog nav input[type=search]', 'capture');
+  browser('click', 'dialog a[href^="/search?q="]');
+  browser('wait', '--fn', 'document.querySelector("main h1").textContent === "Search guidance"');
+  assert.equal(evaluate('document.querySelector("dialog").open'), false);
+  browser('wait', '#guidance-query');
+  browser('fill', '#guidance-query', 'capture');
+  browser('press', 'Enter');
+  browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("indexed pages")');
+  assert.equal(evaluate('document.documentElement.scrollWidth > innerWidth'), false);
+  browser('scrollintoview', '.search-results a[href="/components/button#composition-and-refs"]');
+  evaluate('document.querySelector(\'.search-results a[href="/components/button#composition-and-refs"]\').focus()');
+  browser('press', 'Enter');
+  browser('wait', '--fn', 'document.activeElement.id === "composition-and-refs"');
+  assert.ok(evaluate('document.activeElement.getBoundingClientRect().top >= document.querySelector(".mobile-nav-header").getBoundingClientRect().bottom'));
+  browser('set', 'viewport', '1440', '1000');
+});
+
+test('cancelling content indexing aborts its outstanding request and preserves a retryable query', () => {
+  browser('set', 'viewport', '1440', '1000');
+  open('/search?q=Button');
+  browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("indexed pages")');
+  evaluate(`window.originalSearchFetch = window.fetch; window.searchHeld = false; window.searchAborts = 0;
+    window.fetch = (...args) => args[0] === '/foundations/colors' ? new Promise((resolve, reject) => {
+      window.searchHeld = true;
+      args[1].signal.addEventListener('abort', () => {window.searchAborts++; reject(new DOMException('Aborted', 'AbortError'));}, {once:true});
+    }) : window.originalSearchFetch(...args);`);
+  clickButton('Reload guidance');
+  browser('wait', '--fn', 'window.searchHeld === true');
+  clickButton('Cancel loading guidance');
+  browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("loading cancelled")');
+  assert.equal(evaluate('window.searchAborts'), 1);
+  assert.equal(evaluate('document.activeElement.id'), 'guidance-query');
+  assert.equal(evaluate('document.querySelector("#guidance-query").value'), 'Button');
+  assert.equal(evaluate('document.querySelectorAll(".search-results li").length'), 0);
+  evaluate('window.fetch = window.originalSearchFetch;');
+  clickButton('Search documentation');
+  browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("indexed pages")');
+  assert.ok(evaluate('document.querySelectorAll(".search-results li").length > 0'));
+});
+
+test('topic-filter links update the query when already on the search page', () => {
+  browser('fill', 'nav input[type=search]', 'time zones');
+  browser('click', 'nav a[href^="/search?q="]');
+  browser('wait', '--fn', 'document.querySelector("#guidance-query").value === "time zones"');
+  browser('wait', '--fn', 'Boolean(document.querySelector(\'.search-results a[href="/foundations/internationalization#five-independent-decisions"]\'))');
+  assert.equal(evaluate('new URLSearchParams(location.search).get("q")'), 'time zones');
+  browser('fill', 'nav input[type=search]', '');
+});

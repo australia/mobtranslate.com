@@ -96,7 +96,7 @@ function NavContent({ onNavigate }: { onNavigate?: () => void }) {
       </div>
       <SearchFilter value={search} onChange={setSearch} />
       {search && <p role="status" className="text-sm mb-3">{filteredSections.reduce((total, section) => total + section.items.length, 0)} topics found</p>}
-      {filteredSections.length === 0 && <p className="text-sm mb-4">Try a component name or a category such as Foundations.</p>}
+      {filteredSections.length === 0 && <p className="text-sm mb-4">Try a component name or a category such as Foundations. <Link className="underline" href={`/search?q=${encodeURIComponent(search.trim())}`} onClick={onNavigate}>Search all guidance</Link></p>}
       {filteredSections.map((section) => (
         <div key={section.title} className="mb-4">
           <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-muted-foreground)] mb-2 px-2">

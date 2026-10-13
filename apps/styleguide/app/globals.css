@@ -44,6 +44,11 @@ body:has(.mobile-navigation[open]) { overflow: hidden; }
 .guidance-list li { margin-block: 0.75rem; }
 .doc-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 .doc-links a { text-decoration: underline; text-underline-offset: 0.2em; min-height: 44px; display: inline-flex; align-items: center; }
+.search-results { list-style: none; padding: 0; }
+.search-results li { padding-block: 1.25rem; border-bottom: 1px solid var(--color-border); }
+.search-results a { display: inline-block; min-height: 44px; font-weight: 600; text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.search-results p { max-width: 72ch; overflow-wrap: anywhere; margin-top: .5rem; }
+.search-results mark { color: inherit; background: var(--color-muted); font-weight: 700; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }

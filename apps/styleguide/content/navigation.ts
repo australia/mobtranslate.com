@@ -9,6 +9,7 @@ export const sections: NavSection[] = [
     items: [
       { label: 'Introduction', href: '/' },
       { label: 'Tokens', href: '/tokens' },
+      { label: 'Search guidance', href: '/search' },
     ],
   },
   {
