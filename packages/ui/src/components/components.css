@@ -1566,3 +1566,21 @@
 .mt-combobox-empty { padding: 12px; max-width: 32ch; overflow-wrap: anywhere; }
 .mt-combobox-empty:empty { padding: 0; }
 @media (forced-colors: active) { .mt-combobox-popup,.mt-combobox-input { border-color: ButtonText; } .mt-combobox-input:focus-visible,.mt-combobox-trigger:focus-visible,.mt-combobox-item[data-highlighted] { outline-color: Highlight; } .mt-combobox-item[data-selected] { text-decoration: underline; } .mt-combobox-item[data-disabled] { color: GrayText; opacity: 1; } }
+
+/* Disclosure and anchored supporting surfaces */
+.mt-accordion-trigger, .mt-collapsible-trigger { min-height:44px; min-width:0; max-width:100%; gap:12px; text-align:start; overflow-wrap:anywhere; transition:none; }
+.mt-collapsible-trigger { padding:8px 12px; }
+.mt-accordion-trigger:focus-visible, .mt-collapsible-trigger:focus-visible { outline:2px solid var(--color-ring); outline-offset:-2px; box-shadow:none; }
+.mt-accordion-trigger[data-disabled], .mt-collapsible-trigger[data-disabled] { opacity:.6; cursor:not-allowed; }
+.mt-accordion-panel, .mt-accordion-panel[data-open] { animation:none; }
+.mt-accordion[data-orientation="horizontal"] { flex-direction:row; }
+.mt-accordion[data-orientation="horizontal"] .mt-accordion-item { flex:1; min-width:0; }
+.mt-popover-popup { max-width:min(24rem, calc(100vw - 16px)); max-height:var(--available-height); overflow-y:auto; border-color:var(--color-muted-foreground); box-shadow:none; animation:none; overflow-wrap:anywhere; }
+.mt-tooltip-popup { max-width:min(20rem, calc(100vw - 16px)); max-height:var(--available-height); overflow-y:auto; box-shadow:none; animation:none; overflow-wrap:anywhere; }
+@media (prefers-reduced-motion:reduce) { .mt-accordion-chevron { transition:none; } }
+@media (forced-colors:active) {
+  .mt-accordion-item, .mt-popover-popup, .mt-tooltip-popup { border-color:CanvasText; }
+  .mt-tooltip-popup { border:1px solid CanvasText; }
+  .mt-accordion-trigger:focus-visible, .mt-collapsible-trigger:focus-visible { outline-color:Highlight; }
+  .mt-accordion-trigger[data-disabled], .mt-collapsible-trigger[data-disabled] { color:GrayText; opacity:1; }
+}

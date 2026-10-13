@@ -11,7 +11,7 @@ export const CollapsibleTrigger = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseCollapsible.Trigger
     ref={ref}
-    className={cn('mt-collapsible-trigger', className)}
+    className={state => cn('mt-collapsible-trigger', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -23,7 +23,7 @@ export const CollapsiblePanel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseCollapsible.Panel
     ref={ref}
-    className={cn('mt-collapsible-panel', className)}
+    className={state => cn('mt-collapsible-panel', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
