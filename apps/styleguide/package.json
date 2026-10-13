@@ -23,7 +23,8 @@
     "test:destinations": "node --test tests/destinations.test.mjs",
     "test:adaptive-navigation": "node --test tests/adaptive-navigation.test.mjs",
     "test:select": "node --test tests/select.test.mjs",
-    "test:autocomplete": "node --test tests/autocomplete.test.mjs"
+    "test:autocomplete": "node --test tests/autocomplete.test.mjs",
+    "test:combobox": "node --test tests/combobox.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",
