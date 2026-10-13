@@ -47,6 +47,24 @@ index 2c7d9e27b35857d25639ea2b8b37301c6cbf231e..3d5215e6e31d0fe907386afd65601087
      // For nested scenarios without positioner/popup, we can still open the menu
      // but we can't do size calculations
      if (!popupElement || !positionerElement) {
+diff --git a/esm/select/root/SelectRoot.js b/esm/select/root/SelectRoot.js
+index 67bf8e962dcbc9e5acc2a84ec519b27a2b9bdc3e..b906588b92b465e551a525951452f3c673e0b8a8 100644
+--- a/esm/select/root/SelectRoot.js
++++ b/esm/select/root/SelectRoot.js
+@@ -374,11 +374,12 @@ export function SelectRoot(props) {
+       const currentSerializedValue = stringifyAsValue(v, itemToStringValue);
+       return /*#__PURE__*/_jsx("input", {
+         type: "hidden",
++        disabled: disabled,
+         name: name,
+         value: currentSerializedValue
+       }, currentSerializedValue);
+     });
+-  }, [multiple, value, name, itemToStringValue]);
++  }, [multiple, value, name, itemToStringValue, disabled]);
+   return /*#__PURE__*/_jsx(SelectRootContext.Provider, {
+     value: contextValue,
+     children: /*#__PURE__*/_jsxs(SelectFloatingContext.Provider, {
 diff --git a/menu/root/MenuRoot.js b/menu/root/MenuRoot.js
 index aef1f0109835278f9eeeb1b042908c967ce0d1f0..9cd2d8f6637ac535e8c525a643de2d30eb513db1 100644
 --- a/menu/root/MenuRoot.js
@@ -96,3 +114,21 @@ index 81ee7c28aaa9731cee32d227490995f496c78b35..4699c1f39a4bd4d2002951275f73ff1b
      // For nested scenarios without positioner/popup, we can still open the menu
      // but we can't do size calculations
      if (!popupElement || !positionerElement) {
+diff --git a/select/root/SelectRoot.js b/select/root/SelectRoot.js
+index 8dc7ad1bbfe40a70b7edd08e3fe67e87a5897f10..ebad3e2e557ccd5b8726f53151f1b09f68f7a1a3 100644
+--- a/select/root/SelectRoot.js
++++ b/select/root/SelectRoot.js
+@@ -379,11 +379,12 @@ function SelectRoot(props) {
+       const currentSerializedValue = (0, _resolveValueLabel.stringifyAsValue)(v, itemToStringValue);
+       return /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+         type: "hidden",
++        disabled: disabled,
+         name: name,
+         value: currentSerializedValue
+       }, currentSerializedValue);
+     });
+-  }, [multiple, value, name, itemToStringValue]);
++  }, [multiple, value, name, itemToStringValue, disabled]);
+   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_SelectRootContext.SelectRootContext.Provider, {
+     value: contextValue,
+     children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_SelectRootContext.SelectFloatingContext.Provider, {
