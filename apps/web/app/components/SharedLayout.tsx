@@ -87,14 +87,18 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
   // Navigation links data
   const navLinks: NavLink[] = [
     { title: 'About', href: '/about' },
-    { title: 'Atlas', href: '/atlas' },
     { title: 'Dictionaries', href: '/dictionaries' },
-    { title: 'Map', href: '/map' },
-    { title: 'Spread', href: '/atlas/spread' },
     { title: 'Translate', href: '/#translate' },
-    { title: 'Models', href: '/models' },
     { title: 'Learn', href: '/education' },
     { title: 'Community', href: '/leaderboard' }
+  ];
+
+  // Shown only in the footer's Explore column, after the top-bar links.
+  const footerExploreLinks: NavLink[] = [
+    { title: 'Atlas', href: '/atlas' },
+    { title: 'Map', href: '/map' },
+    { title: 'Spread', href: '/atlas/spread' },
+    { title: 'Models', href: '/models' }
   ];
 
   return (
@@ -318,7 +322,7 @@ export default function SharedLayout({ children }: SharedLayoutProps) {
                 Explore
               </h3>
               <ul className="space-y-2.5">
-                {navLinks.map((link) => (
+                {[...navLinks, ...footerExploreLinks].map((link) => (
                   <li key={link.title}>
                     <Link
                       href={link.href}
