@@ -17,7 +17,8 @@
     "tokens:check": "node scripts/generate-tokens.mjs --check",
     "examples:generate": "node scripts/generate-examples.mjs",
     "examples:check": "node scripts/generate-examples.mjs --check",
-    "test:inputs": "node --test tests/inputs.test.mjs"
+    "test:inputs": "node --test tests/inputs.test.mjs",
+    "test:menus": "node --test tests/menus.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

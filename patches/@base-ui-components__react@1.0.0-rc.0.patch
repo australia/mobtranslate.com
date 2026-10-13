@@ -1,0 +1,36 @@
+diff --git a/esm/menu/root/MenuRoot.js b/esm/menu/root/MenuRoot.js
+index d51b3e747266b7afbcd08569fe5958014cbfcfea..27d8e5e04dab7cbd792c5a3dab11265a4fc3df17 100644
+--- a/esm/menu/root/MenuRoot.js
++++ b/esm/menu/root/MenuRoot.js
+@@ -82,6 +82,13 @@ export function MenuRoot(props) {
+   const store = MenuStore.useStore(handle?.store, {
+     parent: parentFromContext
+   });
++  // A closed menu must follow live menubar orientation/disabled context too.
++  // Trigger forwarding only refreshes this state while its popup is mounted.
++  useIsoLayoutEffect(() => {
++    if (parentFromContext.type === 'menubar') {
++      store.update({ parent: parentFromContext });
++    }
++  }, [store, parentFromContext]);
+   const floatingTreeRoot = store.useState('floatingTreeRoot');
+   const floatingNodeIdFromContext = useFloatingNodeId(floatingTreeRoot);
+   const floatingParentNodeIdFromContext = useFloatingParentNodeId();
+diff --git a/menu/root/MenuRoot.js b/menu/root/MenuRoot.js
+index aef1f0109835278f9eeeb1b042908c967ce0d1f0..9cd2d8f6637ac535e8c525a643de2d30eb513db1 100644
+--- a/menu/root/MenuRoot.js
++++ b/menu/root/MenuRoot.js
+@@ -87,6 +87,13 @@ function MenuRoot(props) {
+   const store = _MenuStore.MenuStore.useStore(handle?.store, {
+     parent: parentFromContext
+   });
++  // A closed menu must follow live menubar orientation/disabled context too.
++  // Trigger forwarding only refreshes this state while its popup is mounted.
++  (0, _useIsoLayoutEffect.useIsoLayoutEffect)(() => {
++    if (parentFromContext.type === 'menubar') {
++      store.update({ parent: parentFromContext });
++    }
++  }, [store, parentFromContext]);
+   const floatingTreeRoot = store.useState('floatingTreeRoot');
+   const floatingNodeIdFromContext = (0, _floatingUiReact.useFloatingNodeId)(floatingTreeRoot);
+   const floatingParentNodeIdFromContext = (0, _floatingUiReact.useFloatingParentNodeId)();
