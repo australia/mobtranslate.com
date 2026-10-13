@@ -6,10 +6,12 @@ import { cn } from '../../utils/cn';
 export const Fieldset = React.forwardRef<
   HTMLFieldSetElement,
   React.ComponentPropsWithoutRef<typeof BaseFieldset.Root>
->(({ className, ...props }, ref) => (
+>(({ className, disabled = false, render, ...props }, ref) => (
   <BaseFieldset.Root
     ref={ref}
-    className={cn('mt-fieldset', className)}
+    disabled={disabled}
+    render={render ?? <fieldset disabled={disabled} />}
+    className={state => cn('mt-fieldset', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -21,7 +23,7 @@ export const FieldsetLegend = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseFieldset.Legend
     ref={ref}
-    className={cn('mt-fieldset-legend', className)}
+    className={state => cn('mt-fieldset-legend', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));

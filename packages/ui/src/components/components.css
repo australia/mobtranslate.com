@@ -1401,3 +1401,28 @@
   .mt-radio[data-checked] .mt-radio-indicator, .mt-switch[data-checked], .mt-slider-indicator { background: Highlight; }
   .mt-switch-thumb, .mt-switch[data-checked] .mt-switch-thumb { background: ButtonText; }
 }
+
+
+/* Native text controls and composed numeric fields. */
+.mt-input, .mt-textarea { min-width: 0; max-width: 100%; border-color: var(--color-muted-foreground); }
+.mt-input-filled { border-color: var(--color-muted-foreground); }
+.mt-input-success { border-color: var(--color-success); }
+.mt-input[aria-invalid="true"], .mt-textarea[aria-invalid="true"] { border-color: var(--color-error); }
+.mt-input[aria-invalid="true"]:focus, .mt-textarea[aria-invalid="true"]:focus { box-shadow: 0 0 0 1px var(--color-error); }
+.mt-input[readonly], .mt-textarea[readonly] { cursor: default; }
+.mt-number-field, .mt-field, .mt-fieldset { min-width: 0; max-width: 100%; }
+.mt-number-field-group { border-color: var(--color-muted-foreground); }
+.mt-number-field-input { min-width: 0; }
+.mt-number-field-increment, .mt-number-field-decrement { width: 2.75rem; min-width: 2.75rem; }
+.mt-number-field-increment:focus-visible, .mt-number-field-decrement:focus-visible { outline: 2px solid var(--color-ring); outline-offset: -3px; }
+.mt-number-field-increment:disabled, .mt-number-field-decrement:disabled { cursor: not-allowed; opacity: .6; }
+.mt-number-field[data-disabled] .mt-number-field-input { opacity: .6; cursor: not-allowed; }
+.mt-field[data-invalid] .mt-input, .mt-field[data-invalid] .mt-number-field-group { border-color: var(--color-error); }
+@media (prefers-reduced-motion: reduce) {
+  .mt-input, .mt-textarea, .mt-number-field-increment, .mt-number-field-decrement { transition: none; }
+}
+@media (forced-colors: active) {
+  .mt-input, .mt-textarea, .mt-number-field-group { border-color: ButtonText; }
+  .mt-input:focus, .mt-textarea:focus, .mt-number-field-group:focus-within { outline: 2px solid Highlight; }
+  .mt-field-error { color: CanvasText; }
+}

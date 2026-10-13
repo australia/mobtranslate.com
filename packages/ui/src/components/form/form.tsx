@@ -8,7 +8,7 @@ export interface FormProps
 
 export const Form = React.forwardRef<HTMLFormElement, FormProps>(
   ({ className, ...props }, ref) => (
-    <BaseForm ref={ref} className={cn('mt-form', className)} {...props} />
+    <BaseForm ref={ref} className={state => cn('mt-form', typeof className === 'function' ? className(state) : className)} {...props} />
   )
 );
 Form.displayName = 'Form';

@@ -25,6 +25,7 @@ pnpm --filter styleguide test:browser
 pnpm --filter styleguide test:communication
 pnpm --filter styleguide test:containment
 pnpm --filter styleguide test:selection
+pnpm --filter styleguide test:inputs
 pnpm --filter styleguide test:routes
 ```
 
@@ -54,6 +55,7 @@ The index is an in-memory snapshot for that search page, available in developmen
 - Communication guidance lives in `content/communication.tsx`, with actual provider-managed notifications, inline alerts, count badges, linear/circular progress, scalar meters and loading recovery in four checked example files. `test:communication` verifies their task outcomes, keyboard behavior, timing, contrast and narrow reflow.
 - Containment guidance lives in `content/containment.tsx`; four checked sources exercise card actions, dialog editing, staged drawer filters and local confirmation/restore. `test:containment` verifies the actual local outcomes, focus and dismissal contracts, edge/size geometry and narrow layouts.
 - Selection guidance lives in `content/selection.tsx`; five checked sources exercise independent/grouped choices, retained settings, chip roles, named range sliders and pressed segments. `test:selection` verifies actual state, local FormData, filtering, recovery, keyboard behavior, directional layout and chip text contrast.
+- Input guidance lives in `content/inputs.tsx`; four checked sources exercise native text values, registered fields, grouped availability, local validation/recovery and formatted numeric quantities. `test:inputs` verifies actual payloads, correction, editing enforcement and narrow reflow.
 - Package imports resolve through the installed workspace dependency. There is no styleguide-only `@mobtranslate/ui` TypeScript alias; the build also verifies the documented package `/src` CSS paths.
 - The 318-token catalogue is generated from the shared CSS using PostCSS. Development and production builds regenerate it; `tokens:check` rejects drift. Do not edit `content/tokens.json` manually.
 - Use `Section` for stable, linkable headings; pass an explicit `id` if two sections share a title.
