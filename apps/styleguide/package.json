@@ -18,7 +18,8 @@
     "examples:generate": "node scripts/generate-examples.mjs",
     "examples:check": "node scripts/generate-examples.mjs --check",
     "test:inputs": "node --test tests/inputs.test.mjs",
-    "test:menus": "node --test tests/menus.test.mjs"
+    "test:menus": "node --test tests/menus.test.mjs",
+    "test:navigation-controls": "node --test tests/navigation-controls.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

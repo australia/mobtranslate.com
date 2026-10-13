@@ -9,7 +9,7 @@ export const Toolbar = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseToolbar.Root
     ref={ref}
-    className={cn('mt-toolbar', className)}
+    className={state => cn('mt-toolbar', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -21,7 +21,7 @@ export const ToolbarButton = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseToolbar.Button
     ref={ref}
-    className={cn('mt-toolbar-button', className)}
+    className={state => cn('mt-toolbar-button', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -33,7 +33,7 @@ export const ToolbarSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseToolbar.Separator
     ref={ref}
-    className={cn('mt-toolbar-separator', className)}
+    className={state => cn('mt-toolbar-separator', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -45,7 +45,7 @@ export const ToolbarGroup = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseToolbar.Group
     ref={ref}
-    className={cn('mt-toolbar-group', className)}
+    className={state => cn('mt-toolbar-group', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -57,7 +57,7 @@ export const ToolbarLink = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseToolbar.Link
     ref={ref}
-    className={cn('mt-toolbar-link', className)}
+    className={state => cn('mt-toolbar-link', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));

@@ -1,39 +1,16 @@
-'use client';
-import { Tabs, TabsList, TabsTrigger, TabsContent, Menubar, Button } from '@mobtranslate/ui';
-import { Section } from '../../../components/section';
-import { ComponentPreview } from '../../../components/component-preview';
+import { GuideDocument } from '../../../components/guide-document';
+import { NavigationTabsExample } from '../../../examples/navigation-tabs';
 
 export default function NavigationPatternPage() {
-  return (
-    <div>
-      <h1 className="text-4xl font-bold mb-2">Navigation Patterns</h1>
-      <p className="text-lg text-[var(--color-muted-foreground)] mb-8">Navigation pattern examples.</p>
-      <Section title="Tab Navigation">
-        <ComponentPreview>
-          <Tabs defaultValue="overview">
-            <TabsList>
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="analytics">Analytics</TabsTrigger>
-              <TabsTrigger value="reports">Reports</TabsTrigger>
-              <TabsTrigger value="settings">Settings</TabsTrigger>
-            </TabsList>
-            <TabsContent value="overview"><p className="p-4">Overview content</p></TabsContent>
-            <TabsContent value="analytics"><p className="p-4">Analytics content</p></TabsContent>
-            <TabsContent value="reports"><p className="p-4">Reports content</p></TabsContent>
-            <TabsContent value="settings"><p className="p-4">Settings content</p></TabsContent>
-          </Tabs>
-        </ComponentPreview>
-      </Section>
-      <Section title="Menubar Navigation">
-        <ComponentPreview>
-          <Menubar>
-            <Button variant="ghost" size="sm">File</Button>
-            <Button variant="ghost" size="sm">Edit</Button>
-            <Button variant="ghost" size="sm">View</Button>
-            <Button variant="ghost" size="sm">Help</Button>
-          </Menubar>
-        </ComponentPreview>
-      </Section>
-    </div>
-  );
+  return <GuideDocument document={{
+    title:'Navigation and related views', description:'Choose destinations, view switching and task commands by their actual behavior and recovery needs.',
+    sections:[
+      {title:'Choose the interaction model',table:{headings:['User intent','Pattern'],rows:[['Go to an independently addressable destination','Named nav with real links, current-page state and browser history. A bar, rail or drawer is a responsive presentation of that same destination model.'],['Explore related content in the same task','Named tab list with matching panels and manual or immediate automatic activation.'],['Run frequent actions on current content','Named Toolbar with meaningful controls and actual local/confirmed task effects.'],['Choose an application command from categories','Menubar with attached command menus; independent site buttons do not become a menubar by being grouped.'],['Find a large or changing destination set','Search with actual indexed content, loading/error/empty/retry and meaningful results.'],['Expose a path or page range','Breadcrumbs for ancestry; pagination for a bounded result set. Neither replaces primary destinations.']]}},
+      {title:'Real destinations retain native behavior',paragraphs:['These links navigate to real documentation routes. Keep href, link semantics and browser open-in-new-tab behavior. Active destination should use aria-current="page" where the actual route matches; a clicked appearance without route state is not proof of arrival.'],example:<nav aria-label="Navigation pattern destinations" className="doc-links"><a href="/components/tabs">Related view tabs</a><a href="/components/toolbar">Task toolbar</a><a href="/components/navigation-menu">Destination menu</a></nav>},
+      {title:'Related views retain the task draft',paragraphs:['This view switcher is local to one task. Edit text, visit Preview, request a check and choose failure/cancel/completion. Switching views preserves task-owned text. It intentionally creates no destination history.'],example:<NavigationTabsExample />},
+      {title:'Adaptive bars, rails and drawers',bullets:['Keep destination names/order/current-route truth consistent across responsive presentations. Change structure according to available space and task needs, not device labels alone.','A persistent rail or bar remains named navigation with links. A temporary drawer additionally needs modality, Escape/close, contained focus and return to its opener; selecting a destination closes it and focuses the new task context.','Avoid two competing visible/focusable copies of the same navigation. Hidden mobile/desktop alternatives must stay out of the active accessibility/focus tree.','Material bars/rails are coverage references. The library does not yet export dedicated bar/rail components; native link patterns and the documented Drawer provide web composition building blocks. Complete adaptation/route-transition verification remains open.']},
+      {title:'Arrival, state and recovery',table:{headings:['Situation','Required behavior'],rows:[['Successful arrival','Confirm actual destination/view and visible title; route transitions need a deliberate focus/announcement policy.'],['Loading destination','Retain context and show a requested/loading state without falsely marking the task complete.'],['Failure or unavailable route','Explain what failed, retain useful task data and provide retry or a real alternative. Do not turn a disabled visual into a fake link.'],['Unsaved draft','Define ownership and whether leaving retains, saves or requests confirmation. The tab lab retains parent state; navigation away/reload does not persist it.'],['Back/forward and deep link','Test the actual URL-selected destination/view after direct entry and browser history. Tabs need explicit synchronization if route state is required.'],['Permission/source restrictions','Keep available destination separate from authorization and source/review evidence. A selected tab or successful page fetch grants no cultural permission.']]}},
+      {title:'Verification and boundaries',bullets:['Use pointer and keyboard to follow links and confirm actual URL/content. Verify modified clicks, back/forward, deep links, current-page state and destination focus.','Test view selection separately from focus, retained draft, pending/failure/cancel/retry and hidden controls. The tab suite supplies scoped evidence for this local task.','Review mobile reflow, zoom/text spacing, both themes, reduced motion, forced colors and named assistive-technology/browser pairs. Complete adaptive destination/deep-link/recovery testing remains open.']},
+    ],related:[{label:'Tabs',href:'/components/tabs'},{label:'Toolbar',href:'/components/toolbar'},{label:'Navigation menu',href:'/components/navigation-menu'},{label:'Drawer',href:'/components/drawer'},{label:'Search',href:'/search'},{label:'Accessibility',href:'/guides/accessibility'}],
+  }} />;
 }

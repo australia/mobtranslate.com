@@ -304,7 +304,7 @@
 }
 .mt-tabs-trigger:hover { color: var(--color-foreground); }
 .mt-tabs-trigger:focus-visible { box-shadow: inset 0 0 0 2px var(--color-ring); border-radius: var(--radius-sm); }
-.mt-tabs-trigger[data-selected] { color: var(--color-primary); }
+.mt-tabs-trigger[data-active] { color: var(--color-primary); }
 .mt-tabs-indicator {
   position: absolute;
   bottom: -2px;
@@ -1455,4 +1455,40 @@
   .mt-menu-popup, .mt-context-menu-popup { border-color: ButtonText; }
   .mt-menu-item[data-highlighted], .mt-context-menu-item[data-highlighted] { outline-color: Highlight; }
   .mt-menu-item[data-disabled], .mt-context-menu-item[data-disabled] { color: GrayText; opacity: 1; }
+}
+
+/* Tabs and toolbar: installed state attributes, geometry and alternate input. */
+.mt-tabs { min-width: 0; max-width: 100%; }
+.mt-tabs-scroller { min-width: 0; max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+.mt-tabs-list { min-width: max-content; overflow: visible; flex-shrink: 0; }
+.mt-tabs[data-orientation="vertical"] > .mt-tabs-scroller { max-width: 45%; flex-shrink: 0; overflow: visible; }
+.mt-tabs-trigger { min-height: 44px; min-width: 44px; flex-shrink: 0; }
+.mt-tabs-trigger[data-active] { color: var(--color-foreground); font-weight: 700; }
+.mt-tabs-trigger[data-disabled] { opacity: .6; cursor: not-allowed; }
+.mt-tabs-trigger:focus-visible, .mt-tabs-content:focus-visible { outline: 2px solid var(--color-ring); outline-offset: -2px; box-shadow: none; }
+.mt-tabs-indicator { bottom: 0; left: var(--active-tab-left); width: var(--active-tab-width); pointer-events: none; background: var(--color-ring); }
+.mt-tabs[data-orientation="vertical"] { flex-direction: row; gap: 16px; }
+.mt-tabs-list[data-orientation="vertical"] { flex-direction: column; align-items: stretch; border-bottom: 0; border-inline-end: 2px solid var(--color-border); overflow: visible; max-width: 100%; min-width: 0; }
+.mt-tabs-trigger[data-orientation="vertical"] { white-space: normal; overflow-wrap: anywhere; text-align: start; }
+.mt-tabs-indicator[data-orientation="vertical"] { left: auto; right: -2px; top: var(--active-tab-top); bottom: auto; width: 2px; height: var(--active-tab-height); transition: top var(--duration-normal) var(--ease-default), height var(--duration-normal) var(--ease-default); }
+[dir="rtl"] .mt-tabs-indicator[data-orientation="vertical"] { left: -2px; right: auto; }
+.mt-tabs-content { min-width: 0; overflow-wrap: anywhere; flex: 1; }
+.mt-toolbar { flex-wrap: wrap; max-width: 100%; }
+.mt-toolbar-group { flex-wrap: wrap; max-width: 100%; }
+.mt-toolbar-button, .mt-toolbar-link { min-height: 44px; height: auto; min-width: 44px; padding-block: 8px; white-space: normal; overflow-wrap: anywhere; }
+.mt-toolbar-link { color: var(--color-foreground); text-decoration: underline; }
+.mt-toolbar-button[aria-pressed] { transition: none; }
+.mt-toolbar-button[aria-pressed="true"] { background: var(--color-foreground); color: var(--color-background); }
+.mt-toolbar-button[data-disabled] { opacity: .6; cursor: not-allowed; }
+.mt-toolbar-button:focus-visible, .mt-toolbar-link:focus-visible { outline: 2px solid var(--color-ring); outline-offset: -2px; box-shadow: none; }
+.mt-toolbar[data-orientation="vertical"] { flex-direction: column; align-items: stretch; }
+.mt-toolbar-group[data-orientation="vertical"] { flex-direction: column; align-items: stretch; }
+.mt-toolbar-separator[data-orientation="horizontal"] { width: 100%; height: 1px; margin: 4px 0; }
+@media (prefers-reduced-motion: reduce) { .mt-tabs-indicator, .mt-tabs-trigger, .mt-toolbar-button, .mt-toolbar-link { transition: none; animation: none; } }
+@media (forced-colors: active) {
+  .mt-tabs-list, .mt-toolbar { border-color: ButtonText; }
+  .mt-tabs-trigger[data-active], .mt-toolbar-button[aria-pressed="true"] { outline: 2px solid Highlight; outline-offset: -2px; }
+  .mt-tabs-indicator { background: Highlight; }
+  .mt-tabs-trigger:focus-visible, .mt-tabs-content:focus-visible, .mt-toolbar-button:focus-visible, .mt-toolbar-link:focus-visible { outline-color: Highlight; }
+  .mt-tabs-trigger[data-disabled], .mt-toolbar-button[data-disabled] { color: GrayText; opacity: 1; }
 }
