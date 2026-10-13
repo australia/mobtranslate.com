@@ -1232,7 +1232,7 @@
 .mt-chip-clickable { cursor: pointer; }
 .mt-chip-clickable:hover { background: var(--color-muted); }
 .mt-chip-filled { background: var(--color-muted); border-color: transparent; }
-.mt-chip-filled:hover { background: var(--color-muted-hover); }
+
 .mt-chip-primary { background: var(--color-primary); color: var(--color-primary-foreground); border-color: var(--color-primary); }
 .mt-chip-success { background: var(--color-success); color: var(--color-success-foreground); border-color: var(--color-success); }
 .mt-chip-warning { background: var(--color-warning); color: var(--color-warning-foreground); border-color: var(--color-warning); }
@@ -1340,3 +1340,64 @@
   .mt-card { transition: none; }
 }
 @media (forced-colors: active) { .mt-card, .mt-dialog-popup, .mt-alert-dialog-popup, .mt-drawer-popup { border-color: CanvasText; } }
+
+/* Selection controls: labelled targets and actual visual state. */
+.mt-checkbox-label, .mt-radio-label, .mt-switch-label { min-height: 44px; min-width: 44px; max-width: 100%; }
+.mt-checkbox, .mt-radio { border-color: var(--color-muted-foreground); }
+.mt-checkbox[data-checked], .mt-checkbox[data-indeterminate] { background: var(--color-primary); border-color: var(--color-muted-foreground); }
+.mt-checkbox-mixed { display: none; }
+.mt-checkbox[data-indeterminate] .mt-checkbox-mixed { display: block; }
+.mt-checkbox[data-indeterminate] .mt-checkbox-check { display: none; }
+.mt-radio[data-checked] { border-color: var(--color-muted-foreground); }
+.mt-checkbox-label:has([data-disabled]), .mt-radio-label:has([data-disabled]), .mt-switch-label:has([data-disabled]) { cursor: not-allowed; }
+.mt-checkbox[data-disabled], .mt-radio[data-disabled], .mt-switch[data-disabled] { cursor: not-allowed; opacity: .6; }
+.mt-switch { border: 2px solid var(--color-muted-foreground); }
+.mt-switch-thumb { background: var(--color-background); left: auto; inset-inline-start: .125rem; }
+.mt-switch[data-checked] .mt-switch-thumb { left: auto; inset-inline-start: calc(100% - 1.25rem - .125rem); background: var(--color-primary-foreground); }
+.mt-switch-thumb { transition: inset-inline-start var(--duration-normal) var(--ease-default); }
+.mt-slider { touch-action: auto; }
+.mt-slider-control { position: relative; height: 44px; touch-action: pan-y; }
+.mt-slider-track { border: 1px solid var(--color-muted-foreground); }
+.mt-slider-thumb { width: 44px; height: 44px; border: none; background: transparent; box-shadow: none; }
+.mt-slider-thumb::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border: 2px solid var(--color-muted-foreground); border-radius: 50%; background: var(--color-primary); pointer-events: none; }
+.mt-slider-thumb:focus-within { border-radius: 50%; box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-ring); }
+.mt-slider[data-orientation=vertical] { width: 44px; }
+.mt-slider[data-orientation=vertical] .mt-slider-control { height: 12rem; width: 44px; justify-content: center; touch-action: pan-x; }
+.mt-slider[data-orientation=vertical] .mt-slider-track { width: 6px; height: 100%; }
+.mt-slider[data-orientation=vertical] .mt-slider-indicator { width: 100%; height: auto; }
+.mt-toggle, .mt-toggle-group-item { min-height: 44px; max-width: 100%; height: auto; white-space: normal; overflow-wrap: anywhere; }
+.mt-toggle-group { max-width: 100%; flex-wrap: wrap; gap: .25rem; }
+.mt-toggle-group-item, .mt-toggle-group-item:first-child, .mt-toggle-group-item:last-child { border-radius: var(--radius-md); }
+.mt-toggle-group-item:not(:first-child) { margin-left: 0; }
+.mt-toggle-group[data-orientation=vertical] { display: flex; flex-direction: column; align-items: flex-start; }
+.mt-toggle[data-disabled], .mt-toggle-group-item[data-disabled] { opacity: .6; cursor: not-allowed; }
+.mt-chip { max-width: 100%; overflow-wrap: anywhere; }
+.mt-chip-label { min-width: 0; }
+.mt-chip-sm { padding: 2px 8px; font-size: var(--text-xs); }
+.mt-chip-md { padding: 4px 12px; font-size: var(--text-sm); }
+.mt-chip-lg { padding: 8px 16px; font-size: var(--text-base); }
+.mt-chip-outlined { background: transparent; }
+.mt-chip-outlined.mt-chip-primary { color: var(--color-foreground); border-color: var(--color-primary); }
+.mt-chip-outlined.mt-chip-success { color: var(--color-foreground); border-color: var(--color-success); }
+.mt-chip-outlined.mt-chip-warning { color: var(--color-foreground); border-color: var(--color-warning); }
+.mt-chip-outlined.mt-chip-error { color: var(--color-foreground); border-color: var(--color-error); }
+.mt-chip-soft { color: var(--color-foreground); border-color: transparent; }
+.mt-chip-soft.mt-chip-default { background: var(--color-muted); }
+.mt-chip-soft.mt-chip-primary { background: color-mix(in srgb, var(--color-primary) 12%, var(--color-background)); }
+.mt-chip-soft.mt-chip-success { background: color-mix(in srgb, var(--color-success) 12%, var(--color-background)); }
+.mt-chip-soft.mt-chip-warning { background: color-mix(in srgb, var(--color-warning) 12%, var(--color-background)); }
+.mt-chip-soft.mt-chip-error { background: color-mix(in srgb, var(--color-error) 12%, var(--color-background)); }
+.mt-chip-delete { width: 44px; height: 44px; min-width: 44px; opacity: 1; }
+.mt-chip-action { min-height: 44px; cursor: pointer; justify-content: center; white-space: normal; }
+.mt-chip-action:hover:not(:disabled) { box-shadow: inset 0 0 0 2px var(--color-muted-foreground); }
+.mt-chip-action:focus-visible, .mt-chip-delete:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }
+.mt-chip-action[aria-pressed=true] { background: var(--color-primary); color: var(--color-primary-foreground); border-color: var(--color-muted-foreground); }
+.mt-chip-action:disabled, .mt-chip-action[data-disabled] { opacity: .6; cursor: not-allowed; }
+@media (prefers-reduced-motion: reduce) { .mt-checkbox, .mt-switch, .mt-switch-thumb, .mt-chip, .mt-chip-delete, .mt-toggle, .mt-toggle-group-item { transition: none; } }
+@media (forced-colors: active) {
+  .mt-checkbox, .mt-radio, .mt-switch, .mt-slider-track, .mt-slider-thumb::after, .mt-chip, .mt-toggle, .mt-toggle-group-item { border-color: ButtonText; }
+  .mt-checkbox[data-checked], .mt-checkbox[data-indeterminate], .mt-toggle[data-pressed], .mt-toggle-group-item[data-pressed], .mt-chip-action[aria-pressed=true] { background: Highlight; color: HighlightText; }
+  .mt-checkbox-indicator { color: inherit; }
+  .mt-radio[data-checked] .mt-radio-indicator, .mt-switch[data-checked], .mt-slider-indicator { background: Highlight; }
+  .mt-switch-thumb, .mt-switch[data-checked] .mt-switch-thumb { background: ButtonText; }
+}

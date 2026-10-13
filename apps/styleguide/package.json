@@ -11,6 +11,7 @@
     "test:browser": "node --test tests/browser.test.mjs",
     "test:communication": "node --test tests/communication.test.mjs",
     "test:containment": "node --test tests/containment.test.mjs",
+    "test:selection": "node --test tests/selection.test.mjs",
     "test:routes": "node scripts/check-routes.mjs",
     "tokens:generate": "node scripts/generate-tokens.mjs",
     "tokens:check": "node scripts/generate-tokens.mjs --check",

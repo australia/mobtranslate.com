@@ -10,7 +10,7 @@ export const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps
   ({ className, ...props }, ref) => (
     <BaseCheckboxGroup
       ref={ref}
-      className={cn('mt-checkbox-group', className)}
+      className={state => cn('mt-checkbox-group', typeof className === 'function' ? className(state) : className)}
       {...props}
     />
   )

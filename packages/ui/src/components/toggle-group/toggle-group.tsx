@@ -7,15 +7,15 @@ import { cn } from '../../utils/cn';
 export interface ToggleGroupProps extends React.ComponentPropsWithoutRef<typeof BaseToggleGroup> {}
 
 export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
-  ({ className, ...props }, ref) => (
-    <BaseToggleGroup ref={ref} className={cn('mt-toggle-group', className)} {...props} />
+  ({ className, orientation = 'horizontal', ...props }, ref) => (
+    <BaseToggleGroup ref={ref} orientation={orientation} data-orientation={orientation} className={state => cn('mt-toggle-group', typeof className === 'function' ? className(state) : className)} {...props} />
   )
 );
 ToggleGroup.displayName = 'ToggleGroup';
 
 export const ToggleGroupItem = React.forwardRef<HTMLButtonElement, React.ComponentPropsWithoutRef<typeof BaseToggle>>(
   ({ className, ...props }, ref) => (
-    <BaseToggle ref={ref} className={cn('mt-toggle-group-item', className)} {...props} />
+    <BaseToggle ref={ref} className={state => cn('mt-toggle-group-item', typeof className === 'function' ? className(state) : className)} {...props} />
   )
 );
 ToggleGroupItem.displayName = 'ToggleGroupItem';

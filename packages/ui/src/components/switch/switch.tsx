@@ -7,10 +7,10 @@ export interface SwitchProps extends React.ComponentPropsWithoutRef<typeof BaseS
   label?: string;
 }
 
-export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
+export const Switch = React.forwardRef<HTMLElement, SwitchProps>(
   ({ className, label, ...props }, ref) => (
     <label className="mt-switch-label">
-      <BaseSwitch.Root ref={ref} className={cn('mt-switch', className)} {...props}>
+      <BaseSwitch.Root ref={ref} aria-label={label} className={state => cn('mt-switch', typeof className === 'function' ? className(state) : className)} {...props}>
         <BaseSwitch.Thumb className="mt-switch-thumb" />
       </BaseSwitch.Root>
       {label && <span className="mt-switch-text">{label}</span>}

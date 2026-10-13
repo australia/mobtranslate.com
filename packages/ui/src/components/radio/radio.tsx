@@ -8,7 +8,7 @@ export interface RadioGroupProps extends React.ComponentPropsWithoutRef<typeof B
 
 export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
   ({ className, ...props }, ref) => (
-    <BaseRadioGroup ref={ref} className={cn('mt-radio-group', className)} {...props} />
+    <BaseRadioGroup ref={ref} className={state => cn('mt-radio-group', typeof className === 'function' ? className(state) : className)} {...props} />
   )
 );
 RadioGroup.displayName = 'RadioGroup';
@@ -17,10 +17,10 @@ export interface RadioItemProps extends React.ComponentPropsWithoutRef<typeof Ba
   label?: string;
 }
 
-export const RadioItem = React.forwardRef<HTMLButtonElement, RadioItemProps>(
+export const RadioItem = React.forwardRef<HTMLElement, RadioItemProps>(
   ({ className, label, ...props }, ref) => (
     <label className="mt-radio-label">
-      <BaseRadio.Root ref={ref} className={cn('mt-radio', className)} {...props}>
+      <BaseRadio.Root ref={ref} aria-label={label} className={state => cn('mt-radio', typeof className === 'function' ? className(state) : className)} {...props}>
         <BaseRadio.Indicator className="mt-radio-indicator" />
       </BaseRadio.Root>
       {label && <span className="mt-radio-text">{label}</span>}

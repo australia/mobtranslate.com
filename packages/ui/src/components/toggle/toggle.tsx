@@ -7,7 +7,7 @@ export interface ToggleProps extends React.ComponentPropsWithoutRef<typeof BaseT
 
 export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(
   ({ className, ...props }, ref) => (
-    <BaseToggle ref={ref} className={cn('mt-toggle', className)} {...props} />
+    <BaseToggle ref={ref} className={state => cn('mt-toggle', typeof className === 'function' ? className(state) : className)} {...props} />
   )
 );
 Toggle.displayName = 'Toggle';
