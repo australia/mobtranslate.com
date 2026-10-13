@@ -23,6 +23,7 @@ pnpm --filter styleguide examples:check
 pnpm --filter styleguide build
 pnpm --filter styleguide test:browser
 pnpm --filter styleguide test:communication
+pnpm --filter styleguide test:containment
 pnpm --filter styleguide test:routes
 ```
 
@@ -48,8 +49,9 @@ The index is an in-memory snapshot for that search page, available in developmen
 - Content search lives in `components/document-search.tsx` and `lib/document-search.ts`. Extraction uses the browser’s inert HTML parser and limits indexing to the main content of navigation routes. Keep failure/coverage feedback and section destinations tied to the actual render.
 - Detailed foundation content lives in `content/foundations.tsx`; `GuideDocument` renders its sections, specification tables, code and related links. Interactive labs live in `components/foundation-explorers.tsx`.
 - Developer guidance lives in `content/developer-guides.tsx`. Its live examples are real files in `examples/`; the theme controller in `lib/theme.ts` is also used by navigation. `examples:generate` copies these checked sources into `content/examples.json`; `examples:check` rejects drift. Dev/build regenerate both source catalogues.
-- Action documentation lives in `content/actions.tsx`; principles/accessibility in `content/principles-accessibility.tsx`. Thirteen source files feed the checked examples, including the interactive accessibility request. Keep guidance tied to current exports and source-backed behavior.
+- Action documentation lives in `content/actions.tsx`; principles/accessibility in `content/principles-accessibility.tsx`. Seventeen source files feed the checked examples, including the interactive accessibility request. Keep guidance tied to current exports and source-backed behavior.
 - Communication guidance lives in `content/communication.tsx`, with actual provider-managed notifications, inline alerts, count badges, linear/circular progress, scalar meters and loading recovery in four checked example files. `test:communication` verifies their task outcomes, keyboard behavior, timing, contrast and narrow reflow.
+- Containment guidance lives in `content/containment.tsx`; four checked sources exercise card actions, dialog editing, staged drawer filters and local confirmation/restore. `test:containment` verifies the actual local outcomes, focus and dismissal contracts, edge/size geometry and narrow layouts.
 - Package imports resolve through the installed workspace dependency. There is no styleguide-only `@mobtranslate/ui` TypeScript alias; the build also verifies the documented package `/src` CSS paths.
 - The 318-token catalogue is generated from the shared CSS using PostCSS. Development and production builds regenerate it; `tokens:check` rejects drift. Do not edit `content/tokens.json` manually.
 - Use `Section` for stable, linkable headings; pass an explicit `id` if two sections share a title.

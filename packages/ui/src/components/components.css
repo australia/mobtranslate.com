@@ -1081,12 +1081,14 @@
   overflow: hidden;
   transition: box-shadow var(--duration-normal) var(--ease-default);
 }
-.mt-card:hover { box-shadow: var(--shadow-md); }
+.mt-card-filled { background: var(--color-muted); border-color: transparent; box-shadow: none; }
+.mt-card-outlined { box-shadow: none; }
+.mt-card-elevated { border-color: transparent; box-shadow: var(--shadow-md); }
 .mt-card-header { padding: 1.5rem 1.5rem 0; display: flex; flex-direction: column; gap: 0.375rem; }
 .mt-card-title { font-size: var(--text-xl); font-weight: 700; line-height: 1.2; }
 .mt-card-description { font-size: var(--text-sm); color: var(--color-muted-foreground); }
 .mt-card-content { padding: 1.5rem; }
-.mt-card-footer { padding: 0 1.5rem 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+.mt-card-footer { padding: 0 1.5rem 1.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
 
 /* === ALERT === */
 .mt-alert {
@@ -1165,7 +1167,7 @@
   z-index: var(--z-modal-backdrop);
   animation: mt-fade-in var(--duration-normal) var(--ease-out);
 }
-.mt-drawer {
+.mt-drawer-popup {
   position: fixed;
   background: var(--color-card);
   color: var(--color-card-foreground);
@@ -1327,3 +1329,14 @@
 @keyframes mt-slide-in-left { from { opacity: 0; transform: translateX(-100%); } to { opacity: 1; transform: translateX(0); } }
 @keyframes mt-slide-in-top { from { opacity: 0; transform: translateY(-100%); } to { opacity: 1; transform: translateY(0); } }
 @keyframes mt-slide-in-bottom { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: translateY(0); } }
+
+/* Bounded containment surfaces: the popup itself can scroll at short heights. */
+.mt-dialog-popup, .mt-alert-dialog-popup { max-height: calc(100dvh - 2rem); overflow-y: auto; overflow-wrap: anywhere; overscroll-behavior: contain; }
+.mt-drawer-popup { padding: 1.5rem; max-height: 100dvh; overflow-wrap: anywhere; overscroll-behavior: contain; }
+.mt-drawer-description { font-size: var(--text-base); color: var(--color-muted-foreground); }
+.mt-drawer-top, .mt-drawer-bottom { max-height: 85dvh; }
+@media (prefers-reduced-motion: reduce) {
+  .mt-dialog-popup, .mt-dialog-backdrop, .mt-alert-dialog-popup, .mt-alert-dialog-backdrop, .mt-drawer-popup, .mt-drawer-backdrop { animation: none; }
+  .mt-card { transition: none; }
+}
+@media (forced-colors: active) { .mt-card, .mt-dialog-popup, .mt-alert-dialog-popup, .mt-drawer-popup { border-color: CanvasText; } }

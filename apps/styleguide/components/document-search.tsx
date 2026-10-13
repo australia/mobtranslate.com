@@ -18,6 +18,7 @@ function MatchText({ text, query }: { text: string; query: string }) {
 export function DocumentSearch() {
   const urlQuery = useSearchParams().get('q') ?? '';
   const [draft, setDraft] = useState('');
+  const [interactive, setInteractive] = useState(false);
   const [query, setQuery] = useState('');
   const [started, setStarted] = useState(false);
   const [revision, setRevision] = useState(0);
@@ -31,6 +32,7 @@ export function DocumentSearch() {
   const resultList = useRef<HTMLOListElement>(null);
 
   useEffect(() => {
+    setInteractive(true);
     setDraft(urlQuery); setQuery(urlQuery.trim()); setLimit(20);
     if (searchTerms(urlQuery).length) setStarted(true);
   }, [urlQuery]);
@@ -57,6 +59,7 @@ export function DocumentSearch() {
   return <div data-document-search className="space-y-5">
     <form role="search" aria-label="Documentation content" className="space-y-3" onSubmit={event => {
       event.preventDefault();
+      if (!interactive) return;
       const next = draft.trim();
       setQuery(next); setLimit(20);
       const url = new URL(location.href);
@@ -65,15 +68,15 @@ export function DocumentSearch() {
       if (searchTerms(next).length) setStarted(true);
     }}>
       <label htmlFor="guidance-query" className="block font-semibold">Search guidance</label>
-      <Input ref={queryInput} id="guidance-query" name="q" type="search" value={draft} onChange={event => setDraft(event.target.value)} aria-describedby="guidance-search-help" />
+      <Input ref={queryInput} id="guidance-query" name="q" type="search" readOnly={!interactive} value={draft} onChange={event => setDraft(event.target.value)} aria-describedby="guidance-search-help" />
       <p id="guidance-search-help" className="text-sm">Search prose, API tables and checked code examples. All entered terms must match the same section or its page title. Try “capture”, “time zones” or “aria-describedby”.</p>
-      <div className="flex flex-wrap gap-3"><Button type="submit">Search documentation</Button>
+      <div className="flex flex-wrap gap-3"><Button type="submit" disabled={!interactive}>Search documentation</Button>
         {started && <Button type="button" variant="outline" disabled={phase === 'loading'} onClick={() => { queryInput.current?.focus(); setLimit(20); setRevision(current => current + 1); }}>Reload guidance</Button>}
         {phase === 'loading' && <Button ref={cancelAction} type="button" variant="ghost" onClick={() => { queryInput.current?.focus(); setStarted(false); setPhase('cancelled'); setEntries([]); }}>Cancel loading guidance</Button>}
       </div>
     </form>
     <p role="status" aria-atomic="true" className="text-sm" data-search-status>
-      {phase === 'loading' ? `Loading guidance: ${progress} of ${paths.length} pages.` : phase === 'error' ? 'Guidance could not be fully loaded.' : phase === 'cancelled' ? 'Guidance loading cancelled. Your query is retained; search again to reload.' : !validQuery ? 'Enter words or an API name to search.' : phase === 'ready' ? `${results.length} matching sections across ${paths.length} indexed pages.` : 'Preparing guidance search.'}
+      {phase === 'loading' ? `Loading guidance: ${progress} of ${paths.length} pages.` : phase === 'error' ? 'Guidance could not be fully loaded.' : phase === 'cancelled' ? 'Guidance loading cancelled. Your query is retained; search again to reload.' : !validQuery ? 'Enter words or an API name to search.' : phase === 'ready' ? `${results.length} matching ${results.length === 1 ? 'section' : 'sections'} across ${paths.length} indexed pages.` : 'Preparing guidance search.'}
     </p>
     {phase === 'error' && <div className="space-y-3"><p>{error} Your query is retained. Reload guidance to retry, or use the topic navigation.</p><Button type="button" onClick={() => { queryInput.current?.focus(); setRevision(current => current + 1); }}>Retry loading guidance</Button></div>}
     {phase === 'ready' && validQuery && results.length === 0 && <p>No matching sections for “{query}”. Try fewer terms, a component name or an exact API property. Search uses the documented wording; it does not invent synonyms.</p>}

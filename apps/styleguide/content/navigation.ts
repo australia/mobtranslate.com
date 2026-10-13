@@ -106,6 +106,7 @@ export const sections: NavSection[] = [
       { label: 'Navigation', href: '/patterns/navigation' },
       { label: 'Data Display', href: '/patterns/data-display' },
       { label: 'Notifications and Recovery', href: '/patterns/notifications' },
+      { label: 'Confirmation and Undo', href: '/patterns/confirmation' },
     ],
   },
 ];

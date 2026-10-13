@@ -2,9 +2,11 @@
 import * as React from 'react';
 import { cn } from '../../utils/cn';
 
-export const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('mt-card', className)} {...props} />
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> { variant?: 'default' | 'filled' | 'outlined' | 'elevated' }
+
+export const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ className, variant = 'default', ...props }, ref) => (
+    <div ref={ref} className={cn('mt-card', `mt-card-${variant}`, className)} {...props} />
   )
 );
 Card.displayName = 'Card';

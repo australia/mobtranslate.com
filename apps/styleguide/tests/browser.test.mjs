@@ -551,11 +551,14 @@ test('mobile search supports keyboard submission and focused section navigation 
   browser('click', 'dialog a[href^="/search?q="]');
   browser('wait', '--fn', 'document.querySelector("main h1").textContent === "Search guidance"');
   assert.equal(evaluate('document.querySelector("dialog").open'), false);
-  browser('wait', '#guidance-query');
+  browser('wait', '#guidance-query:not([readonly])');
   browser('fill', '#guidance-query', 'capture');
   browser('press', 'Enter');
   browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("indexed pages")');
   assert.equal(evaluate('document.documentElement.scrollWidth > innerWidth'), false);
+  browser('wait', '--fn', `Boolean(document.querySelector('.search-results a[href="/components/button#composition-and-refs"]'))`);
+  const resultState = evaluate(`({ query: document.querySelector('#guidance-query').value, url: location.href, status: document.querySelector('[data-search-status]').textContent, links: [...document.querySelectorAll('.search-results a')].map(link => link.getAttribute('href')) })`);
+  assert.ok(resultState.links.includes('/components/button#composition-and-refs'), JSON.stringify(resultState));
   browser('scrollintoview', '.search-results a[href="/components/button#composition-and-refs"]');
   evaluate('document.querySelector(\'.search-results a[href="/components/button#composition-and-refs"]\').focus()');
   browser('press', 'Enter');
