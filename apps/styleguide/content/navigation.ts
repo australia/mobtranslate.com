@@ -52,6 +52,8 @@ export const sections: NavSection[] = [
       { label: 'Badge', href: '/components/badge' },
       { label: 'Breadcrumbs', href: '/components/breadcrumbs' },
       { label: 'Button', href: '/components/button' },
+      { label: 'Icon Button', href: '/components/icon-button' },
+      { label: 'Floating Action Button', href: '/components/floating-action-button' },
       { label: 'Card', href: '/components/card' },
       { label: 'Checkbox', href: '/components/checkbox' },
       { label: 'Checkbox Group', href: '/components/checkbox-group' },

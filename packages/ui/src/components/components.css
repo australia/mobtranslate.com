@@ -90,11 +90,11 @@
   border-color: var(--color-warning);
   box-shadow: var(--shadow-sm);
 }
-.mt-btn-warning:hover:not([data-disabled]):not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+.mt-btn-warning:hover:not([data-disabled]):not(:disabled) { background: var(--color-warning); border-color: var(--color-accent-hover); }
 
 .mt-btn-link {
   background: transparent;
-  color: var(--color-primary);
+  color: var(--color-primary-hover);
   text-decoration: underline;
   text-underline-offset: 4px;
   border: none;
@@ -102,8 +102,17 @@
   padding: 0;
 }
 .mt-btn-link:hover:not([data-disabled]):not(:disabled) { color: var(--color-primary-hover); }
+.mt-btn-icon.mt-btn-link { width: 2.75rem; height: 2.75rem; }
 
 .mt-btn-loading { cursor: wait; }
+.mt-fab { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+.mt-fab-sm { width: 2.75rem; height: 2.75rem; padding: 0; }
+.mt-fab-md { width: 3.5rem; height: 3.5rem; padding: 0; }
+.mt-fab-lg { width: 4.5rem; height: 4.5rem; padding: 0; }
+.mt-fab-extended { width: auto; max-width: 100%; padding-inline: 1.25rem; white-space: normal; height: auto; min-height: 3.5rem; padding-block: 0.75rem; }
+.mt-fab-extended.mt-fab-sm { min-height: 2.75rem; }
+.mt-fab-extended.mt-fab-lg { min-height: 4.5rem; }
+@media (forced-colors: active) { .mt-btn { border-color: ButtonText; } .mt-btn:focus-visible { outline: 2px solid Highlight; outline-offset: 2px; } }
 .mt-btn-spinner { width: 1rem; height: 1rem; animation: mt-spin 1s linear infinite; }
 @keyframes mt-spin { to { transform: rotate(360deg); } }
 

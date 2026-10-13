@@ -5,9 +5,11 @@ import { execFileSync } from 'node:child_process';
 const base = process.env.STYLEGUIDE_URL ?? 'http://127.0.0.1:3003';
 const session = `mobtranslate-styleguide-tests-${process.pid}`;
 const browser = (...args) => {
+  // Catch malformed wait expressions before the driver starts polling them.
+  if (args[0] === 'wait' && args[1] === '--fn') new Function(`return (${args[2]});`);
   let output;
   try { output = execFileSync('agent-browser', ['--session', session, '--json', ...args], {
-    encoding: 'utf8', timeout: 150_000,
+    encoding: 'utf8', timeout: 150_000, killSignal: 'SIGKILL',
     env: { ...process.env, AGENT_BROWSER_DEFAULT_TIMEOUT: '120000' },
   }); } catch (error) {
     if (typeof error.stdout !== 'string' || !error.stdout.trim()) throw error;
@@ -332,4 +334,156 @@ test('developer guides provide linked sections and reflow on narrow screens', ()
     assert.ok(evaluate('document.querySelectorAll("main h2[id]").length >= 7'), topic);
     assert.equal(evaluate('document.documentElement.scrollWidth > innerWidth'), false, topic);
   }
+});
+
+test('action lifecycle blocks duplicate activation and restores focus after completion', () => {
+  browser('set', 'viewport', '1440', '1000');
+  open('/components/button');
+  clickButton('Run example action');
+  browser('wait', '--fn', 'document.querySelector("[data-action-button]").disabled');
+  assert.equal(evaluate('document.querySelector("[data-action-button]").getAttribute("aria-busy")'), 'true');
+  assert.equal(evaluate('document.querySelector("[data-action-button] svg").getAttribute("aria-hidden")'), 'true');
+  clickButton('Complete example action');
+  browser('wait', '--fn', 'document.querySelector("[data-button-lab] [role=status]").textContent.includes("completed locally")');
+  assert.ok(evaluate('document.activeElement === document.querySelector("[data-action-button]")'));
+  clickButton('Run example action');
+  clickButton('Cancel example action');
+  browser('wait', '--fn', 'document.querySelector("[data-button-lab] [role=status]").textContent.includes("cancelled")');
+});
+
+test('Button preserves native omitted-type submission and explicit non-submit behavior', () => {
+  clickButton('Default native submit');
+  browser('wait', '--fn', 'document.querySelector("[data-native-types] [role=status]").textContent.startsWith("1 local form submissions")');
+  assert.equal(evaluate('document.querySelector("[data-native-types] button").getAttribute("type")'), null);
+  clickButton('Explicit non-submit');
+  browser('wait', '--fn', 'document.querySelector("[data-native-types] [role=status]").textContent.includes("1 non-submit actions")');
+  assert.match(evaluate('document.querySelector("[data-native-types] [role=status]").textContent'), /^1 local form submissions/);
+});
+
+test('asChild forwards props, handlers, styles and both refs, and blocks disabled activation', () => {
+  browser('scrollintoview', '[data-button-composition] a');
+  browser('click', '[data-button-composition] a');
+  browser('wait', '--fn', 'document.querySelector("[data-button-composition] [role=status]").textContent.includes("child, wrapper")');
+  assert.match(evaluate('document.querySelector("[data-button-composition] [role=status]").textContent'), /Both refs target the link: true/);
+  assert.equal(evaluate('document.querySelector("[data-button-composition] a").getAttribute("role")'), null);
+  assert.ok(evaluate('document.getElementById(document.querySelector("[data-button-composition] a").getAttribute("aria-describedby")) !== null'));
+  assert.equal(evaluate('getComputedStyle(document.querySelector("[data-button-composition] a")).textDecorationLine'), 'underline');
+  assert.equal(evaluate('getComputedStyle(document.querySelector("[data-button-composition] a")).letterSpacing'), '0.32px');
+  browser('check', '[data-button-composition] input');
+  browser('wait', '--fn', 'document.querySelector("[data-button-composition] a").getAttribute("aria-disabled") === "true"');
+  const status = evaluate('document.querySelector("[data-button-composition] [role=status]").textContent');
+  evaluate('document.querySelector("[data-button-composition] a").click(); document.querySelector("[data-button-composition] a").focus();');
+  browser('press', 'Enter');
+  assert.equal(evaluate('document.querySelector("[data-button-composition] [role=status]").textContent'), status);
+});
+
+test('IconButton is a named 44px toggle with keyboard and pointer activation', () => {
+  open('/components/icon-button');
+  browser('scrollintoview', '[data-icon-action] button');
+  browser('click', '[data-icon-action] button');
+  browser('wait', '--fn', 'document.querySelector("[data-icon-action] button").getAttribute("aria-pressed") === "true"');
+  assert.equal(evaluate('getComputedStyle(document.querySelector("[data-icon-action] button")).width'), '44px');
+  assert.equal(evaluate('document.querySelector("[data-icon-action] button").getAttribute("aria-label")'), 'Save example entry');
+  browser('press', 'Space');
+  browser('wait', '--fn', 'document.querySelector("[data-icon-action] button").getAttribute("aria-pressed") === "false"');
+});
+
+test('FloatingActionButton sizes, extended label and local creation operate', () => {
+  open('/components/floating-action-button');
+  clickButton('Add example draft');
+  browser('wait', '--fn', 'document.querySelector("[data-fab-lab] [role=status]").textContent.startsWith("1 example draft")');
+  browser('uncheck', '[data-fab-lab] input');
+  for (const [size, pixels] of [['sm', 44], ['md', 56], ['lg', 72]]) {
+    browser('select', '[data-fab-lab] select', size);
+    browser('wait', '--fn', `getComputedStyle(document.querySelector('[data-fab-lab] button')).width === '${pixels}px'`);
+    assert.equal(evaluate('document.querySelector("[data-fab-lab] button").getAttribute("aria-label")'), 'Add example draft');
+  }
+  browser('scrollintoview', '[data-fab-lab] button');
+  browser('click', '[data-fab-lab] button');
+  browser('press', 'Enter');
+  browser('wait', '--fn', 'document.querySelector("[data-fab-lab] [role=status]").textContent.startsWith("3 example drafts")');
+  browser('set', 'viewport', '375', '812');
+  browser('check', '[data-fab-lab] input');
+  assert.equal(evaluate('document.documentElement.scrollWidth > innerWidth'), false);
+});
+
+test('all Button text variants retain AA contrast at rest and hover in both themes', () => {
+  browser('set', 'viewport', '1440', '1000');
+  open('/components/button');
+  const measure = `(() => {
+    const button = document.querySelector('[data-action-button]');
+    const rgb = value => value.match(/[\\d.]+/g).map(Number);
+    const foreground = rgb(getComputedStyle(button).color);
+    let node = button, background;
+    while (node) { const color = rgb(getComputedStyle(node).backgroundColor); if (color.length === 3 || color[3] === 1) { background = color; break; } node = node.parentElement; }
+    if (!background) throw new Error('No opaque surface found');
+    const light = channels => channels.slice(0, 3).map(value => { value /= 255; return value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4; }).reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0);
+    const a = light(foreground), b = light(background);
+    return (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
+  })()`;
+  for (const theme of ['light', 'dark']) {
+    evaluate(`localStorage.setItem('mt-theme', '${theme}'); window.dispatchEvent(new Event('storage'));`);
+    browser('wait', `html.${theme}`);
+    for (const variant of ['primary', 'secondary', 'destructive', 'ghost', 'outline', 'error', 'success', 'warning', 'link']) {
+      browser('select', '[data-button-lab] label:first-child select', variant);
+      browser('hover', 'main h1');
+      browser('wait', '300');
+      assert.ok(evaluate(measure) >= 4.5, `${theme} ${variant} rest`);
+      browser('scrollintoview', '[data-action-button]');
+      browser('hover', '[data-action-button]');
+      browser('wait', '300');
+      assert.ok(evaluate(measure) >= 4.5, `${theme} ${variant} hover`);
+    }
+  }
+  evaluate('localStorage.setItem("mt-theme", "light"); window.dispatchEvent(new Event("storage"));');
+  browser('set', 'viewport', '375', '812');
+  for (const path of ['/components/button', '/components/icon-button', '/components/floating-action-button']) {
+    open(path);
+    assert.equal(evaluate('document.documentElement.scrollWidth > innerWidth'), false, path);
+  }
+});
+
+test('accessible request focuses connected errors and retains values through failure, retry and cancellation', () => {
+  browser('set', 'viewport', '1440', '1000');
+  open('/guides/accessibility');
+  clickButton('Try accessible request');
+  browser('wait', '--fn', 'document.querySelector("[data-accessibility-lab] [tabindex]") === document.activeElement');
+  assert.equal(evaluate('document.querySelectorAll("[data-accessibility-lab] input[aria-invalid=true], [data-accessibility-lab] textarea[aria-invalid=true]").length'), 2);
+  assert.equal(evaluate('document.querySelectorAll("[data-accessibility-lab] [tabindex] a").length'), 2);
+  browser('click', '[data-accessibility-lab] [tabindex="-1"] a:first-child');
+  assert.equal(evaluate('document.activeElement === document.querySelector("[data-accessibility-lab] input")'), true);
+  assert.ok(evaluate(`document.activeElement.getAttribute('aria-describedby').split(' ').every(id => document.getElementById(id))`));
+  browser('fill', '[data-accessibility-lab] input', 'Example title');
+  browser('fill', '[data-accessibility-lab] textarea', 'Keep this note through recovery.');
+  clickButton('Try accessible request');
+  browser('wait', '--fn', 'document.querySelector("[data-accessibility-lab] input").readOnly');
+  assert.equal(evaluate('document.querySelector("[data-accessibility-lab] button[type=submit]").disabled'), false);
+  assert.equal(evaluate('document.querySelector("[data-accessibility-lab] button[type=submit]").getAttribute("aria-disabled")'), 'true');
+  browser('press', 'Enter');
+  clickButton('Simulate failure');
+  browser('wait', '--fn', 'document.querySelector("[data-accessibility-lab] [role=status]").textContent.includes("connection failure")');
+  assert.equal(evaluate('document.activeElement === document.querySelector("[data-accessibility-lab] button[type=submit]")'), true);
+  assert.equal(evaluate('document.querySelector("[data-accessibility-lab] input").value'), 'Example title');
+  assert.equal(evaluate('document.querySelector("[data-accessibility-lab] textarea").value'), 'Keep this note through recovery.');
+  clickButton('Try accessible request');
+  clickButton('Cancel local request');
+  browser('wait', '--fn', 'document.querySelector("[data-accessibility-lab] [role=status]").textContent.includes("cancelled")');
+  assert.equal(evaluate('document.activeElement === document.querySelector("[data-accessibility-lab] button[type=submit]")'), true);
+  clickButton('Try accessible request');
+  clickButton('Simulate completion');
+  browser('wait', '--fn', 'document.querySelector("[data-accessibility-lab] [role=status]").textContent.includes("nothing was sent")');
+  assert.equal(evaluate('document.querySelector("[data-accessibility-lab] input").value'), 'Example title');
+  assert.equal(evaluate('document.querySelector("[data-accessibility-lab] [role=status]").getAttribute("aria-atomic")'), 'true');
+});
+
+test('principles and accessibility guidance reflow with user text spacing at 320 CSS px', () => {
+  browser('set', 'viewport', '320', '812');
+  for (const path of ['/guides/accessibility', '/guides/design-principles']) {
+    open(path);
+    evaluate(`(() => { const style = document.createElement('style'); style.textContent = 'main * {line-height:1.5 !important; letter-spacing:.12em !important; word-spacing:.16em !important;} main p {margin-bottom:2em !important;}'; document.head.append(style); })()`);
+    assert.equal(evaluate('document.documentElement.scrollWidth > innerWidth'), false, path);
+    assert.ok(evaluate('document.querySelectorAll("main h2[id]").length >= 8'));
+    assert.ok(evaluate('Array.from(document.querySelectorAll("main .doc-table")).every(table => getComputedStyle(table).overflowX === "auto")'));
+  }
+  browser('set', 'viewport', '1440', '1000');
 });
