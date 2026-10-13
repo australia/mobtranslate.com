@@ -95,8 +95,18 @@ const Translator = ({ availableLanguages, showExamples = false }: TranslatorProp
         if (response.status >= 500) {
           throw new Error('The translation service is having trouble. Try again in a moment.');
         }
-        const errorData = await response.text();
-        throw new Error(errorData || 'That language is not available for translation yet.');
+        let errorMessage = '';
+        try {
+          const errorData = (await response.json()) as { error?: unknown };
+          if (typeof errorData.error === 'string') {
+            errorMessage = errorData.error;
+          }
+        } catch {
+          // A non-JSON response receives the ordinary fallback below.
+        }
+        throw new Error(
+          errorMessage || 'That language is not available for translation yet.',
+        );
       }
 
       // Reset output text before starting to stream

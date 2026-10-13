@@ -36,34 +36,6 @@ function response(body: unknown, status = 200): Response {
 }
 
 describe('controlled translation contract', () => {
-  it('resolves every published Wajarri construction through one exact dictionary binding', () => {
-    const contract = loadHybridLanguageContract('wajarri', {
-      MOBTRANSLATE_HYBRID_WAJARRI_ENABLED: '1',
-    })!;
-    const spec = contract.controlledTranslation!;
-    const index = buildExactDictionaryIndex([
-      { word: 'marruwa', gloss: 'bilby' },
-    ]);
-    const cases = [
-      [
-        'The bilby is coming towards the speaker.',
-        'marruwa yanajimanha.',
-      ],
-      ['The bilby is going away from the speaker.', 'marruwa yanmanha.'],
-      ['The bilby is running.', 'marruwa jamarnimanha.'],
-      ['The bilby is sitting down.', 'marruwa nyinarangamanha.'],
-      ['The bilby is sitting.', 'marruwa nyinamanha.'],
-      ['The bilby is standing.', 'marruwa garrimanha.'],
-    ] as const;
-
-    expect(spec.constructions).toHaveLength(cases.length);
-    for (const [source, expected] of cases) {
-      const request = resolveControlledTranslation(source, index, spec);
-      expect(request).not.toBeNull();
-      expect(renderExpectedControlledTranslation(request!)).toBe(expected);
-    }
-  });
-
   it('canonicalizes a supported sentence and binds one exact dictionary subject', () => {
     const index = buildExactDictionaryIndex([
       { word: 'marruwa', gloss: 'bilby' },

@@ -1,0 +1,22 @@
+[Unit]
+Description=MobTranslate append-only translation evidence review cycle
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ajax
+Group=ajax
+WorkingDirectory=/mnt/donto-data/workspace/mobtranslate-anindilyakwa-deploy/apps/web
+EnvironmentFile=/opt/mobtranslate/web.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/pnpm exec tsx scripts/translation-review-cycle.ts
+TimeoutStartSec=30m
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+CPUQuota=50%
+MemoryMax=1G
+NoNewPrivileges=true
+PrivateTmp=true
+

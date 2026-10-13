@@ -19,6 +19,8 @@
     "db:migrate:check": "tsx scripts/migrate-operational.ts --check",
     "budget:check": "tsx scripts/check-api-budget.ts",
     "operational:prune": "tsx scripts/prune-operational-data.ts",
+    "translation-reviews": "tsx scripts/translation-review-ledger.ts",
+    "translation-review-cycle": "tsx scripts/translation-review-cycle.ts",
     "language-program:sync": "tsx scripts/sync-language-program.ts",
     "language-program:dictionary-census": "tsx scripts/build-dictionary-source-census.ts",
     "language-program:dictionary-edition": "tsx scripts/build-candidate-dictionary-edition.ts",

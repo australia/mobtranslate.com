@@ -12,6 +12,7 @@ PREVIOUS="$RELEASE_ROOT/previous"
 SERVICE="mobtranslate-web.service"
 SERVICE_USER="${MOBTRANSLATE_SERVICE_USER:-ajax}"
 SERVICE_GROUP="${MOBTRANSLATE_SERVICE_GROUP:-ajax}"
+DEPLOY_VITEST_POOL="${MOBTRANSLATE_DEPLOY_VITEST_POOL:-forks}"
 UNIT_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-web.service"
 UNIT_TARGET="/etc/systemd/system/mobtranslate-web.service"
 HYBRID_CONF_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-web-translate-v2.conf"
@@ -40,6 +41,11 @@ BUILD_DIST=".next-release-$RELEASE_ID"
 CANDIDATE_PID=""
 NEXT_ENV_FILE="$WEB_ROOT/next-env.d.ts"
 NEXT_ENV_BACKUP=""
+PLAYBOOK_FILE="/mnt/donto-data/donto-resources/research/translation-training/LANGUAGE-KNOWLEDGE-AND-MODEL-PLAYBOOK.md"
+PLAYBOOK_MIGRATION="$WEB_ROOT/db/migrations/20260720000000_language_program_control_plane.sql"
+PLAYBOOK_MIGRATION_SHA256="61331e1abfd712f257bd8046d70da9ae445a6fee95b2970bd2b80cd452a3ee01"
+PLAYBOOK_AUDITED_DRIFT_SHA256="7714a1afff2baa8adf10acf1549e414edabb8ce44c34868d462482e04a26def9"
+PLAYBOOK_TEST_WAIVER="none"
 
 [[ -r "$ENV_FILE" ]] || { echo "Runtime environment file is not readable: $ENV_FILE" >&2; exit 1; }
 set -a
@@ -60,18 +66,29 @@ cleanup() {
 }
 trap cleanup EXIT
 
-for command in git pnpm node rsync curl sha256sum tar find flock sort xargs ss; do
+for command in git pnpm node rg rsync curl sha256sum tar find flock sort xargs ss; do
   command -v "$command" >/dev/null || { echo "Missing required command: $command" >&2; exit 1; }
 done
 
-[[ -e "$REPO_ROOT/.git" ]] || { echo "Repository not found: $REPO_ROOT" >&2; exit 1; }
+git -C "$REPO_ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+  echo "Repository not found: $REPO_ROOT" >&2
+  exit 1
+}
+case "$DEPLOY_VITEST_POOL" in
+  forks|threads) ;;
+  *)
+    echo "Unsupported deploy Vitest pool: $DEPLOY_VITEST_POOL" >&2
+    exit 1
+    ;;
+esac
 [[ -x "$RELEASE_PRUNE_SCRIPT" && -x "$RELEASE_PRUNE_TEST" \
   && -x "$RELEASE_VERIFY_SCRIPT" && -x "$RELEASE_VERIFY_TEST" ]] || {
   echo "Release integrity/retention scripts are missing or not executable." >&2
   exit 1
 }
 [[ -x "$HYBRID_WARM_SCRIPT_SOURCE" && -x "$HYBRID_WARM_TEST" \
-  && -f "$HYBRID_WARM_SERVICE_SOURCE" && -f "$HYBRID_WARM_TIMER_SOURCE" ]] || {
+  && -f "$HYBRID_WARM_SERVICE_SOURCE" && -f "$HYBRID_WARM_TIMER_SOURCE" \
+  && -f "$HYBRID_CONF_SOURCE" ]] || {
   echo "Hybrid model warm-check files are missing or not executable." >&2
   exit 1
 }
@@ -117,6 +134,32 @@ capture_source() {
 
 capture_source "$STAGING/metadata/source-before"
 SOURCE_SHA256="$(cat "$STAGING/metadata/source-before/source.sha256")"
+
+# Vitest creates a new worker when it crosses from the file-annotated Node
+# environment into the default JSDOM environment. On this I/O-constrained host,
+# that in-process handoff can exceed Vitest's fixed worker-start deadline even
+# though both groups pass. Give each environment its own process instead.
+run_web_tests_by_environment() (
+  cd "$WEB_ROOT"
+  local -a node_tests=()
+  local -a jsdom_tests=()
+  local file
+  while IFS= read -r -d '' file; do
+    if rg -q '@vitest-environment node' "$file"; then
+      node_tests+=("$file")
+    else
+      jsdom_tests+=("$file")
+    fi
+  done < <(rg --files -0 __tests__ -g '*.test.ts' -g '*.test.tsx')
+  [[ "${#node_tests[@]}" -gt 0 && "${#jsdom_tests[@]}" -gt 0 ]] || {
+    echo "Could not partition web tests by Vitest environment." >&2
+    exit 1
+  }
+  NODE_ENV=test pnpm exec vitest run --pool="$DEPLOY_VITEST_POOL" \
+    "${node_tests[@]}" "$@"
+  NODE_ENV=test pnpm exec vitest run --pool="$DEPLOY_VITEST_POOL" \
+    "${jsdom_tests[@]}" "$@"
+)
 [[ -f "$NEXT_ENV_FILE" ]] || { echo "Missing generated Next.js type reference: $NEXT_ENV_FILE" >&2; exit 1; }
 NEXT_ENV_BACKUP="$STAGING/metadata/next-env.d.ts.before"
 cp -p "$NEXT_ENV_FILE" "$NEXT_ENV_BACKUP"
@@ -137,7 +180,38 @@ cd "$REPO_ROOT"
 "$HYBRID_WARM_TEST"
 pnpm --filter web db:migrate
 pnpm --filter web db:migrate:check
-NODE_ENV=test pnpm --filter web test
+if [[ -n "${MOBTRANSLATE_ALLOW_PLAYBOOK_DRIFT_SHA256:-}" ]]; then
+  [[ -r "$PLAYBOOK_FILE" ]] || {
+    echo "Hash-bound test waiver requested, but playbook is unreadable: $PLAYBOOK_FILE" >&2
+    exit 1
+  }
+  PLAYBOOK_CURRENT_SHA256="$(sha256sum "$PLAYBOOK_FILE" | cut -d' ' -f1)"
+  [[ "$MOBTRANSLATE_ALLOW_PLAYBOOK_DRIFT_SHA256" = "$PLAYBOOK_AUDITED_DRIFT_SHA256" \
+    && "$PLAYBOOK_CURRENT_SHA256" = "$PLAYBOOK_AUDITED_DRIFT_SHA256" ]] || {
+    echo "Refusing playbook waiver: supplied/current hash is not the audited drift." >&2
+    exit 1
+  }
+  grep -Fq "'$PLAYBOOK_MIGRATION_SHA256'" "$PLAYBOOK_MIGRATION" || {
+    echo "Refusing playbook waiver: frozen migration hash is not the audited value." >&2
+    exit 1
+  }
+  [[ "$PLAYBOOK_CURRENT_SHA256" != "$PLAYBOOK_MIGRATION_SHA256" ]] || {
+    echo "Playbook matches the frozen migration; remove the unnecessary waiver." >&2
+    exit 1
+  }
+  run_web_tests_by_environment \
+    --exclude __tests__/lib/languageProgramControlPlaneMigration.test.ts
+  (
+    cd "$WEB_ROOT"
+    NODE_ENV=test pnpm exec vitest run --pool="$DEPLOY_VITEST_POOL" \
+      __tests__/lib/languageProgramControlPlaneMigration.test.ts \
+      --testNamePattern '^(?!.*binds the database template to the exact playbook).+'
+  )
+  PLAYBOOK_TEST_WAIVER="current:$PLAYBOOK_CURRENT_SHA256,frozen:$PLAYBOOK_MIGRATION_SHA256"
+  printf '%s\n' "$PLAYBOOK_TEST_WAIVER" > "$STAGING/metadata/playbook-test-waiver.txt"
+else
+  run_web_tests_by_environment
+fi
 pnpm --filter web typecheck
 pnpm --filter web lint
 NODE_ENV=production NEXT_DIST_DIR="$BUILD_DIST" NEXT_BUILD_CPUS="${NEXT_BUILD_CPUS:-2}" \
@@ -200,6 +274,7 @@ build_dist=$BUILD_DIST
 static_asset_url=$STATIC_ASSET_URL
 runtime_integrity_version=2
 runtime_cache_policy=memory_only_no_disk
+playbook_test_waiver=$PLAYBOOK_TEST_WAIVER
 EOF
 
 (

@@ -211,7 +211,7 @@ export function findExactHeadwordEntries(
   entries: ReverseDictionaryEntry[],
 ): ReverseDictionaryEntry[] {
   const normalized = normalizeSurface(source);
-  if (!normalized || normalized.includes(' ')) return [];
+  if (!normalized) return [];
   return entries
     .filter((entry) => normalizeSurface(entry.word) === normalized)
     .sort((left, right) => left.word.localeCompare(right.word));

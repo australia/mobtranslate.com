@@ -184,6 +184,15 @@ describe('findExactHeadwordEntries', () => {
   it('does not match a multi-word phrase', () => {
     expect(findExactHeadwordEntries('bana wanja', DICTIONARY)).toEqual([]);
   });
+
+  it('returns an exact multi-word fixed-expression headword', () => {
+    expect(
+      findExactHeadwordEntries('Nyinda barndi?', [
+        ...DICTIONARY,
+        { word: 'nyinda barndi?', gloss: 'hello; how are you?' },
+      ]),
+    ).toEqual([{ word: 'nyinda barndi?', gloss: 'hello; how are you?' }]);
+  });
 });
 
 describe('createReverseTranslationPrompt', () => {

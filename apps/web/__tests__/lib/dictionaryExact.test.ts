@@ -3,9 +3,50 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildExactDictionaryIndex,
+  deduplicateAtomicDictionaryGlosses,
   findUniqueExactDictionaryMatch,
+  formatDictionaryGlossList,
   normalizeDictionaryEnglish,
 } from '../../lib/dictionary-exact.server';
+
+describe('dictionary edition de-duplication', () => {
+  it('collapses case-equivalent duplicate rows while preserving distinct senses', () => {
+    expect(
+      deduplicateAtomicDictionaryGlosses([
+        { word: "mntua'gi", gloss: 'Hell' },
+        { word: "MNTUA'GI", gloss: 'hell' },
+        { word: "mntua'gi", gloss: 'underworld' },
+      ]),
+    ).toEqual([
+      { word: "mntua'gi", gloss: 'Hell' },
+      { word: "mntua'gi", gloss: 'underworld' },
+    ]);
+  });
+});
+
+describe('dictionary gloss display formatting', () => {
+  it('keeps complete source records inside the character budget', () => {
+    expect(
+      formatDictionaryGlossList(
+        ['okay', 'welcome or hello as a contemporary greeting', 'last sense'],
+        55,
+      ),
+    ).toBe('okay; welcome or hello as a contemporary greeting…');
+  });
+
+  it('truncates one oversized record at a word boundary', () => {
+    expect(
+      formatDictionaryGlossList(
+        ['a deliberately long dictionary definition'],
+        25,
+      ),
+    ).toBe('a deliberately long…');
+  });
+
+  it('removes normalized duplicate records', () => {
+    expect(formatDictionaryGlossList([' Water ', 'water'], 40)).toBe('Water');
+  });
+});
 
 describe('exact dictionary lookup', () => {
   it('returns one attested headword for an unambiguous atomic gloss', () => {
