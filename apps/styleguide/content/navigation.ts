@@ -31,6 +31,10 @@ export const sections: NavSection[] = [
       { label: 'Layout', href: '/foundations/layout' },
       { label: 'Shape', href: '/foundations/shape' },
       { label: 'Interaction States', href: '/foundations/interaction-states' },
+      { label: 'Writing', href: '/foundations/writing' },
+      { label: 'Iconography', href: '/foundations/iconography' },
+      { label: 'Internationalization', href: '/foundations/internationalization' },
+      { label: 'Input and Gestures', href: '/foundations/input-gestures' },
     ],
   },
   {

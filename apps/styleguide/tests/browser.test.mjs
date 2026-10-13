@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 
 const base = process.env.STYLEGUIDE_URL ?? 'http://127.0.0.1:3003';
-const session = 'mobtranslate-styleguide-tests';
+const session = `mobtranslate-styleguide-tests-${process.pid}`;
 const browser = (...args) => {
   const output = execFileSync('agent-browser', ['--session', session, '--json', ...args], {
     encoding: 'utf8', timeout: 150_000,
@@ -55,6 +55,7 @@ test('topic navigation search finds categories and explains empty results', () =
 
 test('mobile dialog contains focus and restores it on Escape', () => {
   browser('set', 'viewport', '375', '812');
+  assert.equal(evaluate('getComputedStyle(document.querySelector(".mobile-nav-header")).position'), 'fixed');
   browser('click', '.mobile-nav-trigger');
   assert.equal(evaluate('document.querySelector("dialog").open'), true);
   assert.ok(evaluate('document.querySelector("dialog").contains(document.activeElement)'));
@@ -174,4 +175,97 @@ test('documented semantic text pairs meet AA in both rendered themes', () => {
   browser('click', 'nav button[aria-label="Switch to dark mode"]');
   browser('wait', '--fn', `${measurements}.every(value => value.includes("AA normal text passes"))`);
   assert.ok(evaluate(`${measurements}.every(value => value.includes("AA normal text passes"))`));
+});
+
+test('foundation labs use live CSS tokens and support changed values', () => {
+  open('/foundations/typography');
+  browser('select', 'main .grid label:first-child select', '--text-6xl');
+  browser('fill', 'main input', 'A long source heading that must wrap rather than overflow the document');
+  browser('wait', '--fn', 'getComputedStyle(document.querySelector("[data-typography-preview]")).fontSize === "60px"');
+  assert.match(evaluate('document.querySelector("[data-typography-preview]").textContent'), /long source/);
+  open('/foundations/spacing');
+  browser('select', 'main select', '--spacing-12');
+  browser('wait', '--fn', 'getComputedStyle(document.querySelector("[data-spacing-preview]")).gap === "48px"');
+  open('/foundations/elevation');
+  browser('select', 'main select', '--shadow-xl');
+  const shadow = evaluate('getComputedStyle(document.querySelector("[data-elevation-preview]")).boxShadow');
+  assert.notEqual(shadow, 'none');
+  browser('click', 'nav button[aria-label="Switch to light mode"]');
+  browser('wait', '--fn', `getComputedStyle(document.querySelector('[data-elevation-preview]')).boxShadow !== ${JSON.stringify(shadow)}`);
+});
+
+test('motion replay handles reduced motion and reset independently of animation', () => {
+  open('/foundations/motion');
+  evaluate('window.originalMatchMedia = window.matchMedia; window.matchMedia = query => query === "(prefers-reduced-motion: reduce)" ? { matches: true } : window.originalMatchMedia(query);');
+  clickButton('Replay transition');
+  browser('wait', '--fn', 'document.querySelector("main [role=status]").textContent.includes("Reduced motion")');
+  assert.equal(evaluate('document.querySelector("[data-motion-preview]").style.transform'), 'translateX(160px)');
+  clickButton('Reset transition');
+  browser('wait', '--fn', 'document.querySelector("[data-motion-preview]").style.transform === "translateX(0px)"');
+  evaluate('window.matchMedia = window.originalMatchMedia;');
+  browser('select', 'main .grid label:first-child select', '--duration-slower');
+  clickButton('Replay transition');
+  clickButton('Reset transition');
+  browser('wait', '--fn', 'document.querySelector("main [role=status]").textContent === "Example reset."');
+  assert.equal(evaluate('document.querySelector("[data-motion-preview]").getAnimations().length'), 0);
+});
+
+test('internationalization distinguishes formatting, direction and invalid settings', () => {
+  open('/foundations/internationalization');
+  browser('fill', 'main .grid label:first-child input', 'de-DE');
+  browser('wait', '--fn', 'document.querySelector("[data-internationalization-preview]").textContent.includes("12.345,67")');
+  browser('check', 'main input[type=checkbox]');
+  assert.equal(evaluate('document.querySelector("[data-internationalization-preview]").dir'), 'rtl');
+  browser('fill', 'main label:nth-child(2) input', 'not/a/timezone');
+  browser('wait', '--fn', 'document.querySelector("main [role=status]").textContent.includes("Formatting is paused")');
+  assert.equal(evaluate('document.querySelector("[data-internationalization-preview]")'), null);
+  browser('fill', 'main label:nth-child(2) input', 'UTC');
+  browser('wait', '[data-internationalization-preview]');
+});
+
+test('reordering alternatives preserve item focus and announce boundaries', () => {
+  open('/foundations/input-gestures');
+  browser('scrollintoview', 'button[aria-label="Move Entry text down"]');
+  browser('click', 'button[aria-label="Move Entry text down"]');
+  browser('wait', '--fn', 'document.querySelector("main [role=status]").textContent.includes("position 2")');
+  assert.equal(evaluate('document.activeElement.closest("li").getAttribute("data-item-id")'), 'entry');
+  browser('press', 'Enter');
+  browser('wait', '--fn', 'document.querySelector("main [role=status]").textContent.includes("position 1")');
+  assert.equal(evaluate('document.activeElement.disabled'), false);
+  assert.equal(evaluate('document.activeElement.getAttribute("aria-label")'), 'Move Entry text down');
+});
+
+test('icon actions expose toggle state while direction changes only navigation', () => {
+  open('/foundations/iconography');
+  browser('scrollintoview', 'button[aria-label="Save entry"]');
+  browser('click', 'button[aria-label="Save entry"]');
+  browser('wait', '--fn', `document.querySelector('button[aria-label="Save entry"]').getAttribute('aria-pressed') === 'true'`);
+  browser('press', 'Space');
+  browser('wait', '--fn', `document.querySelector('button[aria-label="Save entry"]').getAttribute('aria-pressed') === 'false'`);
+  browser('check', 'main input[type=checkbox]');
+  assert.equal(evaluate('document.querySelector("[data-icon-preview]").dir'), 'rtl');
+  assert.equal(evaluate(`document.querySelector('button[aria-label="Save entry"] path').hasAttribute('transform')`), false);
+});
+
+test('expanded foundations have section anchors and reflow at narrow width', () => {
+  browser('set', 'viewport', '375', '812');
+  for (const topic of ['typography', 'spacing', 'elevation', 'motion', 'iconography', 'writing', 'internationalization', 'input-gestures']) {
+    open(`/foundations/${topic}`);
+    assert.ok(evaluate('document.querySelectorAll("main h2[id]").length >= 7'), topic);
+    assert.equal(evaluate('document.documentElement.scrollWidth > innerWidth'), false, topic);
+  }
+});
+
+test('writing lab previews edits and reports its local action honestly', () => {
+  open('/foundations/writing');
+  browser('fill', 'main label:nth-child(1) input', 'Connection interrupted');
+  browser('fill', 'main textarea', 'Your entry text is still here.');
+  browser('fill', 'main label:nth-child(3) input', 'Retry search');
+  clickButton('Retry search');
+  browser('wait', '--fn', 'document.querySelector("main [role=status]").textContent.includes("No request was sent")');
+  assert.match(evaluate('document.querySelector("[data-writing-preview]").textContent'), /Connection interrupted/);
+  browser('click', 'main label:nth-child(3) input');
+  browser('press', 'Control+A');
+  browser('press', 'Backspace');
+  browser('wait', '--fn', 'document.querySelector("[data-writing-preview] button").disabled');
 });
