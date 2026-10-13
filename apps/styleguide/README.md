@@ -27,6 +27,7 @@ pnpm --filter styleguide test:containment
 pnpm --filter styleguide test:selection
 pnpm --filter styleguide test:inputs
 pnpm --filter styleguide test:menus
+pnpm --filter styleguide test:destinations
 pnpm --filter styleguide test:routes
 ```
 
@@ -52,7 +53,7 @@ The index is an in-memory snapshot for that search page, available in developmen
 - Content search lives in `components/document-search.tsx` and `lib/document-search.ts`. Extraction uses the browser’s inert HTML parser and limits indexing to the main content of navigation routes. Keep failure/coverage feedback and section destinations tied to the actual render.
 - Detailed foundation content lives in `content/foundations.tsx`; `GuideDocument` renders its sections, specification tables, code and related links. Interactive labs live in `components/foundation-explorers.tsx`.
 - Developer guidance lives in `content/developer-guides.tsx`. Its live examples are real files in `examples/`; the theme controller in `lib/theme.ts` is also used by navigation. `examples:generate` copies these checked sources into `content/examples.json`; `examples:check` rejects drift. Dev/build regenerate both source catalogues.
-- Action documentation lives in `content/actions.tsx`; principles/accessibility in `content/principles-accessibility.tsx`. Twenty-two source files feed the checked examples, including the interactive accessibility request. Keep guidance tied to current exports and source-backed behavior.
+- Action documentation lives in `content/actions.tsx`; principles/accessibility in `content/principles-accessibility.tsx`. Thirty-four source files feed the checked examples, including the interactive accessibility request. Keep guidance tied to current exports and source-backed behavior.
 - Communication guidance lives in `content/communication.tsx`, with actual provider-managed notifications, inline alerts, count badges, linear/circular progress, scalar meters and loading recovery in four checked example files. `test:communication` verifies their task outcomes, keyboard behavior, timing, contrast and narrow reflow.
 - Containment guidance lives in `content/containment.tsx`; four checked sources exercise card actions, dialog editing, staged drawer filters and local confirmation/restore. `test:containment` verifies the actual local outcomes, focus and dismissal contracts, edge/size geometry and narrow layouts.
 - Selection guidance lives in `content/selection.tsx`; five checked sources exercise independent/grouped choices, retained settings, chip roles, named range sliders and pressed segments. `test:selection` verifies actual state, local FormData, filtering, recovery, keyboard behavior, directional layout and chip text contrast.
@@ -65,3 +66,7 @@ The index is an in-memory snapshot for that search page, available in developmen
 - Keep examples connected to the actual UI package. Document meaningful behavior and recovery, not just visual variants.
 - Give every demo control a label and a working result. Clearly label local simulations.
 - Use the real CSS tokens for live specimens. The legacy TypeScript token exports and CSS palette differ; resolve those differences before treating exported values as rendered colors.
+
+Destination guidance lives in `content/destination-navigation.tsx`. Three checked source files show native disclosure destinations, authored breadcrumb ancestry and local/URL page models. `test:destinations` checks real navigation, retained values, requested versus loaded records, recovery, native form behavior, unavailable activation, direction and reflow. The pinned Base UI patch retains live menubar context and gates disabled navigation-trigger hover in both module formats.
+
+The destination delivery was checked with `agent-browser 0.31.0` from `/usr/local/bin`. Check `command -v agent-browser` and `agent-browser --version` in the actual test environment: this box’s interactive shell and system services can resolve different installations. Use the same binary when inspecting a live test session; a version mismatch can restart its daemon.

@@ -16,6 +16,37 @@ index d51b3e747266b7afbcd08569fe5958014cbfcfea..27d8e5e04dab7cbd792c5a3dab11265a
    const floatingTreeRoot = store.useState('floatingTreeRoot');
    const floatingNodeIdFromContext = useFloatingNodeId(floatingTreeRoot);
    const floatingParentNodeIdFromContext = useFloatingParentNodeId();
+diff --git a/esm/navigation-menu/trigger/NavigationMenuTrigger.js b/esm/navigation-menu/trigger/NavigationMenuTrigger.js
+index 2c7d9e27b35857d25639ea2b8b37301c6cbf231e..3d5215e6e31d0fe907386afd6560108717c6b758 100644
+--- a/esm/navigation-menu/trigger/NavigationMenuTrigger.js
++++ b/esm/navigation-menu/trigger/NavigationMenuTrigger.js
+@@ -87,7 +87,7 @@ export const NavigationMenuTrigger = /*#__PURE__*/React.forwardRef(function Navi
+   const animationAbortControllerRef = React.useRef(null);
+   const isActiveItem = open && value === itemValue;
+   const isActiveItemRef = useValueAsRef(isActiveItem);
+-  const interactionsEnabled = positionerElement ? true : !value;
++  const interactionsEnabled = !disabled && (positionerElement ? true : !value);
+   const runOnceAnimationsFinish = useAnimationsFinished(popupElement);
+   React.useEffect(() => {
+     animationAbortControllerRef.current?.abort();
+@@ -234,6 +234,7 @@ export const NavigationMenuTrigger = /*#__PURE__*/React.forwardRef(function Navi
+     }
+   });
+   const hover = useHover(context, {
++    enabled: !disabled,
+     move: false,
+     handleClose: safePolygon({
+       blockPointerEvents: pointerType !== 'touch'
+@@ -286,6 +287,9 @@ export const NavigationMenuTrigger = /*#__PURE__*/React.forwardRef(function Navi
+     });
+   }
+   const handleOpenEvent = useStableCallback(event => {
++    if (disabled) {
++      return;
++    }
+     // For nested scenarios without positioner/popup, we can still open the menu
+     // but we can't do size calculations
+     if (!popupElement || !positionerElement) {
 diff --git a/menu/root/MenuRoot.js b/menu/root/MenuRoot.js
 index aef1f0109835278f9eeeb1b042908c967ce0d1f0..9cd2d8f6637ac535e8c525a643de2d30eb513db1 100644
 --- a/menu/root/MenuRoot.js
@@ -34,3 +65,34 @@ index aef1f0109835278f9eeeb1b042908c967ce0d1f0..9cd2d8f6637ac535e8c525a643de2d30
    const floatingTreeRoot = store.useState('floatingTreeRoot');
    const floatingNodeIdFromContext = (0, _floatingUiReact.useFloatingNodeId)(floatingTreeRoot);
    const floatingParentNodeIdFromContext = (0, _floatingUiReact.useFloatingParentNodeId)();
+diff --git a/navigation-menu/trigger/NavigationMenuTrigger.js b/navigation-menu/trigger/NavigationMenuTrigger.js
+index 81ee7c28aaa9731cee32d227490995f496c78b35..4699c1f39a4bd4d2002951275f73ff1be759f2a4 100644
+--- a/navigation-menu/trigger/NavigationMenuTrigger.js
++++ b/navigation-menu/trigger/NavigationMenuTrigger.js
+@@ -93,7 +93,7 @@ const NavigationMenuTrigger = exports.NavigationMenuTrigger = /*#__PURE__*/React
+   const animationAbortControllerRef = React.useRef(null);
+   const isActiveItem = open && value === itemValue;
+   const isActiveItemRef = (0, _useValueAsRef.useValueAsRef)(isActiveItem);
+-  const interactionsEnabled = positionerElement ? true : !value;
++  const interactionsEnabled = !disabled && (positionerElement ? true : !value);
+   const runOnceAnimationsFinish = (0, _useAnimationsFinished.useAnimationsFinished)(popupElement);
+   React.useEffect(() => {
+     animationAbortControllerRef.current?.abort();
+@@ -240,6 +240,7 @@ const NavigationMenuTrigger = exports.NavigationMenuTrigger = /*#__PURE__*/React
+     }
+   });
+   const hover = (0, _floatingUiReact.useHover)(context, {
++    enabled: !disabled,
+     move: false,
+     handleClose: (0, _floatingUiReact.safePolygon)({
+       blockPointerEvents: pointerType !== 'touch'
+@@ -292,6 +293,9 @@ const NavigationMenuTrigger = exports.NavigationMenuTrigger = /*#__PURE__*/React
+     });
+   }
+   const handleOpenEvent = (0, _useStableCallback.useStableCallback)(event => {
++    if (disabled) {
++      return;
++    }
+     // For nested scenarios without positioner/popup, we can still open the menu
+     // but we can't do size calculations
+     if (!popupElement || !positionerElement) {
