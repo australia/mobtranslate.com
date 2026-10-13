@@ -10,7 +10,7 @@ export const Meter = React.forwardRef<HTMLDivElement, MeterProps>(
   ({ className, ...props }, ref) => (
     <BaseMeter.Root
       ref={ref}
-      className={cn('mt-meter', className)}
+      className={state => cn('mt-meter', typeof className === 'function' ? className(state) : className)}
       {...props}
     >
       <BaseMeter.Track className="mt-meter-track">

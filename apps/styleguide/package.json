@@ -9,6 +9,7 @@
     "lint": "eslint . --cache --cache-location .cache/eslint/.eslintcache --max-warnings 0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test:browser": "node --test tests/browser.test.mjs",
+    "test:communication": "node --test tests/communication.test.mjs",
     "test:routes": "node scripts/check-routes.mjs",
     "tokens:generate": "node scripts/generate-tokens.mjs",
     "tokens:check": "node scripts/generate-tokens.mjs --check",

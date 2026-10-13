@@ -77,6 +77,7 @@ export const sections: NavSection[] = [
       { label: 'Popover', href: '/components/popover' },
       { label: 'Preview Card', href: '/components/preview-card' },
       { label: 'Progress', href: '/components/progress' },
+      { label: 'Circular Progress', href: '/components/circular-progress' },
       { label: 'Radio', href: '/components/radio' },
       { label: 'Rating', href: '/components/rating' },
       { label: 'Scroll Area', href: '/components/scroll-area' },
@@ -104,6 +105,7 @@ export const sections: NavSection[] = [
       { label: 'Forms', href: '/patterns/forms' },
       { label: 'Navigation', href: '/patterns/navigation' },
       { label: 'Data Display', href: '/patterns/data-display' },
+      { label: 'Notifications and Recovery', href: '/patterns/notifications' },
     ],
   },
 ];
