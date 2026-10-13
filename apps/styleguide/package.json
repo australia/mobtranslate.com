@@ -27,7 +27,8 @@
     "test:combobox": "node --test tests/combobox.test.mjs",
     "test:date-time": "node --test tests/date-time.test.mjs",
     "test:disclosure": "node --test tests/disclosure.test.mjs",
-    "test:rating": "node --test tests/rating.test.mjs"
+    "test:rating": "node --test tests/rating.test.mjs",
+    "test:stepper": "node --test tests/stepper.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

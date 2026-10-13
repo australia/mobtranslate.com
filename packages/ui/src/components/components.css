@@ -1265,32 +1265,22 @@
 .mt-stack-horizontal { flex-direction: row; }
 
 /* === STEPPER === */
-.mt-stepper { display: flex; align-items: center; gap: 0; width: 100%; }
-.mt-stepper-vertical { flex-direction: column; align-items: flex-start; }
-.mt-step { display: flex; align-items: center; gap: 0.5rem; }
-.mt-step-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-full);
-  border: 2px solid var(--color-border);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  background: var(--color-background);
-  color: var(--color-muted-foreground);
-  flex-shrink: 0;
-  transition: all var(--duration-normal) var(--ease-default);
-}
-.mt-step-active .mt-step-indicator { border-color: var(--color-primary); color: var(--color-primary); background: color-mix(in srgb, var(--color-primary) 10%, var(--color-background)); }
-.mt-step-completed .mt-step-indicator { border-color: var(--color-primary); background: var(--color-primary); color: var(--color-primary-foreground); }
-.mt-step-label { font-size: var(--text-sm); font-weight: 500; color: var(--color-muted-foreground); white-space: nowrap; }
-.mt-step-active .mt-step-label { color: var(--color-foreground); }
-.mt-step-completed .mt-step-label { color: var(--color-foreground); }
-.mt-step-description { font-size: var(--text-xs); color: var(--color-muted-foreground); }
-.mt-step-connector { flex: 1; height: 2px; background: var(--color-border); margin-inline: 0.5rem; min-width: 1rem; }
-.mt-step-connector-completed { background: var(--color-primary); }
+ .mt-stepper { display:flex; align-items:flex-start; width:100%; min-width:0; gap:0; }
+.mt-stepper-step { display:flex; align-items:flex-start; gap:8px; flex:1; min-width:0; }
+.mt-stepper-content, .mt-step { min-width:0; }
+.mt-step { display:block; }
+.mt-stepper-indicator { display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:var(--radius-full); border:2px solid var(--color-muted-foreground); font-size:var(--text-sm); font-weight:600; background:var(--color-background); color:var(--color-muted-foreground); flex-shrink:0; }
+.mt-stepper-step-active .mt-stepper-indicator { border-color:var(--color-primary); color:var(--color-foreground); outline:2px solid var(--color-ring); outline-offset:2px; }
+.mt-stepper-step-completed .mt-stepper-indicator { border-color:var(--color-primary); background:var(--color-primary); color:var(--color-primary-foreground); }
+.mt-step-label { font-size:var(--text-sm); font-weight:500; color:var(--color-muted-foreground); white-space:normal; overflow-wrap:anywhere; }
+.mt-stepper-step-active .mt-step-label, .mt-stepper-step-completed .mt-step-label { color:var(--color-foreground); }
+.mt-step-description { font-size:var(--text-xs); color:var(--color-muted-foreground); overflow-wrap:anywhere; }
+.mt-stepper-connector { flex:0 0 16px; height:2px; background:var(--color-muted-foreground); margin:15px 8px 0; }
+.mt-stepper-connector-completed { background:var(--color-primary); }
+.mt-stepper-vertical { flex-direction:column; align-items:stretch; }
+.mt-stepper-vertical .mt-stepper-step { flex:none; }
+.mt-stepper-vertical .mt-stepper-connector { flex:none; width:2px; height:16px; margin:4px 15px; }
+@media(forced-colors:active) { .mt-stepper-indicator { border-color:CanvasText; } .mt-stepper-step-active .mt-stepper-indicator { outline-color:Highlight; } .mt-stepper-step-completed .mt-stepper-indicator { border-color:CanvasText; } .mt-stepper-connector { background:CanvasText; } }
 
 /* === RATING === */
 .mt-rating { display: inline-flex; align-items: center; gap: 0.125rem; }
