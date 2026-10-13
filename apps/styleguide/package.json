@@ -20,7 +20,8 @@
     "test:inputs": "node --test tests/inputs.test.mjs",
     "test:menus": "node --test tests/menus.test.mjs",
     "test:navigation-controls": "node --test tests/navigation-controls.test.mjs",
-    "test:destinations": "node --test tests/destinations.test.mjs"
+    "test:destinations": "node --test tests/destinations.test.mjs",
+    "test:adaptive-navigation": "node --test tests/adaptive-navigation.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

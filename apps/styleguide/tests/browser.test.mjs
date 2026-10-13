@@ -592,8 +592,12 @@ test('cancelling content indexing aborts its outstanding request and preserves a
 
 test('topic-filter links update the query when already on the search page', () => {
   browser('fill', 'nav input[type=search]', 'time zones');
-  browser('click', 'nav a[href^="/search?q="]');
-  browser('wait', '--fn', 'document.querySelector("#guidance-query").value === "time zones"');
+  const target='nav a[href="/search?q=time%20zones"]';
+  browser('wait',target);
+  browser('scrollintoview',target);
+  browser('click',target);
+  try { browser('wait', '--fn', 'new URLSearchParams(location.search).get("q") === "time zones" && document.querySelector("#guidance-query").value === "time zones"'); }
+  catch(error) {assert.fail(`${error.message}; ${JSON.stringify(evaluate(`({url:location.href,query:document.querySelector('#guidance-query').value,filter:document.querySelector('nav input[type=search]').value,status:document.querySelector('[data-search-status]').textContent,links:[...document.querySelectorAll('nav a[href^="/search?q="]')].map(n=>n.getAttribute('href'))})`))}`);}
   browser('wait', '--fn', 'Boolean(document.querySelector(\'.search-results a[href="/foundations/internationalization#five-independent-decisions"]\'))');
   assert.equal(evaluate('new URLSearchParams(location.search).get("q")'), 'time zones');
   browser('fill', 'nav input[type=search]', '');
