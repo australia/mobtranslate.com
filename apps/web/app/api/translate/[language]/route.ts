@@ -141,6 +141,10 @@ interface Dictionary {
 
 const STANDARD_TRANSLATION_CONTRACT = 'complete-dictionary-structured-v2';
 const MAX_TRANSLATION_CHARS = 400;
+// Reasoning tokens count against the output cap. At 6000 a high-effort
+// review occasionally spent the whole budget reasoning and stopped before
+// calling submitReview, so the check silently fell back to the draft.
+const REVIEW_MAX_OUTPUT_TOKENS = 16000;
 
 const CachedReviewSchema = z.object({
   review: HybridReviewToolSchema,
@@ -602,7 +606,7 @@ async function runCachedHybridReview(
             },
             toolChoice: { type: 'tool', toolName: 'submitReview' },
             maxRetries: 0,
-            maxOutputTokens: 6000,
+            maxOutputTokens: REVIEW_MAX_OUTPUT_TOKENS,
             abortSignal: AbortSignal.timeout(120000),
             providerOptions: {
               openai: {
@@ -745,7 +749,7 @@ async function runCachedControlledHybridReview(
             },
             toolChoice: { type: 'tool', toolName: 'submitReview' },
             maxRetries: 0,
-            maxOutputTokens: 4000,
+            maxOutputTokens: REVIEW_MAX_OUTPUT_TOKENS,
             abortSignal: AbortSignal.timeout(120000),
             providerOptions: {
               openai: {
@@ -884,7 +888,7 @@ async function runCachedReverseTranslation(
             },
             toolChoice: { type: 'tool', toolName: 'submitTranslation' },
             maxRetries: 0,
-            maxOutputTokens: 6000,
+            maxOutputTokens: REVIEW_MAX_OUTPUT_TOKENS,
             abortSignal: AbortSignal.timeout(120000),
             providerOptions: {
               openai: {
