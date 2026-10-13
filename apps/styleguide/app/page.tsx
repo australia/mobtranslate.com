@@ -1,18 +1,22 @@
 import { Section } from '../components/section';
+import { CodeBlock } from '../components/code-block';
+import Link from 'next/link';
+import { sections } from '../content/navigation';
+import catalogue from '../content/tokens.json';
 
 export default function HomePage() {
   const stats = [
-    { label: 'Components', value: '50' },
-    { label: 'Design Tokens', value: '200+' },
-    { label: 'Color Palettes', value: '12' },
-    { label: 'Foundation Layers', value: '3' },
+    { label: 'Component topics', value: sections.find(section => section.title === 'Components')?.items.length ?? 0 },
+    { label: 'CSS tokens', value: catalogue.tokens.length },
+    { label: 'Foundation topics', value: sections.find(section => section.title === 'Foundations')?.items.length ?? 0 },
+    { label: 'Developer guides', value: sections.find(section => section.title === 'Guides')?.items.length ?? 0 },
   ];
 
   return (
     <div>
       <h1 className="text-4xl font-bold mb-2">Mobtranslate Design System</h1>
       <p className="text-lg text-[var(--color-muted-foreground)] mb-8">
-        A comprehensive, token-driven component library built on Base UI primitives.
+        Foundations, components and task patterns for MobTranslate’s React web interface.
       </p>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
@@ -24,7 +28,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      <Section title="Architecture" description="Three-layer design token system with CSS custom properties.">
+      <Section title="Architecture" description="Rendered CSS roles, component specifications and explicit behavior contracts.">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="border-2 border-[var(--color-border)] rounded-lg p-4">
             <h3 className="font-bold mb-1">Layer 1: Primitives</h3>
@@ -32,23 +36,22 @@ export default function HomePage() {
           </div>
           <div className="border-2 border-[var(--color-border)] rounded-lg p-4">
             <h3 className="font-bold mb-1">Layer 2: Semantic</h3>
-            <p className="text-sm text-[var(--color-muted-foreground)]">Role-based tokens: primary, destructive, background, foreground. Maps to primitives.</p>
+            <p className="text-sm text-[var(--color-muted-foreground)]">Role-based CSS values: primary, destructive, background and foreground. Pair text with its intended surface.</p>
           </div>
           <div className="border-2 border-[var(--color-border)] rounded-lg p-4">
-            <h3 className="font-bold mb-1">Layer 3: Component</h3>
-            <p className="text-sm text-[var(--color-muted-foreground)]">Per-component overrides: button padding, dialog max-width, input height.</p>
+            <h3 className="font-bold mb-1">Component specifications</h3>
+            <p className="text-sm text-[var(--color-muted-foreground)]">Sizes, states and behavior in the shared wrappers and stylesheet. Legacy JavaScript presets still need reconciliation with rendered CSS.</p>
           </div>
         </div>
       </Section>
 
-      <Section title="Getting Started" description="Import from @mobtranslate/ui to use components.">
-        <pre className="bg-[var(--color-foreground)] text-[var(--color-background)] p-4 rounded-lg text-sm font-mono overflow-x-auto">
-{`import { Button, Input, Dialog } from '@mobtranslate/ui';
-
-// Import the token CSS in your globals.css:
-// @import "@mobtranslate/ui/tokens/tokens.css";
-// @import "@mobtranslate/ui/components/components.css";`}
-        </pre>
+      <Section title="Getting Started" description="Use the private workspace package and its actual stylesheets.">
+        <CodeBlock language="css" code={'@import "tailwindcss";\n@import "@mobtranslate/ui/src/tokens/tokens.css";\n@import "@mobtranslate/ui/src/components/components.css";'} />
+        <div className="doc-links mt-4"><Link href="/guides/getting-started">Install and run</Link><Link href="/guides/composition">Compose controls</Link><Link href="/guides/theming">Theme the interface</Link></div>
+      </Section>
+      <Section title="Coverage and verification">
+        <p>The foundations and developer examples include live controls and checked source. Component depth, task patterns and the broader accessibility audit are still being expanded. Topic counts describe documentation routes, not conformance certification.</p>
+        <div className="doc-links mt-4"><Link href="/guides/contribution">Verification requirements</Link><Link href="/guides/migration">Current migration limits</Link></div>
       </Section>
     </div>
   );

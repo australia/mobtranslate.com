@@ -5,10 +5,14 @@ import { execFileSync } from 'node:child_process';
 const base = process.env.STYLEGUIDE_URL ?? 'http://127.0.0.1:3003';
 const session = `mobtranslate-styleguide-tests-${process.pid}`;
 const browser = (...args) => {
-  const output = execFileSync('agent-browser', ['--session', session, '--json', ...args], {
+  let output;
+  try { output = execFileSync('agent-browser', ['--session', session, '--json', ...args], {
     encoding: 'utf8', timeout: 150_000,
     env: { ...process.env, AGENT_BROWSER_DEFAULT_TIMEOUT: '120000' },
-  });
+  }); } catch (error) {
+    if (typeof error.stdout !== 'string' || !error.stdout.trim()) throw error;
+    output = error.stdout;
+  }
   const response = JSON.parse(output);
   assert.equal(response.success, true, response.error);
   return response.data;
@@ -268,4 +272,64 @@ test('writing lab previews edits and reports its local action honestly', () => {
   browser('press', 'Control+A');
   browser('press', 'Backspace');
   browser('wait', '--fn', 'document.querySelector("[data-writing-preview] button").disabled');
+});
+
+test('checked installation example validates, retains text and identifies its local result', () => {
+  open('/guides/getting-started');
+  clickButton('Try local form');
+  browser('wait', '--fn', 'document.querySelector("main input").getAttribute("aria-invalid") === "true"');
+  assert.ok(evaluate('document.activeElement === document.querySelector("main input")'));
+  assert.ok(evaluate('document.querySelector("main input").getAttribute("aria-describedby").split(" ").every(id => document.getElementById(id))'));
+  browser('fill', 'main input', 'example text');
+  browser('press', 'Enter');
+  browser('wait', '--fn', 'document.querySelector("main form [role=status]").textContent.includes("No search or publication was sent")');
+  assert.equal(evaluate('document.querySelector("main input").value'), 'example text');
+  assert.ok(evaluate('Array.from(document.querySelectorAll("main pre code")).some(code => code.textContent.includes("export function EntryFormExample"))'));
+});
+
+test('checked composition has one operable trigger and controlled disclosure state', () => {
+  open('/guides/composition');
+  clickButton('Example source details');
+  browser('wait', '--fn', 'document.querySelector("main [role=status]").textContent.includes("expanded")');
+  const selector = 'main button[aria-expanded]';
+  assert.equal(evaluate('document.querySelectorAll("main button button").length'), 0);
+  assert.equal(evaluate(`document.querySelector('${selector}').getAttribute('aria-expanded')`), 'true');
+  browser('press', 'Space');
+  browser('wait', '--fn', 'document.querySelector("main [role=status]").textContent.includes("collapsed")');
+  assert.equal(evaluate(`document.querySelector('${selector}').getAttribute('aria-expanded')`), 'false');
+});
+
+test('checked local theme changes only its descendant roles and radius', () => {
+  open('/guides/theming');
+  assert.equal(evaluate('getComputedStyle(document.querySelector("[data-local-theme] button")).backgroundColor'), 'rgb(56, 107, 79)');
+  const globalRadius = evaluate('getComputedStyle(document.documentElement).getPropertyValue("--radius-md")');
+  browser('uncheck', 'main input[type=checkbox]');
+  browser('wait', '--fn', 'getComputedStyle(document.querySelector("[data-local-theme] button")).borderRadius === "0px"');
+  assert.equal(evaluate('getComputedStyle(document.documentElement).getPropertyValue("--radius-md")'), globalRadius);
+  clickButton('Try themed action');
+  browser('wait', '--fn', 'document.querySelector("[data-local-theme]").parentElement.querySelector("[role=status]").textContent.includes("No entry was changed")');
+});
+
+test('shared theme controller respects system mode and tolerates failed storage writes', () => {
+  browser('set', 'viewport', '1440', '1000');
+  browser('set', 'media', 'dark');
+  evaluate('localStorage.removeItem("mt-theme"); window.dispatchEvent(new Event("storage"));');
+  browser('wait', 'html.dark');
+  browser('set', 'media', 'light');
+  browser('wait', 'html.light');
+  evaluate('window.originalSetItem = Storage.prototype.setItem; Storage.prototype.setItem = () => { throw new Error("denied"); };');
+  browser('click', 'nav button[aria-label="Switch to dark mode"]');
+  browser('wait', 'html.dark');
+  assert.equal(evaluate('document.documentElement.classList.contains("light")'), false);
+  evaluate('Storage.prototype.setItem = window.originalSetItem;');
+  browser('click', 'nav button[aria-label="Switch to light mode"]');
+});
+
+test('developer guides provide linked sections and reflow on narrow screens', () => {
+  browser('set', 'viewport', '375', '812');
+  for (const topic of ['getting-started', 'theming', 'composition', 'contribution', 'migration']) {
+    open(`/guides/${topic}`);
+    assert.ok(evaluate('document.querySelectorAll("main h2[id]").length >= 7'), topic);
+    assert.equal(evaluate('document.documentElement.scrollWidth > innerWidth'), false, topic);
+  }
 });

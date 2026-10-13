@@ -5,19 +5,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { sections } from '../content/navigation';
+import { applyTheme, readThemePreference } from '../lib/theme';
 
 function ThemeToggle() {
   const [dark, setDark] = React.useState(false);
 
   React.useEffect(() => {
     const sync = () => {
-      let stored: string | null = null;
-      try { stored = localStorage.getItem('mt-theme'); } catch { /* Theme still works without storage. */ }
-      const next = stored === 'dark' || (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      document.documentElement.classList.toggle('dark', next);
-      document.documentElement.classList.toggle('light', !next);
-      document.documentElement.style.colorScheme = next ? 'dark' : 'light';
-      setDark(next);
+      setDark(applyTheme(readThemePreference(), false));
     };
     const reflect = () => setDark(document.documentElement.classList.contains('dark'));
     sync();
@@ -35,11 +30,7 @@ function ThemeToggle() {
   const toggle = () => {
     const next = !dark;
     setDark(next);
-    document.documentElement.classList.toggle('dark', next);
-    document.documentElement.classList.toggle('light', !next);
-    document.documentElement.style.colorScheme = next ? 'dark' : 'light';
-    try { localStorage.setItem('mt-theme', next ? 'dark' : 'light'); } catch { /* Session-only theme. */ }
-    window.dispatchEvent(new Event('mt-theme-change'));
+    applyTheme(next ? 'dark' : 'light');
   };
 
   return (

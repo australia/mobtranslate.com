@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@import "../../../packages/ui/src/tokens/tokens.css";
-@import "../../../packages/ui/src/components/components.css";
+@import "@mobtranslate/ui/src/tokens/tokens.css";
+@import "@mobtranslate/ui/src/components/components.css";
 
 body {
   background-color: var(--color-background);
