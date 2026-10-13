@@ -1,5 +1,5 @@
 'use client';
-import { Popover, PopoverTrigger, PopoverPortal, PopoverPositioner, PopoverPopup, PopoverTitle, PopoverDescription, PopoverClose, Button, Input } from '@mobtranslate/ui';
+import { Popover, PopoverTrigger, PopoverPortal, PopoverPositioner, PopoverPopup, PopoverTitle, PopoverDescription, Button, Input } from '@mobtranslate/ui';
 import { Section } from '../../../components/section';
 import { ComponentPreview } from '../../../components/component-preview';
 import { PropsTable } from '../../../components/props-table';

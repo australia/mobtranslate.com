@@ -4,7 +4,6 @@ import { Button } from '@mobtranslate/ui';
 import { Section } from '../../../components/section';
 import { ComponentPreview } from '../../../components/component-preview';
 import { PropsTable } from '../../../components/props-table';
-import { CodeBlock } from '../../../components/code-block';
 
 function ToastDemo() {
   const [toasts, setToasts] = useState<{ id: number; title: string; description: string; variant?: string }[]>([]);

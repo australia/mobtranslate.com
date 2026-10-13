@@ -8,7 +8,6 @@ import { CodeBlock } from '../../../components/code-block';
 
 export default function CheckboxPage() {
   const [checked, setChecked] = useState(false);
-  const [items, setItems] = useState<string[]>(['design']);
 
   return (
     <div>

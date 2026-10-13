@@ -7,7 +7,7 @@ import { PropsTable } from '../../../components/props-table';
 import { CodeBlock } from '../../../components/code-block';
 
 function normalizeSliderValue(next: number | readonly number[]): number[] {
-  return Array.isArray(next) ? [...next] : [next];
+  return typeof next === 'number' ? [next] : [...next];
 }
 
 function SliderWithValue({ defaultValue = [50], min = 0, max = 100, step = 1, disabled = false }: { defaultValue?: number[]; min?: number; max?: number; step?: number; disabled?: boolean }) {

@@ -1,5 +1,5 @@
 'use client';
-import { Stack, HStack, VStack } from '@mobtranslate/ui';
+import { HStack, VStack } from '@mobtranslate/ui';
 import { Section } from '../../../components/section';
 import { ComponentPreview } from '../../../components/component-preview';
 import { PropsTable } from '../../../components/props-table';

@@ -1,4 +1,4 @@
-@theme {
+@theme static {
   /* === FONTS === */
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'Playfair Display', serif;
@@ -229,9 +229,9 @@
   --color-primary-active: #7a3d20;
   --color-primary-foreground: #fffdfb;
 
-  --color-secondary: #4a8664;
-  --color-secondary-hover: #386b4f;
-  --color-secondary-active: #2e5641;
+  --color-secondary: #386b4f;
+  --color-secondary-hover: #2e5641;
+  --color-secondary-active: #274536;
   --color-secondary-foreground: #faf8f5;
 
   --color-accent: #d97706;
@@ -239,12 +239,12 @@
   --color-accent-active: #92400e;
   --color-accent-foreground: #1c1410;
 
-  --color-destructive: #d4421f;
-  --color-destructive-hover: #b13518;
-  --color-destructive-active: #922f19;
+  --color-destructive: #b13518;
+  --color-destructive-hover: #922f19;
+  --color-destructive-active: #792b1a;
   --color-destructive-foreground: #faf8f5;
 
-  --color-error: #d4421f;
+  --color-error: #b13518;
   --color-error-foreground: #faf8f5;
 
   --color-warning: #d97706;
@@ -434,7 +434,7 @@
     --color-success-foreground: #1c1410;
 
     --color-info: #6b85b3;
-    --color-info-foreground: #faf8f5;
+    --color-info-foreground: #1c1410;
 
     --color-muted: #2a2320;
     --color-muted-hover: #3a312b;
@@ -495,7 +495,7 @@
   --color-success-foreground: #1c1410;
 
   --color-info: #6b85b3;
-  --color-info-foreground: #faf8f5;
+  --color-info-foreground: #1c1410;
 
   --color-muted: #2a2320;
   --color-muted-hover: #3a312b;

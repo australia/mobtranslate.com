@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import { Collapsible, CollapsibleTrigger, CollapsiblePanel, Button } from '@mobtranslate/ui';
 import { Section } from '../../../components/section';
 import { ComponentPreview } from '../../../components/component-preview';
@@ -17,9 +16,7 @@ export default function CollapsiblePage() {
       <Section title="Default" description="Click the trigger to show/hide content.">
         <ComponentPreview>
           <Collapsible>
-            <CollapsibleTrigger asChild>
-              <Button variant="outline" size="sm">Toggle Content</Button>
-            </CollapsibleTrigger>
+            <CollapsibleTrigger render={<Button variant="outline" size="sm" />}>Toggle Content</CollapsibleTrigger>
             <CollapsiblePanel>
               <div className="mt-3 p-4 border-2 border-[var(--color-border)] rounded-lg">
                 <p className="text-sm">This content can be hidden or shown by clicking the trigger above.</p>

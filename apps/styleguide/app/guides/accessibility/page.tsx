@@ -6,10 +6,10 @@ export default function AccessibilityPage() {
     <div>
       <h1 className="text-4xl font-bold mb-2">Accessibility</h1>
       <p className="text-lg text-[var(--color-muted-foreground)] mb-8">
-        How Mobtranslate UI ensures accessibility across all components.
+        Accessibility requirements for composing, documenting and testing Mobtranslate UI.
       </p>
 
-      <Section title="Built-in Support" description="Every component ships with accessibility features enabled.">
+      <Section title="Built-in Support" description="Base UI primitives provide a foundation. Authors still need to supply names, meaningful content and verified composition.">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="border-2 border-[var(--color-border)] rounded-lg p-4">
             <h3 className="font-bold mb-1">ARIA Attributes</h3>
@@ -30,10 +30,10 @@ export default function AccessibilityPage() {
         </div>
       </Section>
 
-      <Section title="Color Contrast" description="All color combinations meet WCAG 2.1 AA contrast requirements.">
+      <Section title="Color Contrast" description="Check the actual rendered combinations against WCAG 2.2 AA. A token or a component name does not guarantee compliance.">
         <div className="border-2 border-[var(--color-border)] rounded-lg p-4 space-y-3">
-          <p className="text-sm"><strong>Text on background:</strong> All foreground/background pairs maintain at least 4.5:1 contrast ratio for normal text.</p>
-          <p className="text-sm"><strong>UI components:</strong> Borders, icons, and interactive elements maintain at least 3:1 contrast ratio against adjacent colors.</p>
+          <p className="text-sm"><strong>Text on background:</strong> Require at least 4.5:1 contrast for normal text and 3:1 for large text. Measure both themes and every relevant state.</p>
+          <p className="text-sm"><strong>UI components:</strong> Required visual information identifying controls and states needs at least 3:1 contrast against adjacent colors. Inspect borders, icons and focus indicators in context.</p>
           <p className="text-sm"><strong>Don{"'"}t rely on color alone:</strong> Always supplement color with text, icons, or patterns to convey information.</p>
         </div>
       </Section>

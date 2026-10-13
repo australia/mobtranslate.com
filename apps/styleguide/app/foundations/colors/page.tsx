@@ -1,55 +1,47 @@
+import Link from 'next/link';
 import { Section } from '../../../components/section';
-import { ColorPaletteRow } from '../../../components/color-swatch';
-
-const palettes: Record<string, Record<string, string>> = {
-  blue: { '50': '#eff6ff', '100': '#dbeafe', '200': '#bfdbfe', '300': '#93c5fd', '400': '#60a5fa', '500': '#3b82f6', '600': '#2563eb', '700': '#1d4ed8', '800': '#1e40af', '900': '#1e3a8a', '950': '#172554' },
-  red: { '50': '#fef2f2', '100': '#fee2e2', '200': '#fecaca', '300': '#fca5a5', '400': '#f87171', '500': '#ef4444', '600': '#dc2626', '700': '#b91c1c', '800': '#991b1b', '900': '#7f1d1d', '950': '#450a0a' },
-  green: { '50': '#f0fdf4', '100': '#dcfce7', '200': '#bbf7d0', '300': '#86efac', '400': '#4ade80', '500': '#22c55e', '600': '#16a34a', '700': '#15803d', '800': '#166534', '900': '#14532d', '950': '#052e16' },
-  amber: { '50': '#fffbeb', '100': '#fef3c7', '200': '#fde68a', '300': '#fcd34d', '400': '#fbbf24', '500': '#f59e0b', '600': '#d97706', '700': '#b45309', '800': '#92400e', '900': '#78350f', '950': '#451a03' },
-  gray: { '50': '#f9fafb', '100': '#f3f4f6', '200': '#e5e7eb', '300': '#d1d5db', '400': '#9ca3af', '500': '#6b7280', '600': '#4b5563', '700': '#374151', '800': '#1f2937', '900': '#111827', '950': '#030712' },
-  purple: { '50': '#faf5ff', '100': '#f3e8ff', '200': '#e9d5ff', '300': '#d8b4fe', '400': '#c084fc', '500': '#a855f7', '600': '#9333ea', '700': '#7e22ce', '800': '#6b21a8', '900': '#581c87', '950': '#3b0764' },
-  pink: { '50': '#fdf2f8', '100': '#fce7f3', '200': '#fbcfe8', '300': '#f9a8d4', '400': '#f472b6', '500': '#ec4899', '600': '#db2777', '700': '#be185d', '800': '#9d174d', '900': '#831843', '950': '#500724' },
-  teal: { '50': '#f0fdfa', '100': '#ccfbf1', '200': '#99f6e4', '300': '#5eead4', '400': '#2dd4bf', '500': '#14b8a6', '600': '#0d9488', '700': '#0f766e', '800': '#115e59', '900': '#134e4a', '950': '#042f2e' },
-  cyan: { '50': '#ecfeff', '100': '#cffafe', '200': '#a5f3fc', '300': '#67e8f9', '400': '#22d3ee', '500': '#06b6d4', '600': '#0891b2', '700': '#0e7490', '800': '#155e75', '900': '#164e63', '950': '#083344' },
-  orange: { '50': '#fff7ed', '100': '#ffedd5', '200': '#fed7aa', '300': '#fdba74', '400': '#fb923c', '500': '#f97316', '600': '#ea580c', '700': '#c2410c', '800': '#9a3412', '900': '#7c2d12', '950': '#431407' },
-};
-
-const semanticColors = [
-  { name: 'primary', value: '#2563eb' },
-  { name: 'secondary', value: '#ef4444' },
-  { name: 'accent', value: '#f59e0b' },
-  { name: 'destructive', value: '#ef4444' },
-  { name: 'success', value: '#16a34a' },
-  { name: 'warning', value: '#f59e0b' },
-  { name: 'info', value: '#3b82f6' },
-  { name: 'muted', value: '#f3f4f6' },
-  { name: 'background', value: '#ffffff' },
-  { name: 'foreground', value: '#000000' },
-];
+import { ComponentPreview } from '../../../components/component-preview';
+import { CodeBlock } from '../../../components/code-block';
+import { ColorRoles, ContrastChecker } from '../../../components/color-tools';
 
 export default function ColorsPage() {
-  return (
-    <div>
-      <h1 className="text-4xl font-bold mb-2">Colors</h1>
-      <p className="text-lg text-[var(--color-muted-foreground)] mb-8">Full color palettes and semantic color tokens.</p>
-
-      <Section title="Semantic Colors" description="Role-based color assignments.">
-        <div className="flex flex-wrap gap-3">
-          {semanticColors.map((c) => (
-            <div key={c.name} className="flex flex-col items-center gap-1.5">
-              <div className="w-16 h-16 rounded-lg border-2 border-[var(--color-border)]" style={{ backgroundColor: c.value }} />
-              <span className="text-xs font-mono">{c.name}</span>
-              <span className="text-xs font-mono text-[var(--color-muted-foreground)]">{c.value}</span>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section title="Color Palettes" description="Full primitive color palettes with shades 50-950.">
-        {Object.entries(palettes).map(([name, shades]) => (
-          <ColorPaletteRow key={name} name={name} shades={shades} />
-        ))}
-      </Section>
-    </div>
-  );
+  return <div>
+    <h1 className="text-4xl font-bold mb-2">Color</h1>
+    <p className="text-lg text-[var(--color-muted-foreground)] mb-8">Color gives actions and surfaces a consistent role. The rendered palette uses ochre for primary actions, eucalyptus for secondary emphasis, and neutral surfaces to foreground language.</p>
+    <Section title="Color roles and hierarchy">
+      <p className="mb-4">Choose a role before choosing a shade. Primary identifies the most important action or current destination. Secondary supports another action. Background and foreground form the reading surface; card and popover roles describe contained surfaces. Error, warning, success and info describe feedback rather than brand emphasis.</p>
+      <ul className="guidance-list"><li>Pair each surface with its matching foreground. A color that works on the page background may fail on a filled button.</li><li>Use primary sparingly, for actions, focus and current location. A page full of equally prominent actions loses hierarchy.</li><li>Keep text, icon or shape alongside semantic color. Red alone cannot explain why an input failed.</li><li>A source citation, an internal review flag and community approval are distinct evidence states. Never make a green label stand in for missing authority.</li></ul>
+    </Section>
+    <Section title="Live role pairs" description="These specimens use the actual CSS roles and change with the page theme. Measured text contrast is reported honestly, including failures; a token name is not an accessibility guarantee."><ColorRoles /></Section>
+    <Section title="Contrast checker" description="Explore an opaque color pair and its text contrast. Use text labels to read results independently of the preview colors."><ComponentPreview><ContrastChecker /></ComponentPreview></Section>
+    <Section title="Contrast specifications">
+      <div className="doc-table"><table><thead><tr><th scope="col">Content</th><th scope="col">Minimum</th><th scope="col">How to apply it</th></tr></thead><tbody><tr><td>Normal text, WCAG AA</td><td>4.5:1</td><td>Body text, labels, placeholders and ordinary button text.</td></tr><tr><td>Large text, WCAG AA</td><td>3:1</td><td>At least 24px regular or about 18.67px bold at the browser’s default CSS pixel conversion.</td></tr><tr><td>Normal text, WCAG AAA</td><td>7:1</td><td>A useful higher target for important reading content.</td></tr><tr><td>Required non-text visual information</td><td>3:1</td><td>Identify controls and states against adjacent colors; assess the actual boundary or indicator.</td></tr></tbody></table></div>
+      <p className="mt-4">Evaluate the final foreground against its actual adjacent background, including hover and focus. Do not round a result into compliance. Disabled controls have an exception under the text-contrast criterion, but unexplained or unreadable disabled actions still create usability problems.</p>
+    </Section>
+    <Section title="Applying roles">
+      <CodeBlock language="css" code={`.source-details {
+  background: var(--color-card);
+  color: var(--color-card-foreground);
+  border: 1px solid var(--color-border);
+}
+.source-details a { color: var(--color-primary); }
+.source-details a:hover { color: var(--color-primary-hover); }
+.source-details a:focus-visible {
+  outline: 3px solid var(--color-ring);
+  outline-offset: 3px;
+}`} />
+      <p className="mt-4">Primitive palette values are for defining roles or intentional illustrations. Product components should consume semantic and component tokens. Keep light and dark roles deliberate; dark mode is not a blanket inversion of every color.</p>
+    </Section>
+    <Section title="Theme, state and cultural context">
+      <p className="mb-4">Changing a primary role means checking its foreground, hover, active and focus combinations. Theme overrides must reach portals as well as the local container. A translucent overlay needs contrast measured against the composited background, not just its raw RGB value.</p>
+      <p>Language-specific accents require a documented relationship to the material being presented. Do not use one landscape palette as a claim about every Indigenous language. Photographs and contributed artwork remain attributed content; their colors do not grant permission to use cultural motifs in interface decoration.</p>
+    </Section>
+    <Section title="Do and avoid">
+      <div className="doc-table"><table><thead><tr><th scope="col">Do</th><th scope="col">Avoid</th></tr></thead><tbody><tr><td>Use an explicit error message plus a state treatment.</td><td>An error indicated only by a red outline.</td></tr><tr><td>Measure the actual foreground/surface pair in each theme.</td><td>Assuming a semantic token automatically meets contrast.</td></tr><tr><td>Use consistent role tokens across a component family.</td><td>Hardcoded colors that drift from the shared theme.</td></tr><tr><td>Keep evidence and approval statuses separate.</td><td>Coloring a machine suggestion as verified knowledge.</td></tr></tbody></table></div>
+    </Section>
+    <Section title="Verification and related guidance">
+      <p className="mb-4">Inspect both themes, each interactive state, forced colors and color-independent labels. Use the checker for opaque pairs, inspect rendered overlays separately, and test the component with keyboard and screen reader. All raw palette values and theme overrides are searchable in the token explorer.</p>
+      <div className="doc-links"><Link href="/tokens">Token explorer</Link><Link href="/guides/theming">Theming</Link><Link href="/foundations/interaction-states">Interaction states</Link><a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">W3C text contrast guidance</a><a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">W3C non-text contrast guidance</a><a href="https://m3.material.io/styles/color/roles">Material color roles</a></div>
+    </Section>
+  </div>;
 }
