@@ -1243,7 +1243,7 @@
 .mt-chip-delete:hover { opacity: 1; }
 
 /* === ASPECT RATIO === */
-.mt-aspect-ratio { position: relative; width: 100%; }
+.mt-aspect-ratio { position:relative; width:100%; min-width:0; aspect-ratio:var(--mt-aspect-ratio, 1.7777777778); overflow:hidden; }
 .mt-aspect-ratio > * { position: absolute; inset: 0; width: 100%; height: 100%; }
 
 /* === VISUALLY HIDDEN === */
@@ -1260,9 +1260,10 @@
 }
 
 /* === STACK === */
-.mt-stack { display: flex; }
-.mt-stack-vertical { flex-direction: column; }
-.mt-stack-horizontal { flex-direction: row; }
+.mt-stack { display:flex; min-width:0; max-width:100%; }
+.mt-stack-column { flex-direction:column; }
+.mt-stack-row { flex-direction:row; }
+.mt-stack-wrap { flex-wrap:wrap; }
 
 /* === STEPPER === */
  .mt-stepper { display:flex; align-items:flex-start; width:100%; min-width:0; gap:0; }
