@@ -1596,3 +1596,14 @@
 .mt-avatar-content { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
 .mt-avatar-fallback { overflow:hidden; white-space:nowrap; padding:2px; }
 @media (forced-colors:active) { .mt-avatar { border:1px solid CanvasText; } }
+
+/* Named native scrolling with bounded, directional authored tracks. */
+.mt-scroll-area { min-width:0; max-width:100%; }
+.mt-scroll-area-viewport:focus-visible { outline:2px solid var(--color-ring); outline-offset:-2px; }
+.mt-scroll-area-scrollbar { padding:0; transition:none; }
+.mt-scroll-area-scrollbar[data-orientation="vertical"] { width:24px; right:auto; left:auto; inset-inline-end:0; }
+.mt-scroll-area-scrollbar-horizontal { height:24px; }
+.mt-scroll-area-thumb { flex:none; opacity:1; min-height:24px; min-width:24px; border-radius:var(--radius-sm); }
+.mt-scroll-area-thumb:hover { opacity:1; }
+.mt-scroll-area-corner { background:var(--color-background); }
+@media(forced-colors:active) { .mt-scroll-area-thumb { background:CanvasText; } .mt-scroll-area-viewport:focus-visible { outline-color:Highlight; } }
