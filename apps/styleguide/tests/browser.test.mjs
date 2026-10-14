@@ -305,7 +305,7 @@ test('checked local theme changes only its descendant roles and radius', () => {
   open('/guides/theming');
   assert.equal(evaluate('getComputedStyle(document.querySelector("[data-local-theme] button")).backgroundColor'), 'rgb(56, 107, 79)');
   const globalRadius = evaluate('getComputedStyle(document.documentElement).getPropertyValue("--radius-md")');
-  browser('uncheck', 'main input[type=checkbox]');
+  browser('uncheck', 'label:has(+ [data-local-theme]) input[type=checkbox]');
   browser('wait', '--fn', 'getComputedStyle(document.querySelector("[data-local-theme] button")).borderRadius === "0px"');
   assert.equal(evaluate('getComputedStyle(document.documentElement).getPropertyValue("--radius-md")'), globalRadius);
   clickButton('Try themed action');

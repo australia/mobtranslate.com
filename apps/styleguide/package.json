@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/generate-tokens.mjs && node scripts/generate-examples.mjs && next dev -p 3003",
-    "build": "node scripts/generate-tokens.mjs && node scripts/generate-examples.mjs && next build",
+    "dev": "pnpm --filter @mobtranslate/ui tokens:check && node scripts/generate-tokens.mjs && node scripts/generate-examples.mjs && next dev -p 3003",
+    "build": "pnpm --filter @mobtranslate/ui tokens:check && node scripts/generate-tokens.mjs && node scripts/generate-examples.mjs && next build",
     "start": "next start -p 3003",
     "lint": "eslint . --cache --cache-location .cache/eslint/.eslintcache --max-warnings 0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -13,8 +13,8 @@
     "test:containment": "node --test tests/containment.test.mjs",
     "test:selection": "node --test tests/selection.test.mjs",
     "test:routes": "node scripts/check-routes.mjs",
-    "tokens:generate": "node scripts/generate-tokens.mjs",
-    "tokens:check": "node scripts/generate-tokens.mjs --check",
+    "tokens:generate": "pnpm --filter @mobtranslate/ui tokens:generate && node scripts/generate-tokens.mjs",
+    "tokens:check": "pnpm --filter @mobtranslate/ui tokens:check && node scripts/generate-tokens.mjs --check",
     "examples:generate": "node scripts/generate-examples.mjs",
     "examples:check": "node scripts/generate-examples.mjs --check",
     "test:inputs": "node --test tests/inputs.test.mjs",
@@ -37,7 +37,8 @@
     "test:material-patterns": "node --test tests/material-patterns.test.mjs",
     "test:governed-patterns": "node --test tests/governed-patterns.test.mjs",
     "test:learning-offline": "node --test tests/learning-offline.test.mjs",
-    "audio:check": "node scripts/generate-audio-fixture.mjs --check"
+    "audio:check": "node scripts/generate-audio-fixture.mjs --check",
+    "test:token-contract": "node --test tests/token-contract.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",
