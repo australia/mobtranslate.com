@@ -1,0 +1,12 @@
+[
+  {"path":"/foundations/color-schemes","state":"initial","actions":[]},
+  {"path":"/foundations/color-schemes","state":"invalid-source","actions":[["fill","[data-color-input=sourceHex]","invalid"]]},
+  {"path":"/foundations/color-schemes","state":"hct-gamut","actions":[["select","[data-color-input=sourceMode]","hct"],["fill","[data-color-input=chroma]","150"],["fill","[data-color-input=tone]","95"],["focus","[data-color-capture]"],["press","Enter"]]},
+  {"path":"/foundations/color-schemes","state":"fidelity-fallback","actions":[["select","[data-color-input=variant]","fidelity"],["focus","[data-color-capture]"],["press","Enter"]]},
+  {"path":"/foundations/color-schemes","state":"harmonized-dark","actions":[["focus","[data-color-input=isDark]"],["press","Space"],["focus","[data-color-input=harmonize]"],["press","Space"],["focus","[data-color-capture]"],["press","Enter"]]},
+  {"path":"/foundations/color-schemes","state":"low-contrast","actions":[["select","[data-color-input=contrastLevel]","-1"],["focus","[data-color-capture]"],["press","Enter"]]},
+  {"path":"/foundations/color-schemes","state":"fixture-extracted","actions":[["focus","[data-color-extract]"],["press","Enter"],["wait","--fn","document.querySelector('[data-color-status]').textContent.startsWith('SDK selected')"]]},
+  {"path":"/foundations/color-schemes","state":"full-data","actions":[["focus","[data-color-full] summary"],["press","Enter"]]},
+  {"path":"/foundations/color-schemes","state":"visible-preview","actions":[["scrollintoview","[data-color-preview]"]]},
+  {"path":"/foundations/color-schemes","state":"visible-dark-proposal","actions":[["focus","[data-color-input=isDark]"],["press","Space"],["focus","[data-color-capture]"],["press","Enter"],["scrollintoview","[data-color-preview]"]]}
+]

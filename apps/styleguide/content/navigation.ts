@@ -35,6 +35,7 @@ export const sections: NavSection[] = [
       { label: 'Watches and Small Displays', href: '/foundations/watches' },
       { label: 'XR and Spatial Interfaces', href: '/foundations/xr' },
       { label: 'Colors', href: '/foundations/colors' },
+      { label: 'Color Schemes and Customization', href: '/foundations/color-schemes' },
       { label: 'Typography', href: '/foundations/typography' },
       { label: 'Spacing', href: '/foundations/spacing' },
       { label: 'Elevation', href: '/foundations/elevation' },

@@ -46,13 +46,13 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 
 | Captured subject | Local candidate | Depth review |
 | --- | --- | --- |
-| [color/system](https://m3.material.io/styles/color/system) | /foundations/colors | Pending subject/subtab comparison |
-| [color/roles](https://m3.material.io/styles/color/roles) | /foundations/colors | Pending subject/subtab comparison |
-| [color/choosing-a-scheme](https://m3.material.io/styles/color/choosing-a-scheme) | /guides/theming | Pending subject/subtab comparison |
-| [color/static](https://m3.material.io/styles/color/static) | /guides/theming | Pending subject/subtab comparison |
-| [color/dynamic](https://m3.material.io/styles/color/dynamic) | /foundations/colors | Pending subject/subtab comparison |
-| [color/advanced](https://m3.material.io/styles/color/advanced) | /foundations/colors | Pending subject/subtab comparison |
-| [color/resources](https://m3.material.io/styles/color/resources) | /foundations/colors | Pending subject/subtab comparison |
+| [color/system](https://m3.material.io/styles/color/system) | /foundations/color-schemes; /foundations/colors | Source/palette/role/HCT comparison mapped below |
+| [color/roles](https://m3.material.io/styles/color/roles) | /foundations/color-schemes; /foundations/colors | Role families, SDK-derived associations and opaque measurements |
+| [color/choosing-a-scheme](https://m3.material.io/styles/color/choosing-a-scheme) | /foundations/color-schemes; /guides/theming | Static/brand/user/content/multiple-source choices with implementation boundaries |
+| [color/static](https://m3.material.io/styles/color/static) | /foundations/color-schemes; /guides/theming | Baseline/brand workflow and existing Earth contract |
+| [color/dynamic](https://m3.material.io/styles/color/dynamic) | /foundations/color-schemes | Actual SDK generation and original-fixture pixel extraction; no wallpaper access claimed |
+| [color/advanced](https://m3.material.io/styles/color/advanced) | /foundations/color-schemes | Combine/remap/custom/baseline/fidelity/harmonization comparison below |
+| [color/resources](https://m3.material.io/styles/color/resources) | /foundations/color-schemes | Pinned SDK, sources and design/development handoff |
 | [elevation](https://m3.material.io/styles/elevation) | /foundations/elevation | Pending subject/subtab comparison |
 | [icons](https://m3.material.io/styles/icons) | /foundations/iconography | Pending subject/subtab comparison |
 | [motion/overview](https://m3.material.io/styles/motion/overview) | /foundations/motion-physics; /foundations/motion | Physics/scheme/application comparison below; existing components remain duration-based |
@@ -61,7 +61,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [shape](https://m3.material.io/styles/shape) | /foundations/shape | Pending subject/subtab comparison |
 | [spacing](https://m3.material.io/styles/spacing) | /foundations/spacing | Pending subject/subtab comparison |
 | [typography](https://m3.material.io/styles/typography) | /foundations/typography | Pending subject/subtab comparison |
-| [color/system/overview](https://m3.material.io/styles/color/system/overview) | /foundations/colors | Pending subject/subtab comparison |
+| [color/system/overview](https://m3.material.io/styles/color/system/overview) | /foundations/color-schemes; /foundations/colors | Same reviewed color-system chapter as system alias |
 | [elevation/overview](https://m3.material.io/styles/elevation/overview) | /foundations/elevation | Pending subject/subtab comparison |
 | [icons/overview](https://m3.material.io/styles/icons/overview) | /foundations/iconography | Pending subject/subtab comparison |
 | [motion/overview/how-it-works](https://m3.material.io/styles/motion/overview/how-it-works) | /foundations/motion-physics; /foundations/motion | Same reviewed physics chapter as overview alias |
@@ -155,4 +155,23 @@ Primary rendered captures: `material-style-motion-overview-20261014.json`, `mate
 | Enter/exit within/beyond bounds and skeleton replacement | Transition patterns and identity; existing Dialog/Drawer/Skeleton state/geometry/focus contracts |
 | Interruption and preference ownership | Interruption and retargeting; Reduced motion and accessibility; working stop/reset/replay and live preference listener |
 
-The explorer is a numerical unit-step model with a time cursor, not a new component animation renderer. It does not copy native preset values or claim physical calibration, continuous retargeting or device frame-rate proof. Runtime evidence and remaining review items are recorded in STYLEGUIDE-PLAN.md. The seven color captures retained during this same comparison still require their substantive scheme/tone/customization audit; they are not marked complete.
+The explorer is a numerical unit-step model with a time cursor, not a new component animation renderer. It does not copy native preset values or claim physical calibration, continuous retargeting or device frame-rate proof. Runtime evidence and remaining review items are recorded in STYLEGUIDE-PLAN.md. Color captures retained during that comparison are mapped in the following color section.
+
+## Color scheme and customization comparison
+
+Seven retained primary `material-style-color-<topic>-20261014.json` captures cover system, roles, choosing-a-scheme, static, dynamic, advanced and resources. Seven additional `material-styles-color-<group>-<subtopic>-20261014.json` captures cover system/how-the-system-works, static/custom-brand, dynamic/user-generated-source and content-based-source, and advanced/apply-colors, define-new-colors and adjust-existing-colors.
+
+| Reference subjects | Concrete treatment in /foundations/color-schemes |
+| --- | --- |
+| Source → key colors → palettes → roles → UI | Source, palette, role and application; working SDK proposal/role/palette explorer |
+| HCT hue/chroma/tone, gamut and noninterchangeable spaces | Hue, chroma, tone and gamut; requested/realized values and key-color/tonal data |
+| Three contrast levels and accessible tone pairing | Contrast levels and honest measurements; standard/medium/high plus labelled low experiment; declared primary/secondary backgrounds measured |
+| Accent/error/surface/inverse/outline/fixed/bright/dim roles | Role families and pairing; actual SDK allColors collection and declared associations |
+| Static baseline and custom brand | Static, brand and dynamic scheme selection; existing Earth tokens kept distinct; design/development handoff |
+| User-generated and content-based sources | Manual hex/HCT input and actual original-fixture image quantization/ranking; requested/effective spec captured |
+| Multiple sources, combining schemes and remapping | Combine and remap colors deliberately; scoped actual specimen and separate role namespace export |
+| New static colors/custom roles | New static colors and custom roles; original/custom/harmonized values and palette data |
+| Own baseline/dynamic policy, fidelity, harmonization | Baseline adjustment, fidelity and harmonization; SDK variant/fallback and actual separate custom-color operation |
+| Resources, design-kit/application workflow and developer handoff | Design-to-development handoff; pinned official SDK, compiled source and primary reference links |
+
+The explorer measures opaque sRGB pairs and preserves a captured request/output. It does not read wallpaper, install a native theme, reproduce every design-kit operation, automatically map all generated roles to this library, validate every composited state or establish cultural authority. Runtime/asset evidence and remaining review items are recorded in STYLEGUIDE-PLAN.md.

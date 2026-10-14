@@ -41,7 +41,7 @@ export default function ColorsPage() {
     </Section>
     <Section title="Verification and related guidance">
       <p className="mb-4">Inspect both themes, each interactive state, forced colors and color-independent labels. Use the checker for opaque pairs, inspect rendered overlays separately, and test the component with keyboard and screen reader. All raw palette values and theme overrides are searchable in the token explorer.</p>
-      <div className="doc-links"><Link href="/tokens">Token explorer</Link><Link href="/guides/theming">Theming</Link><Link href="/foundations/interaction-states">Interaction states</Link><a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">W3C text contrast guidance</a><a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">W3C non-text contrast guidance</a><a href="https://m3.material.io/styles/color/roles">Material color roles</a></div>
+      <div className="doc-links"><Link href="/foundations/color-schemes">Schemes, tones and customization</Link><Link href="/tokens">Token explorer</Link><Link href="/guides/theming">Theming</Link><Link href="/foundations/interaction-states">Interaction states</Link><a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">W3C text contrast guidance</a><a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">W3C non-text contrast guidance</a><a href="https://m3.material.io/styles/color/roles">Material color roles</a></div>
     </Section>
   </div>;
 }
