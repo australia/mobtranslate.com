@@ -1607,3 +1607,7 @@
 .mt-scroll-area-thumb:hover { opacity:1; }
 .mt-scroll-area-corner { background:var(--color-background); }
 @media(forced-colors:active) { .mt-scroll-area-thumb { background:CanvasText; } .mt-scroll-area-viewport:focus-visible { outline-color:Highlight; } }
+
+/* Supplemental preview remains bounded and does not imply a modal task. */
+.mt-preview-card-popup { max-width:min(24rem,calc(100vw - 16px)); max-height:var(--available-height); overflow-y:auto; overflow-wrap:anywhere; border-color:var(--color-muted-foreground); box-shadow:none; animation:none; }
+@media(forced-colors:active) { .mt-preview-card-popup { border-color:CanvasText; } }

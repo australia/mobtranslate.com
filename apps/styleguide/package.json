@@ -31,7 +31,8 @@
     "test:stepper": "node --test tests/stepper.test.mjs",
     "test:layout-utilities": "node --test tests/layout-utilities.test.mjs",
     "test:avatar": "node --test tests/avatar.test.mjs",
-    "test:scroll-area": "node --test tests/scroll-area.test.mjs"
+    "test:scroll-area": "node --test tests/scroll-area.test.mjs",
+    "test:preview-card": "node --test tests/preview-card.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",
