@@ -49,7 +49,8 @@
     "api:generate": "node scripts/generate-api-reference.mjs",
     "api:check": "node scripts/generate-api-reference.mjs --check",
     "test:api-reference": "node --test tests/api-reference.test.mjs",
-    "api:delivery": "node scripts/check-api-delivery.mjs"
+    "api:delivery": "node scripts/check-api-delivery.mjs",
+    "test:watches": "node --test tests/watches.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

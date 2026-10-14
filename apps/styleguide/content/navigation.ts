@@ -31,6 +31,7 @@ export const sections: NavSection[] = [
   {
     title: 'Foundations',
     items: [
+      { label: 'Watches and Small Displays', href: '/foundations/watches' },
       { label: 'Colors', href: '/foundations/colors' },
       { label: 'Typography', href: '/foundations/typography' },
       { label: 'Spacing', href: '/foundations/spacing' },
