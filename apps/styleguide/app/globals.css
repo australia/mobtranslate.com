@@ -55,6 +55,7 @@ body:has(.mobile-navigation[open]) { overflow: hidden; }
 @media (forced-colors: active) {
   :focus-visible { outline-color: Highlight; }
   .skip-link, .mobile-navigation { border: 1px solid CanvasText; }
+  [data-elevation-preview] { box-shadow: none !important; border-color: CanvasText; }
 }
 
 /* Code block syntax highlighting */

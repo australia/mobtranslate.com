@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/foundations/elevation",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/foundations/elevation",
+    "state": "flat-muted",
+    "actions": [
+      [
+        "select",
+        "[data-elevation-shadow]",
+        "none"
+      ],
+      [
+        "select",
+        "[data-elevation-surface]",
+        "muted"
+      ],
+      [
+        "scrollintoview",
+        "[data-elevation-preview]"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/elevation",
+    "state": "popover-shadow",
+    "actions": [
+      [
+        "select",
+        "[data-elevation-surface]",
+        "popover"
+      ],
+      [
+        "select",
+        "[data-elevation-shadow]",
+        "--shadow-xl"
+      ],
+      [
+        "scrollintoview",
+        "[data-elevation-preview]"
+      ]
+    ]
+  }
+]

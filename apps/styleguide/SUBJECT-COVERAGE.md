@@ -53,7 +53,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [color/dynamic](https://m3.material.io/styles/color/dynamic) | /foundations/color-schemes | Actual SDK generation and original-fixture pixel extraction; no wallpaper access claimed |
 | [color/advanced](https://m3.material.io/styles/color/advanced) | /foundations/color-schemes | Combine/remap/custom/baseline/fidelity/harmonization comparison below |
 | [color/resources](https://m3.material.io/styles/color/resources) | /foundations/color-schemes | Pinned SDK, sources and design/development handoff |
-| [elevation](https://m3.material.io/styles/elevation) | /foundations/elevation | Pending subject/subtab comparison |
+| [elevation](https://m3.material.io/styles/elevation) | /foundations/elevation | Overview, applying and tokens compared below; local presentation and native-level boundaries explicit |
 | [icons](https://m3.material.io/styles/icons) | /foundations/iconography | Pending subject/subtab comparison |
 | [motion/overview](https://m3.material.io/styles/motion/overview) | /foundations/motion-physics; /foundations/motion | Physics/scheme/application comparison below; existing components remain duration-based |
 | [motion/easing-and-duration](https://m3.material.io/styles/motion/easing-and-duration) | /foundations/motion; /foundations/motion-physics | Actual token/replay tool plus duration/settling distinction |
@@ -62,7 +62,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [spacing](https://m3.material.io/styles/spacing) | /foundations/spacing | Pending subject/subtab comparison |
 | [typography](https://m3.material.io/styles/typography) | /foundations/typography | Pending subject/subtab comparison |
 | [color/system/overview](https://m3.material.io/styles/color/system/overview) | /foundations/color-schemes; /foundations/colors | Same reviewed color-system chapter as system alias |
-| [elevation/overview](https://m3.material.io/styles/elevation/overview) | /foundations/elevation | Pending subject/subtab comparison |
+| [elevation/overview](https://m3.material.io/styles/elevation/overview) | /foundations/elevation | Overview, applying and tokens compared below; local presentation and native-level boundaries explicit |
 | [icons/overview](https://m3.material.io/styles/icons/overview) | /foundations/iconography | Pending subject/subtab comparison |
 | [motion/overview/how-it-works](https://m3.material.io/styles/motion/overview/how-it-works) | /foundations/motion-physics; /foundations/motion | Same reviewed physics chapter as overview alias |
 | [shape/overview-principles](https://m3.material.io/styles/shape/overview-principles) | /foundations/shape | Pending subject/subtab comparison |
@@ -175,3 +175,20 @@ Seven retained primary `material-style-color-<topic>-20261014.json` captures cov
 | Resources, design-kit/application workflow and developer handoff | Design-to-development handoff; pinned official SDK, compiled source and primary reference links |
 
 The explorer measures opaque sRGB pairs and preserves a captured request/output. It does not read wallpaper, install a native theme, reproduce every design-kit operation, automatically map all generated roles to this library, validate every composited state or establish cultural authority. Runtime/asset evidence and remaining review items are recorded in STYLEGUIDE-PLAN.md.
+
+## Elevation subjects compared, 2026-10-14
+
+Primary rendered captures: `material-elevation-overview-20261014.json`, `material-elevation-applying-elevation-20261014.json`, `material-elevation-tokens-20261014.json`. Both index aliases resolve to this chapter; its three tabs were inspected.
+
+| Reference subjects | Concrete local treatment in /foundations/elevation |
+| --- | --- |
+| Spatial relationships, resting elevation and interaction changes | Surface hierarchy; Level, appearance and paint order; Resting elevation and interaction changes |
+| Six levels and reference distances; interaction-only upper levels | Explicit reference table, separate from exported CSS shadows/layers; no dp conversion claimed |
+| Tonal difference and independent surface roles | Tonal surfaces and visible edges; live paired foreground/background selection with flat/shadow choice |
+| Shadow size/softness, busy backgrounds and interaction protection | Actual shadow specifications; Protection, overlap and scrims; existing current-theme shadow tokens |
+| Scrim role, opacity and foreground attention | Reference opacity distinguished from existing Dialog/Drawer implementation; background modality and focus contract |
+| Elevation tokens and component defaults | Reference level versus actual generated shadow/layer tables; existing component defaults retained |
+| Migration away from automatic tint/shadow assumptions | Independent role/level/paint decisions; surface pairing and actual-context checks rather than imported native behavior |
+| Implementation and verification | Forced-colors CSS, portals/stacking context/top layer, reduced-motion/state contracts, existing Dialog/Popover examples and verification guidance |
+
+The compiled lab changes real CSS presentation without changing semantic roles, layering or modal behavior. Native component elevation implementation and physical-unit conversion are developer boundaries, not simulated by a CSS shadow selector. Scoped runtime evidence is recorded in STYLEGUIDE-PLAN.md.

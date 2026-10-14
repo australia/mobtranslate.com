@@ -61,7 +61,8 @@
     "test:spring-browser": "node --test tests/spring-browser.test.mjs",
     "test:color-model": "vitest run --config vitest-color.config.mts",
     "color-fixture:check": "node scripts/generate-color-fixture.mjs --check",
-    "test:color-browser": "node --test tests/color-browser.test.mjs"
+    "test:color-browser": "node --test tests/color-browser.test.mjs",
+    "test:elevation": "node --test tests/elevation.test.mjs"
   },
   "dependencies": {
     "@material/material-color-utilities": "0.4.0",

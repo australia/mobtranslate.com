@@ -61,10 +61,19 @@ export function SpacingExplorer() {
 
 export function ElevationExplorer() {
   const [shadow, setShadow] = useState('--shadow-md');
-  return <div className="space-y-4">
-    <label className="block">Shadow token<select className="mt-input w-full max-w-sm mt-2" value={shadow} onChange={(event) => setShadow(event.target.value)}>{shadows.map((token) => <option key={token.name} value={token.name}>{token.name}</option>)}</select></label>
-    <div className="p-6 bg-[var(--color-muted)] rounded-lg"><div data-elevation-preview className="p-6 max-w-sm bg-[var(--color-card)] text-[var(--color-card-foreground)] border border-[var(--color-border)] rounded-lg" style={{ boxShadow: `var(${shadow})` }}><h3 className="font-semibold mb-2">Source details</h3><p>The shadow follows the page theme. The border preserves the boundary when shadows are reduced or unavailable.</p></div></div>
-    <p className="font-mono text-sm">box-shadow: var({shadow});</p>
+  const [surface, setSurface] = useState('card');
+  const surfacePairs = {
+    card: ['--color-card', '--color-card-foreground'],
+    popover: ['--color-popover', '--color-popover-foreground'],
+    muted: ['--color-muted', '--color-muted-foreground'],
+  };
+  const pair = surfacePairs[surface as keyof typeof surfacePairs];
+  return <div className="space-y-4" data-elevation-lab>
+    <label className="block">Shadow token<select data-elevation-shadow className="mt-input w-full max-w-sm mt-2" value={shadow} onChange={(event) => setShadow(event.target.value)}><option value="none">None · flat surface</option>{shadows.map((token) => <option key={token.name} value={token.name}>{token.name}</option>)}</select></label>
+    <label className="block">Surface pair<select data-elevation-surface className="mt-input w-full max-w-sm mt-2" value={surface} onChange={(event) => setSurface(event.target.value)}>{Object.keys(surfacePairs).map(name => <option key={name} value={name}>{name} / {name}-foreground</option>)}</select></label>
+    <div className="p-3 rounded-lg" style={{background: 'var(--color-background)'}}><div data-elevation-preview className="p-3 max-w-sm border border-[var(--color-border)] rounded-lg" style={{ boxShadow: shadow === 'none' ? 'none' : `var(${shadow})`, background: `var(${pair[0]})`, color: `var(${pair[1]})` }}><h3 className="font-semibold mb-2" style={{color: 'inherit'}}>Source details</h3><p>The foreground follows this surface pair. The border preserves the boundary when shadows are reduced or unavailable.</p></div></div>
+    <p data-elevation-values className="font-mono text-sm" style={{overflowWrap: 'anywhere'}}>box-shadow: {shadow === 'none' ? 'none' : `var(${shadow})`}; background: var({pair[0]}); color: var({pair[1]});</p>
+    <p className="text-sm">Presentation only: these controls do not change stacking order, focus, semantic roles or modality. A different fill may resolve to the same value in a theme. Inspect actual colors and context.</p>
   </div>;
 }
 

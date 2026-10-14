@@ -193,7 +193,7 @@ test('foundation labs use live CSS tokens and support changed values', () => {
   browser('select', 'main select', '--spacing-12');
   browser('wait', '--fn', 'getComputedStyle(document.querySelector("[data-spacing-preview]")).gap === "48px"');
   open('/foundations/elevation');
-  browser('select', 'main select', '--shadow-xl');
+  browser('select', '[data-elevation-shadow]', '--shadow-xl');
   const shadow = evaluate('getComputedStyle(document.querySelector("[data-elevation-preview]")).boxShadow');
   assert.notEqual(shadow, 'none');
   browser('click', 'nav button[aria-label="Switch to light mode"]');
