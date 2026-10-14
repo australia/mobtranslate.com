@@ -58,14 +58,14 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [motion/overview](https://m3.material.io/styles/motion/overview) | /foundations/motion-physics; /foundations/motion | Physics/scheme/application comparison below; existing components remain duration-based |
 | [motion/easing-and-duration](https://m3.material.io/styles/motion/easing-and-duration) | /foundations/motion; /foundations/motion-physics | Actual token/replay tool plus duration/settling distinction |
 | [motion/transitions](https://m3.material.io/styles/motion/transitions) | /foundations/motion-physics; working component/pattern guides | Pattern/identity contracts mapped below; individual compositions still require scoped evidence |
-| [shape](https://m3.material.io/styles/shape) | /foundations/shape | Pending subject/subtab comparison |
+| [shape](https://m3.material.io/styles/shape) | /foundations/shape | Three chapters compared below; token-driven logical corners, CSS interpolation and geometric model |
 | [spacing](https://m3.material.io/styles/spacing) | /foundations/spacing | Pending subject/subtab comparison |
 | [typography](https://m3.material.io/styles/typography) | /foundations/typography | All five tabs compared below; actual local variable-font inspection and explicit native-height boundaries |
 | [color/system/overview](https://m3.material.io/styles/color/system/overview) | /foundations/color-schemes; /foundations/colors | Same reviewed color-system chapter as system alias |
 | [elevation/overview](https://m3.material.io/styles/elevation/overview) | /foundations/elevation | Overview, applying and tokens compared below; local presentation and native-level boundaries explicit |
 | [icons/overview](https://m3.material.io/styles/icons/overview) | /foundations/iconography | Pending subject/subtab comparison |
 | [motion/overview/how-it-works](https://m3.material.io/styles/motion/overview/how-it-works) | /foundations/motion-physics; /foundations/motion | Same reviewed physics chapter as overview alias |
-| [shape/overview-principles](https://m3.material.io/styles/shape/overview-principles) | /foundations/shape | Pending subject/subtab comparison |
+| [shape/overview-principles](https://m3.material.io/styles/shape/overview-principles) | /foundations/shape | Three chapters compared below; token-driven logical corners, CSS interpolation and geometric model |
 | [typography/overview](https://m3.material.io/styles/typography/overview) | /foundations/typography | All five tabs compared below; actual local variable-font inspection and explicit native-height boundaries |
 
 ## develop
@@ -210,3 +210,21 @@ Primary rendered captures: `material-typography-<topic>-20261014.json` for overv
 | Implementation, assets and failure recovery | Compiled inspector/styles/manifest; pinned licensed binary; loading API failure/held-request recovery; fallback and exact CSS output |
 
 The font is a documentation specimen, not a product-wide typeface replacement. Its loaded status does not prove every user character came from that face. Native script-height automation, qualified reading/shaping checks and the full-guide acceptance audit remain distinct evidence boundaries. Scoped runtime evidence is recorded in STYLEGUIDE-PLAN.md.
+
+## Shape subjects compared, 2026-10-14
+
+Primary rendered captures: `material-shape-overview-20261014.json`, `material-shape-corner-radius-scale-20261014.json`, `material-shape-shape-morph-20261014.json`. Both index aliases resolve to the reviewed subject.
+
+| Reference subjects | Concrete local treatment in /foundations/shape |
+| --- | --- |
+| Type/shape harmony, contrast/tension, versatile meaning, sparing abstract emphasis and decorative imagery | Shape anatomy; explicit hierarchy/content/semantic contracts and cultural-artwork boundaries |
+| Layering and 2.5D appearance | Shape anatomy; related Elevation/Motion guidance; no 3D-runtime claim |
+| Expanded shape library and platform availability | Reference scale and platform boundaries; published reference collection distinguished from this web implementation |
+| Ten-level corner scale and individual corner tokens | Reference table plus generated local CSS table; rem/full normalization explained rather than hardcoded pixel conversions |
+| Symmetry, asymmetric/inner corners and direction | Symmetric, asymmetric and inner corners; actual four logical CSS properties, retained drafts and local RTL switch |
+| Style changes versus component remapping; rounded/cut family and dense content | Applying shape; mapping scope, mask/focus separation, original solid-round/dashed-cut SVG and removed-area values |
+| Optical roundness | Optical roundness and nested geometry; bounded inset/radius controls, shared-center illustration and zero-clamped inner radius |
+| Interaction/progress/environment morph uses and motion schemes | Morphing, interruption and semantic state; actual CSS corner transition/retarget with a stable semantic toggle and reduced-motion handling; platform/custom-path handoff |
+| Implementation and verification | Compiled explorer/styles; current CSS, native disclosure, named geometry and equivalent text, both-theme/narrow/keyboard acceptance |
+
+The tool uses the committed radius catalogue and original geometry; it does not claim the native expanded collection or a general path-morph library. Actual border-box normalization, mask content fit, physical rendering and the broader requirement-wide audit retain their own evidence boundaries. Scoped runtime results are recorded in STYLEGUIDE-PLAN.md.

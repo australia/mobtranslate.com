@@ -31,25 +31,7 @@ export function LayoutLab() {
   );
 }
 
-const radii = ['none', 'sm', 'md', 'lg', 'xl', '2xl', 'full'] as const;
-export function ShapeLab() {
-  const id = useId();
-  const [radius, setRadius] = useState<typeof radii[number]>('lg');
-  return (
-    <div className="space-y-4">
-      <label htmlFor={id} className="block font-medium">Container radius</label>
-      <select id={id} value={radius} onChange={(event) => setRadius(event.target.value as typeof radius)} className="mt-input w-full max-w-xs">
-        {radii.map((value) => <option key={value} value={value}>{value}</option>)}
-      </select>
-      <div className="p-6 border border-[var(--color-border)] bg-[var(--color-muted)] max-w-sm" style={{ borderRadius: `var(--radius-${radius})` }}>
-        <h3 className="font-semibold mb-2">Source details</h3>
-        <p className="text-sm mb-4">The radius groups the surface. The button retains its own component radius so it is still recognisable.</p>
-        <details><summary className="min-h-11 cursor-pointer">View source example</summary><p className="text-sm mt-2">This is a layout specimen, not a language entry. In the product, this disclosure contains the entry’s source record and review status.</p></details>
-      </div>
-      <p className="font-mono text-sm">border-radius: var(--radius-{radius});</p>
-    </div>
-  );
-}
+export { ShapeLab } from './shape-explorer';
 
 export function StateLab() {
   const id = useId();

@@ -1,0 +1,17 @@
+.shape-lab { display: grid; gap: 1rem; min-inline-size: 0; }
+.shape-lab label, .shape-lab fieldset { min-inline-size: 0; overflow-wrap: anywhere; }
+.shape-lab .mt-input { display: block; inline-size: 100%; margin-block-start: .5rem; }
+.shape-lab .shape-check { display: flex; align-items: center; gap: .75rem; min-block-size: 44px; }
+.shape-check input { flex: 0 0 auto; }
+.shape-corners { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap: 1rem; }
+.shape-lab fieldset { padding: 0; }
+.shape-lab input[type=range] { display: block; inline-size: 100%; min-block-size: 44px; }
+.shape-lab svg { inline-size: 200px; max-inline-size: 100%; block-size: auto; }
+.shape-lab p, .shape-lab summary, .shape-lab code { overflow-wrap: anywhere; }
+.shape-lab pre { white-space: pre-wrap; }
+.shape-lab summary { min-block-size: 44px; }
+.shape-lab [data-shape-toggle] { min-block-size: 44px; block-size: auto; white-space: normal; padding-block: .75rem; }
+.shape-lab [data-shape-surface] { padding: 16px; border: 2px solid var(--color-muted-foreground); background: var(--color-card); color: var(--color-card-foreground); transition-property: border-start-start-radius, border-start-end-radius, border-end-start-radius, border-end-end-radius; transition-duration: var(--duration-normal); transition-timing-function: var(--ease-out); }
+.shape-lab [data-shape-surface] h3 { color: inherit; font-weight: 600; }
+@media(prefers-reduced-motion: reduce) { .shape-lab [data-shape-surface] { transition-property: none; } }
+@media(forced-colors: active) { .shape-lab [data-shape-surface] { border-color: CanvasText; } .shape-lab svg rect, .shape-lab svg path { stroke: CanvasText; } }
