@@ -11,12 +11,12 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | Captured subject | Local candidate | Depth review |
 | --- | --- | --- |
 | [overview](https://m3.material.io/foundations/overview) | /guides/design-principles | Pending subject/subtab comparison |
-| [designing](https://m3.material.io/foundations/designing) | /guides/design-principles | Pending subject/subtab comparison |
+| [designing](https://m3.material.io/foundations/designing) | /guides/design-review; /guides/accessibility | Four subtab comparison mapped below; scoped runtime evidence in plan |
 | [writing](https://m3.material.io/foundations/writing) | /foundations/writing | Pending subject/subtab comparison |
 | [building-for-all](https://m3.material.io/foundations/building-for-all) | /guides/accessibility | Pending subject/subtab comparison |
 | [content-design/overview](https://m3.material.io/foundations/content-design/overview) | /foundations/writing | Pending subject/subtab comparison |
 | [content-design/alt-text](https://m3.material.io/foundations/content-design/alt-text) | /foundations/alternative-text | Pending subject/subtab comparison |
-| [content-design/global-writing](https://m3.material.io/foundations/content-design/global-writing) | /foundations/internationalization | Pending subject/subtab comparison |
+| [content-design/global-writing](https://m3.material.io/foundations/content-design/global-writing) | /foundations/internationalization | Word-choice subtopics and handoff mapped below |
 | [content-design/notifications](https://m3.material.io/foundations/content-design/notifications) | /foundations/notification-content | Pending subject/subtab comparison |
 | [content-design/style-guide](https://m3.material.io/foundations/content-design/style-guide) | /foundations/content-conventions | Pending subject/subtab comparison |
 | [customization](https://m3.material.io/foundations/customization) | /guides/theming | Pending subject/subtab comparison |
@@ -34,7 +34,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [layout/breakpoints](https://m3.material.io/foundations/layout/breakpoints) | /foundations/layout-compositions; /foundations/layout | Window-class/local-token distinction authored; runtime evidence in plan |
 | [layout/bidirectionality-rtl](https://m3.material.io/foundations/layout/bidirectionality-rtl) | /foundations/layout-compositions; /foundations/internationalization | Layout placement authored; full component/media mirroring audit remains pending |
 | [layout/canonical-examples](https://m3.material.io/foundations/layout/canonical-examples) | /foundations/layout-compositions; /patterns/navigation | Three arrangements implemented; URL/history belongs to navigation pattern |
-| [usability](https://m3.material.io/foundations/usability) | /foundations/inclusive-participation | Pending subject/subtab comparison |
+| [usability](https://m3.material.io/foundations/usability) | /guides/design-review; /foundations/inclusive-participation | Overview and expressive case-study subjects mapped below; no conducted study claimed |
 | [glossary](https://m3.material.io/foundations/glossary) | /guides/glossary | Pending subject/subtab comparison |
 | [overview/principles](https://m3.material.io/foundations/overview/principles) | /guides/accessibility | Pending subject/subtab comparison |
 | [design-tokens/overview](https://m3.material.io/foundations/design-tokens/overview) | /tokens | Pending subject/subtab comparison |
@@ -118,3 +118,24 @@ Six primary captures `material-layout-<topic>-20261014.json` cover layout-overvi
 | Canonical RTL placement | Bidirectionality and meaningful mirroring; actual logical container layout and unchanged DOM order |
 
 This supplies substantive layout guidance and a compiled fixture rather than declaring all layout/platform subjects complete. Runtime evidence is scoped to the named lab states and recorded in STYLEGUIDE-PLAN.md. Full component-specific RTL, actual fold/keyboard occlusion, native/spatial hardware, remote/cross-session persistence and the final requirement-wide audit remain distinct work/evidence boundaries.
+
+## Designing, usability and global-writing comparison
+
+Retained rendered overview captures: `material-foundation-designing-20261014.json`, `material-foundation-usability-20261014.json`, `material-foundation-content-design-global-writing-20261014.json`. Subtab captures use `material-foundations-designing-<topic>-20261014.json` (color-contrast, structure, flow, elements), `material-foundations-usability-applying-m-3-expressive-20261014.json` and `material-foundations-content-design-global-writing-word-choice-20261014.json`.
+
+| Reference subjects | Concrete authored treatment |
+| --- | --- |
+| Accessibility markup and implementation | Design handoff: Prepare an accessibility annotation; Worked request handoff; Copyable handoff template; compiled implementation |
+| Contrast ratios and clustered elements | Color, contrast and clustered controls; existing Colors contrast tool and Accessibility criteria |
+| Hierarchy, feedback, navigation, levels of importance, headings/landmarks | Structure, hierarchy and grouping; existing Design principles and Navigation patterns |
+| Target sizes, touch/pointer differences and spacing | Color, contrast and clustered controls; existing Input and gestures target/cancellation contract and Accessibility criteria |
+| Key traversal, defaults, task flows and shortcut requirements | Flow, defaults and key traversal; existing request fixture with validation/waiting/cancellation/recovery |
+| Element labels, contextual text, decorative exceptions, role redundancy and language style | Element names and contextual labels; Alternative text and Content conventions |
+| Usability versus accessibility, goals and iteration | Two complementary questions; Evaluate and iterate; Inclusive Participation process |
+| Color, containment, motion, shape/morph, size and type tactics | Usability tactics with a purpose; existing corresponding foundations/tools |
+| Expressive example-app stages and testing | Original request task states rather than reproduced wellness screens; task-linked tactics, scale/placement, consistent role pairs and calm grouping; no human outcome or study claimed |
+| Global examples and local references, short sentences, abbreviation, idiom/politeness and jargon | Internationalization: Global word choice and local context, with original English before/after examples |
+| Pronouns, this/that and ambiguity | Internationalization: Pronouns, references and ambiguity, with explicit object/time/scope examples |
+| Translation context and linguistic boundaries | Internationalization: Translation handoff and semantic integrity; existing formatting/direction lab and source-authority separation |
+
+Runtime checks and remaining scope are in STYLEGUIDE-PLAN.md. The handoff JSON is expressly unexecuted; the existing compiled request demonstrates local behavior. A source comparison or technical walkthrough does not establish a participant study, spoken assistive-technology behavior or permission to publish language data.

@@ -17,6 +17,7 @@ export const sections: NavSection[] = [
     items: [
       { label: 'Getting Started', href: '/guides/getting-started' },
       { label: 'Design Principles', href: '/guides/design-principles' },
+      { label: 'Design Handoff and Usability', href: '/guides/design-review' },
       { label: 'Accessibility', href: '/guides/accessibility' },
       { label: 'Theming', href: '/guides/theming' },
       { label: 'Component Specifications', href: '/guides/component-specifications' },
