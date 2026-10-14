@@ -165,6 +165,7 @@ test('ordinary expiry pauses while the viewport has keyboard focus and resumes a
   assert.equal(evaluate('document.querySelectorAll(".mt-toast").length'), 1);
   browser('press', 'Shift+Tab');
   browser('wait', '--fn', '!document.querySelector(".mt-toast")');
+  assert.match(evaluate('document.querySelector("[data-notification-feedback]").textContent'),/Local notification 1/);
 });
 
 test('communication guides reflow at 320px in both themes and preserve readable message text', () => {
@@ -227,6 +228,56 @@ test('measured progress endpoint remains visible at the logical end in both them
     }
     click('Use unknown total');assert.equal(evaluate('getComputedStyle(document.querySelector(".mt-progress-track"),"::after").content'),'none');
     assert.equal(evaluate('document.querySelector("[data-progress-lab] .mt-progress").hasAttribute("aria-valuenow")'),false);
+  }
+  evaluate("document.documentElement.style.fontSize=''");browser('set','viewport','1440','1000');
+});
+
+test('opening the local inbox clears unread state while retaining actual messages',()=>{
+  open('/components/badge','[data-badge-lab]');
+  assert.equal(evaluate('!!document.querySelector("[data-inbox-dot]")'),false);
+  click('Add local inbox notification');click('Add local inbox notification');
+  assert.match(evaluate('document.querySelector("[data-inbox-trigger]").getAttribute("aria-label")'),/2 unread notifications/);
+  browser('set','viewport','320','1000');
+  for(const direction of ['ltr','rtl']){
+    evaluate(`document.documentElement.style.fontSize='200%';document.querySelector('[data-badge-lab]').dir='${direction}';`);
+    const geometry=evaluate('(()=>{const dot=document.querySelector("[data-inbox-dot]").getBoundingClientRect(),icon=document.querySelector("[data-inbox-icon]").getBoundingClientRect();return {dot:dot.toJSON(),icon:icon.toJSON(),width:document.documentElement.scrollWidth};})()');
+    assert.equal(geometry.width,320);assert.equal(geometry.dot.width,6);
+    assert.equal(direction==='rtl'?geometry.dot.left:geometry.dot.right,direction==='rtl'?geometry.icon.left:geometry.icon.right);
+  }
+  browser('focus','[data-inbox-trigger]');browser('press','Enter');
+  browser('wait','--fn','!document.querySelector("[data-inbox-dot]")');
+  assert.equal(evaluate('document.querySelectorAll("#badge-local-inbox li").length'),2);
+  click('Add local inbox notification');assert.equal(evaluate('!!document.querySelector("[data-inbox-dot]")'),false);
+  click('Close local inbox');assert.equal(evaluate('document.activeElement.hasAttribute("data-inbox-trigger")'),true);
+  click('Add local inbox notification');
+  assert.match(evaluate('document.querySelector("[data-inbox-trigger]").getAttribute("aria-label")'),/1 unread notification/);
+  assert.equal(evaluate('document.querySelectorAll("#badge-local-inbox li").length'),4);
+  evaluate("document.documentElement.style.fontSize=''");browser('set','viewport','1440','1000');
+});
+
+test('one-visible notification policy retains inline feedback and independent recovery',()=>{
+  open('/components/toast','[data-toast-lab]');browser('scrollintoview','[data-toast-delivery]');browser('click','[data-toast-delivery]');
+  for(let index=0;index<3;index++)click('Add local notification');
+  assert.equal(evaluate('[...document.querySelectorAll(".mt-toast")].filter(n=>getComputedStyle(n).display!=="none").length'),1);
+  assert.ok(evaluate('[...document.querySelectorAll(".mt-toast[data-limited]")].every(n=>n.hasAttribute("inert"))'));
+  assert.equal(evaluate('document.activeElement.textContent'),'Add local notification');
+  assert.equal(evaluate('document.querySelector("[data-toast-delivery]").disabled'),true);
+  assert.match(evaluate('document.querySelector("[data-notification-feedback]").textContent'),/Local notification 3/);
+  click('Remove example draft');click('Add local notification');click('Restore example draft');
+  assert.match(evaluate('document.querySelector("[data-toast-lab] > [role=status]").textContent'),/persistent recovery action/);
+  assert.equal(evaluate('[...document.querySelectorAll(".mt-toast")].filter(n=>getComputedStyle(n).display!=="none").length'),1);
+});
+
+test('enlarged narrow notifications retain whole words and a reachable dismiss control',()=>{
+  browser('set','viewport','320','1000');
+  for(const theme of ['light','dark']){
+    open('/components/toast','[data-toast-lab]');
+    evaluate(`document.documentElement.style.fontSize='200%';localStorage.setItem('mt-theme','${theme}');window.dispatchEvent(new Event('storage'));`);browser('wait',`html.${theme}`);
+    click('Add local notification');settleNotificationMotion();
+    const measured=evaluate('(()=>{const root=document.querySelector(".mt-toast"),walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),broken=[];let words=0;while(walker.nextNode()){const node=walker.currentNode;for(const word of node.textContent.matchAll(/\\S+/g)){words++;const range=document.createRange();range.setStart(node,word.index);range.setEnd(node,word.index+word[0].length);if(range.getClientRects().length>1)broken.push(word[0]);}}const close=root.querySelector(".mt-toast-close");return {width:document.documentElement.scrollWidth,words,broken,close:close.getBoundingClientRect().toJSON(),position:getComputedStyle(close).position};})()');
+    assert.equal(measured.width,320);assert.ok(measured.words>=10,'Measure actual title and description words');assert.deepEqual(measured.broken,[]);assert.equal(measured.position,'static');assert.ok(measured.close.width>=44&&measured.close.height>=44);
+    browser('scrollintoview','.mt-toast-close');browser('focus','.mt-toast-close');browser('press','Enter');browser('wait','--fn','!document.querySelector(".mt-toast")');
+    assert.match(evaluate('document.querySelector("[data-notification-feedback]").textContent'),/Local notification 1/);
   }
   evaluate("document.documentElement.style.fontSize=''");browser('set','viewport','1440','1000');
 });

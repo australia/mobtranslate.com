@@ -593,7 +593,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "calc(100dvh - 2rem)",
     "value": "calc(100dvh - 2rem)",
     "source": "packages/ui/src/components/components.css",
-    "line": 1351,
+    "line": 1358,
     "origin": "declaration",
     "note": ""
   },
@@ -606,7 +606,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "auto",
     "value": "auto",
     "source": "packages/ui/src/components/components.css",
-    "line": 1546,
+    "line": 1553,
     "origin": "declaration",
     "note": "Content-driven height; use triggerMinHeight for the target minimum."
   },
@@ -619,7 +619,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "44px",
     "value": "44px",
     "source": "packages/ui/src/components/components.css",
-    "line": 1546,
+    "line": 1553,
     "origin": "declaration",
     "note": ""
   },
@@ -632,7 +632,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "min(320px, var(--available-height, 80dvh))",
     "value": "min(320px, var(--available-height, 80dvh))",
     "source": "packages/ui/src/components/components.css",
-    "line": 1550,
+    "line": 1557,
     "origin": "declaration",
     "note": ""
   },
@@ -645,7 +645,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "min(304px, calc(var(--available-height, 80dvh) - 12px))",
     "value": "min(304px, calc(var(--available-height, 80dvh) - 12px))",
     "source": "packages/ui/src/components/components.css",
-    "line": 1552,
+    "line": 1559,
     "origin": "declaration",
     "note": ""
   },
@@ -658,7 +658,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "8px 12px",
     "value": "12px",
     "source": "packages/ui/src/components/components.css",
-    "line": 1553,
+    "line": 1560,
     "origin": "declaration",
     "note": ""
   },
@@ -671,7 +671,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "8px 12px",
     "value": "8px",
     "source": "packages/ui/src/components/components.css",
-    "line": 1553,
+    "line": 1560,
     "origin": "declaration",
     "note": ""
   },
@@ -710,7 +710,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "44px",
     "value": "44px",
     "source": "packages/ui/src/components/components.css",
-    "line": 1482,
+    "line": 1489,
     "origin": "declaration",
     "note": ""
   },
@@ -801,7 +801,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "min(20rem, calc(100vw - 16px))",
     "value": "min(20rem, calc(100vw - 16px))",
     "source": "packages/ui/src/components/components.css",
-    "line": 1607,
+    "line": 1614,
     "origin": "declaration",
     "note": ""
   },
@@ -840,7 +840,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "min(24rem, calc(100vw - 16px))",
     "value": "min(24rem, calc(100vw - 16px))",
     "source": "packages/ui/src/components/components.css",
-    "line": 1606,
+    "line": 1613,
     "origin": "declaration",
     "note": ""
   },
@@ -853,7 +853,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "1rem",
     "value": "1rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 536,
+    "line": 537,
     "origin": "declaration",
     "note": "Base padding, inspected through the block start. The logical end override is a separate field."
   },
@@ -866,7 +866,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "3.5rem",
     "value": "3.5rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 543,
+    "line": 544,
     "origin": "declaration",
     "note": "Reserves space for the close action; differs from the base padding."
   },
@@ -879,7 +879,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "var(--radius-lg)",
     "value": "var(--radius-lg)",
     "source": "packages/ui/src/components/components.css",
-    "line": 535,
+    "line": 536,
     "origin": "declaration",
     "note": ""
   },
@@ -892,7 +892,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "26rem",
     "value": "26rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 526,
+    "line": 527,
     "origin": "declaration",
     "note": "The viewport bounds the toast stack; individual toasts fill that context."
   },
@@ -1009,7 +1009,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "0.375rem",
     "value": "0.375rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 619,
+    "line": 626,
     "origin": "declaration",
     "note": ""
   },
@@ -1022,7 +1022,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "44px",
     "value": "44px",
     "source": "packages/ui/src/components/components.css",
-    "line": 1378,
+    "line": 1385,
     "origin": "declaration",
     "note": "Interactive target dimension, not the smaller painted marker."
   },
@@ -1035,7 +1035,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "20px",
     "value": "20px",
     "source": "packages/ui/src/components/components.css",
-    "line": 1379,
+    "line": 1386,
     "origin": "declaration",
     "note": "Painted marker; its border is included under border-box sizing."
   },
@@ -1048,7 +1048,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "var(--radius-full)",
     "value": "var(--radius-full)",
     "source": "packages/ui/src/components/components.css",
-    "line": 621,
+    "line": 628,
     "origin": "declaration",
     "note": ""
   },
@@ -1061,7 +1061,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "0.5rem",
     "value": "0.5rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 576,
+    "line": 583,
     "origin": "declaration",
     "note": ""
   },
@@ -1074,7 +1074,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "var(--radius-full)",
     "value": "var(--radius-full)",
     "source": "packages/ui/src/components/components.css",
-    "line": 578,
+    "line": 585,
     "origin": "declaration",
     "note": ""
   },
@@ -1126,7 +1126,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "min(12rem, calc(100vw - 2rem))",
     "value": "min(12rem, calc(100vw - 2rem))",
     "source": "packages/ui/src/components/components.css",
-    "line": 1451,
+    "line": 1458,
     "origin": "declaration",
     "note": ""
   },
@@ -1178,7 +1178,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "2rem",
     "value": "2rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 715,
+    "line": 722,
     "origin": "declaration",
     "note": ""
   },
@@ -1191,7 +1191,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "var(--text-xs)",
     "value": "0.75rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 715,
+    "line": 722,
     "origin": "declaration",
     "note": ""
   },
@@ -1204,7 +1204,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "2.5rem",
     "value": "2.5rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 716,
+    "line": 723,
     "origin": "declaration",
     "note": ""
   },
@@ -1217,7 +1217,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "var(--text-sm)",
     "value": "0.875rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 716,
+    "line": 723,
     "origin": "declaration",
     "note": ""
   },
@@ -1230,7 +1230,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "3rem",
     "value": "3rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 717,
+    "line": 724,
     "origin": "declaration",
     "note": ""
   },
@@ -1243,7 +1243,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "var(--text-base)",
     "value": "1rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 717,
+    "line": 724,
     "origin": "declaration",
     "note": ""
   },
@@ -1256,7 +1256,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "4rem",
     "value": "4rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 718,
+    "line": 725,
     "origin": "declaration",
     "note": ""
   },
@@ -1269,7 +1269,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "var(--text-xl)",
     "value": "1.25rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 718,
+    "line": 725,
     "origin": "declaration",
     "note": ""
   },
@@ -1295,7 +1295,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "0.5rem",
     "value": "0.5rem",
     "source": "packages/ui/src/components/components.css",
-    "line": 740,
+    "line": 747,
     "origin": "declaration",
     "note": ""
   },
@@ -1308,7 +1308,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "var(--radius-full)",
     "value": "var(--radius-full)",
     "source": "packages/ui/src/components/components.css",
-    "line": 742,
+    "line": 749,
     "origin": "declaration",
     "note": ""
   },
@@ -1321,7 +1321,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "24px",
     "value": "24px",
     "source": "packages/ui/src/components/components.css",
-    "line": 1641,
+    "line": 1648,
     "origin": "declaration",
     "note": ""
   },
@@ -1334,7 +1334,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "24px",
     "value": "24px",
     "source": "packages/ui/src/components/components.css",
-    "line": 1642,
+    "line": 1649,
     "origin": "declaration",
     "note": ""
   },
@@ -1347,7 +1347,7 @@ export const componentTokenSpecifications = [
     "sourceValue": "var(--radius-sm)",
     "value": "var(--radius-sm)",
     "source": "packages/ui/src/components/components.css",
-    "line": 1643,
+    "line": 1650,
     "origin": "declaration",
     "note": "Thumb corner radius; the outer track is rectangular."
   }

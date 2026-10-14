@@ -1,0 +1,128 @@
+[
+  {
+    "path": "/components/badge",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/badge",
+    "state": "unread",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Add local inbox notification",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Add local inbox notification",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/badge",
+    "state": "read-retained",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Add local inbox notification",
+        "--exact"
+      ],
+      [
+        "click",
+        "[data-inbox-trigger]"
+      ]
+    ]
+  },
+  {
+    "path": "/components/toast",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/toast",
+    "state": "ordinary",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Add local notification",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/toast",
+    "state": "single-visible",
+    "actions": [
+      [
+        "click",
+        "[data-toast-delivery]"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Add local notification",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Add local notification",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/toast",
+    "state": "undo",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Remove example draft",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/toast",
+    "state": "promise-pending",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Start local promise",
+        "--exact"
+      ]
+    ]
+  }
+]

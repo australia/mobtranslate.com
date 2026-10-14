@@ -27,13 +27,33 @@ export function AlertCommunicationExample() {
 
 export function BadgeCommunicationExample() {
   const [count, setCount] = useState(1);
+  const [messages, setMessages] = useState<{id:number;subject:string}[]>([]);
+  const [unread, setUnread] = useState(0);
+  const [inboxOpen, setInboxOpen] = useState(false);
+  const inboxTrigger=useRef<HTMLElement>(null);
+  const messageId=useRef(0);
   const [shape, setShape] = useState<NonNullable<BadgeProps['shape']>>('pill');
   return <div data-badge-lab className="space-y-4">
     <label className="block">Badge shape <select value={shape} onChange={event => setShape(event.target.value as NonNullable<BadgeProps['shape']>)} className="mt-input"><option value="pill">Pill</option><option value="rounded">Rounded</option></select></label>
     <div className="flex flex-wrap gap-3">{badgeVariants.map(variant => <Badge key={variant} variant={variant} shape={shape} data-tone={variant}>{variant} example</Badge>)}</div>
-    <p>Local notifications <span aria-hidden="true" style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: 'var(--color-primary)' }} /><VisuallyHidden>New local notifications available.</VisuallyHidden></p>
+
     <label className="block">Local task count <input type="range" min="0" max="120" value={count} onChange={event => setCount(Number(event.target.value))} className="block w-full" /></label>
     <p role="status" aria-atomic="true">{count === 0 ? 'No local tasks.' : <>Local tasks: <Badge data-count-badge shape={shape}><span aria-hidden="true">{count > 99 ? '99+' : count}</span><VisuallyHidden>{count} {count === 1 ? 'task' : 'tasks'}</VisuallyHidden></Badge></>}</p>
     <p className="text-sm">The compact count caps at 99+ visually; its text alternative retains the actual count. This badge is read-only, not a filter or a review credential.</p>
+    <h3>Local inbox and unread ownership</h3>
+    <div className="flex flex-wrap gap-3">
+      <Button type="button" variant="outline" onClick={()=>{const id=++messageId.current;setMessages(items=>[...items,{id,subject:`Local example notification ${id}`}]);setUnread(current=>inboxOpen?0:current+1);}}>Add local inbox notification</Button>
+      <Button ref={inboxTrigger} data-inbox-trigger type="button" variant="outline" aria-label={`Open local inbox, ${unread?`${unread} unread ${unread===1?'notification':'notifications'}`:'no unread notifications'}`} aria-expanded={inboxOpen} aria-controls="badge-local-inbox" onClick={()=>{setInboxOpen(true);setUnread(0);}}>
+        <span aria-hidden="true" data-inbox-icon style={{position:'relative',display:'inline-block',width:24,height:24,flexShrink:0}}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{position:'absolute',insetInlineStart:0,insetBlockEnd:0}}><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+          {unread>0&&<span data-inbox-dot style={{position:'absolute',insetBlockStart:0,insetInlineEnd:0,width:6,height:6,borderRadius:'50%',background:'var(--color-error)'}}/>}
+        </span>Open local inbox
+      </Button>
+    </div>
+    <section id="badge-local-inbox" aria-label="Local inbox" hidden={!inboxOpen}>
+      <p>{messages.length?`${messages.length} retained local notifications. Opening marks them read; it does not delete them.`:'No local notifications yet.'}</p>
+      <ul>{messages.map(message=><li key={message.id}>{message.subject}</li>)}</ul>
+      <Button type="button" variant="outline" onClick={()=>{setInboxOpen(false);inboxTrigger.current?.focus();}}>Close local inbox</Button>
+    </section>
   </div>;
 }

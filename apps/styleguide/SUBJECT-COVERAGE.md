@@ -421,3 +421,12 @@ Reviewed all eight captured text tabs for loading-indicator and progress-indicat
 - Loading indicator: named unknown CircularProgress plus persistent task status is the documented web adaptation. The seven-shape expressive loader, native container roles and Android pull-to-refresh recognizer are identified as reference behavior; this library does not claim those native APIs. Reference timings and dp measurements are advice, not a delayed-response mechanism or converted CSS tokens. An explicit request action and real recovery are linked to the implemented Search pattern.
 
 The two families’ runtime/contrast evidence is recorded in STYLEGUIDE-PLAN.md. This brings substantive text comparison to ten of 36 families; the remaining 26 require comparison. This count does not imply full requirement-wide completion.
+
+
+## Badge and snackbar chapter comparison
+
+Reviewed all eight captured overview/specs/guidelines/accessibility text tabs for badges and snackbar. Badge now distinguishes notification ownership from general metadata, source small/large counts and native sizes from local span styling, four-character guidance, full count alternatives, selected/read behavior, logical anchoring/collision handling, contrast and coherent owner naming. Its working local inbox retains actual message records while opening clears unread state; a reserved icon corner avoids glyph overlap.
+
+Toast now covers Material’s one-visible-message policy versus this library’s optional stack, optional action/close, plain text, opaque roles, wrapping/200% text, native versus local dimensions, placement relative to focused controls/navigation/FABs, auto-dismiss versus persistent actions, inline fallback, polite announcements and the pinned F6/Tab/Escape focus path. The example adds a one-visible limit and retained inline ordinary feedback; it does not claim first-in-first-out delivery or automatic FAB displacement. Independently retained task recovery remains required.
+
+Runtime verification is recorded in STYLEGUIDE-PLAN.md. Detailed comparison now covers twelve of 36 families; 24 remain, together with the original requirement-wide audit.

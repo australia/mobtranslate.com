@@ -516,6 +516,7 @@
 
 /* === TOAST === */
 .mt-toast-viewport {
+  container-type: inline-size;
   position: fixed;
   inset-block-end: max(1rem, env(safe-area-inset-bottom));
   inset-inline-end: 1rem;
@@ -567,6 +568,12 @@
   justify-content: center;
 }
 .mt-toast-close:hover { background: var(--color-muted); color: var(--color-foreground); }
+
+/* Narrow notification regions give text the full width and keep dismissal in flow. */
+@container (max-width: 20rem) {
+  .mt-toast { padding-inline-end: 1rem; }
+  .mt-toast-close { position: static; display: flex; margin-inline-start: auto; }
+}
 
 /* === PROGRESS === */
 .mt-progress { width: 100%; }
