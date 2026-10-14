@@ -556,7 +556,8 @@ test('mobile search supports keyboard submission and focused section navigation 
   browser('press', 'Enter');
   browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("indexed pages")');
   assert.equal(evaluate('document.documentElement.scrollWidth > innerWidth'), false);
-  browser('wait', '--fn', `Boolean(document.querySelector('.search-results a[href="/components/button#composition-and-refs"]'))`);
+  try { browser('wait', '--fn', `Boolean(document.querySelector('.search-results a[href="/components/button#composition-and-refs"]'))`); }
+  catch(error) { assert.fail(`${error.message}; ${JSON.stringify(evaluate(`({url:location.href,query:document.querySelector('#guidance-query')?.value,status:document.querySelector('[data-search-status]')?.textContent,links:[...document.querySelectorAll('.search-results a')].map(n=>n.getAttribute('href'))})`))}`); }
   const resultState = evaluate(`({ query: document.querySelector('#guidance-query').value, url: location.href, status: document.querySelector('[data-search-status]').textContent, links: [...document.querySelectorAll('.search-results a')].map(link => link.getAttribute('href')) })`);
   assert.ok(resultState.links.includes('/components/button#composition-and-refs'), JSON.stringify(resultState));
   browser('scrollintoview', '.search-results a[href="/components/button#composition-and-refs"]');

@@ -2,9 +2,14 @@
 import * as React from 'react';
 import { cn } from '../../utils/cn';
 
-export const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
-  ({ className, ...props }, ref) => (
-    <div className="mt-table-wrapper">
+export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
+  containerProps?: React.HTMLAttributes<HTMLDivElement> & { [key: `data-${string}`]: unknown };
+  containerRef?: React.Ref<HTMLDivElement>;
+}
+
+export const Table = React.forwardRef<HTMLTableElement, TableProps>(
+  ({ className, containerProps, containerRef, ...props }, ref) => (
+    <div {...containerProps} ref={containerRef} className={cn('mt-table-wrapper', containerProps?.className)}>
       <table ref={ref} className={cn('mt-table', className)} {...props} />
     </div>
   )
