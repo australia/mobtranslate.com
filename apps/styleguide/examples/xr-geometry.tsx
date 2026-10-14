@@ -4,6 +4,7 @@ import {Button} from '@mobtranslate/ui';
 import {CodeBlock} from '../components/code-block';
 import {geometryFields,initialGeometry,resolveGeometry,type XRGeometry} from '../lib/xr-geometry';
 
+const actionStyle={maxWidth:'100%',height:'auto',minHeight:44,whiteSpace:'normal',overflowWrap:'anywhere'} as const;
 type Mode='immersive-vr'|'immersive-ar';
 type SupportAPI={isSessionSupported(mode:Mode):Promise<boolean>};
 export function XRGeometryExample() {
@@ -61,16 +62,16 @@ export function XRGeometryExample() {
       <p className="mt-2">Solid segment: panel width. Point: observer. Dashed segment: viewing distance. Rays: panel-edge sight lines.</p>
     </div>}
     <div className="flex flex-wrap gap-3">
-      <Button data-xr-capture type="button" disabled={!ready||!geometry} onClick={()=>{if(geometry)setProposal({...geometry});}}>Capture geometry proposal</Button>
-      <Button type="button" variant="outline" disabled={!ready} onClick={()=>setDraft({...initialGeometry})}>Reset geometry inputs</Button>
+      <Button data-xr-capture style={actionStyle} type="button" disabled={!ready||!geometry} onClick={()=>{if(geometry)setProposal({...geometry});}}>Capture geometry proposal</Button>
+      <Button style={actionStyle} type="button" variant="outline" disabled={!ready} onClick={()=>setDraft({...initialGeometry})}>Reset geometry inputs</Button>
     </div>
     {proposal&&<div data-xr-proposal><p className="font-semibold">Local geometry proposal</p><p>This frozen copy remains unchanged while you edit. It is not applied to a device, saved remotely or a comfort approval.</p><CodeBlock language="json" code={JSON.stringify({units:'metres',assumption:'Frontal panel centered on a point observer',...proposal},null,2)} /></div>}
     <div className="border-t border-[var(--color-border)] pt-5 space-y-3">
       <label htmlFor="xr-mode" className="block">WebXR mode to check</label>
       <select id="xr-mode" className="mt-input w-full" disabled={!ready} value={mode} onChange={event=>setMode(event.target.value as Mode)}><option value="immersive-vr">Immersive VR</option><option value="immersive-ar">Immersive AR</option></select>
-      <Button type="button" disabled={!ready||busy} loading={busy} onClick={()=>void checkSupport()}>Check browser support</Button>
+      <Button style={actionStyle} type="button" disabled={!ready||busy} loading={busy} onClick={()=>void checkSupport()}>Check browser support</Button>
       <p role="status" data-xr-support>{probe}</p>
-      <p>The check calls isSessionSupported only after activation. It does not request an immersive session, read poses or start camera, audio or sensor capture. Changing the selected mode invalidates a pending result.</p>
+      <p style={{overflowWrap:'anywhere'}}>The check calls isSessionSupported only after activation. It does not request an immersive session, read poses or start camera, audio or sensor capture. Changing the selected mode invalidates a pending result.</p>
     </div>
   </div>;
 }

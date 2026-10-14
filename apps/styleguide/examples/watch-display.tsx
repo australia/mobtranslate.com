@@ -34,6 +34,6 @@ export function WatchDisplayExample() {
     <p data-watch-geometry>{side} × {side} CSS px content viewport. {shape==='round'?'The square and its reserved focus margin fit inside the circle.':'The content viewport leaves an edge inset.'} Longer content scrolls without shrinking its text.</p>
     <p role="status" data-watch-status>{status}</p>
     {saved!==null&&<div><p className="font-semibold">Local saved snapshot</p><p data-watch-snapshot lang="en" dir="auto" className="whitespace-pre-wrap break-words">{saved}</p></div>}
-    <Button type="button" variant="outline" disabled={!ready||saved===null} onClick={()=>{setSaved(null);setStatus('Local saved snapshot cleared; the editable note is retained.');}}>Clear local saved snapshot</Button>
+    <Button type="button" variant="outline" style={{maxWidth:'100%',height:'auto',minHeight:44,whiteSpace:'normal',overflowWrap:'anywhere'}} disabled={!ready||saved===null} onClick={()=>{setSaved(null);setStatus('Local saved snapshot cleared; the editable note is retained.');}}>Clear local saved snapshot</Button>
   </div>;
 }

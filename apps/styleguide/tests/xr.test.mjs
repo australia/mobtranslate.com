@@ -66,6 +66,11 @@ test('keyboard capture and invalid-input recovery remain operable at 320px in bo
   browser('set','viewport','320','812');
   for(const theme of ['light','dark']) {
     open();evaluate(`localStorage.setItem('mt-theme',${JSON.stringify(theme)});window.dispatchEvent(new Event('storage'))`);browser('wait',`html.${theme}`);
+    evaluate("document.documentElement.style.fontSize='200%'");browser('wait','--fn',"getComputedStyle(document.documentElement).fontSize==='32px'");
+    for(const name of ['Capture geometry proposal','Reset geometry inputs','Check browser support']) {
+      const bounds=evaluate(`(()=>{const b=[...document.querySelectorAll('main button')].find(b=>b.textContent.trim()===${JSON.stringify(name)});const r=b.getBoundingClientRect();return {left:r.left,right:r.right,height:r.height,width:innerWidth};})()`);
+      assert.ok(bounds.left>=0&&bounds.right<=bounds.width&&bounds.height>=44,JSON.stringify(bounds));
+    }
     browser('focus','[data-xr-capture]');browser('press','Enter');browser('wait','[data-xr-proposal]');
     assert.equal(evaluate('document.documentElement.scrollWidth>innerWidth'),false);
     browser('fill','#xr-height','0.001');browser('wait','#xr-height-error');

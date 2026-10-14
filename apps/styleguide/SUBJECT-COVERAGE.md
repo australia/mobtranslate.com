@@ -15,14 +15,14 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [writing](https://m3.material.io/foundations/writing) | /guides/accessibility; /foundations/alternative-text; /foundations/typography | Three accessible-writing tabs compared below; retained text/disclosure and resizing specimen |
 | [building-for-all](https://m3.material.io/foundations/building-for-all) | /foundations/inclusive-participation; /guides/accessibility | Both user-needs/co-design tabs compared below; explicit unexecuted collaboration plan |
 | [content-design/overview](https://m3.material.io/foundations/content-design/overview) | /foundations/writing; /foundations/content-conventions | UX writing/AP-resource scope compared below; separate from accessible-writing chapter |
-| [content-design/alt-text](https://m3.material.io/foundations/content-design/alt-text) | /foundations/alternative-text | Pending subject/subtab comparison |
+| [content-design/alt-text](https://m3.material.io/foundations/content-design/alt-text) | /foundations/alternative-text | Purpose/context, length discrepancy, editorial/analytical charts and motion subjects compared below |
 | [content-design/global-writing](https://m3.material.io/foundations/content-design/global-writing) | /foundations/internationalization | Word-choice subtopics and handoff mapped below |
-| [content-design/notifications](https://m3.material.io/foundations/content-design/notifications) | /foundations/notification-content | Pending subject/subtab comparison |
-| [content-design/style-guide](https://m3.material.io/foundations/content-design/style-guide) | /foundations/content-conventions | Pending subject/subtab comparison |
+| [content-design/notifications](https://m3.material.io/foundations/content-design/notifications) | /foundations/notification-content | All captured content subjects compared below; explicit compact targets and transport/attention boundaries |
+| [content-design/style-guide](https://m3.material.io/foundations/content-design/style-guide) | /foundations/content-conventions | All three style tabs compared below; deliberate local punctuation/grammar exceptions recorded |
 | [customization](https://m3.material.io/foundations/customization) | /guides/theming; /foundations/color-schemes; /tokens | Brand/personalization/fallback/export subjects compared below; reused actual tools |
-| [watches](https://m3.material.io/foundations/watches) | /foundations/watches | Pending subject/subtab comparison |
-| [xr/design](https://m3.material.io/foundations/xr/design) | /foundations/xr | Pending subject/subtab comparison |
-| [xr/components](https://m3.material.io/foundations/xr/components) | /foundations/xr | Pending subject/subtab comparison |
+| [watches](https://m3.material.io/foundations/watches) | /foundations/watches | All four watch tabs compared below; anatomy/surfaces, native type/color/layout and existing geometry/local task |
+| [xr/design](https://m3.material.io/foundations/xr/design) | /foundations/xr | All four design tabs compared below; native defaults/FOV/accessibility versus bounded web geometry |
+| [xr/components](https://m3.material.io/foundations/xr/components) | /foundations/xr | All six index/component tabs compared below; variants/anatomy/placement and inspected measurement figures |
 | [design-tokens](https://m3.material.io/foundations/design-tokens) | /tokens | Overview/use chapters compared below; actual declared-reference closure and current source/code contract |
 | [interaction/gestures](https://m3.material.io/foundations/interaction/gestures) | /foundations/input-gestures | Six rendered interaction chapters compared below; compiled recovery/reordering and reused batch-selection flows |
 | [interaction/inputs](https://m3.material.io/foundations/interaction/inputs) | /foundations/input-gestures | Six rendered interaction chapters compared below; compiled recovery/reordering and reused batch-selection flows |
@@ -35,12 +35,12 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [layout/bidirectionality-rtl](https://m3.material.io/foundations/layout/bidirectionality-rtl) | /foundations/layout-compositions; /foundations/internationalization | Layout placement authored; full component/media mirroring audit remains pending |
 | [layout/canonical-examples](https://m3.material.io/foundations/layout/canonical-examples) | /foundations/layout-compositions; /patterns/navigation | Three arrangements implemented; URL/history belongs to navigation pattern |
 | [usability](https://m3.material.io/foundations/usability) | /guides/design-review; /foundations/inclusive-participation | Overview and expressive case-study subjects mapped below; no conducted study claimed |
-| [glossary](https://m3.material.io/foundations/glossary) | /guides/glossary | Pending subject/subtab comparison |
+| [glossary](https://m3.material.io/foundations/glossary) | /guides/glossary | Captured 67 headings/93 authored entries checked; stale color-tool guidance corrected and tone shorthand qualified |
 | [overview/principles](https://m3.material.io/foundations/overview/principles) | /guides/accessibility | Same reviewed accessibility-principles chapter as overview alias |
 | [design-tokens/overview](https://m3.material.io/foundations/design-tokens/overview) | /tokens | Overview/use chapters compared below; actual declared-reference closure and current source/code contract |
 | [interaction/states/overview](https://m3.material.io/foundations/interaction/states/overview) | /foundations/interaction-states | Six rendered interaction chapters compared below; compiled recovery/reordering and reused batch-selection flows |
-| [layout/understanding-layout/overview](https://m3.material.io/foundations/layout/understanding-layout/overview) | /foundations/layout | Pending subject/subtab comparison |
-| [building-for-all/user-needs](https://m3.material.io/foundations/building-for-all/user-needs) | /foundations/inclusive-participation | Pending subject/subtab comparison |
+| [layout/understanding-layout/overview](https://m3.material.io/foundations/layout/understanding-layout/overview) | /foundations/layout | Captured alias resolves to reviewed layout-overview/overview; naming change and actual canonical layout guidance |
+| [building-for-all/user-needs](https://m3.material.io/foundations/building-for-all/user-needs) | /foundations/inclusive-participation | Same user-needs chapter reviewed with co-design; thirteen dimension prompts and bounded participation plan |
 
 ## styles
 
@@ -352,3 +352,35 @@ The overview alias resolves to accessibility principles; writing resolves to acc
 | Exclusion harm and AI/model bias questions | Who is excluded and what can change; source/evaluation/ranking/confidence/authority boundaries |
 
 The text specimen changes local presentation, not an OS/app preference. Synthetic English examples, source code, DOM names and automated checks do not establish speech/braille output, switch/voice/physical-device performance, qualified language review, participation or a full accessibility conformance claim.
+
+## Remaining content and glossary rows reconciled
+
+| Captured subject | Actual local sections/behavior | Scoped evidence |
+| --- | --- | --- |
+| Alt text purpose, meaning, length, context/captions, image types | Purpose/DOM lab; explicit 140 versus 125 advice; source/permission qualification; caption/redundancy; functional names | Original shared SVG/table, independent drafts, real action and focus return; existing alternative-text suite |
+| Editorial versus analytical charts, complex data, motion | Editorial claims versus analytical exploration; detailed table/source route; video/motion alternatives | Actual fixture and structured values; no general chart engine or spoken-output claim |
+| Notifications: relevance/lead/action, dynamic fields, limits, SMS, emoji/tone, timing, interruption, branding, opt-out | Existing captured-history/attention model plus new reference-target table and encoding/renderer distinctions | Local captures, preference/queue ownership, singular/plural, no sending, redacted preview/opened record; existing notice-content suite |
+| UX writing/word choice/grammar three tabs | Existing concrete conventions plus explicit reference/project differences for periods, quotation commas, compact millions, command ellipses, ranges/hyphen function and speaking role | Editable message action, actual locale/count behavior and retained source text; related baseline/notice suites |
+| Material A–Z | All 67 captured headings plus 26 local terms; definition, decision, failure and related route per entry | glossary:check and inclusive/glossary suite; actual color tool links replace obsolete future-engine prose |
+| Tone-difference shorthand | Current glossary still directs actual ratio/state testing; nominal SDK tones 50/100 give 4.4836056604 | glossary-tone-reference-audit.json; direct installed module calculation, not rendered-gamut or physical evidence |
+| User-needs alias | Same thirteen dimension prompts and co-design/decision process already compared | Existing unexecuted participation template and inclusive suite; no recruitment/review inferred |
+| Understanding-layout alias | Resolves to /layout/layout-overview/overview; original canonical/parts/adaptive comparison remains applicable | Fresh rendered alias capture; explicit May 2026 naming change, not a second invented layout system |
+
+## Watch and XR subtab comparison
+
+Captured full text/links: `material-native-watches-{foundations,styles,layout}-20261014.json`, the earlier watch overview; `material-native-xr-design-{interaction,layout,accessibility}-20261014.json`, the earlier design overview; `material-native-xr-components-{app-bars,dialogs,nav-bar,nav-rail,toolbars}-20261014.json` and earlier component overview. Six original-resolution measurement captures `material-xr-measure-*.png` preserve the actual diagram annotations; numbers were inspected rather than inferred from an image caption alone.
+
+| Primary subjects | Concrete local treatment |
+| --- | --- |
+| Watch face/complications/ongoing activity; rotary/system/multifunction controls | Watch anatomy and device-owned controls; separate native input/lifecycle ownership |
+| Relevance, offline, movement, short tasks, cross-device and always-on | Existing task/handoff/ambient process plus anatomy/surface decisions; no hardware/battery/network measurement claim |
+| Non-scrolling/scrolling apps, time/title/indicator/edge action, fixed-height tiles and notifications | Choose the native layout surface; native 192dp/>225dp guidance separate from CSS geometry cases |
+| Numeral/arc roles, black canvas, matched/dim colors, springs/shape and haptics | Native type, color and feedback policy; existing theme/geometry specimen and native asset/testing boundary |
+| XR home/full/passthrough/environment; panel defaults, size/depth/FOV/scaling | Native space ownership and launch/movement/FOV table; local physical model assumptions and native-unit distinction |
+| Direct/ray/gaze/voice/keyboard/controller, one-handed/posture/system navigation | Multimodal, physical and system accessibility contract; actual ordinary-screen alternatives |
+| Stable horizon, locomotion alternatives, visual/audio/haptic feedback and accessibility services | New system contract plus existing movement/input/color/permission sections; no comfort or hardware behavior inferred |
+| Five XR families: variants, anatomy, color/elevation, full/home usage, global/local behavior | Native component variants/anatomy and global-versus-local tables; concrete related web families |
+| 20dp offsets/12dp insets, panel/FOV bounds, separate rail FAB, toolbar expansion, dialog scrim/follow | Placement and dialog ownership sections; explicit rail-source inconsistency retained for design/SDK review |
+| Measurement figures and 56dp target/48dp affordance/4dp offset | Inspected annotation table; named part/target layers distinct; no CSS conversion or native SDK artifact claim |
+
+Native SDK availability, design-kit figures, numerical browser geometry, a capability query and actual device behavior remain separate evidence categories. The single outstanding RTL row above concerns the complete component/media mirroring audit; foundation layout direction coverage alone does not close it.

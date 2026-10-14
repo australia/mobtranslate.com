@@ -65,8 +65,10 @@ test('a whitespace draft disables Save without overwriting an existing snapshot'
 test('both themes and long unbroken text preserve 320px reflow and a usable retained task',()=>{
   for(const theme of ['light','dark']) {
     open();evaluate(`localStorage.setItem('mt-theme',${JSON.stringify(theme)});window.dispatchEvent(new Event('storage'))`);browser('wait',`html.${theme}`);
+    evaluate("document.documentElement.style.fontSize='200%'");browser('wait','--fn',"getComputedStyle(document.documentElement).fontSize==='32px'");
     browser('fill','#watch-note','LongInterfaceLabel'.repeat(12));browser('select','#watch-scale','2');save();
     assert.equal(evaluate('document.documentElement.scrollWidth>innerWidth'),false);
+    assert.ok(evaluate(`(()=>{const b=[...document.querySelectorAll('main button')].find(b=>b.textContent.trim()==='Clear local saved snapshot');const r=b.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.height>=44;})()`));
     assert.equal(evaluate('document.querySelector("[data-watch-viewport]").scrollWidth>document.querySelector("[data-watch-viewport]").clientWidth'),false);
     assert.equal(evaluate('document.querySelector("[data-watch-snapshot]").textContent'), 'LongInterfaceLabel'.repeat(12));
   }
