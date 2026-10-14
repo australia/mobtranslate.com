@@ -46,7 +46,7 @@ body:has(.mobile-navigation[open]) { overflow: hidden; }
 .guidance-list { list-style: disc; padding-inline-start: 1.25rem; max-width: 72ch; overflow-wrap: anywhere; }
 .guidance-list li { margin-block: 0.75rem; }
 .doc-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-.doc-links a { text-decoration: underline; text-underline-offset: 0.2em; min-height: 44px; display: inline-flex; align-items: center; }
+.doc-links a { min-inline-size: 0; max-inline-size: 100%; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 0.2em; min-height: 44px; display: inline-flex; align-items: center; }
 .search-results { list-style: none; padding: 0; }
 .search-results li { padding-block: 1.25rem; border-bottom: 1px solid var(--color-border); }
 .search-results a { display: inline-block; min-height: 44px; font-weight: 600; text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }

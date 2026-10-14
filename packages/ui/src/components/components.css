@@ -1,3 +1,18 @@
+/* Explicit direction boundaries reset inherited presentation decisions. Avoid
+   ancestor RTL selectors (which cross LTR islands) and :dir() lowering to :lang(). */
+:root, [dir="ltr"] {
+  --mt-directional-turn: 0deg;
+  --mt-tab-indicator-left: auto;
+  --mt-tab-indicator-right: -2px;
+  --mt-linear-progress-direction: normal;
+}
+[dir="rtl"] {
+  --mt-directional-turn: 180deg;
+  --mt-tab-indicator-left: -2px;
+  --mt-tab-indicator-right: auto;
+  --mt-linear-progress-direction: reverse;
+}
+
 /* ============================================
    Mobtranslate Design System — Component Styles
    All styles use design token CSS custom properties.
@@ -566,6 +581,7 @@
   transition: width var(--duration-slow) var(--ease-default);
 }
 .mt-progress-indicator[data-indeterminate] { width: 35%; animation: mt-progress-unknown 1.5s var(--ease-default) infinite; }
+.mt-progress-indicator[data-indeterminate] { animation-direction: var(--mt-linear-progress-direction, normal); }
 @keyframes mt-progress-unknown { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
 .mt-circular-progress { display: inline-block; }
 .mt-circular-progress-sm { width: 20px; height: 20px; }
@@ -1205,7 +1221,7 @@
 .mt-pagination-btn:disabled { opacity: .6; cursor: not-allowed; }
 .mt-pagination-btn:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }
 .mt-pagination-ellipsis { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; color: var(--color-muted-foreground); }
-[dir="rtl"] .mt-pagination-nav svg { transform: rotate(180deg); }
+.mt-pagination-nav svg { transform: rotate(var(--mt-directional-turn, 0deg)); }
 
 /* === CHIP === */
 .mt-chip {
@@ -1454,8 +1470,7 @@
 .mt-tabs[data-orientation="vertical"] { flex-direction: row; gap: 16px; }
 .mt-tabs-list[data-orientation="vertical"] { flex-direction: column; align-items: stretch; border-bottom: 0; border-inline-end: 2px solid var(--color-border); overflow: visible; max-width: 100%; min-width: 0; }
 .mt-tabs-trigger[data-orientation="vertical"] { white-space: normal; overflow-wrap: anywhere; text-align: start; }
-.mt-tabs-indicator[data-orientation="vertical"] { left: auto; right: -2px; top: var(--active-tab-top); bottom: auto; width: 2px; height: var(--active-tab-height); transition: top var(--duration-normal) var(--ease-default), height var(--duration-normal) var(--ease-default); }
-[dir="rtl"] .mt-tabs-indicator[data-orientation="vertical"] { left: -2px; right: auto; }
+.mt-tabs-indicator[data-orientation="vertical"] { left: var(--mt-tab-indicator-left, auto); right: var(--mt-tab-indicator-right, -2px); top: var(--active-tab-top); bottom: auto; width: 2px; height: var(--active-tab-height); transition: top var(--duration-normal) var(--ease-default), height var(--duration-normal) var(--ease-default); }
 .mt-tabs-content { min-width: 0; overflow-wrap: anywhere; flex: 1; }
 .mt-toolbar { flex-wrap: wrap; max-width: 100%; }
 .mt-toolbar-group { flex-wrap: wrap; max-width: 100%; }
@@ -1501,7 +1516,7 @@
 .mt-breadcrumbs-page { font-weight: 600; color: var(--color-foreground); overflow-wrap: anywhere; }
 .mt-breadcrumbs-separator { flex-shrink: 0; }
 .mt-breadcrumbs-link:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }
-[dir="rtl"] .mt-breadcrumbs-chevron { transform: rotate(180deg); }
+.mt-breadcrumbs-chevron { transform: rotate(var(--mt-directional-turn, 0deg)); }
 @media (prefers-reduced-motion: reduce) { .mt-navigation-menu-trigger, .mt-navigation-menu-link, .mt-navigation-menu-content, .mt-breadcrumbs-link { transition: none; animation: none; } }
 @media (forced-colors: active) {
   .mt-navigation-menu-popup, .mt-pagination-btn { border-color: ButtonText; }

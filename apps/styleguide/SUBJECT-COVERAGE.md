@@ -32,7 +32,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [layout/scaffold](https://m3.material.io/foundations/layout/scaffold) | /foundations/layout-compositions; /patterns/app-bars | Authored subtopic comparison below; native/overlay boundaries explicit |
 | [layout/grids-spacing](https://m3.material.io/foundations/layout/grids-spacing) | /foundations/layout-compositions; /foundations/spacing | Authored subtopic comparison below; broader measurement depth remains reviewable |
 | [layout/breakpoints](https://m3.material.io/foundations/layout/breakpoints) | /foundations/layout-compositions; /foundations/layout | Window-class/local-token distinction authored; runtime evidence in plan |
-| [layout/bidirectionality-rtl](https://m3.material.io/foundations/layout/bidirectionality-rtl) | /foundations/layout-compositions; /foundations/internationalization | Layout placement authored; full component/media mirroring audit remains pending |
+| [layout/bidirectionality-rtl](https://m3.material.io/foundations/layout/bidirectionality-rtl) | /foundations/layout-compositions; /foundations/internationalization | Reference decisions mapped below; nested navigation/media/progress fixes covered by focused browser tests; complete component audit remains pending |
 | [layout/canonical-examples](https://m3.material.io/foundations/layout/canonical-examples) | /foundations/layout-compositions; /patterns/navigation | Three arrangements implemented; URL/history belongs to navigation pattern |
 | [usability](https://m3.material.io/foundations/usability) | /guides/design-review; /foundations/inclusive-participation | Overview and expressive case-study subjects mapped below; no conducted study claimed |
 | [glossary](https://m3.material.io/foundations/glossary) | /guides/glossary | Captured 67 headings/93 authored entries checked; stale color-tool guidance corrected and tone shorthand qualified |
@@ -384,3 +384,12 @@ Captured full text/links: `material-native-watches-{foundations,styles,layout}-2
 | Measurement figures and 56dp target/48dp affordance/4dp offset | Inspected annotation table; named part/target layers distinct; no CSS conversion or native SDK artifact claim |
 
 Native SDK availability, design-kit figures, numerical browser geometry, a capability query and actual device behavior remain separate evidence categories. The single outstanding RTL row above concerns the complete component/media mirroring audit; foundation layout direction coverage alone does not close it.
+
+
+## Bidirectionality: reading order and explicit exceptions
+
+Captured primary chapter: `material-layout-bidirectionality-rtl-20261014.json`. Internationalization now distinguishes text alignment from direction/caret order, identifiers, DOM direction from composite DirectionProvider context, and effective nested direction from any-ancestor selectors. Its “Reading direction, time and media” table covers directional icons, preserved imagery/characters, task-progress exceptions, media, clocks, semantic axes, badges/chips/fields/toolbars, bars/rails/panes and gestures. The reference's locale examples are context for a consuming product decision, not a hardcoded language-routing policy.
+
+Concrete implementation changes: shared pagination arrows, breadcrumb chevrons and vertical-tab indicator rules use direction presentation variables reset at each explicit dir boundary; indeterminate linear progress follows RTL while an explicit LTR task region retains LTR movement. Circular progress remains clockwise. The audio pattern wraps native controls and custom seek/volume/rate controls in matching LTR DOM/provider context inside the RTL surrounding layout. Position still comes from actual native events.
+
+`tests/rtl-contract.test.mjs` targets nested navigation symbols, tab indicator placement, indeterminate/determinate progress and actual media seeking. Existing per-family suites remain required for their wider interaction contracts. These checks do not close the full per-family RTL/media/visual audit or establish translated-text quality or native Android predictive-back behavior.

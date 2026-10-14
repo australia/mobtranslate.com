@@ -19,14 +19,17 @@ for (const route of selected) if (!paths.includes(route)) throw new Error(`Unkno
 const scenarioPath=process.env.STYLEGUIDE_A11Y_SCENARIOS;
 if(scenarioPath&&process.env.STYLEGUIDE_A11Y_ROUTES)throw new Error('Choose scenario input or route filtering, not both.');
 const scenarios=scenarioPath?JSON.parse(await readFile(scenarioPath,'utf8')):selected.map(path=>({path,state:'initial',actions:[]}));
-const operations=new Set(['select','fill','focus','press','click','wait','scrollintoview']);
+const operations=new Set(['select','fill','focus','press','click','wait','scrollintoview','find']);
 if(!Array.isArray(scenarios)||!scenarios.length)throw new Error('Expected nonempty accessibility scenarios.');
 const names=new Set();
 for(const scenario of scenarios) {
   if(!paths.includes(scenario.path)||typeof scenario.state!=='string'||!scenario.state.trim()||!Array.isArray(scenario.actions))throw new Error('Each scenario needs a known path, state name and action list.');
   const name=`${scenario.path}#${scenario.state}`;
   if(names.has(name))throw new Error(`Duplicate scenario: ${name}`);names.add(name);
-  for(const action of scenario.actions)if(!Array.isArray(action)||!action.length||action.some(argument=>typeof argument!=='string')||!operations.has(action[0]))throw new Error(`Unsupported browser action in ${name}`);
+  for(const action of scenario.actions) {
+    if(!Array.isArray(action)||!action.length||action.some(argument=>typeof argument!=='string')||!operations.has(action[0]))throw new Error(`Unsupported browser action in ${name}`);
+    if(action[0]==='find'&&(action.length!==7||action[1]!=='role'||action[2]!=='button'||action[3]!=='click'||action[4]!=='--name'||!action[5]||action[6]!=='--exact'))throw new Error(`Expected an exact named button activation in ${name}`);
+  }
 }
 const base = process.env.STYLEGUIDE_URL ?? 'http://127.0.0.1:3003';
 const session = `mobtranslate-axe-${process.pid}`;

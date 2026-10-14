@@ -72,7 +72,8 @@
     "test:token-export": "node --test tests/token-export.test.mjs",
     "test:spacing": "node --test tests/spacing.test.mjs",
     "test:interaction-depth": "node --test tests/interaction-depth.test.mjs",
-    "test:text-visibility": "node --test tests/text-visibility.test.mjs"
+    "test:text-visibility": "node --test tests/text-visibility.test.mjs",
+    "test:rtl": "node --test tests/rtl-contract.test.mjs"
   },
   "dependencies": {
     "@material/material-color-utilities": "0.4.0",

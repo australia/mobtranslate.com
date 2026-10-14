@@ -16,7 +16,11 @@ function open(path, lab) {
   browser('wait', lab);
   browser('wait', '--fn', 'document.documentElement.matches(".light,.dark")');
 }
+function settleNotificationMotion() {
+  browser('wait','--fn','[...document.querySelectorAll(".mt-toast")].every(toast=>toast.getAnimations({subtree:true}).every(animation=>animation.playState!=="running"))');
+}
 function click(label) {
+  settleNotificationMotion();
   evaluate(`(() => { const button = [...document.querySelectorAll('main button')].find(item => item.textContent.trim() === ${JSON.stringify(label)}); button.scrollIntoView({block:'center'}); return true; })()`);
   browser('find', 'role', 'button', 'click', '--name', label, '--exact');
 }
@@ -103,6 +107,7 @@ test('provider notifications update the same item and local undo changes the ret
   click('Update latest notification');
   browser('wait', '--fn', 'document.querySelector(".mt-toast-title")?.textContent === "Local notification updated"');
   assert.equal(evaluate('document.querySelectorAll(".mt-toast").length'), 1);
+  settleNotificationMotion();
   browser('click', '[aria-label="Dismiss Local notification updated"]');
   browser('wait', '--fn', '!document.querySelector(".mt-toast")');
   click('Remove example draft'); click('Undo local removal');
