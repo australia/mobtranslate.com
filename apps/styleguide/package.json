@@ -66,7 +66,8 @@
     "font-fixture:check": "node scripts/check-font-fixture.mjs",
     "test:typography": "node --test tests/typography.test.mjs",
     "test:header-reflow": "node --test tests/header-reflow.test.mjs",
-    "test:shape": "node --test tests/shape.test.mjs"
+    "test:shape": "node --test tests/shape.test.mjs",
+    "test:iconography": "node --test tests/iconography.test.mjs"
   },
   "dependencies": {
     "@material/material-color-utilities": "0.4.0",

@@ -1,0 +1,12 @@
+.icon-lab { display: grid; gap: 1rem; min-inline-size: 0; }
+.icon-lab label, .icon-lab p { min-inline-size: 0; overflow-wrap: anywhere; }
+.icon-lab .mt-input { display: block; inline-size: 100%; margin-block-start: .5rem; }
+.icon-lab .icon-check { display: flex; align-items: center; gap: .75rem; min-block-size: 44px; }
+.icon-check input { flex: 0 0 auto; }
+.icon-lab [data-icon-preview] { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding: 12px; border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+.icon-lab [data-icon-save] { display: flex; justify-content: center; align-items: center; min-inline-size: 44px; min-block-size: 44px; padding: 8px; border: 1px solid var(--color-muted-foreground); border-radius: var(--radius-md); flex: 0 0 auto; }
+.icon-direction { display: flex; align-items: center; gap: .5rem; min-inline-size: 0; }
+.icon-direction > svg { flex: 0 0 auto; }
+.icon-direction > span { min-inline-size: 0; overflow-wrap: anywhere; }
+.icon-lab [data-icon-grid] { inline-size: 240px; max-inline-size: 100%; block-size: auto; overflow: visible; }
+@media(forced-colors:active) { .icon-lab [data-icon-preview], .icon-lab [data-icon-save] { border-color: CanvasText; } .icon-lab [data-icon-grid] * { stroke: CanvasText; } }

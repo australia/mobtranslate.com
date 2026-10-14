@@ -54,7 +54,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [color/advanced](https://m3.material.io/styles/color/advanced) | /foundations/color-schemes | Combine/remap/custom/baseline/fidelity/harmonization comparison below |
 | [color/resources](https://m3.material.io/styles/color/resources) | /foundations/color-schemes | Pinned SDK, sources and design/development handoff |
 | [elevation](https://m3.material.io/styles/elevation) | /foundations/elevation | Overview, applying and tokens compared below; local presentation and native-level boundaries explicit |
-| [icons](https://m3.material.io/styles/icons) | /foundations/iconography | Pending subject/subtab comparison |
+| [icons](https://m3.material.io/styles/icons) | /foundations/iconography | Three chapters compared below; original SVG/keyline inspector and explicit Symbol-font boundaries |
 | [motion/overview](https://m3.material.io/styles/motion/overview) | /foundations/motion-physics; /foundations/motion | Physics/scheme/application comparison below; existing components remain duration-based |
 | [motion/easing-and-duration](https://m3.material.io/styles/motion/easing-and-duration) | /foundations/motion; /foundations/motion-physics | Actual token/replay tool plus duration/settling distinction |
 | [motion/transitions](https://m3.material.io/styles/motion/transitions) | /foundations/motion-physics; working component/pattern guides | Pattern/identity contracts mapped below; individual compositions still require scoped evidence |
@@ -63,7 +63,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [typography](https://m3.material.io/styles/typography) | /foundations/typography | All five tabs compared below; actual local variable-font inspection and explicit native-height boundaries |
 | [color/system/overview](https://m3.material.io/styles/color/system/overview) | /foundations/color-schemes; /foundations/colors | Same reviewed color-system chapter as system alias |
 | [elevation/overview](https://m3.material.io/styles/elevation/overview) | /foundations/elevation | Overview, applying and tokens compared below; local presentation and native-level boundaries explicit |
-| [icons/overview](https://m3.material.io/styles/icons/overview) | /foundations/iconography | Pending subject/subtab comparison |
+| [icons/overview](https://m3.material.io/styles/icons/overview) | /foundations/iconography | Three chapters compared below; original SVG/keyline inspector and explicit Symbol-font boundaries |
 | [motion/overview/how-it-works](https://m3.material.io/styles/motion/overview/how-it-works) | /foundations/motion-physics; /foundations/motion | Same reviewed physics chapter as overview alias |
 | [shape/overview-principles](https://m3.material.io/styles/shape/overview-principles) | /foundations/shape | Three chapters compared below; token-driven logical corners, CSS interpolation and geometric model |
 | [typography/overview](https://m3.material.io/styles/typography/overview) | /foundations/typography | All five tabs compared below; actual local variable-font inspection and explicit native-height boundaries |
@@ -228,3 +228,20 @@ Primary rendered captures: `material-shape-overview-20261014.json`, `material-sh
 | Implementation and verification | Compiled explorer/styles; current CSS, native disclosure, named geometry and equivalent text, both-theme/narrow/keyboard acceptance |
 
 The tool uses the committed radius catalogue and original geometry; it does not claim the native expanded collection or a general path-morph library. Actual border-box normalization, mask content fit, physical rendering and the broader requirement-wide audit retain their own evidence boundaries. Scoped runtime results are recorded in STYLEGUIDE-PLAN.md.
+
+## Icon subjects compared, 2026-10-14
+
+Primary captures: `material-icons-overview-20261014.json`, `material-icons-designing-icons-20261014.json`, `material-icons-applying-icons-20261014.json`. Both index aliases resolve to this reviewed subject.
+
+| Reference subjects | Concrete local treatment in /foundations/iconography |
+| --- | --- |
+| Simplicity, boldness, coherent family | Geometry and optical consistency; Anatomy, stroke and optical correction; failure cases |
+| Baseline/additional optical sizes, trim/live area, keylines | Trim, live area and keyline geometry; reference table; original SVG overlay, selectable square/circle/rectangle guides |
+| Anatomy, corners, terminals, counter/stroke weight and optical correction | Anatomy, stroke and optical correction; actual SVG stroke/cap controls and scaled-stroke readout |
+| Outlined/Rounded/Sharp versus legacy icons; four variable axes | Material Symbols styles and variable axes; actual family/range/fallback handoff, without pretending SVG controls implement font grade/optical masters |
+| Text weight/size/baseline alignment | Text alignment, optical sizes and targets; Typography linkage and family-specific reference offset |
+| Labels, small icons, targets and input contexts | When an icon helps; Naming and toggle behavior; glyph/target independence; native local saved-state action |
+| RTL/localization, technology familiarity and cultural interpretation | Localization and audience review; Direction, language and culture; actual arrow-only mirroring with retained bookmark state |
+| Resources, customized copies, delivery and verification | Asset delivery, composition and handoff; compiled inspector/styles; licensing/provenance/loaded asset and actual accessibility-tree checks |
+
+The inspector draws original SVGs and models reference geometry; it is not a Material Symbols font/library implementation or a recognition study. The separate Typography tool uses a real text variable font. This comparison records authored treatment and scoped runtime evidence in STYLEGUIDE-PLAN.md; whole-guide acceptance and remaining subjects stay open.

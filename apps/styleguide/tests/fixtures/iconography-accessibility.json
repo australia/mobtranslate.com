@@ -1,0 +1,81 @@
+[
+  {
+    "path": "/foundations/iconography",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/foundations/iconography",
+    "state": "saved",
+    "actions": [
+      [
+        "focus",
+        "[data-icon-save]"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/iconography",
+    "state": "rtl",
+    "actions": [
+      [
+        "focus",
+        "[data-icon-rtl]"
+      ],
+      [
+        "press",
+        "Space"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/iconography",
+    "state": "large-heavy-flat",
+    "actions": [
+      [
+        "select",
+        "[data-icon-size]",
+        "48"
+      ],
+      [
+        "select",
+        "[data-icon-stroke]",
+        "3"
+      ],
+      [
+        "select",
+        "[data-icon-cap]",
+        "butt"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/iconography",
+    "state": "circle-keyline",
+    "actions": [
+      [
+        "select",
+        "[data-icon-keyline]",
+        "circle"
+      ],
+      [
+        "scrollintoview",
+        "[data-icon-grid]"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/iconography",
+    "state": "visible-controls",
+    "actions": [
+      [
+        "scrollintoview",
+        "[data-icon-preview]"
+      ]
+    ]
+  }
+]

@@ -9,24 +9,7 @@ const shadows = catalogue.tokens.filter((token) => token.name.startsWith('--shad
 const durations = catalogue.tokens.filter((token) => token.name.startsWith('--duration-'));
 const easings = catalogue.tokens.filter((token) => token.name.startsWith('--ease-'));
 
-export function IconographyExplorer() {
-  const [size, setSize] = useState('24');
-  const [saved, setSaved] = useState(false);
-  const [rtl, setRtl] = useState(false);
-  const [status, setStatus] = useState('');
-  return <div className="space-y-4">
-    <label className="block">Icon size<select className="mt-input w-full max-w-sm mt-2" value={size} onChange={event => setSize(event.target.value)}>{[16, 20, 24, 32].map(value => <option key={value} value={value}>{value}px</option>)}</select></label>
-    <label className="flex items-center gap-3 min-h-11"><input type="checkbox" checked={rtl} onChange={event => setRtl(event.target.checked)} />Right-to-left navigation</label>
-    <div data-icon-preview dir={rtl ? 'rtl' : 'ltr'} className="flex flex-wrap items-center gap-6 p-4 border border-[var(--color-border)] rounded-lg">
-      <button type="button" aria-label="Save entry" aria-pressed={saved} className="min-h-11 min-w-11 p-2 border border-[var(--color-border)] rounded-md flex items-center justify-center" onClick={() => { setSaved(!saved); setStatus(saved ? 'Example entry removed from saved items.' : 'Example entry saved.'); }}>
-        <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false" fill={saved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 4h12v16l-6-4-6 4z" /></svg>
-      </button>
-      <span className="inline-flex items-center gap-2"><svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-6-6 6 6-6 6" transform={rtl ? 'translate(24 0) scale(-1 1)' : undefined} /></svg>Next page (direction specimen)</span>
-    </div>
-    <p role="status" className="text-sm">{status}</p>
-    <p className="text-sm">Save entry toggles local example state only. The arrow is a decorative direction specimen beside text, not a navigation control.</p>
-  </div>;
-}
+export { IconographyExplorer } from './iconography-explorer';
 
 export { TypographyExplorer } from './typography-explorer';
 
