@@ -191,7 +191,7 @@ test('foundation labs use live CSS tokens and support changed values', () => {
   browser('wait', '--fn', 'getComputedStyle(document.querySelector("[data-typography-preview]")).fontSize === "60px"');
   assert.match(evaluate('document.querySelector("[data-typography-preview]").textContent'), /long source/);
   open('/foundations/spacing');
-  browser('select', 'main select', '--spacing-12');
+  browser('select', '[data-spacing-control=gap]', '--spacing-12');
   browser('wait', '--fn', 'getComputedStyle(document.querySelector("[data-spacing-preview]")).gap === "48px"');
   open('/foundations/elevation');
   browser('select', '[data-elevation-shadow]', '--shadow-xl');

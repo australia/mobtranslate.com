@@ -59,7 +59,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [motion/easing-and-duration](https://m3.material.io/styles/motion/easing-and-duration) | /foundations/motion; /foundations/motion-physics | Actual token/replay tool plus duration/settling distinction |
 | [motion/transitions](https://m3.material.io/styles/motion/transitions) | /foundations/motion-physics; working component/pattern guides | Pattern/identity contracts mapped below; individual compositions still require scoped evidence |
 | [shape](https://m3.material.io/styles/shape) | /foundations/shape | Three chapters compared below; token-driven logical corners, CSS interpolation and geometric model |
-| [spacing](https://m3.material.io/styles/spacing) | /foundations/spacing | Pending subject/subtab comparison |
+| [spacing](https://m3.material.io/styles/spacing) | /foundations/spacing | All three spacing chapters compared below; local rem units, independent logical mappings and native availability boundaries |
 | [typography](https://m3.material.io/styles/typography) | /foundations/typography | All five tabs compared below; actual local variable-font inspection and explicit native-height boundaries |
 | [color/system/overview](https://m3.material.io/styles/color/system/overview) | /foundations/color-schemes; /foundations/colors | Same reviewed color-system chapter as system alias |
 | [elevation/overview](https://m3.material.io/styles/elevation/overview) | /foundations/elevation | Overview, applying and tokens compared below; local presentation and native-level boundaries explicit |
@@ -275,3 +275,24 @@ Primary captures: `material-design-tokens-overview-20261014.json` and `material-
 | Source currency, migration and acceptance | Keeping the reference current; token generation/check commands; scoped consumer/theme/foreground/state/portal verification and migration guide |
 
 The export closure conservatively includes declared fallback branches; it does not execute the cascade or select a fallback. Filtered JSON is a source catalogue fragment with theme/request metadata, not DSP or a native theme package. Scoped parser/browser/rendering results are recorded in STYLEGUIDE-PLAN.md; other foundation and requirement-wide review remains open.
+
+## Spacing subjects compared
+
+Captured primary chapters: `material-spacing-reference-20261014.json`, `material-spacing-applying-20261014.json`, `material-spacing-tokens-20261014.json`. The current reference is a separate Styles chapter, not only the older layout/grids alias. These mappings concern authored depth; scoped browser/build/accessibility evidence is recorded in STYLEGUIDE-PLAN.md.
+
+| Reference subject | Concrete local treatment |
+| --- | --- |
+| 8dp base, multipliers and selected nested units | Native scale and the local web contract; actual generated local token table |
+| Availability, partial component mapping | Dated Compose/Web/Views statement; no native SDK or universal mapping claim |
+| Component parts, page panes/spacers/margins | Component parts and page arrangements; independent padding/gap/margin specimen |
+| Horizontal/vertical/leading/trailing | Logical-side specimen with asymmetric padding and RTL; existing layout compositions |
+| Parent padding/gaps before child margins | Internal padding and external gaps; compiled parent layout |
+| Independent state-specific spacing | Captured search margin example explicitly separated from this library’s defaults |
+| Pre-tokenized versus custom components | Apply system values through component attributes; actual component binding inspector |
+| Product-wide mapping, shared pattern, new unit | Customize mappings, patterns and density table; generation/migration guidance |
+| Adaptive layout versus density | Separate container-layout lab and local compact block-padding mapping |
+| Text scaling preserves spacing by default | Independent 200% specimen text scaling; documented root rem/zoom difference |
+| New padding/margin/gap positional names versus old “space” | Component attribute guidance; current CSS mapping disclosure |
+| Verification and failures | Actual styles/target readout; long labels, narrow/oversized scrolling, root-size and direction checks |
+
+The web inspector is not a physical-device measurement, native implementation or universal density API. Qualified target-device and content evaluation remain consuming-product responsibilities.

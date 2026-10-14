@@ -4,7 +4,6 @@ import { useEffect, useId, useMemo, useReducer, useRef, useState } from 'react';
 import { Button } from '@mobtranslate/ui';
 import catalogue from '../content/tokens.json';
 
-const spacingTokens = catalogue.tokens.filter((token) => token.name.startsWith('--spacing-')).sort((a, b) => parseFloat(a.value) - parseFloat(b.value));
 const shadows = catalogue.tokens.filter((token) => token.name.startsWith('--shadow-'));
 const durations = catalogue.tokens.filter((token) => token.name.startsWith('--duration-'));
 const easings = catalogue.tokens.filter((token) => token.name.startsWith('--ease-'));
@@ -13,16 +12,7 @@ export { IconographyExplorer } from './iconography-explorer';
 
 export { TypographyExplorer } from './typography-explorer';
 
-export function SpacingExplorer() {
-  const [gap, setGap] = useState('--spacing-4');
-  return <div className="space-y-4">
-    <label className="block">Spacing token<select className="mt-input w-full max-w-sm mt-2" value={gap} onChange={(event) => setGap(event.target.value)}>{spacingTokens.map((token) => <option key={token.name} value={token.name}>{token.name} · {token.value}</option>)}</select></label>
-    <div data-spacing-preview className="flex flex-wrap p-4 bg-[var(--color-muted)] rounded-lg" style={{ gap: `var(${gap})` }}>
-      <span className="p-3 border border-[var(--color-border)] rounded">Entry text</span><span className="p-3 border border-[var(--color-border)] rounded">Source record</span><span className="p-3 border border-[var(--color-border)] rounded">Review state</span>
-    </div>
-    <p className="text-sm">The gap changes; the individual hit areas and content padding stay independent.</p>
-  </div>;
-}
+export { SpacingExplorer } from './spacing-explorer';
 
 export function ElevationExplorer() {
   const [shadow, setShadow] = useState('--shadow-md');

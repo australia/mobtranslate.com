@@ -69,7 +69,8 @@
     "test:shape": "node --test tests/shape.test.mjs",
     "test:iconography": "node --test tests/iconography.test.mjs",
     "test:token-references": "vitest run --config vitest-token.config.mts",
-    "test:token-export": "node --test tests/token-export.test.mjs"
+    "test:token-export": "node --test tests/token-export.test.mjs",
+    "test:spacing": "node --test tests/spacing.test.mjs"
   },
   "dependencies": {
     "@material/material-color-utilities": "0.4.0",
