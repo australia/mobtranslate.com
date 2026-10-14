@@ -35,7 +35,9 @@
     "test:preview-card": "node --test tests/preview-card.test.mjs",
     "test:table": "node --test tests/table.test.mjs",
     "test:material-patterns": "node --test tests/material-patterns.test.mjs",
-    "test:governed-patterns": "node --test tests/governed-patterns.test.mjs"
+    "test:governed-patterns": "node --test tests/governed-patterns.test.mjs",
+    "test:learning-offline": "node --test tests/learning-offline.test.mjs",
+    "audio:check": "node scripts/generate-audio-fixture.mjs --check"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

@@ -117,6 +117,9 @@ export const sections: NavSection[] = [
       { label: 'Search and Refinement', href: '/patterns/search' },
       { label: 'Source and Review Status', href: '/patterns/source-review' },
       { label: 'Permissions and Access', href: '/patterns/permissions' },
+      { label: 'Learning and Practice', href: '/patterns/learning' },
+      { label: 'Audio and Playback', href: '/patterns/audio' },
+      { label: 'Offline and Local Recovery', href: '/patterns/offline' },
     ],
   },
 ];
