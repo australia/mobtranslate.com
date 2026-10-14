@@ -38,7 +38,8 @@
     "test:governed-patterns": "node --test tests/governed-patterns.test.mjs",
     "test:learning-offline": "node --test tests/learning-offline.test.mjs",
     "audio:check": "node scripts/generate-audio-fixture.mjs --check",
-    "test:token-contract": "node --test tests/token-contract.test.mjs"
+    "test:token-contract": "node --test tests/token-contract.test.mjs",
+    "test:component-specifications": "node --test tests/component-specifications.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

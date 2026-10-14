@@ -6,12 +6,14 @@
   "types": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "build": "node scripts/generate-tokens.mjs --check && tsc",
+    "build": "pnpm tokens:check && tsc",
     "dev": "tsc --watch",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --cache --cache-location .cache/eslint/.eslintcache --max-warnings 0",
-    "typecheck": "node scripts/generate-tokens.mjs --check && tsc -p tsconfig.json --noEmit",
-    "tokens:generate": "node scripts/generate-tokens.mjs",
-    "tokens:check": "node scripts/generate-tokens.mjs --check"
+    "typecheck": "pnpm tokens:check && tsc -p tsconfig.json --noEmit",
+    "tokens:generate": "node scripts/generate-tokens.mjs && node scripts/generate-component-tokens.mjs",
+    "tokens:check": "node scripts/generate-tokens.mjs --check && node scripts/generate-component-tokens.mjs --check",
+    "component-tokens:generate": "node scripts/generate-component-tokens.mjs",
+    "component-tokens:check": "node scripts/generate-component-tokens.mjs --check"
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-rc.0",

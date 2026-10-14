@@ -1,0 +1,479 @@
+{
+  "buttonTokens": {
+    "sm": {
+      "height": {
+        "selector": ".mt-btn-sm",
+        "property": "height"
+      },
+      "paddingX": {
+        "selector": ".mt-btn-sm",
+        "property": "padding-inline"
+      },
+      "fontSize": {
+        "selector": ".mt-btn-sm",
+        "property": "font-size",
+        "resolve": true
+      }
+    },
+    "md": {
+      "height": {
+        "selector": ".mt-btn-md",
+        "property": "height"
+      },
+      "paddingX": {
+        "selector": ".mt-btn-md",
+        "property": "padding-inline"
+      },
+      "fontSize": {
+        "selector": ".mt-btn-md",
+        "property": "font-size",
+        "resolve": true
+      }
+    },
+    "lg": {
+      "height": {
+        "selector": ".mt-btn-lg",
+        "property": "height"
+      },
+      "paddingX": {
+        "selector": ".mt-btn-lg",
+        "property": "padding-inline"
+      },
+      "fontSize": {
+        "selector": ".mt-btn-lg",
+        "property": "font-size",
+        "resolve": true
+      }
+    },
+    "icon": {
+      "height": {
+        "selector": ".mt-btn-icon",
+        "property": "height"
+      },
+      "width": {
+        "selector": ".mt-btn-icon",
+        "property": "width"
+      },
+      "fontSize": {
+        "selector": ".mt-btn-icon",
+        "property": "font-size",
+        "initial": "inherit",
+        "origin": "preflight",
+        "note": "Tailwind preflight inherits font size for native buttons; this is not a fixed text size."
+      }
+    },
+    "radius": {
+      "selector": ".mt-btn",
+      "property": "border-radius"
+    }
+  },
+  "inputTokens": {
+    "sm": {
+      "height": {
+        "selector": ".mt-input-sm",
+        "property": "height"
+      },
+      "paddingX": {
+        "selector": ".mt-input-sm",
+        "property": "padding-inline"
+      },
+      "fontSize": {
+        "selector": ".mt-input-sm",
+        "property": "font-size",
+        "resolve": true
+      }
+    },
+    "md": {
+      "height": {
+        "selector": ".mt-input-md",
+        "property": "height"
+      },
+      "paddingX": {
+        "selector": ".mt-input-md",
+        "property": "padding-inline"
+      },
+      "fontSize": {
+        "selector": ".mt-input-md",
+        "property": "font-size",
+        "resolve": true
+      }
+    },
+    "lg": {
+      "height": {
+        "selector": ".mt-input-lg",
+        "property": "height"
+      },
+      "paddingX": {
+        "selector": ".mt-input-lg",
+        "property": "padding-inline"
+      },
+      "fontSize": {
+        "selector": ".mt-input-lg",
+        "property": "font-size",
+        "resolve": true
+      }
+    },
+    "borderWidth": {
+      "selector": ".mt-input",
+      "property": "border",
+      "extract": "border-width",
+      "computed": "border-top-width"
+    },
+    "radius": {
+      "selector": ".mt-input",
+      "property": "border-radius"
+    }
+  },
+  "dialogTokens": {
+    "sm": {
+      "maxWidth": {
+        "selector": ".mt-dialog-sm",
+        "property": "max-width"
+      }
+    },
+    "md": {
+      "maxWidth": {
+        "selector": ".mt-dialog-md",
+        "property": "max-width"
+      }
+    },
+    "lg": {
+      "maxWidth": {
+        "selector": ".mt-dialog-lg",
+        "property": "max-width"
+      }
+    },
+    "xl": {
+      "maxWidth": {
+        "selector": ".mt-dialog-xl",
+        "property": "max-width"
+      }
+    },
+    "padding": {
+      "selector": ".mt-dialog-popup",
+      "property": "padding"
+    },
+    "backdropOpacity": {
+      "selector": ".mt-dialog-backdrop",
+      "property": "background",
+      "extract": "alpha",
+      "computed": "background-color"
+    },
+    "radius": {
+      "selector": ".mt-dialog-popup",
+      "property": "border-radius"
+    },
+    "maxHeight": {
+      "selector": ".mt-dialog-popup",
+      "property": "max-height"
+    }
+  },
+  "selectTokens": {
+    "triggerHeight": {
+      "selector": ".mt-select-trigger",
+      "property": "height",
+      "note": "Content-driven height; use triggerMinHeight for the target minimum."
+    },
+    "triggerMinHeight": {
+      "selector": ".mt-select-trigger",
+      "property": "min-height"
+    },
+    "contentMaxHeight": {
+      "selector": ".mt-select-popup",
+      "property": "max-height"
+    },
+    "listMaxHeight": {
+      "selector": ".mt-select-list",
+      "property": "max-height"
+    },
+    "itemPaddingX": {
+      "selector": ".mt-select-item",
+      "property": "padding",
+      "extract": "padding-x",
+      "computed": "padding-inline-start"
+    },
+    "itemPaddingY": {
+      "selector": ".mt-select-item",
+      "property": "padding",
+      "extract": "padding-y",
+      "computed": "padding-top"
+    },
+    "radius": {
+      "selector": ".mt-select-popup",
+      "property": "border-radius"
+    }
+  },
+  "tabsTokens": {
+    "listHeight": {
+      "selector": ".mt-tabs-list",
+      "property": "height",
+      "initial": "auto",
+      "note": "CSS initial height is auto; a horizontal list includes its border and sized triggers."
+    },
+    "triggerMinHeight": {
+      "selector": ".mt-tabs-trigger",
+      "property": "min-height"
+    },
+    "triggerPaddingX": {
+      "selector": ".mt-tabs-trigger",
+      "property": "padding",
+      "extract": "padding-x",
+      "computed": "padding-inline-start"
+    },
+    "radius": {
+      "selector": ".mt-tabs-list",
+      "property": "border-radius",
+      "initial": "0px",
+      "note": "The list has no rounded surface. Focus styling on triggers is separate."
+    }
+  },
+  "tooltipTokens": {
+    "paddingX": {
+      "selector": ".mt-tooltip-popup",
+      "property": "padding",
+      "extract": "padding-x",
+      "computed": "padding-inline-start"
+    },
+    "paddingY": {
+      "selector": ".mt-tooltip-popup",
+      "property": "padding",
+      "extract": "padding-y",
+      "computed": "padding-top"
+    },
+    "fontSize": {
+      "selector": ".mt-tooltip-popup",
+      "property": "font-size",
+      "resolve": true
+    },
+    "radius": {
+      "selector": ".mt-tooltip-popup",
+      "property": "border-radius"
+    },
+    "maxWidth": {
+      "selector": ".mt-tooltip-popup",
+      "property": "max-width"
+    }
+  },
+  "popoverTokens": {
+    "padding": {
+      "selector": ".mt-popover-popup",
+      "property": "padding"
+    },
+    "radius": {
+      "selector": ".mt-popover-popup",
+      "property": "border-radius"
+    },
+    "maxWidth": {
+      "selector": ".mt-popover-popup",
+      "property": "max-width"
+    }
+  },
+  "toastTokens": {
+    "padding": {
+      "selector": ".mt-toast",
+      "property": "padding",
+      "computed": "padding-top",
+      "note": "Base padding, inspected through the block start. The logical end override is a separate field."
+    },
+    "paddingInlineEnd": {
+      "selector": ".mt-toast",
+      "property": "padding-inline-end",
+      "note": "Reserves space for the close action; differs from the base padding."
+    },
+    "radius": {
+      "selector": ".mt-toast",
+      "property": "border-radius"
+    },
+    "maxWidth": {
+      "selector": ".mt-toast-viewport",
+      "property": "max-width",
+      "note": "The viewport bounds the toast stack; individual toasts fill that context."
+    }
+  },
+  "checkboxTokens": {
+    "size": {
+      "selector": ".mt-checkbox",
+      "property": "width"
+    },
+    "radius": {
+      "selector": ".mt-checkbox",
+      "property": "border-radius"
+    }
+  },
+  "switchTokens": {
+    "width": {
+      "selector": ".mt-switch",
+      "property": "width"
+    },
+    "height": {
+      "selector": ".mt-switch",
+      "property": "height"
+    },
+    "thumbSize": {
+      "selector": ".mt-switch-thumb",
+      "property": "width"
+    },
+    "radius": {
+      "selector": ".mt-switch",
+      "property": "border-radius"
+    }
+  },
+  "radioTokens": {
+    "size": {
+      "selector": ".mt-radio",
+      "property": "width"
+    },
+    "dotSize": {
+      "selector": ".mt-radio-indicator",
+      "property": "width"
+    }
+  },
+  "sliderTokens": {
+    "trackHeight": {
+      "selector": ".mt-slider-track",
+      "property": "height"
+    },
+    "thumbSize": {
+      "selector": ".mt-slider-thumb",
+      "property": "width",
+      "note": "Interactive target dimension, not the smaller painted marker."
+    },
+    "visibleThumbSize": {
+      "selector": ".mt-slider-thumb::after",
+      "property": "width",
+      "note": "Painted marker; its border is included under border-box sizing."
+    },
+    "radius": {
+      "selector": ".mt-slider-track",
+      "property": "border-radius"
+    }
+  },
+  "progressTokens": {
+    "height": {
+      "selector": ".mt-progress-track",
+      "property": "height"
+    },
+    "radius": {
+      "selector": ".mt-progress-track",
+      "property": "border-radius"
+    }
+  },
+  "menuTokens": {
+    "itemPaddingX": {
+      "selector": ".mt-menu-item",
+      "property": "padding",
+      "extract": "padding-x",
+      "computed": "padding-inline-start"
+    },
+    "itemPaddingY": {
+      "selector": ".mt-menu-item",
+      "property": "padding",
+      "extract": "padding-y",
+      "computed": "padding-top"
+    },
+    "radius": {
+      "selector": ".mt-menu-popup",
+      "property": "border-radius"
+    },
+    "minWidth": {
+      "selector": ".mt-menu-popup",
+      "property": "min-width"
+    }
+  },
+  "accordionTokens": {
+    "headerPadding": {
+      "selector": ".mt-accordion-trigger",
+      "property": "padding"
+    },
+    "contentPadding": {
+      "selector": ".mt-accordion-panel",
+      "property": "padding",
+      "initial": "0px",
+      "note": "Panel has no default padding. Consuming content may supply its own spacing."
+    },
+    "radius": {
+      "selector": ".mt-accordion",
+      "property": "border-radius",
+      "initial": "0px",
+      "note": "Root has no rounded surface; items use dividing lines."
+    }
+  },
+  "avatarTokens": {
+    "sm": {
+      "size": {
+        "selector": ".mt-avatar-sm",
+        "property": "width"
+      },
+      "fontSize": {
+        "selector": ".mt-avatar-sm",
+        "property": "font-size",
+        "resolve": true
+      }
+    },
+    "md": {
+      "size": {
+        "selector": ".mt-avatar-md",
+        "property": "width"
+      },
+      "fontSize": {
+        "selector": ".mt-avatar-md",
+        "property": "font-size",
+        "resolve": true
+      }
+    },
+    "lg": {
+      "size": {
+        "selector": ".mt-avatar-lg",
+        "property": "width"
+      },
+      "fontSize": {
+        "selector": ".mt-avatar-lg",
+        "property": "font-size",
+        "resolve": true
+      }
+    },
+    "xl": {
+      "size": {
+        "selector": ".mt-avatar-xl",
+        "property": "width"
+      },
+      "fontSize": {
+        "selector": ".mt-avatar-xl",
+        "property": "font-size",
+        "resolve": true
+      }
+    }
+  },
+  "separatorTokens": {
+    "thickness": {
+      "selector": ".mt-separator",
+      "property": "height",
+      "note": "Horizontal thickness. Vertical orientation uses width instead."
+    }
+  },
+  "meterTokens": {
+    "height": {
+      "selector": ".mt-meter-track",
+      "property": "height"
+    },
+    "radius": {
+      "selector": ".mt-meter-track",
+      "property": "border-radius"
+    }
+  },
+  "scrollAreaTokens": {
+    "scrollbarSize": {
+      "selector": ".mt-scroll-area-scrollbar[data-orientation=\"vertical\"]",
+      "property": "width"
+    },
+    "horizontalScrollbarSize": {
+      "selector": ".mt-scroll-area-scrollbar-horizontal",
+      "property": "height"
+    },
+    "scrollbarRadius": {
+      "selector": ".mt-scroll-area-thumb",
+      "property": "border-radius",
+      "note": "Thumb corner radius; the outer track is rectangular."
+    }
+  }
+}
