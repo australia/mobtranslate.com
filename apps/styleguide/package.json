@@ -56,7 +56,9 @@
     "alternative-fixture:check": "node scripts/generate-alternative-fixture.mjs --check",
     "test:alternative-text": "node --test tests/alternative-text.test.mjs",
     "test:notice-content": "node --test tests/notice-content.test.mjs",
-    "test:layout-compositions": "node --test tests/layout-compositions.test.mjs"
+    "test:layout-compositions": "node --test tests/layout-compositions.test.mjs",
+    "test:spring-model": "node --test tests/spring-model.test.mjs",
+    "test:spring-browser": "node --test tests/spring-browser.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

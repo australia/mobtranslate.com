@@ -39,6 +39,7 @@ export const sections: NavSection[] = [
       { label: 'Spacing', href: '/foundations/spacing' },
       { label: 'Elevation', href: '/foundations/elevation' },
       { label: 'Motion', href: '/foundations/motion' },
+      { label: 'Motion Physics and Transitions', href: '/foundations/motion-physics' },
       { label: 'Layout', href: '/foundations/layout' },
       { label: 'Scaffolds and Canonical Layouts', href: '/foundations/layout-compositions' },
       { label: 'Shape', href: '/foundations/shape' },

@@ -1,0 +1,8 @@
+[
+  {"path":"/foundations/motion-physics","state":"initial","actions":[]},
+  {"path":"/foundations/motion-physics","state":"invalid-draft","actions":[["fill","[data-spring-field=mass]","0"]]},
+  {"path":"/foundations/motion-physics","state":"undamped-endpoint","actions":[["fill","[data-spring-field=damping]","0"],["fill","[data-spring-field=duration]","0.1"],["focus","[data-spring-run]"],["press","Enter"],["wait","--fn","document.querySelector('[data-spring-status]').textContent.includes('preview horizon')"]]},
+  {"path":"/foundations/motion-physics","state":"stopped","actions":[["focus","[data-spring-run]"],["press","Enter"],["focus","[data-spring-stop]"],["press","Enter"]]},
+  {"path":"/foundations/motion-physics","state":"reset","actions":[["focus","[data-spring-run]"],["press","Enter"],["focus","[data-spring-reset]"],["press","Enter"]]},
+  {"path":"/foundations/motion-physics","state":"full-data","actions":[["focus","[data-spring-full] summary"],["press","Enter"]]}
+]

@@ -1,0 +1,7 @@
+.spring-response-actions .mt-btn {
+  min-block-size:44px;
+  block-size:auto;
+  max-inline-size:100%;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}

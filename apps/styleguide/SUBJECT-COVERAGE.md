@@ -55,16 +55,16 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [color/resources](https://m3.material.io/styles/color/resources) | /foundations/colors | Pending subject/subtab comparison |
 | [elevation](https://m3.material.io/styles/elevation) | /foundations/elevation | Pending subject/subtab comparison |
 | [icons](https://m3.material.io/styles/icons) | /foundations/iconography | Pending subject/subtab comparison |
-| [motion/overview](https://m3.material.io/styles/motion/overview) | /foundations/motion | Pending subject/subtab comparison |
-| [motion/easing-and-duration](https://m3.material.io/styles/motion/easing-and-duration) | /foundations/motion | Pending subject/subtab comparison |
-| [motion/transitions](https://m3.material.io/styles/motion/transitions) | /foundations/motion | Pending subject/subtab comparison |
+| [motion/overview](https://m3.material.io/styles/motion/overview) | /foundations/motion-physics; /foundations/motion | Physics/scheme/application comparison below; existing components remain duration-based |
+| [motion/easing-and-duration](https://m3.material.io/styles/motion/easing-and-duration) | /foundations/motion; /foundations/motion-physics | Actual token/replay tool plus duration/settling distinction |
+| [motion/transitions](https://m3.material.io/styles/motion/transitions) | /foundations/motion-physics; working component/pattern guides | Pattern/identity contracts mapped below; individual compositions still require scoped evidence |
 | [shape](https://m3.material.io/styles/shape) | /foundations/shape | Pending subject/subtab comparison |
 | [spacing](https://m3.material.io/styles/spacing) | /foundations/spacing | Pending subject/subtab comparison |
 | [typography](https://m3.material.io/styles/typography) | /foundations/typography | Pending subject/subtab comparison |
 | [color/system/overview](https://m3.material.io/styles/color/system/overview) | /foundations/colors | Pending subject/subtab comparison |
 | [elevation/overview](https://m3.material.io/styles/elevation/overview) | /foundations/elevation | Pending subject/subtab comparison |
 | [icons/overview](https://m3.material.io/styles/icons/overview) | /foundations/iconography | Pending subject/subtab comparison |
-| [motion/overview/how-it-works](https://m3.material.io/styles/motion/overview/how-it-works) | /foundations/motion | Pending subject/subtab comparison |
+| [motion/overview/how-it-works](https://m3.material.io/styles/motion/overview/how-it-works) | /foundations/motion-physics; /foundations/motion | Same reviewed physics chapter as overview alias |
 | [shape/overview-principles](https://m3.material.io/styles/shape/overview-principles) | /foundations/shape | Pending subject/subtab comparison |
 | [typography/overview](https://m3.material.io/styles/typography/overview) | /foundations/typography | Pending subject/subtab comparison |
 
@@ -139,3 +139,20 @@ Retained rendered overview captures: `material-foundation-designing-20261014.jso
 | Translation context and linguistic boundaries | Internationalization: Translation handoff and semantic integrity; existing formatting/direction lab and source-authority separation |
 
 Runtime checks and remaining scope are in STYLEGUIDE-PLAN.md. The handoff JSON is expressly unexecuted; the existing compiled request demonstrates local behavior. A source comparison or technical walkthrough does not establish a participant study, spoken assistive-technology behavior or permission to publish language data.
+
+## Motion subject comparison
+
+Primary rendered captures: `material-style-motion-overview-20261014.json`, `material-style-motion-easing-and-duration-20261014.json`, `material-style-motion-transitions-20261014.json`. Their resolved URLs are the how-it-works, applying-easing-and-duration and transition-patterns chapters.
+
+| Reference subjects | Concrete treatment |
+| --- | --- |
+| Motion system, schemes, springs and token concept | Motion physics: Two different motion contracts; Schemes, style, speed and application |
+| Style, speed, spatial/effects application and component choices | Schemes, style, speed and application; model versus current component implementation boundary |
+| Default/custom schemes and per-element overrides | Schemes, style, speed and application; documented reason and interruption/preference contract |
+| Spring mechanics | Spring mechanics and regimes; compiled bounded analytic response, full samples and captured parameter explorer |
+| Easing sets/types and duration selection | Existing Motion actual token tables/replay; Two different motion contracts; Settling and duration selection |
+| Container, forward/backward, lateral and top-level transitions | Transition patterns and identity; existing Layout/Navigation/component implementations |
+| Enter/exit within/beyond bounds and skeleton replacement | Transition patterns and identity; existing Dialog/Drawer/Skeleton state/geometry/focus contracts |
+| Interruption and preference ownership | Interruption and retargeting; Reduced motion and accessibility; working stop/reset/replay and live preference listener |
+
+The explorer is a numerical unit-step model with a time cursor, not a new component animation renderer. It does not copy native preset values or claim physical calibration, continuous retargeting or device frame-rate proof. Runtime evidence and remaining review items are recorded in STYLEGUIDE-PLAN.md. The seven color captures retained during this same comparison still require their substantive scheme/tone/customization audit; they are not marked complete.
