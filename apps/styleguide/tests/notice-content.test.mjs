@@ -45,6 +45,15 @@ test('deferral retains a queue until explicit release, then requests one batch s
   browser('wait','--fn','document.activeElement.hasAttribute("data-notice-capture")');
 });
 
+test('a single queued record uses singular count and release wording',()=>{
+  open();change('#notice-defer');capture();
+  browser('wait','--fn','document.querySelectorAll("[data-notice-record]").length===1');
+  assert.equal(evaluate('document.querySelector("[data-notice-counts]").textContent'),'1 local record; 1 queued; 1 not opened in this example.');
+  change('#notice-defer');click('Release queued notices');
+  browser('wait','--fn','document.querySelector("[data-notice-polite]").textContent.startsWith("1 queued local notice is now available.")');
+  assert.equal(evaluate('document.querySelector("[data-notice-counts]").textContent'),'1 local record; 0 queued; 1 not opened in this example.');
+});
+
 test('the time-sensitive exception bypasses deferral only while announcements remain enabled',()=>{
   open();change('#notice-defer');change('#notice-interrupt');browser('select','#notice-priority','time-sensitive');capture();
   browser('wait','--fn','document.querySelector("[data-notice-urgent]").textContent.includes("Local notice 1")');

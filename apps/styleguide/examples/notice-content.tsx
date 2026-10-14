@@ -42,7 +42,7 @@ export function NoticeContentExample() {
     if(!preferences.enabled||preferences.defer||!queued.length)return;
     const ids=new Set(queued.map(record=>record.id));
     setRecords(current=>current.map(record=>ids.has(record.id)?{...record,placement:'live-region' as const}:record));
-    const text=`${queued.length} queued local notices are now available. Open local history for details.`;
+    const text=queued.length===1?'1 queued local notice is now available. Open local history for details.':`${queued.length} queued local notices are now available. Open local history for details.`;
     if(queued.some(record=>record.priority==='time-sensitive')){setPolite('');setUrgent(text);}else{setUrgent('');setPolite(text);}
     if(valid)captureTarget.current?.focus();else document.getElementById('notice-title')?.focus();
   }
@@ -74,7 +74,7 @@ export function NoticeContentExample() {
       <label className="flex items-center gap-3 min-h-11"><input id="notice-redact" type="checkbox" disabled={!ready} checked={preferences.redact} onChange={event=>setPreferences(current=>({...current,redact:event.target.checked}))} />Hide title/body in compact previews and new announcements</label>
     </fieldset>
     <div className="flex flex-wrap gap-3"><Button ref={captureTarget} data-notice-capture type="button" disabled={!ready||!valid} onClick={capture}>Capture local notice</Button><Button data-notice-release type="button" variant="outline" disabled={!ready||!preferences.enabled||preferences.defer||!queued.length} onClick={release}>Release queued notices</Button></div>
-    <p role="status" aria-live="off" data-notice-counts>{records.length} local records; {queued.length} queued; {records.filter(record=>!record.opened).length} not opened in this example.</p>
+    <p role="status" aria-live="off" data-notice-counts>{records.length} local {records.length===1?'record':'records'}; {queued.length} queued; {records.filter(record=>!record.opened).length} not opened in this example.</p>
     <p>Changes to preferences do not retroactively release a queue or alter captured content. Turn deferral off and explicitly release queued notices. Disabling announcements retains new records in history, including time-sensitive ones.</p>
     <div><p className="font-semibold">Requested live output</p><p role="status" aria-atomic="true" data-notice-polite style={{whiteSpace:'pre-wrap',overflowWrap:'anywhere'}}>{polite}</p><p role="alert" aria-atomic="true" data-notice-urgent style={{whiteSpace:'pre-wrap',overflowWrap:'anywhere'}}>{urgent}</p><p className="text-sm">Only one channel receives each update. The record’s placement means text was set in a live region; actual spoken output depends on the browser and assistive technology.</p></div>
     {preview&&latest&&<div data-notice-preview className="border border-[var(--color-muted-foreground)] rounded-md p-4">

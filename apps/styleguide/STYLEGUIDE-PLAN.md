@@ -32,6 +32,14 @@ Primary reference: https://m3.material.io/ (foundations, styles, components, dev
 
 In progress. Completion requires the full table above. A passing build or an expanded topic list does not prove completion.
 
+### Content conventions and subject ledger, 2026-10-14
+
+- Fetched origin; the working branch contains current master `95d22fe` and preserves the separate canonical checkout. Added `/foundations/content-conventions` after inspecting all three rendered Material style-guide tabs. Original English examples cover consequences/scanning, case/abbreviations, speaking roles, punctuation, counts, emphasis, source-text exceptions and localization handoff. Reused the working editorial lab rather than introducing an automatic grammar/authority checker.
+- Corrected the local notification model's singular record and queued-release wording. Added a real one-record browser regression; existing plural/batch behavior remains covered.
+- `SUBJECT-COVERAGE.md` inventories 56 captured foundation/style/developer entries with checked local candidate routes. It explicitly leaves broader subject/subtab depth comparison pending, maps this content increment to concrete sections, and separates authored treatment from runtime/native-platform claims.
+- Lint and production build/TypeScript passed (`build-content-conventions.txt`); 71 displayed source files remain checked. Browser suites: 45/45 passed (37 shell/baseline, 8 notification-policy checks; `browser-content-conventions.txt`). Route/fragment crawl: 102 routes, zero findings (`routes-content-conventions.json`). New chapter: two initial-state axe cases, zero violations or root overflow, with one narrow contrast review item retained (`axe-content-conventions.json`).
+- Exercised the reused editor and its actual local action using keyboard; exact authored values and local-only status were rendered. Both themes have 320px root width at 320px viewport (`content-conventions-manual.json`). Inspected `content-conventions-320-light.png` and `content-conventions-320-dark.png`. These are scoped evidence, not whole-guide conformance or full Material-depth completion.
+
 ### Notification-content foundation expansion, 2026-10-14
 
 - Compared the captured Material content-notification headings with the existing Toast/Recovery coverage. Retained the existing component/pattern documentation and added an authored content chapter covering relevance, leading information, actionable copy, dynamic fields, text units/transport, emoji/tone, dates/interruption, opt-in/out, privacy and verification at /foundations/notification-content.

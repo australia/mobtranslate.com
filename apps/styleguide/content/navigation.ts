@@ -42,6 +42,7 @@ export const sections: NavSection[] = [
       { label: 'Shape', href: '/foundations/shape' },
       { label: 'Interaction States', href: '/foundations/interaction-states' },
       { label: 'Writing', href: '/foundations/writing' },
+      { label: 'Content Conventions', href: '/foundations/content-conventions' },
       { label: 'Alternative Text', href: '/foundations/alternative-text' },
       { label: 'Notification Content', href: '/foundations/notification-content' },
       { label: 'Iconography', href: '/foundations/iconography' },
