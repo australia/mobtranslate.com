@@ -60,13 +60,13 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [motion/transitions](https://m3.material.io/styles/motion/transitions) | /foundations/motion-physics; working component/pattern guides | Pattern/identity contracts mapped below; individual compositions still require scoped evidence |
 | [shape](https://m3.material.io/styles/shape) | /foundations/shape | Pending subject/subtab comparison |
 | [spacing](https://m3.material.io/styles/spacing) | /foundations/spacing | Pending subject/subtab comparison |
-| [typography](https://m3.material.io/styles/typography) | /foundations/typography | Pending subject/subtab comparison |
+| [typography](https://m3.material.io/styles/typography) | /foundations/typography | All five tabs compared below; actual local variable-font inspection and explicit native-height boundaries |
 | [color/system/overview](https://m3.material.io/styles/color/system/overview) | /foundations/color-schemes; /foundations/colors | Same reviewed color-system chapter as system alias |
 | [elevation/overview](https://m3.material.io/styles/elevation/overview) | /foundations/elevation | Overview, applying and tokens compared below; local presentation and native-level boundaries explicit |
 | [icons/overview](https://m3.material.io/styles/icons/overview) | /foundations/iconography | Pending subject/subtab comparison |
 | [motion/overview/how-it-works](https://m3.material.io/styles/motion/overview/how-it-works) | /foundations/motion-physics; /foundations/motion | Same reviewed physics chapter as overview alias |
 | [shape/overview-principles](https://m3.material.io/styles/shape/overview-principles) | /foundations/shape | Pending subject/subtab comparison |
-| [typography/overview](https://m3.material.io/styles/typography/overview) | /foundations/typography | Pending subject/subtab comparison |
+| [typography/overview](https://m3.material.io/styles/typography/overview) | /foundations/typography | All five tabs compared below; actual local variable-font inspection and explicit native-height boundaries |
 
 ## develop
 
@@ -192,3 +192,21 @@ Primary rendered captures: `material-elevation-overview-20261014.json`, `materia
 | Implementation and verification | Forced-colors CSS, portals/stacking context/top layer, reduced-motion/state contracts, existing Dialog/Popover examples and verification guidance |
 
 The compiled lab changes real CSS presentation without changing semantic roles, layering or modal behavior. Native component elevation implementation and physical-unit conversion are developer boundaries, not simulated by a CSS shadow selector. Scoped runtime evidence is recorded in STYLEGUIDE-PLAN.md.
+
+## Typography subjects compared, 2026-10-14
+
+Primary rendered captures: `material-typography-<topic>-20261014.json` for overview, fonts, type-scale-tokens, applying-type and editorial-treatments. This includes the current emphasized-style and script-height additions. Both index aliases resolve to the reviewed chapter.
+
+| Reference subjects | Concrete local treatment in /foundations/typography |
+| --- | --- |
+| Five roles, three sizes, baseline/emphasized sets | Choose a role before a size; Reference roles and product recipes; Baseline, emphasized and editorial treatments; actual local size table, not a claim to export thirty Material tokens |
+| Weight/context emphasis and brand/plain separation | Role/recipe handoff, selected/unread/action decisions and preserved semantic state; existing product font stacks remain authoritative |
+| Roboto/variable/serif/mono/fallback families | Font delivery and fallback protection; actual shared requested stacks and optional licensed local specimen; no automatic script coverage claimed |
+| Available axes and registered/custom/hidden behavior | Variable fonts and axis ownership; binary-derived names/ranges/defaults/hidden flags; five ordinary and eight specialized inspection controls |
+| Baselines, padding, bounding boxes and script height | Language height, line boxes and baselines; four reference categories, growing controls and actual-content review; no hardcoded language classifier or native category implementation |
+| Type-scale customization and font/letter units | Generated local scale; role/recipe customization; Units, tracking, optical size and numbers; distinct em/root-rem arithmetic |
+| Weight, grade, width, optical size and editorial purposes | Actual local font inspection; authored celebration/user-owned presentation/product-feature contracts, with no inferred emotion/identity |
+| Readability, tabular numbers, symbols and contrast | Working leading/tracking/tabular toggle; source text and emphasis; paired accessibility/iconography handoff and acceptance |
+| Implementation, assets and failure recovery | Compiled inspector/styles/manifest; pinned licensed binary; loading API failure/held-request recovery; fallback and exact CSS output |
+
+The font is a documentation specimen, not a product-wide typeface replacement. Its loaded status does not prove every user character came from that face. Native script-height automation, qualified reading/shaping checks and the full-guide acceptance audit remain distinct evidence boundaries. Scoped runtime evidence is recorded in STYLEGUIDE-PLAN.md.

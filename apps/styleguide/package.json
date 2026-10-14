@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm --filter @mobtranslate/ui tokens:check && node scripts/generate-tokens.mjs && node scripts/generate-alternative-fixture.mjs --check && node scripts/generate-color-fixture.mjs --check && node scripts/generate-examples.mjs && node scripts/generate-api-reference.mjs && next dev -p 3003",
-    "build": "pnpm --filter @mobtranslate/ui tokens:check && node scripts/generate-tokens.mjs && node scripts/generate-alternative-fixture.mjs --check && node scripts/generate-color-fixture.mjs --check && node scripts/generate-examples.mjs && node scripts/check-glossary.mjs && node scripts/generate-api-reference.mjs && next build",
+    "dev": "pnpm --filter @mobtranslate/ui tokens:check && node scripts/generate-tokens.mjs && node scripts/generate-alternative-fixture.mjs --check && node scripts/generate-color-fixture.mjs --check && node scripts/check-font-fixture.mjs && node scripts/generate-examples.mjs && node scripts/generate-api-reference.mjs && next dev -p 3003",
+    "build": "pnpm --filter @mobtranslate/ui tokens:check && node scripts/generate-tokens.mjs && node scripts/generate-alternative-fixture.mjs --check && node scripts/generate-color-fixture.mjs --check && node scripts/check-font-fixture.mjs && node scripts/generate-examples.mjs && node scripts/check-glossary.mjs && node scripts/generate-api-reference.mjs && next build",
     "start": "next start -p 3003",
     "lint": "eslint . --cache --cache-location .cache/eslint/.eslintcache --max-warnings 0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -62,7 +62,9 @@
     "test:color-model": "vitest run --config vitest-color.config.mts",
     "color-fixture:check": "node scripts/generate-color-fixture.mjs --check",
     "test:color-browser": "node --test tests/color-browser.test.mjs",
-    "test:elevation": "node --test tests/elevation.test.mjs"
+    "test:elevation": "node --test tests/elevation.test.mjs",
+    "font-fixture:check": "node scripts/check-font-fixture.mjs",
+    "test:typography": "node --test tests/typography.test.mjs"
   },
   "dependencies": {
     "@material/material-color-utilities": "0.4.0",

@@ -1,0 +1,136 @@
+{
+  "family": "Styleguide Roboto Flex",
+  "upstreamCommit": "e9678a5385322c63730122ba464765baad83cfd8",
+  "license": {
+    "file": "OFL-Roboto-Flex.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/e9678a5385322c63730122ba464765baad83cfd8/ofl/robotoflex/OFL.txt",
+    "bytes": 4488,
+    "sha256": "9cbaed04b20c853f99840efe5dc96956f6f6120ed83a0ade35f9281a2b63e5d0"
+  },
+  "font": {
+    "file": "roboto-flex.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/e9678a5385322c63730122ba464765baad83cfd8/ofl/robotoflex/RobotoFlex%5BGRAD%2CXOPQ%2CXTRA%2CYOPQ%2CYTAS%2CYTDE%2CYTFI%2CYTLC%2CYTUC%2Copsz%2Cslnt%2Cwdth%2Cwght%5D.ttf",
+    "bytes": 1787292,
+    "sha256": "9b523f7d82593df0107173849ebb8c817471a1df4b4fb2c3cbf40cfd810c8281"
+  },
+  "axes": [
+    {
+      "tag": "opsz",
+      "min": 8.0,
+      "default": 14.0,
+      "max": 144.0,
+      "hidden": false,
+      "nameID": 256,
+      "name": "Optical Size"
+    },
+    {
+      "tag": "wght",
+      "min": 100.0,
+      "default": 400.0,
+      "max": 1000.0,
+      "hidden": false,
+      "nameID": 257,
+      "name": "Weight"
+    },
+    {
+      "tag": "GRAD",
+      "min": -200.0,
+      "default": 0.0,
+      "max": 150.0,
+      "hidden": false,
+      "nameID": 258,
+      "name": "Grade"
+    },
+    {
+      "tag": "wdth",
+      "min": 25.0,
+      "default": 100.0,
+      "max": 151.0,
+      "hidden": false,
+      "nameID": 259,
+      "name": "Width"
+    },
+    {
+      "tag": "slnt",
+      "min": -10.0,
+      "default": 0.0,
+      "max": 0.0,
+      "hidden": false,
+      "nameID": 260,
+      "name": "Slant"
+    },
+    {
+      "tag": "XOPQ",
+      "min": 27.0,
+      "default": 96.0,
+      "max": 175.0,
+      "hidden": true,
+      "nameID": 261,
+      "name": "Parametric Thick Stroke"
+    },
+    {
+      "tag": "YOPQ",
+      "min": 25.0,
+      "default": 79.0,
+      "max": 135.0,
+      "hidden": true,
+      "nameID": 262,
+      "name": "Parametric Thin Stroke"
+    },
+    {
+      "tag": "XTRA",
+      "min": 323.0,
+      "default": 468.0,
+      "max": 603.0,
+      "hidden": true,
+      "nameID": 263,
+      "name": "Parametric Counter Width"
+    },
+    {
+      "tag": "YTUC",
+      "min": 528.0,
+      "default": 712.0,
+      "max": 760.0,
+      "hidden": true,
+      "nameID": 264,
+      "name": "Parametric Uppercase Height"
+    },
+    {
+      "tag": "YTLC",
+      "min": 416.0,
+      "default": 514.0,
+      "max": 570.0,
+      "hidden": true,
+      "nameID": 265,
+      "name": "Parametric Lowercase Height"
+    },
+    {
+      "tag": "YTAS",
+      "min": 649.0,
+      "default": 750.0,
+      "max": 854.0,
+      "hidden": true,
+      "nameID": 266,
+      "name": "Parametric Ascender Height"
+    },
+    {
+      "tag": "YTDE",
+      "min": -305.0,
+      "default": -203.0,
+      "max": -98.0,
+      "hidden": true,
+      "nameID": 267,
+      "name": "Parametric Descender Depth"
+    },
+    {
+      "tag": "YTFI",
+      "min": 560.0,
+      "default": 738.0,
+      "max": 788.0,
+      "hidden": true,
+      "nameID": 268,
+      "name": "Parametric Figure Height"
+    }
+  ],
+  "licenseName": "SIL Open Font License 1.1"
+}

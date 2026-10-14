@@ -185,8 +185,8 @@ test('documented semantic text pairs meet AA in both rendered themes', () => {
 
 test('foundation labs use live CSS tokens and support changed values', () => {
   open('/foundations/typography');
-  browser('select', 'main .grid label:first-child select', '--text-6xl');
-  browser('fill', 'main input', 'A long source heading that must wrap rather than overflow the document');
+  browser('select', '[data-type-size]', '--text-6xl');
+  browser('fill', '[data-type-text]', 'A long source heading that must wrap rather than overflow the document');
   browser('wait', '--fn', 'getComputedStyle(document.querySelector("[data-typography-preview]")).fontSize === "60px"');
   assert.match(evaluate('document.querySelector("[data-typography-preview]").textContent'), /long source/);
   open('/foundations/spacing');

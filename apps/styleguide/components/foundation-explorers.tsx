@@ -4,7 +4,6 @@ import { useEffect, useId, useMemo, useReducer, useRef, useState } from 'react';
 import { Button } from '@mobtranslate/ui';
 import catalogue from '../content/tokens.json';
 
-const textTokens = catalogue.tokens.filter((token) => token.name.startsWith('--text-')).sort((a, b) => parseFloat(a.value) - parseFloat(b.value));
 const spacingTokens = catalogue.tokens.filter((token) => token.name.startsWith('--spacing-')).sort((a, b) => parseFloat(a.value) - parseFloat(b.value));
 const shadows = catalogue.tokens.filter((token) => token.name.startsWith('--shadow-'));
 const durations = catalogue.tokens.filter((token) => token.name.startsWith('--duration-'));
@@ -29,24 +28,7 @@ export function IconographyExplorer() {
   </div>;
 }
 
-export function TypographyExplorer() {
-  const [text, setText] = useState('Language first. Always.');
-  const [size, setSize] = useState('--text-2xl');
-  const [family, setFamily] = useState('--font-sans');
-  const [weight, setWeight] = useState('600');
-  const [leading, setLeading] = useState('1.5');
-  return <div className="space-y-4">
-    <label className="block">Preview text<input className="mt-input w-full mt-2" value={text} onChange={(event) => setText(event.target.value)} /></label>
-    <div className="grid gap-4 sm:grid-cols-2">
-      <label>Type size<select className="mt-input w-full mt-2" value={size} onChange={(event) => setSize(event.target.value)}>{textTokens.map((token) => <option key={token.name} value={token.name}>{token.name} · {token.value}</option>)}</select></label>
-      <label>Font family<select className="mt-input w-full mt-2" value={family} onChange={(event) => setFamily(event.target.value)}>{catalogue.tokens.filter((token) => token.name.startsWith('--font-')).map((token) => <option key={token.name} value={token.name}>{token.name}</option>)}</select></label>
-      <label>Font weight<select className="mt-input w-full mt-2" value={weight} onChange={(event) => setWeight(event.target.value)}>{[400, 500, 600, 700].map((value) => <option key={value}>{value}</option>)}</select></label>
-      <label>Line height<select className="mt-input w-full mt-2" value={leading} onChange={(event) => setLeading(event.target.value)}>{[1.25, 1.5, 1.75, 2].map((value) => <option key={value}>{value}</option>)}</select></label>
-    </div>
-    <div data-typography-preview className="p-4 border border-[var(--color-border)] rounded-lg overflow-wrap-anywhere" style={{ fontSize: `var(${size})`, fontFamily: `var(${family})`, fontWeight: Number(weight), lineHeight: leading, overflowWrap: 'anywhere' }}>{text || 'Enter text to preview it.'}</div>
-    <p className="text-sm">The selected font is a requested stack. If its font files are not loaded, the browser uses the system fallback. This preview is your input, not language evidence.</p>
-  </div>;
-}
+export { TypographyExplorer } from './typography-explorer';
 
 export function SpacingExplorer() {
   const [gap, setGap] = useState('--spacing-4');

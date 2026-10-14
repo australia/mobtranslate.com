@@ -14,6 +14,7 @@ sources.push('lib/spring-response.ts', 'examples/spring-response.tsx');
 sources.push('examples/spring-response.css');
 sources.push('lib/color-proposal.ts', 'examples/color-proposal.tsx', 'examples/color-proposal.css', 'public/fixtures/color-source.svg');
 sources.push('public/fixtures/color-source.json', 'scripts/generate-color-fixture.mjs');
+sources.push('components/typography-explorer.tsx', 'components/typography-explorer.css', 'public/fonts/roboto-flex.json', 'scripts/check-font-fixture.mjs');
 const snippets = Object.fromEntries(await Promise.all(sources.map(async source => [source, await readFile(path.join(app, source), 'utf8')])));
 const output = `${JSON.stringify(snippets, null, 2)}\n`;
 const destination = path.join(app, 'content/examples.json');

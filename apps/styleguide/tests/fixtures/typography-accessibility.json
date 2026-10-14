@@ -1,0 +1,117 @@
+[
+  {
+    "path": "/foundations/typography",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/foundations/typography",
+    "state": "variable-loaded",
+    "actions": [
+      [
+        "select",
+        "[data-type-family]",
+        "local-variable"
+      ],
+      [
+        "wait",
+        "--fn",
+        "document.querySelector(\"[data-type-font-status]\")?.textContent.startsWith(\"Local variable font loaded\")"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/typography",
+    "state": "advanced-axes",
+    "actions": [
+      [
+        "select",
+        "[data-type-family]",
+        "local-variable"
+      ],
+      [
+        "wait",
+        "--fn",
+        "document.querySelector(\"[data-type-font-status]\")?.textContent.startsWith(\"Local variable font loaded\")"
+      ],
+      [
+        "focus",
+        "[data-type-advanced] summary"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/typography",
+    "state": "expanded-css",
+    "actions": [
+      [
+        "select",
+        "[data-type-family]",
+        "local-variable"
+      ],
+      [
+        "wait",
+        "--fn",
+        "document.querySelector(\"[data-type-font-status]\")?.textContent.startsWith(\"Local variable font loaded\")"
+      ],
+      [
+        "focus",
+        "[data-type-css] summary"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/typography",
+    "state": "large-spaced-text",
+    "actions": [
+      [
+        "select",
+        "[data-type-size]",
+        "--text-6xl"
+      ],
+      [
+        "select",
+        "[data-type-leading]",
+        "3"
+      ],
+      [
+        "select",
+        "[data-type-tracking]",
+        "0.12"
+      ],
+      [
+        "fill",
+        "[data-type-text]",
+        "A long original English specimen wraps across the available reading width."
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/typography",
+    "state": "visible-variable-specimen",
+    "actions": [
+      [
+        "select",
+        "[data-type-family]",
+        "local-variable"
+      ],
+      [
+        "wait",
+        "--fn",
+        "document.querySelector(\"[data-type-font-status]\")?.textContent.startsWith(\"Local variable font loaded\")"
+      ],
+      [
+        "scrollintoview",
+        "[data-typography-preview]"
+      ]
+    ]
+  }
+]
