@@ -37,7 +37,10 @@
   cursor: pointer;
   border: 2px solid transparent;
   outline: none;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-inline-size: 100%;
+  min-inline-size: 0;
 }
 .mt-btn:focus-visible {
   box-shadow: 0 0 0 2px var(--color-background), 0 0 0 4px var(--color-ring);
@@ -47,9 +50,9 @@
   cursor: not-allowed;
 }
 
-.mt-btn-sm { height: 2.25rem; padding-inline: 0.75rem; font-size: var(--text-sm); }
-.mt-btn-md { height: 2.75rem; padding-inline: 1rem; font-size: var(--text-base); }
-.mt-btn-lg { height: 3rem; padding-inline: 1.5rem; font-size: var(--text-lg); }
+.mt-btn-sm { height: fit-content; min-height: 2.25rem; padding-block: 0.25rem; padding-inline: 0.75rem; font-size: var(--text-sm); }
+.mt-btn-md { height: fit-content; min-height: 2.75rem; padding-block: 0.25rem; padding-inline: 1rem; font-size: var(--text-base); }
+.mt-btn-lg { height: fit-content; min-height: 3rem; padding-block: 0.25rem; padding-inline: 1.5rem; font-size: var(--text-lg); }
 .mt-btn-icon { height: 2.75rem; width: 2.75rem; padding: 0; }
 
 /* Canonical variants: primary, secondary, ghost + destructive modifier.

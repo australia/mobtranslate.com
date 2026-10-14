@@ -43,15 +43,23 @@ test('named layout and context containers expose valid group or region semantics
   assert.equal(evaluate('document.activeElement.hasAttribute("data-context-target")'), true);
 });
 
-test('all repaired foundation tables provide focusable named scrolling', () => {
+test('named foundation tables fit naturally and keyboard-scroll actual overflow', () => {
+  let overflowing=0;
   for (const [path, name] of [['/foundations/colors','Live color role pairs table'],['/foundations/layout','Responsive layout specifications table'],['/foundations/shape','Radius specifications table'],['/foundations/interaction-states','State specifications table']]) {
     open(path); const selector = `.doc-table[aria-label=${JSON.stringify(name)}]`;
     assert.equal(evaluate(`document.querySelector(${JSON.stringify(selector)}).tabIndex`), 0);
-    browser('focus', selector); browser('press', 'ArrowRight');
-    browser('wait', '--fn', `document.querySelector(${JSON.stringify(selector)}).scrollLeft>0`);
+    browser('focus', selector);
+    const extent=evaluate(`(()=>{const region=document.querySelector(${JSON.stringify(selector)});return region.scrollWidth-region.clientWidth;})()`);
+    if(extent>1) {
+      overflowing++;browser('press','ArrowRight');
+      browser('wait','--fn',`document.querySelector(${JSON.stringify(selector)}).scrollLeft>0`);
+    } else {
+      assert.ok(evaluate(`(()=>{const region=document.querySelector(${JSON.stringify(selector)});return region.querySelector('table').getBoundingClientRect().width<=region.getBoundingClientRect().width+1&&region.scrollLeft===0;})()`));
+    }
     assert.equal(evaluate('document.activeElement.getAttribute("role")'), 'region');
     assert.equal(evaluate('document.documentElement.scrollWidth>innerWidth'), false);
   }
+  assert.ok(overflowing>0,'At least one real table exercises keyboard scrolling');
 });
 
 test('Alert defaults to a paragraph lead and explicit heading level changes semantic structure', () => {

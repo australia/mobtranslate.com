@@ -9,6 +9,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+main { overflow-wrap: anywhere; }
+
 :focus-visible { outline: 3px solid var(--color-ring); outline-offset: 3px; }
 main > div > p, section > p { max-width: 72ch; overflow-wrap: anywhere; }
 h1, h2, h3 { text-wrap: balance; overflow-wrap: anywhere; }
@@ -39,7 +41,7 @@ body:has(.mobile-navigation[open]) { overflow: hidden; }
 .code-toolbar button { min-height: 44px; font-size: 0.875rem; font-weight: 600; }
 .copy-status { padding: 0 1rem; font-size: 0.875rem; }
 .copy-status:not(:empty) { padding-bottom: 1rem; }
-.doc-table { overflow-x: auto; margin-top: 1rem; }
+.doc-table { overflow-wrap: normal; overflow-x: auto; margin-top: 1rem; }
 .doc-table table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
 .doc-table th, .doc-table td { text-align: start; padding: 0.75rem; border-bottom: 1px solid var(--color-border); vertical-align: top; }
 .doc-table th { font-weight: 600; }

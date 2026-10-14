@@ -46,7 +46,11 @@ test('dialog names and focus are connected; Escape discards the uncommitted draf
   assert.equal(evaluate('document.getElementById(document.querySelector("[role=dialog]").getAttribute("aria-labelledby")).textContent'), 'Edit local collection');
   assert.ok(evaluate('document.querySelector(".local-dialog-open") !== null'));
   browser('fill', '[role=dialog] input', 'Uncommitted title');
-  for (let index=0;index<7;index++) { browser('press','Tab'); assert.ok(evaluate('document.querySelector("[role=dialog]").contains(document.activeElement)')); }
+  for (let index=0;index<7;index++) {
+    browser('press','Tab');
+    const focus=evaluate('(async()=>{await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));return {inside:document.querySelector("[role=dialog]").contains(document.activeElement),active:document.activeElement.outerHTML.slice(0,220)};})()');
+    assert.ok(focus.inside,JSON.stringify({step:index+1,...focus}));
+  }
   browser('press', 'Escape'); browser('wait', '--fn', '!document.querySelector("[role=dialog]")');
   assert.equal(evaluate('document.activeElement.textContent'), 'Edit local collection');
   assert.equal(evaluate('document.querySelector("[data-dialog-lab] > [role=status]").textContent'), 'Current local collection: Local collection');
@@ -141,7 +145,14 @@ test('containment documents reflow in both themes at 320px', () => {
     open('/components/dialog','[data-dialog-lab]'); browser('select','[data-dialog-mode]',mode); click('Edit local collection'); browser('wait','[role=dialog]');
     assert.equal(evaluate('document.querySelector("[role=dialog]").getAttribute("aria-modal")'),null);
     assert.equal(evaluate('document.querySelector(".mt-dialog-backdrop") === null'),true);
-    if(mode === 'trap-focus') for(let index=0;index<6;index++) {browser('press','Tab'); assert.ok(evaluate('document.querySelector("[role=dialog]").contains(document.activeElement)'));}
+    if(mode === 'trap-focus') {
+      browser('wait','--fn','document.querySelector("[role=dialog]").contains(document.activeElement)');
+      for(let index=0;index<6;index++) {
+        browser('press','Tab');
+        const focus=evaluate('(async()=>{await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));return {inside:document.querySelector("[role=dialog]").contains(document.activeElement),active:document.activeElement.outerHTML.slice(0,220)};})()');
+        assert.ok(focus.inside,JSON.stringify({step:index+1,...focus}));
+      }
+    }
     browser('press','Escape'); browser('wait','--fn','!document.querySelector("[role=dialog]")');
   }
 });

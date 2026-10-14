@@ -3,7 +3,9 @@
     "sm": {
       "height": {
         "selector": ".mt-btn-sm",
-        "property": "height"
+        "property": "min-height",
+        "computed": "height",
+        "note": "Minimum height; the control grows with wrapped content. The legacy height token key is retained."
       },
       "paddingX": {
         "selector": ".mt-btn-sm",
@@ -18,7 +20,9 @@
     "md": {
       "height": {
         "selector": ".mt-btn-md",
-        "property": "height"
+        "property": "min-height",
+        "computed": "height",
+        "note": "Minimum height; the control grows with wrapped content. The legacy height token key is retained."
       },
       "paddingX": {
         "selector": ".mt-btn-md",
@@ -33,7 +37,9 @@
     "lg": {
       "height": {
         "selector": ".mt-btn-lg",
-        "property": "height"
+        "property": "min-height",
+        "computed": "height",
+        "note": "Minimum height; the control grows with wrapped content. The legacy height token key is retained."
       },
       "paddingX": {
         "selector": ".mt-btn-lg",
