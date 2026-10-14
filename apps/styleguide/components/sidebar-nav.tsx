@@ -129,7 +129,40 @@ function NavContent({ onNavigate }: { onNavigate?: () => void }) {
 export function SidebarNav() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const dialogRef = React.useRef<HTMLDialogElement>(null);
+  const headerRef = React.useRef<HTMLElement>(null);
   const pathname = usePathname();
+
+  React.useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+    let frame = 0;
+    const reveal = (target: EventTarget | null) => {
+      cancelAnimationFrame(frame);
+      if (!(target instanceof HTMLElement) || !target.closest('main')) return;
+      frame = requestAnimationFrame(() => {
+        if (!target.isConnected || document.activeElement !== target || !target.matches(':focus-visible')) return;
+        const headerBox = header.getBoundingClientRect();
+        if (headerBox.height > 0 && target.getBoundingClientRect().top < headerBox.bottom) {
+          target.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'instant'});
+        }
+      });
+    };
+    const measure = () => {
+      document.documentElement.style.setProperty('--styleguide-header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+      reveal(document.activeElement);
+    };
+    const focus = (event: FocusEvent) => reveal(event.target);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(header);
+    document.addEventListener('focusin', focus);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener('focusin', focus);
+      cancelAnimationFrame(frame);
+      document.documentElement.style.removeProperty('--styleguide-header-height');
+    };
+  }, []);
 
   React.useEffect(() => {
     dialogRef.current?.close();
@@ -149,14 +182,14 @@ export function SidebarNav() {
 
   return (
     <>
-      <header className="mobile-nav-header md:hidden"><button
+      <header ref={headerRef} className="mobile-nav-header"><button
         className="mobile-nav-trigger"
         onClick={() => setMobileOpen(true)}
-        aria-label="Open navigation"
+        aria-label="Open navigation menu"
         aria-expanded={mobileOpen}
         aria-controls="mobile-navigation"
       >Menu</button><span className="text-sm font-semibold">MobTranslate styleguide</span></header>
-      <nav aria-label="Design system" className="hidden md:block w-64 shrink-0 border-r border-[var(--color-border)] h-screen overflow-y-auto sticky top-0 p-4 bg-[var(--color-background)]">
+      <nav aria-label="Design system" className="styleguide-desktop-nav w-64 shrink-0 border-r border-[var(--color-border)] h-screen overflow-y-auto sticky top-0 p-4 bg-[var(--color-background)]">
         <NavContent />
       </nav>
       <dialog id="mobile-navigation" ref={dialogRef} className="mobile-navigation" aria-label="Design system navigation" onClose={() => setMobileOpen(false)} onClick={(event) => {

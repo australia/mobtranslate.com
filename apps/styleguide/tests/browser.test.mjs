@@ -61,7 +61,8 @@ test('topic navigation search finds categories and explains empty results', () =
 
 test('mobile dialog contains focus and restores it on Escape', () => {
   browser('set', 'viewport', '375', '812');
-  assert.equal(evaluate('getComputedStyle(document.querySelector(".mobile-nav-header")).position'), 'fixed');
+  evaluate('window.scrollTo(0,300)');
+  assert.ok(evaluate('Math.abs(document.querySelector(".mobile-nav-header").getBoundingClientRect().top)<1'));
   browser('click', '.mobile-nav-trigger');
   assert.equal(evaluate('document.querySelector("dialog").open'), true);
   assert.ok(evaluate('document.querySelector("dialog").contains(document.activeElement)'));

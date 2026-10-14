@@ -64,7 +64,8 @@
     "test:color-browser": "node --test tests/color-browser.test.mjs",
     "test:elevation": "node --test tests/elevation.test.mjs",
     "font-fixture:check": "node scripts/check-font-fixture.mjs",
-    "test:typography": "node --test tests/typography.test.mjs"
+    "test:typography": "node --test tests/typography.test.mjs",
+    "test:header-reflow": "node --test tests/header-reflow.test.mjs"
   },
   "dependencies": {
     "@material/material-color-utilities": "0.4.0",
