@@ -22,7 +22,7 @@ export function LocalThemeExample() {
       Rounded local action
     </label>
     <div data-local-theme style={style} className="p-4 border border-[var(--color-border)] rounded-lg">
-      <Button onClick={() => setStatus('Local themed action activated. No entry was changed.')}>Try themed action</Button>
+      <Button style={{minHeight:44,height:"auto",minWidth:0,maxWidth:"100%",whiteSpace:"normal",overflowWrap:"anywhere",paddingInline:".5rem"}} onClick={() => setStatus('Local themed action activated. No entry was changed.')}>Try themed action</Button>
     </div>
     <p role="status" className="text-sm">{status}</p>
     <p className="text-sm">Only this wrapper changes. Portalled overlays outside it would not inherit these overrides.</p>

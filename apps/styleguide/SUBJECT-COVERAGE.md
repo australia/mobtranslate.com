@@ -10,16 +10,16 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 
 | Captured subject | Local candidate | Depth review |
 | --- | --- | --- |
-| [overview](https://m3.material.io/foundations/overview) | /guides/design-principles | Pending subject/subtab comparison |
+| [overview](https://m3.material.io/foundations/overview) | /guides/accessibility; /foundations/inclusive-participation | Principles/assistive-technology tabs compared below; corrected accessibility subject routing |
 | [designing](https://m3.material.io/foundations/designing) | /guides/design-review; /guides/accessibility | Four subtab comparison mapped below; scoped runtime evidence in plan |
-| [writing](https://m3.material.io/foundations/writing) | /foundations/writing | Pending subject/subtab comparison |
-| [building-for-all](https://m3.material.io/foundations/building-for-all) | /guides/accessibility | Pending subject/subtab comparison |
-| [content-design/overview](https://m3.material.io/foundations/content-design/overview) | /foundations/writing | Pending subject/subtab comparison |
+| [writing](https://m3.material.io/foundations/writing) | /guides/accessibility; /foundations/alternative-text; /foundations/typography | Three accessible-writing tabs compared below; retained text/disclosure and resizing specimen |
+| [building-for-all](https://m3.material.io/foundations/building-for-all) | /foundations/inclusive-participation; /guides/accessibility | Both user-needs/co-design tabs compared below; explicit unexecuted collaboration plan |
+| [content-design/overview](https://m3.material.io/foundations/content-design/overview) | /foundations/writing; /foundations/content-conventions | UX writing/AP-resource scope compared below; separate from accessible-writing chapter |
 | [content-design/alt-text](https://m3.material.io/foundations/content-design/alt-text) | /foundations/alternative-text | Pending subject/subtab comparison |
 | [content-design/global-writing](https://m3.material.io/foundations/content-design/global-writing) | /foundations/internationalization | Word-choice subtopics and handoff mapped below |
 | [content-design/notifications](https://m3.material.io/foundations/content-design/notifications) | /foundations/notification-content | Pending subject/subtab comparison |
 | [content-design/style-guide](https://m3.material.io/foundations/content-design/style-guide) | /foundations/content-conventions | Pending subject/subtab comparison |
-| [customization](https://m3.material.io/foundations/customization) | /guides/theming | Pending subject/subtab comparison |
+| [customization](https://m3.material.io/foundations/customization) | /guides/theming; /foundations/color-schemes; /tokens | Brand/personalization/fallback/export subjects compared below; reused actual tools |
 | [watches](https://m3.material.io/foundations/watches) | /foundations/watches | Pending subject/subtab comparison |
 | [xr/design](https://m3.material.io/foundations/xr/design) | /foundations/xr | Pending subject/subtab comparison |
 | [xr/components](https://m3.material.io/foundations/xr/components) | /foundations/xr | Pending subject/subtab comparison |
@@ -36,7 +36,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [layout/canonical-examples](https://m3.material.io/foundations/layout/canonical-examples) | /foundations/layout-compositions; /patterns/navigation | Three arrangements implemented; URL/history belongs to navigation pattern |
 | [usability](https://m3.material.io/foundations/usability) | /guides/design-review; /foundations/inclusive-participation | Overview and expressive case-study subjects mapped below; no conducted study claimed |
 | [glossary](https://m3.material.io/foundations/glossary) | /guides/glossary | Pending subject/subtab comparison |
-| [overview/principles](https://m3.material.io/foundations/overview/principles) | /guides/accessibility | Pending subject/subtab comparison |
+| [overview/principles](https://m3.material.io/foundations/overview/principles) | /guides/accessibility | Same reviewed accessibility-principles chapter as overview alias |
 | [design-tokens/overview](https://m3.material.io/foundations/design-tokens/overview) | /tokens | Overview/use chapters compared below; actual declared-reference closure and current source/code contract |
 | [interaction/states/overview](https://m3.material.io/foundations/interaction/states/overview) | /foundations/interaction-states | Six rendered interaction chapters compared below; compiled recovery/reordering and reused batch-selection flows |
 | [layout/understanding-layout/overview](https://m3.material.io/foundations/layout/understanding-layout/overview) | /foundations/layout | Pending subject/subtab comparison |
@@ -324,4 +324,31 @@ Captured: `material-interaction-gestures-20261014.json`, `material-interaction-i
 
 Reference layer values are not silently installed into MobTranslate’s existing hover/active recipes. Browser assertions and synthetic native DragEvents do not establish physical touch/pen, voice, OS keyboard-attachment behavior or remote persistence.
 
-The full point-by-point completion pass still needs to verify reference-specific presentation details, including pressed ripple illustrations, against actual component/Glossary guidance. The interaction mappings above are scoped to their named sections and evidence, not a blanket native equivalence claim.
+The interaction guide now explicitly compares native pressed ripple presentation with this library’s active-color/shadow behavior and reduced-motion/semantic constraints. Per-family state coverage and the full point-by-point completion audit remain open; a described native ripple is not an installed web ripple generator.
+
+## Accessibility overview, writing, customization and co-design comparison
+
+Captured primary chapters: `material-foundation-overview-20261014.json`, `material-foundation-overview-principles-20261014.json`, `material-foundation-overview-assistive-technology-20261014.json`, `material-foundation-writing-20261014.json`, `material-foundation-writing-text-truncation-20261014.json`, `material-foundation-writing-text-resizing-20261014.json`, `material-foundation-content-design-overview-20261014.json`, `material-foundation-customization-20261014.json`, `material-foundation-building-for-all-20261014.json`, `material-foundation-building-for-all-co-design-20261014.json`.
+
+The overview alias resolves to accessibility principles; writing resolves to accessibility best practices. They are not aliases for product design principles or UX voice. Candidate routing above is corrected. Comparison mappings establish authored treatment and bounded web adaptations; verification scope is recorded in STYLEGUIDE-PLAN.md.
+
+| Primary subject | Concrete local treatment |
+| --- | --- |
+| Individual choices, learn early, requirements as a baseline | Accessibility: Adaptation, early learning and standards; Inclusive Participation collaboration/repair process |
+| Keyboard/directional controllers, screen readers/braille, switch scanning | Assistive technology and interaction ownership; native controls and named evaluation setup |
+| Magnification/tracking/voice and target versus glyph | Same table plus actual focus/reflow/target guidance; no physical/voice test inferred from DOM assertions |
+| Adjacent text, visible captions, embedded essential text | Accessible text, images and nearby context; existing original alternative-text fixtures |
+| Short alternatives/125-character advice and meaningful imagery | Preserve heuristic versus HTML/context distinction; WAI image-purpose decision tree and detailed structured equivalents |
+| Essential versus decorative information/contrast | Explicit information/operation distinction; actual role/state contrast guidance |
+| Retained content under wrap, growth, ellipsis and reveal | Truncation is a disclosure decision; native full-text disclosure preserving actual DOM value |
+| Text 100/150/200%, line height and constant spacing | New paragraph specimen with fixed block padding; native dp versus web rem/root/zoom distinction |
+| Non-text elements, constrained bars and tooltip boundaries | Text enlargement, units and constrained layouts; actual header reflow and explicit web full-label route |
+| UX information design/AP resource and first-person revisions | Writing: Content design resources and ownership; reviewed Content Conventions sections |
+| Brand and individual schemes, selective scope and fallback | Theming: Brand, individual preferences and fallback; existing local override and SDK color tool |
+| New/existing brand parameters, multiple sources/roles | Color Schemes and customization handoff; no automatic wallpaper/native palette access claim |
+| Theme Builder/Figma style export versus DSP/JSON/CSS | Design-tool styles and implementation handoff; Tokens workflow and actual export scope |
+| User attributes and environmental diversity | Existing thirteen dimension prompts; no identity/profile inference |
+| Early/ongoing co-design, priorities, messages and feedback | Collaboration roles, observation/interpretation/repair and closed-loop decisions |
+| Exclusion harm and AI/model bias questions | Who is excluded and what can change; source/evaluation/ranking/confidence/authority boundaries |
+
+The text specimen changes local presentation, not an OS/app preference. Synthetic English examples, source code, DOM names and automated checks do not establish speech/braille output, switch/voice/physical-device performance, qualified language review, participation or a full accessibility conformance claim.

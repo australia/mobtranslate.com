@@ -1,0 +1,68 @@
+[
+  {
+    "path": "/guides/accessibility",
+    "state": "wrapped-initial",
+    "actions": []
+  },
+  {
+    "path": "/guides/accessibility",
+    "state": "collapsed-ellipsis",
+    "actions": [
+      [
+        "select",
+        "[data-text-width]",
+        "160"
+      ],
+      [
+        "select",
+        "[data-text-mode]",
+        "ellipsis"
+      ]
+    ]
+  },
+  {
+    "path": "/guides/accessibility",
+    "state": "expanded-200",
+    "actions": [
+      [
+        "select",
+        "[data-text-width]",
+        "160"
+      ],
+      [
+        "select",
+        "[data-text-mode]",
+        "ellipsis"
+      ],
+      [
+        "select",
+        "[data-text-scale]",
+        "200"
+      ],
+      [
+        "focus",
+        "[data-text-expand]"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/guides/accessibility",
+    "state": "long-edited-wrap",
+    "actions": [
+      [
+        "fill",
+        "[data-text-content]",
+        "A local unbroken identifier: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      ],
+      [
+        "select",
+        "[data-text-scale]",
+        "200"
+      ]
+    ]
+  }
+]

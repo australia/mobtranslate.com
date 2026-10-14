@@ -3,6 +3,8 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { Button, Input } from '@mobtranslate/ui';
 
+const actionStyle = {minHeight:44,height:"auto",minWidth:0,maxWidth:"100%",whiteSpace:"normal",overflowWrap:"anywhere",paddingInline:".5rem"} as const;
+
 export function AccessibleRequestExample() {
   const id = useId();
   const [title, setTitle] = useState('');
@@ -56,12 +58,12 @@ export function AccessibleRequestExample() {
         aria-invalid={errors.includes('note') || undefined} aria-describedby={errors.includes('note') ? `${id}-note-error` : undefined}
         onChange={event => { setNote(event.target.value); setErrors(current => current.filter(field => field !== 'note')); edit(); }} />
       {errors.includes('note') && <p id={`${id}-note-error`}>Enter a note.</p>}
-      <Button ref={submit} type="submit" aria-disabled={pending || undefined} aria-busy={pending || undefined}>Try accessible request</Button>
+      <Button style={actionStyle} ref={submit} type="submit" aria-disabled={pending || undefined} aria-busy={pending || undefined}>Try accessible request</Button>
     </form>
     <div className="flex flex-wrap gap-3">
-      <Button type="button" variant="secondary" disabled={!pending} onClick={() => finish('complete', 'Local example complete. Your text is retained; nothing was sent.')}>Simulate completion</Button>
-      <Button type="button" variant="outline" disabled={!pending} onClick={() => finish('failed', 'Simulated connection failure. Your text is retained. Try accessible request again to retry.')}>Simulate failure</Button>
-      <Button type="button" variant="ghost" disabled={!pending} onClick={() => finish('editing', 'Local request cancelled. Your text is retained.')}>Cancel local request</Button>
+      <Button style={actionStyle} type="button" variant="secondary" disabled={!pending} onClick={() => finish('complete', 'Local example complete. Your text is retained; nothing was sent.')}>Simulate completion</Button>
+      <Button style={actionStyle} type="button" variant="outline" disabled={!pending} onClick={() => finish('failed', 'Simulated connection failure. Your text is retained. Try accessible request again to retry.')}>Simulate failure</Button>
+      <Button style={actionStyle} type="button" variant="ghost" disabled={!pending} onClick={() => finish('editing', 'Local request cancelled. Your text is retained.')}>Cancel local request</Button>
     </div>
     <p role="status" aria-atomic="true" className="min-h-6">{announcement}</p>
   </div>;

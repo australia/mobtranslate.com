@@ -1,0 +1,9 @@
+.text-visibility-lab { display:grid; gap:.75rem; min-inline-size:0; }
+.text-visibility-controls { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr)); }
+.text-visibility-lab label { min-inline-size:0; overflow-wrap:anywhere; }
+.text-visibility-lab .mt-input { display:block; inline-size:100%; margin-block-start:.5rem; }
+.text-visibility-lab textarea { inline-size:100%; block-size:auto; min-block-size:6rem; }
+.text-visibility-lab p { overflow-wrap:anywhere; }
+.text-visibility-lab [data-text-preview] { box-sizing:content-box; max-inline-size:100%; margin:0; border-block:1px solid var(--color-muted-foreground); padding-block:12px; background:var(--color-card); color:var(--color-card-foreground); white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.5; }
+.text-visibility-lab [data-text-preview][data-clipped] { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.text-visibility-lab [data-text-expand] { justify-self:start; min-inline-size:0; max-inline-size:100%; min-block-size:44px; block-size:auto; padding:8px 12px; white-space:normal; overflow-wrap:anywhere; }
