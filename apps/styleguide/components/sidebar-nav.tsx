@@ -142,7 +142,10 @@ export function SidebarNav() {
       frame = requestAnimationFrame(() => {
         if (!target.isConnected || document.activeElement !== target || !target.matches(':focus-visible')) return;
         const headerBox = header.getBoundingClientRect();
-        if (headerBox.height > 0 && target.getBoundingClientRect().top < headerBox.bottom) {
+        const targetBox = target.getBoundingClientRect();
+        const aboveHeader = headerBox.height > 0 && targetBox.top < headerBox.bottom;
+        const belowViewport = targetBox.top >= innerHeight || (targetBox.bottom > innerHeight && targetBox.height <= innerHeight - headerBox.bottom);
+        if (aboveHeader || belowViewport) {
           target.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'instant'});
         }
       });

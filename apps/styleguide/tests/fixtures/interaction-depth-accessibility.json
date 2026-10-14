@@ -1,0 +1,128 @@
+[
+  {
+    "path": "/foundations/interaction-states",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/foundations/input-gestures",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/patterns/selection",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/foundations/interaction-states",
+    "state": "validation",
+    "actions": [
+      [
+        "focus",
+        "[data-state-submit]"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/interaction-states",
+    "state": "pending",
+    "actions": [
+      [
+        "fill",
+        "[data-state-lab] input:not([type=checkbox])",
+        "local query"
+      ],
+      [
+        "focus",
+        "[data-state-submit]"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/interaction-states",
+    "state": "request-failure",
+    "actions": [
+      [
+        "fill",
+        "[data-state-lab] input:not([type=checkbox])",
+        "local query"
+      ],
+      [
+        "focus",
+        "[data-state-submit]"
+      ],
+      [
+        "press",
+        "Enter"
+      ],
+      [
+        "focus",
+        "[data-state-outcome=error]"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/interaction-states",
+    "state": "cancelled",
+    "actions": [
+      [
+        "fill",
+        "[data-state-lab] input:not([type=checkbox])",
+        "local query"
+      ],
+      [
+        "focus",
+        "[data-state-submit]"
+      ],
+      [
+        "press",
+        "Enter"
+      ],
+      [
+        "focus",
+        "[data-state-outcome=cancelled]"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/input-gestures",
+    "state": "keyboard-reordered",
+    "actions": [
+      [
+        "focus",
+        "button[aria-label=\"Move Entry text down\"]"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/patterns/selection",
+    "state": "selected-page",
+    "actions": [
+      [
+        "click",
+        "[data-table-lab] thead [role=checkbox]"
+      ]
+    ]
+  }
+]

@@ -19,6 +19,7 @@ sources.push('components/shape-explorer.tsx', 'components/shape-explorer.css');
 sources.push('components/iconography-explorer.tsx', 'components/iconography-explorer.css');
 sources.push('components/token-explorer.tsx', 'components/token-explorer.css', 'lib/token-references.ts');
 sources.push('components/spacing-explorer.tsx', 'components/spacing-explorer.css');
+sources.push('components/input-gestures-explorer.tsx', 'components/input-gestures-explorer.css', 'components/foundation-labs.tsx', 'components/foundation-labs.css');
 const snippets = Object.fromEntries(await Promise.all(sources.map(async source => [source, await readFile(path.join(app, source), 'utf8')])));
 const output = `${JSON.stringify(snippets, null, 2)}\n`;
 const destination = path.join(app, 'content/examples.json');

@@ -52,3 +52,10 @@ test('live text resizing, native keyboard traversal and the desktop breakpoint r
   assert.notEqual(evaluate('getComputedStyle(document.querySelector(".styleguide-desktop-nav")).display'),'none');
   browser('set','viewport','320','812');measured();assert.notEqual(evaluate('getComputedStyle(document.querySelector(".mobile-nav-header")).display'),'none');
 });
+
+
+test('text enlargement keeps an already-focused field inside the usable viewport',()=>{
+ browser('set','viewport','320','1000');browser('open',`${base}/foundations/interaction-states`);browser('wait','[data-state-lab]');browser('focus','[data-state-lab] input:not([type=checkbox])');
+ evaluate('document.documentElement.style.fontSize="200%"');measured();browser('wait','--fn','document.activeElement.getBoundingClientRect().top>=document.querySelector(".mobile-nav-header").getBoundingClientRect().bottom && document.activeElement.getBoundingClientRect().bottom<=innerHeight');
+ assert.ok(evaluate('document.activeElement.matches("[data-state-lab] input:not([type=checkbox])")'));assert.equal(evaluate('document.documentElement.scrollWidth<=innerWidth'),true);
+});

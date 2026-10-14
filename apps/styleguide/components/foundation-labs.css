@@ -1,0 +1,3 @@
+[data-state-lab] { min-inline-size:0; }
+[data-state-lab] .mt-btn { min-inline-size:0; max-inline-size:100%; min-block-size:44px; block-size:auto; padding-block:.5rem; padding-inline:.5rem; white-space:normal; overflow-wrap:anywhere; }
+[data-state-lab] p,[data-state-lab] label { overflow-wrap:anywhere; }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useMemo, useReducer, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { Button } from '@mobtranslate/ui';
 import catalogue from '../content/tokens.json';
 
@@ -106,36 +106,4 @@ export function InternationalizationExplorer() {
   </div>;
 }
 
-const initialItems = [{ id: 'entry', label: 'Entry text' }, { id: 'source', label: 'Source record' }, { id: 'review', label: 'Review state' }];
-type OrderAction = { type: 'step'; id: string; delta: number } | { type: 'drop'; id: string; targetId: string } | { type: 'reset' };
-function orderReducer(state: { items: typeof initialItems; announcement: string }, action: OrderAction) {
-  if (action.type === 'reset') return { items: initialItems, announcement: 'Example order reset.' };
-  const from = state.items.findIndex((item) => item.id === action.id);
-  const to = action.type === 'step' ? from + action.delta : state.items.findIndex((item) => item.id === action.targetId);
-  if (from < 0 || to < 0 || to >= state.items.length || from === to) return state;
-  const items = [...state.items];
-  const [item] = items.splice(from, 1);
-  items.splice(to, 0, item);
-  return { items, announcement: `${item.label} moved to position ${to + 1} of ${items.length}.` };
-}
-export function InputGesturesExplorer() {
-  const [state, dispatch] = useReducer(orderReducer, { items: initialItems, announcement: 'Drag an item or use its move buttons.' });
-  const dragged = useRef<string | null>(null);
-  const list = useRef<HTMLOListElement>(null);
-  const pendingFocus = useRef<string | null>(null);
-  useEffect(() => {
-    if (!pendingFocus.current) return;
-    const item = Array.from(list.current?.children ?? []).find(node => node.getAttribute('data-item-id') === pendingFocus.current);
-    item?.querySelector<HTMLButtonElement>('button:not(:disabled)')?.focus();
-    pendingFocus.current = null;
-  }, [state.items]);
-  const step = (id: string, delta: number) => { pendingFocus.current = id; dispatch({ type: 'step', id, delta }); };
-  return <div className="space-y-4">
-    <p className="text-sm">Reorder this example list using drag, pointer, touch or keyboard controls. This does not change dictionary records.</p>
-    <ol ref={list} data-order-preview className="space-y-3">{state.items.map((item, index) => <li key={item.id} data-item-id={item.id} draggable onDragStart={(event) => { dragged.current = item.id; event.dataTransfer.setData('text/plain', item.id); event.dataTransfer.effectAllowed = 'move'; }} onDragEnd={() => { dragged.current = null; }} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); if (dragged.current) dispatch({ type: 'drop', id: dragged.current, targetId: item.id }); dragged.current = null; }} className="flex flex-wrap items-center justify-between gap-3 p-3 border border-[var(--color-border)] rounded-lg">
-      <span>{index + 1}. {item.label}</span><div className="flex gap-2"><Button variant="outline" disabled={index === 0} aria-label={`Move ${item.label} up`} onClick={() => step(item.id, -1)}>Up</Button><Button variant="outline" disabled={index === state.items.length - 1} aria-label={`Move ${item.label} down`} onClick={() => step(item.id, 1)}>Down</Button></div>
-    </li>)}</ol>
-    <p role="status" className="text-sm">{state.announcement}</p>
-    <Button variant="ghost" onClick={() => dispatch({ type: 'reset' })}>Reset order</Button>
-  </div>;
-}
+export { InputGesturesExplorer } from './input-gestures-explorer';

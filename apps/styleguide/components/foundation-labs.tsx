@@ -1,7 +1,8 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Button, Input } from '@mobtranslate/ui';
+import './foundation-labs.css';
 
 export function LayoutLab() {
   const id = useId();
@@ -36,22 +37,27 @@ export { ShapeLab } from './shape-explorer';
 export function StateLab() {
   const id = useId();
   const [value, setValue] = useState('');
-  const [state, setState] = useState<'ready' | 'loading' | 'error' | 'success'>('ready');
+  const [state, setState] = useState<'ready' | 'loading' | 'validation' | 'error' | 'success' | 'cancelled'>('ready');
   const [disabled, setDisabled] = useState(false);
-  const message = state === 'error' ? 'Enter a search term before continuing.' : state === 'loading' ? 'Example request is waiting. Choose a result below.' : state === 'success' ? 'Example request completed. No dictionary data was sent.' : 'Enter any English search term for this local demonstration.';
+  const input=useRef<HTMLInputElement>(null);
+  const restoreFocus=useRef(false);
+  useEffect(()=>{if(restoreFocus.current&&state!=='loading'){input.current?.focus();restoreFocus.current=false;}},[state]);
+  const finish=(outcome:'success'|'error'|'cancelled')=>{restoreFocus.current=true;setState(outcome);};
+
+  const message = state === 'validation' ? 'Enter a search term before continuing.' : state === 'error' ? 'Example request failed. Your term is retained; retry or reset this local example.' : state === 'cancelled' ? 'Example request cancelled. Your term is retained.' : state === 'loading' ? 'Example request is waiting. Choose a result below.' : state === 'success' ? 'Example request completed. No dictionary data was sent.' : 'Enter any English search term for this local demonstration.';
   return (
-    <div className="space-y-4 max-w-md">
+    <div className="space-y-4 max-w-md" data-state-lab>
       <label htmlFor={id} className="block font-medium">Search term</label>
-      <Input id={id} value={value} onChange={(event) => { setValue(event.target.value); setState('ready'); }} disabled={disabled || state === 'loading'} aria-invalid={state === 'error'} aria-describedby={`${id}-status`} />
+      <Input ref={input} id={id} value={value} onChange={(event) => { setValue(event.target.value); setState('ready'); }} disabled={disabled || state === 'loading'} aria-invalid={state === 'validation'} aria-describedby={`${id}-status`} />
       <p id={`${id}-status`} role="status" className="text-sm">{message}</p>
-      <Button disabled={disabled} loading={state === 'loading'} onClick={() => setState(value.trim() ? 'loading' : 'error')}>Search example</Button>
+      <Button data-state-submit disabled={disabled} loading={state === 'loading'} onClick={() => setState(value.trim() ? 'loading' : 'validation')}>Search example</Button>
       {state === 'loading' && <div className="flex flex-wrap gap-2">
-        <Button variant="outline" onClick={() => setState('success')}>Simulate success</Button>
-        <Button variant="outline" onClick={() => setState('error')}>Simulate error</Button>
-        <Button variant="ghost" onClick={() => setState('ready')}>Cancel request</Button>
+        <Button data-state-outcome="success" variant="outline" onClick={() => finish('success')}>Simulate success</Button>
+        <Button data-state-outcome="error" variant="outline" onClick={() => finish('error')}>Simulate error</Button>
+        <Button data-state-outcome="cancelled" variant="ghost" onClick={() => finish('cancelled')}>Cancel request</Button>
       </div>}
-      <label className="flex gap-3 items-center min-h-11"><input type="checkbox" checked={disabled} onChange={(event) => { setDisabled(event.target.checked); setState('ready'); }} />Disable the example controls</label>
-      <Button variant="ghost" onClick={() => { setState('ready'); setValue(''); setDisabled(false); }}>Reset example</Button>
+      <label className="flex gap-3 items-center min-h-11"><input data-state-disable type="checkbox" checked={disabled} onChange={(event) => { setDisabled(event.target.checked); setState('ready'); }} />Disable the example controls</label>
+      <Button data-state-reset variant="ghost" onClick={() => { setState('ready'); setValue(''); setDisabled(false); }}>Reset example</Button>
     </div>
   );
 }

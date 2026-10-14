@@ -24,10 +24,10 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [xr/design](https://m3.material.io/foundations/xr/design) | /foundations/xr | Pending subject/subtab comparison |
 | [xr/components](https://m3.material.io/foundations/xr/components) | /foundations/xr | Pending subject/subtab comparison |
 | [design-tokens](https://m3.material.io/foundations/design-tokens) | /tokens | Overview/use chapters compared below; actual declared-reference closure and current source/code contract |
-| [interaction/gestures](https://m3.material.io/foundations/interaction/gestures) | /foundations/input-gestures | Pending subject/subtab comparison |
-| [interaction/inputs](https://m3.material.io/foundations/interaction/inputs) | /foundations/input-gestures | Pending subject/subtab comparison |
-| [interaction/selection](https://m3.material.io/foundations/interaction/selection) | /patterns/selection | Pending subject/subtab comparison |
-| [interaction/states](https://m3.material.io/foundations/interaction/states) | /foundations/interaction-states | Pending subject/subtab comparison |
+| [interaction/gestures](https://m3.material.io/foundations/interaction/gestures) | /foundations/input-gestures | Six rendered interaction chapters compared below; compiled recovery/reordering and reused batch-selection flows |
+| [interaction/inputs](https://m3.material.io/foundations/interaction/inputs) | /foundations/input-gestures | Six rendered interaction chapters compared below; compiled recovery/reordering and reused batch-selection flows |
+| [interaction/selection](https://m3.material.io/foundations/interaction/selection) | /patterns/selection | Six rendered interaction chapters compared below; compiled recovery/reordering and reused batch-selection flows |
+| [interaction/states](https://m3.material.io/foundations/interaction/states) | /foundations/interaction-states | Six rendered interaction chapters compared below; compiled recovery/reordering and reused batch-selection flows |
 | [layout/layout-overview](https://m3.material.io/foundations/layout/layout-overview) | /foundations/layout-compositions; /foundations/layout | Authored subtopic comparison below; runtime evidence in plan |
 | [layout/scaffold](https://m3.material.io/foundations/layout/scaffold) | /foundations/layout-compositions; /patterns/app-bars | Authored subtopic comparison below; native/overlay boundaries explicit |
 | [layout/grids-spacing](https://m3.material.io/foundations/layout/grids-spacing) | /foundations/layout-compositions; /foundations/spacing | Authored subtopic comparison below; broader measurement depth remains reviewable |
@@ -38,7 +38,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [glossary](https://m3.material.io/foundations/glossary) | /guides/glossary | Pending subject/subtab comparison |
 | [overview/principles](https://m3.material.io/foundations/overview/principles) | /guides/accessibility | Pending subject/subtab comparison |
 | [design-tokens/overview](https://m3.material.io/foundations/design-tokens/overview) | /tokens | Overview/use chapters compared below; actual declared-reference closure and current source/code contract |
-| [interaction/states/overview](https://m3.material.io/foundations/interaction/states/overview) | /foundations/interaction-states | Pending subject/subtab comparison |
+| [interaction/states/overview](https://m3.material.io/foundations/interaction/states/overview) | /foundations/interaction-states | Six rendered interaction chapters compared below; compiled recovery/reordering and reused batch-selection flows |
 | [layout/understanding-layout/overview](https://m3.material.io/foundations/layout/understanding-layout/overview) | /foundations/layout | Pending subject/subtab comparison |
 | [building-for-all/user-needs](https://m3.material.io/foundations/building-for-all/user-needs) | /foundations/inclusive-participation | Pending subject/subtab comparison |
 
@@ -296,3 +296,32 @@ Captured primary chapters: `material-spacing-reference-20261014.json`, `material
 | Verification and failures | Actual styles/target readout; long labels, narrow/oversized scrolling, root-size and direction checks |
 
 The web inspector is not a physical-device measurement, native implementation or universal density API. Qualified target-device and content evaluation remain consuming-product responsibilities.
+
+## Interaction chapters compared
+
+Captured: `material-interaction-gestures-20261014.json`, `material-interaction-inputs-20261014.json`, `material-interaction-selection-20261014.json`, `material-interaction-states-20261014.json`, `material-interaction-state-layers-20261014.json`, `material-interaction-applying-states-20261014.json`. The states alias resolves to overview; its other two tabs were inspected separately. Local browser checks are scoped in STYLEGUIDE-PLAN.md.
+
+| Primary subject | Concrete local treatment |
+| --- | --- |
+| Tap/double tap/long press/pickup/drag | Choose the simplest interaction; Gesture vocabulary and interruption; compiled reorder example |
+| Scroll/pan/swipe/pinch/compound gesture | Gesture vocabulary and interruption; native scroll/visible-control alternatives |
+| Android predictive back | Explicit native-versus-web/history boundary; no emulation claim |
+| Immediate gesture feedback and cancellation | Moving-item boundary/status; cancelled drag retains order; shared drop/button transition |
+| Mixed mouse/trackpad/touch/pen/keyboard input | Input methods can coexist; no viewport-as-input inference |
+| Primary/secondary click, hover and cursors | Native activation; Context Menu and Tooltip guidance; cursor conventions |
+| Mouse text selection versus touch scrolling/handles | Text selection, scrolling and virtual keyboard boundaries; browser-owned editing/selection |
+| Wheel/trackpad scrolling and viewer zoom | Native overflow regions; Scroll Area and layout/zoom references |
+| Physical/on-screen keyboard and key conventions | Native input/IME policy; task-scoped Enter/Space/Escape; audio example link |
+| Selection of parts versus items | Indicators, parts and current destinations; actual check/pressed/current semantics |
+| Primary/secondary selection and mode entry/exit | Enter, extend and leave a selection task; explicit count/scope/clear guidance |
+| Batch selection gesture conflicts | Moving versus selecting policy; discoverable non-gesture controls |
+| Page/range/all selection scope and completed results | Reused working table aggregate, retained IDs/off-page disclosure and summary snapshot |
+| Enabled/disabled/hover/focused/pressed/dragged | State specifications, State anatomy and tokens, actual reorder feedback |
+| Surface/state/content and content-role color | Container, state layer and content; reference 8/10/10/16% and target/layer units |
+| Combined state layers and precedence | Combined states and visual precedence; selected versus :active and focus ring |
+| Component-specific inheritance and applicability | Apply states to actionable parts; native-reference/current-React API distinctions |
+| Validation versus request failure and cancellation | Actual local state example, retained text, truthful invalid flag and restored focus |
+
+Reference layer values are not silently installed into MobTranslate’s existing hover/active recipes. Browser assertions and synthetic native DragEvents do not establish physical touch/pen, voice, OS keyboard-attachment behavior or remote persistence.
+
+The full point-by-point completion pass still needs to verify reference-specific presentation details, including pressed ripple illustrations, against actual component/Glossary guidance. The interaction mappings above are scoped to their named sections and evidence, not a blanket native equivalence claim.
