@@ -32,6 +32,14 @@ Primary reference: https://m3.material.io/ (foundations, styles, components, dev
 
 In progress. Completion requires the full table above. A passing build or an expanded topic list does not prove completion.
 
+### Alternative-text content-design expansion, 2026-10-14
+
+- The rendered Material alt-text chapter has dedicated context, wording, caption, image-type, chart and moving-media subjects. Added an authored chapter covering those decisions, source uncertainty, native control names, complex equivalents, implementation and contextual/editorial verification at /foundations/alternative-text.
+- Added an original English-only chart fixture and generator. Its bars and table share the same values; dev/build reject stale SVG bytes. The lab has four explicitly chosen purposes, separate retained drafts, meaningful-preview validation, a real image-only action, independently navigable full values, focus return/fallback and DOM attribute inspection. Nonempty text is not treated as semantic approval.
+- Production build/typechecking passed (`build-alternative.txt`). Final suites passed 6/6 alternative and 37/37 baseline checks (43 total; `browser-alternative-named.txt`). The asset loaded with its expected intrinsic size and bar ratios, actual native role/name references activated controls, missing alternatives removed unnamed previews, and purpose/draft/focus relationships were exercised. Earlier generic driver name lookups failed despite correct accessibility-tree names; their diagnostic runs remain separate from passing evidence.
+- Route/fragment crawl: 100 routes, zero findings (`routes-alternative.json`). Initial two-state axe check passed. Extended the existing runner with explicit trusted scenario input and checked five named states in both appearance configurations: 10/10 cases, zero violations/root overflow (`axe-alternative-states.json`). Narrow clipped-code contrast checks remain review items; these results do not establish full WCAG or spoken screen-reader behavior.
+- Inspected narrow complex light/dark and opened functional views (`alternative-complex-320-light.png`, `alternative-complex-320-dark.png`, `alternative-functional-320.png`). Source snippets now include 69 checked files. Remaining full-reference depth and accessibility audit gates remain open.
+
 ### XR foundation expansion, 2026-10-14
 
 - The captured Material XR design/components indexes have dedicated guidance beyond the former glossary mentions. Added authored experience selection, coordinate/anchor ownership, physical/angular/platform units, panel hierarchy, orbiters and all five adapted component families, input/accessibility, optical/text conditions, interruption, capability/privacy, implementation and verification guidance at /foundations/xr.

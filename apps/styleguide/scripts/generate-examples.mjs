@@ -7,6 +7,7 @@ const sources = ['examples/entry-form.tsx', 'examples/composition.tsx', 'example
 sources.push('examples/watch-display.tsx');
 sources.push('examples/xr-geometry.tsx');
 sources.push('lib/xr-geometry.ts');
+sources.push('examples/alternative-text.tsx', 'public/fixtures/alternative-counts.json', 'public/fixtures/alternative-counts.svg', 'scripts/generate-alternative-fixture.mjs');
 const snippets = Object.fromEntries(await Promise.all(sources.map(async source => [source, await readFile(path.join(app, source), 'utf8')])));
 const output = `${JSON.stringify(snippets, null, 2)}\n`;
 const destination = path.join(app, 'content/examples.json');

@@ -1,0 +1,7 @@
+[
+  {"path":"/foundations/alternative-text","state":"informative","actions":[["wait","[data-alternative-ready=true]"]]},
+  {"path":"/foundations/alternative-text","state":"decorative","actions":[["wait","[data-alternative-ready=true]"],["select","#alternative-purpose","decorative"]]},
+  {"path":"/foundations/alternative-text","state":"functional-open","actions":[["wait","[data-alternative-ready=true]"],["select","#alternative-purpose","functional"],["click","[data-alternative-action]"],["wait","[data-alternative-values]"]]},
+  {"path":"/foundations/alternative-text","state":"complex-values","actions":[["wait","[data-alternative-ready=true]"],["select","#alternative-purpose","complex"],["wait","[data-alternative-values]"]]},
+  {"path":"/foundations/alternative-text","state":"empty-functional-alternative","actions":[["wait","[data-alternative-ready=true]"],["select","#alternative-purpose","functional"],["fill","#alternative-text"," "],["wait","--fn","!document.querySelector('[data-alternative-image]')"]]}
+]
