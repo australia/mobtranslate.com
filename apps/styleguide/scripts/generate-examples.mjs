@@ -17,6 +17,7 @@ sources.push('public/fixtures/color-source.json', 'scripts/generate-color-fixtur
 sources.push('components/typography-explorer.tsx', 'components/typography-explorer.css', 'public/fonts/roboto-flex.json', 'scripts/check-font-fixture.mjs');
 sources.push('components/shape-explorer.tsx', 'components/shape-explorer.css');
 sources.push('components/iconography-explorer.tsx', 'components/iconography-explorer.css');
+sources.push('components/token-explorer.tsx', 'components/token-explorer.css', 'lib/token-references.ts');
 const snippets = Object.fromEntries(await Promise.all(sources.map(async source => [source, await readFile(path.join(app, source), 'utf8')])));
 const output = `${JSON.stringify(snippets, null, 2)}\n`;
 const destination = path.join(app, 'content/examples.json');

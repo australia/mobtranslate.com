@@ -138,15 +138,15 @@ test('state explorer supports validation, pending, success and cancellation', ()
 
 test('token explorer reports rendered values, filters and exports the selected theme', () => {
   open('/tokens');
-  browser('wait', '--fn', 'Array.from(document.querySelectorAll("main tbody tr")).every(row => row.querySelectorAll("td")[2].textContent !== "Not available in this render")');
+  browser('wait', '--fn', 'Array.from(document.querySelectorAll("[data-token-catalogue] tbody tr")).every(row => row.querySelectorAll("td")[2].textContent !== "Not available in this render")');
   browser('fill', 'main input[type=search]', '--color-primary');
   browser('wait', '--fn', 'document.querySelector("main [role=status]").textContent.includes("of")');
-  const liveValue = 'Array.from(document.querySelectorAll("main tbody tr")).find(row => row.querySelector("th").textContent === "--color-primary").querySelectorAll("td")[2].textContent';
+  const liveValue = 'Array.from(document.querySelectorAll("[data-token-catalogue] tbody tr")).find(row => row.querySelector("th").textContent === "--color-primary").querySelectorAll("td")[2].textContent';
   assert.equal(evaluate(liveValue), '#b45e2a');
   browser('click', 'nav button[aria-label="Switch to dark mode"]');
   browser('wait', '--fn', `${liveValue} === "#e29455"`);
   assert.equal(evaluate(liveValue), '#e29455');
-  browser('select', 'main label:nth-child(3) select', 'dark');
+  browser('select', '[data-token-export-theme]', 'dark');
   evaluate('Object.defineProperty(navigator, "clipboard", { configurable: true, value: { writeText: async value => { window.copiedTokenCSS = value; } } });');
   clickButton('Copy filtered CSS');
   browser('wait', '--fn', 'typeof window.copiedTokenCSS === "string"');
@@ -156,7 +156,7 @@ test('token explorer reports rendered values, filters and exports the selected t
   assert.ok(exported.tokens.every(token => token.name.includes('--color-primary')));
   browser('fill', 'main input[type=search]', 'no-such-token-xyz');
   browser('wait', '--fn', 'document.querySelector("main [role=status]").textContent.startsWith("0 of")');
-  assert.equal(evaluate('document.querySelectorAll("main tbody tr").length'), 0);
+  assert.equal(evaluate('document.querySelectorAll("[data-token-catalogue] tbody tr").length'), 0);
   browser('click', 'nav button[aria-label="Switch to light mode"]');
 });
 

@@ -67,12 +67,15 @@
     "test:typography": "node --test tests/typography.test.mjs",
     "test:header-reflow": "node --test tests/header-reflow.test.mjs",
     "test:shape": "node --test tests/shape.test.mjs",
-    "test:iconography": "node --test tests/iconography.test.mjs"
+    "test:iconography": "node --test tests/iconography.test.mjs",
+    "test:token-references": "vitest run --config vitest-token.config.mts",
+    "test:token-export": "node --test tests/token-export.test.mjs"
   },
   "dependencies": {
     "@material/material-color-utilities": "0.4.0",
     "@mobtranslate/ui": "workspace:*",
     "next": "^16.2.9",
+    "postcss-value-parser": "4.2.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },

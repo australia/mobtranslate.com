@@ -1,0 +1,4 @@
+.token-explorer { min-inline-size: 0; }
+.token-explorer label, .token-explorer p, .token-explorer summary { min-inline-size: 0; overflow-wrap: anywhere; }
+.token-explorer .mt-btn { white-space: normal; block-size: auto; min-block-size: 44px; padding-block: .5rem; }
+.token-explorer .mt-input { min-inline-size: 0; }

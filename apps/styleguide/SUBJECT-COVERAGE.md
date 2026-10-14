@@ -23,7 +23,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [watches](https://m3.material.io/foundations/watches) | /foundations/watches | Pending subject/subtab comparison |
 | [xr/design](https://m3.material.io/foundations/xr/design) | /foundations/xr | Pending subject/subtab comparison |
 | [xr/components](https://m3.material.io/foundations/xr/components) | /foundations/xr | Pending subject/subtab comparison |
-| [design-tokens](https://m3.material.io/foundations/design-tokens) | /tokens | Pending subject/subtab comparison |
+| [design-tokens](https://m3.material.io/foundations/design-tokens) | /tokens | Overview/use chapters compared below; actual declared-reference closure and current source/code contract |
 | [interaction/gestures](https://m3.material.io/foundations/interaction/gestures) | /foundations/input-gestures | Pending subject/subtab comparison |
 | [interaction/inputs](https://m3.material.io/foundations/interaction/inputs) | /foundations/input-gestures | Pending subject/subtab comparison |
 | [interaction/selection](https://m3.material.io/foundations/interaction/selection) | /patterns/selection | Pending subject/subtab comparison |
@@ -37,7 +37,7 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [usability](https://m3.material.io/foundations/usability) | /guides/design-review; /foundations/inclusive-participation | Overview and expressive case-study subjects mapped below; no conducted study claimed |
 | [glossary](https://m3.material.io/foundations/glossary) | /guides/glossary | Pending subject/subtab comparison |
 | [overview/principles](https://m3.material.io/foundations/overview/principles) | /guides/accessibility | Pending subject/subtab comparison |
-| [design-tokens/overview](https://m3.material.io/foundations/design-tokens/overview) | /tokens | Pending subject/subtab comparison |
+| [design-tokens/overview](https://m3.material.io/foundations/design-tokens/overview) | /tokens | Overview/use chapters compared below; actual declared-reference closure and current source/code contract |
 | [interaction/states/overview](https://m3.material.io/foundations/interaction/states/overview) | /foundations/interaction-states | Pending subject/subtab comparison |
 | [layout/understanding-layout/overview](https://m3.material.io/foundations/layout/understanding-layout/overview) | /foundations/layout | Pending subject/subtab comparison |
 | [building-for-all/user-needs](https://m3.material.io/foundations/building-for-all/user-needs) | /foundations/inclusive-participation | Pending subject/subtab comparison |
@@ -260,3 +260,18 @@ Rendered primary captures: `material-develop-android-mdc-android-20261014.json`,
 | Target-runtime acceptance and delivery | Cross-platform handoff checklist with real task/outcome, semantics/input/direction, preserved data and rollback; no native execution invented from a web prototype |
 
 The four developer rows establish a substantive adapted implementation guide for this React/web library. The native SDKs are reference/handoff destinations, not installed/tested artifacts on this box. Local setup verification, document runtime results and remaining requirement-wide gates are recorded in STYLEGUIDE-PLAN.md.
+
+## Design Token subjects compared, 2026-10-14
+
+Primary captures: `material-design-tokens-overview-20261014.json` and `material-design-tokens-use-20261014.json`. Both index aliases resolve to the reviewed subject.
+
+| Reference subjects | Concrete local treatment in /tokens and linked guides |
+| --- | --- |
+| Named decision/value, reuse, adoption cost and shared source | Token architecture; A named decision and its adoption cost; checked CSS/TypeScript source contract |
+| Token name parts and reference/system/component classes | Names, classes and component specifications; actual local namespace and source-bound 19-preset/90-field inspector |
+| Modules, parts/states, aliases and contextual values | Contexts and alias graphs; declared parser/closure tool; light/dark source and live cascade distinction; Theming and component specification examples |
+| Baseline package, generate/update styles, mock-ups/design-kit mappings and platform export | Design-tool generation, mock-ups and handoff; resource link and actual local CSS/JSON workflow, without claiming a Figma or native export implementation |
+| Copy values/names and follow dependencies | Existing filters/copy/download plus optional parsed transitive reference inclusion, requested-name preservation, absent names/cycles and visible graph |
+| Source currency, migration and acceptance | Keeping the reference current; token generation/check commands; scoped consumer/theme/foreground/state/portal verification and migration guide |
+
+The export closure conservatively includes declared fallback branches; it does not execute the cascade or select a fallback. Filtered JSON is a source catalogue fragment with theme/request metadata, not DSP or a native theme package. Scoped parser/browser/rendering results are recorded in STYLEGUIDE-PLAN.md; other foundation and requirement-wide review remains open.
