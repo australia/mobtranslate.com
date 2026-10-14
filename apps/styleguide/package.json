@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --filter @mobtranslate/ui tokens:check && node scripts/generate-tokens.mjs && node scripts/generate-examples.mjs && next dev -p 3003",
-    "build": "pnpm --filter @mobtranslate/ui tokens:check && node scripts/generate-tokens.mjs && node scripts/generate-examples.mjs && next build",
+    "build": "pnpm --filter @mobtranslate/ui tokens:check && node scripts/generate-tokens.mjs && node scripts/generate-examples.mjs && node scripts/check-glossary.mjs && next build",
     "start": "next start -p 3003",
     "lint": "eslint . --cache --cache-location .cache/eslint/.eslintcache --max-warnings 0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -39,7 +39,9 @@
     "test:learning-offline": "node --test tests/learning-offline.test.mjs",
     "audio:check": "node scripts/generate-audio-fixture.mjs --check",
     "test:token-contract": "node --test tests/token-contract.test.mjs",
-    "test:component-specifications": "node --test tests/component-specifications.test.mjs"
+    "test:component-specifications": "node --test tests/component-specifications.test.mjs",
+    "glossary:check": "node scripts/check-glossary.mjs",
+    "test:inclusive-glossary": "node --test tests/inclusive-glossary.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

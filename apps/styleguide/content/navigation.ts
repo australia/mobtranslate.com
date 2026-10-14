@@ -24,6 +24,7 @@ export const sections: NavSection[] = [
       { label: 'Contribution and Testing', href: '/guides/contribution' },
       { label: 'Migration', href: '/guides/migration' },
       { label: 'Material Coverage', href: '/guides/material-coverage' },
+      { label: 'Design Glossary', href: '/guides/glossary' },
     ],
   },
   {
@@ -40,6 +41,7 @@ export const sections: NavSection[] = [
       { label: 'Writing', href: '/foundations/writing' },
       { label: 'Iconography', href: '/foundations/iconography' },
       { label: 'Internationalization', href: '/foundations/internationalization' },
+      { label: 'Inclusive Participation', href: '/foundations/inclusive-participation' },
       { label: 'Input and Gestures', href: '/foundations/input-gestures' },
     ],
   },
