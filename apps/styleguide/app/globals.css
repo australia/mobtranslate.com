@@ -90,3 +90,5 @@ body:has(.mobile-navigation[open]) { overflow: hidden; }
 .material-slide > button { margin-top:auto; }
 .material-appbar-workspace:focus-visible, .material-carousel:focus-visible { outline:2px solid var(--color-ring); outline-offset:2px; }
 @media(forced-colors:active) { .material-split, .material-slide, .material-appbar-workspace { border-color:CanvasText; } }
+
+#action-split-trigger[aria-expanded="true"] [data-split-chevron] { transform: rotate(180deg); }

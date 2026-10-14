@@ -5,6 +5,7 @@ const action:CSSProperties={minHeight:44,height:'auto',minWidth:0,maxWidth:'100%
 type Kind='reading'|'comparison';
 type Draft={id:number;kind:Kind;title:string};
 export function ActionGroupsExample(){
+  const portalContainer=useRef<HTMLDivElement>(null);
   const [title,setTitle]=useState('English-only local draft');
   const [kind,setKind]=useState<Kind>('reading');
   const [drafts,setDrafts]=useState<Draft[]>([]);
@@ -32,14 +33,15 @@ export function ActionGroupsExample(){
     setPending(null);arrival.current?.focus();
   }
   function options(fab:boolean){return <Menu disabled={!!pending} onOpenChange={next=>{if(next)menuFocus.current='trigger';}}>
-    <MenuTrigger id={fab?'action-fab-trigger':'action-split-trigger'} render={fab?<FloatingActionButton extended size="md" disabled={!!pending} style={{...action,minHeight:56}}><span aria-hidden="true">＋</span> Create local draft options</FloatingActionButton>:<Button type="button" variant="ghost" disabled={!!pending} style={{...action,borderInlineStart:'2px solid var(--color-muted-foreground)'}}>More actions</Button>} />
-    <MenuPortal><MenuPositioner sideOffset={8} collisionPadding={8}><MenuPopup finalFocus={()=>menuFocus.current==='input'?input.current:menuFocus.current==='status'?arrival.current:true} dir={rtl?'rtl':'ltr'} aria-label={fab?'Local FAB creation options':'Alternative local creation actions'}>
+    {fab&&<span id="action-fab-label" lang="en" dir="ltr">Create local draft options</span>}
+    <MenuTrigger id={fab?'action-fab-trigger':'action-split-trigger'} render={fab?<FloatingActionButton size="md" disabled={!!pending} aria-label="Create local draft options" aria-labelledby="action-fab-label"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5v14" fill="none" stroke="currentColor" strokeWidth="2" /></svg></FloatingActionButton>:<Button type="button" variant="ghost" aria-label="More actions" disabled={!!pending} style={{...action,width:44,flexShrink:0,paddingInline:0,borderInlineStart:'2px solid var(--color-muted-foreground)'}}><svg data-split-chevron width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style={{flexShrink:0}}><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" /></svg></Button>} />
+    <MenuPortal container={portalContainer}><MenuPositioner sideOffset={8} collisionPadding={8}><MenuPopup finalFocus={()=>menuFocus.current==='input'?input.current:menuFocus.current==='status'?arrival.current:true} dir={rtl?'rtl':'ltr'} aria-label={fab?'Local FAB creation options':'Alternative local creation actions'}>
       <MenuItem onClick={()=>request('reading')}>Add reading draft{fab?' from FAB':''}</MenuItem>
       <MenuItem onClick={()=>request('comparison')}>Add comparison draft{fab?' from FAB':''}</MenuItem>
       <MenuItem disabled>Publish remotely unavailable</MenuItem>
     </MenuPopup></MenuPositioner></MenuPortal>
   </Menu>;}
-  return <DirectionProvider direction={rtl?'rtl':'ltr'}><div data-action-groups-lab lang="en" dir={rtl?'rtl':'ltr'} className="space-y-4">
+  return <DirectionProvider direction={rtl?'rtl':'ltr'}><div ref={portalContainer} data-action-groups-lab lang="en" dir={rtl?'rtl':'ltr'} className="space-y-4">
     <p dir="auto">These explicit local commands create retained page-memory drafts. An alternative menu command runs once and becomes the next primary action. No source or server publication occurs.</p>
     <label htmlFor="action-group-title" className="block">Local draft title</label><Input ref={input} id="action-group-title" value={title} readOnly={!!pending} aria-invalid={!!error} aria-describedby={error?'action-group-error':undefined} onChange={event=>setTitle(event.target.value)} />
     {error&&<p id="action-group-error" role="alert" dir="auto">{error}</p>}
@@ -47,7 +49,7 @@ export function ActionGroupsExample(){
       <Button id="action-primary" type="button" variant="ghost" disabled={!!pending} style={{...action,flex:1}} onClick={()=>request(kind)}>Add {kind} draft</Button>{options(false)}
     </div>
     <div role="group" aria-label="Local draft settings" className="flex flex-wrap gap-3"><Button style={action} type="button" variant="outline" disabled={!!pending} aria-pressed={hold} onClick={()=>setHold(value=>!value)}>Hold local draft creation</Button><Button style={action} type="button" variant="outline" aria-pressed={rtl} onClick={()=>setRtl(value=>!value)}>Use RTL action groups</Button></div>
-    <div className="material-fab-space"><p dir="auto">The FAB menu offers the same creation tasks in this bounded workspace. It is placed in flow so it cannot cover the reading task.</p><div className="flex justify-end">{options(true)}</div></div>
+    <div className="material-fab-space"><p dir="auto">The FAB menu offers the same creation tasks in this bounded workspace. It is placed in flow so it cannot cover the reading task.</p><div className="flex flex-wrap items-center justify-end gap-3">{options(true)}</div></div>
     {pending&&<div className="flex flex-wrap gap-3"><CircularProgress value={null} aria-label="Local draft creation progress" /><Button style={action} type="button" onClick={()=>resolve('complete')}>Complete local draft creation</Button><Button style={action} type="button" variant="outline" onClick={()=>resolve('fail')}>Fail local draft creation</Button><Button style={action} type="button" variant="outline" onClick={()=>resolve('cancel')}>Cancel local draft creation</Button></div>}
     <p ref={arrival} tabIndex={-1} role="status" dir="auto" data-action-groups-status>{message} {drafts.length} local drafts exist.</p>
     <ol data-action-drafts className="guidance-list">{drafts.map(draft=><li key={draft.id} dir="auto">{draft.kind}: {draft.title}</li>)}</ol>

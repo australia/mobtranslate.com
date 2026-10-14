@@ -393,3 +393,21 @@ Captured primary chapter: `material-layout-bidirectionality-rtl-20261014.json`. 
 Concrete implementation changes: shared pagination arrows, breadcrumb chevrons and vertical-tab indicator rules use direction presentation variables reset at each explicit dir boundary; indeterminate linear progress follows RTL while an explicit LTR task region retains LTR movement. Circular progress remains clockwise. The audio pattern wraps native controls and custom seek/volume/rate controls in matching LTR DOM/provider context inside the RTL surrounding layout. Position still comes from actual native events.
 
 `tests/rtl-contract.test.mjs` targets nested navigation symbols, tab indicator placement, indeterminate/determinate progress and actual media seeking. Existing per-family suites remain required for their wider interaction contracts. These checks do not close the full per-family RTL/media/visual audit or establish translated-text quality or native Android predictive-back behavior.
+
+
+## Action-family component chapter comparison
+
+Reviewed captured overview/specs/guidelines/accessibility text for buttons, button groups, icon buttons, FABs, extended FABs, FAB menus, split buttons and baseline segmented buttons. Files use `material-depth-components-<family>-<tab>.json`. Native measurement figures are reference inputs; local component dimensions remain the actual CSS/source-bound specifications, not converted dp values.
+
+| Family | Local treatment and reference decisions | Implemented local treatment |
+| --- | --- | --- |
+| Buttons | /components/button: emphasis, anatomy, three minimum text sizes/fixed icon size, states, native submission, composed refs/handlers, pending recovery | Explicitly distinguish five reference styles/sizes from local variants; reconcile single-line guideline with reference 200% accessibility advice and the verified wrapping policy; correct legacy link sizing wording |
+| Button groups | /patterns/action-groups and /components/toolbar: commands, selection and composite keyboard models remain separate | Explain standard/connected reference groups, neighbor-width/shape motion and local stable geometry; distinguish ordinary Tab groups from Toolbar arrow navigation |
+| Icon buttons | /components/icon-button: required action name, 44px target, selected fill plus aria-pressed, glyph geometry | Explain reference target/size/width choices versus the local API; provide actual hover/focus help while preserving one operable control |
+| FABs | /components/floating-action-button: promoted creation, rem-based 44/56/72px nominal sizes, in-flow workspace and real count | Record current reference small-FAB/deprecated surface-style changes; distinguish fixed placement/scroll/transition handoff from implemented in-flow behavior and explain unavailable/pending policy |
+| Extended FABs | Same local guide: visible label plus icon as one action, growing content, extended/icon control | Record current three-size versus baseline reference changes, explicit label/placement/RTL policy and local wrapping at enlarged text; provide help for icon-only mode |
+| FAB menu | /patterns/action-groups: actual installed web Menu, retained drafts, failure/cancel, expanded state and surviving focus | Correct launcher from extended FAB to icon FAB with visible purpose; retain web-menu focus instead of claiming Android close-button/container-transform behavior |
+| Split buttons | /patterns/action-groups: two distinct controls, trailing menu, once-only alternative execution, chosen default, collisions/RTL | Use a named, fixed-width expanded/collapsed chevron that preserves primary-label space at enlarged text; explain 8px local spacing versus native reference spacing and stable geometry rather than expressive morph |
+| Segmented buttons | /components/toggle-group: real single/multi selection, installed keyboard/direction behavior, required/disabled policy | Explain that the captured expressive reference recommends connected groups instead of its baseline segmented variant; this does not deprecate the local ToggleGroup API |
+
+These rows record substantive comparison and concrete local adaptations. Their interaction/accessibility evidence is recorded in STYLEGUIDE-PLAN.md; they do not certify the other 28 families. Native dp measurements and expressive morph engines are not claimed as implemented web APIs.

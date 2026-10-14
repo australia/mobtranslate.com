@@ -1,0 +1,97 @@
+[
+  {
+    "path": "/components/button",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/icon-button",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/floating-action-button",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/patterns/action-groups",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/icon-button",
+    "state": "focused-icon-help",
+    "actions": [
+      [
+        "focus",
+        "[data-icon-action] button"
+      ],
+      [
+        "wait",
+        "[role=tooltip]"
+      ]
+    ]
+  },
+  {
+    "path": "/components/floating-action-button",
+    "state": "icon-fab-help",
+    "actions": [
+      [
+        "click",
+        "[data-fab-lab] input[type=checkbox]"
+      ],
+      [
+        "wait",
+        "--fn",
+        "!document.querySelector(\"[data-fab-lab] .mt-fab\").classList.contains(\"mt-fab-extended\")"
+      ],
+      [
+        "press",
+        "Tab"
+      ],
+      [
+        "wait",
+        "--fn",
+        "document.activeElement.matches(\"[data-fab-lab] .mt-fab\")"
+      ],
+      [
+        "wait",
+        "[role=tooltip]"
+      ]
+    ]
+  },
+  {
+    "path": "/patterns/action-groups",
+    "state": "split-menu",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "More actions",
+        "--exact"
+      ],
+      [
+        "wait",
+        "[role=menu]"
+      ]
+    ]
+  },
+  {
+    "path": "/patterns/action-groups",
+    "state": "fab-menu",
+    "actions": [
+      [
+        "click",
+        "#action-fab-trigger"
+      ],
+      [
+        "wait",
+        "[role=menu]"
+      ]
+    ]
+  }
+]
