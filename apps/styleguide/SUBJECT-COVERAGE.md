@@ -72,10 +72,10 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 
 | Captured subject | Local candidate | Depth review |
 | --- | --- | --- |
-| [android/mdc-android](https://m3.material.io/develop/android/mdc-android) | /guides/material-coverage | Pending subject/subtab comparison |
-| [android/jetpack-compose](https://m3.material.io/develop/android/jetpack-compose) | /guides/material-coverage | Pending subject/subtab comparison |
-| [flutter](https://m3.material.io/develop/flutter) | /guides/material-coverage | Pending subject/subtab comparison |
-| [web](https://m3.material.io/develop/web) | /guides/getting-started | Pending subject/subtab comparison |
+| [android/mdc-android](https://m3.material.io/develop/android/mdc-android) | /guides/material-coverage | Platform-specific developer comparison and handoff mapped below |
+| [android/jetpack-compose](https://m3.material.io/develop/android/jetpack-compose) | /guides/material-coverage | Platform-specific developer comparison and handoff mapped below |
+| [flutter](https://m3.material.io/develop/flutter) | /guides/material-coverage | Platform-specific developer comparison and handoff mapped below |
+| [web](https://m3.material.io/develop/web) | /guides/getting-started | Web/custom-element distinction and actual private workspace setup verified below |
 
 ## Content-convention subjects reviewed in this increment
 
@@ -245,3 +245,18 @@ Primary captures: `material-icons-overview-20261014.json`, `material-icons-desig
 | Resources, customized copies, delivery and verification | Asset delivery, composition and handoff; compiled inspector/styles; licensing/provenance/loaded asset and actual accessibility-tree checks |
 
 The inspector draws original SVGs and models reference geometry; it is not a Material Symbols font/library implementation or a recognition study. The separate Typography tool uses a real text variable font. This comparison records authored treatment and scoped runtime evidence in STYLEGUIDE-PLAN.md; whole-guide acceptance and remaining subjects stay open.
+
+## Developer implementation subjects compared, 2026-10-14
+
+Rendered primary captures: `material-develop-android-mdc-android-20261014.json`, `material-develop-android-jetpack-compose-20261014.json`, `material-develop-flutter-20261014.json`, `material-develop-web-20261014.json`. The Flutter API discrepancy is preserved in `flutter-useMaterial3-api-20261014.json`, with direct primary API/reference links in the guide.
+
+| Reference subjects | Concrete local treatment |
+| --- | --- |
+| Views maintenance, Compose-first migration and native resources | Material Coverage: Choose the actual platform implementation; Native defaults, migration and announcement boundaries; native SDK/version and regression handoff |
+| Compose dependency/API/theming/migration/adaptive examples; WearOS/XR | Same platform table and native boundary section; Cross-platform handoff and acceptance; existing Watches/XR and theme/layout chapters |
+| Flutter widget/theme flag/migration/adaptive resources | Platform table; preserved portal/API default discrepancy and constructor-versus-copyWith distinction; chosen installed SDK remains authoritative |
+| Material Web custom elements, maintenance/Expressive boundary; Angular difference | Platform table; React and custom-element ownership; event/ref/form/style/token namespace integration contract |
+| Getting started, theming, code sources and complete resources | Getting Started, Composition, Theming, Migration and Contribution; actual private source-package imports, frozen install and package/styleguide checks |
+| Target-runtime acceptance and delivery | Cross-platform handoff checklist with real task/outcome, semantics/input/direction, preserved data and rollback; no native execution invented from a web prototype |
+
+The four developer rows establish a substantive adapted implementation guide for this React/web library. The native SDKs are reference/handoff destinations, not installed/tested artifacts on this box. Local setup verification, document runtime results and remaining requirement-wide gates are recorded in STYLEGUIDE-PLAN.md.
