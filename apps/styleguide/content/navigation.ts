@@ -114,6 +114,9 @@ export const sections: NavSection[] = [
       { label: 'Action Groups and FAB Menus', href: '/patterns/action-groups' },
       { label: 'App Bars', href: '/patterns/app-bars' },
       { label: 'Lists and Carousels', href: '/patterns/lists-carousel' },
+      { label: 'Search and Refinement', href: '/patterns/search' },
+      { label: 'Source and Review Status', href: '/patterns/source-review' },
+      { label: 'Permissions and Access', href: '/patterns/permissions' },
     ],
   },
 ];

@@ -552,7 +552,13 @@ test('mobile search supports keyboard submission and focused section navigation 
   browser('wait', '--fn', 'document.querySelector("main h1").textContent === "Search guidance"');
   assert.equal(evaluate('document.querySelector("dialog").open'), false);
   browser('wait', '#guidance-query:not([readonly])');
-  browser('fill', '#guidance-query', 'capture');
+  browser('wait', '--fn', 'document.querySelector("#guidance-query").value === "capture"');
+  browser('focus', '#guidance-query');
+  browser('press', 'Control+A');
+  browser('press', 'Backspace');
+  browser('wait', '--fn', 'document.querySelector("#guidance-query").value === ""');
+  browser('type', '#guidance-query', 'capture');
+  assert.equal(evaluate('document.querySelector("#guidance-query").value'), 'capture');
   browser('press', 'Enter');
   browser('wait', '--fn', 'document.querySelector("[data-search-status]").textContent.includes("indexed pages")');
   assert.equal(evaluate('document.documentElement.scrollWidth > innerWidth'), false);

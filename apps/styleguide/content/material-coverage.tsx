@@ -28,7 +28,7 @@ const families=[
   ['Lists','/patterns/lists-carousel','lists/overview','Native sequence, informative rows and named actions without invented grid roles.'],
   ['Menus','/components/menu','menus/overview','Exported commands, choices, submenus and installed keyboard/availability behavior.'],
   ['Radio button','/components/radio','radio-button/overview','Exported single choice with actual values, required correction and direction.'],
-  ['Search','/components/autocomplete','search/overview','Editable query/suggestions plus full documentation search and loaded-title filtering; complete product search pattern audit remains open.'],
+  ['Search','/patterns/search','search/overview','Public-fixture HTTP search, submitted refinement, retained outcomes, cancellation/supersession and declared lexical matching; use Autocomplete for editable suggestions.'],
   ['Sliders','/components/slider','sliders/overview','Exported scalar/range selection with names, units and keyboard alternatives.'],
   ['Snackbar','/components/toast','snackbar/overview','Exported provider-managed Toast with actual command/recovery, timing and focus.'],
   ['Switch','/components/switch','switch/overview','Exported binary setting with immediate versus submitted state explicitly owned.'],
