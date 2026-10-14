@@ -54,7 +54,8 @@
     "test:xr": "node --test tests/xr.test.mjs",
     "alternative-fixture:generate": "node scripts/generate-alternative-fixture.mjs",
     "alternative-fixture:check": "node scripts/generate-alternative-fixture.mjs --check",
-    "test:alternative-text": "node --test tests/alternative-text.test.mjs"
+    "test:alternative-text": "node --test tests/alternative-text.test.mjs",
+    "test:notice-content": "node --test tests/notice-content.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

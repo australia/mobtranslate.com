@@ -140,3 +140,5 @@ STYLEGUIDE_A11Y_SCENARIOS=tests/fixtures/alternative-accessibility.json STYLEGUI
 ```
 
 The scenario path above is relative to the styleguide script working directory. The runner checkpoints each case with its state/actions, violations and retained review items. This fixture covers informative, decorative, opened functional values, complex values and empty functional alternatives.
+
+Notification-content guidance lives in `content/notification-content.tsx`, with `examples/notice-content.tsx` and `lib/notice-content.ts`. The model keeps captured text, local history, queue placement, requested live output and opened state separate. Preferences never grant authentication or delivery consent. The UTF-16, code-point and grapheme counts are labelled measurements rather than SMS billing estimates. `test:notice-content` covers retained content, opt-out/deferral/exception policy, batch release, focus, redaction, segmentation fallback, invalid input and both-theme long-content reflow. `tests/fixtures/notice-content-accessibility.json` supplies the corresponding explicit state scans.
