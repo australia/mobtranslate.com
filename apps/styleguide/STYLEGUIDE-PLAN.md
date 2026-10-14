@@ -32,6 +32,15 @@ Primary reference: https://m3.material.io/ (foundations, styles, components, dev
 
 In progress. Completion requires the full table above. A passing build or an expanded topic list does not prove completion.
 
+### XR foundation expansion, 2026-10-14
+
+- The captured Material XR design/components indexes have dedicated guidance beyond the former glossary mentions. Added authored experience selection, coordinate/anchor ownership, physical/angular/platform units, panel hierarchy, orbiters and all five adapted component families, input/accessibility, optical/text conditions, interruption, capability/privacy, implementation and verification guidance at /foundations/xr.
+- Added a compiled geometry model/tool with validated physical values, equivalent numeric/vector output, local proposal snapshots and explicit WebXR support checks. The model assumes a centered point observer facing a perpendicular rectangular panel. It does not supply a headset runtime, stereo calibration, platform dp conversion or comfort approval.
+- Capability results are tied to the selected mode/request identity and leave the HTML tool operable on absence/rejection. No requestSession, pose or sensor/camera call is made. Orbiter/Spatial/XR glossary entries now reach the authored chapter. Lint/typechecking and glossary checks passed; final production/runtime verification is pending at this checkpoint.
+- Overall completion still requires the original depth/subject audit and remaining accessibility/interactive-state evidence; this addition does not close those gates.
+- Production build passed with TypeScript enabled (`build-xr.txt`). Browser suites passed 5/5 XR, 7/7 inclusive/glossary and 37/37 baseline checks (49 total; `browser-xr.txt`). Evidence covers the 90° case/proportional scaling, invalid/oversized/empty values, frozen proposals, reset, true/false/absent/rejected/held capability responses, zero session calls, current-mode identity, keyboard capture and both-theme 320px bounds. Capability outcomes were controlled adapter fixtures, not physical-device qualification.
+- Route/fragment crawl: 99 routes, zero findings (`routes-xr.json`). New-page axe: two initial states, zero violations or root overflow; narrow clipped-code contrast checks remain review items (`axe-xr.json`). All 65 displayed source files passed freshness checking. Inspected settled 320px light/dark screenshots (`xr-geometry-settled-320-light.png`, `xr-geometry-settled-320-dark.png`); the vector model has readable equivalent HTML values and no tiny diagram text. Earlier screenshots captured a theme transition and are not final visual acceptance evidence.
+
 ### Watch-platform foundation expansion, 2026-10-14
 
 - The captured Material foundations index includes a dedicated Watches chapter; the prior glossary-level coverage did not supply an equivalent guide. Added authored task selection, round-screen geometry, targets/scrolling, input/interruption, color/type/expressive treatment, ambient/power/data, implementation and failure/verification guidance at /foundations/watches.
