@@ -29,7 +29,8 @@
     "test:disclosure": "node --test tests/disclosure.test.mjs",
     "test:rating": "node --test tests/rating.test.mjs",
     "test:stepper": "node --test tests/stepper.test.mjs",
-    "test:layout-utilities": "node --test tests/layout-utilities.test.mjs"
+    "test:layout-utilities": "node --test tests/layout-utilities.test.mjs",
+    "test:avatar": "node --test tests/avatar.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",

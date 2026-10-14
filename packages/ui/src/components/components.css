@@ -1589,3 +1589,10 @@
 .mt-rating-star[data-disabled] { opacity:.6; cursor:not-allowed; }
 .mt-rating-star[data-readonly] { cursor:default; }
 @media (forced-colors:active) { .mt-rating-star { color:CanvasText; } .mt-rating-star[data-checked] { outline-color:CanvasText; } .mt-rating-star:focus-visible { outline-color:Highlight; } .mt-rating-star[data-disabled] { color:GrayText; opacity:1; } }
+
+/* Avatar is an image representation, not an implicit hover action. */
+.mt-avatar { transition:none; }
+.mt-avatar:hover { box-shadow:none; }
+.mt-avatar-content { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+.mt-avatar-fallback { overflow:hidden; white-space:nowrap; padding:2px; }
+@media (forced-colors:active) { .mt-avatar { border:1px solid CanvasText; } }
