@@ -28,12 +28,12 @@ Capture root: `/mnt/donto-data/donto-resources/outputs/mobtranslate-styleguide-2
 | [interaction/inputs](https://m3.material.io/foundations/interaction/inputs) | /foundations/input-gestures | Pending subject/subtab comparison |
 | [interaction/selection](https://m3.material.io/foundations/interaction/selection) | /patterns/selection | Pending subject/subtab comparison |
 | [interaction/states](https://m3.material.io/foundations/interaction/states) | /foundations/interaction-states | Pending subject/subtab comparison |
-| [layout/layout-overview](https://m3.material.io/foundations/layout/layout-overview) | /foundations/layout | Pending subject/subtab comparison |
-| [layout/scaffold](https://m3.material.io/foundations/layout/scaffold) | /patterns/app-bars | Pending subject/subtab comparison |
-| [layout/grids-spacing](https://m3.material.io/foundations/layout/grids-spacing) | /foundations/spacing | Pending subject/subtab comparison |
-| [layout/breakpoints](https://m3.material.io/foundations/layout/breakpoints) | /foundations/layout | Pending subject/subtab comparison |
-| [layout/bidirectionality-rtl](https://m3.material.io/foundations/layout/bidirectionality-rtl) | /foundations/internationalization | Pending subject/subtab comparison |
-| [layout/canonical-examples](https://m3.material.io/foundations/layout/canonical-examples) | /patterns/navigation | Pending subject/subtab comparison |
+| [layout/layout-overview](https://m3.material.io/foundations/layout/layout-overview) | /foundations/layout-compositions; /foundations/layout | Authored subtopic comparison below; runtime evidence in plan |
+| [layout/scaffold](https://m3.material.io/foundations/layout/scaffold) | /foundations/layout-compositions; /patterns/app-bars | Authored subtopic comparison below; native/overlay boundaries explicit |
+| [layout/grids-spacing](https://m3.material.io/foundations/layout/grids-spacing) | /foundations/layout-compositions; /foundations/spacing | Authored subtopic comparison below; broader measurement depth remains reviewable |
+| [layout/breakpoints](https://m3.material.io/foundations/layout/breakpoints) | /foundations/layout-compositions; /foundations/layout | Window-class/local-token distinction authored; runtime evidence in plan |
+| [layout/bidirectionality-rtl](https://m3.material.io/foundations/layout/bidirectionality-rtl) | /foundations/layout-compositions; /foundations/internationalization | Layout placement authored; full component/media mirroring audit remains pending |
+| [layout/canonical-examples](https://m3.material.io/foundations/layout/canonical-examples) | /foundations/layout-compositions; /patterns/navigation | Three arrangements implemented; URL/history belongs to navigation pattern |
 | [usability](https://m3.material.io/foundations/usability) | /foundations/inclusive-participation | Pending subject/subtab comparison |
 | [glossary](https://m3.material.io/foundations/glossary) | /guides/glossary | Pending subject/subtab comparison |
 | [overview/principles](https://m3.material.io/foundations/overview/principles) | /guides/accessibility | Pending subject/subtab comparison |
@@ -93,3 +93,28 @@ Captured tabs: `material-content-style-20261014.json`, `material-content-word-ch
 | Italics and uppercase emphasis | Italics, emphasis and accessible meaning; Capitalization and abbreviations |
 
 WritingExplorer is reused in Editable editorial preview. Singular/plural queue behavior lives in NoticeContentExample with a focused browser regression. Internationalization supplies the locale/time-zone/direction lab and complete-message handoff. No automatic semantic copy checker is claimed.
+
+## Layout subjects compared in this increment
+
+Six primary captures `material-layout-<topic>-20261014.json` cover layout-overview, scaffold, grids-spacing, breakpoints, bidirectionality-rtl and canonical-examples. Eleven additional captures cover the linked parts/adaptive-design, bars/rails/panes, grids/spacing/density and feed/list-detail/supporting-pane tabs. The retained source includes full rendered main text and headings, not a route-name-only match. Concrete treatment in `/foundations/layout-compositions`:
+
+| Captured subjects | Authored section / working evidence |
+| --- | --- |
+| Windows, grids, scaffold, panes, handles, rulers | Window, grid and scaffold have different jobs |
+| Bars, safety regions, rails | Bars, safety regions and rails; existing App bars / Navigation implementations |
+| Mobile, desktop, spatial adaptation | Reveal, divide, resize, reposition and swap; XR handoff |
+| One/two/three panes | Choose a canonical arrangement; working one/two-pane lab; three-pane decision contract |
+| Persistent/temporary resizing | Persistent and temporary resizing; bounded native range adjusts real two-pane geometry; overlay expansion is a separate Dialog/Drawer pattern |
+| Show/hide, levitate, reflow, spatial panels | Reveal, divide, resize, reposition and swap; Layering, folds and failure recovery |
+| Grid columns, bar/rail/pane placement and ruler choices | Grids, rulers, grouping and spacing; compiled container CSS |
+| Rhythm, similarity, proximity, continuity, expression, focal points, negative space | Grids, rulers, grouping and spacing; existing Spacing scale/lab |
+| Information density, component scaling, targets, pixel/dp distinctions | Information density and unit boundaries; existing Input/gestures target contract; native density measurement is not implemented by the CSS lab |
+| Five window classes, height and adaptive decision questions | Reference classes and local web thresholds; Reveal, divide, resize, reposition and swap |
+| Feed across widths | Content-driven feed tracks with real open/close detail and retained record notes |
+| List-detail across widths, empty selection and transitions | Actual-width compact/expanded panes, initial placeholder, selected record, keyboard return, resize focus recovery |
+| Persistent record state | Independent drafts and frozen snapshots across records/compositions; cross-session persistence and scroll restoration are not claimed by this lab |
+| Supporting pane across widths | Associated context follows the selected task, stacks below 900px and moves beside it above; source qualifications stay attached |
+| Advanced layouts, layering and accessibility | Layering, folds and failure recovery; Pane identity, navigation and transitions; existing modal/keyboard patterns |
+| Canonical RTL placement | Bidirectionality and meaningful mirroring; actual logical container layout and unchanged DOM order |
+
+This supplies substantive layout guidance and a compiled fixture rather than declaring all layout/platform subjects complete. Runtime evidence is scoped to the named lab states and recorded in STYLEGUIDE-PLAN.md. Full component-specific RTL, actual fold/keyboard occlusion, native/spatial hardware, remote/cross-session persistence and the final requirement-wide audit remain distinct work/evidence boundaries.

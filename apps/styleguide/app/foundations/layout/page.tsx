@@ -64,7 +64,7 @@ export default function LayoutPage() {
     </Section>
     <Section title="Verification and related guidance">
       <p className="mb-4">Check 320px, 768px and 1440px widths; repeat at 200% text size and 400% browser zoom. Check keyboard order, long labels, empty results, open overlays and right-to-left content. A screenshot alone does not establish keyboard or zoom behavior.</p>
-      <div className="doc-links"><Link href="/foundations/spacing">Spacing</Link><Link href="/patterns/navigation">Navigation patterns</Link><Link href="/guides/accessibility">Accessibility</Link><a href="https://m3.material.io/foundations/layout/overview">Material layout reference</a></div>
+      <div className="doc-links"><Link href="/foundations/layout-compositions">Scaffolds and canonical layouts</Link><Link href="/foundations/spacing">Spacing</Link><Link href="/patterns/navigation">Navigation patterns</Link><Link href="/guides/accessibility">Accessibility</Link><a href="https://m3.material.io/foundations/layout/layout-overview/overview">Material layout reference</a></div>
     </Section>
   </div>;
 }
