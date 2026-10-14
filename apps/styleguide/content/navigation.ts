@@ -22,6 +22,7 @@ export const sections: NavSection[] = [
       { label: 'Composition', href: '/guides/composition' },
       { label: 'Contribution and Testing', href: '/guides/contribution' },
       { label: 'Migration', href: '/guides/migration' },
+      { label: 'Material Coverage', href: '/guides/material-coverage' },
     ],
   },
   {
@@ -110,6 +111,9 @@ export const sections: NavSection[] = [
       { label: 'Confirmation and Undo', href: '/patterns/confirmation' },
       { label: 'Selection and Filters', href: '/patterns/selection' },
       { label: 'Commands and Contextual Actions', href: '/patterns/commands' },
+      { label: 'Action Groups and FAB Menus', href: '/patterns/action-groups' },
+      { label: 'App Bars', href: '/patterns/app-bars' },
+      { label: 'Lists and Carousels', href: '/patterns/lists-carousel' },
     ],
   },
 ];

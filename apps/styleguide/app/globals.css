@@ -66,3 +66,21 @@ body:has(.mobile-navigation[open]) { overflow: hidden; }
 .code-block .code-property { color: #82aaff; }
 .code-block .code-value { color: #c3e88d; }
 .code-block .code-selector { color: #ffcb6b; }
+
+/* Composed web patterns keep native controls and local overflow ownership. */
+.material-split { display:flex; align-items:stretch; max-width:100%; min-width:0; border:2px solid var(--color-muted-foreground); border-radius:var(--radius-md); }
+.material-split > button { border-radius:0; }
+.material-fab-space { padding:1rem; border-block:1px solid var(--color-border); }
+.material-fab-space > p { margin-block-end:1rem; }
+.material-appbar-workspace { height:360px; overflow:auto; min-width:0; max-width:100%; border:2px solid var(--color-muted-foreground); border-radius:var(--radius-lg); scroll-padding-top:calc(var(--local-appbar-height, 0px) + 8px); }
+.material-appbar { position:sticky; top:0; z-index:1; display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding:12px; background:var(--color-background); border-bottom:2px solid var(--color-muted-foreground); }
+.material-appbar-title { flex:1 1 12rem; min-width:0; font-size:var(--text-lg); }
+.material-appbar-content { padding:16px; }
+.material-appbar-content > p { margin-block-end:16px; }
+.material-appbar-content h4 { scroll-margin-top:8px; }
+.material-carousel { display:flex; gap:16px; padding-block:4px; padding-inline:var(--local-slide-edge, 4px); max-width:100%; min-width:0; overflow-x:auto; scroll-snap-type:inline mandatory; scroll-padding-inline:var(--local-slide-edge, 4px); }
+.material-slide { flex:0 0 var(--local-slide-width, 80%); max-width:320px; min-width:0; scroll-snap-align:center; border:2px solid var(--color-muted-foreground); border-radius:var(--radius-lg); padding:16px; display:flex; flex-direction:column; gap:12px; }
+.material-slide-number { font-size:var(--text-4xl); font-weight:600; color:var(--color-muted-foreground); }
+.material-slide > button { margin-top:auto; }
+.material-appbar-workspace:focus-visible, .material-carousel:focus-visible { outline:2px solid var(--color-ring); outline-offset:2px; }
+@media(forced-colors:active) { .material-split, .material-slide, .material-appbar-workspace { border-color:CanvasText; } }

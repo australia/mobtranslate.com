@@ -33,7 +33,8 @@
     "test:avatar": "node --test tests/avatar.test.mjs",
     "test:scroll-area": "node --test tests/scroll-area.test.mjs",
     "test:preview-card": "node --test tests/preview-card.test.mjs",
-    "test:table": "node --test tests/table.test.mjs"
+    "test:table": "node --test tests/table.test.mjs",
+    "test:material-patterns": "node --test tests/material-patterns.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",
