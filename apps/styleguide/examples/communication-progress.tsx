@@ -8,7 +8,7 @@ export function ProgressCommunicationExample() {
   const text = value === null ? 'Local task underway; total unknown.' : `${value} of 10 local steps complete.`;
   return <div data-progress-lab className="space-y-4">
     <p>No timer invents progress. Choose measured local steps or an unknown total explicitly.</p>
-    <label>Circular size <select value={size} onChange={event => setSize(event.target.value as typeof size)} className="mt-input"><option value="sm">Small — 20px</option><option value="md">Medium — 32px</option><option value="lg">Large — 48px</option></select></label>
+    <label>Circular size <select value={size} onChange={event => setSize(event.target.value as typeof size)} className="mt-input"><option value="sm">sm · 20px</option><option value="md">md · 32px</option><option value="lg">lg · 48px</option></select></label>
     <Progress className={state => `lab-progress-${state.status}`} value={value} min={0} max={10} aria-label="Local task progress" getAriaValueText={() => text} />
     <CircularProgress className={state => `lab-circular-${state.status}`} size={size} value={value} min={0} max={10} aria-label="Circular local task progress" getAriaValueText={() => text} />
     <div className="flex flex-wrap gap-3">

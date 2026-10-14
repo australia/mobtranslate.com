@@ -571,11 +571,25 @@
 /* === PROGRESS === */
 .mt-progress { width: 100%; }
 .mt-progress-track {
+  position: relative;
   width: 100%;
   height: 0.5rem;
   background: var(--color-muted);
   border-radius: var(--radius-full);
   overflow: hidden;
+}
+/* A visible range endpoint is needed when the muted track blends into its surface. */
+.mt-progress:not([data-indeterminate]) .mt-progress-track::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 2px;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: var(--color-primary);
+  pointer-events: none;
 }
 .mt-progress-indicator {
   height: 100%;

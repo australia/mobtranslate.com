@@ -206,3 +206,27 @@ test('reduced motion stops unknown progress and loading placeholder animation', 
   open('/components/skeleton', '[data-skeleton-lab]');
   assert.ok(evaluate('[...document.querySelectorAll(".mt-skeleton")].every(node => getComputedStyle(node).animationName === "none")'));
 });
+
+test('measured progress endpoint remains visible at the logical end in both themes and enlarged text',()=>{
+  const luminance=color=>{const values=color.match(/[\d.]+/g).slice(0,3).map(Number).map(v=>v/255).map(v=>v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4);return values[0]*0.2126+values[1]*0.7152+values[2]*0.0722;};
+  const contrast=(a,b)=>{const x=luminance(a),y=luminance(b);return (Math.max(x,y)+0.05)/(Math.min(x,y)+0.05);};
+  browser('set','viewport','320','1000');
+  for(const theme of ['light','dark']){
+    open('/components/progress','[data-progress-lab]');
+    evaluate(`localStorage.setItem('mt-theme','${theme}');window.dispatchEvent(new Event('storage'));`);browser('wait',`html.${theme}`);
+    assert.equal(evaluate('getComputedStyle(document.querySelector(".mt-progress-track"),"::after").content'),'none');
+    click('Reset measured progress');
+    for(const direction of ['ltr','rtl'])for(const font of [16,32]){
+      evaluate(`document.querySelector('[data-progress-lab]').dir='${direction}';document.documentElement.style.fontSize='${font}px';`);
+      const actual=evaluate('(()=>{const root=document.querySelector("[data-progress-lab] .mt-progress"),track=root.querySelector(".mt-progress-track"),stop=getComputedStyle(track,"::after");let parent=track.parentElement,surface;while(parent){surface=getComputedStyle(parent).backgroundColor;if(surface!=="rgba(0, 0, 0, 0)"&&surface!=="transparent")break;parent=parent.parentElement;}return {width:document.documentElement.scrollWidth,value:root.getAttribute("aria-valuenow"),content:stop.content,marker:stop.backgroundColor,track:getComputedStyle(track).backgroundColor,surface,left:stop.left,right:stop.right,size:stop.width,pointer:stop.pointerEvents};})()');
+      const labels=evaluate('(()=>{const select=document.querySelector("[data-progress-lab] select"),style=getComputedStyle(select),canvas=document.createElement("canvas").getContext("2d");canvas.font=style.font;return {available:select.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight)-24,options:[...select.options].map(option=>({text:option.text,width:canvas.measureText(option.text).width}))};})()');
+      assert.ok(labels.options.every(option=>option.width<=labels.available),JSON.stringify(labels));
+      assert.equal(actual.width,320);assert.equal(actual.value,'0');assert.equal(actual.content,'""');assert.equal(actual.size,'4px');assert.equal(actual.pointer,'none');
+      assert.equal(direction==='rtl'?actual.left:actual.right,'2px');
+      assert.ok(contrast(actual.marker,actual.surface)>=3,JSON.stringify(actual));assert.ok(contrast(actual.marker,actual.track)>=3,JSON.stringify(actual));
+    }
+    click('Use unknown total');assert.equal(evaluate('getComputedStyle(document.querySelector(".mt-progress-track"),"::after").content'),'none');
+    assert.equal(evaluate('document.querySelector("[data-progress-lab] .mt-progress").hasAttribute("aria-valuenow")'),false);
+  }
+  evaluate("document.documentElement.style.fontSize=''");browser('set','viewport','1440','1000');
+});

@@ -411,3 +411,13 @@ Reviewed captured overview/specs/guidelines/accessibility text for buttons, butt
 | Segmented buttons | /components/toggle-group: real single/multi selection, installed keyboard/direction behavior, required/disabled policy | Explain that the captured expressive reference recommends connected groups instead of its baseline segmented variant; this does not deprecate the local ToggleGroup API |
 
 These rows record substantive comparison and concrete local adaptations. Their interaction/accessibility evidence is recorded in STYLEGUIDE-PLAN.md; they do not certify the other 28 families. Native dp measurements and expressive morph engines are not claimed as implemented web APIs.
+
+
+## Loading and progress chapter comparison
+
+Reviewed all eight captured text tabs for loading-indicator and progress-indicators (overview/specs/guidelines/accessibility). The authored Progress and CircularProgress guides now cover expected-wait recommendations, choosing an unknown-to-measured process, aggregate task scope, placement during append, consistent variants, local versus native sizing, flat/wavy/morph boundaries, indicator/endpoint contrast, RTL, action integration and explicit gesture-independent refresh.
+
+- Progress: real measured/unknown local-step example, installed ARIA contract, reduced-motion behavior, and a 4 CSS px decorative marker at the logical end for measured ranges. Its purpose is visible range extent where the muted track blends into the surface. It is not a new focus target or a made-up percentage for unknown work.
+- Loading indicator: named unknown CircularProgress plus persistent task status is the documented web adaptation. The seven-shape expressive loader, native container roles and Android pull-to-refresh recognizer are identified as reference behavior; this library does not claim those native APIs. Reference timings and dp measurements are advice, not a delayed-response mechanism or converted CSS tokens. An explicit request action and real recovery are linked to the implemented Search pattern.
+
+The two families’ runtime/contrast evidence is recorded in STYLEGUIDE-PLAN.md. This brings substantive text comparison to ten of 36 families; the remaining 26 require comparison. This count does not imply full requirement-wide completion.
