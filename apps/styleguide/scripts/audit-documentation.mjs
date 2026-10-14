@@ -21,7 +21,7 @@ for (let offset = 0; offset < paths.length; offset += 3) {
     const dom = new JSDOM(await response.text());
     const main = dom.window.document.querySelector('main');
     if (!main) throw new Error(`${path}: missing main`);
-    main.querySelectorAll('script,style,template,[aria-hidden="true"],.code-toolbar,.copy-status').forEach(node => node.remove());
+    main.querySelectorAll('script,style,template,[aria-hidden="true"],.code-toolbar,.copy-status,[data-api-ready]').forEach(node => node.remove());
     const headings = [...main.querySelectorAll('h1,h2,h3')].map(node => ({ text: node.textContent.trim(), id: node.id, level: Number(node.tagName.slice(1)) }));
     const walker = dom.window.document.createTreeWalker(main, dom.window.NodeFilter.SHOW_TEXT);
     const fragments = [];
@@ -39,7 +39,7 @@ const components = inventory.exports.filter(entry => entry.kind === 'callable co
   return { name: entry.name, sites: entry.sites, mentionRoutes: mentions, localProps };
 });
 const report = { base, created: new Date().toISOString(),
-  scope: 'Rendered initial documentation text and compiler-export mentions. A mention in code/prose is not proof of a complete API contract, behavior, examples or accessibility. Use this inventory to find omissions, then inspect actual topic sections.',
+  scope: 'Rendered authored documentation text and compiler-export mentions; generated API explorer is excluded so it cannot mask authored topic omissions. A mention in code/prose is not proof of a complete API contract, behavior, examples or accessibility. Use this inventory to find omissions, then inspect actual topic sections.',
   documents: documents.map(({text,...rest}) => rest), components,
   unmentionedComponents: components.filter(entry => !entry.mentionRoutes.length).map(entry => entry.name),
 };

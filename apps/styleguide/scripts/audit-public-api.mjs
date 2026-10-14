@@ -1,8 +1,9 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
+export function collectPublicAPI() {
 const root = fileURLToPath(new URL('../../../', import.meta.url));
 const configFile = path.join(root, 'packages/ui/tsconfig.json');
 const config = ts.readConfigFile(configFile, ts.sys.readFile);
@@ -23,24 +24,34 @@ const exports = checker.getExportsOfModule(module).map(publicSymbol => {
   const signatures = type?.getCallSignatures() ?? [];
   const component = runtime && /^[A-Z]/.test(publicSymbol.name) && signatures.length > 0;
   const first = component ? signatures[0]?.getParameters()[0] : null;
-  const propsType = first ? checker.getTypeOfSymbolAtLocation(first, first.valueDeclaration ?? declarations[0]) : null;
+  const declaredType = !runtime ? checker.getDeclaredTypeOfSymbol(symbol) : type;
+  const propsType = first ? checker.getTypeOfSymbolAtLocation(first, first.valueDeclaration ?? declarations[0]) : !runtime ? declaredType : null;
   const props = propsType?.getProperties().map(property => {
     const declarations = property.getDeclarations() ?? [];
     const site = declarations[0];
     return { name: property.name, optional: Boolean(property.flags & ts.SymbolFlags.Optional),
       type: checker.typeToString(checker.getTypeOfSymbolAtLocation(property, site ?? source), undefined, ts.TypeFormatFlags.NoTruncation),
       declarations: declarations.map(declaration => ({ file: relative(declaration.getSourceFile().fileName), line: declaration.getSourceFile().getLineAndCharacterOfPosition(declaration.getStart()).line + 1 })),
-      locallyDeclared: declarations.some(declaration => relative(declaration.getSourceFile().fileName).startsWith('packages/ui/src/')) };
+      locallyDeclared: declarations.some(declaration => relative(declaration.getSourceFile().fileName).startsWith('packages/ui/src/')),
+      documentation: ts.displayPartsToString(property.getDocumentationComment(checker)),
+      tags: property.getJsDocTags(checker).map(tag => ({name:tag.name,text:ts.displayPartsToString(tag.text)})) };
   }) ?? [];
   return { name: publicSymbol.name, runtime, kind: component ? 'callable component' : runtime ? 'runtime value/function' : 'type', sites,
-    signatures: signatures.map(signature => checker.signatureToString(signature, undefined, ts.TypeFormatFlags.NoTruncation)), props };
+    signatures: signatures.map(signature => checker.signatureToString(signature, undefined, ts.TypeFormatFlags.NoTruncation)),
+    definition: !runtime || (!component && !signatures.length) ? declarations.map(declaration => declaration.getText()).join('\n\n')
+      + (runtime ? `\n\n// Compiler-resolved value type; this is not runtime evaluation.\ndeclare const ${publicSymbol.name}: ${checker.typeToString(declaredType, undefined, ts.TypeFormatFlags.NoTruncation | ts.TypeFormatFlags.InTypeAlias)};` : '') : '',
+    documentation: ts.displayPartsToString(symbol.getDocumentationComment(checker)), props };
 }).sort((a, b) => a.name.localeCompare(b.name, 'en'));
-const report = {
+return {
   source: 'packages/ui/src/index.ts', created: new Date().toISOString(),
   scope: 'Compiler-resolved public symbols, signatures and component props. Does not prove rendered documentation, native semantics or runtime correctness.',
   exports,
 };
+}
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+const report = collectPublicAPI();
 const destination = process.env.STYLEGUIDE_API_REPORT;
 if (!destination) throw new Error('Set STYLEGUIDE_API_REPORT to a mounted output path.');
 await writeFile(destination, `${JSON.stringify(report, null, 2)}\n`);
-console.log(`${exports.length} public exports; ${exports.filter(entry => entry.kind === 'callable component').length} callable components; ${exports.filter(entry => entry.runtime).length} runtime exports. Compiler inventory written.`);
+console.log(`${report.exports.length} public exports; ${report.exports.filter(entry => entry.kind === 'callable component').length} callable components; ${report.exports.filter(entry => entry.runtime).length} runtime exports. Compiler inventory written.`);
+}
