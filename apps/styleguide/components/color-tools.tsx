@@ -34,7 +34,7 @@ export function ColorRoles() {
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'style'] });
     return () => observer.disconnect();
   }, []);
-  return <div className="doc-table"><table><thead><tr><th scope="col">Role</th><th scope="col">Live background / foreground</th><th scope="col">Text contrast</th><th scope="col">Specimen</th></tr></thead><tbody>
+  return <div className="doc-table" role="region" aria-label="Live color role pairs table" tabIndex={0}><table><thead><tr><th scope="col">Role</th><th scope="col">Live background / foreground</th><th scope="col">Text contrast</th><th scope="col">Specimen</th></tr></thead><tbody>
     {roles.map((token) => {
       const background = values[token.name] ?? '';
       const foreground = values[token.foreground] ?? '';

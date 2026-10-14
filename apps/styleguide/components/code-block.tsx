@@ -24,7 +24,7 @@ export function CodeBlock({ code, language = 'tsx' }: { code: string; language?:
         <span className="font-mono text-xs">{language}</span>
         <button onClick={handleCopy} aria-label={`Copy ${language} example`}>Copy code</button>
       </div>
-      <pre tabIndex={0} aria-label={`${language} example`} className="overflow-x-auto p-4 text-sm font-mono"><code>{code}</code></pre>
+      <pre role="group" tabIndex={0} aria-label={`${language} example`} className="overflow-x-auto p-4 text-sm font-mono"><code>{code}</code></pre>
       <p role="status" className="copy-status">{status}</p>
     </div>
   );

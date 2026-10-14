@@ -13,7 +13,7 @@ export function LayoutLab() {
       <label htmlFor={id} className="block font-medium">Example container width: {width}px</label>
       <input id={id} type="range" min="280" max="960" step="20" value={width} onChange={(event) => setWidth(Number(event.target.value))} className="w-full min-h-11" />
       <label className="flex items-center gap-3 min-h-11"><input type="checkbox" checked={direction === 'rtl'} onChange={(event) => setDirection(event.target.checked ? 'rtl' : 'ltr')} />Right-to-left layout</label>
-      <div className="overflow-x-auto border border-[var(--color-border)] rounded-lg p-3" tabIndex={0} aria-label="Scrollable responsive layout example">
+      <div role="region" className="overflow-x-auto border border-[var(--color-border)] rounded-lg p-3" tabIndex={0} aria-label="Scrollable responsive layout example">
         <div dir={direction} style={{ width, display: 'grid', gridTemplateColumns: compact ? '1fr' : '160px minmax(0, 1fr)', gap: '1rem' }}>
           <div className="bg-[var(--color-muted)] rounded p-4">{compact ? 'Menu in header' : 'Navigation column'}</div>
           <div className="border border-[var(--color-border)] rounded p-4 space-y-3">

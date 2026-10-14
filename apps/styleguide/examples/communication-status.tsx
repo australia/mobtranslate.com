@@ -9,9 +9,12 @@ export function AlertCommunicationExample() {
   const [visible, setVisible] = useState(false);
   const restore = useRef<HTMLElement>(null);
   const [result, setResult] = useState('');
+  const [headingLevel, setHeadingLevel] = useState<AlertProps['headingLevel']>();
   return <div data-alert-lab className="space-y-4">
     <p>These specimens describe local examples. Their color does not establish review, consent or publication.</p>
-    <div className="space-y-3">{alertVariants.map(variant => <Alert key={variant} variant={variant} role="note" title={`${variant} example`} description="Keep the source and the next step understandable." data-tone={variant} />)}</div>
+    <label className="block" htmlFor="alert-title-structure">Alert title structure</label>
+    <select id="alert-title-structure" className="mt-input" value={headingLevel ?? 'paragraph'} onChange={event => setHeadingLevel(event.target.value === 'paragraph' ? undefined : 3)}><option value="paragraph">Paragraph lead</option><option value="3">Level 3 heading under this section</option></select>
+    <div className="space-y-3">{alertVariants.map(variant => <Alert key={variant} variant={variant} role="note" title={`${variant} example`} headingLevel={headingLevel} description="Keep the source and the next step understandable." data-tone={variant} />)}</div>
     <Button ref={restore} type="button" onClick={() => { setVisible(true); setResult(''); }}>Show recoverable alert</Button>
     {visible && <Alert role="status" variant="warning" title="Local task paused" description="Your example input is retained." dismissible dismissLabel="Dismiss local task message"
       onDismiss={() => { setVisible(false); setResult('Message dismissed; the local task remains paused.'); restore.current?.focus(); }}

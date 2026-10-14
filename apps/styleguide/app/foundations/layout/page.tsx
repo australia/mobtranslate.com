@@ -18,7 +18,7 @@ export default function LayoutPage() {
       </ul>
     </Section>
     <Section title="Responsive specifications" description="These are the committed web breakpoints in the token CSS. They are CSS pixels, not native-device dp or device categories.">
-      <div className="doc-table"><table><thead><tr><th scope="col">Token</th><th scope="col">Minimum width</th><th scope="col">Recommended decision</th></tr></thead><tbody>
+      <div className="doc-table" role="region" aria-label="Responsive layout specifications table" tabIndex={0}><table><thead><tr><th scope="col">Token</th><th scope="col">Minimum width</th><th scope="col">Recommended decision</th></tr></thead><tbody>
         <tr><td>Below sm</td><td>0px</td><td>One task column. Stack fields and actions when labels no longer fit.</td></tr>
         <tr><td>--breakpoint-sm</td><td>640px</td><td>Allow two short fields on one row only if their content fits.</td></tr>
         <tr><td>--breakpoint-md</td><td>768px</td><td>Persistent navigation where enough task space remains.</td></tr>
@@ -55,7 +55,7 @@ export default function LayoutPage() {
       </ul>
     </Section>
     <Section title="Do and avoid">
-      <div className="doc-table"><table><thead><tr><th scope="col">Do</th><th scope="col">Avoid</th></tr></thead><tbody>
+      <div className="doc-table" role="region" aria-label="Layout decisions table" tabIndex={0}><table><thead><tr><th scope="col">Do</th><th scope="col">Avoid</th></tr></thead><tbody>
         <tr><td>Let long labels wrap and grow the row.</td><td>Fixed-height rows that cut off translated labels.</td></tr>
         <tr><td>Keep sources beneath their corresponding result.</td><td>One detached source block for several results.</td></tr>
         <tr><td>Move secondary controls into a menu with a clear label.</td><td>Hide important controls at small widths.</td></tr>

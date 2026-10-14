@@ -149,13 +149,13 @@ export function SidebarNav() {
 
   return (
     <>
-      <div className="mobile-nav-header md:hidden"><button
+      <header className="mobile-nav-header md:hidden"><button
         className="mobile-nav-trigger"
         onClick={() => setMobileOpen(true)}
         aria-label="Open navigation"
         aria-expanded={mobileOpen}
         aria-controls="mobile-navigation"
-      >Menu</button><span className="text-sm font-semibold">MobTranslate styleguide</span></div>
+      >Menu</button><span className="text-sm font-semibold">MobTranslate styleguide</span></header>
       <nav aria-label="Design system" className="hidden md:block w-64 shrink-0 border-r border-[var(--color-border)] h-screen overflow-y-auto sticky top-0 p-4 bg-[var(--color-background)]">
         <NavContent />
       </nav>

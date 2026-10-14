@@ -113,3 +113,14 @@ The package and both consumers use React/React DOM ^19.2.7. `test:token-contract
 The inspector observes active selected-part animations as well as resize/mutation events, then reads final geometry on animation/transition completion or cancellation. Keep the browser executable and launch settings, including AGENT_BROWSER_DEFAULT_TIMEOUT, constant for each test session; changing them can reset the profile and lose the current document.
 
 Inclusive participation guidance lives in content/inclusive-participation.tsx and uses an explicitly unexecuted plan template. The Design Glossary has independent explanations for all 67 captured Material headings plus local vocabulary; glossary:check guards its inventory, required fields, unique fragments and related navigation routes. Its filter indexes the authored data, and hash navigation reveals/focuses entries without restricting fresh shared links.
+
+The completion audit has three reproducible inventory commands. Use mounted-drive paths for their reports and run browser checks against a built, running preview:
+
+```bash
+STYLEGUIDE_API_REPORT=/mnt/donto-data/donto-resources/outputs/styleguide-api.json pnpm --filter styleguide audit:api
+STYLEGUIDE_API_REPORT=/mnt/donto-data/donto-resources/outputs/styleguide-api.json STYLEGUIDE_DOC_REPORT=/mnt/donto-data/donto-resources/outputs/styleguide-documentation.json pnpm --filter styleguide audit:documentation
+STYLEGUIDE_A11Y_REPORT=/mnt/donto-data/donto-resources/outputs/styleguide-accessibility.json STYLEGUIDE_A11Y_STREAM=/mnt/donto-data/donto-resources/outputs/styleguide-accessibility.jsonl pnpm --filter styleguide test:accessibility
+pnpm --filter styleguide test:audit-repairs
+```
+
+`audit:api` resolves the installed TypeScript exports, component signatures and inherited/local props. `audit:documentation` checks their mentions in rendered documentation; a name appearing in a snippet does not prove a complete API explanation. `test:accessibility` runs pinned axe-core 4.12.1 default rules on hydrated initial states at desktop/light and 320px/dark, checkpointing each case. It fails on automated violations or page overflow and retains incomplete checks for review. Closed overlays and other interactive states require their own checks. Set `STYLEGUIDE_A11Y_ROUTES` to a comma-separated subset for focused investigation. None of these inventories alone proves full accessibility or Material-level depth.

@@ -41,7 +41,11 @@
     "test:token-contract": "node --test tests/token-contract.test.mjs",
     "test:component-specifications": "node --test tests/component-specifications.test.mjs",
     "glossary:check": "node scripts/check-glossary.mjs",
-    "test:inclusive-glossary": "node --test tests/inclusive-glossary.test.mjs"
+    "test:inclusive-glossary": "node --test tests/inclusive-glossary.test.mjs",
+    "test:accessibility": "node scripts/check-accessibility.mjs",
+    "audit:api": "node scripts/audit-public-api.mjs",
+    "audit:documentation": "node scripts/audit-documentation.mjs",
+    "test:audit-repairs": "node --test tests/audit-repairs.test.mjs"
   },
   "dependencies": {
     "@mobtranslate/ui": "workspace:*",
@@ -56,6 +60,7 @@
     "@types/react-dom": "^19.2.3",
     "postcss": "8.5.15",
     "tailwindcss": "4.3.1",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "axe-core": "4.12.1"
   }
 }

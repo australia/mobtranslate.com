@@ -13,6 +13,7 @@ export const NavigationMenu = React.forwardRef<
     data-orientation={orientation}
     className={state => cn('mt-navigation-menu', typeof className === 'function' ? className(state) : className)}
     {...props}
+    aria-orientation={undefined}
   />
 ));
 NavigationMenu.displayName = 'NavigationMenu';
@@ -25,6 +26,7 @@ export const NavigationMenuList = React.forwardRef<
     ref={ref as React.Ref<HTMLDivElement>}
     className={state => cn('mt-navigation-menu-list', typeof className === 'function' ? className(state) : className)}
     {...props}
+    aria-orientation={undefined}
   />
 ));
 NavigationMenuList.displayName = 'NavigationMenuList';

@@ -5,6 +5,7 @@ import { cn } from '../../utils/cn';
 export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: 'default' | 'info' | 'success' | 'warning' | 'error' | 'destructive';
   title?: string;
+  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   description?: string;
   icon?: React.ReactNode;
   dismissible?: boolean;
@@ -14,7 +15,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
-  ({ className, variant = 'default', title, description, icon, dismissible, dismissLabel = 'Dismiss alert', onDismiss, action, children, ...props }, ref) => (
+  ({ className, variant = 'default', title, headingLevel, description, icon, dismissible, dismissLabel = 'Dismiss alert', onDismiss, action, children, ...props }, ref) => (
     <div
       ref={ref}
       role="alert"
@@ -24,7 +25,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
         <div className="mt-alert-layout">
           {icon && <div className="mt-alert-icon flex-shrink-0">{icon}</div>}
           <div className="flex-1 min-w-0">
-            {title && <h5 className="mt-alert-title">{title}</h5>}
+            {title && <AlertTitle headingLevel={headingLevel}>{title}</AlertTitle>}
             {description && <p className="mt-alert-description">{description}</p>}
             {children}
           </div>
@@ -44,10 +45,14 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
 );
 Alert.displayName = 'Alert';
 
-export const AlertTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
-  ({ className, ...props }, ref) => (
-    <h5 ref={ref} className={cn('mt-alert-title', className)} {...props} />
-  )
+export interface AlertTitleProps extends React.HTMLAttributes<HTMLElement> {
+  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+}
+export const AlertTitle = React.forwardRef<HTMLElement, AlertTitleProps>(
+  ({ className, headingLevel, ...props }, ref) => {
+    const Tag = headingLevel ? `h${headingLevel}` as const : 'p';
+    return <Tag ref={ref as React.Ref<HTMLHeadingElement>} className={cn('mt-alert-title', className)} {...props} />;
+  }
 );
 AlertTitle.displayName = 'AlertTitle';
 

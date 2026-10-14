@@ -167,7 +167,7 @@ test('menu text, visible checked marks and keyboard focus cues are readable and 
     for(const key of ['text','group','mark']) assert.ok(ratios[key]>=4.5,`${theme} ${key}: ${ratios[key]}`);
     assert.ok(ratios.focus>=3,`${theme} focus: ${ratios.focus}`);
     assert.ok(evaluate('[...document.querySelectorAll(".mt-menu-item")].every(node=>node.getBoundingClientRect().height>=44)'));
-    assert.ok(evaluate('document.querySelector("[role=group]").getAttribute("aria-labelledby").split(" ").some(id=>document.getElementById(id)?.textContent==="Local commands")'));
+    assert.ok(evaluate('document.querySelector("[role=menu] [role=group]").getAttribute("aria-labelledby").split(" ").some(id=>document.getElementById(id)?.textContent==="Local commands")'));
     browser('press','Escape'); closed();
   }
   browser('set','media','light','reduced-motion'); open('/components/menu','[data-menu-lab]'); commandMenu();

@@ -106,6 +106,7 @@ test('provider notifications update the same item and local undo changes the ret
   browser('click', '[aria-label="Dismiss Local notification updated"]');
   browser('wait', '--fn', '!document.querySelector(".mt-toast")');
   click('Remove example draft'); click('Undo local removal');
+  browser('wait', '--fn', 'document.querySelector("[data-toast-lab] > [role=status]").textContent.includes("draft restored")');
   assert.match(evaluate('document.querySelector("[data-toast-lab] > [role=status]").textContent'), /draft restored/);
   assert.equal(evaluate('[...document.querySelectorAll("[data-toast-lab] button")].find(node => node.textContent === "Remove example draft").getAttribute("aria-disabled")'), null);
 });

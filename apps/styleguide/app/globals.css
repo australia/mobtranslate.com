@@ -10,7 +10,7 @@ body {
 }
 
 :focus-visible { outline: 3px solid var(--color-ring); outline-offset: 3px; }
-main > div > p, section > p { max-width: 72ch; }
+main > div > p, section > p { max-width: 72ch; overflow-wrap: anywhere; }
 h1, h2, h3 { text-wrap: balance; overflow-wrap: anywhere; }
 .skip-link { position: fixed; top: 0.5rem; left: 0.5rem; z-index: 60; padding: 0.75rem; background: var(--color-background); transform: translateY(-150%); }
 .skip-link:focus { transform: none; }
@@ -40,7 +40,7 @@ body:has(.mobile-navigation[open]) { overflow: hidden; }
 .doc-table table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
 .doc-table th, .doc-table td { text-align: start; padding: 0.75rem; border-bottom: 1px solid var(--color-border); vertical-align: top; }
 .doc-table th { font-weight: 600; }
-.guidance-list { list-style: disc; padding-inline-start: 1.25rem; max-width: 72ch; }
+.guidance-list { list-style: disc; padding-inline-start: 1.25rem; max-width: 72ch; overflow-wrap: anywhere; }
 .guidance-list li { margin-block: 0.75rem; }
 .doc-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 .doc-links a { text-decoration: underline; text-underline-offset: 0.2em; min-height: 44px; display: inline-flex; align-items: center; }

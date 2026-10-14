@@ -9,7 +9,7 @@ export function ContextCommandsExample() {
   function toggleBookmark() { setBookmarked(current => !current); setResult('Local bookmark toggled. No remote request occurred.'); }
   return <div data-context-lab className="space-y-4">
     <ContextMenu>
-      <ContextMenuTrigger ref={record} data-context-target tabIndex={0} aria-label="Local reading example context" className="rounded-lg border-2 border-[var(--color-border)] p-4">
+      <ContextMenuTrigger ref={record} data-context-target role="group" tabIndex={0} aria-label="Local reading example context" className="rounded-lg border-2 border-[var(--color-border)] p-4">
         <p>Local reading example</p><p data-context-bookmark>Local bookmark: {bookmarked ? 'included' : 'not included'}.</p><p>Right-click this region, or use the visible button below. Long press is an installed touch behavior that needs device verification.</p>
       </ContextMenuTrigger>
       <ContextMenuPortal><ContextMenuPositioner sideOffset={4}><ContextMenuPopup aria-label="Local reading context actions" finalFocus={record}>
