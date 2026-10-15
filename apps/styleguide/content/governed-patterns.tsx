@@ -6,6 +6,45 @@ const fixture={title:'Exact public fixture and evidence boundary',paragraphs:['T
 const verification={title:'Acceptance and verification scope',bullets:['Run test:governed-patterns, checked-source/token freshness, lint/types/build and the complete route/fragment crawl. Verify actual loaded records, submitted versus draft filters, HTTP failure/retry, held replacement/cancel/supersession, revision-bound decisions, permission availability and real focus targets.','Inspect all three guides in both themes at 320px, with RTL geometry, readable source/status text and at least 44px action targets.','Real authenticated access, external dictionary source retrieval, qualified human review, durable writes, hardware and spoken assistive-technology behavior require their own evidence. This public fixture establishes none of those outcomes.']};
 export const searchPatternDocument:GuideDocumentData={title:'Search and Refinement',description:'Keep draft intent, request scope, actual returned results and accessible recovery distinct throughout a search task.',sections:[
   {title:'Define what is being searched',paragraphs:['Name the corpus, fields, match policy and loaded/total distinction. This example searches the title and text of three public English fixtures plus page-memory local revisions; all whitespace-separated terms must match. It is lexical matching over declared fields, not a semantic translation or a language-wide dictionary search.','Use exact source-bearing lookup for attested language content. A no-match result must not trigger invented vocabulary or a silent switch to a larger/more permissive corpus. Interface search, content language and source authority are separate decisions.']},
+  {
+  "title": "Material search entry, focused results and web scope",
+  "paragraphs": [
+    "The February 2025 reference unifies search bar/view as Search, recommending a contained style over divided baseline. Search can be a global app-bar function, a prominent local field or a secondary named icon. Keep its entry close to the content it searches, with a clear scope and up to two meaningful trailing actions; a decorative magnifier does not itself provide voice, location or remote search.",
+    "Native focused search may be docked with a scrim or compact full-screen, with an explicit Back action and predictive-back animation. This pattern instead supplies a named submitted web search task in document flow; the separate site search searches actual guide content. Neither claims a Material search-surface transition, native keyboard presentation or confidential search corpus."
+  ],
+  "table": {
+    "headings": [
+      "Reference point",
+      "Web choice and verification boundary"
+    ],
+    "rows": [
+      [
+        "Native geometry and contrast",
+        "Reference unfocused width 360–720dp/height 56dp,30dp avatar and focus margins 24→12dp differ from the local field/form. Native docked focused content is 240dp to two-thirds screen height. Keep actual bounded web dimensions and contrasting surface roles; simply copying a surface-container label does not prove contrast."
+      ],
+      [
+        "Suggestions and results",
+        "A search component supplies a container, not automatic data. Recent history, categories, suggestions and filter chips need real data ownership and effects. This lab searches declared loaded fields and revisions; it creates no invented vocabulary, query history, voice mode or attestations."
+      ],
+      [
+        "Typing versus submitted results",
+        "The source permits suggestions before typing, live results or explicit execution. This fixture snapshots on Search/Enter and labels draft versus requested/applied scope. Autocomplete has a different installed editing/selection model; do not mix arbitrary arrow handlers into this native form or move focus merely because a count changes."
+      ],
+      [
+        "Focus and clear",
+        "Persistent visible labels identify the input. An actual clear/reset action must define whether it resets draft, applied filters or detail. The reference suggests removing input focus after submitted results; this lab deliberately returns focus to the surviving query field, announces actual scope and moves to detail only on Open. The choice is explicit rather than an accidental focus jump."
+      ],
+      [
+        "Loading and recovery",
+        "Announce genuine searching/received/empty/failure states without relabelling old results as a new query. Retain last success, reject stale responses, expose cancellation and retry, and keep scope/access constraints visible. A screen-reader announcement requires target-browser verification beyond a live-region attribute."
+      ],
+      [
+        "Placement and scrolling",
+        "Native scroll text describes inconsistent up/down reveal behavior; this guide makes no automatic hide/reappear promise. Keep local results and controls accessible in document flow. A product implementing focused docked/full-screen search must prove Back/opener restoration, resizing, scrim modality, IME behavior and safe content bounds."
+      ]
+    ]
+  }
+},
   {title:'Anatomy and control specifications',table:{headings:['Part','Actual composition'],rows:[['Search form','Named native form role=search, visible Input label, native submit Button. Enter submits the current draft without requiring a pointer.'],['Refinement','Three labeled exported checkboxes: public/team audience and current local accepted decision. Draft changes wait for Search; Reset changes draft controls without erasing loaded results.'],['Request state','Unknown-total Progress only while fetching/apply-held. Requested query and last-applied query/role/count remain visible as separate scope.'],['Results','Native list with stable-ID named Open controls and explicit audience/revision text; actual detail is independent from its presence in the filtered list.'],['Dimensions / direction','Wrapping controls with 44px minimum actions, native readable fields and logical RTL layout. English prose and user text use dir=auto.'],['Recovery','Cancel returns to query focus; HTTP failure retains successful results and query. Correct the missing-URL control and Retry the actual fixture request.']]}},
   live,
   {title:'Draft, submitted query and response lifetime',bullets:['Typing or changing a checkbox does not relabel an old result. Search snapshots the query, audience filters, review filter and current demo role. The URL record-q stores the last requested query, not a claim of saved filters or authentication.','A new search aborts the preceding fetch and increments request identity. Even a late response that ignores abort must not replace a newer request or a role change. Cleanup aborts on unmount.','The Hold control holds application after the real HTTP response arrives. Its status says response received; it does not pretend that transport is still pending. Applying uses the captured query and current local record overlays.','Successful application returns focus to the persistent query field; routine result arrivals do not force focus into every row. An explicit Open action focuses the actual detail heading.']},

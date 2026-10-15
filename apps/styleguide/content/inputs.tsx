@@ -16,7 +16,45 @@ export const inputDocuments: Record<string, GuideDocumentData> = {
     sections:[
       {title:'Choose a single-line control',paragraphs:['Use Input for a short value that fits on one line. Choose Textarea for paragraphs; NumberField for quantities with increments; Radio or Select for a constrained choice. Dates, passwords, email and search need task-specific native types and instructions. A numeric identifier such as a telephone number is text, not an arithmetic quantity.','This wrapper renders a native input, not the Base UI Input primitive. Inside Field, compose FieldControl render={<Input />} to register it; otherwise connect native label, help and error IDs explicitly.']},
       {title:'Anatomy and specifications',table:{headings:['Part','Actual contract'],rows:[['Container','Native input, 100% width; min-width 0 and max-width 100%; token radius-md'],['Sizes','sm: 36px / text-sm / 8px inline padding; md: 44px / text-base / 12px; lg: 48px / text-lg / 16px. Compact height is not a universal 44px target claim.'],['Outline / filled','2px readable boundary; filled adds muted surface. These are MobTranslate variants, not Material floating-label implementations.'],['Label / supporting text','Separate visible label and described-by help/error; wrapper has no label, prefix, suffix or clear-button prop. Compose controls alongside it.'],['Focus / error / success','Token ring and semantic border. Error sets default aria-invalid; explicit native ARIA props can override it. Success is visual only.']]}},
-      {title:'Working native value and availability',example:<NativeInputExample />,code:{language:'tsx',value:snippets['examples/input-native.tsx']}},
+      {
+  "title": "Material text-field decisions and local field composition",
+  "paragraphs": [
+    "Filled and outlined reference fields have equal task capabilities; choose a consistently discoverable treatment within a region. The local Input supports outline and filled variants with its own 2px boundary and separate visible labels. It does not implement a floating/notched label. Native 56dp height/target,16dp inline padding (12dp with icons),8dp filled vertical spacing and 4dp supporting gap are design references, not conversions of the local size props."
+  ],
+  "table": {
+    "headings": [
+      "Reference decision",
+      "Local web contract and application choice"
+    ],
+    "rows": [
+      [
+        "Label and required state",
+        "Use a persistent associated label, clear required semantics and any necessary format explanation. Native guidance discourages multiline labels and uses an explained asterisk; this web guide preserves full wrapped labels at 200% text and can say Required explicitly. A disappearing placeholder or color-only asterisk is insufficient."
+      ],
+      [
+        "Text and multiline behavior",
+        "Single-line input scrolls its value horizontally as the caret moves. Long responses belong in Textarea; the reference specifically recommends web textareas over native expanding multiline fields. Preserve editing, autofill, IME composition, caret and actual submitted values; do not rewrite text simply to imitate native floating-label motion."
+      ],
+      [
+        "Affixes and actions",
+        "Prefix/suffix units need meaningful associated descriptions and a separate value model. Decorative icons are not buttons. Clear, show/hide password, picker or microphone actions need actual behavior, persistent names and usable targets; never imply voice capability from a glyph. The wrapper has no automatic affix/action API."
+      ],
+      [
+        "Supporting text and errors",
+        "The usage chapter recommends replacing help with error to limit movement, while accessibility allows help followed by error. Retain instructions essential to correction, connect all relevant IDs, apply aria-invalid and explain the actual failure. An error icon or border is supplementary; validation and success/persistence remain application-owned."
+      ],
+      [
+        "Counters and availability",
+        "Any counter must reflect the declared real limit and character/word policy, without announcing every keystroke intrusively. Read-only values remain readable and registered; disabled controls cannot be edited and are omitted from native submission. These states do not establish authorization or server success."
+      ],
+      [
+        "Contrast and adaptation",
+        "The reference calls for a3:1 outline boundary; local tokens supply readable control boundaries, text and focus/error treatment. Use bounded field widths for comfortable wide-screen scanning and full available width on compact screens. Avoid default density reduction or shrinking type/targets to preserve a desktop form layout."
+      ]
+    ]
+  }
+},
+  {title:'Working native value and availability',example:<NativeInputExample />,code:{language:'tsx',value:snippets['examples/input-native.tsx']}},
       {title:'API reference',table:{headings:['Prop','Contract'],rows:[['type','Native input type; text default. Browser/type-specific behavior remains native.'],['size / htmlSize','Visual sm|md|lg (md default); htmlSize maps to native size attribute. Width styling can supersede native size.'],['variant / state','outline|filled (outline default); default|error|success. State is not validation or persistence.'],['value / defaultValue / onChange','Native controlled/uncontrolled contracts and React ChangeEvent; avoid switching ownership.'],['id / name / required / minLength / maxLength / pattern','Native naming and constraints; registered Field validation or application submission must actually inspect them.'],['disabled / readOnly','Native input enforcement; distinct successful-control behavior.'],['autoComplete / inputMode / enterKeyHint','Task-appropriate autofill/mobile hints; not security or validation.'],['className / style / ref / native ARIA','Native string class, style and HTMLInputElement ref; explicit label/description/error relationships.']]}},
       nativeStates,
       {title:'Keyboard, mobile input and composition',bullets:['Tab focuses; arrows/Home/End edit text; Enter may submit its form. Native type changes do not replace a stable name or visible instructions.','Use autoComplete tokens for real account/address tasks; support paste and password managers. The local example uses off for an arbitrary label and collects no credentials.','Do not validate partially typed composition text as a final value. Preserve IME composition and React/native events in custom handlers. Use inputMode as a keyboard hint, then validate independently.','For an adjacent reveal/clear action use a named type=button with its own reachable target and focus recovery; never insert an unnamed icon inside an input.']},

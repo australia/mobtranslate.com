@@ -31,6 +31,82 @@ export const appBarsDocument:GuideDocumentData={title:'App Bars',description:'Ke
 export const listsCarouselDocument:GuideDocumentData={title:'Lists and Carousels',description:'Keep record relationships and full content available while a bounded horizontal comparison helps people browse related items.',sections:[
   {title:'Choose scanning or comparison',table:{headings:['Representation','Use and boundaries'],rows:[['List','Native ul/li for a complete sequence. Each row has a meaningful title, supporting text and one real named action; use a table when column-by-column comparison matters.'],['Carousel','A bounded horizontal collection of related items, with visible neighboring context and explicit navigation. Do not hide required information exclusively in offscreen slides.'],['Selection / destination','A centered item is a viewport position, not a chosen value, reviewed source or opened detail. An explicit action opens actual record content.'],['Variants','One/two/three-line list density and contained/peek layouts follow real content. Preserve relationships rather than clipping meaning to force identical rows.']]}},
   {title:'Anatomy and visual specifications',table:{headings:['Part','Actual web composition'],rows:[['List rows','Semantic ul/li, title and supporting text, 12px block spacing, named 44px action and decorative Separator. No row-level fake button or duplicate Tab stop.'],['Carousel region','Named/focusable div, native overflow-x:auto, inline mandatory scroll snap, 16px gap and 4px block padding. Measured inline edge space lets the first and last slides actually center.'],['Slide','Native group with slide description/name and position. Measured width 80% of the viewport, maximum 320px, readable 2px boundary, radius-lg, 16px padding and 12px internal gap.'],['Illustration','Decorative ordinal only; no fake photo, source rights or invented cultural asset. Supporting content is the actual English-only fixture.'],['Navigation / status','Ordinary Previous/Next buttons with endpoint availability. Centered index derives from actual bounding geometry after native scroll/resize, including RTL. No automatic rotation.']]}},
+  {
+  "title": "Material carousel layouts and a complete vertical alternative",
+  "paragraphs": [
+    "The reference overview lists six configurations, including the November 2025 uncontained multi-aspect-ratio addition; its guidelines introduction still lists four. They are multi-browse, uncontained, variable-aspect uncontained, hero, center-aligned hero and full-screen. Select visual emphasis and browsing intent before applying a layout name. This text-heavy web specimen uses uniform native-scroll slides and a complete filtered list, without claiming native parallax, dynamic-size masks or hero morphing."
+  ],
+  "table": {
+    "headings": [
+      "Reference point",
+      "Web choice and verification boundary"
+    ],
+    "rows": [
+      [
+        "Layouts and item sizes",
+        "Multi-browse shows large/medium/small; hero emphasizes one with a peek; centered hero adds a leading peek. Variable-aspect uncontained supports 9:16 to 16:9 content. Native small items 40–56dp,28dp corners,16dp outer padding and 8dp gaps are references, not the local measured slide width/gap. Keep imagery recognizable and required words available at every size."
+      ],
+      [
+        "Text and media",
+        "Use uncontained layouts or cards for longer text. Native compact guidance favors at mostthree text-bearing visible items and brief labels; local full text wraps and stays available in the complete list. Real imagery still needs its own alternatives, source and rights; populated ordinal slides prove none of those."
+      ],
+      [
+        "Scrolling and full-screen",
+        "Native default free scrolling is for uncontained; other variants snap. Full-screen is portrait, compact/medium, vertically snapping and edge-to-edge rather than a free-scrolling horizontal strip. This lab uses bounded horizontal snap and geometry-derived centered position, with no autoplay or immersive full-screen claim."
+      ],
+      [
+        "Accessible complete access",
+        "On a vertically scrolling page, native guidance requires a vertical way to every item, often Show all or a header arrow to a dedicated list. This lab’s complete list is already rendered directly below, with the same stable IDs, filtering and detail outcomes. Previous/Next are above/below the strip, never covering its content."
+      ],
+      [
+        "Keyboard and state",
+        "Reference first-item/arrow navigation and generic container-role wording are not a literal web role API. The local named native scroll region and ordinary item Buttons use their documented contract; no grid/listbox role is invented. Current centered position is not a selected, read or reviewed record."
+      ],
+      [
+        "Reduced motion and boundaries",
+        "The reference removes parallax/size morphing under reduced motion. This uniform-size, non-autoplay strip already avoids those effects; explicit moves are immediate. End commands disable truthfully and restore focus to the surviving scroll region. Verify native RTL scrolling rather than assuming an LTR scrollLeft sign."
+      ]
+    ]
+  }
+},
+  {
+  "title": "Material list anatomy, expressive groups and action models",
+  "paragraphs": [
+    "The December 2025 expressive list update adds standard/segmented styles, selection treatment and flexible slots; baseline lists remain available. Container and label are required. Consistent leading visuals, central primary/supporting text and trailing metadata/actions make scanning easier. The web example is an ordinary semantic list of independently named record actions, not a new exported expressive List component."
+  ],
+  "table": {
+    "headings": [
+      "Reference point",
+      "Web choice and verification boundary"
+    ],
+    "rows": [
+      [
+        "One interaction model",
+        "Separate noninteractive information, one action per item, mutually exclusive selection, multi-selection and multiple independent actions. A single actionable row must not wrap secondary buttons; a selectable row needs one coherent selection interaction. This lab opens stable-ID detail; selection patterns separately demonstrate real checkbox/radio batch ownership."
+      ],
+      [
+        "Slots and hierarchy",
+        "Leading/trailing slots remain smaller than central content and cannot automatically guarantee accessibility. Keep visuals and labels aligned consistently. Leading avatars identify people/entities; square imagery generally describes other content. Any media/action keeps its own accessible name, alternative and real effect."
+      ],
+      [
+        "Native measurements and shape",
+        "Baseline 56/72/88dp item heights follow the tallest content, with top alignment at 88dp/three lines,16dp leading and 24dp trailing insets and 48dp targets. Expressive selected shapes move from 4dp inner/16dp outer corners to 16dp throughout. The local growing rows and shared control tokens do not implement that native sizing/morph engine."
+      ],
+      [
+        "Gaps, dividers and readable text",
+        "Prefer gaps for contained segmented groups and reserve dividers for uncontained/complex hierarchy. Native support text usually usesone to three lines and 40–60-character line lengths; preserve full meaning at enlarged text rather than silently truncating this specimen. Wide layouts should bound reading measure or use meaningful list/detail arrangements."
+      ],
+      [
+        "Selection cues and roles",
+        "When selection is present, show a checkbox/radio/check/other noncolor cue plus semantic state. The reference’s web listbox/option table applies to a selection model, not every ul/li containing Buttons or links. This fixture keeps ordinary document Tab order; native roving/arrow tables do not change that contract by appearance alone."
+      ],
+      [
+        "Adaptive detail and gestures",
+        "Native compact list navigation can become a wide list/detail layout, cards or carousel while retaining identity and actions. Swipe-to-reveal is specifically Android Views in the reference; hidden actions need explicit pointer/keyboard alternatives. This lab supplies visible controls and no native swipe, drag or container-transform physics."
+      ]
+    ]
+  }
+},
   {title:'Working shared records, scroll and list access',paragraphs:['Five loaded English-only records render in both representations. Filter titles, scroll or use navigation, and open actual content from either representation. The complete filtered list keeps every item’s text and action available without horizontal navigation.'],example:<ListsCarouselExample />,code:{language:'tsx',value:snippets['examples/lists-carousel.tsx']}},
   {title:'State and data ownership',bullets:['Filter changes the actual loaded subset and resets browsing position. No matches is an explicit empty state with Clear recovery, not a fabricated replacement record.','Native scroll/resize determines the centered position through item and region geometry; do not assume scrollLeft signs or fixed slide widths across direction and viewport changes.','Opening a record stores its stable ID separately from browsing position. Filtering can exclude its row while retaining its loaded result; state the policy instead of silently switching details.','All supplied rows/slides render. There is no virtualization, remote paging, review promotion or media fetch. Large/remote datasets need separately verified focus, loading, cancellation, stale responses and completeness.']},
   {title:'Keyboard, pointer and motion',bullets:['Tab reaches the named native scroll region and actual item actions. Previous/Next offer a non-drag navigation alternative; no custom grid/roving-tab contract is implied.','At the final/first boundary, command navigation focuses the surviving scroll region rather than leaving focus on a newly disabled command. Verify actual centered position before announcing it.','No autoplay runs, so reading is not interrupted. Any consuming auto-rotation needs explicit pause/stop behavior, keyboard/focus/hover handling and reduced-motion policy.','Native inline scrolling/snap uses current direction. Explicit navigation uses the actual item’s native scrollIntoView; labels remain Previous/Next rather than ambiguous icon-only arrows.']},

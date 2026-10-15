@@ -14,7 +14,49 @@ export const menuDocuments: Record<string, GuideDocumentData> = {
     sections:[
       {title:'Choose commands rather than navigation or a form',paragraphs:['Use Menu for a compact list of commands or settings associated with a visible trigger. Use Select for a form value, a navigation structure for destinations, and Dialog for a consequential task needing explanation or input. A menu can start such a task; it should not contain an entire form.','Use concise action labels and show unavailable commands only when their presence helps the user understand the task. Explain why an action is unavailable nearby. Commands, checkbox settings, radio alternatives and submenu openers have distinct semantics.']},
       {title:'Anatomy and specifications',table:{headings:['Part','Actual implementation'],rows:[['Menu / MenuTrigger','State root and default native button; render={<Button />} composes a named 44px trigger.'],['MenuPortal / Positioner','Portal normally to body; installed collision/anchor positioning; dropdown z-index. Portal theme scope must still resolve shared tokens.'],['MenuPopup','Popover surface, 2px border, radius-md, 4px padding; border treatment without a second decorative shadow. Minimum width min(192px, viewport−32px), maximum min(448px, viewport−32px).'],['Scroll boundary','Max height min(installed available-height, 80dvh); long content scrolls and labels wrap. Avoid clipped final commands.'],['MenuItem / SubmenuTrigger','At least 44px high; text-base, 6px/8px padding, radius-sm; highlighted outline and disabled visual state.'],['Group / GroupLabel / Separator','Named command groups, text-sm supporting headings and 1px separators; not activation targets.'],['Checkbox / Radio indicators','16px reserved visible-state slot; checked state has a mark as well as aria-checked. keepMounted avoids alignment movement.']]}},
-      {title:'Working commands, settings and recovery',example:<MenuCommandsExample />,code:{language:'tsx',value:snippets['examples/menu-commands.tsx']}},
+      {
+  "title": "Material vertical menus, groups and contextual placement",
+  "paragraphs": [
+    "The November 2025 reference recommends expressive vertical menus while retaining baseline menus. Standard surface colors are lower emphasis; vibrant tertiary roles, round groups, submenu shape changes and richer slots are native presentation choices. This library’s installed Menu has its own token styling and command/selection parts; it does not acquire native shape morphing or a new density API by looking similar."
+  ],
+  "table": {
+    "headings": [
+      "Reference point",
+      "Web choice and verification boundary"
+    ],
+    "rows": [
+      [
+        "Anatomy and groups",
+        "Menu item text is central; leading/trailing decorative icons, supporting labels, badges and shortcuts must keep one action per item. Native expressive gaps are limited, disallowed in scrolling menus and explicitly unavailable on web; use meaningful MenuGroup/MenuLabel/MenuSeparator rather than fake focusable gaps."
+      ],
+      [
+        "Native measurements",
+        "Baseline reference width 112–280dp,48dp rows,4dp corners,12dp padding/gaps,24dp icons and 1dp dividers are not the local CSS contract. Native slot advice uses 48dp targets; keep actual local geometry, full labels and independent focus tested at narrow/enlarged sizes."
+      ],
+      [
+        "Command and selection roles",
+        "Transient commands differ from persistent toolbar actions, route navigation and text-entry selection. MenuCheckboxItem/MenuRadioItem keep their installed checked roles and real value effects. Conditional unavailable actions remain explainable; source permits disabled item focus, so use this pin’s explicit focusableWhenDisabled choice rather than assuming every disabled control is skipped."
+      ],
+      [
+        "Context and filtering",
+        "Object actions need a discoverable trigger in addition to secondary click or long-press conventions. A typed selection task belongs to the actual Combobox/Autocomplete/Select composition; do not add nested buttons/switches or arbitrary form inputs inside one command item. Shortcuts shown as hints must actually exist."
+      ],
+      [
+        "Collision and adaptation",
+        "Position relative to the real trigger and flip/shift within available space; submenus should not cover their parent item. Compact long/complex action sets may use the documented Drawer sheet alternative; menus and modal sheets retain different focus/dismissal contracts. No automatic native sheet swap or predictive back is installed."
+      ],
+      [
+        "Keyboard and lifecycle",
+        "The reference’s Tab prose differs from its arrow/typeahead table. Follow actual first-item focus, Up/Down, typeahead, submenu-direction keys, Enter/Space, Escape/outside close and final focus for this installed Menu. Disabled actions reject activation, separators do not focus, and checked settings must survive dismissal independently of popup state."
+      ],
+      [
+        "Scrolling and motion",
+        "When content exceeds the popup, retain reachable items and a clear scroll affordance; do not create unsupported expressive gaps in a scroller. Local enter/exit/reduced-motion behavior is separate from native ripple, group morphs and density 0 to−3. Keep trigger identity and useful outcomes stable after an action closes or disables its opener."
+      ]
+    ]
+  }
+},
+  {title:'Working commands, settings and recovery',example:<MenuCommandsExample />,code:{language:'tsx',value:snippets['examples/menu-commands.tsx']}},
       {title:'Root and trigger API',table:{headings:['Prop','Installed rc contract'],rows:[['open / defaultOpen / onOpenChange','Controlled or initial open state (false default), callback with change details. Keep one state owner; details.cancel() can reject a transition.'],['modal','true default; open-menu interaction boundary and page scroll behavior. false permits outside interaction.'],['disabled / loopFocus / highlightItemOnHover','false / true / true defaults. Actual disabled-item focus behavior must be tested for this version.'],['orientation','vertical default for popup item navigation; horizontal alternative does not replace a Menubar container.'],['closeParentOnEsc','true default for nested behavior; the example sets false on its submenu to allow child-only dismissal.'],['onOpenChangeComplete / actionsRef','Completion callback after transitions; installed typed actions expose unmount. Do not assume a close method from a different version.'],['triggerId / defaultTriggerId / handle','Advanced association for controlled, initial or detached triggers. Follow installed types and verify the actual active anchor; the examples use attached triggers.'],['MenuTrigger render / disabled / native props','Installed trigger composition. One native button, meaningful label, expanded/popup relationship and non-submit default.'],['MenuTrigger openOnHover / delay / closeDelay','Optional pointer behavior; hover must not be the sole access path.'],styled]}},
       {title:'Parts and selection API',table:{headings:['Export / prop','Contract'],rows:[['MenuItem disabled / label / onClick / closeOnClick','Command handler; label overrides text navigation label; closeOnClick defaults true. Disabled suppresses activation.'],['MenuCheckboxItem checked / defaultChecked / onCheckedChange','Controlled/initial boolean; closeOnClick defaults false. Setting is not native form checkbox serialization.'],['MenuRadioGroup value / defaultValue / onValueChange','Selected alternative; caller owns domain/type and allowed values.'],['MenuRadioItem value / disabled / label / closeOnClick','Actual alternative value; closeOnClick defaults false. Use a separate group for each independent question.'],['MenuCheckboxItemIndicator / MenuRadioItemIndicator','Checked-state primitive, keepMounted false default; supply decorative mark and aria-hidden when the item already conveys state.'],['MenuSubmenuRoot / MenuSubmenuTrigger','Installed child state and opener; trigger has label/disabled/openOnHover/delay/closeDelay. Nested portal/positioner/popup supplies its surface.'],['MenuGroup / MenuGroupLabel / MenuSeparator','Grouping and presentation; preserve label relationship and separator semantics.'],['MenuPositioner side / align / sideOffset / alignOffset / collision options','Installed placement props; requested side can flip to fit available space. Read rendered geometry in small viewports.'],['MenuPopup finalFocus','Default restoration, explicit ref, false, or interaction-dependent callback. Use an enabled surviving task target after a command removes/disables its trigger.'],['MenuPortal container / keepMounted','Installed portal location/mounting strategy. A custom container changes theme/layout context and needs verification.'],['MenuArrow / MenuBackdrop','Optional installed positioning/backdrop parts. Arrow content/shape and backdrop visual styling remain caller-owned; default menu already has its interaction boundary.']]}},
       {title:'States and meaningful command outcomes',table:{headings:['State','Behavior'],rows:[['Closed / open','Trigger exposes availability and expanded state; opening presents a named command list.'],['Highlighted / disabled','Visible focus cue independent of color fill. Unavailable items expose disabled semantics and cannot run.'],['Checked / radio-selected','Reflect actual setting; visible marks and programmatic checked state agree.'],['Submenu open','Parent indicates expansion; child choices have their own name and a return path.'],['Requested / pending','Close the command menu, preserve original task data, guard duplicate requests and provide stable outcome controls.'],['Failure / cancel','Retain task data, report the boundary and offer retry or independent recovery.'],['Completed / restored','Change actual local content or confirmed remote data; distinguish that result from merely closing the menu.']]}},

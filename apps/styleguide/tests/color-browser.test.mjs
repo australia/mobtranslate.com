@@ -15,6 +15,17 @@ const full=()=>{if(!evaluate('document.querySelector("[data-color-full]").open')
 before(()=>browser('set','media','light'));
 after(()=>browser('close'));
 
+test('initial full-precision output hydrates without replacing the document or reporting a page error',()=>{
+  open(320);
+  assert.deepEqual(browser('errors').errors,[]);
+  const comparison=evaluate(`(async()=>{const response=await fetch(location.href);const server=new DOMParser().parseFromString(await response.text(),'text/html');return{serverPreparing:server.querySelector('[data-color-full]').textContent.includes('Preparing the full-precision captured output.'),clientReady:!!document.querySelector('[data-color-full] code')};})()`);
+  assert.deepEqual(comparison,{serverPreparing:true,clientReady:true});
+  const result=full();assert.ok(result.source.chroma>0);assert.ok(result.roles.length>30);
+  evaluate('document.documentElement.style.fontSize="200%"');
+  assert.equal(evaluate('getComputedStyle(document.documentElement).fontSize'),'32px');
+  assert.ok(evaluate('document.documentElement.scrollWidth<=innerWidth'));
+});
+
 test('draft/invalid values preserve capture and generation stays locally scoped',()=>{
   open();const root=evaluate('getComputedStyle(document.documentElement).getPropertyValue("--color-primary")');
   fill('sourceHex','#395d75');assert.equal(full().input.sourceHex,'#b45e2a');

@@ -568,7 +568,8 @@ export function ColorProposalExample() {
         <summary className="min-h-11 cursor-pointer">
           Full captured request, roles, palettes and custom color
         </summary>
-        <CodeBlock language="json" code={JSON.stringify(proposal, null, 2)} />
+        {ready ? <CodeBlock language="json" code={JSON.stringify(proposal, null, 2)} /> :
+          <p role="status">Preparing the full-precision captured output.</p>}
       </details>
       <details>
         <summary className="min-h-11 cursor-pointer">

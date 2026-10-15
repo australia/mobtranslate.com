@@ -4,6 +4,79 @@ import snippets from './examples.json';
 export const dateTimeDocument:GuideDocumentData={title:'Date and time input',description:'Choose calendar dates and wall-clock windows with explicit bounds, identity and recovery. Keep civil values distinct from instants.',sections:[
   {title:'Choose the temporal model first',table:{headings:['Task','Value and interface'],rows:[['Calendar date','A birthday, collection date or date-only filter is a calendar value. Use Input type=date and retain its normalized date string. Do not introduce the viewer’s zone by parsing it into an instant.'],['Time of day','A daily opening window or repeated wall-clock time is a civil time. Use Input type=time; state precision, limits and whether a window crosses midnight.'],['Local date and time','Input type=datetime-local combines civil date/time without a zone. Use when the task needs that combination and provide zone/disambiguation separately if scheduling an instant.'],['Instant','A unique point on the timeline needs an offset/zone-aware domain conversion. Resolve nonexistent/repeated local times through an explicit policy and show the result before confirming.'],['Date range','Expose labelled beginning and end, specify inclusivity, validate ordering and retain both drafts when correction is needed.'],['Visual calendar or clock','Native picker chrome depends on browser/OS. A custom calendar/clock requires a separate tested interaction model; this package does not export a Material calendar grid, clock dial or date-range popup.']]}},
   {title:'Web equivalent and anatomy',paragraphs:['Material’s date and time picker families map here to native web input compositions, using the existing styled Input. The example includes actual range and window filtering, error focus, pending outcomes and empty recovery. It does not impersonate a Material picker or add an unimplemented package API.'],table:{headings:['Part','Specification'],rows:[['Persistent label','Separate named first/last dates and earliest/latest times. Do not rely on locale placeholders or an unlabeled calendar glyph.'],['Editable control','Native type, required/name, min/max/step, value/onChange and HTMLInputElement ref. Minimum 44px height, full available width with min-width:0; browser owns internal segments and picker chrome.'],['Supporting text','State calendar bounds, increment, zone meaning, interval endpoints and midnight policy before input. Connect it with aria-describedby.'],['Validation','Visible linked error with aria-invalid on its field; move focus to the first invalid control. Keep the loaded result and useful values intact.'],['Applied result','Show normalized dates, times and named zone alongside actual records. Separate draft, requested and applied state.'],['Actions','Explicit Apply, Clear, external Restore and surviving completion/failure/cancellation. Actions wrap within narrow containers with at least 44px targets.'],['Direction','Logical layout and bdi isolate displayed temporal values. Native segment order follows browser/locale; never reverse date strings manually.']]}},
+  {
+  "title": "Material date entry, calendar views and confirmation",
+  "paragraphs": [
+    "The reference distinguishes docked calendar entry, modal calendar and modal input, with single-date, range and year views. Near dates may benefit from a calendar; distant dates such as a birthday need efficient typed or month/year entry. Compact native full-screen and larger docked arrangements are reference choices, not browser chrome supplied by this package.",
+    "The captured usage text says tapping the field opens a docked calendar, while its accessibility chapter makes the calendar icon the exclusive calendar entry. Preserve independently useful manual input and a deliberate optional launcher rather than making every text-entry focus open a custom modal. This lab uses native date controls and does not add a custom calendar launcher or claim its OS popup appearance."
+  ],
+  "table": {
+    "headings": [
+      "Reference decision",
+      "Local web contract and application choice"
+    ],
+    "rows": [
+      [
+        "Date identity and selection",
+        "Distinguish today, selected day, disabled dates, and range endpoints/interior. Local applied dates are normalized civil strings; input drafts, requested windows and actual filtered records have separate owners. Browser/OS owns any calendar highlight, year/month menu, locale order and picker dismissal."
+      ],
+      [
+        "Entry and formatting",
+        "Native inputs provide their browser-supported editing format and serialize normalized values. The reference encourages flexible separators and formatting after completion, without masks that rewrite during typing. This example does not advertise an arbitrary locale-text parser; a custom text adapter must declare accepted formats and preserve partially entered drafts."
+      ],
+      [
+        "Anatomy, targets and contrast",
+        "Native reference targets are 48dp with date text contrast of at least 4.5:1. Its month/year/day menus and full-screen measurements are not local CSS presets. The local labelled fields have 44px minimum height, explicit Gregorian bounds and instructions; test actual internal native segments and OS picker targets separately."
+      ],
+      [
+        "Keyboard and naming",
+        "A custom calendar needs fully named dates, weekday headers, a grid, selected/today/disabled state and tested month/year navigation. The source keyboard table duplicates Enter and gives Home/End the same description; use the actual installed interaction rather than copying that defect. Native input editing keys stay native here, with persistent labels and connected help."
+      ],
+      [
+        "Clear and shortcuts",
+        "Keep optional clear and shortcut affordances only when they have real effects. The local Clear empties all drafts, preserves loaded results and focuses the first date; Restore is independent. No unimplemented month/year shortcut is advertised."
+      ],
+      [
+        "Adaptation and dismissal",
+        "Native range views can use vertical month browsing, and compact full-screen adds explicit close/save; the reference also warns against simply scaling fixed picker geometry across breakpoints. Web native controls remain bounded fields and delegate picker internals to the platform. A custom modal would need real confirm/cancel, retained draft, background/focus policy and viewport tests."
+      ]
+    ]
+  }
+},
+  {
+  "title": "Material time formats, dial alternatives and precision",
+  "paragraphs": [
+    "The reference has dial and input variants, with 12-hour period selection or 24-hour time without a period control. It recommends manual entry from every dial view, and input-only presentation when a dial cannot fit. Native format preference normally comes from settings outside the picker. This web fixture uses native time inputs; it supplies no clock face, custom AM/PM radio or native orientation transition."
+  ],
+  "table": {
+    "headings": [
+      "Reference decision",
+      "Local web contract and application choice"
+    ],
+    "rows": [
+      [
+        "Anatomy and native dimensions",
+        "The reference separates hour/minute fields, period selector, dial, mode switch and confirm/cancel. Examples include 256dp dial,48dp handle,24dp padding,80dp dial-selector height and 72dp input-selector height. These are native design references; local input dimensions and precision are the actual contract above."
+      ],
+      [
+        "Constrained viewport",
+        "Switch native orientation or fall back to text rather than compressing dial targets or forcing a scrolling clock face. This lab keeps independently labelled full-width fields and wrapping actions. Native picker layout and mobile keyboards require target-device checks; a DOM screenshot cannot certify them."
+      ],
+      [
+        "Precision and purpose",
+        "The usage chapter discourages millisecond-level selection while accessibility mentions finer precision in some cases. The local policy is explicitly quarter-hour civil windows, not stopwatch timing. Seconds, overnight windows and instant booking need deliberate supported models, validation and downstream precision."
+      ],
+      [
+        "Roles and keyboard",
+        "Reference SDKs differ on radio versus checkbox period semantics and dial roles. Keep actual native web time input semantics and ordinary Tab order; never imitate a dial keyboard table with global arrow handlers. Visible instructions and normalized payload remain available independently of picker chrome."
+      ],
+      [
+        "Commit and time-zone meaning",
+        "The reference separates temporary selection from OK/Cancel. Here Apply snapshots actual native form entries; only explicit completion changes records, and failure/cancel retain previous results. A wall-clock value plus zone still needs a maintained DST/disambiguation service before it can become a booked instant."
+      ]
+    ]
+  }
+},
   {title:'Working civil-time window',paragraphs:['This English-only page-memory dataset holds civil records in a named zone. The applied inclusive date and daily time windows filter real records. Native FormData captures normalized values; the zone is validated/canonicalized by the runtime’s Intl.DateTimeFormat. It identifies civil records, without converting them into instants.','Dates are bounded to 2026–2028 and times to 09:00–17:00 in 15-minute increments. Ordering is validated in addition to native constraints. Failure/cancellation preserve loaded records; only explicit completion applies the request. An empty result has working restore/apply recovery. No remote availability, durable booking, permission or cultural source authority is implied.'],example:<DateTimeWindowExample />,code:{language:'tsx',value:snippets['examples/date-time-window.tsx']}},
   {title:'Input API and form ownership',table:{headings:['Contract','Use'],rows:[['type','date, time or datetime-local select the native temporal control. Keep the task model explicit.'],['value / onChange','Controlled draft strings; reflect the actual input value. Empty string is a real draft state. Do not switch between controlled and uncontrolled ownership.'],['defaultValue','Uncontrolled initial value; later prop changes do not constitute an external reset.'],['name / FormData','Serialize successful native controls. Disabled fields are omitted; read-only fields remain registered. The example captures entries before entering pending state.'],['required / min / max / step','Native temporal constraints. The example calls native validity and also validates pair ordering. step is days for date and seconds for time/datetime-local.'],['readOnly / disabled','Pending uses read-only fields so values remain accessible and submitted; duplicate Apply is unavailable. An independent Restore can recover deliberately unavailable fields.'],['state / aria-invalid','Input state=error supplies visual styling; aria-invalid and described error convey field semantics. Validation copy must identify how to fix the value.'],['ref / id / aria-describedby','Ref reaches the native input; labels/descriptions/errors stay associated with the real control.'],['Custom picker boundary','No showPicker wrapper or custom grid is promised. A product that adds a picker launcher must test support, user activation, read-only/disabled behavior, naming and focus recovery.']]}},
   {title:'Calendar validation and precision',bullets:['Use the browser’s temporal parser/validity for native drafts, including leap days, out-of-range values and step mismatch. Validate incoming server/URL values through the domain model too; native controls can sanitize invalid strings to empty.','The fixture compares normalized fixed-width in-range calendar/time strings after native validation. That ordering is specific to these Gregorian values, not a locale-text parser or a general historical-calendar algorithm.','State whether endpoints are inclusive. This fixture applies its time window to each date independently; it is not a continuous instant interval from the first morning to the last evening.','Reversed date/time pairs produce focused errors instead of silently swapping user intent. The fixture disallows midnight-crossing windows; overnight schedules need an explicit next-day model.','Choose meaningful precision. A quarter-hour increment is a fixture policy, not a universal appointment rule. If seconds are meaningful, expose them and preserve that precision through storage.','Do not enforce a frozen “today” or minimum age through a build-time constant. When the product needs relative limits, calculate them in its authoritative clock/zone and describe the boundary.']},

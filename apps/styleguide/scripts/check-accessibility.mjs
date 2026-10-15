@@ -58,7 +58,13 @@ try {
       browser(['open', `${base}${path}`]); browser(['wait', 'main h1']);
       browser(['eval', `localStorage.setItem('mt-theme', ${JSON.stringify(appearance.theme)}); window.dispatchEvent(new Event('storage'));`]);
       browser(['wait', `html.${appearance.theme}`]);
-      for(const action of actions)browser(action);
+      for(const action of actions) {
+        if(action[0]==='find') {
+          // Let scroll-driven layout settle before the native pointer hit test.
+          browser(['eval', `(async()=>{const name=${JSON.stringify(action[5])};const button=[...document.querySelectorAll('button')].find(node=>(node.getAttribute('aria-label')??node.textContent).trim()===name);if(!button)throw Error('Missing exact scenario button: '+name);button.scrollIntoView({block:'center'});await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));return true;})()`]);
+        }
+        browser(action);
+      }
       // Wait for complete load and a paint; fonts and client effects can affect checks.
       browser(['wait', '--fn', 'document.readyState === "complete"']);
       const result = browser(['eval', '--stdin'], `${axeSource}\n;(async () => {

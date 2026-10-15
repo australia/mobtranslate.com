@@ -20,7 +20,8 @@ export interface RadioItemProps extends React.ComponentPropsWithoutRef<typeof Ba
 export const RadioItem = React.forwardRef<HTMLElement, RadioItemProps>(
   ({ className, label, ...props }, ref) => (
     <label className="mt-radio-label">
-      <BaseRadio.Root ref={ref} aria-label={label} className={state => cn('mt-radio', typeof className === 'function' ? className(state) : className)} {...props}>
+      {/* Read-only semantics belong to RadioGroup; the radio role does not support aria-readonly. */}
+      <BaseRadio.Root ref={ref} aria-label={label} className={state => cn('mt-radio', typeof className === 'function' ? className(state) : className)} {...props} aria-readonly={undefined}>
         <BaseRadio.Indicator className="mt-radio-indicator" />
       </BaseRadio.Root>
       {label && <span className="mt-radio-text">{label}</span>}

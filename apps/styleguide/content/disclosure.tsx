@@ -31,6 +31,40 @@ export const popoverDocument:GuideDocumentData={title:'Popover',description:'Anc
 export const tooltipDocument:GuideDocumentData={title:'Tooltip',description:'Offer brief noninteractive context without making the tooltip a control’s only name or instruction.',sections:[
   {title:'Supplemental context, persistent essentials',paragraphs:['Use Tooltip for brief contextual text on hover/focus. The real trigger needs its own accessible name, and essential instructions need persistent placement for touch and other input modes. An icon-only control still needs its own name when hints are disabled.','Do not put links, fields or recovery actions inside a tooltip. Use Popover or visible help for interactive content. Do not advertise a keyboard shortcut that the application has not implemented. The previous Save hint implied an unsupported Ctrl+S command; this example states the actual page-memory effect.']},
   {title:'Anatomy and visual contract',table:{headings:['Part','Specification'],rows:[['Provider','Shared delay group; example sets opening delay=200ms and closeDelay=100ms. Adjacent tooltip behavior uses the installed provider policy.'],['Trigger','Direct installed button/render part with actual name, target and action supplied by caller. Example icon is decorative in a named 44px Button.'],['Positioner / Popup','Portalled supporting text with 8px example offset/collision padding. Shared popup uses inverted foreground/background roles, 14px text, 6px × 12px padding, radius-md and no wide shadow/fade.'],['Bounds','Maximum width min(20rem, viewport−16px), available-height scrolling and wrapping. Long content should become visible guidance rather than a scrolling tooltip task.'],['Arrow','Automatic installed Arrow; visual hint only, not an accessible label or action.'],['State','Focus and hover can disclose; Escape dismisses. Hint availability is separate from whether the bookmark action works.']]}},
+  {
+  "title": "Material plain and rich tooltip boundaries",
+  "paragraphs": [
+    "Plain reference tooltips briefly explain icon actions; rich variants can add a heading, longer explanation and up to two actions, including persistent click/onboarding presentations. On this web stack, plain Tooltip remains noninteractive supplemental description. Interactive rich help belongs in a named Popover or visible content with its own deliberate focus/dismissal model, not links or buttons inside role=tooltip."
+  ],
+  "table": {
+    "headings": [
+      "Reference decision",
+      "Local web contract and application choice"
+    ],
+    "rows": [
+      [
+        "Native dimensions and timing",
+        "Reference plain geometry includes 24dp height/8dp padding; rich uses 12dp top,8dp bottom and 16dp inline padding. Typical target distances are 4/8dp with 8dp collision increments and 1.5s after leaving. These differ from the actual local popup, delay/provider and continuous collision contracts specified above."
+      ],
+      [
+        "Name and essential content",
+        "The control needs its own meaningful accessible name, especially for touch when no hint opens. Keep required instructions, errors and recovery persistent. The reference’s suggestion to use a dialog for crucial information is not a requirement to interrupt every help task."
+      ],
+      [
+        "Hover, focus and dismissal",
+        "Verify keyboard-focus and pointer disclosure, Escape without activation, pointer transfer onto the popup and an inspectable dismissal window. The fixture explicitly tests a noninteractive hint; native mobile long-press and unsolicited onboarding are not installed or certified."
+      ],
+      [
+        "Rich content and focus",
+        "A deliberate rich Popover may contain clear links/actions and retain normal reading order. Match its actual modality/final focus and do not copy the reference’s generic Tooltip role onto interactive content. Keep the trigger and important content unobscured, and do not introduce a focus trap just because a help surface appears."
+      ],
+      [
+        "One hint and readable text",
+        "A shared provider owns sibling delay/open behavior. A consumer using multiple providers needs to check competing hints rather than assuming a global singleton. Reference plain/rich headings favor single lines; this web popup wraps within actual viewport bounds at enlarged text rather than truncating essential meaning."
+      ]
+    ]
+  }
+},
   {title:'Actual bookmark with optional hint',paragraphs:['The named icon button toggles an actual English-only page-memory bookmark and reports its result. Its persistent explanation remains available when tooltip hints are disabled. The hint contains only supplemental text, with no fake shortcut or persistence claim.'],example:<TooltipTaskExample />,code:source},
   {title:'Exported API and delay ownership',table:{headings:['Export / prop','Installed contract'],rows:[['TooltipProvider','Direct Provider: delay, closeDelay, timeout (default 400ms grouping window) and children.'],['Tooltip','Direct Root: open/defaultOpen=false, onOpenChange(open, details), onOpenChangeComplete and disabled. disableHoverablePopup=false retains hoverable supporting content.'],['trackCursorAxis','Installed none | x | y | both positioning policy, default none. Cursor tracking must not make the content impossible to inspect.'],['triggerId / defaultTriggerId / handle / children','Installed external trigger/payload association. Controlled openness needs the correct trigger identity; advanced compositions require their own acceptance tests.'],['actionsRef','Installed custom unmount ownership. Complete cleanup if taking over the popup lifecycle.'],['TooltipTrigger','Direct button/render part, native action/ref, payload/handle and optional per-trigger delay (default 600ms) / closeDelay (default 0ms); provider can supply shared delay.'],['TooltipPortal / TooltipPositioner','Direct portal and styled positioning div/ref with installed side/align/offset/collision options.'],['TooltipPopup','Styled div/ref with state class callback and automatic Arrow. Its content is supplemental description, not an interactive menu or focus destination.']]}},
   {title:'Pointer, keyboard and accessibility',bullets:['Verify both hover and keyboard focus disclosure. Escape dismisses without moving focus into the tooltip or performing the trigger action.','Allow people to move the pointer onto supplemental content without dismissing it immediately. Hoverability, dismissal and persistence need actual input tests, not just open DOM.','Keep the trigger name and essential visible instruction independent of a tooltip-generated description. Supply id and additional aria-describedby on TooltipTrigger. A render child ID can differ from the primitive’s registered identity, and a child description overrides the composed link in this pin. Verify composed aria-describedby relationships in the actual rendered tree. The APG tooltip pattern is a draft; its role/description and interaction guidance is a reference, not a blanket certification.','Do not require hover to discover errors, authorization or meaning. Touch users need the named action and persistent alternative; desktop mouse emulation is not hardware touch proof.','A disabled trigger may not receive focus. Explain unavailable actions visibly; enabling a wrapper tooltip is not a substitute for accessible recovery.']},

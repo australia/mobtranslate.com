@@ -64,6 +64,9 @@ test('radio keyboard skips unavailable options, changes real spacing and seriali
   assert.match(evaluate('document.querySelector("[data-radio-lab] > [role=status]").textContent'),/density=comfortable/);
   click('Make local radio group read-only'); browser('focus','[aria-label="Comfortable reading"]'); browser('press','Space');
   assert.equal(evaluate(`document.querySelector('[aria-label="Comfortable reading"]').getAttribute('aria-checked')`),'true');
+  assert.equal(evaluate(`document.querySelector('[data-radio-lab] [role=radiogroup]').getAttribute('aria-readonly')`),'true');
+  assert.equal(evaluate(`document.querySelectorAll('[data-radio-lab] [role=radio][aria-readonly]').length`),0);
+  assert.ok(evaluate(`document.querySelector('[aria-label="Comfortable reading"]').hasAttribute('data-readonly')`));
 });
 
 test('switch retains the old setting while pending, recovers failure and commits an explicit local outcome', () => {
@@ -232,7 +235,7 @@ test('labels activate real values and radio entry follows the selected option',(
   browser('scrollintoview','[data-checkbox-lab] form .mt-checkbox-text');browser('click','[data-checkbox-lab] form .mt-checkbox-text');
   assert.equal(evaluate('document.querySelector("[data-checkbox-lab] form [role=checkbox]").getAttribute("aria-checked")'),'true');
   assert.equal(evaluate('new FormData(document.querySelector("[data-checkbox-lab] form")).get("notes")'),'include');
-  open('/components/radio','[data-radio-lab]');browser('focus','[data-radio-lab] > button');browser('press','Tab');
+  open('/components/radio','[data-radio-lab]');browser('focus','[data-radio-restore]');browser('press','Tab');
   assert.equal(evaluate('document.activeElement.getAttribute("aria-label")'),'Compact reading');
   browser('press','ArrowUp');assert.equal(evaluate('document.activeElement.getAttribute("aria-label")'),'Comfortable reading');
   browser('press','Space');assert.equal(evaluate('document.querySelectorAll("[data-radio-lab] [role=radio][aria-checked=true]").length'),1);
@@ -289,4 +292,49 @@ test('selection labels and independent chip actions reflow at 320px and 200% tex
     if(path==='chip'){const bounds=evaluate('(()=>{const remove=document.querySelector("[data-chip-lab] .mt-chip-delete"),edit=remove.parentElement.querySelector(".mt-chip-label button");return {remove:remove.getBoundingClientRect().toJSON(),edit:edit.getBoundingClientRect().toJSON()};})()');assert.ok(bounds.edit.right<=bounds.remove.left+1);}
   }
   evaluate("document.documentElement.style.fontSize=''");browser('set','viewport','1440','1000');
+});
+
+
+test('required-empty radio entry distinguishes focus, missing validation and an explicit selected form value',()=>{
+  browser('set','viewport','1400','1000');open('/components/radio','[data-radio-lab]');click('Require an explicit radio choice');
+  assert.equal(evaluate('document.querySelectorAll("[data-radio-lab] [role=radio][aria-checked=true]").length'),0);
+  evaluate('[...document.querySelectorAll("[data-radio-lab] button")].find(n=>n.textContent==="Restore initial radio sample").focus();true');browser('press','Tab');
+  assert.equal(evaluate('document.activeElement.getAttribute("aria-label")'),'Compact reading');
+  assert.equal(evaluate('document.querySelectorAll("[data-radio-lab] [role=radio][aria-checked=true]").length'),0);
+  click('Submit radio sample');assert.equal(evaluate('document.activeElement.getAttribute("aria-label")'),'Compact reading');
+  assert.match(evaluate('document.querySelector("#radio-required-error").textContent'),/Choose a reading density/);
+  assert.ok(evaluate('document.querySelector("[role=radiogroup]").getAttribute("aria-describedby").includes("radio-required-error")'));
+  assert.ok(evaluate('!document.querySelector("[data-radio-lab] > [role=status]").textContent.includes("FormData density=")'));
+  browser('press','Space');assert.equal(evaluate('document.querySelectorAll("[data-radio-lab] [role=radio][aria-checked=true]").length'),1);
+  click('Submit radio sample');assert.match(evaluate('document.querySelector("[data-radio-lab] > [role=status]").textContent'),/density=compact/);
+  assert.equal(evaluate('!!document.querySelector("#radio-required-error")'),false);
+});
+
+test('read-only required-empty radio cannot fabricate a choice and has independent recovery',()=>{
+  open('/components/radio','[data-radio-lab]');click('Require an explicit radio choice');click('Make local radio group read-only');click('Submit radio sample');
+  browser('press','Space');browser('press','ArrowDown');
+  assert.equal(evaluate('document.querySelectorAll("[data-radio-lab] [role=radio][aria-checked=true]").length'),0);
+  assert.ok(evaluate('!!document.querySelector("#radio-required-error")'));
+  click('Restore initial radio sample');assert.equal(evaluate(`document.querySelector('[aria-label="Compact reading"]').getAttribute('aria-checked')`),'true');
+  assert.equal(evaluate('!!document.querySelector("#radio-required-error")'),false);click('Submit radio sample');
+  assert.match(evaluate('document.querySelector("[data-radio-lab] > [role=status]").textContent'),/density=compact/);
+});
+
+test('slider changes a real preview immediately and range endpoints filter actual records while remaining horizontal',()=>{
+  open('/components/slider','[data-slider-lab]');
+  const before=evaluate('parseFloat(getComputedStyle(document.querySelector("[data-slider-preview]")).fontSize)');
+  browser('focus','[data-single-slider] input');browser('press','ArrowRight');
+  assert.ok(evaluate('parseFloat(getComputedStyle(document.querySelector("[data-slider-preview]")).fontSize)')>before);
+  browser('fill','[data-exact-level]','3');assert.equal(evaluate('document.querySelector("[data-single-slider] input").value'),'3');
+  assert.ok(evaluate('parseFloat(getComputedStyle(document.querySelector("[data-slider-preview]")).fontSize)')<before);
+  assert.deepEqual(evaluate('[...document.querySelectorAll("[data-slider-unit]")].map(n=>Number(n.dataset.sliderUnit))'),[2,5,8]);
+  browser('focus','[aria-label="Minimum local sample level"]');browser('press','ArrowRight');
+  assert.deepEqual(evaluate('[...document.querySelectorAll("[data-slider-unit]")].map(n=>Number(n.dataset.sliderUnit))'),[5,8]);
+  browser('focus','[data-slider-lab] input[type=checkbox]');browser('press','Space');
+  assert.equal(evaluate('document.querySelector("[data-single-slider] .mt-slider-control").getBoundingClientRect().height'),192);
+  assert.equal(evaluate('document.querySelector("[data-range-slider] .mt-slider-control").getBoundingClientRect().height'),44);
+  browser('focus','[aria-label="Maximum local sample level"]');browser('press','Home');
+  assert.equal(evaluate('document.querySelectorAll("[data-slider-unit]").length'),0);
+  assert.match(evaluate('document.querySelector("[data-slider-empty]")?.textContent??""'),/No local sample records/);
+  click('Restore local range');assert.deepEqual(evaluate('[...document.querySelectorAll("[data-slider-unit]")].map(n=>Number(n.dataset.sliderUnit))'),[2,5,8]);
 });

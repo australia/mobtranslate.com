@@ -1,0 +1,224 @@
+[
+  {
+    "path": "/components/radio",
+    "state": "required-empty",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Require an explicit radio choice",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/radio",
+    "state": "required-error",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Require an explicit radio choice",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Submit radio sample",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/radio",
+    "state": "readonly-required-error",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Require an explicit radio choice",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Make local radio group read-only",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Submit radio sample",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/slider",
+    "state": "immediate-preview",
+    "actions": [
+      [
+        "focus",
+        "[data-single-slider] input"
+      ],
+      [
+        "press",
+        "ArrowRight"
+      ]
+    ]
+  },
+  {
+    "path": "/components/slider",
+    "state": "range-filtered",
+    "actions": [
+      [
+        "focus",
+        "[aria-label=\"Minimum local sample level\"]"
+      ],
+      [
+        "press",
+        "ArrowRight"
+      ]
+    ]
+  },
+  {
+    "path": "/components/drawer",
+    "state": "standard-initial",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Open filters",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/drawer",
+    "state": "standard-applied",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Open filters",
+        "--exact"
+      ],
+      [
+        "wait",
+        "--fn",
+        "document.activeElement.id === \"standard-support-heading\""
+      ],
+      [
+        "focus",
+        "[data-standard-sheet-filter]"
+      ],
+      [
+        "press",
+        "Space"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Apply filters",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/drawer",
+    "state": "standard-expanded",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Open filters",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Cycle height",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/drawer",
+    "state": "standard-rtl",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Open filters",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Use RTL panel",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/slider",
+    "state": "range-empty",
+    "actions": [
+      [
+        "focus",
+        "[aria-label=\"Minimum local sample level\"]"
+      ],
+      [
+        "press",
+        "ArrowRight"
+      ],
+      [
+        "focus",
+        "[aria-label=\"Maximum local sample level\"]"
+      ],
+      [
+        "press",
+        "Home"
+      ]
+    ]
+  }
+]

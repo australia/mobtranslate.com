@@ -26,7 +26,7 @@ test('cards expose distinct surfaces and explicit local actions', () => {
   open('/components/card', '[data-card-lab]');
   const styles = [];
   for (const variant of ['default','filled','outlined','elevated']) {
-    browser('select', '[data-card-lab] select', variant);
+    browser('select', '[data-card-surface]', variant);
     styles.push(evaluate(`(() => {const card=document.querySelector('.mt-card'); const s=getComputedStyle(card); return [s.backgroundColor,s.borderColor,s.boxShadow].join('|');})()`));
   }
   assert.equal(new Set(styles).size, 4);
@@ -155,4 +155,71 @@ test('containment documents reflow in both themes at 320px', () => {
     }
     browser('press','Escape'); browser('wait','--fn','!document.querySelector("[role=dialog]")');
   }
+});
+
+
+test('card collection sorts and filters every record while retaining bookmarks and focus after removal',()=>{
+  browser('set','viewport','1400','1000');open('/components/card','[data-card-collection]');
+  browser('select','[aria-label="Local card order"]','az');
+  assert.deepEqual(evaluate('[...document.querySelectorAll("[data-card-id]")].map(n=>n.dataset.cardId)'),['comparison','reading','recovery']);
+  click('Bookmark Reading notes');click('Bookmark Recovery notes');
+  browser('select','[data-card-surface]','filled');
+  assert.ok(evaluate('[...document.querySelectorAll("[data-card-id]")].every(n=>n.classList.contains("mt-card-filled"))'));
+  click('Bookmarked cards only');assert.equal(evaluate('document.querySelectorAll("[data-card-id]").length'),2);
+  browser('fill','#local-card-filter','reading');assert.deepEqual(evaluate('[...document.querySelectorAll("[data-card-id]")].map(n=>n.dataset.cardId)'),['reading']);
+  click('Remove bookmark Reading notes');assert.ok(evaluate('!!document.querySelector("[data-card-empty]")'));
+  assert.equal(evaluate('document.activeElement.textContent'),'Bookmarked cards only');
+  click('Show all local cards');assert.equal(evaluate('document.activeElement.id'),'local-card-filter');
+  assert.equal(evaluate('document.querySelectorAll("[data-card-id]").length'),3);
+  assert.equal(evaluate('document.querySelector("[data-card-id=recovery] button").getAttribute("aria-pressed")'),'true');
+  browser('select','[aria-label="Local card order"]','za');assert.equal(evaluate('document.querySelector("[data-card-id]").dataset.cardId'),'recovery');
+});
+
+test('card disclosures grow in document flow and a whole-card native link has no nested controls',()=>{
+  open('/components/card','[data-card-collection]');
+  const before=evaluate('document.querySelector("[data-card-id=reading]").getBoundingClientRect().height');
+  browser('focus','[data-card-id=reading] summary');browser('press','Space');
+  assert.equal(evaluate('document.querySelector("[data-card-id=reading] details").open'),true);
+  assert.ok(evaluate('document.querySelector("[data-card-id=reading]").getBoundingClientRect().height')>before+30);
+  assert.equal(evaluate('document.querySelector("[data-card-id=reading]").scrollHeight<=document.querySelector("[data-card-id=reading]").clientHeight+1'),true);
+  assert.equal(evaluate('document.querySelectorAll("[data-single-card] button,[data-single-card] input,[data-single-card] a").length'),0);
+  browser('focus','[data-single-card]');browser('press','Shift+Tab');browser('press','Tab');
+  assert.equal(evaluate('document.activeElement.matches("[data-single-card]:focus-visible")'),true);
+  assert.equal(evaluate('getComputedStyle(document.activeElement).outlineWidth'),'3px');
+  browser('press','Enter');browser('wait','--fn','location.pathname==="/patterns/notifications"');
+});
+
+test('optional dirty-edit protection retains draft, offers safe return and discards only on the explicit action',()=>{
+  open('/components/dialog','[data-dialog-lab]');browser('click','[data-dialog-protect]');click('Edit local collection');browser('wait','[role=dialog] input');
+  browser('fill','[role=dialog] input','Unsaved guarded title');browser('press','Escape');browser('wait','[data-dialog-discard]');
+  assert.equal(evaluate('document.activeElement.textContent'),'Keep editing');
+  assert.equal(evaluate('getComputedStyle(document.querySelector("[role=dialog] form")).display'),'none');
+  assert.match(evaluate('document.querySelector("[data-dialog-discard]").textContent'),/Unsaved guarded title/);
+  assert.equal(evaluate('[...document.querySelectorAll("[role=dialog] button")].filter(n=>n.getClientRects().length).length'),2);
+  click('Keep editing');browser('wait','--fn','document.activeElement.matches("[role=dialog] input")');
+  assert.equal(evaluate('document.activeElement.value'),'Unsaved guarded title');
+  click('Cancel collection edit');browser('wait','[data-dialog-discard]');browser('press','Escape');browser('wait','--fn','!document.querySelector("[data-dialog-discard]")');
+  assert.equal(evaluate('document.activeElement.value'),'Unsaved guarded title');
+  click('Cancel collection edit');browser('wait','[data-dialog-discard]');click('Discard edits');browser('wait','--fn','!document.querySelector("[role=dialog]")');
+  assert.equal(evaluate('document.activeElement.textContent'),'Edit local collection');
+  assert.equal(evaluate('document.querySelector("[data-dialog-lab] > [role=status]").textContent'),'Current local collection: Local collection');
+  click('Edit local collection');browser('wait','[role=dialog] input');assert.equal(evaluate('document.querySelector("[role=dialog] input").value'),'Local collection');
+  browser('press','Escape');browser('wait','--fn','!document.querySelector("[role=dialog]")');
+});
+
+test('card collection and discard decision remain usable at narrow doubled text in both themes',()=>{
+  browser('set','viewport','320','640');
+  for(const theme of ['light','dark']){
+    open('/components/card','[data-card-collection]');evaluate(`localStorage.setItem('mt-theme',${JSON.stringify(theme)});window.dispatchEvent(new Event('storage'));document.documentElement.style.fontSize='200%';true`);browser('wait',`html.${theme}`);
+    click('Use RTL card collection');browser('fill','#local-card-filter','no matching title');assert.ok(evaluate('!!document.querySelector("[data-card-empty]")'));click('Show all local cards');
+    assert.equal(evaluate('document.documentElement.scrollWidth<=innerWidth+1'),true);assert.equal(evaluate('getComputedStyle(document.querySelector("[data-card-collection]")).direction'),'rtl');assert.equal(evaluate('getComputedStyle(document.querySelector("[data-card-collection] p")).direction'),'ltr');
+    assert.ok(evaluate('(() => {const n=document.querySelector("[data-single-card]"),title=n.querySelector("h4").firstChild,range=document.createRange(),word="notification",start=title.textContent.indexOf(word);range.setStart(title,start);range.setEnd(title,start+word.length);return range.getClientRects().length===1&&n.getBoundingClientRect().height<=innerHeight-document.querySelector(".mobile-nav-header").getBoundingClientRect().height-32;})()'));
+    open('/components/dialog','[data-dialog-lab]');evaluate('document.documentElement.style.fontSize="200%";true');browser('scrollintoview','[data-dialog-protect]');browser('focus','[data-dialog-protect]');browser('press','Space');assert.equal(evaluate('document.querySelector("[data-dialog-protect]").checked'),true);click('Edit local collection');browser('wait','--fn','document.activeElement.matches("[role=dialog] input")');browser('fill','[role=dialog] input','A retained enlarged local draft');browser('press','Escape');browser('wait','[data-dialog-discard]');
+    browser('wait','--fn','document.activeElement.textContent==="Keep editing"');browser('press','Tab');
+    assert.equal(evaluate('document.activeElement.textContent'),'Discard edits');
+    assert.ok(evaluate('(() => {const text=document.activeElement.firstChild,range=document.createRange();range.setStart(text,0);range.setEnd(text,7);return range.getClientRects().length===1;})()'));
+    assert.ok(evaluate('(() => {const n=document.activeElement,r=n.getBoundingClientRect(),p=document.querySelector("[role=dialog]").getBoundingClientRect();return r.top>=p.top-1&&r.bottom<=p.bottom+1&&n.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2));})()'));
+    assert.equal(evaluate('document.documentElement.scrollWidth<=innerWidth+1'),true);browser('press','Enter');browser('wait','--fn','!document.querySelector("[role=dialog]")');
+  }
+  browser('set','viewport','1400','1000');
 });

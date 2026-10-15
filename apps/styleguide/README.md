@@ -25,16 +25,29 @@ pnpm --filter styleguide test:browser
 pnpm --filter styleguide test:communication
 pnpm --filter styleguide test:containment
 pnpm --filter styleguide test:select
-pnpm --filter styleguide test:autocompleteion
+pnpm --filter styleguide test:autocomplete
 pnpm --filter styleguide test:inputs
 pnpm --filter styleguide test:menus
 pnpm --filter styleguide test:destinations
 pnpm --filter styleguide test:adaptive-navigation
-pnpm --filter styleguide test:select
+pnpm --filter styleguide test:selection
 pnpm --filter styleguide test:routes
 ```
 
 The browser and route checks require the `agent-browser` CLI and a running styleguide. Set `STYLEGUIDE_URL` to test a different local preview. `AGENT_BROWSER_EXECUTABLE_PATH` can point to an installed Chromium executable. Each run uses a unique browser session and closes it after execution. `test:routes` parses navigation with the TypeScript compiler, fetches every destination and uses the browser's HTML parser to check main/headings and internal route/fragment links. Set `STYLEGUIDE_REPORT` to save its JSON evidence.
+
+`test:browser` is the shell/foundation baseline. For the complete `.test.mjs` inventory, run each file in its own process, sequentially, from `apps/styleguide` against the built preview:
+
+```bash
+set -e
+for test_file in tests/*.test.mjs; do
+  node --test "$test_file"
+done
+pnpm test:color-model
+pnpm test:token-references
+```
+
+The two model commands use Vitest and are separate from the Node test inventory. Keep the browser executable and launch settings constant. On a shared host, run the sequence inside an appropriately capped cgroup; do not run it while a build is replacing `.next`. Initial-page accessibility, explicit interactive accessibility scenarios, route/API delivery and manual keyboard/visual review remain separate checks.
 
 Current browser coverage: documentation anchors, topic filtering, mobile focus containment/Escape/route selection and header clearance, theme persistence, clipboard rejection, responsive layout and interaction-state exploration, rendered token values, filtered exports and contrast calculations. Foundation checks also cover changed type/spacing/shadow values, motion interruption and reduced motion, locale formatting and invalid settings, reorder focus, icon toggle semantics, editable recovery messages and narrow-screen reflow. Developer checks exercise form validation/retention, controlled render composition, local theme scope/radius, system preference and denied storage writes. These checks do **not** yet prove the whole component catalogue, actual screen-reader announcements, native touch dragging or Material-depth coverage. The completion contract is [STYLEGUIDE-PLAN.md](./STYLEGUIDE-PLAN.md).
 

@@ -1,0 +1,12 @@
+.standard-sheet-lab { container-type:inline-size; min-inline-size:0; }
+.standard-sheet-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+.standard-sheet-lab .mt-btn { padding-inline:12px; min-height:44px; }
+.standard-sheet-shell { display:flex; flex-direction:column; gap:16px; min-inline-size:0; }
+.standard-sheet-primary { min-inline-size:0; }
+.standard-support-panel { min-inline-size:0; max-inline-size:100%; overflow-y:auto; overflow-x:hidden; padding:16px; border:2px solid var(--color-muted-foreground); border-radius:var(--radius-lg); background:var(--color-muted); color:var(--color-foreground); }
+.standard-support-panel p { overflow-wrap:anywhere; }
+.standard-support-panel:focus-visible, .standard-support-panel h4:focus-visible { outline:2px solid var(--color-ring); outline-offset:2px; }
+.standard-sheet-check { display:flex; align-items:center; gap:8px; min-block-size:44px; }
+.standard-sheet-check input { inline-size:24px; block-size:24px; flex-shrink:0; }
+@container(min-width:48rem) { .standard-sheet-shell[data-open] { display:grid; grid-template-columns:minmax(0,1fr) minmax(14rem,20rem); align-items:start; } }
+@media(forced-colors:active) { .standard-support-panel { border-color:CanvasText; } }

@@ -45,7 +45,7 @@ export function DateTimeWindowExample(){
       {error && <p role="alert" id="date-time-error">{error.message}</p>}
       <div className="flex flex-wrap gap-3"><Button type="submit" style={action} disabled={disabled||pending}>Apply civil-time window</Button><Button type="button" style={action} variant="outline" disabled={disabled||readOnly||pending} onClick={()=>{setDraft({start:'',end:'',from:'',until:'',zone:''});setError(null);(form.current?.elements.namedItem('start') as HTMLInputElement)?.focus();}}>Clear civil-time draft</Button></div>
     </form>
-    <h3 ref={heading} tabIndex={-1} data-date-time-heading className="font-semibold">Loaded civil-time records</h3><p data-date-time-applied style={{overflowWrap:'anywhere'}}>{applied.start} through {applied.end}; {applied.from} through {applied.until}; {applied.zone}</p>
+    <h3 ref={heading} tabIndex={-1} data-date-time-heading className="font-semibold">Loaded civil-time records</h3><p dir="auto" data-date-time-applied style={{overflowWrap:'anywhere'}}><bdi>{applied.start}</bdi> through <bdi>{applied.end}</bdi>; <bdi>{applied.from}</bdi> through <bdi>{applied.until}</bdi>; <bdi>{applied.zone}</bdi></p>
     <ul data-date-time-records className="guidance-list">{visible.map(record=><li key={record.id} data-record-id={record.id}>{record.label}: <bdi>{record.date} {record.time} {record.zone}</bdi></li>)}</ul>
     {!visible.length && <p data-date-time-empty>No local civil records match. Restore the initial draft and apply it to recover.</p>}
     <p data-date-time-payload style={{overflowWrap:'anywhere'}}>Actual native entries: {payload}</p>

@@ -22,6 +22,40 @@ export const aspectRatioDocument:GuideDocumentData={title:'Aspect Ratio',descrip
 export const separatorDocument:GuideDocumentData={title:'Separator',description:'Mark a meaningful content boundary without adding a fake action or redundant announcement.',sections:[
   {title:'Semantic boundary or decoration',paragraphs:['Use Separator when a content boundary benefits from explicit structure. Prefer headings/spacing when they already communicate the relationship. A thin line alone does not name a section or create an action.','The pinned primitive is semantic by default. It has orientation and native/render props, without a decorative boolean. Use aria-hidden=true for redundant decorative boundaries while retaining meaningful text structure.']},
   {title:'Anatomy and dimensions',table:{headings:['Part','Contract'],rows:[['Horizontal','Styled installed div/ref, 1px high and full available width, background border role.'],['Vertical','1px width, automatic height and align-self:stretch. Needs a parent with meaningful cross-axis height; a line cannot create its own content height.'],['Semantics','Installed separator role and orientation. No focus/press/arrow interaction is supplied.'],['Customization','State-based className callback now composes with mt-separator; native/render/style props belong to the installed primitive.'],['Contrast','If a boundary is essential to understanding, verify nontext contrast or supply independent structural cues. The border role is not a blanket guarantee for every enclosing surface.']]}},
+  {
+  "title": "Material divider hierarchy, insets and semantic purpose",
+  "paragraphs": [
+    "The reference says to prefer open space when it already groups content: use a visible but subtle line for meaningful hierarchy, rather than a divider after every repeated item. Full-width lines distinguish larger unrelated sections or interactive versus noninteractive areas; inset lines clarify related/nested groups. Vertical divisions suit larger side-by-side arrangements."
+  ],
+  "table": {
+    "headings": [
+      "Reference point",
+      "Web choice and verification boundary"
+    ],
+    "rows": [
+      [
+        "Native geometry versus local CSS",
+        "Reference width 100%, leading inset 16dp, optional trailing inset 16dp,4dp supporting gap and 8dp surrounding margins are not local props or converted values. This Separator supplies orientation and a1px token-colored line; the caller owns logical insets/spacing and actual group structure."
+      ],
+      [
+        "Decoration and semantics",
+        "The native accessibility page calls dividers decorative with no contrast minimum. The installed Separator can instead expose a meaningful nonfocusable separator boundary, or be hidden when purely decorative. Explain the purpose and choose the actual semantic contract; a line alone never replaces headings or labels."
+      ],
+      [
+        "Orientation and direction",
+        "Use logical start/end insets so RTL preserves grouping. A passive vertical separator is not a draggable splitter and has no keyboard action. Resizable pane handles are a separate interactive component with their own names, targets and keyboard behavior."
+      ],
+      [
+        "Contrast and clutter",
+        "Do not impose a decorative contrast threshold as if it were a control. An essential visual boundary still needs to remain understandable, including forced colors and high contrast. Prefer clear group spacing and restrained use over heavier repeated lines."
+      ],
+      [
+        "Verification",
+        "The working orientation/decorative controls preserve both content groups. Test actual geometry, absence from Tab order, hidden versus semantic mode, contained width and unchanged reading order. Decorative silence and spoken grouping remain target assistive-technology checks."
+      ]
+    ]
+  }
+},
   {title:'Real orientation and decoration',paragraphs:['Switch the local divider between horizontal and vertical while keeping both content groups. Decorative mode hides the redundant semantic line; the explanatory text remains visible. This example has no pretend menu items or pointer-only commands.'],example:<SeparatorSectionsExample />,code:source},
   {title:'Complete exported API',table:{headings:['Prop','Installed behavior'],rows:[['orientation','horizontal or vertical, default horizontal. A data-orientation attribute drives the actual geometry.'],['aria-hidden','Native attribute for a redundant decorative boundary. It does not hide adjacent content.'],['className / style / render','Installed state-aware customization and native attributes. Preserve role/orientation if rendering a semantic boundary through another element.'],['ref','HTMLDivElement ref for the default part. A custom render must preserve the actual ref contract.']]}},
   {title:'Keyboard and composition',bullets:['A static separator is not a tab stop. Do not make a passive rule focusable or add cursor:pointer without a real action.','Toolbar/menu separators belong to their respective composite APIs when they need registered relationships. This general separator does not turn a Stack into a toolbar.','Check vertical stretch and long text in the real parent. Orientation describes the line, not the reading order of surrounding content.','Avoid repeated decorative announcements between every list row. Use meaningful list/table semantics and spacing instead of adding a role for each visual boundary.']},
