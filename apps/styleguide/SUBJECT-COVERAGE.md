@@ -430,3 +430,12 @@ Reviewed all eight captured overview/specs/guidelines/accessibility text tabs fo
 Toast now covers Material’s one-visible-message policy versus this library’s optional stack, optional action/close, plain text, opaque roles, wrapping/200% text, native versus local dimensions, placement relative to focused controls/navigation/FABs, auto-dismiss versus persistent actions, inline fallback, polite announcements and the pinned F6/Tab/Escape focus path. The example adds a one-visible limit and retained inline ordinary feedback; it does not claim first-in-first-out delivery or automatic FAB displacement. Independently retained task recovery remains required.
 
 Runtime verification is recorded in STYLEGUIDE-PLAN.md. Detailed comparison now covers twelve of 36 families; 24 remain, together with the original requirement-wide audit.
+
+
+## Selection-control chapter comparison
+
+Read all sixteen captured text tabs for checkbox, radio-button, switch and chips. The authored guides now distinguish related multi-selection, mutually exclusive options, immediate standalone settings and contextual chip roles; native specs/target/density guidance from local CSS/label contracts; foreground labels/interaction layers; state, errors, group/label naming and actual keyboard behavior. Two reference inconsistencies are retained explicitly: the checkbox accessibility keyboard table describes chips, and radio guidelines prefer a default while its accessibility page permits none. Local contracts follow the installed controls and declared task defaults.
+
+Concrete working changes: an immediately effective local display switch alongside the separate pending/failure specimen; actual multi-record chip entry/editing with validation, exact duplicate protection and retained other records; actual filter intersection/empty recovery and an assist explanation; independent edit/remove buttons; unmodified Delete/Backspace on the remove button, preserving normal input editing and persistent last-record recovery. Source chip gridcell/caret/drag/transform recommendations are distinguished from the implemented ordinary-button/explicit-editor composition.
+
+Runtime evidence is recorded in STYLEGUIDE-PLAN.md. Sixteen of 36 detailed family text comparisons are recorded; twenty remain, together with the original full completion audit.

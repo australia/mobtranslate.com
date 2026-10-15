@@ -23,6 +23,7 @@ export function RadioSelectionExample() {
 
 export function SwitchSelectionExample() {
   const [checked, setChecked] = useState(false);
+  const [details,setDetails]=useState(false);
   const [pending, setPending] = useState(false);
   const [requested, setRequested] = useState(false);
   const [result, setResult] = useState('Local reminders are off.');
@@ -32,6 +33,8 @@ export function SwitchSelectionExample() {
     <p id="local-switch-state" role="status">{result}</p>
     {pending && <div className="flex flex-wrap gap-3"><Button type="button" onClick={() => { setChecked(requested); setPending(false); control.current?.focus(); setResult(`Local reminders are ${requested ? 'on' : 'off'}. No reminder was scheduled.`); }}>Apply local switch change</Button><Button type="button" variant="secondary" onClick={() => { setPending(false); control.current?.focus(); setResult('Simulated change failed. Previous local setting remains; retry is available.'); }}>Fail local switch change</Button></div>}
     <Switch label="Disabled on sample" checked disabled />
+    <Switch label="Show local example details" checked={details} onCheckedChange={setDetails} aria-controls="local-switch-details" />
+    <div id="local-switch-details" hidden={!details}>These English-only local details appear immediately. No apply action or request is required for this display setting.</div>
     <p>The stable label names the feature. The checked state describes the retained setting, not the requested change.</p>
   </div>;
 }

@@ -226,3 +226,67 @@ test('selected indicators and mutable control boundaries have meaningful graphic
     pairs(`const track=getComputedStyle(document.querySelector('.mt-slider-track')),thumb=getComputedStyle(document.querySelector('.mt-slider-thumb'),'::after');return [{label:'${theme} slider track boundary',ratio:ratio(track.borderColor,page)},{label:'${theme} slider thumb',ratio:ratio(thumb.backgroundColor,track.backgroundColor)}];`);
   }
 });
+
+test('labels activate real values and radio entry follows the selected option',()=>{
+  open('/components/checkbox','[data-checkbox-lab]');
+  browser('scrollintoview','[data-checkbox-lab] form .mt-checkbox-text');browser('click','[data-checkbox-lab] form .mt-checkbox-text');
+  assert.equal(evaluate('document.querySelector("[data-checkbox-lab] form [role=checkbox]").getAttribute("aria-checked")'),'true');
+  assert.equal(evaluate('new FormData(document.querySelector("[data-checkbox-lab] form")).get("notes")'),'include');
+  open('/components/radio','[data-radio-lab]');browser('focus','[data-radio-lab] > button');browser('press','Tab');
+  assert.equal(evaluate('document.activeElement.getAttribute("aria-label")'),'Compact reading');
+  browser('press','ArrowUp');assert.equal(evaluate('document.activeElement.getAttribute("aria-label")'),'Comfortable reading');
+  browser('press','Space');assert.equal(evaluate('document.querySelectorAll("[data-radio-lab] [role=radio][aria-checked=true]").length'),1);
+  browser('press','Tab');assert.equal(evaluate('document.activeElement.textContent'),'Submit radio sample');
+  browser('press','Shift+Tab');assert.equal(evaluate('document.activeElement.getAttribute("aria-label")'),'Comfortable reading');
+  const label='[data-radio-lab] label:has([aria-label="Compact reading"]) .mt-radio-text';
+  browser('scrollintoview',label);browser('click',label);
+  assert.equal(evaluate('new FormData(document.querySelector("[data-radio-lab] form")).get("density")'),'compact');
+});
+
+test('the local display switch applies immediately without an outcome button',()=>{
+  open('/components/switch','[data-switch-lab]');const control='[aria-label="Show local example details"]';
+  assert.equal(evaluate('document.querySelector("#local-switch-details").hidden'),true);
+  browser('focus',control);browser('press','Space');
+  assert.equal(evaluate(`document.querySelector('${control}').getAttribute('aria-checked')`),'true');
+  assert.equal(evaluate('document.querySelector("#local-switch-details").hidden'),false);
+  assert.equal(evaluate('[...document.querySelectorAll("[data-switch-lab] button")].some(n=>n.textContent==="Apply local switch change")'),false);
+  browser('press','Space');assert.equal(evaluate('document.querySelector("#local-switch-details").hidden'),true);
+});
+
+test('chip input editing, additions and keyboard removal preserve separate records and recovery',()=>{
+  open('/components/chip','[data-chip-lab]');click('Explain local filter');assert.match(evaluate('document.querySelector("[data-chip-help]").textContent'),/both conditions/);
+  click('Bookmarked examples');click('Notes examples');
+  assert.equal(evaluate(`document.querySelectorAll('[aria-label="Local filtered examples"] li').length`),0);
+  assert.ok(evaluate('!!document.querySelector("[data-chip-empty]")'));click('Clear local chip filters');
+  assert.equal(evaluate(`document.querySelectorAll('[aria-label="Local filtered examples"] li').length`),2);
+  browser('fill','#local-chip-text',' ');click('Use local chip text');
+  assert.equal(evaluate('document.activeElement.id'),'local-chip-text');assert.equal(evaluate('document.querySelector("#local-chip-text").getAttribute("aria-describedby")'),'local-chip-error');
+  browser('fill','#local-chip-text','Locally edited tokenx');browser('press','Backspace');
+  assert.equal(evaluate('document.querySelector("#local-chip-text").value'),'Locally edited token');
+  assert.ok(evaluate(`!!document.querySelector('[aria-label="Remove English-only local suggestion"]')`));browser('press','Enter');
+  assert.ok(evaluate(`!!document.querySelector('[aria-label="Remove Locally edited token"]')`));
+  click('New local chip');browser('fill','#local-chip-text','Second local token');browser('press','Enter');
+  click('Add local suggestion');assert.equal(evaluate('document.querySelectorAll("[data-chip-lab] .mt-chip-delete").length'),3);
+  browser('find','role','button','click','--name','Edit Locally edited token','--exact');
+  assert.equal(evaluate('document.querySelector("#local-chip-text").value'),'Locally edited token');
+  browser('fill','#local-chip-text','Edited again token');browser('press','Enter');
+  browser('focus','[aria-label="Remove Edited again token"]');browser('press','Backspace');
+  assert.equal(evaluate('document.querySelectorAll("[data-chip-lab] .mt-chip-delete").length'),2);assert.equal(evaluate('document.activeElement.textContent'),'Restore local chip');
+  click('Restore local chip');assert.equal(evaluate('document.querySelectorAll("[data-chip-lab] .mt-chip-delete").length'),3);
+  browser('focus','[aria-label="Remove Edited again token"]');browser('press','Delete');
+  assert.equal(evaluate('document.querySelectorAll("[data-chip-lab] .mt-chip-delete").length'),2);
+  assert.equal(evaluate('document.querySelectorAll("[data-chip-lab] button button").length'),0);
+  click('New local chip');browser('fill','#local-chip-text','Second local token');browser('press','Enter');
+  assert.match(evaluate('document.querySelector("#local-chip-error").textContent'),/exact text/);assert.equal(evaluate('document.querySelectorAll("[data-chip-lab] .mt-chip-delete").length'),2);
+});
+
+test('selection labels and independent chip actions reflow at 320px and 200% text',()=>{
+  browser('set','viewport','320','1000');
+  for(const theme of ['light','dark'])for(const path of ['checkbox','checkbox-group','radio','switch','chip']){
+    open(`/components/${path}`,'main h1');evaluate(`document.documentElement.style.fontSize='200%';localStorage.setItem('mt-theme','${theme}');window.dispatchEvent(new Event('storage'));`);browser('wait',`html.${theme}`);
+    assert.equal(evaluate('document.documentElement.scrollWidth'),320,`${theme} ${path}`);
+    assert.ok(evaluate('[...document.querySelectorAll(".mt-checkbox-label,.mt-radio-label,.mt-switch-label,.mt-chip-action,.mt-chip-delete")].every(n=>n.getBoundingClientRect().height>=44)'));
+    if(path==='chip'){const bounds=evaluate('(()=>{const remove=document.querySelector("[data-chip-lab] .mt-chip-delete"),edit=remove.parentElement.querySelector(".mt-chip-label button");return {remove:remove.getBoundingClientRect().toJSON(),edit:edit.getBoundingClientRect().toJSON()};})()');assert.ok(bounds.edit.right<=bounds.remove.left+1);}
+  }
+  evaluate("document.documentElement.style.fontSize=''");browser('set','viewport','1440','1000');
+});

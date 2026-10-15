@@ -24,6 +24,12 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>(
           type="button"
           className="mt-chip-delete"
           onClick={onDelete}
+          onKeyDown={event => {
+            if (!event.altKey && !event.ctrlKey && !event.metaKey && (event.key === 'Delete' || event.key === 'Backspace')) {
+              event.preventDefault();
+              onDelete();
+            }
+          }}
           aria-label={deleteLabel}
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
