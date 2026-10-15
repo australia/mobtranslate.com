@@ -15,11 +15,11 @@
 .adaptive-local-nav a[aria-current="page"] { color: var(--color-background); background: var(--color-foreground); border-color: var(--color-foreground); font-weight: 700; }
 .adaptive-local-nav a[aria-disabled="true"] { cursor: progress; }
 .adaptive-local-nav a:focus-visible, .adaptive-local-content h3:focus-visible { outline: 2px solid var(--color-ring); outline-offset: 2px; }
-.adaptive-local-nav[data-presentation="bar"] ul { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); }
+.adaptive-local-nav[data-presentation="bar"] ul { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,5rem),1fr)); }
 .adaptive-local-nav[data-presentation="bar"] a, .adaptive-local-nav[data-presentation="rail"] a { flex-direction: column; justify-content: center; min-height: 64px; font-size: var(--text-sm); text-align: center; }
 .adaptive-local-nav[data-presentation="bar"] a { padding-inline: 8px; }
 .adaptive-local-nav[data-presentation="bar"] li:last-child { grid-column: 1 / -1; }
-.adaptive-local-nav[data-presentation="rail"] { flex: 0 0 128px; border-inline-end: 1px solid var(--color-muted-foreground); padding-inline-end: 12px; }
+.adaptive-local-nav[data-presentation="rail"] { flex: 0 0 8rem; border-inline-end: 1px solid var(--color-muted-foreground); padding-inline-end: 12px; }
 .adaptive-local-nav[data-presentation="rail"] ul, .adaptive-local-nav[data-presentation="drawer"] ul { flex-direction: column; }
 .adaptive-local-nav[data-presentation="rail"] a { width: 100%; }
 .adaptive-local-unavailable { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 4px; color: var(--color-muted-foreground); font-size: var(--text-sm); overflow-wrap: anywhere; }
@@ -29,3 +29,9 @@
   .adaptive-local-nav a[aria-current="page"] { border-color: Highlight; text-decoration-thickness: 3px; }
   .adaptive-local-nav a:focus-visible, .adaptive-local-content h3:focus-visible { outline-color: Highlight; }
 }
+
+.adaptive-local-nav[data-presentation="rail"][data-expanded] { flex-basis: 14rem; }
+.adaptive-local-nav[data-presentation="rail"][data-expanded] a { flex-direction: row; justify-content: start; text-align: start; }
+.adaptive-local-nav [data-adaptive-expand] { width: 100%; margin-block-end: 8px; }
+
+.adaptive-local-nav[data-presentation="bar"][data-item-layout="horizontal"] a { flex-direction: row; }

@@ -109,3 +109,38 @@ test('enlarged split actions preserve readable primary width and operable altern
     assert.equal(evaluate('document.documentElement.scrollWidth'),320);
   } finally {evaluate("document.documentElement.style.fontSize=''");browser('set','viewport','1400','1000');}
 });
+
+
+test('app bar scroll fill reflects actual scroll and its options portal stays in main',()=>{
+  browser('set','viewport','1400','1000');open('/patterns/app-bars','app-bar');
+  const original=evaluate('getComputedStyle(document.querySelector("[data-local-app-bar]")).backgroundColor');
+  evaluate('document.querySelector("[data-app-bar-workspace]").scrollTop=200;true');
+  browser('wait','--fn','document.querySelector("[data-local-app-bar]").hasAttribute("data-scrolled")');
+  assert.notEqual(evaluate('getComputedStyle(document.querySelector("[data-local-app-bar]")).backgroundColor'),original);
+  evaluate('document.querySelector("[data-app-bar-workspace]").scrollTop=0;true');
+  browser('wait','--fn','!document.querySelector("[data-local-app-bar]").hasAttribute("data-scrolled")');
+  assert.equal(evaluate('getComputedStyle(document.querySelector("[data-local-app-bar]")).backgroundColor'),original);
+  click('Workspace options');browser('wait','[role=menu]');
+  assert.equal(evaluate('!!document.querySelector("[role=menu]").closest("main")'),true);browser('press','Escape');
+});
+
+test('enlarged app bar reserves usable content space and supports actual narrow note save and Back',()=>{
+  browser('set','viewport','320','900');open('/patterns/app-bars','app-bar');
+  evaluate('document.documentElement.style.fontSize="200%";true');
+  browser('wait','--fn','getComputedStyle(document.documentElement).fontSize==="32px"');
+  click('Open Local reading collection');browser('wait','--fn','document.activeElement.matches("[data-appbar-heading]")');
+  browser('scrollintoview','#appbar-note');browser('click','#appbar-note');browser('fill','#appbar-note','Actual enlarged note');
+  const bounds=evaluate('(() => {const field=document.querySelector("#appbar-note").getBoundingClientRect(),bar=document.querySelector("[data-local-app-bar]").getBoundingClientRect(),root=document.querySelector("[data-app-bar-workspace]").getBoundingClientRect();return {fieldTop:field.top,fieldBottom:field.bottom,barBottom:bar.bottom,barHeight:bar.height,rootBottom:root.bottom,rootHeight:root.height,width:document.documentElement.scrollWidth};})()');
+  assert.ok(bounds.rootHeight>bounds.barHeight+200,JSON.stringify(bounds));
+  assert.ok(bounds.fieldTop>=bounds.barBottom-1 && bounds.fieldBottom<=bounds.rootBottom+1,JSON.stringify(bounds));
+  assert.equal(bounds.width,320);
+  assert.ok(evaluate('(() => {return [["Back to collections","collections"],["Workspace options","Workspace"]].every(([label,word])=>{const n=[...document.querySelectorAll("[data-local-app-bar] button")].find(n=>n.textContent===label),text=n.firstChild,start=text.textContent.indexOf(word),range=document.createRange();range.setStart(text,start);range.setEnd(text,start+word.length);return range.getClientRects().length===1;});})()'));
+  // Reveal the whole toolbar: centering a child of a sticky header can leave it under the global header.
+  evaluate('document.querySelector("[data-app-bar-workspace]").scrollIntoView({block:"start"});true');
+  assert.ok(evaluate('(() => {const n=[...document.querySelectorAll("[data-local-app-bar] button")].find(n=>n.textContent==="Save local note"),r=n.getBoundingClientRect();return r.top>=document.querySelector(".mobile-nav-header").getBoundingClientRect().bottom && r.bottom<=innerHeight && n.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2));})()'));
+  action('Save local note');assert.match(evaluate('document.querySelector("[data-appbar-result]").textContent'),/Actual enlarged note/);
+  action('Back to collections');browser('wait','--fn','document.activeElement.textContent==="Open Local reading collection"');
+  assert.ok(evaluate('(() => {const n=document.activeElement,r=n.getBoundingClientRect(),bar=document.querySelector("[data-local-app-bar]").getBoundingClientRect(),root=document.querySelector("[data-app-bar-workspace]").getBoundingClientRect();return r.top>=bar.bottom-1 && r.bottom<=root.bottom+1 && n.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2));})()'));
+  action('Open Local reading collection');assert.equal(evaluate('document.querySelector("#appbar-note").value'),'Actual enlarged note');
+  evaluate('document.documentElement.style.removeProperty("font-size");true');browser('set','viewport','1400','1000');
+});

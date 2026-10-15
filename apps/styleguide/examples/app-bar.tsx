@@ -2,7 +2,7 @@
 import {useEffect,useRef,useState,type CSSProperties} from 'react';
 import {Button,Input,Menu,MenuTrigger,MenuPortal,MenuPositioner,MenuPopup,MenuCheckboxItem,MenuCheckboxItemIndicator,DirectionProvider} from '@mobtranslate/ui';
 const records=[{id:'reading',title:'Local reading collection'},{id:'comparison',title:'Local comparison collection'},{id:'drafts',title:'Local draft collection'}];
-const action:CSSProperties={minHeight:44,height:'auto',minWidth:0,maxWidth:'100%',whiteSpace:'normal',overflowWrap:'anywhere'};
+const action:CSSProperties={minHeight:44,height:'auto',minWidth:0,maxWidth:'100%',paddingInline:12,whiteSpace:'normal',overflowWrap:'anywhere'};
 export function AppBarExample(){
   const [opened,setOpened]=useState<string|null>(null);
   const [notes,setNotes]=useState<Record<string,string>>({});
@@ -10,22 +10,24 @@ export function AppBarExample(){
   const [compact,setCompact]=useState(false);
   const [scope,setScope]=useState(true);
   const [rtl,setRtl]=useState(false);
+  const [scrolled,setScrolled]=useState(false);
+  const portalContainer=useRef<HTMLDivElement>(null);
   const bar=useRef<HTMLElement>(null);
   const workspace=useRef<HTMLDivElement>(null);
   const heading=useRef<HTMLHeadingElement>(null);
   const opener=useRef<HTMLElement|null>(null);
   const current=records.find(record=>record.id===opened);
   useEffect(()=>{const node=bar.current;if(!node)return;const observer=new ResizeObserver(()=>workspace.current?.style.setProperty('--local-appbar-height',`${Math.ceil(node.getBoundingClientRect().height)}px`));observer.observe(node);return()=>observer.disconnect();},[]);
-  useEffect(()=>{if(bar.current)workspace.current?.style.setProperty('--local-appbar-height',`${Math.ceil(bar.current.getBoundingClientRect().height)}px`);if(opened){heading.current?.focus({preventScroll:true});heading.current?.scrollIntoView({block:'nearest'});}else opener.current?.focus({preventScroll:true});},[opened]);
-  return <DirectionProvider direction={rtl?'rtl':'ltr'}><div data-app-bar-lab lang="en" className="space-y-4">
+  useEffect(()=>{if(bar.current)workspace.current?.style.setProperty('--local-appbar-height',`${Math.ceil(bar.current.getBoundingClientRect().height)}px`);if(opened){heading.current?.focus({preventScroll:true});heading.current?.scrollIntoView({block:'nearest'});}else {opener.current?.focus({preventScroll:true});opener.current?.scrollIntoView({block:'nearest'});}},[opened]);
+  return <DirectionProvider direction={rtl?'rtl':'ltr'}><div ref={portalContainer} data-app-bar-lab lang="en" className="space-y-4">
     <Button type="button" variant="outline" style={action} aria-pressed={rtl} onClick={()=>setRtl(value=>!value)}>Use RTL app bar workspace</Button>
-    <div ref={workspace} data-app-bar-workspace dir={rtl?'rtl':'ltr'} role="region" aria-label="Local app bar workspace" tabIndex={0} className="material-appbar-workspace">
-      <header ref={bar} data-local-app-bar className="material-appbar">
+    <div ref={workspace} data-app-bar-workspace onScroll={event=>setScrolled(event.currentTarget.scrollTop>0)} dir={rtl?'rtl':'ltr'} role="region" aria-label="Local app bar workspace" tabIndex={0} className="material-appbar-workspace">
+      <header ref={bar} data-local-app-bar data-scrolled={scrolled||undefined} className="material-appbar">
         <Button type="button" variant="outline" style={action} disabled={!current} onClick={()=>setOpened(null)}>Back to collections</Button>
         <h3 className="material-appbar-title" dir="auto">{current?.title??'Local collections'}</h3>
         <Button type="button" variant="outline" style={action} disabled={!current} onClick={()=>setResult(`Actual local snapshot for ${current?.title}: ${notes[opened??'']||'(empty note)'}.`)}>Save local note</Button>
         <Menu><MenuTrigger id="appbar-options" render={<Button type="button" variant="outline" style={action}>Workspace options</Button>} />
-          <MenuPortal><MenuPositioner sideOffset={8} collisionPadding={8}><MenuPopup dir={rtl?'rtl':'ltr'} aria-label="Local workspace options"><MenuCheckboxItem checked={compact} onCheckedChange={setCompact}><MenuCheckboxItemIndicator aria-hidden="true">✓</MenuCheckboxItemIndicator>Compact collection rows</MenuCheckboxItem><MenuCheckboxItem checked={scope} onCheckedChange={setScope}><MenuCheckboxItemIndicator aria-hidden="true">✓</MenuCheckboxItemIndicator>Show workspace scope</MenuCheckboxItem></MenuPopup></MenuPositioner></MenuPortal>
+          <MenuPortal container={portalContainer}><MenuPositioner sideOffset={8} collisionPadding={8}><MenuPopup dir={rtl?'rtl':'ltr'} aria-label="Local workspace options"><MenuCheckboxItem checked={compact} onCheckedChange={setCompact}><MenuCheckboxItemIndicator aria-hidden="true">✓</MenuCheckboxItemIndicator>Compact collection rows</MenuCheckboxItem><MenuCheckboxItem checked={scope} onCheckedChange={setScope}><MenuCheckboxItemIndicator aria-hidden="true">✓</MenuCheckboxItemIndicator>Show workspace scope</MenuCheckboxItem></MenuPopup></MenuPositioner></MenuPortal>
         </Menu>
       </header>
       <div className="material-appbar-content">

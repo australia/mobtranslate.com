@@ -147,3 +147,47 @@ test('both themes RTL current/focus contrast reduced motion and constrained draw
   assert.ok(evaluate('parseFloat(getComputedStyle(document.querySelector(".adaptive-local-drawer")).transitionDuration)<=.00001'));
   browser('press','Escape');browser('set','media','reduced-motion','no-preference');browser('set','viewport','1400','1000');
 });
+
+
+test('rail expansion changes real geometry and retains destination, draft, history and keyboard ownership',()=>{
+  browser('set','viewport','1400','1000');open();browser('fill','#adaptive-local-draft','Expansion retains this draft');
+  const before=evaluate('({width:document.querySelector("[data-adaptive-nav]").getBoundingClientRect().width,url:location.href,history:history.length})');
+  click('Expand local rail');
+  browser('wait','--fn','document.querySelector("[data-adaptive-expand]").getAttribute("aria-expanded")==="true"');
+  assert.ok(evaluate('document.querySelector("[data-adaptive-nav]").getBoundingClientRect().width')>before.width+80);
+  assert.equal(evaluate('getComputedStyle(document.querySelector("[data-adaptive-nav] a")).flexDirection'),'row');
+  assert.equal(evaluate('location.href'),before.url);assert.equal(evaluate('history.length'),before.history);
+  assert.equal(evaluate('document.querySelector("#adaptive-local-draft").value'),'Expansion retains this draft');
+  browser('focus','[data-adaptive-expand]');browser('press','Enter');
+  assert.equal(evaluate('document.activeElement.matches("[data-adaptive-expand]")'),true);
+  assert.equal(evaluate('document.activeElement.getAttribute("aria-expanded")'),'false');
+  browser('press','Tab');assert.equal(evaluate('document.activeElement.dataset.adaptiveDestination'),'overview');
+  assert.equal(evaluate('document.activeElement.matches(":focus-visible")'),true);
+});
+
+test('reselecting current destination returns to heading without history or draft loss, including modal arrival',()=>{
+  browser('set','viewport','1400','1000');open();browser('fill','#adaptive-local-draft','Retained after reselect');
+  const length=evaluate('history.length');destination('overview',true);
+  browser('wait','--fn','document.activeElement.id==="adaptive-local-heading"');
+  assert.equal(evaluate('history.length'),length);assert.match(status(),/reselected/);
+  assert.equal(evaluate('document.querySelector("#adaptive-local-draft").value'),'Retained after reselect');
+  assert.equal(evaluate('document.querySelector("[data-adaptive-nav] [aria-current=page] svg").getAttribute("stroke-width")'),'2.5');
+  assert.ok(evaluate('[...document.querySelectorAll("[data-adaptive-nav] a:not([aria-current]) svg")].every(n=>n.getAttribute("stroke-width")==="1.5")'));
+  browser('set','viewport','320','640');browser('wait','--fn','document.querySelector(".adaptive-local-shell").dataset.layout==="drawer"');
+  click('Open local workspace navigation');settledDrawer();destination('overview',true);
+  browser('wait','--fn','!document.querySelector(".adaptive-local-drawer") && document.activeElement.id==="adaptive-local-heading"');
+  assert.equal(evaluate('history.length'),length);assert.equal(evaluate('document.querySelector("#adaptive-local-draft").value'),'Retained after reselect');
+});
+
+test('compact bar reflows full labels at doubled root text and medium bar uses horizontal items',()=>{
+  browser('set','viewport','1400','1000');open();browser('select','[aria-label="Workspace width cap"]','640');browser('wait','--fn','document.querySelector(".adaptive-local-shell").dataset.layout==="bar"');
+  assert.equal(evaluate('document.querySelector("[data-adaptive-nav]").dataset.itemLayout'),'horizontal');
+  assert.equal(evaluate('getComputedStyle(document.querySelector("[data-adaptive-nav] a")).flexDirection'),'row');
+  browser('set','viewport','320','640');click('Use compact destination bar');
+  evaluate('document.documentElement.style.fontSize="200%";true');
+  browser('wait','--fn','getComputedStyle(document.documentElement).fontSize==="32px"');
+  assert.equal(evaluate('getComputedStyle(document.querySelector("[data-adaptive-nav] a")).flexDirection'),'column');
+  assert.equal(evaluate('document.documentElement.scrollWidth<=innerWidth+1'),true);
+  assert.ok(evaluate('[...document.querySelectorAll("[data-adaptive-nav] a")].every(n=>{const r=n.getBoundingClientRect();return r.width>=150 && r.height>=64 && n.scrollWidth<=n.clientWidth+1;})'));
+  evaluate('document.documentElement.style.removeProperty("font-size");true');browser('set','viewport','1400','1000');
+});

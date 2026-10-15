@@ -23,6 +23,7 @@ function AdaptiveWorkspace() {
   const [width, setWidth] = useState(0);
   const [cap, setCap] = useState('available');
   const [compactBar, setCompactBar] = useState(false);
+  const [expanded,setExpanded]=useState(false);
   const [rtl, setRtl] = useState(false);
   const [open, setOpen] = useState(false);
   const [hold, setHold] = useState(false);
@@ -60,7 +61,12 @@ function AdaptiveWorkspace() {
     catch { setPhase('idle');setFailed(true);setMessage('The local URL could not be changed. Loaded context and draft remain; retry is available.'); }
   }
   function request(target: Destination) {
-    if (pending || (target === current.id && !invalid)) return;
+    if (pending) return;
+    if (target === current.id && !invalid) {
+      setMessage(`Local ${current.id} reselected; returned to its heading. Task values remain.`);
+      if(open){closeTarget.current='arrival';setOpen(false);}else focusArrival();
+      return;
+    }
     setRequested(target);setFailed(false);
     if (hold) { setPhase('held');setMessage(`Local ${target} requested; loaded ${current.id} remains visible. Choose an explicit outcome.`); }
     else commit(target);
@@ -132,8 +138,9 @@ function AdaptiveWorkspace() {
   },[layout,open]);
 
   function navigation(drawer: boolean) {
-    return <nav ref={drawer ? undefined : persistentNav} aria-label="Local workspace destinations" data-adaptive-nav data-adaptive-persistent-nav={drawer ? undefined : ''} className="adaptive-local-nav" data-presentation={drawer ? 'drawer' : layout}>
-      <ul>{destinations.map(item => <li key={item.id}><a href={href(item.id)} data-adaptive-destination={item.id} aria-current={current.id === item.id ? 'page' : undefined} aria-disabled={pending || undefined} onClick={event => follow(event,item.id)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">{item.icon}</svg><span>{item.label}</span></a></li>)}<li><span className="adaptive-local-unavailable" aria-disabled="true"><span aria-hidden="true">—</span> Remote sources unavailable</span></li></ul>
+    return <nav ref={drawer ? undefined : persistentNav} aria-label="Local workspace destinations" data-adaptive-nav data-adaptive-persistent-nav={drawer ? undefined : ''} className="adaptive-local-nav" data-presentation={drawer ? 'drawer' : layout} data-expanded={!drawer&&layout==='rail'&&expanded||undefined} data-item-layout={!drawer&&layout==='bar'&&width>=600?'horizontal':undefined}>
+      {!drawer&&layout==='rail'&&<Button type="button" variant="outline" data-adaptive-expand aria-expanded={expanded} onClick={()=>setExpanded(value=>!value)}>{expanded?'Collapse local rail':'Expand local rail'}</Button>}
+      <ul>{destinations.map(item => <li key={item.id}><a href={href(item.id)} data-adaptive-destination={item.id} aria-current={current.id === item.id ? 'page' : undefined} aria-disabled={pending || undefined} onClick={event => follow(event,item.id)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={current.id===item.id?2.5:1.5} strokeLinejoin="round" aria-hidden="true">{item.icon}</svg><span>{item.label}</span></a></li>)}<li><span className="adaptive-local-unavailable" aria-disabled="true"><span aria-hidden="true">—</span> Remote sources unavailable</span></li></ul>
     </nav>;
   }
   function outcomes() {
