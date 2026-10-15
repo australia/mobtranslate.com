@@ -2,6 +2,8 @@
 const path = require('path');
 
 const nextConfig = {
+  output: 'standalone',
+  outputFileTracingRoot: path.resolve(__dirname, '../..'),
   transpilePackages: ['@mobtranslate/ui'],
   reactStrictMode: true,
   turbopack: { root: path.resolve(__dirname, '../..') },
