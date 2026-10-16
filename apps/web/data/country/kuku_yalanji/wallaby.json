@@ -1,6 +1,6 @@
 {
   "slug": "wallaby",
-  "title": "Wallabies and kangaroos",
+  "title": "Kangaroos and wallabies",
   "category": "mammal",
   "names": [
     {
@@ -32,6 +32,10 @@
       "gloss": "black kangaroo"
     },
     {
+      "word": "jayju",
+      "gloss": "kangaroo rat"
+    },
+    {
       "word": "murral",
       "gloss": "tree kangaroo",
       "dialect": "Yalanji"
@@ -40,103 +44,158 @@
       "word": "jarrabina",
       "gloss": "tree-climbing kangaroo",
       "dialect": "Nyungkul"
+    },
+    {
+      "word": "minya",
+      "gloss": "meat, eggs (protein food); generic term for animal"
+    },
+    {
+      "word": "biyal",
+      "gloss": "gristle, sinew, string, blood vessel (especially wallaby tail sinew)"
     }
   ],
-  "scientificName": "Macropodidae (several species)",
+  "scientificName": "Macropodidae (eight species recorded near Karma Waters) and Potoroidae (two bettongs)",
   "identification": {
     "confidence": "probable",
-    "basis": "The dictionary gives English descriptions, not species. Kadar 'plains wallaby' is most likely the agile wallaby (Notamacropus agilis), the common wallaby of open lowland country in north Queensland, and bimbarrbay 'scrub wallaby' most likely the red-legged pademelon (Thylogale stigmatica), widely called the scrub wallaby. Julmbanu and mayarriji are forms of the grey kangaroo (probably the eastern grey, Macropus giganteus). Nyarrkali 'black kangaroo' may be the dark common wallaroo (Osphranter robustus). Darrba and jumar are not yet matched to species. Murral/jarrabina is confirmed as a tree-kangaroo, and on Eastern Kuku Yalanji country most likely Bennett's tree-kangaroo (Dendrolagus bennettianus)."
+    "basis": "The dictionary gives English descriptions, not species, and was compiled on the coast. Kadar 'plains wallaby' is most likely the agile wallaby (Notamacropus agilis), the common wallaby of open lowland country and by far the most recorded macropod around Karma Waters; Roth's Cape Bedford 'ga-dar' is the same word. Bimbarrbay 'scrub wallaby' is most likely the red-legged pademelon (Thylogale stigmatica). Julmbanu and mayarriji, the darker and lighter grey kangaroos, are probably the eastern grey (Macropus giganteus), though the whiptail wallaby and the wallaroo may be caught up in them. Nyarrkali 'black kangaroo' may be the dark male common wallaroo (Osphranter robustus) or the swamp wallaby (Wallabia bicolor), also called the black wallaby. Darrba and jumar are not matched to species. Jayju 'kangaroo rat' is a bettong (rufous or northern). Murral/jarrabina is confirmed as a tree-kangaroo, on Eastern Kuku Yalanji country Bennett's (Dendrolagus bennettianus). The Atlas adds the antilopine kangaroo and two rock-wallabies around Karma Waters, for which the dictionary has no words."
   },
   "countryTypes": [
     "open-woodland",
-    "rainforest",
+    "mountains",
     "river-freshwater",
-    "mountains"
+    "rainforest"
   ],
-  "summary": "Kuku Yalanji has a whole family of words for the hopping animals. **[Kadar](word:kadar)** is the plains wallaby, **[bimbarrbay](word:bimbarrbay)** the scrub wallaby, **[darrba](word:darrba)** the grass wallaby and **[jumar](word:jumar)** the little wallaby. **[Julmbanu](word:julmbanu)** and **[mayarriji](word:mayarriji)** are darker and lighter grey kangaroos, and **[nyarrkali](word:nyarrkali)** the black kangaroo. Up in the rainforest trees live **[murral](word:murral)** (Nyungkul dialect **[jarrabina](word:jarrabina)**), the tree-kangaroos [ref:hershberger1982]. Roth found Bloomfield River families keeping young wallabies as pets [ref:roth1902]. Across north-east Queensland he recorded wallabies and kangaroos taken with [spears](entry:spear-and-woomera), [nets](entry:nets), cage traps, pitfalls, dogs and [long lines of fire](entry:hunting-with-fire) [ref:roth1901]. Wallaby tail sinew, *[biyal](word:biyal)*, was valued as [string](entry:string-and-twine) [ref:hershberger1982]. Wallabies and kangaroos live all through **Western Yalanji** country around the Mitchell River [ref:ala].",
+  "summary": "Kuku Yalanji has a whole family of words for the hopping animals. **[kadar](word:kadar)** is the 'plains wallaby', **[bimbarrbay](word:bimbarrbay)** the 'scrub wallaby', **[darrba](word:darrba)** the 'grass wallaby' and **[jumar](word:jumar)** the 'little wallaby'. **[julmbanu](word:julmbanu)** and **[mayarriji](word:mayarriji)** are the darker and lighter grey kangaroos, **[nyarrkali](word:nyarrkali)** the 'black kangaroo', **[jayju](word:jayju)** the 'kangaroo rat', and up in the rainforest trees of the coast live **[murral](word:murral)** (Nyungkul **[jarrabina](word:jarrabina)**), the tree-kangaroos [ref:hershberger1982]. Around [Karma Waters](place:karma-waters) the Atlas of Living Australia records eight members of the family: the agile wallaby, the common wallaroo, the eastern grey kangaroo, the whiptail wallaby, the antilopine kangaroo, two rock-wallabies and, rarely, the red-legged pademelon, with two bettongs beside them [ref:ala-macropods]. They were, with the wallabies, 'the major meat-resource animals' of the Bloomfield [ref:anderson1996], and Roth's 1901 bulletin records every way north Queensland people took them: stalked from downwind in the midday heat, moved onto a hidden spearman with a scent-charged spare spear, driven by beaters into [nets](entry:nets) and cage traps, surrounded by a circle of hunters, pushed by [lines of fire](entry:hunting-with-fire) up to a mile long, run down with [dogs](entry:dingo-and-dogs) in wet weather, and driven off high ground into floodwater [ref:roth1901]. This page gathers the words, the animals, their habits, the recorded hunting methods, the uses of meat, [sinew](entry:sinew), bone and skin, and what the law allows on Western Yalanji country today. The hunting detail is labelled by district, because Roth wrote almost nothing about the Bloomfield itself, and the Western Yalanji words and ways are for the contribution box.",
   "infobox": [
     {
       "label": "Kuku Yalanji",
-      "value": "kadar, bimbarrbay, darrba, jumar (wallabies); julmbanu, mayarriji, nyarrkali (kangaroos); murral / jarrabina (tree-kangaroo)"
+      "value": "kadar, bimbarrbay, darrba, jumar (wallabies); julmbanu, mayarriji, nyarrkali (kangaroos); jayju (kangaroo rat); murral / jarrabina (tree-kangaroo)"
     },
     {
-      "label": "Likely species",
-      "value": "agile wallaby, red-legged pademelon, eastern grey kangaroo, common wallaroo, Bennett's tree-kangaroo"
+      "label": "On the Mitchell (Atlas, 60 km)",
+      "value": "agile wallaby 235 records, common wallaroo 45, Godman's rock-wallaby 35, eastern grey kangaroo 30, whiptail wallaby 28, Mareeba rock-wallaby 27, red-legged pademelon 5, antilopine kangaroo 2; rufous bettong 3, northern bettong 2"
+    },
+    {
+      "label": "On the coast only",
+      "value": "Bennett's tree-kangaroo (murral), swamp wallaby; no records of either within 60 km of Karma Waters"
     },
     {
       "label": "Where",
-      "value": "Open woodland and grassland (wallabies, kangaroos); rainforest floor (scrub wallaby); rainforest canopy (tree-kangaroo)"
+      "value": "Grazers on the river flats and grassy woodland at dawn and dusk, in shade by day; wallaroo on the stony hills at night; rock-wallabies on the range tops; pademelon and tree-kangaroo in rainforest"
+    },
+    {
+      "label": "Signs",
+      "value": "Paired long hind prints, tail drag when walking; grass-filled scats in groups of 4–8; beaten pads to water; bare day camps in shade"
     },
     {
       "label": "Used for",
-      "value": "Meat; tail sinew (biyal) as string; bone for tool points"
+      "value": "Meat (very lean, 23% protein, 2.6% fat); tail sinew (biyal); bone awls and barbs; incisor scrapers and drills; hair twine for belts and circlets; skin (North-West only)"
     },
     {
-      "label": "Hunting methods recorded",
-      "value": "Spear and woomera, cage traps, nets, pits, dogs, fire drives"
+      "label": "Hunting recorded",
+      "value": "Stalking from downwind; the scent-charged spare spear (Palmer, PCB); ochre and ant-bed camouflage (Pennefather); two-man drive to a waiting spearman; circles, fire lines and fire walls; beaters into nets, cage traps and pits; dogs in wet weather; flood drives (Tully)"
     },
     {
-      "label": "Western Yalanji",
-      "value": "Agile wallaby, eastern grey kangaroo and wallaroo all recorded in the Mitchell River country"
+      "label": "Best times",
+      "value": "Roth: 'hunted at any time'; grazers out at first and last light; the Bloomfield fire drives in the dry; dogs and floods in the wet; fat animals only"
+    },
+    {
+      "label": "Law today",
+      "value": "Protected under the Nature Conservation Act 1992; native title holders may hunt for personal, domestic or non-commercial communal needs (s 211); the 2013 and 2026 Western Yalanji determinations exclude fire for hunting; Karma Waters is under the 1998 Pedersen determination and asks that visitors bring no weapons or hunting dogs"
     }
   ],
   "sections": [
     {
       "id": "names",
       "heading": "Names",
-      "body": "The dictionary separates the wallabies and kangaroos by size, colour and the country they live in [ref:hershberger1982]:\n\n- **[kadar](word:kadar)** 'plains wallaby'\n- **[bimbarrbay](word:bimbarrbay)** 'scrub wallaby'\n- **[darrba](word:darrba)** 'grass wallaby'\n- **[jumar](word:jumar)** 'little wallaby'\n- **[julmbanu](word:julmbanu)** 'grey kangaroo, a darker variety than mayarriji'\n- **[mayarriji](word:mayarriji)** 'sub-species of grey kangaroo, lighter in colour than the julmbanu'\n- **[nyarrkali](word:nyarrkali)** 'black kangaroo'\n- **[murral](word:murral)** 'tree kangaroo' (Yalanji dialect); **[jarrabina](word:jarrabina)** 'tree-climbing kangaroo' (Nyungkul dialect)\n\nThe dictionary's example for *[karangaji](word:karangaji)* 'stalk' is a hunting sentence: *Nyulu dingkar karangajin kadaranda* 'The man stalked the wallaby' [ref:hershberger1982]. Roth's 1901 list for the neighbouring Koko-Yimidir (Guugu Yimithirr) language of Cape Bedford gives *ga-dar* as a 'species of kangaroo' [ref:roth1901-b2], clearly the same word as Kuku Yalanji *[kadar](word:kadar)*."
+      "body": "The dictionary separates the hopping animals by size, colour and the country they live in [ref:hershberger1982]:\n\n- **[kadar](word:kadar)** 'plains wallaby'\n- **[bimbarrbay](word:bimbarrbay)** 'scrub wallaby'\n- **[darrba](word:darrba)** 'grass wallaby'\n- **[jumar](word:jumar)** 'little wallaby'\n- **[julmbanu](word:julmbanu)** 'grey kangaroo, a darker variety than mayarriji'\n- **[mayarriji](word:mayarriji)** 'sub-species of grey kangaroo, lighter in colour than the \"julmbanu\"'\n- **[nyarrkali](word:nyarrkali)** 'black kangaroo'\n- **[jayju](word:jayju)** 'kangaroo rat'\n- **[murral](word:murral)** 'tree kangaroo (yalanji) (nyungkul - jarrabina)'; **[jarrabina](word:jarrabina)** 'tree-climbing kangaroo'\n\nAll of them are **[minya](word:minya)**, the dictionary's 'meat, eggs (protein food); generic term for animal' [ref:hershberger1982]. The parts have their own words: **[biji](word:biji)** 'tail', **[banda](word:banda)** 'point of tail, tip of tail', **[wurmbu](word:wurmbu)** 'tip of tail or top of tree', **[biyal](word:biyal)** 'gristle, sinew, string, blood vessel (especially wallaby tail sinew)', **[bajibay](word:bajibay)** 'bone', **[yulban](word:yulban)** 'any soft covering such as skin or vegetable or fruit peeling', **[jiba](word:jiba)** 'liver; insides, guts', **[julbi](word:julbi)** 'guts, abdominal contents, lining of abdomen' (Nyungkul **[juwul](word:juwul)**), **[kiru](word:kiru)** 'brains; grease, marrow, drippings from animal fat' and **[wuynkurr](word:wuynkurr)** 'juice of meat' [ref:hershberger1982].\n\n**The hunter's sentence.** The dictionary's example for *[karangaji](word:karangaji)* 'stalk' is a wallaby hunt: *Nyulu dingkar karangajin kadaranda*, 'The man stalked the wallaby' [ref:hershberger1982]. The other verbs of the hunt are *[balbi](word:balbi)* 'hunt for, search for', *[kangal](word:kangal)* 'chase', *[karangal](word:karangal)* 'sneak around to see, reconnoiter', *[mungkil](word:mungkil)* 'spear to kill' and *[mumal](word:mumal)* 'to throw a spear with a woomera'. A good hunter is *[mala-minya](word:mala-minya)* or *[jurru-walay](word:jurru-walay)* 'expert, good shooter or hunter'; *[walay](word:walay)* is 'being good at working or getting food, as a good hunter', and *[majarr](word:majarr)* 'lazy, no good for hunting or working, used to refer to both dogs and people' [ref:hershberger1982].\n\n**The same word up the coast.** Roth's 1901 vocabulary for the Koko-Yimidir (Guugu Yimithirr) language of Cape Bedford gives *ga-dar* as a 'species of kangaroo' [ref:roth1901-b2], plainly the same word as Kuku Yalanji *[kadar](word:kadar)*. On the lower Tully, Roth recorded that the hand sign for 'pouch' also meant 'a wallaby' [ref:roth1902].\n\n**Hand signs for the animals.** In 1908 Roth published the gesture language of several north Queensland districts, used when people needed to be silent, and it has a set of signs for the kangaroo family. In the general sign for kangaroo or wallaby 'the hands (the animal's paws) are held at some distance in front, and motioned forwards and upwards (the hop); in the latter, the same idea, but the hands are held closer to the chest'. At Cape Bedford one kangaroo sign was an extended thumb, which 'some say ... represents the long ear, but the majority that it indicates the long foot'. At Princess Charlotte Bay a male kangaroo was shown by 'the leg kicking out', a female by 'rotation at wrist with the open hand ... the movement of the animal's paws', the brown kangaroo male by 'a vertical flexion of the wrist, indicative of the way the animal travels', and the brown female by 'the pricking up of the animal's ears'. There were separate signs for the scrub-wallaby, the small rock-wallaby, the 'white wallaby' and the paddymelon [ref:roth1908]. Roth did not record the Bloomfield or Palmer signs; whether Yalanji hunters used signs like these is for the contribution box.\n\n**Place names.** The dictionary records *[Mijinan](word:Mijinan)* as 'where the bridge is over Wallabay Creek (place name)', on Eastern Kuku Yalanji country [ref:hershberger1982]. We found no Western Yalanji wallaby or kangaroo words in the published dictionary, which was compiled on the coast; the names used on the Mitchell for the wallaroo of the ridges, the rock-wallaby of the range tops and the whiptail of the hills are the first thing to ask for."
     },
     {
       "id": "description",
-      "heading": "Description",
-      "body": "**Agile wallaby** (probably *[kadar](word:kadar)*). A large wallaby with a sandy-brown coat, a white stripe on each side of the face and on each thigh, black-edged ears and a black tail tip. Males weigh up to 27 kg, females around 15 kg, and body plus tail reach 1.8 m. Agile wallabies rest in the shade by day and graze in the late afternoon on grasses, legumes, herbs and fallen fruit, often in small groups [ref:nesp-agile]. Their scats lie in groups of four to eight around feeding and sleeping places. All wallabies leave similar tracks, with five clawed toes on the front foot [ref:nesp-agile].\n\n**Tree-kangaroos** (*[murral](word:murral)*, *[jarrabina](word:jarrabina)*). Both north Queensland species stand no more than 60 cm tall, with a tail almost a metre long. They live in the canopy eating leaves, ferns and wild fruit [ref:wtma-treeroo]. They often come down to the forest floor for fallen fruit or to cross between trees [ref:qpws-daintree].\n\n**Kangaroos** (*[julmbanu](word:julmbanu)*, *[mayarriji](word:mayarriji)*, *[nyarrkali](word:nyarrkali)*) are the big grazers of the open woodland. The dictionary distinguishes them mainly by colour, darker and lighter grey and black [ref:hershberger1982].\n\n**The hill kangaroos of the Mitchell.** Around Karma Waters the Atlas records the agile wallaby (233 records within 60 km), the common wallaroo (45), the whiptail wallaby (28), the eastern grey kangaroo (30), the antilopine kangaroo (2) and two rock-wallabies, the Mareeba rock-wallaby (27) and Godman's rock-wallaby (35) [ref:ala-karma-60]. 'The Mareeba rock-wallaby is a rare species, found in the highlands west of Cairns from around Mount Garnet to the Mitchell River and Mount Carbine, and inland to Mungana, but only on the tops of a couple of mountain ranges'; after a big fire on a reserve near Einasleigh in 2019 'the population was thriving, with several new joeys spotted in their mothers' pouches', and the reserve's manager credited years of cool burns that let 'native grasses such as cockatoo grass and kangaroo grass' grow back under the trees [ref:wiki-rock-wallaby]. The antilopine wallaroo 'moves in groups of up to 30 that bunch together against people and dingoes', and the common wallaroo is 'mostly nocturnal and solitary, on the rocky hills' [ref:wiki-antilopine] [ref:wiki-wallaroo]. The dictionary's wallaby words are the coast's and have no rock-wallaby in them; the Western Yalanji word for the little grey kangaroo of the rock piles is for the contribution box below [ref:hershberger1982]."
+      "heading": "The animals: which is which",
+      "body": "The kangaroos, wallaroos and wallabies are one family, the Macropodidae, the 'large-foot' animals. 'As with the terms \"wallaroo\" and \"wallaby\", \"kangaroo\" refers to a paraphyletic grouping of species. All three terms refer to members of the same taxonomic family, Macropodidae, and are distinguished according to size. The largest species in the family are called \"kangaroos\" and the smallest are generally called \"wallabies\". The term \"wallaroos\" refers to species of an intermediate size' [ref:wiki-kangaroo]. The dictionary's split between 'wallaby' and 'kangaroo' is the same kind of split, and like the English one it cuts across the biologists' species [ref:hershberger1982].\n\n**What they all share.** 'Kangaroos have large, powerful hind legs, large feet adapted for leaping, a long muscular tail for balance, and a small head. Like most marsupials, female kangaroos have a pouch called a marsupium in which joeys complete postnatal development' [ref:wiki-kangaroo]. The foot is the family's signature: 'the fourth toe is very large and strong, the fifth toe moderately so; the second and third are fused; and the first toe is usually missing. Their short front legs have five separate digits' [ref:wiki-macropodidae]. The teeth are a grazer's: 'its incisors are able to crop grass close to the ground and its molars chop and grind the grass. Since the two sides of the lower jaw are not joined or fused together, the lower incisors are farther apart, giving the kangaroo a wider bite' [ref:wiki-kangaroo]. Those loose lower incisors are the ones Roth's Pennefather hunters saved for spokeshaves (see *What the animal gave*) [ref:roth1901].\n\n## The animals of the Mitchell, one by one\n\n**Agile wallaby** (*Notamacropus agilis*), by far the most recorded member of the family around Karma Waters, with 235 Atlas records within 60 km [ref:ala-macropods], and the most likely *[kadar](word:kadar)* 'plains wallaby'. 'The agile wallaby is a large wallaby with a sandy brown coat, with a white stripe on each side of the face and white stripes on each thigh. It has large ears with black edges. The body and tail length is up to 1.8 m. Males weigh up to 27 kg, while females are around 15 kg. The tip of the tail is black' [ref:nesp-agile]. 'It is the most common wallaby in north Australia' [ref:wiki-agile]. 'They can be active during the day or night. Agile wallabies often rest quietly in the shade during the day, and graze on grasses, legumes, fallen fruits and other herbs in the late afternoon. They are often seen in small groups' [ref:nesp-agile].\n\n**Common wallaroo** (*Osphranter robustus*), 45 records within 60 km and three of the six records within 30 km of the homestead [ref:ala-macropods]. It is 'also known as the euro, hill wallaroo, or simply wallaroo'. Two forms meet somewhere in Queensland: 'the eastern wallaroo (*O. r. robustus*), which is dark grey in colour, occupies the eastern slopes of the Great Dividing Range, and the euro (*O. r. erubescens*), which is mostly brownish in colour, occupies the land westward'. 'The eastern wallaroo is mostly nocturnal and solitary, and is one of the more common macropods. It can make a loud hissing noise. All four subspecies are sexually dimorphic' [ref:wiki-wallaroo]. The dark grey male wallaroo is one candidate for *[nyarrkali](word:nyarrkali)* 'black kangaroo' [ref:hershberger1982].\n\n**Eastern grey kangaroo** (*Macropus giganteus*), 30 records within 60 km [ref:ala-macropods], the big grey of the open country and the likeliest *[julmbanu](word:julmbanu)* and *[mayarriji](word:mayarriji)* [ref:hershberger1982]. 'The eastern grey kangaroo is the second largest and heaviest living marsupial and native land mammal in Australia. An adult male will commonly weigh around 50 to 66 kg whereas females commonly weigh around 17 to 40 kg. They have a powerful tail that is over 1 m long in adult males' [ref:wiki-eastern-grey]. 'Like all kangaroos, it is mainly nocturnal and crepuscular, and is mostly seen early in the morning, or as the light starts to fade in the evening. In the middle of the day, kangaroos rest in the cover of the woodlands' [ref:wiki-eastern-grey].\n\n**Whiptail wallaby** (*Notamacropus parryi*), 28 records within 60 km [ref:ala-macropods]. 'Also known as the pretty-faced wallaby ... It is locally common from Cooktown in Queensland to near Grafton in New South Wales'. 'It is distinguished by its paler colouring and white stripe under its face. Their faces have a chocolate-brown fur covering their muzzle. They are black and white on its chest and the rest is grey to brown fur. Males weigh from 14 to 26 kg and stand at a height from 70 to 93 cm. Females weigh from 7 to 15 kg' [ref:wiki-whiptail]. Its pale colour and hill country make it a candidate for the lighter grey *[mayarriji](word:mayarriji)* or for *[darrba](word:darrba)* 'grass wallaby'; the dictionary does not say.\n\n**Antilopine kangaroo** (*Osphranter antilopinus*), only two records within 60 km, but one of them inside 30 km of the homestead [ref:ala-macropods]. It is 'found in northern Australia: in Cape York Peninsula in Queensland, the Top End of the Northern Territory, and the Kimberley region of Western Australia. It is a locally common, gregarious grazer'. 'The fur is short, pale at the ventral side and grading to a reddish tan colour over the upper parts'. Males stand about 1.1 m at the crown and 'may be over twice' the female's 20 kg, 'at 49 kilograms' [ref:wiki-antilopine]. This is the kangaroo of the lowland grass plains, 'only found at altitudes less than 500 metres' [ref:wiki-antilopine]; Karma Waters, in the upper Mitchell valley, sits at the inland edge of its range.\n\n**Mareeba rock-wallaby** (*Petrogale mareeba*), 27 records within 60 km and one within 30 km [ref:ala-macropods]. 'The Mareeba rock-wallaby is a rare species, found in the highlands west of Cairns from around Mount Garnet to the Mitchell River and Mount Carbine, and inland to Mungana, but only on the tops of a couple of mountain ranges' [ref:wiki-rock-wallaby]. It is 'near-threatened' on the world list but 'least concern' under Queensland's *Nature Conservation Act 1992* [ref:wiki-rock-wallaby].\n\n**Godman's rock-wallaby** (*Petrogale godmani*), 35 records within 60 km [ref:ala-macropods], the rock-wallaby of the Cooktown side. 'This rock-wallaby is found in low open forest, open scrub, or montane regions, often near the coast. It shelters in rocky terrain adjacent to feeding areas. Godman's rock-wallaby is a nocturnal gregarious territorial folivore' [ref:wiki-godman]. The dictionary, compiled on the coast, has no rock-wallaby word; the Western Yalanji name for the little grey kangaroo of the rock piles is for the contribution box [ref:hershberger1982].\n\n**Red-legged pademelon** (*Thylogale stigmatica*), five records within 60 km [ref:ala-macropods], and the most likely *[bimbarrbay](word:bimbarrbay)* 'scrub wallaby' [ref:hershberger1982]. It 'is found mostly in rainforests, where it is rarely seen'. 'Pademelons have a short and thick tail, and their height can range from 35–58 cm when not standing upright ... their weight varies from 2.5 to 7 kg'. 'Red-legged pademelons are unique in that they are the only ground-dwelling wallaby that resides in the Wet Tropics rainforests' [ref:wiki-pademelon]. On the Mitchell it can only be in the wettest gullies of the ranges.\n\n**The two bettongs**, the 'rat-kangaroos', are the dictionary's *[jayju](word:jayju)* 'kangaroo rat' country [ref:hershberger1982]. The rufous bettong (*Aepyprymnus rufescens*), three records within 60 km [ref:ala-macropods], is 'a small, jumping, rat-like marsupial native to eastern Australia ... about the size of a rabbit. The rufous rat-kangaroo is active at night when it digs for plant roots and fungi'; it 'is found in coastal and subcoastal regions from Newcastle in New South Wales to Cooktown in Queensland' [ref:wiki-rufous-bettong]. The northern bettong (*Bettongia tropica*), two records within 60 km [ref:ala-macropods], 'is a small, endangered, rabbit-sized mammal native to forests in northeast Australia ... it moves by hopping and shelters in a concealed nest by day, feeding at night on roots and fungi'. 'It is estimated that there are only 1000 left in the wild' [ref:wiki-northern-bettong].\n\n**Not on the Mitchell.** The Atlas has no record within 60 km of Karma Waters of the tree-kangaroos, the swamp wallaby, the northern nailtail wallaby or the spectacled hare-wallaby [ref:ala-macropods]. Bennett's tree-kangaroo, the *[murral](word:murral)* of Eastern Kuku Yalanji country, 'is found in both mountain and lowland tropical rain forests south of Cooktown, Queensland to just north of the Daintree River; an area of only about 70 by 50 km' [ref:wiki-bennett]. The swamp wallaby (*Wallabia bicolor*), 'also commonly known as the black wallaby', 'is found from the northernmost areas of Cape York Peninsula in Queensland, down the entire east coast' [ref:wiki-swamp-wallaby]; on the Bloomfield it is the other candidate for *[nyarrkali](word:nyarrkali)* 'black kangaroo', and the question is open.\n\n## Which dictionary word is which animal?\n\nThe dictionary gives English descriptions, not species, and it was compiled with coastal speakers [ref:hershberger1982]. Putting the Atlas list beside the word list:\n\n- *[kadar](word:kadar)* 'plains wallaby': **agile wallaby**, probable. It is the common wallaby of open lowland country [ref:wiki-agile], and Cape Bedford *ga-dar* is the same word [ref:roth1901-b2].\n- *[bimbarrbay](word:bimbarrbay)* 'scrub wallaby': **red-legged pademelon**, probable, the one ground wallaby of the rainforest [ref:wiki-pademelon].\n- *[darrba](word:darrba)* 'grass wallaby': **whiptail wallaby**, or a second name for the agile; uncertain.\n- *[jumar](word:jumar)* 'little wallaby': a young animal, a pademelon or a bettong; uncertain.\n- *[julmbanu](word:julmbanu)* and *[mayarriji](word:mayarriji)*, the darker and lighter grey kangaroos: **eastern grey kangaroo**, probable, perhaps with the wallaroo or the whiptail caught up in the pair.\n- *[nyarrkali](word:nyarrkali)* 'black kangaroo': the **dark male wallaroo** or the **swamp wallaby**; uncertain.\n- *[jayju](word:jayju)* 'kangaroo rat': the **rufous or northern bettong**, probable.\n- *[murral](word:murral)* and *[jarrabina](word:jarrabina)* 'tree kangaroo': **Bennett's tree-kangaroo**, confirmed.\n\nNothing in this list should be read as the last word. The people who hunt these animals on the Mitchell know which is which, and that knowledge belongs in the contribution box, not in a guess."
+    },
+    {
+      "id": "lookalikes",
+      "heading": "Telling them apart",
+      "body": "Out on the flats in the half-light, size and colour are what you have, and the family is good at looking alike. These are the field marks from the published descriptions.\n\n**Agile wallaby or whiptail wallaby?** Both are mid-sized, both graze open grass, both have a white face stripe. The agile is 'sandy brown' with 'white stripes on each thigh', 'large ears with black edges' and a black tail tip [ref:nesp-agile]. The whiptail is paler, with a 'chocolate-brown fur covering their muzzle' and a 'black and white' chest, and it carries the long thin tail that gives it its name [ref:wiki-whiptail]. The whiptail is 'primarily a diurnal species ... active in the morning and late in the afternoon' and 'sometimes coming together in mobs of up to 50', while the agile 'is a solitary animal, but it sometimes forms into groups when feeding on open pastures' and 'feeds mainly at night' [ref:wiki-whiptail] [ref:wiki-agile]. A big daytime mob of pale wallabies on a hillside is the whiptail; a scatter of sandy ones along the river flat at dusk is the agile.\n\n**Eastern grey or wallaroo?** The eastern grey is the bigger, with the male 'around 50 to 66 kg' and a tail 'over 1 m long' [ref:wiki-eastern-grey]; its muzzle is 'fully covered with fine hair', which is one of the points that separate the greys from 'reds and wallaroos' with their bare noses [ref:wiki-eastern-grey]. The wallaroo is stockier and darker, the eastern form 'dark grey', the euro 'mostly brownish' [ref:wiki-wallaroo]. Habit separates them as well as colour: the grey is 'gregarious and form[s] open-membership groups' and grazes the open country at dawn and dusk [ref:wiki-eastern-grey]; the wallaroo is 'mostly nocturnal and solitary' and hisses loudly when alarmed [ref:wiki-wallaroo]. The 'hill wallaroo' is well named [ref:wiki-wallaroo]: look for it on the stony ridges, and for the grey on the grass between them.\n\n**Wallaroo or antilopine?** On the lowland plains the reddish-tan male antilopine, with 'longer and more slender limbs' and a group of up to 30 around it, is the one that does not look like a wallaroo at all [ref:wiki-antilopine]. The female antilopine is 'lighter and with greyish fur' and can pass for a grey at a distance [ref:wiki-antilopine].\n\n**Rock-wallaby or anything else?** A small grey-brown wallaby on a boulder slope or granite outcrop, that goes up the rocks rather than across the flat, is a rock-wallaby. On the Mitchell side that is the Mareeba rock-wallaby, 'only on the tops of a couple of mountain ranges' [ref:wiki-rock-wallaby]; on the Cooktown side Godman's, 'often near the coast', nocturnal and 'in rocky terrain adjacent to feeding areas' [ref:wiki-godman].\n\n**Scrub wallaby or little wallaby?** The pademelon is small, 2.5 to 7 kg, with 'a short and thick tail' [ref:wiki-pademelon], and it keeps to the rainforest edge, grazing 'on open grassland near the rainforest edges but quickly retreat[ing] into the forest if disturbed' [ref:wiki-pademelon]. The swamp wallaby is larger, about 13 to 17 kg, dark 'brown to black' on the back with a cheek stripe and often a white tail tip, and it browses shrubs rather than grazing [ref:wiki-swamp-wallaby].\n\n**Kangaroo rat or rat?** The bettongs hop. The rufous bettong is rabbit-sized, 'generally grey with a hint of reddish brown', with 'ruffled and bristly hair' and 'an indistinct stripe ... at the hip line'; it is 'strictly nocturnal' and nests under 'a dense under-story of vegetation' [ref:wiki-rufous-bettong]. The northern bettong is the same size, nests by day 'beneath a tree, within a clump of grass or in other litter', and digs for underground fungi [ref:wiki-northern-bettong]. Neither should be confused with the [bandicoots and rats](entry:quolls-bandicoots-and-rats), which run on four legs.\n\n**Joey or adult?** A young animal out of the pouch is a small copy of its mother and stays with her: whiptail joeys 'follow their mothers continuously and do not hide in vegetation' [ref:wiki-whiptail], and in the eastern grey 'the female ... is usually permanently pregnant except on the day she gives birth' [ref:wiki-eastern-grey], so a mob always carries young. The dictionary's *[jumar](word:jumar)* 'little wallaby' may be a size word as much as a species word [ref:hershberger1982]."
+    },
+    {
+      "id": "signs",
+      "heading": "Signs: tracks, scats, pads and scent",
+      "body": "The old hunting was mostly reading the ground before the animal was ever seen. See the [tracks and signs](entry:tracks-and-signs) page for the general method; this is the kangaroo family's part of it.\n\n**Tracks.** 'All wallabies in Australia have similar tracks. Wallabies have 5 clawed toes on the front foot, and these toes point forward. They have a long hind foot. The long fourth toe, with its large strong claw, and the shorter fifth toe, also with a strong claw, are the only ones that touch the ground when the wallaby moves. The second and third toes are joined up to their top joints, with claws used for grooming' [ref:nesp-agile]. A hopping animal leaves the two long hind prints side by side; a feeding animal walking slowly leaves the tail and the small front paws as well, because 'kangaroos have a unique three-stage walk where they plant their front legs and tail first, then push off their tail, followed lastly by the back legs' [ref:wiki-kangaroo]. 'The agile wallaby hops with its body held upright, its head held high and with forearms extended' [ref:nesp-agile]. The bigger the animal, the longer the hind print and the wider the gap between hops. The dictionary's **[baral](word:baral)** is 'road, path, track, trail' and **[jinabu dungay](word:jinabu dungay)** 'to go by foot' [ref:hershberger1982].\n\n**Pads to water.** Kangaroos and wallabies wear 'beaten tracks to water', and Roth's North-West hunters rigged their nets along them [ref:roth1901] [ref:roth1897]. At Atherton the nets were 'fixed across the tracks leading from the mountains, etc., to the water-holes' [ref:roth1901]. In the dry season on the Mitchell the water is the chain of [waterholes](entry:waterhole), and the pads run down to them from the ridges through the [woodland](entry:woodland).\n\n**Scats.** Agile wallaby scats 'are usually seen in groups of four to eight around their feeding areas and sleeping places. Groups of scats from the same animal may vary in shape (oval, round, or slightly square shaped), and are 10–12 mm in width and filled with grass or plants' [ref:nesp-agile]. The bigger kangaroos leave bigger, squarer pellets; fresh ones are dark and moist, old ones pale and dry.\n\n**Cropped grass and camps.** The family's incisors 'crop grass close to the ground' [ref:wiki-kangaroo], so a grazed flat looks mown. Eastern greys 'rest in the cover of the woodlands' in the middle of the day [ref:wiki-eastern-grey] and agile wallabies 'rest quietly in the shade' [ref:nesp-agile]: a worn hollow of bare earth under a shady tree, with scats around it, is a day camp.\n\n**Scent.** 'These animals having a very sensitive appreciation of [the hunter's] scent' was Roth's note from the Palmer, Musgrave and Princess Charlotte Bay, and the whole stalking method there was built around it [ref:roth1901]. Anderson's Bloomfield hunters 'stalked from down wind at times and places where they were known to graze, rest or come for water' [ref:anderson1996]. The dictionary's words are **[jila](word:jila)** 'beeswax; smell; sweat', **[nyumal](word:nyumal)** 'to smell or taste' and **[muyar](word:muyar)** 'wind' [ref:hershberger1982].\n\n**Ears, and what they hear.** Roth's drives moved the animals with noise: at Atherton 'the kangaroo, driven headlong by the shouts of the hunters', and the wallabies by women and children 'shouting and hooting' [ref:roth1901]. The dictionary has the hunter's quiet words: **[kiray](word:kiray)** 'slow, quiet', **[janka](word:janka)** 'quiet', **[muwul](word:muwul)** 'secretly, quietly', **[durrubu dungay](word:durrubu dungay)** 'walk on tiptoe', and for the opposite **[nyurra-baka](word:nyurra-baka)** 'people making too much noise' and **[yanja](word:yanja)** 'rustling noise, as the wind blowing through trees or grass' [ref:hershberger1982]. The hand signs Roth recorded exist because the hunters did not talk [ref:roth1908].\n\n**The alarm.** A wallaroo 'can make a loud hissing noise' [ref:wiki-wallaroo]. Pademelons 'are often found in small groups, foraging 30–50 m apart so that they can warn each other of oncoming predators' [ref:wiki-pademelon]. The whiptail mob has lookouts: 'the members of the mob take turns resting and guarding' [ref:wiki-whiptail]. When one animal stands bolt upright with its ears forward, the mob has seen you. The dictionary's **[jiba-warri](word:jiba-warri)** is 'become startled', **[jiba-yararri](word:jiba-yararri)** 'frightened', **[yinyil-kangal](word:yinyil-kangal)** 'to frighten' and **[minday](word:minday)** 'tame, quiet, brave, not afraid of or shy of, confident' [ref:hershberger1982].\n\n**Fire scars and green pick.** The dictionary's **[duli](word:duli)** is 'burnt patch of grass' and **[ngalku](word:ngalku)** 'bush fire' [ref:hershberger1982]. Regular burning 'encouraged those animals which were favoured by more open country', and 'had the long-term effect of turning dry forest into savanna, increasing the populations of grass-eating animals such as kangaroos' [ref:wiki-fire-stick]. A patch burnt weeks ago, greening up, draws grazers; a patch burnt yesterday repels them. Cook saw that on the Endeavour River: kangaroos 'so much afraid of fire that our dogs could scarcely force it over places which had been newly burnt, though the fire was extinguished' [ref:roth1901]."
     },
     {
       "id": "habitat",
-      "heading": "Where they live",
-      "body": "**Open country.** Agile wallabies live in open forest, tropical woodland and grassland and on coastal sand dunes, especially near water. They are common across northern Australia and parts of the Queensland east coast [ref:nesp-agile]. Here the 'plains' and 'grass' wallabies of the dictionary belong.\n\n**Rainforest.** Bennett's tree-kangaroo lives only in the lowland and upland rainforest north of the Daintree River [ref:qpws-daintree], in an area of about 70 by 50 km [ref:wtma-treeroo]. That is the heart of Eastern Kuku Yalanji country. South of the Daintree, the smaller Lumholtz's tree-kangaroo lives in rainforest usually above 500 m [ref:qpws-daintree]. The Queensland Parks and Wildlife Service records that murral were among the tree-dwelling animals the Eastern Kuku Yalanji hunted [ref:qpws-daintree].\n\n**Western Yalanji country.** This is wallaby and kangaroo country. The Atlas of Living Australia holds records of agile wallabies, eastern grey kangaroos and common wallaroos, and a few antilopine wallaroos, from the Mitchell River country west of Mt Carbine [ref:ala]. That is the area covered by the Western Yalanji native title determinations, 'in and around the Palmer and Mitchell River systems which lie to the north-west of Mt Carbine' [ref:brady2013]. Around Karma Waters, look for wallabies grazing near the river flats in the late afternoon and resting in shade at midday [ref:nesp-agile]."
+      "heading": "Where they live on the Mitchell",
+      "body": "**Open woodland and grass.** This is the family's country on the Mitchell. 'Agile wallabies live in open forest, tropical woodlands and grasslands and on coastal sand dunes, especially near water. They are common in northern Australia and parts of the east coast of Queensland' [ref:nesp-agile]; a habitat model built from desert surveys found that 'agile wallabies prefer areas of higher annual rainfall (over 500 mm) that are close to water (<1 km)' [ref:nesp-agile]. The eastern grey 'is predominantly a grazer, and eats a wide variety of grasses' [ref:wiki-kangaroo]. The whiptail 'lives in grasslands and woodlands particularly on hills or slopes ... In grasslands, the whiptail wallaby primarily eats kangaroo grass. It also eats monocots in nearby creeks' [ref:wiki-whiptail]. The antilopine likes 'perennial grasses providing forage, in vegetation occurring over lower hills and plains ... in association with monsoonal eucalypts, as open or regenerating woodlands' [ref:wiki-antilopine]. Kangaroo grass and black speargrass are among the most-recorded plants within 30 km of the Karma Waters homestead, under the ironbark, box and bloodwood of the [woodland](entry:woodland) [ref:ala-karma-plants] [ref:re-woodland].\n\n**The ridges and the rocks.** The wallaroo is the 'hill wallaroo' [ref:wiki-wallaroo]. The Mareeba rock-wallaby lives 'only on the tops of a couple of mountain ranges' between Mount Garnet, the Mitchell River, Mount Carbine and Mungana [ref:wiki-rock-wallaby]; Godman's 'shelters in rocky terrain adjacent to feeding areas' [ref:wiki-godman]. On a station of 'rolling hills' the rock piles, the gorges and the stony ridge tops are a different country from the flats, with a different wallaby on them.\n\n**The river.** Kangaroos are tied to water in the dry, and the river is where the pads lead [ref:roth1901]. But it is no fence: 'kangaroos and wallabies are adept swimmers, and often flee into waterways if presented with the option. If pursued into the water, a large kangaroo may use its forepaws to hold the predator underwater so as to drown it' [ref:wiki-kangaroo]. Roth's lower Tully people turned that around in flood time, driving wallabies 'from off the higher levels into the water, and there soon dispose[d] of them with sticks and spears' [ref:roth1901].\n\n**Rainforest and its edges.** On Eastern Kuku Yalanji country the rainforest has its own members of the family. Bennett's tree-kangaroo lives 'almost completely on the leaves of a wide range of rainforest trees' in the forests between Cooktown and the Daintree, and 'is also occasionally found in sclerophyll woodlands' [ref:wiki-bennett]; the Queensland Parks and Wildlife Service records *murral* among the tree-dwelling animals the Eastern Kuku Yalanji hunted [ref:qpws-daintree]. The pademelon keeps to 'rainforest areas' and grazes their edges [ref:wiki-pademelon]. The northern bettong 'is restricted to some areas of mixed open *Eucalyptus* woodlands and *Allocasuarina* forests bordering rainforests in far northeastern Queensland' [ref:wiki-northern-bettong]. The dictionary's country words are **[madja](word:madja)** 'scrub, jungle, rain forest', **[kuri](word:kuri)** 'small patch of scrub', **[jamar](word:jamar)** 'newly cleared scrub', **[ngalkal](word:ngalkal)** 'outside ... the scrub', **[jikan](word:jikan)** 'grass' and **[wabarr](word:wabarr)** 'shade' [ref:hershberger1982].\n\n**Western Yalanji country, close in.** Within 30 km of the Karma Waters homestead the Atlas holds only six records of the whole family: three wallaroos, one agile wallaby, one antilopine kangaroo and one Mareeba rock-wallaby. Within 60 km it holds 417, and 149 of them were made in 2024 alone [ref:ala-macropods]. That is a statement about how few people have recorded wildlife on the upper Mitchell, not about how few animals there are. The country 'in and around the Palmer and Mitchell River systems which lie to the north-west of Mt Carbine' is the Western Yalanji determination country [ref:brady2013], and a wallaby count by the people who live on it would be worth more than the Atlas.\n\n**Where to look at Karma Waters.** The grazers come onto the river flats and the grassy flats between the ridges in the late afternoon and the early morning and rest in shade through the day [ref:nesp-agile] [ref:wiki-eastern-grey] [ref:qld-kangaroos]. The wallaroo is on the stony hills and moves at night [ref:wiki-wallaroo]. The rock-wallabies are on the range tops and the gorges [ref:wiki-rock-wallaby]. Nobody has recorded a bettong closer than the 60 km circle [ref:ala-macropods]; whether the *[jayju](word:jayju)* is still digging on the Mitchell is a question for the contribution box."
+    },
+    {
+      "id": "ecology",
+      "heading": "How they live",
+      "body": "**Grazing and the gut.** 'Modern macropods are generally herbivorous. Some are browsers, but most are grazers and are equipped with appropriately specialised teeth for cropping and grinding up fibrous plants, in particular grasses and sedges' [ref:wiki-macropodidae]. 'Like the eutherian ruminants of the Northern Hemisphere (sheep, cattle, and so on), macropods have specialised digestive systems that use a high concentration of bacteria, protozoans, and fungi in the first chamber of a complex stomach to digest plant material' [ref:wiki-macropodidae], and 'despite having herbivorous diets similar to ruminants such as cattle, which release large quantities of digestive methane ... kangaroos release virtually none' [ref:wiki-kangaroo]. 'The ability of larger macropods to survive on poor-quality, low-energy feed, and to travel long distances at high speed without great energy expenditure (to reach fresh food supplies or waterholes, and to escape predators) has been crucial to their evolutionary success' [ref:wiki-macropodidae]. The swamp wallaby is the browser of the family, eating 'shrubs and bushes, rather than grazing on grasses' and tolerating 'a variety of plants poisonous to many other animals' [ref:wiki-swamp-wallaby]. The bettongs eat underground: ectomycorrhizal fungi are 'the staple diet of the northern bettong. These are dug from beneath the soil at the bases of trees' [ref:wiki-northern-bettong], and the rufous bettong 'digs for plant roots and fungi' [ref:wiki-rufous-bettong].\n\n**The hop, and why the sinew matters.** 'Kangaroos are the only large mammals to use hopping on two legs as their primary means of locomotion. The comfortable hopping speed for a red kangaroo is about 20–25 km/h, but speeds of up to 70 km/h can be attained over short distances, while it can sustain a speed of 40 km/h for nearly 2 km' [ref:wiki-kangaroo]. 'The highest recorded jump for a red kangaroo is about 10 feet (3.0 m), whereas for the eastern grey kangaroo it is 8 feet (2.4 m)' [ref:wiki-kangaroo]. The engine is tendon: 'kangaroos and wallabies have large, elastic tendons in their hind legs. They store elastic strain energy in the tendons of their large hind legs, providing most of the energy required for each hop by the spring action of the tendons rather than by any muscular effort', and 'increased speed requires very little extra effort' [ref:wiki-kangaroo]. The tail is a fifth leg: in the slow walk 'the propulsive force of the tail is equal to that of both the front and hind legs combined' [ref:wiki-kangaroo]. The same tendons are the hunter's *[biyal](word:biyal)*, 'especially wallaby tail sinew' [ref:hershberger1982], which is why the tail tendons came out first at the kill (see *What the animal gave*) [ref:roth1901].\n\n**Day and night.** The grazers are animals of the edges of the day. The eastern grey 'is mainly nocturnal and crepuscular, and is mostly seen early in the morning, or as the light starts to fade in the evening. In the middle of the day, kangaroos rest in the cover of the woodlands' [ref:wiki-eastern-grey]. The agile 'feeds mainly at night on grasses, legumes, and other herbaceous plants, but may also forage by day, especially in the wet season' [ref:wiki-agile]. The Queensland Government's plain summary is that 'kangaroos are active during the day but mostly feed at dawn and dusk' [ref:qld-kangaroos]. The whiptail is the exception, 'primarily a diurnal species', with its mob gathering 'in the afternoon during feeding' [ref:wiki-whiptail]. The wallaroo and the rock-wallabies are night animals [ref:wiki-wallaroo] [ref:wiki-godman], and the bettongs 'will only emerge after sunset and return to the nest before first light' [ref:wiki-rufous-bettong]. Roth's North-West hunters used the day habit: kangaroos 'may be tracked and sneaked upon during the extreme midday heat, and caught while resting in the shade' [ref:roth1901] [ref:roth1897].\n\n**Mobs, sentries and the nose.** 'Groups of kangaroos are called mobs, courts or troupes, which usually have 10 or more kangaroos in them. Living in mobs can provide protection for some of the weaker members of the group' [ref:wiki-kangaroo]. Eastern grey groups 'contain an average of three individuals. Smaller groups join to graze in preferred foraging areas, and to rest in large groups around the middle of the day' [ref:wiki-eastern-grey]. The antilopine 'forms social groupings ... up to 30 individuals, but these may be separate groups assembling as a response to threats from humans or dingoes' [ref:wiki-antilopine]. The whiptail mob of up to 50 posts guards [ref:wiki-whiptail]. Kangaroos read each other by smell: 'one common behaviour is nose touching and sniffing, which mostly occurs when an individual joins a group ... The kangaroo performing the sniffing gains much information from smell cues' [ref:wiki-kangaroo]. An animal that smells people as sharply as that is the animal Roth's hunters stalked from downwind [ref:roth1901].\n\n**Fights.** 'Fighting has been described in all species of kangaroos. Fights between kangaroos can be brief or long and ritualised. In highly competitive situations, such as males fighting for access to oestrous females or at limited drinking spots, the fights are brief' [ref:wiki-kangaroo]. 'A winner is decided when a kangaroo breaks off the fight and retreats. Winners are able to push their opponents backwards or down to the ground' [ref:wiki-kangaroo]. Male agile wallabies 'play-fight', 'leaping into the air, and sinuously lashing the tail' [ref:wiki-agile]. At a dry-season waterhole the big males are at their most short-tempered, which is one reason to keep clear of them (see *Safety*).\n\n**Joeys.** 'As with all marsupials, the young are born at a very early stage of development, after a gestation of 31–36 days. At this stage, only the forelimbs are somewhat developed, to allow the newborn to climb to the pouch and attach to a teat' [ref:wiki-kangaroo]. 'Typically, only a single young is born, weighing less than 1 g at birth ... The young leave the pouch after five to 11 months' [ref:wiki-macropodidae]. The mother 'has the ability to freeze the development of an embryo until the previous joey is able to leave the pouch. This is known as embryonic diapause and will occur in times of drought and in areas with poor food sources' [ref:wiki-kangaroo]. In the wallaroo 'the young joeys start to leave the pouch at around six months and by nine months they no longer spend most of their time in the pouch' [ref:wiki-wallaroo]. Whiptail joeys 'stay in their mothers' pouches for the first nine months. When they leave, they will still stay with them for up to 18 months' [ref:wiki-whiptail].\n\n**Predators.** 'With the arrival of humans in Australia at least 50,000 years ago and the introduction of the dingo about 5,000 years ago, kangaroos have had to adapt' [ref:wiki-kangaroo]; today 'along with dingoes, introduced species such as foxes, feral cats, and both domestic and feral dogs, pose a threat to kangaroo populations' [ref:wiki-kangaroo]. The pademelon's 'main predators ... are dingoes, tiger quolls, Australian scrub pythons, and occasionally feral domestic dogs. The rate of predation increases following a forest fire, when there is less forest cover' [ref:wiki-pademelon]. The swamp wallaby's are 'dingoes, eagles and wild dogs' [ref:wiki-swamp-wallaby]. Roth recorded the hunting partnership from the other side: [dingo](entry:dingo-and-dogs) pups 'caught young, brought into camp, and tied up by the leg until such time as they become reconciled to their surroundings', and on the Bloomfield a boy put in charge of them [ref:roth1901].\n\n**Fire and the family.** The long story is that Aboriginal burning 'had the long-term effect of turning dry forest into savanna, increasing the populations of grass-eating animals such as kangaroos' [ref:wiki-fire-stick]. The short story is in the record of one fire: after 'a huge fire raged through the Yourka Reserve near Einasleigh ... in December 2019, part of the 2019–2020 bushfires in Australia, it was feared that the rock-wallaby population might not survive. However, it was found that the population was thriving, with several new joeys spotted in their mothers' pouches' [ref:wiki-rock-wallaby]. The Queensland Herbarium's guideline for the Mitchell woodland asks for 'low, with occasional moderate' burns at two-to-five-year intervals, less than 40% of the landscape in any year, with long-unburnt patches kept 'to maintain a diversity of habitat for wildlife' [ref:re-woodland]. Down the river at Kowanyama, Traditional Owner Clarita Yam put it in one sentence: 'when you burn too much, you burn out your Country and there's nothing left for your cattle, wallabies and kangaroo' [ref:kowanyama2024].\n\n**Cattle and kangaroos.** 'Unlike many of the smaller macropods, kangaroos have fared well since European settlement. European settlers cut down forests to create vast grasslands for sheep and cattle grazing, added stock watering points in arid areas, and have substantially reduced the number of dingoes' [ref:wiki-kangaroo]. Whether that holds on a lightly stocked Cape York station is not something anyone has measured; the small members of the family have not fared so well, and the northern bettong is down to about a thousand [ref:wiki-northern-bettong]."
     },
     {
       "id": "seasons",
       "heading": "Seasons",
-      "body": "Roth wrote that, speaking generally, kangaroos were hunted 'at any time' of year [ref:roth1901]. Some methods did depend on the season. In flood time on the lower Tully, people drove wallabies off the high ground into the water and killed them there. Agile wallabies graze in the late afternoon and rest through the heat of the day [ref:nesp-agile]. Roth recorded hunters in the far North-West Central districts using this habit, tracking kangaroos and creeping up on them 'during the extreme midday heat' while they rested in the shade [ref:roth1901]."
+      "body": "**Any time, in the old record.** Roth's rule for the whole of north Queensland was that 'speaking generally: emu, kangaroo, opossum, and fish are hunted at any time; lilies and honey in the dry season; roots and fruits in the wet season' [ref:roth1901]. The fat rule qualified that: an animal *[jirrburr](word:jirrburr)*, 'meat with no fat, an animal in poor condition', 'will not be eaten' [ref:hershberger1982], so the hunting season was really the fat season of each animal.\n\n**The dry: branch camps and drives.** Anderson's reconstruction of the Bloomfield year has the small family groups moving out in the dry 'away from the main camping areas' to 'set up temporary \"branch\" camps in order to exploit non-seasonal opportunistic resources such as eelfish, tortoises, wallabies and goannas', while the coastal people made 'seasonal forays inland up onto the coastal ranges for wallaby, yams and tubers' [ref:anderson1996]. The big [fire drives](entry:hunting-with-fire) were a dry-season thing: 'Kuku-Yalanji hunting on land was essentially a solitary affair, with at most two men going out for one to two days. The exception was the large-scale wallaby drives undertaken in the dry season' [ref:anderson1996].\n\n**The wet: floods, bogs and dogs.** 'In the wet, the tendency was to contract into larger more permanent camps' [ref:anderson1996]. Two of Roth's methods belong to the wet. On the lower Tully 'in flood-time ... [people] drive the wallabies from off the higher levels into the water, and there soon dispose of them with sticks and spears' [ref:roth1901]; in the North-West 'in rainy weather, and over boggy soil, they are run down with dogs' [ref:roth1901] [ref:roth1897]. The agile wallaby 'may also forage by day, especially in the wet season', and 'in the dry season, the animal's range grows larger as the quality of the grazing deteriorates' [ref:wiki-agile].\n\n**The hot time before the storms.** On Cape York 'by the late dry, fuels are completely dry and fires can be severe and widespread. Storm burns are lit after the first storm rains, normally between October and January' [ref:pbg-cape-york], and the bad fire-weather days at Palmerville, the nearest long record to Karma Waters, average about 36 °C with about 18% humidity [ref:pbg-cape-york]. That is the month the grazers are tightest on the last water and the shade, and the month a grass fire is most dangerous. The [seasons](entry:seasons) page has the Kuku Yalanji year; the dictionary's **[muduwaju](word:muduwaju)** 'dawn, daybreak, early morning', **[wunkuwingku](word:wunkuwingku)** 'morning', **[yilay-yilay](word:yilay-yilay)** 'late afternoon, when the sun is in the west' and **[wujurr](word:wujurr)** 'darkness, night' are the hunter's clock within the day [ref:hershberger1982].\n\n**Breeding through the year.** 'Breeding takes place at any time of the year' in the agile wallaby [ref:wiki-agile]; wallaroo 'females can give birth at any time during the year' [ref:wiki-wallaroo]; in the antilopine 'breeding may occur at any time of the year, although births tend to be timed to precede the beginning of the north's wet season' [ref:wiki-antilopine]; in the eastern grey 'most kangaroo births occur during the summer' [ref:wiki-eastern-grey]. A female with a joey at foot is a female with a joey at foot in any month.\n\n**What the Atlas says about months.** Records of the family within 60 km of Karma Waters peak in November (116) and October (52), with April (48) and May (41) next and almost nothing in February and March [ref:ala-macropods]. That is the calendar of visitors with cameras, who come in the dry and leave before the wet, rather than the calendar of the animals, and it says nothing about when they are easiest to find."
     },
     {
       "id": "uses",
-      "heading": "Uses",
-      "body": "**Meat.** Wallaby and kangaroo were among the main meats. The dictionary has a rule about condition. *[Jirrburr](word:jirrburr)* is 'meat with no fat, an animal in poor condition. (This kind of animal will not be eaten)', and *[kunukunu](word:kunukunu)* is 'fat in food or fatty meat' [ref:hershberger1982]. A fat animal was the prize.\n\n**Sinew.** *[Biyal](word:biyal)* is 'gristle, sinew, string, blood vessel (especially wallaby tail sinew)' [ref:hershberger1982]. The long tail tendons made strong, fine [cord](entry:string-and-twine). Roth recorded hunters on the Pennefather River pulling out a kangaroo's tail tendons first thing after the kill. At Princess Charlotte Bay, kangaroo-tail tendon bound the bone points onto [fish-hooks](entry:hooks-and-lines) [ref:roth1901].\n\n**Bone and teeth.** Kangaroo bone was used for barbs and points. Roth records it on Palmer River fish-hooks [ref:roth1901] and as the barb of Pennefather River [spears](entry:spear-and-woomera) [ref:roth1909]. On the Pennefather River the incisor teeth were saved for spokeshaves [ref:roth1901].\n\n**Pets.** On the Bloomfield, Roth noted that people were 'very fond of playing with young rats, bandicoots, wallabies, etc., as pets', tying them up at night [ref:roth1902]."
+      "heading": "What the animal gave",
+      "body": "**Meat.** Kangaroos and wallabies were 'the major meat-resource animals which were hunted' on the Bloomfield [ref:anderson1996]. 'Kangaroo meat is very high in protein (23.2%) and very low in fat (2.6%)' [ref:wiki-kangaroo-meat]; 'its low fat content prevents kangaroo meat from being cooked in the same way as other red meats, so it is typically either slow-cooked or quickly stir-fried' [ref:wiki-kangaroo-meat]. That leanness is why the dictionary's fat words carry so much weight. *[Kunukunu](word:kunukunu)* is 'fat in food or fatty meat', *[jilu](word:jilu)* 'an animal that is a little fat', *[wandul](word:wandul)* 'fat'; *[jirrburr](word:jirrburr)* is 'meat with no fat, an animal in poor condition. (This kind of animal will not be eaten)', and *[yulkur](word:yulkur)* 'poor physical condition, lean' [ref:hershberger1982]. See the [cooking meat](entry:cooking-meat) page for the full kitchen; the earth-oven and whole-roast methods are under *The hunt*.\n\n**Sinew.** *[Biyal](word:biyal)* is 'gristle, sinew, string, blood vessel (especially wallaby tail sinew)' [ref:hershberger1982], and it has its own page, [sinew](entry:sinew). On the Pennefather a kangaroo 'on being killed, is usually first of all robbed of its tail-tendons' [ref:roth1901]. At Princess Charlotte Bay the bone barb of the [fish-hook](entry:hooks-and-lines) was fixed to its wooden shank with 'kangaroo-tail tendon, and *Grevillea* gum-cement' [ref:roth1901]; in the Boulia district the hook was bound 'with tendon obtained from kangaroo-tail, emu-leg, or snake-neck', and the woomera peg 'tied on' with tendon through holes 'drilled with a sharpened emu or kangaroo bone' [ref:roth1897]. On the Bloomfield 'the stingray barbs and the multiple-prongs were held in place by wallaby sinew and resins' [ref:anderson1996]. Cape Bedford, which had no wallaby country to speak of, imported it: in return for iron tomahawks, shells and dilly-bags 'they obtain forehead-bands, kangaroo-tail sinew, kangaroo bones (of a certain kind to be specially used for making bone awls), quartz-tipped spears, bark troughs, and a rough kind of fixed grind-stone' [ref:roth1910b14].\n\n**Bone.** The stiletto or awl of Roth's north Queensland, 'from 6 to 8½ inches long', was 'made either of bone (kangaroo, wallaby, emu) or of \"iron-wood\"' [ref:roth1904]. Kangaroo bone made the barb of the Palmer River hook [ref:roth1901] and the barb of Pennefather [spears](entry:spear-and-woomera) [ref:roth1909]. 'Knuckle and similar bones from the kangaroo or dingo, and up to about 2½ inches in length', hung as ornaments at the temples in the Boulia district [ref:roth1897].\n\n**Teeth.** The kangaroo's lower incisor was a cutting tool across the northern peninsula. The scraper of the Pennefather and the Batavia was 'a flat leaf-and-stalk shaped piece of \"ironwood\"' with 'a kangaroo's lower incisor ... fixed with gut, or fibre-twine, and cement: its tip has been previously put into the edge of a flame and broken off abruptly by well-directed and graduated pressure, so as to give a sharp cutting-edge to the enamel'; it was 'employed for sharpening spear-tips, and, in some spears, for cutting the groove into which the barb is fixed' [ref:roth1904]. In the same districts 'half the lower jaw of the kangaroo, with tooth in situ, is employed for similar purposes ... it forms a staple article of barter' [ref:roth1904]. At Princess Charlotte Bay 'the tooth-drill ... is made with an incisor, from any of the larger species of kangaroo, which is stuck into a short handle, and fixed in position with twine and cement' [ref:roth1904]. That is why the Pennefather cook skewered the tongue 'over the incisors (required for spoke-shaves) to prevent them being too much damaged by the heat' [ref:roth1901].\n\n**Hair and skin.** Kangaroo and possum hair was spun into twine for necklaces and belts in the North-West [ref:roth1910b15]. Nearer home, 'the opossum- (or kangaroo) twine waist-belt (KMI. *aln-jo*) of the Middle Palmer and Tully Rivers' was tied in front [ref:roth1910b15]; Roth's KMI is the Koko-Minni of the middle Palmer, Western Yalanji's near neighbours. On the Bloomfield the women's fringed circlet was 'usually manufactured on a core of human-hair overcast with kangaroo- or opossum-hair twine' [ref:roth1910b15]. On the Pennefather 'a strip of kangaroo-skin tied at the ends, forms an ornament ... that is used by women only' [ref:roth1910b15]. Skin water-bags were a North-West thing: 'made from kangaroo, paddymelon, or opossum, the skin is cut all the way round, high up in the neck, the front-paws and tail removed close to their bases, and the whole skin pulled away inside out from the carcass: it is subsequently tanned with bloodwood gum' [ref:roth1897]. There is no record of kangaroo-skin cloaks or bags on the Bloomfield, where the blanket was [paperbark](entry:paperbark) [ref:anderson1996].\n\n**Carrying.** The Bloomfield men's bag, the *ngunyin* of Anderson's account, 'was made from *Ficus* fibre-twine. It was said by Kuku-Yalanji to have been able to stretch big enough to carry a small wallaby' [ref:anderson1996]. Idriess, as Anderson reports him, 'describes wallaby sinew or plaited hair belts which were worn by men and in which they carried their stone axes' [ref:anderson1996].\n\n**Play and pets.** Among the Kalkadun of the North-West the ball game played by jumping to catch a ball 'made of a piece of opossum, wallaby, or kangaroo hide' was called 'the kangaroo-play', and in their 'coursing' game 'a wallaby, dingo, rat, etc., having been previously caught alive' was let go and had to be caught 'with the hands only' [ref:roth1902]. On the lower Tully 'pets may also be made of the ring-tailed opossum and the wallaby, both animals often straying away from \"home\" for hours at a time' [ref:roth1902]. At Bloomfield, Anderson reports from Idriess, 'cassowaries, wallabies, turtles and birds were kept as the pets of individuals' [ref:anderson1996]. The [games](entry:games-and-string-figures) page has more.\n\n**Dressing for the hunt.** 'During ceremonies and on some hunting trips, prominent Kuku-Yalanji men wore a head ornament consisting of a tuft of cockatoo top-knot feathers stuck into beeswax', and 'body painting was done for some hunting trips' with [red and yellow ochre](entry:red-ochre), charcoal and white clay [ref:anderson1996]. On the Pennefather the paint was camouflage, and it is described under *The hunt* [ref:roth1901]."
     },
     {
       "id": "how-to",
-      "heading": "How they were hunted and cooked",
-      "body": "Roth gives no step-by-step wallaby hunt for the Bloomfield itself. His notes there record *[kalka](word:kalka)* as the general Kuku Yalanji word for a [spear](entry:spear-and-woomera) [ref:roth1909], the dictionary's *kalka* 'fishing spear, also generic term for spear'. Spears were thrown with the woomera (*[mumal](word:mumal)* 'to throw a spear with a woomera') [ref:hershberger1982]. The neighbouring records below are labelled by place [ref:roth1901].\n\n**Spearing by stalking (Palmer River, Musgrave and inland of Princess Charlotte Bay, close to Western Yalanji country):**\n\n1. **Track** the kangaroo or wallaby **from downwind**, because it has a very keen nose for people.\n2. If it is in thick brush or too far off, **throw a spare spear** well over its head into the ground beyond. Smear that spear first with sweat from the armpits, so the wind carries the human smell past the animal.\n3. The animal moves away from the scent, **towards the hidden hunter**, who spears it.\n\n**Cage traps (Atherton):**\n\n1. Make **10–12 cylindrical basket-traps** (*yingkar*), each about 4–4½ ft long and 1 ft across, with a pointed end and a hood-shaped mouth.\n2. Lay them along **wallaby tracks** you have already noted, hood up, and hide the mouths with bushes and bark.\n3. Women and children **beat** a wide stretch of scrub, shouting and hooting.\n4. A hard-pressed wallaby runs **head down** along its usual track and jams itself into a cage. A hunter waiting nearby kills it.\n\n**[Nets](entry:nets) (Atherton):** a heavy net of *[Sterculia](entry:kurrajong) quadrifida* [fibre](entry:string-and-twine), about 16–18 ft between its side posts, set across the tracks from the mountains to the waterholes. Hunters shouted the kangaroos into it and speared them as they tangled. One net took the whole camp about three weeks to make.\n\n**Pits (Cape Grafton, Cairns, Atherton):** a pit 6–8 ft wide and up to 2½ ft deep, roofed with cross-sticks, grass and soil to look like the ground around it, dug to break the animal's leg.\n\n**[Fire drive](entry:hunting-with-fire) (Cape Bedford, Guugu Yimithirr country):** the whole camp lights a **line of grass fires up to a mile long**, if possible running up to a hilltop. The men then form a line and circle round, spearing the kangaroos caught between them and the fire.\n\n**Floods and dogs (lower Tully):** drive wallabies off high ground into floodwater and kill them with sticks and spears, or hunt them with dogs.\n\n**Cooking.** On the **Bloomfield**, meat went into the stone **[earth oven](entry:earth-oven)** (*[kurrma](word:kurrma)*) [ref:roth1901] [ref:hershberger1982]:\n\n1. Heat stones in a fire, then rake them and the ashes aside and **dig a hole** where the fire was.\n2. Line it with **ginger leaves**.\n3. Lay in the **meat**, packing the **hot stones and ashes** among it.\n4. Cover with more leaves or **[tea-tree bark](entry:paperbark)**, then **earth and stones**.\n\nOn the **Pennefather River**, a whole kangaroo was baked rather than cut up. Hunters pulled the tail tendons, dislocated the leg joints so the limbs could fold, skewered the tongue over the front teeth to protect them, cut the belly and removed the guts, filled the cavity with **hot stones**, tied the folded animal up in bark and buried it in hot ashes [ref:roth1901]."
+      "heading": "The hunt: the recorded methods, district by district",
+      "body": "Roth wrote almost nothing about how the Bloomfield people hunted the wallaby, and nothing at all about the Mitchell. What follows is the published record for the districts around Western Yalanji country, each labelled by place, plus what the animals' own habits say. It is a record, not a manual, and the law section below governs what any of it can mean today.\n\n## 1. Before you go: the four things that decide a hunt\n\n1. **The wind.** Every stalking record agrees. On the Palmer, the Musgrave and the back of Princess Charlotte Bay, 'kangaroos are speared, being tracked from the windward, these animals having a very sensitive appreciation of [the hunter's] scent' [ref:roth1901]; on the Bloomfield they were 'stalked from down wind' [ref:anderson1996]. Roth's 'from the windward' and Anderson's 'from down wind' describe the same position: the hunter keeps the wind in his face, so that his scent blows back behind him and away from the animal. The dictionary's wind is **[muyar](word:muyar)** and the dry-season trade wind **[kumbamu](word:kumbamu)** 'trade wind, fair wind' [ref:hershberger1982]. Smoke from the [campfire](entry:camps-and-firewood) tells you the wind before you leave.\n2. **The hour.** The grazers are on the open grass at first light and last light and in the shade through the day [ref:wiki-eastern-grey] [ref:nesp-agile] [ref:qld-kangaroos]. Roth's inland hunters took them in the shade 'during the extreme midday heat' [ref:roth1901] [ref:roth1897]. Early morning is also the time the tracks are freshest: the wildlife surveyors' advice is to 'survey during good conditions (in the early morning is best, not too windy or straight after rain)' [ref:nesp-agile].\n3. **The water.** In the dry the animals' 'beaten tracks to water' are where the nets went [ref:roth1901] [ref:roth1897], and 'times and places where they were known to graze, rest or come for water' are where the Bloomfield stalk began [ref:anderson1996]. On the Mitchell that is the [waterhole](entry:waterhole) chain and the pads down to it.\n4. **The retreat.** An animal that is disturbed goes somewhere, and the old drives all worked by knowing where. The Atherton wallaby 'when ... hard pressed and makes for shelter it runs with the head down' along 'its accustomed tracks' [ref:roth1901]; the Atherton kangaroo nets stood 'across the tracks leading from the mountains, etc., to the water-holes' [ref:roth1901]; the Bloomfield fire wall had 'only a few openings' and the spearmen stood in them [ref:anderson1996]. The grey goes for 'the cover of the woodlands' [ref:wiki-eastern-grey], the pademelon for the forest [ref:wiki-pademelon], the wallaroo for the hill, and any of them for the river if it is there [ref:wiki-kangaroo].\n\n## 2. Stalking alone\n\n**Palmer River, Musgrave and the hinterland of Princess Charlotte Bay** (Roth's closest record to Western Yalanji country) [ref:roth1901]:\n\n1. Find fresh sign on a pad or a grazing flat (see *Signs*).\n2. **Track the animal from downwind.** Keep the wind in your face the whole approach.\n3. Use the ground. Roth's hunter did not want to 'run the risk of exposing his presence' [ref:roth1901]; the dictionary's words for it are **[karangaji](word:karangaji)** 'stalk', **[karangal](word:karangal)** 'sneak around to see, reconnoiter', **[durrubu dungay](word:durrubu dungay)** 'walk on tiptoe' and **[mingki-janay](word:mingki-janay)** 'squat, crouch' [ref:hershberger1982].\n4. When the animal is feeding with its head down, move; when it stands up and looks, freeze. A grazer's day is 'rest ... in the shade' and 'graze ... in the late afternoon' [ref:nesp-agile], and a resting animal in shade is the one Roth's North-West hunters crept up on in the heat [ref:roth1897].\n5. Get to spear range, which with a [woomera](entry:spear-and-woomera) is a matter of tens of metres, and throw at the body. The dictionary's **[mungkil](word:mungkil)** is 'spear to kill' [ref:hershberger1982].\n\n**Pennefather River, the camouflage stalk** (west Cape York, labelled as such) [ref:roth1901]: 'If by himself the hunter will paint himself completely over with yellow ochre (with this pigment or earth rubbed well into his arm-pits, etc., so as to kill the smell of his perspiration), and make himself resemble an ant-bed under the guise of which he can gradually approach to within a very short distance.' Two tricks in one: the [ochre](entry:red-ochre) hides the hunter's smell at its source, and his shape becomes a [termite mound](entry:termites-and-ant-beds), which a kangaroo sees every day and ignores.\n\n**Bloomfield River** [ref:anderson1996]: 'Other kangaroos and wallabies were stalked from down wind at times and places where they were known to graze, rest or come for water.' Bennett's tree-kangaroo 'was tracked by sight or with the use of dogs' [ref:anderson1996].\n\n## 3. The scent trick: moving the animal with a spare spear\n\nThis is Roth's record from the Palmer, the Musgrave and Princess Charlotte Bay, and it is the one piece of the old method that uses the animal's nose against it [ref:roth1901]:\n\n1. The hunter is downwind of a kangaroo that is 'in some brush-wood' or too far off for a sure throw.\n2. He takes a spare spear and smears it 'with the perspiration from under the arm-pits or crutch', so that it is 'fully charged with the concentrated essence of humanity'.\n3. He throws it 'well over its head into the ground beyond', so that it lands **upwind** of the animal.\n4. 'The wind carries the scent and drives the kangaroo from apparent into real danger': the animal moves away from the smell, towards the hidden hunter, and into range.\n5. '(Wallabies are similarly hunted in these same districts.)'\n\nNothing in the record uses smoke this way. The hunters masked their own scent with ochre, kept it behind them with the wind, and used a dose of it to push the animal. Fire, when it was used, was used to drive, and on a different scale (see 5).\n\n## 4. Two hunters: the drive to a waiting spearman\n\nThe smallest drive in the record is two people, and it is the Bloomfield's normal hunting party: 'at most two men going out for one to two days' [ref:anderson1996]. The Pennefather version is the pattern: 'a general drive may be organised, the younger men hunting the animals into the direction of the older ones who are in waiting with their spears' [ref:roth1901]. Putting the record and the animals' habits together:\n\n1. **Agree the ground first.** The waiting spearman takes a fixed, known position on the animals' retreat line: a pad to water, a gap in the timber, a saddle between ridges, the place the mob always crosses. In every recorded drive the waiting men stood at known points, the 'openings' of the Bloomfield fire wall or the ends of the Pennefather arc [ref:anderson1996] [ref:roth1901], so that the beaters knew exactly where the spears were.\n2. **The spearman goes in downwind** of where the animals are feeding, and settles where he can see the line without showing on the skyline. He waits: **[kujil](word:kujil)** 'keep, hold, wait for' [ref:hershberger1982].\n3. **The driver comes in from the far side, upwind if possible**, so that the animals catch his scent and move away from it, slowly, towards the spearman. A slow push is what you want; Roth's drives used shouting to make the kangaroo run 'headlong' into a net [ref:roth1901], but a spear needs an animal that stops.\n4. **Read the mob, not the animal.** The grey rests in groups 'around the middle of the day' and splits into small feeding groups [ref:wiki-eastern-grey]; the whiptail mob has guards [ref:wiki-whiptail]; the antilopine mob bunches 'as a response to threats from humans or dingoes' [ref:wiki-antilopine]. The first animal to stand tall and face you is the sentry, and the mob moves when it does.\n5. **Keep the river in mind.** It is not a wall. 'Kangaroos and wallabies are adept swimmers, and often flee into waterways if presented with the option' [ref:wiki-kangaroo]; the Tully people used that, driving wallabies into floodwater and killing them there [ref:roth1901]. In the dry, a river of pools and dry sand is a path as much as a barrier.\n6. **Signal without sound.** Roth's districts had hand signs for the animals and the hunt [ref:roth1908]; the dictionary has **[kawal](word:kawal)** 'a shout, cooee, not far away', **[ngawungkal](word:ngawungkal)** 'a shout from a long ways away' and **[kuwimbur](word:kuwimbur)** 'whistle' for when quiet no longer matters [ref:hershberger1982].\n\n## 5. Many hunters: circles, fires and beaters\n\n**The circle (Pennefather River)** [ref:roth1901]: 'If a hunting-party can be formed, the individuals composing it will spread out and gradually circle round the locality in which the kangaroos have been observed to be sheltering, and so gradually diminish the contained area.'\n\n**The three-quarter circle of fire (Pennefather River)** [ref:roth1901]: 'in the circling method just mentioned, instead of closing in on the marsupials in the centre, a three-quarter circle of fires may be lighted, the best spear-throwers watching for the animals to emerge from between its two extremities.'\n\n**The line of fire (Cape Bedford, Guugu Yimithirr country)** [ref:roth1901]: 'the whole camp will go and start a long line of bush-fires, up to a mile long, extending to the summit of some hill if possible: the men will then form in line at intervals, and so circle round, spearing the kangaroos in between them and the row of fires.'\n\n**The wall of fire (Bloomfield River, Kuku Yalanji)** [ref:anderson1996]: 'Fires were carefully lit to create a \"wall\" of fire going in one direction with only a few openings. Young people, starting within a forested area, walked in a long line beating the bush and shouting. This drove kangaroos, wallabies and other smaller animals towards the gaps in the fire, where the older men waited with spears.' The [hunting with fire](entry:hunting-with-fire) page has this in full, with the law on it.\n\n**Beaters into nets and cages (Atherton)** [ref:roth1901]: for the kangaroo, 'the kangaroo, driven headlong by the shouts of the hunters, lying more or less in ambush, finds itself suddenly entangled in the meshes, tumbles over in its attempts at extrication, and is soon despatched with spears and sticks'. For the wallaby, 'all the women and children will \"beat\" a considerable area of scrub country, and, what with shouting and hooting, easily drive the wallabies into and along their accustomed tracks, and so into the cages which are there fixed in position'.\n\n**Beaters into a net enclosure (Boulia district, North-West)** [ref:roth1897] [ref:roth1901]: 'they may be driven into an enclosure formed of three nets fixed in the position somewhat of the three sides of a square: the hunters, having previously determined upon the locality where the kangaroos are encamped, will drive them into this enclosure with the assistance of numerous \"beaters\" stationed in such manner as to compel the animals running into the required direction' (Roth's 1897 Plate XI, fig. 232, shown on this page).\n\nAll of these are whole-camp, dry-season work, lit and placed with care, with the spearmen standing at agreed points. None of them is a small fire lit on the morning.\n\n## 6. The gear: nets, cages and pits\n\n**The Atherton kangaroo net** (Roth's Figs. 20–21, on this page) [ref:roth1901]. Made 'from what the Ngatchan [people] call the *kewan*, *Sterculia quadrifida*', the [kurrajong](entry:kurrajong), whose fibre-twine was 'used for the large kangaroo-nets at Atherton' [ref:roth1901-string]. 'The net is woven on a mesh similar to that of a fishing-net ... the particular specimen in my possession having occupied the whole local camp some three weeks in completing. The fibre-twine employed is well over ¼-inch in diameter, and of the ordinary double-ply: each mesh can be stretched to over a foot in length. The body of the net runs on a top- and bottom- string ... attached by slip-knots to two strong side-supports between 3½ feet and 4 feet long, firmly implanted in the ground at a distance of some 16 feet or 18 feet apart ... Three or four intermediate supports ... on front and back, keep the net itself upright; they are made of comparatively light switches, and vary in length so as to stretch the net to a greater extent at the centre than at the sides. The top-string rests on the fork of the most central of these supports ... None of these intermediate supports are fixed into the ground, the weight of the net being sufficient to keep them in position.' 'When not in use, the net is rolled round the two side-supports and carried by a stout cord, looped at either extremity; this cord is held either in the hand or, far more commonly, slung over the shoulder' [ref:roth1901]. See [nets](entry:nets) and [string and twine](entry:string-and-twine).\n\n**The Atherton wallaby cage, *yingkar*** (Roth's Figs. 22–23, on this page) [ref:roth1901]: 'a cylindrical basket from 4 to 4½ feet long, and up to about 1 foot in diameter, with a pointed extremity and enlarged half-funnel shaped mouth', made of split [lawyer cane](entry:lawyer-cane) [ref:roth1901-string]. 'Several such traps, from ten to twelve of them, are put into use on the one expedition by laying them lengthways along the wallaby tracks which have been previously and carefully noted. Each is so placed as to have its funnel or hood up, the open extremity being surrounded with bushes and pieces of bark. The trap proves itself efficacious, owing to the circumstance, pointed out to me by [the hunters], that when a wallaby is hard pressed and makes for shelter it runs with the head down: instead of attempting to jump over, and its attempts are frustrated by the artificial bush work, the animal accordingly forces itself into the trap, the slope of the hood still further guiding its direction, where, tightly jambed, it is soon despatched by a hunter watching in close proximity.'\n\n**Pits (Cape Grafton, Cairns and Atherton)** [ref:roth1901]: 'intended primarily for breaking the animal's leg', the pits 'are covered with cross-sticks, upon which sheaves of grass, soil, etc., are laid so as to make the supposititious level appear flush with and of the same nature as the surrounding surface. The cross-sticks may be tied and fixed in position with twine, as well as supported by uprights from below; the pits I have observed from 6 to 8 feet wide, but not more than 2½ feet deep.'\n\n**Nets elsewhere.** Wallabies 'used to be caught with nets on the Herbert River (according to Lumholtz, the nets were from 15 to 20 feet long, with large mesh), on the lower Tully River, etc.', and Leichhardt saw kangaroo nets 'of *Sterculia* fibre' on the Dawson [ref:roth1901]. In the Boulia district the emu-net rig of forked uprights and a top string (Roth's fig. 226) doubled as a kangaroo net, 'quickly rigged up along their beaten tracks to water' [ref:roth1897]. There is no record of a kangaroo net on the Bloomfield or the Palmer; the Bloomfield traded nets in from the Laura [ref:roth1910b14].\n\n## 7. Dogs and water\n\n**North-West Central districts** [ref:roth1897] [ref:roth1901]: 'in rainy weather, and over boggy soil, they are run down with dogs.' **Palmer and Princess Charlotte Bay**: 'in addition to occasionally hunting them with dogs, kangaroos are speared' [ref:roth1901]. **Lower Tully**: wallabies hunted 'occasionally with dogs' and, in flood, driven 'from off the higher levels into the water' [ref:roth1901]. **Bloomfield**: boys 'had dingo pups as pets while they were being trained for hunting' [ref:anderson1996], and the tree-kangaroo 'was tracked by sight or with the use of dogs' [ref:anderson1996]. The [dingo and dogs](entry:dingo-and-dogs) page has the training. At Karma Waters today, hunting dogs are not allowed on the station [ref:kw-induction].\n\n## 8. The kill, the carcass and the cook\n\n**Tendons first.** On the Pennefather a kangaroo 'on being killed, is usually first of all robbed of its tail-tendons' [ref:roth1901]: cut round the tail at the butt, break the tail back and the long tendons draw out of the sheath. They dry into *[biyal](word:biyal)* [ref:hershberger1982]; the [sinew](entry:sinew) page has the rest.\n\n**The Bloomfield way: break the bones and put it on the fire** [ref:anderson1996]: 'Many meat items, including reptiles, birds, wallabies and other marsupials were cooked straight on the fire after their bodies had been bashed with an axe to break the bones.' The dictionary's **[dindal](word:dindal)** is 'to roast on coals', **[wayjul](word:wayjul)** 'to cook food; to burn something', **[balnji](word:balnji)** 'doing something right; properly with a fire as in cooking', **[jani](word:jani)** 'well cooked, done' and **[kidal](word:kidal)** 'clean an animal, to remove the insides' [ref:hershberger1982]. Nuts that were not 'eaten on their own, were added to wallaby carcasses to add flavour during cooking' [ref:anderson1996].\n\n**The Bloomfield and Cape Bedford earth oven** (*[kurrma](word:kurrma)*) [ref:roth1901] [ref:hershberger1982]:\n\n1. Heat 'a number of stones' well in a fire, then remove them 'together with the ashes'.\n2. Quickly dig 'a hole ... in the position just occupied'.\n3. Line the bottom with 'several kinds of leaves (various species of ginger)', the [wild ginger](entry:wild-ginger) of the scrub.\n4. Lay in 'the pieces of meat, amongst which the hot stones and ashes are packed'.\n5. Cover with 'some more leaves or tea-tree bark, and lastly a layer of earth and stones'.\n\nThe stones were handled with **[bangkal](word:bangkal)**, 'tongs made from voya vine, used in cooking in a kurrma', and the oven could be covered with **[dukul-dukul](word:dukul-dukul)**, the 'broad-leafed bush that can be used as cover for a dirt oven' [ref:hershberger1982]. The [earth oven](entry:earth-oven) page has the whole method.\n\n**The Pennefather whole-roast** (west Cape York) [ref:roth1901]: after the tail-tendons, the kangaroo 'has the main joints of its upper and lower limbs dislocated to enable them to be subsequently folded over and bound together. The tongue is next drawn out and skewered with a wooden splinter over the incisors (required for spoke-shaves) to prevent them being too much damaged by the heat. The belly, incised horizontally, is now freed of its intestines, which are replaced by heated stones. The limbs are finally drawn up to the sides of the body, the whole covered with bark, tied round and round like a bundle, and put into the hot ashes, etc., with which it is well covered over.'\n\n**Carrying home.** A small wallaby went in the men's stretching *Ficus*-twine bag [ref:anderson1996]; the net went home 'rolled round the two side-supports' and slung over the shoulder [ref:roth1901].\n\n## 9. What the record does not say\n\nIt does not say how Western Yalanji people hunted on the Mitchell, what they called the drive, which animals they preferred, or how the meat was shared. It does not describe hunting with firearms, which is what Anderson found in the 1970s: 'for land hunting .22 rifles were almost exclusively used' [ref:anderson1996], and the dictionary's *[mirrba](word:mirrba)*, the woomera, had come to mean 'also rifle' [ref:hershberger1982]. All of that is for the contribution box."
     },
     {
       "id": "safety",
       "heading": "Safety",
-      "body": "**Big kangaroos can hurt you.** Large males may look placid but 'can be aggressive towards people', and both sexes are 'large, powerful, wild animals that are capable of inflicting injury', using their hind legs and tails [ref:qld-kangaroos]. Don't approach them. If one attacks, drop to the ground, curl up or lie face down, and protect your head and neck with your arms [ref:qld-kangaroos].\n\n**Fire.** A grass fire in dry-season woodland can run out of control, and recognised native title rights over some Western Yalanji areas expressly exclude [lighting fires 'for the purpose of hunting'](entry:hunting-with-fire) (see below) [ref:brady2013].\n\n**Condition of the meat.** Follow the old rule. A lean animal in poor condition (*[jirrburr](word:jirrburr)*) is not eaten [ref:hershberger1982]."
+      "body": "**The animal.** 'Whilst many people see large male kangaroos as placid grazing animals. The reality is that they can be aggressive towards people. Although the risk of this happening is very small, we still need to be wary around them.' 'Females with joeys that are old enough to be out of the pouch can also become aggressive if they feel that the presence of a person is a possible threat to their young.' 'Both male and female kangaroos are large, powerful, wild animals that are capable of inflicting injury on people' [ref:qld-kangaroos]. If one comes at you: 'move away as slowly as possible to a safe place. Give a short, deep cough; avoid eye contact; bow your head; and keep your arms close to your body as you move away ... Do not turn your back on the animal or run. Where possible put a barrier between you and the animal such as a tree or fence' [ref:qld-kangaroos]. A wounded animal in the water is the most dangerous of all: a large kangaroo 'may use its forepaws to hold the predator underwater so as to drown it' [ref:wiki-kangaroo].\n\n**Two hunters, one line of fire.** In every recorded drive the spearmen stood at agreed, fixed points and the beaters knew them [ref:anderson1996] [ref:roth1901]. Split up only after you have both agreed where each of you will be, where the animals are expected to go, and that no spear or shot goes toward the other's ground. Settle the signals before you part: **[kawal](word:kawal)** 'a shout, cooee, not far away', **[ngawungkal](word:ngawungkal)** 'a shout from a long ways away', **[kuwimbur](word:kuwimbur)** 'whistle' [ref:hershberger1982].\n\n**The river.** Crossing the Mitchell means crossing crocodile country; read the [freshwater crocodile](entry:freshwater-crocodile) and [saltwater crocodile](entry:saltwater-crocodile) pages before you wade, and cross where the dictionary's **[kima-kima](word:kima-kima)** applies, 'easy crossing of water, water isn't rushing' [ref:hershberger1982].\n\n**Heat.** The hot, late-dry days at Palmerville average about 36 °C on the bad fire-weather days, with humidity around 18% [ref:pbg-cape-york]. Carry water; the animals are in the shade for a reason.\n\n**Fire.** A grass fire in October woodland 'can be severe and widespread' [ref:pbg-cape-york]. A fire larger than 2 m in any direction needs a permit from the local Fire Warden, no fire may be lit during a fire ban, and the occupier is responsible for any fire on the land [ref:qfd] [ref:qfes-pp]. The 2013 and 2026 Western Yalanji determinations expressly exclude lighting fires 'for the purpose of hunting' [ref:brady2013] [ref:fca2026wy]. On the hunting side, nothing in the record uses smoke to hide a hunter's scent: the scent methods were the wind, the ochre and the scent-charged spear [ref:roth1901], and the fires were drives, lit by whole camps in a planned line [ref:roth1901] [ref:anderson1996]. A small fire lit upwind of a mob on the morning sends them the hunter's smoke and the hunter's scent together, and Cook's note that kangaroos were 'so much afraid of fire' [ref:roth1901] says which way they will go.\n\n**Firearms on a pastoral lease.** Under the 2013 determination, hunting with firearms on a pastoral lease may happen only where stock are not present and after the lessee has had enough notice to deal with safety [ref:brady2013]. At Karma Waters the station's induction does not allow weapons or hunting dogs [ref:kw-induction].\n\n**The meat.** Follow the old rule: a lean animal in poor condition, *[jirrburr](word:jirrburr)*, 'will not be eaten' [ref:hershberger1982]. Lean meat dries and toughens fast [ref:wiki-kangaroo-meat]; cook it through, **[jani](word:jani)** 'well cooked, done' [ref:hershberger1982]. Carcasses for the commercial trade are 'bled and eviscerated in the field' and kept cold [ref:wiki-kangaroo-meat], and the bush rule is the same: clean the animal at once, keep it in shade and get it cooked or cold."
     },
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Kangaroos and wallabies are protected native animals in Queensland. It is an offence for others to harm or kill them without a permit, with fines from $431 to $23,700 [ref:qld-kangaroos]. Taking any native wildlife needs a licence or permit [ref:qld-nca].\n\n**Native title.** Section 211 of the *Native Title Act 1993* protects native title holders who hunt for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. The 2007 Eastern Kuku Yalanji determination recognises rights to hunt animals but not for trade or commerce [ref:walker2007]. The 2013 Western Yalanji determinations recognise non-exclusive rights to 'hunt, fish and gather on the land and waters of the area for personal, domestic and non-commercial communal purposes' [ref:brady2013]. The same orders set limits that matter for wallaby hunting. On those areas the fire right is to 'light fires … for domestic purposes including cooking, but not for the purpose of hunting or clearing vegetation'. Hunting with firearms on a pastoral lease may only happen where stock are not present and after giving the lessee enough notice to deal with safety [ref:brady2013].\n\nIn the rainforest, the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back to the Eastern Kuku Yalanji in 2021. They are jointly managed with the Queensland Government until Traditional Owners take over sole management [ref:handback2021]. On Kuku Yalanji country, whether Eastern or Western, permission to come onto country and to hunt comes from the Traditional Owners [ref:walker2007]. Visitors and station guests must ask first.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
+      "body": "**Protected animals.** 'Kangaroos are protected native wildlife under the *Nature Conservation Act 1992*' and 'it is an offence to harm or kill kangaroos without a damage mitigation permit' [ref:qld-kangaroos] [ref:qld-nca]. The commercial harvest is separate: 'kangaroos are harvested by licensed shooters in accordance with a strict code of practice', in 'designated harvest zones' that close 'if numbers approach minimum thresholds' [ref:wiki-kangaroo-meat].\n\n**Native title.** Section 211 of the *Native Title Act 1993* protects native title holders who hunt 'for the purpose of satisfying their personal, domestic or non-commercial communal needs' from the licence and permit rules that bind everyone else [ref:alrc-s211]. The 2007 Eastern Kuku Yalanji determination recognises the right to hunt animals, not for trade or commerce [ref:walker2007]. The 2013 Western Yalanji determinations over country 'in and around the Palmer and Mitchell River systems which lie to the north-west of Mt Carbine' recognise non-exclusive rights to 'hunt, fish and gather on the land and waters of the area for personal, domestic and non-commercial communal purposes', and their fire right is to 'light fires ... for domestic purposes including cooking, but not for the purpose of hunting or clearing vegetation'; hunting with firearms on a pastoral lease is allowed only where stock are not present and after notice to the lessee [ref:brady2013]. The 2026 determination that finished the Cape York claims for the Western Yalanji allows fires 'for cultural, spiritual or domestic purposes including cooking, but not for the purpose of hunting or clearing vegetation' [ref:fca2026wy]. The [law on hunting](entry:law-hunting-and-fishing) page sets out the layers.\n\n**Karma Waters.** The station falls under the 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:kw-about] [ref:wyac2020]. Its published summary recognises rights to use the area and its natural resources for 'social, cultural, economic, religious, spiritual, customary and traditional purposes' and says nothing about fire either way [ref:wyac2020]. The station burns 'most of our country' on a three-to-four-year cycle, depending on the seasons, to clear fuel and control weeds [ref:kw-land]; visitors' campfires are restricted to the campsite, and weapons and hunting dogs are not allowed [ref:kw-induction]. Permission to hunt on this country comes from the Traditional Owners and the station together, and the [Karma Waters guide](place:karma-waters) says how to ask.\n\n**Hunting as it is done.** By the time Anderson did his fieldwork on the Bloomfield in the 1970s, 'for land hunting .22 rifles were almost exclusively used', while 'the stone ovens were often used for cooking meat in the bush camps I stayed in' [ref:anderson1996]. The dictionary records the same shift in one word: *[mirrba](word:mirrba)* is the woomera, 'also rifle' [ref:hershberger1982].\n\n**Fire coming back.** The Western Yalanji say their country has 'suffered from wildfires since traditional burning practices all but ceased in the 20th century', and have begun a savanna burning project [ref:wyac2020]; on the coast the Eastern Kuku Yalanji are rekindling a cultural-burning regime [ref:newsport]. The Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back to the Eastern Kuku Yalanji in 2021 and are jointly managed with the state until Traditional Owners take over [ref:handback2021]. Bennett's tree-kangaroo, 'now that it is rarely hunted by Aboriginal Australians', has 'numbers ... increasing and its range expanding', 'likely because most of its range is now protected under World Heritage legislation' [ref:wiki-bennett].\n\n**The small ones.** The northern bettong is 'endangered', with 'only two known populations in the Mareeba region' and 'an estimated ... 1000 left in the wild'; 'a Recovery Team including government agencies, scientists, traditional owners and volunteer groups' is working on its habitat [ref:wiki-northern-bettong]. The Mareeba rock-wallaby is 'near-threatened' [ref:wiki-rock-wallaby]. A record of either from the upper Mitchell would matter.\n\n**For the contribution box.** The Western Yalanji words for the wallaroo, the rock-wallaby, the whiptail, the grey, the joey and the bettong; which of the dictionary's nine words is which animal; how the two-person drive was and is done on the Mitchell, who waits and who walks; whether hand signs were used; which animals were preferred and in which months; how the meat was shared; what was done with the skin; and any family memory of the old fire drives and the old nets on this side of the range."
     },
     {
       "id": "language",
       "heading": "Language",
-      "body": "Hunting words: *[karangaji](word:karangaji)* 'stalk'; *[balbi](word:balbi)* 'hunt for, search for'; *[mumal](word:mumal)* 'to throw a [spear with a woomera](entry:spear-and-woomera)'; *[mungkil](word:mungkil)* 'spear to kill'; *[kalka](word:kalka)* 'fishing spear, also generic term for spear'; *[mirrba](word:mirrba)* 'woomera'; *[ngalku](word:ngalku)* 'bush fire'; *[kaya](word:kaya)* 'dog'; *[biyal](word:biyal)* 'sinew (especially wallaby tail sinew)'; *[jirrburr](word:jirrburr)* 'an animal in poor condition'; *[kurrma](word:kurrma)* '[earth oven](entry:earth-oven)' [ref:hershberger1982]."
+      "body": "**The animals:** *[kadar](word:kadar)* 'plains wallaby'; *[bimbarrbay](word:bimbarrbay)* 'scrub wallaby'; *[darrba](word:darrba)* 'grass wallaby'; *[jumar](word:jumar)* 'little wallaby'; *[julmbanu](word:julmbanu)* 'grey kangaroo, a darker variety than mayarriji'; *[mayarriji](word:mayarriji)* 'sub-species of grey kangaroo, lighter in colour'; *[nyarrkali](word:nyarrkali)* 'black kangaroo'; *[jayju](word:jayju)* 'kangaroo rat'; *[murral](word:murral)* / *[jarrabina](word:jarrabina)* 'tree kangaroo'; *[minya](word:minya)* 'meat ... generic term for animal' [ref:hershberger1982].\n\n**The hunt:** *[balbi](word:balbi)* 'hunt for, search for'; *[karangaji](word:karangaji)* 'stalk'; *[karangal](word:karangal)* 'sneak around to see, reconnoiter'; *[kangal](word:kangal)* 'chase'; *[kujil](word:kujil)* 'keep, hold, wait for'; *[mungkil](word:mungkil)* 'spear to kill'; *[mumal](word:mumal)* 'to throw a spear with a woomera'; *[kalka](word:kalka)* 'fishing spear, also generic term for spear'; *[mirrba](word:mirrba)* woomera, 'also rifle'; *[mala-minya](word:mala-minya)* 'good hunter'; *[jurru-walay](word:jurru-walay)* 'expert, good shooter or hunter'; *[walay](word:walay)* 'being good at working or getting food, as a good hunter'; *[majarr](word:majarr)* 'lazy, no good for hunting or working'; *[kaya](word:kaya)* 'dog'; *[murramu](word:murramu)* 'dingo' [ref:hershberger1982].\n\n**Quiet and noise:** *[kiray](word:kiray)* 'slow, quiet'; *[janka](word:janka)* 'quiet'; *[muwul](word:muwul)* 'secretly, quietly'; *[durrubu dungay](word:durrubu dungay)* 'walk on tiptoe'; *[mingki-janay](word:mingki-janay)* 'squat, crouch'; *[ngakiji](word:ngakiji)* 'to hide from someone, to run away'; *[nyurra-baka](word:nyurra-baka)* 'people making too much noise'; *[yanja](word:yanja)* 'rustling noise, as the wind blowing through trees or grass'; *[kawal](word:kawal)* 'a shout, cooee, not far away'; *[ngawungkal](word:ngawungkal)* 'a shout from a long ways away'; *[yirrkay](word:yirrkay)* 'to shout, cry out'; *[kuwimbur](word:kuwimbur)* 'whistle' [ref:hershberger1982].\n\n**Senses:** *[milka](word:milka)* 'ear'; *[milkabu nyajil](word:milkabu nyajil)* 'hear'; *[milka-janay](word:milka-janay)* 'listen'; *[nyajil](word:nyajil)* 'to perceive, to hear, to see'; *[nyumal](word:nyumal)* 'to smell or taste'; *[jila](word:jila)* 'beeswax; smell; sweat'; *[jila-burra](word:jila-burra)* 'bad smell'; *[muyar](word:muyar)* 'wind'; *[kumbamu](word:kumbamu)* 'trade wind, fair wind'; *[kubu](word:kubu)* 'smoke' [ref:hershberger1982].\n\n**Fear and movement:** *[jiba-warri](word:jiba-warri)* 'become startled'; *[jiba-yararri](word:jiba-yararri)* 'frightened'; *[yini-yini](word:yini-yini)* 'frightened'; *[yinjilji](word:yinjilji)* 'afraid'; *[yinyil-kangal](word:yinyil-kangal)* 'to frighten'; *[wukal](word:wukal)* 'to frighten by tricking'; *[minday](word:minday)* 'tame, quiet, brave, not afraid'; *[jalamal](word:jalamal)* 'jump, hop, skip'; *[kala-jalamal](word:kala-jalamal)* 'jump over'; *[warri](word:warri)* 'to run, to fly'; *[baral](word:baral)* 'road, path, track, trail' [ref:hershberger1982].\n\n**Time and country:** *[mudu wayjul](word:mudu wayjul)* 'the time just before daylight, pre-dawn'; *[muduwaju](word:muduwaju)* 'dawn, daybreak, early morning'; *[wunkuwingku](word:wunkuwingku)* 'morning'; *[yilay-yilay](word:yilay-yilay)* 'late afternoon, when the sun is in the west'; *[wujurr](word:wujurr)* 'darkness, night'; *[kunarangkal](word:kunarangkal)* 'middle of the night'; *[wabarr](word:wabarr)* 'shade'; *[jikan](word:jikan)* 'grass'; *[duli](word:duli)* 'burnt patch of grass'; *[ngalku](word:ngalku)* 'bush fire'; *[madja](word:madja)* 'scrub, jungle, rain forest'; *[kima-kima](word:kima-kima)* 'easy crossing of water' [ref:hershberger1982].\n\n**The body and the meat:** *[biji](word:biji)* 'tail'; *[banda](word:banda)* 'point of tail'; *[biyal](word:biyal)* 'sinew (especially wallaby tail sinew)'; *[bajibay](word:bajibay)* 'bone'; *[yulban](word:yulban)* 'skin'; *[jiba](word:jiba)* 'liver; insides, guts'; *[julbi](word:julbi)* 'guts'; *[kiru](word:kiru)* 'brains; grease, marrow'; *[wuynkurr](word:wuynkurr)* 'juice of meat'; *[kunukunu](word:kunukunu)* 'fat in food or fatty meat'; *[jilu](word:jilu)* 'an animal that is a little fat'; *[wandul](word:wandul)* 'fat'; *[jirrburr](word:jirrburr)* 'meat with no fat, an animal in poor condition'; *[yulkur](word:yulkur)* 'poor physical condition, lean'; *[kidal](word:kidal)* 'clean an animal, to remove the insides'; *[dindal](word:dindal)* 'to roast on coals'; *[wayjul](word:wayjul)* 'to cook food'; *[jani](word:jani)* 'well cooked, done'; *[kurrma](word:kurrma)* 'earth oven'; *[bangkal](word:bangkal)* 'tongs ... used in cooking in a kurrma' [ref:hershberger1982]."
     }
   ],
   "relatedEntries": [
     "spear-and-woomera",
-    "firestick",
-    "earth-oven",
-    "lawyer-cane",
-    "nets",
     "hunting-with-fire",
+    "tracks-and-signs",
+    "sinew",
+    "cooking-meat",
+    "earth-oven",
+    "dingo-and-dogs",
+    "nets",
     "string-and-twine",
+    "kurrajong",
+    "lawyer-cane",
     "hooks-and-lines",
-    "paperbark"
+    "firestick",
+    "woodland",
+    "waterhole",
+    "seasons",
+    "law-hunting-and-fishing",
+    "red-ochre",
+    "termites-and-ant-beds",
+    "camps-and-firewood",
+    "wild-ginger",
+    "paperbark",
+    "quolls-bandicoots-and-rats",
+    "freshwater-crocodile",
+    "saltwater-crocodile",
+    "games-and-string-figures",
+    "mitchell-river",
+    "cattle-and-horses",
+    "axes-and-adzes"
   ],
   "relatedWords": [
     {
@@ -144,8 +203,20 @@
       "gloss": "stalk"
     },
     {
+      "word": "karangal",
+      "gloss": "sneak around to see, reconnoiter"
+    },
+    {
       "word": "balbi",
       "gloss": "hunt for, search for"
+    },
+    {
+      "word": "kangal",
+      "gloss": "chase"
+    },
+    {
+      "word": "kujil",
+      "gloss": "keep, hold, wait for"
     },
     {
       "word": "mumal",
@@ -160,12 +231,76 @@
       "gloss": "fishing spear, also generic term for spear"
     },
     {
+      "word": "mirrba",
+      "gloss": "woomera; also rifle"
+    },
+    {
+      "word": "mala-minya",
+      "gloss": "good hunter"
+    },
+    {
+      "word": "jurru-walay",
+      "gloss": "expert, good shooter or hunter"
+    },
+    {
+      "word": "muyar",
+      "gloss": "wind"
+    },
+    {
+      "word": "jila",
+      "gloss": "beeswax; smell; sweat"
+    },
+    {
+      "word": "nyumal",
+      "gloss": "to smell or taste"
+    },
+    {
+      "word": "kiray",
+      "gloss": "slow, quiet"
+    },
+    {
+      "word": "muwul",
+      "gloss": "secretly, quietly"
+    },
+    {
+      "word": "durrubu dungay",
+      "gloss": "walk on tiptoe"
+    },
+    {
+      "word": "jiba-warri",
+      "gloss": "become startled"
+    },
+    {
+      "word": "jalamal",
+      "gloss": "jump, hop, skip"
+    },
+    {
+      "word": "baral",
+      "gloss": "road, path, track, trail"
+    },
+    {
       "word": "ngalku",
       "gloss": "bush fire"
     },
     {
-      "word": "biyal",
-      "gloss": "gristle, sinew, string, blood vessel (especially wallaby tail sinew)"
+      "word": "duli",
+      "gloss": "burnt patch of grass"
+    },
+    {
+      "word": "wabarr",
+      "gloss": "shade"
+    },
+    {
+      "word": "muduwaju",
+      "gloss": "dawn, daybreak, early morning"
+    },
+    {
+      "word": "yilay-yilay",
+      "gloss": "late afternoon, when the sun is in the west"
+    },
+    {
+      "word": "biji",
+      "gloss": "tail"
     },
     {
       "word": "jirrburr",
@@ -176,8 +311,20 @@
       "gloss": "fat in food or fatty meat"
     },
     {
+      "word": "kidal",
+      "gloss": "sweep, remove, wipe; clean an animal - to remove the insides"
+    },
+    {
       "word": "kurrma",
       "gloss": "earth oven"
+    },
+    {
+      "word": "kaya",
+      "gloss": "dog"
+    },
+    {
+      "word": "murramu",
+      "gloss": "dingo"
     }
   ],
   "references": [
@@ -187,10 +334,21 @@
       "url": "https://www.sil.org/resources/archives/18038"
     },
     {
+      "id": "ala-macropods",
+      "citation": "Atlas of Living Australia. Occurrence records of the kangaroo family (Macropodidae) and the bettongs (Potoroidae) within 60 km and 30 km of the Karma Waters homestead (16.62° S, 144.60° E), queried 16 October 2026. Within 60 km: agile wallaby 235, common wallaroo 45, Godman's rock-wallaby 35, eastern grey kangaroo 30, whiptail wallaby 28, Mareeba rock-wallaby 27, red-legged pademelon 5, antilopine kangaroo 2, rufous bettong 3, northern bettong 2; no tree-kangaroo, swamp wallaby, nailtail or hare-wallaby records. Within 30 km: six records only (wallaroo 3, agile wallaby 1, antilopine kangaroo 1, Mareeba rock-wallaby 1). Records by month peak in November (116) and October (52), which reflects when people were out recording as much as the animals.",
+      "url": "https://api.ala.org.au/occurrences/occurrences/search?q=family:Macropodidae&lat=-16.62&lon=144.60&radius=60&facets=species&pageSize=0"
+    },
+    {
+      "id": "anderson1996",
+      "citation": "Anderson, C. (1996). Traditional material culture of the Kuku-Yalanji of Bloomfield River, North Queensland. Records of the South Australian Museum 29(1): 63–83. Based on fieldwork at Wujal Wujal in the late 1970s and early 1980s.",
+      "url": "https://archive.org/details/RecordsSouthAus29Sout",
+      "locator": "Hunting (spears, spear-throwers, harpoons); fishing (stupefacients); manufacturing (gums and resins); post-contact bush component"
+    },
+    {
       "id": "roth1901",
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from K. and R. Hislop.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Sect. 3 'Food in season', sect. 6 'Cooking', sect. 31 'Kangaroos', sect. 32 'Wallabies'; fish-hooks section"
+      "locator": "Sect. 3 'Food in season'; sect. 6 'Cooking' (Cape Bedford and Bloomfield earth oven; Pennefather whole-baked kangaroo); sect. 31 'Kangaroos' (Palmer, Musgrave and Princess Charlotte Bay stalking and the scent-charged spare spear; Pennefather ochre, circling, drive and fire; Cape Bedford fire line; Atherton net, Figs. 20–21); sect. 32 'Wallabies' (Atherton cage traps, Figs. 22–23; pits; lower Tully floods and dogs); sect. 36 'Dingoes'; fish-hooks of Princess Charlotte Bay and the Palmer"
     },
     {
       "id": "roth1901-b2",
@@ -202,7 +360,151 @@
       "id": "roth1902",
       "citation": "Roth, W. E. (1902). North Queensland Ethnography, Bulletin No. 4: Games, sports and amusements. Brisbane: Government Printer.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Sect. 4 'Realistic games (animals)'"
+      "locator": "Sect. 4 'Realistic games (animals)': captured animals kept as playthings; the Kalkadun 'coursing' and 'kangaroo-play' ball of hide"
+    },
+    {
+      "id": "roth1908",
+      "citation": "Roth, W. E. (1908). North Queensland Ethnography, Bulletin No. 11: Miscellaneous Papers (tabu and other restrictions). Records of the Australian Museum 7(2).",
+      "url": "https://archive.org/details/biostor-52896",
+      "locator": "Sect. 1 (tabu, Bloomfield River food restrictions, noted only); sect. 3 'Signals on the road; gesture language': the kangaroo and wallaby hand signs of the Pennefather River, Cape Bedford, Princess Charlotte Bay and Rockhampton districts (plates xvii and xix)"
+    },
+    {
+      "id": "wiki-kangaroo",
+      "citation": "Wikipedia. Kangaroo.",
+      "url": "https://en.wikipedia.org/wiki/Kangaroo"
+    },
+    {
+      "id": "wiki-macropodidae",
+      "citation": "Wikipedia. Macropodidae.",
+      "url": "https://en.wikipedia.org/wiki/Macropodidae"
+    },
+    {
+      "id": "nesp-agile",
+      "citation": "Threatened Species Recovery Hub (NESP). Arid Zone Monitoring species profile: Agile wallaby, Notamacropus agilis.",
+      "url": "https://www.nespthreatenedspecies.edu.au/media/ls3jimz1/azm_species-profile_agile-wallaby_v2.pdf"
+    },
+    {
+      "id": "wiki-agile",
+      "citation": "Wikipedia. Agile wallaby.",
+      "url": "https://en.wikipedia.org/wiki/Agile_wallaby"
+    },
+    {
+      "id": "wiki-wallaroo",
+      "citation": "Wikipedia. Common wallaroo.",
+      "url": "https://en.wikipedia.org/wiki/Common_wallaroo"
+    },
+    {
+      "id": "wiki-eastern-grey",
+      "citation": "Wikipedia. Eastern grey kangaroo.",
+      "url": "https://en.wikipedia.org/wiki/Eastern_grey_kangaroo"
+    },
+    {
+      "id": "wiki-whiptail",
+      "citation": "Wikipedia. Whiptail wallaby (pretty-faced wallaby).",
+      "url": "https://en.wikipedia.org/wiki/Whiptail_wallaby"
+    },
+    {
+      "id": "wiki-antilopine",
+      "citation": "Wikipedia. Antilopine kangaroo (antilopine wallaroo).",
+      "url": "https://en.wikipedia.org/wiki/Antilopine_kangaroo"
+    },
+    {
+      "id": "wiki-rock-wallaby",
+      "citation": "Wikipedia. Mareeba rock-wallaby.",
+      "url": "https://en.wikipedia.org/wiki/Mareeba_rock-wallaby"
+    },
+    {
+      "id": "wiki-godman",
+      "citation": "Wikipedia. Godman's rock-wallaby.",
+      "url": "https://en.wikipedia.org/wiki/Godman%27s_rock-wallaby"
+    },
+    {
+      "id": "wiki-pademelon",
+      "citation": "Wikipedia. Red-legged pademelon.",
+      "url": "https://en.wikipedia.org/wiki/Red-legged_pademelon"
+    },
+    {
+      "id": "wiki-rufous-bettong",
+      "citation": "Wikipedia. Rufous bettong (rufous rat-kangaroo).",
+      "url": "https://en.wikipedia.org/wiki/Rufous_bettong"
+    },
+    {
+      "id": "wiki-northern-bettong",
+      "citation": "Wikipedia. Northern bettong.",
+      "url": "https://en.wikipedia.org/wiki/Northern_bettong"
+    },
+    {
+      "id": "wiki-bennett",
+      "citation": "Wikipedia. Bennett's tree-kangaroo.",
+      "url": "https://en.wikipedia.org/wiki/Bennett%27s_tree-kangaroo"
+    },
+    {
+      "id": "wiki-swamp-wallaby",
+      "citation": "Wikipedia. Swamp wallaby.",
+      "url": "https://en.wikipedia.org/wiki/Swamp_wallaby"
+    },
+    {
+      "id": "roth1897",
+      "citation": "Roth, W. E. (1897). Ethnological Studies among the North-West-Central Queensland Aborigines. Brisbane: Government Printer. Sect. 145 (kangaroo hunting in the Boulia district: tracking in the midday heat, dogs in wet weather, nets on the tracks to water, the three-net enclosure, Plate XI fig. 232), sect. 165 (knuckle-bone ornaments), sects. 250–251 (kangaroo-tail tendon on hooks and woomera pegs), and the section on skin water-bags.",
+      "url": "https://archive.org/details/cu31924029890328"
+    },
+    {
+      "id": "wiki-fire-stick",
+      "citation": "Wikipedia. Fire-stick farming.",
+      "url": "https://en.wikipedia.org/wiki/Fire-stick_farming"
+    },
+    {
+      "id": "ala-karma-plants",
+      "citation": "Atlas of Living Australia. Plant occurrence records within 30 km of the Karma Waters homestead (16.62°S, 144.60°E), queried 10 October 2026: 832 records of 266 species.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=kingdom:Plantae&lat=-16.62&lon=144.60&radius=30"
+    },
+    {
+      "id": "re-woodland",
+      "citation": "Queensland Herbarium, Regional Ecosystem 9.11.26 (Einasleigh Uplands): Eucalyptus leptophleba and/or E. cullenii and/or Corymbia clarksoniana +/- E. platyphylla woodland on undulating terrain to rolling hills. Fire management guidelines. Queensland Government Regional Ecosystem Description Database.",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/details/?re=9.11.26"
+    },
+    {
+      "id": "qpws-daintree",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history — Daintree National Park (CYPAL).",
+      "url": "https://parks.qld.gov.au/parks/daintree/about/culture"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+    },
+    {
+      "id": "qld-kangaroos",
+      "citation": "Queensland Government. Living with wildlife: Kangaroos and wallabies.",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/kangaroos"
+    },
+    {
+      "id": "kowanyama2024",
+      "citation": "Hasegawa, C. (21 March 2024). 'Kowanyama shares preserved fire knowledge at forum'. Cape York Weekly.",
+      "url": "https://capeyorkweekly.com.au/kowanyama-shares-preserved-fire-knowledge-at-forum/8636/"
+    },
+    {
+      "id": "pbg-cape-york",
+      "citation": "Queensland Parks and Wildlife Service (2013). Planned Burn Guidelines: Cape York Peninsula Bioregion of Queensland. Department of National Parks, Recreation, Sport and Racing.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0019/151480/pbg-cape-york.pdf",
+      "locator": "'Fire in the monsoonal tropics of the Cape York Peninsula bioregion'; ch. 1–2 season guidance (storm burns)"
+    },
+    {
+      "id": "wiki-kangaroo-meat",
+      "citation": "Wikipedia. Kangaroo meat.",
+      "url": "https://en.wikipedia.org/wiki/Kangaroo_meat"
+    },
+    {
+      "id": "roth1910b14",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and trade. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52863",
+      "locator": "Sect. 3: Cape Bedford exports and imports (kangaroo-tail sinew, kangaroo bones for awls obtained in trade)"
+    },
+    {
+      "id": "roth1904",
+      "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sects. 30 and 41 (kangaroo-tooth scraper and half-jaw tool of the Pennefather and the northern peninsula; Princess Charlotte Bay tooth-drill); sect. 44 (bone stilettos of kangaroo, wallaby or emu)"
     },
     {
       "id": "roth1909",
@@ -211,39 +513,42 @@
       "locator": "Sect. 4 (Princess Charlotte Bay, Cape Bedford, Bloomfield and Middle Palmer spears)"
     },
     {
-      "id": "nesp-agile",
-      "citation": "Threatened Species Recovery Hub (NESP). Arid Zone Monitoring species profile: Agile wallaby, Notamacropus agilis.",
-      "url": "https://www.nespthreatenedspecies.edu.au/media/ls3jimz1/azm_species-profile_agile-wallaby_v2.pdf"
+      "id": "roth1910b15",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 15: Decoration, deformation, and clothing. Records of the Australian Museum 8(1).",
+      "url": "https://archive.org/details/biostor-52864",
+      "locator": "Opossum and kangaroo twine necklaces; the kangaroo-twine waist-belt of the Middle Palmer and Tully Rivers; the Bloomfield women's fringed circlet overcast with kangaroo- or opossum-hair twine; Pennefather kangaroo-skin ornament"
     },
     {
-      "id": "wtma-treeroo",
-      "citation": "Wet Tropics Management Authority. Tree-kangaroos.",
-      "url": "https://www.wettropics.gov.au/tree-kangaroos"
+      "id": "roth1901-string",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Plant list: Calamus australis split for wallaby and fish traps (Cairns district); Sterculia quadrifida fibre-twine for the large kangaroo-nets at Atherton"
     },
     {
-      "id": "qpws-daintree",
-      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history — Daintree National Park (CYPAL).",
-      "url": "https://parks.qld.gov.au/parks/daintree/about/culture"
+      "id": "kw-induction",
+      "citation": "Karma Waters Station. Induction, waiver and indemnity form (updated 9 June 2023).",
+      "url": "https://www.karmawatersstation.com/uploads/3/1/9/2/31929385/induction_waiver_and_indemnity.pdf"
     },
     {
-      "id": "ala",
-      "citation": "Atlas of Living Australia. Occurrence records for Notamacropus agilis, Macropus giganteus, Osphranter robustus and Osphranter antilopinus within 60 km of the Mitchell River west of Mt Carbine, queried 5 October 2026.",
-      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Notamacropus%20agilis%22"
+      "id": "qfd",
+      "citation": "Queensland Fire Department. Fire permits: lighting fires in Queensland.",
+      "url": "https://fire.qld.gov.au/safety-education/using-fire-outdoors/lighting-fires-in-queensland"
     },
     {
-      "id": "qld-kangaroos",
-      "citation": "Queensland Government. Living with wildlife: Kangaroos and wallabies.",
-      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/kangaroos"
+      "id": "qfes-pp",
+      "citation": "Queensland Fire and Emergency Services (2021). Queensland Primary Producers: 'Fire, it's a responsibility' (information sheet).",
+      "url": "https://www.fire.qld.gov.au/sites/default/files/2021-05/PrimaryProducersInformationSheet.pdf"
     },
     {
-      "id": "brady2013",
-      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
-      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958"
+      "id": "fca2026wy",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 42) (Western Yalanji determination) [2026] FCA 1084 (Mortimer CJ, 14 August 2026).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2026/2026fca1084",
+      "locator": "Order on native title rights (fires)"
     },
     {
-      "id": "walker2007",
-      "citation": "Walker on behalf of the Eastern Kuku Yalanji People v State of Queensland [2007] FCA 1907 (Federal Court of Australia, 9 December 2007).",
-      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2007/2007fca1907"
+      "id": "qld-nca",
+      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
+      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
     },
     {
       "id": "alrc-s211",
@@ -251,14 +556,14 @@
       "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
     },
     {
-      "id": "handback2021",
-      "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
-      "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+      "id": "walker2007",
+      "citation": "Walker on behalf of the Eastern Kuku Yalanji People v State of Queensland [2007] FCA 1907 (Federal Court of Australia, 9 December 2007).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2007/2007fca1907"
     },
     {
-      "id": "qld-nca",
-      "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
-      "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+      "id": "kw-about",
+      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
     },
     {
       "id": "wyac2020",
@@ -267,33 +572,23 @@
       "locator": "Western Yalanji story; historical timeline (Table 1); Native Title Determinations 1–4; ILUAs (Table 4); pastoral stations (Table 5); heritage sites"
     },
     {
-      "id": "kw-about",
-      "citation": "Karma Waters Station. About: location, native title (web page, accessed 5 October 2026).",
-      "url": "https://www.karmawatersstation.com/about.html"
+      "id": "kw-land",
+      "citation": "Karma Waters Station. Land management (web page, accessed 6 October 2026).",
+      "url": "https://www.karmawatersstation.com/land-management.html"
     },
     {
-      "id": "ala-karma-60",
-      "citation": "Atlas of Living Australia. Occurrence records within 60 km of the Karma Waters homestead (16.62° S, 144.60° E), species counts for Animalia (accessed 10 October 2026).",
-      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&lat=-16.62&lon=144.60&radius=60"
+      "id": "newsport",
+      "citation": "Newsport (July 2026). Kuku Yalanji to rekindle cultural-burning regime.",
+      "url": "https://www.newsport.com.au/2026/july/kuku-yalanji-to-rekindle-cultural-burning-regime?type=55423"
     },
     {
-      "id": "wiki-rock-wallaby",
-      "citation": "Wikipedia. Mareeba rock-wallaby.",
-      "url": "https://en.wikipedia.org/wiki/Mareeba_rock-wallaby"
-    },
-    {
-      "id": "wiki-antilopine",
-      "citation": "Wikipedia. Antilopine kangaroo (antilopine wallaroo).",
-      "url": "https://en.wikipedia.org/wiki/Antilopine_kangaroo"
-    },
-    {
-      "id": "wiki-wallaroo",
-      "citation": "Wikipedia. Common wallaroo.",
-      "url": "https://en.wikipedia.org/wiki/Common_wallaroo"
+      "id": "handback2021",
+      "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
+      "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-16"
 }
