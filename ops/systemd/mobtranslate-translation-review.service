@@ -7,7 +7,7 @@ Wants=network-online.target
 Type=oneshot
 User=ajax
 Group=ajax
-WorkingDirectory=/mnt/donto-data/workspace/mobtranslate-anindilyakwa-deploy/apps/web
+WorkingDirectory=/mnt/donto-data/workspace/mobtranslate.com/apps/web
 EnvironmentFile=/opt/mobtranslate/web.env
 Environment=NODE_ENV=production
 ExecStart=/usr/bin/pnpm exec tsx scripts/translation-review-cycle.ts
