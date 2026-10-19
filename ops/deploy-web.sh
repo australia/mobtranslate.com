@@ -14,6 +14,8 @@ SERVICE_USER="${MOBTRANSLATE_SERVICE_USER:-ajax}"
 SERVICE_GROUP="${MOBTRANSLATE_SERVICE_GROUP:-ajax}"
 UNIT_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-web.service"
 UNIT_TARGET="/etc/systemd/system/mobtranslate-web.service"
+HYBRID_CONF_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-web-translate-v2.conf"
+HYBRID_CONF_TARGET="/etc/systemd/system/mobtranslate-web.service.d/translate-v2.conf"
 PRUNE_SERVICE_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-operational-prune.service"
 PRUNE_SERVICE_TARGET="/etc/systemd/system/mobtranslate-operational-prune.service"
 PRUNE_TIMER_SOURCE="$REPO_ROOT/ops/systemd/mobtranslate-operational-prune.timer"
@@ -62,7 +64,10 @@ for command in git pnpm node rsync curl sha256sum tar find flock sort xargs ss; 
   command -v "$command" >/dev/null || { echo "Missing required command: $command" >&2; exit 1; }
 done
 
-[[ -d "$REPO_ROOT/.git" ]] || { echo "Repository not found: $REPO_ROOT" >&2; exit 1; }
+git -C "$REPO_ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+  echo "Repository not found: $REPO_ROOT" >&2
+  exit 1
+}
 [[ -x "$RELEASE_PRUNE_SCRIPT" && -x "$RELEASE_PRUNE_TEST" \
   && -x "$RELEASE_VERIFY_SCRIPT" && -x "$RELEASE_VERIFY_TEST" ]] || {
   echo "Release integrity/retention scripts are missing or not executable." >&2
@@ -71,6 +76,10 @@ done
 [[ -x "$HYBRID_WARM_SCRIPT_SOURCE" && -x "$HYBRID_WARM_TEST" \
   && -f "$HYBRID_WARM_SERVICE_SOURCE" && -f "$HYBRID_WARM_TIMER_SOURCE" ]] || {
   echo "Hybrid model warm-check files are missing or not executable." >&2
+  exit 1
+}
+[[ -f "$HYBRID_CONF_SOURCE" ]] || {
+  echo "Hybrid model environment contract is missing: $HYBRID_CONF_SOURCE" >&2
   exit 1
 }
 [[ ! -e "$FINAL_RELEASE" && ! -e "$STAGING" ]] || {
@@ -287,6 +296,13 @@ EXISTING_PREVIOUS=""
 if [[ -L "$PREVIOUS" ]]; then EXISTING_PREVIOUS="$(readlink -f "$PREVIOUS" || true)"; fi
 LEGACY_UNIT_BACKUP="$FINAL_RELEASE/metadata/previous-systemd-unit.service"
 if [[ -f "$UNIT_TARGET" ]]; then sudo cat "$UNIT_TARGET" > "$LEGACY_UNIT_BACKUP"; fi
+HYBRID_CONF_BACKUP="$FINAL_RELEASE/metadata/previous-hybrid-model.conf"
+HYBRID_CONF_ABSENT="$FINAL_RELEASE/metadata/previous-hybrid-model.absent"
+if [[ -f "$HYBRID_CONF_TARGET" ]]; then
+  sudo cat "$HYBRID_CONF_TARGET" > "$HYBRID_CONF_BACKUP"
+else
+  : > "$HYBRID_CONF_ABSENT"
+fi
 
 atomic_link() {
   local target="$1"
@@ -298,6 +314,8 @@ atomic_link() {
 
 atomic_link "$FINAL_RELEASE" "$CURRENT"
 sudo install -o root -g root -m 0644 "$UNIT_SOURCE" "$UNIT_TARGET"
+sudo install -d -o root -g root -m 0755 "$(dirname "$HYBRID_CONF_TARGET")"
+sudo install -o root -g root -m 0644 "$HYBRID_CONF_SOURCE" "$HYBRID_CONF_TARGET"
 sudo install -o root -g root -m 0644 "$PRUNE_SERVICE_SOURCE" "$PRUNE_SERVICE_TARGET"
 sudo install -o root -g root -m 0644 "$PRUNE_TIMER_SOURCE" "$PRUNE_TIMER_TARGET"
 sudo install -o root -g root -m 0755 "$HYBRID_WARM_SCRIPT_SOURCE" "$HYBRID_WARM_SCRIPT_TARGET"
@@ -331,8 +349,13 @@ restore_previous_runtime() {
     atomic_link "$OLD_RELEASE" "$CURRENT"
   elif [[ -s "$LEGACY_UNIT_BACKUP" ]]; then
     sudo install -o root -g root -m 0644 "$LEGACY_UNIT_BACKUP" "$UNIT_TARGET"
-    sudo systemctl daemon-reload
   fi
+  if [[ -s "$HYBRID_CONF_BACKUP" ]]; then
+    sudo install -o root -g root -m 0644 "$HYBRID_CONF_BACKUP" "$HYBRID_CONF_TARGET"
+  elif [[ -f "$HYBRID_CONF_ABSENT" ]]; then
+    sudo rm -f "$HYBRID_CONF_TARGET"
+  fi
+  sudo systemctl daemon-reload
   sudo systemctl restart "$SERVICE" || true
 }
 
@@ -343,7 +366,13 @@ if [[ "$production_ready" -ne 1 ]]; then
 fi
 
 public_ready=0
-DOWNLOAD_PROBE_FILE="$(find "$WEB_ROOT/public/downloads" -maxdepth 1 -type f -name '*.apk' -printf '%f\n' | LC_ALL=C sort | head -1)"
+DOWNLOAD_PROBE_ROOT="${MOBTRANSLATE_DOWNLOAD_PROBE_ROOT:-$WEB_ROOT/public/downloads}"
+if [[ ! -d "$DOWNLOAD_PROBE_ROOT" ]]; then
+  echo "Download probe root does not exist: $DOWNLOAD_PROBE_ROOT" >&2
+  restore_previous_runtime
+  exit 1
+fi
+DOWNLOAD_PROBE_FILE="$(find "$DOWNLOAD_PROBE_ROOT" -maxdepth 1 -type f -name '*.apk' -printf '%f\n' | LC_ALL=C sort | head -1)"
 for _ in $(seq 1 30); do
   download_ready=1
   if [[ -n "$DOWNLOAD_PROBE_FILE" ]] \

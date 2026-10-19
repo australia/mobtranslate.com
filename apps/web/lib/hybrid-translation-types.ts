@@ -18,6 +18,13 @@ export interface HybridReviewEvidence {
 
 export type TranslationCacheState = 'hit' | 'miss' | 'coalesced' | 'disabled';
 
+export interface ControlledTranslationInference {
+  contractId: string;
+  constructionId: string;
+  modelTemplate: string;
+  dictionaryHeadword: string;
+}
+
 export interface HybridDraftInference {
   route: 'huggingface_draft';
   validation: 'unverified_research_preview';
@@ -37,6 +44,7 @@ export interface HybridDraftInference {
     queueMs: number;
     sourceUrl: string;
   };
+  controlled?: ControlledTranslationInference;
   cache: {
     draft: TranslationCacheState;
   };
@@ -61,6 +69,7 @@ export interface HybridTranslationInference {
     queueMs: number;
     sourceUrl: string;
   };
+  controlled?: ControlledTranslationInference;
   review: {
     provider: 'openai';
     modelId: string;

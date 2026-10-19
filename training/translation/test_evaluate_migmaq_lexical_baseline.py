@@ -6,13 +6,18 @@ from types import SimpleNamespace
 import pytest
 
 from evaluate_migmaq_lexical_baseline import (
+    benchmark_row_id,
     classify_edit,
     edit_distance,
+    generated_token_rows,
+    load_resource_samples,
     metric_report,
     normalize,
     normalized_references,
     restore_serialized_nllb_input_aliases,
+    stable_manifest_identity,
     tokenizer_bundle_identity,
+    validate_source_language_prefix,
 )
 
 
@@ -29,6 +34,13 @@ def test_edit_distance_handles_codepoint_sequences() -> None:
 def test_references_are_deduplicated_after_comparison_normalization() -> None:
     row = {"id": "a", "accepted_references": ["Lnu\u2019k", "lnu'k"]}
     assert normalized_references(row) == ["lnu'k"]
+
+
+def test_language_neutral_camel_case_benchmark_fields_are_supported() -> None:
+    row = {"rowId": "wbv-row-1", "acceptedReferences": ["Ngaya", "ngaya"]}
+
+    assert benchmark_row_id(row) == "wbv-row-1"
+    assert normalized_references(row) == ["ngaya"]
 
 
 @pytest.mark.parametrize(
@@ -100,6 +112,80 @@ def test_tokenizer_bundle_identity_fails_without_tokenizer_payload(tmp_path: Pat
     (tmp_path / "tokenizer_config.json").write_text("{}\n", encoding="utf-8")
     with pytest.raises(FileNotFoundError, match="no tokenizer.json"):
         tokenizer_bundle_identity(tmp_path)
+
+
+def test_resumed_environment_identity_ignores_time_and_process_pointers_only() -> None:
+    first = {
+        "created_at": "first",
+        "dtype": "torch.float32",
+        "embedding_alias_audit": {"pointers": {"shared": 123}, "tied": True},
+    }
+    second = {
+        "created_at": "second",
+        "dtype": "torch.float32",
+        "embedding_alias_audit": {"pointers": {"shared": 999}, "tied": True},
+    }
+    assert stable_manifest_identity(first) == stable_manifest_identity(second)
+
+    second["dtype"] = "torch.bfloat16"
+    assert stable_manifest_identity(first) != stable_manifest_identity(second)
+
+
+def test_resource_samples_must_not_run_ahead_of_durable_predictions(tmp_path: Path) -> None:
+    path = tmp_path / "resource-samples.jsonl"
+    path.write_text(
+        '{"completed_rows": 0}\n{"completed_rows": 4}\n',
+        encoding="utf-8",
+    )
+
+    assert len(load_resource_samples(path, resume=True, completed_rows=4)) == 2
+    with pytest.raises(ValueError, match="ahead of the durable prediction prefix"):
+        load_resource_samples(path, resume=True, completed_rows=3)
+
+
+class _Rows:
+    def __init__(self, values):
+        self.values = values
+
+    def tolist(self):
+        return self.values
+
+    def __iter__(self):
+        return iter(_Rows(row) for row in self.values)
+
+
+def test_nllb_generation_prefix_is_enforced_and_trailing_padding_removed() -> None:
+    generated = _Rows([[2, 256204, 17, 2, 1, 1], [2, 256204, 33, 2, 1, 1]])
+
+    assert generated_token_rows(
+        generated,
+        decoder_start_token_id=2,
+        target_token_id=256204,
+        pad_token_id=1,
+    ) == [[2, 256204, 17, 2], [2, 256204, 33, 2]]
+
+    with pytest.raises(ValueError, match="decoder/target prefix"):
+        generated_token_rows(
+            _Rows([[2, 256047, 17, 2]]),
+            decoder_start_token_id=2,
+            target_token_id=256204,
+            pad_token_id=1,
+        )
+
+
+def test_nllb_source_language_prefix_is_enforced() -> None:
+    assert validate_source_language_prefix(
+        _Rows([[256047, 10, 2, 1], [256047, 11, 12, 2]]),
+        _Rows([[1, 1, 1, 0], [1, 1, 1, 1]]),
+        256047,
+    ) == [3, 4]
+
+    with pytest.raises(ValueError, match="source token"):
+        validate_source_language_prefix(
+            _Rows([[10, 256047, 2]]),
+            _Rows([[1, 1, 1]]),
+            256047,
+        )
 
 
 def _fake_serialized_nllb(torch, *, divergent: bool = False):

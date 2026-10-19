@@ -1,13 +1,23 @@
 // @vitest-environment node
 
 import { createHash } from 'node:crypto';
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import {
+  mkdtempSync,
+  mkdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   assertArtifactUpdateAllowed,
+  BenchmarkSuiteSchema,
+  ExperimentSchema,
   loadProgramBundle,
+  resolveBenchmarkSuiteRowCount,
+  sha256File,
 } from '../../scripts/lib/language-program-registry';
 
 const temporaryRoots: string[] = [];
@@ -152,6 +162,17 @@ afterEach(() => {
 });
 
 describe('language program registry loader', () => {
+  it('hashes artifacts incrementally across multiple read chunks', () => {
+    const root = fixtureRoot();
+    const artifactPath = path.join(root, 'multi-chunk.bin');
+    const payload = Buffer.alloc(2 * 1024 * 1024 + 17, 0x5a);
+    writeFileSync(artifactPath, payload);
+
+    expect(sha256File(artifactPath)).toBe(
+      createHash('sha256').update(payload).digest('hex'),
+    );
+  });
+
   it('validates identities, evidence links, hashes, and JSONL row counts', () => {
     const bundle = loadProgramBundle(fixtureRoot());
     expect(bundle.charter.program_id).toBe('fixture-v1');
@@ -167,15 +188,51 @@ describe('language program registry loader', () => {
   });
 });
 
+describe('benchmark suite population accounting', () => {
+  const suite = BenchmarkSuiteSchema.parse({
+    suite_key: 'fixture-suite-v1',
+    capability: 'lexical_reconstruction',
+    role: 'regression',
+    sampling_unit: 'one fixture row',
+    row_count: 1608,
+    artifact_key: 'fixture-manifest',
+    sealed: false,
+    status: 'active',
+    metric_contract: {},
+    claim_limit: 'Fixture only.',
+  });
+
+  it('uses the suite population instead of a null manifest row count', () => {
+    expect(resolveBenchmarkSuiteRowCount(suite, null)).toBe(1608);
+  });
+
+  it('retains the legacy artifact fallback when no suite count is declared', () => {
+    expect(
+      resolveBenchmarkSuiteRowCount(
+        BenchmarkSuiteSchema.parse({ ...suite, row_count: undefined }),
+        37,
+      ),
+    ).toBe(37);
+  });
+});
+
 describe('language program artifact identity policy', () => {
-  const fixedLocation = { relativePath: 'RUN-LOG.md', externalUri: null };
+  const fixedIdentity = {
+    relativePath: 'RUN-LOG.md',
+    externalUri: null,
+    stageKey: 'identity',
+    sourceId: null,
+    artifactKind: 'canonical_work_log',
+    mediaType: 'text/markdown',
+    generatedBy: 'program operator',
+  };
 
   it('permits content revisions for an explicitly mutable control artifact', () => {
     expect(() =>
       assertArtifactUpdateAllowed(
         'run-log',
-        { ...fixedLocation, sha256: 'a'.repeat(64), immutable: false },
-        { ...fixedLocation, sha256: 'b'.repeat(64), immutable: false },
+        { ...fixedIdentity, sha256: 'a'.repeat(64), immutable: false },
+        { ...fixedIdentity, sha256: 'b'.repeat(64), immutable: false },
       ),
     ).not.toThrow();
   });
@@ -184,8 +241,8 @@ describe('language program artifact identity policy', () => {
     expect(() =>
       assertArtifactUpdateAllowed(
         'frozen-benchmark',
-        { ...fixedLocation, sha256: 'a'.repeat(64), immutable: true },
-        { ...fixedLocation, sha256: 'b'.repeat(64), immutable: true },
+        { ...fixedIdentity, sha256: 'a'.repeat(64), immutable: true },
+        { ...fixedIdentity, sha256: 'b'.repeat(64), immutable: true },
       ),
     ).toThrow(/immutable artifact identity changed/);
   });
@@ -194,10 +251,10 @@ describe('language program artifact identity policy', () => {
     expect(() =>
       assertArtifactUpdateAllowed(
         'run-log',
-        { ...fixedLocation, sha256: 'a'.repeat(64), immutable: false },
+        { ...fixedIdentity, sha256: 'a'.repeat(64), immutable: false },
         {
+          ...fixedIdentity,
           relativePath: 'moved.md',
-          externalUri: null,
           sha256: 'a'.repeat(64),
           immutable: false,
         },
@@ -206,9 +263,83 @@ describe('language program artifact identity policy', () => {
     expect(() =>
       assertArtifactUpdateAllowed(
         'run-log',
-        { ...fixedLocation, sha256: 'a'.repeat(64), immutable: false },
-        { ...fixedLocation, sha256: 'a'.repeat(64), immutable: true },
+        { ...fixedIdentity, sha256: 'a'.repeat(64), immutable: false },
+        { ...fixedIdentity, sha256: 'a'.repeat(64), immutable: true },
       ),
     ).toThrow(/artifact mutability changed/);
+  });
+
+  it.each([
+    ['stageKey', 'benchmarks'],
+    ['sourceId', 'source-uuid'],
+    ['artifactKind', 'different_kind'],
+    ['mediaType', 'application/json'],
+    ['generatedBy', 'different generator'],
+  ] as const)('rejects a changed %s identity field', (field, value) => {
+    expect(() =>
+      assertArtifactUpdateAllowed(
+        'run-log',
+        { ...fixedIdentity, sha256: 'a'.repeat(64), immutable: false },
+        {
+          ...fixedIdentity,
+          [field]: value,
+          sha256: 'b'.repeat(64),
+          immutable: false,
+        },
+      ),
+    ).toThrow(/artifact identity changed/);
+  });
+});
+
+describe('language program experiment lifecycle', () => {
+  const experiment = {
+    experiment_key: 'experiment-1',
+    title: 'Experiment',
+    hypothesis: 'A frozen hypothesis',
+    controlled_variable: 'One controlled variable',
+    status: 'stopped' as const,
+    paid_compute_authorized: false,
+  };
+
+  it('requires a terminal timestamp for a stopped experiment', () => {
+    expect(ExperimentSchema.safeParse(experiment).success).toBe(false);
+    expect(
+      ExperimentSchema.safeParse({
+        ...experiment,
+        completed_at: '2026-07-22T14:37:49Z',
+      }).success,
+    ).toBe(true);
+  });
+
+  it('mirrors the database authorization rule for running experiments', () => {
+    expect(
+      ExperimentSchema.safeParse({ ...experiment, status: 'running' }).success,
+    ).toBe(false);
+    expect(
+      ExperimentSchema.safeParse({
+        ...experiment,
+        status: 'running',
+        paid_compute_authorized: true,
+      }).success,
+    ).toBe(true);
+  });
+});
+
+describe('language program experiment sync', () => {
+  it('refreshes immutable contract pointers when the registry supersedes a kit', () => {
+    const syncSource = readFileSync(
+      path.join(process.cwd(), 'scripts/sync-language-program.ts'),
+      'utf8',
+    );
+
+    expect(syncSource).toContain(
+      'preregistration_artifact_id = EXCLUDED.preregistration_artifact_id',
+    );
+    expect(syncSource).toContain(
+      'run_contract_artifact_id = EXCLUDED.run_contract_artifact_id',
+    );
+    expect(syncSource).toContain(
+      'controlled_variable = EXCLUDED.controlled_variable',
+    );
   });
 });

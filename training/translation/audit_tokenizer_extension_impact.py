@@ -13,17 +13,39 @@ import statistics
 import tempfile
 from typing import Any, Iterable
 
+TOKENIZER_IDENTITY_FILES = (
+    "added_tokens.json",
+    "sentencepiece.bpe.model",
+    "special_tokens_map.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+)
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-tokenizer", type=Path, required=True)
     parser.add_argument("--candidate-tokenizer", type=Path, required=True)
-    parser.add_argument("--corpus", action="append", required=True, metavar="LABEL=PATH")
+    parser.add_argument(
+        "--corpus", action="append", required=True, metavar="LABEL=PATH"
+    )
     parser.add_argument("--direction", default="eng-gvn")
     parser.add_argument("--task-field", default="pair_kind")
     parser.add_argument("--exclude-task", action="append", default=[])
+    parser.add_argument(
+        "--expected-rows",
+        action="append",
+        default=[],
+        metavar="LABEL=COUNT",
+        help="Require the accepted row count for each declared corpus label.",
+    )
+    parser.add_argument(
+        "--created-at",
+        help="Fixed ISO-8601 timestamp for reproducible output; defaults to now.",
+    )
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--row-output", type=Path, required=True)
+    parser.add_argument("--checksum-output", type=Path)
     parser.add_argument("--top-new-pieces", type=int, default=100)
     return parser.parse_args()
 
@@ -52,6 +74,67 @@ def parse_labeled_paths(values: list[str]) -> dict[str, Path]:
     return result
 
 
+def parse_expected_rows(values: list[str]) -> dict[str, int]:
+    result: dict[str, int] = {}
+    for value in values:
+        label, separator, raw_count = value.partition("=")
+        label = label.strip()
+        if not separator or not label or not raw_count.strip():
+            raise ValueError(
+                f"invalid expected row count {value!r}; expected LABEL=COUNT"
+            )
+        if label in result:
+            raise ValueError(f"duplicate expected row label: {label}")
+        try:
+            count = int(raw_count)
+        except ValueError as error:
+            raise ValueError(f"invalid expected row count {value!r}") from error
+        if count < 0:
+            raise ValueError(f"expected row count must be nonnegative: {value!r}")
+        result[label] = count
+    return result
+
+
+def normalized_created_at(value: str | None) -> str:
+    if value is None:
+        return datetime.now(timezone.utc).isoformat()
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        raise ValueError("--created-at must include a UTC offset")
+    return parsed.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def tokenizer_file_manifest(root: Path) -> list[dict[str, Any]]:
+    root = root.resolve()
+    files = []
+    for name in TOKENIZER_IDENTITY_FILES:
+        path = root / name
+        if path.is_file():
+            files.append(
+                {
+                    "path": name,
+                    "sha256": sha256(path),
+                    "bytes": path.stat().st_size,
+                }
+            )
+    if not files:
+        raise ValueError(f"no tokenizer identity files found in {root}")
+    return files
+
+
+def render_checksum_manifest(paths: list[Path]) -> str:
+    parents = {path.resolve().parent for path in paths}
+    if len(parents) != 1:
+        raise ValueError("checksum outputs must share one directory")
+    names = [path.name for path in paths]
+    if len(set(names)) != len(names):
+        raise ValueError("checksum outputs must have unique basenames")
+    return "".join(
+        f"{sha256(path)}  {path.name}\n"
+        for path in sorted(paths, key=lambda item: item.name)
+    )
+
+
 def percentile(values: list[int], fraction: float) -> float | None:
     if not values:
         return None
@@ -65,7 +148,7 @@ def normalized_whitespace(value: str) -> str:
 
 
 def text_views(row: dict[str, Any]) -> Iterable[tuple[str, str, int]]:
-    conditioned = str(row.get("input_text") or "").strip()
+    conditioned = str(row.get("input_text") or row.get("inputText") or "").strip()
     if conditioned:
         yield "source_conditioned", conditioned, 0
     unconditioned = str(row.get("unconditioned_input_text") or "").strip()
@@ -74,7 +157,13 @@ def text_views(row: dict[str, Any]) -> Iterable[tuple[str, str, int]]:
     selected = str(row.get("output_text") or row.get("reference") or "").strip()
     if selected:
         yield "target_selected", selected, 0
-    references = [str(value).strip() for value in row.get("accepted_references") or [] if str(value).strip()]
+    references = [
+        str(value).strip()
+        for value in (
+            row.get("accepted_references") or row.get("acceptedReferences") or []
+        )
+        if str(value).strip()
+    ]
     if not references and selected:
         references = [selected]
     for index, reference in enumerate(dict.fromkeys(references)):
@@ -96,23 +185,43 @@ def summarize(records: list[dict[str, Any]], top_new_pieces: int) -> dict[str, A
         "whitespace_units": whitespace_units,
         "base_tokens": base_total,
         "candidate_tokens": candidate_total,
-        "base_tokens_per_whitespace_unit": base_total / whitespace_units if whitespace_units else None,
-        "candidate_tokens_per_whitespace_unit": candidate_total / whitespace_units if whitespace_units else None,
+        "base_tokens_per_whitespace_unit": base_total / whitespace_units
+        if whitespace_units
+        else None,
+        "candidate_tokens_per_whitespace_unit": candidate_total / whitespace_units
+        if whitespace_units
+        else None,
         "relative_token_change": (
             (candidate_total - base_total) / base_total if base_total else None
         ),
-        "base_token_count_median": statistics.median(base_counts) if base_counts else None,
-        "candidate_token_count_median": statistics.median(candidate_counts) if candidate_counts else None,
+        "base_token_count_median": statistics.median(base_counts)
+        if base_counts
+        else None,
+        "candidate_token_count_median": statistics.median(candidate_counts)
+        if candidate_counts
+        else None,
         "base_token_count_p90": percentile(base_counts, 0.90),
         "candidate_token_count_p90": percentile(candidate_counts, 0.90),
         "base_token_count_p99": percentile(base_counts, 0.99),
         "candidate_token_count_p99": percentile(candidate_counts, 0.99),
-        "tokenization_changed_rows": sum(bool(record["tokenization_changed"]) for record in records),
-        "candidate_new_piece_rows": sum(bool(record["new_candidate_pieces"]) for record in records),
-        "candidate_unknown_rows": sum(bool(record["candidate_has_unknown"]) for record in records),
-        "base_unknown_rows": sum(bool(record["base_has_unknown"]) for record in records),
-        "candidate_round_trip_failures": sum(not bool(record["candidate_round_trip_exact"]) for record in records),
-        "base_round_trip_failures": sum(not bool(record["base_round_trip_exact"]) for record in records),
+        "tokenization_changed_rows": sum(
+            bool(record["tokenization_changed"]) for record in records
+        ),
+        "candidate_new_piece_rows": sum(
+            bool(record["new_candidate_pieces"]) for record in records
+        ),
+        "candidate_unknown_rows": sum(
+            bool(record["candidate_has_unknown"]) for record in records
+        ),
+        "base_unknown_rows": sum(
+            bool(record["base_has_unknown"]) for record in records
+        ),
+        "candidate_round_trip_failures": sum(
+            not bool(record["candidate_round_trip_exact"]) for record in records
+        ),
+        "base_round_trip_failures": sum(
+            not bool(record["base_round_trip_exact"]) for record in records
+        ),
         "base_one_token": sum(count == 1 for count in base_counts),
         "candidate_one_token": sum(count == 1 for count in candidate_counts),
         "base_five_plus_tokens": sum(count >= 5 for count in base_counts),
@@ -128,7 +237,9 @@ def write_atomic(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if path.exists():
         raise FileExistsError(f"refusing existing output: {path}")
-    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=path.parent, delete=False) as handle:
+    with tempfile.NamedTemporaryFile(
+        "w", encoding="utf-8", dir=path.parent, delete=False
+    ) as handle:
         temporary = Path(handle.name)
         handle.write(content)
     temporary.chmod(0o664)
@@ -143,7 +254,16 @@ def main() -> None:
     from transformers import AutoTokenizer
 
     corpora = parse_labeled_paths(args.corpus)
-    base = AutoTokenizer.from_pretrained(str(args.base_tokenizer), use_fast=False, local_files_only=True)
+    expected_rows = parse_expected_rows(args.expected_rows)
+    if expected_rows and set(expected_rows) != set(corpora):
+        raise ValueError(
+            "--expected-rows labels must exactly match --corpus labels; "
+            f"expected={sorted(expected_rows)}, corpora={sorted(corpora)}"
+        )
+    created_at = normalized_created_at(args.created_at)
+    base = AutoTokenizer.from_pretrained(
+        str(args.base_tokenizer), use_fast=False, local_files_only=True
+    )
     candidate = AutoTokenizer.from_pretrained(
         str(args.candidate_tokenizer),
         use_fast=False,
@@ -158,25 +278,45 @@ def main() -> None:
     corpus_counts: dict[str, dict[str, Any]] = {}
     for label, path in corpora.items():
         counts = Counter()
+        row_ids: set[str] = set()
         with path.open(encoding="utf-8") as handle:
             for line_number, line in enumerate(handle, start=1):
                 row = json.loads(line)
                 counts["input_rows"] += 1
-                if args.direction and row.get("direction") != args.direction:
+                if (
+                    args.direction
+                    and row.get("direction") is not None
+                    and row.get("direction") != args.direction
+                ):
                     counts["skipped_direction_rows"] += 1
                     continue
                 task = str(row.get(args.task_field) or "")
                 if task in excluded_tasks:
                     counts["skipped_task_rows"] += 1
                     continue
-                row_id = str(row.get("id") or f"{label}:{line_number}")
+                row_id = str(
+                    row.get("id") or row.get("rowId") or f"{label}:{line_number}"
+                )
+                if row_id in row_ids:
+                    raise ValueError(f"duplicate row ID in corpus {label}: {row_id}")
+                row_ids.add(row_id)
                 counts["accepted_rows"] += 1
                 for view, text, variant_index in text_views(row):
-                    base_ids = [int(value) for value in base.encode(text, add_special_tokens=False)]
-                    candidate_ids = [int(value) for value in candidate.encode(text, add_special_tokens=False)]
+                    base_ids = [
+                        int(value)
+                        for value in base.encode(text, add_special_tokens=False)
+                    ]
+                    candidate_ids = [
+                        int(value)
+                        for value in candidate.encode(text, add_special_tokens=False)
+                    ]
                     base_tokens = base.convert_ids_to_tokens(base_ids)
                     candidate_tokens = candidate.convert_ids_to_tokens(candidate_ids)
-                    new_pieces = [token for token in candidate_tokens if token in new_candidate_tokens]
+                    new_pieces = [
+                        token
+                        for token in candidate_tokens
+                        if token in new_candidate_tokens
+                    ]
                     records.append(
                         {
                             "corpus": label,
@@ -196,20 +336,30 @@ def main() -> None:
                             "candidate_tokens": candidate_tokens,
                             "new_candidate_pieces": new_pieces,
                             "base_has_unknown": base.unk_token_id in base_ids,
-                            "candidate_has_unknown": candidate.unk_token_id in candidate_ids,
+                            "candidate_has_unknown": candidate.unk_token_id
+                            in candidate_ids,
                             "base_round_trip_exact": normalized_whitespace(
                                 base.decode(base_ids, skip_special_tokens=False)
-                            ) == normalized_whitespace(text),
+                            )
+                            == normalized_whitespace(text),
                             "candidate_round_trip_exact": normalized_whitespace(
-                                candidate.decode(candidate_ids, skip_special_tokens=False)
-                            ) == normalized_whitespace(text),
+                                candidate.decode(
+                                    candidate_ids, skip_special_tokens=False
+                                )
+                            )
+                            == normalized_whitespace(text),
                         }
                     )
+        if label in expected_rows and counts["accepted_rows"] != expected_rows[label]:
+            raise ValueError(
+                f"accepted row count mismatch for {label}: "
+                f"{counts['accepted_rows']} != {expected_rows[label]}"
+            )
         corpus_counts[label] = dict(counts)
 
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for record in records:
-        grouped[f"{record['corpus']}::{record['view']}"] .append(record)
+        grouped[f"{record['corpus']}::{record['view']}"].append(record)
     summaries = {
         key: summarize(items, args.top_new_pieces)
         for key, items in sorted(grouped.items())
@@ -217,15 +367,21 @@ def main() -> None:
     source_new_pieces: Counter[str] = Counter()
     target_new_pieces: Counter[str] = Counter()
     for record in records:
-        destination = source_new_pieces if record["view"].startswith("source_") else target_new_pieces
+        destination = (
+            source_new_pieces
+            if record["view"].startswith("source_")
+            else target_new_pieces
+        )
         destination.update(record["new_candidate_pieces"])
 
     result = {
         "schema_version": 1,
-        "created_at": datetime.now(timezone.utc).isoformat(),
+        "created_at": created_at,
         "operation": "paired_tokenizer_extension_impact_audit",
         "base_tokenizer": str(args.base_tokenizer.resolve()),
         "candidate_tokenizer": str(args.candidate_tokenizer.resolve()),
+        "base_tokenizer_files": tokenizer_file_manifest(args.base_tokenizer),
+        "candidate_tokenizer_files": tokenizer_file_manifest(args.candidate_tokenizer),
         "direction": args.direction,
         "task_field": args.task_field,
         "excluded_tasks": sorted(excluded_tasks),
@@ -244,6 +400,7 @@ def main() -> None:
             label: {
                 "path": str(path),
                 "sha256": sha256(path),
+                "expected_rows": expected_rows.get(label),
                 **corpus_counts[label],
             }
             for label, path in corpora.items()
@@ -252,16 +409,42 @@ def main() -> None:
         "interpretation": [
             "Whitespace units and subword counts are engineering measurements, not morphological analyses.",
             "A lower target fertility is an intrinsic mechanism check, not evidence of translation improvement.",
-            "New Kuku-trained pieces used on English source text identify a possible shared-tokenizer interference path.",
+            "New language-trained pieces used on source text identify a possible shared-tokenizer interference path.",
             "Only declared training text may fit the candidate tokenizer; held-out corpora are audit inputs only.",
         ],
     }
-    write_atomic(args.output, json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+    if args.checksum_output:
+        output_parents = {
+            args.output.resolve().parent,
+            args.row_output.resolve().parent,
+            args.checksum_output.resolve().parent,
+        }
+        if len(output_parents) != 1:
+            raise ValueError(
+                "report, row, and checksum outputs must share one directory"
+            )
+    write_atomic(
+        args.output,
+        json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+    )
     write_atomic(
         args.row_output,
-        "".join(json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n" for record in records),
+        "".join(
+            json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n"
+            for record in records
+        ),
     )
-    print(json.dumps({"output": str(args.output), "row_output": str(args.row_output), **result}, indent=2))
+    if args.checksum_output:
+        write_atomic(
+            args.checksum_output,
+            render_checksum_manifest([args.output, args.row_output]),
+        )
+    print(
+        json.dumps(
+            {"output": str(args.output), "row_output": str(args.row_output), **result},
+            indent=2,
+        )
+    )
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-07-15T00:00:00.000Z",
+  "updatedAt": "2026-08-02T09:55:00.000Z",
   "models": [
     {
       "id": "kuku-yalanji-nllb-lora",
@@ -2707,6 +2707,138 @@
               "available": true,
               "localPath": "/mnt/donto-data/donto-resources/research/translation-training/migmaq-runpod-2026-07-12/datasets/migmaq-online-example-parallel-v1.0.0-20260712.tar.gz",
               "sha256": "805c225aeebf0596fa4f892d89cf930a23a395e2b58c1c059cb47a7092f86368"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mobtranslate-wajarri-v3-controlled",
+      "name": "Wajarri Controlled Translation",
+      "family": "NLLB LoRA with deterministic dictionary slot",
+      "task": "controlled_subject_slot_translation",
+      "labUrl": "/",
+      "language": {
+        "name": "Wajarri",
+        "appCode": "wajarri",
+        "iso6393": "wbv",
+        "region": "Mid West Western Australia"
+      },
+      "summary": "A fail-closed English-to-Wajarri research adapter for six source-bound subject-slot constructions. Exact dictionary lookup supplies the subject outside the model; this release does not authorize free-form translation or novel morphology.",
+      "releases": [
+        {
+          "version": "v3.0.0-controlled-subject-slot-s17-step40-20260802",
+          "status": "published-controlled",
+          "date": "2026-08-02",
+          "baseModel": "ajaxdavis/mobtranslate-wajarri-v1@ddae6103913b7cab299d687bee2dc7904fd59459",
+          "dataset": "ajaxdavis/mobtranslate-wajarri-synthetic-corpus-v1@302f3a93eb255a2fc70692b7c429ba5ee8300687: 103 training parent pairs, six unique masked model pairs, 7,680 scheduled presentations, zero new Wajarri target sentences",
+          "directions": [
+            "eng-wbv"
+          ],
+          "serving": {
+            "sourceLang": "eng_Latn",
+            "targetLang": "wbv_Latn"
+          },
+          "rights": "Noncommercial research only. The NLLB-derived base is CC BY-NC 4.0; dataset records retain their source-specific terms. Output is an unverified research suggestion, not a fluent-speaker judgment.",
+          "role": "Controlled six-construction subject-slot release served through the shared Hugging Face Space",
+          "verdict": "Three independently seeded adapters passed 35/35 exact controlled-route rows with zero batch-1/batch-16 mismatches. The released seed-17 adapter has exact A40-bfloat16 to CPU-float32 parity. Authorize only the frozen controlled route; dictionary lookup remains first and free-form Wajarri translation remains unauthorized.",
+          "runId": "wbv-v3-forced-slot-confirmation-runpod-20260802-a2",
+          "metrics": {
+            "confirmation_seeds": 3,
+            "distinct_selected_adapter_hashes": 3,
+            "controlled_route_rows": 35,
+            "controlled_route_raw_exact": 35,
+            "controlled_route_rendered_exact": 35,
+            "controlled_route_mechanical_faults": 0,
+            "batch_1_16_mismatches": 0,
+            "fixed_utterance_retention_exact": 54,
+            "fixed_utterance_retention_rows": 55,
+            "controlled_synthetic_exact": 22,
+            "controlled_synthetic_rows": 36,
+            "controlled_synthetic_chrf2": 75.42460884006388,
+            "historical_exact": 0,
+            "historical_rows": 5,
+            "cpu_float32_parity": "PASS",
+            "free_form_translation_authorized": "NO",
+            "adapter_sha256": "a4a91d4e6a6ba49509a8ab432c0674686c96b4611f58db8b63089f26707ed3d6"
+          },
+          "training": {
+            "trainRows": 103
+          },
+          "notes": [
+            "The model-visible source is masked to one <copy> subject slot and one of six frozen English constructions.",
+            "The decoder prefix is [2, 256204, 256208]: decoder start, wbv_Latn, and <copy>.",
+            "The model generates one complete governed predicate; a deterministic renderer inserts one exact dictionary headword in the first slot.",
+            "All three independent seeds selected update 40 and produced distinct adapter hashes.",
+            "Unsupported constructions, missing bindings, malformed slots, generic translate requests, and generic lexeme requests are rejected by the adapter service.",
+            "The complex historical diagnostic remains 0/5 exact. This release must not be presented as general sentence translation."
+          ],
+          "artifacts": [
+            {
+              "label": "Complete immutable Hugging Face repository",
+              "kind": "bundle",
+              "format": "huggingface_repository",
+              "url": "https://huggingface.co/ajaxdavis/mobtranslate-wajarri-v3-controlled/tree/v3.0.0-controlled-subject-slot-s17-step40-20260802",
+              "available": true,
+              "note": "Use huggingface_hub snapshot_download with the immutable tag; includes adapter, tokenizer/runtime files, templates, checksums, GPU evidence, CPU parity evidence, and hosting guide."
+            },
+            {
+              "label": "LoRA adapter weights",
+              "kind": "adapter",
+              "format": "safetensors",
+              "url": "https://huggingface.co/ajaxdavis/mobtranslate-wajarri-v3-controlled/resolve/v3.0.0-controlled-subject-slot-s17-step40-20260802/adapter/adapter_model.safetensors",
+              "available": true,
+              "sizeBytes": 34677184,
+              "sha256": "a4a91d4e6a6ba49509a8ab432c0674686c96b4611f58db8b63089f26707ed3d6"
+            },
+            {
+              "label": "Release manifest",
+              "kind": "metadata",
+              "format": "json",
+              "url": "https://huggingface.co/ajaxdavis/mobtranslate-wajarri-v3-controlled/resolve/v3.0.0-controlled-subject-slot-s17-step40-20260802/release.json",
+              "available": true,
+              "sizeBytes": 4237,
+              "sha256": "589d6a8a8b1de0b2c8a64c89abe79c453dd75c84d849179dcedd0db56572a809"
+            },
+            {
+              "label": "Release checksum ledger",
+              "kind": "metadata",
+              "format": "sha256",
+              "url": "https://huggingface.co/ajaxdavis/mobtranslate-wajarri-v3-controlled/resolve/v3.0.0-controlled-subject-slot-s17-step40-20260802/SHA256SUMS",
+              "available": true,
+              "sizeBytes": 2968,
+              "sha256": "de66739057e659f57d75ec8a6d3204585f86aeecb1de6398f571ab786d5cd96e"
+            },
+            {
+              "label": "CPU float32 parity report",
+              "kind": "evaluation",
+              "format": "json",
+              "url": "https://huggingface.co/ajaxdavis/mobtranslate-wajarri-v3-controlled/resolve/v3.0.0-controlled-subject-slot-s17-step40-20260802/evaluation/cpu-float32-parity.json",
+              "available": true,
+              "sizeBytes": 2014,
+              "sha256": "9758ec536ce5500f84f544d03ea67cd7b79edbd9b69d361b1bb061de2be9352f"
+            },
+            {
+              "label": "Controlled dataset repository",
+              "kind": "dataset",
+              "format": "huggingface_dataset",
+              "url": "https://huggingface.co/datasets/ajaxdavis/mobtranslate-wajarri-synthetic-corpus-v1/tree/v3.0.0-controlled-subject-slot-s17-step40-20260802",
+              "available": true
+            },
+            {
+              "label": "Complete Wajarri v3 research plan and work log",
+              "kind": "documentation",
+              "format": "html",
+              "url": "/docs/wajarri-v3-research-plan.html",
+              "available": true,
+              "localPath": "/mnt/donto-data/donto-resources/research/language-programs/wajarri-v1/WAJARRI-V3-RESEARCH-PLAN-AND-WORK-LOG.md"
+            },
+            {
+              "label": "Shared Hugging Face Space API",
+              "kind": "endpoint",
+              "format": "https",
+              "url": "https://ajaxdavis-alpha-v0-historic.hf.space/v1/models",
+              "available": true
             }
           ]
         }

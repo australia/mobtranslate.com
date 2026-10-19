@@ -6,12 +6,17 @@ import {
   translateWithHybridModel,
 } from '../../lib/hybrid-model-inference.server';
 import {
+  ANINDILYAKWA_HYBRID_DEFINITION,
   MIGMAQ_HYBRID_DEFINITION,
+  WAJARRI_HYBRID_DEFINITION,
+  listHybridLanguageDefinitions,
   loadHybridLanguageContract,
 } from '../../lib/hybrid-translation-registry.server';
 import {
+  createControlledHybridReviewPrompt,
   createHybridReviewPrompt,
   retrieveHybridDictionaryEvidence,
+  resolveControlledHybridReview,
 } from '../../lib/hybrid-translation.server';
 import { getHybridLanguageIdentity } from '../../lib/hybrid-language-identities';
 
@@ -34,6 +39,67 @@ describe('hybrid translation language registry', () => {
     expect(getHybridLanguageIdentity('migmaq')).toMatchObject({
       languageTag: 'mic',
     });
+    expect(getHybridLanguageIdentity('wajarri')).toMatchObject({
+      dictionaryCode: 'wbv',
+      languageTag: 'wbv',
+    });
+    expect(getHybridLanguageIdentity('wbv')).toEqual(
+      getHybridLanguageIdentity('wajarri'),
+    );
+    expect(getHybridLanguageIdentity('anindilyakwa')).toMatchObject({
+      dictionaryCode: 'anindilyakwa',
+      languageTag: 'aoi',
+    });
+    expect(
+      listHybridLanguageDefinitions().map(
+        (definition) => definition.languageCode,
+      ),
+    ).toEqual(['anindilyakwa', 'kuku_yalanji', 'migmaq', 'wajarri']);
+  });
+
+  it('loads the Anindilyakwa failed-quality experiment only when enabled', () => {
+    const contract = loadHybridLanguageContract('anindilyakwa', {
+      MOBTRANSLATE_HYBRID_ANINDILYAKWA_ENABLED: '1',
+      MOBTRANSLATE_HYBRID_SPACE_ENDPOINT: 'https://space.example/v1/translate',
+    });
+
+    expect(contract).toMatchObject({
+      languageCode: 'anindilyakwa',
+      languageTag: 'aoi',
+      targetLang: 'aoi_Latn',
+      modelId: 'anindilyakwa-nllb-scripture-baseline',
+      modelVersion: 'v0.2.0-traditional-owner-authorized-experimental',
+      endpoint: 'https://space.example/v1/translate',
+    });
+    expect(ANINDILYAKWA_HYBRID_DEFINITION.grammarEvidence[0].detail).toContain(
+      '959',
+    );
+  });
+
+  it('loads Wajarri from the same shared Space contract', () => {
+    const contract = loadHybridLanguageContract('wbv', {
+      MOBTRANSLATE_HYBRID_WAJARRI_ENABLED: '1',
+      MOBTRANSLATE_HYBRID_SPACE_ENDPOINT: 'https://space.example/v1/translate',
+      MOBTRANSLATE_HYBRID_SPACE_TIMEOUT_MS: '160000',
+    });
+
+    expect(contract).toMatchObject({
+      languageCode: 'wajarri',
+      dictionaryCode: 'wbv',
+      languageTag: 'wbv',
+      targetLang: 'wbv_Latn',
+      modelId: 'mobtranslate-wajarri-v3-controlled',
+      modelVersion: 'v3.0.0-controlled-subject-slot-s17-step40-20260802',
+      endpoint: 'https://space.example/v1/translate',
+      timeoutMs: 160000,
+      ordinaryDraftEnabled: false,
+    });
+    expect(contract?.controlledTranslation).toMatchObject({
+      contractId: 'wajarri-subject-slot-v3-s17-step40-20260802',
+      task: 'subject_slot',
+      slotToken: '<copy>',
+    });
+    expect(contract?.controlledTranslation?.constructions).toHaveLength(6);
   });
 
   it("loads Mi'kmaq from the shared Space contract", () => {
@@ -148,5 +214,75 @@ describe('hybrid translation language registry', () => {
     expect(prompt).toContain("English-to-Mi'kmaq");
     expect(prompt).toContain('Listuguj spelling');
     expect(prompt).toContain('not hidden chain-of-thought');
+  });
+
+  it('uses the generic dictionary and grammar evidence path for Wajarri', () => {
+    const dictionary = [
+      { word: 'gunduwa', gloss: 'echidna' },
+      { word: 'janda', gloss: 'cold' },
+    ];
+    const evidence = retrieveHybridDictionaryEvidence(
+      WAJARRI_HYBRID_DEFINITION,
+      'The echidna is cold.',
+      dictionary,
+      'Gunduwa janda.',
+    );
+    const prompt = createHybridReviewPrompt(
+      WAJARRI_HYBRID_DEFINITION,
+      {
+        source: 'The echidna is cold.',
+        draft: 'Gunduwa janda.',
+        draftModelId: WAJARRI_HYBRID_DEFINITION.modelId,
+        draftVersion: WAJARRI_HYBRID_DEFINITION.modelVersion,
+        dictionaryEntries: dictionary,
+      },
+      evidence,
+    );
+
+    expect(evidence.map((item) => item.title)).toEqual(
+      expect.arrayContaining(['gunduwa', 'janda']),
+    );
+    expect(evidence[0].sourceUrl).toContain('/dictionaries/wbv/');
+    expect(prompt).toContain('English-to-Wajarri');
+    expect(prompt).toContain('Verb forms can encode conjugation class');
+  });
+
+  it('keeps a controlled translation immutable during its source check', () => {
+    const evidence = retrieveHybridDictionaryEvidence(
+      WAJARRI_HYBRID_DEFINITION,
+      'The dog is running.',
+      [{ word: 'duba', gloss: 'dog' }],
+      'duba jamarnimanha.',
+    );
+    const input = {
+      source: 'The dog is running.',
+      draft: 'duba jamarnimanha.',
+      draftModelId: WAJARRI_HYBRID_DEFINITION.modelId,
+      draftVersion: WAJARRI_HYBRID_DEFINITION.modelVersion,
+      dictionaryEntries: [{ word: 'duba', gloss: 'dog' }],
+    };
+    const prompt = createControlledHybridReviewPrompt(
+      WAJARRI_HYBRID_DEFINITION,
+      input,
+      evidence,
+      { contractId: 'subject-slot-v1', constructionId: 'running' },
+    );
+    const reviewed = resolveControlledHybridReview(
+      WAJARRI_HYBRID_DEFINITION,
+      input.draft,
+      evidence,
+      {
+        decision: 'kept_draft',
+        literalBackTranslation: 'The dog is running.',
+        confidence: 'medium',
+        reviewSummary: 'The subject and frozen sentence pattern are supported.',
+        evidenceIds: evidence.map((entry) => entry.id),
+        caveats: ['This has not been checked by a fluent speaker.'],
+      },
+    );
+
+    expect(prompt).toContain('controlled translation is immutable');
+    expect(reviewed.translation).toBe('duba jamarnimanha.');
+    expect(reviewed.changes).toEqual([]);
   });
 });

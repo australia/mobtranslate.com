@@ -77,10 +77,107 @@ class NllbTokenizerRemapTest(unittest.TestCase):
         self.assertEqual(plan["common_row_count"], 5)
         self.assertEqual(plan["moved_common_row_count"], 1)
         self.assertEqual(plan["initialized_row_count"], 2)
+        self.assertEqual(plan["declared_control_count"], 1)
+        self.assertEqual(plan["common_control_count"], 0)
+        self.assertEqual(plan["initialized_control_count"], 1)
         self.assertEqual(plan["control_row_count"], 1)
         by_token = {row["token"]: row for row in plan["initialized_rows"]}
         self.assertEqual(by_token["ab"]["base_decomposition_ids"], [2, 3])
         self.assertEqual(by_token["<lexeme>"]["base_decomposition_ids"], [2, 3])
+
+    def test_common_control_is_identity_copied_not_reinitialized(self) -> None:
+        from training.translation.nllb_tokenizer_remap import build_embedding_remap_plan
+
+        base = FakeTokenizer(
+            {
+                "<pad>": 0,
+                "<unk>": 1,
+                "a": 2,
+                "b": 3,
+                "mic_Latn": 4,
+                "<lexeme>": 5,
+            },
+            {"ab": [2, 3], "<lexeme>": [5]},
+            {"<pad>", "<unk>", "mic_Latn", "<lexeme>"},
+        )
+        candidate = FakeTokenizer(
+            {
+                "<pad>": 0,
+                "<unk>": 1,
+                "a": 2,
+                "b": 3,
+                "ab": 4,
+                "mic_Latn": 5,
+                "<lexeme>": 6,
+            },
+            {"<lexeme>": [6]},
+            {"<pad>", "<unk>", "mic_Latn", "<lexeme>"},
+        )
+        remap = [
+            {"token": token, "old_id": old_id, "new_id": candidate.get_vocab()[token]}
+            for token, old_id in base.get_vocab().items()
+        ]
+        plan = build_embedding_remap_plan(
+            base,
+            candidate,
+            remap,
+            [
+                {
+                    "token": "ab",
+                    "token_id": 4,
+                    "surface_for_initialization": "ab",
+                    "old_decomposition_ids": [2, 3],
+                }
+            ],
+            ["<lexeme>"],
+        )
+
+        self.assertEqual(plan["declared_control_count"], 1)
+        self.assertEqual(plan["common_control_count"], 1)
+        self.assertEqual(plan["initialized_control_count"], 0)
+        self.assertEqual(plan["control_row_count"], 0)
+        self.assertEqual(
+            plan["common_control_rows"],
+            [
+                {
+                    "token": "<lexeme>",
+                    "old_id": 5,
+                    "new_id": 6,
+                    "assignment_kind": "common_identity_copy",
+                }
+            ],
+        )
+        self.assertNotIn(
+            "<lexeme>",
+            {row["token"] for row in plan["initialized_rows"]},
+        )
+
+    def test_common_control_must_remain_registered_in_both_tokenizers(self) -> None:
+        from training.translation.nllb_tokenizer_remap import build_embedding_remap_plan
+
+        base = FakeTokenizer(
+            {"<pad>": 0, "<unk>": 1, "a": 2, "<lexeme>": 3},
+            {"<lexeme>": [3]},
+            {"<pad>", "<unk>"},
+        )
+        candidate = FakeTokenizer(
+            {"<pad>": 0, "<unk>": 1, "a": 2, "<lexeme>": 3},
+            {"<lexeme>": [3]},
+            {"<pad>", "<unk>", "<lexeme>"},
+        )
+        remap = [
+            {"token": token, "old_id": token_id, "new_id": token_id}
+            for token, token_id in base.get_vocab().items()
+        ]
+
+        with self.assertRaisesRegex(RuntimeError, "registered base special token"):
+            build_embedding_remap_plan(
+                base,
+                candidate,
+                remap,
+                [],
+                ["<lexeme>"],
+            )
 
     def test_matrix_remap_copies_identity_and_means_new_rows(self) -> None:
         import torch

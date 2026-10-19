@@ -6,11 +6,21 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 const migration = readFileSync(
-  path.join(process.cwd(), 'db/migrations/20260720000000_language_program_control_plane.sql'),
+  path.join(
+    process.cwd(),
+    'db/migrations/20260720000000_language_program_control_plane.sql',
+  ),
+  'utf8',
+);
+const playbookBindingMigration = readFileSync(
+  path.join(
+    process.cwd(),
+    'db/migrations/20260722000000_language_program_playbook_v1_1_1.sql',
+  ),
   'utf8',
 );
 const playbook = readFileSync(
-  '/mnt/donto-data/donto-resources/research/translation-training/LANGUAGE-KNOWLEDGE-AND-MODEL-PLAYBOOK.md',
+  '/mnt/donto-data/donto-resources/research/translation-training/playbooks/LANGUAGE-KNOWLEDGE-AND-MODEL-PLAYBOOK-v1.1.1.md',
 );
 
 describe('language program control-plane migration', () => {
@@ -37,9 +47,9 @@ describe('language program control-plane migration', () => {
   });
 
   it('installs all stages and a comprehensive unique checklist', () => {
-    const stages = [...migration.matchAll(/'low-resource-language-v1', '([a-z_]+)', \d+,/g)].map(
-      (match) => match[1],
-    );
+    const stages = [
+      ...migration.matchAll(/'low-resource-language-v1', '([a-z_]+)', \d+,/g),
+    ].map((match) => match[1]);
     expect(stages).toEqual([
       'identity',
       'source_archive',
@@ -55,9 +65,11 @@ describe('language program control-plane migration', () => {
       'release',
     ]);
 
-    const itemKeys = [...migration.matchAll(/'low-resource-language-v1','([a-z_]+\.[a-z0-9_.]+)'/g)].map(
-      (match) => match[1],
-    );
+    const itemKeys = [
+      ...migration.matchAll(
+        /'low-resource-language-v1','([a-z_]+\.[a-z0-9_.]+)'/g,
+      ),
+    ].map((match) => match[1]);
     expect(itemKeys.length).toBeGreaterThanOrEqual(120);
     expect(new Set(itemKeys).size).toBe(itemKeys.length);
     for (const stage of stages) {
@@ -67,26 +79,44 @@ describe('language program control-plane migration', () => {
 
   it('binds the database template to the exact playbook', () => {
     const actual = createHash('sha256').update(playbook).digest('hex');
-    expect(migration).toContain(`'${actual}'`);
+    expect(playbookBindingMigration).toContain(`'${actual}'`);
+    expect(playbookBindingMigration).toContain(
+      '/playbooks/LANGUAGE-KNOWLEDGE-AND-MODEL-PLAYBOOK-v1.1.1.md',
+    );
   });
 
   it('fails closed for paid compute, public release, and stage completion', () => {
-    expect(migration).toContain('paid_gpu_authorized BOOLEAN NOT NULL DEFAULT FALSE');
-    expect(migration).toContain('public_release_authorized BOOLEAN NOT NULL DEFAULT FALSE');
+    expect(migration).toContain(
+      'paid_gpu_authorized BOOLEAN NOT NULL DEFAULT FALSE',
+    );
+    expect(migration).toContain(
+      'public_release_authorized BOOLEAN NOT NULL DEFAULT FALSE',
+    );
     expect(migration).toContain('paid GPU authorization blocked');
     expect(migration).toContain('public release authorization blocked');
     expect(migration).toContain('stage % cannot pass');
-    expect(migration).toContain("status <> 'pass' OR btrim(COALESCE(evidence_note, '')) <> ''");
+    expect(migration).toContain(
+      "status <> 'pass' OR btrim(COALESCE(evidence_note, '')) <> ''",
+    );
   });
 
   it('preserves transition and release-decision history', () => {
     expect(migration).toContain('language program events are append-only');
-    expect(migration).toContain('language program release decisions are append-only');
-    expect(migration).toContain('BEFORE UPDATE OR DELETE ON public.language_program_events');
-    expect(migration).toContain('BEFORE UPDATE OR DELETE ON public.language_program_release_decisions');
+    expect(migration).toContain(
+      'language program release decisions are append-only',
+    );
+    expect(migration).toContain(
+      'BEFORE UPDATE OR DELETE ON public.language_program_events',
+    );
+    expect(migration).toContain(
+      'BEFORE UPDATE OR DELETE ON public.language_program_release_decisions',
+    );
   });
 
   it('contains no destructive data operation', () => {
     expect(migration).not.toMatch(/\b(?:DROP TABLE|TRUNCATE|DELETE FROM)\b/i);
+    expect(playbookBindingMigration).not.toMatch(
+      /\b(?:DROP TABLE|TRUNCATE|DELETE FROM)\b/i,
+    );
   });
 });

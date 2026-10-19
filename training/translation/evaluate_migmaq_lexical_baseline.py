@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the frozen Mi'kmaq lexical census on a merged model or compact adapter."""
+"""Run a frozen lexical reconstruction census on a merged model or compact adapter."""
 
 from __future__ import annotations
 
@@ -56,6 +56,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--expected-base-tokenizer-sha256")
     parser.add_argument("--expected-benchmark-sha256", required=True)
     parser.add_argument("--expected-rows", type=int, default=14_438)
+    parser.add_argument("--expected-source-token-id", type=int, default=256_047)
     parser.add_argument("--expected-target-token-id", type=int, default=256_204)
     parser.add_argument(
         "--expect-output-head-alias",
@@ -64,6 +65,7 @@ def parse_args() -> argparse.Namespace:
         help="Expected output-head relationship for the frozen artifact.",
     )
     parser.add_argument("--input-field", default="unconditioned_input_text")
+    parser.add_argument("--direction", default="eng-mic")
     parser.add_argument("--source-lang", default="eng_Latn")
     parser.add_argument("--target-lang", default="mic_Latn")
     parser.add_argument(
@@ -172,7 +174,10 @@ def error_rate(prediction: Sequence[Any], reference: Sequence[Any]) -> float:
 
 
 def normalized_references(row: dict[str, Any]) -> list[str]:
-    values = [normalize(value) for value in row.get("accepted_references") or []]
+    values = [
+        normalize(value)
+        for value in (row.get("accepted_references") or row.get("acceptedReferences") or [])
+    ]
     if not any(values):
         values = [normalize(row.get("output_text") or row.get("reference"))]
     values = list(dict.fromkeys(value for value in values if value))
@@ -231,7 +236,16 @@ def package_version(name: str) -> str | None:
         return None
 
 
-def read_benchmark(path: Path, expected_rows: int, max_rows: int | None) -> list[dict[str, Any]]:
+def benchmark_row_id(row: dict[str, Any]) -> str:
+    return str(row.get("id") or row.get("rowId") or "").strip()
+
+
+def read_benchmark(
+    path: Path,
+    expected_rows: int,
+    max_rows: int | None,
+    expected_direction: str = "eng-mic",
+) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     with path.open(encoding="utf-8") as handle:
         for line_number, line in enumerate(handle, start=1):
@@ -239,13 +253,14 @@ def read_benchmark(path: Path, expected_rows: int, max_rows: int | None) -> list
                 row = json.loads(line)
             except json.JSONDecodeError as error:
                 raise ValueError(f"invalid JSON at {path}:{line_number}: {error}") from error
-            if row.get("direction") != "eng-mic":
-                raise ValueError(f"unexpected direction at {path}:{line_number}: {row.get('direction')!r}")
-            if not str(row.get("id") or "").strip():
+            direction = row.get("direction")
+            if direction is not None and direction != expected_direction:
+                raise ValueError(f"unexpected direction at {path}:{line_number}: {direction!r}")
+            if not benchmark_row_id(row):
                 raise ValueError(f"missing row ID at {path}:{line_number}")
             normalized_references(row)
             rows.append(row)
-    ids = [str(row["id"]) for row in rows]
+    ids = [benchmark_row_id(row) for row in rows]
     if len(ids) != len(set(ids)):
         raise ValueError("benchmark row IDs are not unique")
     if len(rows) != expected_rows:
@@ -261,7 +276,112 @@ def write_json_atomic(path: Path, value: Any) -> None:
         temporary = Path(handle.name)
         json.dump(value, handle, ensure_ascii=False, indent=2, sort_keys=True)
         handle.write("\n")
+        handle.flush()
+        os.fsync(handle.fileno())
     temporary.replace(path)
+
+
+def stable_manifest_identity(value: Any) -> Any:
+    """Remove process-local fields before comparing a resumed environment."""
+    if isinstance(value, dict):
+        return {
+            key: stable_manifest_identity(child)
+            for key, child in sorted(value.items())
+            if key not in {"created_at", "pointers"}
+        }
+    if isinstance(value, list):
+        return [stable_manifest_identity(child) for child in value]
+    return value
+
+
+def append_jsonl_fsync(handle: Any, value: dict[str, Any]) -> None:
+    handle.write(json.dumps(value, ensure_ascii=False, sort_keys=True) + "\n")
+    handle.flush()
+    os.fsync(handle.fileno())
+
+
+def load_resource_samples(
+    path: Path,
+    *,
+    resume: bool,
+    completed_rows: int,
+) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    if not resume:
+        raise FileExistsError(
+            f"resource samples already exist; pass --resume to continue: {path}"
+        )
+    samples: list[dict[str, Any]] = []
+    prior_completed = -1
+    with path.open(encoding="utf-8") as handle:
+        for line_number, line in enumerate(handle, start=1):
+            try:
+                sample = json.loads(line)
+            except json.JSONDecodeError as error:
+                raise ValueError(
+                    f"invalid existing resource sample at {path}:{line_number}: {error}"
+                ) from error
+            if not isinstance(sample, dict):
+                raise ValueError(
+                    f"resource sample at {path}:{line_number} is not an object"
+                )
+            sample_completed = sample.get("completed_rows")
+            if not isinstance(sample_completed, int) or sample_completed < prior_completed:
+                raise ValueError(
+                    f"resource samples are not a monotonic row-count sequence at {path}:{line_number}"
+                )
+            if sample_completed > completed_rows:
+                raise ValueError(
+                    "resource samples are ahead of the durable prediction prefix: "
+                    f"sample={sample_completed}, predictions={completed_rows}"
+                )
+            prior_completed = sample_completed
+            samples.append(sample)
+    return samples
+
+
+def generated_token_rows(
+    generated: Any,
+    *,
+    decoder_start_token_id: int,
+    target_token_id: int,
+    pad_token_id: int,
+) -> list[list[int]]:
+    rows: list[list[int]] = []
+    for row_number, sequence in enumerate(generated, start=1):
+        values = [int(value) for value in sequence.tolist()]
+        if values[:2] != [decoder_start_token_id, target_token_id]:
+            raise ValueError(
+                "generated sequence does not begin with the frozen NLLB decoder/target prefix: "
+                f"row={row_number}, expected={[decoder_start_token_id, target_token_id]}, "
+                f"observed={values[:2]}"
+            )
+        while len(values) > 2 and values[-1] == pad_token_id:
+            values.pop()
+        rows.append(values)
+    return rows
+
+
+def validate_source_language_prefix(
+    input_ids: Any,
+    attention_mask: Any,
+    expected_source_token_id: int,
+) -> list[int]:
+    active_lengths: list[int] = []
+    for row_number, (ids, mask) in enumerate(
+        zip(input_ids.tolist(), attention_mask.tolist(), strict=True),
+        start=1,
+    ):
+        active = [int(token) for token, keep in zip(ids, mask, strict=True) if int(keep)]
+        if not active or active[0] != expected_source_token_id:
+            raise ValueError(
+                "tokenized source does not begin with the frozen NLLB source token: "
+                f"row={row_number}, expected={expected_source_token_id}, "
+                f"observed={active[:1]}"
+            )
+        active_lengths.append(len(active))
+    return active_lengths
 
 
 def load_completed_predictions(path: Path, rows: list[dict[str, Any]], resume: bool) -> list[dict[str, Any]]:
@@ -278,7 +398,7 @@ def load_completed_predictions(path: Path, rows: list[dict[str, Any]], resume: b
                 raise ValueError(f"invalid existing prediction at {path}:{line_number}: {error}") from error
     if len(completed) > len(rows):
         raise ValueError("existing predictions exceed benchmark rows")
-    expected_ids = [str(row["id"]) for row in rows[: len(completed)]]
+    expected_ids = [benchmark_row_id(row) for row in rows[: len(completed)]]
     actual_ids = [str(row.get("id")) for row in completed]
     if actual_ids != expected_ids:
         raise ValueError("existing predictions are not an exact benchmark-order prefix")
@@ -372,7 +492,7 @@ def failure_slices(rows: list[dict[str, Any]]) -> dict[str, Any]:
             for prediction, count in prediction_counts.most_common(100)
         ],
         "interpretation": (
-            "These are deterministic surface and provenance slices. They do not adjudicate Mi'kmaq senses, "
+            "These are deterministic surface and provenance slices. They do not adjudicate lexical senses, "
             "morphology, grammaticality, variety, or cultural acceptability."
         ),
     }
@@ -478,26 +598,52 @@ def restore_serialized_nllb_input_aliases(model: Any) -> dict[str, Any]:
     }
 
 
-def resource_sample(torch: Any, batch_number: int, completed_rows: int, started: float) -> dict[str, Any]:
-    free_bytes, total_bytes = torch.cuda.mem_get_info()
-    return {
+def resource_sample(
+    torch: Any,
+    batch_number: int,
+    completed_rows: int,
+    started: float,
+    *,
+    segment_number: int,
+    segment_start_rows: int,
+    phase: str,
+) -> dict[str, Any]:
+    import resource
+
+    sample = {
         "at": utc_now(),
         "batch": batch_number,
         "completed_rows": completed_rows,
+        "phase": phase,
+        "segment_number": segment_number,
+        "segment_start_rows": segment_start_rows,
         "elapsed_seconds": time.monotonic() - started,
-        "cuda_memory_allocated_bytes": int(torch.cuda.memory_allocated()),
-        "cuda_memory_reserved_bytes": int(torch.cuda.memory_reserved()),
-        "cuda_max_memory_allocated_bytes": int(torch.cuda.max_memory_allocated()),
-        "cuda_max_memory_reserved_bytes": int(torch.cuda.max_memory_reserved()),
-        "gpu_free_bytes": int(free_bytes),
-        "gpu_total_bytes": int(total_bytes),
+        "process_max_rss_bytes": int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss) * 1024,
+        "cuda_available": bool(torch.cuda.is_available()),
     }
+    if torch.cuda.is_available():
+        free_bytes, total_bytes = torch.cuda.mem_get_info()
+        sample.update(
+            {
+                "cuda_memory_allocated_bytes": int(torch.cuda.memory_allocated()),
+                "cuda_memory_reserved_bytes": int(torch.cuda.memory_reserved()),
+                "cuda_max_memory_allocated_bytes": int(torch.cuda.max_memory_allocated()),
+                "cuda_max_memory_reserved_bytes": int(torch.cuda.max_memory_reserved()),
+                "gpu_free_bytes": int(free_bytes),
+                "gpu_total_bytes": int(total_bytes),
+            }
+        )
+    return sample
 
 
 def main() -> None:
     args = parse_args()
     if args.expected_rows < 1 or args.batch_size < 1 or args.num_beams < 1:
         raise SystemExit("row, batch, and beam counts must be positive")
+    if args.max_source_length < 1 or args.max_new_tokens < 1:
+        raise SystemExit("source and generation lengths must be positive")
+    if args.progress_every_batches < 1 or args.resource_sample_every_batches < 1:
+        raise SystemExit("progress and resource-sample intervals must be positive")
     if not 0 < args.gate_lower_bound < 1:
         raise SystemExit("--gate-lower-bound must be between zero and one")
     if bool(args.base_model) != bool(args.adapter_dir):
@@ -559,10 +705,16 @@ def main() -> None:
     if observed_hashes != expected_hashes:
         raise ValueError(f"input hash mismatch: observed={observed_hashes}, expected={expected_hashes}")
 
-    rows = read_benchmark(benchmark_path, args.expected_rows, args.max_rows)
+    rows = read_benchmark(
+        benchmark_path,
+        args.expected_rows,
+        args.max_rows,
+        expected_direction=args.direction,
+    )
     output_dir.mkdir(parents=True, exist_ok=True)
     predictions_path = output_dir / "predictions.jsonl"
     completed = load_completed_predictions(predictions_path, rows, args.resume)
+    initial_completed_rows = len(completed)
     input_manifest = {
         "schema_version": 1,
         "created_at": utc_now(),
@@ -577,10 +729,12 @@ def main() -> None:
         "full_benchmark_rows": args.expected_rows,
         "scheduled_rows": len(rows),
         "input_field": args.input_field,
+        "direction": args.direction,
         "source_lang": args.source_lang,
         "target_lang": args.target_lang,
         "use_fast_tokenizer": args.use_fast_tokenizer,
         "expected_target_token_id": args.expected_target_token_id,
+        "expected_source_token_id": args.expected_source_token_id,
         "expect_output_head_alias": args.expect_output_head_alias,
         "evaluator": {
             "path": str(Path(__file__).resolve()),
@@ -590,8 +744,7 @@ def main() -> None:
     input_manifest_path = output_dir / "input-manifest.json"
     if input_manifest_path.exists():
         prior = json.loads(input_manifest_path.read_text(encoding="utf-8"))
-        comparable_keys = set(input_manifest) - {"created_at"}
-        if any(prior.get(key) != input_manifest.get(key) for key in comparable_keys):
+        if stable_manifest_identity(prior) != stable_manifest_identity(input_manifest):
             raise ValueError("existing input manifest does not match this run")
     else:
         write_json_atomic(input_manifest_path, input_manifest)
@@ -653,6 +806,18 @@ def main() -> None:
         raise ValueError(
             f"target token does not round-trip as one ID: token={target_round_trip!r}, ids={target_single_id}"
         )
+    source_token_id = int(tokenizer.convert_tokens_to_ids(args.source_lang))
+    source_round_trip = tokenizer.convert_ids_to_tokens(source_token_id)
+    source_single_id = tokenizer.encode(args.source_lang, add_special_tokens=False)
+    if source_token_id != args.expected_source_token_id:
+        raise ValueError(
+            f"source token ID {source_token_id} != expected {args.expected_source_token_id}"
+        )
+    if source_round_trip != args.source_lang or source_single_id != [source_token_id]:
+        raise ValueError(
+            f"source token does not round-trip as one ID: token={source_round_trip!r}, "
+            f"ids={source_single_id}"
+        )
     expected_output_tied = args.expect_output_head_alias == "tied"
     if adapter_mode:
         aliases = compact_adapter_topology_audit(model)
@@ -707,7 +872,10 @@ def main() -> None:
                 "NLLB config.tie_word_embeddings disagrees with the expected output-head relationship: "
                 f"{aliases}"
             )
-    if int(model.config.decoder_start_token_id) != int(tokenizer.eos_token_id):
+    decoder_start_token_id = int(model.config.decoder_start_token_id)
+    eos_token_id = int(tokenizer.eos_token_id)
+    pad_token_id = int(tokenizer.pad_token_id)
+    if decoder_start_token_id != eos_token_id:
         raise ValueError("decoder start token is not tokenizer EOS")
 
     tokenizer.src_lang = args.source_lang
@@ -745,8 +913,15 @@ def main() -> None:
             "round_trip": target_round_trip,
             "single_encoded_id": target_single_id,
         },
-        "decoder_start_token_id": int(model.config.decoder_start_token_id),
-        "eos_token_id": int(tokenizer.eos_token_id),
+        "source_token": {
+            "token": args.source_lang,
+            "id": source_token_id,
+            "round_trip": source_round_trip,
+            "single_encoded_id": source_single_id,
+        },
+        "decoder_start_token_id": decoder_start_token_id,
+        "eos_token_id": eos_token_id,
+        "pad_token_id": pad_token_id,
         "embedding_alias_audit": aliases,
         "generation": {
             "batch_size": args.batch_size,
@@ -758,33 +933,82 @@ def main() -> None:
             "length_penalty": args.length_penalty,
             "do_sample": False,
             "seed": args.seed,
+            "explicit_decoder_start_token_id": decoder_start_token_id,
+            "explicit_forced_bos_token_id": target_token_id,
+            "explicit_eos_token_id": eos_token_id,
+            "explicit_pad_token_id": pad_token_id,
         },
     }
     environment_path = output_dir / "environment-manifest.json"
-    if not environment_path.exists():
+    if environment_path.exists():
+        prior_environment = json.loads(environment_path.read_text(encoding="utf-8"))
+        if stable_manifest_identity(prior_environment) != stable_manifest_identity(environment):
+            raise ValueError("existing environment manifest does not match this resume")
+    else:
         write_json_atomic(environment_path, environment)
 
     started = time.monotonic()
-    resources: list[dict[str, Any]] = []
+    resource_samples_path = output_dir / "resource-samples.jsonl"
+    resources = load_resource_samples(
+        resource_samples_path,
+        resume=args.resume,
+        completed_rows=len(completed),
+    )
+    segment_number = 1 + max(
+        (int(sample.get("segment_number") or 0) for sample in resources),
+        default=0,
+    )
     remaining = rows[len(completed) :]
     mode = "a" if completed else "w"
-    with predictions_path.open(mode, encoding="utf-8", buffering=1) as prediction_handle:
+    resource_mode = "a" if resource_samples_path.exists() else "w"
+    with predictions_path.open(mode, encoding="utf-8", buffering=1) as prediction_handle, resource_samples_path.open(
+        resource_mode, encoding="utf-8", buffering=1
+    ) as resource_handle:
+        start_sample = resource_sample(
+            torch,
+            math.ceil(len(completed) / args.batch_size),
+            len(completed),
+            started,
+            segment_number=segment_number,
+            segment_start_rows=initial_completed_rows,
+            phase="segment_start",
+        )
+        append_jsonl_fsync(resource_handle, start_sample)
+        resources.append(start_sample)
         for batch_number, batch in enumerate(chunks(remaining, args.batch_size), start=1):
             source_texts = [source_preserving(row.get(args.input_field)) for row in batch]
             if any(not text for text in source_texts):
                 raise ValueError("batch contains a blank model input")
+            tokenizer.src_lang = args.source_lang
+            untruncated = tokenizer(
+                source_texts,
+                add_special_tokens=True,
+                truncation=False,
+                padding=False,
+                return_token_type_ids=False,
+            )["input_ids"]
             encoded = tokenizer(
                 source_texts,
                 max_length=args.max_source_length,
                 truncation=True,
                 padding=True,
                 return_tensors="pt",
-            ).to(device)
+                return_token_type_ids=False,
+            )
+            active_source_lengths = validate_source_language_prefix(
+                encoded["input_ids"],
+                encoded["attention_mask"],
+                source_token_id,
+            )
+            encoded = encoded.to(device)
             batch_started = time.monotonic()
             with torch.inference_mode():
                 generated = model.generate(
                     **encoded,
+                    decoder_start_token_id=decoder_start_token_id,
                     forced_bos_token_id=target_token_id,
+                    eos_token_id=eos_token_id,
+                    pad_token_id=pad_token_id,
                     max_new_tokens=args.max_new_tokens,
                     num_beams=args.num_beams,
                     no_repeat_ngram_size=args.no_repeat_ngram_size,
@@ -795,34 +1019,67 @@ def main() -> None:
             if device.type == "cuda":
                 torch.cuda.synchronize()
             batch_elapsed_ms = (time.monotonic() - batch_started) * 1000
+            token_rows = generated_token_rows(
+                generated,
+                decoder_start_token_id=decoder_start_token_id,
+                target_token_id=target_token_id,
+                pad_token_id=pad_token_id,
+            )
             decoded = [source_preserving(value) for value in tokenizer.batch_decode(generated, skip_special_tokens=True)]
             if len(decoded) != len(batch):
                 raise RuntimeError(f"batch produced {len(decoded)} outputs for {len(batch)} inputs")
             per_row_latency = batch_elapsed_ms / len(batch)
-            for benchmark_row, source, prediction in zip(batch, source_texts, decoded, strict=True):
+            for benchmark_row, source, prediction, generated_ids, source_ids, active_source_length in zip(
+                batch,
+                source_texts,
+                decoded,
+                token_rows,
+                untruncated,
+                active_source_lengths,
+                strict=True,
+            ):
                 refs = normalized_references(benchmark_row)
                 prediction_normalized = normalize(prediction)
                 source_normalized = normalize(source)
-                selected = normalize(benchmark_row.get("output_text"))
+                accepted_references = (
+                    benchmark_row.get("accepted_references")
+                    or benchmark_row.get("acceptedReferences")
+                    or []
+                )
+                selected = normalize(
+                    benchmark_row.get("output_text")
+                    or benchmark_row.get("reference")
+                    or (accepted_references[0] if accepted_references else "")
+                )
                 codepoint_cer = min(error_rate(list(prediction_normalized), list(ref)) for ref in refs)
                 grapheme_cer = min(error_rate(graphemes(prediction_normalized), graphemes(ref)) for ref in refs)
                 target_subword_count = min(
                     len(tokenizer.encode(ref, add_special_tokens=False)) for ref in refs
                 )
                 result = {
-                    "id": str(benchmark_row["id"]),
-                    "source_entry_ids": benchmark_row.get("source_entry_ids") or [],
+                    "id": benchmark_row_id(benchmark_row),
+                    "source_entry_ids": (
+                        benchmark_row.get("source_entry_ids")
+                        or benchmark_row.get("sourceRecordIds")
+                        or []
+                    ),
                     "source_gloss_candidate_ids": benchmark_row.get("source_gloss_candidate_ids") or [],
                     "unconditioned_input_text": source,
                     "input_normalized": source_normalized,
                     "part_of_speech": benchmark_row.get("part_of_speech"),
                     "legacy_v1_splits": benchmark_row.get("legacy_v1_splits") or [],
                     "candidate_source_field": benchmark_row.get("candidate_source_field"),
-                    "accepted_references": benchmark_row.get("accepted_references") or [],
+                    "accepted_references": accepted_references,
                     "accepted_references_normalized": refs,
                     "selected_reference_normalized": selected,
                     "prediction": prediction,
                     "prediction_normalized": prediction_normalized,
+                    "generated_token_ids": generated_ids,
+                    "generated_token_count_including_decoder_prefix": len(generated_ids),
+                    "generated_decoder_target_prefix": generated_ids[:2],
+                    "source_token_count_with_special_tokens_before_truncation": len(source_ids),
+                    "source_token_count_with_special_tokens_after_truncation": active_source_length,
+                    "source_was_truncated": len(source_ids) > active_source_length,
                     "latency_milliseconds": per_row_latency,
                     "accepted_exact": prediction_normalized in refs,
                     "selected_exact": prediction_normalized == selected,
@@ -832,13 +1089,32 @@ def main() -> None:
                     "empty": not prediction_normalized,
                     "source_copy": prediction_normalized == source_normalized,
                     "edit_error_type": classify_edit(prediction_normalized, refs, source_normalized),
+                    "suite_key": benchmark_row.get("suiteKey") or benchmark_row.get("suite_key"),
+                    "ambiguity_status": benchmark_row.get("ambiguityStatus"),
+                    "analysis_join": benchmark_row.get("analysisJoin"),
+                    "surface_features": benchmark_row.get("surfaceFeatures"),
                 }
                 prediction_handle.write(json.dumps(result, ensure_ascii=False, sort_keys=True) + "\n")
                 completed.append(result)
             prediction_handle.flush()
+            os.fsync(prediction_handle.fileno())
             absolute_batch = math.ceil(len(completed) / args.batch_size)
-            if batch_number % args.resource_sample_every_batches == 0 or len(completed) == len(rows):
-                resources.append(resource_sample(torch, absolute_batch, len(completed), started))
+            if (
+                batch_number == 1
+                or batch_number % args.resource_sample_every_batches == 0
+                or len(completed) == len(rows)
+            ):
+                sample = resource_sample(
+                    torch,
+                    absolute_batch,
+                    len(completed),
+                    started,
+                    segment_number=segment_number,
+                    segment_start_rows=initial_completed_rows,
+                    phase="batch_complete",
+                )
+                append_jsonl_fsync(resource_handle, sample)
+                resources.append(sample)
             if batch_number % args.progress_every_batches == 0 or len(completed) == len(rows):
                 print(
                     json.dumps(
@@ -855,22 +1131,46 @@ def main() -> None:
 
     if len(completed) != len(rows):
         raise RuntimeError(f"completed {len(completed)} rows but scheduled {len(rows)}")
-    expected_ids = [str(row["id"]) for row in rows]
+    expected_ids = [benchmark_row_id(row) for row in rows]
     completed_ids = [str(row["id"]) for row in completed]
     if completed_ids != expected_ids:
         raise RuntimeError("completed predictions do not preserve the benchmark ID sequence")
 
     report = metric_report(completed, args.gate_lower_bound)
     report["created_at"] = utc_now()
-    report["duration_seconds"] = time.monotonic() - started
-    report["rows_per_second"] = len(completed) / max(report["duration_seconds"], 1e-9)
+    segment_wall_seconds = time.monotonic() - started
+    segment_rows = len(completed) - initial_completed_rows
+    cumulative_generation_seconds = sum(
+        float(row["latency_milliseconds"]) for row in completed
+    ) / 1000
+    report["timing"] = {
+        "segment_number": segment_number,
+        "initial_completed_rows": initial_completed_rows,
+        "segment_rows": segment_rows,
+        "segment_wall_seconds_after_model_load": segment_wall_seconds,
+        "segment_rows_per_second_after_model_load": (
+            segment_rows / segment_wall_seconds if segment_rows else 0.0
+        ),
+        "cumulative_generation_rows": len(completed),
+        "cumulative_model_generate_seconds": cumulative_generation_seconds,
+        "cumulative_model_generate_rows_per_second": (
+            len(completed) / cumulative_generation_seconds
+            if cumulative_generation_seconds
+            else 0.0
+        ),
+    }
     write_json_atomic(output_dir / "metric-report.json", report)
     failure_report = failure_slices(completed)
     failure_report["created_at"] = utc_now()
     write_json_atomic(output_dir / "failure-slice-report.json", failure_report)
     write_json_atomic(
         output_dir / "resource-samples.json",
-        {"created_at": utc_now(), "samples": resources},
+        {
+            "schema_version": 2,
+            "created_at": utc_now(),
+            "append_only_source": resource_samples_path.name,
+            "samples": resources,
+        },
     )
     checksummed = [
         input_manifest_path,
@@ -878,6 +1178,7 @@ def main() -> None:
         predictions_path,
         output_dir / "metric-report.json",
         output_dir / "failure-slice-report.json",
+        resource_samples_path,
         output_dir / "resource-samples.json",
     ]
     checksum_path = output_dir / "OUTPUT-SHA256SUMS"

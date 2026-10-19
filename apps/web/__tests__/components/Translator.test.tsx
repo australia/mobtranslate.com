@@ -1,23 +1,37 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor, within } from '@testing-library/react';
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  within,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
 // Mock react-markdown
 vi.mock('react-markdown', () => ({
-  default: ({ children }: { children: string }) => <div data-testid="markdown-output">{children}</div>,
+  default: ({ children }: { children: string }) => (
+    <div data-testid="markdown-output">{children}</div>
+  ),
 }));
 
 vi.mock('@/components/improvements/TranslationCorrectionDialog', () => ({
-  TranslationCorrectionDialog: () => <button type="button">Suggest a better translation</button>,
+  TranslationCorrectionDialog: () => (
+    <button type="button">Suggest a better translation</button>
+  ),
 }));
 
 // Mock @mobtranslate/ui
 vi.mock('@mobtranslate/ui', () => {
-  const Textarea = React.forwardRef(({ ...props }: any, ref: any) => <textarea ref={ref} {...props} />);
+  const Textarea = React.forwardRef(({ ...props }: any, ref: any) => (
+    <textarea ref={ref} {...props} />
+  ));
   Textarea.displayName = 'Textarea';
   return {
-    Button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
+    Button: ({ children, ...props }: any) => (
+      <button {...props}>{children}</button>
+    ),
     Textarea,
     cn: (...classes: unknown[]) => classes.filter(Boolean).join(' '),
   };
@@ -59,7 +73,9 @@ const mockLanguages: Language[] = [
   },
 ];
 
-function createMockReadableStream(chunks: string[]): ReadableStream<Uint8Array> {
+function createMockReadableStream(
+  chunks: string[],
+): ReadableStream<Uint8Array> {
   const encoder = new TextEncoder();
   let index = 0;
   return new ReadableStream({
@@ -91,7 +107,9 @@ describe('Translator', () => {
   it('renders with empty state', () => {
     render(<Translator availableLanguages={mockLanguages} />);
 
-    expect(screen.getByPlaceholderText('Enter English text to translate...')).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText('Enter English text to translate...'),
+    ).toBeInTheDocument();
     expect(screen.getByText('Translate')).toBeInTheDocument();
     expect(screen.getByText('Translate from English')).toBeInTheDocument();
   });
@@ -106,7 +124,9 @@ describe('Translator', () => {
     const user = userEvent.setup();
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     expect(screen.getByText('5 / 400')).toBeInTheDocument();
@@ -123,7 +143,9 @@ describe('Translator', () => {
     const user = userEvent.setup();
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, '   ');
 
     const button = screen.getByText('Translate').closest('button');
@@ -134,7 +156,9 @@ describe('Translator', () => {
     const user = userEvent.setup();
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello world');
 
     const button = screen.getByText('Translate').closest('button');
@@ -210,7 +234,9 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     const button = screen.getByText('Translate').closest('button')!;
@@ -239,14 +265,19 @@ describe('Translator', () => {
     const select = screen.getByRole('combobox');
     await user.selectOptions(select, 'warlpiri');
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     const button = screen.getByText('Translate').closest('button')!;
     await user.click(button);
 
     await waitFor(() => {
-      expect(fetchSpy).toHaveBeenCalledWith('/api/translate/warlpiri', expect.any(Object));
+      expect(fetchSpy).toHaveBeenCalledWith(
+        '/api/translate/warlpiri',
+        expect.any(Object),
+      );
     });
   });
 
@@ -267,7 +298,9 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     const button = screen.getByText('Translate').closest('button')!;
@@ -289,14 +322,16 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'test');
 
     const button = screen.getByText('Translate').closest('button')!;
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByTestId('markdown-output')).toHaveTextContent('Hello World');
+      expect(screen.getByText('Hello World')).toBeInTheDocument();
     });
   });
 
@@ -311,14 +346,20 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     const button = screen.getByText('Translate').closest('button')!;
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByText('The translation service is having trouble. Try again in a moment.')).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          'The translation service is having trouble. Try again in a moment.',
+        ),
+      ).toBeInTheDocument();
     });
   });
 
@@ -329,7 +370,9 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     const button = screen.getByText('Translate').closest('button')!;
@@ -347,7 +390,9 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     const button = screen.getByText('Translate').closest('button')!;
@@ -376,14 +421,19 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     // Press Ctrl+Enter
     fireEvent.keyDown(textarea, { key: 'Enter', ctrlKey: true });
 
     await waitFor(() => {
-      expect(fetchSpy).toHaveBeenCalledWith('/api/translate/kuku_yalanji', expect.any(Object));
+      expect(fetchSpy).toHaveBeenCalledWith(
+        '/api/translate/kuku_yalanji',
+        expect.any(Object),
+      );
     });
   });
 
@@ -398,14 +448,19 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     // Press Cmd+Enter
     fireEvent.keyDown(textarea, { key: 'Enter', metaKey: true });
 
     await waitFor(() => {
-      expect(fetchSpy).toHaveBeenCalledWith('/api/translate/kuku_yalanji', expect.any(Object));
+      expect(fetchSpy).toHaveBeenCalledWith(
+        '/api/translate/kuku_yalanji',
+        expect.any(Object),
+      );
     });
   });
 
@@ -414,12 +469,17 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     fireEvent.keyDown(textarea, { key: 'Enter' });
 
-    expect(fetchSpy).not.toHaveBeenCalledWith(expect.stringContaining('/api/translate'), expect.any(Object));
+    expect(fetchSpy).not.toHaveBeenCalledWith(
+      expect.stringContaining('/api/translate'),
+      expect.any(Object),
+    );
   });
 
   it('shows error when language fetch fails', async () => {
@@ -428,7 +488,11 @@ describe('Translator', () => {
     render(<Translator />);
 
     await waitFor(() => {
-      expect(screen.getByText('Failed to load available languages. Please refresh the page.')).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          'Failed to load available languages. Please refresh the page.',
+        ),
+      ).toBeInTheDocument();
     });
   });
 
@@ -439,7 +503,10 @@ describe('Translator', () => {
     // Force click even though disabled
     fireEvent.click(button);
 
-    expect(fetchSpy).not.toHaveBeenCalledWith(expect.stringContaining('/api/translate'), expect.any(Object));
+    expect(fetchSpy).not.toHaveBeenCalledWith(
+      expect.stringContaining('/api/translate'),
+      expect.any(Object),
+    );
   });
 
   it('shows the disclaimer note after translation', async () => {
@@ -453,14 +520,18 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     const button = screen.getByText('Translate').closest('button')!;
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByText(/AI-generated, not authoritative/)).toBeInTheDocument();
+      expect(
+        screen.getByText(/AI-generated, not authoritative/),
+      ).toBeInTheDocument();
     });
   });
 
@@ -475,21 +546,23 @@ describe('Translator', () => {
 
     render(<Translator availableLanguages={mockLanguages} />);
 
-    const textarea = screen.getByPlaceholderText('Enter English text to translate...');
+    const textarea = screen.getByPlaceholderText(
+      'Enter English text to translate...',
+    );
     await user.type(textarea, 'hello');
 
     const button = screen.getByText('Translate').closest('button')!;
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByTestId('markdown-output')).toHaveTextContent('first result');
+      expect(screen.getByText('first result')).toBeInTheDocument();
     });
 
     // Start second translation
     await user.click(button);
 
     await waitFor(() => {
-      expect(screen.getByTestId('markdown-output')).toHaveTextContent('second result');
+      expect(screen.getByText('second result')).toBeInTheDocument();
     });
 
     expect(screen.queryByText('first result')).not.toBeInTheDocument();

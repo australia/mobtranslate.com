@@ -3,6 +3,7 @@ import * as path from 'path';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
+import { isPublishedReleaseStatus } from '../../lib/models/distribution';
 import {
   ArrowRight,
   CheckCircle2,
@@ -74,7 +75,9 @@ function loadRegistry(): Registry {
 }
 
 function statusStyle(status: string): string {
-  if (status === 'published') return 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300';
+  if (isPublishedReleaseStatus(status)) {
+    return 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300';
+  }
   if (status === 'internal-proof') return 'bg-blue-500/10 text-blue-700 dark:text-blue-300';
   if (status === 'research-only') return 'bg-amber-500/20 text-foreground';
   if (status === 'training-ready') return 'bg-amber-500/10 text-amber-700 dark:text-amber-300';
@@ -198,9 +201,11 @@ export default function ModelsPage() {
                 {model.releases.map((release) => (
                   <div key={release.version} className="p-5 md:p-6">
                     <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                      <div>
+                      <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
-                          <h3 className="text-base font-semibold">Version {release.version}</h3>
+                          <h3 className="text-base font-semibold [overflow-wrap:anywhere]">
+                            Version {release.version}
+                          </h3>
                           <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${statusStyle(release.status)}`}>
                             {statusLabel(release.status)}
                           </span>
@@ -208,11 +213,15 @@ export default function ModelsPage() {
                         <dl className="mt-3 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
                           <div>
                             <dt className="text-muted-foreground">Base model</dt>
-                            <dd className="font-medium">{release.baseModel}</dd>
+                            <dd className="font-medium [overflow-wrap:anywhere]">
+                              {release.baseModel}
+                            </dd>
                           </div>
                           <div>
                             <dt className="text-muted-foreground">Dataset</dt>
-                            <dd className="font-medium">{release.dataset}</dd>
+                            <dd className="font-medium [overflow-wrap:anywhere]">
+                              {release.dataset}
+                            </dd>
                           </div>
                           <div>
                             <dt className="text-muted-foreground">Directions</dt>
@@ -224,9 +233,12 @@ export default function ModelsPage() {
                           </div>
                         </dl>
                       </div>
-                  {release.status === 'published' ? (
+                      {isPublishedReleaseStatus(release.status) ? (
                         <span className="inline-flex h-9 items-center gap-2 rounded-lg bg-emerald-500/10 px-3 text-sm font-medium text-emerald-700 dark:text-emerald-300">
-                          <CheckCircle2 className="h-4 w-4" /> Published
+                          <CheckCircle2 className="h-4 w-4" />
+                          {release.status === 'published-controlled'
+                            ? 'Published: controlled'
+                            : 'Published'}
                         </span>
                       ) : release.status === 'research-only' && model.labUrl ? (
                         <Link
