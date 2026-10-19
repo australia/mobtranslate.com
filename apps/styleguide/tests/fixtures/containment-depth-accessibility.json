@@ -1,0 +1,207 @@
+[
+  {
+    "path": "/components/card",
+    "state": "collection-initial",
+    "actions": []
+  },
+  {
+    "path": "/components/card",
+    "state": "bookmarked-filter",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Bookmark Reading notes",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Bookmarked cards only",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/card",
+    "state": "empty-titles",
+    "actions": [
+      [
+        "fill",
+        "#local-card-filter",
+        "no matching title"
+      ]
+    ]
+  },
+  {
+    "path": "/components/card",
+    "state": "expanded-details",
+    "actions": [
+      [
+        "click",
+        "[data-card-id=reading] summary"
+      ]
+    ]
+  },
+  {
+    "path": "/components/card",
+    "state": "whole-card-keyboard",
+    "actions": [
+      [
+        "focus",
+        "[data-single-card]"
+      ],
+      [
+        "press",
+        "Shift+Tab"
+      ],
+      [
+        "press",
+        "Tab"
+      ]
+    ]
+  },
+  {
+    "path": "/components/dialog",
+    "state": "edit",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Edit local collection",
+        "--exact"
+      ],
+      [
+        "wait",
+        "[role=dialog] input"
+      ]
+    ]
+  },
+  {
+    "path": "/components/dialog",
+    "state": "invalid",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Edit local collection",
+        "--exact"
+      ],
+      [
+        "fill",
+        "[role=dialog] input",
+        " "
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Save local collection",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/dialog",
+    "state": "pending",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Edit local collection",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Save local collection",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/dialog",
+    "state": "failed",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Edit local collection",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Save local collection",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Simulate save failure",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/dialog",
+    "state": "discard-decision",
+    "actions": [
+      [
+        "click",
+        "[data-dialog-protect]"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Edit local collection",
+        "--exact"
+      ],
+      [
+        "fill",
+        "[role=dialog] input",
+        "Retained local discard decision"
+      ],
+      [
+        "press",
+        "Escape"
+      ],
+      [
+        "wait",
+        "[data-dialog-discard]"
+      ]
+    ]
+  }
+]

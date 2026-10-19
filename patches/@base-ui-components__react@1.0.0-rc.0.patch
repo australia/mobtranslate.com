@@ -1,0 +1,215 @@
+diff --git a/esm/menu/root/MenuRoot.js b/esm/menu/root/MenuRoot.js
+index d51b3e747266b7afbcd08569fe5958014cbfcfea..27d8e5e04dab7cbd792c5a3dab11265a4fc3df17 100644
+--- a/esm/menu/root/MenuRoot.js
++++ b/esm/menu/root/MenuRoot.js
+@@ -82,6 +82,13 @@ export function MenuRoot(props) {
+   const store = MenuStore.useStore(handle?.store, {
+     parent: parentFromContext
+   });
++  // A closed menu must follow live menubar orientation/disabled context too.
++  // Trigger forwarding only refreshes this state while its popup is mounted.
++  useIsoLayoutEffect(() => {
++    if (parentFromContext.type === 'menubar') {
++      store.update({ parent: parentFromContext });
++    }
++  }, [store, parentFromContext]);
+   const floatingTreeRoot = store.useState('floatingTreeRoot');
+   const floatingNodeIdFromContext = useFloatingNodeId(floatingTreeRoot);
+   const floatingParentNodeIdFromContext = useFloatingParentNodeId();
+diff --git a/esm/navigation-menu/trigger/NavigationMenuTrigger.js b/esm/navigation-menu/trigger/NavigationMenuTrigger.js
+index 2c7d9e27b35857d25639ea2b8b37301c6cbf231e..3d5215e6e31d0fe907386afd6560108717c6b758 100644
+--- a/esm/navigation-menu/trigger/NavigationMenuTrigger.js
++++ b/esm/navigation-menu/trigger/NavigationMenuTrigger.js
+@@ -87,7 +87,7 @@ export const NavigationMenuTrigger = /*#__PURE__*/React.forwardRef(function Navi
+   const animationAbortControllerRef = React.useRef(null);
+   const isActiveItem = open && value === itemValue;
+   const isActiveItemRef = useValueAsRef(isActiveItem);
+-  const interactionsEnabled = positionerElement ? true : !value;
++  const interactionsEnabled = !disabled && (positionerElement ? true : !value);
+   const runOnceAnimationsFinish = useAnimationsFinished(popupElement);
+   React.useEffect(() => {
+     animationAbortControllerRef.current?.abort();
+@@ -234,6 +234,7 @@ export const NavigationMenuTrigger = /*#__PURE__*/React.forwardRef(function Navi
+     }
+   });
+   const hover = useHover(context, {
++    enabled: !disabled,
+     move: false,
+     handleClose: safePolygon({
+       blockPointerEvents: pointerType !== 'touch'
+@@ -286,6 +287,9 @@ export const NavigationMenuTrigger = /*#__PURE__*/React.forwardRef(function Navi
+     });
+   }
+   const handleOpenEvent = useStableCallback(event => {
++    if (disabled) {
++      return;
++    }
+     // For nested scenarios without positioner/popup, we can still open the menu
+     // but we can't do size calculations
+     if (!popupElement || !positionerElement) {
+diff --git a/esm/select/root/SelectRoot.js b/esm/select/root/SelectRoot.js
+index 67bf8e962dcbc9e5acc2a84ec519b27a2b9bdc3e..b906588b92b465e551a525951452f3c673e0b8a8 100644
+--- a/esm/select/root/SelectRoot.js
++++ b/esm/select/root/SelectRoot.js
+@@ -374,11 +374,12 @@ export function SelectRoot(props) {
+       const currentSerializedValue = stringifyAsValue(v, itemToStringValue);
+       return /*#__PURE__*/_jsx("input", {
+         type: "hidden",
++        disabled: disabled,
+         name: name,
+         value: currentSerializedValue
+       }, currentSerializedValue);
+     });
+-  }, [multiple, value, name, itemToStringValue]);
++  }, [multiple, value, name, itemToStringValue, disabled]);
+   return /*#__PURE__*/_jsx(SelectRootContext.Provider, {
+     value: contextValue,
+     children: /*#__PURE__*/_jsxs(SelectFloatingContext.Provider, {
+diff --git a/esm/tooltip/root/TooltipRoot.js b/esm/tooltip/root/TooltipRoot.js
+index 14edddb7a11f60fbd7b7fc66ff7c276b6583465d..60841f91b9b140219297d0f308e6da9c8e7664d6 100644
+--- a/esm/tooltip/root/TooltipRoot.js
++++ b/esm/tooltip/root/TooltipRoot.js
+@@ -3,7 +3,7 @@
+ import * as React from 'react';
+ import { useIsoLayoutEffect } from '@base-ui-components/utils/useIsoLayoutEffect';
+ import { TooltipRootContext } from "./TooltipRootContext.js";
+-import { useClientPoint, useDismiss, useFocus, useInteractions } from "../../floating-ui-react/index.js";
++import { useClientPoint, useDismiss, useFocus, useInteractions, useRole } from "../../floating-ui-react/index.js";
+ import { createChangeEventDetails } from "../../utils/createBaseUIEventDetails.js";
+ import { useImplicitActiveTrigger, useOpenStateTransitions } from "../../utils/popups/index.js";
+ import { TooltipStore } from "../store/TooltipStore.js";
+@@ -97,6 +97,7 @@ export function TooltipRoot(props) {
+     close: handleImperativeClose
+   }), [forceUnmount, handleImperativeClose]);
+   const floatingRootContext = store.useState('floatingRootContext');
++  const role = useRole(floatingRootContext, {role: 'tooltip'});
+   const focus = useFocus(floatingRootContext, {
+     enabled: !disabled
+   });
+@@ -112,7 +113,7 @@ export function TooltipRoot(props) {
+     getReferenceProps,
+     getFloatingProps,
+     getTriggerProps
+-  } = useInteractions([focus, dismiss, clientPoint]);
++  } = useInteractions([focus, dismiss, clientPoint, role]);
+   const activeTriggerProps = React.useMemo(() => getReferenceProps(), [getReferenceProps]);
+   const inactiveTriggerProps = React.useMemo(() => getTriggerProps(), [getTriggerProps]);
+   const popupProps = React.useMemo(() => getFloatingProps(), [getFloatingProps]);
+diff --git a/esm/tooltip/trigger/TooltipTrigger.js b/esm/tooltip/trigger/TooltipTrigger.js
+index e918651e76bf04cdb6fa687a4229b5e1024f447a..a80d173c61daa1af5631af837ec6250033a6a58b 100644
+--- a/esm/tooltip/trigger/TooltipTrigger.js
++++ b/esm/tooltip/trigger/TooltipTrigger.js
+@@ -101,7 +101,9 @@ export const TooltipTrigger = /*#__PURE__*/React.forwardRef(function TooltipTrig
+     ref: [forwardedRef, registerTrigger, triggerElementRef],
+     props: [hoverProps, rootTriggerProps, {
+       id: thisTriggerId
+-    }, elementProps],
++    }, elementProps, {
++      'aria-describedby': [...new Set([rootTriggerProps['aria-describedby'], elementProps['aria-describedby']].filter(Boolean))].join(' ') || undefined
++    }],
+     stateAttributesMapping: triggerOpenStateMapping
+   });
+   return element;
+diff --git a/menu/root/MenuRoot.js b/menu/root/MenuRoot.js
+index aef1f0109835278f9eeeb1b042908c967ce0d1f0..9cd2d8f6637ac535e8c525a643de2d30eb513db1 100644
+--- a/menu/root/MenuRoot.js
++++ b/menu/root/MenuRoot.js
+@@ -87,6 +87,13 @@ function MenuRoot(props) {
+   const store = _MenuStore.MenuStore.useStore(handle?.store, {
+     parent: parentFromContext
+   });
++  // A closed menu must follow live menubar orientation/disabled context too.
++  // Trigger forwarding only refreshes this state while its popup is mounted.
++  (0, _useIsoLayoutEffect.useIsoLayoutEffect)(() => {
++    if (parentFromContext.type === 'menubar') {
++      store.update({ parent: parentFromContext });
++    }
++  }, [store, parentFromContext]);
+   const floatingTreeRoot = store.useState('floatingTreeRoot');
+   const floatingNodeIdFromContext = (0, _floatingUiReact.useFloatingNodeId)(floatingTreeRoot);
+   const floatingParentNodeIdFromContext = (0, _floatingUiReact.useFloatingParentNodeId)();
+diff --git a/navigation-menu/trigger/NavigationMenuTrigger.js b/navigation-menu/trigger/NavigationMenuTrigger.js
+index 81ee7c28aaa9731cee32d227490995f496c78b35..4699c1f39a4bd4d2002951275f73ff1be759f2a4 100644
+--- a/navigation-menu/trigger/NavigationMenuTrigger.js
++++ b/navigation-menu/trigger/NavigationMenuTrigger.js
+@@ -93,7 +93,7 @@ const NavigationMenuTrigger = exports.NavigationMenuTrigger = /*#__PURE__*/React
+   const animationAbortControllerRef = React.useRef(null);
+   const isActiveItem = open && value === itemValue;
+   const isActiveItemRef = (0, _useValueAsRef.useValueAsRef)(isActiveItem);
+-  const interactionsEnabled = positionerElement ? true : !value;
++  const interactionsEnabled = !disabled && (positionerElement ? true : !value);
+   const runOnceAnimationsFinish = (0, _useAnimationsFinished.useAnimationsFinished)(popupElement);
+   React.useEffect(() => {
+     animationAbortControllerRef.current?.abort();
+@@ -240,6 +240,7 @@ const NavigationMenuTrigger = exports.NavigationMenuTrigger = /*#__PURE__*/React
+     }
+   });
+   const hover = (0, _floatingUiReact.useHover)(context, {
++    enabled: !disabled,
+     move: false,
+     handleClose: (0, _floatingUiReact.safePolygon)({
+       blockPointerEvents: pointerType !== 'touch'
+@@ -292,6 +293,9 @@ const NavigationMenuTrigger = exports.NavigationMenuTrigger = /*#__PURE__*/React
+     });
+   }
+   const handleOpenEvent = (0, _useStableCallback.useStableCallback)(event => {
++    if (disabled) {
++      return;
++    }
+     // For nested scenarios without positioner/popup, we can still open the menu
+     // but we can't do size calculations
+     if (!popupElement || !positionerElement) {
+diff --git a/select/root/SelectRoot.js b/select/root/SelectRoot.js
+index 8dc7ad1bbfe40a70b7edd08e3fe67e87a5897f10..ebad3e2e557ccd5b8726f53151f1b09f68f7a1a3 100644
+--- a/select/root/SelectRoot.js
++++ b/select/root/SelectRoot.js
+@@ -379,11 +379,12 @@ function SelectRoot(props) {
+       const currentSerializedValue = (0, _resolveValueLabel.stringifyAsValue)(v, itemToStringValue);
+       return /*#__PURE__*/(0, _jsxRuntime.jsx)("input", {
+         type: "hidden",
++        disabled: disabled,
+         name: name,
+         value: currentSerializedValue
+       }, currentSerializedValue);
+     });
+-  }, [multiple, value, name, itemToStringValue]);
++  }, [multiple, value, name, itemToStringValue, disabled]);
+   return /*#__PURE__*/(0, _jsxRuntime.jsx)(_SelectRootContext.SelectRootContext.Provider, {
+     value: contextValue,
+     children: /*#__PURE__*/(0, _jsxRuntime.jsxs)(_SelectRootContext.SelectFloatingContext.Provider, {
+diff --git a/tooltip/root/TooltipRoot.js b/tooltip/root/TooltipRoot.js
+index 189209e1022ba9529da8984201d016c56d54e7b4..7eb507303a8de77cf3d9e44f22fe24a4b77d9517 100644
+--- a/tooltip/root/TooltipRoot.js
++++ b/tooltip/root/TooltipRoot.js
+@@ -102,6 +102,7 @@ function TooltipRoot(props) {
+     close: handleImperativeClose
+   }), [forceUnmount, handleImperativeClose]);
+   const floatingRootContext = store.useState('floatingRootContext');
++  const role = (0, _floatingUiReact.useRole)(floatingRootContext, {role: 'tooltip'});
+   const focus = (0, _floatingUiReact.useFocus)(floatingRootContext, {
+     enabled: !disabled
+   });
+@@ -117,7 +118,7 @@ function TooltipRoot(props) {
+     getReferenceProps,
+     getFloatingProps,
+     getTriggerProps
+-  } = (0, _floatingUiReact.useInteractions)([focus, dismiss, clientPoint]);
++  } = (0, _floatingUiReact.useInteractions)([focus, dismiss, clientPoint, role]);
+   const activeTriggerProps = React.useMemo(() => getReferenceProps(), [getReferenceProps]);
+   const inactiveTriggerProps = React.useMemo(() => getTriggerProps(), [getTriggerProps]);
+   const popupProps = React.useMemo(() => getFloatingProps(), [getFloatingProps]);
+diff --git a/tooltip/trigger/TooltipTrigger.js b/tooltip/trigger/TooltipTrigger.js
+index 55ec6f9a69baf05b4940c55ee54a814236f6c351..63350057bd5b6373722b13646b26605acc27631a 100644
+--- a/tooltip/trigger/TooltipTrigger.js
++++ b/tooltip/trigger/TooltipTrigger.js
+@@ -107,7 +107,9 @@ const TooltipTrigger = exports.TooltipTrigger = /*#__PURE__*/React.forwardRef(fu
+     ref: [forwardedRef, registerTrigger, triggerElementRef],
+     props: [hoverProps, rootTriggerProps, {
+       id: thisTriggerId
+-    }, elementProps],
++    }, elementProps, {
++      'aria-describedby': [...new Set([rootTriggerProps['aria-describedby'], elementProps['aria-describedby']].filter(Boolean))].join(' ') || undefined
++    }],
+     stateAttributesMapping: _popupStateMapping.triggerOpenStateMapping
+   });
+   return element;

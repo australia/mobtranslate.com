@@ -10,7 +10,7 @@ export const AlertDialogPortal = BaseAlertDialog.Portal;
 
 export const AlertDialogBackdrop = React.forwardRef<HTMLDivElement, React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Backdrop>>(
   ({ className, ...props }, ref) => (
-    <BaseAlertDialog.Backdrop ref={ref} className={cn('mt-alert-dialog-backdrop', className)} {...props} />
+    <BaseAlertDialog.Backdrop ref={ref} className={state => cn('mt-alert-dialog-backdrop', typeof className === 'function' ? className(state) : className)} {...props} />
   )
 );
 AlertDialogBackdrop.displayName = 'AlertDialogBackdrop';
@@ -21,21 +21,21 @@ export interface AlertDialogPopupProps extends React.ComponentPropsWithoutRef<ty
 
 export const AlertDialogPopup = React.forwardRef<HTMLDivElement, AlertDialogPopupProps>(
   ({ className, size = 'md', ...props }, ref) => (
-    <BaseAlertDialog.Popup ref={ref} className={cn('mt-alert-dialog-popup', `mt-alert-dialog-${size}`, className)} {...props} />
+    <BaseAlertDialog.Popup ref={ref} aria-modal="true" className={state => cn('mt-alert-dialog-popup', `mt-alert-dialog-${size}`, typeof className === 'function' ? className(state) : className)} {...props} />
   )
 );
 AlertDialogPopup.displayName = 'AlertDialogPopup';
 
 export const AlertDialogTitle = React.forwardRef<HTMLHeadingElement, React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Title>>(
   ({ className, ...props }, ref) => (
-    <BaseAlertDialog.Title ref={ref} className={cn('mt-alert-dialog-title', className)} {...props} />
+    <BaseAlertDialog.Title ref={ref} className={state => cn('mt-alert-dialog-title', typeof className === 'function' ? className(state) : className)} {...props} />
   )
 );
 AlertDialogTitle.displayName = 'AlertDialogTitle';
 
 export const AlertDialogDescription = React.forwardRef<HTMLParagraphElement, React.ComponentPropsWithoutRef<typeof BaseAlertDialog.Description>>(
   ({ className, ...props }, ref) => (
-    <BaseAlertDialog.Description ref={ref} className={cn('mt-alert-dialog-description', className)} {...props} />
+    <BaseAlertDialog.Description ref={ref} className={state => cn('mt-alert-dialog-description', typeof className === 'function' ? className(state) : className)} {...props} />
   )
 );
 AlertDialogDescription.displayName = 'AlertDialogDescription';

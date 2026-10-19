@@ -1,0 +1,8 @@
+[
+  {"path":"/foundations/layout-compositions","state":"initial","actions":[]},
+  {"path":"/foundations/layout-compositions","state":"compact-detail","actions":[["focus","#composition-width"],["press","Home"],["focus","[data-composition-open=a]"],["press","Enter"]]},
+  {"path":"/foundations/layout-compositions","state":"saved-detail","actions":[["focus","[data-composition-open=b]"],["press","Enter"],["fill","#composition-note","A saved English fixture note."],["focus","[data-composition-save]"],["press","Enter"]]},
+  {"path":"/foundations/layout-compositions","state":"feed-open","actions":[["select","#composition-mode","feed"],["focus","[data-composition-open=c]"],["press","Enter"]]},
+  {"path":"/foundations/layout-compositions","state":"supporting-rtl","actions":[["select","#composition-mode","supporting"],["select","#composition-record","b"],["focus","#composition-rtl"],["press","Space"]]},
+  {"path":"/foundations/layout-compositions","state":"returned-list","actions":[["focus","[data-composition-open=a]"],["press","Enter"],["focus","[data-composition-back]"],["press","Enter"]]}
+]

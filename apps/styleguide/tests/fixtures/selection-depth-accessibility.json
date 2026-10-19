@@ -1,0 +1,161 @@
+[
+  {
+    "path": "/components/checkbox",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/checkbox",
+    "state": "required-error",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Submit local checkbox sample",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/checkbox",
+    "state": "checked",
+    "actions": [
+      [
+        "click",
+        "[aria-label=\"Include explanatory notes\"]"
+      ]
+    ]
+  },
+  {
+    "path": "/components/checkbox-group",
+    "state": "mixed",
+    "actions": []
+  },
+  {
+    "path": "/components/checkbox-group",
+    "state": "all",
+    "actions": [
+      [
+        "click",
+        "[aria-label=\"Select all local formats\"]"
+      ]
+    ]
+  },
+  {
+    "path": "/components/radio",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/radio",
+    "state": "comfortable",
+    "actions": [
+      [
+        "click",
+        "[aria-label=\"Comfortable reading\"]"
+      ]
+    ]
+  },
+  {
+    "path": "/components/switch",
+    "state": "immediate-details",
+    "actions": [
+      [
+        "click",
+        "[aria-label=\"Show local example details\"]"
+      ]
+    ]
+  },
+  {
+    "path": "/components/switch",
+    "state": "pending",
+    "actions": [
+      [
+        "click",
+        "[aria-label=\"Local example reminders\"]"
+      ]
+    ]
+  },
+  {
+    "path": "/components/chip",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/chip",
+    "state": "empty-filters",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Bookmarked examples",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Notes examples",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/chip",
+    "state": "invalid-input",
+    "actions": [
+      [
+        "fill",
+        "#local-chip-text",
+        " "
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Use local chip text",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/chip",
+    "state": "edited-input",
+    "actions": [
+      [
+        "fill",
+        "#local-chip-text",
+        "Actual edited local token"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Use local chip text",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/chip",
+    "state": "removed",
+    "actions": [
+      [
+        "click",
+        ".mt-chip-delete"
+      ]
+    ]
+  }
+]

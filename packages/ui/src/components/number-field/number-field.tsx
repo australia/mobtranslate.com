@@ -9,7 +9,7 @@ export const NumberField = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseNumberField.Root
     ref={ref}
-    className={cn('mt-number-field', className)}
+    className={state => cn('mt-number-field', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -21,7 +21,7 @@ export const NumberFieldGroup = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseNumberField.Group
     ref={ref}
-    className={cn('mt-number-field-group', className)}
+    className={state => cn('mt-number-field-group', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -33,7 +33,7 @@ export const NumberFieldInput = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseNumberField.Input
     ref={ref}
-    className={cn('mt-number-field-input', className)}
+    className={state => cn('mt-number-field-input', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -45,11 +45,12 @@ export const NumberFieldIncrement = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <BaseNumberField.Increment
     ref={ref}
-    className={cn('mt-number-field-increment', className)}
+    aria-label="Increase value"
+    className={state => cn('mt-number-field-increment', typeof className === 'function' ? className(state) : className)}
     {...props}
   >
     {children || (
-      <svg width="10" height="10" viewBox="0 0 10 10">
+      <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
         <path
           d="M5 2V8M2 5H8"
           stroke="currentColor"
@@ -68,11 +69,12 @@ export const NumberFieldDecrement = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <BaseNumberField.Decrement
     ref={ref}
-    className={cn('mt-number-field-decrement', className)}
+    aria-label="Decrease value"
+    className={state => cn('mt-number-field-decrement', typeof className === 'function' ? className(state) : className)}
     {...props}
   >
     {children || (
-      <svg width="10" height="10" viewBox="0 0 10 10">
+      <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false">
         <path
           d="M2 5H8"
           stroke="currentColor"

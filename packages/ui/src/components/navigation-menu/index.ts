@@ -7,4 +7,9 @@ export {
   NavigationMenuLink,
   NavigationMenuPortal,
   NavigationMenuViewport,
+  NavigationMenuPositioner,
+  NavigationMenuPopup,
+  NavigationMenuBackdrop,
+  NavigationMenuArrow,
+  NavigationMenuIcon,
 } from './navigation-menu';

@@ -13,7 +13,7 @@ export const PreviewCardPositioner = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BasePreviewCard.Positioner
     ref={ref}
-    className={cn('mt-preview-card-positioner', className)}
+    className={state=>cn('mt-preview-card-positioner',typeof className==='function'?className(state):className)}
     {...props}
   />
 ));
@@ -25,7 +25,7 @@ export const PreviewCardPopup = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BasePreviewCard.Popup
     ref={ref}
-    className={cn('mt-preview-card-popup', className)}
+    className={state=>cn('mt-preview-card-popup',typeof className==='function'?className(state):className)}
     {...props}
   >
     {props.children}

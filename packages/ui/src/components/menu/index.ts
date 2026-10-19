@@ -10,4 +10,11 @@ export {
   MenuSeparator,
   MenuArrow,
   MenuSubmenuTrigger,
+  MenuSubmenuRoot,
+  MenuBackdrop,
+  MenuCheckboxItem,
+  MenuCheckboxItemIndicator,
+  MenuRadioGroup,
+  MenuRadioItem,
+  MenuRadioItemIndicator,
 } from './menu';

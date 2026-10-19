@@ -11,7 +11,8 @@ export const AspectRatio = React.forwardRef<HTMLDivElement, AspectRatioProps>(
     <div
       ref={ref}
       className={cn('mt-aspect-ratio', className)}
-      style={{ ...style, '--mt-aspect-ratio': String(ratio) } as React.CSSProperties}
+      data-invalid-ratio={!(Number.isFinite(ratio)&&ratio>0)||undefined}
+      style={{ ...style, '--mt-aspect-ratio': String(Number.isFinite(ratio)&&ratio>0?ratio:16/9) } as React.CSSProperties}
       {...props}
     >
       {children}

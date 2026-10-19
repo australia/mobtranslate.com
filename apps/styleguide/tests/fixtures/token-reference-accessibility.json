@@ -1,0 +1,64 @@
+[
+  {
+    "path": "/tokens",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/tokens",
+    "state": "filtered-alias",
+    "actions": [
+      [
+        "fill",
+        "main input[type=search]",
+        "var(--radius-lg)"
+      ]
+    ]
+  },
+  {
+    "path": "/tokens",
+    "state": "dependency-included",
+    "actions": [
+      [
+        "fill",
+        "main input[type=search]",
+        "var(--radius-lg)"
+      ],
+      [
+        "focus",
+        "[data-token-dependencies]"
+      ],
+      [
+        "press",
+        "Space"
+      ]
+    ]
+  },
+  {
+    "path": "/tokens",
+    "state": "expanded-references",
+    "actions": [
+      [
+        "fill",
+        "main input[type=search]",
+        "var(--radius-lg)"
+      ],
+      [
+        "focus",
+        "[data-token-dependencies]"
+      ],
+      [
+        "press",
+        "Space"
+      ],
+      [
+        "focus",
+        "[data-token-reference-details] summary"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  }
+]

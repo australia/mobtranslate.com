@@ -1,0 +1,6 @@
+.reorder-lab { min-inline-size:0; }
+.reorder-lab [data-dragging] { border:2px solid var(--color-muted-foreground); background:var(--color-muted); color:var(--color-muted-foreground); cursor:grabbing; }
+.reorder-lab li > div { flex-wrap:wrap; min-inline-size:0; max-inline-size:100%; }
+.reorder-lab .mt-btn { block-size:auto; white-space:normal; min-block-size:44px; padding-block:.5rem; }
+.reorder-lab p { overflow-wrap:anywhere; }
+@media(forced-colors:active) { .reorder-lab [data-dragging] { border-color:Highlight; background:Canvas; color:CanvasText; } }

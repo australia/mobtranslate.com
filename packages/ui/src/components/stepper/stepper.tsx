@@ -1,20 +1,26 @@
 'use client';
 import * as React from 'react';
 import { cn } from '../../utils/cn';
+import {VisuallyHidden} from '../visually-hidden/visually-hidden';
 
 export interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
   activeStep: number;
   orientation?: 'horizontal' | 'vertical';
+  getStepStatusLabel?:(index:number,status:'completed'|'current'|'pending')=>string;
 }
 
 export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
-  ({ className, activeStep, orientation = 'horizontal', children, ...props }, ref) => {
+  ({ className, activeStep, orientation = 'horizontal', getStepStatusLabel=(_index,status)=>status==='completed'?'Completed':status==='current'?'Current step':'Not started', children, ...props }, ref) => {
     const steps = React.Children.toArray(children);
+    const valid=Number.isInteger(activeStep)&&activeStep>=0&&activeStep<=steps.length;
+    const current=valid?activeStep:-1;
     return (
       <div
         ref={ref}
         className={cn('mt-stepper', `mt-stepper-${orientation}`, className)}
         role="list"
+        data-invalid-step={!valid||undefined}
+        aria-invalid={!valid||undefined}
         {...props}
       >
         {steps.map((child, index) => (
@@ -22,15 +28,15 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             <div
               className={cn(
                 'mt-stepper-step',
-                index < activeStep && 'mt-stepper-step-completed',
-                index === activeStep && 'mt-stepper-step-active',
-                index > activeStep && 'mt-stepper-step-pending'
+                index < current && 'mt-stepper-step-completed',
+                index === current && 'mt-stepper-step-active',
+                index > current && 'mt-stepper-step-pending'
               )}
               role="listitem"
-              aria-current={index === activeStep ? 'step' : undefined}
+              aria-current={index === current ? 'step' : undefined}
             >
-              <div className="mt-stepper-indicator">
-                {index < activeStep ? (
+              <div className="mt-stepper-indicator" aria-hidden="true">
+                {index < current ? (
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                     <path d="M4 8l3 3 5-6" />
                   </svg>
@@ -38,10 +44,10 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                   <span>{index + 1}</span>
                 )}
               </div>
-              <div className="mt-stepper-content">{child}</div>
+              <div className="mt-stepper-content">{child}<VisuallyHidden>{getStepStatusLabel(index,index<current?'completed':index===current?'current':'pending')}</VisuallyHidden></div>
             </div>
             {index < steps.length - 1 && (
-              <div className={cn('mt-stepper-connector', index < activeStep && 'mt-stepper-connector-completed')} />
+              <div aria-hidden="true" className={cn('mt-stepper-connector', index < current && 'mt-stepper-connector-completed')} />
             )}
           </React.Fragment>
         ))}

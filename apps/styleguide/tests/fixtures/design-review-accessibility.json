@@ -1,0 +1,9 @@
+[
+  {"path":"/guides/design-review","state":"initial","actions":[]},
+  {"path":"/guides/design-review","state":"invalid-submit","actions":[["focus","[data-accessibility-lab] button[type=submit]"],["press","Enter"]]},
+  {"path":"/guides/design-review","state":"pending","actions":[["fill","[data-accessibility-lab] input[name=title]","Public English title"],["fill","[data-accessibility-lab] textarea[name=note]","Public English note"],["focus","[data-accessibility-lab] button[type=submit]"],["press","Enter"]]},
+  {"path":"/guides/design-review","state":"completed","actions":[["fill","[data-accessibility-lab] input[name=title]","Public English title"],["fill","[data-accessibility-lab] textarea[name=note]","Public English note"],["focus","[data-accessibility-lab] button[type=submit]"],["press","Enter"],["focus","[data-accessibility-lab] > div.flex button:nth-child(1)"],["press","Enter"]]},
+  {"path":"/guides/design-review","state":"failed","actions":[["fill","[data-accessibility-lab] input[name=title]","Public English title"],["fill","[data-accessibility-lab] textarea[name=note]","Public English note"],["focus","[data-accessibility-lab] button[type=submit]"],["press","Enter"],["focus","[data-accessibility-lab] > div.flex button:nth-child(2)"],["press","Enter"]]},
+  {"path":"/guides/design-review","state":"cancelled","actions":[["fill","[data-accessibility-lab] input[name=title]","Public English title"],["fill","[data-accessibility-lab] textarea[name=note]","Public English note"],["focus","[data-accessibility-lab] button[type=submit]"],["press","Enter"],["focus","[data-accessibility-lab] > div.flex button:nth-child(3)"],["press","Enter"]]},
+  {"path":"/foundations/internationalization","state":"initial","actions":[]}
+]

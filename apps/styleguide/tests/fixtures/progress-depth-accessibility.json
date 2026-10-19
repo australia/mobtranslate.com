@@ -1,0 +1,162 @@
+[
+  {
+    "path": "/components/progress",
+    "state": "unknown",
+    "actions": []
+  },
+  {
+    "path": "/components/progress",
+    "state": "measured-zero",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Reset measured progress",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/progress",
+    "state": "measured-partial",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/circular-progress",
+    "state": "unknown",
+    "actions": []
+  },
+  {
+    "path": "/components/circular-progress",
+    "state": "measured-partial",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/circular-progress",
+    "state": "measured-complete",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Complete one local step",
+        "--exact"
+      ]
+    ]
+  }
+]

@@ -21,7 +21,6 @@ export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
         className
       )}
       style={{
-        ...style,
         gap: typeof gap === 'number' ? `${gap * 0.25}rem` : gap,
         alignItems: align === 'start' ? 'flex-start' : align === 'end' ? 'flex-end' : align,
         justifyContent:
@@ -31,6 +30,7 @@ export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
           justify === 'around' ? 'space-around' :
           justify === 'evenly' ? 'space-evenly' :
           justify,
+        ...style,
       } as React.CSSProperties}
       {...props}
     />

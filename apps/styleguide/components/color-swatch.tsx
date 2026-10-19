@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function ColorSwatch({ name, value, textColor }: { name: string; value: string; textColor?: string }) {
+export function ColorSwatch({ name, value }: { name: string; value: string }) {
   return (
     <div className="flex flex-col items-center gap-1.5">
       <div

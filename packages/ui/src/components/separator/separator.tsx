@@ -7,7 +7,7 @@ export interface SeparatorProps extends React.ComponentPropsWithoutRef<typeof Ba
 
 export const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(
   ({ className, ...props }, ref) => (
-    <BaseSeparator ref={ref} className={cn('mt-separator', className)} {...props} />
+    <BaseSeparator ref={ref} className={state=>cn('mt-separator',typeof className==='function'?className(state):className)} {...props} />
   )
 );
 Separator.displayName = 'Separator';

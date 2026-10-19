@@ -1,0 +1,96 @@
+[
+  {
+    "path": "/foundations/spacing",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/foundations/spacing",
+    "state": "compact-asymmetric-rtl",
+    "actions": [
+      [
+        "select",
+        "[data-spacing-control=leading]",
+        "--spacing-2"
+      ],
+      [
+        "select",
+        "[data-spacing-control=trailing]",
+        "--spacing-6"
+      ],
+      [
+        "focus",
+        "[data-spacing-density]"
+      ],
+      [
+        "press",
+        "Space"
+      ],
+      [
+        "focus",
+        "[data-spacing-rtl]"
+      ],
+      [
+        "press",
+        "Space"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/spacing",
+    "state": "long-200-selected",
+    "actions": [
+      [
+        "focus",
+        "[data-spacing-long]"
+      ],
+      [
+        "press",
+        "Space"
+      ],
+      [
+        "select",
+        "[data-spacing-scale]",
+        "200"
+      ],
+      [
+        "focus",
+        "[data-spacing-action]"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/spacing",
+    "state": "oversized-scrolling",
+    "actions": [
+      [
+        "select",
+        "[data-spacing-control=leading]",
+        "--spacing-24"
+      ],
+      [
+        "select",
+        "[data-spacing-control=trailing]",
+        "--spacing-24"
+      ],
+      [
+        "select",
+        "[data-spacing-control=margin]",
+        "--spacing-24"
+      ],
+      [
+        "select",
+        "[data-spacing-control=gap]",
+        "--spacing-24"
+      ],
+      [
+        "focus",
+        "[data-spacing-action]"
+      ]
+    ]
+  }
+]

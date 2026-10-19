@@ -1,0 +1,8 @@
+# Include inside the existing mobtranslate.com site, before its default handle.
+handle_path /_design-system-origin/* {
+  reverse_proxy 127.0.0.1:3303 {
+    header_down +Cache-Control "no-transform"
+    header_down Content-Security-Policy "script-src-elem 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'"
+    header_down X-MobTranslate-Design-Origin "standalone"
+  }
+}

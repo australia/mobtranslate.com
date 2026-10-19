@@ -9,7 +9,7 @@ export const Field = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseField.Root
     ref={ref}
-    className={cn('mt-field', className)}
+    className={state => cn('mt-field', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -21,7 +21,7 @@ export const FieldLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseField.Label
     ref={ref}
-    className={cn('mt-field-label', className)}
+    className={state => cn('mt-field-label', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -33,7 +33,7 @@ export const FieldDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseField.Description
     ref={ref}
-    className={cn('mt-field-description', className)}
+    className={state => cn('mt-field-description', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));
@@ -45,7 +45,7 @@ export const FieldError = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <BaseField.Error
     ref={ref}
-    className={cn('mt-field-error', className)}
+    className={state => cn('mt-field-error', typeof className === 'function' ? className(state) : className)}
     {...props}
   />
 ));

@@ -1,0 +1,76 @@
+[
+  {
+    "path": "/foundations/internationalization",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/patterns/audio",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/progress",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/tabs",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/breadcrumbs",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/components/pagination",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/patterns/audio",
+    "state": "rtl-media-controls",
+    "actions": [
+      [
+        "wait",
+        "--fn",
+        "document.querySelector(\"#local-test-audio\")?.duration===6"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Use RTL audio layout",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/components/tabs",
+    "state": "vertical-rtl-tabs",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Use vertical local tabs",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Use RTL local tabs",
+        "--exact"
+      ]
+    ]
+  }
+]

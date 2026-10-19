@@ -1,0 +1,29 @@
+[Unit]
+Description=MobTranslate design system immutable Next.js release
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ajax
+Group=ajax
+WorkingDirectory=/mnt/donto-data/mobtranslate-styleguide/current/runtime/apps/styleguide
+Environment=NODE_ENV=production
+Environment=HOSTNAME=127.0.0.1
+Environment=PORT=3303
+ExecStart=/usr/bin/node /mnt/donto-data/mobtranslate-styleguide/current/runtime/apps/styleguide/server.js
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+MemoryMax=2G
+CPUQuota=100%
+LimitNOFILE=65536
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/mnt/donto-data/mobtranslate-styleguide/current/runtime/apps/styleguide/.next/cache
+
+[Install]
+WantedBy=multi-user.target

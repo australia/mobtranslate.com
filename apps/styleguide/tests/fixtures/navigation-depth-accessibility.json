@@ -1,0 +1,142 @@
+[
+  {
+    "path": "/patterns/navigation",
+    "state": "adaptive-initial",
+    "actions": []
+  },
+  {
+    "path": "/patterns/navigation",
+    "state": "compact-bar",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Use compact destination bar",
+        "--exact"
+      ]
+    ]
+  },
+  {
+    "path": "/patterns/navigation",
+    "state": "compact-reading",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Use compact destination bar",
+        "--exact"
+      ],
+      [
+        "click",
+        "[data-adaptive-nav] a[data-adaptive-destination=\"reading\"]"
+      ],
+      [
+        "wait",
+        "--fn",
+        "document.querySelector(\"[data-adaptive-heading]\").textContent.includes(\"reading settings\")"
+      ]
+    ]
+  },
+  {
+    "path": "/patterns/navigation",
+    "state": "held-navigation",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Use compact destination bar",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Hold local destination requests",
+        "--exact"
+      ],
+      [
+        "click",
+        "[data-adaptive-nav] a[data-adaptive-destination=\"reading\"]"
+      ]
+    ]
+  },
+  {
+    "path": "/patterns/app-bars",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/patterns/app-bars",
+    "state": "options",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Workspace options",
+        "--exact"
+      ],
+      [
+        "wait",
+        "[role=menu]"
+      ]
+    ]
+  },
+  {
+    "path": "/patterns/app-bars",
+    "state": "reading-note",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Open Local reading collection",
+        "--exact"
+      ],
+      [
+        "fill",
+        "#appbar-note",
+        "Actual local accessibility note"
+      ]
+    ]
+  },
+  {
+    "path": "/patterns/app-bars",
+    "state": "rtl-reading",
+    "actions": [
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Use RTL app bar workspace",
+        "--exact"
+      ],
+      [
+        "find",
+        "role",
+        "button",
+        "click",
+        "--name",
+        "Open Local reading collection",
+        "--exact"
+      ]
+    ]
+  }
+]

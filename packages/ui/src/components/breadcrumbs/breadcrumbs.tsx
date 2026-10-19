@@ -10,7 +10,7 @@ export const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
   ({ className, separator, children, ...props }, ref) => {
     const items = React.Children.toArray(children);
     const defaultSep = separator ?? (
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
+      <svg className="mt-breadcrumbs-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
         <path d="M6 4l4 4-4 4" />
       </svg>
     );
@@ -19,7 +19,7 @@ export const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
       <nav ref={ref} aria-label="Breadcrumb" className={cn('mt-breadcrumbs', className)} {...props}>
         <ol className="mt-breadcrumbs-list">
           {items.map((child, index) => (
-            <li key={index} className="mt-breadcrumbs-item">
+            <li key={React.isValidElement(child) ? child.key ?? index : index} className="mt-breadcrumbs-item">
               {child}
               {index < items.length - 1 && (
                 <span className="mt-breadcrumbs-separator" aria-hidden="true">

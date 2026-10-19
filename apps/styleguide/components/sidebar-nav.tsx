@@ -4,125 +4,39 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-interface NavSection {
-  title: string;
-  items: { label: string; href: string }[];
-}
-
-const sections: NavSection[] = [
-  {
-    title: 'Overview',
-    items: [
-      { label: 'Introduction', href: '/' },
-      { label: 'Tokens', href: '/tokens' },
-    ],
-  },
-  {
-    title: 'Guides',
-    items: [
-      { label: 'Getting Started', href: '/guides/getting-started' },
-      { label: 'Design Principles', href: '/guides/design-principles' },
-      { label: 'Accessibility', href: '/guides/accessibility' },
-      { label: 'Theming', href: '/guides/theming' },
-    ],
-  },
-  {
-    title: 'Foundations',
-    items: [
-      { label: 'Colors', href: '/foundations/colors' },
-      { label: 'Typography', href: '/foundations/typography' },
-      { label: 'Spacing', href: '/foundations/spacing' },
-      { label: 'Elevation', href: '/foundations/elevation' },
-      { label: 'Motion', href: '/foundations/motion' },
-    ],
-  },
-  {
-    title: 'Components',
-    items: [
-      { label: 'Accordion', href: '/components/accordion' },
-      { label: 'Alert', href: '/components/alert' },
-      { label: 'Alert Dialog', href: '/components/alert-dialog' },
-      { label: 'Aspect Ratio', href: '/components/aspect-ratio' },
-      { label: 'Autocomplete', href: '/components/autocomplete' },
-      { label: 'Avatar', href: '/components/avatar' },
-      { label: 'Badge', href: '/components/badge' },
-      { label: 'Breadcrumbs', href: '/components/breadcrumbs' },
-      { label: 'Button', href: '/components/button' },
-      { label: 'Card', href: '/components/card' },
-      { label: 'Checkbox', href: '/components/checkbox' },
-      { label: 'Checkbox Group', href: '/components/checkbox-group' },
-      { label: 'Chip', href: '/components/chip' },
-      { label: 'Collapsible', href: '/components/collapsible' },
-      { label: 'Combobox', href: '/components/combobox' },
-      { label: 'Context Menu', href: '/components/context-menu' },
-      { label: 'Dialog', href: '/components/dialog' },
-      { label: 'Drawer', href: '/components/drawer' },
-      { label: 'Field', href: '/components/field' },
-      { label: 'Fieldset', href: '/components/fieldset' },
-      { label: 'Form', href: '/components/form' },
-      { label: 'Input', href: '/components/input' },
-      { label: 'Menu', href: '/components/menu' },
-      { label: 'Menubar', href: '/components/menubar' },
-      { label: 'Meter', href: '/components/meter' },
-      { label: 'Navigation Menu', href: '/components/navigation-menu' },
-      { label: 'Number Field', href: '/components/number-field' },
-      { label: 'Pagination', href: '/components/pagination' },
-      { label: 'Popover', href: '/components/popover' },
-      { label: 'Preview Card', href: '/components/preview-card' },
-      { label: 'Progress', href: '/components/progress' },
-      { label: 'Radio', href: '/components/radio' },
-      { label: 'Rating', href: '/components/rating' },
-      { label: 'Scroll Area', href: '/components/scroll-area' },
-      { label: 'Select', href: '/components/select' },
-      { label: 'Separator', href: '/components/separator' },
-      { label: 'Skeleton', href: '/components/skeleton' },
-      { label: 'Slider', href: '/components/slider' },
-      { label: 'Stack', href: '/components/stack' },
-      { label: 'Stepper', href: '/components/stepper' },
-      { label: 'Switch', href: '/components/switch' },
-      { label: 'Table', href: '/components/table' },
-      { label: 'Tabs', href: '/components/tabs' },
-      { label: 'Textarea', href: '/components/textarea' },
-      { label: 'Toast', href: '/components/toast' },
-      { label: 'Toggle', href: '/components/toggle' },
-      { label: 'Toggle Group', href: '/components/toggle-group' },
-      { label: 'Toolbar', href: '/components/toolbar' },
-      { label: 'Tooltip', href: '/components/tooltip' },
-      { label: 'Visually Hidden', href: '/components/visually-hidden' },
-    ],
-  },
-  {
-    title: 'Patterns',
-    items: [
-      { label: 'Forms', href: '/patterns/forms' },
-      { label: 'Navigation', href: '/patterns/navigation' },
-      { label: 'Data Display', href: '/patterns/data-display' },
-    ],
-  },
-];
+import { sections } from '../content/navigation';
+import { applyTheme, readThemePreference } from '../lib/theme';
 
 function ThemeToggle() {
   const [dark, setDark] = React.useState(false);
 
   React.useEffect(() => {
-    const stored = localStorage.getItem('mt-theme');
-    if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-      setDark(true);
-    }
+    const sync = () => {
+      setDark(applyTheme(readThemePreference(), false));
+    };
+    const reflect = () => setDark(document.documentElement.classList.contains('dark'));
+    sync();
+    const system = window.matchMedia('(prefers-color-scheme: dark)');
+    system.addEventListener('change', sync);
+    window.addEventListener('storage', sync);
+    window.addEventListener('mt-theme-change', reflect);
+    return () => {
+      system.removeEventListener('change', sync);
+      window.removeEventListener('storage', sync);
+      window.removeEventListener('mt-theme-change', reflect);
+    };
   }, []);
 
   const toggle = () => {
     const next = !dark;
     setDark(next);
-    document.documentElement.classList.toggle('dark', next);
-    localStorage.setItem('mt-theme', next ? 'dark' : 'light');
+    applyTheme(next ? 'dark' : 'light');
   };
 
   return (
     <button
       onClick={toggle}
-      className="flex items-center gap-2 w-full px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-[var(--color-muted)] border-2 border-[var(--color-border)]"
+      className="flex items-center gap-2 w-full px-2 py-2.5 text-sm rounded-md transition-colors hover:bg-[var(--color-muted)] border-2 border-[var(--color-border)]"
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {dark ? (
@@ -145,17 +59,18 @@ function SearchFilter({ value, onChange }: { value: string; onChange: (v: string
         <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.3-4.3" />
       </svg>
       <input
-        type="text"
-        placeholder="Search components..."
+        placeholder="Find a topic..."
+        aria-label="Find a design system topic"
+        type="search"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full pl-8 pr-2 py-1.5 text-sm rounded-md border-2 border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-foreground)] outline-none focus:border-[var(--color-ring)] transition-colors"
+        className="w-full pl-8 pr-2 py-2.5 text-sm rounded-md border-2 border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-foreground)] outline-none focus:border-[var(--color-ring)] transition-colors"
       />
     </div>
   );
 }
 
-function NavContent() {
+function NavContent({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
   const [search, setSearch] = React.useState('');
 
@@ -163,7 +78,7 @@ function NavContent() {
     ...section,
     items: search
       ? section.items.filter((item) =>
-          item.label.toLowerCase().includes(search.toLowerCase())
+          `${section.title} ${item.label}`.toLowerCase().includes(search.trim().toLowerCase())
         )
       : section.items,
   })).filter((section) => section.items.length > 0);
@@ -180,6 +95,8 @@ function NavContent() {
         <ThemeToggle />
       </div>
       <SearchFilter value={search} onChange={setSearch} />
+      {search && <p role="status" className="text-sm mb-3">{filteredSections.reduce((total, section) => total + section.items.length, 0)} topics found</p>}
+      {filteredSections.length === 0 && <p className="text-sm mb-4">Try a component name or a category such as Foundations. <Link className="underline" href={`/search?q=${encodeURIComponent(search.trim())}`} onClick={onNavigate}>Search all guidance</Link></p>}
       {filteredSections.map((section) => (
         <div key={section.title} className="mb-4">
           <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-muted-foreground)] mb-2 px-2">
@@ -190,7 +107,9 @@ function NavContent() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`block px-2 py-1.5 text-sm rounded-md transition-colors ${
+                  aria-current={pathname === item.href ? 'page' : undefined}
+                  onClick={onNavigate}
+                  className={`block px-2 py-2.5 text-sm rounded-md transition-colors ${
                     pathname === item.href
                       ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] font-medium'
                       : 'hover:bg-[var(--color-muted)]'
@@ -209,47 +128,81 @@ function NavContent() {
 
 export function SidebarNav() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const dialogRef = React.useRef<HTMLDialogElement>(null);
+  const headerRef = React.useRef<HTMLElement>(null);
   const pathname = usePathname();
 
   React.useEffect(() => {
-    setMobileOpen(false);
+    const header = headerRef.current;
+    if (!header) return;
+    let frame = 0;
+    const reveal = (target: EventTarget | null) => {
+      cancelAnimationFrame(frame);
+      if (!(target instanceof HTMLElement) || !target.closest('main')) return;
+      frame = requestAnimationFrame(() => {
+        if (!target.isConnected || document.activeElement !== target || !target.matches(':focus-visible')) return;
+        const headerBox = header.getBoundingClientRect();
+        const targetBox = target.getBoundingClientRect();
+        const aboveHeader = headerBox.height > 0 && targetBox.top < headerBox.bottom;
+        const belowViewport = targetBox.top >= innerHeight || (targetBox.bottom > innerHeight && targetBox.height <= innerHeight - headerBox.bottom);
+        if (aboveHeader || belowViewport) {
+          target.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'instant'});
+        }
+      });
+    };
+    const measure = () => {
+      document.documentElement.style.setProperty('--styleguide-header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+      reveal(document.activeElement);
+    };
+    const focus = (event: FocusEvent) => reveal(event.target);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(header);
+    document.addEventListener('focusin', focus);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener('focusin', focus);
+      cancelAnimationFrame(frame);
+      document.documentElement.style.removeProperty('--styleguide-header-height');
+    };
+  }, []);
+
+  React.useEffect(() => {
+    dialogRef.current?.close();
   }, [pathname]);
+
+  React.useEffect(() => {
+    if (mobileOpen) dialogRef.current?.showModal();
+    else dialogRef.current?.close();
+  }, [mobileOpen]);
+
+  React.useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 768px)');
+    const closeOnDesktop = () => { if (desktop.matches) dialogRef.current?.close(); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
 
   return (
     <>
-      {/* Mobile hamburger button */}
-      <button
-        className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md border-2 border-[var(--color-border)] bg-[var(--color-background)]"
-        onClick={() => setMobileOpen(!mobileOpen)}
-        aria-label="Toggle navigation"
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-          {mobileOpen ? (
-            <><path d="M6 6l12 12" /><path d="M6 18L18 6" /></>
-          ) : (
-            <><path d="M3 6h18" /><path d="M3 12h18" /><path d="M3 18h18" /></>
-          )}
-        </svg>
-      </button>
-
-      {/* Mobile backdrop */}
-      {mobileOpen && (
-        <div
-          className="md:hidden fixed inset-0 bg-black/50 z-40"
-          onClick={() => setMobileOpen(false)}
-        />
-      )}
-
-      {/* Sidebar */}
-      <nav
-        className={`
-          w-64 shrink-0 border-r-2 border-[var(--color-border)] h-screen overflow-y-auto sticky top-0 p-4 bg-[var(--color-background)]
-          max-md:fixed max-md:z-40 max-md:transition-transform max-md:duration-200
-          ${mobileOpen ? 'max-md:translate-x-0' : 'max-md:-translate-x-full'}
-        `}
-      >
+      <header ref={headerRef} className="mobile-nav-header"><button
+        className="mobile-nav-trigger"
+        onClick={() => setMobileOpen(true)}
+        aria-label="Open navigation menu"
+        aria-expanded={mobileOpen}
+        aria-controls="mobile-navigation"
+      >Menu</button><span className="text-sm font-semibold">MobTranslate styleguide</span></header>
+      <nav aria-label="Design system" className="styleguide-desktop-nav w-64 shrink-0 border-r border-[var(--color-border)] h-screen overflow-y-auto sticky top-0 p-4 bg-[var(--color-background)]">
         <NavContent />
       </nav>
+      <dialog id="mobile-navigation" ref={dialogRef} className="mobile-navigation" aria-label="Design system navigation" onClose={() => setMobileOpen(false)} onClick={(event) => {
+        if (event.target === event.currentTarget) dialogRef.current?.close();
+      }}>
+        <div className="p-4">
+          <button className="nav-close" onClick={() => dialogRef.current?.close()}>Close navigation</button>
+          {mobileOpen && <nav aria-label="Design system"><NavContent onNavigate={() => dialogRef.current?.close()} /></nav>}
+        </div>
+      </dialog>
     </>
   );
 }

@@ -3,9 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@mobtranslate/ui": ["../../packages/ui/src"],
-      "@mobtranslate/ui/*": ["../../packages/ui/src/*"]
+      "@/*": ["./*"]
     },
     "plugins": [{ "name": "next" }],
     "strictNullChecks": true,

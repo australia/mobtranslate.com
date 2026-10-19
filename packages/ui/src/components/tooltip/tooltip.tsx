@@ -10,14 +10,14 @@ export const TooltipPortal = BaseTooltip.Portal;
 
 export const TooltipPositioner = React.forwardRef<HTMLDivElement, React.ComponentPropsWithoutRef<typeof BaseTooltip.Positioner>>(
   ({ className, ...props }, ref) => (
-    <BaseTooltip.Positioner ref={ref} className={cn('mt-tooltip-positioner', className)} {...props} />
+    <BaseTooltip.Positioner ref={ref} className={state => cn('mt-tooltip-positioner', typeof className === 'function' ? className(state) : className)} {...props} />
   )
 );
 TooltipPositioner.displayName = 'TooltipPositioner';
 
 export const TooltipPopup = React.forwardRef<HTMLDivElement, React.ComponentPropsWithoutRef<typeof BaseTooltip.Popup>>(
   ({ className, ...props }, ref) => (
-    <BaseTooltip.Popup ref={ref} className={cn('mt-tooltip-popup', className)} {...props}>
+    <BaseTooltip.Popup ref={ref} className={state => cn('mt-tooltip-popup', typeof className === 'function' ? className(state) : className)} {...props}>
       {props.children}
       <BaseTooltip.Arrow className="mt-tooltip-arrow" />
     </BaseTooltip.Popup>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="330" height="180" viewBox="0 0 330 180">
+  <rect data-group="A" data-value="3" x="43" y="84" width="56" height="84" fill="#b45e2a" />
+  <rect data-group="B" data-value="5" x="137" y="28" width="56" height="140" fill="#b45e2a" />
+  <rect data-group="C" data-value="2" x="231" y="112" width="56" height="56" fill="#b45e2a" />
+</svg>

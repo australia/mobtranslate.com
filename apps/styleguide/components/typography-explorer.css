@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Styleguide Roboto Flex';
+  src: url('/fonts/roboto-flex.ttf') format('truetype');
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+  font-style: normal;
+  font-display: swap;
+}
+.type-lab { display: grid; gap: 1rem; min-inline-size: 0; }
+.type-lab label { display: block; min-inline-size: 0; overflow-wrap: anywhere; }
+.type-lab .mt-input { display: block; inline-size: 100%; min-inline-size: 0; margin-block-start: .5rem; }
+.type-lab textarea.mt-input { height: auto; min-block-size: calc(4.5em + 1.5rem + 4px); padding-block: .75rem; line-height: 1.5; resize: vertical; }
+.type-lab fieldset { min-inline-size: 0; padding: 0; }
+.type-axis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem; }
+.type-axis-grid input { display: block; inline-size: 100%; min-block-size: 44px; }
+.type-lab .type-checkbox { display: flex; gap: .75rem; align-items: center; min-block-size: 44px; }
+.type-lab .type-checkbox input { flex: 0 0 auto; }
+.type-lab button { min-block-size: 44px; padding: .5rem .75rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); margin: .5rem; }
+.type-lab [data-typography-preview] { padding: 12px; border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow-wrap: anywhere; white-space: pre-wrap; }
+.type-lab p, .type-lab summary, .type-lab code { overflow-wrap: anywhere; }
+.type-lab pre { white-space: pre-wrap; max-inline-size: 100%; }
+.type-lab a { text-decoration: underline; }
+@media (forced-colors: active) { .type-lab [data-typography-preview], .type-lab button { border-color: CanvasText; } }

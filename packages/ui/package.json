@@ -6,10 +6,14 @@
   "types": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "pnpm tokens:check && tsc",
     "dev": "tsc --watch",
-    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint \"src/**/*.{ts,tsx}\" --cache --cache-location .cache/eslint/.eslintcache --max-warnings 0",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --cache --cache-location .cache/eslint/.eslintcache --max-warnings 0",
+    "typecheck": "pnpm tokens:check && tsc -p tsconfig.json --noEmit",
+    "tokens:generate": "node scripts/generate-tokens.mjs && node scripts/generate-component-tokens.mjs",
+    "tokens:check": "node scripts/generate-tokens.mjs --check && node scripts/generate-component-tokens.mjs --check",
+    "component-tokens:generate": "node scripts/generate-component-tokens.mjs",
+    "component-tokens:check": "node scripts/generate-component-tokens.mjs --check"
   },
   "dependencies": {
     "@base-ui-components/react": "1.0.0-rc.0",
@@ -21,10 +25,11 @@
     "@types/react-dom": "^19.2.3",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "postcss": "8.5.15"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   }
 }

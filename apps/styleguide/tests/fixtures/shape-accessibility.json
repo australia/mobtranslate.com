@@ -1,0 +1,86 @@
+[
+  {
+    "path": "/foundations/shape",
+    "state": "initial",
+    "actions": []
+  },
+  {
+    "path": "/foundations/shape",
+    "state": "individual-rtl",
+    "actions": [
+      [
+        "focus",
+        "[data-shape-individual]"
+      ],
+      [
+        "press",
+        "Space"
+      ],
+      [
+        "select",
+        "[data-shape-corner=borderStartStartRadius]",
+        "--radius-none"
+      ],
+      [
+        "focus",
+        "[data-shape-rtl]"
+      ],
+      [
+        "press",
+        "Space"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/shape",
+    "state": "alternate-applied",
+    "actions": [
+      [
+        "focus",
+        "[data-shape-toggle]"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/shape",
+    "state": "disclosed-source",
+    "actions": [
+      [
+        "focus",
+        "[data-shape-surface] summary"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/shape",
+    "state": "expanded-css",
+    "actions": [
+      [
+        "focus",
+        "[data-shape-css] summary"
+      ],
+      [
+        "press",
+        "Enter"
+      ]
+    ]
+  },
+  {
+    "path": "/foundations/shape",
+    "state": "visible-geometry",
+    "actions": [
+      [
+        "scrollintoview",
+        "[data-shape-lab] svg"
+      ]
+    ]
+  }
+]

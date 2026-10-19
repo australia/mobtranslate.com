@@ -9,4 +9,12 @@ export {
   SelectGroup,
   SelectGroupLabel,
   SelectSeparator,
+  SelectList,
+  SelectIcon,
+  SelectItemText,
+  SelectItemIndicator,
+  SelectBackdrop,
+  SelectArrow,
+  SelectScrollUpArrow,
+  SelectScrollDownArrow,
 } from './select';

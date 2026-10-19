@@ -1,0 +1,11 @@
+{
+  "title": "Generated local audio test signal",
+  "source": "/fixtures/ui-tone.wav",
+  "frequencyHz": 440,
+  "durationSeconds": 6,
+  "sampleRateHz": 22050,
+  "channels": 1,
+  "bitsPerSample": 16,
+  "sha256": "8ed6bc52e1e6b08278f607e6d840367b33ef819d0ac988a59caad976feebce04",
+  "provenance": "Project-authored deterministic synthetic signal. No speech, pronunciation, music recording or cultural asset."
+}

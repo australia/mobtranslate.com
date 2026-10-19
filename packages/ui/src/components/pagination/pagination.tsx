@@ -30,9 +30,10 @@ export interface PaginationButtonProps extends React.ButtonHTMLAttributes<HTMLBu
 }
 
 export const PaginationButton = React.forwardRef<HTMLButtonElement, PaginationButtonProps>(
-  ({ className, isActive, ...props }, ref) => (
+  ({ className, isActive, type = 'button', ...props }, ref) => (
     <button
       ref={ref}
+      type={type}
       aria-current={isActive ? 'page' : undefined}
       className={cn('mt-pagination-btn', isActive && 'mt-pagination-btn-active', className)}
       {...props}
@@ -42,8 +43,8 @@ export const PaginationButton = React.forwardRef<HTMLButtonElement, PaginationBu
 PaginationButton.displayName = 'PaginationButton';
 
 export const PaginationPrevious = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
-  ({ className, children, ...props }, ref) => (
-    <button ref={ref} aria-label="Go to previous page" className={cn('mt-pagination-btn', 'mt-pagination-nav', className)} {...props}>
+  ({ className, children, type = 'button', ...props }, ref) => (
+    <button ref={ref} type={type} aria-label="Go to previous page" className={cn('mt-pagination-btn', 'mt-pagination-nav', className)} {...props}>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
         <path d="M10 4l-4 4 4 4" />
       </svg>
@@ -54,8 +55,8 @@ export const PaginationPrevious = React.forwardRef<HTMLButtonElement, React.Butt
 PaginationPrevious.displayName = 'PaginationPrevious';
 
 export const PaginationNext = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
-  ({ className, children, ...props }, ref) => (
-    <button ref={ref} aria-label="Go to next page" className={cn('mt-pagination-btn', 'mt-pagination-nav', className)} {...props}>
+  ({ className, children, type = 'button', ...props }, ref) => (
+    <button ref={ref} type={type} aria-label="Go to next page" className={cn('mt-pagination-btn', 'mt-pagination-nav', className)} {...props}>
       {children ?? <span>Next</span>}
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
         <path d="M6 4l4 4-4 4" />
@@ -73,3 +74,9 @@ export const PaginationEllipsis = React.forwardRef<HTMLSpanElement, React.HTMLAt
   )
 );
 PaginationEllipsis.displayName = 'PaginationEllipsis';
+
+export interface PaginationLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> { isActive?: boolean; }
+export const PaginationLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(
+  ({ className, isActive, ...props }, ref) => <a ref={ref} aria-current={isActive ? 'page' : undefined} className={cn('mt-pagination-btn', isActive && 'mt-pagination-btn-active', className)} {...props} />
+);
+PaginationLink.displayName = 'PaginationLink';

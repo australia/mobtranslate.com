@@ -1,0 +1,5 @@
+[
+  {"id":"reading","title":"Local reading example","text":"English-only reading notes for the styleguide task.","audience":"public","revision":1,"sourceTitle":"Accessibility guidance","sourceHref":"/guides/accessibility"},
+  {"id":"comparison","title":"Local comparison example","text":"English-only comparison notes for the styleguide task.","audience":"public","revision":1,"sourceTitle":"Data display guidance","sourceHref":"/patterns/data-display"},
+  {"id":"team","title":"Local team example","text":"Publicly shipped English-only fixture representing a team audience in the UI demo. This is not confidential content.","audience":"team","revision":1,"sourceTitle":"Composition guidance","sourceHref":"/guides/composition"}
+]

@@ -5,4 +5,9 @@ export {
   ToastTitle,
   ToastDescription,
   ToastClose,
+  ToastAction,
+  ToastContent,
+  ToastPortal,
+  useToastManager,
+  createToastManager,
 } from './toast';
