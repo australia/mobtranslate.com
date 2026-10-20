@@ -1,5 +1,9 @@
 import { streamText } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
+import {
+  OPENAI_TEXT_MODEL,
+  openAiTextModelOptions,
+} from '@/lib/openai-text-model';
 import { getSessionUser } from '@/lib/auth-helpers';
 import {
   apiGuardResponse,
@@ -73,7 +77,8 @@ export async function POST(req: Request) {
 
     // Simple stream without tools
     const result = streamText({
-      model: openai('gpt-5.4-mini'),
+      model: openai(OPENAI_TEXT_MODEL),
+      providerOptions: openAiTextModelOptions,
       messages,
       system: 'You are a helpful language learning assistant.',
       maxRetries: 0,

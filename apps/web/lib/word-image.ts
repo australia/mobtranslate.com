@@ -7,6 +7,10 @@
 import { promises as fs } from 'fs';
 import { createOpenAI } from '@ai-sdk/openai';
 import { generateText, tool } from 'ai';
+import {
+  OPENAI_TEXT_MODEL,
+  openAiTextModelOptions,
+} from './openai-text-model';
 import sharp from 'sharp';
 import { z } from 'zod';
 import { cacheKey, cachePath, SITE, WORD_IMG_DIR } from './word-image-cache';
@@ -68,7 +72,8 @@ async function callStructured<T>(
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
       const completion = await generateText({
-        model: provider('gpt-5.4-mini'),
+        model: provider(OPENAI_TEXT_MODEL),
+        providerOptions: openAiTextModelOptions,
         system,
         prompt,
         tools: {

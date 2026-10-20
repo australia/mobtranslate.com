@@ -6,10 +6,11 @@ import {
   MIGMAQ_HYBRID_IDENTITY,
   WAJARRI_HYBRID_IDENTITY,
 } from './hybrid-language-identities';
+import { OPENAI_TEXT_MODEL } from './openai-text-model';
 
 export const HYBRID_SPACE_ENDPOINT =
   'https://ajaxdavis-alpha-v0-historic.hf.space/v1/translate';
-export const DEFAULT_HYBRID_REVIEW_MODEL = 'gpt-6-luna';
+export const DEFAULT_HYBRID_REVIEW_MODEL = OPENAI_TEXT_MODEL;
 
 interface HybridContractVersions {
   draft: string;

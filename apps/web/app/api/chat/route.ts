@@ -1,5 +1,9 @@
 import { streamText, tool, stepCountIs, convertToModelMessages } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
+import {
+  OPENAI_TEXT_MODEL,
+  openAiTextModelOptions,
+} from '@/lib/openai-text-model';
 import { z } from 'zod';
 import {
   and,
@@ -295,7 +299,8 @@ export async function POST(req: Request) {
 
     await enforceOpenAiProviderBudget(req, user.id);
     const result = await streamText({
-      model: openai('gpt-5.4-mini'),
+      model: openai(OPENAI_TEXT_MODEL),
+      providerOptions: openAiTextModelOptions,
       messages: processedMessages,
       maxRetries: 0,
       onFinish: ({ text }) => {
@@ -306,7 +311,7 @@ export async function POST(req: Request) {
           inputText: lastUserText,
           outputText: text,
           userId: user.id,
-          model: 'gpt-5.4-mini',
+          model: OPENAI_TEXT_MODEL,
           durationMs: Date.now() - chatStartedAt,
         });
       },

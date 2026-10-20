@@ -173,7 +173,7 @@ const migmaqReviewResponse = {
     draft: migmaqDraftResponse.inference.draft,
     review: {
       provider: 'openai',
-      modelId: 'gpt-5.4-mini-2026-03-17',
+      modelId: 'gpt-6-luna',
       decision: 'kept_draft',
       confidence: 'medium',
       latencyMs: 2400,
@@ -508,7 +508,7 @@ const reverseReviewResponse = {
     latencyMs: 8200,
     review: {
       provider: 'openai',
-      modelId: 'gpt-5.4-mini-2026-03-17',
+      modelId: 'gpt-6-luna',
       confidence: 'medium',
       latencyMs: 7400,
       summary: 'The words for who, my and house are all listed.',

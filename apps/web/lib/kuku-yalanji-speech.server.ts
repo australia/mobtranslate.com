@@ -11,11 +11,15 @@ import {
   type KukuYalanjiConversationTurnSchema,
 } from './kuku-yalanji-speech-types';
 import type { z } from 'zod';
+import {
+  OPENAI_TEXT_MODEL,
+  OPENAI_TEXT_REASONING_EFFORT,
+} from './openai-text-model';
 
 const KUKU_YALANJI_LANGUAGE_ID = 'd32404a2-82f9-4199-801f-6ed1bcd11c30';
 const MAX_EVIDENCE_TOKENS = 24;
 const MAX_EVIDENCE_ROWS = 48;
-export const KUKU_YALANJI_SPEECH_REPLY_MODEL = 'gpt-5.4-mini';
+export const KUKU_YALANJI_SPEECH_REPLY_MODEL = OPENAI_TEXT_MODEL;
 
 type ConversationTurn = z.infer<typeof KukuYalanjiConversationTurnSchema>;
 type Evidence = z.infer<typeof KukuYalanjiReplyEvidenceSchema>;
@@ -180,7 +184,8 @@ export async function createKukuYalanjiSpeechReply(input: {
     abortSignal: AbortSignal.timeout(90_000),
     providerOptions: {
       openai: {
-        reasoningEffort: 'medium',
+        forceReasoning: true,
+        reasoningEffort: OPENAI_TEXT_REASONING_EFFORT,
         parallelToolCalls: false,
         store: false,
         textVerbosity: 'low',

@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { OPENAI_TEXT_MODEL } from './openai-text-model';
 import type {
   ReverseTranslationConfidence,
   ReverseTranslationEvidence,
@@ -21,7 +22,7 @@ import type {
  * list of affixes, which would rot the moment a new language is added.
  */
 
-export const REVERSE_TRANSLATION_MODEL = 'gpt-5.4-mini-2026-03-17';
+export const REVERSE_TRANSLATION_MODEL = OPENAI_TEXT_MODEL;
 // Bump these when the prompt or retrieval output changes, so cached results
 // from the older contract are not served.
 export const REVERSE_TRANSLATION_CONTRACT = 'reverse-translation-v2';
