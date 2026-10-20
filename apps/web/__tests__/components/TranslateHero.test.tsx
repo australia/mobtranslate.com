@@ -106,12 +106,20 @@ const reviewResponse = {
             'https://mobtranslate.com/dictionaries/kuku_yalanji/words/jalbu',
         },
       ],
+      reading: {
+        words: [{ form: 'jalbu', meaning: 'woman; adult female', basis: 'dictionary' }],
+        meaning: 'woman; adult female',
+      },
+      meaningCheck: null,
     },
+    source: { language: 'English', englishText: null, corrections: [] },
     cache: {
+      analysis: 'miss',
       draft: 'hit',
       evidence: 'miss',
-      review: 'miss',
-      resolved: 'miss',
+      review: 'disabled',
+      reading: 'disabled',
+      resolved: 'disabled',
     },
   },
 };
@@ -174,12 +182,51 @@ const migmaqReviewResponse = {
       changes: [],
       caveats: ['This has not been checked by a fluent speaker.'],
       evidence: [],
+      reading: null,
+      meaningCheck: null,
     },
+    source: null,
     cache: {
+      analysis: 'miss',
       draft: 'hit',
       evidence: 'miss',
       review: 'miss',
+      reading: 'miss',
       resolved: 'miss',
+    },
+  },
+};
+
+const sentenceReviewResponse = {
+  success: true,
+  translation: 'Yundu ngumbu',
+  gloss: 'You are black.',
+  inference: {
+    ...reviewResponse.inference,
+    review: {
+      ...reviewResponse.inference.review,
+      decision: 'revised_draft',
+      confidence: 'medium',
+      summary: 'Used the word for "you" that does the action.',
+      changes: ['Changed yunu ("your") to yundu ("you").'],
+      evidence: [],
+      reading: {
+        words: [
+          { form: 'Yundu', meaning: 'you (doing the action)', basis: 'dictionary' },
+          { form: 'ngumbu', meaning: 'black; dark', basis: 'dictionary' },
+        ],
+        meaning: 'You are black.',
+      },
+      meaningCheck: {
+        verdict: 'close',
+        problems: ['The slur is carried by "black", which is milder.'],
+        summary: 'The reading keeps the insult but in a milder word.',
+      },
+    },
+    source: {
+      language: 'English',
+      englishText: "You're a [slur]",
+      corrections: ['Read "Your" as "You\'re".'],
     },
   },
 };
@@ -338,6 +385,62 @@ describe('TranslateHero hybrid Kuku Yalanji result', () => {
         'We could not finish checking this translation. The first translation is still shown.',
       ),
     ).toBeVisible();
+  });
+
+  it('shows the independent word-by-word reading and how the text was read', async () => {
+    fetchMock
+      .mockResolvedValueOnce({ ok: true, json: async () => draftResponse })
+      .mockResolvedValueOnce({ ok: true, json: async () => sentenceReviewResponse });
+    const user = userEvent.setup();
+    render(<TranslateHero languages={languages} />);
+
+    const input = screen.getByLabelText('English text to translate');
+    await user.type(input, 'Your a slur');
+    await user.click(
+      within(input.closest('div')!).getByRole('button', { name: 'Translate' }),
+    );
+
+    await waitFor(() =>
+      expect(
+        document.querySelector('p.font-display[lang="gvn"]'),
+      ).toHaveTextContent('Yundu ngumbu'),
+    );
+    expect(screen.getByText('What the words say:')).toBeInTheDocument();
+    await user.click(screen.getByText('Why this result?').closest('summary')!);
+    expect(screen.getByText('Word by word')).toBeInTheDocument();
+    expect(screen.getByText('you (doing the action)')).toBeInTheDocument();
+    expect(screen.getByText('Close to what you wrote.')).toBeInTheDocument();
+    expect(screen.getByText(/Your text was read as/)).toHaveTextContent(
+      "Your text was read as: “You're a [slur]”.",
+    );
+  });
+
+  it('replaces the first translation with a message when no translation can be made', async () => {
+    fetchMock
+      .mockResolvedValueOnce({ ok: true, json: async () => draftResponse })
+      .mockResolvedValueOnce({
+        ok: false,
+        json: async () => ({
+          success: false,
+          code: 'no_translation',
+          error: "We couldn't make a Kuku Yalanji translation of this. Try shorter, simpler wording.",
+        }),
+      });
+    const user = userEvent.setup();
+    render(<TranslateHero languages={languages} />);
+
+    const input = screen.getByLabelText('English text to translate');
+    await user.type(input, '♬');
+    await user.click(
+      within(input.closest('div')!).getByRole('button', { name: 'Translate' }),
+    );
+
+    expect(
+      await screen.findByText(
+        "We couldn't make a Kuku Yalanji translation of this. Try shorter, simpler wording.",
+      ),
+    ).toBeVisible();
+    expect(document.querySelector('p.font-display[lang="gvn"]')).toBeNull();
   });
 
   it("uses the Mi'kmaq adapter through the same progressive flow", async () => {

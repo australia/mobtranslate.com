@@ -1029,16 +1029,23 @@ words:
   definitions:
   - tell
   - make
+  - speak; say
   translations:
   - tell
   - make
+  - speak
+  - say
   examples:
   - kuku_yalanji: ngayu yunundu balkankuda
     english: I already told you
   - kuku_yalanji: nyulu kalka balkan
     english: he made a spear
+  - kuku_yalanji: Ngayu wawu balkanka yunundurrku
+    english: I want to speak only to you
   verb_class: l-conjugation
   semantic_domain: speech-communication
+  commentary:
+  - 'Patz glosses balka-l ''speak'' as well as ''make'' (ex. 213 "Ngayu wawu balka-nka yunu-ndu-rrku" ''I want to speak only to you''; text examples "Wulbuman-angka balka-ny" ''The old woman spoke'' and "Ngayu Chris-anda balka-ny" ''I said to Chris''). The speak/say sense and ex. 213 were added from the grammar; the source dictionary lists only ''tell'' and ''make''.'
 - word: balkalaway
   type: intransitive-verb
   phonemic: /ˈbalɡalawaj/

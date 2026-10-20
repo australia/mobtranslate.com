@@ -6,6 +6,11 @@
 - **Do not add an abuse/profanity screen to the translator (owner decision, 2026-10-20).** Young speakers want to learn insults, swearing and rough talk too; it is part of the language. Translate it as faithfully as anything else.
 - Image-gen specifically: word → AI analysis of the meaning → AI-composed watercolour prompt → gpt-image-2. No regex branching on the meaning text anywhere in that path.
 
+## Hybrid translator (homepage, Kuku Yalanji / Mi'kmaq / Wajarri / Anindilyakwa)
+Stages, all in `apps/web/lib/hybrid-pipeline.server.ts` and cached per stage in `translation_pipeline_cache`: source analysis (English + list of ideas) → Hugging Face draft → evidence (each draft word looked up by written form; each idea by meaning) → checker (keeps a draft word unless the records show it is wrong) → blind reading (reads the result without seeing the English; this is the meaning users see) → meaning check, with one repair round on disagreement → resolver.
+- Evidence comes from `translation_evidence_units` (pgvector, `text-embedding-3-small` @512). It is built from the dictionary tables plus grammar sources listed in `lib/translation-evidence/sources.ts` (Kuku Yalanji: Patz `grammar.md`, `lexemes.json`, `framework.json`). **After changing a dictionary or grammar source, run `pnpm --filter web evidence:build`** (incremental; deploys also run it).
+- Check a change on real inputs with `scripts/replay-hybrid-translations.ts --cases <file> --out <file>`. Keep case files off the repo (they hold what people typed): `/mnt/donto-data/donto-resources/research/mobtranslate-regression/`.
+
 ## Project Overview
 Next.js 14 (App Router) web app for Indigenous Australian language dictionaries. Uses `@mobtranslate/ui` design system, Tailwind CSS, Supabase, and Vercel AI SDK.
 

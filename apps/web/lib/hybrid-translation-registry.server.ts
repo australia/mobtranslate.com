@@ -54,6 +54,16 @@ export interface HybridLanguageContract extends HybridLanguageDefinition {
   reviewModelId: string;
 }
 
+// The draft now translates the analysed English, evidence adds meaning
+// search and grammar records, the checker keeps documented forms, and the
+// resolver shows an independent reading. Every language shares the pipeline.
+const HYBRID_PIPELINE_CONTRACTS: HybridContractVersions = {
+  draft: 'hybrid-hf-draft-v3-analysed-english',
+  evidence: 'hybrid-form-and-meaning-retrieval-v5',
+  review: 'hybrid-read-first-review-v10',
+  resolver: 'hybrid-blind-reading-resolver-v5',
+};
+
 const KUKU_GRAMMAR_SOURCE =
   'https://mobtranslate.com/docs/grammar-cheatsheet.html';
 const MIGMAQ_GRAMMAR_SOURCE = 'https://wiki.migmaq.org/index.php/Main_Page';
@@ -73,12 +83,7 @@ export const KUKU_YALANJI_HYBRID_DEFINITION: HybridLanguageDefinition = {
   modelLabel: 'MobTranslate Kuku Yalanji v24.3',
   repository:
     'https://huggingface.co/ajaxdavis/mobtranslate-kuku-yalanji-v24-3',
-  contracts: {
-    draft: 'hybrid-hf-draft-v2',
-    evidence: 'hybrid-source-draft-retrieval-v3',
-    review: 'hybrid-complete-best-effort-review-v5',
-    resolver: 'hybrid-complete-best-effort-resolver-v4',
-  },
+  contracts: HYBRID_PIPELINE_CONTRACTS,
   env: {
     enabled: 'MOBTRANSLATE_HYBRID_KUKU_YALANJI_ENABLED',
     endpoint: 'MOBTRANSLATE_HYBRID_KUKU_YALANJI_ENDPOINT',
@@ -159,12 +164,7 @@ export const MIGMAQ_HYBRID_DEFINITION: HybridLanguageDefinition = {
   modelLabel: "MobTranslate Mi'kmaq Listuguj v3.3",
   repository:
     'https://huggingface.co/ajaxdavis/mobtranslate-migmaq-listuguj-v3-3',
-  contracts: {
-    draft: 'hybrid-hf-draft-v2',
-    evidence: 'hybrid-source-draft-retrieval-v3',
-    review: 'hybrid-complete-best-effort-review-v5',
-    resolver: 'hybrid-complete-best-effort-resolver-v4',
-  },
+  contracts: HYBRID_PIPELINE_CONTRACTS,
   env: {
     enabled: 'MOBTRANSLATE_HYBRID_MIGMAQ_ENABLED',
     endpoint: 'MOBTRANSLATE_HYBRID_MIGMAQ_ENDPOINT',
@@ -244,12 +244,7 @@ export const WAJARRI_HYBRID_DEFINITION: HybridLanguageDefinition = {
     'v2.0-context-guarded-nr4-s17-context-recovery-r16-s20-20260731',
   modelLabel: 'MobTranslate Wajarri v2 research model',
   repository: 'https://huggingface.co/ajaxdavis/mobtranslate-wajarri-v2',
-  contracts: {
-    draft: 'hybrid-hf-draft-v2',
-    evidence: 'hybrid-source-draft-retrieval-v3',
-    review: 'hybrid-complete-best-effort-review-v5',
-    resolver: 'hybrid-complete-best-effort-resolver-v4',
-  },
+  contracts: HYBRID_PIPELINE_CONTRACTS,
   env: {
     enabled: 'MOBTRANSLATE_HYBRID_WAJARRI_ENABLED',
     endpoint: 'MOBTRANSLATE_HYBRID_WAJARRI_ENDPOINT',
@@ -315,12 +310,7 @@ export const ANINDILYAKWA_HYBRID_DEFINITION: HybridLanguageDefinition = {
   modelVersion: 'v0.2.0-traditional-owner-authorized-experimental',
   modelLabel: 'MobTranslate Anindilyakwa v0.2 failed-quality baseline',
   repository: 'https://huggingface.co/ajaxdavis/mobtranslate-anindilyakwa-v1',
-  contracts: {
-    draft: 'hybrid-hf-draft-v2',
-    evidence: 'hybrid-source-draft-retrieval-v3',
-    review: 'hybrid-complete-best-effort-review-v5',
-    resolver: 'hybrid-complete-best-effort-resolver-v4',
-  },
+  contracts: HYBRID_PIPELINE_CONTRACTS,
   env: {
     enabled: 'MOBTRANSLATE_HYBRID_ANINDILYAKWA_ENABLED',
     endpoint: 'MOBTRANSLATE_HYBRID_ANINDILYAKWA_ENDPOINT',

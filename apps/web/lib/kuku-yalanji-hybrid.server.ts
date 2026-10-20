@@ -13,6 +13,7 @@ import {
   resolveHybridReview,
   retrieveHybridDictionaryEvidence,
   type HybridDictionaryEntry,
+  type HybridReviewAttempt,
   type HybridReviewInput,
   type HybridReviewToolResult,
   type ResolvedHybridReview,
@@ -22,6 +23,8 @@ import {
   KUKU_YALANJI_HYBRID_DEFINITION,
 } from './hybrid-translation-registry.server';
 import type { HybridReviewEvidence } from './hybrid-translation-types';
+import type { SourceAnalysis } from './hybrid-source-analysis.server';
+import type { EvidencePack } from './translation-evidence/retrieve';
 
 export const KUKU_YALANJI_REVIEW_MODEL = DEFAULT_HYBRID_REVIEW_MODEL;
 export const KUKU_YALANJI_GRAMMAR_EVIDENCE =
@@ -61,29 +64,25 @@ export function findExactKukuYalanjiDictionaryMatches(
 
 export function createKukuYalanjiReviewPrompt(
   input: KukuYalanjiReviewInput,
-  dictionaryEvidence: HybridReviewEvidence[],
+  pack: EvidencePack,
 ): string {
-  return createHybridReviewPrompt(
-    KUKU_YALANJI_HYBRID_DEFINITION,
-    input,
-    dictionaryEvidence,
-  );
+  return createHybridReviewPrompt(KUKU_YALANJI_HYBRID_DEFINITION, input, pack);
 }
 
 export function resolveKukuYalanjiReview(
   source: string,
+  analysis: SourceAnalysis,
   draft: string,
-  dictionaryEntries: KukuYalanjiDictionaryEntry[],
-  dictionaryEvidence: HybridReviewEvidence[],
-  review: KukuYalanjiReviewToolResult,
+  pack: EvidencePack,
+  attempt: HybridReviewAttempt,
 ): ResolvedKukuYalanjiReview {
   return resolveHybridReview(
     KUKU_YALANJI_HYBRID_DEFINITION,
     source,
+    analysis,
     draft,
-    dictionaryEntries,
-    dictionaryEvidence,
-    review,
+    pack,
+    attempt,
   );
 }
 

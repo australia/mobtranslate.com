@@ -22,7 +22,9 @@ import { track } from '@/lib/analytics';
 import type { Language } from '@/lib/supabase/types';
 import type {
   HybridDraftInference,
+  HybridMeaningCheck,
   HybridTranslationInference,
+  HybridWordReading,
   TranslationCacheState,
 } from '@/lib/hybrid-translation-types';
 import type {
@@ -81,6 +83,21 @@ const REVIEW_DECISION_LABELS: Record<
   revised_draft: 'Adjusted after checking',
   insufficient_evidence: 'Some parts could not be checked',
   review_unavailable: 'Only the first translation is available',
+};
+
+const WORD_BASIS_LABELS: Record<HybridWordReading['basis'], string> = {
+  dictionary: 'dictionary',
+  grammar: 'grammar',
+  example: 'example sentence',
+  name: 'name',
+  loanword: 'English loanword',
+  unknown: 'not found in the records',
+};
+
+const MEANING_VERDICT_LABELS: Record<HybridMeaningCheck['verdict'], string> = {
+  same: 'Matches what you wrote',
+  close: 'Close to what you wrote',
+  different: 'Differs from what you wrote',
 };
 
 const REVIEW_SUPPORT_LABELS: Record<
@@ -253,6 +270,12 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
             },
           );
           const reviewData = await reviewResponse.json();
+          if (reviewData.code === 'no_translation') {
+            if (requestSequenceRef.current !== requestSequence) return;
+            setResult(null);
+            setError(reviewData.error || 'No translation could be made.');
+            return;
+          }
           if (!reviewResponse.ok || reviewData.success === false) {
             throw new Error(
               reviewData.error || 'The translation check did not finish.',
@@ -540,7 +563,9 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                       result.gloss && (
                         <p className="mt-2 text-sm text-[#faf8f5]/55">
                           <span className="font-medium text-[#faf8f5]/65">
-                            Approximate meaning:{' '}
+                            {hybridInference?.review.reading
+                              ? 'What the words say: '
+                              : 'Approximate meaning: '}
                           </span>
                           {result.gloss}
                         </p>
@@ -555,6 +580,11 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                           <Loader2 className="h-4 w-4 animate-spin text-[#ecb485]" />
                           <span>Checking key words and grammar…</span>
                         </div>
+                        <p className="mt-1 pl-6 text-xs text-[#faf8f5]/45">
+                          Each word is checked against the dictionary and
+                          grammar, then read back by a separate check. This
+                          can take a minute or two.
+                        </p>
                         <div className="mt-3 space-y-2" aria-hidden="true">
                           <div className="h-2.5 w-4/5 rounded bg-[rgba(255,255,255,0.09)] animate-pulse" />
                           <div className="h-2.5 w-3/5 rounded bg-[rgba(255,255,255,0.06)] animate-pulse" />
@@ -764,6 +794,17 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                               }
                             </span>
                           </div>
+                          {hybridInference.source?.englishText && (
+                            <p className="mb-2 text-[#faf8f5]/60">
+                              Your text was read as: “
+                              {hybridInference.source.englishText}”
+                              {hybridInference.source.language &&
+                              hybridInference.source.language !== 'English'
+                                ? ` (from ${hybridInference.source.language})`
+                                : ''}
+                              .
+                            </p>
+                          )}
                           <p>{hybridInference.review.summary}</p>
                           {hybridInference.review.changes.length > 0 && (
                             <div className="mt-3">
@@ -780,6 +821,59 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                             </div>
                           )}
                         </section>
+
+                        {hybridInference.review.reading &&
+                          hybridInference.review.reading.words.length > 0 && (
+                            <section className="border-t border-[rgba(255,255,255,0.08)] py-4">
+                              <h3 className="mb-1 font-sans text-sm font-semibold text-[#faf8f5]">
+                                Word by word
+                              </h3>
+                              <p className="mb-2 text-xs text-[#faf8f5]/45">
+                                Read from the dictionary and grammar by a
+                                separate check that was not shown your
+                                English.
+                              </p>
+                              <dl className="divide-y divide-[rgba(255,255,255,0.07)]">
+                                {hybridInference.review.reading.words.map(
+                                  (word, index) => (
+                                    <div
+                                      key={`${word.form}-${index}`}
+                                      className="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-3 py-1.5"
+                                    >
+                                      <dt
+                                        className="min-w-0 break-words font-medium text-[#faf8f5]/85"
+                                        lang={hybridInference.language.tag}
+                                      >
+                                        {word.form}
+                                      </dt>
+                                      <dd className="min-w-0 break-words text-[#faf8f5]/65">
+                                        {word.meaning}
+                                        <span className="ml-1.5 text-xs text-[#faf8f5]/40">
+                                          {WORD_BASIS_LABELS[word.basis]}
+                                        </span>
+                                      </dd>
+                                    </div>
+                                  ),
+                                )}
+                              </dl>
+                              {hybridInference.review.meaningCheck && (
+                                <div className="mt-3">
+                                  <p>
+                                    <span className="font-medium text-[#faf8f5]/85">
+                                      {
+                                        MEANING_VERDICT_LABELS[
+                                          hybridInference.review.meaningCheck
+                                            .verdict
+                                        ]
+                                      }
+                                      .
+                                    </span>{' '}
+                                    {hybridInference.review.meaningCheck.summary}
+                                  </p>
+                                </div>
+                              )}
+                            </section>
+                          )}
 
                         <section className="border-t border-[rgba(255,255,255,0.08)] py-4">
                           <h3 className="mb-2 font-sans text-sm font-semibold text-[#faf8f5]">
@@ -811,9 +905,9 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                                         <p
                                           className="font-medium text-[#faf8f5]/85"
                                           lang={
-                                            evidence.kind === 'dictionary'
-                                              ? hybridInference.language.tag
-                                              : undefined
+                                            evidence.kind === 'grammar'
+                                              ? undefined
+                                              : hybridInference.language.tag
                                           }
                                         >
                                           {evidence.title}
@@ -890,11 +984,13 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                                 : ' · did not complete'}
                             </p>
                             <p>
-                              Saved-result cache: translation{' '}
+                              Saved-result cache: reading your text{' '}
+                              {hybridInference.cache.analysis}; translation{' '}
                               {hybridInference.cache.draft}; notes{' '}
                               {hybridInference.cache.evidence}; check{' '}
-                              {hybridInference.cache.review}; final result{' '}
-                              {hybridInference.cache.resolved}.
+                              {hybridInference.cache.review}; independent
+                              reading {hybridInference.cache.reading}; final
+                              result {hybridInference.cache.resolved}.
                             </p>
                             <p>
                               Your text is processed by Hugging Face and OpenAI.

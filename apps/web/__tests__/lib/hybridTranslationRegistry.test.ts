@@ -19,6 +19,40 @@ import {
   resolveControlledHybridReview,
 } from '../../lib/hybrid-translation.server';
 import { getHybridLanguageIdentity } from '../../lib/hybrid-language-identities';
+import { fallbackSourceAnalysis } from '../../lib/hybrid-source-analysis.server';
+import { formLookupKeys } from '../../lib/translation-evidence/forms';
+import {
+  assembleEvidencePack,
+  buildFormIndex,
+  type IndexedEvidenceUnit,
+} from '../../lib/translation-evidence/retrieve';
+import type { HybridReviewEvidence } from '../../lib/hybrid-translation-types';
+
+function packFrom(evidence: HybridReviewEvidence[], draft: string) {
+  const units = new Map<string, IndexedEvidenceUnit>(
+    evidence.map((item) => [
+      `dictionary:${item.title}`,
+      {
+        key: `dictionary:${item.title}`,
+        kind: 'dictionary',
+        title: item.title,
+        body: item.detail,
+        sourceLabel: item.sourceLabel,
+        sourceUrl: item.sourceUrl,
+        targetForms: formLookupKeys(item.title),
+        pinned: false,
+      },
+    ]),
+  );
+  return assembleEvidencePack({
+    units,
+    formIndex: buildFormIndex(units.values()),
+    lookupText: draft,
+    queries: [],
+    semanticHits: [],
+    lexicalKeys: [...units.keys()],
+  });
+}
 
 function response(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), {
@@ -191,9 +225,9 @@ describe('hybrid translation language registry', () => {
         draft: "E'pit samqwan.",
         draftModelId: MIGMAQ_HYBRID_DEFINITION.modelId,
         draftVersion: MIGMAQ_HYBRID_DEFINITION.modelVersion,
-        dictionaryEntries: dictionary,
+        analysis: fallbackSourceAnalysis('The woman saw water.'),
       },
-      evidence,
+      packFrom(evidence, "E'pit samqwan."),
     );
 
     expect(evidence.map((item) => item.title)).toEqual(
@@ -223,9 +257,9 @@ describe('hybrid translation language registry', () => {
         draft: 'Gunduwa janda.',
         draftModelId: WAJARRI_HYBRID_DEFINITION.modelId,
         draftVersion: WAJARRI_HYBRID_DEFINITION.modelVersion,
-        dictionaryEntries: dictionary,
+        analysis: fallbackSourceAnalysis('The echidna is cold.'),
       },
-      evidence,
+      packFrom(evidence, 'Gunduwa janda.'),
     );
 
     expect(evidence.map((item) => item.title)).toEqual(

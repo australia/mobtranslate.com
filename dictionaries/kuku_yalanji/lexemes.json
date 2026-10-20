@@ -14697,5 +14697,717 @@
   "pos": "noun",
   "source": "Text 36, line 21",
   "confidence": "medium"
+ },
+ {
+  "root": "ngayu",
+  "surface": "ngayu",
+  "gloss": "I (the one doing the action or being described) (1sg nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yundu",
+  "surface": "yundu",
+  "gloss": "you (one person) (the one doing the action or being described) (2sg nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nyulu",
+  "surface": "nyulu",
+  "gloss": "he, she or it (the one doing the action or being described) (3sg nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yulu",
+  "surface": "yulu",
+  "gloss": "he, she or it (the one doing the action or being described) (3sg nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganya",
+  "surface": "nganya",
+  "gloss": "me (the one affected by the action) (1sg accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yununy",
+  "surface": "yununy",
+  "gloss": "you (one person) (the one affected by the action) (2sg accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nyunguny",
+  "surface": "nyunguny",
+  "gloss": "him, her or it (the one affected by the action) (3sg accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganya",
+  "surface": "nganya",
+  "gloss": "me (the one affected by the action; Nyungkul dialect) (1sg accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yununiny",
+  "surface": "yununiny",
+  "gloss": "you (one person) (the one affected by the action; Nyungkul dialect) (2sg accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nyunguniny",
+  "surface": "nyunguniny",
+  "gloss": "him, her or it (the one affected by the action; Nyungkul dialect) (3sg accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngaykunku",
+  "surface": "ngaykunku",
+  "gloss": "to or for me (1sg dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yununku",
+  "surface": "yununku",
+  "gloss": "to or for you (one person) (2sg dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nyungunku",
+  "surface": "nyungunku",
+  "gloss": "to or for him, her or it (3sg dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngaykundu",
+  "surface": "ngaykundu",
+  "gloss": "at, to or with me (also used for speaking to someone) (1sg locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yunundu",
+  "surface": "yunundu",
+  "gloss": "at, to or with you (one person) (also used for speaking to someone) (2sg locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nyungundu",
+  "surface": "nyungundu",
+  "gloss": "at, to or with him, her or it (also used for speaking to someone) (3sg locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngaykundumuny",
+  "surface": "ngaykundumuny",
+  "gloss": "from me (1sg ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yunundumuny",
+  "surface": "yunundumuny",
+  "gloss": "from you (one person) (2sg ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nyungundumuny",
+  "surface": "nyungundumuny",
+  "gloss": "from him, her or it (3sg ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngaykunji",
+  "surface": "ngaykunji",
+  "gloss": "with me; having me (1sg comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yununji",
+  "surface": "yununji",
+  "gloss": "with you (one person); having you (one person) (2sg comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nyungunji",
+  "surface": "nyungunji",
+  "gloss": "with him, her or it; having him, her or it (3sg comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngayku",
+  "surface": "ngayku",
+  "gloss": "my, mine (1sg possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yunu",
+  "surface": "yunu",
+  "gloss": "your (one person) (2sg possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nyunju",
+  "surface": "nyunju",
+  "gloss": "his, her or its (3sg possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngali",
+  "surface": "ngali",
+  "gloss": "we two (not you) (the one doing the action or being described) (1du exclusive nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngaliny",
+  "surface": "ngaliny",
+  "gloss": "we two (you and I) (the one doing the action or being described) (1du inclusive nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yubal",
+  "surface": "yubal",
+  "gloss": "you two (the one doing the action or being described) (2du nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "bula",
+  "surface": "bula",
+  "gloss": "they two (the one doing the action or being described) (3du nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalingan",
+  "surface": "ngalingan",
+  "gloss": "us two (not you) (the one affected by the action) (1du exclusive accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinyan",
+  "surface": "ngalinyan",
+  "gloss": "us two (you and me) (the one affected by the action) (1du inclusive accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yubalan",
+  "surface": "yubalan",
+  "gloss": "you two (the one affected by the action) (2du accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "bulangan",
+  "surface": "bulangan",
+  "gloss": "them two (the one affected by the action) (3du accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalininy",
+  "surface": "ngalininy",
+  "gloss": "us two (not you) (the one affected by the action; Nyungkul dialect) (1du exclusive accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinyiny",
+  "surface": "ngalinyiny",
+  "gloss": "us two (you and me) (the one affected by the action; Nyungkul dialect) (1du inclusive accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yubaliny",
+  "surface": "yubaliny",
+  "gloss": "you two (the one affected by the action; Nyungkul dialect) (2du accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "bulaniny",
+  "surface": "bulaniny",
+  "gloss": "them two (the one affected by the action; Nyungkul dialect) (3du accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinka",
+  "surface": "ngalinka",
+  "gloss": "to or for us two (not you) (1du exclusive dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinyanka",
+  "surface": "ngalinyanka",
+  "gloss": "to or for us two (you and me) (1du inclusive dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yubalanka",
+  "surface": "yubalanka",
+  "gloss": "to or for you two (2du dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "bulanka",
+  "surface": "bulanka",
+  "gloss": "to or for them two (3du dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinda",
+  "surface": "ngalinda",
+  "gloss": "at, to or with us two (not you) (also used for speaking to someone) (1du exclusive locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinyanda",
+  "surface": "ngalinyanda",
+  "gloss": "at, to or with us two (you and me) (also used for speaking to someone) (1du inclusive locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yubalanda",
+  "surface": "yubalanda",
+  "gloss": "at, to or with you two (also used for speaking to someone) (2du locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "bulanda",
+  "surface": "bulanda",
+  "gloss": "at, to or with them two (also used for speaking to someone) (3du locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalindamuny",
+  "surface": "ngalindamuny",
+  "gloss": "from us two (not you) (1du exclusive ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinyandamuny",
+  "surface": "ngalinyandamuny",
+  "gloss": "from us two (you and me) (1du inclusive ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yubalandamuny",
+  "surface": "yubalandamuny",
+  "gloss": "from you two (2du ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "bulandamuny",
+  "surface": "bulandamuny",
+  "gloss": "from them two (3du ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinji",
+  "surface": "ngalinji",
+  "gloss": "with us two (not you); having us two (not you) (1du exclusive comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinyanji",
+  "surface": "ngalinyanji",
+  "gloss": "with us two (you and me); having us two (you and me) (1du inclusive comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yubalanji",
+  "surface": "yubalanji",
+  "gloss": "with you two; having you two (2du comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "bulanji",
+  "surface": "bulanji",
+  "gloss": "with them two; having them two (3du comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinga",
+  "surface": "ngalinga",
+  "gloss": "our (two, not yours) (1du exclusive possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngalinyanga",
+  "surface": "ngalinyanga",
+  "gloss": "our (yours and mine) (1du inclusive possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yubalanga",
+  "surface": "yubalanga",
+  "gloss": "your (two people) (2du possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "bulanga",
+  "surface": "bulanga",
+  "gloss": "their (two people) (3du possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganjin",
+  "surface": "nganjin",
+  "gloss": "we (not you) (the one doing the action or being described) (1pl exclusive nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngana",
+  "surface": "ngana",
+  "gloss": "we all (including you) (the one doing the action or being described) (1pl inclusive nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yurra",
+  "surface": "yurra",
+  "gloss": "you all (the one doing the action or being described) (2pl nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "jana",
+  "surface": "jana",
+  "gloss": "they (the one doing the action or being described) (3pl nominative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganjinan",
+  "surface": "nganjinan",
+  "gloss": "us (not you) (the one affected by the action) (1pl exclusive accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganangan",
+  "surface": "nganangan",
+  "gloss": "us all (including you) (the one affected by the action) (1pl inclusive accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yurrangan",
+  "surface": "yurrangan",
+  "gloss": "you all (the one affected by the action) (2pl accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "janangan",
+  "surface": "janangan",
+  "gloss": "them (the one affected by the action) (3pl accusative, Yalanji)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganjininy",
+  "surface": "nganjininy",
+  "gloss": "us (not you) (the one affected by the action; Nyungkul dialect) (1pl exclusive accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngananiny",
+  "surface": "ngananiny",
+  "gloss": "us all (including you) (the one affected by the action; Nyungkul dialect) (1pl inclusive accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yurraniny",
+  "surface": "yurraniny",
+  "gloss": "you all (the one affected by the action; Nyungkul dialect) (2pl accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "jananiny",
+  "surface": "jananiny",
+  "gloss": "them (the one affected by the action; Nyungkul dialect) (3pl accusative, Nyungkul)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganjinanka",
+  "surface": "nganjinanka",
+  "gloss": "to or for us (not you) (1pl exclusive dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngananka",
+  "surface": "ngananka",
+  "gloss": "to or for us all (including you) (1pl inclusive dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yurranka",
+  "surface": "yurranka",
+  "gloss": "to or for you all (2pl dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "jananka",
+  "surface": "jananka",
+  "gloss": "to or for them (3pl dative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganjinanda",
+  "surface": "nganjinanda",
+  "gloss": "at, to or with us (not you) (also used for speaking to someone) (1pl exclusive locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngananda",
+  "surface": "ngananda",
+  "gloss": "at, to or with us all (including you) (also used for speaking to someone) (1pl inclusive locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yurranda",
+  "surface": "yurranda",
+  "gloss": "at, to or with you all (also used for speaking to someone) (2pl locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "jananda",
+  "surface": "jananda",
+  "gloss": "at, to or with them (also used for speaking to someone) (3pl locative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganjinandamuny",
+  "surface": "nganjinandamuny",
+  "gloss": "from us (not you) (1pl exclusive ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganandamuny",
+  "surface": "nganandamuny",
+  "gloss": "from us all (including you) (1pl inclusive ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yurrandamuny",
+  "surface": "yurrandamuny",
+  "gloss": "from you all (2pl ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "janandamuny",
+  "surface": "janandamuny",
+  "gloss": "from them (3pl ablative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganjinanji",
+  "surface": "nganjinanji",
+  "gloss": "with us (not you); having us (not you) (1pl exclusive comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngananji",
+  "surface": "ngananji",
+  "gloss": "with us all (including you); having us all (including you) (1pl inclusive comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yurranji",
+  "surface": "yurranji",
+  "gloss": "with you all; having you all (2pl comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "jananji",
+  "surface": "jananji",
+  "gloss": "with them; having them (3pl comitative)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "nganjinanga",
+  "surface": "nganjinanga",
+  "gloss": "our (not yours) (1pl exclusive possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "ngananga",
+  "surface": "ngananga",
+  "gloss": "our (including yours) (1pl inclusive possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "yurranga",
+  "surface": "yurranga",
+  "gloss": "your (several people) (2pl possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
+ },
+ {
+  "root": "jananga",
+  "surface": "jananga",
+  "gloss": "their (3pl possessive)",
+  "pos": "personal-pronoun",
+  "source": "Patz Table 3.6 (personal pronoun paradigm)",
+  "confidence": "high"
  }
 ]

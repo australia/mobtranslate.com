@@ -180,6 +180,12 @@ cd "$REPO_ROOT"
 "$HYBRID_WARM_TEST"
 pnpm --filter web db:migrate
 pnpm --filter web db:migrate:check
+# Refresh the translation checker's evidence index from the dictionary tables
+# and grammar sources. Only changed records are re-embedded; a failure keeps
+# the previous index in service, so it does not block the release.
+if ! pnpm --filter web evidence:build; then
+  echo "Warning: the translation evidence index could not be refreshed; the previous index stays in use." >&2
+fi
 if [[ -n "${MOBTRANSLATE_ALLOW_PLAYBOOK_DRIFT_SHA256:-}" ]]; then
   [[ -r "$PLAYBOOK_FILE" ]] || {
     echo "Hash-bound test waiver requested, but playbook is unreadable: $PLAYBOOK_FILE" >&2

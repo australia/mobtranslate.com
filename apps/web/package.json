@@ -17,6 +17,7 @@
     "generate-embeddings": "tsx scripts/generate-embeddings.ts",
     "db:migrate": "tsx scripts/migrate-operational.ts",
     "db:migrate:check": "tsx scripts/migrate-operational.ts --check",
+    "evidence:build": "tsx scripts/build-translation-evidence-index.ts",
     "budget:check": "tsx scripts/check-api-budget.ts",
     "operational:prune": "tsx scripts/prune-operational-data.ts",
     "translation-reviews": "tsx scripts/translation-review-ledger.ts",
