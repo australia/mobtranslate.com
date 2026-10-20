@@ -60,7 +60,7 @@ export interface HybridLanguageContract extends HybridLanguageDefinition {
 const HYBRID_PIPELINE_CONTRACTS: HybridContractVersions = {
   draft: 'hybrid-hf-draft-v3-analysed-english',
   evidence: 'hybrid-form-and-meaning-retrieval-v5',
-  review: 'hybrid-read-first-review-v10',
+  review: 'hybrid-read-first-review-v11',
   resolver: 'hybrid-blind-reading-resolver-v5',
 };
 

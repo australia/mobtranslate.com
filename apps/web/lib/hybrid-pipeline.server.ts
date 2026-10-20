@@ -87,15 +87,18 @@ export const REVIEW_MAX_OUTPUT_TOKENS = 16000;
 
 /**
  * Reasoning effort for the checker, overridable for tuning with
- * MOBTRANSLATE_HYBRID_REVIEW_EFFORT (minimal | low | medium | high). The
- * fallback, used when a call ends without a result, is one step lower.
+ * MOBTRANSLATE_HYBRID_REVIEW_EFFORT (low | medium | high). The fallback only
+ * has to guarantee a checked answer in the time left, so it is the fast
+ * setting rather than the next step down.
  */
-const EFFORT_STEPS: StructuredReasoningEffort[] = ['minimal', 'low', 'medium', 'high'];
-function reviewEffort(env: NodeJS.ProcessEnv = process.env) {
+const EFFORT_STEPS: StructuredReasoningEffort[] = ['low', 'medium', 'high'];
+function reviewEffort(env: NodeJS.ProcessEnv = process.env): {
+  primary: StructuredReasoningEffort;
+  fallback: StructuredReasoningEffort | undefined;
+} {
   const configured = env.MOBTRANSLATE_HYBRID_REVIEW_EFFORT?.trim() as StructuredReasoningEffort | undefined;
   const primary = configured && EFFORT_STEPS.includes(configured) ? configured : 'high';
-  const fallback = EFFORT_STEPS[Math.max(0, EFFORT_STEPS.indexOf(primary) - 1)];
-  return { primary, fallback };
+  return { primary, fallback: primary === 'low' ? undefined : 'low' };
 }
 const REVIEW_EFFORT = reviewEffort();
 
@@ -532,7 +535,7 @@ async function reviewAttempt(
         fallbackReasoningEffort: REVIEW_EFFORT.fallback,
         // Deep reasoning gets most of the time; if it runs long, a lighter
         // pass still returns a checked result inside the route's limit.
-        primaryTimeoutMs: Math.max(10_000, Math.min(70_000, timeoutMs - 30_000)),
+        primaryTimeoutMs: Math.max(10_000, Math.min(60_000, timeoutMs - 30_000)),
         maxOutputTokens: REVIEW_MAX_OUTPUT_TOKENS,
         timeoutMs,
       });
