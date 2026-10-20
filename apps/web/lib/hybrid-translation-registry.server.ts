@@ -9,7 +9,7 @@ import {
 
 export const HYBRID_SPACE_ENDPOINT =
   'https://ajaxdavis-alpha-v0-historic.hf.space/v1/translate';
-export const DEFAULT_HYBRID_REVIEW_MODEL = 'gpt-5.4-mini-2026-03-17';
+export const DEFAULT_HYBRID_REVIEW_MODEL = 'gpt-6-luna';
 
 interface HybridContractVersions {
   draft: string;
@@ -60,7 +60,7 @@ export interface HybridLanguageContract extends HybridLanguageDefinition {
 const HYBRID_PIPELINE_CONTRACTS: HybridContractVersions = {
   draft: 'hybrid-hf-draft-v3-analysed-english',
   evidence: 'hybrid-form-and-meaning-retrieval-v5',
-  review: 'hybrid-read-first-review-v11',
+  review: 'hybrid-read-first-review-v14',
   resolver: 'hybrid-blind-reading-resolver-v6',
 };
 

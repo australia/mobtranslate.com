@@ -87,9 +87,10 @@ export const REVIEW_MAX_OUTPUT_TOKENS = 16000;
 
 /**
  * Reasoning effort for the checker, overridable for tuning with
- * MOBTRANSLATE_HYBRID_REVIEW_EFFORT (low | medium | high). The fallback only
- * has to guarantee a checked answer in the time left, so it is the fast
- * setting rather than the next step down.
+ * MOBTRANSLATE_HYBRID_REVIEW_EFFORT (low | medium | high). Low is the
+ * default (owner decision, 2026-10-20, with gpt-6-luna) to keep checks fast.
+ * A deeper setting falls back to low when it runs long, so a checked answer
+ * still arrives in time.
  */
 const EFFORT_STEPS: StructuredReasoningEffort[] = ['low', 'medium', 'high'];
 function reviewEffort(env: NodeJS.ProcessEnv = process.env): {
@@ -97,15 +98,15 @@ function reviewEffort(env: NodeJS.ProcessEnv = process.env): {
   fallback: StructuredReasoningEffort | undefined;
 } {
   const configured = env.MOBTRANSLATE_HYBRID_REVIEW_EFFORT?.trim() as StructuredReasoningEffort | undefined;
-  const primary = configured && EFFORT_STEPS.includes(configured) ? configured : 'high';
+  const primary = configured && EFFORT_STEPS.includes(configured) ? configured : 'low';
   return { primary, fallback: primary === 'low' ? undefined : 'low' };
 }
 const REVIEW_EFFORT = reviewEffort();
 
-const ANALYSIS_CONTRACT = 'hybrid-source-analysis-v2';
-const READING_CONTRACT = 'hybrid-blind-reading-v4';
-const MEANING_CONTRACT = 'hybrid-meaning-check-v4';
-const REPAIR_CONTRACT = 'hybrid-repair-review-v3';
+const ANALYSIS_CONTRACT = 'hybrid-source-analysis-v4';
+const READING_CONTRACT = 'hybrid-blind-reading-v6';
+const MEANING_CONTRACT = 'hybrid-meaning-check-v6';
+const REPAIR_CONTRACT = 'hybrid-repair-review-v5';
 
 /** Rate-limit and budget refusals must reach the caller, never be swallowed. */
 function isGuardError(error: unknown): boolean {
@@ -577,8 +578,7 @@ async function blindReading(
           toolName: 'submitReading',
           toolDescription: 'Submit the word-by-word reading and the plain meaning.',
           schema: BlindReadingSchema,
-          reasoningEffort: 'medium',
-          fallbackReasoningEffort: 'low',
+          reasoningEffort: 'low',
           maxOutputTokens: 10000,
           timeoutMs,
         });
@@ -626,8 +626,7 @@ async function meaningCheck(
           toolName: 'submitMeaningCheck',
           toolDescription: 'Submit the verdict, the problems found and a one-sentence summary.',
           schema: MeaningCheckSchema,
-          reasoningEffort: 'medium',
-          fallbackReasoningEffort: 'low',
+          reasoningEffort: 'low',
           maxOutputTokens: 8000,
           timeoutMs,
         });

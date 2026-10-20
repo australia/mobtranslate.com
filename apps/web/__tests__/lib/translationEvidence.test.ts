@@ -293,15 +293,14 @@ describe('passage excerpts', () => {
 });
 
 describe('repair decisions', () => {
-  it('repairs a different or changed reading but not a mere addition', () => {
+  it('repairs only a reading whose meaning clearly differs; smaller gaps become caveats', () => {
     expect(needsRepair({ verdict: 'same', problems: [], summary: '' })).toBe(false);
     expect(
-      needsRepair({ verdict: 'close', problems: [{ kind: 'added', detail: 'adds "again"' }], summary: '' }),
+      needsRepair({ verdict: 'close', problems: [{ kind: 'missing', detail: '"should" is missing' }], summary: '' }),
     ).toBe(false);
     expect(
-      needsRepair({ verdict: 'close', problems: [{ kind: 'missing', detail: '"should" is missing' }], summary: '' }),
+      needsRepair({ verdict: 'different', problems: [{ kind: 'changed', detail: '"provide" for "speak"' }], summary: '' }),
     ).toBe(true);
-    expect(needsRepair({ verdict: 'different', problems: [], summary: '' })).toBe(true);
   });
 
   it('ranks attempts by verdict, then by number of problems', () => {

@@ -75,6 +75,10 @@ async function callOnce<T>(
     abortSignal: AbortSignal.timeout(timeoutMs),
     providerOptions: {
       openai: {
+        // Every model this runs on reasons (gpt-5.x, gpt-6-luna), but the SDK
+        // only recognises some names as reasoning models and silently drops
+        // reasoningEffort for the rest.
+        forceReasoning: true,
         reasoningEffort,
         parallelToolCalls: false,
         store: false,
