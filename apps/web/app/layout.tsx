@@ -2,7 +2,6 @@ import './globals.css';
 import { ReactNode } from 'react';
 import { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
-import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from '@/contexts/AuthContext';
 import { Toaster } from '@/components/layout/Toaster';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
@@ -83,7 +82,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </div>
           <Toaster />
         </AuthProvider>
-        {process.env.VERCEL ? <Analytics /> : null}
         <GoogleAnalytics />
       </body>
     </html>

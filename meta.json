@@ -1,7 +1,6 @@
 {
   "name": "Mob Translate",
-  "description": "Minimal Turborepo example for learning the fundamentals.",
-  "template": "https://vercel.com/templates/next.js/turborepo-next-basic",
+  "description": "Open-source dictionaries and translation tools for Indigenous languages.",
   "featured": true,
   "boost": true
 }
