@@ -357,3 +357,39 @@ describe('Kuku Yalanji hybrid review evidence', () => {
     expect(KUKU_YALANJI_GRAMMAR_EVIDENCE.length).toBeGreaterThan(0);
   });
 });
+
+describe('evidence shown to people', () => {
+  it('shows grammar tables without OCR table borders or HTML tags', async () => {
+    const { readableDetail } = await import('../../lib/hybrid-translation.server');
+    expect(
+      readableDetail("| wujurr | 'night, darkness' |\n|---------|----------|\n| warngku | 'one day and night' <sup>1</sup> |"),
+    ).toBe("wujurr · 'night, darkness'\nwarngku · 'one day and night' 1");
+    expect(readableDetail('Plain prose stays as it is.')).toBe('Plain prose stays as it is.');
+  });
+
+  it('lists a record once when two sources read identically', () => {
+    const units = new Map(
+      [
+        unit({ key: 'dictionary:kaya', kind: 'dictionary', title: 'kaya', body: 'dog (noun)', targetForms: ['kaya'] }),
+        unit({ key: 'grammar_form:kaya', kind: 'grammar_form', title: 'kaya', body: 'dog (noun)', targetForms: ['kaya'] }),
+      ].map((item) => [item.key, item] as const),
+    );
+    const evidence = assembleEvidencePack({
+      units,
+      formIndex: buildFormIndex(units.values()),
+      lookupText: 'kaya',
+      queries: [],
+      semanticHits: [],
+    });
+    const resolved = resolveKukuYalanjiReview('dog', { ...analysis, englishText: 'the dog', ideas: [{ english: 'dog', kind: 'thing_or_action' }] }, 'kaya', evidence, {
+      review: review({
+        translation: 'kaya',
+        words: [{ form: 'kaya', meaning: 'dog', basis: 'dictionary', evidenceIds: ['dictionary-1', 'form-1'] }],
+        ideaCoverage: [{ idea: 'dog', covered: true, carriedBy: 'kaya' }],
+      }),
+      reading: { ...reading, words: [{ form: 'kaya', meaning: 'dog', basis: 'dictionary' }], plainMeaning: 'dog' },
+      check: same,
+    });
+    expect(resolved.evidence).toHaveLength(1);
+  });
+});

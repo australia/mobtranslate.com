@@ -616,11 +616,35 @@ function capConfidence(
     : cap;
 }
 
+/**
+ * Grammar passages come from OCR markdown; for people, show their words
+ * without table borders or HTML tags.
+ */
+export function readableDetail(detail: string): string {
+  return detail
+    .split('\n')
+    .filter((line) => !/^\s*\|?[\s|:-]*-{3,}[\s|:-]*\|?\s*$/.test(line))
+    .map((line) =>
+      line
+        .replace(/<br\s*\/?>/gi, ' ')
+        .replace(/<\/?[a-z][^>]*>/gi, '')
+        .split('|')
+        .map((cell) => cell.trim())
+        .filter(Boolean)
+        .join(' · ')
+        .replace(/[ \t]+/g, ' '),
+    )
+    .filter(Boolean)
+    .join('\n')
+    .trim();
+}
+
 function publicEvidence(item: PackedEvidence | HybridReviewEvidence): HybridReviewEvidence {
+  const readable = item.kind === 'grammar' ? readableDetail(item.detail) : item.detail;
   const detail =
-    item.detail.length > MAX_PUBLIC_EVIDENCE_DETAIL
-      ? `${item.detail.slice(0, MAX_PUBLIC_EVIDENCE_DETAIL).replace(/\s+\S*$/, '')} …`
-      : item.detail;
+    readable.length > MAX_PUBLIC_EVIDENCE_DETAIL
+      ? `${readable.slice(0, MAX_PUBLIC_EVIDENCE_DETAIL).replace(/\s+\S*$/, '')} …`
+      : readable;
   return {
     id: item.id,
     kind: item.kind,
@@ -629,6 +653,17 @@ function publicEvidence(item: PackedEvidence | HybridReviewEvidence): HybridRevi
     sourceLabel: item.sourceLabel,
     sourceUrl: item.sourceUrl,
   };
+}
+
+/** Records that would read identically to a person are shown once. */
+function distinctEvidence(items: HybridReviewEvidence[]): HybridReviewEvidence[] {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    const key = `${item.title.toLocaleLowerCase()}\u0000${item.detail.toLocaleLowerCase()}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 export function sourceReadingFor(
@@ -788,7 +823,9 @@ export function resolveHybridReview(
     summary: review.reviewSummary,
     changes: decision === 'kept_draft' ? [] : review.changes,
     caveats,
-    evidence: selectedIds.map((id) => publicEvidence(evidenceById.get(id)!)),
+    evidence: distinctEvidence(
+      selectedIds.map((id) => publicEvidence(evidenceById.get(id)!)),
+    ),
     reading: reading
       ? {
           words: reading.words.map((word) => ({

@@ -61,7 +61,7 @@ const HYBRID_PIPELINE_CONTRACTS: HybridContractVersions = {
   draft: 'hybrid-hf-draft-v3-analysed-english',
   evidence: 'hybrid-form-and-meaning-retrieval-v5',
   review: 'hybrid-read-first-review-v11',
-  resolver: 'hybrid-blind-reading-resolver-v5',
+  resolver: 'hybrid-blind-reading-resolver-v6',
 };
 
 const KUKU_GRAMMAR_SOURCE =
