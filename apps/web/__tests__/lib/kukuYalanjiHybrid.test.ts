@@ -328,6 +328,8 @@ describe('Kuku Yalanji hybrid review evidence', () => {
 
     expect(resolved.notTranslated).toBe(false);
     expect(resolved.translation).toBe('Chace');
+    expect(resolved.gloss).toBe('Chace');
+    expect(resolved.reading?.words[0]).toMatchObject({ basis: 'name', meaning: 'a name' });
   });
 
   it('does not serve output that has no recorded meaning at all', () => {

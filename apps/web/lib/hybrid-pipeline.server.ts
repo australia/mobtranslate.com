@@ -105,7 +105,7 @@ const REVIEW_EFFORT = reviewEffort();
 
 const ANALYSIS_CONTRACT = 'hybrid-source-analysis-v6-understood';
 const READING_CONTRACT = 'hybrid-blind-reading-v7-one-sense';
-const MEANING_CONTRACT = 'hybrid-meaning-check-v8-senses';
+const MEANING_CONTRACT = 'hybrid-meaning-check-v9-senses-medium';
 const REPAIR_CONTRACT = 'hybrid-repair-review-v5';
 
 /** Rate-limit and budget refusals must reach the caller, never be swallowed. */
@@ -626,7 +626,12 @@ async function meaningCheck(
           toolName: 'submitMeaningCheck',
           toolDescription: 'Submit the verdict, the problems found and a one-sentence summary.',
           schema: MeaningCheckSchema,
-          reasoningEffort: 'low',
+          // Choosing which recorded sense a word has needs more than low
+          // effort ("small one", not "small child", for karrkay in "small
+          // hill"); this call is short, so medium adds only a few seconds.
+          reasoningEffort: 'medium',
+          fallbackReasoningEffort: 'low',
+          primaryTimeoutMs: 30_000,
           maxOutputTokens: 8000,
           timeoutMs,
         });

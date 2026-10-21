@@ -757,7 +757,7 @@ export function resolveHybridReview(
   attempt: HybridReviewAttempt,
 ): ResolvedHybridReview {
   const { review, reading, check } = attempt;
-  const shown = reading ? readingWithSenses(reading, check) : null;
+  const sensed = reading ? readingWithSenses(reading, check) : null;
   const evidenceById = new Map<string, PackedEvidence | HybridReviewEvidence>();
   for (const item of [...pack.items, ...pack.guide]) evidenceById.set(item.id, item);
   for (const item of contract.grammarEvidence) evidenceById.set(item.id, item);
@@ -774,6 +774,20 @@ export function resolveHybridReview(
   // not call the language; that is still the right answer.
   const onlyNames =
     review.words.length > 0 && review.words.every((word) => word.basis === 'name');
+  // The reader cannot know a name the checker kept on purpose, so show it
+  // as the checker's name or loanword rather than as an unreadable word.
+  const checkerWord = new Map(
+    review.words.map((word) => [word.form.toLocaleLowerCase(), word]),
+  );
+  const shown = sensed && {
+    words: sensed.words.map((word) => {
+      const kept = checkerWord.get(word.form.toLocaleLowerCase());
+      return word.basis === 'unknown' && kept && deliberate.has(word.form.toLocaleLowerCase())
+        ? { ...word, basis: kept.basis as 'name' | 'loanword', meaning: kept.meaning }
+        : word;
+    }),
+    plainMeaning: onlyNames ? translation : sensed.plainMeaning,
+  };
   // Nothing in the output has a recorded meaning, so nothing was translated.
   const nothingReadable =
     (reading?.words.length ?? 0) > 0 &&
