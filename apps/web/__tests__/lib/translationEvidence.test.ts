@@ -294,17 +294,17 @@ describe('passage excerpts', () => {
 
 describe('repair decisions', () => {
   it('repairs only a reading whose meaning clearly differs; smaller gaps become caveats', () => {
-    expect(needsRepair({ verdict: 'same', problems: [], summary: '' })).toBe(false);
+    expect(needsRepair({ verdict: 'same', problems: [], senses: [], plainMeaning: '', summary: '' })).toBe(false);
     expect(
-      needsRepair({ verdict: 'close', problems: [{ kind: 'missing', detail: '"should" is missing' }], summary: '' }),
+      needsRepair({ verdict: 'close', problems: [{ kind: 'missing', detail: '"should" is missing' }], senses: [], plainMeaning: '', summary: '' }),
     ).toBe(false);
     expect(
-      needsRepair({ verdict: 'different', problems: [{ kind: 'changed', detail: '"provide" for "speak"' }], summary: '' }),
+      needsRepair({ verdict: 'different', problems: [{ kind: 'changed', detail: '"provide" for "speak"' }], senses: [], plainMeaning: '', summary: '' }),
     ).toBe(true);
   });
 
   it('ranks attempts by verdict, then by number of problems', () => {
     expect(attemptRank(null)).toEqual([3, 0]);
-    expect(attemptRank({ verdict: 'close', problems: [{ kind: 'missing', detail: 'x' }], summary: '' })).toEqual([1, 1]);
+    expect(attemptRank({ verdict: 'close', problems: [{ kind: 'missing', detail: 'x' }], senses: [], plainMeaning: '', summary: '' })).toEqual([1, 1]);
   });
 });

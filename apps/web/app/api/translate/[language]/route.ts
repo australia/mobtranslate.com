@@ -799,6 +799,28 @@ export async function POST(
         resolved = createReverseUnavailableResult(text, evidence);
       }
 
+      if (resolved.notReadable) {
+        void logTranslationRequest({
+          kind: 'translate',
+          source: 'homepage',
+          languageCode: dictionary.meta.code,
+          inputText: text,
+          userId,
+          status: 'error',
+          error: 'no_translation',
+          model: `reverse:${reverseModelId}`,
+          durationMs: Date.now() - startedAt,
+        });
+        return NextResponse.json(
+          {
+            success: false,
+            code: 'no_translation',
+            error: `We couldn't read this as ${dictionary.meta.name}. Check the spelling, or try one word at a time.`,
+          },
+          { status: 422, headers: { 'Cache-Control': 'no-store' } },
+        );
+      }
+
       void logTranslationRequest({
         kind: 'translate',
         source: 'homepage',
@@ -937,6 +959,27 @@ export async function POST(
         const analysisResult = controlledRequest
           ? null
           : await getCachedSourceAnalysis(text, hybridContract, async () => {});
+        if (analysisResult?.value.understood === 'no') {
+          void logTranslationRequest({
+            kind: 'translate',
+            source: 'homepage',
+            languageCode: hybridContract.languageCode,
+            inputText: text,
+            userId,
+            status: 'error',
+            error: 'source_not_understood',
+            model: `openai:${hybridContract.reviewModelId}`,
+            durationMs: Date.now() - startedAt,
+          });
+          return NextResponse.json(
+            {
+              success: false,
+              code: 'no_translation',
+              error: `We couldn't tell what this says, so we haven't guessed a translation. If it is already ${hybridContract.languageName}, switch the direction to ${hybridContract.languageName} → English.`,
+            },
+            { status: 422, headers: { 'Cache-Control': 'no-store' } },
+          );
+        }
         const draftEnvelope = controlledRequest
           ? {
               kind: 'controlled' as const,

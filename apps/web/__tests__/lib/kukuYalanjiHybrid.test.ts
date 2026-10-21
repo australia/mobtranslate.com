@@ -15,7 +15,11 @@ import {
 } from '../../lib/hybrid-translation.server';
 import { KUKU_YALANJI_HYBRID_DEFINITION } from '../../lib/hybrid-translation-registry.server';
 import type { SourceAnalysis } from '../../lib/hybrid-source-analysis.server';
-import type { BlindReading, MeaningCheck } from '../../lib/hybrid-reading.server';
+import {
+  readingWithSenses,
+  type BlindReading,
+  type MeaningCheck,
+} from '../../lib/hybrid-reading.server';
 import {
   assembleEvidencePack,
   buildFormIndex,
@@ -67,6 +71,7 @@ const units = new Map(
 const formIndex = buildFormIndex(units.values());
 
 const analysis: SourceAnalysis = {
+  understood: 'yes',
   sourceLanguage: 'English',
   englishText: 'your mother sleep with me',
   corrections: [],
@@ -114,16 +119,22 @@ function review(overrides: Partial<HybridReviewToolResult> = {}): HybridReviewTo
 const reading: BlindReading = {
   inLanguage: 'yes',
   words: [
-    { form: 'yunu', meaning: 'your', basis: 'dictionary' },
-    { form: 'ngamu', meaning: 'mother', basis: 'dictionary' },
-    { form: 'ngaykunji', meaning: 'with me', basis: 'grammar' },
-    { form: 'wunay', meaning: 'lies down / sleeps', basis: 'dictionary' },
+    { form: 'yunu', meaning: 'your', otherMeanings: [], basis: 'dictionary' },
+    { form: 'ngamu', meaning: 'mother', otherMeanings: [], basis: 'dictionary' },
+    { form: 'ngaykunji', meaning: 'with me', otherMeanings: [], basis: 'grammar' },
+    { form: 'wunay', meaning: 'lies down / sleeps', otherMeanings: [], basis: 'dictionary' },
   ],
   plainMeaning: 'Your mother sleeps with me.',
   caveats: [],
 };
 
-const same: MeaningCheck = { verdict: 'same', problems: [], summary: 'The reading carries every idea.' };
+const same: MeaningCheck = {
+  verdict: 'same',
+  problems: [],
+  senses: [],
+  plainMeaning: 'Your mother sleeps with me.',
+  summary: 'The reading carries every idea.',
+};
 
 describe('Kuku Yalanji hybrid review evidence', () => {
   it('retrieves exact and contextually relevant dictionary records without a fixed vocabulary map', () => {
@@ -259,6 +270,8 @@ describe('Kuku Yalanji hybrid review evidence', () => {
         check: {
           verdict: 'different',
           problems: [{ kind: 'changed', detail: 'nganya reads as "me", not "with me".' }],
+          senses: [],
+          plainMeaning: 'Your mother lies down me.',
           summary: 'The idea of "with me" is lost.',
         },
       },
@@ -291,6 +304,112 @@ describe('Kuku Yalanji hybrid review evidence', () => {
     });
   });
 
+  it('passes a name through instead of refusing it', () => {
+    const resolved = resolveKukuYalanjiReview(
+      'Chace',
+      { ...analysis, englishText: 'Chace', ideas: [{ english: 'Chace', kind: 'name' }] },
+      'Chace',
+      pack('Chace'),
+      {
+        review: review({
+          translation: 'Chace',
+          words: [{ form: 'Chace', meaning: 'a name', basis: 'name', evidenceIds: [] }],
+          ideaCoverage: [{ idea: 'Chace', covered: true, carriedBy: 'Chace' }],
+        }),
+        reading: {
+          ...reading,
+          inLanguage: 'no',
+          words: [{ form: 'Chace', meaning: 'unknown', otherMeanings: [], basis: 'unknown' }],
+          plainMeaning: 'Chace.',
+        },
+        check: same,
+      },
+    );
+
+    expect(resolved.notTranslated).toBe(false);
+    expect(resolved.translation).toBe('Chace');
+  });
+
+  it('does not serve output that has no recorded meaning at all', () => {
+    const resolved = resolveKukuYalanjiReview(
+      'kunyani',
+      { ...analysis, englishText: 'kunyani', ideas: [{ english: 'kunyani', kind: 'thing_or_action' }] },
+      'yungany',
+      pack('yungany'),
+      {
+        review: review({
+          decision: 'insufficient_evidence',
+          translation: 'yungany',
+          words: [{ form: 'yungany', meaning: 'unknown', basis: 'best_guess', evidenceIds: [] }],
+          confidence: 'low',
+        }),
+        reading: {
+          ...reading,
+          inLanguage: 'partly',
+          words: [{ form: 'yungany', meaning: 'not recorded', otherMeanings: [], basis: 'unknown' }],
+          plainMeaning: 'Unknown word.',
+        },
+        check: null,
+      },
+    );
+
+    expect(resolved.notTranslated).toBe(true);
+    expect(resolved.translation).toBe('');
+  });
+
+  it('keeps the other recorded senses of a word apart from the meaning shown', () => {
+    const resolved = resolveKukuYalanjiReview(
+      'Small hill',
+      { ...analysis, englishText: 'Small hill', ideas: [{ english: 'small', kind: 'thing_or_action' }, { english: 'hill', kind: 'thing_or_action' }] },
+      'karrkay jamba',
+      pack('karrkay jamba'),
+      {
+        review: review({ translation: 'karrkay jamba' }),
+        reading: {
+          ...reading,
+          words: [
+            { form: 'karrkay', meaning: 'small', otherMeanings: ['child', 'young one'], basis: 'dictionary' },
+            { form: 'jamba', meaning: 'hillside', otherMeanings: [], basis: 'dictionary' },
+          ],
+          plainMeaning: 'Small hillside.',
+        },
+        check: same,
+      },
+    );
+
+    expect(resolved.gloss).toBe('Small hillside.');
+    expect(resolved.reading?.words[0]).toEqual({
+      form: 'karrkay',
+      meaning: 'small',
+      otherMeanings: ['child', 'young one'],
+      basis: 'dictionary',
+    });
+    expect(resolved.reading?.words[1]).not.toHaveProperty('otherMeanings');
+  });
+
+  it('shows the recorded sense the sentence uses, never one the check made up', () => {
+    const blind: BlindReading = {
+      ...reading,
+      words: [{ form: 'juwa', meaning: 'too long a time', otherMeanings: ['dopey'], basis: 'dictionary' }],
+      plainMeaning: 'Too long a time.',
+    };
+    const chosen = readingWithSenses(blind, {
+      ...same,
+      senses: [{ form: 'juwa', sense: 'dopey' }],
+      plainMeaning: 'Dopey.',
+    });
+    expect(chosen.plainMeaning).toBe('Dopey.');
+    expect(chosen.words[0]).toMatchObject({ meaning: 'dopey', otherMeanings: ['too long a time'] });
+
+    const invented = readingWithSenses(blind, {
+      ...same,
+      senses: [{ form: 'juwa', sense: 'idiot' }],
+      plainMeaning: 'Idiot.',
+    });
+    expect(invented.plainMeaning).toBe('Too long a time.');
+    expect(invented.words[0].meaning).toBe('too long a time');
+  });
+
   it('lists ideas the translation does not carry and unknown words', () => {
     const resolved = resolveKukuYalanjiReview(
       'pay your taxes right',
@@ -317,9 +436,9 @@ describe('Kuku Yalanji hybrid review evidence', () => {
         reading: {
           ...reading,
           words: [
-            { form: 'yunu', meaning: 'your', basis: 'dictionary' },
-            { form: 'balnji', meaning: 'not found', basis: 'unknown' },
-            { form: 'daya', meaning: 'give!', basis: 'dictionary' },
+            { form: 'yunu', meaning: 'your', otherMeanings: [], basis: 'dictionary' },
+            { form: 'balnji', meaning: 'not found', otherMeanings: [], basis: 'unknown' },
+            { form: 'daya', meaning: 'give!', otherMeanings: [], basis: 'dictionary' },
           ],
           plainMeaning: 'Your ... give!',
         },
@@ -387,7 +506,7 @@ describe('evidence shown to people', () => {
         words: [{ form: 'kaya', meaning: 'dog', basis: 'dictionary', evidenceIds: ['dictionary-1', 'form-1'] }],
         ideaCoverage: [{ idea: 'dog', covered: true, carriedBy: 'kaya' }],
       }),
-      reading: { ...reading, words: [{ form: 'kaya', meaning: 'dog', basis: 'dictionary' }], plainMeaning: 'dog' },
+      reading: { ...reading, words: [{ form: 'kaya', meaning: 'dog', otherMeanings: [], basis: 'dictionary' }], plainMeaning: 'dog' },
       check: same,
     });
     expect(resolved.evidence).toHaveLength(1);

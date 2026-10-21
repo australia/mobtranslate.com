@@ -103,9 +103,9 @@ function reviewEffort(env: NodeJS.ProcessEnv = process.env): {
 }
 const REVIEW_EFFORT = reviewEffort();
 
-const ANALYSIS_CONTRACT = 'hybrid-source-analysis-v4';
-const READING_CONTRACT = 'hybrid-blind-reading-v6';
-const MEANING_CONTRACT = 'hybrid-meaning-check-v6';
+const ANALYSIS_CONTRACT = 'hybrid-source-analysis-v6-understood';
+const READING_CONTRACT = 'hybrid-blind-reading-v7-one-sense';
+const MEANING_CONTRACT = 'hybrid-meaning-check-v8-senses';
 const REPAIR_CONTRACT = 'hybrid-repair-review-v5';
 
 /** Rate-limit and budget refusals must reach the caller, never be swallowed. */

@@ -53,6 +53,19 @@ async function replay(item: ReplayCase) {
   if (!dictionary) throw new Error(`No dictionary for ${contract.dictionaryCode}.`);
 
   const analysis = await getCachedSourceAnalysis(item.text, contract, noBudget);
+  if (analysis.value.understood === 'no') {
+    return {
+      text: item.text,
+      language: item.language,
+      before: item.before ?? null,
+      beforeGloss: item.beforeGloss ?? null,
+      analysis: analysis.value,
+      notTranslated: true,
+      after: null,
+      reason: 'source_not_understood',
+      seconds: Math.round((Date.now() - startedAt) / 100) / 10,
+    };
+  }
   const draft = await getCachedHybridDraft(analysis.value.englishText, contract, noBudget);
   const evidence = await getCachedEvidencePack(
     dictionary,

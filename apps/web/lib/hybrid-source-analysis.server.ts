@@ -23,6 +23,11 @@ export const SourceIdeaSchema = z.object({
 });
 
 export const SourceAnalysisSchema = z.object({
+  understood: z
+    .enum(['yes', 'unsure', 'no'])
+    .describe(
+      'yes: you know what the text means (any English, including rare words and misspellings); unsure: you can read most of it; no: it is not English and you cannot tell what it means',
+    ),
   sourceLanguage: z
     .string()
     .trim()
@@ -55,9 +60,12 @@ export function createSourceAnalysisPrompt(
 ): string {
   return `Someone wants a text translated into ${languageName}. The text is in the JSON at the end.
 
-1. sourceLanguage: name the language the text is written in.
+1. understood: whether you can tell what the text means.
+   - English is understood, including rare words, slang, swearing and misspellings you can correct (for example "boomarang" is "boomerang"; note the correction). A name on its own is understood.
+   - Answer "no" only when the text is not English and you cannot identify what it means, such as a word that may belong to a language you cannot read, or letters that are not a word. Never guess a meaning for such text, even when it looks like it could belong to some language.
+   sourceLanguage: name the language the text is written in, or "Unknown".
 2. englishText:
-   - If the text is English, return it exactly as typed, changing only clear typing or spelling slips that would make a translator misread it (for example "your" written for "you're", "there" for "their", a misspelt word). Do not rephrase, tidy up, expand slang, or explain.
+   - If the text is English, return it exactly as typed, changing only clear typing or spelling slips that would make a translator misread it (for example "your" written for "you're", "there" for "their", a misspelt word). A correction must leave natural English that says what the person meant ("Your sucks" is "You suck"). Do not rephrase, tidy up, expand slang, or explain.
    - If the text is in another language, translate it into plain, faithful English with the same tone.
    - Swearing, insults, slurs, sexual talk and rude jokes must be kept exactly as strong as they are. People learning ${languageName} want rough language too; it is part of the language. Never soften, censor, refuse or comment.
 3. corrections: one short note for each slip you fixed in English input.
@@ -75,6 +83,7 @@ ${JSON.stringify({ text })}`;
 /** What later stages use when the analysis step is unavailable. */
 export function fallbackSourceAnalysis(text: string): SourceAnalysis {
   return {
+    understood: 'unsure',
     sourceLanguage: 'Unknown',
     englishText: text.trim(),
     corrections: [],

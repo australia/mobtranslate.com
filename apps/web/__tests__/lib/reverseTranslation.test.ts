@@ -245,6 +245,7 @@ describe('resolveReverseTranslation', () => {
         { sourceWord: 'wanja', meaning: 'where' },
       ],
       confidence: 'medium',
+      readable: 'yes',
       summary: 'Both words are listed in the dictionary.',
       evidenceIds: [evidence[0].id, 'dictionary-999'],
       caveats: [],
@@ -259,12 +260,27 @@ describe('resolveReverseTranslation', () => {
       translation: 'where is the water',
       wordBreakdown: [],
       confidence: 'low',
+      readable: 'partly',
       summary: 'Uncertain.',
       evidenceIds: [],
       caveats: ['Word endings could not be checked.'],
     });
     expect(resolved.evidence.length).toBeGreaterThan(0);
     expect(resolved.breakdown).toBe('');
+    expect(resolved.notReadable).toBe(false);
+  });
+
+  it('marks text that cannot be read as the language at all', () => {
+    const resolved = resolveReverseTranslation(evidence, {
+      translation: 'Bun yip',
+      wordBreakdown: [{ sourceWord: 'Bun', meaning: 'not in the dictionary' }],
+      confidence: 'low',
+      readable: 'no',
+      summary: 'None of these words is in the dictionary.',
+      evidenceIds: [],
+      caveats: [],
+    });
+    expect(resolved.notReadable).toBe(true);
   });
 });
 

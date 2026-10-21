@@ -61,8 +61,8 @@ export interface HybridLanguageContract extends HybridLanguageDefinition {
 const HYBRID_PIPELINE_CONTRACTS: HybridContractVersions = {
   draft: 'hybrid-hf-draft-v3-analysed-english',
   evidence: 'hybrid-form-and-meaning-retrieval-v5',
-  review: 'hybrid-read-first-review-v14',
-  resolver: 'hybrid-blind-reading-resolver-v6',
+  review: 'hybrid-read-first-review-v15',
+  resolver: 'hybrid-blind-reading-resolver-v7',
 };
 
 const KUKU_GRAMMAR_SOURCE =

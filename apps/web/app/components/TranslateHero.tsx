@@ -851,6 +851,13 @@ export default function TranslateHero({ languages }: TranslateHeroProps) {
                                         <span className="ml-1.5 text-xs text-[#faf8f5]/40">
                                           {WORD_BASIS_LABELS[word.basis]}
                                         </span>
+                                        {word.otherMeanings &&
+                                          word.otherMeanings.length > 0 && (
+                                            <span className="block text-xs text-[#faf8f5]/45">
+                                              Also recorded as:{' '}
+                                              {word.otherMeanings.join('; ')}
+                                            </span>
+                                          )}
                                       </dd>
                                     </div>
                                   ),

@@ -10,7 +10,7 @@ import type {
 } from './hybrid-translation-types';
 import type { SourceAnalysis } from './hybrid-source-analysis.server';
 import type { EvidencePack, PackedEvidence, WordEvidence } from './translation-evidence/retrieve';
-import type { BlindReading, MeaningCheck } from './hybrid-reading.server';
+import { readingWithSenses, type BlindReading, type MeaningCheck } from './hybrid-reading.server';
 import { dictionaryWordUrl } from './translation-evidence/units';
 
 export interface HybridDictionaryEntry {
@@ -170,6 +170,7 @@ export interface ResolvedHybridReview {
 const HybridWordReadingSchema = z.object({
   form: z.string(),
   meaning: z.string(),
+  otherMeanings: z.array(z.string()).optional(),
   basis: z.enum(['dictionary', 'grammar', 'example', 'name', 'loanword', 'unknown']),
 });
 
@@ -515,24 +516,25 @@ ${languageGuidance}
 How to check:
 1. Start from firstTranslation. Keep each of its words unless the evidence shows that word is wrong for this sentence. Replacing a word needs a record showing the new word means what the source says. A word is wrong when a record gives it a different meaning, a grammar table or example shows a different form for the job it must do here (for example the form for "with me" rather than "me"), or it belongs to a variety the guidance excludes.
 2. A word missing from the dictionary is not wrong for that reason alone. Many correct words carry endings and are documented only in grammar tables, grammar examples or dictionary sentences. Read firstTranslationWords and the evidence found for each word before replacing anything. Never swap a documented form for a plainer headword that does a different job.
-3. Every item in ideas must be carried by the translation. If the first translation dropped an idea, add it from the records. Keep people and place names as written. For an introduced thing with no word in the records (for example taxes, a phone, a bank), use the English noun as a loanword, the way speakers do, with any word ending the grammar requires for loanwords. Only names and nouns for introduced things may be English: never use an English verb, describing word or small word (such as "pay", "should", "good" or "the"); express those with recorded words, grammar endings or word order.
-4. Translate rough language, swearing and insults faithfully at the same strength. Do not soften, censor, refuse or comment on it. Strength never justifies a different meaning: when the records have no word with the source's meaning, keep the closest supported word or use the English word as a loanword. Never put in a word that means something else (a sound, an object, an unrelated quality) to stand in for it.
-5. translation holds only ${contract.languageName} words, names and loanwords. Never put English sentences, brackets, notes or placeholders in it. Use cannot_translate with an empty translation only when the text has nothing that can be translated.
-6. words lists every word of your final translation, in order, with its plain-English meaning here and its basis: dictionary, grammar or example (cite the record IDs that show that form or meaning), first_translation (kept from the first translation without a supporting record), name, loanword, or best_guess. Cite a record only if it really shows that form or meaning.
-7. ideaCoverage gives every idea, whether the translation carries it, and which word or words carry it.
-8. decision: kept_draft when no word changed; revised_draft when you changed or added words and every idea is carried with support; insufficient_evidence when an idea is missing or rests only on first_translation or best_guess words.
-9. confidence: high only when every word is supported by records; low when a main idea rests on a guess.
-10. A general grammar note supports only what it says; it does not verify a particular word form or word ending. Cite a record, table or example for a form.
-11. reviewSummary, changes and caveats are for someone with no linguistics background: short everyday English. Name the word and say why, for example "Kept ngaykunji: the grammar's table of pronoun forms lists it as 'with me'." Do not mention models, drafts, evidence IDs, morphology, ergative, absolutive, case, stems, suffixes or conjugation; say "word" or "word ending" when needed. reviewSummary is a public explanation of the check, not hidden chain-of-thought and not speaker judgment.
-12. evidenceIds may contain only IDs present in the supplied JSON.${
+3. Every item in ideas must be carried by the translation. If the first translation dropped an idea, add it from the records. Keep people and place names as written. For an introduced thing with no word in the records (for example taxes, a phone, a bank), use the English noun as a loanword, the way speakers do, with any word ending the grammar requires for loanwords. Only names and nouns for introduced things may be English: never use an English verb, describing word or small word (such as "pay", "should", "good" or "the"); express those with recorded words, grammar endings or word order. A dictionary entry marked as an English loan word means that English thing; never use it for a source word that only looks or sounds like it (such as "matches" for "compare").
+4. Relations such as in, at, on, from, with, for and to are often word endings in this language rather than separate words. For each such idea, look in the grammar records and examples for the form that carries it, and never use a word whose recorded meaning is a different relation or a different kind of word (such as "if/when" for "from"). Read words like "like" by their sense in the source: "enjoy" is not "similar to".
+5. Translate rough language, swearing and insults faithfully at the same strength. Do not soften, censor, refuse or comment on it. Strength never justifies a different meaning: when the records have no word with the source's meaning, keep the closest supported word or use the English word as a loanword. Never put in a word that means something else (a sound, an object, an unrelated quality) to stand in for it.
+6. translation holds only ${contract.languageName} words, names and loanwords. Never put English sentences, brackets, notes or placeholders in it. Use cannot_translate with an empty translation only when the text has nothing that can be translated.
+7. words lists every word of your final translation, in order, with its plain-English meaning here and its basis: dictionary, grammar or example (cite the record IDs that show that form or meaning), first_translation (kept from the first translation without a supporting record), name, loanword, or best_guess. Cite a record only if it really shows that form or meaning.
+8. ideaCoverage gives every idea, whether the translation carries it, and which word or words carry it.
+9. decision: kept_draft when no word changed; revised_draft when you changed or added words and every idea is carried with support; insufficient_evidence when an idea is missing or rests only on first_translation or best_guess words.
+10. confidence: high only when every word is supported by records; low when a main idea rests on a guess.
+11. A general grammar note supports only what it says; it does not verify a particular word form or word ending. Cite a record, table or example for a form.
+12. reviewSummary, changes and caveats are for someone with no linguistics background: short everyday English. Name the word and say why, for example "Kept ngaykunji: the grammar's table of pronoun forms lists it as 'with me'." Do not mention models, drafts, evidence IDs, morphology, ergative, absolutive, case, stems, suffixes or conjugation; say "word" or "word ending" when needed. reviewSummary is a public explanation of the check, not hidden chain-of-thought and not speaker judgment.
+13. evidenceIds may contain only IDs present in the supplied JSON.${
     reading?.of === 'first_translation'
       ? `
-13. firstTranslationReading shows how a reader who did not see the English understood the first translation, and the problems found when that reading was compared with what was meant. Use it to find the words that need work, and fix a problem only with a word the records support. If the records show the reader misread a word, keep that word.`
+14. firstTranslationReading shows how a reader who did not see the English understood the first translation, and the problems found when that reading was compared with what was meant. Use it to find the words that need work, and fix a problem only with a word the records support. If the records show the reader misread a word, keep that word.`
       : ''
   }${
     reading?.of === 'previous_attempt'
       ? `
-13. previousAttempt shows your earlier translation and how a reader who did not see the English understood it. Fix the words that caused each problem. If the records show the reader misread a word, keep that word and say so in caveats.`
+14. previousAttempt shows your earlier translation and how a reader who did not see the English understood it. Fix the words that caused each problem. If the records show the reader misread a word, keep that word and say so in caveats.`
       : ''
   }
 Submit exactly one structured review through the required tool.
@@ -755,15 +757,35 @@ export function resolveHybridReview(
   attempt: HybridReviewAttempt,
 ): ResolvedHybridReview {
   const { review, reading, check } = attempt;
+  const shown = reading ? readingWithSenses(reading, check) : null;
   const evidenceById = new Map<string, PackedEvidence | HybridReviewEvidence>();
   for (const item of [...pack.items, ...pack.guide]) evidenceById.set(item.id, item);
   for (const item of contract.grammarEvidence) evidenceById.set(item.id, item);
 
   const translation = review.translation.trim();
+  // A name or loanword the checker deliberately used is not an unknown word,
+  // even though no record lists it.
+  const deliberate = new Set(
+    review.words
+      .filter((word) => word.basis === 'name' || word.basis === 'loanword')
+      .map((word) => word.form.toLocaleLowerCase()),
+  );
+  // A name on its own ("Chace") is written as itself, which a reader would
+  // not call the language; that is still the right answer.
+  const onlyNames =
+    review.words.length > 0 && review.words.every((word) => word.basis === 'name');
+  // Nothing in the output has a recorded meaning, so nothing was translated.
+  const nothingReadable =
+    (reading?.words.length ?? 0) > 0 &&
+    reading!.words.every(
+      (word) =>
+        word.basis === 'unknown' && !deliberate.has(word.form.toLocaleLowerCase()),
+    );
   const notTranslated =
     review.decision === 'cannot_translate' ||
     translation.length === 0 ||
-    reading?.inLanguage === 'no';
+    (reading?.inLanguage === 'no' && !onlyNames) ||
+    nothingReadable;
 
   let decision: HybridReviewDecision =
     review.decision === 'cannot_translate' ? 'insufficient_evidence' : review.decision;
@@ -778,13 +800,6 @@ export function resolveHybridReview(
   if (decision === 'insufficient_evidence') confidence = 'low';
   if (!reading) confidence = capConfidence(confidence, 'medium');
   if (reading?.inLanguage === 'partly') confidence = 'low';
-  // A name or loanword the checker deliberately used is not an unknown word,
-  // even though no record lists it.
-  const deliberate = new Set(
-    review.words
-      .filter((word) => word.basis === 'name' || word.basis === 'loanword')
-      .map((word) => word.form.toLocaleLowerCase()),
-  );
   const unknownWords = (reading?.words ?? []).filter(
     (word) =>
       word.basis === 'unknown' && !deliberate.has(word.form.toLocaleLowerCase()),
@@ -819,7 +834,7 @@ export function resolveHybridReview(
 
   return {
     translation: notTranslated ? '' : translation,
-    gloss: reading?.plainMeaning ?? '',
+    gloss: shown?.plainMeaning ?? '',
     decision,
     confidence,
     summary: review.reviewSummary,
@@ -828,14 +843,17 @@ export function resolveHybridReview(
     evidence: distinctEvidence(
       selectedIds.map((id) => publicEvidence(evidenceById.get(id)!)),
     ),
-    reading: reading
+    reading: shown
       ? {
-          words: reading.words.map((word) => ({
+          words: shown.words.map((word) => ({
             form: word.form,
             meaning: word.meaning,
+            ...(word.otherMeanings.length > 0
+              ? { otherMeanings: word.otherMeanings }
+              : {}),
             basis: word.basis,
           })),
-          meaning: reading.plainMeaning,
+          meaning: shown.plainMeaning,
         }
       : null,
     meaningCheck: check

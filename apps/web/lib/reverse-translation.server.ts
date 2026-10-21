@@ -25,7 +25,7 @@ import type {
 export const REVERSE_TRANSLATION_MODEL = OPENAI_TEXT_MODEL;
 // Bump these when the prompt or retrieval output changes, so cached results
 // from the older contract are not served.
-export const REVERSE_TRANSLATION_CONTRACT = 'reverse-translation-v2';
+export const REVERSE_TRANSLATION_CONTRACT = 'reverse-translation-v3';
 export const REVERSE_EVIDENCE_CONTRACT = 'reverse-evidence-v2';
 
 /** Minimum headword length eligible for prefix matching. */
@@ -250,6 +250,11 @@ export const ReverseTranslationToolSchema = z.object({
     .max(24)
     .describe('Word-by-word account of the source text'),
   confidence: z.enum(['low', 'medium', 'high']),
+  readable: z
+    .enum(['yes', 'partly', 'no'])
+    .describe(
+      'yes: the words are read from the evidence; partly: some words could not be read; no: no word is supported by the evidence, or the text is English or another language',
+    ),
   summary: z
     .string()
     .trim()
@@ -273,6 +278,8 @@ export const ResolvedReverseTranslationSchema = z.object({
   summary: z.string(),
   caveats: z.array(z.string()),
   evidence: ReverseTranslationEvidenceListSchema,
+  /** True when the text could not be read as the language at all. */
+  notReadable: z.boolean().default(false),
 });
 
 export type ResolvedReverseTranslation = z.infer<
@@ -318,8 +325,9 @@ Translation contract:
 6. evidenceIds may contain only IDs present in the supplied JSON.
 7. Write summary and caveats in short, everyday English for someone with no AI or linguistics background. Do not mention models, evidence IDs, morphology, case, stems, suffixes or conjugation. Say "word" or "word ending" when needed.
 8. confidence is high only when every content word is directly supported by the evidence.
-9. This is an automated research aid, never speaker or community judgment.
-10. Submit exactly one structured translation through the required tool.`;
+9. readable is "no" when no source word is supported by the evidence (only clipped or variant guesses at most), or when the text is English or clearly another language; do not dress up guesses as a translation. Use "partly" when some words could not be read.
+10. This is an automated research aid, never speaker or community judgment.
+11. Submit exactly one structured translation through the required tool.`;
 }
 
 export function resolveReverseTranslation(
@@ -341,6 +349,7 @@ export function resolveReverseTranslation(
     confidence: result.confidence as ReverseTranslationConfidence,
     summary: result.summary,
     caveats: result.caveats,
+    notReadable: result.readable === 'no',
     // Cited evidence first, then the rest of what retrieval found, so the UI can
     // always show the reader which dictionary entries were in play.
     evidence:
@@ -364,5 +373,6 @@ export function createReverseUnavailableResult(
       'The translation check could not be completed. Try again in a moment.',
     ],
     evidence: evidence.slice(0, Math.min(6, evidence.length)),
+    notReadable: false,
   };
 }

@@ -22,6 +22,8 @@ export type TranslationCacheState = 'hit' | 'miss' | 'coalesced' | 'disabled';
 export interface HybridWordReading {
   form: string;
   meaning: string;
+  /** Other senses the records give the word. */
+  otherMeanings?: string[];
   basis: 'dictionary' | 'grammar' | 'example' | 'name' | 'loanword' | 'unknown';
 }
 
