@@ -72,6 +72,8 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
   const [preparing, setPreparing] = useState<{ done: number; total: number } | null>(null);
   const [syncing, setSyncing] = useState(false);
   const [loggedByName, setLoggedByNameState] = useState('');
+  /** Whether the server last answered: phones on Wi-Fi with no internet still report online. */
+  const [reachable, setReachable] = useState(true);
   const syncingRef = useRef(false);
 
   const selected = useMemo(() => targets?.find((t) => t.id === selectedId) ?? null, [targets, selectedId]);
@@ -83,8 +85,10 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
       const savedAt = new Date().toISOString();
       setTargets(body.targets);
       setTargetsSavedAt(savedAt);
+      setReachable(true);
       await cache.set(cacheKeys.targets, { savedAt, targets: body.targets } satisfies CachedTargets);
     } catch {
+      setReachable(false);
       const cached = await cache.get<CachedTargets>(cacheKeys.targets).catch(() => undefined);
       setTargets(cached?.targets ?? []);
       setTargetsSavedAt(cached?.savedAt ?? null);
@@ -247,6 +251,12 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
     if (touched.size > 0) void refreshTargets();
   }, [selectedId, refreshLogs, refreshTargets]);
 
+  useEffect(() => {
+    if (!online || reachable) return;
+    const timer = setInterval(() => void refreshTargets(), 30_000);
+    return () => clearInterval(timer);
+  }, [online, reachable, refreshTargets]);
+
   // Retry while online and anything is waiting; also after each undo window.
   useEffect(() => {
     if (!online) return;
@@ -326,6 +336,7 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
   );
 
   return {
+    reachable,
     targets,
     targetsSavedAt,
     selected,

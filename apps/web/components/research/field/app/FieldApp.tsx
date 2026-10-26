@@ -37,10 +37,11 @@ function useWide(): boolean {
 }
 
 export default function FieldApp({ initialTarget }: { initialTarget: string | null }) {
-  const online = useOnline();
+  const browserOnline = useOnline();
   const gps = useGps();
   const { heading, enable: enableCompass } = useHeading();
-  const data = useFieldData(online, initialTarget);
+  const data = useFieldData(browserOnline, initialTarget);
+  const online = browserOnline && data.reachable;
   const wide = useWide();
   const map = useRef<FieldMapHandle>(null);
 
