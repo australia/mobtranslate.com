@@ -1,0 +1,46 @@
+[Unit]
+Description=mobtranslate field models engine (yam and other site suitability; localhost only)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ajax
+Group=ajax
+# FIELD_MODELS_TOKEN, shared with mobtranslate-web (web.env), which is the only client.
+EnvironmentFile=/opt/mobtranslate/field-models.env
+Environment=FIELD_MODELS_BIND=127.0.0.1:7877
+Environment=FIELD_MODELS_REGISTRY=/mnt/donto-data/field-models/current/registry/national-v1.json
+# Restricted: cached layers, model artefacts and the local feature cache for finds.
+Environment=FIELD_MODELS_DATA_DIR=/mnt/donto-data/donto-resources/research/field-models
+ExecStart=/mnt/donto-data/field-models/current/bin/field-modeld
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+Nice=5
+MemoryMax=6G
+MemorySwapMax=0
+UMask=0077
+NoNewPrivileges=true
+CapabilityBoundingSet=
+LockPersonality=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectProc=invisible
+ProtectSystem=strict
+ReadWritePaths=/mnt/donto-data/donto-resources/research/field-models
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target

@@ -70,6 +70,15 @@ const nextConfig = {
           { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive, nosnippet, noimageindex' },
         ],
       })),
+      // The field log reads the phone's GPS; the rest of the site never does.
+      {
+        source: '/admin/research/field/:path*',
+        headers: [{ key: 'Permissions-Policy', value: 'camera=(), geolocation=(self), payment=(), usb=()' }],
+      },
+      {
+        source: '/admin/research/field',
+        headers: [{ key: 'Permissions-Policy', value: 'camera=(), geolocation=(self), payment=(), usb=()' }],
+      },
     ];
   },
 };

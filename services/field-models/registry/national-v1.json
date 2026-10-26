@@ -1,0 +1,826 @@
+{
+  "schemaVersion": 1,
+  "registryId": "national-v1",
+  "regionalGrid": {
+    "bounds": {
+      "west": 138.0,
+      "south": -29.5,
+      "east": 154.0,
+      "north": -9.5
+    },
+    "cellDegrees": 0.01
+  },
+  "local": {
+    "cellM": 30,
+    "padM": 2000
+  },
+  "area": {
+    "id": "kalinga",
+    "title": "Kalinga Station prototype area",
+    "bounds": {
+      "west": 143.6,
+      "south": -15.45,
+      "east": 144.1,
+      "north": -14.95
+    }
+  },
+  "rasters": [
+    {
+      "id": "dem",
+      "title": "SRTM 1-second smoothed DEM (DEM-S)",
+      "provider": "Geoscience Australia via Digital Earth Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "cog",
+        "url": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/projects/elevation/ga_srtm_dem1sv1_0/dems1sv1_0.tif"
+      },
+      "resampling": "bilinear",
+      "regionalResampling": "average",
+      "validMin": -100,
+      "validMax": 3000
+    },
+    {
+      "id": "wofs",
+      "title": "DEA Water Observations, multi-year frequency (1987–2025)",
+      "provider": "Digital Earth Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "dea_albers_tiles",
+        "template": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/derivative/ga_ls_wo_fq_myear_3/2-1-0/x{x}/y{y}/1987--P39Y/ga_ls_wo_fq_myear_3_x{x}y{y}_1987--P39Y_final_frequency.tif"
+      },
+      "resampling": "bilinear",
+      "validMin": 0,
+      "validMax": 1
+    },
+    {
+      "id": "chelsa_bio1",
+      "title": "CHELSA v2.1 mean annual air temperature (1981–2010)",
+      "provider": "WSL / CHELSA",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "cog",
+        "url": "https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/climatologies/1981-2010/bio/CHELSA_bio1_1981-2010_V.2.1.tif"
+      },
+      "resampling": "bilinear",
+      "regionalResampling": "average",
+      "nodata": 65535,
+      "scale": 0.1,
+      "offset": -273.15,
+      "validMin": -30,
+      "validMax": 50
+    },
+    {
+      "id": "chelsa_bio4",
+      "title": "CHELSA v2.1 temperature seasonality (1981–2010)",
+      "provider": "WSL / CHELSA",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "cog",
+        "url": "https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/climatologies/1981-2010/bio/CHELSA_bio4_1981-2010_V.2.1.tif"
+      },
+      "resampling": "bilinear",
+      "regionalResampling": "average",
+      "nodata": 65535,
+      "scale": 0.1,
+      "offset": 0.0
+    },
+    {
+      "id": "chelsa_bio12",
+      "title": "CHELSA v2.1 annual precipitation (1981–2010)",
+      "provider": "WSL / CHELSA",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "cog",
+        "url": "https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/climatologies/1981-2010/bio/CHELSA_bio12_1981-2010_V.2.1.tif"
+      },
+      "resampling": "bilinear",
+      "regionalResampling": "average",
+      "nodata": 65535,
+      "scale": 0.1,
+      "offset": 0.0,
+      "validMin": 0,
+      "validMax": 15000
+    },
+    {
+      "id": "chelsa_bio15",
+      "title": "CHELSA v2.1 precipitation seasonality (1981–2010)",
+      "provider": "WSL / CHELSA",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "cog",
+        "url": "https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/climatologies/1981-2010/bio/CHELSA_bio15_1981-2010_V.2.1.tif"
+      },
+      "resampling": "bilinear",
+      "regionalResampling": "average",
+      "nodata": 65535,
+      "scale": 0.1,
+      "offset": 0.0,
+      "validMin": 0,
+      "validMax": 300
+    },
+    {
+      "id": "chelsa_bio17",
+      "title": "CHELSA v2.1 precipitation of the driest quarter (1981–2010)",
+      "provider": "WSL / CHELSA",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "cog",
+        "url": "https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/climatologies/1981-2010/bio/CHELSA_bio17_1981-2010_V.2.1.tif"
+      },
+      "resampling": "bilinear",
+      "regionalResampling": "average",
+      "nodata": 65535,
+      "scale": 0.1,
+      "offset": 0.0,
+      "validMin": 0,
+      "validMax": 5000
+    },
+    {
+      "id": "chelsa_vpd_mean",
+      "title": "CHELSA v2.1 mean monthly vapour pressure deficit (1981–2010)",
+      "provider": "WSL / CHELSA",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "cog",
+        "url": "https://os.zhdk.cloud.switch.ch/chelsav2/GLOBAL/climatologies/1981-2010/bio/CHELSA_vpd_mean_1981-2010_V.2.1.tif"
+      },
+      "resampling": "bilinear",
+      "regionalResampling": "average",
+      "nodata": 65535,
+      "scale": 0.1,
+      "offset": 0.0
+    },
+    {
+      "id": "soil_clay",
+      "title": "Clay 0–5 cm (SLGA v2)",
+      "provider": "TERN Soil and Landscape Grid of Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://geoserver.tern.org.au/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=slga__cly_ev_n_p_au_trn_n_20210902&subset=Lat({S},{N})&subset=Long({W},{E})"
+      },
+      "resampling": "bilinear",
+      "validMin": 0,
+      "validMax": 100
+    },
+    {
+      "id": "soil_sand",
+      "title": "Sand 0–5 cm (SLGA v2)",
+      "provider": "TERN Soil and Landscape Grid of Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://geoserver.tern.org.au/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=slga__snd_ev_n_p_au_trn_n_20210902&subset=Lat({S},{N})&subset=Long({W},{E})&subset=DEPTH(%22000_005%22)"
+      },
+      "resampling": "bilinear",
+      "validMin": 0,
+      "validMax": 100
+    },
+    {
+      "id": "soil_ph",
+      "title": "pH (water) 0–5 cm",
+      "provider": "TERN Soil and Landscape Grid of Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://geoserver.tern.org.au/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=slga__phw_ev_n_p_au_trn_n_20220520&subset=Lat({S},{N})&subset=Long({W},{E})&subset=DEPTH(%22000_005%22)"
+      },
+      "resampling": "bilinear",
+      "validMin": 2,
+      "validMax": 12
+    },
+    {
+      "id": "soil_carbon",
+      "title": "Organic carbon 0–5 cm",
+      "provider": "TERN Soil and Landscape Grid of Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://geoserver.tern.org.au/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=slga__soc_ev_n_p_au_trn_n_20220727&subset=Lat({S},{N})&subset=Long({W},{E})&subset=DEPTH(%22000_005%22)"
+      },
+      "resampling": "bilinear",
+      "validMin": 0,
+      "validMax": 60
+    },
+    {
+      "id": "soil_awc",
+      "title": "Available water capacity 0–5 cm",
+      "provider": "TERN Soil and Landscape Grid of Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://geoserver.tern.org.au/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=slga__awc_ev_n_p_au_trn_n_20210614&subset=Lat({S},{N})&subset=Long({W},{E})&subset=DEPTH(%22000_005%22)"
+      },
+      "resampling": "bilinear",
+      "nodata": 65535
+    },
+    {
+      "id": "soil_depth",
+      "title": "Depth of soil",
+      "provider": "TERN Soil and Landscape Grid of Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://geoserver.tern.org.au/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=slga__des_ev_n_p_au_trn_c_20190901&subset=Lat({S},{N})&subset=Long({W},{E})"
+      },
+      "resampling": "bilinear",
+      "validMin": 0,
+      "validMax": 5
+    },
+    {
+      "id": "rad_k",
+      "title": "Radiometric potassium (2019)",
+      "provider": "Geoscience Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://services.ga.gov.au/gis/geophysical-grids/wcs?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=geophys__radmap_v4_2019_filtered_pctk&subset=Lat({S},{N})&subset=Long({W},{E})"
+      },
+      "resampling": "bilinear",
+      "nodata": -99999
+    },
+    {
+      "id": "rad_th",
+      "title": "Radiometric thorium (2019)",
+      "provider": "Geoscience Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://services.ga.gov.au/gis/geophysical-grids/wcs?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=geophys__radmap_v4_2019_filtered_ppmth&subset=Lat({S},{N})&subset=Long({W},{E})"
+      },
+      "resampling": "bilinear",
+      "nodata": -99999
+    },
+    {
+      "id": "rad_u",
+      "title": "Radiometric uranium (2019)",
+      "provider": "Geoscience Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://services.ga.gov.au/gis/geophysical-grids/wcs?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=geophys__radmap_v4_2019_filtered_ppmu&subset=Lat({S},{N})&subset=Long({W},{E})"
+      },
+      "resampling": "bilinear",
+      "nodata": -99999
+    },
+    {
+      "id": "fire_freq",
+      "title": "Years burnt 2000–2025 (NAFI)",
+      "provider": "North Australia & Rangelands Fire Information",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://firenorth.org.au/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=public__frq_longterm_250m&subset=Lat({S},{N})&subset=Long({W},{E})"
+      },
+      "resampling": "bilinear",
+      "ignoreFileNodata": true
+    },
+    {
+      "id": "fire_late",
+      "title": "Late-dry-season fires 2000–2025 (NAFI)",
+      "provider": "North Australia & Rangelands Fire Information",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "clip",
+        "template": "https://firenorth.org.au/geoserver/ows?service=WCS&version=2.0.1&request=GetCoverage&format=image/tiff&CoverageId=public__frql_longterm_250m&subset=Lat({S},{N})&subset=Long({W},{E})"
+      },
+      "resampling": "bilinear",
+      "ignoreFileNodata": true
+    },
+    {
+      "id": "fc_green",
+      "title": "Green cover, median 2025",
+      "provider": "Digital Earth Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "dea_albers_tiles",
+        "template": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/derivative/ga_ls_fc_pc_cyear_3/4-0-0/x{x}/y{y}/2025--P1Y/ga_ls_fc_pc_cyear_3_x{x}y{y}_2025--P1Y_final_pv_pc_50.tif"
+      },
+      "resampling": "bilinear",
+      "nodata": 255
+    },
+    {
+      "id": "fc_green_flush",
+      "title": "Green cover, 90th percentile 2025",
+      "provider": "Digital Earth Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "dea_albers_tiles",
+        "template": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/derivative/ga_ls_fc_pc_cyear_3/4-0-0/x{x}/y{y}/2025--P1Y/ga_ls_fc_pc_cyear_3_x{x}y{y}_2025--P1Y_final_pv_pc_90.tif"
+      },
+      "resampling": "bilinear",
+      "nodata": 255
+    },
+    {
+      "id": "fc_dry",
+      "title": "Dry plant cover, median 2025",
+      "provider": "Digital Earth Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "dea_albers_tiles",
+        "template": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/derivative/ga_ls_fc_pc_cyear_3/4-0-0/x{x}/y{y}/2025--P1Y/ga_ls_fc_pc_cyear_3_x{x}y{y}_2025--P1Y_final_npv_pc_50.tif"
+      },
+      "resampling": "bilinear",
+      "nodata": 255
+    },
+    {
+      "id": "fc_bare",
+      "title": "Bare ground, median 2025",
+      "provider": "Digital Earth Australia",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "dea_albers_tiles",
+        "template": "https://dea-public-data.s3.ap-southeast-2.amazonaws.com/derivative/ga_ls_fc_pc_cyear_3/4-0-0/x{x}/y{y}/2025--P1Y/ga_ls_fc_pc_cyear_3_x{x}y{y}_2025--P1Y_final_bs_pc_50.tif"
+      },
+      "resampling": "bilinear",
+      "nodata": 255
+    },
+    {
+      "id": "canopy_p95",
+      "title": "Canopy height, 95th percentile (Meta/WRI)",
+      "provider": "Meta & World Resources Institute",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "grid_tiles",
+        "template": "https://dataforgood-fb-data.s3.amazonaws.com/forests/v1/alsgedi_global_v6_float_epsg4326_v3_10deg/meta_chm_lat={north}_lon={west}_p95.tif",
+        "sizeDegrees": 10.0
+      },
+      "resampling": "bilinear",
+      "scale": 0.01,
+      "ignoreFileNodata": true
+    },
+    {
+      "id": "canopy_cover",
+      "title": "Canopy cover (Meta/WRI)",
+      "provider": "Meta & World Resources Institute",
+      "licence": "CC BY 4.0",
+      "source": {
+        "kind": "grid_tiles",
+        "template": "https://dataforgood-fb-data.s3.amazonaws.com/forests/v1/alsgedi_global_v6_float_epsg4326_v3_10deg/meta_chm_lat={north}_lon={west}_cover.tif",
+        "sizeDegrees": 10.0
+      },
+      "resampling": "bilinear",
+      "ignoreFileNodata": true,
+      "scale": 0.1,
+      "validMin": 0,
+      "validMax": 100
+    }
+  ],
+  "features": [
+    {
+      "id": "r_elevation",
+      "title": "Elevation",
+      "group": "terrain",
+      "unit": "m",
+      "scale": "regional",
+      "input": {
+        "op": "raster",
+        "raster": "dem"
+      }
+    },
+    {
+      "id": "r_temperature",
+      "title": "Mean annual temperature",
+      "group": "climate",
+      "unit": "°C",
+      "scale": "regional",
+      "input": {
+        "op": "raster",
+        "raster": "chelsa_bio1"
+      }
+    },
+    {
+      "id": "r_temperature_seasonality",
+      "title": "Temperature seasonality",
+      "group": "climate",
+      "unit": "sd×100",
+      "scale": "regional",
+      "input": {
+        "op": "raster",
+        "raster": "chelsa_bio4"
+      }
+    },
+    {
+      "id": "r_rainfall",
+      "title": "Annual rainfall",
+      "group": "climate",
+      "unit": "mm",
+      "scale": "regional",
+      "input": {
+        "op": "raster",
+        "raster": "chelsa_bio12"
+      },
+      "transform": "log1p"
+    },
+    {
+      "id": "r_rainfall_seasonality",
+      "title": "Rainfall seasonality",
+      "group": "climate",
+      "unit": "CV %",
+      "scale": "regional",
+      "input": {
+        "op": "raster",
+        "raster": "chelsa_bio15"
+      }
+    },
+    {
+      "id": "r_dry_quarter_rain",
+      "title": "Driest-quarter rainfall",
+      "group": "climate",
+      "unit": "mm",
+      "scale": "regional",
+      "input": {
+        "op": "raster",
+        "raster": "chelsa_bio17"
+      },
+      "transform": "log1p"
+    },
+    {
+      "id": "r_vpd",
+      "title": "Vapour pressure deficit",
+      "group": "climate",
+      "unit": "Pa",
+      "scale": "regional",
+      "input": {
+        "op": "raster",
+        "raster": "chelsa_vpd_mean"
+      }
+    },
+    {
+      "id": "elevation",
+      "title": "Elevation",
+      "group": "terrain",
+      "unit": "m",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "dem"
+      }
+    },
+    {
+      "id": "slope",
+      "title": "Slope",
+      "group": "terrain",
+      "unit": "°",
+      "scale": "local",
+      "input": {
+        "op": "slope",
+        "raster": "dem"
+      }
+    },
+    {
+      "id": "northness",
+      "title": "Faces north (steepness-weighted)",
+      "group": "terrain",
+      "unit": "−1…1",
+      "scale": "local",
+      "input": {
+        "op": "northness",
+        "raster": "dem"
+      }
+    },
+    {
+      "id": "eastness",
+      "title": "Faces east (steepness-weighted)",
+      "group": "terrain",
+      "unit": "−1…1",
+      "scale": "local",
+      "input": {
+        "op": "eastness",
+        "raster": "dem"
+      }
+    },
+    {
+      "id": "tpi_150",
+      "title": "Height above surroundings (150 m)",
+      "group": "terrain",
+      "unit": "m",
+      "scale": "local",
+      "input": {
+        "op": "tpi",
+        "raster": "dem",
+        "radius_m": 150
+      }
+    },
+    {
+      "id": "tpi_500",
+      "title": "Height above surroundings (500 m)",
+      "group": "terrain",
+      "unit": "m",
+      "scale": "local",
+      "input": {
+        "op": "tpi",
+        "raster": "dem",
+        "radius_m": 500
+      }
+    },
+    {
+      "id": "tpi_1500",
+      "title": "Height above surroundings (1.5 km)",
+      "group": "terrain",
+      "unit": "m",
+      "scale": "local",
+      "input": {
+        "op": "tpi",
+        "raster": "dem",
+        "radius_m": 1500
+      }
+    },
+    {
+      "id": "roughness_150",
+      "title": "Ruggedness (150 m)",
+      "group": "terrain",
+      "unit": "m",
+      "scale": "local",
+      "input": {
+        "op": "roughness",
+        "raster": "dem",
+        "radius_m": 150
+      }
+    },
+    {
+      "id": "wetness",
+      "title": "Topographic wetness index",
+      "group": "water",
+      "unit": "ln(m)",
+      "scale": "local",
+      "input": {
+        "op": "wetness",
+        "raster": "dem"
+      }
+    },
+    {
+      "id": "water_frequency",
+      "title": "How often surface water is seen",
+      "group": "water",
+      "unit": "0–1",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "wofs"
+      }
+    },
+    {
+      "id": "water_nearby_300",
+      "title": "Surface water within 300 m",
+      "group": "water",
+      "unit": "0–1",
+      "scale": "local",
+      "input": {
+        "op": "focal_mean",
+        "raster": "wofs",
+        "radius_m": 300
+      }
+    },
+    {
+      "id": "distance_permanent_water",
+      "title": "Distance to usually-wet ground",
+      "group": "water",
+      "unit": "m",
+      "scale": "local",
+      "input": {
+        "op": "distance_to",
+        "raster": "wofs",
+        "threshold": 0.5,
+        "cap_m": 2000
+      },
+      "transform": "log1p"
+    },
+    {
+      "id": "distance_seasonal_water",
+      "title": "Distance to sometimes-wet ground",
+      "group": "water",
+      "unit": "m",
+      "scale": "local",
+      "input": {
+        "op": "distance_to",
+        "raster": "wofs",
+        "threshold": 0.05,
+        "cap_m": 2000
+      },
+      "transform": "log1p"
+    },
+    {
+      "id": "rainfall",
+      "title": "Annual rainfall",
+      "group": "climate",
+      "unit": "mm",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "chelsa_bio12"
+      }
+    },
+    {
+      "id": "temperature",
+      "title": "Mean annual temperature",
+      "group": "climate",
+      "unit": "°C",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "chelsa_bio1"
+      }
+    },
+    {
+      "id": "soil_clay",
+      "title": "Clay (topsoil)",
+      "group": "soil",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "soil_clay"
+      }
+    },
+    {
+      "id": "soil_sand",
+      "title": "Sand (topsoil)",
+      "group": "soil",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "soil_sand"
+      }
+    },
+    {
+      "id": "soil_ph",
+      "title": "Soil pH",
+      "group": "soil",
+      "unit": "pH",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "soil_ph"
+      }
+    },
+    {
+      "id": "soil_carbon",
+      "title": "Soil organic carbon",
+      "group": "soil",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "soil_carbon"
+      },
+      "transform": "log1p"
+    },
+    {
+      "id": "soil_awc",
+      "title": "Soil water-holding capacity",
+      "group": "soil",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "soil_awc"
+      }
+    },
+    {
+      "id": "soil_depth",
+      "title": "Soil depth",
+      "group": "soil",
+      "unit": "m",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "soil_depth"
+      }
+    },
+    {
+      "id": "rad_k",
+      "title": "Potassium (radiometrics)",
+      "group": "geology",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "rad_k"
+      }
+    },
+    {
+      "id": "rad_th",
+      "title": "Thorium (radiometrics)",
+      "group": "geology",
+      "unit": "ppm",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "rad_th"
+      }
+    },
+    {
+      "id": "rad_u",
+      "title": "Uranium (radiometrics)",
+      "group": "geology",
+      "unit": "ppm",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "rad_u"
+      }
+    },
+    {
+      "id": "fire_freq",
+      "title": "Years burnt since 2000",
+      "group": "fire",
+      "unit": "years",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "fire_freq"
+      }
+    },
+    {
+      "id": "fire_late",
+      "title": "Late-season fires since 2000",
+      "group": "fire",
+      "unit": "years",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "fire_late"
+      }
+    },
+    {
+      "id": "green_cover",
+      "title": "Green cover (typical)",
+      "group": "vegetation",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "fc_green"
+      }
+    },
+    {
+      "id": "green_flush",
+      "title": "Green cover (wet-season peak)",
+      "group": "vegetation",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "fc_green_flush"
+      }
+    },
+    {
+      "id": "dry_cover",
+      "title": "Dry grass and litter",
+      "group": "vegetation",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "fc_dry"
+      }
+    },
+    {
+      "id": "bare_ground",
+      "title": "Bare ground",
+      "group": "vegetation",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "fc_bare"
+      }
+    },
+    {
+      "id": "canopy_height",
+      "title": "Canopy height",
+      "group": "vegetation",
+      "unit": "m",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "canopy_p95"
+      }
+    },
+    {
+      "id": "canopy_cover",
+      "title": "Canopy cover",
+      "group": "vegetation",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "raster",
+        "raster": "canopy_cover"
+      }
+    },
+    {
+      "id": "canopy_nearby",
+      "title": "Canopy cover within 150 m",
+      "group": "vegetation",
+      "unit": "%",
+      "scale": "local",
+      "input": {
+        "op": "focal_mean",
+        "raster": "canopy_cover",
+        "radius_m": 150
+      }
+    }
+  ]
+}

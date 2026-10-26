@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Image as ImageIcon, LockKeyhole, Map as MapIcon } from 'lucide-react';
+import { ArrowRight, Image as ImageIcon, LockKeyhole, Map as MapIcon, Sprout } from 'lucide-react';
 import { requireResearchAdminPage } from '@/lib/research/access';
 
 export const dynamic = 'force-dynamic';
@@ -21,6 +21,14 @@ const tools = [
     description:
       'Restricted subterranean-GDE release and The Cathedral place-hypothesis report, verified against their immutable hashes on every request.',
     note: 'Requires a verified email on the workspace access policy as well as super admin.',
+  },
+  {
+    title: 'Field models',
+    href: '/admin/research/field/targets',
+    icon: Sprout,
+    description:
+      'Log yams and other finds on foot with the phone’s GPS (works offline), then fit suitability models against national terrain, water, soil, fire, vegetation and climate layers.',
+    note: 'Prototype area: Kalinga Station. Finds are restricted knowledge and stay in this database.',
   },
   {
     title: 'Rock art workbench',
@@ -45,7 +53,7 @@ export default async function ResearchPage() {
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2">
         {tools.map((tool) => {
           const Icon = tool.icon;
           return (

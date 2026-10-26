@@ -30,6 +30,8 @@ Environment=QUINKAN_PRIVATE_ACCESS_POLICY_FILE=/mnt/donto-data/donto-resources/r
 Environment=QUINKAN_CATHEDRAL_REPORT_DIR=/mnt/donto-data/donto-resources/research/laura-rock-art-discovery/data/derived/restricted/cathedral-search-20260814
 Environment=QUINKAN_CATHEDRAL_MANIFEST_SHA256=8b74a48cf820ed722431263ed15d85eeda04608ee6b80f9e9e92bb1ff87175aa
 Environment=PALIMPSEST_URL=http://127.0.0.1:7876
+# Field models engine (services/field-models); FIELD_MODELS_TOKEN lives in web.env.
+Environment=FIELD_MODELS_URL=http://127.0.0.1:7877
 ExecStart=/usr/bin/node /mnt/donto-data/mobtranslate/current/runtime/apps/web/server.js
 Restart=always
 RestartSec=5

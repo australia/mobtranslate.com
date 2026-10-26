@@ -1,0 +1,29 @@
+[package]
+name = "field-models"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+license = "Apache-2.0"
+description = "Species and site suitability models from field finds and national environmental rasters"
+
+[[bin]]
+name = "field-modeld"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+axum = "0.8"
+base64 = "0.22"
+png = "0.18"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+tiff = "0.10"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "process", "sync", "time", "fs", "signal"] }
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+codegen-units = 4
+lto = "thin"
