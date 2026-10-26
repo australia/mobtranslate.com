@@ -25,6 +25,7 @@ cd "$CRATE"
 nice -n 10 cargo "+$TOOLCHAIN" test --release --locked
 nice -n 10 cargo "+$TOOLCHAIN" build --release --locked
 
+[[ -d "$ROOT" ]] || sudo install -d -o "$(id -un)" -g "$(id -gn)" -m 0750 "$ROOT"
 mkdir -p "$RELEASE/bin" "$RELEASE/registry" "$DATA_DIR"
 chmod 700 "$DATA_DIR"
 install -m 0755 target/release/field-modeld "$RELEASE/bin/field-modeld"
