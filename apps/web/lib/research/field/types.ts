@@ -24,6 +24,7 @@ export const observationInputSchema = z.object({
   altitudeM: z.number().min(-1000).max(10_000).nullable().optional(),
   observedAt: z.string().datetime({ offset: true }),
   notes: z.string().trim().max(2000).nullable().optional(),
+  loggedByName: z.string().trim().min(1).max(80).nullable().optional(),
 });
 
 export const observationBatchSchema = z.object({
@@ -55,6 +56,7 @@ export type FieldObservation = {
   altitudeM: number | null;
   observedAt: string;
   notes: string | null;
+  loggedByName: string | null;
   hasPhoto: boolean;
 };
 

@@ -1,14 +1,12 @@
-import { notFound } from 'next/navigation';
-import TargetDetail from '@/components/research/field/TargetDetail';
+import { redirect } from 'next/navigation';
 import { requireResearchAdminPage } from '@/lib/research/access';
 import { targetIdPattern } from '@/lib/research/field/types';
 
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'Field model' };
 
+/** Model pages now live inside the field app. */
 export default async function FieldTargetPage({ params }: { params: Promise<{ targetId: string }> }) {
   await requireResearchAdminPage();
   const { targetId } = await params;
-  if (!targetIdPattern.test(targetId)) notFound();
-  return <TargetDetail targetId={targetId} />;
+  redirect(targetIdPattern.test(targetId) ? `/admin/research/field?target=${targetId}` : '/admin/research/field');
 }

@@ -51,3 +51,31 @@ describe('where-to-look geometry', () => {
     expect(formatDistance(2345)).toBe('2.3 km');
   });
 });
+
+describe('plain-language field copy', () => {
+  it('says directions as words and ranks as shares of the station', async () => {
+    const { directionWords, topShare, whenLogged, inBounds } = await import('@/components/research/field/geo');
+    expect(directionWords(0)).toBe('north');
+    expect(directionWords(44)).toBe('north-east');
+    expect(directionWords(181)).toBe('south');
+    expect(directionWords(359)).toBe('north');
+    expect(topShare(97.2)).toBe('top 3%');
+    expect(topShare(99.99)).toBe('top 1%');
+    const now = new Date('2026-10-26T12:00:00');
+    expect(whenLogged('2026-10-26T09:42:00', now)).toMatch(/^Today /);
+    expect(whenLogged('2026-10-25T09:42:00', now)).toMatch(/^Yesterday /);
+    const box = { west: 143.6, south: -15.45, east: 144.1, north: -14.95 };
+    expect(inBounds(box, 143.85, -15.2)).toBe(true);
+    expect(inBounds(box, 145, -15.2)).toBe(false);
+    expect(inBounds(null, 143.85, -15.2)).toBe(false);
+  });
+});
+
+describe('position quality', () => {
+  it('turns GPS accuracy into words', async () => {
+    const { fixQuality } = await import('@/components/research/field/app/sensors');
+    expect(fixQuality(5).level).toBe('good');
+    expect(fixQuality(20).level).toBe('fair');
+    expect(fixQuality(80).level).toBe('weak');
+  });
+});

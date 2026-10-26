@@ -8,9 +8,8 @@ import { cn } from '@mobtranslate/ui';
 const researchNavItems = [
   { title: 'Overview', href: '/admin/research', exact: true },
   { title: 'Quinkan atlas', href: '/admin/research/quinkan', exclude: '/admin/research/quinkan/private' },
-  { title: 'Field workspace', href: '/admin/research/quinkan/private' },
-  { title: 'Field log', href: '/admin/research/field', exact: true },
-  { title: 'Field models', href: '/admin/research/field/targets' },
+  { title: 'Private workspace', href: '/admin/research/quinkan/private' },
+  { title: 'Field', href: '/admin/research/field' },
   { title: 'Rock art', href: '/admin/research/rock-art' },
 ] as const;
 

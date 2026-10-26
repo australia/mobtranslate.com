@@ -23,11 +23,11 @@ const tools = [
     note: 'Requires a verified email on the workspace access policy as well as super admin.',
   },
   {
-    title: 'Field models',
-    href: '/admin/research/field/targets',
+    title: 'Field',
+    href: '/admin/research/field',
     icon: Sprout,
     description:
-      'Log yams and other finds on foot with the phone’s GPS (works offline), then fit suitability models against national terrain, water, soil, fire, vegetation and climate layers.',
+      'A map-first app for logging yams and other finds on foot, offline, with where-to-look guidance from models fitted against national terrain, water, soil, fire, vegetation and climate layers.',
     note: 'Prototype area: Kalinga Station. Finds are restricted knowledge and stay in this database.',
   },
   {

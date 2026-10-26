@@ -1,9 +1,10 @@
-// IndexedDB for the field logger. Out in the bush there is usually no signal:
-// finds (with their photos) wait in `queue` until an upload succeeds, and the
-// latest model's spot list and maps wait in `cache` so "where to look" still
-// works offline. Everything here stays on this device.
+// IndexedDB for the field app. Out on Country there is usually no signal:
+// finds (with their photos) wait in `queue` until an upload succeeds, and each
+// target's map bundle, the shared basemap and the last-seen logs wait in
+// `cache` so the map and "where to look" work offline. Everything here stays
+// on this device.
 
-import type { AreaSpot, Bounds, FieldTarget, ObservationInput } from '@/lib/research/field/types';
+import type { AreaSpot, Bounds, FieldObservation, FieldTarget, ObservationInput } from '@/lib/research/field/types';
 
 const DB_NAME = 'mobtranslate-field-models';
 const VERSION = 1;
@@ -13,17 +14,24 @@ export type QueuedObservation = ObservationInput & {
   /** Set once the observation row exists on the server; the photo may still be pending. */
   serverId: string | null;
   lastError: string | null;
+  /** Uploads wait until this time, so a fresh log can still be undone locally. */
+  holdUntil: number;
 };
 
-export type OfflineModel = {
+/** One target's model, saved for offline use. */
+export type TargetBundle = {
   targetId: string;
   modelId: string;
   savedAt: string;
   spots: AreaSpot[];
-  areaBounds: Bounds | null;
-  areaImage: Blob | null;
-  basemap: Blob | null;
+  areaBounds: Bounds;
+  areaImage: Blob;
 };
+
+export type Basemap = { savedAt: string; bounds: Bounds; image: Blob };
+
+export type CachedTargets = { savedAt: string; targets: FieldTarget[] };
+export type CachedLogs = { savedAt: string; observations: FieldObservation[] };
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 
@@ -72,7 +80,8 @@ export const cache = {
 export const cacheKeys = {
   targets: 'targets',
   selectedTarget: 'selected-target',
-  model: (targetId: string) => `model:${targetId}`,
+  loggedByName: 'logged-by-name',
+  basemap: 'basemap',
+  bundle: (targetId: string) => `bundle:${targetId}`,
+  logs: (targetId: string) => `logs:${targetId}`,
 };
-
-export type CachedTargets = { savedAt: string; targets: FieldTarget[] };

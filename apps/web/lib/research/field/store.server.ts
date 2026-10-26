@@ -120,6 +120,7 @@ type ObservationRow = {
   altitude_m: number | null;
   observed_at: Date | string;
   notes: string | null;
+  logged_by_name: string | null;
   photo_path: string | null;
 };
 
@@ -135,6 +136,7 @@ function toObservation(row: ObservationRow): FieldObservation {
     altitudeM: row.altitude_m === null ? null : Number(row.altitude_m),
     observedAt: iso(row.observed_at)!,
     notes: row.notes,
+    loggedByName: row.logged_by_name,
     hasPhoto: row.photo_path !== null,
   };
 }
@@ -142,7 +144,7 @@ function toObservation(row: ObservationRow): FieldObservation {
 export async function listObservations(targetId?: string, limit = 2000): Promise<FieldObservation[]> {
   const rows = rowsOf<ObservationRow>(
     await db.execute(sql`
-      select id, client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, photo_path
+      select id, client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, logged_by_name, photo_path
       from public.research_field_observations
       where deleted_at is null ${targetId ? sql`and target_id = ${targetId}` : sql``}
       order by observed_at desc
@@ -162,15 +164,15 @@ export async function recordObservations(inputs: ObservationInput[], userId: str
       await db.execute(sql`
         with inserted as (
           insert into public.research_field_observations
-            (client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, recorded_by)
+            (client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, logged_by_name, recorded_by)
           values (${o.clientId}, ${o.targetId}, ${o.kind}, ${o.latitude}, ${o.longitude}, ${o.accuracyM ?? null},
-            ${o.altitudeM ?? null}, ${o.observedAt}, ${o.notes || null}, ${userId})
+            ${o.altitudeM ?? null}, ${o.observedAt}, ${o.notes || null}, ${o.loggedByName || null}, ${userId})
           on conflict (client_id) do nothing
-          returning id, client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, photo_path
+          returning id, client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, logged_by_name, photo_path
         )
         select * from inserted
         union all
-        select id, client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, photo_path
+        select id, client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, logged_by_name, photo_path
         from public.research_field_observations where client_id = ${o.clientId}
         limit 1`),
     );

@@ -1,0 +1,616 @@
+/*
+ * Field app. Always in daylight mode: it is used in hard sun on a phone, so it
+ * reads the fixed-scale tokens (which do not flip in dark mode) rather than the
+ * semantic ones. Local stacking order: map < map controls < sheet/panel < toast.
+ */
+
+.field-app {
+  --field-ink: #2e2720;
+  --field-ink-soft: #695746;
+  --field-surface: #ffffff;
+  --field-sunk: var(--color-sand-100);
+  --field-line: var(--color-sand-300);
+  --field-line-strong: #c4b39b;
+  --field-ochre: var(--color-ochre-600);
+  --field-ochre-deep: var(--color-ochre-700);
+  --field-ochre-soft: var(--color-ochre-100);
+  --field-find: var(--color-eucalyptus-600);
+  --field-find-deep: var(--color-eucalyptus-700);
+  --field-find-soft: var(--color-eucalyptus-100);
+  --field-warn: var(--color-amber-800);
+  --field-warn-soft: var(--color-amber-50);
+  --field-danger: var(--color-terracotta-700);
+  --field-danger-soft: var(--color-terracotta-50);
+  --field-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --field-z-controls: 10;
+  --field-z-sheet: 20;
+  --field-z-toast: 30;
+
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-fixed);
+  overflow: hidden;
+  color-scheme: light;
+  background: var(--color-sand-200);
+  color: var(--field-ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.field-app :where(h1, h2, h3) {
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.field-app :focus-visible {
+  outline: 3px solid var(--field-ochre);
+  outline-offset: 2px;
+}
+
+/* ---- buttons -------------------------------------------------------------- */
+
+.field-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  transition:
+    background-color 150ms var(--field-ease),
+    border-color 150ms var(--field-ease),
+    transform 120ms var(--field-ease);
+  touch-action: manipulation;
+}
+.field-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.field-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.field-btn-primary {
+  background: var(--field-ochre);
+  color: #ffffff;
+}
+.field-btn-primary:hover:not(:disabled) {
+  background: var(--field-ochre-deep);
+}
+.field-btn-secondary {
+  background: var(--field-surface);
+  color: var(--field-ink);
+  border: 2px solid var(--field-line-strong);
+}
+.field-btn-secondary:hover:not(:disabled) {
+  background: var(--field-sunk);
+}
+.field-btn-ghost {
+  color: var(--field-ink);
+}
+.field-btn-ghost:hover:not(:disabled) {
+  background: var(--field-sunk);
+}
+.field-btn-danger {
+  background: var(--field-danger);
+  color: #ffffff;
+}
+
+.field-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border-radius: 9999px;
+  color: var(--field-ink);
+}
+.field-icon-btn:hover {
+  background: var(--field-sunk);
+}
+
+/* ---- top bar and map controls -------------------------------------------- */
+
+.field-topbar {
+  position: absolute;
+  z-index: var(--field-z-controls);
+  top: max(0.75rem, env(safe-area-inset-top));
+  left: calc(var(--field-panel, 0px) + 0.75rem);
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+.field-topbar > * {
+  pointer-events: auto;
+}
+
+.field-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  justify-content: center;
+  padding: 0 0.875rem;
+  border-radius: 9999px;
+  background: var(--field-surface);
+  color: var(--field-ink);
+  font-weight: 600;
+  box-shadow:
+    0 1px 2px rgb(46 39 32 / 0.12),
+    0 4px 14px rgb(46 39 32 / 0.12);
+}
+.field-chip-icon {
+  padding: 0;
+}
+.field-chip-target {
+  min-width: 0;
+  max-width: 100%;
+  font-size: 1.0625rem;
+}
+.field-chip-sync[data-state='offline'] {
+  background: var(--field-warn-soft);
+  color: var(--field-warn);
+}
+.field-chip-sync[data-state='waiting'] {
+  background: var(--field-ochre-soft);
+  color: var(--field-ochre-deep);
+}
+
+.field-mapbtns {
+  position: absolute;
+  z-index: var(--field-z-controls);
+  right: 0.75rem;
+  top: calc(max(0.75rem, env(safe-area-inset-top)) + 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ---- bottom sheet (phone) and side panel (desk) --------------------------- */
+
+.field-sheet {
+  position: absolute;
+  z-index: var(--field-z-sheet);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--field-surface);
+  border-radius: 1.375rem 1.375rem 0 0;
+  box-shadow: 0 -6px 28px rgb(46 39 32 / 0.16);
+  transition: transform 300ms var(--field-ease);
+  will-change: transform;
+}
+.field-sheet[data-dragging] {
+  transition: none;
+}
+.field-sheet-grip {
+  display: flex;
+  width: 100%;
+  height: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  touch-action: none;
+}
+.field-sheet-bar {
+  width: 2.5rem;
+  height: 0.3125rem;
+  border-radius: 9999px;
+  background: var(--field-line-strong);
+}
+.field-sheet-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.field-panel {
+  position: absolute;
+  z-index: var(--field-z-sheet);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--field-panel);
+  display: flex;
+  flex-direction: column;
+  background: var(--field-surface);
+  border-right: 1px solid var(--field-line);
+  box-shadow: 4px 0 24px rgb(46 39 32 / 0.08);
+}
+
+/* ---- rows and lists -------------------------------------------------------- */
+
+.field-list > li + li {
+  border-top: 1px solid var(--color-sand-200);
+}
+.field-row {
+  display: flex;
+  width: 100%;
+  min-height: 3.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.5rem;
+  margin: 0 -0.5rem;
+  width: calc(100% + 1rem);
+  border-radius: 0.75rem;
+  text-align: left;
+  transition: background-color 150ms var(--field-ease);
+}
+.field-row:hover {
+  background: var(--field-sunk);
+}
+.field-row-plain {
+  border: 1px solid var(--field-line);
+  margin: 0;
+  width: 100%;
+  padding: 0.75rem 1rem;
+}
+.field-row-icon {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+}
+.field-row-icon-spot {
+  background: var(--field-ochre-soft);
+  color: var(--field-ochre-deep);
+}
+.field-row-icon-find {
+  background: var(--field-find-soft);
+  color: var(--field-find-deep);
+}
+.field-row-icon-none {
+  background: var(--field-sunk);
+  color: var(--field-ink-soft);
+}
+
+.field-tag {
+  flex-shrink: 0;
+  border-radius: 9999px;
+  padding: 0.125rem 0.5rem;
+  background: var(--field-ochre-soft);
+  color: var(--field-ochre-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.field-tag-warn {
+  background: var(--field-danger-soft);
+  color: var(--field-danger);
+}
+
+.field-empty {
+  padding: 0.25rem 0;
+  color: var(--field-ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.field-note {
+  color: var(--field-ink-soft);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+.field-error {
+  color: var(--field-danger);
+  font-size: 0.9375rem;
+}
+.field-link {
+  color: var(--field-ochre-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.field-callout {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.875rem;
+  border-radius: 0.875rem;
+  background: var(--field-ochre-soft);
+  line-height: 1.45;
+}
+.field-callout-warn {
+  background: var(--field-warn-soft);
+  color: var(--field-warn);
+}
+
+/* ---- GPS and position quality -------------------------------------------- */
+
+.field-gps-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.75rem;
+  row-gap: 0.25rem;
+}
+.field-gps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.9375rem;
+}
+.field-gps-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 9999px;
+  background: currentColor;
+}
+.field-gps-good {
+  color: var(--field-find-deep);
+}
+.field-gps-fair {
+  color: var(--field-warn);
+}
+.field-gps-weak {
+  color: var(--field-danger);
+}
+.field-gps-waiting {
+  color: var(--field-ink-soft);
+}
+.field-gps-row .field-gps span:not(.field-gps-dot) {
+  color: var(--field-ink);
+}
+.field-coord {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--field-ink-soft);
+}
+.field-gps-row .field-note {
+  flex-basis: 100%;
+}
+
+.field-fix {
+  border-radius: 0.875rem;
+  padding: 0.75rem 0.875rem;
+  line-height: 1.45;
+}
+.field-fix-good {
+  background: var(--color-eucalyptus-50);
+  color: var(--field-find-deep);
+}
+.field-fix-fair {
+  background: var(--field-warn-soft);
+  color: var(--field-warn);
+}
+.field-fix-weak {
+  background: var(--field-danger-soft);
+  color: var(--field-danger);
+}
+.field-fix-waiting {
+  background: var(--field-sunk);
+  color: var(--field-ink-soft);
+}
+
+/* ---- forms ---------------------------------------------------------------- */
+
+.field-label {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+.field-input {
+  display: block;
+  width: 100%;
+  border: 1.5px solid var(--field-line-strong);
+  border-radius: 0.75rem;
+  background: var(--field-surface);
+  padding: 0.625rem 0.75rem;
+  /* 16px+ keeps iOS from zooming into the field. */
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.field-input::placeholder {
+  color: #8a7863;
+}
+.field-input:focus-visible {
+  outline: 3px solid var(--field-ochre);
+  outline-offset: 0;
+  border-color: var(--field-ochre);
+}
+.field-check {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  accent-color: var(--field-ochre);
+}
+.field-range {
+  accent-color: var(--field-ochre);
+}
+
+.field-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+}
+.field-facts dt {
+  font-size: 0.8125rem;
+  color: var(--field-ink-soft);
+}
+.field-facts dd {
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.field-strength {
+  font-weight: 600;
+}
+.field-strength-good {
+  color: var(--field-find-deep);
+}
+.field-strength-fair {
+  color: var(--field-warn);
+}
+.field-strength-weak {
+  color: var(--field-danger);
+}
+.field-strength-none {
+  color: var(--field-ink-soft);
+}
+.field-bar {
+  display: block;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--field-ochre);
+  opacity: 0.75;
+}
+.field-progress {
+  height: 0.375rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: var(--color-sand-200);
+}
+.field-progress > span {
+  display: block;
+  height: 100%;
+  background: var(--field-ochre);
+  transform-origin: left;
+  transition: transform 300ms var(--field-ease);
+}
+
+.field-pill-mini {
+  border-radius: 9999px;
+  padding: 0.125rem 0.5rem;
+  background: var(--field-find-soft);
+  color: var(--field-find-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.field-pill-mini-warn {
+  background: var(--field-warn-soft);
+  color: var(--field-warn);
+}
+
+.field-details > summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--field-ink-soft);
+}
+
+/* ---- go-to dial ------------------------------------------------------------ */
+
+.field-goto-dial {
+  position: relative;
+  display: grid;
+  width: 7rem;
+  height: 7rem;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 9999px;
+  background: var(--field-sunk);
+  border: 2px solid var(--field-line);
+}
+.field-goto-north {
+  position: absolute;
+  top: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--field-ink-soft);
+}
+.field-goto-arrow {
+  width: 5rem;
+  height: 5rem;
+  fill: var(--field-ochre);
+  transition: transform 200ms var(--field-ease);
+}
+
+/* ---- dialogs and toast ----------------------------------------------------- */
+
+.field-dialog {
+  position: fixed;
+  inset: auto 0 0 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 88dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 1.375rem 1.375rem 0 0;
+  background: var(--field-surface);
+  color: var(--field-ink);
+  box-shadow: 0 -8px 40px rgb(46 39 32 / 0.2);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.field-dialog[open] {
+  animation: field-rise 260ms var(--field-ease);
+}
+.field-dialog::backdrop {
+  background: rgb(46 39 32 / 0.45);
+}
+@media (min-width: 40rem) {
+  .field-dialog {
+    inset: 0;
+    margin: auto;
+    width: min(32rem, 92vw);
+    max-height: 85vh;
+    border-radius: 1.125rem;
+    padding-bottom: 0;
+  }
+  .field-dialog-wide {
+    width: min(42rem, 92vw);
+  }
+  .field-dialog[open] {
+    animation: field-fade 180ms var(--field-ease);
+  }
+}
+@keyframes field-rise {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+@keyframes field-fade {
+  from {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+}
+
+.field-toast {
+  position: absolute;
+  z-index: var(--field-z-toast);
+  left: 50%;
+  bottom: calc(var(--field-toast-offset, 1rem) + 0.75rem);
+  display: flex;
+  width: max-content;
+  max-width: calc(100% - 1.5rem);
+  transform: translateX(-50%);
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
+  border-radius: 9999px;
+  background: var(--field-ink);
+  color: #ffffff;
+  font-size: 0.9375rem;
+  box-shadow: 0 8px 24px rgb(46 39 32 / 0.3);
+  animation: field-rise 220ms var(--field-ease);
+}
+.field-toast-action {
+  min-height: 2.25rem;
+  padding: 0 0.875rem;
+  border-radius: 9999px;
+  background: var(--color-ochre-100);
+  color: var(--field-ochre-deep);
+  font-weight: 700;
+}
+
+.field-map .maplibregl-canvas:focus-visible {
+  outline: 3px solid var(--field-ochre);
+  outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field-app *,
+  .field-dialog,
+  .field-toast {
+    animation: none !important;
+    transition: none !important;
+  }
+}

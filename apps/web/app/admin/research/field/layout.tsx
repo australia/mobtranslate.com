@@ -1,4 +1,5 @@
 import 'maplibre-gl/dist/maplibre-gl.css';
+import './field.css';
 
 export const dynamic = 'force-dynamic';
 

@@ -1,10 +1,10 @@
-import FieldTargets from '@/components/research/field/FieldTargets';
+import { redirect } from 'next/navigation';
 import { requireResearchAdminPage } from '@/lib/research/access';
 
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'Field models' };
 
+/** Targets now live inside the field app. */
 export default async function FieldTargetsPage() {
   await requireResearchAdminPage();
-  return <FieldTargets />;
+  redirect('/admin/research/field');
 }
