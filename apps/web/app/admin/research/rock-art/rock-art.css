@@ -1,0 +1,118 @@
+/* Ported from rockpaintings/app/globals.css, scoped to .ra-root.
+ *
+ * Darkroom palette. The workbench deliberately commits to a single dark,
+ * near-neutral look: enhanced imagery must be judged against a chromatically
+ * quiet surround (the same reason photo tools ship dark). One accent — the
+ * safelight red of the pigment this tool exists to recover.
+ */
+.ra-root {
+  --ra-bg: oklch(0.17 0.004 20);
+  --ra-bg-deep: oklch(0.13 0.004 20);
+  --ra-panel: oklch(0.215 0.005 20);
+  --ra-panel-2: oklch(0.255 0.006 20);
+  --ra-line: oklch(0.31 0.007 20);
+  --ra-line-strong: oklch(0.42 0.008 20);
+  --ra-ink: oklch(0.93 0.004 20);
+  --ra-ink-2: oklch(0.78 0.006 20);
+  --ra-ink-3: oklch(0.62 0.008 20);
+  --ra-red: oklch(0.54 0.2 8);
+  --ra-red-deep: oklch(0.38 0.14 8);
+  --ra-red-bright: oklch(0.7 0.18 12);
+  --ra-ok: oklch(0.75 0.14 150);
+  --ra-warn: oklch(0.8 0.15 85);
+
+  --font-sans: var(--font-archivo), "Archivo", system-ui, sans-serif;
+  --font-mono: var(--font-fragment), "Fragment Mono", ui-monospace, monospace;
+  --font-serif: var(--font-stix), "STIX Two Text", Georgia, serif;
+
+  background: var(--ra-bg);
+  color: var(--ra-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+}
+
+/* mobtranslate's unlayered global heading rule would beat the workbench's
+   Tailwind utilities (font-serif, font-medium, …); revert-layer hands those
+   properties back to the layered Tailwind styles. */
+.ra-root :where(h1, h2, h3, h4, h5, h6) {
+  font-family: revert-layer;
+  font-weight: revert-layer;
+  letter-spacing: revert-layer;
+}
+
+/* Likewise the global `* { transition-property: none }`. */
+.ra-root *,
+.ra-root *::before,
+.ra-root *::after {
+  transition-property: revert-layer;
+}
+
+.ra-root :where(h1, h2, h3) {
+  text-wrap: balance;
+}
+
+.ra-root ::selection {
+  background: var(--ra-red-deep);
+  color: var(--ra-ink);
+}
+
+/* Range inputs — the workbench's main instrument. */
+.ra-root input[type="range"] {
+  appearance: none;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+}
+.ra-root input[type="range"]::-webkit-slider-runnable-track {
+  height: 3px;
+  background: var(--ra-line-strong);
+  border-radius: 2px;
+}
+.ra-root input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  margin-top: -5.5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ra-ink);
+  border: 2px solid var(--ra-bg);
+}
+.ra-root input[type="range"]:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--ra-red-bright);
+  outline-offset: 2px;
+}
+.ra-root input[type="range"]::-moz-range-track {
+  height: 3px;
+  background: var(--ra-line-strong);
+  border-radius: 2px;
+}
+.ra-root input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ra-ink);
+  border: 2px solid var(--ra-bg);
+}
+
+.ra-root dialog {
+  background: var(--ra-panel);
+  color: var(--ra-ink);
+  border: 1px solid var(--ra-line-strong);
+  max-width: min(34rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 4rem);
+  padding: 0;
+  margin: auto;
+}
+.ra-root dialog::backdrop {
+  background: oklch(0.1 0.004 20 / 0.72);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ra-root *,
+  .ra-root *::before,
+  .ra-root *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

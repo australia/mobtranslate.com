@@ -1,0 +1,19 @@
+/* Rock-art workbench colour utilities (bg-ra-panel, text-ra-ink, …). The values
+   are set on .ra-root in rock-art.css, so these utilities only resolve inside
+   the workbench; elsewhere they are inert. */
+@theme inline {
+  --color-ra-bg: var(--ra-bg);
+  --color-ra-bg-deep: var(--ra-bg-deep);
+  --color-ra-panel: var(--ra-panel);
+  --color-ra-panel-2: var(--ra-panel-2);
+  --color-ra-line: var(--ra-line);
+  --color-ra-line-strong: var(--ra-line-strong);
+  --color-ra-ink: var(--ra-ink);
+  --color-ra-ink-2: var(--ra-ink-2);
+  --color-ra-ink-3: var(--ra-ink-3);
+  --color-ra-red: var(--ra-red);
+  --color-ra-red-deep: var(--ra-red-deep);
+  --color-ra-red-bright: var(--ra-red-bright);
+  --color-ra-ok: var(--ra-ok);
+  --color-ra-warn: var(--ra-warn);
+}

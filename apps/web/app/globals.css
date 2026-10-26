@@ -5,6 +5,7 @@
    unlayered .mt-* rules. Fixes icon/input padding and className overrides. */
 @import "@mobtranslate/ui/src/components/components.css" layer(components);
 @import "./language-tokens.css";
+@import "./admin/research/rock-art/rock-art-theme.css";
 
 /* TYPOGRAPHY BASE STYLES */
 html {

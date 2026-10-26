@@ -1,0 +1,1380 @@
+/* Ported from quinkan-discovery/portal/src/app/globals.css; every rule is scoped to .quinkan-root. */
+.quinkan-root {
+  --ink: oklch(0.19 0.025 255);
+  --muted: oklch(0.47 0.025 250);
+  --faint: oklch(0.66 0.018 250);
+  --line: oklch(0.86 0.018 250);
+  --surface: oklch(0.975 0.008 245);
+  --paper: oklch(1 0 0);
+  --cobalt: oklch(0.55 0.149 250);
+  --cobalt-dark: oklch(0.42 0.14 250);
+  --cobalt-pale: oklch(0.94 0.035 250);
+  --amber: oklch(0.73 0.16 72);
+  --amber-dark: oklch(0.48 0.12 62);
+  --amber-pale: oklch(0.96 0.045 82);
+  --teal: oklch(0.55 0.09 190);
+  --danger: oklch(0.53 0.17 29);
+}
+
+/* mobtranslate loads Tailwind preflight and global heading/transition rules; this
+   app was written against browser defaults. Revert those properties to the user
+   agent inside the scope at (0,1,0) so every ported rule still wins. SVG and
+   MapLibre internals keep their own presentation rules. */
+.quinkan-root :where(*:not(svg, svg *, .maplibregl-map, .maplibregl-map *)) {
+  margin: revert;
+  padding: revert;
+  border: revert;
+  border-radius: revert;
+  background-color: revert;
+  color: revert;
+  display: revert;
+  font-family: revert;
+  font-size: revert;
+  font-weight: revert;
+  letter-spacing: revert;
+  line-height: revert;
+  list-style: revert;
+  max-width: revert;
+  text-decoration: revert;
+  transition: revert;
+  vertical-align: revert;
+}
+
+.quinkan-root, .quinkan-root * { box-sizing: border-box; }
+.quinkan-root { scroll-behavior: smooth; }
+.quinkan-root {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+}
+.quinkan-root button, .quinkan-root input { font: inherit; }
+.quinkan-root button, .quinkan-root a { -webkit-tap-highlight-color: transparent; }
+.quinkan-root a { color: inherit; text-underline-offset: 0.2em; }
+.quinkan-root button:focus-visible, .quinkan-root a:focus-visible, .quinkan-root input:focus-visible, .quinkan-root summary:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+.quinkan-root .siteShell { min-height: calc(100vh - var(--research-bar-height, 0px)); overflow: clip; }
+.quinkan-root .skipLink {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.65rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-160%);
+}
+.quinkan-root .skipLink:focus { transform: translateY(0); }
+.quinkan-root .topbar {
+  min-height: 64px;
+  padding: 0 4vw;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.quinkan-root .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+.quinkan-root .wordmarkMark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  background: var(--cobalt);
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.85rem;
+  letter-spacing: -0.04em;
+}
+.quinkan-root .topbar nav { display: flex; gap: 1.7rem; }
+.quinkan-root .topbar nav a { color: var(--muted); font-size: 0.78rem; font-weight: 700; text-decoration: none; }
+.quinkan-root .topbar nav a:hover { color: var(--cobalt-dark); }
+.quinkan-root .releaseState {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font: 700 0.68rem/1 Arial, sans-serif;
+  letter-spacing: 0.1em;
+}
+.quinkan-root .releaseState span { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px oklch(0.55 0.09 190 / 0.12); }
+.quinkan-root main { display: block; }
+.quinkan-root .hero {
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 8.5rem 4vw 6.5rem;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background: var(--paper);
+}
+.quinkan-root .heroKicker {
+  width: fit-content;
+  margin-bottom: 2.2rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--cobalt);
+  color: var(--paper);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.quinkan-root .heroGrid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.65fr); gap: 8vw; align-items: end; }
+.quinkan-root h1, .quinkan-root h2, .quinkan-root h3, .quinkan-root p { margin-top: 0; }
+.quinkan-root h1, .quinkan-root h2, .quinkan-root .measureStrip strong { font-family: Georgia, "Times New Roman", serif; }
+.quinkan-root h1 {
+  max-width: 880px;
+  margin-bottom: 1.9rem;
+  font-size: clamp(3rem, 6.2vw, 6.6rem);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+.quinkan-root .heroLead { max-width: 760px; margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.5vw, 1.35rem); line-height: 1.6; }
+.quinkan-root .fieldNote { border-top: 4px solid var(--amber); padding-top: 1.25rem; background: var(--paper); }
+.quinkan-root .fieldNote > p:not(.fieldLabel) { font-family: Georgia, "Times New Roman", serif; font-size: 1.08rem; line-height: 1.55; }
+.quinkan-root .fieldLabel { margin-bottom: 0.8rem; color: var(--cobalt-dark); font-size: 0.67rem; font-weight: 800; letter-spacing: 0.13em; }
+.quinkan-root .fieldNote dl, .quinkan-root .methodText dl { margin: 1.4rem 0 0; }
+.quinkan-root .fieldNote dl div, .quinkan-root .methodText dl div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0; border-top: 1px solid var(--line); }
+.quinkan-root dt { color: var(--muted); }
+.quinkan-root dd { margin: 0; text-align: right; }
+.quinkan-root .fieldNote dt, .quinkan-root .fieldNote dd, .quinkan-root .methodText dt, .quinkan-root .methodText dd { font-size: 0.76rem; }
+.quinkan-root .measureStrip {
+  max-width: 1560px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--line);
+  border-top: 0;
+}
+.quinkan-root .measureStrip div { padding: 1.8rem 2rem; border-right: 1px solid var(--line); }
+.quinkan-root .measureStrip div:last-child { border-right: 0; }
+.quinkan-root .measureStrip strong { display: block; color: var(--cobalt-dark); font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 400; line-height: 1; }
+.quinkan-root .measureStrip span { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.quinkan-root .atlasSection { max-width: 1560px; margin: 0 auto; padding: 7rem 4vw; border-left: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.quinkan-root .sectionHead { display: grid; grid-template-columns: 60px minmax(280px, 0.8fr) minmax(300px, 0.7fr); gap: 2rem; align-items: start; margin-bottom: 3.5rem; }
+.quinkan-root .sectionHead > span { padding-top: 0.25rem; color: var(--cobalt); font: 800 0.8rem/1 Arial, sans-serif; }
+.quinkan-root .sectionHead div > p { margin-bottom: 0.65rem; color: var(--cobalt-dark); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+.quinkan-root .sectionHead h2 { margin: 0; font-size: clamp(2rem, 3.5vw, 4rem); font-weight: 400; line-height: 1; letter-spacing: -0.035em; }
+.quinkan-root .sectionHead > p { margin: 0; padding-left: 2rem; border-left: 1px solid var(--line); color: var(--muted); font-size: 0.98rem; }
+.quinkan-root .mapWorkspace { display: grid; grid-template-columns: minmax(0, 1fr) 330px; border: 1px solid var(--line); }
+.quinkan-root .mapCanvas { min-width: 0; position: relative; padding: 1rem; background: var(--surface); border-right: 1px solid var(--line); }
+.quinkan-root .mapToolbar { display: flex; position: absolute; top: 1.8rem; left: 1.8rem; z-index: 2; border: 1px solid var(--line); background: var(--paper); box-shadow: 0 4px 20px oklch(0.19 0.025 255 / 0.1); }
+.quinkan-root .mapToolbar button, .quinkan-root .mapToolbar output { min-width: 42px; height: 38px; padding: 0 0.65rem; border: 0; border-right: 1px solid var(--line); display: grid; place-items: center; background: var(--paper); color: var(--ink); }
+.quinkan-root .mapToolbar button { cursor: pointer; }
+.quinkan-root .mapToolbar button:hover { background: var(--cobalt-pale); color: var(--cobalt-dark); }
+.quinkan-root .mapToolbar output { border-right: 0; color: var(--muted); font-size: 0.72rem; }
+.quinkan-root .coverageMap { display: block; width: 100%; min-height: 560px; max-height: 72vh; background: var(--paper); border: 1px solid var(--line); }
+.quinkan-root .mapGround { fill: var(--paper); }
+.quinkan-root .mapGridLine { fill: none; stroke: var(--line); stroke-width: 0.7; }
+.quinkan-root .mapLayerFrame path { fill: oklch(0.55 0.149 250 / 0.05); stroke: var(--cobalt-dark); stroke-width: 2.3; }
+.quinkan-root .mapLayerProjects path { fill: oklch(0.73 0.16 72 / 0.12); stroke: var(--amber); stroke-width: 1.4; }
+.quinkan-root .mapLayerTiles path { fill: oklch(0.55 0.09 190 / 0.14); stroke: var(--teal); stroke-width: 0.65; }
+.quinkan-root .mapCoordinates { display: flex; justify-content: space-between; padding: 0.6rem 0.2rem 0; color: var(--faint); font: 700 0.62rem/1 Arial, sans-serif; letter-spacing: 0.07em; }
+.quinkan-root .layerLedger { padding: 1.7rem; background: var(--paper); }
+.quinkan-root .layerToggle { display: grid; grid-template-columns: 18px 18px 1fr; gap: 0.75rem; align-items: start; padding: 1rem 0; border-top: 1px solid var(--line); cursor: pointer; }
+.quinkan-root .layerToggle input { width: 16px; height: 16px; margin: 0.2rem 0 0; accent-color: var(--cobalt); }
+.quinkan-root .legendSwatch { width: 16px; height: 16px; margin-top: 0.2rem; }
+.quinkan-root .legendSwatch.mapLayerFrame { border: 2px solid var(--cobalt-dark); background: var(--cobalt-pale); }
+.quinkan-root .legendSwatch.mapLayerProjects { border: 2px solid var(--amber); background: var(--amber-pale); }
+.quinkan-root .legendSwatch.mapLayerTiles { border: 2px solid var(--teal); background: oklch(0.94 0.035 190); }
+.quinkan-root .layerToggle strong { display: block; font-size: 0.84rem; line-height: 1.3; }
+.quinkan-root .layerToggle small { display: block; margin-top: 0.2rem; color: var(--muted); line-height: 1.35; }
+.quinkan-root .mapRule { margin: 1.2rem -1.7rem 1rem; padding: 1.2rem 1.7rem; display: grid; grid-template-columns: 28px 1fr; gap: 0.8rem; background: var(--amber-pale); border-top: 1px solid var(--amber); border-bottom: 1px solid var(--amber); }
+.quinkan-root .mapRule p { margin: 0; color: var(--muted); font-size: 0.78rem; }
+.quinkan-root .mapRule strong { display: block; color: var(--ink); }
+.quinkan-root .shieldIcon { width: 25px; fill: none; stroke: var(--cobalt-dark); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.quinkan-root details { border-top: 1px solid var(--line); }
+.quinkan-root summary { padding: 0.9rem 0; color: var(--cobalt-dark); cursor: pointer; font-size: 0.78rem; font-weight: 700; }
+.quinkan-root .mono, .quinkan-root code { font-family: "Courier New", Courier, monospace; overflow-wrap: anywhere; }
+.quinkan-root .layerLedger .mono { color: var(--muted); font-size: 0.62rem; }
+.quinkan-root .explorer { border-top: 1px solid var(--ink); }
+.quinkan-root .explorerTabs { display: flex; border-bottom: 1px solid var(--line); }
+.quinkan-root .explorerTabs button { padding: 1rem 1.3rem; border: 0; border-right: 1px solid var(--line); background: var(--paper); color: var(--muted); cursor: pointer; text-transform: capitalize; }
+.quinkan-root .explorerTabs button[aria-selected="true"] { background: var(--cobalt); color: var(--paper); }
+.quinkan-root .explorerTabs span { margin-left: 0.5rem; font-size: 0.68rem; opacity: 0.78; }
+.quinkan-root .searchBar { display: grid; grid-template-columns: 28px 1fr auto; align-items: center; gap: 0.75rem; padding: 1rem 1.2rem; border-bottom: 1px solid var(--line); background: var(--surface); }
+.quinkan-root .searchBar .icon { width: 22px; fill: none; stroke: var(--muted); stroke-width: 1.7; }
+.quinkan-root .searchBar input { min-width: 0; padding: 0.65rem 0; border: 0; background: transparent; color: var(--ink); outline: 0; }
+.quinkan-root .searchBar button, .quinkan-root .pager button { padding: 0.65rem 1rem; border: 1px solid var(--cobalt); background: var(--paper); color: var(--cobalt-dark); cursor: pointer; }
+.quinkan-root .searchBar button:hover, .quinkan-root .pager button:hover:not(:disabled) { background: var(--cobalt); color: var(--paper); }
+.quinkan-root button:disabled { opacity: 0.45; cursor: not-allowed; }
+.quinkan-root .resultMeta { display: flex; justify-content: space-between; padding: 0.6rem 1.2rem; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.quinkan-root .resultList { min-height: 320px; }
+.quinkan-root .resultList[aria-busy="true"] { opacity: 0.6; }
+.quinkan-root .resultRow { display: grid; grid-template-columns: 64px minmax(0, 1fr) 180px; gap: 1.4rem; align-items: start; padding: 1.45rem 1.2rem; border-bottom: 1px solid var(--line); }
+.quinkan-root .resultRow:hover { background: var(--surface); }
+.quinkan-root .resultIndex { color: var(--cobalt-dark); font: 800 0.66rem/1.2 "Courier New", monospace; letter-spacing: 0.06em; }
+.quinkan-root .resultRow h3 { margin-bottom: 0.35rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.1rem; font-weight: 400; }
+.quinkan-root .resultRow p { max-width: 900px; margin-bottom: 0.4rem; color: var(--muted); font-size: 0.82rem; }
+.quinkan-root .resultRow small { color: var(--faint); }
+.quinkan-root .resultRow > a { justify-self: end; color: var(--cobalt-dark); font-size: 0.78rem; font-weight: 700; }
+.quinkan-root .resultRow code { display: block; margin-top: 0.5rem; color: var(--faint); font-size: 0.66rem; }
+.quinkan-root .accessBadge { display: inline-block; margin-top: 0.65rem; padding: 0.22rem 0.48rem; border: 1px solid var(--line); color: var(--muted); font: 700 0.6rem/1.2 "Courier New", monospace; letter-spacing: 0.04em; text-transform: uppercase; }
+.quinkan-root .access-direct_pdf_2xx_head_only { border-color: var(--cobalt); color: var(--cobalt-dark); }
+.quinkan-root .access-head_checked_no_direct_pdf_2xx { border-color: var(--amber); color: var(--amber-dark); }
+.quinkan-root .bibliographySignals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.55rem; margin: 0.8rem 0 0; }
+.quinkan-root .bibliographySignals div { min-width: 0; padding-left: 0.55rem; border-left: 2px solid var(--cobalt-pale); }
+.quinkan-root .bibliographySignals .wideSignal { grid-column: 1 / -1; }
+.quinkan-root .bibliographySignals dt { color: var(--faint); font-size: 0.56rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.quinkan-root .bibliographySignals dd { margin: 0.1rem 0 0; color: var(--muted); font-size: 0.7rem; overflow-wrap: anywhere; }
+.quinkan-root .hashMark, .quinkan-root .scaleMark { justify-self: end; color: var(--muted); font: 700 0.68rem/1.4 "Courier New", monospace; text-align: right; }
+.quinkan-root .scaleMark { color: var(--cobalt-dark); font-size: 1.2rem; }
+.quinkan-root .scaleMark small { display: block; font: 400 0.65rem/1 Arial, sans-serif; }
+.quinkan-root .experimentRow dl { margin: 0.8rem 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.quinkan-root .experimentRow dl div { border-left: 2px solid var(--line); padding-left: 0.75rem; }
+.quinkan-root .experimentRow dt { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.quinkan-root .experimentRow dd { text-align: left; font-size: 0.76rem; }
+.quinkan-root .pager { display: flex; justify-content: flex-end; gap: 0.7rem; padding-top: 1.2rem; }
+.quinkan-root .errorNotice { margin: 1rem 0; padding: 0.8rem 1rem; border-left: 3px solid var(--danger); background: oklch(0.96 0.025 29); color: var(--danger); }
+.quinkan-root .methodSection { background: var(--surface); }
+.quinkan-root .methodGrid { display: grid; grid-template-columns: 1fr 0.72fr; border: 1px solid var(--line); background: var(--paper); }
+.quinkan-root .methodReading, .quinkan-root .methodText { padding: 2rem; }
+.quinkan-root .methodReading { border-right: 1px solid var(--line); }
+.quinkan-root .aucLine { display: grid; grid-template-columns: 1fr auto; gap: 1rem; position: relative; padding: 1.1rem 0 1.4rem; border-top: 1px solid var(--line); }
+.quinkan-root .aucLine i { position: absolute; left: 0; bottom: 0.7rem; height: 5px; background: var(--cobalt); }
+.quinkan-root .aucLine.placebo i { background: var(--amber); }
+.quinkan-root .aucLine strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.6rem; font-weight: 400; }
+.quinkan-root .readingCaption { margin: 1.2rem 0 0; color: var(--muted); font-size: 0.8rem; }
+.quinkan-root .methodText h3 { font-family: Georgia, "Times New Roman", serif; font-size: 1.6rem; font-weight: 400; }
+.quinkan-root .methodText > p { color: var(--muted); }
+.quinkan-root .warningLedger { margin-top: 1rem; border-top: 1px solid var(--line); }
+.quinkan-root .warningLedger p { margin: 0; padding: 0.85rem 0; display: grid; grid-template-columns: 46px 1fr; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 0.8rem; }
+.quinkan-root .warningLedger span { color: var(--amber); font-family: "Courier New", monospace; font-weight: 700; }
+.quinkan-root .provenanceGrid { display: grid; grid-template-columns: 1fr 0.7fr; gap: 5vw; }
+.quinkan-root .releaseLedger { margin: 0; border-top: 1px solid var(--ink); }
+.quinkan-root .releaseLedger div { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+.quinkan-root .releaseLedger dt { font-size: 0.74rem; }
+.quinkan-root .releaseLedger dd { min-width: 0; text-align: left; font-size: 0.78rem; overflow-wrap: anywhere; }
+.quinkan-root .governanceNote { padding: 1.7rem; border-top: 4px solid var(--cobalt); background: var(--cobalt-pale); }
+.quinkan-root .governanceNote h3 { margin: 1rem 0 0.5rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; font-weight: 400; }
+.quinkan-root .governanceNote p { margin: 0; color: var(--muted); }
+.quinkan-root footer { max-width: 1560px; margin: 0 auto; padding: 3rem 4vw; display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 3rem; border: 1px solid var(--line); border-top: 0; color: var(--muted); font-size: 0.76rem; }
+.quinkan-root footer p { margin: 0; }
+.quinkan-root footer strong { color: var(--ink); }
+.quinkan-root footer a { color: var(--cobalt-dark); font-weight: 700; }
+.quinkan-root .srOnly, .quinkan-root .srOnly:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 980px) {
+  .quinkan-root .topbar { grid-template-columns: 1fr auto; }
+  .quinkan-root .topbar nav { display: none; }
+  .quinkan-root .hero { padding-top: 6rem; }
+  .quinkan-root .heroGrid, .quinkan-root .mapWorkspace, .quinkan-root .methodGrid, .quinkan-root .provenanceGrid { grid-template-columns: 1fr; }
+  .quinkan-root .heroGrid { gap: 3.5rem; }
+  .quinkan-root .fieldNote { max-width: 520px; }
+  .quinkan-root .mapCanvas { border-right: 0; border-bottom: 1px solid var(--line); }
+  .quinkan-root .coverageMap { min-height: 430px; }
+  .quinkan-root .methodReading { border-right: 0; border-bottom: 1px solid var(--line); }
+  .quinkan-root .sectionHead { grid-template-columns: 42px 1fr; }
+  .quinkan-root .sectionHead > p { grid-column: 2; padding: 0; border: 0; }
+  .quinkan-root footer { grid-template-columns: 1fr 1fr; }
+  .quinkan-root footer a { grid-column: 1 / -1; }
+}
+
+@media (max-width: 680px) {
+  .quinkan-root { font-size: 15px; }
+  .quinkan-root .topbar { padding: 0 1rem; gap: 1rem; }
+  .quinkan-root .wordmark > span:last-child { display: none; }
+  .quinkan-root .releaseState { font-size: 0.58rem; }
+  .quinkan-root .hero { padding: 4.5rem 1.2rem 4rem; }
+  .quinkan-root h1 { font-size: clamp(2.9rem, 15vw, 4.5rem); }
+  .quinkan-root .measureStrip { grid-template-columns: 1fr 1fr; }
+  .quinkan-root .measureStrip div { padding: 1.25rem; border-bottom: 1px solid var(--line); }
+  .quinkan-root .measureStrip div:nth-child(2) { border-right: 0; }
+  .quinkan-root .atlasSection { padding: 4.5rem 1.2rem; }
+  .quinkan-root .sectionHead { grid-template-columns: 30px 1fr; gap: 0.8rem; margin-bottom: 2.4rem; }
+  .quinkan-root .sectionHead h2 { font-size: 2.5rem; }
+  .quinkan-root .mapCanvas { padding: 0.45rem; }
+  .quinkan-root .coverageMap { min-height: 350px; }
+  .quinkan-root .mapToolbar { top: 1rem; left: 1rem; }
+  .quinkan-root .mapCoordinates span:nth-child(2) { display: none; }
+  .quinkan-root .explorerTabs button { flex: 1; padding: 0.8rem 0.35rem; font-size: 0.74rem; }
+  .quinkan-root .explorerTabs span { display: block; margin: 0.15rem 0 0; }
+  .quinkan-root .searchBar { grid-template-columns: 22px 1fr; }
+  .quinkan-root .searchBar button { grid-column: 1 / -1; }
+  .quinkan-root .resultRow { grid-template-columns: 42px minmax(0, 1fr); gap: 0.7rem; }
+  .quinkan-root .resultRow > a, .quinkan-root .resultRow > .hashMark, .quinkan-root .resultRow > .scaleMark { grid-column: 2; justify-self: start; text-align: left; }
+  .quinkan-root .experimentRow dl { grid-template-columns: 1fr; }
+  .quinkan-root .bibliographySignals { grid-template-columns: 1fr 1fr; }
+  .quinkan-root .methodReading, .quinkan-root .methodText { padding: 1.25rem; }
+  .quinkan-root .releaseLedger div { grid-template-columns: 1fr; gap: 0.15rem; }
+  .quinkan-root footer { padding: 2.4rem 1.2rem; grid-template-columns: 1fr; gap: 1.4rem; }
+  .quinkan-root footer a { grid-column: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quinkan-root { scroll-behavior: auto; }
+  .quinkan-root, .quinkan-root * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
+
+/* Operational map workspace */
+.quinkan-root .opsShell {
+  --ops-ink: #15201d;
+  --ops-muted: #5f6a66;
+  --ops-line: #d7ddda;
+  --ops-paper: #fff;
+  --ops-soft: #f4f6f5;
+  --ops-green: #008f6a;
+  min-height: calc(100dvh - var(--research-bar-height, 0px));
+  overflow: hidden;
+  background: var(--ops-soft);
+  color: var(--ops-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+.quinkan-root .opsHeader {
+  height: 64px;
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) auto minmax(240px, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid #28332f;
+  background: #111a17;
+  color: #fff;
+  position: relative;
+  z-index: 30;
+}
+.quinkan-root .opsBrand {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #fff;
+  text-decoration: none;
+}
+.quinkan-root .opsBrandMark, .quinkan-root .opsLoadBrand span {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: #f4a62a;
+  color: #111a17;
+  font-weight: 900;
+  font-size: 0.78rem;
+  letter-spacing: -0.03em;
+}
+.quinkan-root .opsBrand > span:last-child { display: grid; gap: 0.05rem; }
+.quinkan-root .opsBrand strong { font-size: 0.82rem; line-height: 1.15; letter-spacing: 0.015em; }
+.quinkan-root .opsBrand small { color: #aeb9b5; font-size: 0.63rem; line-height: 1.15; }
+.quinkan-root .opsHeaderStats { display: flex; align-items: center; color: #b7c1bd; font-size: 0.67rem; }
+.quinkan-root .opsHeaderStats span { padding: 0 0.9rem; border-right: 1px solid #39433f; white-space: nowrap; }
+.quinkan-root .opsHeaderStats span:last-child { border-right: 0; }
+.quinkan-root .opsHeaderStats b { color: #fff; font-size: 0.76rem; }
+.quinkan-root .opsHeaderActions { justify-self: end; display: flex; align-items: center; gap: 1rem; font-size: 0.66rem; }
+.quinkan-root .opsHeaderActions > a { padding: 0.5rem 0.7rem; border: 1px solid #4a5651; color: #fff; text-decoration: none; font-weight: 700; }
+.quinkan-root .opsHeaderActions > a:hover { border-color: #f4a62a; color: #f4a62a; }
+.quinkan-root .opsRelease { max-width: 230px; color: #aeb9b5; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.quinkan-root .opsRelease i { display: inline-block; width: 7px; height: 7px; margin-right: 0.4rem; border-radius: 50%; background: #27d6a2; box-shadow: 0 0 0 3px rgb(39 214 162 / 15%); }
+.quinkan-root .opsMain { height: calc(100dvh - 64px - var(--research-bar-height, 0px)); position: relative; overflow: hidden; }
+.quinkan-root .opsMap { position: absolute; inset: 0; background: #dbe1de; }
+.quinkan-root .opsMap .maplibregl-ctrl-bottom-left { left: 340px; }
+.quinkan-root .opsMap .maplibregl-ctrl-bottom-right { right: 408px; }
+.quinkan-root .opsMap .maplibregl-ctrl-group { border-radius: 2px; box-shadow: 0 1px 6px rgb(12 24 19 / 18%); }
+.quinkan-root .opsMap .maplibregl-ctrl-group button { width: 36px; height: 36px; }
+.quinkan-root .opsMap .maplibregl-ctrl-attrib { color: #4d5854; font-size: 10px; }
+.quinkan-root .opsMapError {
+  position: absolute;
+  z-index: 9;
+  top: 4.75rem;
+  left: 50%;
+  translate: -50% 0;
+  max-width: 520px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #b2523b;
+  background: rgb(255 248 244 / 96%);
+  color: #783525;
+  box-shadow: 0 5px 20px rgb(20 25 23 / 12%);
+  font-size: 0.72rem;
+}
+.quinkan-root .opsMapError strong { display: block; }
+.quinkan-root .opsPanel {
+  position: absolute;
+  z-index: 7;
+  top: 14px;
+  bottom: auto;
+  max-height: calc(100% - 28px);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(255 255 255 / 55%);
+  border-radius: 14px;
+  background: rgb(252 254 253 / 84%);
+  box-shadow: 0 12px 40px rgb(13 22 18 / 26%), 0 1px 0 rgb(255 255 255 / 60%) inset;
+  backdrop-filter: blur(16px) saturate(1.35);
+  overflow: hidden;
+}
+.quinkan-root .opsControls { left: 14px; width: 314px; }
+.quinkan-root .opsInspector { right: 14px; width: 382px; }
+.quinkan-root .opsPanelTop {
+  min-height: 43px;
+  padding: 0 0.8rem 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--ops-line);
+  background: #fff;
+}
+.quinkan-root .opsPanelTop strong { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.quinkan-root .opsPanelTop button { display: none; width: 36px; height: 36px; border: 0; background: transparent; color: var(--ops-muted); cursor: pointer; font-size: 1.4rem; }
+.quinkan-root .opsPanelScroll { min-height: 0; flex: 1; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.quinkan-root .opsControlSection { padding: 0.95rem 1rem; border-bottom: 1px solid var(--ops-line); }
+.quinkan-root .opsSectionLabel { margin-bottom: 0.7rem; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; color: var(--ops-muted); font-size: 0.61rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+.quinkan-root .opsSectionLabel button { padding: 0; border: 0; background: transparent; color: #1d5f98; cursor: pointer; font-size: 0.61rem; font-weight: 800; text-transform: uppercase; }
+.quinkan-root .opsSectionLabel output { color: #17231f; font-size: 0.82rem; letter-spacing: 0; }
+.quinkan-root .opsSegmented { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #c8d0cd; }
+.quinkan-root .opsSegmented button { min-height: 34px; padding: 0.35rem; border: 0; border-right: 1px solid #c8d0cd; background: #fff; color: #59635f; cursor: pointer; font-size: 0.68rem; font-weight: 700; }
+.quinkan-root .opsSegmented button:last-child { border-right: 0; }
+.quinkan-root .opsSegmented button[aria-checked="true"] { background: #15201d; color: #fff; }
+.quinkan-root .opsViewLabel { margin-top: 0.9rem; }
+.quinkan-root .opsViewModes { grid-template-columns: repeat(3, 1fr); }
+.quinkan-root .opsSourceFitButton {
+  width: 100%;
+  min-height: 34px;
+  margin-top: 0.65rem;
+  border: 1px dashed #71958a;
+  background: #f5faf8;
+  color: #185c49;
+  cursor: pointer;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+.quinkan-root .opsSourceFitButton:hover { background: #e6f4ef; }
+.quinkan-root .opsLandmarkButton {
+  width: 100%;
+  margin-top: 0.85rem;
+  padding: 0.65rem;
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid #9a6c0d;
+  background: #fff8d9;
+  color: #252018;
+  cursor: pointer;
+  text-align: left;
+}
+.quinkan-root .opsLandmarkButton:hover { background: #ffe99a; }
+.quinkan-root .opsLandmarkButton > i {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #111a17;
+  border-radius: 50%;
+  background: #f4b52f;
+  font-style: normal;
+  font-size: 0.67rem;
+  font-weight: 900;
+}
+.quinkan-root .opsLandmarkButton span { min-width: 0; }
+.quinkan-root .opsLandmarkButton strong, .quinkan-root .opsLandmarkButton small { display: block; }
+.quinkan-root .opsLandmarkButton strong { font-size: 0.71rem; }
+.quinkan-root .opsLandmarkButton small { color: #6f5c34; font-size: 0.58rem; font-weight: 400; }
+.quinkan-root .opsLandmarkButton > b { color: #6b4a08; font-size: 0.6rem; text-transform: uppercase; }
+.quinkan-root .opsCampButton { border-color: #137fbb; background: #e8f8ff; }
+.quinkan-root .opsCampButton:hover { background: #d0f0ff; }
+.quinkan-root .opsCampButton > i { border-color: #073d5a; background: #137fbb; color: #fff; }
+.quinkan-root .opsCampButton small { color: #456b7c; }
+.quinkan-root .opsCampButton > b { color: #07557d; }
+.quinkan-root .opsThreshold input[type="range"], .quinkan-root .opsOpacity input[type="range"] { width: 100%; accent-color: #126e56; cursor: pointer; }
+.quinkan-root .opsRangeEnds { display: flex; justify-content: space-between; color: #88928e; font-size: 0.57rem; }
+.quinkan-root .opsThreshold > p { margin: 0.65rem 0 0; color: var(--ops-muted); font-size: 0.67rem; line-height: 1.45; }
+.quinkan-root .opsThreshold > p strong { color: #26322e; }
+.quinkan-root .opsToggleRow, .quinkan-root .opsOverlayRow {
+  width: 100%;
+  display: grid;
+  align-items: start;
+  border: 0;
+  background: transparent;
+  color: var(--ops-ink);
+  cursor: pointer;
+  text-align: left;
+}
+.quinkan-root .opsToggleRow { grid-template-columns: 18px 9px 1fr; gap: 0.55rem; padding: 0.48rem 0; }
+.quinkan-root .opsToggleRow:hover, .quinkan-root .opsOverlayRow:hover { color: #045f49; }
+.quinkan-root .opsToggleRow > i { width: 8px; height: 8px; margin-top: 0.24rem; border-radius: 50%; box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgb(20 30 26 / 18%); }
+.quinkan-root .opsToggleRow > span:last-child { min-width: 0; font-size: 0.72rem; font-weight: 700; }
+.quinkan-root .opsToggleRow small { display: block; margin-top: 0.05rem; color: var(--ops-muted); font-size: 0.61rem; font-weight: 400; }
+.quinkan-root .opsCheck { width: 16px; height: 16px; display: grid; place-items: center; border: 1px solid #9da8a4; color: #fff; font-size: 0.65rem; line-height: 1; }
+.quinkan-root button[aria-pressed="true"] > .opsCheck { border-color: #126e56; background: #126e56; }
+.quinkan-root .opsFieldClarity { background: linear-gradient(135deg, #fff9eb 0 49.8%, #eefbff 50.2% 100%); }
+.quinkan-root .opsLineKey { margin-top: 0.45rem; display: flex; flex-wrap: wrap; gap: 0.35rem 0.85rem; color: #53605b; font-size: 0.58rem; }
+.quinkan-root .opsLineKey span { display: inline-flex; align-items: center; gap: 0.38rem; }
+.quinkan-root .opsLineKey i { width: 24px; height: 5px; border-radius: 0; }
+.quinkan-root .opsLineKey .isRoad { border: 1px solid #1c1204; background: #ff9f1c; }
+.quinkan-root .opsLineKey .isWater { border: 1px solid #052b4a; background: #1ed2ff; }
+.quinkan-root .opsReferenceNote { margin: 0.58rem 0 0; color: #65716c; font-size: 0.59rem; line-height: 1.45; }
+.quinkan-root .opsReferenceNote a { margin-left: 0.3rem; color: #075b45; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.quinkan-root .opsReferenceNote a:hover { text-decoration: underline; }
+.quinkan-root .opsNativeTitleList { margin: 0.5rem -0.35rem 0; border: 1px solid #d7bed0; background: #fff; }
+.quinkan-root .opsNativeTitleIntro { padding: 0.48rem 0.55rem; display: flex; justify-content: space-between; gap: 0.6rem; border-bottom: 1px solid #eadbe5; background: #fff5fb; color: #6a3158; font-size: 0.55rem; font-weight: 800; letter-spacing: 0.045em; text-transform: uppercase; }
+.quinkan-root .opsNativeTitleIntro a { color: #7b145e; text-decoration: none; }
+.quinkan-root .opsNativeTitleList > button { width: 100%; padding: 0.55rem; display: grid; gap: 0.08rem; border: 0; border-bottom: 1px solid #eee4eb; background: #fff; color: #2f252c; cursor: pointer; text-align: left; }
+.quinkan-root .opsNativeTitleList > button:hover { background: #fff4fb; }
+.quinkan-root .opsNativeTitleList > button span { color: #8b2c6d; font: 800 0.53rem/1.2 "Courier New", monospace; }
+.quinkan-root .opsNativeTitleList > button strong { font-size: 0.65rem; line-height: 1.3; }
+.quinkan-root .opsNativeTitleList > button small { color: #74646f; font-size: 0.55rem; line-height: 1.3; }
+.quinkan-root .opsNativeTitleList > p { margin: 0; padding: 0.55rem; color: #765e6e; font-size: 0.56rem; line-height: 1.4; }
+.quinkan-root .opsNativeTitleList > .opsNativeTitleWarning { border-top: 1px solid #e2cbdc; background: #fff8fc; color: #754462; }
+.quinkan-root .opsOpacity { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0.25rem 0.8rem; margin-bottom: 0.7rem; color: var(--ops-muted); font-size: 0.63rem; }
+.quinkan-root .opsOpacity input { grid-column: 1 / -1; }
+.quinkan-root .opsOpacity output { color: var(--ops-ink); font-weight: 800; }
+.quinkan-root .opsOverlayList { margin: 0 -1rem -0.95rem; }
+.quinkan-root .opsOverlayGroup h3 { margin: 0; padding: 0.45rem 1rem; border-top: 1px solid var(--ops-line); border-bottom: 1px solid #e8ecea; background: var(--ops-soft); color: #66716d; font: 800 0.57rem/1.2 Arial, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+.quinkan-root .opsOverlayItem { position: relative; border-bottom: 1px solid #edf0ef; }
+.quinkan-root .opsOverlayRow { grid-template-columns: 18px 1fr; gap: 0.55rem; padding: 0.58rem 4.2rem 0.58rem 1rem; }
+.quinkan-root .opsOverlayRow strong { display: block; font-size: 0.69rem; line-height: 1.25; }
+.quinkan-root .opsOverlayRow small { display: block; margin-top: 0.08rem; color: var(--ops-muted); font-size: 0.59rem; line-height: 1.3; }
+.quinkan-root .opsOverlaySource { position: absolute; top: 0.62rem; right: 1rem; color: #126e56; font: 800 0.56rem/1 Arial, sans-serif; letter-spacing: 0.03em; text-decoration: none; }
+.quinkan-root .opsOverlaySource:hover { text-decoration: underline; text-underline-offset: 0.18em; }
+.quinkan-root .opsMapLegend {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  bottom: 14px;
+  translate: -50% 0;
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgb(21 32 29 / 20%);
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 2px 12px rgb(13 22 18 / 12%);
+  color: #4c5853;
+  font-size: 0.61rem;
+  white-space: nowrap;
+}
+.quinkan-root .opsMapLegend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.quinkan-root .opsMapLegend i { width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgb(25 35 31 / 20%); }
+.quinkan-root .opsMapLegend .isLandmark { background: #f4b52f; box-shadow: 0 0 0 2px #fff4b9, 0 0 0 4px #111a17; }
+.quinkan-root .opsMapLegend .isCamp { background: #137fbb; box-shadow: 0 0 0 2px #dff6ff, 0 0 0 4px #073d5a; }
+.quinkan-root .opsMapLegend .isField { background: #753bbd; box-shadow: 0 0 0 2px #f4eaff, 0 0 0 3px #3c126e; }
+.quinkan-root .opsMapLegend .isUncertain { border: 1px dashed #a5660f; border-radius: 50%; background: rgb(213 138 31 / 12%); box-shadow: none; }
+.quinkan-root .opsMapLegend .isWaterLine { width: 18px; height: 5px; border: 1px solid #052b4a; border-radius: 0; background: linear-gradient(90deg, #ff9f1c 0 48%, #1ed2ff 52% 100%); box-shadow: none; }
+.quinkan-root .opsMapLegend .isNativeTitle { border: 2px dashed #7b145e; border-radius: 0; background: rgb(180 35 138 / 12%); box-shadow: none; }
+.quinkan-root .opsInspectArticle { padding: 1.2rem; }
+.quinkan-root .opsInspectArticle h1, .quinkan-root .opsInspectArticle h2, .quinkan-root .opsInspectArticle h3 { font-family: Arial, Helvetica, sans-serif; }
+.quinkan-root .opsInspectArticle h1 { margin: 0 0 0.25rem; max-width: none; font-size: 1.35rem; font-weight: 800; line-height: 1.16; letter-spacing: -0.025em; }
+.quinkan-root .opsEyebrow { margin: 0 0 0.55rem; display: flex; align-items: center; gap: 0.42rem; color: #68736f; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.quinkan-root .opsEyebrow > span { width: 8px; height: 8px; border-radius: 50%; }
+.quinkan-root .opsKnownDot { background: #00a67a; }
+.quinkan-root .opsLandmarkDot { background: #f4b52f; box-shadow: 0 0 0 2px #111a17; }
+.quinkan-root .opsCampDot { background: #137fbb; box-shadow: 0 0 0 2px #bcecff; }
+.quinkan-root .opsFieldDot { background: #753bbd; box-shadow: 0 0 0 2px #dcc2fa; }
+.quinkan-root .opsNativeTitleDot { background: #b4238a; box-shadow: 0 0 0 2px #f3cde7; }
+.quinkan-root .opsRegionalDot { background: #f4a62a; }
+.quinkan-root .opsHighresDot { background: #e0528d; }
+.quinkan-root .opsCoordinate { margin: 0; color: #6f7975; font: 700 0.66rem/1.4 "Courier New", monospace; }
+.quinkan-root .opsFactGrid, .quinkan-root .opsMetricGrid { display: grid; margin: 1rem 0; border: 1px solid var(--ops-line); }
+.quinkan-root .opsFactGrid { grid-template-columns: 1fr 1fr; }
+.quinkan-root .opsMetricGrid { grid-template-columns: repeat(3, 1fr); }
+.quinkan-root .opsFactGrid > div, .quinkan-root .opsMetricGrid > div { min-width: 0; padding: 0.7rem; border-right: 1px solid var(--ops-line); }
+.quinkan-root .opsFactGrid > div:nth-child(even), .quinkan-root .opsMetricGrid > div:last-child { border-right: 0; }
+.quinkan-root .opsFactGrid > div:nth-child(n + 3) { border-top: 1px solid var(--ops-line); }
+.quinkan-root .opsFactGrid span, .quinkan-root .opsMetricGrid span { display: block; color: #77817d; font-size: 0.57rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.quinkan-root .opsFactGrid strong { display: block; margin-top: 0.15rem; font-size: 0.71rem; overflow-wrap: anywhere; }
+.quinkan-root .opsMetricGrid strong { display: block; margin-top: 0.15rem; color: #17231f; font-size: 0.92rem; }
+.quinkan-root .opsInspectSection { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--ops-line); }
+.quinkan-root .opsInspectSection h2 { margin: 0 0 0.45rem; font-size: 0.73rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.quinkan-root .opsInspectSection > p { margin: 0; color: #56615d; font-size: 0.73rem; line-height: 1.55; }
+.quinkan-root .opsCaution { margin: 1rem 0 0; padding: 0.8rem; display: grid; grid-template-columns: 20px 1fr; gap: 0.6rem; border-left: 3px solid #d69020; background: #fff8e9; }
+.quinkan-root .opsCaution svg { width: 18px; fill: none; stroke: #9c6210; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.quinkan-root .opsCaution p { margin: 0; color: #664d26; font-size: 0.69rem; line-height: 1.48; }
+.quinkan-root .opsHoldoutSection { margin-left: -1.2rem; margin-right: -1.2rem; padding-left: 1.2rem; padding-right: 1.2rem; }
+.quinkan-root .opsHoldoutList { display: grid; gap: 0.55rem; margin-top: 0.8rem; }
+.quinkan-root .opsHoldoutResult { border: 1px solid #cbd5d1; background: #f7faf8; }
+.quinkan-root .opsHoldoutResult header { display: flex; align-items: center; justify-content: space-between; gap: 0.7rem; padding: 0.58rem 0.68rem; border-bottom: 1px solid #dce3e0; }
+.quinkan-root .opsHoldoutResult header span { color: #5d6863; font-size: 0.56rem; font-weight: 800; letter-spacing: 0.055em; text-transform: uppercase; }
+.quinkan-root .opsHoldoutResult header strong { color: #3c126e; font: 800 0.82rem/1 "Courier New", monospace; }
+.quinkan-root .opsHoldoutResult dl { margin: 0; padding: 0.48rem 0.68rem; }
+.quinkan-root .opsHoldoutResult dl div { display: flex; justify-content: space-between; gap: 0.7rem; padding: 0.18rem 0; font-size: 0.58rem; }
+.quinkan-root .opsHoldoutResult dt { color: #75807b; }
+.quinkan-root .opsHoldoutResult dd { margin: 0; max-width: 58%; overflow-wrap: anywhere; text-align: right; }
+.quinkan-root .opsHoldoutWarning { margin: 0.65rem 0 0; color: #77501d; font-size: 0.62rem; line-height: 1.48; }
+.quinkan-root .opsSourceLink { margin-top: 1rem; padding: 0.7rem 0.8rem; display: flex; justify-content: space-between; border: 1px solid #126e56; color: #075b45; text-decoration: none; font-size: 0.7rem; font-weight: 800; }
+.quinkan-root .opsSourceLink:hover { background: #126e56; color: #fff; }
+.quinkan-root .opsMiniLedger { margin: 0.8rem 0 0; }
+.quinkan-root .opsMiniLedger div { padding: 0.35rem 0; display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid #edf0ef; font-size: 0.64rem; }
+.quinkan-root .opsMiniLedger dd { max-width: 55%; overflow-wrap: anywhere; }
+.quinkan-root .opsAlgorithms { margin-top: 1.2rem; }
+.quinkan-root .opsAlgorithm { margin: 0 -1.2rem 1rem; border-top: 1px solid #27332f; border-bottom: 1px solid #27332f; background: #fff; }
+.quinkan-root .opsAlgorithm > header { padding: 0.85rem 1.2rem; background: #17231f; color: #fff; }
+.quinkan-root .opsAlgorithm > header span { color: #f4a62a; font-size: 0.56rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.quinkan-root .opsAlgorithm > header h2 { margin: 0.2rem 0 0.12rem; font-size: 0.9rem; }
+.quinkan-root .opsAlgorithm > header p { margin: 0; color: #b8c2be; font: 0.58rem/1.4 "Courier New", monospace; overflow-wrap: anywhere; }
+.quinkan-root .opsAlgorithmMetrics { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--ops-line); }
+.quinkan-root .opsAlgorithmMetrics div { padding: 0.65rem 0.75rem; border-right: 1px solid var(--ops-line); }
+.quinkan-root .opsAlgorithmMetrics div:last-child { border-right: 0; }
+.quinkan-root .opsAlgorithmMetrics span { display: block; color: #77817d; font-size: 0.55rem; text-transform: uppercase; }
+.quinkan-root .opsAlgorithmMetrics strong { display: block; margin-top: 0.1rem; font-size: 0.82rem; }
+.quinkan-root .opsAlgorithm > p { margin: 0; padding: 0.75rem 1.2rem; color: #59645f; font-size: 0.67rem; line-height: 1.5; }
+.quinkan-root .opsAlgorithm > .opsAlgorithmNote { padding-top: 0; color: #75807b; font: 0.59rem/1.5 "Courier New", monospace; }
+.quinkan-root .opsAlgorithm > .opsCaution { margin: 0.8rem 1.2rem 0; }
+.quinkan-root .opsContributors h3 { margin: 0; padding: 0.55rem 1.2rem; border-bottom: 1px solid var(--ops-line); background: var(--ops-soft); color: #65706c; font-size: 0.59rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.quinkan-root .opsContributor { padding: 0.85rem 1.2rem; border-bottom: 1px solid #e5e9e7; }
+.quinkan-root .opsContributor:last-child { border-bottom: 0; }
+.quinkan-root .opsContributorTop { display: flex; justify-content: space-between; gap: 0.8rem; }
+.quinkan-root .opsContributorTop strong { font-size: 0.7rem; }
+.quinkan-root .opsContributorTop span { color: #4f5a56; font: 0.62rem/1.4 "Courier New", monospace; text-align: right; }
+.quinkan-root .opsContributionTrack { height: 4px; margin: 0.48rem 0 0.6rem; background: #e4e9e6; }
+.quinkan-root .opsContributionTrack i { display: block; height: 100%; background: #138367; }
+.quinkan-root .opsContributor dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.18rem 0.8rem; }
+.quinkan-root .opsContributor dl div { min-width: 0; display: flex; justify-content: space-between; gap: 0.4rem; font-size: 0.57rem; }
+.quinkan-root .opsContributor dd { overflow-wrap: anywhere; }
+.quinkan-root .opsContributor p { margin: 0.58rem 0 0; color: #69736f; font-size: 0.63rem; line-height: 1.45; }
+.quinkan-root .opsVariableSection { margin-left: -1.2rem; margin-right: -1.2rem; padding-left: 1.2rem; padding-right: 1.2rem; }
+.quinkan-root .opsVariableHeading { display: flex; justify-content: space-between; gap: 1rem; align-items: start; }
+.quinkan-root .opsVariableHeading h2 { margin-bottom: 0.18rem; }
+.quinkan-root .opsVariableHeading p { margin: 0; color: #69736f; font-size: 0.62rem; line-height: 1.45; }
+.quinkan-root .opsVariableHeading > strong { display: grid; min-width: 34px; height: 28px; place-items: center; background: #17231f; color: #fff; font-size: 0.65rem; }
+.quinkan-root .opsVariableSearch { display: grid; gap: 0.3rem; margin: 0.8rem 0; }
+.quinkan-root .opsVariableSearch span { color: #6b7672; font-size: 0.57rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+.quinkan-root .opsVariableSearch input { width: 100%; padding: 0.62rem 0.7rem; border: 1px solid #aeb8b4; background: #fff; color: #17231f; font: 0.68rem/1.2 Arial, sans-serif; }
+.quinkan-root .opsVariableSearch input:focus { border-color: #126e56; outline: 2px solid rgb(18 110 86 / 16%); }
+.quinkan-root .opsVariableList { border-top: 1px solid #dfe5e2; }
+.quinkan-root .opsVariable { border-bottom: 1px solid #e3e8e6; }
+.quinkan-root .opsVariable summary { padding: 0.66rem 0; display: flex; justify-content: space-between; gap: 0.7rem; align-items: center; cursor: pointer; list-style-position: inside; }
+.quinkan-root .opsVariable summary span { min-width: 0; flex: 1; }
+.quinkan-root .opsVariable summary strong, .quinkan-root .opsVariable summary small { display: block; }
+.quinkan-root .opsVariable summary strong { font-size: 0.67rem; }
+.quinkan-root .opsVariable summary small { margin-top: 0.08rem; color: #75807b; font: 0.55rem/1.3 "Courier New", monospace; overflow-wrap: anywhere; }
+.quinkan-root .opsVariable summary b { color: #3c126e; font: 0.64rem/1.3 "Courier New", monospace; }
+.quinkan-root .opsVariable dl { margin: 0 0 0.7rem 1rem; padding: 0.55rem 0.65rem; background: #f3f5f4; }
+.quinkan-root .opsVariable dl div { display: grid; grid-template-columns: 1fr minmax(0, 1.4fr); gap: 0.7rem; padding: 0.2rem 0; font-size: 0.57rem; }
+.quinkan-root .opsVariable dt { color: #6d7873; }
+.quinkan-root .opsVariable dd { margin: 0; overflow-wrap: anywhere; text-align: right; }
+.quinkan-root .opsNoVariables { margin: 0; padding: 0.8rem 0; color: #6a7570; font-size: 0.65rem; }
+.quinkan-root .opsWarnings { margin: 0; padding: 0; list-style: none; }
+.quinkan-root .opsWarnings li { padding: 0.55rem 0 0.55rem 1rem; border-top: 1px solid #e6eae8; position: relative; color: #59645f; font-size: 0.67rem; line-height: 1.45; }
+.quinkan-root .opsWarnings li::before { content: "—"; position: absolute; left: 0; color: #d69020; font-weight: 800; }
+.quinkan-root .opsAlgorithmLoading { margin-top: 1rem; padding: 0.8rem; display: flex; align-items: center; gap: 0.65rem; border: 1px solid var(--ops-line); color: #5b6662; font-size: 0.67rem; }
+.quinkan-root .opsAlgorithmLoading i { width: 15px; height: 15px; border: 2px solid #cad2cf; border-top-color: #126e56; border-radius: 50%; animation: opsSpin 0.8s linear infinite; }
+.quinkan-root .opsInlineError { margin: 1rem 0; padding: 0.7rem; border-left: 3px solid #b44d35; background: #fff1ed; color: #773424; font-size: 0.68rem; }
+.quinkan-root .opsEmptyInspector > p:not(.opsEyebrow) { color: #59645f; font-size: 0.73rem; line-height: 1.55; }
+.quinkan-root .opsSourceList { display: grid; }
+.quinkan-root .opsSourceList a { padding: 0.65rem 0; border-top: 1px solid #e6eae8; color: #075b45; text-decoration: none; }
+.quinkan-root .opsSourceList strong, .quinkan-root .opsSourceList small { display: block; }
+.quinkan-root .opsSourceList strong { font-size: 0.68rem; }
+.quinkan-root .opsSourceList small { margin-top: 0.1rem; color: #68736f; font-size: 0.58rem; }
+.quinkan-root .opsMobileButton { display: none; }
+.quinkan-root .opsLoadScreen { min-height: calc(100dvh - var(--research-bar-height, 0px)); display: grid; grid-template-rows: auto 1fr auto; background: #e4e8e6; color: #17231f; }
+.quinkan-root .opsLoadBrand { height: 64px; padding: 0 1rem; display: flex; align-items: center; gap: 0.7rem; background: #111a17; color: #fff; }
+.quinkan-root .opsLoadMap { margin: 1.5rem; position: relative; overflow: hidden; background: linear-gradient(145deg, #c7d0cc 0 28%, #dce2df 28% 52%, #c5ceca 52%); }
+.quinkan-root .opsLoadMap::before, .quinkan-root .opsLoadMap::after { content: ""; position: absolute; inset: 15% 25%; border: 2px solid rgb(35 96 75 / 35%); border-radius: 50%; transform: rotate(-18deg); }
+.quinkan-root .opsLoadMap::after { inset: 35% 8%; transform: rotate(12deg); }
+.quinkan-root .opsLoadMap i { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: #f4a62a; animation: opsPulse 1.4s ease-in-out infinite; }
+.quinkan-root .opsLoadMap i:nth-child(1) { left: 35%; top: 40%; }
+.quinkan-root .opsLoadMap i:nth-child(2) { left: 55%; top: 30%; animation-delay: 0.3s; }
+.quinkan-root .opsLoadMap i:nth-child(3) { left: 48%; top: 62%; animation-delay: 0.6s; }
+.quinkan-root .opsLoadScreen > p { margin: 0; padding: 1rem; background: #fff; color: #59645f; font-size: 0.72rem; text-align: center; }
+.quinkan-root .opsFailure { min-height: calc(100dvh - var(--research-bar-height, 0px)); padding: 12vh 8vw; background: #f3f5f4; }
+.quinkan-root .opsFailure > span { display: grid; width: 46px; height: 46px; place-items: center; background: #f4a62a; font-weight: 900; }
+.quinkan-root .opsFailure h1 { max-width: 700px; margin: 1.5rem 0 1rem; font: 800 clamp(2rem, 5vw, 4rem)/1 Arial, sans-serif; letter-spacing: -0.04em; }
+.quinkan-root .opsFailure p { max-width: 620px; color: #5d6863; }
+.quinkan-root .opsFailure a { display: inline-block; margin-top: 1rem; padding: 0.75rem 1rem; background: #17231f; color: #fff; text-decoration: none; font-weight: 800; }
+@keyframes opsSpin { to { rotate: 360deg; } }
+@keyframes opsPulse { 50% { scale: 1.6; opacity: 0.55; } }
+
+@media (max-width: 1180px) {
+  .quinkan-root .opsHeader { grid-template-columns: 1fr auto; }
+  .quinkan-root .opsHeaderStats { display: none; }
+  .quinkan-root .opsInspector { width: 350px; }
+  .quinkan-root .opsMap .maplibregl-ctrl-bottom-right { right: 376px; }
+}
+
+@media (max-width: 880px) {
+  .quinkan-root .opsHeader { gap: 0.6rem; }
+  .quinkan-root .opsBrand small, .quinkan-root .opsRelease { display: none; }
+  .quinkan-root .opsHeaderActions { gap: 0; }
+  .quinkan-root .opsHeaderActions > a { border: 0; padding-right: 0; }
+  .quinkan-root .opsMain { height: calc(100dvh - 64px - var(--research-bar-height, 0px)); }
+  .quinkan-root .opsPanel { inset: auto 8px 8px 8px; width: auto; max-height: min(82dvh, 720px); display: none; }
+  .quinkan-root .opsPanel.isOpen { display: flex; }
+  .quinkan-root .opsPanelScroll { padding-bottom: 54px; }
+  .quinkan-root .opsPanelTop button { display: grid; place-items: center; }
+  .quinkan-root .opsMap .maplibregl-ctrl-bottom-left { left: 0; bottom: 54px; }
+  .quinkan-root .opsMap .maplibregl-ctrl-bottom-right { right: 0; bottom: 54px; }
+  .quinkan-root .opsMapLegend { bottom: 60px; max-width: calc(100vw - 16px); gap: 0.65rem; overflow: hidden; }
+  .quinkan-root .opsMobileButton { position: absolute; z-index: 8; bottom: 10px; min-height: 42px; display: flex; align-items: center; justify-content: center; gap: 0.45rem; border: 1px solid #15201d; background: #fff; color: #15201d; box-shadow: 0 3px 16px rgb(13 22 18 / 18%); cursor: pointer; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
+  .quinkan-root .opsMobileButton svg { width: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .quinkan-root .opsLayersButton { left: 10px; width: calc(50% - 15px); }
+  .quinkan-root .opsInspectButton { right: 10px; width: calc(50% - 15px); background: #17231f; color: #fff; }
+  .quinkan-root .opsInspectButton:disabled { opacity: 1; background: #76817d; color: #e9eeec; }
+}
+
+@media (max-width: 520px) {
+  .quinkan-root .opsHeader { padding: 0 0.75rem; }
+  .quinkan-root .opsBrand > span:last-child { display: none; }
+  .quinkan-root .opsHeaderActions > a { font-size: 0.61rem; }
+  .quinkan-root .opsMapLegend { width: calc(100vw - 16px); display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 0.75rem; white-space: normal; }
+  .quinkan-root .opsMapLegend span { font-size: 0.55rem; }
+  .quinkan-root .opsInspectArticle { padding: 1rem; }
+  .quinkan-root .opsAlgorithm { margin-left: -1rem; margin-right: -1rem; }
+  .quinkan-root .opsContributor dl { grid-template-columns: 1fr; }
+}
+
+/* Pre-survey field evaluation report */
+.quinkan-root .reportShell {
+  min-height: calc(100dvh - var(--research-bar-height, 0px));
+  background: #eef1ef;
+  color: #15201d;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.quinkan-root .reportHeaderState {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.48rem;
+  color: #d9e0dd;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+.quinkan-root .reportHeaderState i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f4a62a;
+  box-shadow: 0 0 0 3px rgb(244 166 42 / 18%);
+}
+.quinkan-root .reportMain {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 52px 0 72px;
+}
+.quinkan-root .reportIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.65fr);
+  gap: 5vw;
+  align-items: end;
+  padding: 3.2rem 0 3.5rem;
+  border-bottom: 1px solid #aeb8b4;
+}
+.quinkan-root .reportIntro > div { min-width: 0; }
+.quinkan-root .reportState {
+  width: fit-content;
+  margin: 0 0 1.1rem;
+  padding: 0.38rem 0.55rem;
+  background: #fff1c9;
+  color: #624713;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+.quinkan-root .reportIntro h1 {
+  max-width: none;
+  margin: 0 0 1rem;
+  font: 800 3.7rem/0.98 Arial, Helvetica, sans-serif;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+.quinkan-root .reportLead {
+  max-width: 70ch;
+  margin: 0;
+  color: #4e5b56;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+.quinkan-root .reportReady {
+  padding: 1.25rem;
+  border-top: 4px solid #f4a62a;
+  background: #fff;
+}
+.quinkan-root .reportReady span {
+  display: block;
+  color: #6a7671;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+.quinkan-root .reportReady strong { display: block; margin-top: 0.35rem; font-size: 1.05rem; }
+.quinkan-root .reportReady p { margin: 0.65rem 0 0; color: #596660; font-size: 0.79rem; line-height: 1.5; }
+.quinkan-root .reportBaseline, .quinkan-root .reportResults, .quinkan-root .reportAlgorithms, .quinkan-root .reportLocations, .quinkan-root .reportIntegrity, .quinkan-root .reportMetrics, .quinkan-root .reportSequence, .quinkan-root .reportCaution {
+  padding: 3rem 0;
+  border-bottom: 1px solid #c8cfcc;
+}
+.quinkan-root .reportSectionHeading {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(300px, 1fr);
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 1.6rem;
+}
+.quinkan-root .reportSectionHeading h2, .quinkan-root .reportCaution h2 {
+  margin: 0;
+  font: 800 1.55rem/1.15 Arial, Helvetica, sans-serif;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.quinkan-root .reportSectionHeading p { max-width: 65ch; margin: 0; color: #58645f; line-height: 1.55; }
+.quinkan-root .reportLedger {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid #17231f;
+  background: #fff;
+}
+.quinkan-root .reportLedger div {
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(140px, 0.8fr) 1fr;
+  gap: 1rem;
+  border-bottom: 1px solid #d7ddda;
+}
+.quinkan-root .reportLedger div:nth-child(odd) { border-right: 1px solid #d7ddda; }
+.quinkan-root .reportLedger dt { color: #68746f; font-size: 0.72rem; }
+.quinkan-root .reportLedger dd { margin: 0; overflow-wrap: anywhere; text-align: right; font: 700 0.75rem/1.4 "Courier New", monospace; }
+.quinkan-root .reportHashes { margin-top: 0.8rem; border: 0; }
+.quinkan-root .reportHashes summary { width: fit-content; color: #075b45; }
+.quinkan-root .reportHashes dl { max-width: 900px; margin: 0; border-top: 1px solid #c8cfcc; }
+.quinkan-root .reportHashes dl div { padding: 0.55rem 0; display: grid; grid-template-columns: 180px 1fr; gap: 1rem; border-bottom: 1px solid #d7ddda; }
+.quinkan-root .reportHashes dt { color: #65716c; font-size: 0.7rem; }
+.quinkan-root .reportHashes dd { margin: 0; overflow-wrap: anywhere; font: 0.66rem/1.4 "Courier New", monospace; }
+.quinkan-root .reportResultCards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid #17231f;
+  background: #17231f;
+}
+.quinkan-root .reportResultCards article { min-width: 0; padding: 1.1rem; background: #fff; }
+.quinkan-root .reportResultCards span { display: block; color: #68746f; font-size: 0.68rem; font-weight: 800; }
+.quinkan-root .reportResultCards strong { display: block; margin-top: 0.45rem; font-size: clamp(1.4rem, 3vw, 2.2rem); letter-spacing: -0.04em; }
+.quinkan-root .reportResultCards small { display: block; margin-top: 0.45rem; color: #67736e; line-height: 1.4; }
+.quinkan-root .reportResultGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.quinkan-root .reportResultPanel { padding: 1rem; border-top: 3px solid #2f725d; background: #fff; }
+.quinkan-root .reportResultPanel h3 { margin: 0 0 0.85rem; font-size: 0.82rem; }
+.quinkan-root .reportResultPanel dl { margin: 0; }
+.quinkan-root .reportResultPanel dl div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.45rem 0; border-top: 1px solid #e0e5e2; }
+.quinkan-root .reportResultPanel dt { color: #66736d; font-size: 0.7rem; }
+.quinkan-root .reportResultPanel dd { margin: 0; font: 700 0.72rem/1.4 "Courier New", monospace; text-align: right; }
+.quinkan-root .reportTableWrap { overflow-x: auto; border-top: 1px solid #17231f; background: #fff; }
+.quinkan-root .reportAlgorithms table { width: 100%; min-width: 820px; border-collapse: collapse; }
+.quinkan-root .reportAlgorithms th, .quinkan-root .reportAlgorithms td { padding: 0.9rem 1rem; border-bottom: 1px solid #d7ddda; text-align: right; }
+.quinkan-root .reportAlgorithms thead th { color: #58645f; font-size: 0.68rem; }
+.quinkan-root .reportAlgorithms th:first-child { text-align: left; }
+.quinkan-root .reportAlgorithms tbody th { max-width: 340px; }
+.quinkan-root .reportAlgorithms tbody th span { display: block; font-size: 0.78rem; }
+.quinkan-root .reportAlgorithms tbody th small { display: block; margin-top: 0.25rem; color: #75807b; font: 0.58rem/1.35 "Courier New", monospace; overflow-wrap: anywhere; }
+.quinkan-root .reportAlgorithms td { font: 700 0.72rem/1.4 "Courier New", monospace; }
+.quinkan-root .reportLocationList { border-top: 1px solid #17231f; }
+.quinkan-root .reportLocationList details { border-bottom: 1px solid #cbd2cf; }
+.quinkan-root .reportLocationList summary { display: flex; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; cursor: pointer; }
+.quinkan-root .reportLocationList summary span { font-weight: 800; }
+.quinkan-root .reportLocationList summary strong { font: 700 0.75rem/1.4 "Courier New", monospace; }
+.quinkan-root .reportLocationList dl { margin: 0 0 1rem; display: grid; grid-template-columns: 1fr 1fr; background: #fff; }
+.quinkan-root .reportLocationList dl div { padding: 0.75rem; display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid #e0e5e2; }
+.quinkan-root .reportLocationList dt { color: #67736e; font-size: 0.7rem; }
+.quinkan-root .reportLocationList dd { margin: 0; font: 700 0.7rem/1.4 "Courier New", monospace; text-align: right; }
+.quinkan-root .reportIntegrity code, .quinkan-root .reportResults code { font: 0.78em/1.4 "Courier New", monospace; overflow-wrap: anywhere; }
+.quinkan-root .reportMetricRows { border-top: 1px solid #17231f; }
+.quinkan-root .reportMetricRows article {
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: minmax(190px, 0.7fr) minmax(300px, 1.5fr) minmax(180px, 0.75fr);
+  gap: 1.5rem;
+  align-items: baseline;
+  border-bottom: 1px solid #cbd2cf;
+}
+.quinkan-root .reportMetricRows strong { font-size: 0.88rem; }
+.quinkan-root .reportMetricRows p { margin: 0; color: #4f5c57; line-height: 1.5; }
+.quinkan-root .reportMetricRows small { color: #6c7873; font: 0.66rem/1.45 "Courier New", monospace; }
+.quinkan-root .reportSequence ol { margin: 0; padding: 0; list-style: none; border-top: 1px solid #17231f; }
+.quinkan-root .reportSequence li { display: grid; grid-template-columns: 54px 1fr; align-items: center; border-bottom: 1px solid #cbd2cf; }
+.quinkan-root .reportSequence li span { padding: 0.9rem 0; color: #875c0d; font: 800 0.72rem/1 "Courier New", monospace; }
+.quinkan-root .reportSequence li p { margin: 0; padding: 0.9rem 0; color: #35413c; }
+.quinkan-root .reportCaution { display: grid; grid-template-columns: minmax(220px, 0.7fr) minmax(300px, 1.4fr); gap: 3rem; border-bottom: 0; }
+.quinkan-root .reportCaution p { max-width: 72ch; margin: 0; color: #574a2f; line-height: 1.65; }
+
+@media (max-width: 820px) {
+  .quinkan-root .reportHeaderState { display: none; }
+  .quinkan-root .reportIntro, .quinkan-root .reportSectionHeading, .quinkan-root .reportCaution { grid-template-columns: 1fr; gap: 1.4rem; }
+  .quinkan-root .reportIntro h1 { font-size: 2.8rem; }
+  .quinkan-root .reportLedger { grid-template-columns: 1fr; }
+  .quinkan-root .reportLedger div:nth-child(odd) { border-right: 0; }
+  .quinkan-root .reportResultCards { grid-template-columns: 1fr 1fr; }
+  .quinkan-root .reportResultGrid { grid-template-columns: 1fr; }
+  .quinkan-root .reportMetricRows article { grid-template-columns: 1fr; gap: 0.3rem; }
+}
+
+@media (max-width: 520px) {
+  .quinkan-root .reportMain { width: min(100% - 24px, 1180px); padding-top: 20px; }
+  .quinkan-root .reportIntro { padding-top: 1.8rem; }
+  .quinkan-root .reportIntro h1 { max-width: 100%; font-size: clamp(2rem, 10vw, 2.35rem); line-height: 1.02; overflow-wrap: anywhere; text-wrap: wrap; }
+  .quinkan-root .reportLedger div { grid-template-columns: 1fr; gap: 0.2rem; }
+  .quinkan-root .reportLedger dd { text-align: left; }
+  .quinkan-root .reportHashes dl div { grid-template-columns: 1fr; gap: 0.2rem; }
+  .quinkan-root .reportResultCards { grid-template-columns: 1fr; }
+  .quinkan-root .reportLocationList dl { grid-template-columns: 1fr; }
+  .quinkan-root .reportCaution { padding-bottom: 1.5rem; }
+}
+
+/* Methodology page — prose table variant of the algorithm table */
+.quinkan-root .methodologyTable table { min-width: 760px; }
+.quinkan-root .methodologyTable th, .quinkan-root .methodologyTable td { text-align: left; vertical-align: top; }
+.quinkan-root .methodologyTable thead th { font-size: 0.68rem; }
+.quinkan-root .methodologyTable tbody th span { display: block; font-size: 0.78rem; }
+.quinkan-root .methodologyTable td { max-width: 46ch; color: #4f5c57; font-family: inherit; font-size: 0.78rem; font-weight: 400; line-height: 1.55; }
+
+/* Field report index cards */
+.quinkan-root .reportListSection { display: grid; gap: 18px; }
+.quinkan-root .reportCards { display: grid; gap: 14px; }
+.quinkan-root .reportCard {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  padding: 20px 22px; border: 1px solid rgb(21 32 29 / 18%); border-radius: 12px;
+  background: #ffffff; color: inherit; text-decoration: none;
+  transition: box-shadow 0.16s ease, border-color 0.16s ease;
+}
+.quinkan-root .reportCard:hover, .quinkan-root .reportCard:focus-visible { border-color: rgb(21 32 29 / 40%); box-shadow: 0 10px 30px rgb(13 22 18 / 14%); }
+.quinkan-root .reportCardMain { display: grid; gap: 6px; }
+.quinkan-root .reportCardDate { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: #4d5854; font-weight: 700; }
+.quinkan-root .reportCardMain h3 { margin: 0; font-size: 1.12rem; line-height: 1.3; }
+.quinkan-root .reportCardMain p { margin: 0; color: #3c4642; font-size: 0.92rem; }
+.quinkan-root .reportCardMain small { color: #6a736f; font-size: 0.78rem; }
+.quinkan-root .reportCardArrow { font-size: 1.4rem; color: #4d5854; flex-shrink: 0; transition: transform 0.16s ease; }
+.quinkan-root .reportCard:hover .reportCardArrow { transform: translateX(3px); }
+.quinkan-root .reportCrumb { color: inherit; }
+.quinkan-root .reportEmpty { color: #4d5854; }
+@media (prefers-reduced-motion: reduce) { .quinkan-root .reportCard, .quinkan-root .reportCardArrow { transition: none; } }
+
+/* Geotagged photo inspector */
+.quinkan-root .opsPhotoThumb { display: block; margin: 10px 0; border-radius: 8px; overflow: hidden; border: 1px solid rgb(21 32 29 / 20%); }
+.quinkan-root .opsPhotoThumb img { display: block; width: 100%; height: auto; }
+
+/* ————————————————————————————————————————————————
+   Field report detail (frozen-baseline evidence page)
+   ———————————————————————————————————————————————— */
+.quinkan-root .frMain { padding-top: 40px; }
+.quinkan-root .frMasthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.7fr);
+  gap: 4vw;
+  align-items: end;
+  padding: 2.6rem 0 3rem;
+  border-bottom: 1px solid #aeb8b4;
+}
+.quinkan-root .frMasthead > .frMastheadText { min-width: 0; }
+.quinkan-root .frCrumb { margin: 0 0 1.2rem; color: #5c6963; font-size: 0.78rem; }
+.quinkan-root .frCrumb a { font-weight: 700; color: #0d5e49; }
+.quinkan-root .frCrumb code { font: 0.74rem/1 "Courier New", monospace; color: #46524d; overflow-wrap: anywhere; }
+.quinkan-root .frMasthead h1 {
+  margin: 0 0 1.1rem;
+  font: 800 clamp(2.1rem, 5.2vw, 3.55rem)/1.02 Arial, Helvetica, sans-serif;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.quinkan-root .frLead { max-width: 66ch; margin: 0; color: #47534e; font-size: 1.07rem; line-height: 1.68; text-wrap: pretty; }
+.quinkan-root .frLead strong { color: #17231f; }
+.quinkan-root .frScore { padding: 1.3rem 1.35rem 1.45rem; border-top: 4px solid #753bbd; background: #fff; }
+.quinkan-root .frScore > span { display: block; color: #6a7671; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.quinkan-root .frScore > strong { display: block; margin-top: 0.4rem; font-size: 1.18rem; letter-spacing: -0.015em; }
+.quinkan-root .frScore p { margin: 0.7rem 0 0; color: #4c5954; font-size: 0.82rem; line-height: 1.55; }
+.quinkan-root .frScore .frScoreNext { color: #5c4b91; font-weight: 700; }
+
+.quinkan-root .frMeasureStrip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  border-bottom: 1px solid #c8cfcc;
+}
+.quinkan-root .frMeasureStrip > div { padding: 1.5rem 1.4rem 1.6rem 0; border-right: 1px solid #d7ddda; }
+.quinkan-root .frMeasureStrip > div:not(:first-child) { padding-left: 1.4rem; }
+.quinkan-root .frMeasureStrip > div:last-child { border-right: 0; }
+.quinkan-root .frMeasureStrip strong { display: block; font: 700 clamp(1.5rem, 2.6vw, 2.1rem)/1 "Courier New", monospace; letter-spacing: -0.03em; }
+.quinkan-root .frMeasureStrip span { display: block; margin-top: 0.55rem; max-width: 24ch; color: #57645e; font-size: 0.78rem; line-height: 1.45; }
+
+.quinkan-root .frSection { padding: 3rem 0; border-bottom: 1px solid #c8cfcc; }
+.quinkan-root .frSectionHead { display: grid; grid-template-columns: minmax(240px, 0.75fr) minmax(300px, 1fr); gap: 3rem; align-items: start; margin-bottom: 1.7rem; }
+.quinkan-root .frSectionHead h2 { margin: 0; font: 800 1.6rem/1.12 Arial, Helvetica, sans-serif; letter-spacing: -0.025em; text-wrap: balance; }
+.quinkan-root .frSectionHead p { max-width: 62ch; margin: 0; color: #4c5954; line-height: 1.6; }
+.quinkan-root .frFigureNote { max-width: 78ch; margin: 1.1rem 0 0; color: #57645e; font-size: 0.84rem; line-height: 1.6; }
+.quinkan-root .frLineageAmendment { padding: 0.7rem 0.85rem; border-top: 3px solid #8a6d1f; background: #faf6ea; color: #4c4428; }
+
+/* Shared figure scaffolding */
+.quinkan-root .frFigureScroll { overflow-x: auto; overscroll-behavior-x: contain; }
+.quinkan-root .frFigureScroll > svg { display: block; width: 100%; min-width: 700px; height: auto; }
+.quinkan-root .frDistanceFigure { background: #fff; border: 1px solid #d7ddda; }
+.quinkan-root .frAxis { stroke: #7f8b86; stroke-width: 1.4; }
+.quinkan-root .frAxisFaint { stroke: #ccd3d0; stroke-width: 1.2; }
+.quinkan-root .frAxisTick { stroke: #7f8b86; stroke-width: 1.2; }
+.quinkan-root .frAxisLabel { fill: #5b6762; font: 600 11.5px Arial, Helvetica, sans-serif; }
+.quinkan-root .frMarkLabel { fill: #46524d; font: 800 12px Arial, Helvetica, sans-serif; }
+.quinkan-root .frMarkValue { fill: #17231f; font: 700 12.5px "Courier New", monospace; }
+.quinkan-root .frChanceLine { stroke: #5b6763; stroke-width: 1.6; stroke-dasharray: 4 3.4; }
+.quinkan-root .frTrainingLine { stroke: #3d7f0e; stroke-width: 2; }
+.quinkan-root .frCaveBand { fill: #753bbd; fill-opacity: 0.92; }
+.quinkan-root .frCaveMedian { stroke: #2d1157; stroke-width: 2.4; }
+.quinkan-root .frCaveLabel { fill: #4b2483; font: 800 13.5px Arial, Helvetica, sans-serif; }
+.quinkan-root .frCaveSub { fill: #4b2483; font: 700 12px "Courier New", monospace; }
+.quinkan-root .frCaveLeader { stroke: #9d84c8; stroke-width: 1.3; }
+
+/* Luck panels */
+.quinkan-root .frLuckGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: #c8cfcc; border: 1px solid #c8cfcc; }
+.quinkan-root .frLuckPanel { padding: 1.35rem 1.4rem 1.5rem; background: #fff; }
+.quinkan-root .frLuckPanel h3 { margin: 0 0 0.8rem; font-size: 0.95rem; letter-spacing: -0.01em; }
+.quinkan-root .frLuckPanel p { margin: 0.8rem 0 0; color: #47534e; font-size: 0.86rem; line-height: 1.6; }
+.quinkan-root .frWaffle { display: block; width: 100%; max-width: 328px; height: auto; }
+.quinkan-root .frWaffleMarked { fill: #b06e00; }
+.quinkan-root .frWaffleEmpty { fill: #e2e7e4; }
+
+/* Narrative */
+.quinkan-root .frProse { max-width: 68ch; }
+.quinkan-root .frProse p { margin: 0 0 1.15rem; color: #313d38; font-size: 1.04rem; line-height: 1.72; text-wrap: pretty; }
+.quinkan-root .frProse p:first-child { font-size: 1.14rem; color: #17231f; }
+.quinkan-root .frProse p:last-child { margin-bottom: 0; }
+
+/* Dumbbells */
+.quinkan-root .frDumbbells { border-top: 1px solid #17231f; }
+.quinkan-root .frDumbbellRow { display: grid; grid-template-columns: minmax(250px, 0.85fr) minmax(0, 1.6fr); gap: 2.2rem; align-items: center; padding: 1.15rem 0; border-bottom: 1px solid #cbd2cf; }
+.quinkan-root .frDumbbellMeta strong { display: block; font-size: 0.92rem; letter-spacing: -0.01em; }
+.quinkan-root .frDumbbellMeta p { margin: 0.45rem 0 0; color: #57645e; font-size: 0.8rem; line-height: 1.5; max-width: 46ch; }
+.quinkan-root .frVerdictGood, .quinkan-root .frVerdictFlat { display: inline-block; margin-top: 0.4rem; font: 700 0.72rem/1.3 "Courier New", monospace; }
+.quinkan-root .frVerdictGood { color: #0d5e49; }
+.quinkan-root .frVerdictFlat { color: #6a7571; }
+.quinkan-root .frDumbbellFigure { min-width: 620px; }
+.quinkan-root .frDumbbellSpan { stroke: #b9c1bd; stroke-width: 3; }
+.quinkan-root .frDotObserved { fill: #753bbd; stroke: #fff; stroke-width: 2; }
+.quinkan-root .frDotNull { fill: #6a7571; stroke: #fff; stroke-width: 2; }
+.quinkan-root .frDotLabel { fill: #4b2483; font: 700 12.5px "Courier New", monospace; }
+.quinkan-root .frDotLabelNull { fill: #5b6763; font: 700 11.5px "Courier New", monospace; }
+
+/* Timeline */
+.quinkan-root .frTimeline { margin: 0; padding: 0; list-style: none; border-top: 1px solid #17231f; }
+.quinkan-root .frTimeline li { display: grid; grid-template-columns: 96px 1fr; gap: 1.6rem; padding: 1.05rem 0; border-bottom: 1px solid #cbd2cf; }
+.quinkan-root .frTimeline time { padding-top: 0.1rem; color: #875c0d; font: 800 0.82rem/1.35 "Courier New", monospace; white-space: nowrap; }
+.quinkan-root .frTimeline strong { display: block; font-size: 0.95rem; letter-spacing: -0.01em; }
+.quinkan-root .frTimeline p { margin: 0.35rem 0 0; max-width: 72ch; color: #4c5954; font-size: 0.85rem; line-height: 1.55; }
+
+/* Boundary + integrity */
+.quinkan-root .frBoundary { border-bottom: 0; }
+.quinkan-root .frBoundaryGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2.2rem; }
+.quinkan-root .frBoundaryGrid p { margin: 0; color: #514631; font-size: 0.9rem; line-height: 1.65; }
+.quinkan-root .frBoundaryGrid strong { display: block; margin-bottom: 0.35rem; color: #3c3117; }
+.quinkan-root .frIntegrity { margin-top: 2.2rem; }
+.quinkan-root .frIntegrity summary { width: fit-content; color: #075b45; font-weight: 700; font-size: 0.85rem; cursor: pointer; }
+.quinkan-root .frIntegrity dl { max-width: 940px; margin: 0.8rem 0 0; border-top: 1px solid #c8cfcc; }
+.quinkan-root .frIntegrity dl div { display: grid; grid-template-columns: 220px 1fr; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px solid #d7ddda; }
+.quinkan-root .frIntegrity dt { color: #65716c; font-size: 0.72rem; }
+.quinkan-root .frIntegrity dd { margin: 0; overflow-wrap: anywhere; font: 0.68rem/1.45 "Courier New", monospace; }
+
+/* Evidence map */
+.quinkan-root .emapShell { margin: 0; }
+.quinkan-root .emapPending, .quinkan-root .emapFailure { display: grid; place-items: center; gap: 0.6rem; min-height: 380px; padding: 2rem; border: 1px solid #d7ddda; background: #fff; text-align: center; }
+.quinkan-root .emapPending p, .quinkan-root .emapFailure p { max-width: 52ch; margin: 0; color: #57645e; font-size: 0.86rem; line-height: 1.55; }
+.quinkan-root .emapFailure strong { font-size: 1rem; }
+.quinkan-root .emapSkeleton { width: min(420px, 80%); height: 10px; background: repeating-linear-gradient(90deg, #e2e7e4 0 24px, #eef1ef 24px 48px); animation: emapSlide 1.1s linear infinite; }
+@keyframes emapSlide { to { background-position-x: 48px; } }
+.quinkan-root .emapToolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.4rem; padding: 0.75rem 0.9rem; border: 1px solid #17231f; border-bottom: 0; background: #fff; }
+.quinkan-root .emapSegmented { display: inline-flex; border: 1px solid #c8d0cd; }
+.quinkan-root .emapSegmented button {
+  min-height: 34px; padding: 0.3rem 0.75rem; border: 0; border-right: 1px solid #c8d0cd;
+  background: #fff; color: #59635f; cursor: pointer; font-size: 0.72rem; font-weight: 700;
+}
+.quinkan-root .emapSegmented button:last-child { border-right: 0; }
+.quinkan-root .emapSegmented button[aria-checked="true"] { background: #15201d; color: #fff; }
+.quinkan-root .emapViewButtons { display: inline-flex; align-items: center; gap: 0.55rem; }
+.quinkan-root .emapViewButtons > button {
+  min-height: 34px; padding: 0.3rem 0.75rem; border: 1px solid #0d5e49; background: #eaf5f1;
+  color: #0b4a3a; cursor: pointer; font-size: 0.72rem; font-weight: 700;
+}
+.quinkan-root .emapViewButtons > button:hover { background: #d8ede5; }
+.quinkan-root .emapBasemap { display: inline-flex; align-items: center; gap: 0.45rem; color: #59635f; font-size: 0.72rem; font-weight: 700; }
+.quinkan-root .emapBasemap select { min-height: 34px; padding: 0 0.4rem; border: 1px solid #c8d0cd; background: #fff; color: #17231f; font-size: 0.74rem; }
+.quinkan-root .emapToggles { display: inline-flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; }
+.quinkan-root .emapToggles label { display: inline-flex; align-items: center; gap: 0.4rem; color: #46524d; font-size: 0.74rem; font-weight: 700; cursor: pointer; }
+.quinkan-root .emapToggles input { width: 15px; height: 15px; accent-color: #126e56; cursor: pointer; }
+.quinkan-root .emapCanvasWrap { position: relative; border: 1px solid #17231f; }
+.quinkan-root .emapCanvas { height: clamp(420px, 62vh, 640px); background: #dbe1de; }
+.quinkan-root .emapTileWarning {
+  position: absolute; top: 10px; left: 10px; max-width: 320px; padding: 0.6rem 0.75rem;
+  background: #fff6e8; border: 1px solid #b06e00; color: #6b4a08; font-size: 0.74rem; line-height: 1.4;
+}
+.quinkan-root .emapCensorNote { margin: 0; padding: 0.7rem 0.9rem; border: 1px solid #b06e00; border-top: 0; background: #fff6e8; color: #6b4a08; font-size: 0.78rem; line-height: 1.5; }
+.quinkan-root .emapLegend { display: flex; flex-wrap: wrap; gap: 0.45rem 1.3rem; padding: 0.7rem 0.9rem; border: 1px solid #17231f; border-top: 0; background: #fff; color: #46524d; font-size: 0.73rem; font-weight: 700; }
+.quinkan-root .emapLegend i { display: inline-block; vertical-align: -1px; margin-right: 0.35rem; }
+.quinkan-root .emapSwatchCave { width: 11px; height: 11px; border-radius: 50%; background: #753bbd; box-shadow: 0 0 0 2px #fff, 0 0 0 3px #c9b8e6; }
+.quinkan-root .emapSwatchRamp { width: 26px; height: 10px; background: linear-gradient(90deg, #f7d9a4, #7c4a00); }
+.quinkan-root .emapSwatchTraining { width: 10px; height: 10px; border-radius: 50%; background: #3d7f0e; box-shadow: 0 0 0 1.6px #fff, 0 0 0 2.6px #c4d6b4; }
+.quinkan-root .emapSwatchCamp { width: 10px; height: 10px; border-radius: 50%; background: #137fbb; box-shadow: 0 0 0 1.6px #fff, 0 0 0 2.6px #b9d8ea; }
+.quinkan-root .emapSwatchRing { width: 22px; height: 0; border-top: 2px dashed #3c4642; vertical-align: 3px; }
+.quinkan-root .emapCaption { padding: 0.9rem 0.2rem 0; }
+.quinkan-root .emapCaption p { max-width: 92ch; margin: 0 0 0.5rem; color: #57645e; font-size: 0.78rem; line-height: 1.55; }
+.quinkan-root .emapCaption code { font: 0.72rem/1.4 "Courier New", monospace; color: #46524d; overflow-wrap: anywhere; }
+.quinkan-root .emapBoundary { color: #514631; }
+.quinkan-root .emapPopup .maplibregl-popup-content { padding: 0.8rem 0.9rem; border-radius: 2px; box-shadow: 0 2px 10px rgb(12 24 19 / 22%); font-family: Arial, Helvetica, sans-serif; }
+.quinkan-root .emapPopup strong { display: block; font-size: 0.82rem; }
+.quinkan-root .emapPopup span { display: block; margin-top: 0.15rem; color: #5b6763; font-size: 0.68rem; }
+.quinkan-root .emapPopup p { margin: 0.5rem 0 0; max-width: 34ch; color: #46524d; font-size: 0.72rem; line-height: 1.45; }
+.quinkan-root .emapPopup dl { margin: 0.55rem 0 0; }
+.quinkan-root .emapPopup dl div { display: flex; justify-content: space-between; gap: 0.9rem; padding: 0.25rem 0; border-top: 1px solid #e4e8e6; }
+.quinkan-root .emapPopup dt { color: #5b6763; font-size: 0.68rem; }
+.quinkan-root .emapPopup dd { margin: 0; font: 700 0.7rem/1.3 "Courier New", monospace; }
+
+@media (max-width: 900px) {
+  .quinkan-root .frMasthead { grid-template-columns: 1fr; gap: 1.8rem; padding: 1.8rem 0 2.2rem; }
+  .quinkan-root .frSectionHead { grid-template-columns: 1fr; gap: 0.7rem; }
+  .quinkan-root .frMeasureStrip > div { border-right: 0; border-bottom: 1px solid #d7ddda; padding: 1.1rem 0; }
+  .quinkan-root .frMeasureStrip > div:not(:first-child) { padding-left: 0; }
+  .quinkan-root .frMeasureStrip > div:last-child { border-bottom: 0; }
+  .quinkan-root .frDumbbellRow { grid-template-columns: 1fr; gap: 0.6rem; }
+  .quinkan-root .frTimeline li { grid-template-columns: 72px 1fr; gap: 1rem; }
+  .quinkan-root .frIntegrity dl div { grid-template-columns: 1fr; gap: 0.2rem; }
+  .quinkan-root .emapCanvas { height: clamp(360px, 58vh, 520px); }
+}
+
+/* Top map control bar */
+.quinkan-root .opsTopBar {
+  position: absolute; z-index: 8; top: 14px; left: 14px; right: auto;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; max-width: calc(100% - 28px);
+  padding: 8px 10px; border-radius: 12px;
+  background: rgb(252 254 253 / 86%); border: 1px solid rgb(255 255 255 / 55%);
+  box-shadow: 0 10px 34px rgb(13 22 18 / 24%); backdrop-filter: blur(14px) saturate(1.3);
+}
+.quinkan-root .opsBarSeg { margin: 0; }
+.quinkan-root .opsBarButton {
+  height: 34px; padding: 0 14px; border-radius: 8px; border: 1px solid rgb(21 32 29 / 22%);
+  background: #ffffff; font-weight: 700; font-size: 0.82rem; cursor: pointer;
+}
+.quinkan-root .opsBarButton:hover { border-color: rgb(21 32 29 / 45%); }
+.quinkan-root .opsBarButton[aria-expanded="true"] { background: #10211c; color: #ffffff; }
+.quinkan-root .opsExaggeration { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: #33403b; }
+.quinkan-root .opsExaggeration input { width: 110px; accent-color: #10211c; }
+.quinkan-root .opsApproach {
+  margin: 8px 0 10px; padding: 9px 11px; border-radius: 8px; font-size: 0.85rem; line-height: 1.45;
+  background: rgb(16 33 28 / 6%); border: 1px solid rgb(16 33 28 / 14%);
+}
+@media (min-width: 641px) {
+  .quinkan-root .opsControls { display: none; top: 72px; bottom: auto; max-height: calc(100% - 86px); }
+  .quinkan-root .opsControls.isOpen { display: flex; }
+  .quinkan-root .opsPanelTop button { display: grid; place-items: center; }
+}
+@media (max-width: 640px) {
+  .quinkan-root .opsTopBar { top: 8px; left: 8px; right: 8px; gap: 6px; padding: 6px 8px; }
+  .quinkan-root .opsMapError { top: 128px; left: 8px; right: 8px; max-width: none; translate: none; }
+  .quinkan-root .opsExaggeration input { width: 80px; }
+}
+
+/* ————————————————————————————————————————————————
+   Data & methods compendium (/datasets, /algorithms, /calibration-report)
+   ———————————————————————————————————————————————— */
+.quinkan-root .compSection { padding: 3rem 0; border-bottom: 1px solid #c8cfcc; }
+.quinkan-root .compSection:last-of-type { border-bottom: 0; }
+.quinkan-root .compBreadcrumb { margin: 1.8rem 0 0; font-size: 0.78rem; }
+.quinkan-root .compBreadcrumb a { color: #0d5e49; font-weight: 700; }
+.quinkan-root .opsHeaderActions > a[aria-current="page"] { border-color: #f4a62a; color: #f4a62a; }
+.quinkan-root .compChip {
+  display: inline-block; padding: 0.3rem 0.55rem; border-radius: 999px;
+  font-size: 0.66rem; font-weight: 800; letter-spacing: 0.02em; white-space: nowrap;
+  background: #e3e8e5; color: #46524d;
+}
+.quinkan-root .compChip[data-status="downloaded"], .quinkan-root .compChip[data-status="built"] { background: #d9efdd; color: #135c2c; }
+.quinkan-root .compChip[data-status="operator_gated"] { background: #fff1c9; color: #624713; }
+.quinkan-root .compChip[data-status="governed"] { background: #e8e0f4; color: #4b3577; }
+.quinkan-root .compChip[data-status="blocked"] { background: #fadfdb; color: #8c2f1f; }
+.quinkan-root .compChip[data-status="dead_end"] { background: #eceeec; color: #6a736f; }
+.quinkan-root .compStatusSummary { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.quinkan-root .compStatusSummary li {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.55rem 0.85rem; background: #fff; border: 1px solid #d7ddda;
+}
+.quinkan-root .compStatusSummary strong { font-size: 1rem; font-variant-numeric: tabular-nums; }
+.quinkan-root .compTableWrap { overflow-x: auto; background: #fff; border-top: 1px solid #17231f; }
+.quinkan-root .compTable { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 0.82rem; }
+.quinkan-root .compTable th {
+  padding: 0.6rem 0.9rem; text-align: left; font-size: 0.66rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: #68746f; border-bottom: 1px solid #d7ddda;
+}
+.quinkan-root .compTable td { padding: 0.7rem 0.9rem; border-bottom: 1px solid #e4e9e6; vertical-align: top; }
+.quinkan-root .compTable tbody tr:hover { background: #f5f7f5; }
+.quinkan-root .compNum { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.quinkan-root .compTable td.compNum, .quinkan-root .compTable th:not(:first-child) { text-align: left; }
+.quinkan-root .compRowLink { font-weight: 700; color: #0d5e49; text-decoration: none; }
+.quinkan-root .compRowLink:hover, .quinkan-root .compRowLink:focus-visible { text-decoration: underline; }
+.quinkan-root .compRowMeta { display: block; margin-top: 0.25rem; color: #6a736f; font-size: 0.72rem; }
+.quinkan-root .compRowMeta code { font-size: 0.7rem; overflow-wrap: anywhere; }
+.quinkan-root .compRowMeta a { color: #0d5e49; }
+.quinkan-root .compDeadEnds { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; color: #4e5b56; font-size: 0.88rem; line-height: 1.5; }
+.quinkan-root .compDeadEnds span { color: #6a736f; }
+.quinkan-root .compNotes { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+.quinkan-root .compNotes li {
+  padding: 0.8rem 1rem; background: #fff; border-left: 3px solid #c8cfcc;
+  color: #3c4642; font-size: 0.86rem; line-height: 1.55; overflow-wrap: anywhere;
+}
+.quinkan-root .compSourceLink { margin: 0; }
+.quinkan-root .compSourceLink a, .quinkan-root .compCrossLink a, .quinkan-root .compProse a { color: #0d5e49; font-weight: 700; }
+.quinkan-root .compCrossLink { max-width: 75ch; margin: 0; color: #58645f; font-size: 0.88rem; line-height: 1.55; }
+.quinkan-root .compProse { max-width: 75ch; margin: 0; color: #2c3733; font-size: 0.98rem; line-height: 1.7; }
+.quinkan-root .compMethodSteps { margin: 0; padding: 0; list-style: none; border-top: 1px solid #17231f; }
+.quinkan-root .compMethodSteps li { display: grid; grid-template-columns: 54px 1fr; align-items: center; border-bottom: 1px solid #cbd2cf; }
+.quinkan-root .compMethodSteps li span { padding: 0.9rem 0; color: #875c0d; font: 800 0.72rem/1 "Courier New", monospace; }
+.quinkan-root .compMethodSteps li p { margin: 0; padding: 0.9rem 0; max-width: 75ch; color: #35413c; line-height: 1.6; }
+@media (max-width: 820px) {
+  .quinkan-root .compSection { padding: 2.2rem 0; }
+  .quinkan-root .compStatusSummary li { padding: 0.45rem 0.65rem; }
+}
+
+/* ————— Info tooltips: small aligned ⓘ in panels; tight controls use native titles ————— */
+.quinkan-root .opsTip { position: relative; display: inline-flex; align-items: center; margin-left: 0.3rem; vertical-align: middle; }
+.quinkan-root .opsTip > button {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 13px; height: 13px; padding: 0; border: 1px solid rgb(21 32 29 / 35%); border-radius: 50%;
+  background: transparent; color: inherit; opacity: 0.65;
+  font: 700 0.56rem/1 "Courier New", monospace; cursor: help;
+}
+.quinkan-root .opsTip > button:hover, .quinkan-root .opsTip > button:focus-visible { opacity: 1; }
+.quinkan-root .opsTip [role="tooltip"] {
+  display: none; position: absolute; z-index: 60; bottom: calc(100% + 8px); right: -8px;
+  width: max-content; max-width: 240px; padding: 0.55rem 0.7rem; border-radius: 8px;
+  background: #10201b; color: #eef4f1; font-size: 0.72rem; line-height: 1.45; font-weight: 500;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 35%); pointer-events: none; text-transform: none; letter-spacing: 0;
+}
+.quinkan-root .opsTip:hover [role="tooltip"], .quinkan-root .opsTip:focus-within [role="tooltip"] { display: block; }
+
+/* ————— Field tools (go-to, search, measure, GPX) ————— */
+.quinkan-root .opsFieldTools { display: grid; gap: 0.7rem; }
+.quinkan-root .opsToolField { display: grid; gap: 0.35rem; font-size: 0.72rem; font-weight: 700; color: #46524d; }
+.quinkan-root .opsToolField > span { font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase; color: #68746f; }
+.quinkan-root .opsToolField input {
+  width: 100%; padding: 0.5rem 0.6rem; border: 1px solid #c4ccc8; border-radius: 7px;
+  background: #fff; color: #15201d; font: 600 0.78rem/1.3 "Courier New", monospace;
+}
+.quinkan-root .opsToolField input:focus-visible { outline: 2px solid #0d5e49; outline-offset: 1px; }
+.quinkan-root .opsToolRow { display: flex; gap: 6px; }
+.quinkan-root .opsToolRow input { flex: 1; min-width: 0; }
+.quinkan-root .opsToolRow > button, .quinkan-root .opsToolActions > button {
+  padding: 0.5rem 0.7rem; border: 1px solid #17231f; border-radius: 7px; background: #17231f;
+  color: #fff; font-size: 0.7rem; font-weight: 800; cursor: pointer; white-space: nowrap;
+}
+.quinkan-root .opsToolActions { flex-wrap: wrap; }
+.quinkan-root .opsToolActions > button { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.quinkan-root .opsToolActions > button:disabled { opacity: 0.45; cursor: default; }
+.quinkan-root .opsToolError { color: #8c2f1f; font-weight: 600; }
+.quinkan-root .opsPlaceMatches { display: grid; border: 1px solid #d7ddda; border-radius: 8px; overflow: hidden; background: #fff; }
+.quinkan-root .opsPlaceMatches > button {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 0.8rem;
+  padding: 0.5rem 0.65rem; border: 0; border-bottom: 1px solid #edf1ef; background: transparent;
+  text-align: left; cursor: pointer; font-size: 0.76rem;
+}
+.quinkan-root .opsPlaceMatches > button:last-child { border-bottom: 0; }
+.quinkan-root .opsPlaceMatches > button:hover { background: #f2f5f3; }
+.quinkan-root .opsPlaceMatches small { color: #68746f; }
+.quinkan-root .opsBarButton.isActive { background: #ffd166; color: #17231f; border-color: #ffd166; }
+
+/* Google Maps JavaScript engine */
+.quinkan-root .googleAtlasFrame, .quinkan-root .googleAtlasCanvas, .quinkan-root .googleAtlas3DCanvas { position: absolute; inset: 0; }
+.quinkan-root .googleAtlasFrame { overflow: hidden; background: #dbe1de; }
+.quinkan-root .googleAtlas3DCanvas { display: none; }
+.quinkan-root .googleAtlasFrame.isThreeDimensional .googleAtlasCanvas { visibility: hidden; }
+.quinkan-root .googleAtlasFrame.isThreeDimensional .googleAtlas3DCanvas { display: block; }
+.quinkan-root .googleMap3D { width: 100%; height: 100%; display: block; }
+.quinkan-root .googleMapLoading {
+  position: absolute; z-index: 5; left: 50%; top: 50%; translate: -50% -50%;
+  padding: 0.75rem 0.9rem; border: 1px solid #9ba8a3; background: #fff; color: #33403b;
+  box-shadow: 0 4px 18px rgb(13 22 18 / 18%); font-size: 0.72rem; font-weight: 800;
+}
+.quinkan-root .googleStreetViewClose, .quinkan-root .google3DNote {
+  position: absolute; z-index: 6; right: 16px; bottom: 28px; border: 1px solid #17231f;
+  background: #fff; color: #17231f; box-shadow: 0 3px 14px rgb(13 22 18 / 20%);
+  font-size: 0.68rem; font-weight: 800;
+}
+.quinkan-root .googleStreetViewClose { min-height: 38px; padding: 0 0.8rem; cursor: pointer; }
+.quinkan-root .google3DNote { left: 50%; right: auto; translate: -50% 0; padding: 0.55rem 0.75rem; white-space: nowrap; }
+.quinkan-root .googleQuadOverlay {
+  position: absolute; width: 1px; height: 1px; max-width: none; transform-origin: 0 0;
+  pointer-events: none; user-select: none;
+}
+.quinkan-root .googleFieldLabels { position: absolute; inset: 0; pointer-events: none; }
+.quinkan-root .googleFieldLabel {
+  position: absolute; translate: -50% -50%; max-width: 180px; overflow: hidden; text-overflow: ellipsis;
+  color: #17231f; font: 800 11px/1.15 Arial, Helvetica, sans-serif; white-space: nowrap;
+  text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff, 0 0 5px #fff;
+}
+.quinkan-root .googleFieldLabel.isRoad { color: #4b2600; }
+.quinkan-root .googleFieldLabel.isWater { color: #063c60; font-style: italic; }
+.quinkan-root .opsEngineSwitch { display: inline-grid; grid-template-columns: 1fr 1fr; border: 1px solid #aeb8b4; }
+.quinkan-root .opsEngineSwitch button {
+  min-height: 34px; padding: 0 0.65rem; border: 0; border-right: 1px solid #aeb8b4;
+  background: #fff; color: #46524d; cursor: pointer; font-size: 0.68rem; font-weight: 800; white-space: nowrap;
+}
+.quinkan-root .opsEngineSwitch button:last-child { border-right: 0; }
+.quinkan-root .opsEngineSwitch button[aria-checked="true"] { background: #17231f; color: #fff; }
+.quinkan-root .opsEngineSwitch button:disabled { color: #9aa39f; cursor: not-allowed; }
+.quinkan-root .opsGoogleTools { background: #f5f8f6; }
+.quinkan-root .opsGoogleActionGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.quinkan-root .opsGoogleActionGrid button {
+  min-height: 36px; padding: 0.45rem; border: 1px solid #8e9a95; background: #fff; color: #25312d;
+  cursor: pointer; font-size: 0.64rem; font-weight: 800;
+}
+.quinkan-root .opsGoogleActionGrid button:hover { border-color: #126e56; color: #075b45; }
+.quinkan-root .opsGoogleLayerLabel, .quinkan-root .opsMeasureLabel { margin-top: 0.9rem; }
+.quinkan-root .opsMeasureModes { grid-template-columns: repeat(2, 1fr); }
+.quinkan-root .opsGoogleStatus { margin: 0.7rem 0 0; color: #56615d; font-size: 0.62rem; line-height: 1.45; }
+.quinkan-root .opsGoogleLegal { margin: 0.6rem 0 0; display: flex; flex-wrap: wrap; gap: 0.25rem 0.45rem; color: #68746f; font-size: 0.58rem; }
+.quinkan-root .opsGoogleLegal a { color: #075b45; font-weight: 800; }
+.quinkan-root .opsGoogleLegal span:last-child { flex-basis: 100%; }
+
+.quinkan-root .legalHeader {
+  min-height: 58px; padding: 0 1rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  border-bottom: 1px solid #28332f; background: #111a17; color: #fff;
+}
+.quinkan-root .legalHeader a { color: #fff; font-size: 0.72rem; font-weight: 800; text-decoration: none; }
+.quinkan-root .legalHeader a:last-child { justify-self: end; }
+.quinkan-root .legalHeader strong { font-size: 0.78rem; letter-spacing: 0.025em; }
+.quinkan-root .legalMain { width: min(820px, calc(100% - 32px)); }
+.quinkan-root .legalIntro { padding: 3rem 0 2.25rem; border-bottom: 1px solid #aeb8b4; }
+.quinkan-root .legalIntro > p:first-child { margin: 0 0 0.75rem; color: #6b7672; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+.quinkan-root .legalIntro h1 { margin: 0; font-size: clamp(2rem, 7vw, 4rem); line-height: 1; letter-spacing: -0.045em; }
+.quinkan-root .legalIntro > p:last-child { max-width: 680px; margin: 1rem 0 0; color: #56615d; font-size: 1rem; line-height: 1.6; }
+.quinkan-root .legalMain > section { padding: 1.6rem 0; border-bottom: 1px solid #cbd2cf; }
+.quinkan-root .legalMain > section h2 { margin: 0 0 0.65rem; font-size: 1rem; }
+.quinkan-root .legalMain > section p { margin: 0.5rem 0; color: #46524d; font-size: 0.86rem; line-height: 1.65; }
+.quinkan-root .legalMain > section a { color: #075b45; font-weight: 800; }
+
+/* ————— Basemap picker (grouped dropdown) ————— */
+.quinkan-root .opsBasemapPicker { display: inline-flex; align-items: center; gap: 0.45rem; }
+.quinkan-root .opsBasemapPicker > span { color: #46524d; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.quinkan-root .opsBasemapPicker select {
+  max-width: 168px; padding: 0.42rem 0.5rem; border: 1px solid #4a5651; border-radius: 7px;
+  background: #17231f; color: #fff; font-size: 0.72rem; font-weight: 700; cursor: pointer;
+}
+.quinkan-root .opsBasemapPicker select:hover, .quinkan-root .opsBasemapPicker select:focus-visible { border-color: #f4a62a; }
+
+@media (max-width: 880px) {
+  .quinkan-root .opsTopBar { max-height: 112px; overflow-x: auto; align-content: start; }
+  .quinkan-root .google3DNote { bottom: 64px; max-width: calc(100% - 24px); white-space: normal; text-align: center; }
+  .quinkan-root .googleStreetViewClose { bottom: 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quinkan-root .googleMapLoading { scroll-behavior: auto; }
+}
+
+
+/* Header collision fix: the release id truncates and yields below wide desktop */
+.quinkan-root .opsRelease { max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 1500px) { .quinkan-root .opsRelease { display: none !important; } }
+.quinkan-root .opsHeaderStats { min-width: 0; overflow: hidden; }

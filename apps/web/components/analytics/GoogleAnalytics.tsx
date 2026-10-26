@@ -27,9 +27,14 @@ function RouteTracker() {
   return null;
 }
 
-/** Injects the GA4 tag once and tracks SPA navigations. No-op without a GA id. */
+/**
+ * Injects the GA4 tag once and tracks SPA navigations. No-op without a GA id,
+ * and never rendered on admin routes: those include restricted research
+ * evidence that must not run beside third-party analytics.
+ */
 export function GoogleAnalytics() {
-  if (!GA_ID) return null;
+  const pathname = usePathname();
+  if (!GA_ID || pathname?.startsWith('/admin')) return null;
   return (
     <>
       <Script

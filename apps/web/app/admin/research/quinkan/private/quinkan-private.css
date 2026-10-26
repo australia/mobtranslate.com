@@ -1,0 +1,741 @@
+/* Ported from quinkan-discovery/private-portal/src/app/globals.css; every rule is scoped to .quinkan-private-root. */
+.quinkan-private-root {
+  --bg: oklch(1 0 0);
+  --surface: oklch(0.965 0.006 180);
+  --surface-strong: oklch(0.925 0.012 180);
+  --ink: oklch(0.22 0.02 180);
+  --muted: oklch(0.43 0.022 180);
+  --line: oklch(0.82 0.012 180);
+  --primary: oklch(0.45 0.095 180);
+  --primary-soft: oklch(0.92 0.035 180);
+  --accent: oklch(0.46 0.115 55);
+  --warning-soft: oklch(0.94 0.04 70);
+  --white: oklch(1 0 0);
+  --focus: oklch(0.57 0.15 245);
+  --max-width: 90rem;
+}
+
+/* mobtranslate loads Tailwind preflight and global heading/transition rules; this
+   app was written against browser defaults. Revert those properties to the user
+   agent inside the scope at (0,1,0) so every ported rule still wins. SVG and
+   MapLibre internals keep their own presentation rules. */
+.quinkan-private-root :where(*:not(svg, svg *, .maplibregl-map, .maplibregl-map *)) {
+  margin: revert;
+  padding: revert;
+  border: revert;
+  border-radius: revert;
+  background-color: revert;
+  color: revert;
+  display: revert;
+  font-family: revert;
+  font-size: revert;
+  font-weight: revert;
+  letter-spacing: revert;
+  line-height: revert;
+  list-style: revert;
+  max-width: revert;
+  text-decoration: revert;
+  transition: revert;
+  vertical-align: revert;
+}
+
+.quinkan-private-root, .quinkan-private-root * {
+  box-sizing: border-box;
+}
+
+.quinkan-private-root {
+  max-width: 100%;
+  scroll-behavior: smooth;
+}
+
+.quinkan-private-root {
+  margin: 0;
+  max-width: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.quinkan-private-root a {
+  color: var(--primary);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.quinkan-private-root a:hover {
+  color: var(--ink);
+}
+
+.quinkan-private-root a:focus-visible,
+.quinkan-private-root summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.quinkan-private-root h1,
+.quinkan-private-root h2,
+.quinkan-private-root h3,
+.quinkan-private-root p {
+  margin-top: 0;
+}
+
+.quinkan-private-root h1,
+.quinkan-private-root h2,
+.quinkan-private-root h3 {
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.quinkan-private-root p,
+.quinkan-private-root li {
+  text-wrap: pretty;
+}
+
+.quinkan-private-root code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.84em;
+  word-break: break-all;
+}
+
+.quinkan-private-root .private-session-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.25rem;
+  padding: 0.65rem max(1rem, calc((100vw - var(--max-width)) / 2));
+  background: var(--ink);
+  color: var(--white);
+  font-size: 0.82rem;
+}
+
+.quinkan-private-root .private-session-bar > div {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.quinkan-private-root .private-session-bar strong {
+  color: oklch(0.84 0.075 180);
+  font-size: 0.77rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.quinkan-private-root .private-session-bar span {
+  color: oklch(0.88 0.01 180);
+}
+
+.quinkan-private-root .private-session-bar a {
+  padding: 0.26rem 0.6rem;
+  border: 1px solid oklch(0.62 0.03 180);
+  border-radius: 999px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.quinkan-private-root .private-session-bar a:hover {
+  background: oklch(0.3 0.035 180);
+}
+
+.quinkan-private-root .report-shell,
+.quinkan-private-root .workspace-shell {
+  min-height: calc(100vh - var(--research-bar-height, 0px));
+}
+
+.quinkan-private-root .report-header,
+.quinkan-private-root .report-facts,
+.quinkan-private-root .overview-section,
+.quinkan-private-root .method-section,
+.quinkan-private-root .hypothesis-index,
+.quinkan-private-root .hypothesis-register,
+.quinkan-private-root .next-evidence,
+.quinkan-private-root .provenance-details,
+.quinkan-private-root .report-footer,
+.quinkan-private-root .workspace-content {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin-inline: auto;
+}
+
+.quinkan-private-root .report-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 27rem);
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: end;
+  padding-block: 4.5rem 3rem;
+}
+
+.quinkan-private-root .classification-line,
+.quinkan-private-root .hypothesis-id {
+  margin-bottom: 0.8rem;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.quinkan-private-root .report-header h1 {
+  max-width: 12ch;
+  margin-bottom: 1.25rem;
+  font-size: 4.75rem;
+  letter-spacing: -0.035em;
+}
+
+.quinkan-private-root .report-lede {
+  max-width: 66ch;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.2rem;
+}
+
+.quinkan-private-root .report-guard {
+  padding: 1.35rem;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  background: var(--warning-soft);
+}
+
+.quinkan-private-root .report-guard strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--accent);
+}
+
+.quinkan-private-root .report-guard p {
+  margin-bottom: 0;
+  color: oklch(0.33 0.055 55);
+}
+
+.quinkan-private-root .report-facts {
+  display: flex;
+  flex-wrap: wrap;
+  border-block: 1px solid var(--line);
+}
+
+.quinkan-private-root .report-facts > div {
+  display: flex;
+  flex: 1 1 13rem;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 1rem 1.35rem;
+  border-inline-end: 1px solid var(--line);
+}
+
+.quinkan-private-root .report-facts > div:first-child {
+  padding-inline-start: 0;
+}
+
+.quinkan-private-root .report-facts > div:last-child {
+  border-inline-end: 0;
+}
+
+.quinkan-private-root .report-facts span,
+.quinkan-private-root .fact-list dt,
+.quinkan-private-root .release-list dt {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.quinkan-private-root .report-facts strong {
+  font-size: 1rem;
+}
+
+.quinkan-private-root .overview-section {
+  padding-block: 4rem;
+}
+
+.quinkan-private-root .finding-copy {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.65fr) minmax(18rem, 1fr) minmax(18rem, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.quinkan-private-root .finding-copy h2,
+.quinkan-private-root .method-section h2,
+.quinkan-private-root .next-evidence h2 {
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+.quinkan-private-root .finding-copy p {
+  max-width: 68ch;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.quinkan-private-root .finding-copy strong {
+  color: var(--ink);
+}
+
+.quinkan-private-root .overview-figure,
+.quinkan-private-root .map-figure {
+  margin: 0;
+}
+
+.quinkan-private-root .overview-map,
+.quinkan-private-root .report-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+}
+
+.quinkan-private-root figcaption {
+  padding-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.quinkan-private-root .method-section {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.55fr) minmax(20rem, 1.3fr);
+  gap: 2.5rem 4rem;
+  padding-block: 3rem;
+  border-block: 1px solid var(--line);
+}
+
+.quinkan-private-root .method-section > div > p {
+  max-width: 55ch;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.quinkan-private-root .method-list {
+  margin: 0;
+}
+
+.quinkan-private-root .method-list > div {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.quinkan-private-root .method-list > div:first-child {
+  padding-top: 0;
+}
+
+.quinkan-private-root .method-list > div:last-child {
+  border-bottom: 0;
+}
+
+.quinkan-private-root .method-list dt {
+  font-weight: 750;
+}
+
+.quinkan-private-root .method-list dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.quinkan-private-root .rank-warning {
+  grid-column: 1 / -1;
+  max-width: 90ch;
+  margin: 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  font-weight: 620;
+}
+
+.quinkan-private-root .hypothesis-index {
+  position: sticky;
+  top: 3.25rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding-block: 0.75rem;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--line);
+  background: oklch(1 0 0 / 0.96);
+}
+
+.quinkan-private-root .hypothesis-index span {
+  margin-inline-end: 0.5rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.quinkan-private-root .hypothesis-index a {
+  min-width: 2.25rem;
+  padding: 0.26rem 0.48rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.77rem;
+  font-weight: 720;
+  text-align: center;
+  text-decoration: none;
+}
+
+.quinkan-private-root .hypothesis-index a:hover,
+.quinkan-private-root .hypothesis-index a:focus-visible {
+  background: var(--primary-soft);
+  color: var(--ink);
+}
+
+.quinkan-private-root .hypothesis {
+  padding-block: 4rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 7rem;
+}
+
+.quinkan-private-root .hypothesis:first-child {
+  border-top: 0;
+}
+
+.quinkan-private-root .hypothesis-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.quinkan-private-root .hypothesis-heading h2 {
+  margin-bottom: 0;
+  font-size: 2.25rem;
+}
+
+.quinkan-private-root .hypothesis-id {
+  margin-bottom: 0.4rem;
+}
+
+.quinkan-private-root .status {
+  flex: 0 0 auto;
+  padding: 0.32rem 0.62rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.quinkan-private-root .status-leading {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--white);
+}
+
+.quinkan-private-root .hypothesis-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(19rem, 0.72fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.quinkan-private-root .hypothesis-evidence {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quinkan-private-root .fact-list,
+.quinkan-private-root .release-list {
+  margin: 0;
+}
+
+.quinkan-private-root .fact-list > div,
+.quinkan-private-root .release-list > div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.8fr) minmax(0, 1.2fr);
+  gap: 0.8rem;
+  align-items: baseline;
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.quinkan-private-root .fact-list dd,
+.quinkan-private-root .release-list dd {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 620;
+  text-align: end;
+}
+
+.quinkan-private-root .reasoning-block {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.quinkan-private-root .reasoning-for {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.quinkan-private-root .reasoning-block h3 {
+  margin-bottom: 0.45rem;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+
+.quinkan-private-root .reasoning-block p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.quinkan-private-root .next-evidence {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.65fr) minmax(20rem, 1.35fr);
+  gap: 3rem;
+  padding-block: 4rem;
+  border-top: 1px solid var(--line);
+}
+
+.quinkan-private-root .next-evidence ol {
+  margin: 0;
+  padding-inline-start: 1.3rem;
+}
+
+.quinkan-private-root .next-evidence li {
+  max-width: 75ch;
+  margin-bottom: 0.8rem;
+  padding-inline-start: 0.5rem;
+}
+
+.quinkan-private-root .provenance-details {
+  margin-bottom: 4rem;
+  border-block: 1px solid var(--line);
+}
+
+.quinkan-private-root .provenance-details summary {
+  padding-block: 1rem;
+  cursor: pointer;
+  font-weight: 720;
+}
+
+.quinkan-private-root .provenance-body {
+  max-width: 75ch;
+  padding-block: 0.5rem 2rem;
+  color: var(--muted);
+}
+
+.quinkan-private-root .report-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 2rem 3rem;
+  border-top: 1px solid var(--ink);
+  font-size: 0.85rem;
+}
+
+.quinkan-private-root .report-footer span {
+  color: var(--muted);
+  text-align: end;
+}
+
+.quinkan-private-root .workspace-content {
+  padding-block: 4rem;
+}
+
+.quinkan-private-root .workspace-content > header {
+  max-width: 70ch;
+  margin-bottom: 3rem;
+}
+
+.quinkan-private-root .workspace-content h1 {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.quinkan-private-root .workspace-content section {
+  max-width: 70rem;
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.quinkan-private-root .workspace-content h2 {
+  font-size: 1.5rem;
+}
+
+.quinkan-private-root .workspace-content dl {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.6fr) minmax(0, 1.4fr);
+  gap: 0;
+}
+
+.quinkan-private-root .workspace-content dt,
+.quinkan-private-root .workspace-content dd {
+  margin: 0;
+  padding-block: 0.65rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.quinkan-private-root .workspace-content dt {
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.quinkan-private-root .workspace-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 720;
+  text-decoration: none;
+}
+
+.quinkan-private-root .workspace-link:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .quinkan-private-root .report-header,
+  .quinkan-private-root .finding-copy,
+  .quinkan-private-root .method-section,
+  .quinkan-private-root .hypothesis-layout,
+  .quinkan-private-root .next-evidence {
+    grid-template-columns: 1fr;
+  }
+
+  .quinkan-private-root .report-header {
+    gap: 2rem;
+    padding-block: 3rem 2rem;
+  }
+
+  .quinkan-private-root .report-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .quinkan-private-root .finding-copy {
+    gap: 1rem;
+  }
+
+  .quinkan-private-root .method-section,
+  .quinkan-private-root .next-evidence {
+    gap: 1.5rem;
+  }
+
+  .quinkan-private-root .rank-warning {
+    grid-column: auto;
+  }
+
+  .quinkan-private-root .hypothesis-layout {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .quinkan-private-root .private-session-bar {
+    position: static;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+  }
+
+  .quinkan-private-root .private-session-bar > div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .quinkan-private-root .private-session-bar > div:last-child {
+    align-items: flex-end;
+  }
+
+  .quinkan-private-root .private-session-bar > div:last-child span {
+    display: none;
+  }
+
+  .quinkan-private-root .report-header,
+  .quinkan-private-root .report-facts,
+  .quinkan-private-root .overview-section,
+  .quinkan-private-root .method-section,
+  .quinkan-private-root .hypothesis-index,
+  .quinkan-private-root .hypothesis-register,
+  .quinkan-private-root .next-evidence,
+  .quinkan-private-root .provenance-details,
+  .quinkan-private-root .report-footer,
+  .quinkan-private-root .workspace-content {
+    width: min(calc(100% - 1.25rem), var(--max-width));
+  }
+
+  .quinkan-private-root .report-header h1 {
+    font-size: 2.8rem;
+  }
+
+  .quinkan-private-root .report-lede {
+    font-size: 1.05rem;
+  }
+
+  .quinkan-private-root .report-facts > div {
+    flex-basis: 50%;
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .quinkan-private-root .report-facts > div:first-child {
+    padding-inline-start: 0.8rem;
+  }
+
+  .quinkan-private-root .hypothesis-index {
+    top: 0;
+  }
+
+  .quinkan-private-root .hypothesis {
+    padding-block: 2.75rem;
+  }
+
+  .quinkan-private-root .hypothesis-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .quinkan-private-root .hypothesis-heading h2 {
+    font-size: 1.8rem;
+  }
+
+  .quinkan-private-root .fact-list > div,
+  .quinkan-private-root .release-list > div,
+  .quinkan-private-root .workspace-content dl {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  .quinkan-private-root .fact-list dd,
+  .quinkan-private-root .release-list dd {
+    text-align: start;
+  }
+
+  .quinkan-private-root .method-list > div {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+  }
+
+  .quinkan-private-root .report-footer {
+    flex-direction: column;
+  }
+
+  .quinkan-private-root .report-footer span {
+    text-align: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quinkan-private-root {
+    scroll-behavior: auto;
+  }
+}

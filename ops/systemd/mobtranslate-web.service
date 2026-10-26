@@ -15,6 +15,21 @@ Environment=PORT=3300
 Environment=MOBTRANSLATE_RUNTIME_PUBLIC_DIR=/mnt/donto-data/workspace/mobtranslate.com/apps/web/public
 Environment=MOBTRANSLATE_REPO_ROOT=/mnt/donto-data/workspace/mobtranslate.com
 Environment=MOBTRANSLATE_DICTIONARIES_ROOT=/mnt/donto-data/workspace/mobtranslate.com/dictionaries
+# Admin-only research tools (/admin/research). Read-only under ProtectSystem=strict.
+# The Google Maps browser key is a secret: QUINKAN_GOOGLE_MAPS_JAVASCRIPT_API_KEY in web.env.
+Environment=QUINKAN_RESEARCH_ROOT=/mnt/donto-data/donto-resources/research/laura-rock-art-discovery
+Environment=QUINKAN_PUBLIC_RELEASES_DIR=/mnt/donto-data/donto-resources/research/laura-rock-art-discovery/data/derived/public/portal/releases
+Environment=QUINKAN_PUBLIC_RELEASE_ID=laura-quinkan-atlas-v9-20260810
+Environment=QUINKAN_OPERATIONAL_MAP_RELEASES_DIR=/mnt/donto-data/donto-resources/research/laura-rock-art-discovery/data/derived/public/portal/operational-map-releases
+Environment=QUINKAN_OPERATIONAL_MAP_RELEASE_ID=laura-operational-map-v31-20260815
+Environment=QUINKAN_FIELD_REPORT_PUBLICATIONS_DIR=/mnt/donto-data/donto-resources/research/laura-rock-art-discovery/config/field-report-publications
+Environment=QUINKAN_PORTAL_STATIC_DIR=/mnt/donto-data/workspace/quinkan-discovery/portal/public
+Environment=QUINKAN_PRIVATE_RELEASES_DIR=/mnt/donto-data/donto-resources/research/laura-rock-art-discovery/data/restricted/private-workspace/releases
+Environment=QUINKAN_PRIVATE_RELEASE_ID=qld-subterranean-gde-private-v0
+Environment=QUINKAN_PRIVATE_ACCESS_POLICY_FILE=/mnt/donto-data/donto-resources/research/laura-rock-art-discovery/data/restricted/private-workspace/runtime/access-policy.json
+Environment=QUINKAN_CATHEDRAL_REPORT_DIR=/mnt/donto-data/donto-resources/research/laura-rock-art-discovery/data/derived/restricted/cathedral-search-20260814
+Environment=QUINKAN_CATHEDRAL_MANIFEST_SHA256=8b74a48cf820ed722431263ed15d85eeda04608ee6b80f9e9e92bb1ff87175aa
+Environment=PALIMPSEST_URL=http://127.0.0.1:7876
 ExecStart=/usr/bin/node /mnt/donto-data/mobtranslate/current/runtime/apps/web/server.js
 Restart=always
 RestartSec=5

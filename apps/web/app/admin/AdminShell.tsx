@@ -3,7 +3,7 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BarChart3, ChevronLeft, FileCheck, FileText, Headphones, Home, Languages, MessageSquare, Mic, RefreshCw, Settings, Shield, Users } from 'lucide-react';
+import { BarChart3, ChevronLeft, FileCheck, FileText, FlaskConical, Headphones, Home, Languages, MessageSquare, Mic, RefreshCw, Settings, Shield, Users } from 'lucide-react';
 import { cn } from '@mobtranslate/ui';
 
 const adminNavItems = [
@@ -17,12 +17,14 @@ const adminNavItems = [
   { title: 'Analytics', href: '/admin/analytics', icon: BarChart3, description: 'Platform analytics', globalOnly: true },
   { title: 'Documents', href: '/admin/documents', icon: FileText, description: 'Source document register' },
   { title: 'Dictionary Sync', href: '/admin/dictionary-sync', icon: RefreshCw, description: 'Global sync control', globalOnly: true },
+  // Research runs in its own analytics-free document, so it is entered with a full page load.
+  { title: 'Research', href: '/admin/research', icon: FlaskConical, description: 'Quinkan atlas and rock art', globalOnly: true, documentNavigation: true },
   { title: 'Settings', href: '/admin/settings', icon: Settings, description: 'System configuration', globalOnly: true },
 ] as const;
 
 export default function AdminShell({ children, isSuperAdmin, isLanguageManager }: { children: ReactNode; isSuperAdmin: boolean; isLanguageManager: boolean }) {
   const pathname = usePathname();
-  if (pathname === '/admin/recordings') return <>{children}</>;
+  if (pathname === '/admin/recordings' || pathname?.startsWith('/admin/research')) return <>{children}</>;
   const visibleItems = adminNavItems.filter((item) => isSuperAdmin || (isLanguageManager && !('globalOnly' in item && item.globalOnly)));
 
   return (
@@ -49,5 +51,6 @@ function AdminNavLink({ item }: { item: (typeof adminNavItems)[number] }) {
   const pathname = usePathname();
   const isActive = pathname === item.href || (item.href !== '/admin' && pathname?.startsWith(item.href));
   const Icon = item.icon;
-  return <Link href={item.href} className={cn('flex min-w-max items-center gap-2 rounded-lg px-3 py-2 transition-all hover:bg-muted md:min-w-0 md:items-start md:gap-3', isActive && 'bg-primary/10 text-primary hover:bg-primary/20')}><Icon className={cn('h-5 w-5 flex-shrink-0 md:mt-0.5', isActive ? 'text-primary' : 'text-muted-foreground')} /><div className="min-w-0 flex-1"><p className={cn('text-sm font-medium', isActive ? 'text-primary' : 'text-foreground')}>{item.title}</p><p className="hidden truncate text-xs text-muted-foreground md:block">{item.description}</p></div></Link>;
+  const LinkElement = 'documentNavigation' in item && item.documentNavigation ? 'a' : Link;
+  return <LinkElement href={item.href} className={cn('flex min-w-max items-center gap-2 rounded-lg px-3 py-2 transition-all hover:bg-muted md:min-w-0 md:items-start md:gap-3', isActive && 'bg-primary/10 text-primary hover:bg-primary/20')}><Icon className={cn('h-5 w-5 flex-shrink-0 md:mt-0.5', isActive ? 'text-primary' : 'text-muted-foreground')} /><div className="min-w-0 flex-1"><p className={cn('text-sm font-medium', isActive ? 'text-primary' : 'text-foreground')}>{item.title}</p><p className="hidden truncate text-xs text-muted-foreground md:block">{item.description}</p></div></LinkElement>;
 }

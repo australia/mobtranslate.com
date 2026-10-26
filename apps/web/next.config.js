@@ -60,6 +60,16 @@ const nextConfig = {
           },
         ],
       },
+      // Admin-only research tools (lib/research/access.ts). Listed after the
+      // site-wide entry so these values win. Route handlers also set them,
+      // including on .png responses that the middleware matcher skips.
+      ...['/admin/research/:path*', '/api/admin/research/:path*'].map((source) => ({
+        source,
+        headers: [
+          { key: 'Referrer-Policy', value: 'no-referrer' },
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive, nosnippet, noimageindex' },
+        ],
+      })),
     ];
   },
 };
