@@ -1,6 +1,6 @@
 'use client';
 
-import { Compass, MapPin, SearchX } from 'lucide-react';
+import { Ban, Compass, Fish, MapPin, SearchX } from 'lucide-react';
 import type { AreaSpot } from '@/lib/research/field/types';
 import { bearingDeg, directionWords, distanceM, formatDistance, topShare } from '../geo';
 import type { Fix } from './sensors';
@@ -17,6 +17,7 @@ export default function GoToPanel({
   onEnableCompass,
   onLog,
   onStop,
+  fishing = false,
 }: {
   spot: AreaSpot;
   fix: Fix | null;
@@ -24,6 +25,7 @@ export default function GoToPanel({
   onEnableCompass: () => void;
   onLog: (kind: 'presence' | 'absence') => void;
   onStop: () => void;
+  fishing?: boolean;
 }) {
   const distance = fix ? distanceM(fix.lat, fix.lon, spot.lat, spot.lon) : null;
   const bearing = fix ? bearingDeg(fix.lat, fix.lon, spot.lat, spot.lon) : 0;
@@ -52,7 +54,7 @@ export default function GoToPanel({
               <p className="text-[2.5rem] font-semibold leading-none tabular-nums">{formatDistance(distance)}</p>
               <p className="mt-1 text-lg">Walk {directionWords(bearing)}</p>
               <p className="text-sm text-[var(--field-ink-soft)]">
-                {heading === null ? 'Arrow points relative to north.' : 'Arrow turns with your phone.'} Ground in the {topShare(spot.percentile)} of the station.
+                {heading === null ? 'Arrow points relative to north.' : 'Arrow turns with your phone.'} {fishing ? 'Water' : 'Ground'} in the {topShare(spot.percentile)} of the station.
               </p>
             </>
           )}
@@ -68,11 +70,12 @@ export default function GoToPanel({
       {arrived ? (
         <div className="grid gap-2">
           <Button variant="primary" size="xl" onClick={() => onLog('presence')}>
-            <MapPin className="h-6 w-6" aria-hidden /> Found it here
+            {fishing ? <Fish className="h-6 w-6" aria-hidden /> : <MapPin className="h-6 w-6" aria-hidden />} {fishing ? 'Log a catch' : 'Found it here'}
           </Button>
           <Button variant="secondary" size="lg" onClick={() => onLog('absence')}>
-            <SearchX className="h-5 w-5 shrink-0" aria-hidden />
-            None here <span className="font-normal text-[var(--field-ink-soft)]">· looked, not found</span>
+            {fishing ? <Ban className="h-5 w-5 shrink-0" aria-hidden /> : <SearchX className="h-5 w-5 shrink-0" aria-hidden />}
+            {fishing ? 'Nothing caught' : 'None here'}{' '}
+            <span className="font-normal text-[var(--field-ink-soft)]">{fishing ? '· fished here' : '· looked, not found'}</span>
           </Button>
         </div>
       ) : null}

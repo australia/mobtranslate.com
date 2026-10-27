@@ -1,6 +1,7 @@
 'use client';
 
-import { LocateFixed, MapPin, SearchX } from 'lucide-react';
+import { Ban, Fish, LocateFixed, MapPin, SearchX } from 'lucide-react';
+import type { Activity } from '@/lib/research/field/types';
 import { formatCoordinate } from '../geo';
 import { fixQuality, type GpsState } from './sensors';
 import { Button } from './ui';
@@ -11,7 +12,7 @@ export function GpsLine({ gps, outside }: { gps: GpsState; outside: boolean }) {
   if (gps.status === 'denied')
     return (
       <p className="field-gps field-gps-weak">
-        Location is off for this site. Turn it on in the browser’s site settings to log finds.
+        Location is off for this site. Turn it on in the browser’s site settings to log anything.
       </p>
     );
   if (gps.status === 'waiting')
@@ -44,11 +45,13 @@ export default function LogControls({
   gps,
   outside,
   targetName,
+  activity = 'gather',
   onLog,
 }: {
   gps: GpsState;
   outside: boolean;
   targetName: string | null;
+  activity?: Activity;
   onLog: (kind: 'presence' | 'absence') => void;
 }) {
   const disabled = !targetName || gps.status !== 'live';
@@ -56,14 +59,29 @@ export default function LogControls({
     <div className="space-y-3 px-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
       <GpsLine gps={gps} outside={outside} />
       <div className="grid gap-2">
-        <Button variant="primary" size="xl" disabled={disabled} onClick={() => onLog('presence')}>
-          <MapPin className="h-6 w-6 shrink-0" aria-hidden />
-          Found it here
-        </Button>
-        <Button variant="secondary" size="lg" disabled={disabled} onClick={() => onLog('absence')}>
-          <SearchX className="h-5 w-5 shrink-0" aria-hidden />
-          None here <span className="font-normal text-[var(--field-ink-soft)]">· looked, not found</span>
-        </Button>
+        {activity === 'fish' ? (
+          <>
+            <Button variant="primary" size="xl" disabled={disabled} onClick={() => onLog('presence')}>
+              <Fish className="h-6 w-6 shrink-0" aria-hidden />
+              Log a catch
+            </Button>
+            <Button variant="secondary" size="lg" disabled={disabled} onClick={() => onLog('absence')}>
+              <Ban className="h-5 w-5 shrink-0" aria-hidden />
+              Nothing caught <span className="font-normal text-[var(--field-ink-soft)]">· fished here</span>
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button variant="primary" size="xl" disabled={disabled} onClick={() => onLog('presence')}>
+              <MapPin className="h-6 w-6 shrink-0" aria-hidden />
+              Found it here
+            </Button>
+            <Button variant="secondary" size="lg" disabled={disabled} onClick={() => onLog('absence')}>
+              <SearchX className="h-5 w-5 shrink-0" aria-hidden />
+              None here <span className="font-normal text-[var(--field-ink-soft)]">· looked, not found</span>
+            </Button>
+          </>
+        )}
       </div>
       {!targetName && <p className="field-note">Choose what you’re logging at the top of the screen.</p>}
     </div>

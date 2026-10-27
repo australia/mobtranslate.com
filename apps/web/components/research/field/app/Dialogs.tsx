@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Check, CloudOff, CloudUpload, Plus } from 'lucide-react';
-import type { FieldTarget } from '@/lib/research/field/types';
+import type { Activity, FieldTarget } from '@/lib/research/field/types';
 import { whenLogged } from '../geo';
 import { useEngineJob } from '../useEngineJob';
 import type { QueuedObservation } from '../offline-store';
@@ -31,52 +31,71 @@ export function TargetDialog({
   selectedId: string | null;
   online: boolean;
   onSelect: (id: string) => void;
-  onCreate: (name: string, scientificNames: string[]) => Promise<FieldTarget | null>;
+  onCreate: (name: string, scientificNames: string[], activity: Activity) => Promise<FieldTarget | null>;
   onEngineChanged: () => void;
 }) {
-  const [adding, setAdding] = useState(false);
+  const [adding, setAdding] = useState<Activity | null>(null);
   const [name, setName] = useState('');
   const [names, setNames] = useState('');
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!open) {
-      setAdding(false);
+      setAdding(null);
       setError(null);
     }
   }, [open]);
 
   return (
     <Dialog open={open} onClose={onClose} title="What are you logging?">
-      <ul className="field-list px-3 py-2" role="listbox" aria-label="Targets">
-        {targets.map((t) => (
-          <li key={t.id} role="option" aria-selected={t.id === selectedId}>
-            <button
-              type="button"
-              className="field-row"
-              onClick={() => {
-                onSelect(t.id);
-                onClose();
-              }}
-            >
-              <span className="min-w-0 flex-1">
-                <span className="block font-semibold">{t.name}</span>
-                <span className="block truncate text-sm text-[var(--field-ink-soft)]">
-                  {[t.scientificNames.join(', '), `${t.presences} found`, `${t.absences} none here`].filter(Boolean).join(' · ')}
-                </span>
-              </span>
-              {t.id === selectedId && <Check className="h-5 w-5 shrink-0 text-[var(--field-ochre)]" aria-hidden />}
-            </button>
-          </li>
-        ))}
-        {targets.length === 0 && <li className="field-empty px-2">Nothing set up yet. Add the first thing you want to log.</li>}
-      </ul>
+      {(['gather', 'fish'] as const).map((activity) => {
+        const group = targets.filter((t) => t.activity === activity);
+        return (
+          <section key={activity} className="px-3 pt-3" aria-labelledby={`targets-${activity}`}>
+            <h3 id={`targets-${activity}`} className="px-2 text-sm font-semibold text-[var(--field-ink-soft)]">
+              {activity === 'gather' ? 'On foot' : 'Fishing'}
+            </h3>
+            <ul className="field-list py-1" role="listbox" aria-labelledby={`targets-${activity}`}>
+              {group.map((t) => (
+                <li key={t.id} role="option" aria-selected={t.id === selectedId}>
+                  <button
+                    type="button"
+                    className="field-row"
+                    onClick={() => {
+                      onSelect(t.id);
+                      onClose();
+                    }}
+                  >
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-semibold">{t.name}</span>
+                      <span className="block truncate text-sm text-[var(--field-ink-soft)]">
+                        {[
+                          t.scientificNames.join(', '),
+                          activity === 'fish' ? `${t.presences} caught` : `${t.presences} found`,
+                          activity === 'fish' ? null : `${t.absences} none here`,
+                        ]
+                          .filter(Boolean)
+                          .join(' · ')}
+                      </span>
+                    </span>
+                    {t.id === selectedId && <Check className="h-5 w-5 shrink-0 text-[var(--field-ochre)]" aria-hidden />}
+                  </button>
+                </li>
+              ))}
+              {group.length === 0 && (
+                <li className="field-empty px-2">{activity === 'gather' ? 'Nothing set up yet.' : 'No animals set up yet.'}</li>
+              )}
+            </ul>
+          </section>
+        );
+      })}
 
       <div className="border-t border-[var(--field-line)] px-5 py-4">
         {!online ? (
           <p className="field-note">Adding something new needs signal.</p>
         ) : adding ? (
           <form
+            aria-label={adding === 'fish' ? 'Add an animal to fish' : 'Add something found on foot'}
             className="space-y-3"
             onSubmit={async (event) => {
               event.preventDefault();
@@ -87,6 +106,7 @@ export function TargetDialog({
                   .split(/[,\n]/)
                   .map((n) => n.trim())
                   .filter(Boolean),
+                adding,
               );
               if (created) onClose();
               else setError('Couldn’t add it. Check the name and try again.');
@@ -96,13 +116,21 @@ export function TargetDialog({
               <label htmlFor="new-target-name" className="field-label">
                 Name
               </label>
-              <input id="new-target-name" required maxLength={80} value={name} onChange={(e) => setName(e.target.value)} className="field-input" placeholder="e.g. Long yam" />
+              <input
+                id="new-target-name"
+                required
+                maxLength={80}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="field-input"
+                placeholder={adding === 'fish' ? 'e.g. Saratoga' : 'e.g. Long yam'}
+              />
             </div>
             <div className="space-y-1.5">
               <label htmlFor="new-target-sci" className="field-label">
                 Scientific name <span className="font-normal text-[var(--field-ink-soft)]">(optional)</span>
               </label>
-              <input id="new-target-sci" value={names} onChange={(e) => setNames(e.target.value)} className="field-input" placeholder="e.g. Dioscorea transversa" aria-describedby="new-target-sci-help" />
+              <input id="new-target-sci" value={names} onChange={(e) => setNames(e.target.value)} className="field-input" placeholder={adding === 'fish' ? 'e.g. Scleropages jardinii' : 'e.g. Dioscorea transversa'} aria-describedby="new-target-sci-help" />
               <p id="new-target-sci-help" className="text-sm text-[var(--field-ink-soft)]">
                 Used to download public records from the Atlas of Living Australia. Separate several with commas.
               </p>
@@ -112,15 +140,20 @@ export function TargetDialog({
               <Button type="submit" variant="primary">
                 Add
               </Button>
-              <Button variant="ghost" onClick={() => setAdding(false)}>
+              <Button variant="ghost" onClick={() => setAdding(null)}>
                 Cancel
               </Button>
             </div>
           </form>
         ) : (
-          <Button variant="secondary" onClick={() => setAdding(true)} className="w-full">
-            <Plus className="h-5 w-5" aria-hidden /> Add something to log
-          </Button>
+          <div className="grid grid-cols-2 gap-2">
+            <Button variant="secondary" onClick={() => setAdding('gather')}>
+              <Plus className="h-5 w-5" aria-hidden /> Something on foot
+            </Button>
+            <Button variant="secondary" onClick={() => setAdding('fish')}>
+              <Plus className="h-5 w-5" aria-hidden /> An animal to fish
+            </Button>
+          </div>
         )}
       </div>
       {online && <EngineSection onChanged={onEngineChanged} />}
@@ -239,7 +272,7 @@ export function PhoneDialog({
               <ul className="space-y-1 text-sm text-[var(--field-ink-soft)]">
                 {pending.slice(0, 6).map((p) => (
                   <li key={p.clientId}>
-                    {p.kind === 'presence' ? 'Found' : 'None here'} · {whenLogged(p.observedAt)}
+                    {p.method || p.bait ? (p.kind === 'presence' ? 'Catch' : 'Nothing caught') : p.kind === 'presence' ? 'Found' : 'None here'} · {whenLogged(p.observedAt)}
                     {p.photo ? ' · with photo' : ''}
                   </li>
                 ))}
@@ -282,7 +315,7 @@ export function PhoneDialog({
         </section>
 
         <p className="text-sm text-[var(--field-ink-soft)]">
-          Where food plants and other resources grow is restricted knowledge. Logs and maps stay on this phone until uploaded, and only research admins can see them.
+          Where food plants grow and where people fish are restricted knowledge. Logs and maps stay on this phone until uploaded, and only research admins can see them.
         </p>
       </div>
     </Dialog>
@@ -299,9 +332,11 @@ export function LayersDialog({
   onLayers,
   opacity,
   onOpacity,
+  fishing = false,
 }: {
   open: boolean;
   onClose: () => void;
+  fishing?: boolean;
   layers: MapLayers;
   onLayers: (layers: MapLayers) => void;
   opacity: number;
@@ -319,15 +354,23 @@ export function LayersDialog({
   return (
     <Dialog open={open} onClose={onClose} title="Map">
       <div className="space-y-1 px-5 py-3">
-        {toggle('suitability', 'Likely ground', 'Shaded from pale (ordinary) to dark red (the best on the station).')}
+        {toggle(
+          'suitability',
+          fishing ? 'Likely water' : 'Likely ground',
+          fishing ? 'Rivers and waterholes shaded from pale (ordinary) to dark red (the best on the station).' : 'Shaded from pale (ordinary) to dark red (the best on the station).',
+        )}
         <div className="pb-2 pl-8">
           <label htmlFor="overlay-opacity" className="text-sm text-[var(--field-ink-soft)]">
             Shading strength
           </label>
           <input id="overlay-opacity" type="range" min={0.2} max={1} step={0.05} value={opacity} onChange={(e) => onOpacity(Number(e.target.value))} className="field-range w-full" />
         </div>
-        {toggle('spots', 'Places to search', 'The best-scoring spots, each at least 300 m apart.')}
-        {toggle('logs', 'Your logs', 'Green: found. White ring: looked, none. Orange edge: still on this phone.')}
+        {toggle('spots', fishing ? 'Places to fish' : 'Places to search', 'The best-scoring spots, each at least 300 m apart.')}
+        {toggle(
+          'logs',
+          'Your logs',
+          fishing ? 'Green: a catch. White ring: nothing caught. Orange edge: still on this phone.' : 'Green: found. White ring: looked, none. Orange edge: still on this phone.',
+        )}
         <p className="pt-2 text-sm text-[var(--field-ink-soft)]">
           The base map is drawn on this server from elevation (Geoscience Australia), surface water and plant cover (Digital Earth Australia). No outside map service sees where you look.
         </p>

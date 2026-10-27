@@ -1,9 +1,10 @@
 // IndexedDB for the field app. Out on Country there is usually no signal:
-// finds (with their photos) wait in `queue` until an upload succeeds, and each
-// target's map bundle, the shared basemap and the last-seen logs wait in
-// `cache` so the map and "where to look" work offline. Everything here stays
-// on this device.
+// finds and catches (with their photos) wait in `queue` until an upload
+// succeeds, and each target's map bundle, the shared basemap, the last-seen
+// logs and the fishing outlook's models and weather wait in `cache` so the
+// app works offline. Everything here stays on this device.
 
+import type { ConditionsFeed, ConditionsModel, ConditionsUnfitted } from '@/lib/research/field/conditions';
 import type { AreaSpot, Bounds, FieldObservation, FieldTarget, ObservationInput } from '@/lib/research/field/types';
 
 const DB_NAME = 'mobtranslate-field-models';
@@ -29,6 +30,11 @@ export type TargetBundle = {
 };
 
 export type Basemap = { savedAt: string; bounds: Bounds; image: Blob };
+
+/** An animal's when-and-bait model, fitted on the server and scored on the phone. */
+export type CachedConditionsModel = { savedAt: string; model: ConditionsModel | ConditionsUnfitted };
+/** Weather and river for the area: the last week and the week ahead. */
+export type CachedConditionsFeed = ConditionsFeed & { savedAt: string };
 
 export type CachedTargets = { savedAt: string; targets: FieldTarget[] };
 export type CachedLogs = { savedAt: string; observations: FieldObservation[] };
@@ -84,4 +90,10 @@ export const cacheKeys = {
   basemap: 'basemap',
   bundle: (targetId: string) => `bundle:${targetId}`,
   logs: (targetId: string) => `logs:${targetId}`,
+  /** Every fishing log, whatever the animal. */
+  fishingLogs: 'fishing-logs',
+  conditionsFeed: 'conditions-feed',
+  conditionsModel: (targetId: string) => `conditions:${targetId}`,
+  lastBait: 'last-bait',
+  lastMethod: 'last-method',
 };

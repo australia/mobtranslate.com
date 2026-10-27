@@ -1,12 +1,15 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { AreaSpot, Bounds, FieldObservation, FieldTarget } from '@/lib/research/field/types';
+import type { ConditionsFeed, ConditionsModel, ConditionsUnfitted } from '@/lib/research/field/conditions';
+import type { Activity, AreaSpot, Bounds, FieldObservation, FieldTarget } from '@/lib/research/field/types';
 import {
   cache,
   cacheKeys,
   queue,
   type Basemap,
+  type CachedConditionsFeed,
+  type CachedConditionsModel,
   type CachedLogs,
   type CachedTargets,
   type QueuedObservation,
@@ -26,8 +29,22 @@ export type Readiness = {
   /** Targets that have a model at all. */
   withModel: number;
   basemap: boolean;
+  /** The fishing outlook (weather, river and every animal's model) is on this phone. */
+  outlook: boolean;
   oldestSavedAt: string | null;
 };
+
+/** Which logs the app shows: one target's, or every fishing log together. */
+type LogScope = { key: string; url: string };
+
+function scopeOf(target: FieldTarget): LogScope {
+  return target.activity === 'fish'
+    ? { key: cacheKeys.fishingLogs, url: `${API}/observations?activity=fish` }
+    : { key: cacheKeys.logs(target.id), url: `${API}/observations?targetId=${target.id}` };
+}
+
+/** Feeds older than this are fetched again when there is signal. */
+const FEED_FRESH_MS = 60 * 60_000;
 
 async function fetchJson<T>(url: string, init?: RequestInit): Promise<T> {
   const response = await fetch(url, { cache: 'no-store', ...init });
@@ -56,6 +73,11 @@ function pendingToLog(item: QueuedObservation): FieldLog {
     notes: item.notes ?? null,
     loggedByName: item.loggedByName ?? null,
     hasPhoto: item.photo !== null,
+    bait: item.bait ?? null,
+    method: item.method ?? null,
+    catchCount: item.catchCount ?? null,
+    sizeCm: item.sizeCm ?? null,
+    kept: item.kept ?? null,
     pending: true,
     uploadError: item.lastError,
   };
@@ -72,11 +94,15 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
   const [preparing, setPreparing] = useState<{ done: number; total: number } | null>(null);
   const [syncing, setSyncing] = useState(false);
   const [loggedByName, setLoggedByNameState] = useState('');
+  const [feed, setFeed] = useState<CachedConditionsFeed | null>(null);
+  const [conditionModels, setConditionModels] = useState<Record<string, CachedConditionsModel>>({});
   /** Whether the server last answered: phones on Wi-Fi with no internet still report online. */
   const [reachable, setReachable] = useState(true);
   const syncingRef = useRef(false);
 
   const selected = useMemo(() => targets?.find((t) => t.id === selectedId) ?? null, [targets, selectedId]);
+  const fishIds = useMemo(() => new Set((targets ?? []).filter((t) => t.activity === 'fish').map((t) => t.id)), [targets]);
+  const scope = selected ? scopeOf(selected) : null;
 
   // ---- targets -------------------------------------------------------------
   const refreshTargets = useCallback(async () => {
@@ -100,6 +126,7 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
     void queue.all().then(setPending).catch(() => undefined);
     void cache.get<string>(cacheKeys.loggedByName).then((name) => name && setLoggedByNameState(name)).catch(() => undefined);
     void cache.get<Basemap>(cacheKeys.basemap).then((b) => b && setBasemap(b)).catch(() => undefined);
+    void cache.get<CachedConditionsFeed>(cacheKeys.conditionsFeed).then((f) => f && setFeed(f)).catch(() => undefined);
     if (!initialTarget) void cache.get<string>(cacheKeys.selectedTarget).then((id) => id && setSelectedId((c) => c ?? id)).catch(() => undefined);
   }, [refreshTargets, initialTarget]);
 
@@ -112,6 +139,14 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
       for (const b of list) if (b) next[b.targetId] = b;
       setBundles(next);
     });
+    const fish = targets.filter((t) => t.activity === 'fish');
+    void Promise.all(fish.map((t) => cache.get<CachedConditionsModel>(cacheKeys.conditionsModel(t.id)).catch(() => undefined))).then((list) => {
+      const next: Record<string, CachedConditionsModel> = {};
+      list.forEach((m, i) => {
+        if (m) next[fish[i].id] = m;
+      });
+      setConditionModels((current) => ({ ...next, ...current }));
+    });
   }, [targets, selectedId]);
 
   const select = useCallback((id: string) => {
@@ -120,27 +155,62 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
   }, []);
 
   // ---- logs ----------------------------------------------------------------
-  const refreshLogs = useCallback(async (targetId: string) => {
+  const loadLogs = useCallback(async (target: FieldTarget, show: boolean) => {
+    const { key, url } = scopeOf(target);
     try {
-      const body = await fetchJson<{ observations: FieldObservation[] }>(`${API}/observations?targetId=${targetId}`);
-      setServerLogs(body.observations);
-      await cache.set(cacheKeys.logs(targetId), { savedAt: new Date().toISOString(), observations: body.observations } satisfies CachedLogs);
+      const body = await fetchJson<{ observations: FieldObservation[] }>(url);
+      if (show) setServerLogs(body.observations);
+      await cache.set(key, { savedAt: new Date().toISOString(), observations: body.observations } satisfies CachedLogs);
     } catch {
-      const cached = await cache.get<CachedLogs>(cacheKeys.logs(targetId)).catch(() => undefined);
-      setServerLogs(cached?.observations ?? []);
+      const cached = await cache.get<CachedLogs>(key).catch(() => undefined);
+      if (show) setServerLogs(cached?.observations ?? []);
     }
   }, []);
 
+  const refreshLogs = useCallback(async () => {
+    if (selected) await loadLogs(selected, true);
+  }, [selected, loadLogs]);
+
   useEffect(() => {
-    if (selectedId) void refreshLogs(selectedId);
-  }, [selectedId, refreshLogs]);
+    if (selected) void loadLogs(selected, true);
+    // Reload only when the set of logs shown changes, not on every target refresh.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scope?.key, loadLogs]);
 
   const logs: FieldLog[] = useMemo(() => {
     const uploaded = new Set(serverLogs.map((o) => o.clientId));
-    const local = pending.filter((p) => p.targetId === selectedId && !uploaded.has(p.clientId)).map(pendingToLog);
+    const inScope = (p: QueuedObservation) => (selected?.activity === 'fish' ? fishIds.has(p.targetId) : p.targetId === selectedId);
+    const local = pending.filter((p) => inScope(p) && !uploaded.has(p.clientId)).map(pendingToLog);
     const remote = serverLogs.map((o) => ({ ...o, pending: false, uploadError: null }));
     return [...local, ...remote].sort((a, b) => b.observedAt.localeCompare(a.observedAt));
-  }, [serverLogs, pending, selectedId]);
+  }, [serverLogs, pending, selectedId, selected?.activity, fishIds]);
+
+  // ---- fishing outlook -----------------------------------------------------
+  const saveFeed = useCallback(async (): Promise<boolean> => {
+    const body = await fetchJson<ConditionsFeed>(`${API}/conditions`).catch(() => null);
+    if (!body) return false;
+    const next: CachedConditionsFeed = { ...body, savedAt: new Date().toISOString() };
+    await cache.set(cacheKeys.conditionsFeed, next);
+    setFeed(next);
+    return true;
+  }, []);
+
+  const saveConditionsModel = useCallback(async (targetId: string): Promise<boolean> => {
+    const body = await fetchJson<{ model: ConditionsModel | ConditionsUnfitted }>(`${API}/targets/${targetId}/conditions`).catch(() => null);
+    if (!body) return false;
+    const next: CachedConditionsModel = { savedAt: new Date().toISOString(), model: body.model };
+    await cache.set(cacheKeys.conditionsModel(targetId), next);
+    setConditionModels((current) => ({ ...current, [targetId]: next }));
+    return true;
+  }, []);
+
+  // While online, keep the selected animal's outlook current without asking.
+  useEffect(() => {
+    if (!online || selected?.activity !== 'fish') return;
+    if (!feed || Date.now() - Date.parse(feed.savedAt) > FEED_FRESH_MS) void saveFeed();
+    const saved = conditionModels[selected.id];
+    if (!saved || Date.now() - Date.parse(saved.savedAt) > FEED_FRESH_MS) void saveConditionsModel(selected.id);
+  }, [online, selected, feed, conditionModels, saveFeed, saveConditionsModel]);
 
   // ---- map bundles ---------------------------------------------------------
   const saveBundle = useCallback(async (target: FieldTarget): Promise<boolean> => {
@@ -166,26 +236,29 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
     return true;
   }, []);
 
-  /** "Get ready for the field": every target's map, the basemap and the app shell. */
+  /** "Get ready for the field": every target's map and logs, the fishing outlook, the basemap and the app shell. */
   const prepareForField = useCallback(async () => {
     if (!targets) return;
-    const withModel = targets.filter((t) => t.latestModelId);
-    setPreparing({ done: 0, total: withModel.length + 1 });
+    const fish = targets.filter((t) => t.activity === 'fish');
+    const steps: Array<() => Promise<unknown>> = [
+      saveBasemap,
+      ...targets.filter((t) => t.latestModelId).map((t) => () => saveBundle(t)),
+      ...targets.filter((t) => t.activity === 'gather').map((t) => () => loadLogs(t, false)),
+      ...(fish.length > 0 ? [saveFeed, () => loadLogs(fish[0], false), ...fish.map((t) => () => saveConditionsModel(t.id))] : []),
+    ];
+    setPreparing({ done: 0, total: steps.length });
     try {
       await navigator.storage?.persist?.().catch(() => false);
-      await saveBasemap();
-      setPreparing({ done: 1, total: withModel.length + 1 });
-      for (const [i, target] of withModel.entries()) {
-        await saveBundle(target).catch(() => false);
-        await refreshLogs(target.id);
-        setPreparing({ done: i + 2, total: withModel.length + 1 });
+      for (const [i, step] of steps.entries()) {
+        await step().catch(() => false);
+        setPreparing({ done: i + 1, total: steps.length });
       }
       navigator.serviceWorker?.controller?.postMessage('refresh-shell');
     } finally {
       setPreparing(null);
-      if (selectedId) void refreshLogs(selectedId);
+      void refreshLogs();
     }
-  }, [targets, saveBasemap, saveBundle, refreshLogs, selectedId]);
+  }, [targets, saveBasemap, saveBundle, loadLogs, saveFeed, saveConditionsModel, refreshLogs]);
 
   // While online, keep the selected target's map current without asking.
   useEffect(() => {
@@ -202,8 +275,12 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
     const withModel = (targets ?? []).filter((t) => t.latestModelId);
     const current = withModel.filter((t) => bundles[t.id]?.modelId === t.latestModelId);
     const dates = withModel.map((t) => bundles[t.id]?.savedAt).filter((d): d is string => Boolean(d)).sort();
-    return { ready: current.length, withModel: withModel.length, basemap: basemap !== null, oldestSavedAt: dates[0] ?? null };
-  }, [targets, bundles, basemap]);
+    const fish = (targets ?? []).filter((t) => t.activity === 'fish');
+    // The weather forecast in the feed runs a week, so a feed saved more than a few days ago has gone stale.
+    const feedCurrent = feed !== null && Date.now() - Date.parse(feed.savedAt) < 3 * 86_400_000;
+    const outlook = fish.length === 0 || (feedCurrent && fish.every((t) => conditionModels[t.id]));
+    return { ready: current.length, withModel: withModel.length, basemap: basemap !== null, outlook, oldestSavedAt: dates[0] ?? null };
+  }, [targets, bundles, basemap, feed, conditionModels]);
 
   // ---- queue and sync ------------------------------------------------------
   const sync = useCallback(async () => {
@@ -236,6 +313,8 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
           }
           await queue.remove(item.clientId);
           touched.add(item.targetId);
+          // A new fishing log changes every animal's when-and-bait model.
+          if (fishIds.has(item.targetId)) for (const id of fishIds) touched.add(id);
         } catch (error) {
           const message = error instanceof Error && !/^\d+$/.test(error.message) ? error.message : 'Upload failed. Will retry.';
           await queue.put({ ...item, lastError: message }).catch(() => undefined);
@@ -247,9 +326,12 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
       syncingRef.current = false;
       setSyncing(false);
     }
-    if (selectedId && touched.has(selectedId)) void refreshLogs(selectedId);
+    if (selectedId && touched.has(selectedId)) {
+      void refreshLogs();
+      if (fishIds.has(selectedId)) void saveConditionsModel(selectedId);
+    }
     if (touched.size > 0) void refreshTargets();
-  }, [selectedId, refreshLogs, refreshTargets]);
+  }, [selectedId, fishIds, refreshLogs, refreshTargets, saveConditionsModel]);
 
   useEffect(() => {
     if (!online || reachable) return;
@@ -266,11 +348,11 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
   }, [online, sync]);
 
   const addLog = useCallback(
-    async (entry: Omit<QueuedObservation, 'clientId' | 'serverId' | 'lastError' | 'holdUntil' | 'observedAt'>) => {
+    async (entry: Omit<QueuedObservation, 'clientId' | 'serverId' | 'lastError' | 'holdUntil' | 'observedAt'> & { observedAt?: string }) => {
       const item: QueuedObservation = {
         ...entry,
         clientId: crypto.randomUUID(),
-        observedAt: new Date().toISOString(),
+        observedAt: entry.observedAt ?? new Date().toISOString(),
         serverId: null,
         lastError: null,
         holdUntil: Date.now() + UNDO_WINDOW_MS,
@@ -318,12 +400,12 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
   }, []);
 
   const createTarget = useCallback(
-    async (name: string, scientificNames: string[]): Promise<FieldTarget | null> => {
+    async (name: string, scientificNames: string[], activity: Activity): Promise<FieldTarget | null> => {
       try {
         const body = await fetchJson<{ target: FieldTarget }>(`${API}/targets`, {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ name, scientificNames }),
+          body: JSON.stringify({ name, scientificNames, activity }),
         });
         await refreshTargets();
         select(body.target.id);
@@ -350,6 +432,9 @@ export function useFieldData(online: boolean, initialTarget: string | null) {
     undo,
     deleteLog,
     bundle: selected ? bundles[selected.id] ?? null : null,
+    feed,
+    conditionsModel: selected ? conditionModels[selected.id]?.model ?? null : null,
+    saveConditionsModel,
     basemap,
     readiness,
     preparing,

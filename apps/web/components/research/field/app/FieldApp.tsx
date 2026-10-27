@@ -1,10 +1,12 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown, ChevronLeft, CloudOff, CloudUpload, Layers, LocateFixed, Maximize2, Check } from 'lucide-react';
-import type { AreaSpot } from '@/lib/research/field/types';
+import { ChevronDown, ChevronLeft, CloudOff, CloudUpload, Fish, Layers, LocateFixed, Maximize2, Check } from 'lucide-react';
+import type { AreaSpot, FishingMethod } from '@/lib/research/field/types';
 import { formatCoordinate, inBounds, topShare } from '../geo';
-import { cache } from '../offline-store';
+import { cache, cacheKeys } from '../offline-store';
+import CatchForm, { baitChoices } from './CatchForm';
+import FishingBody from './FishingBody';
 import FieldMap, { type FieldMapHandle, type MapLayers } from './FieldMap';
 import GoToPanel from './GoToPanel';
 import HomeBody, { type NearbySpot } from './HomeBody';
@@ -53,6 +55,8 @@ export default function FieldApp({ initialTarget }: { initialTarget: string | nu
   const [opacity, setOpacity] = useState(0.7);
   const [toast, setToast] = useState<{ message: string; undo?: string } | null>(null);
   const [titles, setTitles] = useState<FeatureTitles>({});
+  const [lastBait, setLastBait] = useState<string | null>(null);
+  const [lastMethod, setLastMethod] = useState<FishingMethod | null>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const fix = gps.status === 'live' ? gps.fix : null;
@@ -61,6 +65,16 @@ export default function FieldApp({ initialTarget }: { initialTarget: string | nu
   const bundle = data.bundle;
   const outside = Boolean(fix && data.basemap && !inBounds(data.basemap.bounds, fix.lon, fix.lat));
   const selectedLog = mode.kind === 'detail' ? data.logs.find((l) => l.id === mode.logId) ?? null : null;
+  const fishing = target?.activity === 'fish';
+  const animals = useMemo(() => (data.targets ?? []).filter((t) => t.activity === 'fish'), [data.targets]);
+  const baits = useMemo(() => baitChoices(data.logs.map((l) => l.bait)), [data.logs]);
+  // A fishing log can be for any animal; show it under its own name.
+  const logTarget = selectedLog ? (data.targets ?? []).find((t) => t.id === selectedLog.targetId) ?? target : null;
+
+  useEffect(() => {
+    void cache.get<string>(cacheKeys.lastBait).then((b) => b && setLastBait(b)).catch(() => undefined);
+    void cache.get<FishingMethod>(cacheKeys.lastMethod).then((m) => m && setLastMethod(m)).catch(() => undefined);
+  }, []);
 
   // The service worker lets the app open with no signal at all.
   useEffect(() => {
@@ -115,6 +129,49 @@ export default function FieldApp({ initialTarget }: { initialTarget: string | nu
   const syncState = !online ? 'offline' : sync > 0 ? 'waiting' : 'clear';
 
   const header = (() => {
+    if (mode.kind === 'log' && target && fishing)
+      return (
+        <CatchForm
+          kind={mode.log}
+          animals={animals}
+          selectedId={target.id}
+          gps={gps}
+          best={best}
+          loggedByName={data.loggedByName}
+          baits={baits}
+          lastBait={lastBait}
+          lastMethod={lastMethod}
+          onCancel={() => setMode({ kind: 'home' })}
+          onSave={async (input) => {
+            if (input.loggedByName && input.loggedByName !== data.loggedByName) data.setLoggedByName(input.loggedByName);
+            // Bait and method rarely change between casts: offer them again next time.
+            setLastBait(input.bait);
+            setLastMethod(input.method);
+            void cache.set(cacheKeys.lastBait, input.bait).catch(() => undefined);
+            void cache.set(cacheKeys.lastMethod, input.method).catch(() => undefined);
+            const clientId = await data.addLog({
+              targetId: input.targetId,
+              kind: mode.log,
+              latitude: input.fix.lat,
+              longitude: input.fix.lon,
+              accuracyM: Math.round(input.fix.accuracy * 10) / 10,
+              altitudeM: input.fix.altitude,
+              observedAt: input.observedAt ?? undefined,
+              notes: input.notes || null,
+              loggedByName: input.loggedByName || null,
+              bait: input.bait,
+              method: input.method,
+              catchCount: input.catchCount,
+              sizeCm: input.sizeCm,
+              kept: input.kept,
+              photo: input.photo,
+            });
+            setMode({ kind: 'home' });
+            const animal = animals.find((a) => a.id === input.targetId)?.name ?? 'Catch';
+            showToast(mode.log === 'presence' ? `${animal} logged.` : 'Logged: nothing caught.', clientId);
+          }}
+        />
+      );
     if (mode.kind === 'log' && target)
       return (
         <LogForm
@@ -144,14 +201,52 @@ export default function FieldApp({ initialTarget }: { initialTarget: string | nu
       );
     if (mode.kind === 'goto')
       return (
-        <GoToPanel spot={mode.spot} fix={fix} heading={heading} onEnableCompass={() => void enableCompass()} onLog={startLog} onStop={() => setMode({ kind: 'home' })} />
+        <GoToPanel
+          spot={mode.spot}
+          fix={fix}
+          heading={heading}
+          fishing={fishing}
+          onEnableCompass={() => void enableCompass()}
+          onLog={startLog}
+          onStop={() => setMode({ kind: 'home' })}
+        />
       );
-    if (mode.kind === 'detail' && selectedLog && target)
-      return <LogDetail log={selectedLog} targetName={target.name} online={online} onDelete={data.deleteLog} onClose={() => setMode({ kind: 'home' })} />;
-    return <LogControls gps={gps} outside={outside} targetName={target?.name ?? null} onLog={startLog} />;
+    if (mode.kind === 'detail' && selectedLog && logTarget)
+      return (
+        <LogDetail
+          log={selectedLog}
+          targetName={logTarget.name}
+          activity={logTarget.activity}
+          online={online}
+          onDelete={data.deleteLog}
+          onClose={() => setMode({ kind: 'home' })}
+        />
+      );
+    return <LogControls gps={gps} outside={outside} targetName={target?.name ?? null} activity={target?.activity} onLog={startLog} />;
   })();
 
-  const homeBody = (
+  const homeBody = fishing && target ? (
+    <FishingBody
+      animal={target}
+      animals={animals}
+      model={data.conditionsModel}
+      feed={data.feed}
+      bundle={bundle}
+      fix={fix}
+      heading={heading}
+      logs={data.logs}
+      readiness={data.readiness}
+      online={online}
+      onGoTo={(spot: NearbySpot) => goTo(spot)}
+      onOpenLog={openLog}
+      onPrepare={() => {
+        setOverlay('phone');
+        void data.prepareForField();
+      }}
+      onOpenModel={() => setOverlay('model')}
+      showModelLink={!wide}
+    />
+  ) : (
     <HomeBody
       targetName={target?.name ?? null}
       hasModel={Boolean(target?.latestModelId)}
@@ -204,6 +299,7 @@ export default function FieldApp({ initialTarget }: { initialTarget: string | nu
           <ChevronLeft className="h-5 w-5" aria-hidden />
         </a>
         <button type="button" className="field-chip field-chip-target" onClick={() => setOverlay('targets')} aria-haspopup="dialog">
+          {fishing && <Fish className="h-4 w-4 shrink-0 text-[var(--field-ochre-deep)]" aria-label="Fishing" />}
           <span className="truncate">{target?.name ?? (data.targets === null ? 'Loading…' : 'Choose what to log')}</span>
           <ChevronDown className="h-4 w-4 shrink-0" aria-hidden />
         </button>
@@ -241,13 +337,22 @@ export default function FieldApp({ initialTarget }: { initialTarget: string | nu
               <h1 className="mt-0.5 text-2xl font-semibold">{target?.name ?? 'Field'}</h1>
               {target && target.scientificNames.length > 0 && <p className="text-[var(--field-ink-soft)] italic">{target.scientificNames.join(', ')}</p>}
             </div>
-            {mode.kind === 'detail' && selectedLog && target ? (
+            {mode.kind === 'detail' && selectedLog && logTarget ? (
               <div className="pt-4">
-                <LogDetail log={selectedLog} targetName={target.name} online={online} onDelete={data.deleteLog} onClose={() => setMode({ kind: 'home' })} />
+                <LogDetail
+                  log={selectedLog}
+                  targetName={logTarget.name}
+                  activity={logTarget.activity}
+                  online={online}
+                  onDelete={data.deleteLog}
+                  onClose={() => setMode({ kind: 'home' })}
+                />
               </div>
             ) : (
               <>
-                {target && <ModelPanel target={target} online={online} titles={titles} onFitted={() => void data.refreshTargets()} />}
+                {target && (
+                  <ModelPanel target={target} online={online} titles={titles} conditions={data.conditionsModel} onFitted={() => void data.refreshTargets()} />
+                )}
                 {topGround.length > 0 && (
                   <section className="space-y-2 border-t border-[var(--field-line)] px-5 py-4" aria-labelledby="top-ground">
                     <h3 id="top-ground" className="text-[0.9375rem] font-semibold">
@@ -315,10 +420,18 @@ export default function FieldApp({ initialTarget }: { initialTarget: string | nu
         preparing={data.preparing}
         onPrepare={() => void data.prepareForField()}
       />
-      <LayersDialog open={overlay === 'layers'} onClose={() => setOverlay(null)} layers={layers} onLayers={setLayers} opacity={opacity} onOpacity={setOpacity} />
+      <LayersDialog
+        open={overlay === 'layers'}
+        onClose={() => setOverlay(null)}
+        fishing={fishing}
+        layers={layers}
+        onLayers={setLayers}
+        opacity={opacity}
+        onOpacity={setOpacity}
+      />
       {!wide && target && (
         <Dialog open={overlay === 'model'} onClose={() => setOverlay(null)} title={`${target.name} model`} wide>
-          <ModelPanel target={target} online={online} titles={titles} onFitted={() => void data.refreshTargets()} />
+          <ModelPanel target={target} online={online} titles={titles} conditions={data.conditionsModel} onFitted={() => void data.refreshTargets()} />
         </Dialog>
       )}
     </div>

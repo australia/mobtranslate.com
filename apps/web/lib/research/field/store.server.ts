@@ -9,6 +9,7 @@ import { db } from '@/lib/db/index';
 import { rowsOf } from '@/lib/recording/sentence-studio';
 import {
   slugifyTarget,
+  type Activity,
   type FieldModelSummary,
   type FieldObservation,
   type FieldTarget,
@@ -27,6 +28,7 @@ type TargetRow = {
   name: string;
   scientific_names: string[];
   notes: string | null;
+  activity: Activity;
   presences: number;
   absences: number;
   public_records: number;
@@ -45,6 +47,7 @@ function toTarget(row: TargetRow): FieldTarget {
     name: row.name,
     scientificNames: row.scientific_names ?? [],
     notes: row.notes,
+    activity: row.activity,
     presences: Number(row.presences),
     absences: Number(row.absences),
     publicRecords: Number(row.public_records),
@@ -54,7 +57,7 @@ function toTarget(row: TargetRow): FieldTarget {
 }
 
 const targetSelect = sql`
-  select t.id, t.name, t.scientific_names, t.notes,
+  select t.id, t.name, t.scientific_names, t.notes, t.activity,
     (select count(*) from public.research_field_observations o
       where o.target_id = t.id and o.deleted_at is null and o.kind = 'presence')::int as presences,
     (select count(*) from public.research_field_observations o
@@ -68,7 +71,7 @@ const targetSelect = sql`
   ) m on true`;
 
 export async function listTargets(): Promise<FieldTarget[]> {
-  const rows = rowsOf<TargetRow>(await db.execute(sql`${targetSelect} order by t.name`));
+  const rows = rowsOf<TargetRow>(await db.execute(sql`${targetSelect} order by t.activity, t.name`));
   return rows.map(toTarget);
 }
 
@@ -78,7 +81,7 @@ export async function getTarget(id: string): Promise<FieldTarget | null> {
 }
 
 export async function createTarget(
-  input: { name: string; scientificNames: string[]; notes?: string },
+  input: { name: string; scientificNames: string[]; notes?: string; activity: Activity },
   userId: string,
 ): Promise<FieldTarget> {
   const base = slugifyTarget(input.name);
@@ -87,8 +90,8 @@ export async function createTarget(
     const id = attempt === 0 ? base : `${base.slice(0, 44)}-${attempt + 1}`;
     const inserted = rowsOf<{ id: string }>(
       await db.execute(sql`
-        insert into public.research_field_targets (id, name, scientific_names, notes, created_by)
-        values (${id}, ${input.name}, array(select jsonb_array_elements_text(${names}::jsonb)), ${input.notes ?? null}, ${userId})
+        insert into public.research_field_targets (id, name, scientific_names, notes, activity, created_by)
+        values (${id}, ${input.name}, array(select jsonb_array_elements_text(${names}::jsonb)), ${input.notes ?? null}, ${input.activity}, ${userId})
         on conflict (id) do nothing
         returning id`),
     );
@@ -122,7 +125,16 @@ type ObservationRow = {
   notes: string | null;
   logged_by_name: string | null;
   photo_path: string | null;
+  bait: string | null;
+  method: FieldObservation['method'];
+  catch_count: number | null;
+  size_cm: number | null;
+  kept: boolean | null;
 };
+
+const observationColumns = sql.raw(
+  'id, client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, logged_by_name, photo_path, bait, method, catch_count, size_cm, kept',
+);
 
 function toObservation(row: ObservationRow): FieldObservation {
   return {
@@ -138,16 +150,35 @@ function toObservation(row: ObservationRow): FieldObservation {
     notes: row.notes,
     loggedByName: row.logged_by_name,
     hasPhoto: row.photo_path !== null,
+    bait: row.bait,
+    method: row.method,
+    catchCount: row.catch_count === null ? null : Number(row.catch_count),
+    sizeCm: row.size_cm === null ? null : Number(row.size_cm),
+    kept: row.kept,
   };
 }
 
 export async function listObservations(targetId?: string, limit = 2000): Promise<FieldObservation[]> {
   const rows = rowsOf<ObservationRow>(
     await db.execute(sql`
-      select id, client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, logged_by_name, photo_path
+      select ${observationColumns}
       from public.research_field_observations
       where deleted_at is null ${targetId ? sql`and target_id = ${targetId}` : sql``}
       order by observed_at desc
+      limit ${limit}`),
+  );
+  return rows.map(toObservation);
+}
+
+/** Every fishing log, whatever animal: catches and spells with nothing caught. */
+export async function listFishingLogs(limit = 2000): Promise<FieldObservation[]> {
+  const rows = rowsOf<ObservationRow>(
+    await db.execute(sql`
+      select ${observationColumns}
+      from public.research_field_observations o
+      where o.deleted_at is null
+        and o.target_id in (select id from public.research_field_targets where activity = 'fish')
+      order by o.observed_at desc
       limit ${limit}`),
   );
   return rows.map(toObservation);
@@ -164,15 +195,17 @@ export async function recordObservations(inputs: ObservationInput[], userId: str
       await db.execute(sql`
         with inserted as (
           insert into public.research_field_observations
-            (client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, logged_by_name, recorded_by)
+            (client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, logged_by_name,
+             bait, method, catch_count, size_cm, kept, recorded_by)
           values (${o.clientId}, ${o.targetId}, ${o.kind}, ${o.latitude}, ${o.longitude}, ${o.accuracyM ?? null},
-            ${o.altitudeM ?? null}, ${o.observedAt}, ${o.notes || null}, ${o.loggedByName || null}, ${userId})
+            ${o.altitudeM ?? null}, ${o.observedAt}, ${o.notes || null}, ${o.loggedByName || null},
+            ${o.bait || null}, ${o.method ?? null}, ${o.catchCount ?? null}, ${o.sizeCm ?? null}, ${o.kept ?? null}, ${userId})
           on conflict (client_id) do nothing
-          returning id, client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, logged_by_name, photo_path
+          returning ${observationColumns}
         )
         select * from inserted
         union all
-        select id, client_id, target_id, kind, latitude, longitude, accuracy_m, altitude_m, observed_at, notes, logged_by_name, photo_path
+        select ${observationColumns}
         from public.research_field_observations where client_id = ${o.clientId}
         limit 1`),
     );

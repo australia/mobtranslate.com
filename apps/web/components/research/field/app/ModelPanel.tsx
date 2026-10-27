@@ -2,7 +2,10 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { Database, Play } from 'lucide-react';
+import { FIELD_AREA } from '@/lib/research/field/area';
+import { isFitted, type ConditionsModel, type ConditionsUnfitted } from '@/lib/research/field/conditions';
 import type { FieldModelSummary, FieldTarget, ScaleCard } from '@/lib/research/field/types';
+import { times } from '../geo';
 import { useEngineJob } from '../useEngineJob';
 import { Button, PanelHeading } from './ui';
 
@@ -30,14 +33,14 @@ function titleFor(id: string, titles: FeatureTitles): string {
 }
 
 /** One model scale, described in plain words rather than statistics. */
-function ScaleSummary({ heading, lead, card, titles, targetName, context, alwaysShowFieldTest }: { heading: string; lead: string; card: ScaleCard; titles: FeatureTitles; targetName: string; context: string; alwaysShowFieldTest: boolean }) {
+function ScaleSummary({ heading, lead, card, titles, targetName, context, alwaysShowFieldTest, fishing = false }: { heading: string; lead: string; card: ScaleCard; titles: FeatureTitles; targetName: string; context: string; alwaysShowFieldTest: boolean; fishing?: boolean }) {
   const held = median(card.validation.heldOutFieldPercentiles);
   const overall = strength(card.validation.spatialBlockAuc);
   const top = card.importance.filter((i) => i.aucDrop > 0.001).slice(0, 6);
   const max = Math.max(0.001, ...top.map((i) => i.aucDrop));
   const sources = [
-    card.presencesField > 0 && `${card.presencesField} of your finds`,
-    card.absences > 0 && `${card.absences} “none here”`,
+    card.presencesField > 0 && `${card.presencesField} of your ${fishing ? 'catches' : 'finds'}`,
+    card.absences > 0 && `${card.absences} “${fishing ? 'nothing caught' : 'none here'}”`,
     card.presencesPublic > 0 && `${card.presencesPublic} public records`,
   ].filter(Boolean);
 
@@ -61,10 +64,10 @@ function ScaleSummary({ heading, lead, card, titles, targetName, context, always
         </div>
         {(alwaysShowFieldTest || held !== null) && (
         <div className="col-span-2">
-          <dt>On your own finds</dt>
+          <dt>On your own {fishing ? 'catches' : 'finds'}</dt>
           <dd>
             {held === null
-              ? `Not tested yet. Log at least three ${targetName.toLowerCase()} finds in different places.`
+              ? `Not tested yet. Log at least three ${targetName.toLowerCase()} ${fishing ? 'catches' : 'finds'} in different places.`
               : `With each find hidden from it, the model still ranked that spot above ${Math.round(held)}% of ${context}.`}
           </dd>
         </div>
@@ -87,6 +90,68 @@ function ScaleSummary({ heading, lead, card, titles, targetName, context, always
   );
 }
 
+/** The fishing model's when-and-bait half, in plain words. */
+function ConditionsSummary({ target, model }: { target: FieldTarget; model: ConditionsModel | ConditionsUnfitted | null }) {
+  const lower = target.name.toLowerCase();
+  if (!model) return null;
+  const fitted = isFitted(model);
+  const overall = strength(fitted ? model.validation.auc : null);
+  const effects = fitted ? model.effects.slice(0, 6) : [];
+  const max = Math.max(Math.log(1.1), ...effects.map((e) => Math.log(e.ratio)));
+  const others = model.logs - model.positives;
+  return (
+    <section className="space-y-3">
+      <PanelHeading>When, and with what bait</PanelHeading>
+      <p className="text-sm text-[var(--field-ink-soft)]">
+        Learns from every fishing log: time of day, moon, season, weather, the river’s level and the bait. Refitted each time a log uploads.
+      </p>
+      <dl className="field-facts">
+        <div className="col-span-2">
+          <dt>Learned from</dt>
+          <dd>
+            {model.positives} {model.positives === 1 ? 'catch' : 'catches'} of {lower}, against {others} other fishing {others === 1 ? 'log' : 'logs'}
+            {fitted ? ` over ${model.days} ${model.days === 1 ? 'day' : 'days'}` : ''}
+          </dd>
+        </div>
+        <div className="col-span-2">
+          <dt>How well it holds up</dt>
+          <dd>
+            {!fitted ? (
+              model.reason
+            ) : model.validation.auc === null ? (
+              'Not tested yet. It needs logs on at least three different days, with four catches of it and four others.'
+            ) : (
+              <>
+                <span className={`field-strength field-strength-${overall.tone}`}>{overall.word}</span>
+                <span className="text-[var(--field-ink-soft)]"> on days it hadn’t seen (score {model.validation.auc.toFixed(2)})</span>
+              </>
+            )}
+          </dd>
+        </div>
+      </dl>
+      {effects.length > 0 && (
+        <div>
+          <p className="mb-2 text-sm font-medium">What matters most so far</p>
+          <ul className="space-y-1.5">
+            {effects.map((e) => (
+              <li key={e.id} className="grid grid-cols-[minmax(0,13rem)_1fr_auto] items-center gap-3 text-sm">
+                <span className="line-clamp-2 leading-snug">{e.label}</span>
+                <span className="field-bar" style={{ width: `${Math.max(6, (Math.log(e.ratio) / max) * 100)}%` }} />
+                <span className="tabular-nums text-[var(--field-ink-soft)]">{times(e.ratio)}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-2 text-sm text-[var(--field-ink-soft)]">How much likelier a catch is with each, against its opposite or a typical log.</p>
+        </div>
+      )}
+      <p className="text-sm text-[var(--field-ink-soft)]">
+        Weather comes from Open-Meteo for a grid point about 12 km from the homestead, so it never learns a fishing spot. River level comes from the Queensland
+        Government gauge {FIELD_AREA.river.site}, {FIELD_AREA.river.name}.
+      </p>
+    </section>
+  );
+}
+
 /**
  * The model behind the map: what it learned from, how far to trust it, and
  * the controls to refresh public records and fit a new one.
@@ -96,12 +161,16 @@ export default function ModelPanel({
   online,
   titles,
   onFitted,
+  conditions = null,
 }: {
   target: FieldTarget;
   online: boolean;
   titles: FeatureTitles;
   onFitted: () => void;
+  /** Fishing only: the when-and-bait model. */
+  conditions?: ConditionsModel | ConditionsUnfitted | null;
 }) {
+  const fishing = target.activity === 'fish';
   const [models, setModels] = useState<FieldModelSummary[] | null>(null);
   const [usePublic, setUsePublic] = useState(true);
   const [importing, setImporting] = useState(false);
@@ -141,19 +210,28 @@ export default function ModelPanel({
         </div>
       )}
 
+      {fishing && <ConditionsSummary target={target} model={conditions} />}
+
       {online && latest === null && models !== null && (
-        <p className="field-empty">No model yet. It needs at least two finds (yours or public records).</p>
+        <p className="field-empty">
+          {fishing ? 'No map yet. It needs at least two catches (yours or public records).' : 'No model yet. It needs at least two finds (yours or public records).'}
+        </p>
       )}
 
       {latest?.card.local && (
         <ScaleSummary
-          heading="Where in the country"
-          lead="Reads 30 m detail across the station: terrain, water, soil, fire history and vegetation cover."
+          heading={fishing ? 'Where on the water' : 'Where in the country'}
+          lead={
+            fishing
+              ? 'Reads 30 m detail of the station’s rivers, waterholes and banks: how often there is water, the shape of the ground, shade and plant cover.'
+              : 'Reads 30 m detail across the station: terrain, water, soil, fire history and vegetation cover.'
+          }
           card={latest.card.local}
           titles={titles}
           targetName={target.name}
-          context="the ground around it"
+          context={fishing ? "the water around it" : "the ground around it"}
           alwaysShowFieldTest
+          fishing={fishing}
         />
       )}
       {latest?.card.regional && (
@@ -165,6 +243,7 @@ export default function ModelPanel({
           targetName={target.name}
           context="Queensland"
           alwaysShowFieldTest={false}
+          fishing={fishing}
         />
       )}
       {latest && latest.card.notes.length > 0 && (

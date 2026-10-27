@@ -6,6 +6,7 @@ export type SheetStop = 'peek' | 'half' | 'full';
 
 const ORDER: SheetStop[] = ['peek', 'half', 'full'];
 const TOP_GAP = 64;
+const GRIP_HEIGHT = 28;
 
 /**
  * Bottom sheet with three stops (Apple Maps style). Drag the grip, or tap it
@@ -126,7 +127,10 @@ export default function Sheet({
         >
           <span aria-hidden className="field-sheet-bar" />
         </button>
-        {header}
+        {/* A long form (a catch with all its details) scrolls inside the sheet rather than pushing it off the top. */}
+        <div className="field-sheet-header" style={{ maxHeight: viewport - TOP_GAP - GRIP_HEIGHT }}>
+          {header}
+        </div>
       </div>
       <div className="field-sheet-body" style={{ height: Math.max(0, visible - peek) }} inert={stop === 'peek' && drag === null}>
         {children}

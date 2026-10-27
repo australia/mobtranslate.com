@@ -1,5 +1,5 @@
 import { requireResearchAdminApi, researchJson } from '@/lib/research/access';
-import { getTarget, listObservations, recordObservations } from '@/lib/research/field/store.server';
+import { getTarget, listFishingLogs, listObservations, recordObservations } from '@/lib/research/field/store.server';
 import { observationBatchSchema, targetIdPattern } from '@/lib/research/field/types';
 
 export const dynamic = 'force-dynamic';
@@ -7,7 +7,10 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: Request) {
   const { response } = await requireResearchAdminApi();
   if (response) return response;
-  const targetId = new URL(request.url).searchParams.get('targetId') ?? undefined;
+  const params = new URL(request.url).searchParams;
+  // Fishing logs are read together: a catch of one animal says something about the others.
+  if (params.get('activity') === 'fish') return researchJson({ observations: await listFishingLogs(1000) });
+  const targetId = params.get('targetId') ?? undefined;
   if (targetId !== undefined && !targetIdPattern.test(targetId)) return researchJson({ error: 'invalid_request' }, 400);
   return researchJson({ observations: await listObservations(targetId, 500) });
 }

@@ -1,18 +1,50 @@
 import { z } from 'zod';
 
 /**
- * Field models: things found on foot (a yam, a soak, a stand of trees) and the
- * suitability models fitted from them. Shared by the API routes and the
- * logger page, which queues observations on the phone while out of range.
+ * Field models: things found on foot (a yam, a soak, a stand of trees) or
+ * caught fishing, and the models fitted from them. Shared by the API routes
+ * and the field app, which queues observations on the phone while out of range.
  */
 
 export const targetIdPattern = /^[a-z0-9][a-z0-9-]{1,47}$/;
 
-export const newTargetSchema = z.object({
+/** 'gather': found on foot. 'fish': an animal caught in a river or waterhole. */
+export const activitySchema = z.enum(['gather', 'fish']);
+export type Activity = z.infer<typeof activitySchema>;
+
+const targetFields = {
   name: z.string().trim().min(1).max(80),
-  scientificNames: z.array(z.string().trim().min(2).max(120)).max(20).default([]),
-  notes: z.string().trim().max(2000).optional(),
+  scientificNames: z.array(z.string().trim().min(2).max(120)).max(20),
+  notes: z.string().trim().max(2000),
+  activity: activitySchema,
+};
+
+export const newTargetSchema = z.object({
+  name: targetFields.name,
+  scientificNames: targetFields.scientificNames.default([]),
+  notes: targetFields.notes.optional(),
+  activity: targetFields.activity.default('gather'),
 });
+
+/** No defaults here: a field left out of a PATCH stays as it is. */
+export const targetUpdateSchema = z.object({
+  name: targetFields.name.optional(),
+  scientificNames: targetFields.scientificNames.optional(),
+  notes: targetFields.notes.nullable().optional(),
+});
+
+export const fishingMethods = ['handline', 'rod', 'spear', 'net', 'trap', 'hand'] as const;
+export type FishingMethod = (typeof fishingMethods)[number];
+export const fishingMethodLabels: Record<FishingMethod, string> = {
+  handline: 'Handline',
+  rod: 'Rod',
+  spear: 'Spear',
+  net: 'Net',
+  trap: 'Trap or pot',
+  hand: 'By hand',
+};
+/** Methods that take bait; the others leave the bait out. */
+export const baitedMethods: readonly FishingMethod[] = ['handline', 'rod', 'trap'];
 
 export const observationInputSchema = z.object({
   clientId: z.string().regex(/^[A-Za-z0-9-]{8,64}$/),
@@ -25,6 +57,12 @@ export const observationInputSchema = z.object({
   observedAt: z.string().datetime({ offset: true }),
   notes: z.string().trim().max(2000).nullable().optional(),
   loggedByName: z.string().trim().min(1).max(80).nullable().optional(),
+  // Fishing only.
+  bait: z.string().trim().min(1).max(80).nullable().optional(),
+  method: z.enum(fishingMethods).nullable().optional(),
+  catchCount: z.number().int().min(1).max(500).nullable().optional(),
+  sizeCm: z.number().gt(0).lt(1000).nullable().optional(),
+  kept: z.boolean().nullable().optional(),
 });
 
 export const observationBatchSchema = z.object({
@@ -38,6 +76,7 @@ export type FieldTarget = {
   name: string;
   scientificNames: string[];
   notes: string | null;
+  activity: Activity;
   presences: number;
   absences: number;
   publicRecords: number;
@@ -58,6 +97,11 @@ export type FieldObservation = {
   notes: string | null;
   loggedByName: string | null;
   hasPhoto: boolean;
+  bait: string | null;
+  method: FishingMethod | null;
+  catchCount: number | null;
+  sizeCm: number | null;
+  kept: boolean | null;
 };
 
 export type FieldModelSummary = {

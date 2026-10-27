@@ -27,6 +27,31 @@ export function SpotArrow({ bearing, heading, className = 'h-5 w-5' }: { bearing
   return <ArrowUp className={`${className} shrink-0 transition-transform duration-200 motion-reduce:transition-none`} style={{ transform: `rotate(${bearing - (heading ?? 0)}deg)` }} aria-hidden />;
 }
 
+/** Save the maps (and the fishing outlook) before the signal goes. */
+export function ReadyCallout({ readiness, online, onPrepare }: { readiness: Readiness; online: boolean; onPrepare: () => void }) {
+  const mapsMissing = readiness.withModel > 0 && (readiness.ready < readiness.withModel || !readiness.basemap);
+  if (!mapsMissing && readiness.outlook) return null;
+  return (
+    <div className={`field-callout ${online ? '' : 'field-callout-warn'}`}>
+      {online ? <Download className="mt-0.5 h-5 w-5 shrink-0" aria-hidden /> : <CloudOff className="mt-0.5 h-5 w-5 shrink-0" aria-hidden />}
+      <div className="min-w-0 flex-1 space-y-2">
+        <p>
+          {online
+            ? 'Save the maps and fishing outlook to this phone before you lose signal.'
+            : mapsMissing
+              ? `Only ${readiness.ready} of ${readiness.withModel} maps are on this phone. The rest need signal.`
+              : 'The fishing outlook on this phone is out of date. It updates when you have signal.'}
+        </p>
+        {online && (
+          <Button variant="primary" onClick={onPrepare}>
+            Get ready for the field
+          </Button>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function HomeBody({
   targetName,
   hasModel,
@@ -57,27 +82,10 @@ export default function HomeBody({
   showModelLink?: boolean;
 }) {
   const nearby = nearbySpots(bundle, fix);
-  const notReady = readiness.withModel > 0 && (readiness.ready < readiness.withModel || !readiness.basemap);
 
   return (
     <div className="space-y-6 px-4 pb-8 pt-2">
-      {notReady && (
-        <div className={`field-callout ${online ? '' : 'field-callout-warn'}`}>
-          {online ? <Download className="mt-0.5 h-5 w-5 shrink-0" aria-hidden /> : <CloudOff className="mt-0.5 h-5 w-5 shrink-0" aria-hidden />}
-          <div className="min-w-0 flex-1 space-y-2">
-            <p>
-              {online
-                ? 'Save the maps to this phone before you lose signal.'
-                : `Only ${readiness.ready} of ${readiness.withModel} maps are on this phone. The rest need signal.`}
-            </p>
-            {online && (
-              <Button variant="primary" onClick={onPrepare}>
-                Get ready for the field
-              </Button>
-            )}
-          </div>
-        </div>
-      )}
+      <ReadyCallout readiness={readiness} online={online} onPrepare={onPrepare} />
 
       <section aria-labelledby="where-heading" className="space-y-2">
         <PanelHeading aside={heading !== null ? <span className="text-xs text-[var(--field-ink-soft)]">Arrows follow your phone</span> : undefined}>

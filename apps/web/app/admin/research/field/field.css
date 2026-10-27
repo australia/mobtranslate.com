@@ -205,6 +205,7 @@
   border-radius: 9999px;
   background: var(--field-line-strong);
 }
+.field-sheet-header,
 .field-sheet-body {
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -423,6 +424,65 @@
 }
 .field-range {
   accent-color: var(--field-ochre);
+}
+
+/* Pick-one choices (animal, bait, method): big enough for a wet thumb. */
+.field-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.field-choice {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.375rem;
+  border: 1.5px solid var(--field-line-strong);
+  border-radius: 9999px;
+  background: var(--field-surface);
+  padding: 0.375rem 0.875rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    background-color 150ms var(--field-ease),
+    border-color 150ms var(--field-ease);
+  touch-action: manipulation;
+}
+.field-choice:hover {
+  background: var(--field-sunk);
+}
+.field-choice[aria-pressed='true'] {
+  border-color: var(--field-ochre);
+  background: var(--field-ochre-soft);
+  color: var(--field-ochre-deep);
+  font-weight: 600;
+}
+.field-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--field-line-strong);
+  border-radius: 0.75rem;
+  background: var(--field-surface);
+}
+.field-stepper button {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--field-ochre-deep);
+  touch-action: manipulation;
+}
+.field-stepper button:disabled {
+  color: var(--field-line-strong);
+}
+.field-stepper output {
+  min-width: 2rem;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 .field-facts {

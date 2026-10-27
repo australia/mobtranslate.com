@@ -54,7 +54,12 @@ export async function POST(request: Request, { params }: Context) {
       body: JSON.stringify({
         targetId,
         observations,
-        options: { usePublicRecords: options.usePublicRecords, fieldWeight: options.fieldWeight },
+        options: {
+          usePublicRecords: options.usePublicRecords,
+          fieldWeight: options.fieldWeight,
+          // Fish live in rivers and waterholes: rank only water and its banks.
+          habitat: target.activity === 'fish' ? 'water' : 'land',
+        },
       }),
     });
     return researchJson(body, status);
