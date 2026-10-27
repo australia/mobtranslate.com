@@ -17,6 +17,7 @@ import { CountryMarkdown } from '../components/CountryMarkdown';
 import { ReviewNotice } from '../components/ReviewNotice';
 import { CountryFigure } from '../components/CountryFigure';
 import { Community } from '../components/Community';
+import { pageMetadata } from '@/lib/seo';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -32,13 +33,14 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { language, slug } = await props.params;
   const entry = getCountryEntry(language, slug);
-  if (!entry) return { title: 'Country — MobTranslate' };
+  if (!entry) return { title: 'Country' };
   const names = entry.names.map((name) => name.word).join(', ');
-  return {
-    title: `${entry.title} (${names}) — Kuku Yalanji Country — MobTranslate`,
+  return pageMetadata({
+    title: `${entry.title} (${names}) — Kuku Yalanji Country`,
     description: `${entry.title}: Kuku Yalanji ${names}. Names, identification, where it lives, uses and how it was gathered and prepared, with sources.`,
-    alternates: { canonical: `/dictionaries/${language}/country/${slug}` },
-  };
+    path: `/dictionaries/${language}/country/${slug}`,
+    type: 'article',
+  });
 }
 
 const wordHref = (language: string, word: string) => `/dictionaries/${language}/words/${encodeURIComponent(word)}`;

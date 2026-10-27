@@ -1,10 +1,8 @@
 import { Metadata } from 'next';
 import React from 'react';
+import { privatePage } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'AI Chat - Mob Translate',
-  description: 'Chat with AI about Aboriginal languages and translations',
-};
+export const metadata: Metadata = privatePage('AI chat', 'Chat with AI about Aboriginal languages and translations.');
 
 export default function ChatLayout({
   children,

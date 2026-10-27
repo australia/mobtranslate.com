@@ -1,16 +1,14 @@
 import type { Metadata } from 'next';
 import SharedLayout from '../components/SharedLayout';
 import SpreadClient from './SpreadClient';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'How our languages spread — animated — MobTranslate',
+export const metadata: Metadata = pageMetadata({
+  title: 'How our languages spread',
   description:
-    'An animated wind-map of the Pama-Nyungan language expansion across Australia, ' +
-    'from a Gulf-of-Carpentaria origin ~5,578 years BP outward to Cape York and ' +
-    'beyond. A model-inferred hypothesis from historical linguistics (Bouckaert, ' +
-    'Bowern & Atkinson 2018) — a ~5,000-year LINGUISTIC spread across a continent ' +
-    'already populated for ~65,000 years. Trace Kuku Yalanji arriving home.',
-};
+    'An animated map of the Pama-Nyungan language spread from the Gulf of Carpentaria about 5,600 years ago, a linguistic spread across a continent people had lived in for 65,000 years.',
+  path: '/spread',
+});
 
 export const dynamic = 'force-static';
 

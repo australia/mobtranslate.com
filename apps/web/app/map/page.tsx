@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import SharedLayout from '../components/SharedLayout';
 import MapExplorer from './MapExplorer';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Map — Australian languages atlas — MobTranslate',
+export const metadata: Metadata = pageMetadata({
+  title: 'Map of Australian languages',
   description:
-    'An interactive atlas of Australian Aboriginal & Torres Strait Islander languages. Plot 800+ ' +
-    'varieties by family, by a single grammatical feature, or by shared recorded Grambank features — ' +
-    'with "not coded" always shown, never hidden. Built on open (CC-BY-4.0) data.',
-};
+    'An interactive map of 800+ Aboriginal and Torres Strait Islander language varieties, by family, by one grammatical feature, or by shared features.',
+  path: '/map',
+});
 
 export const dynamic = 'force-static';
 

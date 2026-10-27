@@ -5,14 +5,14 @@ import SharedLayout from '../components/SharedLayout';
 import { Badge } from '@mobtranslate/ui';
 import { getTypologyIndex } from '@/lib/typology';
 import { BookOpen, MapPin } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Languages — grammatical knowledge — MobTranslate',
+export const metadata: Metadata = pageMetadata({
+  title: 'Languages — grammatical knowledge',
   description:
-    'A grammatical-knowledge layer over Australian Aboriginal & Torres Strait Islander languages: ' +
-    'Grambank baseline features, an Australianist extension catalog, construction records and ' +
-    'grambank_recorded_agreement between languages. Built on open (CC-BY-4.0) sources.',
-};
+    'Grammatical knowledge for Australian Aboriginal and Torres Strait Islander languages: Grambank features, construction records and how languages agree.',
+  path: '/languages',
+});
 
 export const dynamic = 'force-static';
 

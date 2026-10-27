@@ -18,12 +18,14 @@ import CopyBlock from './CopyBlock';
 import manifestData from '../../../data/atlas/manifest.json';
 import coverageData from '../../../data/atlas/coverage-report.json';
 import downloadsData from '../../../public/atlas-data/downloads/downloads.json';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Methods, sources & open data — Atlas of Australian Languages',
   description:
-    'How the Atlas of Australian Languages is built and how to cite it: every upstream dataset with its version, licence and DOI; downloadable open datasets (CSV, GeoJSON, BibTeX, CITATION.cff); the join method and reproducibility; the uncertainty policy; and an Indigenous Data Sovereignty / ICIP statement.',
-};
+    'How the atlas is built and cited: every upstream dataset with version, licence and DOI, open downloads, the uncertainty policy and an ICIP statement.',
+  path: '/atlas/methods',
+});
 
 export const dynamic = 'force-static';
 

@@ -29,6 +29,7 @@ import { transformWordsForUI } from '@/lib/utils/dictionary-transform';
 import { creditsForLanguage } from '@/lib/credits';
 import { governanceForLanguage } from '@/lib/language-governance';
 import { LanguageGovernancePanel } from './components/LanguageGovernancePanel';
+import { pageMetadata } from '@/lib/seo';
 
 export const revalidate = 60; // Revalidate every 60 seconds
 
@@ -242,22 +243,12 @@ export async function generateMetadata(
     
     const canonical = `/dictionaries/${params.language}`;
     const description = languageData.description || `Explore the ${languageData.name} dictionary — words, meanings, pronunciation and cultural context.`;
-    return {
-      title: `${languageData.name} Dictionary`,
-      description,
-      // Canonical to the base dictionary URL so search/pagination params don't
-      // create duplicate content.
-      alternates: { canonical },
-      openGraph: {
-        title: `${languageData.name} Dictionary | Mob Translate`,
-        description,
-        url: canonical,
-        type: 'website',
-      },
-    };
+    // Canonical to the base dictionary URL so search/pagination params don't
+    // create duplicate content.
+    return pageMetadata({ title: `${languageData.name} Dictionary`, description, path: canonical });
   } catch {
     return {
-      title: 'Dictionary - MobTranslate',
+      title: 'Dictionary',
       description: 'Explore indigenous language dictionaries with translations and cultural context.',
     };
   }

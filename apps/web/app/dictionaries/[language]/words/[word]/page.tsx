@@ -26,6 +26,8 @@ const Breadcrumbs = ({ items, className }: { items: { href: string; label: strin
 import { getWordsForLanguage, searchWords, getWordSynonyms } from '@/lib/db/queries';
 import { WordDetailContent } from './components/WordDetailContent';
 import { getPublicWordSources } from '@/lib/word-provenance.server';
+import { pickHeadword } from '@/lib/dictionary-headword';
+import { pageMetadata } from '@/lib/seo';
 
 export const revalidate = 300; // Revalidate every 5 minutes
 
@@ -40,39 +42,7 @@ async function getWordBySlug(languageCode: string, wordSlug: string) {
     limit: 50
   });
   
-  // Historical Mi'gmaq imports contain duplicate headwords. Prefer the row
-  // with the most attached dictionary content; keep the other rows intact.
-  const orthographicKey = (value: string) => value
-    .normalize('NFKC')
-    .replace(/[\u2018\u2019\u02bc]/g, "'")
-    .replace(/\s+/g, ' ')
-    .trim();
-  const requestedOrthography = orthographicKey(decodedWord);
-  const caseExactMatches = words.filter(w => orthographicKey(w.word) === requestedOrthography);
-  const exactMatches = caseExactMatches.length > 0
-    ? caseExactMatches
-    : words.filter(w =>
-        orthographicKey(w.word).toLocaleLowerCase('en-CA') === requestedOrthography.toLocaleLowerCase('en-CA') ||
-        (w.normalized_word
-          ? orthographicKey(w.normalized_word).toLocaleLowerCase('en-CA') === requestedOrthography.toLocaleLowerCase('en-CA')
-          : false)
-      );
-  exactMatches.sort((left, right) => {
-    const childRows = (candidate: typeof left) =>
-      (candidate.definitions?.length ?? 0) +
-      (candidate.definitions?.reduce((sum, definition) => sum + (definition.translations?.length ?? 0), 0) ?? 0) +
-      (candidate.usage_examples?.length ?? 0);
-    const enrichment = (candidate: typeof left) =>
-      [candidate.phonemic, candidate.gloss, candidate.semantic_domain, candidate.verb_class,
-        candidate.dialect, candidate.entry_source, candidate.notes].filter(Boolean).length;
-    return (
-      childRows(right) - childRows(left) ||
-      enrichment(right) - enrichment(left) ||
-      String(right.created_at ?? '').localeCompare(String(left.created_at ?? '')) ||
-      left.id.localeCompare(right.id)
-    );
-  });
-  const exactMatch = exactMatches[0];
+  const exactMatch = pickHeadword(words, decodedWord);
   
   if (!exactMatch) {
     return { word: null, language, relatedWords: words.slice(0, 6) };
@@ -245,7 +215,7 @@ export async function generateMetadata(
     
     if (!word) {
       return {
-        title: 'Word Not Found - MobTranslate',
+        title: 'Word not found',
         description: 'The requested word could not be found in our dictionary.',
       };
     }
@@ -253,20 +223,10 @@ export async function generateMetadata(
     const definition = word.definitions?.[0]?.definition || 'No definition available';
     const canonical = `/dictionaries/${params.language}/words/${encodeURIComponent(word.word)}`;
     const description = `${word.word} in ${language.name}: ${definition}`;
-    return {
-      title: `${word.word} — ${language.name} word`,
-      description,
-      alternates: { canonical },
-      openGraph: {
-        title: `${word.word} — ${language.name} | Mob Translate`,
-        description,
-        url: canonical,
-        type: 'article',
-      },
-    };
+    return pageMetadata({ title: `${word.word} — ${language.name} word`, description, path: canonical, type: 'article' });
   } catch {
     return {
-      title: 'Dictionary - MobTranslate',
+      title: 'Dictionary',
       description: 'Explore indigenous language dictionaries.',
     };
   }

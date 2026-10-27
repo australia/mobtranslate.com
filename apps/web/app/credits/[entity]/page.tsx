@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import SharedLayout from '../../components/SharedLayout';
 import { CREDITS, getCredit, CATEGORY_META } from '@/lib/credits';
 import { ArrowLeft, ExternalLink, Quote } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
 export function generateStaticParams() {
   return CREDITS.map((c) => ({ entity: c.slug }));
@@ -14,11 +15,12 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { entity } = await params;
   const c = getCredit(entity);
-  if (!c) return { title: 'Credit not found — MobTranslate' };
-  return {
-    title: `${c.name} — Credits — MobTranslate`,
+  if (!c) return { title: 'Credit not found' };
+  return pageMetadata({
+    title: `${c.name} — Credits`,
     description: `${c.role}. ${c.contribution}`,
-  };
+    path: `/credits/${entity}`,
+  });
 }
 
 export default async function CreditEntityPage(

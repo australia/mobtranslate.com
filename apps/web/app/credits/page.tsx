@@ -3,12 +3,14 @@ import type { Metadata } from 'next';
 import SharedLayout from '../components/SharedLayout';
 import { creditsByCategory, CATEGORY_META } from '@/lib/credits';
 import { ArrowRight, Heart } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Credits — MobTranslate',
+export const metadata: Metadata = pageMetadata({
+  title: 'Credits',
   description:
-    'The communities, dictionary makers, linguists and open voice models whose work MobTranslate is built on.',
-};
+    'The communities, dictionary makers, linguists and open voice models Mob Translate is built on.',
+  path: '/credits',
+});
 
 export default function CreditsPage() {
   const groups = creditsByCategory();

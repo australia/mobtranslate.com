@@ -2,13 +2,14 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SharedLayout from '../components/SharedLayout';
 import { Download, Smartphone, Keyboard, Mic, ShieldCheck, ArrowRight } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Get the app',
-  description: 'Download the Mob Translate Android app — translate, look up words, hear pronunciation, record your language, and a built-in language keyboard.',
-  alternates: { canonical: '/download' },
-  openGraph: { title: 'Get the Mob Translate app', url: '/download', type: 'website' },
-};
+  description:
+    'The Mob Translate Android app: translate, look up words, hear pronunciation, record your language, and type with a language keyboard.',
+  path: '/download',
+});
 
 // Versioned filename so a new release is never served from a stale browser /
 // CDN cache (and the installer always sees the newer build). Bump on each release.

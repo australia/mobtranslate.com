@@ -2,13 +2,14 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SharedLayout from '../components/SharedLayout';
 import { Mail, ShieldCheck, Trash2 } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Delete your account and data',
   description:
     'Request deletion of your Mob Translate account and associated personal data.',
-  alternates: { canonical: '/account-deletion' },
-};
+  path: '/account-deletion',
+});
 
 const DELETE_EMAIL =
   'mailto:ajax@mobtranslate.com?subject=Delete%20my%20Mob%20Translate%20account&body=Please%20delete%20my%20Mob%20Translate%20account%20and%20associated%20data.%0A%0AAccount%20email%3A%20';

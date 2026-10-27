@@ -5,6 +5,7 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { Toaster } from '@/components/layout/Toaster';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { SHARE_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, X_HANDLE } from '@/lib/seo';
 
 // Load fonts
 const inter = Inter({
@@ -20,40 +21,37 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mobtranslate.com'),
-  title: {
-    default: 'Mob Translate — Indigenous language dictionaries, translation & voice',
-    template: '%s | Mob Translate',
-  },
-  description:
-    "Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages — Kuku Yalanji, Anindilyakwa, Mi'gmaq and more.",
-  applicationName: 'Mob Translate',
+  metadataBase: new URL(SITE_URL),
+  title: { default: SITE_TITLE, template: `%s | ${SITE_NAME}` },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
   keywords: [
     'indigenous languages', 'aboriginal languages', 'first nations languages', 'translation',
-    'dictionary', 'Kuku Yalanji', 'Anindilyakwa', "Mi'gmaq", 'language learning',
+    'dictionary', 'Kuku Yalanji', 'Wajarri', 'Anindilyakwa', "Mi'gmaq", 'language learning',
     'language revitalisation',
   ],
   authors: [{ name: 'Mob Translate Community' }],
   creator: 'Mob Translate Community',
-  alternates: { canonical: '/' },
+  // No canonical here: it would be inherited, and every page without its own
+  // would tell search engines it is a copy of the homepage.
   openGraph: {
-    title: 'Mob Translate — Indigenous language dictionaries, translation & voice',
-    description:
-      'Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages.',
-    url: 'https://mobtranslate.com',
-    siteName: 'Mob Translate',
+    siteName: SITE_NAME,
     locale: 'en_AU',
     type: 'website',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [SHARE_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mob Translate',
-    description:
-      'Open-source dictionaries, AI translation and pronunciation for Australian First Nations languages.',
+    site: X_HANDLE,
+    creator: X_HANDLE,
+    images: [{ url: SHARE_IMAGE.url, alt: SHARE_IMAGE.alt }],
   },
-  robots: { index: true, follow: true },
+  robots: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   manifest: '/manifest.json',
-  appleWebApp: { capable: true, statusBarStyle: 'default', title: 'Mob Translate' },
+  appleWebApp: { capable: true, statusBarStyle: 'default', title: SITE_NAME },
+  formatDetection: { telephone: false },
 };
 
 // device-width + viewport-fit=cover so full-screen recording UIs clear the
@@ -71,7 +69,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`} suppressHydrationWarning>
+    <html lang="en-AU" className={`${inter.variable} ${playfairDisplay.variable}`} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>

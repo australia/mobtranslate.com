@@ -2,13 +2,11 @@ import Link from 'next/link';
 import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
 import { STUDIO_ROLES, EXPORT_ROLES, kukuLanguageId } from '@/lib/recording/sentence-studio';
 import StudioDashboard from './StudioDashboard';
+import { privatePage } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
-export const metadata = {
-  title: 'Recording Studio Dashboard · Kuku Yalanji',
-  description: 'Corpus progress, speakers, elder corrections, and exports.',
-};
+export const metadata = privatePage('Recording Studio Dashboard · Kuku Yalanji', 'Corpus progress, speakers, elder corrections, and exports.');
 
 export default async function DashboardPage() {
   const user = await getSessionUser();

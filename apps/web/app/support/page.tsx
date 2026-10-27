@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
 import { BookOpen, Mail, Mic, ShieldCheck } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Support',
   description:
     'Get help with the Mob Translate app, accounts, language content and recordings.',
-  alternates: { canonical: '/support' },
-};
+  path: '/support',
+});
 
 export default function SupportPage() {
   return (

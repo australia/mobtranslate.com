@@ -4,9 +4,10 @@ import { Mic, ChevronRight } from 'lucide-react';
 import { sql } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
 import { getSessionUser } from '@/lib/auth-helpers';
+import { privatePage } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'Record your language' };
+export const metadata = privatePage('Record your language');
 
 interface MyInvite {
   language_id: string;

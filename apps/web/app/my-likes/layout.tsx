@@ -1,9 +1,7 @@
 import React from 'react';
+import { privatePage } from '@/lib/seo';
 
-export const metadata = {
-  title: 'My Liked Words - MobTranslate',
-  description: 'View and manage your liked and loved words across all indigenous languages.',
-};
+export const metadata = privatePage('My liked words', 'Your liked and loved words across every dictionary.');
 
 export default function MyLikesLayout({
   children,

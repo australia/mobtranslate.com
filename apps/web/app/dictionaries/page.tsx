@@ -2,6 +2,7 @@ import React from 'react';
 import SharedLayout from '../components/SharedLayout';
 import { getDictionaryLanguages } from '@/lib/db/queries';
 import DictionariesBrowser from './DictionariesBrowser';
+import { pageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
 
@@ -61,14 +62,10 @@ export default async function DictionariesPage() {
   );
 }
 
-export async function generateMetadata() {
-  return {
-    title: 'Indigenous Language Dictionaries - MobTranslate',
-    description: 'Browse our collection of Indigenous language dictionaries from around the world. Explore and learn traditional languages online.',
-    openGraph: {
-      title: 'Indigenous Language Dictionaries',
-      description: 'Explore dictionaries for Indigenous languages including Kuku Yalanji, Mi\'gmaq, and Anindilyakwa.',
-      type: 'website',
-    },
-  };
+export function generateMetadata() {
+  return pageMetadata({
+    title: 'Indigenous language dictionaries',
+    description: "Browse the Kuku Yalanji, Wajarri, Anindilyakwa and Mi'gmaq dictionaries: words, meanings, pronunciation and the source of every entry.",
+    path: '/dictionaries',
+  });
 }

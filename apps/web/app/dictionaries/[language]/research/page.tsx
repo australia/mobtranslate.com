@@ -3,14 +3,16 @@ import { notFound } from 'next/navigation';
 import SharedLayout from '../../../components/SharedLayout';
 import { getOverviewData } from '@/lib/kuku-yalanji-research.server';
 import KukuYalanjiResearchClient from './KukuYalanjiResearchClient';
+import { pageMetadata } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Kuku Yalanji Corpus Workbench',
-  description: 'Explore the Kuku Yalanji dictionary, verified synthetic sentence corpus, lexeme ledger, corpus audits, and v2 model evidence.',
-  alternates: { canonical: '/dictionaries/kuku_yalanji/research' },
-};
+  description:
+    'Explore the Kuku Yalanji dictionary, verified synthetic sentence corpus, lexeme ledger, corpus audits, and v2 model evidence.',
+  path: '/dictionaries/kuku_yalanji/research',
+});
 
 export default async function KukuYalanjiResearchPage({
   params,

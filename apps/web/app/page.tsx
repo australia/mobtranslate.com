@@ -4,6 +4,7 @@ import TranslateHero from './components/TranslateHero';
 import { Badge } from '@mobtranslate/ui';
 import { getActiveLanguages, getLanguageStats } from '@/lib/db/queries';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { pageMetadata, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/seo';
 
 export const revalidate = 3600;
 
@@ -32,17 +33,25 @@ export default async function Page() {
 
   const siteJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Mob Translate',
-    url: 'https://mobtranslate.com',
-    description:
-      'Open-source dictionaries, translation and pronunciation for Australian First Nations languages.',
-    publisher: {
-      '@type': 'Organization',
-      name: 'Mob Translate',
-      url: 'https://mobtranslate.com',
-      logo: 'https://mobtranslate.com/icons/icon-512.png',
-    },
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        description: SITE_DESCRIPTION,
+        inLanguage: 'en-AU',
+        publisher: { '@id': `${SITE_URL}/#organization` },
+      },
+      {
+        '@type': 'Organization',
+        '@id': `${SITE_URL}/#organization`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        logo: `${SITE_URL}/icons/icon-512.png`,
+        sameAs: ['https://github.com/australia/mobtranslate.com'],
+      },
+    ],
   };
 
   return (
@@ -243,14 +252,6 @@ export default async function Page() {
   );
 }
 
-export async function generateMetadata() {
-  return {
-    title: 'Mob Translate - Indigenous Language Translation',
-    description: 'A community-driven project to create translation tools for Indigenous languages worldwide, making language learning and exploration accessible to all.',
-    openGraph: {
-      title: 'Mob Translate - Indigenous Language Translation',
-      description: 'A community-driven project to create translation tools for Indigenous languages worldwide.',
-      type: 'website',
-    },
-  };
+export function generateMetadata() {
+  return pageMetadata({ title: SITE_TITLE, description: SITE_DESCRIPTION, path: '/', absoluteTitle: true });
 }

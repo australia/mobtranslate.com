@@ -2,13 +2,11 @@ import Link from 'next/link';
 import { getSessionUser, userHasRole } from '@/lib/auth-helpers';
 import { kukuLanguageId, STUDIO_ROLES } from '@/lib/recording/sentence-studio';
 import SentenceStudio from './SentenceStudio';
+import { privatePage } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
-export const metadata = {
-  title: 'Sentence Recording Studio · Kuku Yalanji',
-  description: 'Record and verify Kuku Yalanji sentences with elders.',
-};
+export const metadata = privatePage('Sentence Recording Studio · Kuku Yalanji', 'Record and verify Kuku Yalanji sentences with elders.');
 
 function Gate({ title, body, cta }: { title: string; body: string; cta?: React.ReactNode }) {
   return (

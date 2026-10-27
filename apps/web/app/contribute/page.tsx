@@ -6,6 +6,7 @@ import {
   Check,
   Bug,
 } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
 const STEPS = [
   {
@@ -148,9 +149,10 @@ export default function ContributePage() {
   );
 }
 
-export async function generateMetadata() {
-  return {
-    title: 'Contribute | Mob Translate',
-    description: 'Help build Mob Translate by contributing code, linguistics, or community support. Every contribution matters.',
-  };
+export function generateMetadata() {
+  return pageMetadata({
+    title: 'Contribute',
+    description: 'Help build Mob Translate with words, recordings, corrections, code or linguistics. Every contribution is credited.',
+    path: '/contribute',
+  });
 }

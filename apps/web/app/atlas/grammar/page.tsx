@@ -7,16 +7,14 @@ import SharedLayout from '../../components/SharedLayout';
 import GrammarLens from './GrammarLens';
 import type { GrammarPointCollection } from './GrammarMap';
 import type { GrammarCatalog, GrammarMatrix } from './grammarTypes';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Grammar & similarity — Atlas of Australian Languages',
   description:
-    'Colour the map by any Grambank or WALS grammatical feature across every language that codes it, ' +
-    'compare two languages feature by feature with an honest recorded-agreement score (and n_joint), ' +
-    'and see closest-by-agreement neighbours. Unknown and not-coded values are shown explicitly grey, ' +
-    'never as absent. Built on open (CC-BY) data: Grambank v1.0.3, WALS 2020.4.',
-  alternates: { canonical: '/atlas/grammar' },
-};
+    'Colour the map by any Grambank or WALS feature, compare two languages feature by feature, and find their closest neighbours. Unknown values stay visible.',
+  path: '/atlas/grammar',
+});
 
 export const dynamic = 'force-static';
 

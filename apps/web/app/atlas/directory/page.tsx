@@ -9,16 +9,14 @@ import DirectoryTable, {
   type FacetMeta,
 } from './DirectoryTable';
 import { buildFamilyColors, colorForFamily } from '../atlasConfig';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Directory — Atlas of Australian Languages',
   description:
-    'A searchable, filterable, sortable directory of every one of the 980 genuine Australian ' +
-    'languoids — including the 171 without coordinates and the lexically-empty. No language left ' +
-    'off the map. Filter by family, region, coverage, endangerment and tier; every row deep-links ' +
-    'to its canonical profile.',
-  alternates: { canonical: '/atlas/directory' },
-};
+    'Search, filter and sort all 980 Australian languoids, including the 171 without coordinates, by family, region, coverage, endangerment and tier.',
+  path: '/atlas/directory',
+});
 
 export const dynamic = 'force-static';
 

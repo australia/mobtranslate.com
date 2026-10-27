@@ -16,6 +16,7 @@ import { CountryMarkdown } from '../../components/CountryMarkdown';
 import { ReviewNotice } from '../../components/ReviewNotice';
 import { CountryFigure } from '../../components/CountryFigure';
 import { Community } from '../../components/Community';
+import { pageMetadata } from '@/lib/seo';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -31,12 +32,13 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { language, place: slug } = await props.params;
   const place = getCountryPlace(language, slug);
-  if (!place) return { title: 'Country — MobTranslate' };
-  return {
-    title: `${place.title} — Kuku Yalanji Country — MobTranslate`,
+  if (!place) return { title: 'Country' };
+  return pageMetadata({
+    title: `${place.title} — Kuku Yalanji Country`,
     description: place.subtitle,
-    alternates: { canonical: `/dictionaries/${language}/country/places/${slug}` },
-  };
+    path: `/dictionaries/${language}/country/places/${slug}`,
+    type: 'article',
+  });
 }
 
 export default async function CountryPlacePage(props: { params: Promise<{ language: string; place: string }> }) {

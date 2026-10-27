@@ -15,13 +15,14 @@ import {
   GitBranch,
   ShieldCheck,
 } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Models',
-  description: 'Download versioned MobTranslate language models, model cards, manifests, and evaluation reports.',
-  alternates: { canonical: '/models' },
-  openGraph: { title: 'MobTranslate Models', url: '/models', type: 'website' },
-};
+  description:
+    'Download versioned Mob Translate language models, model cards, manifests and evaluation reports.',
+  path: '/models',
+});
 
 type Artifact = {
   label: string;

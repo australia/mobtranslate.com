@@ -6,6 +6,7 @@ import { COUNTRY_LANGUAGES, getCountryEntries, getCountryImages, getCountryPlace
 import { CountryBrowser, type CountryCard } from './CountryBrowser';
 import { ReviewNotice } from './components/ReviewNotice';
 import { Community } from './components/Community';
+import { pageMetadata } from '@/lib/seo';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -14,12 +15,12 @@ export function generateStaticParams() {
   return COUNTRY_LANGUAGES.map((language) => ({ language }));
 }
 
-export const metadata: Metadata = {
-  title: 'Kuku Yalanji Country — trees, animals, stone and how to use them — MobTranslate',
+export const metadata: Metadata = pageMetadata({
+  title: 'Kuku Yalanji Country — trees, animals, stone and how to use them',
   description:
-    'An encyclopedia of Kuku Yalanji country: trees, plants, animals, fish, stone, fire and tools, with their Kuku Yalanji names and how they were hunted, gathered and prepared, from published sources.',
-  alternates: { canonical: '/dictionaries/kuku_yalanji/country' },
-};
+    'Trees, plants, animals, fish, stone, fire and tools of Kuku Yalanji Country, with their Kuku Yalanji names and how they were gathered and prepared.',
+  path: '/dictionaries/kuku_yalanji/country',
+});
 
 // Plain-text teaser for cards: drop citation markers and Markdown emphasis.
 const blurb = (markdown: string) =>

@@ -21,6 +21,7 @@ import {
   Link2,
   Hammer
 } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
 
@@ -390,14 +391,10 @@ export default async function EducationPage() {
   );
 }
 
-export async function generateMetadata() {
-  return {
-    title: 'Education - Learn Indigenous Languages | Mob Translate',
-    description: 'Interactive games, lessons, and learning tools to help you master Indigenous languages. Memory games, quizzes, flashcards, and more.',
-    openGraph: {
-      title: 'Education - Learn Indigenous Languages | Mob Translate',
-      description: 'Interactive games, lessons, and learning tools for Indigenous language learning.',
-      type: 'website',
-    },
-  };
+export function generateMetadata() {
+  return pageMetadata({
+    title: 'Learn Indigenous languages',
+    description: 'Games, lessons, quizzes and flashcards for learning Indigenous languages a few words at a time.',
+    path: '/education',
+  });
 }

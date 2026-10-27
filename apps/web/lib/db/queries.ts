@@ -586,6 +586,15 @@ export async function searchWords(
   return assembled;
 }
 
+/** Every headword the dictionary browse shows for a language, for the sitemap. */
+export async function getBrowseHeadwords(languageId: string): Promise<string[]> {
+  const rows = await db
+    .selectDistinct({ word: wordsT.word })
+    .from(wordsT)
+    .where(and(eq(wordsT.languageId, languageId), isVisibleInDictionaryBrowse()));
+  return rows.map((r) => r.word);
+}
+
 export async function getLanguageStats() {
   const rows = await db
     .select({ id: languagesT.id, name: languagesT.name, code: languagesT.code, metadata: languagesT.metadata })

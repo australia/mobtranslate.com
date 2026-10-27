@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import SharedLayout from '../components/SharedLayout';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Privacy Policy',
-  description: 'How Mob Translate handles your data.',
-  alternates: { canonical: '/privacy' },
-};
+  description:
+    'How Mob Translate handles your data.',
+  path: '/privacy',
+});
 
 export default function PrivacyPage() {
   return (

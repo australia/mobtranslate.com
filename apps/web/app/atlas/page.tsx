@@ -19,15 +19,14 @@ import {
   type AtlasSearchItem,
   type FamilyLegendItem,
 } from './atlasConfig';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'The Atlas of Australian Languages',
   description:
-    'A custodial, historian-grade atlas of every Australian Aboriginal & Torres Strait Islander ' +
-    'languoid — 980 languages mapped by family, searchable by name, autonym, region and code, with ' +
-    'honest coverage and uncertainty. Built on open (CC-BY) data: Glottolog, AUSTLANG, Grambank, WALS.',
-  alternates: { canonical: '/atlas' },
-};
+    'Every Aboriginal and Torres Strait Islander languoid, 980 in all, mapped by family and searchable by name, autonym, region and code. Built on open data.',
+  path: '/atlas',
+});
 
 export const dynamic = 'force-static';
 

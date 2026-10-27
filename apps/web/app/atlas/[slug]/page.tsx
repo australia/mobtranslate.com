@@ -27,6 +27,7 @@ import {
 } from '../atlasConfig';
 import ProfileMiniMap from './ProfileMiniMap';
 import FeatureTable, { type AtlasFeature } from './FeatureTable';
+import { pageMetadata } from '@/lib/seo';
 
 // On-demand ISR: we do NOT cold-build ~980 static pages. Each languoid renders
 // on first request and caches for a week; a nightly warm crawler (P6) keeps
@@ -71,11 +72,11 @@ export async function generateMetadata({
   const d = loadDetail(slug);
   if (!d) return { title: 'Language not found — Atlas of Australian Languages' };
   const fam = d.family === 'unclassified' ? 'unclassified' : d.family;
-  return {
+  return pageMetadata({
     title: `${d.canonical_name} — Atlas of Australian Languages`,
-    description: `${d.canonical_name}: ${fam} language profile — full classification, Country, grammar feature table, lexical coverage, deep-time position and related languages, with per-datum sources and honest uncertainty.`,
-    alternates: { canonical: `/atlas/${slug}` },
-  };
+    description: `${d.canonical_name}, ${fam}: classification, Country, grammar features, word coverage, deep-time position and related languages, each with its source.`,
+    path: `/atlas/${slug}`,
+  });
 }
 
 // keyed on the actual AES labels present in the data (spaces, not underscores)

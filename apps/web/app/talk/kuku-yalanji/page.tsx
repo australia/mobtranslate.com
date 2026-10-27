@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import SharedLayout from '@/app/components/SharedLayout';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Talk in Kuku Yalanji',
   description:
     'An early voice-listening and spoken conversation test for Kuku Yalanji.',
-  alternates: { canonical: '/talk/kuku-yalanji' },
-};
+  path: '/talk/kuku-yalanji',
+});
 
 export default function KukuYalanjiTalkPage() {
   return (

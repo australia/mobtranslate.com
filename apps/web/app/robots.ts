@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/seo';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,12 +8,11 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       // Private / interactive / per-user areas — keep out of the index.
       disallow: [
-        '/admin/', '/auth/', '/curator/', '/api/', '/record/',
+        '/admin', '/auth/', '/curator/', '/api/', '/record',
         '/dashboard', '/settings', '/my-likes', '/chat', '/voice',
-        '/contributions', '/onboarding',
+        '/contributions', '/onboarding', '/speak',
       ],
     },
-    sitemap: 'https://mobtranslate.com/sitemap.xml',
-    host: 'https://mobtranslate.com',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

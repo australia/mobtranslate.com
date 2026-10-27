@@ -6,13 +6,16 @@ import SharedLayout from '../../../../components/SharedLayout';
 import { getCountryEntries, getCountryPlaces, hasCountry } from '@/lib/country/entries.server';
 import { listContributions } from '@/lib/country/contributions.server';
 import { ContributionCard } from '../components/ContributionCard';
+import { pageMetadata } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
-export const metadata: Metadata = {
-  title: 'Community contributions — Kuku Yalanji Country — MobTranslate',
-  description: 'Photos, words, uses, corrections and proposed pages added by the community to the Kuku Yalanji Country encyclopedia.',
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Community contributions — Kuku Yalanji Country',
+  description:
+    'Photos, words, uses, corrections and proposed pages added by the community to the Kuku Yalanji Country encyclopedia.',
+  path: '/dictionaries/kuku_yalanji/country/contributions',
+});
 
 export default async function ContributionsPage(props: { params: Promise<{ language: string }> }) {
   const { language } = await props.params;

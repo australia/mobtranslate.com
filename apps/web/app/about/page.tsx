@@ -2,6 +2,7 @@ import { Code, AtSign, Globe, BookOpen, Users, Sparkles, Check } from 'lucide-re
 import SharedLayout from '../components/SharedLayout';
 import { ContactEmailLink } from '../components/ContactEmailLink';
 import { getLanguageStats } from '@/lib/db/queries';
+import { pageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
 
@@ -146,9 +147,10 @@ export default async function About() {
   );
 }
 
-export async function generateMetadata() {
-  return {
-    title: 'About Mob Translate | Indigenous Language Translation',
-    description: 'Learn about Mob Translate’s source-attributed research tools for exploring Indigenous languages.',
-  };
+export function generateMetadata() {
+  return pageMetadata({
+    title: 'About',
+    description: 'Why Mob Translate exists, how its dictionaries are sourced, and how speakers and communities shape it.',
+    path: '/about',
+  });
 }

@@ -4,6 +4,7 @@ import SharedLayout from '@/app/components/SharedLayout';
 import { findModel, findRelease, loadModelRegistry } from '@/lib/models/registry';
 import { loadModelResultSamples } from '@/lib/models/results';
 import TranslateV2Client from '../../TranslateV2Client';
+import { pageMetadata } from '@/lib/seo';
 
 type PageParams = {
   modelId: string;
@@ -34,11 +35,11 @@ export async function generateMetadata(
     };
   }
 
-  return {
-    title: `${model.name} ${release.version} | Translate v2`,
+  return pageMetadata({
+    title: `${model.name} ${release.version} — Translate v2`,
     description: `Review saved evals for ${model.name} ${release.version}, trained from ${release.dataset}.`,
-    alternates: { canonical: `/translate/v2/${model.id}/${release.version}` },
-  };
+    path: `/translate/v2/${model.id}/${release.version}`,
+  });
 }
 
 export default async function TranslateV2VersionPage(

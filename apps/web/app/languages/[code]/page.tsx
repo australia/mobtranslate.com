@@ -11,6 +11,7 @@ import {
   groupConstructionsByDomain,
 } from '@/lib/typology';
 import { ArrowLeft, BookOpen, MapPin, Layers, GitCompare } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -24,11 +25,12 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { code } = await props.params;
   const lang = getLanguageTypology(code);
-  if (!lang) return { title: 'Language — MobTranslate' };
-  return {
-    title: `${lang.name} — grammatical profile — MobTranslate`,
+  if (!lang) return { title: 'Language' };
+  return pageMetadata({
+    title: `${lang.name} — grammatical profile`,
     description: `Grammatical profile of ${lang.name} (${lang.family || 'Australian'}): ${lang.coverage.grambank_coded} Grambank baseline features, construction records and related languages.`,
-  };
+    path: `/languages/${code}`,
+  });
 }
 
 const DOMAIN_LABELS: Record<string, string> = {

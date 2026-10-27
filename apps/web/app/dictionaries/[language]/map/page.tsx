@@ -6,6 +6,7 @@ import SharedLayout from '../../../components/SharedLayout';
 import { Badge } from '@mobtranslate/ui';
 import { getLocationWordsForLanguage } from '@/lib/db/queries';
 import { AllLocationsMap } from './AllLocationsMap';
+import { pageMetadata } from '@/lib/seo';
 
 export const revalidate = 60;
 
@@ -114,18 +115,14 @@ export async function generateMetadata(
   try {
     const { words, language: languageData } = await getLocationWordsForLanguage(params.language);
 
-    return {
-      title: `${languageData.name} Place Names Map - MobTranslate`,
-      description: `Explore ${words.length} traditional place names in ${languageData.name} country on an interactive map.`,
-      openGraph: {
-        title: `${languageData.name} Place Names Map`,
-        description: `Interactive map of ${words.length} traditional ${languageData.name} place names.`,
-        type: 'website',
-      },
-    };
+    return pageMetadata({
+      title: `${languageData.name} place names map`,
+      description: `Explore ${words.length} traditional place names in ${languageData.name} Country on an interactive map.`,
+      path: `/dictionaries/${params.language}/map`,
+    });
   } catch {
     return {
-      title: 'Place Names Map - MobTranslate',
+      title: 'Place names map',
       description: 'Explore traditional place names on an interactive map.',
     };
   }

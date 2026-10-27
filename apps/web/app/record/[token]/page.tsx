@@ -1,13 +1,11 @@
 import { Mic } from 'lucide-react';
 import { resolveInvite } from '@/lib/recording/public';
 import { PortalApp } from './PortalApp';
+import { privatePage } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
-export const metadata = {
-  title: 'Record your language',
-  robots: { index: false, follow: false }, // private invite links — keep out of search
-};
+export const metadata = privatePage('Record your language');
 
 export default async function RecordPortalPage(props: { params: Promise<{ token: string }> }) {
   const params = await props.params;
