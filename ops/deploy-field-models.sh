@@ -12,6 +12,8 @@ ENV_FILE="/opt/mobtranslate/field-models.env"
 UNIT_SOURCE="$REPO_ROOT/ops/systemd/field-modeld.service"
 UNIT_TARGET="/etc/systemd/system/field-modeld.service"
 TOOLCHAIN="${FIELD_MODELS_TOOLCHAIN:-1.88.0}"
+# Build output can live off the data disk when it is short of space.
+TARGET_DIR="${CARGO_TARGET_DIR:-$CRATE/target}"
 
 for command in cargo gdalwarp gdalbuildvrt curl sha256sum; do
   command -v "$command" >/dev/null || { echo "Missing required command: $command" >&2; exit 1; }
@@ -28,7 +30,7 @@ nice -n 10 cargo "+$TOOLCHAIN" build --release --locked
 [[ -d "$ROOT" ]] || sudo install -d -o "$(id -un)" -g "$(id -gn)" -m 0750 "$ROOT"
 mkdir -p "$RELEASE/bin" "$RELEASE/registry" "$DATA_DIR"
 chmod 700 "$DATA_DIR"
-install -m 0755 target/release/field-modeld "$RELEASE/bin/field-modeld"
+install -m 0755 "$TARGET_DIR/release/field-modeld" "$RELEASE/bin/field-modeld"
 install -m 0644 registry/*.json "$RELEASE/registry/"
 ( cd "$RELEASE" && sha256sum bin/field-modeld registry/*.json > SHA256SUMS )
 

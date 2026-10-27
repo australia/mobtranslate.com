@@ -33,6 +33,33 @@ export const targetUpdateSchema = z.object({
   notes: targetFields.notes.nullable().optional(),
 });
 
+/**
+ * The group of living things a target belongs to. Its model's continental
+ * background is drawn mostly from places where people recorded that group,
+ * so the map follows the target rather than the roads.
+ */
+export const samplingGroups = ['plants', 'reptiles', 'mammals', 'fish', 'crustaceans'] as const;
+export type SamplingGroup = (typeof samplingGroups)[number];
+
+const groupOfClass: Record<string, SamplingGroup> = {
+  Reptilia: 'reptiles',
+  Mammalia: 'mammals',
+  Actinopterygii: 'fish',
+  Malacostraca: 'crustaceans',
+};
+
+/** The group most of a target's public records fall in, from their kingdom and class. */
+export function samplingGroupOf(records: { kingdom?: string | null; className?: string | null }[]): SamplingGroup | null {
+  const counts = new Map<SamplingGroup, number>();
+  for (const r of records) {
+    const group = r.kingdom === 'Plantae' ? 'plants' : r.className ? groupOfClass[r.className] : undefined;
+    if (group) counts.set(group, (counts.get(group) ?? 0) + 1);
+  }
+  let best: SamplingGroup | null = null;
+  for (const [group, count] of counts) if (best === null || count > counts.get(best)!) best = group;
+  return best && counts.get(best)! * 2 > records.length ? best : null;
+}
+
 export const fishingMethods = ['handline', 'rod', 'spear', 'net', 'trap', 'hand'] as const;
 export type FishingMethod = (typeof fishingMethods)[number];
 export const fishingMethodLabels: Record<FishingMethod, string> = {
@@ -77,6 +104,7 @@ export type FieldTarget = {
   scientificNames: string[];
   notes: string | null;
   activity: Activity;
+  samplingGroup: SamplingGroup | null;
   presences: number;
   absences: number;
   publicRecords: number;
@@ -122,6 +150,8 @@ export type Validation = {
   fieldFindAuc: number | null;
   heldOutFieldPercentiles: number[];
   heldOutAbsencePercentiles: number[];
+  /** Held-out records against places people recorded the same group: finding the target, not the roads. */
+  effortAuc?: number | null;
 };
 
 export type ScaleCard = {
@@ -133,6 +163,9 @@ export type ScaleCard = {
   validation: Validation;
   importance: Importance[];
   features: string[];
+  l2?: number;
+  effortBackground?: number;
+  effortGroup?: SamplingGroup | null;
 };
 
 export type ModelCard = {

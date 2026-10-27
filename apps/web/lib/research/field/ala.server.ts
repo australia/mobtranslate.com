@@ -1,6 +1,6 @@
 import 'server-only';
 
-import type { Bounds } from './types';
+import { samplingGroupOf, type Bounds, type SamplingGroup } from './types';
 import type { PublicRecord } from './store.server';
 
 const ALA_SEARCH = 'https://biocache-ws.ala.org.au/ws/occurrences/search';
@@ -17,6 +17,8 @@ type AlaOccurrence = {
   eventDate?: number | string;
   basisOfRecord?: string;
   dataResourceName?: string;
+  kingdom?: string;
+  classs?: string;
 };
 
 async function fetchPage(params: URLSearchParams): Promise<{ total: number; occurrences: AlaOccurrence[] }> {
@@ -43,11 +45,16 @@ async function fetchPage(params: URLSearchParams): Promise<{ total: number; occu
 
 /**
  * Download public occurrence records for the given names (each matched with
- * its varieties and subspecies) inside `bounds`. Queries carry taxon names
- * and the box only, never the operator's own finds.
+ * its varieties and subspecies) inside `bounds`, and the group of living
+ * things most of them belong to. Queries carry taxon names and the box only,
+ * never the operator's own finds.
  */
-export async function fetchAlaRecords(scientificNames: string[], bounds: Bounds): Promise<PublicRecord[]> {
+export async function fetchAlaRecords(
+  scientificNames: string[],
+  bounds: Bounds,
+): Promise<{ records: PublicRecord[]; samplingGroup: SamplingGroup | null }> {
   const records = new Map<string, PublicRecord>();
+  const taxa: { kingdom: string | null; className: string | null }[] = [];
   for (const name of scientificNames) {
     let start = 0;
     for (;;) {
@@ -57,6 +64,7 @@ export async function fetchAlaRecords(scientificNames: string[], bounds: Bounds)
       const { total, occurrences } = await fetchPage(params);
       for (const o of occurrences) {
         if (!o.uuid || typeof o.decimalLatitude !== 'number' || typeof o.decimalLongitude !== 'number') continue;
+        if (!records.has(o.uuid)) taxa.push({ kingdom: o.kingdom ?? null, className: o.classs ?? null });
         records.set(o.uuid, {
           recordId: o.uuid,
           scientificName: o.scientificName ?? null,
@@ -72,5 +80,5 @@ export async function fetchAlaRecords(scientificNames: string[], bounds: Bounds)
       if (occurrences.length === 0 || start >= total || records.size >= MAX_RECORDS) break;
     }
   }
-  return [...records.values()];
+  return { records: [...records.values()], samplingGroup: samplingGroupOf(taxa) };
 }

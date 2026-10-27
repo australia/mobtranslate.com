@@ -62,6 +62,18 @@ function ScaleSummary({ heading, lead, card, titles, targetName, context, always
             )}
           </dd>
         </div>
+        {typeof card.validation.effortAuc === 'number' && (
+          <div className="col-span-2">
+            <dt>Against where people look</dt>
+            <dd>
+              <span className={`field-strength field-strength-${strength(card.validation.effortAuc).tone}`}>{strength(card.validation.effortAuc).word}</span>
+              <span className="text-[var(--field-ink-soft)]">
+                {' '}
+                at telling {targetName.toLowerCase()} records from places people recorded other {card.effortGroup ?? 'living things'} (score {card.validation.effortAuc.toFixed(2)})
+              </span>
+            </dd>
+          </div>
+        )}
         {(alwaysShowFieldTest || held !== null) && (
         <div className="col-span-2">
           <dt>On your own {fishing ? 'catches' : 'finds'}</dt>

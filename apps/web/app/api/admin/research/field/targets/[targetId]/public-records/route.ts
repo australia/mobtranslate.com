@@ -1,7 +1,7 @@
 import { requireResearchAdminApi, researchJson } from '@/lib/research/access';
 import { fetchAlaRecords } from '@/lib/research/field/ala.server';
 import { EngineUnavailableError, engineJson } from '@/lib/research/field/engine.server';
-import { getTarget, listPublicRecords, replacePublicRecords } from '@/lib/research/field/store.server';
+import { getTarget, listPublicRecords, replacePublicRecords, setSamplingGroup } from '@/lib/research/field/store.server';
 import { targetIdPattern, type Bounds } from '@/lib/research/field/types';
 
 export const dynamic = 'force-dynamic';
@@ -34,9 +34,10 @@ export async function POST(_request: Request, { params }: Context) {
     throw error;
   }
   try {
-    const records = await fetchAlaRecords(target.scientificNames, bounds);
+    const { records, samplingGroup } = await fetchAlaRecords(target.scientificNames, bounds);
     const stored = await replacePublicRecords(targetId, records);
-    return researchJson({ stored });
+    if (samplingGroup) await setSamplingGroup(targetId, samplingGroup);
+    return researchJson({ stored, samplingGroup });
   } catch (error) {
     return researchJson({ error: 'ala_unavailable', detail: error instanceof Error ? error.message : String(error) }, 502);
   }

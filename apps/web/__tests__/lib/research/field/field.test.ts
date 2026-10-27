@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { observationBatchSchema, slugifyTarget, targetIdPattern } from '@/lib/research/field/types';
+import { observationBatchSchema, samplingGroupOf, slugifyTarget, targetIdPattern } from '@/lib/research/field/types';
 import { bearingDeg, compassPoint, distanceM, formatDistance } from '@/components/research/field/geo';
 
 describe('field targets', () => {
@@ -8,6 +8,21 @@ describe('field targets', () => {
     expect(slugifyTarget('  Cheeky yam (Dioscorea bulbifera)  ')).toBe('cheeky-yam-dioscorea-bulbifera');
     expect(targetIdPattern.test(slugifyTarget('Gälpu ŋ yam'))).toBe(true);
     expect(targetIdPattern.test(slugifyTarget('!'))).toBe(true);
+  });
+});
+
+describe('sampling groups', () => {
+  it('takes the group most public records belong to', () => {
+    const goanna = { kingdom: 'Animalia', className: 'Reptilia' };
+    expect(samplingGroupOf([goanna, goanna, { kingdom: 'Animalia', className: 'Aves' }])).toBe('reptiles');
+    expect(samplingGroupOf([{ kingdom: 'Plantae', className: 'Liliopsida' }])).toBe('plants');
+    expect(samplingGroupOf([{ kingdom: 'Animalia', className: 'Actinopterygii' }])).toBe('fish');
+  });
+
+  it('leaves mixed or unknown records ungrouped', () => {
+    expect(samplingGroupOf([])).toBeNull();
+    expect(samplingGroupOf([{ kingdom: 'Animalia', className: 'Aves' }])).toBeNull();
+    expect(samplingGroupOf([{ kingdom: 'Plantae' }, { kingdom: 'Animalia', className: 'Mammalia' }])).toBeNull();
   });
 });
 

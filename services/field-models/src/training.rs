@@ -58,6 +58,18 @@ pub struct FitOptions {
     /// Where the target lives; water targets are ranked over rivers and waterholes only.
     #[serde(default)]
     pub habitat: Habitat,
+    /// The group of living things the target belongs to ("reptiles", "plants", ...).
+    /// The continental background is then drawn mostly from places where people
+    /// recorded that group, so presences and background share the same collecting bias.
+    #[serde(default)]
+    pub effort_group: Option<String>,
+    /// Share of the continental background drawn from recording effort; the rest is
+    /// the land at large, so places nobody records still inform the model.
+    #[serde(default = "default_effort_share")]
+    pub effort_share: f64,
+    /// Choose the ridge strength by spatial cross-validation instead of using `l2`.
+    #[serde(default = "default_true")]
+    pub tune_l2: bool,
 }
 
 #[derive(Clone, Copy, Debug, Default, Deserialize, Serialize, PartialEq, Eq)]
@@ -157,6 +169,43 @@ fn default_public_radius() -> f64 {
 fn default_l2() -> f64 {
     0.002
 }
+fn default_effort_share() -> f64 {
+    0.8
+}
+
+/// Ridge strengths tried when tuning, strongest first so ties keep the smoother model.
+const L2_CANDIDATES: [f64; 5] = [0.128, 0.032, 0.008, 0.002, 0.0005];
+
+/// Fit with the ridge strength that validates best on held-out spatial blocks.
+/// Effort AUC decides when it is available, since it rewards finding the target
+/// rather than finding where people go.
+fn fit_tuned(feature_ids: &[String], rows: &[Row], options: &FitOptions) -> Result<(Fitted, Validation, f64)> {
+    let candidates: Vec<f64> = if options.tune_l2 { L2_CANDIDATES.to_vec() } else { vec![options.l2] };
+    let mut best: Option<(f64, Validation, f64)> = None;
+    for l2 in candidates {
+        let validation = model::validate(feature_ids, rows, l2, 5);
+        let score = validation.effort_auc.or(validation.spatial_block_auc).unwrap_or(f64::NEG_INFINITY);
+        if best.as_ref().is_none_or(|(s, _, _)| score > *s + 1e-4) {
+            best = Some((score, validation, l2));
+        }
+    }
+    let (_, validation, l2) = best.context("no ridge strength to try")?;
+    let refs: Vec<&Row> = rows.iter().collect();
+    Ok((model::fit(feature_ids, &refs, l2)?, validation, l2))
+}
+
+/// Cells where anyone recorded a group of living things (see tools/fetch_effort.py).
+pub struct Effort {
+    pub cell_degrees: f64,
+    pub cells: Vec<(f64, f64)>,
+}
+
+#[derive(Deserialize)]
+#[serde(rename_all = "camelCase")]
+struct EffortFile {
+    cell_degrees: f64,
+    cells: Vec<(f64, f64, u64)>,
+}
 
 impl Default for FitOptions {
     fn default() -> Self {
@@ -175,6 +224,14 @@ pub struct ScaleCard {
     pub validation: Validation,
     pub importance: Vec<Importance>,
     pub features: Vec<String>,
+    /// Ridge strength used (chosen by cross-validation unless switched off).
+    #[serde(default)]
+    pub l2: f64,
+    /// Background rows drawn from recording effort, and the group they came from.
+    #[serde(default)]
+    pub effort_background: usize,
+    #[serde(default)]
+    pub effort_group: Option<String>,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -352,6 +409,18 @@ impl Engine {
         RegionalStack::load(&self.registry, &self.cache_dir())
     }
 
+    pub fn load_effort(&self, group: &str) -> Result<Effort> {
+        if group.is_empty() || !group.chars().all(|c| c.is_ascii_lowercase() || c == '-') {
+            bail!("invalid effort group");
+        }
+        let path = self.cache_dir().join("effort").join(format!("{group}.json"));
+        let file: EffortFile = serde_json::from_slice(&std::fs::read(&path).with_context(|| format!("no recording effort for {group}"))?)?;
+        if file.cells.is_empty() {
+            bail!("recording effort for {group} is empty");
+        }
+        Ok(Effort { cell_degrees: file.cell_degrees, cells: file.cells.into_iter().map(|(lon, lat, _)| (lon, lat)).collect() })
+    }
+
     fn feature_ids(&self, scale: Scale) -> Vec<String> {
         self.registry.features_at(scale).iter().map(|f| f.id.clone()).collect()
     }
@@ -465,17 +534,31 @@ impl Engine {
                 (Label::Presence, _) => public += 1,
                 _ => absences += 1,
             }
-            rows.push(Row { values, label: o.kind, origin: o.origin, weight, block: block_of(o.lon, o.lat, 2.0)});
+            rows.push(Row { values, label: o.kind, origin: o.origin, weight, block: block_of(o.lon, o.lat, 2.0), effort: false, train: true });
         }
         if outside > 0 {
             notes.push(format!("{outside} observations fall outside the continental grid and were not used regionally."));
         }
 
+        let effort = match options.effort_group.as_deref() {
+            Some(group) => match self.load_effort(group) {
+                Ok(effort) => Some(effort),
+                Err(error) => {
+                    notes.push(format!("Background not corrected for collecting bias: {error:#}."));
+                    None
+                }
+            },
+            None => None,
+        };
+        let share = if effort.is_some() { options.effort_share.clamp(0.0, 1.0) } else { 0.0 };
+        let effort_wanted = (options.regional_background as f64 * share).round() as usize;
+        let uniform_wanted = options.regional_background - effort_wanted;
+
         // Background: deterministic random land cells.
         let mut state = 0x5eed_u64;
         let mut background = 0;
         let mut attempts = 0;
-        while background < options.regional_background && attempts < options.regional_background * 20 {
+        while background < uniform_wanted && attempts < uniform_wanted * 20 {
             attempts += 1;
             state = splitmix(state);
             let col = (state % width as u64) as usize;
@@ -491,15 +574,52 @@ impl Engine {
                 origin: Origin::Generated,
                 weight: 1.0,
                 block: block_of(lon, lat, 2.0),
+                effort: false,
+                train: true,
             });
             background += 1;
         }
 
-        let refs: Vec<&Row> = rows.iter().collect();
-        let fitted = model::fit(&feature_ids, &refs, options.l2)?;
-        let validation = model::validate(&feature_ids, &rows, options.l2, 5);
+        // Places where people recorded the target's group. With a share of zero they
+        // only score the model, so a plain fit still reports how much it learned people.
+        let mut effort_background = 0;
+        if let Some(effort) = &effort {
+            let train = effort_wanted > 0;
+            let wanted = if train { effort_wanted } else { options.regional_background / 4 };
+            let mut state = 0xeff0_u64;
+            let mut drawn = 0;
+            let mut attempts = 0;
+            let unit = |state: &mut u64| {
+                *state = splitmix(*state);
+                (*state >> 11) as f64 / (1u64 << 53) as f64
+            };
+            while drawn < wanted && attempts < wanted * 20 {
+                attempts += 1;
+                let (clon, clat) = effort.cells[(unit(&mut state) * effort.cells.len() as f64) as usize % effort.cells.len()];
+                let lon = clon + (unit(&mut state) - 0.5) * effort.cell_degrees;
+                let lat = clat + (unit(&mut state) - 0.5) * effort.cell_degrees;
+                if !bounds.contains(lon, lat) {
+                    continue;
+                }
+                let values = stack.sample(lon, lat);
+                if values.iter().any(|v| v.is_nan()) {
+                    continue;
+                }
+                rows.push(Row { values, label: Label::Background, origin: Origin::Generated, weight: 1.0, block: block_of(lon, lat, 2.0), effort: true, train });
+                drawn += 1;
+            }
+            if train {
+                effort_background = drawn;
+                notes.push(format!(
+                    "Most of the continental background comes from places where people recorded {}, so the map follows the target more than the roads.",
+                    options.effort_group.as_deref().unwrap_or("the group")
+                ));
+            }
+        }
+
+        let (fitted, validation, l2) = fit_tuned(&feature_ids, &rows, options)?;
         let importance = model::permutation_importance(&fitted, &rows);
-        if public > 0 {
+        if public > 0 && effort_background == 0 {
             notes.push(
                 "Public records cluster near roads, towns and herbaria; the continental map partly reflects where people collect."
                     .into(),
@@ -512,11 +632,14 @@ impl Engine {
                 presences_field: field,
                 presences_public: public,
                 absences,
-                background,
+                background: background + effort_background,
                 windows: 0,
                 validation,
                 importance,
                 features,
+                l2,
+                effort_background,
+                effort_group: if effort_background > 0 { options.effort_group.clone() } else { None },
             },
         ))
     }
@@ -678,10 +801,10 @@ impl Engine {
                         (Label::Presence, _) => public += 1,
                         _ => absences += 1,
                     }
-                    rows.push(Row { values: values.clone(), label: o.kind, origin: o.origin, weight, block });
+                    rows.push(Row { values: values.clone(), label: o.kind, origin: o.origin, weight, block, effort: false, train: true });
                 } else {
                     background += 1;
-                    rows.push(Row { values: values.clone(), label: Label::Background, origin: Origin::Generated, weight: 1.0, block });
+                    rows.push(Row { values: values.clone(), label: Label::Background, origin: Origin::Generated, weight: 1.0, block, effort: false, train: true });
                 }
             }
         }
@@ -715,7 +838,7 @@ impl Engine {
                     (Label::Presence, _) => public += 1,
                     _ => absences += 1,
                 }
-                rows.push(Row { values, label: o.kind, origin: o.origin, weight, block: block_of(o.lon, o.lat, AREA_BLOCK_DEGREES)});
+                rows.push(Row { values, label: o.kind, origin: o.origin, weight, block: block_of(o.lon, o.lat, AREA_BLOCK_DEGREES), effort: false, train: true });
             }
             let frame = area.frame();
             let mut state = 0xa5ea_u64;
@@ -743,7 +866,7 @@ impl Engine {
                     }
                     values = mask.restrict(values);
                 }
-                rows.push(Row { values, label: Label::Background, origin: Origin::Generated, weight: 1.0, block: block_of(lon, lat, AREA_BLOCK_DEGREES)});
+                rows.push(Row { values, label: Label::Background, origin: Origin::Generated, weight: 1.0, block: block_of(lon, lat, AREA_BLOCK_DEGREES), effort: false, train: true });
                 drawn += 1;
                 background += 1;
             }
@@ -761,14 +884,24 @@ impl Engine {
             bail!("need at least two presences with readable landscape data");
         }
         progress.report(0.88, "Fitting the landscape model");
-        let refs: Vec<&Row> = rows.iter().collect();
-        let fitted = model::fit(&feature_ids, &refs, options.l2)?;
-        let validation = model::validate(&feature_ids, &rows, options.l2, 5);
+        let (fitted, validation, l2) = fit_tuned(&feature_ids, &rows, options)?;
         let importance = model::permutation_importance(&fitted, &rows);
         let features = fitted.active_feature_ids().into_iter().map(String::from).collect();
         Ok((
             fitted,
-            ScaleCard { presences_field: field, presences_public: public, absences, background, windows: windows.len(), validation, importance, features },
+            ScaleCard {
+                presences_field: field,
+                presences_public: public,
+                absences,
+                background,
+                windows: windows.len(),
+                validation,
+                importance,
+                features,
+                l2,
+                effort_background: 0,
+                effort_group: None,
+            },
         ))
     }
 

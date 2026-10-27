@@ -15,6 +15,7 @@ import {
   type FieldTarget,
   type ModelCard,
   type ObservationInput,
+  type SamplingGroup,
 } from './types';
 
 // Photos of finds sit with the other user media on the data disk, in their own
@@ -29,6 +30,7 @@ type TargetRow = {
   scientific_names: string[];
   notes: string | null;
   activity: Activity;
+  sampling_group: SamplingGroup | null;
   presences: number;
   absences: number;
   public_records: number;
@@ -48,6 +50,7 @@ function toTarget(row: TargetRow): FieldTarget {
     scientificNames: row.scientific_names ?? [],
     notes: row.notes,
     activity: row.activity,
+    samplingGroup: row.sampling_group,
     presences: Number(row.presences),
     absences: Number(row.absences),
     publicRecords: Number(row.public_records),
@@ -57,7 +60,7 @@ function toTarget(row: TargetRow): FieldTarget {
 }
 
 const targetSelect = sql`
-  select t.id, t.name, t.scientific_names, t.notes, t.activity,
+  select t.id, t.name, t.scientific_names, t.notes, t.activity, t.sampling_group,
     (select count(*) from public.research_field_observations o
       where o.target_id = t.id and o.deleted_at is null and o.kind = 'presence')::int as presences,
     (select count(*) from public.research_field_observations o
@@ -271,6 +274,12 @@ export type PublicRecord = {
 };
 
 /** Replace a target's ALA records with a fresh download. */
+export async function setSamplingGroup(id: string, group: SamplingGroup) {
+  await db.execute(sql`
+    update public.research_field_targets set sampling_group = ${group}, updated_at = now()
+    where id = ${id} and sampling_group is distinct from ${group}`);
+}
+
 export async function replacePublicRecords(targetId: string, records: PublicRecord[]): Promise<number> {
   await db.execute(sql`delete from public.research_field_public_records where target_id = ${targetId} and source = 'ala'`);
   const chunk = 500;

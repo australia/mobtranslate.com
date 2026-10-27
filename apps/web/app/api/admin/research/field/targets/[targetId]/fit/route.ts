@@ -59,6 +59,8 @@ export async function POST(request: Request, { params }: Context) {
           fieldWeight: options.fieldWeight,
           // Fish live in rivers and waterholes: rank only water and its banks.
           habitat: target.activity === 'fish' ? 'water' : 'land',
+          // Compare records with places people recorded the same kind of thing.
+          effortGroup: target.samplingGroup ?? (target.activity === 'fish' ? 'fish' : undefined),
         },
       }),
     });

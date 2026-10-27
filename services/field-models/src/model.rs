@@ -35,6 +35,10 @@ pub struct Row {
     pub weight: f64,
     /// Spatial block for cross-validation; rows in the same block are held out together.
     pub block: u64,
+    /// Background drawn from where people recorded the target's group, not from the land at large.
+    pub effort: bool,
+    /// False for rows that only score the model in validation.
+    pub train: bool,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -138,6 +142,8 @@ fn solve_spd(matrix: &mut [f64], rhs: &mut [f64], n: usize) -> Result<()> {
 /// non-presences carry equal total weight; within each class the caller's
 /// weights set relative importance (e.g. field finds over public records).
 pub fn fit(feature_ids: &[String], rows: &[&Row], l2: f64) -> Result<Fitted> {
+    let rows: Vec<&Row> = rows.iter().copied().filter(|r| r.train).collect();
+    let rows = rows.as_slice();
     let p_all = feature_ids.len();
     let positives = rows.iter().filter(|r| r.label.positive()).count();
     if positives < 2 {
@@ -147,7 +153,10 @@ pub fn fit(feature_ids: &[String], rows: &[&Row], l2: f64) -> Result<Fitted> {
         bail!("need background or absence rows");
     }
 
-    let background: Vec<&&Row> = rows.iter().filter(|r| r.label == Label::Background).collect();
+    // Standardise and rank against the land at large, even when the fit's background follows recording effort.
+    let landscape: Vec<&&Row> = rows.iter().filter(|r| r.label == Label::Background && !r.effort).collect();
+    let background: Vec<&&Row> =
+        if landscape.is_empty() { rows.iter().filter(|r| r.label == Label::Background).collect() } else { landscape };
     let reference: Vec<&&Row> = if background.is_empty() { rows.iter().collect() } else { background };
     let mut active = vec![true; p_all];
     let mut means = vec![0.0; p_all];
@@ -251,7 +260,12 @@ pub fn fit(feature_ids: &[String], rows: &[&Row], l2: f64) -> Result<Fitted> {
     model.linear = beta[1..1 + p].to_vec();
     model.quadratic = beta[1 + p..].to_vec();
 
-    let mut scores: Vec<f64> = rows.iter().filter(|r| r.label == Label::Background).map(|r| model.score(&r.values)).collect();
+    let any_landscape = rows.iter().any(|r| r.label == Label::Background && !r.effort);
+    let mut scores: Vec<f64> = rows
+        .iter()
+        .filter(|r| r.label == Label::Background && !(any_landscape && r.effort))
+        .map(|r| model.score(&r.values))
+        .collect();
     scores.sort_by(|a, b| a.total_cmp(b));
     model.background_scores = scores;
     Ok(model)
@@ -285,6 +299,10 @@ pub struct Validation {
     pub held_out_field_percentiles: Vec<f64>,
     /// Held-out field absences, as landscape percentiles (lower is better).
     pub held_out_absence_percentiles: Vec<f64>,
+    /// Held-out presences against held-out places where people recorded the
+    /// target's group: how well the model finds the target rather than people.
+    #[serde(default)]
+    pub effort_auc: Option<f64>,
 }
 
 /// Leave-blocks-out validation. Blocks are assigned to `folds` folds; each
@@ -293,12 +311,13 @@ pub fn validate(feature_ids: &[String], rows: &[Row], l2: f64, folds: usize) -> 
     let mut held_presence = Vec::new();
     let mut held_field = Vec::new();
     let mut held_background = Vec::new();
+    let mut held_effort = Vec::new();
     let mut field_percentiles = Vec::new();
     let mut absence_percentiles = Vec::new();
     let mut used = 0;
     for fold in 0..folds as u64 {
         let in_fold = |r: &Row| splitmix(r.block) % folds as u64 == fold;
-        let train: Vec<&Row> = rows.iter().filter(|r| !in_fold(r)).collect();
+        let train: Vec<&Row> = rows.iter().filter(|r| !in_fold(r) && r.train).collect();
         let test: Vec<&Row> = rows.iter().filter(|r| in_fold(r)).collect();
         if !test.iter().any(|r| r.label.positive()) {
             continue;
@@ -314,6 +333,7 @@ pub fn validate(feature_ids: &[String], rows: &[Row], l2: f64, folds: usize) -> 
                     field_percentiles.push(model.percentile(s));
                 }
                 (Label::Presence, _) => held_presence.push(s),
+                (Label::Background, _) if r.effort => held_effort.push(s),
                 (Label::Background, _) => held_background.push(s),
                 (Label::Absence, _) => absence_percentiles.push(model.percentile(s)),
             }
@@ -325,6 +345,7 @@ pub fn validate(feature_ids: &[String], rows: &[Row], l2: f64, folds: usize) -> 
         field_find_auc: auc(&held_field, &held_background),
         held_out_field_percentiles: field_percentiles,
         held_out_absence_percentiles: absence_percentiles,
+        effort_auc: auc(&held_presence, &held_effort),
     }
 }
 
@@ -341,6 +362,9 @@ pub fn permutation_importance(model: &Fitted, rows: &[Row]) -> Vec<Importance> {
         let mut positives = Vec::new();
         let mut negatives = Vec::new();
         for (i, r) in rows.iter().enumerate() {
+            if !r.train {
+                continue;
+            }
             let s = match column {
                 Some((j, shuffled)) => {
                     let mut values = r.values.clone();
@@ -407,13 +431,13 @@ mod tests {
         for i in 0..2000 {
             let x0 = uniform() * 4.0 - 2.0;
             let x1 = uniform() * 4.0 - 2.0;
-            rows.push(Row { values: vec![x0 as f32, x1 as f32], label: Label::Background, origin: Origin::Generated, weight: 1.0, block: i % 20});
+            rows.push(Row { values: vec![x0 as f32, x1 as f32], label: Label::Background, origin: Origin::Generated, weight: 1.0, block: i % 20, effort: false, train: true });
         }
         for i in 0..200 {
             let x0 = 1.0 + (uniform() - 0.5) * 0.6;
             let x1 = uniform() * 4.0 - 2.0;
             let origin = if i % 4 == 0 { Origin::Field } else { Origin::Public };
-            rows.push(Row { values: vec![x0 as f32, x1 as f32], label: Label::Presence, origin, weight: 1.0, block: i % 20});
+            rows.push(Row { values: vec![x0 as f32, x1 as f32], label: Label::Presence, origin, weight: 1.0, block: i % 20, effort: false, train: true });
         }
         (vec!["x0".into(), "x1".into()], rows)
     }
@@ -451,6 +475,37 @@ mod tests {
         let model = fit(&ids, &refs, 0.001).unwrap();
         assert_eq!(model.active, vec![true, true, false]);
         assert!(model.score(&[1.0, f32::NAN, f32::NAN]).is_finite());
+    }
+
+    #[test]
+    fn evaluation_rows_score_but_do_not_train() {
+        let (ids, mut rows) = synthetic();
+        let refs: Vec<&Row> = rows.iter().collect();
+        let plain = fit(&ids, &refs, 0.001).unwrap();
+        // Recorders favour x0 near 1 too, so presences barely beat where people record.
+        for i in 0..500u64 {
+            let x0 = 1.0 + ((splitmix(i) % 1000) as f32 / 1000.0 - 0.5) * 0.8;
+            rows.push(Row { values: vec![x0, 0.0], label: Label::Background, origin: Origin::Generated, weight: 1.0, block: i % 20, effort: true, train: false });
+        }
+        let refs: Vec<&Row> = rows.iter().collect();
+        let same = fit(&ids, &refs, 0.001).unwrap();
+        assert_eq!(plain.linear, same.linear);
+        assert_eq!(plain.background_scores, same.background_scores);
+        let v = validate(&ids, &rows, 0.001, 5);
+        let effort = v.effort_auc.unwrap();
+        assert!(effort < v.spatial_block_auc.unwrap() - 0.2, "{effort} vs {:?}", v.spatial_block_auc);
+    }
+
+    #[test]
+    fn percentiles_rank_against_the_land_not_the_effort() {
+        let (ids, mut rows) = synthetic();
+        for r in rows.iter_mut().filter(|r| r.label == Label::Background).step_by(2) {
+            r.effort = true;
+        }
+        let refs: Vec<&Row> = rows.iter().collect();
+        let model = fit(&ids, &refs, 0.001).unwrap();
+        let landscape = rows.iter().filter(|r| r.label == Label::Background && !r.effort).count();
+        assert_eq!(model.background_scores.len(), landscape);
     }
 
     #[test]
