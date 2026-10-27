@@ -55,6 +55,79 @@ pub struct FitOptions {
     pub public_window_radius_km: f64,
     #[serde(default = "default_l2")]
     pub l2: f64,
+    /// Where the target lives; water targets are ranked over rivers and waterholes only.
+    #[serde(default)]
+    pub habitat: Habitat,
+}
+
+#[derive(Clone, Copy, Debug, Default, Deserialize, Serialize, PartialEq, Eq)]
+#[serde(rename_all = "camelCase")]
+pub enum Habitat {
+    /// Anywhere on land: plants, soaks, sites.
+    #[default]
+    Land,
+    /// Rivers, waterholes and their banks: fish and other water animals.
+    Water,
+}
+
+/// Banks count as water: a catch is logged from where you stand, and small
+/// waterholes are narrower than a satellite water cell.
+const WATER_BANK_M: f32 = 100.0;
+
+/// Landscape features that describe a river or waterhole and its banks. Soil,
+/// fire and radiometrics say little about where fish are, and with few catches
+/// they would only add noise.
+const WATER_FEATURES: &[&str] = &[
+    "elevation",
+    "slope",
+    "tpi_150",
+    "tpi_500",
+    "tpi_1500",
+    "roughness_150",
+    "wetness",
+    "water_frequency",
+    "water_nearby_300",
+    "distance_permanent_water",
+    "distance_seasonal_water",
+    "green_cover",
+    "green_flush",
+    "canopy_height",
+    "canopy_cover",
+    "canopy_nearby",
+];
+
+/// Which cells a water target can be in, and which features its local model reads.
+pub struct HabitatMask {
+    distance: usize,
+    keep: Vec<bool>,
+}
+
+impl HabitatMask {
+    pub fn new(habitat: Habitat, feature_ids: &[String]) -> Option<Self> {
+        match habitat {
+            Habitat::Land => None,
+            Habitat::Water => {
+                let distance = feature_ids.iter().position(|f| f == "distance_seasonal_water")?;
+                let keep = feature_ids.iter().map(|f| WATER_FEATURES.contains(&f.as_str())).collect();
+                Some(Self { distance, keep })
+            }
+        }
+    }
+
+    /// Within a bank's width of ground that is at least sometimes under water.
+    pub fn contains(&self, values: &[f32]) -> bool {
+        values.get(self.distance).is_some_and(|d| d.is_finite() && *d <= WATER_BANK_M)
+    }
+
+    /// Blank the features the water model does not read; blank columns drop out of the fit.
+    pub fn restrict(&self, mut values: Vec<f32>) -> Vec<f32> {
+        for (value, keep) in values.iter_mut().zip(&self.keep) {
+            if !keep {
+                *value = f32::NAN;
+            }
+        }
+        values
+    }
 }
 
 fn default_field_weight() -> f64 {
@@ -342,7 +415,8 @@ impl Engine {
         std::fs::write(dir.join("regional-bounds.json"), serde_json::to_vec(&bounds)?)?;
         if let (Some(area), Some(regional_model)) = (self.area_stack(), stored.regional.as_ref()) {
             progress.report(0.97, "Drawing the prototype-area map");
-            let (bounds, width, height, scores) = self.area_surface(&area, &regional_stack, regional_model, stored.local.as_ref());
+            let mask = HabitatMask::new(options.habitat, &self.feature_ids(Scale::Local));
+            let (bounds, width, height, scores) = self.area_surface(&area, &regional_stack, regional_model, stored.local.as_ref(), mask.as_ref());
             // Rank within the area itself: "better than 90% of the station".
             let percentiles = rank_within(&scores);
             std::fs::write(dir.join("area.png"), percentile_png(width, height, &percentiles)?)?;
@@ -499,6 +573,12 @@ impl Engine {
         progress: &dyn Progress,
     ) -> Result<(Fitted, ScaleCard)> {
         let feature_ids = self.feature_ids(Scale::Local);
+        let mask = HabitatMask::new(options.habitat, &feature_ids);
+        if options.habitat == Habitat::Water && mask.is_none() {
+            bail!("the registry has no distance-to-water feature, so a water target cannot be mapped");
+        }
+        // Public records off the water are misplaced; your own catches stay in regardless.
+        let (mut off_water_public, mut off_water_field) = (0, 0);
         let area = self.area_stack();
         let windows = self.windows_for(observations, options, area.as_deref());
         if windows.is_empty() && area.is_none() {
@@ -568,6 +648,28 @@ impl Engine {
                 if values.iter().all(|v| v.is_nan()) {
                     continue;
                 }
+                if let Some(mask) = &mask {
+                    if !mask.contains(values) {
+                        if k < window.members.len() {
+                            if observations[window.members[k]].origin == Origin::Field {
+                                off_water_field += 1;
+                            } else {
+                                off_water_public += 1;
+                                continue;
+                            }
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+                let restricted;
+                let values = match &mask {
+                    Some(mask) => {
+                        restricted = mask.restrict(values.clone());
+                        &restricted
+                    }
+                    None => values,
+                };
                 if k < window.members.len() {
                     let o = &observations[window.members[k]];
                     let weight = if o.origin == Origin::Field { options.field_weight } else { 1.0 };
@@ -592,9 +694,20 @@ impl Engine {
                 if !area.core.contains(o.lon, o.lat) {
                     continue;
                 }
-                let values = area.sample(o.lon, o.lat);
+                let mut values = area.sample(o.lon, o.lat);
                 if values.iter().all(|v| v.is_nan()) {
                     continue;
+                }
+                if let Some(mask) = &mask {
+                    if !mask.contains(&values) {
+                        if o.origin == Origin::Field {
+                            off_water_field += 1;
+                        } else {
+                            off_water_public += 1;
+                            continue;
+                        }
+                    }
+                    values = mask.restrict(values);
                 }
                 let weight = if o.origin == Origin::Field { options.field_weight } else { 1.0 };
                 match (o.kind, o.origin) {
@@ -608,7 +721,9 @@ impl Engine {
             let mut state = 0xa5ea_u64;
             let mut drawn = 0;
             let mut attempts = 0;
-            while drawn < options.area_background && attempts < options.area_background * 20 {
+            // Water is a few percent of the station, so a water background takes more draws.
+            let max_attempts = options.area_background * if mask.is_some() { 400 } else { 20 };
+            while drawn < options.area_background && attempts < max_attempts {
                 attempts += 1;
                 state = splitmix(state);
                 let col = (state % frame.width as u64) as usize;
@@ -618,13 +733,28 @@ impl Engine {
                 if !area.core.contains(lon, lat) {
                     continue;
                 }
-                let values = area.cell_values(col, row);
+                let mut values = area.cell_values(col, row);
                 if values.iter().all(|v| v.is_nan()) {
                     continue;
+                }
+                if let Some(mask) = &mask {
+                    if !mask.contains(&values) {
+                        continue;
+                    }
+                    values = mask.restrict(values);
                 }
                 rows.push(Row { values, label: Label::Background, origin: Origin::Generated, weight: 1.0, block: block_of(lon, lat, AREA_BLOCK_DEGREES)});
                 drawn += 1;
                 background += 1;
+            }
+        }
+        if mask.is_some() {
+            notes.push("Ranked over rivers, waterholes and their banks only (within 100 m of ground seen under water by satellite).".into());
+            if off_water_public > 0 {
+                notes.push(format!("{off_water_public} public records more than 100 m from mapped water were left out of the landscape model."));
+            }
+            if off_water_field > 0 {
+                notes.push(format!("{off_water_field} of your logs are more than 100 m from mapped water; small waterholes can be missed by the satellite water map."));
             }
         }
         if field + public < 2 {
@@ -665,7 +795,7 @@ impl Engine {
     }
 
     /// The whole prototype area at the local cell size, cropped to its core.
-    fn area_surface(&self, area: &LocalStack, regional: &RegionalStack, regional_model: &Fitted, local: Option<&Fitted>) -> (Bounds, usize, usize, Vec<f32>) {
+    fn area_surface(&self, area: &LocalStack, regional: &RegionalStack, regional_model: &Fitted, local: Option<&Fitted>, mask: Option<&HabitatMask>) -> (Bounds, usize, usize, Vec<f32>) {
         let frame = area.frame();
         let (c0, r0, width, height, bounds) = core_window(area);
         let mut percentiles = vec![f32::NAN; width * height];
@@ -674,6 +804,9 @@ impl Engine {
                 let (lon, lat) = frame.cell_centre(c0 + c, r0 + r);
                 let regional_p = regional_model.percentile(regional_model.score(&regional.sample(lon, lat)));
                 let values = area.cell_values(c0 + c, r0 + r);
+                if mask.is_some_and(|m| !m.contains(&values)) {
+                    continue;
+                }
                 percentiles[r * width + c] = Self::combined(local.map(|m| (m, values.as_slice())), regional_p) as f32;
             }
         }
@@ -725,6 +858,7 @@ impl Engine {
         let (dlon, dlat) = ((core.east - core.west) / width as f64, (core.north - core.south) / height as f64);
         let mut percentiles = vec![f32::NAN; width * height];
         let mut candidates = Vec::new();
+        let mask = HabitatMask::new(stored.card.options.habitat, &self.feature_ids(Scale::Local));
         let regional_percentile = regional_model.percentile(regional_model.score(&regional.sample(lon, lat)));
         for r in 0..height {
             for c in 0..width {
@@ -735,6 +869,11 @@ impl Engine {
                 let regional_values = regional.sample(x, y);
                 let regional_p = regional_model.percentile(regional_model.score(&regional_values));
                 let values = stack.as_ref().map(|s| s.sample(x, y));
+                if let (Some(mask), Some(v)) = (&mask, &values) {
+                    if !mask.contains(v) {
+                        continue;
+                    }
+                }
                 let p = Self::combined(local_model.zip(values.as_deref()), regional_p);
                 percentiles[r * width + c] = p as f32;
                 if p.is_finite() {
@@ -830,6 +969,29 @@ fn best_spots(bounds: Bounds, width: usize, height: usize, percentiles: &[f32], 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn water_mask_keeps_banks_and_blanks_dry_features() {
+        let ids: Vec<String> = ["elevation", "soil_clay", "distance_seasonal_water"].iter().map(|s| s.to_string()).collect();
+        assert!(HabitatMask::new(Habitat::Land, &ids).is_none());
+        let mask = HabitatMask::new(Habitat::Water, &ids).unwrap();
+        assert!(mask.contains(&[10.0, 30.0, 0.0]));
+        assert!(mask.contains(&[10.0, 30.0, 90.0]));
+        assert!(!mask.contains(&[10.0, 30.0, 400.0]));
+        assert!(!mask.contains(&[10.0, 30.0, f32::NAN]));
+        let restricted = mask.restrict(vec![10.0, 30.0, 50.0]);
+        assert_eq!(restricted[0], 10.0);
+        assert!(restricted[1].is_nan());
+        assert_eq!(restricted[2], 50.0);
+    }
+
+    #[test]
+    fn old_model_cards_read_as_land() {
+        let options: FitOptions = serde_json::from_str(r#"{"fieldWeight": 5.0}"#).unwrap();
+        assert_eq!(options.habitat, Habitat::Land);
+        let water: FitOptions = serde_json::from_str(r#"{"habitat": "water"}"#).unwrap();
+        assert_eq!(water.habitat, Habitat::Water);
+    }
 
     #[test]
     fn ranks_are_relative_to_the_area() {
