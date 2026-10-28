@@ -80,12 +80,7 @@
     {
       "id": "habitat",
       "heading": "Where it was done",
-      "body": "Leaching was done beside water. The Bloomfield [zamia](entry:zamia) camps were set up 'ideally beside a shallow, but fast-flowing section of creek' next to the jinali grinding rocks. In the [dry season](entry:seasons) these camps could hold up to 100 people, the women processing while the young men brought in meat and honey [ref:anderson1996]. [Yams](entry:yam) were taken 'near a small, rapid creek' [ref:anderson1996]. On the coast, [mangrove](entry:mangroves) food was finished in basin-shaped holes in the sand, 'often to be noticed along the coast-line' near the mangrove swamps [ref:roth1901].\n\n**Upper Mitchell.** The zamia *Cycas media* has been collected in the dry country about 25 km north of Mount Carbine [ref:ala-cycas-north], but the Atlas holds no *Cycas* records within 30 km of [Karma Waters](place:karma-waters) [ref:ala-fibre]. Edward Palmer recorded a related technique from the Mitchell, Lynd and Pennefather rivers. *Typhonium* tubers were 'roasted and broken with a stone, pounded a good deal, and roasted several times before using', with no washing [ref:roth1901]. Western Yalanji people hold the knowledge of which foods were treated on this country."
-    },
-    {
-      "id": "seasons",
-      "heading": "Seasons",
-      "body": "On the Bloomfield, [zamia](entry:zamia) was 'fit to eat from July to January' [ref:roth1901], and Anderson puts the big processing camps in the mid to late [dry season](entry:seasons) [ref:anderson1996]. The hairy [yam](entry:yam) was the main food from about mid-February to mid-May, the wet season [ref:roth1901]. Nuts could be stored for up to two months. In the wet, that meant fewer trips away from camp in heavy rain and flood [ref:anderson1996]."
+      "body": "Leaching was done beside water: a small, fast creek, or [bark troughs](entry:bark-troughs) filled and emptied again and again [ref:anderson1996] [ref:roth1901]. On the coast, [mangrove](entry:mangroves) food was finished in basin-shaped holes in the sand, 'often to be noticed along the coast-line' near the mangrove swamps [ref:roth1901]."
     },
     {
       "id": "uses",
@@ -105,7 +100,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "In 1982 Bloomfield women still processed hairy [yam](entry:yam) in bush camps. They boiled it in empty metal flour drums and separated the poison in plastic buckets, but still did the first mashing in palm-fibre [dilly bags](entry:dilly-bags) [ref:anderson1996]. The jinali grinding stones were still in place at several sites, though unused for thirty or forty years [ref:anderson1996]. They are cultural heritage, and Queensland law gives everyone a duty of care not to harm Aboriginal cultural heritage [ref:acha2003]. Native title holders' gathering for personal, domestic or non-commercial communal needs is protected from licence and permit requirements by section 211 of the *Native Title Act 1993* [ref:alrc]."
+      "body": "Old processing places and grinding stones are cultural heritage, and Queensland law gives everyone a duty of care not to harm Aboriginal cultural heritage [ref:acha2003]. Native title holders' gathering for personal, domestic or non-commercial communal needs is protected from licence and permit requirements by section 211 of the *Native Title Act 1993* [ref:alrc]. Where and how each food was treated differs from place to place: see each place above."
     },
     {
       "id": "language",
@@ -202,7 +197,7 @@
       "id": "roth1901",
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Plant list ('Avicennia officinalis', 'Bruguiera', 'Castanospermum australe', 'Cycas media', 'Dioscorea sativa', 'Pygeum Turnerianum', 'Typhonium angustilobum')"
+      "locator": "Plant list ('Avicennia officinalis', 'Bruguiera', 'Castanospermum australe', 'Cycas media', 'Dioscorea sativa', 'Pygeum Turnerianum', 'Typhonium angustilobum'); Food plants: Dioscorea sativa var. rotunda and Tacca pinnatifida (Bloomfield; Morehead and Musgrave rivers)"
     },
     {
       "id": "roth1904",
@@ -229,10 +224,103 @@
       "id": "alrc",
       "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
       "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of Cycas (no records), Tacca (2 records, 2012) and Dioscorea (1 record, 2012) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "qpws-rinyirru-about",
+      "citation": "Queensland Parks and Wildlife Service. About Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026). Park rules for visitors.",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/",
+      "locator": "Mixed-tree country, 'a diverse understory of brachychiton and yams' (p. 413); cool fires around yams"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "**Leaching was done in this country.** About 1900 Walter Roth watched yams and *Tacca* tubers washed through bags and troughs on the **Morehead and Musgrave rivers**, in the Princess Charlotte Bay country the Hann drains into [ref:roth1901] [ref:qpws-rinyirru-culture]. The Thaypan native title area takes in Musgrave station and the upper Morehead [ref:fca-thaypan]. These are Roth's words about what he saw; the people of this country hold the knowledge of how it is done.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where the foods grow here",
+          "body": "The Kuku Thaypan Elders describe their mixed-tree country, on slightly raised light sandy soil, as having 'a diverse understory of brachychiton and yams', and they protect yams with 'a cool fire that has burnt the dead grass around the yams' [ref:standley2019]. A Thaypan man named among his country's foods 'lady apples, white apples, bally yams that grow on a long stem, bush carrot and bush potato' [ref:fca-thaypan]. The Atlas of Living Australia holds no zamia (*Cycas*) records, two *Tacca* records and one *Dioscorea* yam record in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann]. So the [zamia](entry:zamia) method on this page is not recorded from here."
+        },
+        {
+          "id": "how-to",
+          "heading": "How it was done here",
+          "body": "**Hairy yam, Morehead River** (Roth's *Dioscorea sativa* var. *rotunda*; Koko-rarmul *rau-ola*) [ref:roth1901]:\n\n1. Cut the roots 'into halves or quarters, and washed in a bark trough'.\n2. Bake them 'in a hot ant-bed covered with tea-tree bark and earth' for about twenty minutes, until soft.\n3. Put them in a grass [dilly bag](entry:dilly-bags) and squeeze it under water in a trough, so 'the mealy substance' passes through the bag. Throw away what is left in the bag.\n4. Let the meal settle, pour off the water with the scum, pour on fresh water, 'and so on for some four or five times'.\n5. Hollow a round basin in the sand with a piece of bark resting down its side. Pour the watery meal onto the bark so it runs gently into the hole and the water drains away.\n6. 'As soon as fairly dry it is eaten.'\n\n**Tacca tubers, Morehead and Musgrave rivers** [ref:roth1901]:\n\n1. Rub the tubers on 'a rough stick ... (acting after the method of a \"nutmeg-grater\")' into a bark trough of water.\n2. Squeeze the mixture through 'a \"sieve\" formed of an infolded dilly-bag' into fresh water in another trough.\n3. Let it settle, 'for which some time is required', then wash it 'once or twice' and let the water run off.\n4. Scrape up the sediment with a shell and cook it 'in hot ashes like a \"damper\"'."
+        },
+        {
+          "id": "safety",
+          "heading": "Safety here",
+          "body": "Roth wrote down the steps, not the knowledge of which plants and which parts are safe. Don't try these from a page; learn them from the Traditional Owners."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "In Rinyirru (Lakefield) National Park: 'Do not remove plant material, living or dead' [ref:qpws-rinyirru-about]. The native title determinations of November 2023 recognise the Possum People's rights on the upper Hann and the Thaypan people's on the middle and lower Hann, including the right to take the natural resources of their country [ref:fca-possum] [ref:fca-thaypan]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "On the Western Yalanji side the zamia grows north of Mount Carbine but has not been recorded near [Karma Waters](place:karma-waters) [ref:ala-cycas-north] [ref:ala-fibre]. Western Yalanji people hold the knowledge of which foods were treated on this country.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where the foods grow here",
+          "body": "The zamia *Cycas media* has been collected in the dry country about 25 km north of Mount Carbine [ref:ala-cycas-north], but the Atlas holds no *Cycas* records within 30 km of [Karma Waters](place:karma-waters) [ref:ala-fibre]. Edward Palmer recorded a related technique from the Mitchell, Lynd and Pennefather rivers. *Typhonium* tubers were 'roasted and broken with a stone, pounded a good deal, and roasted several times before using', with no washing [ref:roth1901]. Western Yalanji people hold the knowledge of which foods were treated on this country."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "The fullest Kuku Yalanji accounts of leaching come from the Bloomfield River, from Roth's informant R. Hislop and from Anderson's Kuku Yalanji teachers [ref:roth1901] [ref:anderson1996]. The methods in the general sections of this page are theirs.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it was done here",
+          "body": "The Bloomfield [zamia](entry:zamia) camps were set up 'ideally beside a shallow, but fast-flowing section of creek' next to the jinali grinding rocks. In the [dry season](entry:seasons) these camps could hold up to 100 people, the women processing while the young men brought in meat and honey [ref:anderson1996]. [Yams](entry:yam) were taken 'near a small, rapid creek' [ref:anderson1996]."
+        },
+        {
+          "id": "seasons",
+          "heading": "Seasons here",
+          "body": "On the Bloomfield, [zamia](entry:zamia) was 'fit to eat from July to January' [ref:roth1901], and Anderson puts the big processing camps in the mid to late [dry season](entry:seasons) [ref:anderson1996]. The hairy [yam](entry:yam) was the main food from about mid-February to mid-May, the wet season [ref:roth1901]. Nuts could be stored for up to two months. In the wet, that meant fewer trips away from camp in heavy rain and flood [ref:anderson1996]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "In 1982 Bloomfield women still processed hairy [yam](entry:yam) in bush camps. They boiled it in empty metal flour drums and separated the poison in plastic buckets, but still did the first mashing in palm-fibre [dilly bags](entry:dilly-bags) [ref:anderson1996]. The jinali grinding stones were still in place at several sites, though unused for thirty or forty years [ref:anderson1996]."
+        }
+      ]
+    }
+  ]
 }

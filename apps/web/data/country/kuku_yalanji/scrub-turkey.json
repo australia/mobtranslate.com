@@ -3,24 +3,56 @@
   "title": "Scrub turkey",
   "category": "bird",
   "names": [
-    { "word": "diwan", "gloss": "scrub turkey", "note": "The dictionary separates it from wungku 'domestic turkey, not the scrub turkey'." }
+    {
+      "word": "diwan",
+      "gloss": "scrub turkey",
+      "note": "The dictionary separates it from wungku 'domestic turkey, not the scrub turkey'."
+    }
   ],
   "scientificName": "Alectura lathami",
   "identification": {
     "confidence": "confirmed",
     "basis": "The dictionary glosses diwan as 'scrub turkey'. Queensland Parks and Wildlife Service gives diwan for the Australian brush-turkey on Eastern Kuku Yalanji country. Roth's 1901 Cape Bedford word list gives the same word, de-wan, for 'scrub-turkey (Talegalla Lathami)', an old name for this bird."
   },
-  "countryTypes": ["rainforest", "mountains", "river-freshwater"],
-  "summary": "**[Diwan](word:diwan)**, the scrub turkey or Australian brush-turkey (*Alectura lathami*), is the big black mound-building bird of the rainforest. It has a bare red head and a yellow wattle [ref:qld-brushturkey]. Kuku Yalanji knowledge ties it to the seasons. The dictionary records that diwan normally lives in the high country but comes down to feed when **[junjun](word:junjun)** fruit ripens in March–May. It also names a mountain locust, **[kalkamal](word:kalkamal)**, 'which tells when to collect turkey eggs' [ref:hershberger1982]. The Queensland Parks and Wildlife Service records the same knowledge: when blue ginger is fruiting, it is time to catch diwan [ref:qpws-daintree]. The male builds a huge compost mound and the females bury their eggs in it, up to 24 of them about half a metre down [ref:qld-brushturkey]. Nearby rainforest peoples caught the birds in [lawyer-cane](entry:lawyer-cane) traps along their daily paths [ref:roth1901].",
+  "countryTypes": [
+    "rainforest",
+    "mountains",
+    "river-freshwater"
+  ],
+  "summary": "**[Diwan](word:diwan)**, the scrub turkey or Australian brush-turkey (*Alectura lathami*), is the big black mound-building bird of the rainforest. It has a bare red head and a yellow wattle [ref:qld-brushturkey]. Kuku Yalanji knowledge ties it to the seasons. The dictionary records that diwan normally lives in the high country but comes down to feed when **[junjun](word:junjun)** fruit ripens in March–May. It also names a mountain locust, **[kalkamal](word:kalkamal)**, 'which tells when to collect turkey eggs' [ref:hershberger1982]. The male builds a huge compost mound and the females bury their eggs in it, up to 24 of them about half a metre down [ref:qld-brushturkey]. Nearby rainforest peoples caught the birds in [lawyer-cane](entry:lawyer-cane) traps along their daily paths [ref:roth1901].",
   "infobox": [
-    { "label": "Kuku Yalanji", "value": "diwan" },
-    { "label": "Scientific name", "value": "Alectura lathami (megapode family, Megapodiidae)" },
-    { "label": "Other English names", "value": "Australian brush-turkey, bush turkey" },
-    { "label": "Size", "value": "60–75 cm long" },
-    { "label": "Where", "value": "Rainforest and wet forest, also drier scrubs; Cape York to New South Wales" },
-    { "label": "Season signs", "value": "junjun fruiting (March–May): turkeys come down from the high country; kalkamal locust: time to collect turkey eggs" },
-    { "label": "Nest", "value": "Mound of leaf litter and soil, 2–4 m across and about 1 m high" },
-    { "label": "Status", "value": "Least Concern; protected native animal" }
+    {
+      "label": "Kuku Yalanji",
+      "value": "diwan"
+    },
+    {
+      "label": "Scientific name",
+      "value": "Alectura lathami (megapode family, Megapodiidae)"
+    },
+    {
+      "label": "Other English names",
+      "value": "Australian brush-turkey, bush turkey"
+    },
+    {
+      "label": "Size",
+      "value": "60–75 cm long"
+    },
+    {
+      "label": "Where",
+      "value": "Rainforest and wet forest, also drier scrubs; Cape York to New South Wales"
+    },
+    {
+      "label": "Season signs",
+      "value": "junjun fruiting (March–May): turkeys come down from the high country; kalkamal locust: time to collect turkey eggs"
+    },
+    {
+      "label": "Nest",
+      "value": "Mound of leaf litter and soil, 2–4 m across and about 1 m high"
+    },
+    {
+      "label": "Status",
+      "value": "Least Concern; protected native animal"
+    }
   ],
   "sections": [
     {
@@ -36,12 +68,12 @@
     {
       "id": "habitat",
       "heading": "Where it lives",
-      "body": "The brush-turkey ranges along eastern Australia from Cape York Peninsula to the Sydney region. It lives in rainforest and wet forest and also in drier scrubs, and northern birds move to higher altitudes in winter [ref:am-brushturkey]. That matches the Kuku Yalanji record that diwan normally lives in the high country and comes down at junjun time [ref:hershberger1982]. In Daintree National Park brush-turkeys are seen all year round [ref:qpws-daintree].\n\n**Western Yalanji country.** Brush-turkeys are mainly a rainforest bird, but they also live in drier scrubs [ref:am-brushturkey]. The Atlas of Living Australia holds records from the Mitchell River country west of Mt Carbine [ref:ala]. Look for them in the thicker, shadier scrub along the rivers and gullies rather than in the open grassy woodland."
+      "body": "The brush-turkey ranges along eastern Australia from Cape York Peninsula to the Sydney region. It lives in rainforest and wet forest and also in drier scrubs, and northern birds move to higher altitudes in winter [ref:am-brushturkey]. That matches the Kuku Yalanji record that diwan normally lives in the high country and comes down at junjun time [ref:hershberger1982]."
     },
     {
       "id": "seasons",
       "heading": "Seasons",
-      "body": "Kuku Yalanji reads the turkey's year from other living things [ref:hershberger1982]:\n\n- **[Junjun](word:junjun)** is a wild fruit 'ripe in March – May'. 'During the junjun season, the scrub turkey, which normally lives in the high country, will come down to feed on them' [ref:hershberger1982]. This is the time to hunt the bird itself. The Queensland Parks and Wildlife Service puts it the same way: when blue ginger is fruiting, it is time to catch diwan [ref:qpws-daintree].\n- **[Kalkamal](word:kalkamal)** is 'a locust in the mountains which tells when to collect turkey eggs'. The same word also names 'the time to collect the eggs' [ref:hershberger1982].\n\nZoologists record that brush-turkeys can breed at any time of year, with a peak from September to December [ref:qld-brushturkey]. That peak is the time when the mounds hold the most eggs."
+      "body": "Kuku Yalanji reads the turkey's year from other living things [ref:hershberger1982]:\n\n- **[Junjun](word:junjun)** is a wild fruit 'ripe in March – May'. 'During the junjun season, the scrub turkey, which normally lives in the high country, will come down to feed on them' [ref:hershberger1982]. This is the time to hunt the bird itself.\n- **[Kalkamal](word:kalkamal)** is 'a locust in the mountains which tells when to collect turkey eggs'. The same word also names 'the time to collect the eggs' [ref:hershberger1982].\n\nZoologists record that brush-turkeys can breed at any time of year, with a peak from September to December [ref:qld-brushturkey]. That peak is the time when the mounds hold the most eggs."
     },
     {
       "id": "uses",
@@ -61,7 +93,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The Australian brush-turkey is listed as Least Concern under Queensland's *Nature Conservation Act 1992* [ref:qld-brushturkey]. Like other native animals it is still protected, and anyone else needs a licence or permit to take it or its eggs [ref:qld-nca].\n\nMuch of the turkey's rainforest is now Eastern Kuku Yalanji land. In 2021 the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back, to be jointly managed with the Queensland Government until Traditional Owners take over sole management [ref:handback2021]. The Eastern Kuku Yalanji native title determination (2007) recognises rights to hunt animals and gather, but not for trade or commerce [ref:walker2007]. The Western Yalanji determinations (2013) recognise rights to hunt and gather for personal, domestic and non-commercial communal purposes [ref:brady2013]. Section 211 of the *Native Title Act 1993* protects native title holders hunting and gathering for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. The right to give permission to come onto country belongs to the Traditional Owners [ref:walker2007]. Visitors must ask them first."
+      "body": "The Australian brush-turkey is listed as Least Concern under Queensland's *Nature Conservation Act 1992* [ref:qld-brushturkey]. Like other native animals it is still protected, and anyone else needs a licence or permit to take it or its eggs [ref:qld-nca].\n\nSection 211 of the *Native Title Act 1993* protects native title holders hunting and gathering for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. Each place below says whose country it is. Visitors must ask the Traditional Owners first."
     },
     {
       "id": "language",
@@ -69,16 +101,48 @@
       "body": "Words around the turkey: *[diwan](word:diwan)* 'scrub turkey'; *[junjun](word:junjun)*, the wild fruit that brings it down from the hills; *[kalkamal](word:kalkamal)*, the locust that signals egg time; *[diburr](word:diburr)* 'egg'; *[yijirr](word:yijirr)* 'shell of egg'; *[birukay](word:birukay)* 'yolk'; *[jamal](word:jamal)* 'white of egg'; *[minya](word:minya)* 'meat, eggs (protein food)'; *[wungku](word:wungku)* 'domestic turkey' [ref:hershberger1982]."
     }
   ],
-  "relatedEntries": ["scrub-hen", "cassowary", "lawyer-cane", "earth-oven", "paperbark", "saltwater-crocodile", "sea-turtle"],
+  "relatedEntries": [
+    "scrub-hen",
+    "cassowary",
+    "lawyer-cane",
+    "earth-oven",
+    "paperbark",
+    "saltwater-crocodile",
+    "sea-turtle"
+  ],
   "relatedWords": [
-    { "word": "junjun", "gloss": "species of wild fruit, ripe in March - May" },
-    { "word": "kalkamal", "gloss": "a locust in the mountains which tells when to collect turkey eggs" },
-    { "word": "diburr", "gloss": "egg" },
-    { "word": "yijirr", "gloss": "shell of egg" },
-    { "word": "birukay", "gloss": "yolk of the egg" },
-    { "word": "jamal", "gloss": "white of egg" },
-    { "word": "wungku", "gloss": "domestic turkey, not the scrub turkey" },
-    { "word": "kurrbal", "gloss": "plain turkey (native companion)" }
+    {
+      "word": "junjun",
+      "gloss": "species of wild fruit, ripe in March - May"
+    },
+    {
+      "word": "kalkamal",
+      "gloss": "a locust in the mountains which tells when to collect turkey eggs"
+    },
+    {
+      "word": "diburr",
+      "gloss": "egg"
+    },
+    {
+      "word": "yijirr",
+      "gloss": "shell of egg"
+    },
+    {
+      "word": "birukay",
+      "gloss": "yolk of the egg"
+    },
+    {
+      "word": "jamal",
+      "gloss": "white of egg"
+    },
+    {
+      "word": "wungku",
+      "gloss": "domestic turkey, not the scrub turkey"
+    },
+    {
+      "word": "kurrbal",
+      "gloss": "plain turkey (native companion)"
+    }
   ],
   "references": [
     {
@@ -142,8 +206,107 @@
       "id": "qld-nca",
       "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
       "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "qpws-rinyirru-2013",
+      "citation": "Queensland Parks and Wildlife Service (2013). Rinyirru (Lakefield) Aggregation Management Statement 2013.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0027/165771/rinyirru.pdf"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "nta1993",
+      "citation": "Native Title Act 1993 (Cth), section 211: preservation of certain native title rights and interests (hunting, fishing and gathering for personal, domestic or non-commercial communal needs).",
+      "url": "https://www.legislation.gov.au/C2004A04665/latest/text"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of the mound-builders (Megapodiidae) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026: Alectura lathami 148 records (1976–2025; 44 labelled A. l. purpureicollis, 1 A. l. lathami; mostly eBird and BirdLife Australia lists, July–November), Megapodius reinwardt 9 (2014–2023).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=family%3AMegapodiidae"
+    },
+    {
+      "id": "wiki-brushturkey",
+      "citation": "Wikipedia. Australian brushturkey (Alectura lathami): subspecies and range.",
+      "url": "https://en.wikipedia.org/wiki/Australian_brushturkey"
     }
   ],
-  "review": { "status": "unreviewed" },
-  "updated": "2026-10-05"
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Brush-turkeys live in the Hann country. The Atlas of Living Australia holds 148 brush-turkey records, from 1976 to 2025, in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru, most of them from birdwatchers' lists; it also holds 9 records of the smaller orange-footed [scrub hen](entry:scrub-hen), 2014–2023 [ref:ala-hann]. No published record from the Hann's own peoples speaks of the brush-turkey.",
+      "sections": [
+        {
+          "id": "lookalikes",
+          "heading": "Which turkey",
+          "body": "- **Brush-turkey** (this page): black, with a bare red head, in the thick scrub [ref:qld-brushturkey]. In the Atlas, 44 of the records from around the Hann are labelled with the Cape York subspecies *purpureicollis* [ref:ala-hann], the form of 'the northern Cape York Peninsula', 'smaller than the more widespread nominate subspecies' and with a purple wattle rather than a yellow one [ref:wiki-brushturkey]. Which form lives on the Hann, the record does not settle.\n- **The 'plain turkey'** of the open grassland is a different bird, the [bustard](entry:bustard), which can be seen in Rinyirru's grasslands [ref:qpws-rinyirru-culture]. The Court recorded a Possum man's evidence of 'hunting pigs, kangaroos, goanna, porcupine, and plain turkeys' [ref:fca-possum]: keep the two turkeys apart.\n- **[Scrub hen](entry:scrub-hen)** (orange-footed scrubfowl): smaller, brown, with orange legs; recorded in the same box [ref:ala-hann]."
+        },
+        {
+          "id": "habitat",
+          "heading": "Where it lives here",
+          "body": "Brush-turkeys live in rainforest and wet forest, and also in drier scrubs [ref:am-brushturkey]. In the Hann country the thick cover is patchy: Rinyirru's closed forests and vine thickets 'are very restricted' and occur 'on lighter textured soils with a permanent watertable, on levee banks subject to seasonal flooding, in fire-protected areas' [ref:qpws-rinyirru-2013], and 'gallery rainforest grows along parts of the Normanby and Kennedy rivers' [ref:qpws-rinyirru-culture]. That is where to expect the mounds, not on the open grassy woodland."
+        },
+        {
+          "id": "safety",
+          "heading": "Fire and the scrub",
+          "body": "High-intensity fires have burnt into the edges of Rinyirru's vine thickets, and park management uses 'low intensity perimeter burns to protect margins of vine thickets' [ref:qpws-rinyirru-2013]: the turkeys' cover depends on keeping hot fires out."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country and the middle and lower Hann are Thaypan country, under native title determinations of November 2023 [ref:fca-possum] [ref:fca-thaypan]; Rinyirru is jointly managed by the Rinyirru Aboriginal Corporation and the Queensland Government [ref:qpws-rinyirru-culture]. Native title holders may hunt and gather for personal, domestic and non-commercial communal needs without the licences others need [ref:nta1993]. The brush-turkey is a protected native animal [ref:qld-nca]; everyone else leaves the birds and their mounds alone."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Brush-turkeys are mainly a rainforest bird, but the Atlas of Living Australia holds records from the Mitchell River country west of Mt Carbine [ref:am-brushturkey] [ref:ala].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it lives here",
+          "body": "Brush-turkeys are mainly a rainforest bird, but they also live in drier scrubs [ref:am-brushturkey]. The Atlas of Living Australia holds records from the Mitchell River country west of Mt Carbine [ref:ala]. Look for them in the thicker, shadier scrub along the rivers and gullies rather than in the open grassy woodland."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The Western Yalanji determinations (2013) recognise rights to hunt and gather for personal, domestic and non-commercial communal purposes [ref:brady2013]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "Diwan is a bird of the Eastern Kuku Yalanji rainforest. The Queensland Parks and Wildlife Service records the same knowledge: when blue ginger is fruiting, it is time to catch diwan [ref:qpws-daintree]. In Daintree National Park brush-turkeys are seen all year round [ref:qpws-daintree].",
+      "sections": [
+        {
+          "id": "seasons",
+          "heading": "Seasons here",
+          "body": "The Queensland Parks and Wildlife Service puts it the same way: when blue ginger is fruiting, it is time to catch diwan [ref:qpws-daintree]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Much of the turkey's rainforest is now Eastern Kuku Yalanji land. In 2021 the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back, to be jointly managed with the Queensland Government until Traditional Owners take over sole management [ref:handback2021]. The Eastern Kuku Yalanji native title determination (2007) recognises rights to hunt animals and gather, but not for trade or commerce [ref:walker2007]. The right to give permission to come onto country belongs to the Traditional Owners [ref:walker2007]."
+        }
+      ]
+    }
+  ]
 }

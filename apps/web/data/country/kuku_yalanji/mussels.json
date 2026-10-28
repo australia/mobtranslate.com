@@ -16,7 +16,7 @@
   "countryTypes": [
     "river-freshwater"
   ],
-  "summary": "**[mukirr](word:mukirr)** is the mussel: 'found in fresh and brackish water. There are many up the Daintree near Bairds, some up Granite Creek. Has to be cleaned from the black stuff that tastes like tobacco. First roast it, then clean the \"ear\" out, then boil it or else eat it right away without boiling' [ref:hershberger1982]. In the Mitchell at [Karma Waters](place:karma-waters) the mussel is *Velesunio angasi*, 'a shallow burrower in silty sand/mud in streams, billabongs, and slow-flowing rivers', a suspension feeder that breeds through the year and broods its larvae in its gills; the Australian Museum has specimens from the river near the homestead [ref:lucid-velesunio] [ref:ala-mussel]. It is the easiest meat in the river, dug by hand from the sand of the pools and roasted in the ashes, which is how Roth says 'the large majority of these shell-fish' were cooked, by the women who 'generally' prepared 'yams, roots, nuts, and shell-fish' [ref:roth1901]. The shell was a tool as well: a scoop and spoon, an ash-scraper and a cutter, and on the Mitchell the blade that scraped the [bloodwood](entry:bloodwood) manna and the inner bark of the string plants [ref:anderson1996] [ref:roth1904] [ref:palmer1883].",
+  "summary": "**[mukirr](word:mukirr)** is the mussel: 'found in fresh and brackish water. There are many up the Daintree near Bairds, some up Granite Creek. Has to be cleaned from the black stuff that tastes like tobacco. First roast it, then clean the \"ear\" out, then boil it or else eat it right away without boiling' [ref:hershberger1982]. The river mussel of the north is *Velesunio angasi*, 'a shallow burrower in silty sand/mud in streams, billabongs, and slow-flowing rivers', a suspension feeder that breeds through the year and broods its larvae in its gills [ref:lucid-velesunio]. It is the easiest meat in the river, dug by hand from the sand of the pools and roasted in the ashes, which is how Roth says 'the large majority of these shell-fish' were cooked, by the women who 'generally' prepared 'yams, roots, nuts, and shell-fish' [ref:roth1901]. The shell was a tool as well: a scoop and spoon, an ash-scraper and a cutter, and on the Mitchell the blade that scraped the [bloodwood](entry:bloodwood) manna and the inner bark of the string plants [ref:anderson1996] [ref:roth1904] [ref:palmer1883].",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -52,7 +52,7 @@
     {
       "id": "description",
       "heading": "The mussel",
-      "body": "*Velesunio angasi* was named *Unio angasi* by Sowerby in 1867 from the Strangways River in the Northern Territory. 'The shell is compressed, relatively elongate, the posterior expanded, usually winged'. It is a 'shallow burrower in silty sand/mud in streams, billabongs, and slow-flowing rivers', a 'suspension feeder'; 'reproduction occurs throughout the year', and the larvae, glochidia, 'are brooded in the marsupia', the gill pouches, before they attach to a host fish [ref:lucid-velesunio]. 'This species is widely distributed, occurring from north-eastern Queensland throughout tropical northern Australia, and extending south to the Pilbara region of Western Australia' [ref:lucid-velesunio]. The Australian Museum holds specimens from the Mitchell River at about 16.65° S, 144.68° E, which is the river below the Karma Waters homestead, and the Atlas has four records within 30 km [ref:ala-mussel] [ref:ala-karma-plants].\n\nThe one long study of the animal was done on Magela Creek in Kakadu, 'a seasonally flowing stream of tropical northern Australia' like the Mitchell: 'shell shape and environment, distribution, abundance, population dynamics, reproduction, food ingestion, physiological condition, production, and seasonal changes in any of these' [ref:humphrey1985]. Because it filters the water and lives for years in one place, the same mussel is used across the north as a monitor of metals and radium in the water, which is also a reason to be careful what water you take it from [ref:lucid-velesunio].\n\nThe dictionary's note that it 'has to be cleaned from the black stuff that tastes like tobacco' is the one piece of cooking advice recorded in Kuku Yalanji: roast, open, clean out the 'ear', then boil or eat [ref:hershberger1982]."
+      "body": "*Velesunio angasi* was named *Unio angasi* by Sowerby in 1867 from the Strangways River in the Northern Territory. 'The shell is compressed, relatively elongate, the posterior expanded, usually winged'. It is a 'shallow burrower in silty sand/mud in streams, billabongs, and slow-flowing rivers', a 'suspension feeder'; 'reproduction occurs throughout the year', and the larvae, glochidia, 'are brooded in the marsupia', the gill pouches, before they attach to a host fish [ref:lucid-velesunio]. 'This species is widely distributed, occurring from north-eastern Queensland throughout tropical northern Australia, and extending south to the Pilbara region of Western Australia' [ref:lucid-velesunio].\n\nThe one long study of the animal was done on Magela Creek in Kakadu, 'a seasonally flowing stream of tropical northern Australia' like the Mitchell: 'shell shape and environment, distribution, abundance, population dynamics, reproduction, food ingestion, physiological condition, production, and seasonal changes in any of these' [ref:humphrey1985]. Because it filters the water and lives for years in one place, the same mussel is used across the north as a monitor of metals and radium in the water, which is also a reason to be careful what water you take it from [ref:lucid-velesunio].\n\nThe dictionary's note that it 'has to be cleaned from the black stuff that tastes like tobacco' is the one piece of cooking advice recorded in Kuku Yalanji: roast, open, clean out the 'ear', then boil or eat [ref:hershberger1982]."
     },
     {
       "id": "lookalikes",
@@ -67,7 +67,7 @@
     {
       "id": "habitat",
       "heading": "Where they live",
-      "body": "'Silty sand/mud in streams, billabongs, and slow-flowing rivers': the sandy pools and backwaters of the Mitchell, not the fast rock runs [ref:lucid-velesunio]. The dictionary puts them 'in fresh and brackish water', up the Daintree and Granite Creek on the east side [ref:hershberger1982]. The [waterhole](entry:waterhole) page gives the pools' year."
+      "body": "'Silty sand/mud in streams, billabongs, and slow-flowing rivers': the sandy pools and backwaters, not the fast rock runs [ref:lucid-velesunio]. The [waterhole](entry:waterhole) page gives the pools' year."
     },
     {
       "id": "ecology",
@@ -92,12 +92,12 @@
     {
       "id": "safety",
       "heading": "Safety",
-      "body": "- A filter feeder takes up what is in the water; mussels from a fouled, stagnant or mine-affected pool are a bad idea, which is why they are used as pollution monitors [ref:lucid-velesunio].\n- Crocodile water: feel for mussels in the daytime in open shallows, with someone watching [ref:crocwise] [ref:kw-about].\n- Freshwater shellfish on native title country are covered by section 211 of the *Native Title Act 1993* and the Aboriginal-use provisions of the *Fisheries Act 1994* [ref:alrc] [ref:qld-fishact].\n- Middens are heritage; take live shells only [ref:acha2003]."
+      "body": "- A filter feeder takes up what is in the water; mussels from a fouled, stagnant or mine-affected pool are a bad idea, which is why they are used as pollution monitors [ref:lucid-velesunio].\n- Crocodile water: feel for mussels in the daytime in open shallows, with someone watching [ref:crocwise] [ref:kw-about].\n- Middens are heritage; take live shells only [ref:acha2003]."
     },
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The mussels are in the Mitchell at Karma Waters now, recorded within a few kilometres of the homestead, and the dictionary's cooking note is complete enough to follow this afternoon [ref:ala-mussel] [ref:hershberger1982]. The station's river camps are on the pools where the beds are [ref:kw-camping]."
+      "body": "Mussels are still in the rivers on both sides of the range; see each place below for where they are recorded. Freshwater shellfish on native title country are covered by section 211 of the *Native Title Act 1993* and the Aboriginal-use provisions of the *Fisheries Act 1994* [ref:alrc] [ref:qld-fishact]. Everyone else needs the Traditional Owners' permission."
     },
     {
       "id": "language",
@@ -218,10 +218,107 @@
       "id": "kw-camping",
       "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
       "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "citation": "Atlas of Living Australia. Occurrence records of freshwater mussels (Hyriidae) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (15.6–14.8° S, 143.5–144.3° E), queried 28 October 2026: 1 record, Velesunio angasi, 2000.",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=family:Hyriidae&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D",
+      "id": "ala-hann"
+    },
+    {
+      "id": "bom-105001b",
+      "citation": "Bureau of Meteorology, Water Data Online. Station 105001B, Hann River at Sandy Creek: daily and monthly mean discharge 1968–2026 (recent data provisional), retrieved 28 October 2026. No day of zero mean flow in 20,711 days of record; mean flow highest in February–March, lowest in September–November.",
+      "url": "https://www.bom.gov.au/waterdata/"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "qpws-rinyirru-2013",
+      "citation": "Queensland Parks and Wildlife Service (2013). Rinyirru (Lakefield) Aggregation Management Statement 2013.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0027/165771/rinyirru.pdf"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/"
+    },
+    {
+      "id": "wetlandinfo-normanby",
+      "citation": "Queensland Government, WetlandInfo. Normanby catchment story: physical features (springs and base flow).",
+      "url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/ecology/processes-systems/water/catchment-stories/normanby/norm-physical.html"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Mussels are a food of the Hann's country. A Thaypan man told the Federal Court that on Thaypan country, which takes in the Hann, 'We get wallaby, barramundi, freshwater fish and turtles and mussels' [ref:fca-thaypan]. The written record of the animal itself is thin: the Atlas of Living Australia holds one freshwater mussel record, *Velesunio angasi* in 2000, in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they live here",
+          "body": "The Hann is a sandy, spring-fed river that has not had a day without flow since its gauge was put in in 1968 [ref:wetlandinfo-normanby] [ref:bom-105001b]. The mussel lives in 'silty sand/mud in streams, billabongs, and slow-flowing rivers' [ref:lucid-velesunio], so look in the sandy pools and backwaters, not the fast runs. Lagoons and swamps are one of the nine kinds of country the Kuku Thaypan Elders name [ref:standley2019]."
+        },
+        {
+          "id": "seasons",
+          "heading": "Its year here",
+          "body": "From December to March the rivers flood out over the plains [ref:qpws-rinyirru-culture]. The Hann runs lowest from September to November, a low, clear run between deep holes [ref:bom-105001b]. That is when the sandy shallows are easiest to reach, and when crocodiles are in the same holes; see [crocodiles](entry:crocodiles)."
+        },
+        {
+          "id": "uses",
+          "heading": "How people dealt with them here",
+          "body": "**Mussels and law.** In the Kuku Thaypan Elders' law there are story places where girls must not eat mussels, 'as to do so may harm the health of their babies' [ref:standley2019]. The places and their stories belong to the Elders' families and are not named here.\n\n**Fewer and smaller.** The Elders say mussels 'were once larger and in high number across the entire wetland complex'. In their plan for a lagoon on Kuku Thaypan country, the signs of healthy country include the 'Return of mussel numbers and size', along with keeping cattle and pigs out to stop the 'trampling and muddying of edge of lagoon' [ref:standley2019]. Feral pigs 'occur in large numbers' in Rinyirru [ref:qpws-rinyirru-2013]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The middle and lower Hann are Thaypan country and the upper Hann is the Possum People's country. Their November 2023 determinations recognise rights to hunt, fish and gather on the land and waters [ref:fca-thaypan] [ref:fca-possum]. Others need the Traditional Owners' permission."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "In the Mitchell at [Karma Waters](place:karma-waters) the mussel is *Velesunio angasi*, and the Australian Museum has specimens from the river near the homestead [ref:ala-mussel].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they live here",
+          "body": "The sandy pools and backwaters of the Mitchell, not the fast rock runs [ref:lucid-velesunio]. The Australian Museum holds specimens from the Mitchell River just below the [Karma Waters](place:karma-waters) homestead, and the Atlas has four records within 30 km [ref:ala-mussel] [ref:ala-karma-plants]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The mussels are in the Mitchell at Karma Waters now, recorded within a few kilometres of the homestead, and the dictionary's cooking note is complete enough to follow this afternoon [ref:ala-mussel] [ref:hershberger1982]. The station's river camps are on the pools where the beds are [ref:kw-camping]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On the coast the dictionary records mukirr in the rivers of the Daintree side [ref:hershberger1982].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they live here",
+          "body": "The dictionary puts them 'in fresh and brackish water', up the Daintree and Granite Creek on the east side [ref:hershberger1982]."
+        }
+      ]
+    }
+  ]
 }

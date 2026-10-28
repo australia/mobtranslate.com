@@ -58,7 +58,7 @@
     {
       "id": "habitat",
       "heading": "Where it grows",
-      "body": "The gympie stinger grows from Cape York Peninsula to north-eastern New South Wales, from near sea level to 900 m. It is typically found in **disturbed rainforest**: gaps, tracks and ground torn up by logging [ref:rfk-moroides]. *D. cordifolia* grows only in North East Queensland, between Townsville and Princess Charlotte Bay, at 100–1200 m. It too favours disturbed upland and mountain rainforest [ref:rfk-cordifolia]. The shining-leaved stinger grows in well-developed rainforest but is 'probably more common in drier, more seasonal rain forest', from near sea level to 800 m in the north [ref:rfk-photinophylla]. So on Kuku Yalanji country, expect stinging trees wherever rainforest has been opened up: track edges, creek banks after floods, treefall gaps and old logging ground.\n\n**Western Yalanji country.** Stinging trees are rainforest plants. In the dry open woodland of the Mitchell and Palmer country they are absent [ref:rfk-moroides] [ref:rfk-cordifolia]. You may meet them only in rainforest remnants and vine scrubs on the ranges and in sheltered gullies, where the shining-leaved stinger is the likeliest [ref:rfk-photinophylla].\n\nThe gympie stinger is a food plant for the caterpillars of the White Nymph butterfly [ref:rfk-moroides]."
+      "body": "The gympie stinger grows from Cape York Peninsula to north-eastern New South Wales, from near sea level to 900 m. It is typically found in **disturbed rainforest**: gaps, tracks and ground torn up by logging [ref:rfk-moroides]. *D. cordifolia* grows only in North East Queensland, between Townsville and Princess Charlotte Bay, at 100–1200 m. It too favours disturbed upland and mountain rainforest [ref:rfk-cordifolia]. The shining-leaved stinger grows in well-developed rainforest but is 'probably more common in drier, more seasonal rain forest', from near sea level to 800 m in the north [ref:rfk-photinophylla]. So on Kuku Yalanji country, expect stinging trees wherever rainforest has been opened up: track edges, creek banks after floods, treefall gaps and old logging ground.\n\nThe gympie stinger is a food plant for the caterpillars of the White Nymph butterfly [ref:rfk-moroides]."
     },
     {
       "id": "uses",
@@ -78,7 +78,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Stinging trees thrive along the opened-up edges of rainforest tracks [ref:rfk-moroides]. Much of the Daintree and Mossman Gorge rainforest is now in national parks returned to Eastern Kuku Yalanji ownership on 29 September 2021 and jointly managed with the Queensland Government [ref:qld-handback]. Walking on country with Kuku Yalanji guides is the safest way to learn where *[mili](word:mili)* grows. Native title rights to gather and carry out cultural activities are protected by s 211 of the *Native Title Act 1993* [ref:alrc-s211]. Visitors need Traditional Owners' permission to go off track, and park rules apply."
+      "body": "Stinging trees thrive along the opened-up edges of rainforest tracks [ref:rfk-moroides]. Walking on country with Traditional Owners as guides is the safest way to learn where *[mili](word:mili)* grows. Native title rights to gather and carry out cultural activities are protected by s 211 of the *Native Title Act 1993* [ref:alrc-s211]."
     },
     {
       "id": "language",
@@ -169,10 +169,60 @@
       "id": "alrc-s211",
       "citation": "Australian Law Reform Commission (2014). Review of the Native Title Act 1993, Discussion Paper 82, ch. 8: Relevant provisions in the Native Title Act (s 211, preservation of native title hunting, fishing, gathering and cultural activities).",
       "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "ala-hann-stinger",
+      "citation": "Atlas of Living Australia. Occurrence records of Dendrocnide and Laportea (stinging trees and nettle trees): no records in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus%3ADendrocnide&fq=decimalLatitude%3A%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude%3A%5B143.5%20TO%20144.3%5D"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
+    },
+    {
+      "id": "qld-re",
+      "citation": "Queensland Herbarium. Regional ecosystem descriptions, Cape York Peninsula bioregion: 3.3.10a (Melaleuca fluviatilis fringing woodland), 3.3.24 (Eucalyptus leptophleba woodland on riverine levees, Laura area), 3.10.6 and 3.10.10 (Darwin stringybark woodland on sandstone), 3.3.66 (lakes and lagoons).",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "No stinging tree is recorded around the Hann: the Atlas of Living Australia holds no *Dendrocnide* records in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann-stinger]. The Hann runs through open woodland of stringybark, bloodwood, Moreton Bay ash and ironbark [ref:wp-hann], not the rainforest stinging trees need. Nothing is published on the Possum, Thaypan or Kuku Warra people and the stinging tree; the general sections above have the first aid.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Not on the Hann",
+          "body": "Stinging trees are rainforest plants. Of the three northern kinds, *D. cordifolia* reaches north as far as Princess Charlotte Bay, but it grows in upland and mountain rainforest at 100–1200 m [ref:rfk-cordifolia]. The Hann's country is stringybark and bloodwood woodland [ref:wp-hann], and the regional ecosystems that match it are woodland, paperbark fringe and lagoons, not rainforest [ref:qld-re]. If you meet a broad, soft, hairy-leaved shrub in a rainforest gully on the ranges, treat it as *mili* and keep clear."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "In the dry open woodland of the Western Yalanji Mitchell and Palmer country stinging trees are absent; the rainforest remnants on the ranges are the only place to meet one [ref:rfk-moroides] [ref:rfk-photinophylla].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "Stinging trees are rainforest plants. In the dry open woodland of the Mitchell and Palmer country they are absent [ref:rfk-moroides] [ref:rfk-cordifolia]. You may meet them only in rainforest remnants and vine scrubs on the ranges and in sheltered gullies, where the shining-leaved stinger is the likeliest [ref:rfk-photinophylla]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "The rainforest of the Eastern Kuku Yalanji coast is stinging-tree country: the gympie stinger grows from Cape York to New South Wales, and *D. cordifolia* only in North East Queensland, between Townsville and Princess Charlotte Bay [ref:rfk-moroides] [ref:rfk-cordifolia]. Expect it on track edges, creek banks after floods and treefall gaps.",
+      "sections": [
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Much of the Daintree and Mossman Gorge rainforest is now in national parks returned to Eastern Kuku Yalanji ownership on 29 September 2021 and jointly managed with the Queensland Government [ref:qld-handback]. Visitors need Traditional Owners' permission to go off track, and park rules apply."
+        }
+      ]
+    }
+  ]
 }

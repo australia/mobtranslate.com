@@ -3,30 +3,80 @@
   "title": "Native bees and sugarbag",
   "category": "insect",
   "names": [
-    { "word": "dabu", "gloss": "small black bee which nests in trees, has a light sting; the honey from this bee", "note": "Also the name of one of the clan moieties." },
-    { "word": "kuja", "gloss": "species of small stingless bee, and its honey. The nests are found in the ground." },
-    { "word": "kalburiji", "gloss": "species of bee" },
-    { "word": "mawal", "gloss": "species of bee" },
-    { "word": "kawar", "gloss": "honey bread of bees" },
-    { "word": "mandi-mandi", "gloss": "honeycomb" },
-    { "word": "dabadaba", "gloss": "larvae and eggs of any kind of bee" },
-    { "word": "wuju", "gloss": "sponge made from grass, used as a sop for eating honey or soup" },
-    { "word": "wunba", "gloss": "name of the English bee and its honey. Also used for honey bought in store" }
+    {
+      "word": "dabu",
+      "gloss": "small black bee which nests in trees, has a light sting; the honey from this bee",
+      "note": "Also the name of one of the clan moieties."
+    },
+    {
+      "word": "kuja",
+      "gloss": "species of small stingless bee, and its honey. The nests are found in the ground."
+    },
+    {
+      "word": "kalburiji",
+      "gloss": "species of bee"
+    },
+    {
+      "word": "mawal",
+      "gloss": "species of bee"
+    },
+    {
+      "word": "kawar",
+      "gloss": "honey bread of bees"
+    },
+    {
+      "word": "mandi-mandi",
+      "gloss": "honeycomb"
+    },
+    {
+      "word": "dabadaba",
+      "gloss": "larvae and eggs of any kind of bee"
+    },
+    {
+      "word": "wuju",
+      "gloss": "sponge made from grass, used as a sop for eating honey or soup"
+    },
+    {
+      "word": "wunba",
+      "gloss": "name of the English bee and its honey. Also used for honey bought in store"
+    }
   ],
   "scientificName": "Tetragonula and Austroplebeia spp. (native stingless bees); Apis mellifera (wunba, the introduced honey bee)",
   "identification": {
     "confidence": "probable",
     "basis": "The dictionary names several small native bees and their honey, and calls kuja a stingless bee. Australia's honey-storing native bees are the stingless bees of Tetragonula and Austroplebeia, but no source matches dabu, kuja, kalburiji or mawal to particular species. Dabu's 'light sting' may describe a stingless bee's bite. Wunba is certainly the introduced European honey bee."
   },
-  "countryTypes": ["rainforest", "open-woodland", "river-freshwater"],
-  "summary": "**Sugarbag** is the honey of the small native bees that nest in hollow trees and in the ground. Kuku Yalanji has a whole vocabulary for it: **[dabu](word:dabu)** and **[kuja](word:kuja)** for bees and their honey, **[kawar](word:kawar)** for the 'honey bread', **[mandi-mandi](word:mandi-mandi)** for comb, **[dabadaba](word:dabadaba)** for the brood, and **[wuju](word:wuju)** for the grass sponge used to sop honey up [ref:hershberger1982]. Finding a nest meant watching for bees, cutting into the tree, and getting the honey out with a frayed cane or a grass swab. On the Bloomfield River people used a chewed [lawyer-cane](entry:lawyer-cane) withe to draw honey out of the tree-hole [ref:roth1904]. The native bees are harmless. The introduced honey bee, **[wunba](word:wunba)**, and the hornets and paper wasps are not [ref:aussiebee] [ref:hershberger1982].",
+  "countryTypes": [
+    "rainforest",
+    "open-woodland",
+    "river-freshwater"
+  ],
+  "summary": "**Sugarbag** is the honey of the small native bees that nest in hollow trees and in the ground. Kuku Yalanji has a whole vocabulary for it: **[dabu](word:dabu)** and **[kuja](word:kuja)** for bees and their honey, **[kawar](word:kawar)** for the 'honey bread', **[mandi-mandi](word:mandi-mandi)** for comb, **[dabadaba](word:dabadaba)** for the brood, and **[wuju](word:wuju)** for the grass sponge used to sop honey up [ref:hershberger1982]. Finding a nest meant watching for bees, cutting into the tree, and getting the honey out with a frayed cane or a grass swab. The native bees are harmless. The introduced honey bee, **[wunba](word:wunba)**, and the hornets and paper wasps are not [ref:aussiebee] [ref:hershberger1982].",
   "infobox": [
-    { "label": "Kuku Yalanji", "value": "dabu, kuja, kalburiji, mawal (bees and their honey)" },
-    { "label": "Nest parts", "value": "kawar (honey bread), mandi-mandi (comb), dabadaba (larvae and eggs), jila / nyumbirr (wax)" },
-    { "label": "Scientific name", "value": "Tetragonula and Austroplebeia (stingless bees); Apis mellifera (wunba)" },
-    { "label": "Where", "value": "Hollow trees and limbs in rainforest and open woodland; some kinds nest in the ground" },
-    { "label": "Tools", "value": "Axe (warrbi), lawyer-cane withe, grass sponge (wuju), bark trough" },
-    { "label": "Stings", "value": "Native stingless bees are harmless; wunba, hornets (mulma) and paper wasps (murma) sting" }
+    {
+      "label": "Kuku Yalanji",
+      "value": "dabu, kuja, kalburiji, mawal (bees and their honey)"
+    },
+    {
+      "label": "Nest parts",
+      "value": "kawar (honey bread), mandi-mandi (comb), dabadaba (larvae and eggs), jila / nyumbirr (wax)"
+    },
+    {
+      "label": "Scientific name",
+      "value": "Tetragonula and Austroplebeia (stingless bees); Apis mellifera (wunba)"
+    },
+    {
+      "label": "Where",
+      "value": "Hollow trees and limbs in rainforest and open woodland; some kinds nest in the ground"
+    },
+    {
+      "label": "Tools",
+      "value": "Axe (warrbi), lawyer-cane withe, grass sponge (wuju), bark trough"
+    },
+    {
+      "label": "Stings",
+      "value": "Native stingless bees are harmless; wunba, hornets (mulma) and paper wasps (murma) sting"
+    }
   ],
   "sections": [
     {
@@ -42,7 +92,7 @@
     {
       "id": "habitat",
       "heading": "Where they live",
-      "body": "Stingless bees usually nest in hollows in large living or dead trees [ref:aussiebee]. The dictionary agrees for dabu and walarr, which nest in trees, but puts kuja's nest in the ground. Hornets and bumblebees (**[wurrbu](word:wurrbu)**) are also said to nest in a stump or the ground [ref:hershberger1982].\n\nSugarbag is a food of both the rainforest and the dry country. In south-east Cape York, archaeologists and Traditional Owners have recorded hundreds of [Cooktown ironwood](entry:ironwood) (*Erythrophleum*) trees bearing **sugarbag scars**, where people cut into the trunk to reach a nest. The scars show a sequence from [stone](entry:stone) [axes](entry:axes-and-adzes) to steel axes [ref:wallis2024]. That study was in the Laura sandstone country, just north of Western Yalanji country on the Palmer and Mitchell rivers. Cooktown ironwood grows in open forest across Cape York Peninsula and north-east Queensland [ref:ironwood], so the same kind of sugarbag tree can be expected in the woodland around Mt Carbine and the Mitchell."
+      "body": "Stingless bees usually nest in hollows in large living or dead trees [ref:aussiebee]. The dictionary agrees for dabu and walarr, which nest in trees, but puts kuja's nest in the ground. Hornets and bumblebees (**[wurrbu](word:wurrbu)**) are also said to nest in a stump or the ground [ref:hershberger1982].\n\nSugarbag is a food of both the rainforest and the dry country. People cut into trees to reach the nests, and the old cuts, **sugarbag scars**, last for generations: see each place below."
     },
     {
       "id": "seasons",
@@ -52,12 +102,12 @@
     {
       "id": "uses",
       "heading": "Uses",
-      "body": "**Food.** Honey was eaten straight from the nest, sopped up with a swab, or mixed with water. On the lower Tully River, Roth recorded that people took honey from one kind of bee only, and that it was usually mixed with water and drunk, and never kept long enough to ferment [ref:roth1901]. At Princess Charlotte Bay people told young brood from old, and honey from the young brood was a delicacy usually kept for the elder men [ref:roth1901].\n\n**Wax.** Beeswax was a glue. Roth describes it being roasted over the fire, squeezed in the hands, then warmed and hammered in turns. It was used to stick things in the hair, mend [fibre twine](entry:string-and-twine) and stop cracks in water-carriers [ref:roth1904]. Kuku Yalanji **[yikari](word:yikari)** is 'hardened beeswax, hardened with [ironwood](entry:ironwood) root juice', and it was used in making [spears](entry:spear-and-woomera) [ref:hershberger1982].\n\n**Mourning.** The dictionary records that honeycomb (*[mandi-mandi](word:mandi-mandi)*) was put into the hair after the death of a husband or child [ref:hershberger1982]."
+      "body": "**Food.** Honey was eaten straight from the nest, sopped up with a swab, or mixed with water. On the lower Tully River, Roth recorded that people took honey from one kind of bee only, and that it was usually mixed with water and drunk, and never kept long enough to ferment [ref:roth1901].\n\n**Wax.** Beeswax was a glue. Roth describes it being roasted over the fire, squeezed in the hands, then warmed and hammered in turns. It was used to stick things in the hair, mend [fibre twine](entry:string-and-twine) and stop cracks in water-carriers [ref:roth1904]. Kuku Yalanji **[yikari](word:yikari)** is 'hardened beeswax, hardened with [ironwood](entry:ironwood) root juice', and it was used in making [spears](entry:spear-and-woomera) [ref:hershberger1982].\n\n**Mourning.** The dictionary records that honeycomb (*[mandi-mandi](word:mandi-mandi)*) was put into the hair after the death of a husband or child [ref:hershberger1982]."
     },
     {
       "id": "how-to",
       "heading": "How sugarbag was found and taken",
-      "body": "**Finding the nest** (Roth's general North Queensland record [ref:roth1901]):\n\n1. **Watch the trees.** In warm weather, look for bees going in and out of a small hole in a trunk or limb.\n2. **Look at the ground.** In cool weather, look for the tiny pellets of bee dung that fall around the butt of a tree.\n3. **Listen and tap.** Put your ear to a hole at the base of the tree and listen for the hum. Tap the trunk with your fingers or a stone to find where it is hollow.\n4. **Follow a bee home.** On the middle Palmer River, neighbouring Western Yalanji country, people caught a bee in the open, smeared it with [goanna](entry:goanna) or snake fat, stuck a little feather-down on it, let it go and followed the white speck back to the nest [ref:roth1901].\n\n**Taking the honey:**\n\n1. **Cut in** with an axe, **[warrbi](word:warrbi)**, or in the old days a [stone](entry:stone) axe, **[kulbanmuku](word:kulbanmuku)**. **[Nyandal](word:nyandal)** is 'to chop' [ref:hershberger1982]. Scarred [ironwoods](entry:ironwood) show the cut going through the bark into the hollow heartwood [ref:wallis2024].\n2. **Or mop it out without felling.** Roth says people commonly used mops and sponges to save the labour of cutting away the timber [ref:roth1901]. On the Bloomfield the mop was a length of **[lawyer cane](entry:lawyer-cane)**. Chew the end and let it dry until it is frayed. Then poke it up into the tree-hole, pull it out, suck off the honey and repeat. People carried these withes from camp to camp [ref:roth1904].\n3. **Make a grass sponge, wuju.** Pull up two or three handfuls of grass, take off the roots, and rub the grass hard between your hands, sometimes with water. Leave it to dry into a small springy bunch [ref:roth1904]. Roth found such swabs in [dilly-bags](entry:dilly-bags) right across North Queensland. The Kuku Yalanji *[wuju](word:wuju)* is a grass sponge used to sop up honey or soup [ref:hershberger1982].\n4. **Sop and squeeze.** Soak up the honey with the sponge and suck it, or squeeze it into water to make a sweet drink, as on the lower Tully [ref:roth1901].\n5. **Keep the wax.** Save the waxy nest material and work it into a lump by roasting, squeezing, warming and hammering [ref:roth1904].\n\n**Wasp brood** was eaten too. On the lower Tully people crept up to a paper-wasp nest, held a bundle of burning grass or [tea-tree bark](entry:paperbark) under it to kill or drive off the adults, then pulled the comb and picked the larvae out to eat raw [ref:roth1901]."
+      "body": "**Finding the nest** (Roth's general North Queensland record [ref:roth1901]):\n\n1. **Watch the trees.** In warm weather, look for bees going in and out of a small hole in a trunk or limb.\n2. **Look at the ground.** In cool weather, look for the tiny pellets of bee dung that fall around the butt of a tree.\n3. **Listen and tap.** Put your ear to a hole at the base of the tree and listen for the hum. Tap the trunk with your fingers or a stone to find where it is hollow.\n4. **Follow a bee home.** On the middle Palmer River, neighbouring Western Yalanji country, people caught a bee in the open, smeared it with [goanna](entry:goanna) or snake fat, stuck a little feather-down on it, let it go and followed the white speck back to the nest [ref:roth1901].\n\n**Taking the honey:**\n\n1. **Cut in** with an axe, **[warrbi](word:warrbi)**, or in the old days a [stone](entry:stone) axe, **[kulbanmuku](word:kulbanmuku)**. **[Nyandal](word:nyandal)** is 'to chop' [ref:hershberger1982]. Scarred [ironwoods](entry:ironwood) show the cut going through the bark into the hollow heartwood [ref:wallis2024] [ref:ironwood].\n2. **Or mop it out without felling.** Roth says people commonly used mops and sponges to save the labour of cutting away the timber [ref:roth1901]. The Bloomfield lawyer-cane mop is under the eastern coast below.\n3. **Make a grass sponge, wuju.** Pull up two or three handfuls of grass, take off the roots, and rub the grass hard between your hands, sometimes with water. Leave it to dry into a small springy bunch [ref:roth1904]. Roth found such swabs in [dilly-bags](entry:dilly-bags) right across North Queensland. The Kuku Yalanji *[wuju](word:wuju)* is a grass sponge used to sop up honey or soup [ref:hershberger1982].\n4. **Sop and squeeze.** Soak up the honey with the sponge and suck it, or squeeze it into water to make a sweet drink, as on the lower Tully [ref:roth1901].\n5. **Keep the wax.** Save the waxy nest material and work it into a lump by roasting, squeezing, warming and hammering [ref:roth1904].\n\n**Wasp brood** was eaten too. On the lower Tully people crept up to a paper-wasp nest, held a bundle of burning grass or [tea-tree bark](entry:paperbark) under it to kill or drive off the adults, then pulled the comb and picked the larvae out to eat raw [ref:roth1901]."
     },
     {
       "id": "safety",
@@ -67,7 +117,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "In 2021, 160,213 hectares from Mossman to Cooktown, including the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks, were returned to Eastern Kuku Yalanji ownership. They are now jointly managed with the Queensland Parks and Wildlife Service [ref:nit2021]. In national parks, all plants, animals and natural and cultural resources are protected and must not be disturbed [ref:parks], so cutting a nest out is a matter for Traditional Owners, not visitors. Section 211 of the *Native Title Act 1993* protects native title holders' hunting, gathering and fishing for personal, domestic or non-commercial communal needs from licence and permit requirements [ref:alrc].\n\nOn Western Yalanji country, the August 2026 Federal Court determination recognised non-exclusive rights over most of the area to access Country, camp, hunt, fish and gather natural resources, alongside pastoral and mining interests [ref:nit2026]. Visitors on Western Yalanji country, including station country on the Mitchell, need the Traditional Owners' and landholders' permission. Old sugarbag-scarred trees are part of the cultural record and should be left alone [ref:wallis2024]."
+      "body": "Section 211 of the *Native Title Act 1993* protects native title holders' hunting, gathering and fishing for personal, domestic or non-commercial communal needs from licence and permit requirements [ref:alrc]. Who holds native title differs from place to place: see each place below, and ask the Traditional Owners. Old sugarbag-scarred trees are part of the cultural record and should be left alone [ref:wallis2024]."
     },
     {
       "id": "language",
@@ -75,24 +125,83 @@
       "body": "Dabu and walarr are also moiety names [ref:hershberger1982]. Useful words: **[warrbi](word:warrbi)** 'axe'; **[kulbanmuku](word:kulbanmuku)** 'axe, originally a stone axe'; **[nyandal](word:nyandal)** 'to chop'; **[jila](word:jila)** 'beeswax'; **[janbar](word:janbar)** 'sticky, also used for sticky honey' [ref:hershberger1982]."
     }
   ],
-  "relatedEntries": ["firestick", "spear-and-woomera", "lawyer-cane", "witchetty-grub", "ironwood", "stone", "goanna", "dilly-bags", "string-and-twine", "paperbark"],
+  "relatedEntries": [
+    "firestick",
+    "spear-and-woomera",
+    "lawyer-cane",
+    "witchetty-grub",
+    "ironwood",
+    "stone",
+    "goanna",
+    "dilly-bags",
+    "string-and-twine",
+    "paperbark"
+  ],
   "relatedWords": [
-    { "word": "walarr", "gloss": "type of honey bee, almost like the dabu, but bigger and nests in trees" },
-    { "word": "yarrka", "gloss": "bee, the smallest bee in the bush" },
-    { "word": "nakawarra", "gloss": "species of bee" },
-    { "word": "jila", "gloss": "beeswax" },
-    { "word": "nyumbirr", "gloss": "wax made by bees" },
-    { "word": "janbar", "gloss": "stick, also used for sticky honey" },
-    { "word": "nguyal", "gloss": "sticky (as honey)" },
-    { "word": "yikari", "gloss": "hardened beeswax, hardened with ironwood root juice" },
-    { "word": "murma", "gloss": "small paper wasp, yellow in colour with a bad sting. Its nest hangs in trees." },
-    { "word": "mulma", "gloss": "hornet" },
-    { "word": "wurrbu", "gloss": "hornet, bumblebee. Nests in a stump or the ground" },
-    { "word": "warrbi", "gloss": "axe" },
-    { "word": "kulbanmuku", "gloss": "axe, originally a stone axe" },
-    { "word": "nyandal", "gloss": "to chop" },
-    { "word": "kambar", "gloss": "wet season" },
-    { "word": "wangariji", "gloss": "the hot season" }
+    {
+      "word": "walarr",
+      "gloss": "type of honey bee, almost like the dabu, but bigger and nests in trees"
+    },
+    {
+      "word": "yarrka",
+      "gloss": "bee, the smallest bee in the bush"
+    },
+    {
+      "word": "nakawarra",
+      "gloss": "species of bee"
+    },
+    {
+      "word": "jila",
+      "gloss": "beeswax"
+    },
+    {
+      "word": "nyumbirr",
+      "gloss": "wax made by bees"
+    },
+    {
+      "word": "janbar",
+      "gloss": "stick, also used for sticky honey"
+    },
+    {
+      "word": "nguyal",
+      "gloss": "sticky (as honey)"
+    },
+    {
+      "word": "yikari",
+      "gloss": "hardened beeswax, hardened with ironwood root juice"
+    },
+    {
+      "word": "murma",
+      "gloss": "small paper wasp, yellow in colour with a bad sting. Its nest hangs in trees."
+    },
+    {
+      "word": "mulma",
+      "gloss": "hornet"
+    },
+    {
+      "word": "wurrbu",
+      "gloss": "hornet, bumblebee. Nests in a stump or the ground"
+    },
+    {
+      "word": "warrbi",
+      "gloss": "axe"
+    },
+    {
+      "word": "kulbanmuku",
+      "gloss": "axe, originally a stone axe"
+    },
+    {
+      "word": "nyandal",
+      "gloss": "to chop"
+    },
+    {
+      "word": "kambar",
+      "gloss": "wet season"
+    },
+    {
+      "word": "wangariji",
+      "gloss": "the hot season"
+    }
   ],
   "references": [
     {
@@ -151,8 +260,87 @@
       "id": "nit2026",
       "citation": "National Indigenous Times (13 August 2026). Western Yalanji determination brings Cape York native title 'to the finish line'.",
       "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026: Tetragonula 24 records (1993–2026), none of Austroplebeia; Erythrophleum (Cooktown ironwood) 54 records (1970–2026).",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus%3ATetragonula"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/",
+      "locator": "p. 28 and n. 22 (Arear); pp. 107–112 (the Sugarbag project); p. 327 (sugarbag grass); p. 334 (burning away from nests); pp. 355–359 (harvest scars and methods); p. 378 (the drying season)"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
     }
   ],
-  "review": { "status": "unreviewed" },
-  "updated": "2026-10-05"
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Sugarbag is a food of the Hann country too. To the Kuku Thaypan Elders of the middle and lower Hann, **Arear** is sugarbag: 'the honey, the hive and the bee' [ref:standley2019]. The common sugarbag bee here is *Tetragonula hockingsi* [ref:standley2019], and the Atlas of Living Australia holds 24 *Tetragonula* records (1993–2026) and none of *Austroplebeia* in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann]. The Elders say active hives are fewer than they were, and link the decline to the wrong kind of fire [ref:standley2019].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Sugarbag trees here",
+          "body": "In south-east Cape York, archaeologists and Traditional Owners have recorded hundreds of [Cooktown ironwood](entry:ironwood) (*Erythrophleum*) trees bearing **sugarbag scars**, where people cut into the trunk to reach a nest. The scars show a sequence from [stone](entry:stone) [axes](entry:axes-and-adzes) to steel axes [ref:wallis2024]. That study was in the Laura sandstone country, just north of Western Yalanji country on the Palmer and Mitchell rivers. The Laura Rangers were part of that study [ref:wallis2024]. Kuku Thaypan Elders found more old scars on their country than active hives, and found living hives inside old scars; some hollows are natural, where a branch has fallen [ref:standley2019]. The Atlas has 54 Cooktown ironwood records in the Hann box (1970–2026) [ref:ala-hann]."
+        },
+        {
+          "id": "seasons",
+          "heading": "Its year here",
+          "body": "In the Elders' calendar, as the country dries after the wet, the south-east winds pick up and the days turn clear and hot, Arear and the butterflies 'begin to increase in number and activity' [ref:standley2019]. Fires that are too hot, or at the wrong time, scorch the canopy and kill the flowers the bees need [ref:standley2019]."
+        },
+        {
+          "id": "uses",
+          "heading": "How the people of this country took it",
+          "body": "**Kuku Thaypan (Standley 2019)** [ref:standley2019]:\n\n1. Cut in carefully **just below the nest entrance**. Old stone-axe holes are small and rounded; later people also cut with sharpened horseshoes from the gold-rush years, then steel axes.\n2. Tie a **mop of softened sugarbag grass**, *Kwern Yulan*, to the end of a stick, push it in and soak the honey out.\n3. **Close the hole** with wax and grass, so the bees could repair the nest. Dr George: 'If the axe mark is big and a lot taken bees will go nest somewhere else.'\n4. Next time, cut **below** the last cut, so the oldest scar is at the top.\n\n**Burning.** Sugarbag nests 'were known and burnt away from' when country was burnt [ref:standley2019].\n\n**Princess Charlotte Bay (Roth, c. 1900).** At Princess Charlotte Bay people told young brood from old, and honey from the young brood was a delicacy usually kept for the elder men [ref:roth1901].\n\nKuku Thaypan sugarbag knowledge was put before the 1996 land claim to Lakefield National Park [ref:standley2019]. Stories and lore of sugarbag belong to their custodians."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The middle and lower Hann are Thaypan native title country, determined in November 2023 and held by the Awu-Laya Indigenous Corporation [ref:fca-thaypan]. Downstream, Rinyirru is jointly managed by its Traditional Owners and the Queensland Government [ref:qpws-rinyirru-culture]. Leave scarred trees alone: they are the record of who worked this country [ref:wallis2024]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "On the Western Yalanji Mitchell, the Laura sugarbag-tree study is the nearest record, just to the north. Cooktown ironwood grows in open forest across Cape York Peninsula and north-east Queensland [ref:ironwood], so the same kind of sugarbag tree can be expected in the woodland around Mt Carbine and the Mitchell. The nearest written record of finding a nest is Roth's from the middle Palmer: the bee smeared with fat and feather-down and followed home (How-to, step 4) [ref:roth1901].",
+      "sections": [
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "On Western Yalanji country, the August 2026 Federal Court determination recognised non-exclusive rights over most of the area to access Country, camp, hunt, fish and gather natural resources, alongside pastoral and mining interests [ref:nit2026]. Visitors on Western Yalanji country, including station country on the Mitchell, need the Traditional Owners' and landholders' permission."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On the Bloomfield River people used a chewed [lawyer-cane](entry:lawyer-cane) withe to draw honey out of the tree-hole [ref:roth1904].",
+      "sections": [
+        {
+          "id": "how-to",
+          "heading": "The Bloomfield lawyer-cane mop",
+          "body": "On the Bloomfield the mop was a length of **[lawyer cane](entry:lawyer-cane)** [ref:roth1904]:\n\n1. Chew the end and let it dry until it is frayed.\n2. Poke it up into the tree-hole, pull it out, suck off the honey and repeat.\n3. Carry the withe with you: people took them from camp to camp [ref:roth1904]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "In 2021, 160,213 hectares from Mossman to Cooktown, including the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks, were returned to Eastern Kuku Yalanji ownership. They are now jointly managed with the Queensland Parks and Wildlife Service [ref:nit2021]. In national parks, all plants, animals and natural and cultural resources are protected and must not be disturbed [ref:parks], so cutting a nest out is a matter for Traditional Owners, not visitors."
+        }
+      ]
+    }
+  ]
 }

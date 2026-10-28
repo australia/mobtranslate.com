@@ -294,10 +294,80 @@
       "id": "crocwise",
       "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
       "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "wetlandinfo-normanby",
+      "citation": "Queensland Government, WetlandInfo. Normanby catchment story: physical features (springs and base flow).",
+      "url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/ecology/processes-systems/water/catchment-stories/normanby/norm-physical.html"
+    },
+    {
+      "id": "wetlandinfo-normanby-catchment",
+      "citation": "Queensland Government, WetlandInfo. Normanby catchment story (catchment area about 14,837 km²).",
+      "url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/ecology/processes-systems/water/catchment-stories/normanby/norm-catchment.html"
+    },
+    {
+      "id": "bom-105001b",
+      "citation": "Bureau of Meteorology, Water Data Online. Station 105001B, Hann River at Sandy Creek: daily and monthly mean discharge 1968–2026 (recent data provisional), retrieved 28 October 2026. No day of zero mean flow in 20,711 days of record; mean flow highest in February–March, lowest in September–November.",
+      "url": "https://www.bom.gov.au/waterdata/"
+    },
+    {
+      "id": "bom-musgrave",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Musgrave (station 028007, 79 m), 1887–2012.",
+      "url": "http://www.bom.gov.au/climate/averages/tables/cw_028007.shtml"
+    },
+    {
+      "id": "russell1993",
+      "citation": "Russell, D. J. & Hales, P. W. (1993). A survey of the Princess Charlotte Bay recreational barramundi fishery. Queensland Department of Primary Industries, QI93049.",
+      "url": "https://era.dpi.qld.gov.au/id/eprint/6393/1/Survey%20of%20the%20Princess%20Charlotte%20Bay%20recreational%20barramundi%20fishery_QI93049_1993_russell.pdf"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "**The Hann is a smaller river that runs the other way.** The Mitchell flows about 750 km north-west to the Gulf of Carpentaria [ref:wiki-mitchell-river]. The Hann rises in the Great Dividing Range and flows north-east about 140 km into Rinyirru (Lakefield) National Park and the North Kennedy River [ref:wp-hann], in the Laura Basin, which 'drains northwards into Princess Charlotte Bay' on the east coast [ref:qpws-rinyirru-culture]. The Hann is named after William Hann, who explored this country in 1872, the year he named the Palmer, the Mitchell's big tributary [ref:wp-hann] [ref:wiki-palmer-river].",
+      "sections": [
+        {
+          "id": "description",
+          "heading": "The two rivers compared",
+          "body": "- **Size.** The Mitchell's catchment covers 71,757 km² [ref:wiki-mitchell-river]; the whole Normanby catchment, of which the Hann is one part, covers about 14,837 km² [ref:wetlandinfo-normanby-catchment].\n- **Flow.** The Mitchell 'is intermittent and may be dry for part of the year' [ref:wiki-mitchell-river], and at Karma Waters it shrinks in the dry to a chain of pools [ref:kw-about]. **The Hann never stops**: its gauge at Sandy Creek has not recorded a day without flow since 1968. Springs fed by water seeping down through the sandstone supply its base flow [ref:bom-105001b] [ref:wetlandinfo-normanby]. In the late dry it runs very low (about 0.3–0.4 m³/s on average in September–November) between deep holes, not dry sand [ref:bom-105001b].\n- **Rain.** Both are monsoon rivers. About four per cent of the Mitchell catchment's rain falls from May to October [ref:griffith2021]; at Musgrave, near the Hann, it is 48 mm of 1174 mm a year [ref:bom-musgrave]. The Hann's flow peaks in February and March [ref:bom-105001b]."
+        },
+        {
+          "id": "habitat",
+          "heading": "What lives in it",
+          "body": "Anglers on the Lakefield rivers in 1986–91 caught 'archerfish (Toxotes sp), tarpon (Megalops cyprinoides), sooty grunter (Therapon fuliginosus), sleepy cod (Oxyeleotris lineolatus), jewfish (Tandanus spp.), eels (Anguilla spp.) and long tom (Strongylura kreffti)', with fork-tailed catfish and barramundi [ref:russell1993]: much the same cast as the Mitchell's [waterhole](entry:waterhole). The big difference is the crocodiles. Upstream on the Mitchell the freshwater crocodile is the one you meet; on the Hann **either crocodile can be in any deep hole**: downstream in Rinyirru both estuarine and freshwater crocodiles live [ref:qpws-rinyirru-culture]. See [crocodiles](entry:crocodiles)."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The Mitchell at Karma Waters is Western Yalanji country [ref:wyac2020]. The upper Hann is the Possum People's country, and the middle and lower Hann are Thaypan country, both recognised by the Federal Court in November 2023 [ref:fca-possum] [ref:fca-thaypan]. Downstream, Rinyirru's Traditional Owners are the Lama Lama and Kuku Thaypan peoples [ref:qpws-rinyirru-culture]."
+        }
+      ]
+    }
+  ]
 }

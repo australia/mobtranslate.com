@@ -32,7 +32,7 @@
   "countryTypes": [
     "river-freshwater"
   ],
-  "summary": "The big smooth-barked gum of the Mitchell's banks is the **river red gum**, and the dictionary's words for the smooth gums are **[kayjurr](word:kayjurr)** 'white gum', **[bajar](word:bajar)** 'species of white gum', **[jabarr](word:jabarr)** 'baldy gum tree', and **[jinajina](word:jinajina)** (Nyungkul **[dakumbar](word:dakumbar)**) 'water gum tree; this tree is good timber for woomeras' [ref:hershberger1982]. It is 'a tree with smooth white or cream-coloured bark, lance-shaped or curved adult leaves, flower buds in groups of seven or nine, white flowers and hemispherical fruit with the valves extending beyond the rim. A familiar and iconic tree, it is seen along many watercourses across inland Australia, providing shade in the extreme temperatures' [ref:wiki-camaldulensis]. '*Eucalyptus camaldulensis* has the widest natural distribution of any eucalyptus species. It is commonly found along waterways and there are only a few locations where the species is found away from a watercourse', which makes it the surest sign of water in dry country [ref:wiki-camaldulensis]. At [Karma Waters](place:karma-waters) it is the sixth most-recorded plant within 30 km, with twenty-two records, and the Queensland Herbarium maps it with the [Leichhardt tree](entry:leichhardt-tree) and the [paperbarks](entry:paperbark) in the fringing woodland of the river's channels and levees [ref:ala-karma-plants] [ref:re9314]. It is the river's shade, honey, hollows and firewood, and its one famous danger: 'the limbs of river red gums, sometimes whole trees, often fall without warning so that camping or picnicking near them is dangerous' [ref:wiki-camaldulensis].",
+  "summary": "The big smooth-barked gum of the inland river banks is the **river red gum**, and the dictionary's words for the smooth gums are **[kayjurr](word:kayjurr)** 'white gum', **[bajar](word:bajar)** 'species of white gum', **[jabarr](word:jabarr)** 'baldy gum tree', and **[jinajina](word:jinajina)** (Nyungkul **[dakumbar](word:dakumbar)**) 'water gum tree; this tree is good timber for woomeras' [ref:hershberger1982]. It is 'a tree with smooth white or cream-coloured bark, lance-shaped or curved adult leaves, flower buds in groups of seven or nine, white flowers and hemispherical fruit with the valves extending beyond the rim. A familiar and iconic tree, it is seen along many watercourses across inland Australia, providing shade in the extreme temperatures' [ref:wiki-camaldulensis]. '*Eucalyptus camaldulensis* has the widest natural distribution of any eucalyptus species. It is commonly found along waterways and there are only a few locations where the species is found away from a watercourse', which makes it the surest sign of water in dry country [ref:wiki-camaldulensis]. It is the river's shade, honey, hollows and firewood, and its one famous danger: 'the limbs of river red gums, sometimes whole trees, often fall without warning so that camping or picnicking near them is dangerous' [ref:wiki-camaldulensis].",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -83,7 +83,7 @@
     {
       "id": "habitat",
       "heading": "Where it grows",
-      "body": "The bank and floodplain of the Mitchell and its creeks, over bare sand and leaf litter, in the Herbarium's 'Melaleuca fringing woodland on channels and levees' with the Leichhardt tree, and 'there are only a few locations where the species is found away from a watercourse' [ref:re9314] [ref:wiki-camaldulensis]."
+      "body": "The bank and floodplain of rivers and creeks, over bare sand and leaf litter: 'there are only a few locations where the species is found away from a watercourse' [ref:wiki-camaldulensis]."
     },
     {
       "id": "ecology",
@@ -113,7 +113,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The red gums are the Karma Waters river camps' shade and their hazard; the campground rules and the induction say where to camp [ref:kw-camping] [ref:re9314]. Which of the dictionary's gum words is this tree is for the contribution box below [ref:hershberger1982]."
+      "body": "Each place below says whose country the red gums stand on and where to camp. Which of the dictionary's gum words is this tree is for the contribution box below [ref:hershberger1982]."
     },
     {
       "id": "language",
@@ -193,10 +193,102 @@
       "id": "kw-camping",
       "citation": "Karma Waters Station. Bush Camping at Karma Waters Station (web page, accessed 5 October 2026).",
       "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "qld-re",
+      "citation": "Queensland Herbarium. Regional ecosystem descriptions, Cape York Peninsula bioregion: 3.3.10a (Melaleuca fluviatilis fringing woodland), 3.3.24 (Eucalyptus leptophleba woodland on riverine levees, Laura area), 3.10.6 and 3.10.10 (Darwin stringybark woodland on sandstone), 3.3.66 (lakes and lagoons).",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/"
+    },
+    {
+      "id": "bom-105001b",
+      "citation": "Bureau of Meteorology, Water Data Online. Station 105001B, Hann River at Sandy Creek: daily and monthly mean discharge 1968–2026 (recent data provisional), retrieved 28 October 2026. No day of zero mean flow in 20,711 days of record; mean flow highest in February–March, lowest in September–November.",
+      "url": "https://www.bom.gov.au/waterdata/"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "nta1993",
+      "citation": "Native Title Act 1993 (Cth), section 211: preservation of certain native title rights and interests (hunting, fishing and gathering for personal, domestic or non-commercial communal needs).",
+      "url": "https://www.legislation.gov.au/C2004A04665/latest/text"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/",
+      "locator": "Kuku Thaypan prefix ku (p. 297); Ku garl among trees important for sugarbag bees (Table 8.11, p. 361); Arear, sugarbag (p. 100); fire-calendar indicators (p. 383); Ku garl gum tree country (pp. 441–446)"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of Eucalyptus camaldulensis in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026: 46 records (1973–2010), almost all herbarium specimens.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=species%3A%22Eucalyptus%20camaldulensis%22"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "River red gums stand along the big streams of the Hann country. The Atlas of Living Australia holds 46 river red gum records, from 1973 to 2010, in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann], and the Queensland Herbarium's paperbark fringe of this country's major streams carries '*Eucalyptus tereticornis* (blue gum) or *E. camaldulensis* (river red gum)' over the silver-crowned paperbarks [ref:qld-re]. The Kuku Thaypan Elders know the gums of the lagoons, river banks and plains as **Ku garl**, gum tree country, with its own time to burn [ref:standley2019].",
+      "sections": [
+        {
+          "id": "names",
+          "heading": "Names here",
+          "body": "In Kuku Thaypan, *ku* begins the name of every tree [ref:standley2019]. **Ku garl** (also written *Ku agawl* and *Ku awgarl*) is 'Gum Tree', *Eucalyptus* sp., and Standley names the gums of Ku garl country as *E. tereticornis* and *E. tessellaris* [ref:standley2019]. Whether the Elders count the river red gum among them, the thesis does not say. The Kuku Yalanji words above are not this country's."
+        },
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "Ku garl country is 'around lagoon systems, riverine woodland and open eucalypt grassy woodlands on plains. Water settles in these systems from the wet season and they have hard brown dark soil'. The Elders group its gum communities 'according to where this system occurs in the landscape, for example on open plains, surrounding lagoons or on river banks' [ref:standley2019].\n\nThe Herbarium's river fringe (regional ecosystem 3.3.10a) is the river-bank kind: paperbarks with blue gum or river red gum, a sub-canopy that often holds the cluster [fig](entry:fig), and a ground layer 'generally very sparse and regularly swept clear by floods' [ref:qld-re]."
+        },
+        {
+          "id": "seasons",
+          "heading": "Its year here",
+          "body": "The Hann floods in the wet, highest in February–March, and runs very low but never stops in September–November [ref:bom-105001b]; the river red gum depends on just such flooding to recharge the ground it lives on [ref:wiki-camaldulensis].\n\nIn the Elders' fire calendar, 'Ku agawl Gum flowering' is one of the signs for the early-dry burns [ref:standley2019]. Gum country 'is ready for burning when the Ku akalmba Messmate is flowering. By this time of the year the gum tree communities have flowered and produced fruit. Gum tree community is one of the first systems to burn, the darker the soil the earlier the burn, lighter soils are burnt later.' The weather sign is 'the last of the light squally showers and the SE knock em down rain', 'when Eriachne sp is setting seed and bark has shed'. Gum country left unburnt for years needs a hotter fire than it otherwise would [ref:standley2019]."
+        },
+        {
+          "id": "uses",
+          "heading": "What it gives here",
+          "body": "The Elders list Ku garl among the trees important for the native sugarbag bees [ref:standley2019], and sugarbag is **Arear** in Kuku Thaypan [ref:standley2019]. See [native bees](entry:native-bees). Nothing else is published on how the people of the Hann used the river red gum; for the rest, see *Uses* above."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country and the middle and lower Hann are Thaypan country, under native title determinations of November 2023 [ref:fca-possum] [ref:fca-thaypan]. Downstream, Rinyirru (Lakefield) National Park is jointly managed by the Rinyirru Aboriginal Corporation and the Queensland Government [ref:qpws-rinyirru-culture]. Native title holders may take timber and other resources for personal, domestic and non-commercial communal needs without the licences others need [ref:nta1993]; anyone else should ask before cutting. Camp clear of big gums: their limbs fall without warning [ref:wiki-camaldulensis]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "At [Karma Waters](place:karma-waters) it is the sixth most-recorded plant within 30 km, with twenty-two records, and the Queensland Herbarium maps it with the [Leichhardt tree](entry:leichhardt-tree) and the [paperbarks](entry:paperbark) in the fringing woodland of the river's channels and levees [ref:ala-karma-plants] [ref:re9314].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "On the Mitchell and its creeks it grows in the Herbarium's 'Melaleuca fringing woodland on channels and levees' with the [Leichhardt tree](entry:leichhardt-tree) [ref:re9314]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The red gums are the Karma Waters river camps' shade and their hazard; the campground rules and the induction say where to camp [ref:kw-camping] [ref:re9314]."
+        }
+      ]
+    }
+  ]
 }

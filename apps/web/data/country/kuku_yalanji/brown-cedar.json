@@ -16,7 +16,7 @@
   "countryTypes": [
     "rainforest"
   ],
-  "summary": "**[jalnji](word:jalnji)** is a tree whose 'gum from this tree is not poisonous, used for making spears', and Roth's Bloomfield name for the brown-cedar gum, *t-chaln-ji*, is the same word: this is *Canarium australasicum*, the brown cedar, brown cudgerie or mango bark, the rainforest tree whose dry lumps of gum, baked and pounded, were the cement of the Bloomfield spear and axe [ref:hershberger1982] [ref:roth1904] [ref:anderson1996]. Its bark 'exudes a strong mango odour' when cut, its flowers are dark red to maroon, and its fruit small [ref:rfk-canarium]. Anderson: the stone axe head was set in its lawyer-cane handle with 'a gum mixture of beeswax mixed with resin from *Canarium australasicum*', the stingray barbs on the spears with the same resin, and the harpoon point with 'a ring-plug of gum (usually *Canarium australasicum*)'; and its wood, like the blind-your-eye mangrove's, 'produces a smoke which is said by Kuku-Yalanji to produce blindness' [ref:anderson1996]. At Cape Bedford the tree was also a canoe timber [ref:roth1910]. This is a page of the sea country of the Eastern Kuku Yalanji, the Bloomfield and Daintree coast; it is a long way from [Karma Waters](place:karma-waters) on the upper Mitchell, and is here because the words, the trade and the tools reach inland. The gums themselves are on the [beeswax and gums](entry:beeswax-and-gums) page.",
+  "summary": "**[jalnji](word:jalnji)** is a tree whose 'gum from this tree is not poisonous, used for making spears', and Roth's Bloomfield name for the brown-cedar gum, *t-chaln-ji*, is the same word: this is *Canarium australasicum*, the brown cedar, brown cudgerie or mango bark, the rainforest tree whose dry lumps of gum, baked and pounded, were the cement of the Bloomfield spear and axe [ref:hershberger1982] [ref:roth1904] [ref:anderson1996]. Its bark 'exudes a strong mango odour' when cut, its flowers are dark red to maroon, and its fruit small [ref:rfk-canarium]. Anderson: the stone axe head was set in its lawyer-cane handle with 'a gum mixture of beeswax mixed with resin from *Canarium australasicum*', the stingray barbs on the spears with the same resin, and the harpoon point with 'a ring-plug of gum (usually *Canarium australasicum*)'; and its wood, like the blind-your-eye mangrove's, 'produces a smoke which is said by Kuku-Yalanji to produce blindness' [ref:anderson1996]. At Cape Bedford the tree was also a canoe timber [ref:roth1910]. The gums themselves are on the [beeswax and gums](entry:beeswax-and-gums) page.",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -63,7 +63,7 @@
     {
       "id": "habitat",
       "heading": "Where it grows",
-      "body": "The lowland rainforest of the Bloomfield and Daintree, and not at Cooktown, where the gum was known by name but had to be traded in; nor at Karma Waters, whose cements are the [grass tree](entry:grass-tree), the [ironwood](entry:ironwood) and the spinifex [ref:roth1904] [ref:rfk-canarium]."
+      "body": "A tree of lowland rainforest [ref:rfk-canarium]. It is not found everywhere Kuku Yalanji is spoken: it was not growing near Cooktown, where the gum was known by name but had to be traded in [ref:roth1904]. See each place above for where it grows and where it does not."
     },
     {
       "id": "ecology",
@@ -93,7 +93,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The tree is in the Bloomfield scrubs and its gum still sets a spear; the Eastern Kuku Yalanji country where it grows was handed back to its Traditional Owners in 2021 [ref:handback2021] [ref:anderson1996]. Whether *jalnji* is this tree exactly is for the people who gather its gum; the contribution box below is for that [ref:hershberger1982]."
+      "body": "Whether *jalnji* is this tree exactly is for the people who gather its gum; the contribution box below is for that [ref:hershberger1982]."
     },
     {
       "id": "language",
@@ -126,7 +126,7 @@
       "id": "roth1904",
       "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Sect. 10 'Fire-tongs'"
+      "locator": "Sect. 10 'Fire-tongs'; sect. 9 'Cements' (ironwood gum in use on the Endeavour, Laura and Palmer rivers and the Princess Charlotte Bay coast)"
     },
     {
       "id": "anderson1996",
@@ -149,10 +149,92 @@
       "id": "handback2021",
       "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
       "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+    },
+    {
+      "id": "fca-kukuwarra",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 19) (Kuku Warra determination) [2023] FCA 1314 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1314"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
+    },
+    {
+      "id": "ala-hann-gums",
+      "citation": "Atlas of Living Australia. Occurrence records of Canarium australasicum (none), Canarium australianum (18 records, 1970–2020), Erythrophleum chlorostachys (50 records, 1970–2026) and Xanthorrhoea johnsonii (14 records, 1968–2024) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus:Canarium&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Brown cedar does not grow on the Hann River. The Atlas of Living Australia has no record of *Canarium australasicum* in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru; the only *Canarium* there is a different tree, *C. australianum* (18 records, 1970–2020), and no source says its gum was used [ref:ala-hann-gums]. The cements of this country were the [ironwood](entry:ironwood) and the [grass tree](entry:grass-tree) [ref:roth1904] [ref:fca-kukuwarra].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "**It doesn't.** The brown cedar is a rainforest tree [ref:rfk-canarium], and the Hann is stringybark and bloodwood woodland with a paperbark fringe on the river [ref:wp-hann]. The trees that gave gum here are in the Atlas: ironwood, *Erythrophleum chlorostachys*, 50 records (1970–2026), and the grass tree *Xanthorrhoea johnsonii*, 14 records (1968–2024), in the same box [ref:ala-hann-gums]."
+        },
+        {
+          "id": "uses",
+          "heading": "The gums people used here",
+          "body": "**Ironwood gum.** Roth saw ironwood cement 'in use among the natives of the Endeavour, Laura, and Palmer Rivers, along the Princess Charlotte Bay coast line' about 1900; he noted its 'liability to crack' [ref:roth1904]. See [ironwood](entry:ironwood).\n\n**Grass-tree resin (Kuku Warra, Laura).** A Kuku Warra man from Laura told the Federal Court in 2023: 'At the bottom of the black boy tree, you get a resin right down near the root. You take the root of the tree, cut it with a tomahawk, scrape the dirt off, heat the root on hot coals, and the resin or sap comes out of the root. You can mould the sap to bind things together' [ref:fca-kukuwarra]. Kuku Warra country is around Laura, and it shares the land between the North Kennedy and the Hann with the Thaypan under a customary agreement [ref:fca-kukuwarra].\n\n**Sap, resin and fire (Kuku Thaypan).** The Kuku Thaypan Elders who worked with Standley taught that in their fire knowledge 'weaponry and crafts are intimately tied to fire. Materials used in the creation of weapons require sap and resin and fire is used to stimulate the production of both in species that are utilised for this purpose' [ref:standley2019]. Scarred trees on their country record this: 'Scars can be from harvesting sugarbag (native honey) or resin or for use in tools, weaponry or craft' [ref:standley2019]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country and the middle and lower Hann are Thaypan country, both determined in November 2023 [ref:fca-possum] [ref:fca-thaypan]. Scarred trees are part of that country's record; leave them alone [ref:standley2019]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Brown cedar is a long way from [Karma Waters](place:karma-waters) on the upper Mitchell; this page is here because the words, the trade and the tools reach inland.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "Not at Karma Waters, whose cements are the [grass tree](entry:grass-tree), the [ironwood](entry:ironwood) and the spinifex [ref:roth1904]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "This is a tree of the sea country of the Eastern Kuku Yalanji, the Bloomfield and Daintree coast, where its gum was the cement of the spear and the axe [ref:anderson1996].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "The lowland rainforest of the Bloomfield and Daintree [ref:rfk-canarium] [ref:roth1904]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The tree is in the Bloomfield scrubs and its gum still sets a spear; the Eastern Kuku Yalanji country where it grows was handed back to its Traditional Owners in 2021 [ref:handback2021] [ref:anderson1996]."
+        }
+      ]
+    }
+  ]
 }

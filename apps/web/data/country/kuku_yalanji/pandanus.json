@@ -60,12 +60,12 @@
     {
       "id": "habitat",
       "heading": "Where it grows",
-      "body": "The beach pandan grows from sea level to 300 m in littoral rainforest, on sand dunes and coastal sandy country and in vine forest, from Cape York to central New South Wales [ref:rfk-pandanus]. On Eastern Kuku Yalanji country that is the beach country of Ayton, the Bloomfield mouth and the coves where people kept their permanent camps [ref:anderson1996].\n\nPandanus also lines inland creeks and rivers, and it is part of **Western Yalanji** country. The Queensland WildNet database records *Pandanus spiralis* at Mount Carbine [ref:ala-pandanus]; Roth recorded a Koko-yellanji name for pandanus at Butcher's Hill, inland [ref:roth1901]; and Edward Palmer, quoted by Roth, reported pandanus fruit as a food on the Mitchell and Palmer Rivers [ref:roth1901]."
+      "body": "The beach pandan grows from sea level to 300 m in littoral rainforest, on sand dunes and coastal sandy country and in vine forest, from Cape York to central New South Wales [ref:rfk-pandanus].\n\nInland, pandanus lines creeks and rivers: *Pandanus spiralis* grows in 'savannah woodlands and poorly drained areas', on 'sand, alluvium and clay', across northern Queensland, the Northern Territory and the far north of Western Australia [ref:wp-spiralis]. Which pandanus grows where is set out under each place above."
     },
     {
       "id": "uses",
       "heading": "Uses",
-      "body": "**Food.** At Bloomfield, jajikal fruit was baked in the ashes and the shell broken first to get at the seeds; unlike many nuts it needed no pounding or [leaching](entry:leaching) [ref:anderson1996]. Roth's general entry for pandanus, which carries the Bloomfield name, says the fruit is sucked, the shell broken and the seed eaten, and that the roasted fruit can be soaked to make a sweet drink [ref:roth1901].\n\n**Leaves.** Across North Queensland, Roth found pandanus leaves split for armlets (plain or plaited), plait-work, [dilly-bag](entry:dilly-bags) handles and sieve-bags, and used to smooth the gum-cement on [spear](entry:spear-and-woomera) barbs at Cooktown [ref:roth1901-string]. The pandanus-strip armlet was worn as far south on the east coast as the Bloomfield River [ref:roth1910-decoration], and Anderson confirms that Bloomfield people wore pandanus-leaf armlets [ref:anderson1996]. Children made small toy boomerangs from pandanus leaves [ref:anderson1996], and pandanus leaves made the little trough that fed water into the [zamia](entry:zamia) flour during leaching [ref:anderson1996].\n\n**Building.** North of the Palmer River, Roth saw [huts](entry:huts-and-shelters) built on a ridge-pole held up by forked uprights, 'very commonly of Pandanus, the dichotomous growth of which lends itself admirably for the purpose' [ref:roth1910-huts]."
+      "body": "**Food.** Roth's general entry for pandanus, which carries a Bloomfield name, says the fruit is sucked, the shell broken and the seed eaten, and that the roasted fruit can be soaked to make a sweet drink [ref:roth1901].\n\n**Leaves.** Across North Queensland, Roth found pandanus leaves split for armlets (plain or plaited), plait-work, [dilly-bag](entry:dilly-bags) handles and sieve-bags, and used to smooth the gum-cement on [spear](entry:spear-and-woomera) barbs at Cooktown [ref:roth1901-string]. The pandanus-strip armlet was worn as far south on the east coast as the Bloomfield River [ref:roth1910-decoration], and Anderson confirms that Bloomfield people wore pandanus-leaf armlets [ref:anderson1996]. Children made small toy boomerangs from pandanus leaves [ref:anderson1996], and pandanus leaves made the little trough that fed water into the [zamia](entry:zamia) flour during leaching [ref:anderson1996].\n\n**Building.** North of the Palmer River, Roth saw [huts](entry:huts-and-shelters) built on a ridge-pole held up by forked uprights, 'very commonly of Pandanus, the dichotomous growth of which lends itself admirably for the purpose' [ref:roth1910-huts]."
     },
     {
       "id": "how-to",
@@ -80,7 +80,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Pandanus is not listed as threatened; as native plants the pandanus species here are 'least concern' wildlife under Queensland's Nature Conservation Act [ref:qld-plants-reg].\n\nMuch of Eastern Kuku Yalanji country is now Aboriginal land. On 29 September 2021 more than 160,000 ha, taking in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks between Mossman and Cooktown, was handed back to the Eastern Kuku Yalanji people, to be jointly managed with the Queensland Government through the Queensland Parks and Wildlife Service [ref:ag2021]. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to hunt, fish or gather for their personal, domestic or non-commercial communal needs [ref:alrc]. Everyone else needs the Traditional Owners' permission to take anything from country, and park rules apply."
+      "body": "Pandanus is not listed as threatened; as native plants the pandanus species here are 'least concern' wildlife under Queensland's Nature Conservation Act [ref:qld-plants-reg]. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to hunt, fish or gather for their personal, domestic or non-commercial communal needs [ref:alrc]. Everyone else needs the Traditional Owners' permission to take anything from country, and park rules apply: see each place above for whose country it is."
     },
     {
       "id": "language",
@@ -142,13 +142,13 @@
       "id": "roth1904",
       "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Sect. 37, stone hammers"
+      "locator": "Sect. 37, stone hammers (Princess Charlotte Bay hinterland 1898, Palmer 1899)"
     },
     {
       "id": "roth1910-decoration",
       "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 15: Decoration, deformation, and clothing. Records of the Australian Museum 8(1).",
       "url": "https://archive.org/details/biostor-52864",
-      "locator": "Pandanus-strip armlet"
+      "locator": "Sect. 27, necklaces (Princess Charlotte Bay); pandanus-strip armlet"
     },
     {
       "id": "roth1910-huts",
@@ -187,10 +187,107 @@
       "id": "alrc",
       "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
       "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "ala-hann-pandanus",
+      "citation": "Atlas of Living Australia. Occurrence records of the genus Pandanus (38 records, 1970–2024: P. cookii 24, P. spiralis 5, P. tectorius 1, the rest not named to species) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus%3APandanus&fq=decimalLatitude%3A%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude%3A%5B143.5%20TO%20144.3%5D"
+    },
+    {
+      "id": "wp-cookii",
+      "citation": "Wikipedia. Pandanus cookii (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Pandanus_cookii"
+    },
+    {
+      "id": "wp-spiralis",
+      "citation": "Wikipedia. Pandanus spiralis (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Pandanus_spiralis"
+    },
+    {
+      "id": "hgdb-pandanus",
+      "citation": "Hunter-Gatherer Language Database (University of Texas at Austin). Lexical feature 'pandanus palm' (Pandanus spiralis): Kuku-Thaypan, Yalanji, Guugu Yimidhirr, Uw-Olkol, Uw-Oykangand (accessed 28 October 2026).",
+      "url": "https://huntergatherer.la.utexas.edu/lexical/feature/309"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Pandanus grows in the Hann's country. The Atlas of Living Australia holds 38 pandanus records, from 1970 to 2024, in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru: most are *Pandanus cookii*, with a few of the inland *P. spiralis* [ref:ala-hann-pandanus]. No pandanus use is published for the Hann itself; the nearest records are Roth's, from the Princess Charlotte Bay hinterland the river drains into, and from Musgrave [ref:roth1904] [ref:roth1901-string].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "*Pandanus cookii* is 'endemic to coastal and sub-coastal parts of tropical Queensland' and grows to about 10 m [ref:wp-cookii]; it is 24 of the 38 Atlas records in the Hann box. *P. spiralis*, with 5 records, grows in 'savannah woodlands and poorly drained areas' [ref:wp-spiralis]. The box holds a single record of the beach pandan, *P. tectorius*, the tree of the Bloomfield beaches [ref:ala-hann-pandanus] [ref:rfk-pandanus]."
+        },
+        {
+          "id": "uses",
+          "heading": "How people used it here",
+          "body": "These records are Roth's, from about 1900, labelled by place:\n\n- **The fruit.** Roth's pandanus entry, the fruit 'sucked, shell broken, and seed eaten', gives the names of two Princess Charlotte Bay peoples: Koko-rarmul *a-rárla* and Koko-warra *arú-ol* [ref:roth1901].\n- **The hammer.** A hafted stone hammer was used 'for breaking open some of the harder nuts, e.g., pandanus'. Roth wrote: 'I found the implement in use throughout the Princess Charlotte Bay hinterland, in 1898' [ref:roth1904].\n- **The leaves.** Pandanus leaves were split 'for plaitwork (Musgrave, Cape Bedford, etc.)' [ref:roth1901-string]. Musgrave Station is in today's Thaypan determination area [ref:fca-thaypan]. At Princess Charlotte Bay the women, 'and especially the younger girls', wore a necklace, *al-würa*, 'formed of strips of Pandanus leaf worked into a plait of from three to five strands'. The Koko-warra name for the pandanus-strip armlet was *raual* [ref:roth1910-decoration].\n- **The frame.** North of the Palmer, which takes in the Hann, ridge-pole huts stood on forked uprights 'very commonly of Pandanus' [ref:roth1910-huts]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country [ref:fca-possum]; the middle and lower Hann are in the Thaypan native title determination of November 2023, held by the Awu-Laya Indigenous Corporation [ref:fca-thaypan]. Downstream, Rinyirru is jointly managed by the Rinyirru Aboriginal Corporation and the Queensland Government [ref:qpws-rinyirru-culture]. Ask them before taking fruit or leaves."
+        },
+        {
+          "id": "language",
+          "heading": "Language",
+          "body": "In Kuku Thaypan, the language of the middle and lower Hann, the pandanus (*Pandanus spiralis*) is **arral** [ref:hgdb-pandanus]. Roth's Princess Charlotte Bay names are under 'How people used it here'."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Pandanus is part of **Western Yalanji** country too: the inland *Pandanus spiralis* is recorded at Mount Carbine, and Edward Palmer reported pandanus fruit as a food on the Mitchell and Palmer rivers [ref:ala-pandanus] [ref:roth1901].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "Inland, pandanus lines the creeks and rivers. The Queensland WildNet database records *Pandanus spiralis* at Mount Carbine [ref:ala-pandanus]; Roth recorded a Koko-yellanji name for pandanus at Butcher's Hill, inland [ref:roth1901]; and Edward Palmer, quoted by Roth, reported pandanus fruit as a food on the Mitchell and Palmer Rivers [ref:roth1901]."
+        },
+        {
+          "id": "uses",
+          "heading": "Uses here",
+          "body": "On the Middle Palmer, Roth found pandanus leaves split for sieve-bags [ref:roth1901-string], and the Koko-minni there called the plant, and the pandanus-strip armlet made from it, *anjoana* [ref:roth1910-decoration]. He saw the stone hammer that breaks open pandanus nuts in use on the Palmer in 1899 [ref:roth1904]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On Eastern Kuku Yalanji country jajikal is the beach pandan of Ayton, the Bloomfield mouth and the coves where people kept their permanent camps [ref:anderson1996].",
+      "sections": [
+        {
+          "id": "uses",
+          "heading": "Uses here",
+          "body": "At Bloomfield, jajikal fruit was baked in the ashes and the shell broken first to get at the seeds; unlike many nuts it needed no pounding or [leaching](entry:leaching) [ref:anderson1996]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Much of Eastern Kuku Yalanji country is now Aboriginal land. On 29 September 2021 more than 160,000 ha, taking in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks between Mossman and Cooktown, was handed back to the Eastern Kuku Yalanji people, to be jointly managed with the Queensland Government through the Queensland Parks and Wildlife Service [ref:ag2021]."
+        }
+      ]
+    }
+  ]
 }

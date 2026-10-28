@@ -95,12 +95,12 @@
     {
       "id": "habitat",
       "heading": "Where it grows",
-      "body": "*M. leucadendra* grows along the creeks and rivers of northern Australia, where floods wash over it. It also grows in beach forest, swampy rainforest and gallery forest, and it tolerates very wet and salty ground. It is found from sea level to about 700 m, across northern Australia and in New Guinea [ref:rfk-melaleuca]. Anderson's account of Bloomfield camp life names this 'forest paper bark tree' (*Melaleuca leucadendron*) as a source of [fire-lighting](entry:firestick) bark [ref:anderson1996].\n\n**Western Yalanji country.** Paperbarks are just as much at home on the dry inland side. On the western-flowing rivers that drain the Hodgkinson Basin country, the stream banks carry a narrow fringe, 1–50 m wide, of *Melaleuca fluviatilis*, *M. leucadendra* (weeping teatree) and *M. argentea* (silver-leafed paperbark), with river red gum, bluegum and Leichhardt tree [ref:re9314]. Mount Carbine sits on the Hodgkinson Formation rocks [ref:jcu-carbine] in the upper Mitchell River catchment [ref:wiki-mitchell]. So the shady paperbark-lined banks of the upper Mitchell are this same fringing forest. Roth also noted that on the Palmer and further north, the Melaleucas were 'the usual trees whence water may be derived' in the [dry season](entry:seasons) (see Uses) [ref:roth1901]."
+      "body": "*M. leucadendra* grows along the creeks and rivers of northern Australia, where floods wash over it. It also grows in beach forest, swampy rainforest and gallery forest, and it tolerates very wet and salty ground. It is found from sea level to about 700 m, across northern Australia and in New Guinea [ref:rfk-melaleuca]."
     },
     {
       "id": "seasons",
       "heading": "Seasons",
-      "body": "Bark comes off most easily **at the end of the wet season, 'when the sap is up and the bark slips'** [ref:roth1904]. On the Bloomfield, Kuku Yalanji people told Anderson that hut bark was cut and peeled 'when the sap had arisen after the first storms in December' [ref:anderson1996]. Inland, the dome huts were built mainly for the wet season. For much of the dry season people slept in the open by their fires. Sheets of Melaleuca served as blankets in cold weather [ref:anderson1996]. The dictionary's season words include **[kambar](word:kambar)** 'wet season' and **[wangariji](word:wangariji)** 'the hot season' [ref:hershberger1982]."
+      "body": "Bark comes off most easily **at the end of the wet season, 'when the sap is up and the bark slips'** [ref:roth1904]. The dome huts were built mainly for the wet season. For much of the dry season people slept in the open by their fires. Sheets of Melaleuca served as blankets in cold weather [ref:anderson1996]. The dictionary's season words include **[kambar](word:kambar)** 'wet season' and **[wangariji](word:wangariji)** 'the hot season' [ref:hershberger1982]."
     },
     {
       "id": "uses",
@@ -120,7 +120,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Much Eastern Kuku Yalanji paperbark country lies in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks. On 29 September 2021 these parks were returned to Eastern Kuku Yalanji Traditional Owners as Aboriginal land and are now jointly managed with the Queensland Government [ref:qld-handback]. Inland, the Western Yalanji People's native title around the Palmer and Mitchell River systems north-west of Mt Carbine was recognised in 2013. It includes rights to hunt, fish and gather, and to take and use natural resources, for personal, domestic and communal needs [ref:fca2013]. Under s 211 of the *Native Title Act 1993*, native title holders can hunt, fish, gather and carry out cultural activities for those needs without the licences other people need [ref:alrc-s211]. Visitors need Traditional Owners' permission to take bark, and park rules apply.\n\nThe inland paperbark fringe (Regional Ecosystem 9.3.14) is listed as **'Of Concern'** for biodiversity. It is a drought refuge and wildlife corridor and is easily invaded by weeds such as rubber vine [ref:re9314]. Old trees with bark or wood cut out of them are records of past use. On the Bloomfield, Anderson found many scarred trees where [spear-thrower](entry:spear-and-woomera) wood had been taken [ref:anderson1996]. Everyone in Queensland has a legal duty of care not to harm Aboriginal cultural heritage [ref:qld-acha]."
+      "body": "Under s 211 of the *Native Title Act 1993*, native title holders can hunt, fish, gather and carry out cultural activities for personal, domestic and communal needs without the licences other people need [ref:alrc-s211]. Visitors need Traditional Owners' permission to take bark, and park rules apply.\n\nOld trees with bark or wood cut out of them are records of past use; see each place below. Everyone in Queensland has a legal duty of care not to harm Aboriginal cultural heritage [ref:qld-acha]."
     },
     {
       "id": "language",
@@ -185,7 +185,7 @@
       "id": "roth1901",
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Ch. 6 Cooking (Bloomfield earth oven); ch. 7 Water (Melaleuca); plant list, 'Melaleuca sp.'"
+      "locator": "Ch. 6 Cooking (Bloomfield earth oven); ch. 7 Water (Melaleuca); plant list, 'Melaleuca sp.'; sect. 15 (j), hollow logs"
     },
     {
       "id": "roth1901-string",
@@ -202,7 +202,7 @@
       "id": "roth1904",
       "citation": "Roth, W. E. (1904). North Queensland Ethnography, Bulletin No. 7: Domestic implements, arts, and manufactures. Brisbane: Government Printer.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Sect. 1 Wood-work; sect. 49 Head-pads; sect. 58 Pleat-type bark trough; sect. 65 Packages"
+      "locator": "Sect. 1 Wood-work; sect. 49 Head-pads; sect. 58 Pleat-type bark trough; sect. 65 Packages; sect. 37 'Hammers'"
     },
     {
       "id": "roth1910b16",
@@ -253,10 +253,127 @@
       "id": "qld-acha",
       "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), s 23 (cultural heritage duty of care).",
       "url": "https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079"
+    },
+    {
+      "citation": "Atlas of Living Australia. Occurrence records of Melaleuca in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (15.6–14.8° S, 143.5–144.3° E), queried 28 October 2026: 346 records, dated 1932–2023 (M. viridiflora 131, M. citrolens 74, M. leucadendra 27, M. stenostachya 21, M. fluviatilis 17, M. argentea 10, others fewer).",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search?q=genus:Melaleuca&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D",
+      "id": "ala-hann"
+    },
+    {
+      "citation": "Queensland Parks and Wildlife Service. About Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026). Park rules for visitors.",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about",
+      "id": "qpws-rinyirru-about"
+    },
+    {
+      "id": "bom-105001b",
+      "citation": "Bureau of Meteorology, Water Data Online. Station 105001B, Hann River at Sandy Creek: daily and monthly mean discharge 1968–2026 (recent data provisional), retrieved 28 October 2026. No day of zero mean flow in 20,711 days of record; mean flow highest in February–March, lowest in September–November.",
+      "url": "https://www.bom.gov.au/waterdata/"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "qld-re",
+      "citation": "Queensland Herbarium. Regional ecosystem descriptions, Cape York Peninsula bioregion: 3.3.10a (Melaleuca fluviatilis fringing woodland), 3.3.24 (Eucalyptus leptophleba woodland on riverine levees, Laura area), 3.10.6 and 3.10.10 (Darwin stringybark woodland on sandstone), 3.3.66 (lakes and lagoons).",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/"
+    },
+    {
+      "id": "wetlandinfo-normanby",
+      "citation": "Queensland Government, WetlandInfo. Normanby catchment story: physical features (springs and base flow).",
+      "url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/ecology/processes-systems/water/catchment-stories/normanby/norm-physical.html"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Paperbark is everywhere in the Hann's country. The Atlas of Living Australia holds 346 *Melaleuca* records, dated 1932 to 2023, in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru; most are the broad-leaved tea-tree *M. viridiflora* [ref:ala-hann]. For the Kuku Thaypan Elders, **tea-tree country is one of the nine kinds of country** they look after with fire [ref:standley2019]. This is not Kuku Yalanji country: the upper Hann is the Possum People's and the middle and lower Hann are Thaypan country [ref:fca-possum] [ref:fca-thaypan].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "**By the river.** The Queensland Herbarium describes a fringe of *Melaleuca fluviatilis* and *M. leucadendra*, sometimes with river red gum, along the major streams of this part of Cape York. That is a regional ecosystem type, not a survey of the Hann itself [ref:qld-re]. Along the Hann the woodland is mostly stringybark, bloodwood, Moreton Bay ash and ironbark [ref:wp-hann].\n\n**On the flats.** Downstream in Rinyirru, 'open woodlands of eucalypts and paperbarks cover the floodplains' [ref:qpws-rinyirru-culture]. The Kuku Thaypan Elders describe their tea-tree country as 'three different Tea tree Melaleuca sp. in broad leaf Tea tree Melaleuca viridiflora communities on floodplains, inundated areas and drainage depressions' [ref:standley2019].\n\n**What the Atlas holds** in the 90 × 85 km box: *M. viridiflora* 131 records, *M. citrolens* 74, *M. leucadendra* 27, *M. stenostachya* 21, *M. fluviatilis* 17, *M. argentea* 10, and a few others [ref:ala-hann]. So the weeping paperbark of the riverbanks is here, but **the commonest paperbark is the broad-leaved tea-tree of the flats**."
+        },
+        {
+          "id": "seasons",
+          "heading": "Its year here",
+          "body": "In the wet, December to March, the rivers flood out over the plains. Over the next six months the floodplains dry out, and 'by October the land is brown and parched' [ref:qpws-rinyirru-culture]. The Hann itself never stops. It is fed by springs in the sandstone, and its gauge has not recorded a single day without flow since 1968 [ref:wetlandinfo-normanby] [ref:bom-105001b]. The river paperbarks keep their feet wet all year.\n\n**Fire.** The Elders burn tea-tree country after the boxwood country beside it. In 2005 the boxwood was burnt in May, and 'the adjoining tea-tree system was ready to burn in early July' [ref:standley2019]. Hot fires kill the grass seed but not the underground lignotubers of the broad-leaved tea-tree, so a hot fire makes tea-tree country thicken [ref:standley2019]."
+        },
+        {
+          "id": "uses",
+          "heading": "How people used it here",
+          "body": "**Kuku Thaypan Elders** (recorded by Standley) [ref:standley2019]:\n\n- Paperbark 'provides an effective drip torch and as a wrap for food to keep it clean when cooking in the ground'.\n- **Bark is not wasted.** The Elders stressed 'the use and re-use of paperbark and return of it to where it was cut'. Paperbark is 're-used, travelled with and buried at the place it was cut from'.\n- 'Tea tree country was valued as medicine, as a source of flowers for animals and for survival when required. These open areas were good for hunting.'\n\n**Hollow-log traps (Roth, Princess Charlotte Bay hinterland)** [ref:roth1901]. Hollow logs 'of *Melaleuca* sp., *Eucalyptus corymbosa*, etc.', four to seven feet long, were thrown into waterholes for crayfish, eels and fish. They were left for some hours or all day. Then the fisherman dived for the log, closed its lower end with one hand and lifted it so the water trickled out and the catch stayed in. Roth first saw this in November 1898 in the Musgrave district, with ten or twelve lads working the logs, and he passed waterholes on the North Kennedy and lower Normanby with the logs lying on the banks. The Kuku Thaypan Elders call hollow logs used as fish traps **Rungol**, and cut them from messmate [ref:standley2019].\n\n**Taking the bark.** Roth found a hafted stone hammer 'in use throughout the Princess Charlotte Bay hinterland, in 1898, and again on the Palmer'. It was used 'for tapping on the bark when the sheet is being removed' [ref:roth1904]. See [stone](entry:stone)."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "In Rinyirru (Lakefield) National Park: 'Do not remove plant material, living or dead. Do not collect souvenirs or interfere with cultural sites' [ref:qpws-rinyirru-about]. Upstream, the native title determinations of November 2023 recognise the Possum and Thaypan peoples' rights to take the natural resources of their country [ref:fca-possum] [ref:fca-thaypan]. **Ask the Traditional Owners before you take bark.**"
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "On the Western Yalanji side, paperbarks line the sandy upper Mitchell and its tributaries. They are part of a fringing forest that the Queensland Herbarium lists as **'Of Concern'** [ref:re9314].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "Paperbarks are just as much at home on the dry inland side. On the western-flowing rivers that drain the Hodgkinson Basin country, the stream banks carry a narrow fringe, 1–50 m wide, of *Melaleuca fluviatilis*, *M. leucadendra* (weeping teatree) and *M. argentea* (silver-leafed paperbark), with river red gum, bluegum and Leichhardt tree [ref:re9314]. Mount Carbine sits on the Hodgkinson Formation rocks [ref:jcu-carbine] in the upper Mitchell River catchment [ref:wiki-mitchell]. So the shady paperbark-lined banks of the upper Mitchell are this same fringing forest. Roth also noted that on the Palmer and further north, the Melaleucas were 'the usual trees whence water may be derived' in the [dry season](entry:seasons) (see Uses) [ref:roth1901]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Inland, the Western Yalanji People's native title around the Palmer and Mitchell River systems north-west of Mt Carbine was recognised in 2013. It includes rights to hunt, fish and gather, and to take and use natural resources, for personal, domestic and communal needs [ref:fca2013].\n\nThe inland paperbark fringe (Regional Ecosystem 9.3.14) is listed as **'Of Concern'** for biodiversity. It is a drought refuge and wildlife corridor and is easily invaded by weeds such as rubber vine [ref:re9314]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On the coast *M. leucadendra* grows in beach forest and swampy rainforest as well as along the creeks and rivers, and it tolerates very wet and salty ground [ref:rfk-melaleuca]. Bloomfield people timed their bark-cutting to the first storms.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "Anderson's account of Bloomfield camp life names this 'forest paper bark tree' (*Melaleuca leucadendron*) as a source of [fire-lighting](entry:firestick) bark [ref:anderson1996]."
+        },
+        {
+          "id": "seasons",
+          "heading": "Its year here",
+          "body": "On the Bloomfield, Kuku Yalanji people told Anderson that hut bark was cut and peeled 'when the sap had arisen after the first storms in December' [ref:anderson1996]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Much Eastern Kuku Yalanji paperbark country lies in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks. On 29 September 2021 these parks were returned to Eastern Kuku Yalanji Traditional Owners as Aboriginal land and are now jointly managed with the Queensland Government [ref:qld-handback].\n\nOn the Bloomfield, Anderson found many scarred trees where [spear-thrower](entry:spear-and-woomera) wood had been taken [ref:anderson1996]."
+        }
+      ]
+    }
+  ]
 }

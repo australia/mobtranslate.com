@@ -17,7 +17,7 @@
     "river-freshwater",
     "open-woodland"
   ],
-  "summary": "The spangled perch is the fish that turns up in the dam, the bore drain, the wheel rut and the puddle: 'Australia's most widespread native freshwater fish', a hand-long silver-grey grunter freckled with bronze spots, 'well adapted to surviving in diverse environments including rivers, billabongs, lakes, isolated dams, bore-drains, wells and waterholes in intermittent streams' [ref:lintermans2023] [ref:wiki-spangled-perch]. It survives water from 5 to 44 °C, from fresh to seawater, and clear to opaque; it has 'exceptional dispersal abilities', and the 'rains of fishes' of the inland are spangled perch that have 'quickly swum through overland surface waters (sometimes just centimetres deep) following heavy rainfall', 'across flooded paddocks and along wheel ruts on tracks for up to 16 km' [ref:fishbase-spangled] [ref:lintermans2023]. It matures in its first year, spawns at night in the shallows when the water is over 20 °C, from November to February, and a female can carry over a hundred thousand eggs; it eats insects, prawns, small fish and a little plant, mostly by day, and it grunts [ref:lintermans2023]. It is recorded within 30 km of [Karma Waters](place:karma-waters), and the dictionary has no name for it that can be tied to it; it is one of the **kuyu**, the fish, and in the dictionary's grunter words **jarbir** and **kurriyala** it may be hiding [ref:ala-karma-river] [ref:hershberger1982].",
+  "summary": "The spangled perch is the fish that turns up in the dam, the bore drain, the wheel rut and the puddle: 'Australia's most widespread native freshwater fish', a hand-long silver-grey grunter freckled with bronze spots, 'well adapted to surviving in diverse environments including rivers, billabongs, lakes, isolated dams, bore-drains, wells and waterholes in intermittent streams' [ref:lintermans2023] [ref:wiki-spangled-perch]. It survives water from 5 to 44 °C, from fresh to seawater, and clear to opaque; it has 'exceptional dispersal abilities', and the 'rains of fishes' of the inland are spangled perch that have 'quickly swum through overland surface waters (sometimes just centimetres deep) following heavy rainfall', 'across flooded paddocks and along wheel ruts on tracks for up to 16 km' [ref:fishbase-spangled] [ref:lintermans2023]. It matures in its first year, spawns at night in the shallows when the water is over 20 °C, from November to February, and a female can carry over a hundred thousand eggs; it eats insects, prawns, small fish and a little plant, mostly by day, and it grunts [ref:lintermans2023]. The dictionary has no name for it that can be tied to it; it is one of the **kuyu**, the fish, and in the dictionary's grunter words **jarbir** and **kurriyala** it may be hiding [ref:hershberger1982].",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -57,12 +57,12 @@
     {
       "id": "description",
       "heading": "The fish",
-      "body": "'A small to medium sized, laterally compressed fish with a relatively slender body for a grunter. Maximum size 330 mm; rarely 250 mm and 560 g; commonly 150 mm. The single dorsal fin has a moderately-sized notch between the spinous and soft-rayed portions ... The anal and pelvic fins are white. The back is generally brown to steely-blue and the sides silvery-grey with numerous bronze to rusty-brown spots. The tail is slightly forked, the eye is small to moderate, and the mouth is of moderate size with equal jaws' [ref:lintermans2023]. 'The mouth is oblique ... equipped with strong conical teeth' [ref:wiki-spangled-perch].\n\n**Where it lives.** 'Occurs in a wide range of water conditions, it can be found in running to still waters with turbidity ranging from clear to almost opaque as well as being able to tolerate a wide range of salinities and showing the ability to live in a wide range of temperatures ... intermittent waters, and these waters are where it is most numerous. It also inhabits lakes, dams, rivers, billabongs, bore drains, wells and waterholes' [ref:wiki-spangled-perch]. 'Adults inhabit forest streams to desert bores under equally variable regimes of salinity (pure fresh to seawater), pH (4.0 to 8.6) and temperature (5° to 44 °C) ... May be encountered in any temporary water in the interior after rains, including wheel ruts of vehicle tracks ... A hardy species that may be capable of surviving droughts by aestivating in wet mud' [ref:fishbase-spangled]. 'It can survive temperatures up to 40 °C, but is relatively intolerant of colder water with a lower lethal limit of around 4.1 °C' [ref:lintermans2023].\n\n**The rain of fishes.** 'Often reported in \"rains of fishes\" it is likely to have quickly swum through overland surface waters (sometimes just centimetres deep) following heavy rainfall, rather than having fallen from the sky (check the house gutters/water tank). This allows it to rapidly colonise habitats not readily accessible to other fish species. It has been observed swimming across flooded paddocks and along wheel ruts on tracks for up to 16 km' [ref:lintermans2023].\n\n**Breeding.** 'Individuals mature in their first year, males at about 58 mm length and females at 78 mm. Breeding occurs from November to February and fecundity is high and size-dependant, with between 24,000 and 113,200 eggs per female. Spawning occurs at night, in shallow areas such as backwaters or still pools, when water temperatures are above 20–22 °C and with eggs spread randomly over the sediments. The eggs are small (0.7 mm diam.), round, demersal, non-adhesive and hatch in 45–55 hrs at 23–26 °C' [ref:lintermans2023]. FishBase adds that 'mature adults migrate to the upper reaches of rivers and creeks to spawn during floods' and reports the eggs 'guarded and fanned by the male parent' [ref:fishbase-spangled].\n\n**Food and voice.** 'Primarily a carnivore eating aquatic insects, shrimps, microcrustaceans and fish, although it also consumes some plant material (~10 % of diet). It feeds mainly during daylight hours. As a member of the Grunter family, Spangled perch emit a distinctive, species-specific \"grunt\" ... produced by vibrating its swim bladder' [ref:lintermans2023]. On the Mitchell, prawns 'featured prominently' in its diet [ref:jardine2012]."
+      "body": "'A small to medium sized, laterally compressed fish with a relatively slender body for a grunter. Maximum size 330 mm; rarely 250 mm and 560 g; commonly 150 mm. The single dorsal fin has a moderately-sized notch between the spinous and soft-rayed portions ... The anal and pelvic fins are white. The back is generally brown to steely-blue and the sides silvery-grey with numerous bronze to rusty-brown spots. The tail is slightly forked, the eye is small to moderate, and the mouth is of moderate size with equal jaws' [ref:lintermans2023]. 'The mouth is oblique ... equipped with strong conical teeth' [ref:wiki-spangled-perch].\n\n**Where it lives.** 'Occurs in a wide range of water conditions, it can be found in running to still waters with turbidity ranging from clear to almost opaque as well as being able to tolerate a wide range of salinities and showing the ability to live in a wide range of temperatures ... intermittent waters, and these waters are where it is most numerous. It also inhabits lakes, dams, rivers, billabongs, bore drains, wells and waterholes' [ref:wiki-spangled-perch]. 'Adults inhabit forest streams to desert bores under equally variable regimes of salinity (pure fresh to seawater), pH (4.0 to 8.6) and temperature (5° to 44 °C) ... May be encountered in any temporary water in the interior after rains, including wheel ruts of vehicle tracks ... A hardy species that may be capable of surviving droughts by aestivating in wet mud' [ref:fishbase-spangled]. 'It can survive temperatures up to 40 °C, but is relatively intolerant of colder water with a lower lethal limit of around 4.1 °C' [ref:lintermans2023].\n\n**The rain of fishes.** 'Often reported in \"rains of fishes\" it is likely to have quickly swum through overland surface waters (sometimes just centimetres deep) following heavy rainfall, rather than having fallen from the sky (check the house gutters/water tank). This allows it to rapidly colonise habitats not readily accessible to other fish species. It has been observed swimming across flooded paddocks and along wheel ruts on tracks for up to 16 km' [ref:lintermans2023].\n\n**Breeding.** 'Individuals mature in their first year, males at about 58 mm length and females at 78 mm. Breeding occurs from November to February and fecundity is high and size-dependant, with between 24,000 and 113,200 eggs per female. Spawning occurs at night, in shallow areas such as backwaters or still pools, when water temperatures are above 20–22 °C and with eggs spread randomly over the sediments. The eggs are small (0.7 mm diam.), round, demersal, non-adhesive and hatch in 45–55 hrs at 23–26 °C' [ref:lintermans2023]. FishBase adds that 'mature adults migrate to the upper reaches of rivers and creeks to spawn during floods' and reports the eggs 'guarded and fanned by the male parent' [ref:fishbase-spangled].\n\n**Food and voice.** 'Primarily a carnivore eating aquatic insects, shrimps, microcrustaceans and fish, although it also consumes some plant material (~10 % of diet). It feeds mainly during daylight hours. As a member of the Grunter family, Spangled perch emit a distinctive, species-specific \"grunt\" ... produced by vibrating its swim bladder' [ref:lintermans2023]."
     },
     {
       "id": "lookalikes",
       "heading": "Spangled perch, sooty grunter, bony bream",
-      "body": "- **Spangled perch**: slender, silvery, bronze-freckled, white lower fins, a hand long; everywhere [ref:lintermans2023].\n- **[Sooty grunter](entry:black-bream)**: deep, dark, to 4 kg, in the rock runs and deep pools; the dictionary's *jarbir* and *kurriyala* more likely [ref:angfa-spangled] [ref:hershberger1982].\n- **Barred grunter** (*Amniataba*): the same size with dark vertical bars, recorded in the same waters [ref:ala-karma-river].\n- **Bony bream** (*dalkal*, 'freshwater sardine'): silver, deep, soft-mouthed, in shoals, a plankton feeder [ref:hershberger1982].\n- **Rainbowfish** and the small silver fish of the shallows: smaller, two back fins, no spines to speak of [ref:ala-karma-river].\n- **It grunts** when handled, which the others do not [ref:lintermans2023]."
+      "body": "- **Spangled perch**: slender, silvery, bronze-freckled, white lower fins, a hand long; everywhere [ref:lintermans2023].\n- **[Sooty grunter](entry:black-bream)**: deep, dark, to 4 kg, in the rock runs and deep pools; the dictionary's *jarbir* and *kurriyala* more likely [ref:angfa-spangled] [ref:hershberger1982].\n- **Barred grunter** (*Amniataba*): the same size with dark vertical bars.\n- **Bony bream** (*dalkal*, 'freshwater sardine'): silver, deep, soft-mouthed, in shoals, a plankton feeder [ref:hershberger1982].\n- **Rainbowfish** and the small silver fish of the shallows: smaller, two back fins, no spines to speak of.\n- **It grunts** when handled, which the others do not [ref:lintermans2023]."
     },
     {
       "id": "signs",
@@ -72,7 +72,7 @@
     {
       "id": "habitat",
       "heading": "Where it lives",
-      "body": "Everywhere there is water, and most of all in the intermittent creeks and waterholes that dry back each year, where it is 'most numerous' [ref:wiki-spangled-perch]. On Karma Waters that is every pool of the Mitchell, every side creek, the station dams and the soaks; the [waterhole](entry:waterhole) page gives the pools' temperatures, which the spangled perch tolerates further than any other fish here [ref:waterhole-temps] [ref:fergusson-refuge]. Its lower limit is cold, not heat: it dies out of the cold southern rivers [ref:lintermans2023]."
+      "body": "Everywhere there is water, and most of all in the intermittent creeks and waterholes that dry back each year, where it is 'most numerous' [ref:wiki-spangled-perch]. Its lower limit is cold, not heat: it dies out of the cold southern rivers [ref:lintermans2023]."
     },
     {
       "id": "ecology",
@@ -92,7 +92,7 @@
     {
       "id": "how-to",
       "heading": "Taking spangled perch",
-      "body": "The ways of taking river fish are on their own pages: [spears](entry:spear-and-woomera), [nets](entry:nets), [traps and fences](entry:fish-traps), [hooks and lines](entry:hooks-and-lines) and [fish poisons](entry:fish-poisoning). At Bloomfield, night fishing was 'done on the tidal estuaries from a canoe at night. One person sat at the front of the boat holding aloft a burning paperbark torch. As the fish were attracted to the light, another person would spear them' [ref:anderson1996]. On the Mitchell, Palmer saw the freshwater mangrove *Barringtonia racemosa*, 'Yakoora', cut up, hammered fine and put in the lagoons, and the coolibah's branches and leaves 'laid in water for several days to sicken the fish; it is universally used for this purpose' [ref:palmer1883].\n\n1. **A hand line and a small [hook](entry:hooks-and-lines)** with a grasshopper, a worm or a piece of prawn, in any pool, by day; it feeds in daylight and bites freely [ref:lintermans2023] [ref:qld-gear].\n2. **A [grass fence](entry:fish-traps) across a shallow pool** drives them with everything else; the women's grass drive of the Peninsula was for exactly this kind of fish [ref:roth1901].\n3. **A dip net** (*makarr*) in the shrinking pools of the late dry [ref:hershberger1982].\n4. **Scale and gut** them small; they cook in minutes on the coals.\n5. **Listen for the grunt**: a bucket of them tells you what you have [ref:lintermans2023]."
+      "body": "The ways of taking river fish are on their own pages: [spears](entry:spear-and-woomera), [nets](entry:nets), [traps and fences](entry:fish-traps), [hooks and lines](entry:hooks-and-lines) and [fish poisons](entry:fish-poisoning). At Bloomfield, night fishing was 'done on the tidal estuaries from a canoe at night. One person sat at the front of the boat holding aloft a burning paperbark torch. As the fish were attracted to the light, another person would spear them' [ref:anderson1996].\n\n1. **A hand line and a small [hook](entry:hooks-and-lines)** with a grasshopper, a worm or a piece of prawn, in any pool, by day; it feeds in daylight and bites freely [ref:lintermans2023] [ref:qld-gear].\n2. **A [grass fence](entry:fish-traps) across a shallow pool** drives them with everything else; the women's grass drive of the Peninsula was for exactly this kind of fish [ref:roth1901].\n3. **A dip net** (*makarr*) in the shrinking pools of the late dry [ref:hershberger1982].\n4. **Scale and gut** them small; they cook in minutes on the coals.\n5. **Listen for the grunt**: a bucket of them tells you what you have [ref:lintermans2023]."
     },
     {
       "id": "safety",
@@ -102,7 +102,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The spangled perch is in every pool and dam on Karma Waters and will be in the first puddle after the first storm; it is the fish everyone's first fish is [ref:ala-karma-river] [ref:lintermans2023]. Its Western Yalanji name, if it has one apart from *kuyu*, is for the contribution box below [ref:hershberger1982]."
+      "body": "The spangled perch will be in the first puddle after the first storm, wherever you are [ref:lintermans2023]. Its name in the languages of each river is for the people of that river; see each place below. Native title fishing rights are under *Safety* above and in each place."
     },
     {
       "id": "language",
@@ -218,7 +218,7 @@
       "id": "roth1901",
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea'); fishing with hollow logs and oval-frame hand-nets (Princess Charlotte Bay and its hinterland, the Musgrave, Morehead, Normanby, Laura and Palmer)"
     },
     {
       "id": "crocwise",
@@ -239,10 +239,112 @@
       "id": "qld-fishact",
       "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
       "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-kukuwarra",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 19) (Kuku Warra determination) [2023] FCA 1314 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1314"
+    },
+    {
+      "id": "bom-105001b",
+      "citation": "Bureau of Meteorology, Water Data Online. Station 105001B, Hann River at Sandy Creek: daily and monthly mean discharge 1968–2026 (recent data provisional), retrieved 28 October 2026. No day of zero mean flow in 20,711 days of record; mean flow highest in February–March, lowest in September–November.",
+      "url": "https://www.bom.gov.au/waterdata/"
+    },
+    {
+      "id": "wetlandinfo-normanby",
+      "citation": "Queensland Government, WetlandInfo. Normanby catchment story: physical features (springs and base flow).",
+      "url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/ecology/processes-systems/water/catchment-stories/normanby/norm-physical.html"
+    },
+    {
+      "id": "russell1993",
+      "citation": "Russell, D. J. & Hales, P. W. (1993). A survey of the Princess Charlotte Bay recreational barramundi fishery. Queensland Department of Primary Industries, QI93049.",
+      "url": "https://era.dpi.qld.gov.au/id/eprint/6393/1/Survey%20of%20the%20Princess%20Charlotte%20Bay%20recreational%20barramundi%20fishery_QI93049_1993_russell.pdf"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/",
+      "locator": "Rungol hollow-log fish traps (p. 100); fishing law on Kuku Thaypan country (p. 418)"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of the grunter family (Terapontidae) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026: Leiopotherapon unicolor 6 records (1960–2021), Amniataba percoides 2, Hephaestus fuliginosus 1.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=family%3ATerapontidae"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Spangled perch live in the Hann country, but few people have written them down: the Atlas of Living Australia holds 6 records, from 1960 to 2021, in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru, with 2 records of the barred grunter and 1 of the [sooty grunter](entry:black-bream) [ref:ala-hann]. The Hann is a spring-fed river that never stops running [ref:bom-105001b], and it runs to the lagoons and floodplains of Rinyirru [ref:qpws-rinyirru-culture]: plenty of water for the most widespread fish in the country. No published record from the Hann's own peoples names it.",
+      "sections": [
+        {
+          "id": "ecology",
+          "heading": "Its year here",
+          "body": "**Wet (December to March).** The rivers flood over their banks and out onto the plains, making 'an extensive wetland system of billabongs, lagoons, swamps and lakes' [ref:qpws-rinyirru-culture]. That is the shallow overland water this fish swims through to colonise new pools, and it spawns at night in warm shallows from November to February [ref:lintermans2023].\n\n**Dry.** From April the floodplains dry out, and by October 'the land is brown and parched'; at the permanent waterholes, 'as water becomes scarce elsewhere, large numbers of wildlife congregate' [ref:qpws-rinyirru-culture]. The Hann itself has not stopped running on any day since its gauge was put in in 1968, though by September–November it is very low, fed by springs out of the sandstone [ref:bom-105001b] [ref:wetlandinfo-normanby].\n\n**Who eats it.** The 1986–91 survey of fishing in Lakefield (now Rinyirru), with Hann Crossing on the North Kennedy among its sites, recorded barramundi, archerfish, tarpon, sooty grunter, sleepy cod, jewfish, fork-tailed catfish, eels and long tom from these waters [ref:russell1993]: most of them eat small fish."
+        },
+        {
+          "id": "how-to",
+          "heading": "How small fish were taken here",
+          "body": "No published record from the Hann's peoples names the spangled perch. What is written down is how small fish were taken in the country around the Hann about 1900, by Roth [ref:roth1901], and in Kuku Thaypan memory [ref:standley2019]:\n\n1. **Hollow logs (Princess Charlotte Bay and its hinterland).** Hollow logs of paperbark or eucalypt, 4 to 7 feet long, were thrown into the waterholes and left 'for, say, three or four hours, perhaps all day'. The fisher trod water or dived down, brought the log up 'at an angle, with one hand closing the lower aperture', and let the water 'trickle out through the fingers' to see what was inside. Roth saw ten or twelve lads working logs like this in the Musgrave district in November 1898, and logs lying on the banks of waterholes on the North Kennedy and lower Normanby. He lists their catch as crayfish, eels and 'certain fish somewhat resembling \"rock-cod\"' [ref:roth1901]. The Kuku Thaypan Elders remember 'Rungol (hollow logs) that were cut from the Ku akulumbah Messmate woodland and used as fish traps'; without people on country to cut them and place new ones, 'they will eventually cease to exist' [ref:standley2019].\n2. **Oval hand-nets (Morehead, Musgrave, Normanby, Laura and Palmer).** A net woven in the 'hour-glass' mesh on an oval frame of lawyer cane, in the hinterland of Princess Charlotte Bay usually about 2½ by 5 feet, from wattle or palm-fibre twine. It was 'borne along in the water more or less vertically, and worked by two boys, their friends in front acting as \"beaters\"' [ref:roth1901]. See [nets](entry:nets).\n\nWhether either took spangled perch, the record does not say."
+        },
+        {
+          "id": "today",
+          "heading": "Fishing law and fishing today",
+          "body": "On Kuku Thaypan country, 'Law applies to who can fish, and who in relation to others, what type and size fish can be taken and where fish can be eaten and where and how carcass can be disposed' [ref:standley2019]. A Kuku Warra man told the Federal Court: 'before I pull my line out if I'm fishing I'll sing out to the old people… we must always leave three or four fish on the banks' [ref:fca-kukuwarra].\n\nPeople still fish the Hann. The Court recorded a Possum man's evidence of 'fishing for barra, jewfish, catties and spotties' [ref:fca-possum]; which fish 'spotties' are, the record does not say. A Thaypan man: 'We get wallaby, barramundi, freshwater fish and turtles and mussels' [ref:fca-thaypan]. The upper Hann is the Possum People's country and the middle and lower Hann are Thaypan country, under native title determinations of November 2023 [ref:fca-possum] [ref:fca-thaypan]. Ask them before you fish, and read the [crocodiles](entry:crocodiles) page first: the last holes of the dry hold crocodiles as well as fish."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "The spangled perch is in every pool and dam on [Karma Waters](place:karma-waters) and will be in the first puddle after the first storm; it is the fish everyone's first fish is [ref:ala-karma-river] [ref:lintermans2023].",
+      "sections": [
+        {
+          "id": "lookalikes",
+          "heading": "Its neighbours here",
+          "body": "The barred grunter and the rainbowfish are recorded in the same waters within 30 km of the Karma Waters homestead [ref:ala-karma-river]."
+        },
+        {
+          "id": "habitat",
+          "heading": "Where it lives here",
+          "body": "On Karma Waters that is every pool of the Mitchell, every side creek, the station dams and the soaks; the [waterhole](entry:waterhole) page gives the pools' temperatures, which the spangled perch tolerates further than any other fish here [ref:waterhole-temps] [ref:fergusson-refuge]."
+        },
+        {
+          "id": "ecology",
+          "heading": "What it eats here",
+          "body": "On the Mitchell, prawns 'featured prominently' in its diet [ref:jardine2012]."
+        },
+        {
+          "id": "how-to",
+          "heading": "Fish poisons on the Mitchell",
+          "body": "On the Mitchell, Palmer saw the freshwater mangrove *Barringtonia racemosa*, 'Yakoora', cut up, hammered fine and put in the lagoons, and the coolibah's branches and leaves 'laid in water for several days to sicken the fish; it is universally used for this purpose' [ref:palmer1883]."
+        },
+        {
+          "id": "today",
+          "heading": "Its name here",
+          "body": "Its Western Yalanji name, if it has one apart from *kuyu*, is for the contribution box below [ref:hershberger1982]."
+        }
+      ]
+    }
+  ]
 }

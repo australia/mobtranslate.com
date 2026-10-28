@@ -17,7 +17,7 @@
     "river-freshwater",
     "open-woodland"
   ],
-  "summary": "**[kulbal](word:kulbal)** is the brolga, the grey crane with the red head that dances at the lagoons, 'a tall, upright bird with a small head, long beak, slender neck, and long legs', Queensland's emblem, found 'often abundant in north and north-east Australia' in flocks of up to a thousand [ref:hershberger1982] [ref:wiki-brolga]. It has a double on the upper Mitchell: the sarus crane, 'the tallest of the flying birds', which reached Australia from Asia in the last ice age and is recorded five times within 30 km of [Karma Waters](place:karma-waters) to the brolga's two; the sarus has red running down its neck and the brolga's red stops at the head [ref:wiki-sarus] [ref:ala-aves] [ref:wiki-brolga]. Both dig the wet ground for bulbs and roots, 'tear up the ground with their powerful beaks in search of bulbs and edible roots', and eat insects, crustaceans and frogs; both pair for life, hold a territory, and nest in the wet on a platform of reeds in the shallows [ref:wiki-brolga] [ref:wiki-sarus]. Roth lists cranes with the ducks and divers that 'may be caught with sticks, etc., in the nesting season by sneaking upon them unawares' and that were 'stalked and speared' by the grass-hooded hunter [ref:roth1901]. The dance is the thing everyone knows: a bird 'picking up some grass and tossing it into the air before catching it in its bill', then jumping 'a metre into the air with outstretched wings', bowing, strutting, calling [ref:wiki-brolga].",
+  "summary": "**[kulbal](word:kulbal)** is the brolga, the grey crane with the red head that dances at the lagoons, 'a tall, upright bird with a small head, long beak, slender neck, and long legs', Queensland's emblem, found 'often abundant in north and north-east Australia' in flocks of up to a thousand [ref:hershberger1982] [ref:wiki-brolga]. It has a double: the sarus crane, 'the tallest of the flying birds', which reached Australia from Asia in the last ice age; the sarus has red running down its neck and the brolga's red stops at the head [ref:wiki-sarus] [ref:wiki-brolga]. Both dig the wet ground for bulbs and roots, 'tear up the ground with their powerful beaks in search of bulbs and edible roots', and eat insects, crustaceans and frogs; both pair for life, hold a territory, and nest in the wet on a platform of reeds in the shallows [ref:wiki-brolga] [ref:wiki-sarus]. Roth lists cranes with the ducks and divers that 'may be caught with sticks, etc., in the nesting season by sneaking upon them unawares' and that were 'stalked and speared' by the grass-hooded hunter [ref:roth1901]. The dance is the thing everyone knows: a bird 'picking up some grass and tossing it into the air before catching it in its bill', then jumping 'a metre into the air with outstretched wings', bowing, strutting, calling [ref:wiki-brolga].",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -68,7 +68,7 @@
     {
       "id": "habitat",
       "heading": "Where they live",
-      "body": "Lagoons, swamps, the margins of the big pools and the floodplain flats, and the station paddocks; the brolga 'forage[s] in wetlands, saltwater marshes, and farmlands', the sarus 'on marshes and shallow wetlands' [ref:wiki-brolga] [ref:wiki-sarus]. The [waterhole](entry:waterhole) and [water lily](entry:water-lilies) pages describe the lagoons of the Mitchell where both dig."
+      "body": "Lagoons, swamps, the margins of the big pools and the floodplain flats, and the station paddocks; the brolga 'forage[s] in wetlands, saltwater marshes, and farmlands', the sarus 'on marshes and shallow wetlands' [ref:wiki-brolga] [ref:wiki-sarus]. See the [waterhole](entry:waterhole) and [water lily](entry:water-lilies) pages for the lagoon's year."
     },
     {
       "id": "ecology",
@@ -98,7 +98,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Both cranes are on the Karma Waters lagoons, the sarus now the commoner in the records, which is a change within living memory on the Tableland and may be one here [ref:ala-aves] [ref:wiki-sarus]. Whether the Western Yalanji had a second word for the second crane is for the contribution box below [ref:hershberger1982]."
+      "body": "Both cranes are protected wildlife, and native title holders' rights differ from place to place: see each place above, and ask the Traditional Owners before hunting or taking eggs [ref:qld-nca]."
     },
     {
       "id": "language",
@@ -182,10 +182,87 @@
       "id": "crocwise",
       "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
       "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of Antigone rubicunda (brolga: 688 records, 1967–2026) and Antigone antigone (sarus crane: 141 records, 1986–2026) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/",
+      "locator": "Table 6.1 (Awu Alaya names of culturally significant species, p. 215); wetland birds (p. 294); boxwood country and Plate 9.31, brolgas foraging after a burn (pp. 427–428); storm bird story (p. 308)"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "nta1993",
+      "citation": "Native Title Act 1993 (Cth), section 211: preservation of certain native title rights and interests (hunting, fishing and gathering for personal, domestic or non-commercial communal needs).",
+      "url": "https://www.legislation.gov.au/C2004A04665/latest/text"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "The Hann runs down to the lagoons of Rinyirru (Lakefield), where 'waterbirds include brolgas, sarus cranes, black-necked storks, magpie geese and ducks' [ref:qpws-rinyirru-culture]. The Atlas of Living Australia holds **688 brolga records** (1967–2026) and **141 sarus crane records** (1986–2026) in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru, so here the brolga is much the commoner [ref:ala-hann]. In Kuku Thaypan, the language of the Thaypan people of the middle and lower Hann, the brolga is **Nhye geaba** [ref:standley2019].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they live here",
+          "body": "In Rinyirru, 'brolgas and sarus cranes can often be seen in pairs or family groups striding through the tall lilies searching for sedge tubers, which they dig up from underground with their long bills. Both birds perform dancing courtship displays with wings outstretched and heads bopping' [ref:qpws-rinyirru-culture]. The lagoons and swamps of the floodplain are their ground, more than the sandy channel of the Hann itself."
+        },
+        {
+          "id": "ecology",
+          "heading": "Their year here",
+          "body": "**Wet.** From December to March the rivers flood out over the plains and 'animals disperse far and wide as food and water is plentiful' [ref:qpws-rinyirru-culture].\n\n**Dry.** From April the floodplains and wetlands dry out, and 'by October the land is brown and parched' [ref:qpws-rinyirru-culture]. On the deep permanent waterholes, 'as water becomes scarce elsewhere, large numbers of wildlife congregate here for food and shelter' [ref:qpws-rinyirru-culture].\n\n**Fire.** The Kuku Thaypan Elders burn their boxwood country cool and early. Most grasshoppers fly off ahead of a cool fire; 'those unfortunate enough to be too slow provide a food resource for brolgas'. Standley photographed brolgas foraging on a fresh burn in June 2007, and notes that 'a variety of burn times and mosaics are important for this species' [ref:standley2019]."
+        },
+        {
+          "id": "uses",
+          "heading": "How people dealt with them here",
+          "body": "**Stalking (hinterland of Princess Charlotte Bay, Roth about 1900).** Ducks, geese 'and similar game are all stalked and speared — usually with the ordinary simple-point spear if on land, but commonly with a pronged one if on water'. The hunter covered his head with a collar of long grass and held leafy switches in front of him as he glided through the water [ref:roth1901]. Roth lists cranes with the birds taken this way and at the nest; the full method is under How-to on this page.\n\n**Kuku Thaypan Elders** list *Nhye geaba* among the species of cultural significance in their country. They say bird numbers and kinds in their wetlands were higher when they were young, and brolgas are named among them [ref:standley2019]. A Kuku Thaypan story about the storm bird and a grey crane is recorded in Standley's thesis; it belongs to its custodians and is not retold here [ref:standley2019]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country, and the middle and lower Hann are Thaypan country, under native title determinations of November 2023 [ref:fca-possum] [ref:fca-thaypan]. Rinyirru's Traditional Owners are the Lama Lama and Kuku Thaypan peoples, and the park is jointly managed [ref:qpws-rinyirru-culture]. Both cranes are protected; native title holders may hunt for personal, domestic and non-commercial communal needs without the licences others need [ref:nta1993]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "On the Western Yalanji Mitchell both cranes come to the lagoons, and the sarus is recorded five times within 30 km of [Karma Waters](place:karma-waters) to the brolga's two [ref:ala-aves].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they live here",
+          "body": "The [waterhole](entry:waterhole) and [water lily](entry:water-lilies) pages describe the lagoons of the Mitchell where both dig [ref:ala-aves]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Both cranes are on the Karma Waters lagoons, the sarus now the commoner in the records, which is a change within living memory on the Tableland and may be one here [ref:ala-aves] [ref:wiki-sarus]. Whether the Western Yalanji had a second word for the second crane is for the contribution box below [ref:hershberger1982]."
+        }
+      ]
+    }
+  ]
 }

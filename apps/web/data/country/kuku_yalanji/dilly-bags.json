@@ -81,7 +81,7 @@
     {
       "id": "habitat",
       "heading": "Where the materials come from",
-      "body": "**Black palm** is a rainforest palm. The Kuku Yalanji weaver Delissa Walker uses black palm from the Daintree rainforest around Cow Bay [ref:cairnsart]. **Lomandra** grasses were used for bags on the Bloomfield and the Starcke River [ref:roth1901-string]. **Fig** twine is described under [string and twine](entry:string-and-twine).\n\n**Upper Mitchell.** Black palm belongs to the rainforest of the ranges to the east (see the [Karma Waters](place:karma-waters) guide), but *Lomandra multiflora*, the old Bloomfield bag grass, has been recorded within 30 km of the homestead [ref:ala-fibre]. Roth's records from inland neighbours show other bag-making. There were looped 'loop and twist' bags at Laura and Maytown. At the Middle Palmer there were hour-glass bags and chain-twist bags whose basal strands were tied into a bundle, as on the Bloomfield [ref:roth1901-string]. Edward Palmer recorded bags of twisted *Hibiscus* bark 'for carrying roots, game' on the Mitchell River [ref:roth1901-string]."
+      "body": "**Black palm** is a rainforest palm. **Lomandra** grasses were used for bags on the Bloomfield and the Starcke River [ref:roth1901-string]. **Fig** twine is described under [string and twine](entry:string-and-twine)."
     },
     {
       "id": "seasons",
@@ -101,7 +101,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "In 1982 only three or four women at Bloomfield could still make the bags. In bush camps, metal drums and plastic buckets had taken over much of the [yam](entry:yam) processing, but 'the palm-fibre dilly bags were still used for the initial mashing' [ref:anderson1996]. The weaving continues. Delissa Walker, a Kuku Yalanji artist born in 1990, learnt kakan basket weaving from her grandmother, Ngadijina Wilma Walker. She is one of very few weavers using [black palm](entry:black-palm), and her work is held in public collections, among them the National Gallery of Victoria [ref:cairnsart].\n\nNative title holders gathering for personal, domestic or non-commercial communal needs are protected from licence and permit requirements by section 211 of the *Native Title Act 1993* [ref:alrc]. Others should ask the Traditional Owners, and the landholder, before collecting palm or grass."
+      "body": "Native title holders gathering for personal, domestic or non-commercial communal needs are protected from licence and permit requirements by section 211 of the *Native Title Act 1993* [ref:alrc]. Others should ask the Traditional Owners, and the landholder, before collecting palm or grass."
     },
     {
       "id": "language",
@@ -169,13 +169,13 @@
       "id": "roth1901",
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Plant list ('Cycas media', 'Castanospermum australe', 'Dioscorea sativa')"
+      "locator": "Plant list ('Cycas media', 'Castanospermum australe', 'Dioscorea sativa'); 'Dioscorea sativa' var. rotunda (Morehead River) and 'Tacca pinnatifida' (Morehead and Musgrave rivers)"
     },
     {
       "id": "roth1901-string",
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 1: String, and other forms of strand: basketry-, woven bag-, and net-work. Brisbane: Government Printer.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Sect. 6 and plant list ('Drymophloeus Normanbyi', 'Xerotes multiflora', 'Xerotes longifolia', 'Hibiscus panduriformis'); sects. 18–22 and 29 (hour-glass and chain-twist work)"
+      "locator": "Sect. 6 and plant list ('Drymophloeus Normanbyi', 'Xerotes multiflora', 'Xerotes longifolia', 'Hibiscus panduriformis'); sects. 18–22 and 29 (hour-glass and chain-twist work); sects. 21–23 and 29 (bags of the Laura, Morehead and Musgrave rivers); plant list ('Livistona australis', 'Macaranga tanarius')"
     },
     {
       "id": "roth1904",
@@ -202,10 +202,77 @@
       "id": "alrc",
       "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
       "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "ala-hann-fibre",
+      "citation": "Atlas of Living Australia. Occurrence records of Livistona (20 records, 1975–2015) and Lomandra (10 records, 1989–2015: L. filiformis, L. longifolia, L. grayi; no L. multiflora); no records of Normanbya normanbyi (black palm) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus:Livistona&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Nothing is published about the bags of the Hann's own people, the Possum People of the upper river and the Thaypan downstream, so the general sections stand here [ref:fca-possum] [ref:fca-thaypan]. The nearest records are Roth's, from about 1900, for the rivers round about: looped bags at Laura, and hour-glass, netting-stitch and chain-twist bags on the neighbouring Morehead and Musgrave rivers [ref:roth1901-string].",
+      "sections": [
+        {
+          "id": "description",
+          "heading": "The bags of the neighbouring rivers",
+          "body": "Roth (1901), with his place names [ref:roth1901-string]:\n\n- **Laura**: bags in the looped 'loop and twist' mesh.\n- **Morehead and Musgrave rivers**: bags in the 'hour-glass' or 'double loop' mesh, and bags in the netting-stitch.\n- **Middle Morehead**: chain-twist bags, where 'the two continuous strands are knotted together at some distance from their extremities' to start the base, as on the Starcke and the middle Palmer.\n- **Twine**: *Macaranga tanarius* bark 'for dilly-bags, on the Musgrave', and cabbage-palm (*Livistona*) fibre 'For fish-nets and dilly-bags, Princess Charlotte Bay and North generally'."
+        },
+        {
+          "id": "habitat",
+          "heading": "Materials here",
+          "body": "The Atlas of Living Australia holds 20 records of *Livistona* palms (1975–2015) and 10 of *Lomandra* grasses (1989–2015) in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru. None is *Lomandra multiflora*, the old Bloomfield bag grass, and there is no record of the coast's [black palm](entry:black-palm) [ref:ala-hann-fibre]."
+        },
+        {
+          "id": "uses",
+          "heading": "Bags at work here",
+          "body": "On the Morehead River, Roth saw the hairy yam baked in a hot ant-bed under tea-tree bark and earth, 'transferred into a grass dilly-bag, which is squeezed under water in a trough', the meal passing through 'the interspaces of the bag' [ref:roth1901]. On the Morehead and Musgrave rivers, grated wild-arrowroot tubers were 'put through a \"sieve\" formed of an infolded dilly-bag' [ref:roth1901]. See [yams](entry:yam)."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Black palm does not grow on the Western Yalanji Mitchell, but other bag fibres do, and Roth recorded bag-making among the inland neighbours [ref:ala-fibre] [ref:roth1901-string].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where the materials come from here",
+          "body": "Black palm belongs to the rainforest of the ranges to the east (see the [Karma Waters](place:karma-waters) guide), but *Lomandra multiflora*, the old Bloomfield bag grass, has been recorded within 30 km of the homestead [ref:ala-fibre]. Roth's records from inland neighbours show other bag-making. There were looped 'loop and twist' bags at Laura and Maytown. At the Middle Palmer there were hour-glass bags and chain-twist bags whose basal strands were tied into a bundle, as on the Bloomfield [ref:roth1901-string]. Edward Palmer recorded bags of twisted *Hibiscus* bark 'for carrying roots, game' on the Mitchell River [ref:roth1901-string]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On the Eastern Kuku Yalanji coast the black palm of the rainforest gave the women's palm bags, and the weaving goes on today [ref:anderson1996] [ref:cairnsart].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where the materials come from here",
+          "body": "The Kuku Yalanji weaver Delissa Walker uses black palm from the Daintree rainforest around Cow Bay [ref:cairnsart]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "In 1982 only three or four women at Bloomfield could still make the bags. In bush camps, metal drums and plastic buckets had taken over much of the [yam](entry:yam) processing, but 'the palm-fibre dilly bags were still used for the initial mashing' [ref:anderson1996]. The weaving continues. Delissa Walker, a Kuku Yalanji artist born in 1990, learnt kakan basket weaving from her grandmother, Ngadijina Wilma Walker. She is one of very few weavers using [black palm](entry:black-palm), and her work is held in public collections, among them the National Gallery of Victoria [ref:cairnsart]."
+        }
+      ]
+    }
+  ]
 }

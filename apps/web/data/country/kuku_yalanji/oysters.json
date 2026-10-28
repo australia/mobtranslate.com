@@ -76,7 +76,7 @@
     {
       "id": "habitat",
       "heading": "Where they grow",
-      "body": "Between the tides on rock and on mangrove roots, at creek mouths, on the headlands and the reef flats of the Bloomfield and Daintree coast and the islands; the Traditional Owners' plan names the reefs, mangroves and mudflats as the important areas [ref:wiki-saccostrea] [ref:jabalbina2016]. There are no oysters at Karma Waters; the river's shellfish is the freshwater [mussel](entry:mussels)."
+      "body": "Between the tides on rock and on mangrove roots, at creek mouths, on the headlands and the reef flats of the Bloomfield and Daintree coast and the islands; the Traditional Owners' plan names the reefs, mangroves and mudflats as the important areas [ref:wiki-saccostrea] [ref:jabalbina2016]."
     },
     {
       "id": "ecology",
@@ -102,11 +102,6 @@
       "id": "safety",
       "heading": "Safety",
       "body": "- Oysters concentrate what is in the water; none from a creek below a town, a drain or a boat ramp [ref:wiki-saccostrea].\n- Creek mouths and mangrove roots are crocodile country; Be Crocwise [ref:crocwise].\n- Shell edges cut; boots and a glove.\n- Taking shellfish on sea country comes under the Traditional Owners' plan, the Marine Park's traditional-use rules and the *Fisheries Act 1994* [ref:jabalbina2016] [ref:gbrmpa-tu] [ref:qld-fishact]."
-    },
-    {
-      "id": "today",
-      "heading": "On Country today",
-      "body": "Oysters are gathered at low tide on the Bloomfield coast as they always were, and the eight dictionary words are a field guide waiting for its photographs; the contribution box below is for them [ref:hershberger1982]."
     },
     {
       "id": "language",
@@ -191,10 +186,81 @@
       "id": "qld-fishact",
       "citation": "Fisheries Act 1994 (Qld), current as at 27 April 2026: s 14 (defence for Aboriginal peoples and Torres Strait Islander peoples).",
       "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-1994-037"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/"
+    },
+    {
+      "id": "pama-pcb",
+      "citation": "Pama Language Centre. Princess Charlotte Bay (Language Points web page: archaeology of shell deposits and middens; accessed 28 October 2026).",
+      "url": "https://www.pamacentre.org.au/?p=7953"
+    },
+    {
+      "id": "qpws-rinyirru-2013",
+      "citation": "Queensland Parks and Wildlife Service (2013). Rinyirru (Lakefield) Aggregation Management Statement 2013.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0027/165771/rinyirru.pdf"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
+    },
+    {
+      "id": "ala-hann-bivalves",
+      "citation": "Atlas of Living Australia. Occurrence records of oysters (family Ostreidae: no records) and all bivalves (1 record: the freshwater mussel Velesunio angasi, 2000) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*%3A*&fq=decimalLatitude%3A%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude%3A%5B143.5%20TO%20144.3%5D"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "**No oysters live on the Hann.** It is a freshwater river, and the Atlas of Living Australia holds no oyster records around the middle Hann [ref:ala-hann-bivalves]. The river's shellfish is the freshwater [mussel](entry:mussels): 'We get wallaby, barramundi, freshwater fish and turtles and mussels', a Thaypan man told the Federal Court [ref:fca-thaypan].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "The shellfish here",
+          "body": "In a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru the Atlas holds just one bivalve record, a freshwater mussel (*Velesunio angasi*, 2000) [ref:ala-hann-bivalves]. Standley's work with the Kuku Thaypan Elders records that 'mussels were once larger and in high number across the entire wetland complex' of the Rinyirru lagoons, that they 'are periodically washed downstream during the wet', and that today 'mussels are no longer in abundant numbers'. Their signs of a healing lagoon include the 'Return of mussel numbers and increase in size' [ref:standley2019]. The rules about who may eat mussels from which places belong to the Elders' law and their families [ref:standley2019]."
+        },
+        {
+          "id": "uses",
+          "heading": "Down at the sea",
+          "body": "The Hann's water reaches the sea in Princess Charlotte Bay [ref:wp-hann], where mangroves fringe the coast: more than half of Cape York's low mangrove forest (regional ecosystem 3.1.2) grows in Rinyirru around the bay [ref:qpws-rinyirru-2013]. The shell mounds of the bay's mainland coast, between about 2,000 and 500 years old, are 'predominantly composed of the *Anadara granosa* shellfish species', the blood cockle, and older shell deposits in rock shelters go back about 4,700 years [ref:pama-pcb]. No published source names oysters among them."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "No oysters grow on the Western Yalanji Mitchell.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Here",
+          "body": "There are no oysters at Karma Waters; the river's shellfish is the freshwater [mussel](entry:mussels)."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "The oysters of this page are the oysters of the Bloomfield and Daintree coast, the sea country of the Eastern Kuku Yalanji [ref:jabalbina2016].",
+      "sections": [
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Oysters are gathered at low tide on the Bloomfield coast as they always were, and the eight dictionary words are a field guide waiting for its photographs; the contribution box below is for them [ref:hershberger1982]."
+        }
+      ]
+    }
+  ]
 }

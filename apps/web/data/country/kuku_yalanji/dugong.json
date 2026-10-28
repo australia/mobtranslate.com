@@ -21,7 +21,7 @@
     "reef-sea",
     "coast-mangrove"
   ],
-  "summary": "**[kirbaji](word:kirbaji)** is the dugong, and **[biwuy](word:biwuy)** is 'porpoise, dugong, sea cow' [ref:hershberger1982]. It is the sea cow of the seagrass meadows, 'about three metres in length' and 'as much as 400 kilograms', 'the only marine mammals in Australia that live mainly on plants', which 'cannot hold their breath under water for very long' and must surface every few minutes [ref:gbrmpa-dugong]. 'The dugong has been hunted for thousands of years for its meat and oil. Traditional hunting still has great cultural significance in several parts of its modern range, particularly northern Australia' [ref:wiki-dugong]. Roth's note is the method: 'dugong are either harpooned or speared, more generally the former', and the sign of one nearby 'the short lengths of grass, which have been bitten off by the dugong grazing below, floating on the water-surface' [ref:roth1901]. The Eastern Kuku Yalanji's own sea-country plan now says the dugong are too few on their sea country to hunt for meat, and that is the current word on it [ref:jabalbina2016]. This is a page of the sea country of the Eastern Kuku Yalanji, the Bloomfield and Daintree coast; it is a long way from [Karma Waters](place:karma-waters) on the upper Mitchell, and is here because the words, the trade and the tools reach inland.",
+  "summary": "**[kirbaji](word:kirbaji)** is the dugong, and **[biwuy](word:biwuy)** is 'porpoise, dugong, sea cow' [ref:hershberger1982]. It is the sea cow of the seagrass meadows, 'about three metres in length' and 'as much as 400 kilograms', 'the only marine mammals in Australia that live mainly on plants', which 'cannot hold their breath under water for very long' and must surface every few minutes [ref:gbrmpa-dugong]. 'The dugong has been hunted for thousands of years for its meat and oil. Traditional hunting still has great cultural significance in several parts of its modern range, particularly northern Australia' [ref:wiki-dugong]. Roth's note is the method: 'dugong are either harpooned or speared, more generally the former', and the sign of one nearby 'the short lengths of grass, which have been bitten off by the dugong grazing below, floating on the water-surface' [ref:roth1901]. The dugong is an animal of the sea country, a long way from the inland rivers; it is in this encyclopedia because the words, the trade and the tools reach inland.",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -72,7 +72,7 @@
     {
       "id": "habitat",
       "heading": "Where it lives",
-      "body": "'Shallow, tropical waters' with seagrass, 'large numbers concentrated in wide and shallow protected bays' [ref:gbrmpa-dugong] [ref:wiki-dugong]. On Kuku Yalanji sea country that is the bays and seagrass beds of the Bloomfield and Daintree coast and the reef; the Traditional Owners' plan calls their reefs very important areas for fish and turtle and says the dugong there are now few [ref:jabalbina2016]."
+      "body": "'Shallow, tropical waters' with seagrass, 'large numbers concentrated in wide and shallow protected bays' [ref:gbrmpa-dugong] [ref:wiki-dugong]."
     },
     {
       "id": "ecology",
@@ -92,7 +92,7 @@
     {
       "id": "how-to",
       "heading": "The old hunt, and the present rule",
-      "body": "Roth's and Anderson's method [ref:roth1901] [ref:anderson1996]:\n\n1. **Read the water** for floating bitten seagrass and feeding trails [ref:roth1901] [ref:gbrmpa-dugong].\n2. **Go out in the [canoe](entry:canoes)** in calm weather, two or three men, one on the bow platform with the [harpoon](entry:sea-turtle), the others paddling and watching [ref:anderson1996].\n3. **Strike** when the dugong surfaces to breathe; the dart holds, the shaft floats, the rope runs from the bow [ref:roth1901] [ref:anderson1996].\n4. **Follow and tire it**, haul it to the canoe or the beach [ref:roth1901].\n5. **Cook** in the ground oven with hot stones inside [ref:roth1901].\n\n**The present rule.** Native title holders' right to hunt for personal, domestic or non-commercial communal needs is preserved by section 211 of the *Native Title Act 1993*; in the Marine Park the Reef's Traditional Owners manage traditional take under accredited Traditional Use of Marine Resources Agreements; and the Eastern Kuku Yalanji plan says dugong on their sea country are now too few to hunt for meat [ref:alrc] [ref:gbrmpa-tu] [ref:jabalbina2016]. That is the Traditional Owners' decision and this page follows it."
+      "body": "Roth's and Anderson's method [ref:roth1901] [ref:anderson1996]:\n\n1. **Read the water** for floating bitten seagrass and feeding trails [ref:roth1901] [ref:gbrmpa-dugong].\n2. **Go out in the [canoe](entry:canoes)** in calm weather, two or three men, one on the bow platform with the [harpoon](entry:sea-turtle), the others paddling and watching [ref:anderson1996].\n3. **Strike** when the dugong surfaces to breathe; the dart holds, the shaft floats, the rope runs from the bow [ref:roth1901] [ref:anderson1996].\n4. **Follow and tire it**, haul it to the canoe or the beach [ref:roth1901].\n5. **Cook** in the ground oven with hot stones inside [ref:roth1901]."
     },
     {
       "id": "safety",
@@ -102,7 +102,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The Eastern Kuku Yalanji manage their sea country from Wujal Wujal, and their plan is the word on dugong: monitor, protect the seagrass, and do not hunt while the numbers are low [ref:jabalbina2016] [ref:handback2021]. The dictionary keeps the name for when there are enough again [ref:hershberger1982]."
+      "body": "The IUCN lists the dugong as vulnerable [ref:wiki-dugong]. Native title holders' right to hunt for personal, domestic or non-commercial communal needs is preserved by section 211 of the *Native Title Act 1993* [ref:alrc], but each people decides for its own sea country: see each place above."
     },
     {
       "id": "language",
@@ -193,10 +193,75 @@
       "id": "handback2021",
       "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
       "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+    },
+    {
+      "id": "roth1903-charms",
+      "citation": "Roth, W. E. (1903). North Queensland Ethnography, Bulletin No. 5: Superstition, magic, and medicine. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 108, luck-charms (dugong bones; Starcke River and the Princess Charlotte Bay coast)"
+    },
+    {
+      "id": "wwf2018-pcb",
+      "citation": "WWF-Australia (20 April 2018). 'The gill net's deadly catch' (blog post on dugong feeding grounds in Princess Charlotte Bay).",
+      "url": "https://www.wwf.org.au/blogs/the-gill-nets-deadly-catch"
+    },
+    {
+      "id": "ala-hann-dugong",
+      "citation": "Atlas of Living Australia. Occurrence records for the dugong (Dugong dugon) in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru (latitude 15.6–14.8° S, longitude 143.5–144.3° E), holding no records (biocache query, accessed 28 October 2026).",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
+    },
+    {
+      "id": "hgdb",
+      "citation": "Hunter-Gatherer Language Database (University of Texas at Austin). Lexical feature 'dugong': Kuku-Thaypan (accessed 28 October 2026).",
+      "url": "https://huntergatherer.la.utexas.edu/lexical/feature/275"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "**Dugong do not come up the Hann.** It is a fresh-water river, and the Atlas of Living Australia holds no dugong records in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann-dugong]. The Hann's water reaches the sea at Princess Charlotte Bay, through the North Kennedy and the Normanby [ref:wp-hann] [ref:qpws-rinyirru-culture], and the bay is dugong country: WWF calls its seagrass 'vital feeding grounds for dugongs' [ref:wwf2018-pcb].",
+      "sections": [
+        {
+          "id": "uses",
+          "heading": "How people dealt with it here",
+          "body": "The people of the Hann are river people, and no published Possum, Thaypan or Kuku Warra record mentions the dugong. On the coast, Roth recorded around 1900 that on the Starcke River and 'along the neighbouring Princess Charlotte Bay coast-line' people held that 'if the bones or skulls of the dugong be not put away in a heap or otherwise preserved, no more will be caught' [ref:roth1903-charms]. The Lama Lama hold the coastal country of Rinyirru with the Kuku Thaypan [ref:qpws-rinyirru-culture]; their own sea-country knowledge is theirs to tell."
+        },
+        {
+          "id": "language",
+          "heading": "Language",
+          "body": "Kuku Thaypan (Awu Alaya), the language of the Thaypan people of the middle and lower Hann, has its own word for the dugong, **alpawrrwatha** [ref:hgdb]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "The Eastern Kuku Yalanji's own sea-country plan now says the dugong are too few on their sea country to hunt for meat, and that is the current word on it [ref:jabalbina2016].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it lives here",
+          "body": "On Kuku Yalanji sea country that is the bays and seagrass beds of the Bloomfield and Daintree coast and the reef; the Traditional Owners' plan calls their reefs very important areas for fish and turtle and says the dugong there are now few [ref:jabalbina2016]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "**The present rule.** Native title holders' right to hunt for personal, domestic or non-commercial communal needs is preserved by section 211 of the *Native Title Act 1993*; in the Marine Park the Reef's Traditional Owners manage traditional take under accredited Traditional Use of Marine Resources Agreements; and the Eastern Kuku Yalanji plan says dugong on their sea country are now too few to hunt for meat [ref:alrc] [ref:gbrmpa-tu] [ref:jabalbina2016]. That is the Traditional Owners' decision and this page follows it.\n\nThe Eastern Kuku Yalanji manage their sea country from Wujal Wujal, and their plan is the word on dugong: monitor, protect the seagrass, and do not hunt while the numbers are low [ref:jabalbina2016] [ref:handback2021]. The dictionary keeps the name for when there are enough again [ref:hershberger1982]."
+        }
+      ]
+    }
+  ]
 }

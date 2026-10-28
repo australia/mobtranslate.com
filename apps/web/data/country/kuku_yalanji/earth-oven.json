@@ -86,7 +86,7 @@
     {
       "id": "description",
       "heading": "Description",
-      "body": "An earth oven bakes and steams food with stored heat. [Stones](entry:stone) heated in an open fire are buried with the food in a leaf-lined pit and sealed in with earth. Roth found the method 'varies slightly in the different districts'. Where there were no stones, chunks of ant-bed (termite mound) were heated instead [ref:roth1901]. Seeds of the [waterlily](entry:water-lilies) were likewise baked in their pods in 'ovens' of stones or pieces of ant-bed, covered with strips of [tea-tree bark](entry:paperbark), ashes and sand [ref:roth1901]. This is a method for open termite-mound country like the inland woodland of Western Yalanji country. Kuku Yalanji names both a small ant bed, **[kabay](word:kabay)**, and a large one, **[jawurraji](word:jawurraji)** [ref:hershberger1982].\n\nRoth says the Bloomfield ovens were lined with 'various species of ginger' [ref:roth1901]. In his Bloomfield plant list the [wild ginger](entry:wild-ginger) *Elettaria scottiana* is called *jeddo* (Roth's spelling) [ref:roth1901]. That plant is now *Hornstedtia scottiana*, Scott's ginger, still known in English as **jiddo**. It is a large ginger 2–4 m tall with lance-shaped leaves 40–70 cm long, growing in lowland rainforest [ref:rfkginger]. This fits the dictionary's description of jidu as a bushy scrub plant with long leaves used to line a kurrma [ref:hershberger1982]."
+      "body": "An earth oven bakes and steams food with stored heat. [Stones](entry:stone) heated in an open fire are buried with the food in a leaf-lined pit and sealed in with earth. Roth found the method 'varies slightly in the different districts'. Where there were no stones, chunks of ant-bed (termite mound) were heated instead [ref:roth1901]. Seeds of the [waterlily](entry:water-lilies) were likewise baked in their pods in 'ovens' of stones or pieces of ant-bed, covered with strips of [tea-tree bark](entry:paperbark), ashes and sand [ref:roth1901]. Kuku Yalanji names both a small ant bed, **[kabay](word:kabay)**, and a large one, **[jawurraji](word:jawurraji)** [ref:hershberger1982].\n\nRoth says the Bloomfield ovens were lined with 'various species of ginger' [ref:roth1901]. In his Bloomfield plant list the [wild ginger](entry:wild-ginger) *Elettaria scottiana* is called *jeddo* (Roth's spelling) [ref:roth1901]. That plant is now *Hornstedtia scottiana*, Scott's ginger, still known in English as **jiddo**. It is a large ginger 2–4 m tall with lance-shaped leaves 40–70 cm long, growing in lowland rainforest [ref:rfkginger]. This fits the dictionary's description of jidu as a bushy scrub plant with long leaves used to line a kurrma [ref:hershberger1982]."
     },
     {
       "id": "habitat",
@@ -116,7 +116,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Much of Eastern Kuku Yalanji country between Mossman and Cooktown is now national park handed back to Traditional Owners in 2021 and jointly managed with QPWS [ref:nit2021]. Digging ovens and lighting fires there is a matter for Traditional Owners and the joint managers, not for visitors. Section 211 of the *Native Title Act 1993* protects native title holders' hunting, fishing and gathering for personal, domestic or non-commercial communal needs from licence and permit requirements [ref:alrc]. On Western Yalanji country the 2026 determination recognised rights to access Country, camp, hunt, fish and gather over most of the area [ref:nit2026]. Anyone else needs the Traditional Owners' permission, and the landholder's on station country, to camp and cook with fire."
+      "body": "Native title holders' rights differ from place to place: see each place above. Section 211 of the *Native Title Act 1993* protects native title holders' hunting, fishing and gathering for personal, domestic or non-commercial communal needs from licence and permit requirements [ref:alrc]. Anyone else needs the Traditional Owners' permission, and the landholder's on station country, to camp and cook with fire."
     },
     {
       "id": "language",
@@ -233,10 +233,87 @@
       "id": "nit2026",
       "citation": "National Indigenous Times (13 August 2026). Western Yalanji determination brings Cape York native title 'to the finish line'.",
       "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "acha2003",
+      "citation": "Aboriginal Cultural Heritage Act 2003 (Qld), sections 23–25 (cultural heritage duty of care; harming, excavating, relocating or taking away Aboriginal cultural heritage).",
+      "url": "https://www.legislation.qld.gov.au/view/html/inforce/current/act-2003-079"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "qpws-rinyirru-2013",
+      "citation": "Queensland Parks and Wildlife Service (2013). Rinyirru (Lakefield) Aggregation Management Statement 2013.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0027/165771/rinyirru.pdf"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "**The earth oven belongs to the Hann country too.** In Kuku Thaypan country termite mounds 'were also used to make earth ovens', and charcoal (*Ku nari*) from old earth ovens still lies on country [ref:standley2019]. On the Morehead River, north of the Hann in Thaypan country and Rinyirru, Roth recorded yams 'baked in a hot ant-bed covered with tea-tree bark and earth' [ref:roth1901] [ref:fca-thaypan].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Stones, ant-bed and wood here",
+          "body": "- **Ant-bed.** This is termite-mound country. The open grassy plains of Kuku Thaypan country 'often contain large termite mounds, both magnetic and rounded' [ref:standley2019], and the mound itself made the oven: 'Termite mounds were also used to make earth ovens' [ref:standley2019].\n- **Cooking wood.** Of the boxwood (*Ku ronga*, Molloy red box), which grows on the floodplains of the Hann, the Kuku Thaypan Elders' record says: 'This timber burns hot and makes good coals for fire and cooking' [ref:standley2019].\n- **Cover.** Tea-tree (paperbark) bark and earth, as in Roth's Morehead record [ref:roth1901]."
+        },
+        {
+          "id": "how-to",
+          "heading": "How it was done here",
+          "body": "**Yams in an ant-bed oven (Morehead River, about 1900)**, as Roth recorded it [ref:roth1901]:\n\n1. Cut the yam rootstocks into halves or quarters and **wash them in a bark trough**.\n2. Bake them 'in a hot ant-bed covered with tea-tree bark and earth'.\n3. Leave them **about twenty minutes**, until soft.\n4. Put them into a grass [dilly-bag](entry:dilly-bags) and squeeze it under water in a trough; 'the mealy substance' passes through the bag into the water.\n\nThat is far quicker than the four hours a Bloomfield stone oven took for yams [ref:roth1901]. See [yam](entry:yam) for the plant."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Where the Thaypan and Possum native title is non-exclusive, the native title holders' rights include to 'light fires on the area for cultural, spiritual or domestic purposes including cooking, but not for the purpose of hunting or clearing vegetation' [ref:fca-thaypan] [ref:fca-possum].\n\n**Old ovens are records of people.** The Kuku Thaypan Elders' research counts old earth ovens among the signs of people living on country, signs that 'are culturally significant to Indigenous people as they are records of their people and their practice' [ref:standley2019]. Leave old oven sites, charcoal and stones as they are: harming Aboriginal cultural heritage is an offence in Queensland [ref:acha2003]. In Rinyirru, the Traditional Owners give the direction on how cultural sites and places are managed [ref:qpws-rinyirru-2013]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "On Western Yalanji country the inland woodland is ant-bed country, where chunks of termite mound could take the place of stones [ref:roth1901].",
+      "sections": [
+        {
+          "id": "description",
+          "heading": "The oven here",
+          "body": "This is a method for open termite-mound country like the inland woodland of Western Yalanji country. Roth recorded chunks of ant-bed heated instead of stones where stones were scarce [ref:roth1901]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "On Western Yalanji country the 2026 determination recognised rights to access Country, camp, hunt, fish and gather over most of the area [ref:nit2026]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On Eastern Kuku Yalanji country the kurrma is the Bloomfield oven described above: stones heated in the fire, a pit lined with ginger leaves, and the food sealed in under leaves, bark and earth [ref:roth1901] [ref:hershberger1982].",
+      "sections": [
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Much of Eastern Kuku Yalanji country between Mossman and Cooktown is now national park handed back to Traditional Owners in 2021 and jointly managed with QPWS [ref:nit2021]. Digging ovens and lighting fires there is a matter for Traditional Owners and the joint managers, not for visitors."
+        }
+      ]
+    }
+  ]
 }

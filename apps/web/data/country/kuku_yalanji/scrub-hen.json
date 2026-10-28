@@ -3,24 +3,56 @@
   "title": "Scrub hen",
   "category": "bird",
   "names": [
-    { "word": "jarruka", "gloss": "scrub hen, jungle fowl", "note": "Also 'used to refer to the eggs and/or nest of scrub hen'. A dictionary example spells it jaruka." }
+    {
+      "word": "jarruka",
+      "gloss": "scrub hen, jungle fowl",
+      "note": "Also 'used to refer to the eggs and/or nest of scrub hen'. A dictionary example spells it jaruka."
+    }
   ],
   "scientificName": "Megapodius reinwardt",
   "identification": {
     "confidence": "confirmed",
     "basis": "The dictionary glosses jarruka as 'scrub hen, jungle fowl', and Queensland Parks and Wildlife Service gives jarruka for the orange-footed scrubfowl on Eastern Kuku Yalanji country. Roth's 1901 Cape Bedford list gives du-ka for 'scrub-hen (Megapodius tumulus)', an older name for the same Australian bird."
   },
-  "countryTypes": ["rainforest", "coast-mangrove", "river-freshwater"],
-  "summary": "**[Jarruka](word:jarruka)**, the scrub hen or orange-footed scrubfowl (*Megapodius reinwardt*), is a hen-sized ground bird with big orange feet that builds huge mounds of earth and leaves to hatch its eggs [ref:birdsinbackyards]. In Kuku Yalanji the one word covers the bird, its eggs and its nest [ref:hershberger1982]. That shows how much the eggs mattered. The dictionary records two flowering signs for egg time. When the cotton tree, **[wawuburra](word:wawuburra)**, blooms with big red flowers, 'it signals the start of the scrub hen egg season'. The flowering of the flame tree, **[ngakun](word:ngakun)**, 'signals the time when the scrub hen eggs are in season' [ref:hershberger1982]. The Queensland Parks and Wildlife Service adds a third sign: when mat grass is in flower, it is time to collect jarruka eggs [ref:qpws-daintree].",
+  "countryTypes": [
+    "rainforest",
+    "coast-mangrove",
+    "river-freshwater"
+  ],
+  "summary": "**[Jarruka](word:jarruka)**, the scrub hen or orange-footed scrubfowl (*Megapodius reinwardt*), is a hen-sized ground bird with big orange feet that builds huge mounds of earth and leaves to hatch its eggs [ref:birdsinbackyards]. In Kuku Yalanji the one word covers the bird, its eggs and its nest [ref:hershberger1982]. That shows how much the eggs mattered. The dictionary records two flowering signs for egg time. When the cotton tree, **[wawuburra](word:wawuburra)**, blooms with big red flowers, 'it signals the start of the scrub hen egg season'. The flowering of the flame tree, **[ngakun](word:ngakun)**, 'signals the time when the scrub hen eggs are in season' [ref:hershberger1982].",
   "infobox": [
-    { "label": "Kuku Yalanji", "value": "jarruka (the bird, its eggs and its nest)" },
-    { "label": "Scientific name", "value": "Megapodius reinwardt (megapode family, Megapodiidae)" },
-    { "label": "Other English names", "value": "orange-footed scrubfowl, jungle fowl, scrub fowl" },
-    { "label": "Size", "value": "42–47 cm long, about 900 g" },
-    { "label": "Where", "value": "Closed rainforest, vine thicket, dense forest, swamps; coastal Far North Queensland" },
-    { "label": "Egg season signs", "value": "wawuburra (cotton tree) in red flower; ngakun (flame tree) in flower; mat grass in flower" },
-    { "label": "Breeding", "value": "July–March" },
-    { "label": "Nest", "value": "Mound of soil and rotting plant matter several metres across, reused for years" }
+    {
+      "label": "Kuku Yalanji",
+      "value": "jarruka (the bird, its eggs and its nest)"
+    },
+    {
+      "label": "Scientific name",
+      "value": "Megapodius reinwardt (megapode family, Megapodiidae)"
+    },
+    {
+      "label": "Other English names",
+      "value": "orange-footed scrubfowl, jungle fowl, scrub fowl"
+    },
+    {
+      "label": "Size",
+      "value": "42–47 cm long, about 900 g"
+    },
+    {
+      "label": "Where",
+      "value": "Closed rainforest, vine thicket, dense forest, swamps; coastal Far North Queensland"
+    },
+    {
+      "label": "Egg season signs",
+      "value": "wawuburra (cotton tree) in red flower; ngakun (flame tree) in flower; mat grass in flower"
+    },
+    {
+      "label": "Breeding",
+      "value": "July–March"
+    },
+    {
+      "label": "Nest",
+      "value": "Mound of soil and rotting plant matter several metres across, reused for years"
+    }
   ],
   "sections": [
     {
@@ -31,17 +63,17 @@
     {
       "id": "description",
       "heading": "Description",
-      "body": "A medium-sized ground bird, 42–47 cm long and about 900 g, with a small crest at the back of the head and **strong orange legs and feet** [ref:birdsinbackyards]. It feeds by raking the ground with those feet for seeds, berries and roots, and sometimes eats snails and beetles [ref:birdsinbackyards]. It is noisy, with 'a variety of chuckles and screams' [ref:birdsinbackyards]. In Daintree National Park it is commonly seen scratching for food on the forest floor [ref:qpws-daintree].\n\nLike the [scrub turkey](entry:scrub-turkey), it does not sit on its eggs. It builds a **mound** of earth and rotting plant material, often several metres across and more than a metre high, and lets the heat of the mound incubate them [ref:birdsinbackyards]. A pair uses the **same mound for many years**, and sometimes shares it with other scrubfowl [ref:birdsinbackyards]."
+      "body": "A medium-sized ground bird, 42–47 cm long and about 900 g, with a small crest at the back of the head and **strong orange legs and feet** [ref:birdsinbackyards]. It feeds by raking the ground with those feet for seeds, berries and roots, and sometimes eats snails and beetles [ref:birdsinbackyards]. It is noisy, with 'a variety of chuckles and screams' [ref:birdsinbackyards]. Like the [scrub turkey](entry:scrub-turkey), it does not sit on its eggs. It builds a **mound** of earth and rotting plant material, often several metres across and more than a metre high, and lets the heat of the mound incubate them [ref:birdsinbackyards]. A pair uses the **same mound for many years**, and sometimes shares it with other scrubfowl [ref:birdsinbackyards]."
     },
     {
       "id": "habitat",
       "heading": "Where it lives",
-      "body": "In Australia the scrubfowl lives in the far north of the Northern Territory, the top half of Cape York, and coastal Far North and North Queensland south to Yeppoon [ref:birdsinbackyards]. It likes rainforest with a closed, shady canopy, vine thickets, the dense parts of eucalypt forest, and swamps. It builds its mounds in shade, and also on sand above the high-tide mark [ref:birdsinbackyards]. On Eastern Kuku Yalanji country it is common in the rainforest of Daintree National Park [ref:qpws-daintree].\n\n**Western Yalanji country.** The scrubfowl is a bird of the wet coast. A search of the Atlas of Living Australia found plenty of records in the rainforest around and east of Mt Carbine, but none from the dry Mitchell River country to the west [ref:ala]. In Western Yalanji country, the mound-builder you are more likely to meet is the [scrub turkey](entry:scrub-turkey) (*[diwan](word:diwan)*)."
+      "body": "In Australia the scrubfowl lives in the far north of the Northern Territory, the top half of Cape York, and coastal Far North and North Queensland south to Yeppoon [ref:birdsinbackyards]. It likes rainforest with a closed, shady canopy, vine thickets, the dense parts of eucalypt forest, and swamps. It builds its mounds in shade, and also on sand above the high-tide mark [ref:birdsinbackyards]."
     },
     {
       "id": "seasons",
       "heading": "Seasons",
-      "body": "Scrubfowl breed from about **July to March**, laying eggs one at a time into the mound [ref:birdsinbackyards]. Kuku Yalanji people knew the egg time by what was flowering [ref:hershberger1982]:\n\n- **[Wawuburra](word:wawuburra)**, the [cotton tree](entry:cotton-tree): 'When it blooms (big red flowers) it signals the start of the scrub hen egg season' [ref:hershberger1982]. Wawuburra was also one of the [canoe](entry:canoes) trees [ref:hershberger1982].\n- **[Ngakun](word:ngakun)**, the flame tree: 'The flowering of this tree signals the time when the scrub hen eggs are in season' [ref:hershberger1982]. (Ngakun is also the name of a [yam](entry:yam).)\n- **Mat grass**: 'when [mat grass] is in flower, it is time to collect jarruka … eggs' [ref:qpws-daintree].\n\nWhen the big red cotton-tree flowers show, it is time to head for the mounds."
+      "body": "Scrubfowl breed from about **July to March**, laying eggs one at a time into the mound [ref:birdsinbackyards]. Kuku Yalanji people knew the egg time by what was flowering [ref:hershberger1982]:\n\n- **[Wawuburra](word:wawuburra)**, the [cotton tree](entry:cotton-tree): 'When it blooms (big red flowers) it signals the start of the scrub hen egg season' [ref:hershberger1982]. Wawuburra was also one of the [canoe](entry:canoes) trees [ref:hershberger1982].\n- **[Ngakun](word:ngakun)**, the flame tree: 'The flowering of this tree signals the time when the scrub hen eggs are in season' [ref:hershberger1982]. (Ngakun is also the name of a [yam](entry:yam).)\n\nWhen the big red cotton-tree flowers show, it is time to head for the mounds."
     },
     {
       "id": "uses",
@@ -51,7 +83,7 @@
     {
       "id": "how-to",
       "heading": "How it was gathered, caught and cooked",
-      "body": "**Collecting eggs.** The sources give the timing very precisely: the [cotton tree](entry:cotton-tree), the flame tree and mat grass [ref:hershberger1982] [ref:qpws-daintree]. They do not give a published step-by-step Kuku Yalanji account of opening a mound. What they do record is this:\n\n1. **Watch for the signs.** The red flowers of *[wawuburra](word:wawuburra)* mark the start of the egg season, and *[ngakun](word:ngakun)* flowering marks the time the eggs are in [ref:hershberger1982].\n2. **Go to the known mounds.** They are big, and a pair keeps using the same mound for years [ref:birdsinbackyards].\n3. **Dig in by hand** through the soil and rotting litter. The eggs are laid singly inside the mound and warmed by its heat [ref:birdsinbackyards].\n4. **Collect** the eggs (*[mujal](word:mujal)* 'collect, gather') and carry them home [ref:hershberger1982].\n\n**Trapping the bird.** On the **Tully River**, south of Kuku Yalanji country, Roth saw [lawyer-cane](entry:lawyer-cane) traps used for scrubfowl as well as [turkeys](entry:scrub-turkey). The trap was a tunnel of cane hoops with 'wings' of brush or cane that steered the bird inside, and it took about half a day to set up. The hunter crouched behind the wings under leaves and bushes. Unlike with the turkey, he did not call to the scrubfowl [ref:roth1901].\n\n**Cooking.** Meat was roasted on and in hot ashes, or baked in the Bloomfield stone **[earth oven](entry:earth-oven)** (*[kurrma](word:kurrma)*). For the oven, heat stones in a fire, dig a hole where it stood, line it with [ginger](entry:wild-ginger) leaves, pack in the food with the hot stones and ashes, and cover with leaves or [tea-tree bark](entry:paperbark) and then earth [ref:roth1901] [ref:hershberger1982]."
+      "body": "**Collecting eggs.** The sources give the timing very precisely: the [cotton tree](entry:cotton-tree) and the flame tree [ref:hershberger1982], and on the Daintree coast mat grass [ref:qpws-daintree]. They do not give a published step-by-step Kuku Yalanji account of opening a mound. What they do record is this:\n\n1. **Watch for the signs.** The red flowers of *[wawuburra](word:wawuburra)* mark the start of the egg season, and *[ngakun](word:ngakun)* flowering marks the time the eggs are in [ref:hershberger1982].\n2. **Go to the known mounds.** They are big, and a pair keeps using the same mound for years [ref:birdsinbackyards].\n3. **Dig in by hand** through the soil and rotting litter. The eggs are laid singly inside the mound and warmed by its heat [ref:birdsinbackyards].\n4. **Collect** the eggs (*[mujal](word:mujal)* 'collect, gather') and carry them home [ref:hershberger1982].\n\n**Trapping the bird.** On the **Tully River**, south of Kuku Yalanji country, Roth saw [lawyer-cane](entry:lawyer-cane) traps used for scrubfowl as well as [turkeys](entry:scrub-turkey). The trap was a tunnel of cane hoops with 'wings' of brush or cane that steered the bird inside, and it took about half a day to set up. The hunter crouched behind the wings under leaves and bushes. Unlike with the turkey, he did not call to the scrubfowl [ref:roth1901].\n\n**Cooking.** Meat was roasted on and in hot ashes, or baked in the Bloomfield stone **[earth oven](entry:earth-oven)** (*[kurrma](word:kurrma)*). For the oven, heat stones in a fire, dig a hole where it stood, line it with [ginger](entry:wild-ginger) leaves, pack in the food with the hot stones and ashes, and cover with leaves or [tea-tree bark](entry:paperbark) and then earth [ref:roth1901] [ref:hershberger1982]."
     },
     {
       "id": "safety",
@@ -61,7 +93,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The scrubfowl is a protected native animal under Queensland's *Nature Conservation Act 1992*, and anyone else needs a licence or permit to take it or its eggs [ref:qld-nca]. Much of its country, the Daintree and the coast north to the Bloomfield, is now Eastern Kuku Yalanji land. In 2021 the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back, to be jointly managed with the Queensland Government until Traditional Owners take over sole management [ref:handback2021]. The 2007 Eastern Kuku Yalanji native title determination recognises rights to hunt animals and gather, but not for trade or commerce [ref:walker2007]. Section 211 of the *Native Title Act 1993* protects native title holders hunting and gathering for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. The right to give permission to come onto country belongs to the Traditional Owners [ref:walker2007]. Visitors must ask them first."
+      "body": "The scrubfowl is a protected native animal under Queensland's *Nature Conservation Act 1992*, and anyone else needs a licence or permit to take it or its eggs [ref:qld-nca]. Section 211 of the *Native Title Act 1993* protects native title holders hunting and gathering for **personal, domestic or non-commercial communal needs** [ref:alrc-s211]. Native title holders' rights differ from place to place: see each place above."
     },
     {
       "id": "language",
@@ -69,14 +101,39 @@
       "body": "*[jarruka](word:jarruka)* 'scrub hen; its eggs and nest'; *[diburr](word:diburr)* 'egg'; *[yijirr](word:yijirr)* 'shell of egg'; *[birukay](word:birukay)* 'yolk'; *[jamal](word:jamal)* 'white of egg'; *[mujal](word:mujal)* 'collect, gather'; *[wawuburra](word:wawuburra)* 'cottontree'; *[ngakun](word:ngakun)* 'flame tree' [ref:hershberger1982]."
     }
   ],
-  "relatedEntries": ["scrub-turkey", "cassowary", "earth-oven", "lawyer-cane", "yam", "paperbark"],
+  "relatedEntries": [
+    "scrub-turkey",
+    "cassowary",
+    "earth-oven",
+    "lawyer-cane",
+    "yam",
+    "paperbark"
+  ],
   "relatedWords": [
-    { "word": "diburr", "gloss": "egg" },
-    { "word": "yijirr", "gloss": "shell of egg" },
-    { "word": "mujal", "gloss": "collect, gather" },
-    { "word": "wawuburra", "gloss": "cottontree" },
-    { "word": "ngakun", "gloss": "flame tree. The flowering of this tree signals the time when the scrub hen eggs are in season" },
-    { "word": "minya", "gloss": "meat, eggs (protein food)" }
+    {
+      "word": "diburr",
+      "gloss": "egg"
+    },
+    {
+      "word": "yijirr",
+      "gloss": "shell of egg"
+    },
+    {
+      "word": "mujal",
+      "gloss": "collect, gather"
+    },
+    {
+      "word": "wawuburra",
+      "gloss": "cottontree"
+    },
+    {
+      "word": "ngakun",
+      "gloss": "flame tree. The flowering of this tree signals the time when the scrub hen eggs are in season"
+    },
+    {
+      "word": "minya",
+      "gloss": "meat, eggs (protein food)"
+    }
   ],
   "references": [
     {
@@ -130,8 +187,96 @@
       "id": "qld-nca",
       "citation": "Queensland Government, State of the Environment. Nature Conservation Act 1992.",
       "url": "https://www.stateoftheenvironment.des.qld.gov.au/biodiversity/management-responses/legislation/nature-conservation-act-1992"
+    },
+    {
+      "id": "hgdb",
+      "citation": "Hunter-Gatherer Language Database (University of Texas at Austin). Lexical feature 'jungle-fowl (scrub-fowl)': Kuku-Thaypan (accessed 28 October 2026).",
+      "url": "https://huntergatherer.la.utexas.edu/lexical/feature/297"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "qpws-rinyirru-2013",
+      "citation": "Queensland Parks and Wildlife Service (2013). Rinyirru (Lakefield) Aggregation Management Statement 2013.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0027/165771/rinyirru.pdf"
+    },
+    {
+      "id": "ala-hann-megapodes",
+      "citation": "Atlas of Living Australia. Occurrence records for megapodes (Megapodiidae) in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru (latitude 15.6–14.8° S, longitude 143.5–144.3° E), holding 9 orange-footed scrubfowl records (Megapodius reinwardt, 2014–2023) and 148 Australian brush-turkey records (Alectura lathami, 1976–2025) (biocache query, accessed 28 October 2026).",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
     }
   ],
-  "review": { "status": "unreviewed" },
-  "updated": "2026-10-05"
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Jarruka is a rare bird on the Hann. The Atlas of Living Australia holds only 9 orange-footed scrubfowl records (2014–2023) in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru, against 148 for the [scrub turkey](entry:scrub-turkey) [ref:ala-hann-megapodes]. It is a bird of shady rainforest and vine thicket [ref:birdsinbackyards], and the Hann's country is mostly open woodland [ref:wp-hann].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it lives here",
+          "body": "Look for it where closed forest holds on. In Rinyirru 'closed forest and vine thickets occur on the more elevated sandstone areas' [ref:qpws-rinyirru-2013], and 'gallery rainforest grows along parts of the Normanby and Kennedy rivers' [ref:qpws-rinyirru-culture]. That shady, damp ground is where a scrubfowl can keep a mound."
+        },
+        {
+          "id": "uses",
+          "heading": "How people used it here",
+          "body": "No published Possum, Thaypan, Kuku Warra or Lama Lama record describes taking scrubfowl or their eggs. The Possum People speak of hunting 'plain turkeys', which are the bustard, not this bird [ref:fca-possum]. See the general sections for how jarruka eggs were gathered elsewhere."
+        },
+        {
+          "id": "language",
+          "heading": "Language",
+          "body": "The Hunter-Gatherer Language Database gives **angerrwange** as the Kuku Thaypan (Awu Alaya) word for the scrubfowl, with the compiler's note that its division into parts is uncertain [ref:hgdb]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Up on the dry Mitchell the scrubfowl is missing: the mound-builder of Western Yalanji country is the [scrub turkey](entry:scrub-turkey) [ref:ala].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it lives here",
+          "body": "The scrubfowl is a bird of the wet coast. A search of the Atlas of Living Australia found plenty of records in the rainforest around and east of Mt Carbine, but none from the dry Mitchell River country to the west [ref:ala]. In Western Yalanji country, the mound-builder you are more likely to meet is the [scrub turkey](entry:scrub-turkey) (*[diwan](word:diwan)*)."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On the Daintree coast the Queensland Parks and Wildlife Service adds a third sign to the dictionary's two: when mat grass is in flower, it is time to collect jarruka eggs [ref:qpws-daintree].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it lives here",
+          "body": "On Eastern Kuku Yalanji country it is common in the rainforest of Daintree National Park [ref:qpws-daintree], where it is commonly seen scratching for food on the forest floor [ref:qpws-daintree]."
+        },
+        {
+          "id": "seasons",
+          "heading": "Seasons here",
+          "body": "**Mat grass**: 'when [mat grass] is in flower, it is time to collect jarruka … eggs' [ref:qpws-daintree]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Much of its country, the Daintree and the coast north to the Bloomfield, is now Eastern Kuku Yalanji land. In 2021 the Daintree, Ngalba Bulal, Kalkajaka and Hope Islands national parks were handed back, to be jointly managed with the Queensland Government until Traditional Owners take over sole management [ref:handback2021]. The 2007 Eastern Kuku Yalanji native title determination recognises rights to hunt animals and gather, but not for trade or commerce [ref:walker2007]. The right to give permission to come onto country belongs to the Traditional Owners [ref:walker2007]. Visitors must ask them first."
+        }
+      ]
+    }
+  ]
 }

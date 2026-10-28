@@ -58,7 +58,7 @@
     {
       "id": "lookalikes",
       "heading": "Echidna, goanna digging, bandicoot digging",
-      "body": "- **An echidna** cannot be mistaken for anything else alive; its diggings can. It opens ant nests and termite mounds from the side and leaves a snout-shaped probe hole [ref:wiki-echidna].\n- **[Goanna](entry:goanna) diggings** are long trenches after eggs and burrowing animals, with claw marks and a tail drag [ref:hershberger1982].\n- **Bandicoot diggings** are small conical holes in soft ground at night; the northern brown bandicoot is recorded 27 times within 60 km [ref:ala-karma-60].\n- **A rolled echidna** in the grass looks like a clump of dead leaves and spines; it does not run [ref:wiki-echidna]."
+      "body": "- **An echidna** cannot be mistaken for anything else alive; its diggings can. It opens ant nests and termite mounds from the side and leaves a snout-shaped probe hole [ref:wiki-echidna].\n- **[Goanna](entry:goanna) diggings** are long trenches after eggs and burrowing animals, with claw marks and a tail drag [ref:hershberger1982].\n- **Bandicoot diggings** are small conical holes in soft ground at night.\n- **A rolled echidna** in the grass looks like a clump of dead leaves and spines; it does not run [ref:wiki-echidna]."
     },
     {
       "id": "signs",
@@ -68,7 +68,7 @@
     {
       "id": "habitat",
       "heading": "Where it lives",
-      "body": "'Anywhere with a good supply of food': the open [woodland](entry:woodland) with its termite mounds and meat-ant nests, the rocky rises, the river scrub; it dens in hollow logs, under rocks and in burrows it digs [ref:wiki-echidna] [ref:re-woodland]. One record within 30 km of the homestead and eighteen within 60 [ref:ala-karma] [ref:ala-karma-60]."
+      "body": "'Anywhere with a good supply of food': the open [woodland](entry:woodland) with its termite mounds and meat-ant nests, the rocky rises, the river scrub; it dens in hollow logs, under rocks and in burrows it digs [ref:wiki-echidna] [ref:re-woodland]."
     },
     {
       "id": "ecology",
@@ -98,7 +98,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The echidna is still on Karma Waters wherever the mounds and the logs are, which is wherever the woodland has not been cleared or burnt too hot; it is the animal whose diggings you see far more than the animal [ref:ala-karma-60] [ref:re-woodland]. How Kuku Yalanji people hunted and cooked *ngangkin* is not in Roth or Anderson; the contribution box below is for that [ref:hershberger1982]."
+      "body": "How Kuku Yalanji people hunted and cooked *ngangkin* is not in Roth or Anderson; the contribution box below is for that [ref:hershberger1982]."
     },
     {
       "id": "language",
@@ -188,10 +188,102 @@
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
       "url": "https://archive.org/details/northqueensland00landgoog",
       "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+    },
+    {
+      "id": "roth1903",
+      "citation": "Roth, W. E. (1903). North Queensland Ethnography, Bulletin No. 5: Superstition, magic, and medicine. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 56, 'The porcupine and her quills' (from the Koko-rarmul of Princess Charlotte Bay)"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of Tachyglossus aculeatus (1 record, 2025) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Tachyglossus%20aculeatus%22&fq=decimalLatitude%3A%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude%3A%5B143.5%20TO%20144.3%5D"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-kukuwarra",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 19) (Kuku Warra determination) [2023] FCA 1314 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1314"
+    },
+    {
+      "id": "bom-musgrave",
+      "citation": "Bureau of Meteorology. Climate statistics for Australian locations: Musgrave (station 028007, 79 m), 1887–2012.",
+      "url": "http://www.bom.gov.au/climate/averages/tables/cw_028007.shtml"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/"
+    },
+    {
+      "id": "qpws-rinyirru-2013",
+      "citation": "Queensland Parks and Wildlife Service (2013). Rinyirru (Lakefield) Aggregation Management Statement 2013.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0027/165771/rinyirru.pdf"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "The echidna lives in the Hann's woodland, and it is still hunted there. The Court recorded a Possum man's evidence of 'hunting pigs, kangaroos, goanna, porcupine, and plain turkeys' on his country [ref:fca-possum], and a Kuku Warra man from the Laura side spoke of 'hunting for pig, bandicoot, porcupine and wallaby' and explained 'in detail his knowledge about cooking porcupine' [ref:fca-kukuwarra]. 'Porcupine' is the old English name for the echidna [ref:hershberger1982]. The Atlas of Living Australia, by contrast, holds just one echidna record, from 2025, in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it lives here",
+          "body": "The Hann runs through 'stringybark, bloodwood, Moreton Bay ash and ironbark trees with a ground cover of coarse grasses such as speargrass' [ref:wp-hann]: logs, ant nests and termite mounds, the echidna's larder [ref:wiki-echidna]. The open grassy plains of Kuku Thaypan country 'often contain large termite mounds, both magnetic and rounded' [ref:standley2019]. **One Atlas record is a sign of how little has been written down, not of how few echidnas there are**: the people who hunt here name it among their game [ref:fca-possum] [ref:fca-kukuwarra]."
+        },
+        {
+          "id": "seasons",
+          "heading": "Its year here",
+          "body": "The echidna 'becomes sluggish in very hot and very cold weather' [ref:wiki-echidna]. On the Hann the coldest nights come in July, with a mean minimum of 13.7 °C at Musgrave, and the hottest days in November, with a mean maximum of 35.5 °C [ref:bom-musgrave]. So the cool mornings of the dry and the evenings after the first storms are its best hours."
+        },
+        {
+          "id": "uses",
+          "heading": "How people used it here",
+          "body": "The 2023 native title evidence names the echidna as game for both the Possum People and the Kuku Warra, and records that the Kuku Warra man knew how to cook it [ref:fca-possum] [ref:fca-kukuwarra]. The method itself is not published in the judgment; it belongs to the people who hold it. Around 1900 Roth recorded a story about the porcupine from the Koko-rarmul of Princess Charlotte Bay [ref:roth1903]. That story belongs to its custodians: ask them, rather than this page."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country and the middle and lower Hann are Thaypan country, recognised by the Federal Court in November 2023 [ref:fca-possum] [ref:fca-thaypan]. Downstream in Rinyirru, 'Traditional Owners use the park to camp, fish and hunt' [ref:qpws-rinyirru-2013]. For everyone else the echidna is protected wildlife [ref:qld-nca]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "On the Western Yalanji Mitchell, around [Karma Waters](place:karma-waters), the echidna is the animal whose diggings you see far more than the animal [ref:ala-karma-60].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it lives here",
+          "body": "One record within 30 km of the homestead and eighteen within 60 [ref:ala-karma] [ref:ala-karma-60]. The northern brown bandicoot, whose diggings can be confused with an echidna's, is recorded 27 times within 60 km [ref:ala-karma-60]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The echidna is still on Karma Waters wherever the mounds and the logs are, which is wherever the woodland has not been cleared or burnt too hot; it is the animal whose diggings you see far more than the animal [ref:ala-karma-60] [ref:re-woodland]."
+        }
+      ]
+    }
+  ]
 }

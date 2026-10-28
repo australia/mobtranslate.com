@@ -110,7 +110,7 @@
     {
       "id": "habitat",
       "heading": "Where they grow",
-      "body": "On the Bloomfield, the hairy yam grew 'in the sandy-soiled, open forest country, on the edges of swamps and on the river and creek banks' [ref:anderson1996]. Coastal people made seasonal trips up onto the coastal ranges for yams and other tubers [ref:anderson1996]. Botanically, *Dioscorea bulbifera* grows from near sea level to 800 m in open forest, wet sclerophyll forest, vine thicket and rainforest [ref:rfk-dbulbifera]; *D. transversa* from sea level to 1100 m in open forest, rainforest and gallery forest [ref:rfk-dtransversa]; and wild arrowroot in open forest, monsoon forest and the edges of lowland rainforest up to 900 m [ref:rfk-tacca].\n\nYams belong to **Western Yalanji** country as much as to the coast. Anderson notes that tubers were most important 'especially in the inland area' [ref:anderson1996]. Roth recorded Koko-yellanji names for both forms of the Dioscorea yam at Butcher's Hill (Boggy Creek), inland [ref:roth1901], and herbarium collections of the long yam *D. transversa* come from the ranges north of Mount Carbine [ref:ala-dtransversa]. On the Palmer River, Roth saw wild arrowroot prepared from its tubers [ref:roth1901]."
+      "body": "*Dioscorea bulbifera* grows from near sea level to 800 m in open forest, wet sclerophyll forest, vine thicket and rainforest [ref:rfk-dbulbifera]; *D. transversa* from sea level to 1100 m in open forest, rainforest and gallery forest [ref:rfk-dtransversa]; and wild arrowroot in open forest, monsoon forest and the edges of lowland rainforest up to 900 m [ref:rfk-tacca]. Where they grow in each place is under the places above."
     },
     {
       "id": "seasons",
@@ -135,7 +135,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "None of these yams is listed as threatened; as native plants they are 'least concern' wildlife under Queensland's Nature Conservation Act [ref:qld-plants-reg].\n\nMuch of Eastern Kuku Yalanji country is now Aboriginal land. On 29 September 2021 more than 160,000 ha, taking in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks between Mossman and Cooktown, was handed back to the Eastern Kuku Yalanji people, to be jointly managed with the Queensland Government through the Queensland Parks and Wildlife Service [ref:ag2021]. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to hunt, fish or gather for their personal, domestic or non-commercial communal needs [ref:alrc]. Everyone else needs the Traditional Owners' permission to take anything from country, and park rules apply."
+      "body": "None of these yams is listed as threatened; as native plants they are 'least concern' wildlife under Queensland's Nature Conservation Act [ref:qld-plants-reg].\n\nUnder section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to hunt, fish or gather for their personal, domestic or non-commercial communal needs [ref:alrc]. Everyone else needs the Traditional Owners' permission to take anything from country, and park rules apply."
     },
     {
       "id": "language",
@@ -192,7 +192,7 @@
       "id": "roth1901",
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Plant list: 'Dioscorea sativa' vars. elongata and rotunda, 'Tacca pinnatifida', 'Typhonium Brownii', 'Microstemma tuberosum'; sects. 1 and 3"
+      "locator": "Plant list: 'Dioscorea sativa' vars. elongata and rotunda, 'Tacca pinnatifida', 'Typhonium Brownii', 'Microstemma tuberosum'; sects. 1 and 3; Morehead River preparation of 'Dioscorea sativa' var. rotunda; 'Tacca pinnatifida' on the Morehead and Musgrave rivers; Koko-wara and Koko-rarmul names (Princess Charlotte Bay)"
     },
     {
       "id": "roth1904",
@@ -246,10 +246,87 @@
       "id": "alrc",
       "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
       "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/"
+    },
+    {
+      "id": "ala-hann-yams",
+      "citation": "Atlas of Living Australia. Occurrence records of Dioscorea bulbifera (1 record, 2012), Tacca leontopetaloides (1 record, 2012), Typhonium (1 record, 2016) and Dioscorea transversa (none) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus:Dioscorea&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Yams are still dug on the Hann. A Thaypan man told the Federal Court in 2023 that he teaches his children bush foods 'like lady apples, white apples, bally yams that grow on a long stem, bush carrot and bush potato' [ref:fca-thaypan]. Kuku Thaypan Elders burn cool around yams to protect them [ref:standley2019]. Roth's nearest records, from about 1900, are from the neighbouring Morehead and Musgrave rivers [ref:roth1901].",
+      "sections": [
+        {
+          "id": "names",
+          "heading": "Names here",
+          "body": "These are not Kuku Yalanji words. Roth gives names from the hinterland and coast of Princess Charlotte Bay, in his spelling: for the long yam (*Dioscorea sativa* var. *elongata*), Koko-wara *tau-ura* and Koko-rarmul *wai-ka*; for the round hairy yam (var. *rotunda*), Koko-rarmul *rau-ola* [ref:roth1901]. No Kuku Thaypan yam names are published."
+        },
+        {
+          "id": "habitat",
+          "heading": "Where they grow here",
+          "body": "The Atlas of Living Australia holds only a few records in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru: one of *Dioscorea bulbifera* (2012), one of wild arrowroot, *Tacca leontopetaloides* (2012), and one *Typhonium* (2016) [ref:ala-hann-yams]. Which plants the Thaypan 'bally yams', 'bush carrot' and 'bush potato' are has not been published [ref:fca-thaypan]."
+        },
+        {
+          "id": "how-to",
+          "heading": "How they were prepared nearby",
+          "body": "**The hairy yam, Morehead River** (Roth, about 1900; 'very similar' to the Bloomfield way) [ref:roth1901]:\n\n1. Cut the rootstocks into halves or quarters and wash them in a bark trough.\n2. Bake them in a hot ant-bed covered with tea-tree bark and earth, for about twenty minutes, until soft.\n3. Put them in a grass dilly-bag and squeeze it under water in a trough. The meal passes through the bag; throw away what is left in it.\n4. Let the meal settle and pour off the water and the rubbish on top. Do this 'some four or five times'.\n5. Hollow a round basin in sandy soil, rest a piece of bark down its side, and pour the meal in over the bark so the water drains away. Eat it 'as soon as fairly dry'.\n\n**Wild arrowroot, Morehead and Musgrave rivers** (Roth) [ref:roth1901]:\n\n1. Rub the tubers against a rough stick, like a nutmeg grater, into a bark trough of water.\n2. Squeeze the mixture through an infolded [dilly bag](entry:dilly-bags) into fresh water in another trough.\n3. Let it settle, wash it once or twice, and run the water off.\n4. Scrape up the sediment with a shell and cook it in hot ashes like a damper."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country and the middle and lower Hann are Thaypan country; their November 2023 determinations recognise rights to hunt, fish and gather [ref:fca-possum] [ref:fca-thaypan]. A Thaypan and Possum man told the Court: 'There are strict rules that you don't take too much' [ref:fca-thaypan]. In the Kuku Thaypan Elders' knowledge you must know how to gather 'in the right way so as not to impact the resource, such as the harvesting of yams or tubers' [ref:standley2019]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Yams belong to the dry inland country as much as to the coast, and Roth and the herbarium have records from the Western Yalanji side [ref:roth1901] [ref:ala-dtransversa].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they grow here",
+          "body": "Yams belong to **Western Yalanji** country as much as to the coast. Anderson notes that tubers were most important 'especially in the inland area' [ref:anderson1996]. Roth recorded Koko-yellanji names for both forms of the Dioscorea yam at Butcher's Hill (Boggy Creek), inland [ref:roth1901], and herbarium collections of the long yam *D. transversa* come from the ranges north of Mount Carbine [ref:ala-dtransversa]. On the Palmer River, Roth saw wild arrowroot prepared from its tubers [ref:roth1901]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On the Bloomfield the hairy yam, wukay, was the wet-season staple, and Anderson recorded where it grew and how far people went for it [ref:anderson1996] [ref:roth1901].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they grow here",
+          "body": "On the Bloomfield, the hairy yam grew 'in the sandy-soiled, open forest country, on the edges of swamps and on the river and creek banks' [ref:anderson1996]. Coastal people made seasonal trips up onto the coastal ranges for yams and other tubers [ref:anderson1996]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Much of Eastern Kuku Yalanji country is now Aboriginal land. On 29 September 2021 more than 160,000 ha, taking in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks between Mossman and Cooktown, was handed back to the Eastern Kuku Yalanji people, to be jointly managed with the Queensland Government through the Queensland Parks and Wildlife Service [ref:ag2021]."
+        }
+      ]
+    }
+  ]
 }

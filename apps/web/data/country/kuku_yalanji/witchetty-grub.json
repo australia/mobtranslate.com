@@ -3,30 +3,81 @@
   "title": "Witchetty grubs and green ants",
   "category": "insect",
   "names": [
-    { "word": "mujurr", "gloss": "witchetty grub found in rotting wood" },
-    { "word": "jambun", "gloss": "grub. Mareeba dialect for mujurr", "dialect": "Mareeba" },
-    { "word": "kuran", "gloss": "larva of case moth, edible. Found in green wood." },
-    { "word": "jiljay", "gloss": "grub found in antbed" },
-    { "word": "kurran", "gloss": "kind of grub" },
-    { "word": "durra", "gloss": "caterpillar, worm" },
-    { "word": "munjurr", "gloss": "green ant" },
-    { "word": "kurrmaja", "gloss": "larvae of green ants" },
-    { "word": "kalbal", "gloss": "the mixture made from green ant larvae/pupae and eggs eaten for chest sickness and the common cold", "note": "The dictionary's short gloss is 'remedy'." }
+    {
+      "word": "mujurr",
+      "gloss": "witchetty grub found in rotting wood"
+    },
+    {
+      "word": "jambun",
+      "gloss": "grub. Mareeba dialect for mujurr",
+      "dialect": "Mareeba"
+    },
+    {
+      "word": "kuran",
+      "gloss": "larva of case moth, edible. Found in green wood."
+    },
+    {
+      "word": "jiljay",
+      "gloss": "grub found in antbed"
+    },
+    {
+      "word": "kurran",
+      "gloss": "kind of grub"
+    },
+    {
+      "word": "durra",
+      "gloss": "caterpillar, worm"
+    },
+    {
+      "word": "munjurr",
+      "gloss": "green ant"
+    },
+    {
+      "word": "kurrmaja",
+      "gloss": "larvae of green ants"
+    },
+    {
+      "word": "kalbal",
+      "gloss": "the mixture made from green ant larvae/pupae and eggs eaten for chest sickness and the common cold",
+      "note": "The dictionary's short gloss is 'remedy'."
+    }
   ],
   "scientificName": "Wood-boring larvae of beetles and moths (mujurr is a beetle larva); Oecophylla smaragdina (green tree ant)",
   "identification": {
     "confidence": "probable",
     "basis": "The dictionary says ngirran is the 'beetle fully developed from mujurr', so mujurr is a large beetle grub from rotting wood, not the cossid-moth 'witchetty' of Central Australia; in eastern Australia the English name covers beetle and moth grubs alike. The species is not recorded. Munjurr is confidently the green tree ant, Oecophylla smaragdina, Australia's only weaver ant."
   },
-  "countryTypes": ["rainforest", "open-woodland", "river-freshwater"],
+  "countryTypes": [
+    "rainforest",
+    "open-woodland",
+    "river-freshwater"
+  ],
   "summary": "**[Mujurr](word:mujurr)** is the fat white grub found in rotting wood, which turns into the beetle **[ngirran](word:ngirran)** [ref:hershberger1982]. Kuku Yalanji also names a grub of green wood (**[kuran](word:kuran)**, a case-moth larva), a grub found in antbed (**[jiljay](word:jiljay)**) and one in dry [grass trees](entry:grass-tree) (**[kuru](word:kuru)**) [ref:hershberger1982]. Grubs were hooked out with a stripped [lawyer-cane](entry:lawyer-cane) feeler or cut out of soft timber, then eaten raw or roasted [ref:roth1901] [ref:roth1904]. The nests of the green ant, **[munjurr](word:munjurr)**, gave food and medicine. On the Bloomfield River the ants and their eggs were squeezed into water, saltwater for preference, and the milky liquid was sopped up with chewed grass [ref:roth1901]. The dictionary records the green-ant mixture **[kalbal](word:kalbal)** as a remedy for chest sickness and colds [ref:hershberger1982].",
   "infobox": [
-    { "label": "Kuku Yalanji", "value": "mujurr (grub in rotting wood); munjurr (green ant); kurrmaja (green-ant larvae)" },
-    { "label": "Grows into", "value": "ngirran, a beetle (from mujurr)" },
-    { "label": "Dialect", "value": "jambun (Mareeba) = mujurr" },
-    { "label": "Green ant", "value": "Oecophylla smaragdina, nests of leaves woven in trees" },
-    { "label": "Eaten", "value": "Grubs raw or roasted; green ants and eggs as food and medicine" },
-    { "label": "Green ant season", "value": "nyirran, the big green ant that is eaten, comes in December–January" }
+    {
+      "label": "Kuku Yalanji",
+      "value": "mujurr (grub in rotting wood); munjurr (green ant); kurrmaja (green-ant larvae)"
+    },
+    {
+      "label": "Grows into",
+      "value": "ngirran, a beetle (from mujurr)"
+    },
+    {
+      "label": "Dialect",
+      "value": "jambun (Mareeba) = mujurr"
+    },
+    {
+      "label": "Green ant",
+      "value": "Oecophylla smaragdina, nests of leaves woven in trees"
+    },
+    {
+      "label": "Eaten",
+      "value": "Grubs raw or roasted; green ants and eggs as food and medicine"
+    },
+    {
+      "label": "Green ant season",
+      "value": "nyirran, the big green ant that is eaten, comes in December–January"
+    }
   ],
   "sections": [
     {
@@ -42,7 +93,7 @@
     {
       "id": "habitat",
       "heading": "Where they are found",
-      "body": "Mujurr comes from rotting logs and stumps, and kuran from green, living wood [ref:hershberger1982]. Jiljay is found in antbed, and kuru in dry [grass trees](entry:grass-tree), so these grubs belong to the open woodland as much as to the rainforest [ref:hershberger1982]. The black ant **[jabarrangkul](word:jabarrangkul)** also nests in rotten logs [ref:hershberger1982].\n\nFor dry inland country like Western Yalanji's, Roth noted E. Palmer's report that people on the Mitchell River ate a grub found in galls at the tips of young *Eucalyptus tetrodonta* and *E. corymbosa* trees [ref:roth1901]. Jambun, the Mareeba word, also shows that grubs were named and eaten on the drier tablelands [ref:hershberger1982]. [Green ants](entry:green-ants) nest in trees across the region, in rainforest edges, gardens and open forest [ref:wettropics]."
+      "body": "Mujurr comes from rotting logs and stumps, and kuran from green, living wood [ref:hershberger1982]. Jiljay is found in antbed, and kuru in dry [grass trees](entry:grass-tree), so these grubs belong to the open woodland as much as to the rainforest [ref:hershberger1982]. The black ant **[jabarrangkul](word:jabarrangkul)** also nests in rotten logs [ref:hershberger1982].\n\nInland, jambun, the Mareeba word, shows that grubs were named and eaten on the drier tablelands [ref:hershberger1982]. [Green ants](entry:green-ants) nest in trees across the region, in rainforest edges, gardens and open forest [ref:wettropics]."
     },
     {
       "id": "seasons",
@@ -67,7 +118,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Grubs and [green ants](entry:green-ants) are still gathered on Country, and green-ant medicine is still known. Much of Eastern Kuku Yalanji country is now Traditional-Owner-owned national park, handed back in 2021 and jointly managed with the Queensland Parks and Wildlife Service [ref:nit2021]. Section 211 of the *Native Title Act 1993* protects native title holders' gathering for personal, domestic or non-commercial communal needs from licence and permit requirements [ref:alrc]. On Western Yalanji country the 2026 determination recognised rights to access Country, camp, hunt, fish and gather natural resources across most of the area [ref:nit2026]. Visitors need the Traditional Owners' permission, and on pastoral leases the landholder's as well."
+      "body": "Grubs and [green ants](entry:green-ants) are still gathered on Country, and green-ant medicine is still known. Section 211 of the *Native Title Act 1993* protects native title holders' gathering for personal, domestic or non-commercial communal needs from licence and permit requirements [ref:alrc]. Visitors need the Traditional Owners' permission, and on pastoral leases the landholder's as well."
     },
     {
       "id": "language",
@@ -75,19 +126,59 @@
       "body": "**[Ngirran](word:ngirran)** 'beetle fully developed from mujurr'; **[jungu-jungu](word:jungu-jungu)** 'white ant eggs'; **[kabay](word:kabay)** 'small ant bed'; **[jawurraji](word:jawurraji)** 'large ant bed'; **[karrkil](word:karrkil)** 'red jumper ant' [ref:hershberger1982]. *[Jambun](word:jambun)* is a Mareeba word, a reminder that the dialects of the tablelands and inland have their own vocabulary [ref:hershberger1982]."
     }
   ],
-  "relatedEntries": ["lawyer-cane", "native-bees", "earth-oven", "paperbark", "grass-tree", "hooks-and-lines"],
+  "relatedEntries": [
+    "lawyer-cane",
+    "native-bees",
+    "earth-oven",
+    "paperbark",
+    "grass-tree",
+    "hooks-and-lines"
+  ],
   "relatedWords": [
-    { "word": "dili", "gloss": "corkwood pine; the tree from which witchetty comes" },
-    { "word": "ngirran", "gloss": "beetle fully developed from mujurr (witchetty grub)" },
-    { "word": "kuru", "gloss": "grub found in dry grass tree" },
-    { "word": "bikarrakal", "gloss": "a kind of grub used for bait" },
-    { "word": "yangka", "gloss": "green ant. Used as a medicine for the common cold and other chest complaints" },
-    { "word": "nyirran", "gloss": "the big green ant that is eaten, comes in December - January" },
-    { "word": "jabarrangkul", "gloss": "black ant. Also their nest in rotten logs." },
-    { "word": "karrkil", "gloss": "red jumper ant. Some people have gotten sick and vomited after being bitten by them." },
-    { "word": "jungu-jungu", "gloss": "white ant eggs" },
-    { "word": "kabay", "gloss": "small ant bed" },
-    { "word": "jawurraji", "gloss": "large ant bed" }
+    {
+      "word": "dili",
+      "gloss": "corkwood pine; the tree from which witchetty comes"
+    },
+    {
+      "word": "ngirran",
+      "gloss": "beetle fully developed from mujurr (witchetty grub)"
+    },
+    {
+      "word": "kuru",
+      "gloss": "grub found in dry grass tree"
+    },
+    {
+      "word": "bikarrakal",
+      "gloss": "a kind of grub used for bait"
+    },
+    {
+      "word": "yangka",
+      "gloss": "green ant. Used as a medicine for the common cold and other chest complaints"
+    },
+    {
+      "word": "nyirran",
+      "gloss": "the big green ant that is eaten, comes in December - January"
+    },
+    {
+      "word": "jabarrangkul",
+      "gloss": "black ant. Also their nest in rotten logs."
+    },
+    {
+      "word": "karrkil",
+      "gloss": "red jumper ant. Some people have gotten sick and vomited after being bitten by them."
+    },
+    {
+      "word": "jungu-jungu",
+      "gloss": "white ant eggs"
+    },
+    {
+      "word": "kabay",
+      "gloss": "small ant bed"
+    },
+    {
+      "word": "jawurraji",
+      "gloss": "large ant bed"
+    }
   ],
   "references": [
     {
@@ -99,7 +190,7 @@
       "id": "roth1901",
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Sect. 10 'Ants'; sect. 12 'Other insects, grubs, caterpillars'"
+      "locator": "Sect. 10 'Ants'; sect. 12 'Other insects, grubs, caterpillars'; sect. 10 records for Princess Charlotte Bay"
     },
     {
       "id": "roth1903",
@@ -147,8 +238,87 @@
       "id": "nit2026",
       "citation": "National Indigenous Times (13 August 2026). Western Yalanji determination brings Cape York native title 'to the finish line'.",
       "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "fca-kukuwarra",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 19) (Kuku Warra determination) [2023] FCA 1314 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1314"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/"
+    },
+    {
+      "id": "ala-hann-insects",
+      "citation": "Atlas of Living Australia. Occurrence records of Oecophylla smaragdina, green tree ant (14 records, 1980–2022), and Endoxyla wood moths (none) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=species:%22Oecophylla%20smaragdina%22&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D"
     }
   ],
-  "review": { "status": "unreviewed" },
-  "updated": "2026-10-05"
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Green ants live on the Hann: the Atlas of Living Australia holds 14 records of the green tree ant in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru, from 1980 to 2022 [ref:ala-hann-insects]. A Kuku Warra man from Laura told the Federal Court how green ants are used as medicine in his country [ref:fca-kukuwarra]. Nothing is published about eating grubs on the Hann; the general sections stand for that.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they are here",
+          "body": "Green ants nest in the trees of the woodland and the river fringe [ref:wettropics] [ref:ala-hann-insects]. Darwin stringybark or messmate, *Eucalyptus tetrodonta* (Kuku Thaypan *Ku akalmba*), is one of the main country types of the Kuku Thaypan Elders [ref:standley2019]. On the Mitchell, E. Palmer recorded a grub eaten from the galls of young trees of that species [ref:roth1901]; no record says the same for the Hann. The Atlas holds no records of the giant wood moths (*Endoxyla*) in the box [ref:ala-hann-insects]."
+        },
+        {
+          "id": "uses",
+          "heading": "How people used them here",
+          "body": "**Green ants (Kuku Warra, Laura).** 'With green ants, you crush the nest, mix it with water and it cures a headache too. If you catch the ants at the right time of the year they have white eggs, and when you crush the eggs with water, it makes a milky drink' [ref:fca-kukuwarra]. Kuku Warra country is around Laura, and shares the land between the North Kennedy and the Hann with the Thaypan [ref:fca-kukuwarra].\n\n**Princess Charlotte Bay, about 1900.** Roth found green ants and their larvae eaten, and used as medicine, at Princess Charlotte Bay, and saw the nest cut down and opened on a rock there; his account is in the how-to above [ref:roth1901].\n\n**Sugarbag.** Native honey, *Arear* in Kuku Thaypan, is on the [native bees](entry:native-bees) page [ref:standley2019]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country and the middle and lower Hann are Thaypan country. Both determinations of November 2023 recognise rights to 'hunt, fish and gather on the land and waters of the area' [ref:fca-possum] [ref:fca-thaypan]. Ask them before gathering."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "On the Western Yalanji Mitchell, the grub on record is one eaten from the galls of young eucalypts [ref:roth1901].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they are found here",
+          "body": "Roth noted E. Palmer's report that people on the Mitchell River ate a grub found in galls at the tips of young *Eucalyptus tetrodonta* and *E. corymbosa* trees [ref:roth1901]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "On Western Yalanji country the 2026 determination recognised rights to access Country, camp, hunt, fish and gather natural resources across most of the area [ref:nit2026]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On the Eastern Kuku Yalanji coast, Roth's Bloomfield records above are the local ones: green ants squeezed into saltwater, and the *Liphyra* chrysalis from their nests counted a delicacy [ref:roth1901].",
+      "sections": [
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Much of Eastern Kuku Yalanji country is now Traditional-Owner-owned national park, handed back in 2021 and jointly managed with the Queensland Parks and Wildlife Service [ref:nit2021]."
+        }
+      ]
+    }
+  ]
 }

@@ -59,7 +59,7 @@
     {
       "id": "habitat",
       "heading": "Where it grows",
-      "body": "In Australia the candlenut grows in Cape York Peninsula and north-east Queensland, from near sea level to 800 m, 'mostly north of the Daintree River', with one isolated population on the central Queensland coast [ref:rfk-aleurites]. That puts the heart of its Australian range on Eastern Kuku Yalanji country, in the rainforest between the Daintree and the Bloomfield.\n\nOn **Western Yalanji** country it is a tree of the rainforest patches on the ranges, not the dry open woodland. One rainforest on the Mount Windsor Tableland, north of Mount Carbine, is even recorded by botanists as 'Candlenut Scrub' [ref:ala-aleurites]."
+      "body": "In Australia the candlenut grows in Cape York Peninsula and north-east Queensland, from near sea level to 800 m, 'mostly north of the Daintree River', with one isolated population on the central Queensland coast [ref:rfk-aleurites]."
     },
     {
       "id": "uses",
@@ -79,7 +79,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The candlenut is not listed as threatened; as a native plant it is 'least concern' wildlife under Queensland's Nature Conservation Act [ref:qld-plants-reg].\n\nMuch of Eastern Kuku Yalanji country is now Aboriginal land. On 29 September 2021 more than 160,000 ha, taking in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks between Mossman and Cooktown, was handed back to the Eastern Kuku Yalanji people, to be jointly managed with the Queensland Government through the Queensland Parks and Wildlife Service [ref:ag2021]. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to hunt, fish or gather for their personal, domestic or non-commercial communal needs [ref:alrc]. Everyone else needs the Traditional Owners' permission to take anything from country, and park rules apply."
+      "body": "The candlenut is not listed as threatened; as a native plant it is 'least concern' wildlife under Queensland's Nature Conservation Act [ref:qld-plants-reg].\n\nNative title holders' rights differ from place to place: see each place above. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to hunt, fish or gather for their personal, domestic or non-commercial communal needs [ref:alrc]. Everyone else needs the Traditional Owners' permission to take anything from country, and park rules apply."
     },
     {
       "id": "language",
@@ -189,10 +189,92 @@
       "id": "alrc",
       "citation": "Australian Law Reform Commission. Review of the Native Title Act 1993 (DP 82), ch. 8: Relevant provisions in the Native Title Act (s 211).",
       "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of Aleurites moluccanus (none found) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Aleurites%20moluccanus%22&fq=decimalLatitude%3A%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude%3A%5B143.5%20TO%20144.3%5D"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
+    },
+    {
+      "id": "qpws-rinyirru-2013",
+      "citation": "Queensland Parks and Wildlife Service (2013). Rinyirru (Lakefield) Aggregation Management Statement 2013.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0027/165771/rinyirru.pdf"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-kukuwarra",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 19) (Kuku Warra determination) [2023] FCA 1314 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1314"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-05"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "**The candlenut does not grow on the Hann.** It is a rainforest tree, in Australia found 'mostly north of the Daintree River' [ref:rfk-aleurites], and the Hann runs through open woodland of 'stringybark, bloodwood, Moreton Bay ash and ironbark trees with a ground cover of coarse grasses such as speargrass' [ref:wp-hann]. The Atlas of Living Australia holds no candlenut record in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "Not recorded. The nearest thing to rainforest in this country is downstream in Rinyirru, where the park's vegetation includes 'riverine closed forests' and 'vine thickets' among the woodlands and grasslands [ref:qpws-rinyirru-2013]; no candlenut is recorded there in the Atlas box either [ref:ala-hann]."
+        },
+        {
+          "id": "uses",
+          "heading": "How people used it here",
+          "body": "No published record was found of the Possum, Thaypan or Kuku Warra people using candlenut. The plant foods named for this country in the 2023 native title evidence are woodland foods: 'lady apples, white apples, bally yams that grow on a long stem, bush carrot and bush potato' [ref:fca-thaypan]. For how candlenut was eaten and used on the coast, see the general sections above."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country and the middle and lower Hann are Thaypan country, both recognised by the Federal Court in November 2023 [ref:fca-possum] [ref:fca-thaypan]. The Kuku Warra people, of the Laura side, hold a customary rights agreement with the Thaypan over the land between the North Kennedy and the Hann [ref:fca-kukuwarra]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Up on the Western Yalanji Mitchell the candlenut is not a tree of the river woodland: look for it only in the rainforest patches on the ranges [ref:ala-aleurites].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "On **Western Yalanji** country it is a tree of the rainforest patches on the ranges, not the dry open woodland. One rainforest on the Mount Windsor Tableland, north of Mount Carbine, is even recorded by botanists as 'Candlenut Scrub' [ref:ala-aleurites]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "Bilar is a tree of Eastern Kuku Yalanji country. In Australia it grows 'mostly north of the Daintree River' [ref:rfk-aleurites], and the Bloomfield records of eating the nuts, fixing ochre with the oil and hollowing the trunk into canoes all come from this coast [ref:anderson1996].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "That puts the heart of its Australian range on Eastern Kuku Yalanji country, in the rainforest between the Daintree and the Bloomfield. [ref:rfk-aleurites]"
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Much of Eastern Kuku Yalanji country is now Aboriginal land. On 29 September 2021 more than 160,000 ha, taking in the Daintree, Ngalba-bulal, Kalkajaka and Hope Islands national parks between Mossman and Cooktown, was handed back to the Eastern Kuku Yalanji people, to be jointly managed with the Queensland Government through the Queensland Parks and Wildlife Service [ref:ag2021]."
+        }
+      ]
+    }
+  ]
 }

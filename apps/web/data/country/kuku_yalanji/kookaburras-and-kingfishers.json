@@ -32,7 +32,7 @@
     "open-woodland",
     "river-freshwater"
   ],
-  "summary": "**[wakuka](word:wakuka)** is the kookaburra and **[kururrungka](word:kururrungka)** the 'bronze wing kookaburra', the blue-winged kookaburra of the north; **[milman](word:milman)** the azure kingfisher of the river, **[yindili](word:yindili)** the forest kingfisher of the woodland, **[jiwal-jiwal](word:jiwal-jiwal)** a 'kingfisher, white tailed', and **[dabuy](word:dabuy)** a 'small brownish kingfisher', of which the dictionary says 'when this bird starts singing you know you will get company, that someone is travelling' [ref:hershberger1982]. Both kookaburras are at [Karma Waters](place:karma-waters), the blue-winged with thirty-three records and the laughing with twenty-seven, and four kingfishers with them: the forest, nineteen, the azure, eleven, the sacred, eight, and the red-backed, nine [ref:ala-aves]. The kookaburras are the woodland's snake-and-lizard hawks, waiting 'perched on a branch until it sees an animal on the ground and then flies down and pounces on its prey', 'lizards, insects, worms, snakes, mice'; the forest kingfisher does the same on a smaller scale, 'bugs, beetles, grasshoppers ... small fish, frogs and tadpoles, lizards, and snakes'; and the azure kingfisher on its low branch over the pool means fish and shrimps in the shallows under it [ref:wiki-laughing-kookaburra] [ref:wiki-forest-kingfisher] [ref:wiki-azure-kingfisher]. The laughing kookaburra digs its nest into a termite nest in a tree, the red-backed kingfisher into a creek bank [ref:wiki-laughing-kookaburra] [ref:wiki-red-backed-kingfisher].",
+  "summary": "**[wakuka](word:wakuka)** is the kookaburra and **[kururrungka](word:kururrungka)** the 'bronze wing kookaburra', the blue-winged kookaburra of the north; **[milman](word:milman)** the azure kingfisher of the river, **[yindili](word:yindili)** the forest kingfisher of the woodland, **[jiwal-jiwal](word:jiwal-jiwal)** a 'kingfisher, white tailed', and **[dabuy](word:dabuy)** a 'small brownish kingfisher', of which the dictionary says 'when this bird starts singing you know you will get company, that someone is travelling' [ref:hershberger1982]. The kookaburras are the woodland's snake-and-lizard hawks, waiting 'perched on a branch until it sees an animal on the ground and then flies down and pounces on its prey', 'lizards, insects, worms, snakes, mice'; the forest kingfisher does the same on a smaller scale, 'bugs, beetles, grasshoppers ... small fish, frogs and tadpoles, lizards, and snakes'; and the azure kingfisher on its low branch over the pool means fish and shrimps in the shallows under it [ref:wiki-laughing-kookaburra] [ref:wiki-forest-kingfisher] [ref:wiki-azure-kingfisher]. The laughing kookaburra digs its nest into a termite nest in a tree, the red-backed kingfisher into a creek bank [ref:wiki-laughing-kookaburra] [ref:wiki-red-backed-kingfisher].",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -63,8 +63,8 @@
     },
     {
       "id": "description",
-      "heading": "The kookaburras and kingfishers of the upper Mitchell",
-      "body": "**Blue-winged kookaburra** (*Dacelo leachii*, *kururrungka*), thirty-three records. 'A large species of kingfisher native to northern Australia and southern New Guinea. Measuring around 40 cm, it is slightly smaller than the more familiar laughing kookaburra. It has cream-coloured upper- and underparts barred with brownish markings. It has blue wings and brown shoulders and blue rump. It is sexually dimorphic, with a blue tail in the male', a barred rufous tail in the female, and 'striking white eyes'; 'their call has been described as a maniacal cackling or barking' [ref:wiki-bwk]. The [woodland](entry:woodland) page has its diet by season: more insects, lizards and frogs in the wet, more crayfish and scorpions in the dry; and its enemies, the red goshawk, the rufous owl, and at the nest pythons, quolls and goannas [ref:wiki-bwk].\n\n**Laughing kookaburra** (*Dacelo novaeguineae*, *wakuka*), twenty-seven records. 'A large kingfisher with a whitish head and a brown eye-stripe. The upperparts are mostly dark brown but there is a mottled light-blue patch on the wing'; 'a predator of a wide variety of small animals, the laughing kookaburra typically waits perched on a branch until it sees an animal on the ground and then flies down and pounces on its prey. Its diet includes lizards, insects, worms, snakes, mice'; it makes 'a hollow for a nest in an arboreal termite nest' [ref:wiki-laughing-kookaburra].\n\n**Forest kingfisher** (*Todiramphus macleayii*, *yindili*), nineteen records. 'Predominantly a blue and white bird', '21.5–25.5 cm in length', 'blue wings, head and tail with white breast, abdomen and nape ... a black band stretching from the bill, through the eyes to the ear coverts'. 'The forest kingfisher hunts invertebrates, such as bugs, beetles, grasshoppers, spiders, dragonflies, cicadas, ants, adult and larval butterflies, and worms, as well as small fish, frogs and tadpoles, lizards, and snakes. The forest kingfisher watches from a high perch, dives to the ground or water to seize its prey (sally-pouncing), then returns directly to the perch' [ref:wiki-forest-kingfisher].\n\n**Sacred kingfisher** (*T. sanctus*), eight records, 'a medium-sized woodland kingfisher that inhabits mangroves, woodlands, forests and river valleys', 'mostly blue-green to turquoise above with white underparts and collar feathers, a black mask and buff lores' [ref:wiki-sacred-kingfisher]. **Red-backed kingfisher** (*T. pyrrhopygius*), nine, 'a predominantly blue-green and white bird with a chestnut rump', 20–24 cm; 'the call is a descending, mournful whistle \"kee-ip\", repeated every few seconds in a long series from a tree-top'; 'the breeding season is August to February ... although birds may not breed in times of drought. The nest is a burrow 0.5–1.25 m into the top third section of a steep sloping bank overlooking a dry creek-bed or dam' [ref:wiki-red-backed-kingfisher].\n\n**Azure kingfisher** (*Ceyx azureus*, *milman*), eleven records: the small deep-blue and orange kingfisher of the river's low branches, which dives for small fish and shrimps and nests in a tunnel in the bank; the [waterhole](entry:waterhole) page reads it as a sign of what is in the shallows below its perch [ref:wiki-azure-kingfisher]."
+      "heading": "The kookaburras and kingfishers",
+      "body": "**Blue-winged kookaburra** (*Dacelo leachii*, *kururrungka*). 'A large species of kingfisher native to northern Australia and southern New Guinea. Measuring around 40 cm, it is slightly smaller than the more familiar laughing kookaburra. It has cream-coloured upper- and underparts barred with brownish markings. It has blue wings and brown shoulders and blue rump. It is sexually dimorphic, with a blue tail in the male', a barred rufous tail in the female, and 'striking white eyes'; 'their call has been described as a maniacal cackling or barking' [ref:wiki-bwk]. The [woodland](entry:woodland) page has its diet by season: more insects, lizards and frogs in the wet, more crayfish and scorpions in the dry; and its enemies, the red goshawk, the rufous owl, and at the nest pythons, quolls and goannas [ref:wiki-bwk].\n\n**Laughing kookaburra** (*Dacelo novaeguineae*, *wakuka*). 'A large kingfisher with a whitish head and a brown eye-stripe. The upperparts are mostly dark brown but there is a mottled light-blue patch on the wing'; 'a predator of a wide variety of small animals, the laughing kookaburra typically waits perched on a branch until it sees an animal on the ground and then flies down and pounces on its prey. Its diet includes lizards, insects, worms, snakes, mice'; it makes 'a hollow for a nest in an arboreal termite nest' [ref:wiki-laughing-kookaburra].\n\n**Forest kingfisher** (*Todiramphus macleayii*, *yindili*). 'Predominantly a blue and white bird', '21.5–25.5 cm in length', 'blue wings, head and tail with white breast, abdomen and nape ... a black band stretching from the bill, through the eyes to the ear coverts'. 'The forest kingfisher hunts invertebrates, such as bugs, beetles, grasshoppers, spiders, dragonflies, cicadas, ants, adult and larval butterflies, and worms, as well as small fish, frogs and tadpoles, lizards, and snakes. The forest kingfisher watches from a high perch, dives to the ground or water to seize its prey (sally-pouncing), then returns directly to the perch' [ref:wiki-forest-kingfisher].\n\n**Sacred kingfisher** (*T. sanctus*), 'a medium-sized woodland kingfisher that inhabits mangroves, woodlands, forests and river valleys', 'mostly blue-green to turquoise above with white underparts and collar feathers, a black mask and buff lores' [ref:wiki-sacred-kingfisher]. **Red-backed kingfisher** (*T. pyrrhopygius*), 'a predominantly blue-green and white bird with a chestnut rump', 20–24 cm; 'the call is a descending, mournful whistle \"kee-ip\", repeated every few seconds in a long series from a tree-top'; 'the breeding season is August to February ... although birds may not breed in times of drought. The nest is a burrow 0.5–1.25 m into the top third section of a steep sloping bank overlooking a dry creek-bed or dam' [ref:wiki-red-backed-kingfisher].\n\n**Azure kingfisher** (*Ceyx azureus*, *milman*): the small deep-blue and orange kingfisher of the river's low branches, which dives for small fish and shrimps and nests in a tunnel in the bank; the [waterhole](entry:waterhole) page reads it as a sign of what is in the shallows below its perch [ref:wiki-azure-kingfisher]."
     },
     {
       "id": "lookalikes",
@@ -104,12 +104,12 @@
     {
       "id": "safety",
       "heading": "Safety",
-      "body": "- Native birds are protected wildlife in Queensland under the *Nature Conservation Act 1992*; native title holders hunting for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993*, recognised in the Western Yalanji determinations [ref:qld-nca] [ref:alrc] [ref:wyac2020].\n- A kookaburra at the camp table will take meat from a plate and a finger with it.\n- A bird scolding on the ground is a snake warning; see [snakes](entry:snakes) [ref:healthdirect-snakebite]."
+      "body": "- Native birds are protected wildlife in Queensland under the *Nature Conservation Act 1992*; native title holders hunting for personal, domestic or non-commercial communal needs are covered by section 211 of the *Native Title Act 1993* [ref:qld-nca] [ref:alrc].\n- A kookaburra at the camp table will take meat from a plate and a finger with it.\n- A bird scolding on the ground is a snake warning; see [snakes](entry:snakes) [ref:healthdirect-snakebite]."
     },
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Both kookaburras laugh at Karma Waters, and the forest kingfisher is on every second dead branch in the dry; the dictionary's six names are a field guide waiting for the Western Yalanji to say which is which [ref:ala-aves] [ref:hershberger1982]. The contribution box below is for that."
+      "body": "The dictionary's six names are a field guide waiting for speakers to say which bird is which [ref:hershberger1982]. The contribution box below is for that. Native title holders' rights differ from place to place: see each place above."
     },
     {
       "id": "language",
@@ -208,10 +208,79 @@
       "id": "healthdirect-snakebite",
       "citation": "healthdirect Australia (Australian Government). Snake bites: symptoms, first aid and the pressure immobilisation bandage (accessed 10 October 2026).",
       "url": "https://www.healthdirect.gov.au/snake-bites"
+    },
+    {
+      "id": "hgdb",
+      "citation": "Hunter-Gatherer Language Database (University of Texas at Austin). Lexical feature 'blue-winged kookaburra': Kuku-Thaypan (accessed 28 October 2026).",
+      "url": "https://huntergatherer.la.utexas.edu/lexical/feature/256"
+    },
+    {
+      "id": "hgdb-sacred",
+      "citation": "Hunter-Gatherer Language Database (University of Texas at Austin). Lexical feature 'sacred kingfisher': Kuku-Thaypan (accessed 28 October 2026).",
+      "url": "https://huntergatherer.la.utexas.edu/lexical/feature/324"
+    },
+    {
+      "id": "ala-hann-kingfishers",
+      "citation": "Atlas of Living Australia. Occurrence records for kookaburras and kingfishers (Alcedinidae) in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru (latitude 15.6–14.8° S, longitude 143.5–144.3° E), holding 3,395 records (1976–2026): blue-winged kookaburra 1,294, laughing kookaburra 1,017, forest kingfisher 675, sacred kingfisher 215, azure kingfisher 151, red-backed kingfisher 34, little kingfisher 4, buff-breasted paradise-kingfisher 2 (1990), and single records of the yellow-billed and collared kingfishers (biocache query, accessed 28 October 2026).",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search"
+    },
+    {
+      "id": "bom-105001b",
+      "citation": "Bureau of Meteorology, Water Data Online. Station 105001B, Hann River at Sandy Creek: daily and monthly mean discharge 1968–2026 (recent data provisional), retrieved 28 October 2026. No day of zero mean flow in 20,711 days of record; mean flow highest in February–March, lowest in September–November.",
+      "url": "https://www.bom.gov.au/waterdata/"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Kookaburras and kingfishers are everywhere on the Hann. The Atlas of Living Australia holds 3,395 records of them (1976–2026) in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru, most of them the **blue-winged kookaburra** (1,294) and the **laughing kookaburra** (1,017): both kookaburras live here together [ref:ala-hann-kingfishers]. Along the Hann the country is 'stringybark, bloodwood, Moreton Bay ash and ironbark' woodland [ref:wp-hann], their kind of country.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Which ones live here",
+          "body": "After the two kookaburras come the **forest kingfisher** (675 records), the **sacred kingfisher** (215), the **azure kingfisher** of the river (151) and the **red-backed kingfisher** of the dry country (34). The **little kingfisher** (4 records, 2003–2023), the **buff-breasted paradise-kingfisher** (2, 1990) and single yellow-billed and collared kingfishers have also been logged [ref:ala-hann-kingfishers]. The box takes in far more country than the Hann, so read the counts as 'lives in this country', not as a map."
+        },
+        {
+          "id": "ecology",
+          "heading": "Their year here",
+          "body": "The Hann never stops running, so its holes keep fish and shrimps through the late dry [ref:bom-105001b], and the azure kingfisher keeps to them. In the wet (December to March) the plains flood and food is everywhere [ref:qpws-rinyirru-culture], the season when the blue-winged kookaburra eats more frogs and lizards (see above). By October 'the land is brown and parched' [ref:qpws-rinyirru-culture]: the dry-country birds' time."
+        },
+        {
+          "id": "uses",
+          "heading": "People and these birds here",
+          "body": "No published Possum, Thaypan, Kuku Warra or Lama Lama record describes using or hunting kookaburras or kingfishers. The Kuku Thaypan names below show they are known birds of this country; what they mean in story or law is for the Traditional Owners to tell."
+        },
+        {
+          "id": "language",
+          "heading": "Language",
+          "body": "In Kuku Thaypan (Awu Alaya), the language of the Thaypan people of the middle and lower Hann, the blue-winged kookaburra is **arrolmba**, possibly a word shared with Olkola [ref:hgdb], and the sacred kingfisher **arodha** [ref:hgdb-sacred]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Both kookaburras are at [Karma Waters](place:karma-waters), the blue-winged with thirty-three records and the laughing with twenty-seven, and four kingfishers with them: the forest, nineteen, the azure, eleven, the sacred, eight, and the red-backed, nine [ref:ala-aves].",
+      "sections": [
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Both kookaburras laugh at Karma Waters, and the forest kingfisher is on every second dead branch in the dry; the dictionary's six names are a field guide waiting for the Western Yalanji to say which is which [ref:ala-aves] [ref:hershberger1982]. Here the native title rights that section 211 protects (see Safety above) are those recognised in the Western Yalanji determinations [ref:wyac2020]."
+        }
+      ]
+    }
+  ]
 }

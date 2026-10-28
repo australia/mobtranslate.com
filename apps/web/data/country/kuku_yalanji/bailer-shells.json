@@ -30,7 +30,7 @@
     "river-freshwater",
     "camp"
   ],
-  "summary": "The **[warkal](word:warkal)** is the baler shell, the big *Melo* volute of the northern coast, and the dictionary says exactly what it was: 'used in the old time for a billy' [ref:hershberger1982]. Roth wrote that boiling 'is done in a bark-trough ... or more usually in a large *Melo* shell', and that 'from the evidence of one of the earliest pioneers (Messrs. Hislop), it is a certainty that the Bloomfield blacks practised boiling before any permanent European settlement ever took place there', while Cook had found no boiling vessel sixty miles away at the Endeavour River and there was 'no such thing as boiling on the Tully River' [ref:roth1901]. The same shell, chipped down into a basin, was the water carrier of the whole east coast north of Bowen, the bailer in the [canoe](entry:canoes), the haft of the Bloomfield [woomera](entry:spear-and-woomera), and a trade good that found its way 'to considerable distances inland' [ref:roth1904] [ref:roth1909] [ref:roth1910]. Around it stands the rest of the shell kit: the nautilus and baler-shell spoons (**[jurungurr](word:jurungurr)**) that were 'very personal' things, the freshwater [mussel](entry:mussels) (**[mukirr](word:mukirr)**) used whole as a scoop, scraper and cutter, and the sharp *Cyrena* valve that cut bark [ref:anderson1996] [ref:roth1904] [ref:hershberger1982]. At [Karma Waters](place:karma-waters) the sea shell came only by trade, up the Laura road, but the mussel is in the river [ref:roth1910] [ref:ala-mussel].",
+  "summary": "The **[warkal](word:warkal)** is the baler shell, the big *Melo* volute of the northern coast, and the dictionary says exactly what it was: 'used in the old time for a billy' [ref:hershberger1982]. Roth wrote that boiling 'is done in a bark-trough ... or more usually in a large *Melo* shell', and that 'from the evidence of one of the earliest pioneers (Messrs. Hislop), it is a certainty that the Bloomfield blacks practised boiling before any permanent European settlement ever took place there', while Cook had found no boiling vessel sixty miles away at the Endeavour River and there was 'no such thing as boiling on the Tully River' [ref:roth1901]. The same shell, chipped down into a basin, was the water carrier of the whole east coast north of Bowen, the bailer in the [canoe](entry:canoes), the haft of the Bloomfield [woomera](entry:spear-and-woomera), and a trade good that found its way 'to considerable distances inland' [ref:roth1904] [ref:roth1909] [ref:roth1910]. Around it stands the rest of the shell kit: the nautilus and baler-shell spoons (**[jurungurr](word:jurungurr)**) that were 'very personal' things, the freshwater [mussel](entry:mussels) (**[mukirr](word:mukirr)**) used whole as a scoop, scraper and cutter, and the sharp *Cyrena* valve that cut bark [ref:anderson1996] [ref:roth1904] [ref:hershberger1982].",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -81,7 +81,7 @@
     {
       "id": "habitat",
       "heading": "Where the shells are",
-      "body": "The baler lives on the sand and mud flats of the reef coast; Roth's basin was 'on the whole eastern coast-line north of Bowen' [ref:roth1904]. The nautilus washes up on the beaches; the clams are on the reef; *Cyrena* and *Geloina* are mangrove and estuary cockles [ref:roth1904] [ref:anderson1996]. Inland, the shell is the freshwater mussel: the Australian Museum holds *Velesunio angasi* from the Mitchell River near 16.65° S, 144.68° E, a few kilometres from the homestead, and the dictionary's *mukirr* is the same kind of animal in the Daintree creeks [ref:ala-mussel] [ref:hershberger1982]. A baler at Karma Waters came up the trade road from the coast [ref:roth1910]."
+      "body": "The baler lives on the sand and mud flats of the reef coast; Roth's basin was 'on the whole eastern coast-line north of Bowen' [ref:roth1904]. The nautilus washes up on the beaches; the clams are on the reef; *Cyrena* and *Geloina* are mangrove and estuary cockles [ref:roth1904] [ref:anderson1996].\n\nInland, the shell is the freshwater [mussel](entry:mussels), the dictionary's *mukirr*, 'Found in fresh and brackish water' [ref:hershberger1982]. The sea shells reached inland only by trade [ref:roth1904]. See each place above."
     },
     {
       "id": "ecology",
@@ -111,7 +111,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The dictionary's gloss, 'used in the old time for a billy', dates the baler pot: the flour drum and the billy took its job, and by the 1970s flour drums boiled the yams at Bloomfield [ref:hershberger1982] [ref:anderson1996]. Roth's Bloomfield shells are in the Australian Museum's Roth collection [ref:khan1993]. The mussels are still in the Mitchell, and a baler brought up from the coast would work exactly as it did [ref:ala-mussel] [ref:roth1904]."
+      "body": "The dictionary's gloss, 'used in the old time for a billy', dates the baler pot: the flour drum and the billy took its job, and by the 1970s flour drums boiled the yams at Bloomfield [ref:hershberger1982] [ref:anderson1996]. Roth's Bloomfield shells are in the Australian Museum's Roth collection [ref:khan1993]."
     },
     {
       "id": "language",
@@ -158,7 +158,7 @@
       "id": "roth1901",
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea'); Sect. 6 boiling in the hinterland of Princess Charlotte Bay; 'Tacca pinnatifida' (Morehead and Musgrave rivers)"
     },
     {
       "id": "roth1904",
@@ -176,7 +176,7 @@
       "id": "roth1910",
       "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and Trade. Records of the Australian Museum 8(1).",
       "url": "https://archive.org/details/biostor-52863",
-      "locator": "Sects. 14–15, dug-out canoes from the Flinders Group to Cape Grafton"
+      "locator": "Sects. 14–15, dug-out canoes from the Flinders Group to Cape Grafton; Sect. II.2 'At Princess Charlotte Bay' (trade in melo shell)"
     },
     {
       "id": "anderson1996",
@@ -209,10 +209,66 @@
       "citation": "Khan, K. (1993). Catalogue of the Roth Collection of Aboriginal artefacts from north Queensland. Volume 1: Items collected from Archer River, Atherton, Bathurst Head, Bloomfield River and Butcher's Hill, 1897–1901. Technical Reports of the Australian Museum 10: 1–205.",
       "url": "https://doi.org/10.3853/j.1031-8062.10.1993.69",
       "locator": "Bloomfield River: 'Woven bag' E.14833; 'Non-folding oval frame fishing net' E.14959"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "ala-hann-shells",
+      "citation": "Atlas of Living Australia. Occurrence records of Velesunio freshwater mussels (1 record, 2000) and Melo balers (none) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=genus:Velesunio&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "The baler is a sea shell and does not live on the Hann; the shell of the river is the freshwater [mussel](entry:mussels), which the Thaypan people still gather [ref:fca-thaypan]. Melo shell came to this country by trade: about 1900 Roth found it passing from the Koko-warra of the Normanby to the Koko-rarmul of the Morehead, and he met boiling 'in the hinterland of Princess Charlotte Bay' [ref:roth1910] [ref:roth1901].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Shells here",
+          "body": "The Atlas of Living Australia holds one record of a *Velesunio* freshwater mussel (2000) and none of the *Melo* baler in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann-shells]. A Thaypan man told the Federal Court in 2023 what he gets on Thaypan country: 'We get wallaby, barramundi, freshwater fish and turtles and mussels' [ref:fca-thaypan]."
+        },
+        {
+          "id": "uses",
+          "heading": "Shells at work here",
+          "body": "**Trade.** 'At Princess Charlotte Bay, the Koko-rarmul of the Morehead River give the Koko-warra (whose \"country\" extends along the course of the Normanby and Deighton Rivers) reed-spears, iron-scraps, European tomahawks, etc., getting in return melo shell, grass-reed-spears, nautilus-shell necklaces, stingaree spears and fishing-nets' [ref:roth1910]. The Endeavour and Bloomfield people who came up towards the Laura were paid in the same goods [ref:roth1910].\n\n**Boiling.** Roth: 'I have met with the process in the hinterland of Princess Charlotte Bay' [ref:roth1901].\n\n**A shell scraper.** On the Morehead and Musgrave rivers, the settled wild-arrowroot meal was 'scraped up with a shell' and cooked in the ashes [ref:roth1901]. See [yams](entry:yam)."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country and the middle and lower Hann are Thaypan country, determined in November 2023 with rights to hunt, fish and gather [ref:fca-possum] [ref:fca-thaypan]. Ask them before taking mussels from the river."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "At [Karma Waters](place:karma-waters) the sea shell came only by trade, up the Laura road, but the mussel is in the river [ref:roth1910] [ref:ala-mussel].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Shells here",
+          "body": "Inland, the shell is the freshwater mussel. The Australian Museum holds *Velesunio angasi* from the Mitchell River a few kilometres from the homestead, and the dictionary's *mukirr* is the same kind of animal in the Daintree creeks [ref:ala-mussel] [ref:hershberger1982]. A baler at Karma Waters came up the trade road from the coast [ref:roth1910]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The mussels are still in the Mitchell, and a baler brought up from the coast would work exactly as it did [ref:ala-mussel] [ref:roth1904]."
+        }
+      ]
+    }
+  ]
 }

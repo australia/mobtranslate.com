@@ -29,7 +29,7 @@
   "countryTypes": [
     "river-freshwater"
   ],
-  "summary": "Freshwater catfish are **[julaji](word:julaji)** in the Yalanji dialect and **[kanyaji](word:kanyaji)** in Nyungkul, and are sometimes called **[walarrji](word:walarrji)**, 'with whiskers' [ref:hershberger1982]. They are whiskered, scaleless fish of creeks, rivers and waterholes, and **all of them carry sharp, venomous fin spines** [ref:foa-hyrtl]. On the upper Mitchell around [Karma Waters](place:karma-waters) the common ones are eel-tailed catfish (*Neosilurus*), with fork-tailed catfish in the bigger holes [ref:ala-catfish]. Bloomfield Kuku Yalanji caught them on [lines](entry:hooks-and-lines) of bark [twine](entry:string-and-twine) with [lawyer-cane](entry:lawyer-cane) thorn hooks, baited with [grubs](entry:witchetty-grub), [small prawns](entry:cherabin) or [frogs](entry:frogs) [ref:anderson1996]. Upriver on the Palmer, a catfish spine made the barb of the fish-hook [ref:roth1901].",
+  "summary": "Freshwater catfish are **[julaji](word:julaji)** in the Yalanji dialect and **[kanyaji](word:kanyaji)** in Nyungkul, and are sometimes called **[walarrji](word:walarrji)**, 'with whiskers' [ref:hershberger1982]. They are whiskered, scaleless fish of creeks, rivers and waterholes, and **all of them carry sharp, venomous fin spines** [ref:foa-hyrtl]. They were caught on [lines](entry:hooks-and-lines), in [nets](entry:nets) and in poisoned waterholes, and on the Palmer River a catfish spine made the barb of the fish-hook [ref:roth1901].",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -74,7 +74,7 @@
     {
       "id": "lookalikes",
       "heading": "What it can be confused with",
-      "body": "Three things in a Mitchell pool get called 'catfish', and one more gets mistaken for one.\n\n- **Eel-tailed catfish** (Hyrtl's and black catfish, *Neosilurus*): the tail tapers to a point and runs into a long, continuous fin along the back and belly. Hyrtl's is pale brown to silver-grey with a small mouth; the black catfish is darker and heavier [ref:foa-hyrtl] [ref:angfa-ater].\n- **Fork-tailed catfish** (blue and highfin catfish, *Neoarius*): a plainly forked tail, a bony shield on the head, and the males carry the eggs in their mouths [ref:foa-blue] [ref:foa-highfin].\n- **Both** have whiskers and the sharp venomous spines at the front of the back fin and the two side fins, which no other fish in the pool has [ref:foa-hyrtl] [ref:foa-blue].\n- **[Eels](entry:eels)** look like an eel-tailed catfish at a glance in the torchlight, but they have no spines, no whiskers and a snake's head, and they barely reach the Mitchell at all.\n- **[Sleepy cod](entry:sleepy-cod)** is a big-mouthed, mottled fish that sits on the bottom among snags; it has no whiskers and a rounded tail [ref:angfa-sleepy].\n\nIf you are not sure, look at the tail and the spines before you put a hand anywhere near it."
+      "body": "Three things in a northern river pool get called 'catfish', and one more gets mistaken for one.\n\n- **Eel-tailed catfish** (Hyrtl's and black catfish, *Neosilurus*): the tail tapers to a point and runs into a long, continuous fin along the back and belly. Hyrtl's is pale brown to silver-grey with a small mouth; the black catfish is darker and heavier [ref:foa-hyrtl] [ref:angfa-ater].\n- **Fork-tailed catfish** (blue and highfin catfish, *Neoarius*): a plainly forked tail, a bony shield on the head, and the males carry the eggs in their mouths [ref:foa-blue] [ref:foa-highfin].\n- **Both** have whiskers and the sharp venomous spines at the front of the back fin and the two side fins, which no other fish in the pool has [ref:foa-hyrtl] [ref:foa-blue].\n- **[Eels](entry:eels)** look like an eel-tailed catfish at a glance in the torchlight, but they have no spines, no whiskers and a snake's head, and they barely reach the Mitchell at all.\n- **[Sleepy cod](entry:sleepy-cod)** is a big-mouthed, mottled fish that sits on the bottom among snags; it has no whiskers and a rounded tail [ref:angfa-sleepy].\n\nIf you are not sure, look at the tail and the spines before you put a hand anywhere near it."
     },
     {
       "id": "signs",
@@ -84,7 +84,7 @@
     {
       "id": "habitat",
       "heading": "Where it lives",
-      "body": "**The upper Mitchell and Karma Waters.** [Karma Waters Station](place:karma-waters) sits on the north side of the Mitchell River, about 25 km west of Mount Carbine [ref:karmawaters]. The Atlas of Living Australia holds catfish records right on this stretch: the black catfish (*Neosilurus ater*) recorded by Queensland WildNet in 2008 at about 16.56°S 144.89°E, and Hyrtl's catfish and the highfin catfish collected for the Queensland Museum at about 16.5°S 144.92°E. Across the whole Mitchell drainage the Atlas holds more than 100 eel-tailed catfish records (mostly Hyrtl's and black catfish, with Dahl's and Rendahl's catfish) and more than 60 fork-tailed catfish records [ref:ala-catfish]. Hyrtl's catfish lives in still or flowing water, in streams, billabongs and pools [ref:foa-hyrtl], and the blue catfish lives in clear or muddy, fast or slow fresh water and in estuaries [ref:foa-blue].\n\n**Eastern Kuku Yalanji country.** In the Daintree drainage, which includes the Bloomfield, the common catfish is a different one, the Wet Tropics tandan (*Tandanus tropicanus*), with a few black catfish records [ref:ala-catfish]. Bloomfield people fished for catfish 'in freshwater creeks and waterholes' [ref:anderson1996]."
+      "body": "Catfish live in creeks, rivers and waterholes. Hyrtl's catfish lives in still or flowing water, in streams, billabongs and pools [ref:foa-hyrtl], and the blue catfish lives in clear or muddy, fast or slow fresh water and in estuaries [ref:foa-blue]."
     },
     {
       "id": "ecology",
@@ -99,12 +99,12 @@
     {
       "id": "uses",
       "heading": "Uses",
-      "body": "Catfish is good eating, and freshwater fish of all kinds were a regular food on the inland creeks, where Bloomfield people fished with [lines](entry:hooks-and-lines) for '[turtle](entry:freshwater-turtle), [eelfish](entry:eels), catfish and perch' [ref:anderson1996].\n\nThe spine itself was useful. On the Palmer River, the Mitchell's big northern tributary, the Kuku Mini (Roth's 'Koko-minni') made fish-hooks with a wooden shank and a bone barb, the barb being 'either from kangaroo-bone, or from one of the spines of the \"cat-fish\"' [ref:roth1901].\n\nThe fishing words in the dictionary include **[badur](word:badur)** 'hook and line', **[mandurr](word:mandurr)** 'bait (any kind)' and **[kuyu](word:kuyu)** 'fish' [ref:hershberger1982]."
+      "body": "Catfish is good eating, and freshwater fish of all kinds were a regular food on the inland creeks.\n\nThe spine itself was useful. On the Palmer River, the Mitchell's big northern tributary, the Kuku Mini (Roth's 'Koko-minni') made fish-hooks with a wooden shank and a bone barb, the barb being 'either from kangaroo-bone, or from one of the spines of the \"cat-fish\"' [ref:roth1901].\n\nThe fishing words in the dictionary include **[badur](word:badur)** 'hook and line', **[mandurr](word:mandurr)** 'bait (any kind)' and **[kuyu](word:kuyu)** 'fish' [ref:hershberger1982]."
     },
     {
       "id": "how-to",
       "heading": "How it was caught and cooked",
-      "body": "**[Hook and line](entry:hooks-and-lines) in a creek or waterhole (Bloomfield Kuku Yalanji)** [ref:anderson1996]:\n\n1. Make the line from the bark of *Sterculia quadrifolia*, twisted into [twine](entry:string-and-twine).\n2. Make the hook from a thorn of the [lawyer cane](entry:lawyer-cane) (*Calamus australis*).\n3. Bait it with a grub, a [small freshwater prawn](entry:cherabin) or a small [frog](entry:frogs).\n4. Hold the line in your hand, or tie it to a stick set into the bank.\n5. Line fishing was mostly women's work, though men did it too.\n\n**The Palmer River hook (Kuku Mini).** A wooden shank with a barb of kangaroo bone or catfish spine lashed on at a sharp angle. Further north, around Princess Charlotte Bay, Roth saw the barb fixed with kangaroo-tail tendon and grevillea gum [ref:roth1901].\n\n**[Poisoning](entry:fish-poisoning) a drying waterhole.** At Bloomfield in the late dry, people used the bark and leaves of [*Erythrophleum chlorostachys*](entry:ironwood), smashed together under water, or the stems of [*Barringtonia racemosa*](entry:fish-poison-plants). The stunned fish floated up and were collected. Divers had to keep their eyes shut tight, and the hole could not be used again until a storm and flood refreshed it [ref:anderson1996]. The poisons Roth recorded nearest [Karma Waters](place:karma-waters) were on the middle Palmer [ref:roth1901]:\n\n1. Throw the bark of *Adenanthera abrosperma* into the water; or\n2. Throw in leaves of the red stringybark (*Eucalyptus resinifera*) and leave them one to three days, depending on the size of the pool. An ironbark was used the same way and worked faster.\n\nE. Palmer told Roth that *Barringtonia racemosa* was also used on the Mitchell, Laura and Lynd rivers [ref:roth1901].\n\n**Muddying.** In a small shallow pool, stir up the mud with your feet, then hit or [spear](entry:spear-and-woomera) the fish as they come up. Roth called this 'a common procedure everywhere' [ref:roth1901].\n\n**[Nets](entry:nets) on the inland rivers.** The Koko-yellanji of the Laura used an oval-framed net they called *jikan-ikan* (Roth's spelling). On the Palmer the same kind of net was strung with *Acacia leptocarpa* twine on a large frame and worked by two people [ref:roth1901].\n\n**Cooking.** Roast the fish straight on the coals, **[dindal](word:dindal)** 'to roast on coals' [ref:hershberger1982]. Bigger catches, such as [eels](entry:eels), [turtles](entry:freshwater-turtle) and [cassowaries](entry:cassowary), were cut up and baked in the [earth oven](entry:earth-oven), **[kurrma](word:kurrma)**, which Bloomfield people made like this [ref:anderson1996]:\n\n1. Heat round [stones](entry:stone) that are known not to crack in a fire, and dig a hole nearby.\n2. Lift the hot stones into the hole with lawyer-cane tongs.\n3. Put the food, with eucalyptus, acacia or [wild-ginger](entry:wild-ginger) leaves for flavour, into a [bark trough](entry:bark-troughs) on the stones.\n4. Pack more hot stones around and on top, cover with [tea-tree bark](entry:paperbark) and then sand or earth, and leave it to cook for several hours."
+      "body": "**The Palmer River hook (Kuku Mini).** A wooden shank with a barb of kangaroo bone or catfish spine lashed on at a sharp angle. Further north, around Princess Charlotte Bay, Roth saw the barb fixed with kangaroo-tail tendon and grevillea gum [ref:roth1901].\n\n**[Poisoning](entry:fish-poisoning) a drying waterhole (middle Palmer River).** Roth recorded these poisons on the middle Palmer [ref:roth1901]:\n\n1. Throw the bark of *Adenanthera abrosperma* into the water; or\n2. Throw in leaves of the red stringybark (*Eucalyptus resinifera*) and leave them one to three days, depending on the size of the pool. An ironbark was used the same way and worked faster.\n\nE. Palmer told Roth that *Barringtonia racemosa* was also used on the Mitchell, Laura and Lynd rivers [ref:roth1901].\n\n**Muddying.** In a small shallow pool, stir up the mud with your feet, then hit or [spear](entry:spear-and-woomera) the fish as they come up. Roth called this 'a common procedure everywhere' [ref:roth1901].\n\n**[Nets](entry:nets) on the inland rivers.** The Koko-yellanji of the Laura used an oval-framed net they called *jikan-ikan* (Roth's spelling). On the Palmer the same kind of net was strung with *Acacia leptocarpa* twine on a large frame and worked by two people [ref:roth1901].\n\n**Cooking.** Roast the fish straight on the coals, **[dindal](word:dindal)** 'to roast on coals' [ref:hershberger1982]."
     },
     {
       "id": "safety",
@@ -114,7 +114,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "**Recreational rules (Queensland fresh waters).** Eel-tailed catfish (*Tandanus tandanus*) must be at least 35 cm. The other freshwater catfishes (*Anodontiglanis*, *Neosilurus*, *Neosiluroides*) have no size limit. You may keep **5 freshwater catfish in total**. Fork-tailed catfishes are not listed there; the page sets a general limit of 20 for unlisted freshwater species [ref:qld-limits]. In fresh waters you may use up to six handheld lines with one hook each and must stay within 50 m of them. [Spears](entry:spear-and-woomera), set lines, cast [nets](entry:nets) and crab pots are not allowed [ref:qld-gear].\n\n**Native title.** In 2013 the Federal Court recognised Western Yalanji native title that includes rights to hunt, fish and gather, and to take and use the water, held through the Western Yalanji Aboriginal Corporation RNTBC [ref:fca2013]. A further 170,827 ha was recognised in August 2026; Elder Rose Snider said it meant going back to Country to teach the kids 'how to hunt and fish' [ref:nit2026wy]. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to fish for personal, domestic or non-commercial communal needs [ref:alrc].\n\n[Karma Waters](place:karma-waters) is a working station [ref:karmawaters]. Visitors need the station's permission, and the Western Yalanji Traditional Owners' permission, to fish its holes.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
+      "body": "**Recreational rules (Queensland fresh waters).** Eel-tailed catfish (*Tandanus tandanus*) must be at least 35 cm. The other freshwater catfishes (*Anodontiglanis*, *Neosilurus*, *Neosiluroides*) have no size limit. You may keep **5 freshwater catfish in total**. Fork-tailed catfishes are not listed there; the page sets a general limit of 20 for unlisted freshwater species [ref:qld-limits]. In fresh waters you may use up to six handheld lines with one hook each and must stay within 50 m of them. [Spears](entry:spear-and-woomera), set lines, cast [nets](entry:nets) and crab pots are not allowed [ref:qld-gear].\n\nNative title holders' rights differ from place to place: see each place above, and ask the Traditional Owners before hunting, fishing or gathering."
     },
     {
       "id": "language",
@@ -343,10 +343,147 @@
       "id": "asfb2018-flinders",
       "citation": "Australian Society for Fish Biology conference 2018, poster: fish biomass and condition in isolated perennial waterholes of the Flinders River catchment, Queensland, through a dry season.",
       "url": "https://asfb-2018.p.asnevents.com.au/days/2018-10-10/abstract/53604"
+    },
+    {
+      "id": "ala-hann-catfish",
+      "citation": "Atlas of Living Australia. Occurrence records for catfishes (Plotosidae and Ariidae) in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru (latitude 15.6–14.8° S, longitude 143.5–144.3° E), holding Hyrtl's catfish (Neosilurus hyrtlii, 4 records, 1972–2015), Rendahl's catfish (Porochilus rendahli, 2 records, 1972) and the blue catfish (Neoarius graeffei, 1 record, 2025) (biocache query, accessed 28 October 2026).",
+      "url": "https://biocache-ws.ala.org.au/ws/occurrences/search"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "fca-kukuwarra",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 19) (Kuku Warra determination) [2023] FCA 1314 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1314"
+    },
+    {
+      "id": "russell1993",
+      "citation": "Russell, D. J. & Hales, P. W. (1993). A survey of the Princess Charlotte Bay recreational barramundi fishery. Queensland Department of Primary Industries, QI93049.",
+      "url": "https://era.dpi.qld.gov.au/id/eprint/6393/1/Survey%20of%20the%20Princess%20Charlotte%20Bay%20recreational%20barramundi%20fishery_QI93049_1993_russell.pdf"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "qpws-rinyirru-safe",
+      "citation": "Queensland Parks and Wildlife Service. Visiting Rinyirru (Lakefield) National Park (CYPAL) safely (web page, last updated 1 June 2025; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/visiting-safely"
+    },
+    {
+      "id": "qpws-rinyirru-2013",
+      "citation": "Queensland Parks and Wildlife Service (2013). Rinyirru (Lakefield) Aggregation Management Statement 2013.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0027/165771/rinyirru.pdf"
+    },
+    {
+      "id": "bom-105001b",
+      "citation": "Bureau of Meteorology, Water Data Online. Station 105001B, Hann River at Sandy Creek: daily and monthly mean discharge 1968–2026 (recent data provisional), retrieved 28 October 2026. No day of zero mean flow in 20,711 days of record; mean flow highest in February–March, lowest in September–November.",
+      "url": "https://www.bom.gov.au/waterdata/"
+    },
+    {
+      "id": "wetlandinfo-normanby",
+      "citation": "Queensland Government, WetlandInfo. Normanby catchment story: physical features (springs and base flow).",
+      "url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/ecology/processes-systems/water/catchment-stories/normanby/norm-physical.html"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/"
+    },
+    {
+      "id": "hgdb",
+      "citation": "Hunter-Gatherer Language Database (University of Texas at Austin). Lexical feature 'catfish': Kuku-Thaypan (accessed 28 October 2026).",
+      "url": "https://huntergatherer.la.utexas.edu/lexical/feature/269"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Catfish live in the Hann's water. On the upper Hann the Court recorded a Possum man's evidence of 'fishing for barra, jewfish, catties and spotties' [ref:fca-possum]; 'jewfish' is the northern anglers' name for the eel-tailed catfish (*Tandanus*) [ref:russell1993]. Downstream in Rinyirru (Lakefield), fork-tailed catfish were caught by nearly half of all fishing parties [ref:russell1993].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Which catfish live here",
+          "body": "**The records are few.** The Atlas of Living Australia holds 7 catfish records in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru: Hyrtl's catfish (4 records, 1972–2015), Rendahl's catfish (2 records, 1972) and the blue catfish (1 record, 2025) [ref:ala-hann-catfish]. In a survey of Lakefield anglers in 1986–91, 'jewfish (Tandanus spp.)' were caught in fresh water, and 'Fork-tailed catfish (Arius spp.) were caught in both freshwater and estuarine habitats by nearly 45% of the parties surveyed' [ref:russell1993]. Expect both kinds, eel-tailed and fork-tailed, in the deep holes of the Hann."
+        },
+        {
+          "id": "ecology",
+          "heading": "Its year here",
+          "body": "**The Hann never stops.** It is fed by springs in the sandstone, and its gauge at Sandy Creek has not recorded a single day without flow since 1968 [ref:bom-105001b] [ref:wetlandinfo-normanby]. In the wet (December to March) the rivers flood out over the plains [ref:qpws-rinyirru-culture], and the catfish spread with the water. By September–November the Hann is a low, clear run between deep holes [ref:bom-105001b]. Downstream on the North Kennedy, Catfish Waterhole is one of the deep permanent holes where, 'during the dry season, as water becomes scarce elsewhere, large numbers of wildlife congregate' [ref:qpws-rinyirru-culture]. The late-dry holes are where the catfish, the crocodiles and the fishing all meet."
+        },
+        {
+          "id": "uses",
+          "heading": "How people fished here",
+          "body": "**Possum (upper Hann).** The Court recorded a Possum man's evidence of 'fishing for barra, jewfish, catties and spotties' [ref:fca-possum].\n\n**Thaypan (middle and lower Hann).** 'We get wallaby, barramundi, freshwater fish and turtles and mussels' [ref:fca-thaypan]. Kuku Thaypan Elders recorded 'Rungol (hollow logs) that were cut from the Ku akulumbah Messmate woodland and used as fish traps' [ref:standley2019].\n\n**Kuku Warra (Laura).** A Kuku Warra man described the law of fishing: 'before I pull my line out if I'm fishing I'll sing out to the old people', and 'we must always leave three or four fish on the banks' [ref:fca-kukuwarra].\n\n**Roth, about 1900.** On the North Kennedy and the lower Normanby, Roth passed waterholes with hollow logs lying on their banks, the sign that they had been fished by sinking the logs and lifting them out with the fish inside [ref:roth1901]. On the Palmer River a catfish spine made the barb of the fish-hook (see above) [ref:roth1901]. No published record names a catfish method for the Hann itself."
+        },
+        {
+          "id": "safety",
+          "heading": "Safety here",
+          "body": "Both crocodiles live in this river system. In Rinyirru the rangers' rules are to 'always stand a few metres back from the water's edge' and 'never clean fish or discard fish scraps near the water's edge' [ref:qpws-rinyirru-safe]. Mind the spines when you take a catfish off the line."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country and the middle and lower Hann are Thaypan country, both recognised by the Federal Court in November 2023 [ref:fca-possum] [ref:fca-thaypan]. In Rinyirru, Traditional Owners 'use the park to camp, fish and hunt' [ref:qpws-rinyirru-2013]. Everyone else needs the Traditional Owners' permission to be on their country."
+        },
+        {
+          "id": "language",
+          "heading": "Language",
+          "body": "In Kuku Thaypan (Awu Alaya), the language of the Thaypan people of the middle and lower Hann, catfish is **arrmbil** [ref:hgdb]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "On the upper Mitchell around [Karma Waters](place:karma-waters) the common catfish are eel-tailed catfish (*Neosilurus*), with fork-tailed catfish in the bigger holes [ref:ala-catfish].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they live here",
+          "body": "[Karma Waters Station](place:karma-waters) sits on the north side of the Mitchell River, about 25 km west of Mount Carbine [ref:karmawaters]. The Atlas of Living Australia holds catfish records right on this stretch: the black catfish (*Neosilurus ater*), recorded by Queensland WildNet in 2008, and Hyrtl's catfish and the highfin catfish, collected for the Queensland Museum. Across the whole Mitchell drainage the Atlas holds more than 100 eel-tailed catfish records (mostly Hyrtl's and black catfish, with Dahl's and Rendahl's catfish) and more than 60 fork-tailed catfish records [ref:ala-catfish]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "**Native title.** In 2013 the Federal Court recognised Western Yalanji native title that includes rights to hunt, fish and gather, and to take and use the water, held through the Western Yalanji Aboriginal Corporation RNTBC [ref:fca2013]. A further 170,827 ha was recognised in August 2026; Elder Rose Snider said it meant going back to Country to teach the kids 'how to hunt and fish' [ref:nit2026wy]. Under section 211 of the *Native Title Act 1993*, native title holders do not need a licence or permit to fish for personal, domestic or non-commercial communal needs [ref:alrc].\n\n[Karma Waters](place:karma-waters) is a working station [ref:karmawaters]. Visitors need the station's permission, and the Western Yalanji Traditional Owners' permission, to fish its holes.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On Eastern Kuku Yalanji country, Bloomfield people caught catfish on [lines](entry:hooks-and-lines) of bark [twine](entry:string-and-twine) with [lawyer-cane](entry:lawyer-cane) thorn hooks, baited with [grubs](entry:witchetty-grub), [small prawns](entry:cherabin) or [frogs](entry:frogs) [ref:anderson1996].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where they live here",
+          "body": "In the Daintree drainage, which includes the Bloomfield, the common catfish is a different one, the Wet Tropics tandan (*Tandanus tropicanus*), with a few black catfish records [ref:ala-catfish]. Bloomfield people fished for catfish 'in freshwater creeks and waterholes' [ref:anderson1996]."
+        },
+        {
+          "id": "uses",
+          "heading": "Uses here",
+          "body": "On the inland creeks Bloomfield people fished with [lines](entry:hooks-and-lines) for '[turtle](entry:freshwater-turtle), [eelfish](entry:eels), catfish and perch' [ref:anderson1996]."
+        },
+        {
+          "id": "how-to",
+          "heading": "How they were caught and cooked here",
+          "body": "**[Hook and line](entry:hooks-and-lines) in a creek or waterhole (Bloomfield Kuku Yalanji)** [ref:anderson1996]:\n\n1. Make the line from the bark of *Sterculia quadrifolia*, twisted into [twine](entry:string-and-twine).\n2. Make the hook from a thorn of the [lawyer cane](entry:lawyer-cane) (*Calamus australis*).\n3. Bait it with a grub, a [small freshwater prawn](entry:cherabin) or a small [frog](entry:frogs).\n4. Hold the line in your hand, or tie it to a stick set into the bank.\n5. Line fishing was mostly women's work, though men did it too.\n\n**[Poisoning](entry:fish-poisoning) a drying waterhole.** At Bloomfield in the late dry, people used the bark and leaves of [*Erythrophleum chlorostachys*](entry:ironwood), smashed together under water, or the stems of [*Barringtonia racemosa*](entry:fish-poison-plants). The stunned fish floated up and were collected. Divers had to keep their eyes shut tight, and the hole could not be used again until a storm and flood refreshed it [ref:anderson1996].\n\n**Cooking.** Bigger catches, such as [eels](entry:eels), [turtles](entry:freshwater-turtle) and [cassowaries](entry:cassowary), were cut up and baked in the [earth oven](entry:earth-oven), **[kurrma](word:kurrma)**, which Bloomfield people made like this [ref:anderson1996]:\n\n1. Heat round [stones](entry:stone) that are known not to crack in a fire, and dig a hole nearby.\n2. Lift the hot stones into the hole with lawyer-cane tongs.\n3. Put the food, with eucalyptus, acacia or [wild-ginger](entry:wild-ginger) leaves for flavour, into a [bark trough](entry:bark-troughs) on the stones.\n4. Pack more hot stones around and on top, cover with [tea-tree bark](entry:paperbark) and then sand or earth, and leave it to cook for several hours."
+        }
+      ]
+    }
+  ]
 }

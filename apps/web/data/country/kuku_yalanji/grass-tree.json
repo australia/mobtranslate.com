@@ -23,7 +23,7 @@
     "open-woodland",
     "mountains"
   ],
-  "summary": "The grass tree, **[nganjirr](word:nganjirr)** [ref:hershberger1982], is the tufted, black-trunked plant of the dry open forest, *Xanthorrhoea*. Its resin, **[kanunjul](word:kanunjul)**, was 'used to make pitch to seal spear bindings' [ref:hershberger1982]. Kuku Yalanji at Bloomfield also used the light flower stalks as spear shafts and fire-drills. They ate the young leaf bases and shoots, and traded grass-tree spears inland [ref:roth1901] [ref:roth1904] [ref:roth1909] [ref:roth1910]. Anderson's Bloomfield consultants rated grass-tree gum below other cements [ref:anderson1996]. Near [Karma Waters](place:karma-waters), herbarium and Atlas records place *Xanthorrhoea johnsonii* on Mount Mulligan and around Mount Carbine [ref:ala-xanthorrhoea].",
+  "summary": "The grass tree, **[nganjirr](word:nganjirr)** [ref:hershberger1982], is the tufted, black-trunked plant of the dry open forest, *Xanthorrhoea*. Its resin, **[kanunjul](word:kanunjul)**, was 'used to make pitch to seal spear bindings' [ref:hershberger1982]. Kuku Yalanji at Bloomfield also used the light flower stalks as spear shafts and fire-drills. They ate the young leaf bases and shoots, and traded grass-tree spears inland [ref:roth1901] [ref:roth1904] [ref:roth1909] [ref:roth1910]. Anderson's Bloomfield consultants rated grass-tree gum below other cements [ref:anderson1996].",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -64,7 +64,7 @@
     {
       "id": "habitat",
       "heading": "Where it grows",
-      "body": "*X. johnsonii* grows in drier coastal, inland and range country in Queensland and New South Wales, usually as an understorey plant in open forest [ref:npq-xanthorrhoea]. It is a plant of the dry country, not the rainforest.\n\n**Around [Karma Waters](place:karma-waters).** The Atlas of Living Australia has no grass-tree records within 30 km of the homestead. Within 60 km it has 23, and 21 of them are *X. johnsonii*. The nearest are herbarium specimens from **Mount Mulligan**, about 38 km south-east. They were collected in 1984–85 on a scree slope below the cliffs and near the summit dam. There are also 2024 photographs from just east of **Mount Carbine**, about 60 km east, and a 2010 specimen from Mount Windsor National Park [ref:ala-xanthorrhoea]. So on the upper Mitchell, look for grass trees on the stony ranges and rocky slopes rather than on the river flats. They are worth reporting to the Atlas if you find them closer in."
+      "body": "*X. johnsonii* grows in drier coastal, inland and range country in Queensland and New South Wales, usually as an understorey plant in open forest [ref:npq-xanthorrhoea]. It is a plant of the dry country, not the rainforest."
     },
     {
       "id": "seasons",
@@ -89,7 +89,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "In the late 1970s and early 1980s, Bloomfield fishing [spears](entry:spear-and-woomera) still had their prong bindings covered with [ironwood](entry:ironwood) resin, car-battery 'tar', 'Araldite' or asphalt [ref:anderson1996]. Store-bought glues had begun to take the place of tree gums. The Western Yalanji determinations recognise native title rights to take and use natural resources on the land around the Palmer and Mitchell rivers [ref:fca2013]. Under s 211 of the *Native Title Act 1993*, native title holders can gather for personal, domestic and communal needs without the licences other people need [ref:alrc-s211]. Visitors need Traditional Owners' permission to dig resin or cut flower stalks."
+      "body": "Under s 211 of the *Native Title Act 1993*, native title holders can gather for personal, domestic and communal needs without the licences other people need [ref:alrc-s211]. Visitors need Traditional Owners' permission to dig resin or cut flower stalks."
     },
     {
       "id": "language",
@@ -185,10 +185,85 @@
       "id": "alrc-s211",
       "citation": "Australian Law Reform Commission (2014). Review of the Native Title Act 1993, Discussion Paper 82, ch. 8: Relevant provisions in the Native Title Act (s 211, preservation of native title hunting, fishing, gathering and cultural activities).",
       "url": "https://www.alrc.gov.au/publication/review-of-the-native-title-act-1993-dp-82/8-the-nature-and-content-of-native-title/relevant-provisions-in-the-native-title-act/"
+    },
+    {
+      "id": "standley2019",
+      "citation": "Standley, P.-M. (2019). The importance of campfires to effective conservation. PhD thesis, James Cook University. Records the fire and country knowledge of Kuku Thaypan Elders Dr Tommy George and Dr George Musgrave.",
+      "url": "https://researchonline.jcu.edu.au/64274/"
+    },
+    {
+      "id": "fca-kukuwarra",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 19) (Kuku Warra determination) [2023] FCA 1314 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1314"
+    },
+    {
+      "id": "qpws-rinyirru-about",
+      "citation": "Queensland Parks and Wildlife Service. About Rinyirru (Lakefield) National Park (CYPAL): park features and looking after the park (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about"
+    },
+    {
+      "id": "ala-hann-grasstree",
+      "citation": "Atlas of Living Australia. Occurrence records of the genus Xanthorrhoea (15 records, 1968–2024; 14 of them Xanthorrhoea johnsonii) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-06"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "Grass trees grow in the Hann's stringybark country: Kuku Thaypan Elders describe messmate woodland with yellow jacket and ironbark 'on the ridgelines +/- grass trees' [ref:standley2019]. The Atlas of Living Australia holds 15 grass-tree records, 14 of them *Xanthorrhoea johnsonii*, from 1968 to 2024, in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann-grasstree]. The people of this country still know how to get its resin.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "On the sandstone ranges of this country the sparse shrub layer under the stringybark 'consists of canopy species, Acacia spp., or Xanthorrhoea johnsonii (grass tree)' [ref:standley2019]. Look for it on the ridges and the sandy messmate rises, not on the river flats [ref:standley2019]."
+        },
+        {
+          "id": "uses",
+          "heading": "How the people of this country used it",
+          "body": "**Gum for spears and bowls (Kuku Thaypan).** Elder Dr George Musgrave Snr, speaking of bloodwood gum: 'if you no gum they use that thing, mix em up the grass tree gum, mix em up. Turn it hard. You can tie the spear, or you can plug the, ah the, Mess Mate Bark (Stringy Bark bowl) anything leak like that' [ref:standley2019].\n\n**Fire for resin (Kuku Thaypan).** 'Areas of Grass Trees Xanthorrhoea sp. were sometimes burnt hot to extract resin to work with gum', one of the few hot fires in the Elders' practice [ref:standley2019].\n\n**Spears in trade (about 1900).** The Endeavour and Bloomfield people 'travel up in the direction of the Laura River, and supply the Koko-warra with red-ochre, white-clay, grass-tree spears, etc.' [ref:roth1910].\n\n**Food.** Roth's note that 'the bases of the young leaves are eaten raw' gives a Koko-rarmul name from Princess Charlotte Bay, *rarnka* in his spelling [ref:roth1901]."
+        },
+        {
+          "id": "how-to",
+          "heading": "Getting resin, the Kuku Warra way",
+          "body": "A Kuku Warra man from the Laura side told the Federal Court: 'At the bottom of the black boy tree, you get a resin right down near the root. You take the root of the tree, cut it with a tomahawk, scrape the dirt off, heat the root on hot coals, and the resin or sap comes out of the root. You can mould the sap to bind things together' [ref:fca-kukuwarra].\n\n1. **Dig down** to the root at the bottom of the tree.\n2. **Cut the root** with a tomahawk.\n3. **Scrape off the dirt.**\n4. **Heat the root on hot coals** until the resin runs.\n5. **Mould it warm** round whatever it has to bind [ref:fca-kukuwarra]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Native title holders can gather for their own needs without a licence [ref:alrc-s211]. In Rinyirru everyone else must 'not remove plant material, living or dead' [ref:qpws-rinyirru-about]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Near [Karma Waters](place:karma-waters), herbarium and Atlas records place *Xanthorrhoea johnsonii* on Mount Mulligan and around Mount Carbine, not on the river flats [ref:ala-xanthorrhoea].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "The Atlas of Living Australia has no grass-tree records within 30 km of the homestead. Within 60 km it has 23, and 21 of them are *X. johnsonii*. The nearest are herbarium specimens from **Mount Mulligan**, about 38 km south-east. They were collected in 1984–85 on a scree slope below the cliffs and near the summit dam. There are also 2024 photographs from just east of **Mount Carbine**, about 60 km east, and a 2010 specimen from Mount Windsor National Park [ref:ala-xanthorrhoea]. So on the upper Mitchell, look for grass trees on the stony ranges and rocky slopes rather than on the river flats. They are worth reporting to the Atlas if you find them closer in."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The Western Yalanji determinations recognise native title rights to take and use natural resources on the land around the Palmer and Mitchell rivers [ref:fca2013]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On the Bloomfield grass-tree stalks and pitch went into spears, though Anderson's consultants rated its gum below ironwood's [ref:anderson1996].",
+      "sections": [
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "In the late 1970s and early 1980s, Bloomfield fishing [spears](entry:spear-and-woomera) still had their prong bindings covered with [ironwood](entry:ironwood) resin, car-battery 'tar', 'Araldite' or asphalt [ref:anderson1996]. Store-bought glues had begun to take the place of tree gums."
+        }
+      ]
+    }
+  ]
 }

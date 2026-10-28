@@ -20,7 +20,7 @@
   "countryTypes": [
     "rainforest"
   ],
-  "summary": "**[jidu](word:jidu)** is the wild ginger, Scott's ginger, *Hornstedtia scottiana*, which Roth wrote as *jeddo* and English still calls jiddo: a big ginger 'about 2–4 m tall' with the flowers and the red fruit 'raised only slightly above ground level' at its base, in the lowland rainforest of the Bloomfield and Daintree [ref:hershberger1982] [ref:roth1901] [ref:rfkginger]. Its leaves are the kitchen's foil: at Bloomfield the meat went into the [earth oven](entry:earth-oven) 'with *Eucalyptus*, *Acacia* or wild ginger leaves for flavouring'; the Bloomfield ovens were lined with 'various species of ginger'; the *junda* nut cakes were 'wrapped up in wild-ginger leaves, and baked in the ashes'; the Tully people baked green-ant larvae 'rolled up, in the dry, in \"wild-ginger\" leaves'; and the small fish of the flood run were 'tied up in wild-ginger leaves ready for baking' [ref:anderson1996] [ref:roth1901]. The leaves also made the trough that led water into the [leaching](entry:leaching) bag, and the fruit is eaten and feeds the cassowary [ref:anderson1996] [ref:rfkginger]. This is a page of the sea country of the Eastern Kuku Yalanji, the Bloomfield and Daintree coast; it is a long way from [Karma Waters](place:karma-waters) on the upper Mitchell, and is here because the words, the trade and the tools reach inland. The river at Karma Waters has no wild ginger; the [paperbark](entry:paperbark) is the wrapping there.",
+  "summary": "**[jidu](word:jidu)** is the wild ginger, Scott's ginger, *Hornstedtia scottiana*, which Roth wrote as *jeddo* and English still calls jiddo: a big ginger 'about 2–4 m tall' with the flowers and the red fruit 'raised only slightly above ground level' at its base, in the lowland rainforest of the Bloomfield and Daintree [ref:hershberger1982] [ref:roth1901] [ref:rfkginger]. Its leaves are the kitchen's foil: at Bloomfield the meat went into the [earth oven](entry:earth-oven) 'with *Eucalyptus*, *Acacia* or wild ginger leaves for flavouring'; the Bloomfield ovens were lined with 'various species of ginger'; the *junda* nut cakes were 'wrapped up in wild-ginger leaves, and baked in the ashes'; the Tully people baked green-ant larvae 'rolled up, in the dry, in \"wild-ginger\" leaves'; and the small fish of the flood run were 'tied up in wild-ginger leaves ready for baking' [ref:anderson1996] [ref:roth1901]. The leaves also made the trough that led water into the [leaching](entry:leaching) bag, and the fruit is eaten and feeds the cassowary [ref:anderson1996] [ref:rfkginger]. This is a plant of the Eastern Kuku Yalanji rainforest, the Bloomfield and Daintree coast; it is on this page because the words, the trade and the tools reach inland. Each place below says what grows there.",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -67,7 +67,7 @@
     {
       "id": "habitat",
       "heading": "Where it grows",
-      "body": "'Disturbed areas in lowland rain forest', the Bloomfield and Daintree scrubs and creek gullies, not the dry woodland of the upper Mitchell [ref:rfkginger]."
+      "body": "'Disturbed areas in lowland rain forest', from near sea level to 200 m, on Cape York and in the Wet Tropics [ref:rfkginger]."
     },
     {
       "id": "ecology",
@@ -97,7 +97,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "Jiddo grows in the Bloomfield scrubs and is still the oven leaf; the Eastern Kuku Yalanji country it grows on was handed back in 2021 [ref:rfkginger] [ref:handback2021]."
+      "body": "Wild ginger is gathered on someone's country: each place below says whose."
     },
     {
       "id": "language",
@@ -125,7 +125,7 @@
       "id": "roth1901",
       "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from the Hislops.",
       "url": "https://archive.org/details/northqueensland00landgoog",
-      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea')"
+      "locator": "Sect. 6 'Cooking'; plant list ('Castanospermum australe', 'Dioscorea sativa', 'Elettaria Scottiana', 'Nymphaea'); 'Curcuma australasica' (wild ginger, with Koko-rarmul and Koko-wara names, Princess Charlotte Bay); 'Dioscorea sativa var. rotunda' (Morehead River)"
     },
     {
       "id": "rfkginger",
@@ -147,10 +147,75 @@
       "id": "handback2021",
       "citation": "Australian Geographic (29 September 2021). Daintree handed back to Traditional Owners.",
       "url": "https://www.australiangeographic.com.au/news/2021/09/daintree-handed-back-to-traditional-owners/"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of the ginger family (Zingiberaceae; including Hornstedtia, Alpinia, Amomum, Curcuma and Zingiber) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026: no records.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=family%3AZingiberaceae"
+    },
+    {
+      "id": "qpws-rinyirru-2013",
+      "citation": "Queensland Parks and Wildlife Service (2013). Rinyirru (Lakefield) Aggregation Management Statement 2013.",
+      "url": "https://parks.desi.qld.gov.au/__data/assets/pdf_file/0027/165771/rinyirru.pdf"
+    },
+    {
+      "id": "qld-re",
+      "citation": "Queensland Herbarium. Regional ecosystem descriptions, Cape York Peninsula bioregion: 3.3.10a (Melaleuca fluviatilis fringing woodland), 3.3.24 (Eucalyptus leptophleba woodland on riverine levees, Laura area), 3.10.6 and 3.10.10 (Darwin stringybark woodland on sandstone), 3.3.66 (lakes and lagoons).",
+      "url": "https://apps.des.qld.gov.au/regional-ecosystems/"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "**No wild ginger is recorded on the Hann.** The Atlas of Living Australia holds no record of any plant of the ginger family in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann], and Scott's ginger is a plant of lowland rainforest [ref:rfkginger]. Around Princess Charlotte Bay, Roth's 'wild ginger' was a different plant, the native turmeric *Curcuma australasica*, eaten for its roots [ref:roth1901].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Not on the Hann",
+          "body": "Along the Hann grow 'stringybark, bloodwood, Moreton Bay ash and ironbark trees with a ground cover of coarse grasses such as speargrass' [ref:wp-hann], with a paperbark fringe on the big streams [ref:qld-re]. The closest thing to rainforest in this country is closed forest and vine thicket, 'very restricted' in Rinyirru [ref:qpws-rinyirru-2013], and the Atlas box holds no ginger of any kind [ref:ala-hann]."
+        },
+        {
+          "id": "uses",
+          "heading": "Ginger and oven leaves here",
+          "body": "**Wild ginger of the Bay.** Roth lists *Curcuma australasica* as '\"Wild ginger\"': 'Tuberous roots either roasted or boiled', with names in the Koko-rarmul and Koko-wara languages of Princess Charlotte Bay [ref:roth1901]. It is a root food, not an oven leaf, and the Atlas has no record of it near the Hann either [ref:ala-hann].\n\n**Covering the oven.** No published record says what leaves the people of the Hann laid in an earth oven. On the Morehead River, which runs like the Hann to Princess Charlotte Bay, Roth saw yams 'baked in a hot ant-bed covered with tea-tree bark and earth' [ref:roth1901]. See [paperbark](entry:paperbark) and [earth oven](entry:earth-oven)."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "[Karma Waters](place:karma-waters) on the upper Mitchell is a long way from the ginger's rainforest. The river at Karma Waters has no wild ginger; the [paperbark](entry:paperbark) is the wrapping there.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Not here",
+          "body": "Wild ginger grows in lowland rainforest [ref:rfkginger], not the dry woodland of the upper Mitchell."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "This is jidu's country: the Bloomfield and Daintree scrubs and creek gullies, where it is the oven leaf [ref:rfkginger] [ref:anderson1996].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "'Disturbed areas in lowland rain forest': the Bloomfield and Daintree scrubs and creek gullies [ref:rfkginger]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Jiddo grows in the Bloomfield scrubs and is still the oven leaf; the Eastern Kuku Yalanji country it grows on was handed back in 2021 [ref:rfkginger] [ref:handback2021]."
+        }
+      ]
+    }
+  ]
 }

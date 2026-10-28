@@ -16,7 +16,7 @@
   "countryTypes": [
     "river-freshwater"
   ],
-  "summary": "**[kabal](word:kabal)** is the Leichhardt tree and its fruit: 'the fruit is edible, it is small and round with small seeds. If you have a sore joint, boil the bark in water, rub the cooled water on the sore joint' [ref:hershberger1982]. It is the big-leaved shade tree of the river bank, 'a large tree, growing in scrubs along the banks of rivers, 40 feet high or more, a beautiful shade tree, wood yellow and bitter', as Palmer described it on the Mitchell in 1883, where its name was 'Oolpanje' and the fruit was 'eaten raw' [ref:palmer1883]. The Queensland Herbarium maps it with the [river red gum](entry:woodland) and the [paperbarks](entry:paperbark) in the fringing woodland of the Mitchell's channels, and two of its records are within 30 km of [Karma Waters](place:karma-waters) [ref:re9314] [ref:ala-karma-plants]. It 'grows to a maximum of around 30 m in height and has large glossy leaves. It bears spherical clusters of fragrant flowers that develop into golf-ball-sized edible but bitter fruits. The yellowish-to-orange soft wood is also used for timber and in woodcarving and folk medicine', and 'among the Kuku Yalanji, they are known as *kabal*' [ref:wiki-nauclea]. The tree drops its leaves in the dry, flowers and fruits with the wet, and feeds the [flying foxes](entry:flying-foxes-and-bats), the birds and the fish under it.",
+  "summary": "**[kabal](word:kabal)** is the Leichhardt tree and its fruit: 'the fruit is edible, it is small and round with small seeds. If you have a sore joint, boil the bark in water, rub the cooled water on the sore joint' [ref:hershberger1982]. It is the big-leaved shade tree of the river bank, 'a large tree, growing in scrubs along the banks of rivers, 40 feet high or more, a beautiful shade tree, wood yellow and bitter', as Palmer described it on the Mitchell in 1883, where its name was 'Oolpanje' and the fruit was 'eaten raw' [ref:palmer1883]. It 'grows to a maximum of around 30 m in height and has large glossy leaves. It bears spherical clusters of fragrant flowers that develop into golf-ball-sized edible but bitter fruits. The yellowish-to-orange soft wood is also used for timber and in woodcarving and folk medicine', and 'among the Kuku Yalanji, they are known as *kabal*' [ref:wiki-nauclea]. The tree drops its leaves in the dry, flowers and fruits with the wet, and feeds the [flying foxes](entry:flying-foxes-and-bats), the birds and the fish under it.",
   "infobox": [
     {
       "label": "Kuku Yalanji",
@@ -67,7 +67,7 @@
     {
       "id": "habitat",
       "heading": "Where it grows",
-      "body": "'A large tree, growing in scrubs along the banks of rivers', on the Mitchell, the Gregory and the Gulf rivers, with the river red gum and the paperbarks over bare sand in the Herbarium's 'Melaleuca fringing woodland on channels and levees' [ref:palmer1883] [ref:re9314]. Two records within 30 km of Karma Waters [ref:ala-karma-plants]."
+      "body": "'A large tree, growing in scrubs along the banks of rivers', on the Mitchell, the Gregory and the Gulf rivers, with the river red gum and the paperbarks over bare sand in the Herbarium's 'Melaleuca fringing woodland on channels and levees' [ref:palmer1883] [ref:re9314]."
     },
     {
       "id": "ecology",
@@ -97,7 +97,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "The Leichhardt trees stand over the Karma Waters pools with the red gums, bare in October and green by Christmas [ref:re9314] [ref:ala-karma-plants]. Western Yalanji names and uses for it are for the contribution box below."
+      "body": "Native title holders' rights differ from place to place: see each place above, and ask the Traditional Owners before cutting bark or gathering fruit."
     },
     {
       "id": "language",
@@ -151,10 +151,97 @@
       "id": "crocwise",
       "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
       "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of Nauclea (no records) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=*:*&fq=decimalLatitude:%5B-15.6%20TO%20-14.8%5D&fq=decimalLongitude:%5B143.5%20TO%20144.3%5D"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "qpws-rinyirru-about",
+      "citation": "Queensland Parks and Wildlife Service. About Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026). Park rules for visitors.",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
+    },
+    {
+      "id": "roth1903",
+      "citation": "Roth, W. E. (1903). North Queensland Ethnography, Bulletin No. 5: Superstition, magic, and medicine. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 159 (Sarcocephalus cordatus, the Leichhardt tree, among the Koko-minni of the middle Palmer); sect. 164 (treatment of snake-bite, Palmer River)"
+    },
+    {
+      "id": "healthdirect-snakebite",
+      "citation": "healthdirect Australia (Australian Government). Snake bites: symptoms, first aid and the pressure immobilisation bandage (accessed 10 October 2026).",
+      "url": "https://www.healthdirect.gov.au/snake-bites"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "**The Leichhardt tree is not recorded on the Hann itself.** The Atlas of Living Australia holds no Leichhardt tree records in a box of about 90 × 85 km around the middle Hann, Laura and western Rinyirru [ref:ala-hann]. But it grew close by: in Rinyirru, the timber of the old Laura Station homestead 'was pitsawn locally from Leichhardt trees' [ref:qpws-rinyirru-culture]. No use of it is published for this country.",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "Along the Hann the woodland is mostly stringybark, bloodwood, Moreton Bay ash and ironbark, with speargrass beneath [ref:wp-hann]. A Leichhardt tree here would be on the river bank or at a permanent waterhole, as everywhere else, but none has been recorded. Rinyirru's homestead timber shows the tree was once common enough nearby to be sawn for building [ref:qpws-rinyirru-culture]. If you know one on the Hann, it is worth recording."
+        },
+        {
+          "id": "uses",
+          "heading": "How people used it here",
+          "body": "Nothing is published on the Leichhardt tree from the Possum, Thaypan, Kuku Warra or Lama Lama peoples. The nearest record of use is Roth's, from the Koko-minni of the middle Palmer River, who ate its bark as a strong medicine (see the upper Mitchell segment) [ref:roth1903]. Ask the Traditional Owners rather than this page."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "In Rinyirru (Lakefield) National Park: 'Do not remove plant material, living or dead' [ref:qpws-rinyirru-about]. Upstream, the native title determinations of November 2023 recognise the Possum and Thaypan peoples' rights to take the natural resources of their country [ref:fca-possum] [ref:fca-thaypan]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "The Queensland Herbarium maps it with the [river red gum](entry:woodland) and the [paperbarks](entry:paperbark) in the fringing woodland of the Mitchell's channels, and two of its records are within 30 km of [Karma Waters](place:karma-waters) [ref:re9314] [ref:ala-karma-plants].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it grows here",
+          "body": "Two Atlas of Living Australia records lie within 30 km of [Karma Waters](place:karma-waters) [ref:ala-karma-plants]. Look for the big glossy leaves over the long pools of the Mitchell, among the red gums and paperbarks of the fringing woodland [ref:re9314]."
+        },
+        {
+          "id": "uses",
+          "heading": "How people used it here",
+          "body": "**Bark as medicine (Koko-minni, middle Palmer River).** Roth, about 1900: 'The Koko-minni break up the bark: if eaten, it produces vomiting, and is employed for curing \"sore belly\" and certain snake-bites.' For a black snake bite on the Palmer, 'the limb is held tightly with the hand, just above the injury, and the patient made to eat some raw bark of the Leichhardt-tree ... which soon makes him vomit, and so gives him relief' [ref:roth1903].\n\nThis is a record of what was done, not first aid. For any snakebite today, use a pressure immobilisation bandage, keep the person still and call for help [ref:healthdirect-snakebite]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The Leichhardt trees stand over the Karma Waters pools with the red gums, bare in October and green by Christmas [ref:re9314] [ref:ala-karma-plants]. Western Yalanji names and uses for it are for the contribution box below."
+        }
+      ]
+    }
+  ]
 }
