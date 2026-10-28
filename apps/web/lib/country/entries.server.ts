@@ -4,10 +4,13 @@ import { countryLinksIn } from './links';
 import {
   countryEntrySchema,
   countryImageSetSchema,
+  countryLocationsSchema,
   countryPlaceSchema,
+  entryTexts,
   wantedPagesSchema,
   type CountryEntry,
   type CountryImage,
+  type CountryLocation,
   type CountryPlace,
   type WantedPage,
 } from './schema';
@@ -45,6 +48,13 @@ export function getCountryEntry(language: string, slug: string): CountryEntry | 
   return getCountryEntries(language).find((entry) => entry.slug === slug) ?? null;
 }
 
+export function getCountryLocations(language: string): CountryLocation[] {
+  if (!hasCountry(language)) return [];
+  const file = path.join(DATA_ROOT, language, 'locations', 'index.json');
+  if (!fs.existsSync(file)) return [];
+  return countryLocationsSchema.parse(JSON.parse(fs.readFileSync(file, 'utf8'))).locations;
+}
+
 export function getCountryPlaces(language: string): CountryPlace[] {
   if (!hasCountry(language)) return [];
   const dir = path.join(DATA_ROOT, language, 'places');
@@ -69,7 +79,7 @@ export function getCountryBacklinks(language: string, slug: string): CountryBack
     countryLinksIn(texts.join('\n')).some((link) => link.kind === 'entry' && link.slug === slug);
   return [
     ...getCountryEntries(language)
-      .filter((entry) => entry.slug !== slug && linksTo([entry.summary, ...entry.sections.map((s) => s.body)]))
+      .filter((entry) => entry.slug !== slug && linksTo(entryTexts(entry)))
       .map((entry) => ({ kind: 'entry' as const, slug: entry.slug, title: entry.title })),
     ...getCountryPlaces(language)
       .filter((place) => place.groups.some((g) => g.entries.includes(slug)) || linksTo([place.summary, ...place.sections.map((s) => s.body)]))
@@ -107,7 +117,7 @@ export function getWantedPages(language: string): WantedPageWithLinks[] {
     }
   }
   for (const entry of entries) {
-    const links = countryLinksIn([entry.summary, ...entry.sections.map((s) => s.body)].join('\n'));
+    const links = countryLinksIn(entryTexts(entry).join('\n'));
     for (const slug of new Set(links.filter((link) => link.kind === 'entry').map((link) => link.slug))) {
       wanted.get(slug)?.linkedFrom.push({ slug: entry.slug, title: entry.title });
     }

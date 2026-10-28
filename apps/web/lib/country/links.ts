@@ -2,7 +2,7 @@
 //   [lawyer cane](entry:lawyer-cane)    another Country entry (or a page not written yet)
 //   [Karma Waters](place:karma-waters)  a place guide
 //   [ngabal](word:ngabal)               a Kuku Yalanji dictionary headword
-const LINK = /\]\((entry|place|word):([^)\s]+)\)/g;
+const LINK = /\]\((entry|place|word):([^)\n]+)\)/g;
 
 export type CountryLinkKind = 'entry' | 'place' | 'word';
 export type CountryLink = { kind: CountryLinkKind; slug: string };

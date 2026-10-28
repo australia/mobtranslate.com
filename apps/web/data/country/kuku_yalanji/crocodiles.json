@@ -1,0 +1,379 @@
+{
+  "slug": "crocodiles",
+  "title": "Crocodiles",
+  "category": "reptile",
+  "names": [
+    {
+      "word": "bilngkumu",
+      "gloss": "salt water crocodile"
+    },
+    {
+      "word": "ngawurr-ngawun",
+      "gloss": "freshwater crocodile"
+    }
+  ],
+  "scientificName": "Crocodylus porosus and Crocodylus johnstoni",
+  "identification": {
+    "confidence": "confirmed",
+    "basis": "The dictionary defines bilngkumu as 'salt water crocodile' and ngawurr-ngawun as 'freshwater crocodile'. Australia has only these two crocodiles."
+  },
+  "countryTypes": [
+    "river-freshwater",
+    "coast-mangrove",
+    "reef-sea"
+  ],
+  "summary": "Two crocodiles live on this country, and Kuku Yalanji keeps them apart: **[bilngkumu](word:bilngkumu)**, the [saltwater crocodile](entry:saltwater-crocodile), and **[ngawurr-ngawun](word:ngawurr-ngawun)**, the [freshwater crocodile](entry:freshwater-crocodile) [ref:hershberger1982]. The saltie kills people; the freshie is shy and has never been known to kill anyone [ref:qld-freshie]. Which one you meet, how it behaves through the year and how the people of that country lived with it all depend on **where you are**, so this page is written place by place: choose your country below. The rest of the page, how to tell them apart, their signs, their seasons and the safety rules, holds everywhere.",
+  "infobox": [
+    {
+      "label": "Kuku Yalanji",
+      "value": "bilngkumu (saltwater), ngawurr-ngawun (freshwater)"
+    },
+    {
+      "label": "Kuku Thaypan",
+      "value": "anharr (saltwater), awoya (freshwater)"
+    },
+    {
+      "label": "Saltwater",
+      "value": "Crocodylus porosus: broad heavy snout, usually 3–5 m; nests in the wet"
+    },
+    {
+      "label": "Freshwater",
+      "value": "Crocodylus johnstoni: long slender snout, up to about 3 m; nests in the dry"
+    },
+    {
+      "label": "Danger",
+      "value": "Salties can kill. If you are not sure which it is, treat it as a saltie."
+    },
+    {
+      "label": "Status",
+      "value": "Both protected in Queensland"
+    }
+  ],
+  "sections": [
+    {
+      "id": "names",
+      "heading": "Names",
+      "body": "The dictionary gives **[bilngkumu](word:bilngkumu)** 'salt water crocodile' and **[ngawurr-ngawun](word:ngawurr-ngawun)** 'freshwater crocodile', a doubled-up form [ref:hershberger1982]. It also records **[kurrujuwa](word:kurrujuwa)**, the 'sentry bird which warns of crocodiles along the banks of the river' [ref:hershberger1982]. One of the dictionary's examples is a lament: *Nyiku-nyiku bilngkumu walu karimanijinkuda*, 'There aren't many crocodiles any more' ([walu karimal](word:walu karimal) 'dwindling') [ref:hershberger1982]. Today the Eastern Kuku Yalanji say the opposite about the Bloomfield River (see the eastern coast below).\n\nNeighbouring languages have their own words; the Hann River's are in its section below [ref:hgdb]. The dictionary also has crocodile entries that belong to stories held by Traditional Owners; those are for them to tell."
+    },
+    {
+      "id": "description",
+      "heading": "Telling them apart",
+      "body": "| | Saltwater, bilngkumu | Freshwater, ngawurr-ngawun |\n|---|---|---|\n| Snout | Broad and heavy, less than twice as long as the head is wide [ref:am-porosus] | Long and slender, a straight jaw line [ref:am-johnstoni] [ref:qpws-rinyirru-safe] |\n| Size | Usually 3–5 m, the biggest over 6 m [ref:am-porosus] | Males about 2.3–3 m, females about 2.1 m [ref:am-johnstoni] |\n| Neck | | A row of four large scales behind the head [ref:qpws-rinyirru-safe] |\n| Teeth | | Fine and sharp, showing even with the mouth shut [ref:am-johnstoni] |\n| With people | Can attack and kill | Usually shy and placid when left alone [ref:qpws-rinyirru-safe] |\n\nSalties travel far up rivers into fresh water [ref:qld-saltie], so finding fresh water tells you nothing. **If you are not sure, treat it as a saltie.**"
+    },
+    {
+      "id": "signs",
+      "heading": "Signs",
+      "body": "- **Slides**: a smooth belly track down a bank into the water, claw marks either side, and a flattened basking place at the top [ref:am-johnstoni].\n- **Tracks**: four feet with a tail drag between them; a freshie in its 'high walk' lifts its body clear and the drag disappears [ref:am-johnstoni].\n- **Eyes at night**: red eyeshine low on the water in a torch beam; freshies lie at the surface at night [ref:seebacher2005].\n- **Nests**: a freshie's is a hole dug in sand or soil near the water's edge, in August–September [ref:qld-freshie]. A saltie's is a mound of scraped-up plants and soil on the bank, usually within 10 m of permanent water, from December to April, and the mother guards it [ref:qld-saltie] [ref:am-porosus]. Keep right away from both.\n- **Birds**: [kurrujuwa](word:kurrujuwa), the sentry bird [ref:hershberger1982]."
+    },
+    {
+      "id": "seasons",
+      "heading": "The crocodile year",
+      "body": "The two crocodiles breed on opposite clocks:\n\n1. **Late dry (August–September): freshie eggs.** Freshwater crocodiles lay 4–20 eggs, usually about 12, in holes in the sand near the water. They hatch at the start of the wet, in October–November. Over 70% are lost to floods or eaten by pigs, goannas and snakes [ref:qld-freshie].\n2. **Build-up (October–November): salties court** [ref:qld-saltie].\n3. **Wet (December–April): saltie nests.** Mound nests are built and guarded through the wet [ref:qld-saltie]. Rivers flood over the plains and crocodiles spread out with the water [ref:qpws-rinyirru-culture].\n4. **Dry (May–November): back to the holes.** As the water drops, crocodiles move into the deep permanent waterholes with the fish [ref:qpws-rinyirru-culture]. Roth recorded that across North Queensland the big ones were mostly caught then, 'stranded in the smaller water-holes after flood' [ref:roth1901].\n\nQueensland's parks ask people to be most careful **at night and in the breeding season, September to April** [ref:qpws-rinyirru-safe]."
+    },
+    {
+      "id": "safety",
+      "heading": "Safety",
+      "body": "Queensland's Be Crocwise rules hold in all croc country [ref:crocwise]:\n\n1. **Keep out of the water**, even in the shallows and even for a moment. No sign does not mean no crocodile.\n2. **Stay well back from the edge**, more than 5 m, and further where you can.\n3. **Don't crouch at the edge** or keep going back to the same spot; keep something solid between you and the water.\n4. **Take extra care at night, dusk and dawn.**\n5. **Bin fish frames, scraps and bait**; never leave them at the water.\n6. **Stay away from nests, slides and tracks.** Keep children and dogs back.\n\nFreshies have never been implicated in a human death, but they bite if provoked, trodden on or grabbed [ref:qld-freshie]."
+    },
+    {
+      "id": "language",
+      "heading": "Language",
+      "body": "Words for crocodile water: *[maraji](word:maraji)* 'swim'; *[dajali](word:dajali)* 'deep water'; *[kalkil](word:kalkil)* 'salty water, as in the sea or in a tidal river'; *[wawubaja](word:wawubaja)* 'river'; *[yikin](word:yikin)* 'bank or river'. The dictionary's example for *[mumbar](word:mumbar)* 'proper, correct, careful, alert' is *Bilngkumu milka mumbarku wunany*, 'The crocodile is lying there alert' [ref:hershberger1982]."
+    }
+  ],
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "The Hann River drains to **Rinyirru (Lakefield) National Park**, one of only six key areas for saltwater crocodile conservation in Queensland, where freshwater crocodiles live too [ref:qpws-rinyirru-safe]. All of the Hann lies below 200 m: it falls from about 178 m at its source to about 11 m where it joins the North Kennedy [ref:wp-hann], and the roadhouse crossing sits at about 80 m [ref:exploroz-hann]. Most salties live much lower, but about one in ten live between 20 and 100 m [ref:qld-cmp2019]. So on the Hann **either crocodile can be in any deep hole**. Plan for bilngkumu. The upper Hann is the Possum People's country, and the middle and lower Hann are Thaypan country [ref:fca-possum] [ref:fca-thaypan].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Which crocodile, and where",
+          "body": "**On the Hann itself the record is thin.** No published survey or report names crocodiles on the Hann River. The Atlas of Living Australia holds 18 freshwater crocodile records (1964–2025) and 21 saltwater crocodile records (2009–2026) in a box of about 90 × 85 km around the middle Hann, Laura and the west of Rinyirru. That box takes in far more water than the Hann, so treat it as 'both live in this country', not as a map [ref:ala-hann].\n\n**Downstream, it is plain.** In Rinyirru 'crocodiles can occur in the rivers, creeks, swamps, wetlands, waterholes and along beaches' [ref:qpws-rinyirru-safe]. In 1872 William Hann camped on the North Kennedy, at the place now called Hann Crossing (it is on the Kennedy, not the Hann), and wrote of 'signs of alligators during the night from which it would appear they are here in great numbers' [ref:qpws-rinyirru-culture]. In April 2023 a Laura man was taken at Kennedy Bend on the Kennedy River, downstream in the same river system; his remains were found in one of two crocodiles, of 4.1 and 2.8 m, caught nearby [ref:qcl2023].\n\n**No croc-free zone.** The whole Hann country is in Queensland's *general management zone*: crocodiles are not removed just for being there, only after a crocodile has been found to be a problem [ref:qld-croczones]."
+        },
+        {
+          "id": "ecology",
+          "heading": "How they behave here",
+          "body": "**In the wet** (December to March) the rivers flood over their banks onto the plains. 'During this time animals disperse far and wide as food and water is plentiful. Estuarine and freshwater crocodiles bask on the water surface' [ref:qpws-rinyirru-culture]. Crocodiles move with the floodwater; a hole that was empty in the dry can hold one after the floods go down.\n\n**In the dry** the water goes back into the channel. The Hann is spring-fed and its gauge at Sandy Creek has not recorded a single day without flow since 1968, but by September–November it runs very low between its deep holes [ref:bom-105001b] [ref:wetlandinfo-normanby], and the animals come back to the deep permanent water. At Catfish Waterhole on the North Kennedy, 'surveys undertaken at this waterhole show that crocodile numbers increase during the dry season as they move into the permanent water'. Their prey there is 'fish, frogs, turtles, mammals and birds', and egrets in turn take baby crocodiles [ref:qpws-rinyirru-culture]. Expect the same on the Hann: the last deep holes of the late dry hold the fish, the turtles, the people's fishing and the crocodiles all at once.\n\n**Day and night.** Freshies are active by day but forage mainly at night, on insects, fish, frogs, lizards, turtles, bats and birds [ref:qld-freshie]. An adult saltie takes whatever it can overpower: wallabies, kangaroos, pigs, dogs and cattle [ref:qld-saltie]; a beast or a person drinking or fishing at the edge is the same to it.\n\n**Nesting.** Freshies dig their nests in the sand banks of the late dry, August–September; salties build mounds beside permanent water through the wet [ref:qld-freshie] [ref:qld-saltie]."
+        },
+        {
+          "id": "uses",
+          "heading": "How the people of this country dealt with them",
+          "body": "The Hann runs to the Normanby and Princess Charlotte Bay, and the oldest written records of living with crocodiles here come from Walter Roth, who was told them around 1900. They are what he was told, by his informants, in his words.\n\n**Crossing crocodile rivers (lower Normanby, Princess Charlotte Bay)** [ref:roth1910]:\n\n1. Where a 'known crocodile-infested river has to be crossed, and there is no canoe', a man crossed **by diving**, under the water rather than on it.\n2. If he met a crocodile on the way, 'he immediately stirs up around him the dark mud on the river bed' and hides in it.\n3. People diving for water-lily seed had a friend **watching from the bank**. 'On seeing the shadow or long streaky film of fine bubbles indicating the approach of the reptile', the watcher 'immediately splashes the water surface'.\n4. 'The Princess Charlotte Bay Natives never consider it safe to swim even silently on the surface of these waters … when crocodiles are about.'\n\n**Hunting and eggs (across North Queensland)** [ref:roth1901]:\n\n1. Crocodiles were usually **speared**, 'a favourite spot appearing to be just behind the arm'.\n2. The big ones were taken 'when stranded in the smaller water-holes after flood': the season to hunt them was the drying-down, when they were caught in the holes.\n3. On the lower Palmer, a freshie was sometimes caught **by hand** in the water: the hunter got on its back, held the jaws shut, wrapped a leg round the tail and dragged it to the bank.\n4. Crocodile eggs, like birds' and turtle eggs, were eaten 'whenever found'.\n\n**Growing up with them.** On the upper Normanby boys played a crocodile game in the water, one of them swimming at the surface 'like the saurian he is supposed to represent' [ref:roth1902].\n\n**Story.** Roth recorded a story from the Koko-warra of Princess Charlotte Bay, set on one of the Lakefield lagoons, in which the wagtail makes a crocodile to help him: 'Even now, the wag-tail is often to be observed in company with a crocodile.' He also recorded one from the middle Palmer on why crocodiles travel upstream in flood time [ref:roth1903]. These stories belong to their custodians: ask them, rather than this page."
+        },
+        {
+          "id": "safety",
+          "heading": "Staying safe here",
+          "body": "1. **Treat every deep hole on the Hann as saltie water**, wet or dry. No sign does not mean no crocodile [ref:crocwise].\n2. Be most careful **at night and from September to April**, the breeding season [ref:qpws-rinyirru-safe].\n3. In the late dry the crocodiles and the fish are in the same holes. Fish from well back, never wade to free a snag, and **clean fish away from the water**, binning the frames [ref:crocwise].\n4. Don't return to the same spot at the edge day after day; a crocodile learns it [ref:crocwise].\n5. Remember Kennedy Bend: experienced local people have been taken in this river system [ref:qcl2023]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The Federal Court recognised two native title determinations over the Hann on 2 November 2023. The **upper Hann**, around the upper Hann and Kennedy rivers, is the **Possum People's** country, held by the Possum Aboriginal Corporation; a Possum man told the Court of 'fishing for barra, jewfish, catties and spotties' and 'hunting pigs, kangaroos, goanna, porcupine, and plain turkeys' [ref:fca-possum]. The **middle and lower Hann** are **Thaypan** country, over more than 350,000 ha east of the Great Dividing Range including Musgrave and Mary Valley stations, held by the **Awu-Laya Indigenous Corporation**; one Thaypan man said he had taught his boys 'about hunting on Thaypan country - from the west side of Mary Valley to the Hann River Crossing … We get wallaby, barramundi, freshwater fish and turtles and mussels' [ref:fca-thaypan]. Downstream, Rinyirru's Traditional Owners are the Lama Lama and Kuku Thaypan peoples, and the park is jointly managed by the Rinyirru Aboriginal Corporation and the Queensland Government [ref:qpws-rinyirru-culture].\n\nBoth crocodiles are protected; native title holders may hunt for personal, domestic and non-commercial communal needs without the licences others need [ref:nta1993]. Everyone else needs the Traditional Owners' permission to be on their country."
+        },
+        {
+          "id": "language",
+          "heading": "Language",
+          "body": "Kuku Thaypan (Awu Alaya), the language of the Thaypan people of the lower Hann, calls the saltwater crocodile **anharr** and the freshwater crocodile **awoya**. The database notes that on the east side of Cape York, Kuku Thaypan included, words from the old root *\\*kañarra* mean the saltwater crocodile, while on the west side they mean the freshwater one [ref:hgdb]. Further west, Olkola says **inh-owinhay** for the saltie and **minh-okakor** for the freshie; Guugu Yimidhirr, at Hope Vale, says **ganhaarr** for either kind, with **wayin** as the respect word for any crocodile or big lizard [ref:hgdb]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Up on the Western Yalanji Mitchell, around Mount Carbine and [Karma Waters](place:karma-waters), the crocodile you will meet is **[ngawurr-ngawun](word:ngawurr-ngawun)**. The Atlas of Living Australia holds many freshwater crocodile records along the upper Mitchell and its tributaries, and only a handful of unverified 'saltwater crocodile' reports from the same stretch [ref:ala]. The lower Mitchell and the Gulf coast, 700 km downstream, are saltie country [ref:wp-mitchell] [ref:crocwise].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Which crocodile, and where",
+          "body": "Karma Waters Station says plainly that freshwater crocodiles live in its river [ref:karma]. Look for them in the long deep pools and under the shady banks of the big river; as the water drops in the dry they gather in the bigger, deeper pools and may shelter in burrows among the roots of bank-side trees [ref:am-johnstoni]. Salties seldom live above 200 m [ref:qld-crochabitat], and the upper Mitchell is near or above that line, but they do travel: never assume a deep, dark pool is saltie-free [ref:crocwise]."
+        },
+        {
+          "id": "ecology",
+          "heading": "How they behave here",
+          "body": "Radio-tracked freshies dived most in the morning and lay at the surface at night [ref:seebacher2005]: the daylight hunter of the waterhole's edge, sitting still and waiting for insects, shrimp and small fish [ref:am-johnstoni]. See the [freshwater crocodile](entry:freshwater-crocodile) page for the rest of its year here."
+        },
+        {
+          "id": "uses",
+          "heading": "How the people of this country dealt with them",
+          "body": "Roth heard of two or three cases on the upper Leichhardt and the **lower Palmer**, the next river north, in which the freshwater crocodile was caught in the water **by hand**: the hunter got on its back, held its jaws together, put his leg round its tail and dragged it onto the bank, where it was easily made helpless [ref:roth1901]. Elsewhere crocodiles were speared just behind the arm, mostly when stranded in the waterholes after a flood, and their eggs were eaten whenever found [ref:roth1901]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "Western Yalanji native title determinations from 2013 recognise rights to hunt, fish and gather for personal, domestic and non-commercial communal purposes; on a pastoral lease, hunting with firearms only where stock are not present and after notice to the lessee [ref:brady2013]. A further Western Yalanji determination followed in August 2026 [ref:nit2026wy]. Karma Waters guests may not bring weapons or hunting dogs [ref:karma-camping]."
+        }
+      ]
+    },
+    {
+      "location": "eastern-coast",
+      "summary": "On the coast this is **[bilngkumu](word:bilngkumu)** country: the beaches, the [mangroves](entry:mangroves) and the rivers from the Daintree to the Bloomfield and the Annan [ref:crocwise]. Eastern Kuku Yalanji Traditional Owners describe bilngkumu as important story animals and part of their culture, and say there are now too many of them where people live, especially in the Bloomfield River, where they are becoming more dangerous [ref:jabalbina2016].",
+      "sections": [
+        {
+          "id": "uses",
+          "heading": "How the people of this country dealt with them",
+          "body": "For Eastern Kuku Yalanji people bilngkumu is above all a story animal, part of the culture and the law of the waterways [ref:jabalbina2016]. Neither the dictionary nor Roth gives a Bloomfield hunting method. Just to the north, at Cape Bedford in Guugu Yimithirr country, Roth found 'one or two old men who are not afraid to dive into a water-hole and tackle the true crocodile' [ref:roth1901]."
+        },
+        {
+          "id": "safety",
+          "heading": "Staying safe here",
+          "body": "The Traditional Owners' own rule: **don't butcher [turtles](entry:sea-turtle) in the Bloomfield River estuary**. It draws bilngkumu in, is against their lore and makes the river more dangerous for everyone [ref:jabalbina2016]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "In August 2026 the Federal Court recognised Eastern Kuku Yalanji native title over about 217,884 ha from the Annan River to the Daintree, including the Bloomfield and Daintree river systems [ref:nit2026eky]."
+        }
+      ]
+    }
+  ],
+  "relatedEntries": [
+    "saltwater-crocodile",
+    "freshwater-crocodile",
+    "waterhole",
+    "spear-and-woomera",
+    "seasons",
+    "freshwater-turtle"
+  ],
+  "relatedWords": [
+    {
+      "word": "kurrujuwa",
+      "gloss": "sentry bird which warns of crocodiles along the banks of the river"
+    },
+    {
+      "word": "walu karimal",
+      "gloss": "dwindling"
+    },
+    {
+      "word": "mumbar",
+      "gloss": "proper, correct, careful, alert"
+    },
+    {
+      "word": "dajali",
+      "gloss": "deep water"
+    }
+  ],
+  "references": [
+    {
+      "id": "hershberger1982",
+      "citation": "Hershberger, H. D. & Hershberger, R. (1982). Kuku-Yalanji Dictionary. Work Papers of SIL-AAB, Series B, Volume 7. With Toby Bloomfield, Roy Friday, Billy Roberts, Hector and Doris Sykes, Joe Walker and others.",
+      "url": "https://www.sil.org/resources/archives/18038"
+    },
+    {
+      "id": "roth1901",
+      "citation": "Roth, W. E. (1901). North Queensland Ethnography, Bulletin No. 3: Food — its search, capture, and preparation. Brisbane: Government Printer. Bloomfield River information from R. Hislop.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sect. 19 'Crocodiles'; sect. 3 'Food in season'"
+    },
+    {
+      "id": "jabalbina2016",
+      "citation": "Yalanjiwarra People & Jabalbina Yalanji Aboriginal Corporation (2016). Nganjinanga Bubu, Nganjinanga Jalun, Nganjinanga Bama Plan: Our Land, Our Sea, Our People Plan 2016–2021. Eastern Kuku Yalanji Indigenous Protected Area Management Plan, Stage 3. Mossman: Jabalbina.",
+      "url": "https://www.wettropicsplan.org.au/wp-content/uploads/2019/09/Eastern-Kuku-Yalanji-Indgenous-Protected-Area-Management-Plan-Stage-3-Yalanjiwarra-Land-and-Sea-Country.pdf",
+      "locator": "Sections 4 (values: waterways) and 7 (threats)"
+    },
+    {
+      "id": "crocwise",
+      "citation": "Queensland Government. Be Crocwise top tips; Be Crocwise in Croc Country (web pages, accessed 5 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/becrocwise/be-crocwise-top-tips"
+    },
+    {
+      "id": "am-porosus",
+      "citation": "Australian Museum. Estuarine Crocodile, Crocodylus porosus (web page, accessed 5 October 2026).",
+      "url": "https://australian.museum/learn/animals/reptiles/estuarine-crocodile/"
+    },
+    {
+      "id": "am-johnstoni",
+      "citation": "Australian Museum. Freshwater Crocodile, Crocodylus johnstoni (web page, accessed 5 October 2026).",
+      "url": "https://australian.museum/learn/animals/reptiles/freshwater-crocodile/"
+    },
+    {
+      "id": "ala",
+      "citation": "Atlas of Living Australia. Occurrence records for Crocodylus johnstoni and Crocodylus porosus, upper Mitchell River area (lat −17.0 to −15.8, long 144.3 to 145.12), queried 5 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Crocodylus%20johnstoni%22"
+    },
+    {
+      "id": "wp-mitchell",
+      "citation": "Wikipedia. Mitchell River (Queensland) (accessed 5 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Mitchell_River_(Queensland)"
+    },
+    {
+      "id": "nit2026eky",
+      "citation": "National Indigenous Times (12 August 2026). 'More than 100 ancestral lines united in Eastern Kuku Yalanji native title determination.'",
+      "url": "https://nit.com.au/12-08-2026/25896/more-than-100-ancestral-lines-united-in-eastern-kuku-yalanji-native-title-determination"
+    },
+    {
+      "id": "nit2026wy",
+      "citation": "National Indigenous Times (13 August 2026). 'Western Yalanji determination brings Cape York native title to the finish line.'",
+      "url": "https://nit.com.au/13-08-2026/25941/western-yalanji-determination-brings-cape-york-native-title-to-the-finish-line"
+    },
+    {
+      "id": "nta1993",
+      "citation": "Native Title Act 1993 (Cth), section 211: preservation of certain native title rights and interests (hunting, fishing and gathering for personal, domestic or non-commercial communal needs).",
+      "url": "https://www.legislation.gov.au/C2004A04665/latest/text"
+    },
+    {
+      "id": "karma",
+      "citation": "Karma Waters Station. About (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/about.html"
+    },
+    {
+      "id": "karma-camping",
+      "citation": "Karma Waters Station. Bush camping (web page, accessed 5 October 2026).",
+      "url": "https://www.karmawatersstation.com/bush-camping.html"
+    },
+    {
+      "id": "brady2013",
+      "citation": "Brady on behalf of the Western Yalanji People #4 v State of Queensland [2013] FCA 958 (Federal Court of Australia, 24 September 2013).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2013/2013fca0958",
+      "locator": "Determination: native title rights and interests (hunt, fish and gather); condition on hunting with firearms on a pastoral lease"
+    },
+    {
+      "id": "seebacher2005",
+      "citation": "Seebacher, F., Franklin, C. E. & Read, M. (2005). Diving behaviour of a reptile (Crocodylus johnstoni) in the wild: interactions with heart rate and body temperature. Physiological and Biochemical Zoology 78: 1–8.",
+      "url": "https://doi.org/10.1086/425192"
+    },
+    {
+      "id": "qld-crochabitat",
+      "citation": "Queensland Department of Environment. Estuarine crocodile population modelling, Appendix 8: defining estuarine crocodile habitat (inland limit set at the 200 m contour).",
+      "url": "https://environment.desi.qld.gov.au/__data/assets/pdf_file/0032/276773/appendix-8.pdf"
+    },
+    {
+      "id": "qpws-rinyirru-safe",
+      "citation": "Queensland Parks and Wildlife Service. Visiting Rinyirru (Lakefield) National Park (CYPAL) safely (web page, last updated 1 June 2025; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/visiting-safely"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "qld-cmp2019",
+      "citation": "Queensland Department of Environment and Science. Queensland Estuarine Crocodile Monitoring Program 2016–2019: Key Findings Report.",
+      "url": "https://environment.desi.qld.gov.au/__data/assets/pdf_file/0020/244613/qld-estuarine-croc-monitoring-program-2016-19-report.pdf"
+    },
+    {
+      "id": "wp-hann",
+      "citation": "Wikipedia. Hann River (Queensland) (accessed 28 October 2026).",
+      "url": "https://en.wikipedia.org/wiki/Hann_River_(Queensland)"
+    },
+    {
+      "id": "exploroz-hann",
+      "citation": "ExplorOz. Hann River Roadhouse (place page, altitude 80 m; accessed 28 October 2026).",
+      "url": "https://www.exploroz.com/places/634594/qld+hann-river-roadhouse"
+    },
+    {
+      "id": "qld-croczones",
+      "citation": "Queensland Government. Crocodile management zones (Queensland Crocodile Management Plan spatial layer), queried 28 October 2026: the Hann River country is in the general management zone.",
+      "url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/Biota/CrocodileManagementZones/MapServer/1"
+    },
+    {
+      "id": "qcl2023",
+      "citation": "AAP (3 May 2023). 'Human remains found in crocodile in Lakefield NP.' Queensland Country Life.",
+      "url": "https://www.queenslandcountrylife.com.au/story/8180748/human-remains-found-in-crocodile-in-lakefield-np"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of Crocodylus johnstoni (18 records, 1964–2025) and Crocodylus porosus (21 records, 2009–2026) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Crocodylus%20johnstoni%22"
+    },
+    {
+      "id": "qld-freshie",
+      "citation": "Queensland Government. Freshwater crocodile (web page, accessed 28 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/freshwater-crocodile"
+    },
+    {
+      "id": "qld-saltie",
+      "citation": "Queensland Government. Estuarine crocodile (web page, accessed 28 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/estuarine-crocodile"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "roth1910",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and trade. Records of the Australian Museum 8(1): 1–19.",
+      "url": "https://journals.australian.museum/roth-1910-rec-aust-mus-81-119/",
+      "locator": "Swimming and diving; crossing crocodile rivers on the lower Normanby (Princess Charlotte Bay)"
+    },
+    {
+      "id": "roth1903",
+      "citation": "Roth, W. E. (1903). North Queensland Ethnography, Bulletin No. 5: Superstition, magic, and medicine. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Sects. 32 and 34 (stories from the middle Palmer River and from the Koko-warra of Princess Charlotte Bay)"
+    },
+    {
+      "id": "roth1902",
+      "citation": "Roth, W. E. (1902). North Queensland Ethnography, Bulletin No. 4: Games, sports and amusements. Brisbane: Government Printer.",
+      "url": "https://archive.org/details/northqueensland00landgoog",
+      "locator": "Water games, upper Normanby River"
+    },
+    {
+      "id": "hgdb",
+      "citation": "Hunter-Gatherer Language Database (University of Texas at Austin). Lexical features 'saltwater crocodile' and 'freshwater crocodile': Kuku-Thaypan, Uw-Olkol, Guugu Yimidhirr (accessed 28 October 2026).",
+      "url": "https://huntergatherer.la.utexas.edu/lexical/feature/325"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
+    },
+    {
+      "id": "bom-105001b",
+      "citation": "Bureau of Meteorology, Water Data Online. Station 105001B, Hann River at Sandy Creek: daily and monthly mean discharge 1968–2026 (recent data provisional), retrieved 28 October 2026. No day of zero mean flow in 20,711 days of record; mean flow highest in February–March, lowest in September–November.",
+      "url": "https://www.bom.gov.au/waterdata/"
+    },
+    {
+      "id": "wetlandinfo-normanby",
+      "citation": "Queensland Government, WetlandInfo. Normanby catchment story: physical features (springs and base flow).",
+      "url": "https://wetlandinfo.detsi.qld.gov.au/wetlands/ecology/processes-systems/water/catchment-stories/normanby/norm-physical.html"
+    }
+  ],
+  "review": {
+    "status": "unreviewed"
+  },
+  "updated": "2026-10-28"
+}

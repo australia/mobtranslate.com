@@ -2,7 +2,14 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { ArrowLeft } from 'lucide-react';
 import SharedLayout from '../../../components/SharedLayout';
-import { COUNTRY_LANGUAGES, getCountryEntries, getCountryImages, getCountryPlaces, getWantedPages } from '@/lib/country/entries.server';
+import {
+  COUNTRY_LANGUAGES,
+  getCountryEntries,
+  getCountryImages,
+  getCountryLocations,
+  getCountryPlaces,
+  getWantedPages,
+} from '@/lib/country/entries.server';
 import { CountryBrowser, type CountryCard } from './CountryBrowser';
 import { ReviewNotice } from './components/ReviewNotice';
 import { Community } from './components/Community';
@@ -44,7 +51,9 @@ export default async function CountryIndexPage(props: { params: Promise<{ langua
     countryTypes: entry.countryTypes,
     blurb: blurb(entry.summary),
     thumb: getCountryImages(language, entry.slug)[0]?.src,
+    locations: entry.locations.map((segment) => segment.location),
   }));
+  const locations = getCountryLocations(language).map(({ id, name, region }) => ({ id, name, region }));
 
   return (
     <SharedLayout>
@@ -90,7 +99,7 @@ export default async function CountryIndexPage(props: { params: Promise<{ langua
           </section>
         )}
 
-        <CountryBrowser language={language} cards={cards} />
+        <CountryBrowser language={language} cards={cards} locations={locations} />
 
         {wanted.length > 0 && (
           <section className="mt-12 border-t border-border pt-8">

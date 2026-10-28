@@ -10,13 +10,16 @@ import {
   getCountryEntry,
   getCountryEntrySlugs,
   getCountryImages,
+  getCountryLocations,
 } from '@/lib/country/entries.server';
 import { countryHref } from '@/lib/country/links';
-import { CATEGORY_LABELS, COUNTRY_TYPE_LABELS } from '@/lib/country/schema';
+import { CATEGORY_LABELS, COUNTRY_TYPE_LABELS, entryTexts } from '@/lib/country/schema';
 import { CountryMarkdown } from '../components/CountryMarkdown';
 import { ReviewNotice } from '../components/ReviewNotice';
 import { CountryFigure } from '../components/CountryFigure';
 import { Community } from '../components/Community';
+import { LocationPicker } from '../components/LocationPicker';
+import { locationCss } from '../components/locationCss';
 import { pageMetadata } from '@/lib/seo';
 
 export const dynamic = 'force-static';
@@ -60,7 +63,7 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
   const citedOrder = [
     ...new Set(
       Array.from(
-        [entry.summary, ...entry.sections.map((section) => section.body)].join('\n').matchAll(/\[ref:([a-z0-9-]+)\]/g),
+        entryTexts(entry).join('\n').matchAll(/\[ref:([a-z0-9-]+)\]/g),
         (match) => match[1],
       ),
     ),
@@ -76,10 +79,21 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
   const backlinks = getCountryBacklinks(language, entry.slug);
   const existingEntries = getCountryEntrySlugs(language);
   const [leadImage, ...galleryImages] = getCountryImages(language, entry.slug);
+  const locations = getCountryLocations(language);
+  const segments = locations.flatMap((location) => {
+    const segment = entry.locations.find((candidate) => candidate.location === location.id);
+    return segment ? [{ location, segment }] : [];
+  });
+  const missing = locations.filter((location) => !segments.some((s) => s.location.id === location.id));
+  const rootId = 'country-entry';
+  const md = (text: string) => (
+    <CountryMarkdown refNumbers={refNumbers} language={language} existingEntries={existingEntries}>{text}</CountryMarkdown>
+  );
 
   return (
     <SharedLayout>
-      <article data-language={language} className="mx-auto max-w-5xl py-8 md:py-12">
+      <article id={rootId} data-language={language} className="mx-auto max-w-5xl py-8 md:py-12">
+        {segments.length > 0 && <style>{locationCss(rootId, locations.map((location) => location.id))}</style>}
         <Link
           href={`/dictionaries/${language}/country`}
           className="mb-6 inline-flex items-center gap-1.5 text-sm text-muted-foreground no-underline hover:text-[var(--lang-accent)]"
@@ -123,6 +137,13 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
             <nav aria-label="Contents" className="my-6 rounded-lg border border-border bg-card px-4 py-3 text-sm lg:hidden">
               <p className="mb-1 font-semibold">Contents</p>
               <ol className="ml-5 list-decimal space-y-0.5">
+                {segments.map(({ location }) => (
+                  <li key={location.id} data-location={location.id}>
+                    <a href={`#at-${location.id}`} className="text-[var(--lang-accent)] hover:underline">
+                      {location.name}
+                    </a>
+                  </li>
+                ))}
                 {entry.sections.map((section) => (
                   <li key={section.id}>
                     <a href={`#${section.id}`} className="text-[var(--lang-accent)] hover:underline">
@@ -132,6 +153,49 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
                 ))}
               </ol>
             </nav>
+
+            {segments.length > 0 && (
+              <div className="mt-8">
+                <LocationPicker rootId={rootId} locations={locations.map(({ id, name, region }) => ({ id, name, region }))} />
+                {missing.map((location) => (
+                  <p key={location.id} data-missing data-location={location.id} className="mt-4 rounded-lg border border-dashed border-border px-4 py-3 text-sm text-muted-foreground">
+                    Nothing is written for the {location.name} on this page yet. What follows is true across the country.
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {segments.map(({ location, segment }) => (
+              <section key={location.id} id={`at-${location.id}`} data-location={location.id} className="mt-8 scroll-mt-24">
+                <div className="rounded-lg border border-[var(--lang-accent)] bg-[var(--lang-accent-soft)] px-4 py-3">
+                  <h2 className="text-2xl font-semibold tracking-tight">
+                    {location.name} <span className="text-base font-normal text-muted-foreground">{location.region}</span>
+                  </h2>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {location.description}
+                    {location.place && (
+                      <>
+                        {' '}
+                        <Link href={`/dictionaries/${language}/country/places/${location.place}`} className="font-medium text-[var(--lang-accent)] hover:underline">
+                          Place guide
+                        </Link>
+                      </>
+                    )}
+                  </p>
+                </div>
+                <div className="mt-4">{md(segment.summary)}</div>
+                {segment.sections.map((section) => (
+                  <section key={section.id} id={`at-${location.id}-${section.id}`} className="mt-6 scroll-mt-24">
+                    <h3 className="mb-2 text-xl font-semibold tracking-tight">{section.heading}</h3>
+                    {md(section.body)}
+                  </section>
+                ))}
+              </section>
+            ))}
+
+            {segments.length > 0 && (
+              <p className="mt-10 border-t border-border pt-3 text-sm font-medium text-muted-foreground">Everywhere</p>
+            )}
 
             {entry.sections.map((section) => (
               <section key={section.id} id={section.id} className="mt-8 scroll-mt-24">
@@ -203,6 +267,13 @@ export default async function CountryEntryPage(props: { params: Promise<{ langua
             <nav aria-label="Contents" className="hidden rounded-lg border border-border bg-card px-4 py-3 text-sm lg:block">
               <p className="mb-1 font-semibold">Contents</p>
               <ol className="ml-5 list-decimal space-y-0.5">
+                {segments.map(({ location }) => (
+                  <li key={location.id} data-location={location.id}>
+                    <a href={`#at-${location.id}`} className="text-[var(--lang-accent)] hover:underline">
+                      {location.name}
+                    </a>
+                  </li>
+                ))}
                 {entry.sections.map((section) => (
                   <li key={section.id}>
                     <a href={`#${section.id}`} className="text-[var(--lang-accent)] hover:underline">

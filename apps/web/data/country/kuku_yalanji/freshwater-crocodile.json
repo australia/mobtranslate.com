@@ -73,7 +73,7 @@
     {
       "id": "habitat",
       "heading": "Where it lives",
-      "body": "Freshwater crocodiles live in rivers, creeks, pools, billabongs, lagoons and swamps across northern Australia, from King Sound in Western Australia to Cape York Peninsula. They keep away from the near-coastal waters that [saltwater crocodiles](entry:saltwater-crocodile) dominate [ref:am-johnstoni]. In the [dry season](entry:seasons) they can go dormant in shelters [ref:am-johnstoni].\n\n**Karma Waters and the upper Mitchell.** [Karma Waters Station](place:karma-waters), on the northern side of the Mitchell River west of Mount Carbine, says plainly that freshwater crocodiles are found in its river [ref:karma]. The Atlas of Living Australia holds freshwater crocodile records from 2004 to 2025 within 30 km of the homestead, and more along the Mitchell and its tributaries between Mount Carbine and the Palmer. It holds no saltwater crocodile records within 30 km [ref:ala]. Look for them in the long deep pools and under the shady banks of the big river."
+      "body": "Freshwater crocodiles live in rivers, creeks, pools, billabongs, lagoons and swamps across northern Australia, from King Sound in Western Australia to Cape York Peninsula. They keep away from the near-coastal waters that [saltwater crocodiles](entry:saltwater-crocodile) dominate [ref:am-johnstoni]. In the [dry season](entry:seasons) they can go dormant in shelters [ref:am-johnstoni]."
     },
     {
       "id": "ecology",
@@ -103,7 +103,7 @@
     {
       "id": "today",
       "heading": "On Country today",
-      "body": "**The law.** Freshwater crocodiles are protected animals under Queensland's *Nature Conservation Act 1992*. In 2023 a Townsville man was fined $12,000 for catching freshwater crocodiles by rope and by hand, under the section that makes taking a protected animal an offence [ref:des2023].\n\n**Native title.** On Western Yalanji country the 2013 Federal Court determinations, around the Palmer and Mitchell rivers north-west of Mount Carbine, recognise rights to **hunt, fish and gather on the land and waters for personal, domestic and non-commercial communal purposes**. On a pastoral lease, hunting with firearms may happen only where stock are not present and after the lessee has been given notice [ref:brady2013]. A further Western Yalanji determination followed in August 2026 [ref:nit2026wy]. Section 211 of the *Native Title Act 1993* means native title holders do not need the licences and permits other people need for this kind of hunting [ref:alrc].\n\n**At [Karma Waters](place:karma-waters).** The station says its agreement with the Western Yalanji Traditional Owners was the first on pastoral land in Australia [ref:karma]. Guests may not bring weapons or hunting dogs, and all recreation access closes from 1 December to 1 April [ref:karma-camping]. Leave ngawurr-ngawun and its nests alone unless you are a Traditional Owner exercising your rights.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
+      "body": "**The law.** Freshwater crocodiles are protected animals under Queensland's *Nature Conservation Act 1992*. In 2023 a Townsville man was fined $12,000 for catching freshwater crocodiles by rope and by hand, under the section that makes taking a protected animal an offence [ref:des2023].\n\nNative title holders' rights differ from place to place: see each place above, and ask the Traditional Owners before hunting, fishing or gathering."
     },
     {
       "id": "language",
@@ -112,6 +112,7 @@
     }
   ],
   "relatedEntries": [
+    "crocodiles",
     "saltwater-crocodile",
     "freshwater-turtle",
     "black-bream",
@@ -283,10 +284,97 @@
       "id": "wiki-cane-toads",
       "citation": "Wikipedia. Cane toads in Australia: effects on native predators (goannas, snakes, freshwater crocodiles) and on dogs.",
       "url": "https://en.wikipedia.org/wiki/Cane_toads_in_Australia"
+    },
+    {
+      "id": "ala-hann",
+      "citation": "Atlas of Living Australia. Occurrence records of Crocodylus johnstoni (18 records, 1964–2025) and Crocodylus porosus (21 records, 2009–2026) in a box of about 90 × 85 km around the middle Hann River, Laura and western Rinyirru (lat −15.6 to −14.8, long 143.5 to 144.3), queried 28 October 2026.",
+      "url": "https://biocache.ala.org.au/occurrences/search?q=taxon_name%3A%22Crocodylus%20johnstoni%22"
+    },
+    {
+      "id": "qld-freshie",
+      "citation": "Queensland Government. Freshwater crocodile (web page, accessed 28 October 2026).",
+      "url": "https://www.qld.gov.au/environment/plants-animals/animals/living-with/crocodiles/freshwater-crocodile"
+    },
+    {
+      "id": "qpws-rinyirru-safe",
+      "citation": "Queensland Parks and Wildlife Service. Visiting Rinyirru (Lakefield) National Park (CYPAL) safely (web page, last updated 1 June 2025; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/visiting-safely"
+    },
+    {
+      "id": "qpws-rinyirru-culture",
+      "citation": "Queensland Parks and Wildlife Service. Nature, culture and history: Rinyirru (Lakefield) National Park (CYPAL) (web page, last updated 1 July 2024; accessed 28 October 2026).",
+      "url": "https://parks.qld.gov.au/parks/rinyirru-lakefield/about/culture"
+    },
+    {
+      "id": "fca-thaypan",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 20) (Thaypan determination) [2023] FCA 1315 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1315",
+      "locator": "Determination area and waters; prescribed body corporate (Awu-Laya Indigenous Corporation); affidavit evidence on hunting"
+    },
+    {
+      "id": "hgdb",
+      "citation": "Hunter-Gatherer Language Database (University of Texas at Austin). Lexical features 'saltwater crocodile' and 'freshwater crocodile': Kuku-Thaypan, Uw-Olkol, Guugu Yimidhirr (accessed 28 October 2026).",
+      "url": "https://huntergatherer.la.utexas.edu/lexical/feature/325"
+    },
+    {
+      "id": "roth1910",
+      "citation": "Roth, W. E. (1910). North Queensland Ethnography, Bulletin No. 14: Transport and trade. Records of the Australian Museum 8(1): 1–19.",
+      "url": "https://journals.australian.museum/roth-1910-rec-aust-mus-81-119/",
+      "locator": "Swimming and diving; crossing crocodile rivers on the lower Normanby (Princess Charlotte Bay)"
+    },
+    {
+      "id": "fca-possum",
+      "citation": "Ross on behalf of the Cape York United #1 Claim Group v State of Queensland (No 21) (Possum determination) [2023] FCA 1316 (Federal Court of Australia, 2 November 2023).",
+      "url": "https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2023/2023fca1316",
+      "locator": "Determination area (upper Hann and Kennedy rivers); prescribed body corporate; affidavit evidence on hunting and fishing"
     }
   ],
   "review": {
     "status": "unreviewed"
   },
-  "updated": "2026-10-10"
+  "updated": "2026-10-28",
+  "locations": [
+    {
+      "location": "hann-river",
+      "summary": "On the Hann River ngawurr-ngawun shares the water with the [saltwater crocodile](entry:saltwater-crocodile): the river runs to Rinyirru (Lakefield) National Park, where both live [ref:qpws-rinyirru-safe]. The Atlas of Living Australia holds 18 freshwater crocodile records, from 1964 to 2025, in the country around the middle Hann, Laura and western Rinyirru [ref:ala-hann]. Never assume a crocodile here is a freshie. The [crocodiles](entry:crocodiles) page has the Hann River in full.",
+      "sections": [
+        {
+          "id": "ecology",
+          "heading": "Its year here",
+          "body": "In the wet, when the rivers spill over the plains, freshies spread out with the water and bask on the surface; in the dry they come back into the deep permanent holes with the fish [ref:qpws-rinyirru-culture]. They are active by day but forage mainly at night [ref:qld-freshie]. They nest in August–September in holes dug in the sand banks near the water's edge, and the young hatch with the first storms in October–November; over 70% of eggs are lost to floods or to pigs, goannas and snakes [ref:qld-freshie]."
+        },
+        {
+          "id": "uses",
+          "heading": "How people lived with it here",
+          "body": "The nearest written record of catching freshies by hand is Roth's from the lower Palmer [ref:roth1901]. Downstream on the lower Normanby, people crossed crocodile water by diving and kept a watcher on the bank for divers [ref:roth1910]."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "The upper Hann is the Possum People's country [ref:fca-possum]; the middle and lower Hann are in the Thaypan native title determination of November 2023, held by the Awu-Laya Indigenous Corporation [ref:fca-thaypan]."
+        },
+        {
+          "id": "language",
+          "heading": "Language",
+          "body": "In Kuku Thaypan, the language of the Thaypan people of the lower Hann, the freshwater crocodile is **awoya** [ref:hgdb]."
+        }
+      ]
+    },
+    {
+      "location": "upper-mitchell",
+      "summary": "Up on the Western Yalanji Mitchell, ngawurr-ngawun is the crocodile you will meet: the Atlas of Living Australia holds freshwater crocodile records all along the upper Mitchell, and no saltwater crocodile records within 30 km of Karma Waters [ref:ala].",
+      "sections": [
+        {
+          "id": "habitat",
+          "heading": "Where it lives here",
+          "body": "[Karma Waters Station](place:karma-waters), on the northern side of the Mitchell River west of Mount Carbine, says plainly that freshwater crocodiles are found in its river [ref:karma]. The Atlas of Living Australia holds freshwater crocodile records from 2004 to 2025 within 30 km of the homestead, and more along the Mitchell and its tributaries between Mount Carbine and the Palmer. It holds no saltwater crocodile records within 30 km [ref:ala]. Look for them in the long deep pools and under the shady banks of the big river."
+        },
+        {
+          "id": "today",
+          "heading": "On country today",
+          "body": "**Native title.** On Western Yalanji country the 2013 Federal Court determinations, around the Palmer and Mitchell rivers north-west of Mount Carbine, recognise rights to **hunt, fish and gather on the land and waters for personal, domestic and non-commercial communal purposes**. On a pastoral lease, hunting with firearms may happen only where stock are not present and after the lessee has been given notice [ref:brady2013]. A further Western Yalanji determination followed in August 2026 [ref:nit2026wy]. Section 211 of the *Native Title Act 1993* means native title holders do not need the licences and permits other people need for this kind of hunting [ref:alrc].\n\n**At [Karma Waters](place:karma-waters).** The station says its agreement with the Western Yalanji Traditional Owners was the first on pastoral land in Australia [ref:karma]. Guests may not bring weapons or hunting dogs, and all recreation access closes from 1 December to 1 April [ref:karma-camping]. Leave ngawurr-ngawun and its nests alone unless you are a Traditional Owner exercising your rights.\n\n**At Karma Waters.** Karma Waters Station falls under the earlier 1998 *Western Yalanji or 'Sunset' Peoples v Pedersen* consent determination, the first consent determination of native title over a pastoral property in Australia [ref:wyac2020] [ref:kw-about]. See the [Karma Waters guide](/dictionaries/kuku_yalanji/country/places/karma-waters) for what it covers, and ask the Traditional Owners and the station before hunting, fishing or gathering."
+        }
+      ]
+    }
+  ]
 }

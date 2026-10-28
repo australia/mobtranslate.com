@@ -4,7 +4,9 @@ import { load as loadYaml } from 'js-yaml';
 import {
   countryEntrySchema,
   countryImageSetSchema,
+  countryLocationsSchema,
   countryPlaceSchema,
+  entryTexts,
   SECTION_IDS,
   wantedPagesSchema,
   type CountryEntry,
@@ -25,6 +27,11 @@ const PLACES_DIR = path.join(DATA_DIR, 'places');
 const placeFiles = fs.existsSync(PLACES_DIR) ? fs.readdirSync(PLACES_DIR).filter((file) => file.endsWith('.json')) : [];
 const entrySlugs = new Set(files.map((file) => file.replace(/\.json$/, '')));
 const placeSlugs = new Set(placeFiles.map((file) => file.replace(/\.json$/, '')));
+
+const LOCATIONS_FILE = path.join(DATA_DIR, 'locations', 'index.json');
+const locationIds = fs.existsSync(LOCATIONS_FILE)
+  ? countryLocationsSchema.parse(JSON.parse(fs.readFileSync(LOCATIONS_FILE, 'utf8'))).locations.map((location) => location.id)
+  : [];
 
 const WANTED_DIR = path.join(DATA_DIR, 'wanted');
 const wantedFiles = fs.existsSync(WANTED_DIR) ? fs.readdirSync(WANTED_DIR).filter((file) => file.endsWith('.json')) : [];
@@ -47,7 +54,7 @@ function brokenLinks(texts: string[]): string[] {
 }
 
 function citations(entry: CountryEntry): string[] {
-  const text = [entry.summary, ...entry.sections.map((section) => section.body)].join('\n');
+  const text = entryTexts(entry).join('\n');
   return [...text.matchAll(/\[ref:([a-z0-9-]+)\]/g)].map((match) => match[1]);
 }
 
@@ -80,7 +87,7 @@ describe('Kuku Yalanji Country entries', () => {
 
     it('links only to Country pages that exist', () => {
       const entry = countryEntrySchema.parse(raw);
-      expect(brokenLinks([entry.summary, ...entry.sections.map((section) => section.body)])).toEqual([]);
+      expect(brokenLinks(entryTexts(entry))).toEqual([]);
       expect(entry.relatedEntries.filter((slug) => !entrySlugs.has(slug))).toEqual([]);
     });
 
@@ -90,6 +97,27 @@ describe('Kuku Yalanji Country entries', () => {
       expect(order).toEqual([...order].sort((a, b) => a - b));
       expect(new Set(order).size).toBe(order.length);
     });
+
+    it('segments only registered locations, once each, in registry order', () => {
+      const entry = countryEntrySchema.parse(raw);
+      const order = entry.locations.map((segment) => locationIds.indexOf(segment.location));
+      expect(order.filter((index) => index < 0)).toEqual([]);
+      expect(order).toEqual([...order].sort((a, b) => a - b));
+      expect(new Set(order).size).toBe(order.length);
+      for (const segment of entry.locations) {
+        const sections = segment.sections.map((section) => SECTION_IDS.indexOf(section.id));
+        expect(sections).toEqual([...sections].sort((a, b) => a - b));
+        expect(new Set(sections).size).toBe(sections.length);
+      }
+    });
+  });
+});
+
+describe('Locations', () => {
+  it('registers each location once, and links only to place guides that exist', () => {
+    const { locations } = countryLocationsSchema.parse(JSON.parse(fs.readFileSync(LOCATIONS_FILE, 'utf8')));
+    expect(new Set(locations.map((location) => location.id)).size).toBe(locations.length);
+    expect(locations.filter((location) => location.place && !placeSlugs.has(location.place))).toEqual([]);
   });
 });
 
@@ -124,7 +152,7 @@ describe.runIf(placeFiles.length > 0)('Kuku Yalanji place guides', () => {
 const allText = [
   ...files.map((file) => {
     const entry = countryEntrySchema.parse(JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8')));
-    return [entry.summary, ...entry.sections.map((section) => section.body)].join('\n');
+    return entryTexts(entry).join('\n');
   }),
   ...placeFiles.map((file) => {
     const place = countryPlaceSchema.parse(JSON.parse(fs.readFileSync(path.join(PLACES_DIR, file), 'utf8')));

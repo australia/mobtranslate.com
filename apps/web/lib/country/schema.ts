@@ -89,6 +89,32 @@ export const SECTION_IDS = [
 
 const markdown = z.string().min(1);
 
+const entrySection = z.object({
+  id: z.enum(SECTION_IDS),
+  heading: z.string().min(1),
+  body: markdown,
+});
+
+// Locations: the stretches of country the encyclopedia is written for. Each
+// entry says what is true everywhere in its `sections`, and what is true in one
+// place (which animals live there, how they behave there, how the people of
+// that country dealt with them) in a `locations` segment. The registry is
+// data/country/<language>/locations/index.json.
+export const countryLocationSchema = z.object({
+  id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  name: z.string().min(1), // "Hann River"
+  region: z.string().min(1), // "Cape York"
+  // Whose country it is and what it is like, one sentence, shown on every segment.
+  description: z.string().min(1),
+  place: z.string().optional(), // place-guide slug
+});
+
+export const countryLocationsSchema = z.object({
+  locations: z.array(countryLocationSchema).min(1),
+});
+
+export type CountryLocation = z.infer<typeof countryLocationSchema>;
+
 export const countryEntrySchema = z.object({
   slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   title: z.string().min(1),
@@ -111,15 +137,18 @@ export const countryEntrySchema = z.object({
   countryTypes: z.array(z.enum(COUNTRY_TYPES)).min(1),
   summary: markdown,
   infobox: z.array(z.object({ label: z.string().min(1), value: z.string().min(1) })),
-  sections: z
+  sections: z.array(entrySection).min(3),
+  // One segment per location the entry has something local to say about, in
+  // registry order. Sections follow the same encyclopedia order.
+  locations: z
     .array(
       z.object({
-        id: z.enum(SECTION_IDS),
-        heading: z.string().min(1),
-        body: markdown,
+        location: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+        summary: markdown,
+        sections: z.array(entrySection).min(1),
       }),
     )
-    .min(3),
+    .default([]),
   relatedEntries: z.array(z.string()).default([]),
   relatedWords: z.array(z.object({ word: z.string().min(1), gloss: z.string().min(1) })).default([]),
   references: z
@@ -140,6 +169,17 @@ export const countryEntrySchema = z.object({
 });
 
 export type CountryEntry = z.infer<typeof countryEntrySchema>;
+export type CountryEntrySegment = CountryEntry['locations'][number];
+
+// Every piece of Markdown in an entry, in reading order: for citations, links
+// and backlinks.
+export function entryTexts(entry: CountryEntry): string[] {
+  return [
+    entry.summary,
+    ...entry.sections.map((section) => section.body),
+    ...entry.locations.flatMap((segment) => [segment.summary, ...segment.sections.map((section) => section.body)]),
+  ];
+}
 export type CountryCategory = (typeof COUNTRY_CATEGORIES)[number];
 export type CountryType = (typeof COUNTRY_TYPES)[number];
 

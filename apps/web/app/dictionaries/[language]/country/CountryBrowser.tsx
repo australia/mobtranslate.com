@@ -15,7 +15,10 @@ export type CountryCard = {
   countryTypes: CountryType[];
   blurb: string;
   thumb?: string;
+  locations: string[]; // location ids the entry has a segment for
 };
+
+export type BrowserLocation = { id: string; name: string; region: string };
 
 const chip = (active: boolean) =>
   `rounded-full border px-3 py-1 text-sm transition-colors ${
@@ -24,10 +27,20 @@ const chip = (active: boolean) =>
       : 'border-border bg-card text-foreground hover:border-[var(--lang-accent)]'
   }`;
 
-export function CountryBrowser({ language, cards }: { language: string; cards: CountryCard[] }) {
+export function CountryBrowser({
+  language,
+  cards,
+  locations,
+}: {
+  language: string;
+  cards: CountryCard[];
+  locations: BrowserLocation[];
+}) {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<CountryCategory | null>(null);
   const [place, setPlace] = useState<CountryType | null>(null);
+  const [location, setLocation] = useState<string | null>(null);
+  const written = locations.filter((l) => cards.some((card) => card.locations.includes(l.id)));
 
   const categories = COUNTRY_CATEGORIES.filter((c) => cards.some((card) => card.category === c));
   const places = COUNTRY_TYPES.filter((t) => cards.some((card) => card.countryTypes.includes(t)));
@@ -38,10 +51,11 @@ export function CountryBrowser({ language, cards }: { language: string; cards: C
       (card) =>
         (!category || card.category === category) &&
         (!place || card.countryTypes.includes(place)) &&
+        (!location || card.locations.includes(location)) &&
         (!q ||
           [card.title, card.scientificName ?? '', ...card.words].some((text) => text.toLocaleLowerCase('en-AU').includes(q))),
     );
-  }, [cards, query, category, place]);
+  }, [cards, query, category, place, location]);
 
   const grouped = categories
     .map((c) => ({ category: c, items: visible.filter((card) => card.category === c) }))
@@ -71,6 +85,16 @@ export function CountryBrowser({ language, cards }: { language: string; cards: C
           </button>
         ))}
       </div>
+      {written.length > 0 && (
+        <div className="mb-3 flex flex-wrap items-center gap-2" role="group" aria-label="Filter by place">
+          <span className="mr-1 text-sm font-medium text-muted-foreground">Written for</span>
+          {written.map((l) => (
+            <button key={l.id} type="button" className={chip(location === l.id)} onClick={() => setLocation(location === l.id ? null : l.id)}>
+              {l.name} <span className={location === l.id ? 'opacity-80' : 'text-muted-foreground'}>· {l.region}</span>
+            </button>
+          ))}
+        </div>
+      )}
       <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter by country">
         {places.map((t) => (
           <button key={t} type="button" className={chip(place === t)} onClick={() => setPlace(place === t ? null : t)}>
@@ -88,7 +112,7 @@ export function CountryBrowser({ language, cards }: { language: string; cards: C
             {group.items.map((card) => (
               <li key={card.slug}>
                 <Link
-                  href={`/dictionaries/${language}/country/${card.slug}`}
+                  href={`/dictionaries/${language}/country/${card.slug}${location ? `?at=${location}` : ''}`}
                   className="flex h-full gap-3 rounded-lg border border-border bg-card px-4 py-3 no-underline transition-colors hover:border-[var(--lang-accent)]"
                 >
                   {card.thumb && (

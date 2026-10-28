@@ -1,0 +1,23 @@
+{
+  "locations": [
+    {
+      "id": "hann-river",
+      "name": "Hann River",
+      "region": "Cape York",
+      "description": "Possum People's country on the upper river and Thaypan (Kuku Thaypan) country downstream: stringybark and bloodwood woodland and a spring-fed sandy river that runs north-east from the Great Dividing Range, past the Peninsula Developmental Road, into Rinyirru (Lakefield) and the North Kennedy. Not Kuku Yalanji country: the Kuku Yalanji words on this page are the dictionary's, not the Hann's own languages."
+    },
+    {
+      "id": "upper-mitchell",
+      "name": "Upper Mitchell",
+      "region": "Western Yalanji",
+      "description": "Western Yalanji country west of the Great Dividing Range: dry open woodland cut by the sandy, paperbark-lined upper Mitchell River, around Karma Waters and Mount Carbine.",
+      "place": "karma-waters"
+    },
+    {
+      "id": "eastern-coast",
+      "name": "Eastern coast",
+      "region": "Eastern Kuku Yalanji",
+      "description": "Eastern Kuku Yalanji country: rainforest, beaches, mangroves, reef and the short steep rivers from the Daintree to the Bloomfield and the Annan."
+    }
+  ]
+}
